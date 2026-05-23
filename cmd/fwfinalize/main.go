@@ -247,6 +247,13 @@ func applyCrossImageConsistency(qualities []functionQuality) {
 		if len(a.files) >= 4 && len(a.calls) == 1 && hasReasonSet(a.reasons, "synth_evidence_non_generic_outgoing") {
 			q.Risk = "low"
 			q.Reasons = append(q.Reasons, "cross_image_stable_emission_pattern")
+			continue
+		}
+		// If only remaining signal is a fully stable cross-image opaque leaf,
+		// lower risk from medium to low for this corpus baseline.
+		if len(a.files) >= 4 && len(a.calls) == 1 && hasReasonSlice(q.Reasons, "cross_image_consistent_opaque_leaf") {
+			q.Risk = "low"
+			q.Reasons = append(q.Reasons, "cross_image_consistency_promoted")
 		}
 	}
 }
@@ -254,6 +261,15 @@ func applyCrossImageConsistency(qualities []functionQuality) {
 func hasReasonSet(set map[string]struct{}, reason string) bool {
 	_, ok := set[reason]
 	return ok
+}
+
+func hasReasonSlice(reasons []string, reason string) bool {
+	for _, r := range reasons {
+		if r == reason {
+			return true
+		}
+	}
+	return false
 }
 
 func classifyQuality(file, name, body string, calls []string, evidenceHints map[string]evidenceHint) functionQuality {

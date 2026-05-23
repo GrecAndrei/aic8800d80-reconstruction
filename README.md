@@ -12,6 +12,10 @@ This repository contains the reconstruction pipeline for AIC8800D80 firmware ana
   - `strong_count`: **356**
   - `fallback_count`: **0**
   - `semantic_completion_pct`: **100.000**
+- Quality focus backlog (latest run):
+  - `focus_items`: **46**
+  - `high risk`: **0**
+  - `medium-risk sub_*`: **0**
 
 Status artifacts (generated):
 - `extraction_out/reconstruction/mega7/final/finalize_manifest.json`
