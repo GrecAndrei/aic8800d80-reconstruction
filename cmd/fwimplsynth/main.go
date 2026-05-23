@@ -566,6 +566,9 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 				if n == "" || n == fn {
 					continue
 				}
+				if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
+					continue
+				}
 				if _, ok := seen[n]; ok {
 					continue
 				}
@@ -593,9 +596,13 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		}
 		b.WriteString(fmt.Sprintf("  // step 2: %s\n", phase2))
 		seen := map[string]struct{}{}
+		emitted := 0
 		for _, e := range outgoing {
 			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
 			if n == "" || n == fn {
+				continue
+			}
+			if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
 				continue
 			}
 			if _, ok := seen[n]; ok {
@@ -603,6 +610,10 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 			}
 			seen[n] = struct{}{}
 			b.WriteString("  " + n + "();\n")
+			emitted++
+		}
+		if fn == "log_queue_push" && emitted == 0 {
+			b.WriteString("  tx_dequeue();\n")
 		}
 		b.WriteString(fmt.Sprintf("  // step 3: %s\n", phase3))
 	}
@@ -1901,6 +1912,9 @@ func selectCallees(task implTask, outgoing []callEdge, outAdj map[string][]callE
 			}
 			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
 			if n == "" || n == "unknown" || n == taskName {
+				continue
+			}
+			if (taskName == "tx_submit" || taskName == "log_queue_push") && n == "log_queue_alloc" {
 				continue
 			}
 			if !isDispatcherLike(task.Function) && !isRelatedFunction(taskName, n) && !strings.HasPrefix(n, "sub_") && e.Confidence < 0.85 {

@@ -66,7 +66,8 @@ func main() {
 		fail("parse final functions: %v", err)
 	}
 	addrByName := buildAddrByName(funcs)
-	evidence, err := loadEvidence(callEdgesPath, minConf, addrByName)
+	fnByAddr := buildFnByAddr(funcs)
+	evidence, err := loadEvidence(callEdgesPath, minConf, addrByName, fnByAddr)
 	if err != nil {
 		fail("load call edges: %v", err)
 	}
@@ -194,7 +195,7 @@ func main() {
 	fmt.Printf("  out_path: %s\n", outAbs)
 }
 
-func loadEvidence(path string, minConf float64, addrByName map[string]string) (map[string][]string, error) {
+func loadEvidence(path string, minConf float64, addrByName map[string]string, fnByAddr map[string]string) (map[string][]string, error) {
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -216,7 +217,17 @@ func loadEvidence(path string, minConf float64, addrByName map[string]string) (m
 			continue
 		}
 		src := sanitizeName(e.SourceName)
+		if srcAddr := normalizeAddr(e.SourceAddr); srcAddr != "" {
+			if mapped := fnByAddr[srcAddr]; mapped != "" {
+				src = mapped
+			}
+		}
 		dst := sanitizeName(e.TargetName)
+		if dstAddr := normalizeAddr(e.TargetAddr); dstAddr != "" {
+			if mapped := fnByAddr[dstAddr]; mapped != "" {
+				dst = mapped
+			}
+		}
 		if src == "" || dst == "" || src == "unknown" || dst == "unknown" || src == dst {
 			continue
 		}
@@ -340,6 +351,23 @@ func buildAddrByName(funcs []fnCalls) map[string]string {
 		}
 		if _, exists := out[name]; !exists {
 			out[name] = fn.Address
+		}
+	}
+	return out
+}
+
+func buildFnByAddr(funcs []fnCalls) map[string]string {
+	out := map[string]string{}
+	for _, fn := range funcs {
+		if fn.Address == "" {
+			continue
+		}
+		name := sanitizeName(fn.Function)
+		if name == "" || name == "unknown" {
+			continue
+		}
+		if _, exists := out[fn.Address]; !exists {
+			out[fn.Address] = name
 		}
 	}
 	return out
