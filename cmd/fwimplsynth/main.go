@@ -162,6 +162,9 @@ func main() {
 		aggressive := allowSyntheticInference(t.Function, incoming, outgoing)
 		selected := selectCallees(t, outgoing, outAdj, minConf, fallbackMinConf)
 		if len(selected) == 0 {
+			selected = inferFromNameOutgoingHints(t, minConf, fallbackMinConf)
+		}
+		if len(selected) == 0 {
 			selected = inferFromIncoming(t, incoming, outAdj, outByName, minConf, fallbackMinConf)
 		}
 		if len(selected) == 0 {
@@ -852,6 +855,47 @@ func inferLeafCallsFromOutgoing(fn string, outgoing []callEdge) []string {
 		seen[n] = struct{}{}
 		out = append(out, n)
 		if len(out) >= 2 {
+			break
+		}
+	}
+	return out
+}
+
+func inferFromNameOutgoingHints(task implTask, minConf float64, fallbackMinConf float64) []callEdge {
+	fn := sanitizeName(task.Function)
+	if fn == "" || fn == "unknown" {
+		return nil
+	}
+	hints := nameOutgoingHints[fn]
+	if len(hints) == 0 {
+		return nil
+	}
+	out := make([]callEdge, 0, 4)
+	seen := map[string]struct{}{}
+	for _, n := range hints {
+		n = sanitizeName(n)
+		if n == "" || n == "unknown" || n == fn {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		conf := minConf
+		if conf <= 0 {
+			conf = fallbackMinConf
+		}
+		if conf <= 0 {
+			conf = 0.7
+		}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: task.Function,
+			TargetName: n,
+			Confidence: conf,
+		})
+		if len(out) >= 4 {
 			break
 		}
 	}
@@ -1833,7 +1877,7 @@ func selectCallees(task implTask, outgoing []callEdge, outAdj map[string][]callE
 			if n == "" || n == "unknown" || n == taskName {
 				continue
 			}
-			if !isDispatcherLike(task.Function) && !isRelatedFunction(taskName, n) && e.Confidence < 0.85 {
+			if !isDispatcherLike(task.Function) && !isRelatedFunction(taskName, n) && !strings.HasPrefix(n, "sub_") && e.Confidence < 0.85 {
 				continue
 			}
 			if _, ok := seen[n]; ok {
@@ -1920,10 +1964,10 @@ func inferFromIncoming(task implTask, incoming []callEdge, outAdj map[string][]c
 				continue
 			}
 			n := sanitizeName(nonEmpty(oe.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(oe.TargetAddr), "0x")))
-			if n == "" || n == "unknown" || n == taskName || isGenericName(n) {
+			if n == "" || n == "unknown" || n == taskName {
 				continue
 			}
-			if !isDispatcherLike(task.Function) && !isRelatedFunction(taskName, n) {
+			if !isDispatcherLike(task.Function) && !isRelatedFunction(taskName, n) && !strings.HasPrefix(n, "sub_") {
 				continue
 			}
 			cur := votes[n]

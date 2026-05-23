@@ -25,7 +25,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "stats collection failed: %v\n", err)
 			return
 		}
-		fmt.Printf("stats updated at %s | images=%d functions=%d links=%d calls=%d messages=%d state_machines=%d queue=%d patches=%d\n",
+		fmt.Printf("stats updated at %s | images=%d functions=%d links=%d calls=%d messages=%d state_machines=%d queue=%d patches=%d recon_semantic=%.3f%% recon_conformance=%.3f%% low=%d\n",
 			snap.GeneratedAt,
 			snap.Totals.Images,
 			snap.Totals.Functions,
@@ -35,6 +35,9 @@ func main() {
 			snap.Totals.StateMachines,
 			snap.Totals.Queue,
 			snap.Totals.Patches,
+			snap.Progress.ReconSemanticPct,
+			snap.Progress.ReconConformancePct,
+			snap.Progress.ReconConformanceLow,
 		)
 	}
 

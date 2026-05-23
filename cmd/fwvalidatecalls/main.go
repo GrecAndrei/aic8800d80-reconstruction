@@ -24,6 +24,7 @@ type callEdge struct {
 type fnCalls struct {
 	File     string   `json:"file"`
 	Function string   `json:"function"`
+	Address  string   `json:"address"`
 	Calls    []string `json:"calls"`
 }
 
@@ -60,35 +61,47 @@ func main() {
 
 	finalAbs, _ := filepath.Abs(finalDir)
 	outAbs, _ := filepath.Abs(outPath)
-	evidence, err := loadEvidence(callEdgesPath, minConf)
-	if err != nil {
-		fail("load call edges: %v", err)
-	}
-	synthEvidence := loadSynthEvidence(synthEvidencePath)
 	funcs, err := parseFinalFunctions(finalAbs)
 	if err != nil {
 		fail("parse final functions: %v", err)
 	}
+	addrByName := buildAddrByName(funcs)
+	evidence, err := loadEvidence(callEdgesPath, minConf, addrByName)
+	if err != nil {
+		fail("load call edges: %v", err)
+	}
+	synthEvidence := loadSynthEvidence(synthEvidencePath)
 
 	rows := make([]row, 0, len(funcs))
 	sum := 0.0
 	evaluable := 0
 	for _, fn := range funcs {
-		ev := evidence[fn.Function]
+		fnKey := sanitizeName(fn.Function)
+		ev := evidence[fnKey]
 		if len(ev) == 0 {
-			ev = synthEvidence[fn.Function]
+			ev = synthEvidence[fnKey]
 		}
 		evSet := make(map[string]struct{}, len(ev))
 		for _, n := range ev {
 			evSet[n] = struct{}{}
 		}
-		emSet := make(map[string]struct{}, len(fn.Calls))
+		emSet := make(map[string]struct{}, len(fn.Calls)*2)
 		for _, n := range fn.Calls {
 			emSet[n] = struct{}{}
+			if addr := addrByName[sanitizeName(n)]; addr != "" {
+				emSet["@"+addr] = struct{}{}
+			}
 		}
 		unsupported := make([]string, 0)
 		for _, c := range fn.Calls {
-			if _, ok := evSet[c]; !ok {
+			if _, ok := evSet[c]; ok {
+				continue
+			}
+			addrMatch := false
+			if addr := addrByName[sanitizeName(c)]; addr != "" {
+				_, addrMatch = evSet["@"+addr]
+			}
+			if !addrMatch {
 				unsupported = append(unsupported, c)
 			}
 		}
@@ -181,7 +194,7 @@ func main() {
 	fmt.Printf("  out_path: %s\n", outAbs)
 }
 
-func loadEvidence(path string, minConf float64) (map[string][]string, error) {
+func loadEvidence(path string, minConf float64, addrByName map[string]string) (map[string][]string, error) {
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -211,6 +224,11 @@ func loadEvidence(path string, minConf float64) (map[string][]string, error) {
 			tmp[src] = map[string]struct{}{}
 		}
 		tmp[src][dst] = struct{}{}
+		if addr := normalizeAddr(e.TargetAddr); addr != "" {
+			tmp[src]["@"+addr] = struct{}{}
+		} else if addr := addrByName[dst]; addr != "" {
+			tmp[src]["@"+addr] = struct{}{}
+		}
 	}
 	if err := sc.Err(); err != nil {
 		return nil, err
@@ -267,7 +285,7 @@ func parseFinalFunctions(dir string) ([]fnCalls, error) {
 	if err != nil {
 		return nil, err
 	}
-	fnRe := regexp.MustCompile(`(?s)void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{(.*?)\n\}`)
+	fnRe := regexp.MustCompile(`(?s)(?:/\*.*?addr=(0x[0-9a-fA-F]+).*?\*/\s*)?void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{(.*?)\n\}`)
 	callRe := regexp.MustCompile(`(?m)^\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*\)\s*;`)
 	out := make([]fnCalls, 0, 512)
 	for _, e := range ents {
@@ -279,11 +297,12 @@ func parseFinalFunctions(dir string) ([]fnCalls, error) {
 			return nil, err
 		}
 		for _, m := range fnRe.FindAllStringSubmatch(string(b), -1) {
-			if len(m) != 3 {
+			if len(m) != 4 {
 				continue
 			}
-			fn := m[1]
-			body := m[2]
+			addr := normalizeAddr(m[1])
+			fn := m[2]
+			body := m[3]
 			calls := make([]string, 0)
 			seen := map[string]struct{}{}
 			for _, c := range callRe.FindAllStringSubmatch(body, -1) {
@@ -297,7 +316,7 @@ func parseFinalFunctions(dir string) ([]fnCalls, error) {
 				seen[n] = struct{}{}
 				calls = append(calls, n)
 			}
-			out = append(out, fnCalls{File: e.Name(), Function: fn, Calls: calls})
+			out = append(out, fnCalls{File: e.Name(), Function: fn, Address: addr, Calls: calls})
 		}
 	}
 	sort.Slice(out, func(i, j int) bool {
@@ -307,6 +326,23 @@ func parseFinalFunctions(dir string) ([]fnCalls, error) {
 		return out[i].File < out[j].File
 	})
 	return out, nil
+}
+
+func buildAddrByName(funcs []fnCalls) map[string]string {
+	out := map[string]string{}
+	for _, fn := range funcs {
+		if fn.Address == "" {
+			continue
+		}
+		name := sanitizeName(fn.Function)
+		if name == "" || name == "unknown" {
+			continue
+		}
+		if _, exists := out[name]; !exists {
+			out[name] = fn.Address
+		}
+	}
+	return out
 }
 
 func sanitizeName(s string) string {
@@ -327,6 +363,26 @@ func sanitizeName(s string) string {
 		return "unknown"
 	}
 	return out
+}
+
+func normalizeAddr(s string) string {
+	s = strings.TrimSpace(strings.ToLower(s))
+	if s == "" {
+		return ""
+	}
+	if strings.HasPrefix(s, "0x") {
+		s = s[2:]
+	}
+	s = strings.TrimLeft(s, "0")
+	if s == "" {
+		s = "0"
+	}
+	for _, r := range s {
+		if !((r >= '0' && r <= '9') || (r >= 'a' && r <= 'f')) {
+			return ""
+		}
+	}
+	return "0x" + s
 }
 
 func round3(v float64) float64 { return float64(int(v*1000+0.5)) / 1000 }

@@ -71,6 +71,9 @@ type Progress struct {
 	ReconTodoRemaining    int     `json:"recon_todo_remaining"`
 	ReconCompletionPct    float64 `json:"recon_completion_pct"`
 	ReconSemanticPct      float64 `json:"recon_semantic_completion_pct"`
+	ReconConformancePct   float64 `json:"recon_conformance_pct"`
+	ReconConformanceEval  int     `json:"recon_conformance_evaluable"`
+	ReconConformanceLow   int     `json:"recon_conformance_nonperfect"`
 	PatchMMIOPct          float64 `json:"patch_mmio_pct"`
 	DataFreshnessSec      int64   `json:"data_freshness_sec"`
 	DiskFreeGB            float64 `json:"disk_free_gb"`
@@ -350,8 +353,39 @@ func Collect(outDir string) (Snapshot, error) {
 	patchMMIOPct := pct(float64(mmio), float64(max(1, len(patches))))
 	freeGB, usedGB, usePct := diskUsage(outAbs)
 
-	reconFuncs, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic := reconstructionProgress(outAbs)
-	snap.Progress = Progress{baseFunctionEstimate, baseNamed, round3(baseCoverage), len(srcLinked), round3(linkCoverage), reconFuncs, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, round3(reconImplSynthAvg), reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, round3(reconCompletion), round3(reconSemantic), round3(patchMMIOPct), dataFreshnessSec(outAbs), round3(freeGB), round3(usedGB), round3(usePct)}
+	reconFuncs, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow := reconstructionProgress(outAbs)
+	snap.Progress = Progress{
+		BaseFunctionEstimate: baseFunctionEstimate,
+		BaseNamedFunctions:   baseNamed,
+		BaseCoveragePct:      round3(baseCoverage),
+		LinkedSourceFunctions: len(srcLinked),
+		LinkCoveragePct:       round3(linkCoverage),
+		ReconstructedFuncs:    reconFuncs,
+		ReconClusterCount:     reconClusters,
+		ReconQueueCount:       reconQueue,
+		ReconFocusCount:       reconFocus,
+		ReconLiftCount:        reconLift,
+		ReconComposeCount:     reconCompose,
+		ReconImplQueueCount:   reconImplQueue,
+		ReconImplWorkCount:    reconImplWork,
+		ReconImplSynthCount:   reconImplSynth,
+		ReconImplSynthAvgCall: round3(reconImplSynthAvg),
+		ReconImplAppliedCount: reconImplApplied,
+		ReconFinalizedCount:   reconFinalized,
+		ReconStrongCount:      reconStrong,
+		ReconFallbackCount:    reconFallback,
+		ReconTodoRemaining:    reconTodoRemaining,
+		ReconCompletionPct:    round3(reconCompletion),
+		ReconSemanticPct:      round3(reconSemantic),
+		ReconConformancePct:   round3(reconConformance),
+		ReconConformanceEval:  reconConformanceEval,
+		ReconConformanceLow:   reconConformanceLow,
+		PatchMMIOPct:          round3(patchMMIOPct),
+		DataFreshnessSec:      dataFreshnessSec(outAbs),
+		DiskFreeGB:            round3(freeGB),
+		DiskUsedGB:            round3(usedGB),
+		DiskUsePct:            round3(usePct),
+	}
 	snap.Functions = FunctionStats{0, fnRole["unknown"], aliasCount, toPairs(fnRole), toPairs(fnSource), toPairs(fnImage), nil, toPairs(fnImage)}
 	snap.Artifacts = ArtifactStats{toPairs(artType), toPairs(artImg), len(mmioRefs), len(patchTags), vectorCount}
 	snap.Links = LinkStats{0, toPairs(linkMethods), toPairs(linkTargets), nil, len(srcFns), len(tgtFns), highLinks}
@@ -555,7 +589,7 @@ func diskUsage(path string) (freeGB float64, usedGB float64, usePct float64) {
 	return free / gb, used / gb, (1.0 - (free / total)) * 100.0
 }
 
-func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClusters int, reconQueue int, reconFocus int, reconLift int, reconCompose int, reconImplQueue int, reconImplWork int, reconImplSynth int, reconImplSynthAvg float64, reconImplApplied int, reconFinalized int, reconStrong int, reconFallback int, reconTodoRemaining int, reconCompletion float64, reconSemantic float64) {
+func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClusters int, reconQueue int, reconFocus int, reconLift int, reconCompose int, reconImplQueue int, reconImplWork int, reconImplSynth int, reconImplSynthAvg float64, reconImplApplied int, reconFinalized int, reconStrong int, reconFallback int, reconTodoRemaining int, reconCompletion float64, reconSemantic float64, reconConformance float64, reconConformanceEval int, reconConformanceLow int) {
 	type rebuildManifest struct {
 		TotalFunctions int `json:"total_functions"`
 	}
@@ -598,10 +632,18 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 		CompletionPct         float64 `json:"completion_pct"`
 		SemanticCompletionPct float64 `json:"semantic_completion_pct"`
 	}
+	type conformanceReport struct {
+		EvaluableCount    int     `json:"evaluable_count"`
+		AvgConformancePct float64 `json:"avg_conformance_pct"`
+		Rows              []struct {
+			EvidenceFound  bool    `json:"evidence_found"`
+			ConformancePct float64 `json:"conformance_pct"`
+		} `json:"rows"`
+	}
 	reconDir := filepath.Join(outDir, "reconstruction")
 	entries, err := os.ReadDir(reconDir)
 	if err != nil {
-		return 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+		return 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	}
 	var bestRebuild string
 	var bestCluster string
@@ -614,6 +656,7 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 	var bestImplSynth string
 	var bestImplApplied string
 	var bestFinalize string
+	var bestConformance string
 	var bestRebuildTime time.Time
 	var bestClusterTime time.Time
 	var bestQueueTime time.Time
@@ -625,6 +668,7 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 	var bestImplSynthTime time.Time
 	var bestImplAppliedTime time.Time
 	var bestFinalizeTime time.Time
+	var bestConformanceTime time.Time
 	for _, e := range entries {
 		if !e.IsDir() {
 			continue
@@ -683,6 +727,11 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 		if st, err := os.Stat(finalizePath); err == nil && st.ModTime().After(bestFinalizeTime) {
 			bestFinalizeTime = st.ModTime()
 			bestFinalize = finalizePath
+		}
+		conformancePath := filepath.Join(reconDir, e.Name(), "final", "call_conformance.json")
+		if st, err := os.Stat(conformancePath); err == nil && st.ModTime().After(bestConformanceTime) {
+			bestConformanceTime = st.ModTime()
+			bestConformance = conformancePath
 		}
 	}
 	if bestRebuild != "" {
@@ -772,5 +821,17 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 			reconSemantic = m.SemanticCompletionPct
 		}
 	}
-	return reconstructedFunctions, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic
+	if bestConformance != "" {
+		var m conformanceReport
+		if b, err := os.ReadFile(bestConformance); err == nil && json.Unmarshal(b, &m) == nil {
+			reconConformance = m.AvgConformancePct
+			reconConformanceEval = m.EvaluableCount
+			for _, r := range m.Rows {
+				if r.EvidenceFound && r.ConformancePct < 100.0 {
+					reconConformanceLow++
+				}
+			}
+		}
+	}
+	return reconstructedFunctions, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow
 }
