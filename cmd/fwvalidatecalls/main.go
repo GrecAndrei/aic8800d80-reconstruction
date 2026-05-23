@@ -49,16 +49,22 @@ func main() {
 	var finalDir string
 	var callEdgesPath string
 	var minConf float64
+	var relaxedMinConf float64
+	var relaxedMinVotes int
 	var outPath string
 	var synthEvidencePath string
 	var composedDir string
+	var appliedDir string
 
 	flag.StringVar(&finalDir, "final-dir", "extraction_out/reconstruction/mega7/final", "Final reconstruction directory")
 	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL")
 	flag.Float64Var(&minConf, "min-conf", 0.7, "Minimum confidence for evidence calls")
+	flag.Float64Var(&relaxedMinConf, "relaxed-min-conf", 0.4, "Relaxed call-edge confidence used only as last-resort evidence")
+	flag.IntVar(&relaxedMinVotes, "relaxed-min-votes", 2, "Minimum repeated votes per relaxed evidence callee")
 	flag.StringVar(&outPath, "out", "extraction_out/reconstruction/mega7/final/call_conformance.json", "Output conformance report")
 	flag.StringVar(&synthEvidencePath, "synth-evidence", "extraction_out/reconstruction/mega7/synth/implsynth_evidence.json", "Synth evidence JSON")
 	flag.StringVar(&composedDir, "composed-dir", "extraction_out/reconstruction/mega7/composed", "Composed reconstruction directory used as fallback evidence")
+	flag.StringVar(&appliedDir, "applied-dir", "extraction_out/reconstruction/mega7/applied", "Applied reconstruction directory used as fallback evidence")
 	flag.Parse()
 
 	finalAbs, _ := filepath.Abs(finalDir)
@@ -69,11 +75,15 @@ func main() {
 	}
 	addrByName := buildAddrByName(funcs)
 	fnByAddr := buildFnByAddr(funcs)
-	evidence, err := loadEvidence(callEdgesPath, minConf, addrByName, fnByAddr)
+	evidence, relaxedEvidence, err := loadEvidence(callEdgesPath, minConf, relaxedMinConf, relaxedMinVotes, addrByName, fnByAddr)
 	if err != nil {
 		fail("load call edges: %v", err)
 	}
 	synthEvidence := loadSynthEvidence(synthEvidencePath)
+	appliedEvidence, err := loadComposedEvidence(appliedDir)
+	if err != nil {
+		fail("load applied evidence: %v", err)
+	}
 	composedEvidence, err := loadComposedEvidence(composedDir)
 	if err != nil {
 		fail("load composed evidence: %v", err)
@@ -89,7 +99,13 @@ func main() {
 			ev = synthEvidence[fnKey]
 		}
 		if len(ev) == 0 {
+			ev = appliedEvidence[fnKey]
+		}
+		if len(ev) == 0 {
 			ev = composedEvidence[fnKey]
+		}
+		if len(ev) == 0 {
+			ev = relaxedEvidence[fnKey]
 		}
 		evSet := make(map[string]struct{}, len(ev))
 		for _, n := range ev {
@@ -204,13 +220,14 @@ func main() {
 	fmt.Printf("  out_path: %s\n", outAbs)
 }
 
-func loadEvidence(path string, minConf float64, addrByName map[string]string, fnByAddr map[string]string) (map[string][]string, error) {
+func loadEvidence(path string, minConf float64, relaxedMinConf float64, relaxedMinVotes int, addrByName map[string]string, fnByAddr map[string]string) (map[string][]string, map[string][]string, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	defer f.Close()
 	tmp := map[string]map[string]struct{}{}
+	relaxedVotes := map[string]map[string]int{}
 	sc := bufio.NewScanner(f)
 	sc.Buffer(make([]byte, 4096), 8*1024*1024)
 	for sc.Scan() {
@@ -220,9 +237,6 @@ func loadEvidence(path string, minConf float64, addrByName map[string]string, fn
 		}
 		var e callEdge
 		if err := json.Unmarshal([]byte(line), &e); err != nil {
-			continue
-		}
-		if e.Confidence < minConf {
 			continue
 		}
 		src := sanitizeName(e.SourceName)
@@ -240,18 +254,31 @@ func loadEvidence(path string, minConf float64, addrByName map[string]string, fn
 		if src == "" || dst == "" || src == "unknown" || dst == "unknown" || src == dst {
 			continue
 		}
-		if tmp[src] == nil {
-			tmp[src] = map[string]struct{}{}
+		if e.Confidence >= minConf {
+			if tmp[src] == nil {
+				tmp[src] = map[string]struct{}{}
+			}
+			tmp[src][dst] = struct{}{}
+			if addr := normalizeAddr(e.TargetAddr); addr != "" {
+				tmp[src]["@"+addr] = struct{}{}
+			} else if addr := addrByName[dst]; addr != "" {
+				tmp[src]["@"+addr] = struct{}{}
+			}
 		}
-		tmp[src][dst] = struct{}{}
-		if addr := normalizeAddr(e.TargetAddr); addr != "" {
-			tmp[src]["@"+addr] = struct{}{}
-		} else if addr := addrByName[dst]; addr != "" {
-			tmp[src]["@"+addr] = struct{}{}
+		if e.Confidence >= relaxedMinConf {
+			if relaxedVotes[src] == nil {
+				relaxedVotes[src] = map[string]int{}
+			}
+			relaxedVotes[src][dst]++
+			if addr := normalizeAddr(e.TargetAddr); addr != "" {
+				relaxedVotes[src]["@"+addr]++
+			} else if addr := addrByName[dst]; addr != "" {
+				relaxedVotes[src]["@"+addr]++
+			}
 		}
 	}
 	if err := sc.Err(); err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	out := map[string][]string{}
 	for fn, set := range tmp {
@@ -262,7 +289,24 @@ func loadEvidence(path string, minConf float64, addrByName map[string]string, fn
 		sort.Strings(list)
 		out[fn] = list
 	}
-	return out, nil
+	relaxed := map[string][]string{}
+	if relaxedMinVotes < 1 {
+		relaxedMinVotes = 1
+	}
+	for fn, votes := range relaxedVotes {
+		list := make([]string, 0, len(votes))
+		for n, c := range votes {
+			if c >= relaxedMinVotes {
+				list = append(list, n)
+			}
+		}
+		if len(list) == 0 {
+			continue
+		}
+		sort.Strings(list)
+		relaxed[fn] = list
+	}
+	return out, relaxed, nil
 }
 
 func loadSynthEvidence(path string) map[string][]string {
