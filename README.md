@@ -78,6 +78,9 @@ go run ./cmd/fwharden
 - `internal/`: shared internals/helpers
 - `PIPELINE.md`: pipeline-specific notes
 - `docs/notes/`: analyst notes and reconstruction logs
+- `inputs/firmware/`: raw firmware/source blobs and export manifests
+- `analysis/ida/`: local IDA databases/artifacts (ignored from git)
+- `extracted_kernel/`: extracted symbol-name support data used by extraction/mining
 - `metadata/`: recon metadata snapshots and user config files
 - `tools/local-bin/`: local helper binaries (not required for source builds)
 

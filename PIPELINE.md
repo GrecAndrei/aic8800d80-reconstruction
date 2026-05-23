@@ -98,9 +98,9 @@ The dashboard auto-refreshes via server-sent events and shows detailed totals, c
 
 ## Current Data Sources
 
-- `*.bin` in workspace root
+- `inputs/firmware/*.bin`
 - `extracted_kernel/function_names.json`
-- `re_notes.md`
+- `docs/notes/re_notes.md`
 
 ## Next Expansion Targets
 

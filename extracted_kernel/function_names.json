@@ -1,0 +1,727 @@
+{
+  "binary": "fmacfw_8800d80_h_u02.bin",
+  "architecture": "ARM Cortex-M (Thumb-2)",
+  "total_symbols": 180,
+  "symbols": [
+    {
+      "offset": 278952,
+      "name": "phy_hw_set_channel"
+    },
+    {
+      "offset": 278984,
+      "name": "phy_get_rf_gain_idx"
+    },
+    {
+      "offset": 279004,
+      "name": "phy_get_txpwr_level"
+    },
+    {
+      "offset": 279044,
+      "name": "phy_set_channel"
+    },
+    {
+      "offset": 279060,
+      "name": "phy_get_channel"
+    },
+    {
+      "offset": 279076,
+      "name": "phy_stop"
+    },
+    {
+      "offset": 279128,
+      "name": "intc_spurious"
+    },
+    {
+      "offset": 286688,
+      "name": "ke_task_local"
+    },
+    {
+      "offset": 286704,
+      "name": "ipc_emb_hostmsgbuf_get"
+    },
+    {
+      "offset": 286728,
+      "name": "ipc_emb_hostrxbuf_get"
+    },
+    {
+      "offset": 286752,
+      "name": "emb_kmsg_hdlr"
+    },
+    {
+      "offset": 286768,
+      "name": "ipc_emb_kmsg_fwd"
+    },
+    {
+      "offset": 286788,
+      "name": "lpm_host_notify_bt"
+    },
+    {
+      "offset": 287676,
+      "name": "apm_sta_connect_past_timer_handle"
+    },
+    {
+      "offset": 288816,
+      "name": "sdio_replenish_rx_msgqueue"
+    },
+    {
+      "offset": 288844,
+      "name": "host_sdio_replenish_rx_queue"
+    },
+    {
+      "offset": 288876,
+      "name": "sdio_rx_evt"
+    },
+    {
+      "offset": 289392,
+      "name": "sdio_isr"
+    },
+    {
+      "offset": 290064,
+      "name": "usb_wlan_recv"
+    },
+    {
+      "offset": 290080,
+      "name": "usb_wlan_recv_fc_on"
+    },
+    {
+      "offset": 290688,
+      "name": "wlan_epbulk_recv_compl_handler"
+    },
+    {
+      "offset": 290720,
+      "name": "wlan_epbulk_send_compl_handler"
+    },
+    {
+      "offset": 290752,
+      "name": "usb_wlan_rx_pkt_free_list_init"
+    },
+    {
+      "offset": 290784,
+      "name": "host_usb_wlan_init"
+    },
+    {
+      "offset": 290820,
+      "name": "usb_rx_evt"
+    },
+    {
+      "offset": 290832,
+      "name": "usb_trans_error_handler"
+    },
+    {
+      "offset": 290912,
+      "name": "ipc_rx_evt"
+    },
+    {
+      "offset": 292452,
+      "name": "rwnxl_wakeup"
+    },
+    {
+      "offset": 292468,
+      "name": "rwnxl_reset_evt"
+    },
+    {
+      "offset": 292532,
+      "name": "tx_txdesc_init"
+    },
+    {
+      "offset": 292548,
+      "name": "tx_txdesc_get"
+    },
+    {
+      "offset": 292980,
+      "name": "rc_get_sta_stats"
+    },
+    {
+      "offset": 293000,
+      "name": "txl_buffer_machdr_get"
+    },
+    {
+      "offset": 293024,
+      "name": "txl_cntrl_newtail"
+    },
+    {
+      "offset": 293044,
+      "name": "txl_frame_exchange_done"
+    },
+    {
+      "offset": 293068,
+      "name": "txl_cntrl_newhead"
+    },
+    {
+      "offset": 293088,
+      "name": "txl_frame_exchange_chain"
+    },
+    {
+      "offset": 293116,
+      "name": "txl_cntrl_halt_ac"
+    },
+    {
+      "offset": 293136,
+      "name": "txl_transmit_trigger"
+    },
+    {
+      "offset": 293448,
+      "name": "txl_is_ba_valid"
+    },
+    {
+      "offset": 293464,
+      "name": "txl_ba_push"
+    },
+    {
+      "offset": 293476,
+      "name": "txl_cfm_evt"
+    },
+    {
+      "offset": 293488,
+      "name": "txl_cfm_flush"
+    },
+    {
+      "offset": 293504,
+      "name": "txl_cfm_flush_hiq"
+    },
+    {
+      "offset": 293688,
+      "name": "txl_frame_push"
+    },
+    {
+      "offset": 294248,
+      "name": "txl_ht_vht_ampdu_param_get"
+    },
+    {
+      "offset": 294276,
+      "name": "txl_ampdu_constraints_get"
+    },
+    {
+      "offset": 294304,
+      "name": "txl_agg_recompute_lengths"
+    },
+    {
+      "offset": 294332,
+      "name": "txl_agg_set_uph"
+    },
+    {
+      "offset": 294348,
+      "name": "txl_agg_split"
+    },
+    {
+      "offset": 294364,
+      "name": "txl_agg_he_tb_cat_ampdu"
+    },
+    {
+      "offset": 294388,
+      "name": "txl_agg_bw_drop_handle"
+    },
+    {
+      "offset": 294412,
+      "name": "txl_agg_check_rtscts_retry_limit"
+    },
+    {
+      "offset": 294448,
+      "name": "txl_agg_reconfig_ampdu"
+    },
+    {
+      "offset": 294472,
+      "name": "txl_agg_he_tb_prep"
+    },
+    {
+      "offset": 295116,
+      "name": "txl_he_edca_queue_halted"
+    },
+    {
+      "offset": 295144,
+      "name": "txl_he_mu_edca_start"
+    },
+    {
+      "offset": 295168,
+      "name": "txl_he_tb_ppdu_get"
+    },
+    {
+      "offset": 295188,
+      "name": "txl_he_tb_transmit_cancelled"
+    },
+    {
+      "offset": 295220,
+      "name": "txl_he_tb_transmit_trigger"
+    },
+    {
+      "offset": 295248,
+      "name": "txl_he_trigger_push"
+    },
+    {
+      "offset": 295268,
+      "name": "txl_he_ampdu_param_get"
+    },
+    {
+      "offset": 295544,
+      "name": "mm_rx_filter_set"
+    },
+    {
+      "offset": 295564,
+      "name": "rxl_frame_handle"
+    },
+    {
+      "offset": 295916,
+      "name": "rxl_rxcntrl_frame"
+    },
+    {
+      "offset": 295936,
+      "name": "rxl_payload_transfer_usb"
+    },
+    {
+      "offset": 295964,
+      "name": "rxl_payload_transfer_sdio"
+    },
+    {
+      "offset": 295992,
+      "name": "rxl_payload_transfer"
+    },
+    {
+      "offset": 296016,
+      "name": "rxl_go_to_last_rbd"
+    },
+    {
+      "offset": 296036,
+      "name": "rxl_mpdu_copy"
+    },
+    {
+      "offset": 296052,
+      "name": "rxl_mpdu_transfer"
+    },
+    {
+      "offset": 296072,
+      "name": "rxl_rxdesc_ready_for_processing"
+    },
+    {
+      "offset": 297140,
+      "name": "hal_machw_rx_bcn_duration"
+    },
+    {
+      "offset": 297188,
+      "name": "mm_key_ram_param_get"
+    },
+    {
+      "offset": 297212,
+      "name": "mm_tbtt_compute"
+    },
+    {
+      "offset": 297228,
+      "name": "mm_sleepinfo_rx_evt"
+    },
+    {
+      "offset": 297248,
+      "name": "mm_tbtt_evt"
+    },
+    {
+      "offset": 297260,
+      "name": "mm_sec_machwkey_wr"
+    },
+    {
+      "offset": 297280,
+      "name": "mm_back_to_host_idle"
+    },
+    {
+      "offset": 297304,
+      "name": "mm_force_idle_req"
+    },
+    {
+      "offset": 297324,
+      "name": "mm_no_idle_start"
+    },
+    {
+      "offset": 298560,
+      "name": "mm_start_req_handler"
+    },
+    {
+      "offset": 298584,
+      "name": "mm_set_idle_req_handler"
+    },
+    {
+      "offset": 298608,
+      "name": "mm_force_idle_req_handler"
+    },
+    {
+      "offset": 298636,
+      "name": "mm_key_add_req_handler"
+    },
+    {
+      "offset": 298660,
+      "name": "mm_key_del_req_handler"
+    },
+    {
+      "offset": 298684,
+      "name": "mm_hw_config_handler"
+    },
+    {
+      "offset": 298708,
+      "name": "mm_set_ps_options_req_handler"
+    },
+    {
+      "offset": 298740,
+      "name": "mm_set_arpoffload_en_req_handler"
+    },
+    {
+      "offset": 298776,
+      "name": "mm_cfg_rssi_req_handler"
+    },
+    {
+      "offset": 298800,
+      "name": "mm_set_resume_restore_req"
+    },
+    {
+      "offset": 299376,
+      "name": "mm_timer_set"
+    },
+    {
+      "offset": 299392,
+      "name": "mm_timer_schedule"
+    },
+    {
+      "offset": 299468,
+      "name": "tx_cfm"
+    },
+    {
+      "offset": 299564,
+      "name": "mm_bcn_transmitted"
+    },
+    {
+      "offset": 299584,
+      "name": "mm_bcn_transmit"
+    },
+    {
+      "offset": 299600,
+      "name": "mm_bcn_update_p2p_noa"
+    },
+    {
+      "offset": 299624,
+      "name": "apm_probe_sta_cfm"
+    },
+    {
+      "offset": 300796,
+      "name": "ps_enable_cfm"
+    },
+    {
+      "offset": 300812,
+      "name": "ps_disable_cfm"
+    },
+    {
+      "offset": 300828,
+      "name": "ps_upm_enter"
+    },
+    {
+      "offset": 300844,
+      "name": "ps_upm_exit"
+    },
+    {
+      "offset": 301352,
+      "name": "scan_start_req_handler"
+    },
+    {
+      "offset": 301376,
+      "name": "mm_scan_channel_start_ind_handler"
+    },
+    {
+      "offset": 301412,
+      "name": "mm_scan_channel_end_ind_handler"
+    },
+    {
+      "offset": 301468,
+      "name": "scan_cancel_req_handler"
+    },
+    {
+      "offset": 301532,
+      "name": "scan_send_cancel_cfm"
+    },
+    {
+      "offset": 302888,
+      "name": "hal_machw_idle_irq_handler"
+    },
+    {
+      "offset": 302916,
+      "name": "hal_machw_idle_req"
+    },
+    {
+      "offset": 302936,
+      "name": "hal_machw_init"
+    },
+    {
+      "offset": 302952,
+      "name": "hal_machw_sleep_check"
+    },
+    {
+      "offset": 302976,
+      "name": "hal_machw_abs_timer_handler"
+    },
+    {
+      "offset": 303004,
+      "name": "hal_machw_gen_handler"
+    },
+    {
+      "offset": 303044,
+      "name": "hal_dma_evt"
+    },
+    {
+      "offset": 303060,
+      "name": "tpc_update_frame_tx_power"
+    },
+    {
+      "offset": 303088,
+      "name": "tpc_update_frame_tx_power_1"
+    },
+    {
+      "offset": 303208,
+      "name": "ke_timer_set"
+    },
+    {
+      "offset": 303224,
+      "name": "ke_timer_clear"
+    },
+    {
+      "offset": 303296,
+      "name": "ke_msg_alloc"
+    },
+    {
+      "offset": 303440,
+      "name": "ke_malloc"
+    },
+    {
+      "offset": 303452,
+      "name": "ke_free"
+    },
+    {
+      "offset": 303564,
+      "name": "ke_stateid_ptr"
+    },
+    {
+      "offset": 303880,
+      "name": "ke_state_set"
+    },
+    {
+      "offset": 303896,
+      "name": "ke_state_get"
+    },
+    {
+      "offset": 303912,
+      "name": "ke_handler_search"
+    },
+    {
+      "offset": 303932,
+      "name": "ke_task_handler_get"
+    },
+    {
+      "offset": 303952,
+      "name": "ke_task_schedule"
+    },
+    {
+      "offset": 304036,
+      "name": "ke_evt_schedule"
+    },
+    {
+      "offset": 304164,
+      "name": "co_list_push_back"
+    },
+    {
+      "offset": 304184,
+      "name": "co_list_push_front"
+    },
+    {
+      "offset": 304204,
+      "name": "co_list_extract"
+    },
+    {
+      "offset": 304220,
+      "name": "co_list_remove"
+    },
+    {
+      "offset": 308876,
+      "name": "mm_set_idle_cfm_handler"
+    },
+    {
+      "offset": 308900,
+      "name": "mm_set_ps_mode_cfm_handler"
+    },
+    {
+      "offset": 308928,
+      "name": "me_rc_set_rate_req_handler"
+    },
+    {
+      "offset": 308956,
+      "name": "me_config_monitor_req_handler"
+    },
+    {
+      "offset": 309196,
+      "name": "me_init_chan"
+    },
+    {
+      "offset": 309404,
+      "name": "me_chan_ctxt_update"
+    },
+    {
+      "offset": 309424,
+      "name": "me_pol_tbl_bw_upd"
+    },
+    {
+      "offset": 309444,
+      "name": "me_legacy_rate_bitfield_build"
+    },
+    {
+      "offset": 309476,
+      "name": "me_init_bcmc_rate"
+    },
+    {
+      "offset": 309496,
+      "name": "me_update_buffer_control"
+    },
+    {
+      "offset": 309524,
+      "name": "me_sta_bw_nss_max_upd"
+    },
+    {
+      "offset": 310168,
+      "name": "sm_connect_req_handler"
+    },
+    {
+      "offset": 310240,
+      "name": "mm_sta_add_cfm_handler"
+    },
+    {
+      "offset": 310264,
+      "name": "me_set_ps_disable_cfm_handler"
+    },
+    {
+      "offset": 310296,
+      "name": "mm_bss_param_setting_handler"
+    },
+    {
+      "offset": 310328,
+      "name": "me_set_active_cfm_handler"
+    },
+    {
+      "offset": 310356,
+      "name": "mm_sta_del_cfm_handler"
+    },
+    {
+      "offset": 310380,
+      "name": "mm_chan_ctxt_unlink_cfm_handler"
+    },
+    {
+      "offset": 310412,
+      "name": "sm_ft_auth_rsp_handler"
+    },
+    {
+      "offset": 310436,
+      "name": "me_data_path_flushed_ind_handler"
+    },
+    {
+      "offset": 311124,
+      "name": "sm_bss_config_init"
+    },
+    {
+      "offset": 311144,
+      "name": "sm_bss_config_send"
+    },
+    {
+      "offset": 311164,
+      "name": "sm_auth_send"
+    },
+    {
+      "offset": 311180,
+      "name": "sm_assoc_req_send"
+    },
+    {
+      "offset": 311200,
+      "name": "sm_assoc_rsp_handler"
+    },
+    {
+      "offset": 311224,
+      "name": "sm_external_auth_start"
+    },
+    {
+      "offset": 311248,
+      "name": "sm_ft_auth_over_air_start"
+    },
+    {
+      "offset": 311820,
+      "name": "apm_start_req_handler"
+    },
+    {
+      "offset": 311936,
+      "name": "mm_bcn_change_cfm_handler"
+    },
+    {
+      "offset": 311996,
+      "name": "mm_set_vif_state_cfm_handler"
+    },
+    {
+      "offset": 312028,
+      "name": "apm_start_cac_req_handler"
+    },
+    {
+      "offset": 312056,
+      "name": "apm_stop_cac_req_handler"
+    },
+    {
+      "offset": 312252,
+      "name": "apm_bss_config_init"
+    },
+    {
+      "offset": 312272,
+      "name": "apm_bss_config_send"
+    },
+    {
+      "offset": 312292,
+      "name": "apm_tx_int_ps_get_postpone"
+    },
+    {
+      "offset": 313122,
+      "name": "host_id"
+    },
+    {
+      "offset": 313976,
+      "name": "mm_ba_add_cfm_handler"
+    },
+    {
+      "offset": 314212,
+      "name": "bam_send_air_action_frame"
+    },
+    {
+      "offset": 314240,
+      "name": "bam_send_mm_ba_del_req"
+    },
+    {
+      "offset": 314264,
+      "name": "bam_rx_active"
+    },
+    {
+      "offset": 316876,
+      "name": "rc_check_rate_config"
+    },
+    {
+      "offset": 316900,
+      "name": "rc_init_rates"
+    },
+    {
+      "offset": 316916,
+      "name": "rc_update_counters"
+    },
+    {
+      "offset": 316936,
+      "name": "rc_check"
+    },
+    {
+      "offset": 316948,
+      "name": "rc_init"
+    },
+    {
+      "offset": 316956,
+      "name": "rc_update_sample_table"
+    },
+    {
+      "offset": 316980,
+      "name": "rc_update_bw_nss_max"
+    },
+    {
+      "offset": 317004,
+      "name": "rc_update_preamble_type"
+    }
+  ]
+}

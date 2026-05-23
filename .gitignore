@@ -7,6 +7,8 @@ extraction_out/
 
 # Local reverse-engineering databases/caches
 *.i64
+*.$$$
+*.i64.*
 *.id0
 *.id1
 *.id2
@@ -25,3 +27,7 @@ extraction_out/
 .DS_Store
 *.swp
 *.swo
+
+# Local tool state
+.antigravitycli/
+.commandcode/
