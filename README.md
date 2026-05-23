@@ -141,10 +141,7 @@ Plain-language milestone explanation:
 
 ## License Status
 
-No `LICENSE` file is currently present in this repository.
+This repository is licensed under **Apache License 2.0**.
 
-Until a license is added, treat the repository contents as all rights reserved by default.
-
-Recommended next step:
-
-1. Add an explicit license file (`MIT`, `Apache-2.0`, `GPL-3.0`, or custom) to define reuse terms clearly.
+- See `LICENSE` for full terms.
+- Copyright: **2026 Grec Alexander**.
