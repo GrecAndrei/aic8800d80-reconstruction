@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firmware Extraction Progress Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --bg2: #131f31;
+      --card: #1a2940;
+      --text: #e9f0ff;
+      --muted: #9db1d5;
+      --accent: #3ad7b0;
+      --accent2: #4fa3ff;
+      --warn: #ffb86b;
+      --danger: #ff6f91;
+      --good: #63f08f;
+      --line: #274365;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 10% 0%, #1a2945 0%, var(--bg) 50%), var(--bg);
+    }
+    .wrap { max-width: 1500px; margin: 0 auto; padding: 16px; }
+    .title { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .title h1 { margin:0; font-size: 1.4rem; }
+    .muted { color: var(--muted); }
+    .grid { display:grid; gap:12px; }
+    .kpi-grid { grid-template-columns: repeat(8, minmax(120px, 1fr)); }
+    .two { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+    .three { grid-template-columns: repeat(3, minmax(260px, 1fr)); }
+    .card {
+      background: linear-gradient(180deg, #1b2b44 0%, var(--card) 100%);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    }
+    .kpi .label { font-size: .75rem; color: var(--muted); }
+    .kpi .value { font-size: 1.35rem; font-weight: 700; }
+    .kpi .sub { font-size: .72rem; color: var(--muted); }
+    .section-title { margin: 0 0 8px 0; font-size: .95rem; color: var(--muted); }
+    table { width:100%; border-collapse: collapse; font-size:.8rem; }
+    th, td { border-bottom: 1px solid var(--line); padding: 6px 4px; text-align:left; }
+    th { color: var(--muted); font-weight: 600; }
+    .bar-row { display:flex; align-items:center; gap:8px; margin:4px 0; }
+    .bar-label { width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .78rem; color: var(--muted); }
+    .bar-track { flex:1; background:#102038; border:1px solid var(--line); border-radius:8px; height:12px; overflow:hidden; }
+    .bar-fill { height:100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+    .bar-value { width: 60px; text-align:right; font-size:.75rem; color:var(--muted); }
+    canvas { width:100%; height:230px; background:#13243b; border:1px solid var(--line); border-radius:8px; }
+    .footer { margin-top: 10px; font-size: .75rem; color: var(--muted); }
+    @media (max-width: 1100px) {
+      .kpi-grid { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
+      .two, .three { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">
+      <h1>Firmware Extraction Progress Dashboard</h1>
+      <div class="muted" id="status">connecting...</div>
+    </div>
+
+    <div class="grid kpi-grid" id="kpis"></div>
+
+    <div class="grid two" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Latest Sweep</h3>
+        <table id="sweepTable"></table>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Recon Lanes</h3>
+        <table id="reconTable"></table>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Progress Over Time</h3>
+        <canvas id="historyChart" width="700" height="260"></canvas>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Coverage & Quality</h3>
+        <canvas id="qualityChart" width="700" height="260"></canvas>
+      </div>
+    </div>
+
+    <div class="grid three" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Function Roles</h3>
+        <div id="rolesBars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Artifact Types</h3>
+        <div id="artifactsBars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Patch Sections</h3>
+        <div id="patchSectionsBars"></div>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Images</h3>
+        <table id="imagesTable"></table>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Top Linked Functions</h3>
+        <table id="linkedFnsTable"></table>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Message Families</h3>
+        <div id="messageFamilyBars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">State Machine Tasks</h3>
+        <div id="stateMachineBars"></div>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Top Call Sources</h3>
+        <table id="callSourcesTable"></table>
+      </div>
+      <div class="card">
+        <h3 class="section-title">State Machine Functions</h3>
+        <div id="stateMachineFuncBars"></div>
+      </div>
+    </div>
+
+    <div class="grid three" style="margin-top:12px;">
+      <div class="card">
+        <h3 class="section-title">Function Confidence Buckets</h3>
+        <div id="fnBucketsBars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Link Confidence Buckets</h3>
+        <div id="linkBucketsBars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Patch Value Kinds</h3>
+        <div id="patchValueBars"></div>
+      </div>
+    </div>
+
+    <div class="footer" id="footer"></div>
+  </div>
+
+  <script>
+    const kpiDefs = [
+      ['Images', 'totals.images'],
+      ['Functions', 'totals.functions'],
+      ['Artifacts', 'totals.artifacts'],
+      ['Links', 'totals.links'],
+      ['Calls', 'totals.calls'],
+      ['Messages', 'totals.messages'],
+      ['State Machines', 'totals.state_machines'],
+      ['Queue', 'totals.queue'],
+      ['Patches', 'totals.patches'],
+      ['Base Coverage %', 'progress.base_coverage_pct'],
+      ['Link Coverage %', 'progress.link_coverage_pct'],
+      ['Reconstructed Funcs', 'progress.reconstructed_functions'],
+      ['Recon Clusters', 'progress.recon_cluster_count'],
+      ['Recon Queue', 'progress.recon_queue_count'],
+      ['Recon Focus', 'progress.recon_focus_count'],
+      ['Recon Lift', 'progress.recon_lift_count'],
+      ['Recon Compose', 'progress.recon_compose_count'],
+      ['Recon ImplQueue', 'progress.recon_implqueue_count'],
+      ['Recon ImplWork', 'progress.recon_implwork_count'],
+      ['Recon ImplSynth', 'progress.recon_implsynth_count'],
+      ['Recon Synth Avg Callees', 'progress.recon_implsynth_avg_callees'],
+      ['Recon ImplApplied', 'progress.recon_implapplied_count'],
+      ['Recon Finalized', 'progress.recon_finalized_count'],
+      ['Recon Strong', 'progress.recon_strong_count'],
+      ['Recon Fallback', 'progress.recon_fallback_count'],
+      ['Recon TODO Left', 'progress.recon_todo_remaining'],
+      ['Recon Completion %', 'progress.recon_completion_pct'],
+      ['Recon Semantic %', 'progress.recon_semantic_completion_pct'],
+      ['Disk Free GB', 'progress.disk_free_gb'],
+      ['Disk Used GB', 'progress.disk_used_gb'],
+      ['Disk Use %', 'progress.disk_use_pct'],
+      ['Sweep Union', 'sweep.union_count'],
+      ['Sweep High Impact', 'sweep.high_impact.count'],
+      ['Recon Strict', 'sweep.recon_lanes.strict.count'],
+      ['Recon Aggressive', 'sweep.recon_lanes.aggressive.count'],
+      ['Shard Packs', 'sweep.shard_packs.pack_count'],
+      ['Mega Profiles', 'mega.profiles.length'],
+      ['Mega Success', 'mega.success_count'],
+      ['Mega Total Union', 'mega.total_union_count'],
+    ];
+
+    const get = (obj, path, fallback='-') => {
+      let cur = obj;
+      for (const part of path.split('.')) {
+        if (part === 'length') {
+          if (Array.isArray(cur)) {
+            cur = cur.length;
+            continue;
+          }
+          return fallback;
+        }
+        if (cur == null || !(part in cur)) return fallback;
+        cur = cur[part];
+      }
+      return cur;
+    };
+
+    const fmt = (v) => (typeof v === 'number' ? (Number.isInteger(v) ? String(v) : v.toFixed(3)) : String(v));
+
+    function renderKpis(data) {
+      const root = document.getElementById('kpis');
+      root.innerHTML = '';
+      for (const [label, path] of kpiDefs) {
+        const val = get(data, path, '-');
+        const card = document.createElement('div');
+        card.className = 'card kpi';
+        card.innerHTML = `<div class="label">${label}</div><div class="value">${fmt(val)}</div>`;
+        root.appendChild(card);
+      }
+    }
+
+    function renderBars(rootId, rows, maxRows=18) {
+      const root = document.getElementById(rootId);
+      root.innerHTML = '';
+      if (!rows || rows.length === 0) {
+        root.innerHTML = '<div class="muted">no data</div>';
+        return;
+      }
+      const sliced = rows.slice(0, maxRows);
+      const max = Math.max(...sliced.map(r => r.count), 1);
+      for (const r of sliced) {
+        const pct = (r.count / max) * 100;
+        const row = document.createElement('div');
+        row.className = 'bar-row';
+        row.innerHTML = `
+          <div class="bar-label" title="${r.key}">${r.key}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;"></div></div>
+          <div class="bar-value">${r.count}</div>
+        `;
+        root.appendChild(row);
+      }
+    }
+
+    function renderTable(rootId, cols, rows, maxRows=20) {
+      const root = document.getElementById(rootId);
+      const bodyRows = (rows || []).slice(0, maxRows).map(r => `<tr>${cols.map(c => `<td>${r[c] ?? ''}</td>`).join('')}</tr>`).join('');
+      root.innerHTML = `<thead><tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${bodyRows}</tbody>`;
+    }
+
+    function drawLineChart(canvasId, series) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0,0,W,H);
+      const pad = 34;
+      const rows = series.points;
+      if (!rows || rows.length < 2) return;
+
+      const allVals = [];
+      for (const k of Object.keys(series.lines)) {
+        for (const r of rows) allVals.push(r[k] || 0);
+      }
+      const minY = 0;
+      const maxY = Math.max(...allVals, 1);
+
+      ctx.strokeStyle = '#33557f';
+      ctx.lineWidth = 1;
+      for (let i=0;i<=4;i++) {
+        const y = pad + (H - 2*pad) * (i/4);
+        ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W-pad, y); ctx.stroke();
+      }
+
+      const xAt = i => pad + ((W-2*pad) * i / (rows.length-1));
+      const yAt = v => H-pad - ((v-minY)/(maxY-minY))*(H-2*pad);
+
+      for (const [key, cfg] of Object.entries(series.lines)) {
+        ctx.strokeStyle = cfg.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        rows.forEach((r, i) => {
+          const x = xAt(i), y = yAt(r[key] || 0);
+          if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        });
+        ctx.stroke();
+      }
+
+      let lx = pad;
+      for (const [_, cfg] of Object.entries(series.lines)) {
+        ctx.fillStyle = cfg.color;
+        ctx.fillRect(lx, 8, 12, 6);
+        ctx.fillStyle = '#c8d9ff';
+        ctx.font = '11px sans-serif';
+        ctx.fillText(cfg.label, lx + 16, 14);
+        lx += 120;
+      }
+    }
+
+    function renderQualityChart(data) {
+      const canvas = document.getElementById('qualityChart');
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0,0,W,H);
+
+      const metrics = [
+        {label:'Base Coverage', val:data?.progress?.base_coverage_pct || 0, color:'#4fa3ff'},
+        {label:'Link Coverage', val:data?.progress?.link_coverage_pct || 0, color:'#3ad7b0'},
+        {label:'Patch MMIO %', val:data?.progress?.patch_mmio_pct || 0, color:'#ffb86b'},
+      ];
+
+      const pad = 40;
+      const barW = (W - 2*pad) / metrics.length - 30;
+      metrics.forEach((m, i) => {
+        const x = pad + i * ((W - 2*pad) / metrics.length) + 15;
+        const h = (m.val / 100) * (H - 90);
+        const y = H - 40 - h;
+        ctx.fillStyle = '#10243e';
+        ctx.fillRect(x, 30, barW, H-70);
+        ctx.fillStyle = m.color;
+        ctx.fillRect(x, y, barW, h);
+        ctx.fillStyle = '#d8e5ff';
+        ctx.font = '12px sans-serif';
+        ctx.fillText(m.label, x, H-18);
+        ctx.fillText(m.val.toFixed(2) + '%', x, y-6);
+      });
+    }
+
+    function toRowMap(hist) {
+      return (hist || []).map(h => ({
+        functions: h.functions,
+        links: h.links,
+        calls: h.calls,
+        messages: h.messages,
+        queue: h.queue,
+        patches: h.patches,
+        artifacts: h.artifacts,
+      }));
+    }
+
+    function render(data) {
+      renderKpis(data);
+      renderBars('rolesBars', data?.functions?.role_counts || []);
+      renderBars('artifactsBars', data?.artifacts?.type_counts || []);
+      renderBars('patchSectionsBars', data?.patches?.section_counts || []);
+      renderBars('messageFamilyBars', data?.messages?.family_counts || []);
+      renderBars('stateMachineBars', data?.state_machines?.machine_counts || []);
+      renderBars('stateMachineFuncBars', data?.state_machines?.function_counts || []);
+      if (!document.getElementById('miningReasonsBars')) {
+        const parent = document.getElementById('messageFamilyBars').parentElement;
+        const h = document.createElement('h3');
+        h.className = 'section-title';
+        h.style.marginTop = '12px';
+        h.textContent = 'Mining Reasons';
+        const div = document.createElement('div');
+        div.id = 'miningReasonsBars';
+        parent.appendChild(h);
+        parent.appendChild(div);
+      }
+      renderBars('miningReasonsBars', data?.top?.mining_reasons || []);
+      renderBars('fnBucketsBars', data?.functions?.confidence_buckets || []);
+      renderBars('linkBucketsBars', data?.links?.confidence_buckets || []);
+      renderBars('patchValueBars', data?.patches?.value_kinds || []);
+
+      renderTable('imagesTable', ['image','size','printable_strings','likely_thumb','has_vector'], data?.images || []);
+      renderTable('linkedFnsTable', ['key','count'], data?.top?.linked_functions || []);
+      renderTable('callSourcesTable', ['key','count'], data?.top?.top_call_sources || []);
+      renderTable('sweepTable', ['metric','value'], [
+        {metric:'run_base', value:data?.sweep?.run_base ?? '-'},
+        {metric:'union_count', value:data?.sweep?.union_count ?? '-'},
+        {metric:'high_impact_count', value:data?.sweep?.high_impact?.count ?? '-'},
+        {metric:'top_actionable_count', value:data?.sweep?.top_actionable?.count ?? '-'},
+        {metric:'pack_count', value:data?.sweep?.shard_packs?.pack_count ?? '-'},
+        {metric:'pack_size', value:data?.sweep?.shard_packs?.pack_size ?? '-'},
+        {metric:'summary_path', value:data?.sweep?.summary_path ?? '-'},
+      ], 20);
+      renderTable('reconTable', ['lane','count'], [
+        {lane:'strict', count:data?.sweep?.recon_lanes?.strict?.count ?? '-'},
+        {lane:'aggressive', count:data?.sweep?.recon_lanes?.aggressive?.count ?? '-'},
+      ], 10);
+
+      drawLineChart('historyChart', {
+        points: toRowMap(data?.history || []),
+        lines: {
+          functions: { label:'Functions', color:'#4fa3ff' },
+          links: { label:'Links', color:'#3ad7b0' },
+          calls: { label:'Calls', color:'#a77dff' },
+          messages: { label:'Messages', color:'#56d2ff' },
+          queue: { label:'Queue', color:'#7de8a0' },
+          patches: { label:'Patches', color:'#ffb86b' },
+          artifacts: { label:'Artifacts', color:'#ff6f91' },
+        }
+      });
+      renderQualityChart(data);
+
+      document.getElementById('footer').textContent =
+        `generated_at=${data.generated_at} | out=${data.out_dir} | freshness=${data?.progress?.data_freshness_sec ?? '-'}s | unique_mmio_refs=${data?.artifacts?.unique_mmio_refs ?? '-'}`;
+    }
+
+    async function loadInitial() {
+      const res = await fetch('/api/stats');
+      if (!res.ok) throw new Error(`stats http ${res.status}`);
+      const data = await res.json();
+      render(data);
+      document.getElementById('status').textContent = 'live';
+    }
+
+    function connectStream() {
+      const es = new EventSource('/api/stats/stream');
+      es.addEventListener('stats', (ev) => {
+        try {
+          const data = JSON.parse(ev.data);
+          render(data);
+          document.getElementById('status').textContent = 'live';
+        } catch (e) {
+          document.getElementById('status').textContent = 'stream parse error';
+        }
+      });
+      es.onerror = () => {
+        document.getElementById('status').textContent = 'reconnecting...';
+      };
+    }
+
+    loadInitial().catch((e) => {
+      document.getElementById('status').textContent = `init error: ${e.message}`;
+    }).finally(() => connectStream());
+  </script>
+</body>
+</html>

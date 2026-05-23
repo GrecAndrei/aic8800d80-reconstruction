@@ -1,0 +1,27 @@
+# Build artifacts
+/bin/
+*.out
+
+# Generated reconstruction outputs
+extraction_out/
+
+# Local reverse-engineering databases/caches
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+*.asm
+*.schemaboot.db
+*.blackboard.db
+
+# Firmware bulk artifacts (keep repo source-focused)
+*.bin
+*.gz
+*.tar.gz
+
+# Editor/OS
+.DS_Store
+*.swp
+*.swo
