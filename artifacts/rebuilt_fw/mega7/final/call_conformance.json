@@ -1,0 +1,5956 @@
+{
+  "final_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/final",
+  "call_edges_path": "extraction_out/call_edges.jsonl",
+  "min_confidence": 0.7,
+  "function_count": 356,
+  "evaluable_count": 356,
+  "avg_conformance_pct": 100,
+  "rows": [
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "apm_sta_connect_past_timer_handle",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "apm_start_cac_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "apm_start_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "apm_stop_cac_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "clear_flags",
+      "emitted_calls": [
+        "rx_queue_init"
+      ],
+      "evidence_calls": [
+        "rx_queue_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "clear_sdio_state",
+      "emitted_calls": [
+        "sdio_status_check"
+      ],
+      "evidence_calls": [
+        "sdio_status_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "debug_if_40320038",
+      "emitted_calls": [
+        "uart_putc"
+      ],
+      "evidence_calls": [
+        "uart_putc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "emb_kmsg_hdlr",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "feature_flags_init",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "feature_guard_sdio",
+      "emitted_calls": [
+        "sdio_transfer"
+      ],
+      "evidence_calls": [
+        "@0x10d6c8",
+        "sdio_transfer"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d6c8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "get_cached_1828f8",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "get_variant_cached",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "hal_dma_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "hal_machw_abs_timer_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "hw_event_flag",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "idle_processing",
+      "emitted_calls": [
+        "feature_guard_sdio",
+        "ipc_doorbell_handler",
+        "queue_check",
+        "sdio_status_check"
+      ],
+      "evidence_calls": [
+        "@0x10d1c4",
+        "@0x1111b4",
+        "@0x11583c",
+        "@0x128ddc",
+        "@0x12bc00",
+        "@0x12e8d0",
+        "@0x12eb90",
+        "feature_guard_sdio",
+        "ipc_doorbell_handler",
+        "queue_check",
+        "sdio_status_check",
+        "sdio_wait_busy",
+        "state_flag_check",
+        "tx_timeout_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d1c4",
+        "@0x1111b4",
+        "@0x11583c",
+        "@0x128ddc",
+        "@0x12bc00",
+        "@0x12e8d0",
+        "@0x12eb90",
+        "sdio_wait_busy",
+        "state_flag_check",
+        "tx_timeout_check"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "intc_spurious",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ipc_emb_hostmsgbuf_get",
+      "emitted_calls": [
+        "sdio_wait_busy"
+      ],
+      "evidence_calls": [
+        "sdio_wait_busy"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ipc_emb_kmsg_fwd",
+      "emitted_calls": [
+        "sdio_wait_busy"
+      ],
+      "evidence_calls": [
+        "sdio_wait_busy"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ipc_rx_evt",
+      "emitted_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "evidence_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ke_evt_schedule",
+      "emitted_calls": [
+        "ke_timer_set"
+      ],
+      "evidence_calls": [
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ke_msg_alloc",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ke_timer_clear",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ke_timer_set",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "list_find_remove",
+      "emitted_calls": [
+        "list_remove_node"
+      ],
+      "evidence_calls": [
+        "list_remove_node"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "list_insert_sorted",
+      "emitted_calls": [
+        "list_remove_node"
+      ],
+      "evidence_calls": [
+        "list_remove_node"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "list_pop",
+      "emitted_calls": [
+        "list_push_tail"
+      ],
+      "evidence_calls": [
+        "list_push_tail"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "list_push_tail",
+      "emitted_calls": [
+        "log_queue_push",
+        "sub_137490",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_queue_push",
+        "sub_137490"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "list_remove_node",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_alloc",
+      "emitted_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_flush",
+      "emitted_calls": [
+        "log_printf",
+        "rf_stream_start",
+        "rf_stream_start2"
+      ],
+      "evidence_calls": [
+        "@0x10dae4",
+        "@0x113210",
+        "@0x1132b0",
+        "log_printf",
+        "rf_stream_start",
+        "rf_stream_start2"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x113210",
+        "@0x1132b0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_free_pool_a",
+      "emitted_calls": [
+        "log_free_dispatch"
+      ],
+      "evidence_calls": [
+        "log_free_dispatch"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_free_pool_b",
+      "emitted_calls": [
+        "log_free_dispatch"
+      ],
+      "evidence_calls": [
+        "log_free_dispatch"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_free_pool_e",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_free_pool_f",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_free_wrapper",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_global_init",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_hw_init",
+      "emitted_calls": [
+        "sdio_buffer_prepare",
+        "log_enqueue",
+        "sub_1435d0",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_alloc",
+      "emitted_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_alloc2",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_alloc_b",
+      "emitted_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_pool_init_d"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_config",
+      "emitted_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_default_config",
+      "emitted_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_a",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_b",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_c",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_d",
+      "emitted_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "evidence_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_e",
+      "emitted_calls": [
+        "log_system_init_mode2"
+      ],
+      "evidence_calls": [
+        "log_system_init_mode2"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_pool_init_queue",
+      "emitted_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_printf",
+      "emitted_calls": [
+        "log_flush"
+      ],
+      "evidence_calls": [
+        "log_flush"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_ptr_in_range",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_queue_push2",
+      "emitted_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_queue_refill",
+      "emitted_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_system_init",
+      "emitted_calls": [
+        "sub_10ffc0"
+      ],
+      "evidence_calls": [
+        "sub_10ffc0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_system_init_mode2",
+      "emitted_calls": [
+        "log_pool_init_e",
+        "log_pool_init_d"
+      ],
+      "evidence_calls": [
+        "@0x1136d4",
+        "@0x113888",
+        "@0x1140f4",
+        "log_pool_init_d",
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x113888",
+        "@0x1140f4",
+        "sub_1140f4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "log_tick",
+      "emitted_calls": [
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "@0x102ad0",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102ad0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "lpm_host_notify_bt",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mac_phy_init",
+      "emitted_calls": [
+        "sub_116d3c",
+        "sub_11ecb0",
+        "sub_11f5e4",
+        "sub_120408",
+        "sub_128db8",
+        "sub_129e04",
+        "sub_12ad00"
+      ],
+      "evidence_calls": [
+        "@0x116d3c",
+        "@0x11ecb0",
+        "@0x11f5e4",
+        "@0x120408",
+        "@0x128db8",
+        "@0x129e04",
+        "@0x12ad00",
+        "sub_116d3c",
+        "sub_11ecb0",
+        "sub_11f5e4",
+        "sub_120408",
+        "sub_128db8",
+        "sub_129e04",
+        "sub_12ad00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x116d3c",
+        "@0x11ecb0",
+        "@0x11f5e4",
+        "@0x120408",
+        "@0x128db8",
+        "@0x129e04",
+        "@0x12ad00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "main_loop",
+      "emitted_calls": [
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050"
+      ],
+      "evidence_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x1159a4",
+        "@0x12d050",
+        "@0x130030",
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050",
+        "sub_130030"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x12d050",
+        "@0x130030",
+        "sub_130030"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "math_fastpath",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "math_helper_big2",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "math_helper_int",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "math_round",
+      "emitted_calls": [
+        "math_helper_int"
+      ],
+      "evidence_calls": [
+        "math_helper_int"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "me_config_monitor_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "me_data_path_flushed_ind_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "me_rc_set_rate_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "me_set_active_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "me_set_ps_disable_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "memcpy_fast",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "memset_impl",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "memset_thunk",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_ba_add_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_bcn_change_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_cfg_rssi_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_chan_ctxt_unlink_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_force_idle_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_key_add_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_key_del_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_scan_channel_end_ind_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_scan_channel_start_ind_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_arpoffload_en_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_idle_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_idle_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_ps_mode_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_ps_options_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_set_vif_state_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_sleepinfo_rx_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_sta_add_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_sta_del_cfm_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_start_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_tbtt_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_timer_schedule",
+      "emitted_calls": [
+        "ke_timer_set",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "mm_timer_set",
+      "emitted_calls": [
+        "ke_timer_set",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "msg_get_value",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "msg_parse_short",
+      "emitted_calls": [
+        "sub_101a54"
+      ],
+      "evidence_calls": [
+        "sub_101a54"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "panic_loop",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "parse_int",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "parse_width_suffix",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ps_disable_cfm",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ps_enable_cfm",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ps_upm_enter",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "ps_upm_exit",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "queue_check",
+      "emitted_calls": [
+        "sdio_wait_busy",
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "state_flag_check"
+      ],
+      "evidence_calls": [
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "sdio_wait_busy",
+        "state_flag_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "queue_pending_check",
+      "emitted_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort1",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort2",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort_common",
+      "emitted_calls": [
+        "sub_10ed40",
+        "sub_114ee0"
+      ],
+      "evidence_calls": [
+        "@0x10ed40",
+        "@0x114ee0",
+        "sub_10ed40",
+        "sub_114ee0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10ed40",
+        "@0x114ee0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rwnxl_reset_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rwnxl_wakeup",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rx_queue_head_init",
+      "emitted_calls": [
+        "list_insert_sorted"
+      ],
+      "evidence_calls": [
+        "list_insert_sorted"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "rx_queue_init",
+      "emitted_calls": [
+        "clear_flags"
+      ],
+      "evidence_calls": [
+        "@0x12d00c",
+        "clear_flags"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "scan_cancel_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "scan_start_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sdio_replenish_rx_msgqueue",
+      "emitted_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "evidence_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sdio_rx_evt",
+      "emitted_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "evidence_calls": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sm_connect_req_handler",
+      "emitted_calls": [
+        "ke_msg_alloc",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "state_flag_check",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_101a54",
+      "emitted_calls": [
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "evidence_calls": [
+        "@0x12f35c",
+        "@0x1320bc",
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x1320bc"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_10ed40",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_10ffc0",
+      "emitted_calls": [
+        "log_system_init"
+      ],
+      "evidence_calls": [
+        "@0x10f318",
+        "log_system_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_1140f4",
+      "emitted_calls": [
+        "log_enqueue"
+      ],
+      "evidence_calls": [
+        "log_enqueue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_114ee0",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_116d3c",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_11ecb0",
+      "emitted_calls": [
+        "sub_12ad00"
+      ],
+      "evidence_calls": [
+        "@0x12ad00",
+        "sub_12ad00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ad00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_11f5e4",
+      "emitted_calls": [
+        "sub_11ecb0"
+      ],
+      "evidence_calls": [
+        "@0x11ecb0",
+        "sub_11ecb0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11ecb0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_120408",
+      "emitted_calls": [
+        "sub_11f5e4"
+      ],
+      "evidence_calls": [
+        "@0x11f5e4",
+        "sub_11f5e4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11f5e4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_128db8",
+      "emitted_calls": [
+        "sub_129e04"
+      ],
+      "evidence_calls": [
+        "@0x129e04",
+        "sub_129e04"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x129e04"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_129e04",
+      "emitted_calls": [
+        "sub_116d3c"
+      ],
+      "evidence_calls": [
+        "@0x116d3c",
+        "sub_116d3c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x116d3c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "sub_12ad00",
+      "emitted_calls": [
+        "sub_128db8"
+      ],
+      "evidence_calls": [
+        "@0x128db8",
+        "sub_128db8"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x128db8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "thunk",
+      "emitted_calls": [
+        "buffer_pool_get"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_get"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "timer_set_relative",
+      "emitted_calls": [
+        "ke_timer_set",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "timestamp_list_contains",
+      "emitted_calls": [
+        "timestamp_update"
+      ],
+      "evidence_calls": [
+        "timestamp_update"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "timestamp_remove",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "timestamp_update",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "tx_dequeue",
+      "emitted_calls": [
+        "list_push_tail",
+        "log_hw_init",
+        "log_queue_push",
+        "msg_parse"
+      ],
+      "evidence_calls": [
+        "@0x10cd7c",
+        "@0x10d508",
+        "@0x10d6c8",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "@0x12d190",
+        "@0x12dfdc",
+        "@0x12e948",
+        "list_pop",
+        "list_push_tail",
+        "log_hw_init",
+        "log_queue_push",
+        "msg_parse",
+        "rf_cmd_queue_next",
+        "sdio_buffer_prepare",
+        "sdio_transfer",
+        "thunk",
+        "tx_submit"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10cd7c",
+        "@0x10d508",
+        "@0x10d6c8",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "@0x12d190",
+        "@0x12dfdc",
+        "@0x12e948",
+        "list_pop",
+        "rf_cmd_queue_next",
+        "sdio_buffer_prepare",
+        "sdio_transfer",
+        "thunk",
+        "tx_submit"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "tx_submit",
+      "emitted_calls": [
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "tx_timeout_check",
+      "emitted_calls": [
+        "error_handler"
+      ],
+      "evidence_calls": [
+        "@0x12f32c",
+        "error_handler"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12f32c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "txl_cfm_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "uart_putc",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "uart_puts",
+      "emitted_calls": [
+        "uart_putc"
+      ],
+      "evidence_calls": [
+        "uart_putc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "usb_rx_evt",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "usb_trans_error_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "usb_wlan_recv",
+      "emitted_calls": [
+        "rx_queue_init",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "rx_queue_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "usb_wlan_recv_fc_on",
+      "emitted_calls": [
+        "rx_queue_init",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule",
+        "rx_queue_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "usb_wlan_rx_pkt_free_list_init",
+      "emitted_calls": [
+        "list_insert_sorted"
+      ],
+      "evidence_calls": [
+        "list_insert_sorted"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "wlan_epbulk_recv_compl_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function": "wlan_epbulk_send_compl_handler",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "chip_feature_check",
+      "emitted_calls": [
+        "feature_always_on"
+      ],
+      "evidence_calls": [
+        "feature_always_on"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_channel_calc",
+      "emitted_calls": [
+        "crypto_freq_set"
+      ],
+      "evidence_calls": [
+        "@0x10779c",
+        "crypto_freq_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10779c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_clear_regs",
+      "emitted_calls": [
+        "crypto_state_dump",
+        "crypto_power_calc",
+        "crypto_power_apply"
+      ],
+      "evidence_calls": [
+        "crypto_power_apply",
+        "crypto_power_calc",
+        "crypto_state_dump"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_enable",
+      "emitted_calls": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "evidence_calls": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "feature_guard_sdio",
+      "emitted_calls": [
+        "sdio_transfer"
+      ],
+      "evidence_calls": [
+        "@0x10d6c8",
+        "sdio_transfer"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d6c8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "firmware_init",
+      "emitted_calls": [
+        "fw_config_apply",
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "fw_config_apply",
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "fp_convert_int",
+      "emitted_calls": [
+        "fp_convert_uint"
+      ],
+      "evidence_calls": [
+        "fp_convert_uint"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "fw_config_apply",
+      "emitted_calls": [
+        "patch_apply"
+      ],
+      "evidence_calls": [
+        "patch_apply"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "ipc_doorbell_handler",
+      "emitted_calls": [
+        "sdio_wait_busy"
+      ],
+      "evidence_calls": [
+        "@0x12e8d0",
+        "sdio_wait_busy"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12e8d0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "list_pop",
+      "emitted_calls": [
+        "list_push_tail"
+      ],
+      "evidence_calls": [
+        "list_push_tail"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "list_push_tail",
+      "emitted_calls": [
+        "log_queue_push",
+        "sub_137490",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_queue_push",
+        "sub_137490"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_free_dispatch",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "evidence_calls": [
+        "@0x110250",
+        "@0x1102f0",
+        "@0x110380",
+        "@0x113908",
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x110380",
+        "@0x113908"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_free_pool_dispatch2",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_hw_init",
+      "emitted_calls": [
+        "sdio_buffer_prepare",
+        "log_enqueue",
+        "sub_1435d0",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_pool_init_d",
+      "emitted_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "evidence_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_pool_init_e",
+      "emitted_calls": [
+        "log_system_init_mode2"
+      ],
+      "evidence_calls": [
+        "log_system_init_mode2"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_ptr_in_range",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "log_queue_push",
+      "emitted_calls": [
+        "tx_dequeue"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "main_loop",
+      "emitted_calls": [
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050"
+      ],
+      "evidence_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x1159a4",
+        "@0x12d050",
+        "@0x130030",
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050",
+        "sub_130030"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x12d050",
+        "@0x130030",
+        "sub_130030"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "math_round",
+      "emitted_calls": [
+        "math_helper_int"
+      ],
+      "evidence_calls": [
+        "math_helper_int"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "message_dispatch",
+      "emitted_calls": [
+        "buffer_pool_manage"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_manage"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "msg_parse",
+      "emitted_calls": [
+        "msg_handler_tx",
+        "sub_137490"
+      ],
+      "evidence_calls": [
+        "msg_handler_tx",
+        "sub_137490"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "panic_loop",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "patch_apply",
+      "emitted_calls": [
+        "fw_config_apply"
+      ],
+      "evidence_calls": [
+        "fw_config_apply"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "phy_rf_init",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blockb",
+        "rf_init_blocka"
+      ],
+      "evidence_calls": [
+        "@0x10d0e4",
+        "@0x10d494",
+        "@0x10d4e8",
+        "@0x10dd54",
+        "@0x10e160",
+        "@0x10e420",
+        "@0x10ee10",
+        "hw_reg_set_40035000",
+        "irq23_enable",
+        "irq_mask_init",
+        "rf_init_blocka",
+        "rf_init_blockb",
+        "rf_init_blockc",
+        "timer_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d0e4",
+        "@0x10d494",
+        "@0x10d4e8",
+        "@0x10dd54",
+        "@0x10e160",
+        "@0x10e420",
+        "@0x10ee10",
+        "hw_reg_set_40035000",
+        "irq23_enable",
+        "irq_mask_init",
+        "timer_init"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "queue_check",
+      "emitted_calls": [
+        "sdio_wait_busy",
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "state_flag_check"
+      ],
+      "evidence_calls": [
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "sdio_wait_busy",
+        "state_flag_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_init",
+      "emitted_calls": [
+        "rf_reg_write_cb",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_mark",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset2",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_setup",
+      "emitted_calls": [
+        "rf_reg_write_cb",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write",
+      "emitted_calls": [
+        "rf_bus_clear"
+      ],
+      "evidence_calls": [
+        "@0x11182c",
+        "rf_bus_clear"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11182c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write2",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_dispatch",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_process",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_queue_next",
+      "emitted_calls": [
+        "log_queue_push",
+        "log_queue_alloc"
+      ],
+      "evidence_calls": [
+        "log_queue_alloc",
+        "log_queue_push"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_send",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_wait",
+      "emitted_calls": [
+        "ke_timer_set"
+      ],
+      "evidence_calls": [
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_fault_dump",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_hw_timer_init",
+      "emitted_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_hw_timer_read",
+      "emitted_calls": [
+        "rf_level_step",
+        "rf_level_compute"
+      ],
+      "evidence_calls": [
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blocka",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blockb"
+      ],
+      "evidence_calls": [
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockb",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blocka"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockc",
+      "emitted_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_apply",
+      "emitted_calls": [
+        "sub_102a24"
+      ],
+      "evidence_calls": [
+        "@0x102a24",
+        "sub_102a24"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102a24"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_compute",
+      "emitted_calls": [
+        "rf_level_step",
+        "rf_hw_timer_read"
+      ],
+      "evidence_calls": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_dump",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_read",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_write",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_msg_handler",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_msg_log_rate",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_msg_process_body",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_power_set",
+      "emitted_calls": [
+        "sub_102b00"
+      ],
+      "evidence_calls": [
+        "@0x102b00",
+        "sub_102b00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102b00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_cb",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_core",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_wait",
+      "emitted_calls": [
+        "rf_reg_ack_cb"
+      ],
+      "evidence_calls": [
+        "@0x10ec34",
+        "rf_reg_ack_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10ec34"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_state_check",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_stream_start",
+      "emitted_calls": [
+        "sub_111f08"
+      ],
+      "evidence_calls": [
+        "@0x111f08",
+        "sub_111f08"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x111f08"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_stream_start2",
+      "emitted_calls": [
+        "rf_stream_start"
+      ],
+      "evidence_calls": [
+        "rf_stream_start"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_stream_start_once",
+      "emitted_calls": [
+        "rf_cmd_send",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_send",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort1",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort2",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_toggle",
+      "emitted_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_toggle_update",
+      "emitted_calls": [
+        "rf_hw_timer_read",
+        "rf_level_step",
+        "rf_level_compute"
+      ],
+      "evidence_calls": [
+        "@0x10df08",
+        "@0x130184",
+        "@0x1302f0",
+        "rf_hw_timer_read",
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10df08",
+        "@0x130184",
+        "@0x1302f0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_buffer_prepare",
+      "emitted_calls": [
+        "log_hw_init",
+        "sub_1435d0",
+        "log_enqueue",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_dma_config",
+      "emitted_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_status_check",
+      "emitted_calls": [
+        "feature_guard_sdio"
+      ],
+      "evidence_calls": [
+        "@0x12eb90",
+        "feature_guard_sdio"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12eb90"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_transfer",
+      "emitted_calls": [
+        "log_hw_init",
+        "log_enqueue",
+        "sdio_buffer_prepare"
+      ],
+      "evidence_calls": [
+        "@0x10d508",
+        "@0x111130",
+        "@0x12dfdc",
+        "@0x1435d0",
+        "log_enqueue",
+        "log_hw_init",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d508",
+        "@0x111130",
+        "@0x12dfdc",
+        "@0x1435d0",
+        "sub_1435d0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_wait_busy",
+      "emitted_calls": [
+        "queue_check",
+        "tx_timeout_check",
+        "feature_guard_sdio",
+        "sdio_status_check"
+      ],
+      "evidence_calls": [
+        "feature_guard_sdio",
+        "queue_check",
+        "sdio_status_check",
+        "tx_timeout_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "state_flag_check",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_101a54",
+      "emitted_calls": [
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "evidence_calls": [
+        "@0x12f35c",
+        "@0x1320bc",
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x1320bc"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ed40",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ffc0",
+      "emitted_calls": [
+        "log_system_init"
+      ],
+      "evidence_calls": [
+        "@0x10f318",
+        "log_system_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_1140f4",
+      "emitted_calls": [
+        "log_enqueue"
+      ],
+      "evidence_calls": [
+        "log_enqueue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_114ee0",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_116d3c",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11ecb0",
+      "emitted_calls": [
+        "sub_12ad00"
+      ],
+      "evidence_calls": [
+        "@0x12ad00",
+        "sub_12ad00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ad00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11f5e4",
+      "emitted_calls": [
+        "sub_11ecb0"
+      ],
+      "evidence_calls": [
+        "@0x11ecb0",
+        "sub_11ecb0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11ecb0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_120408",
+      "emitted_calls": [
+        "sub_11f5e4"
+      ],
+      "evidence_calls": [
+        "@0x11f5e4",
+        "sub_11f5e4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11f5e4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_128db8",
+      "emitted_calls": [
+        "sub_129e04"
+      ],
+      "evidence_calls": [
+        "@0x129e04",
+        "sub_129e04"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x129e04"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_129e04",
+      "emitted_calls": [
+        "sub_116d3c"
+      ],
+      "evidence_calls": [
+        "@0x116d3c",
+        "sub_116d3c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x116d3c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_12ad00",
+      "emitted_calls": [
+        "sub_128db8"
+      ],
+      "evidence_calls": [
+        "@0x128db8",
+        "sub_128db8"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x128db8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "thunk",
+      "emitted_calls": [
+        "buffer_pool_get"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_get"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "timestamp_remove",
+      "emitted_calls": [
+        "timestamp_list_contains"
+      ],
+      "evidence_calls": [
+        "timestamp_list_contains"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_phy_config",
+      "emitted_calls": [
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "@0x103a54",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x103a54"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_submit",
+      "emitted_calls": [
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_timeout_check",
+      "emitted_calls": [
+        "error_handler"
+      ],
+      "evidence_calls": [
+        "@0x12f32c",
+        "error_handler"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12f32c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_channel_calc",
+      "emitted_calls": [
+        "crypto_freq_set"
+      ],
+      "evidence_calls": [
+        "@0x10779c",
+        "crypto_freq_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10779c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_disable",
+      "emitted_calls": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "evidence_calls": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_enable",
+      "emitted_calls": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "evidence_calls": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_power_up",
+      "emitted_calls": [
+        "crypto_power_apply"
+      ],
+      "evidence_calls": [
+        "crypto_power_apply"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "event_queue_push",
+      "emitted_calls": [
+        "buffer_pool_manage"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_manage"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "feature_guard_sdio",
+      "emitted_calls": [
+        "sdio_transfer"
+      ],
+      "evidence_calls": [
+        "@0x10d6c8",
+        "sdio_transfer"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d6c8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "list_pop",
+      "emitted_calls": [
+        "list_push_tail"
+      ],
+      "evidence_calls": [
+        "list_push_tail"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "list_push_tail",
+      "emitted_calls": [
+        "log_queue_push",
+        "sub_137490",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_queue_push",
+        "sub_137490"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_free_dispatch",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "evidence_calls": [
+        "@0x110250",
+        "@0x1102f0",
+        "@0x110380",
+        "@0x113908",
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x110380",
+        "@0x113908"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_free_pool_dispatch2",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_hw_init",
+      "emitted_calls": [
+        "sdio_buffer_prepare",
+        "log_enqueue",
+        "sub_1435d0",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_pool_init_d",
+      "emitted_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "evidence_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_ptr_in_range",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_pool_init_d",
+        "rf_power_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "log_queue_push",
+      "emitted_calls": [
+        "tx_dequeue"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "main_loop",
+      "emitted_calls": [
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050"
+      ],
+      "evidence_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x1159a4",
+        "@0x12d050",
+        "@0x130030",
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050",
+        "sub_130030"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x12d050",
+        "@0x130030",
+        "sub_130030"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "math_helper_big",
+      "emitted_calls": [
+        "sub_142f2c"
+      ],
+      "evidence_calls": [
+        "@0x142f2c",
+        "sub_142f2c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x142f2c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "math_helper_big2",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "math_round",
+      "emitted_calls": [
+        "math_helper_int"
+      ],
+      "evidence_calls": [
+        "math_helper_int"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "message_dispatch",
+      "emitted_calls": [
+        "buffer_pool_manage"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_manage"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "patch_apply",
+      "emitted_calls": [
+        "fw_config_apply"
+      ],
+      "evidence_calls": [
+        "fw_config_apply"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "phy_rf_init",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blockb",
+        "rf_init_blocka"
+      ],
+      "evidence_calls": [
+        "@0x10d0e4",
+        "@0x10d494",
+        "@0x10d4e8",
+        "@0x10dd54",
+        "@0x10e160",
+        "@0x10e420",
+        "@0x10ee10",
+        "hw_reg_set_40035000",
+        "irq23_enable",
+        "irq_mask_init",
+        "rf_init_blocka",
+        "rf_init_blockb",
+        "rf_init_blockc",
+        "timer_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d0e4",
+        "@0x10d494",
+        "@0x10d4e8",
+        "@0x10dd54",
+        "@0x10e160",
+        "@0x10e420",
+        "@0x10ee10",
+        "hw_reg_set_40035000",
+        "irq23_enable",
+        "irq_mask_init",
+        "timer_init"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "queue_check",
+      "emitted_calls": [
+        "sdio_wait_busy",
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "state_flag_check"
+      ],
+      "evidence_calls": [
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "sdio_wait_busy",
+        "state_flag_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_mark",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset2",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_setup",
+      "emitted_calls": [
+        "rf_reg_write_cb",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write",
+      "emitted_calls": [
+        "rf_bus_clear"
+      ],
+      "evidence_calls": [
+        "@0x11182c",
+        "rf_bus_clear"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11182c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write2",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_dispatch",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_send",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_wait",
+      "emitted_calls": [
+        "ke_timer_set"
+      ],
+      "evidence_calls": [
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_hw_timer_init",
+      "emitted_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blocka",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blockb"
+      ],
+      "evidence_calls": [
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockb",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blocka"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockc",
+      "emitted_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_apply",
+      "emitted_calls": [
+        "sub_102a24"
+      ],
+      "evidence_calls": [
+        "@0x102a24",
+        "sub_102a24"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102a24"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_compute",
+      "emitted_calls": [
+        "rf_level_step",
+        "rf_hw_timer_read"
+      ],
+      "evidence_calls": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_read",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_write",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_msg_handler",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_msg_process_body",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_power_set",
+      "emitted_calls": [
+        "sub_102b00"
+      ],
+      "evidence_calls": [
+        "@0x102b00",
+        "sub_102b00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102b00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_cb",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_wait",
+      "emitted_calls": [
+        "rf_reg_ack_cb"
+      ],
+      "evidence_calls": [
+        "@0x10ec34",
+        "rf_reg_ack_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10ec34"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_state_check",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_stream_start",
+      "emitted_calls": [
+        "sub_111f08"
+      ],
+      "evidence_calls": [
+        "@0x111f08",
+        "sub_111f08"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x111f08"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_stream_start2",
+      "emitted_calls": [
+        "rf_stream_start"
+      ],
+      "evidence_calls": [
+        "rf_stream_start"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort1",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort2",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_buffer_prepare",
+      "emitted_calls": [
+        "log_hw_init",
+        "sub_1435d0",
+        "log_enqueue",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_dma_config",
+      "emitted_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_status_check",
+      "emitted_calls": [
+        "feature_guard_sdio"
+      ],
+      "evidence_calls": [
+        "@0x12eb90",
+        "feature_guard_sdio"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12eb90"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "state_flag_check",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_101a54",
+      "emitted_calls": [
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "evidence_calls": [
+        "@0x12f35c",
+        "@0x1320bc",
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x1320bc"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ed40",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ffc0",
+      "emitted_calls": [
+        "log_system_init"
+      ],
+      "evidence_calls": [
+        "@0x10f318",
+        "log_system_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_1140f4",
+      "emitted_calls": [
+        "log_enqueue"
+      ],
+      "evidence_calls": [
+        "log_enqueue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_114ee0",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_116d3c",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11ecb0",
+      "emitted_calls": [
+        "sub_12ad00"
+      ],
+      "evidence_calls": [
+        "@0x12ad00",
+        "sub_12ad00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ad00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11f5e4",
+      "emitted_calls": [
+        "sub_11ecb0"
+      ],
+      "evidence_calls": [
+        "@0x11ecb0",
+        "sub_11ecb0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11ecb0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_120408",
+      "emitted_calls": [
+        "sub_11f5e4"
+      ],
+      "evidence_calls": [
+        "@0x11f5e4",
+        "sub_11f5e4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11f5e4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_128db8",
+      "emitted_calls": [
+        "sub_129e04"
+      ],
+      "evidence_calls": [
+        "@0x129e04",
+        "sub_129e04"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x129e04"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_129e04",
+      "emitted_calls": [
+        "sub_116d3c"
+      ],
+      "evidence_calls": [
+        "@0x116d3c",
+        "sub_116d3c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x116d3c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_12ad00",
+      "emitted_calls": [
+        "sub_128db8"
+      ],
+      "evidence_calls": [
+        "@0x128db8",
+        "sub_128db8"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x128db8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "thunk",
+      "emitted_calls": [
+        "buffer_pool_get"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_get"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_submit",
+      "emitted_calls": [
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_timeout_check",
+      "emitted_calls": [
+        "error_handler"
+      ],
+      "evidence_calls": [
+        "@0x12f32c",
+        "error_handler"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12f32c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "clock_calc",
+      "emitted_calls": [
+        "feature_guard_sdio",
+        "firmware_init",
+        "fw_config_apply",
+        "log_list_init"
+      ],
+      "evidence_calls": [
+        "@0x1002a0",
+        "@0x100478",
+        "@0x114d6c",
+        "@0x115c20",
+        "@0x12e948",
+        "@0x12eb90",
+        "@0x12fe58",
+        "feature_guard_sdio",
+        "firmware_init",
+        "fw_config_apply",
+        "log_list_init",
+        "main_loop",
+        "msg_parse",
+        "patch_apply"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x1002a0",
+        "@0x100478",
+        "@0x114d6c",
+        "@0x115c20",
+        "@0x12e948",
+        "@0x12eb90",
+        "@0x12fe58",
+        "main_loop",
+        "msg_parse",
+        "patch_apply"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_clear_regs",
+      "emitted_calls": [
+        "crypto_state_dump",
+        "crypto_power_calc",
+        "crypto_power_apply"
+      ],
+      "evidence_calls": [
+        "crypto_power_apply",
+        "crypto_power_calc",
+        "crypto_state_dump"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_hw_disable",
+      "emitted_calls": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "evidence_calls": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_iq_calculate",
+      "emitted_calls": [
+        "clock_calc"
+      ],
+      "evidence_calls": [
+        "clock_calc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_key_load",
+      "emitted_calls": [
+        "crypto_hw_write32"
+      ],
+      "evidence_calls": [
+        "@0x103ff4",
+        "crypto_hw_write32"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x103ff4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "crypto_table_init",
+      "emitted_calls": [
+        "crypto_iq_calculate"
+      ],
+      "evidence_calls": [
+        "crypto_iq_calculate"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "feature_guard_sdio",
+      "emitted_calls": [
+        "sdio_transfer"
+      ],
+      "evidence_calls": [
+        "@0x10d6c8",
+        "sdio_transfer"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10d6c8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "list_pop",
+      "emitted_calls": [
+        "list_push_tail"
+      ],
+      "evidence_calls": [
+        "list_push_tail"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "list_push_tail",
+      "emitted_calls": [
+        "log_queue_push",
+        "sub_137490",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_queue_push",
+        "sub_137490"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "log_free_pool_dispatch2",
+      "emitted_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "evidence_calls": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "log_hw_init",
+      "emitted_calls": [
+        "sdio_buffer_prepare",
+        "log_enqueue",
+        "sub_1435d0",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "log_pool_init_d",
+      "emitted_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "evidence_calls": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "main_loop",
+      "emitted_calls": [
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050"
+      ],
+      "evidence_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x1159a4",
+        "@0x12d050",
+        "@0x130030",
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050",
+        "sub_130030"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x114578",
+        "@0x115470",
+        "@0x12d050",
+        "@0x130030",
+        "sub_130030"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "memset_impl",
+      "emitted_calls": [
+        "math_round"
+      ],
+      "evidence_calls": [
+        "math_round"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "queue_check",
+      "emitted_calls": [
+        "sdio_wait_busy",
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "state_flag_check"
+      ],
+      "evidence_calls": [
+        "feature_guard_sdio",
+        "sdio_status_check",
+        "sdio_wait_busy",
+        "state_flag_check"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_mark",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_reset2",
+      "emitted_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_setup",
+      "emitted_calls": [
+        "rf_reg_write_cb",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write",
+      "emitted_calls": [
+        "rf_bus_clear"
+      ],
+      "evidence_calls": [
+        "@0x11182c",
+        "rf_bus_clear"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11182c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_bus_write2",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_dispatch",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_send",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_cmd_wait",
+      "emitted_calls": [
+        "ke_timer_set"
+      ],
+      "evidence_calls": [
+        "ke_timer_set"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_hw_timer_init",
+      "emitted_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockb",
+      "emitted_calls": [
+        "rf_init_blockc",
+        "rf_init_blocka"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_init_blockc",
+      "emitted_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "evidence_calls": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_apply",
+      "emitted_calls": [
+        "sub_102a24"
+      ],
+      "evidence_calls": [
+        "@0x102a24",
+        "sub_102a24"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102a24"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_level_compute",
+      "emitted_calls": [
+        "rf_level_step",
+        "rf_hw_timer_read"
+      ],
+      "evidence_calls": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_read",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_mem_write",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_power_set",
+      "emitted_calls": [
+        "sub_102b00"
+      ],
+      "evidence_calls": [
+        "@0x102b00",
+        "sub_102b00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x102b00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_cb",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_reg_write_wait",
+      "emitted_calls": [
+        "rf_reg_ack_cb"
+      ],
+      "evidence_calls": [
+        "@0x10ec34",
+        "rf_reg_ack_cb"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x10ec34"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort1",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "rf_timer_abort2",
+      "emitted_calls": [
+        "rf_timer_abort_common"
+      ],
+      "evidence_calls": [
+        "@0x12ef88",
+        "rf_timer_abort_common"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_buffer_prepare",
+      "emitted_calls": [
+        "log_hw_init",
+        "sub_1435d0",
+        "log_enqueue",
+        "list_pop"
+      ],
+      "evidence_calls": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sdio_dma_config",
+      "emitted_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "evidence_calls": [
+        "chip_variant_detect",
+        "crypto_hw_enable",
+        "crypto_hw_power_up"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "state_flag_check",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_101a54",
+      "emitted_calls": [
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "evidence_calls": [
+        "@0x12f35c",
+        "@0x1320bc",
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x1320bc"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ed40",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_10ffc0",
+      "emitted_calls": [
+        "log_system_init"
+      ],
+      "evidence_calls": [
+        "@0x10f318",
+        "log_system_init"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_1140f4",
+      "emitted_calls": [
+        "log_enqueue"
+      ],
+      "evidence_calls": [
+        "log_enqueue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_114ee0",
+      "emitted_calls": [
+        "rf_cmd_wait"
+      ],
+      "evidence_calls": [
+        "rf_cmd_wait"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_116d3c",
+      "emitted_calls": [
+        "ke_evt_schedule"
+      ],
+      "evidence_calls": [
+        "ke_evt_schedule"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11ecb0",
+      "emitted_calls": [
+        "sub_12ad00"
+      ],
+      "evidence_calls": [
+        "@0x12ad00",
+        "sub_12ad00"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ad00"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_11f5e4",
+      "emitted_calls": [
+        "sub_11ecb0"
+      ],
+      "evidence_calls": [
+        "@0x11ecb0",
+        "sub_11ecb0"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11ecb0"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_120408",
+      "emitted_calls": [
+        "sub_11f5e4"
+      ],
+      "evidence_calls": [
+        "@0x11f5e4",
+        "sub_11f5e4"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11f5e4"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_128db8",
+      "emitted_calls": [
+        "sub_129e04"
+      ],
+      "evidence_calls": [
+        "@0x129e04",
+        "sub_129e04"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x129e04"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_129e04",
+      "emitted_calls": [
+        "sub_116d3c"
+      ],
+      "evidence_calls": [
+        "@0x116d3c",
+        "sub_116d3c"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x116d3c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "sub_12ad00",
+      "emitted_calls": [
+        "sub_128db8"
+      ],
+      "evidence_calls": [
+        "@0x128db8",
+        "sub_128db8"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x128db8"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "thunk",
+      "emitted_calls": [
+        "buffer_pool_get"
+      ],
+      "evidence_calls": [
+        "@0x12ca88",
+        "buffer_pool_get"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12ca88"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_submit",
+      "emitted_calls": [
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next"
+      ],
+      "evidence_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x11017c",
+        "@0x11101c",
+        "@0x113374",
+        "@0x12c8f8",
+        "@0x12d108",
+        "thunk",
+        "tx_dequeue"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function": "tx_timeout_check",
+      "emitted_calls": [
+        "error_handler"
+      ],
+      "evidence_calls": [
+        "@0x12f32c",
+        "error_handler"
+      ],
+      "unsupported_calls": [],
+      "missing_likely_calls": [
+        "@0x12f32c"
+      ],
+      "conformance_pct": 100,
+      "evidence_found": true
+    }
+  ]
+}

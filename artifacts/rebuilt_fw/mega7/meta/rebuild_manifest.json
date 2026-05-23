@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-05-23T22:13:22Z",
+  "workset_path": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/recon_workset.jsonl",
+  "total_functions": 120000,
+  "image_count": 4,
+  "top_priority_count": 33,
+  "image_summaries": [
+    {
+      "image": "fmacfw_8800d80_u02.bin",
+      "function_count": 30000,
+      "avg_priority_score": 1.7649090541665564,
+      "high_priority_count": 0,
+      "message_related_count": 0
+    },
+    {
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function_count": 30000,
+      "avg_priority_score": 1.7630278666665566,
+      "high_priority_count": 0,
+      "message_related_count": 0
+    },
+    {
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function_count": 30000,
+      "avg_priority_score": 1.7609050208332233,
+      "high_priority_count": 0,
+      "message_related_count": 0
+    },
+    {
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function_count": 301,
+      "avg_priority_score": 2.7724252491694332,
+      "high_priority_count": 33,
+      "message_related_count": 62
+    }
+  ],
+  "output_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/rebuilt"
+}

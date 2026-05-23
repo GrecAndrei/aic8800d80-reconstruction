@@ -12,6 +12,11 @@ This repository contains the reconstruction pipeline for AIC8800D80 firmware ana
   - `strong_count`: **356**
   - `fallback_count`: **0**
   - `semantic_completion_pct`: **100.000**
+- Call-conformance metrics (latest run):
+  - `avg_conformance_pct`: **100.000**
+  - `evaluable_count`: **356**
+  - `nonperfect_functions`: **0**
+  - `unevidenced_functions`: **0**
 - Quality focus backlog (latest run):
   - `focus_items`: **0**
   - `high risk`: **0**
@@ -21,7 +26,13 @@ Status artifacts (generated):
 - `extraction_out/reconstruction/mega7/final/finalize_manifest.json`
 - `extraction_out/reconstruction/mega7/final/finalize_quality.json`
 - `extraction_out/reconstruction/mega7/final/quality_focus.json`
+- `extraction_out/reconstruction/mega7/final/call_conformance.json`
 - `extraction_out/reconstruction/mega7/synth/implsynth_evidence.json`
+
+Published rebuilt snapshot (tracked in git):
+- `artifacts/rebuilt_fw/mega7/final/`
+- `artifacts/rebuilt_fw/mega7/synth/`
+- `artifacts/rebuilt_fw/mega7/meta/`
 
 ## How It Works
 
@@ -57,6 +68,13 @@ The pipeline is staged and evidence-driven:
   - no fallback functions
   - strong count equals function count
   - semantic completion at 100%
+  - call conformance at 100% when conformance report is present
+
+## Human Explanation
+
+Plain-language milestone writeup:
+
+- `docs/REBUILD_MILESTONE.md`
 
 ## Quick Start
 
@@ -68,6 +86,7 @@ go build -o /tmp/fwimplsynth ./cmd/fwimplsynth
 /tmp/fwimplsynth -max-tasks 0
 go run ./cmd/fwapplysynth --synth-dir extraction_out/reconstruction/mega7/synth --composed-dir extraction_out/reconstruction/mega7/composed --out extraction_out/reconstruction/mega7/applied
 go run ./cmd/fwfinalize
+go run ./cmd/fwvalidatecalls
 go run ./cmd/fwqualityfocus
 go run ./cmd/fwharden
 ```

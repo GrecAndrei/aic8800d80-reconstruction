@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-05-23T22:27:12Z",
+  "applied_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/applied",
+  "final_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/final",
+  "file_count": 4,
+  "function_count": 356,
+  "todo_count": 0,
+  "implemented_count": 356,
+  "completion_pct": 100,
+  "strong_count": 356,
+  "fallback_count": 0,
+  "semantic_completion_pct": 100,
+  "files": [
+    {
+      "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+      "function_count": 147,
+      "todo_count": 0,
+      "implemented_count": 147,
+      "strong_count": 147,
+      "fallback_count": 0,
+      "semantic_completion_pct": 100
+    },
+    {
+      "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+      "function_count": 87,
+      "todo_count": 0,
+      "implemented_count": 87,
+      "strong_count": 87,
+      "fallback_count": 0,
+      "semantic_completion_pct": 100
+    },
+    {
+      "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+      "function_count": 68,
+      "todo_count": 0,
+      "implemented_count": 68,
+      "strong_count": 68,
+      "fallback_count": 0,
+      "semantic_completion_pct": 100
+    },
+    {
+      "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+      "function_count": 54,
+      "todo_count": 0,
+      "implemented_count": 54,
+      "strong_count": 54,
+      "fallback_count": 0,
+      "semantic_completion_pct": 100
+    }
+  ]
+}

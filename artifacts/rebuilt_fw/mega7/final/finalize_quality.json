@@ -1,0 +1,4999 @@
+[
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_116d3c",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "cross_image_consistent_opaque_leaf",
+      "cross_image_consistency_promoted"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_116d3c",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "cross_image_consistent_opaque_leaf",
+      "cross_image_consistency_promoted"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_116d3c",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "cross_image_consistent_opaque_leaf",
+      "cross_image_consistency_promoted"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_116d3c",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "cross_image_consistent_opaque_leaf",
+      "cross_image_consistency_promoted"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "apm_sta_connect_past_timer_handle",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "apm_start_cac_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "apm_start_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "apm_stop_cac_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "clear_flags",
+    "call_count": 1,
+    "calls": [
+      "rx_queue_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "clear_sdio_state",
+    "call_count": 1,
+    "calls": [
+      "sdio_status_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "debug_if_40320038",
+    "call_count": 1,
+    "calls": [
+      "uart_putc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "emb_kmsg_hdlr",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "feature_flags_init",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "feature_guard_sdio",
+    "call_count": 1,
+    "calls": [
+      "sdio_transfer"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "get_cached_1828f8",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "get_variant_cached",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "hal_dma_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "hal_machw_abs_timer_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "hw_event_flag",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "idle_processing",
+    "call_count": 4,
+    "calls": [
+      "feature_guard_sdio",
+      "ipc_doorbell_handler",
+      "queue_check",
+      "sdio_status_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "intc_spurious",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "terminal_or_exception_path",
+      "expected_terminal_dispatch_pattern",
+      "single_generic_dispatch_callee",
+      "expected_terminal_dispatch_lowrisk"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ipc_emb_hostmsgbuf_get",
+    "call_count": 1,
+    "calls": [
+      "sdio_wait_busy"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ipc_emb_kmsg_fwd",
+    "call_count": 1,
+    "calls": [
+      "sdio_wait_busy"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ipc_rx_evt",
+    "call_count": 3,
+    "calls": [
+      "clear_flags",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ke_evt_schedule",
+    "call_count": 1,
+    "calls": [
+      "ke_timer_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ke_msg_alloc",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ke_timer_clear",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ke_timer_set",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "list_find_remove",
+    "call_count": 1,
+    "calls": [
+      "list_remove_node"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "list_insert_sorted",
+    "call_count": 1,
+    "calls": [
+      "list_remove_node"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "list_pop",
+    "call_count": 1,
+    "calls": [
+      "list_push_tail"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "list_push_tail",
+    "call_count": 3,
+    "calls": [
+      "log_queue_push",
+      "sub_137490",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "list_remove_node",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_alloc",
+    "call_count": 3,
+    "calls": [
+      "list_pop",
+      "log_free_pool_a",
+      "log_pool_init_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_flush",
+    "call_count": 3,
+    "calls": [
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start2"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_free_pool_a",
+    "call_count": 1,
+    "calls": [
+      "log_free_dispatch"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_free_pool_b",
+    "call_count": 1,
+    "calls": [
+      "log_free_dispatch"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_free_pool_e",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_free_pool_f",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_free_wrapper",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_global_init",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_hw_init",
+    "call_count": 4,
+    "calls": [
+      "sdio_buffer_prepare",
+      "log_enqueue",
+      "sub_1435d0",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_alloc",
+    "call_count": 3,
+    "calls": [
+      "list_pop",
+      "log_free_pool_a",
+      "log_pool_init_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_alloc2",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_alloc_b",
+    "call_count": 3,
+    "calls": [
+      "list_pop",
+      "log_free_pool_a",
+      "log_pool_init_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_config",
+    "call_count": 3,
+    "calls": [
+      "chip_variant_detect",
+      "crypto_hw_enable",
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_default_config",
+    "call_count": 3,
+    "calls": [
+      "chip_variant_detect",
+      "crypto_hw_enable",
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_a",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_b",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_c",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_d",
+    "call_count": 2,
+    "calls": [
+      "log_pool_init_e",
+      "sub_1140f4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_e",
+    "call_count": 1,
+    "calls": [
+      "log_system_init_mode2"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_pool_init_queue",
+    "call_count": 3,
+    "calls": [
+      "buffer_pool_manage",
+      "clear_flags",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_printf",
+    "call_count": 1,
+    "calls": [
+      "log_flush"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_ptr_in_range",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_queue_push2",
+    "call_count": 3,
+    "calls": [
+      "buffer_pool_manage",
+      "clear_flags",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_queue_refill",
+    "call_count": 3,
+    "calls": [
+      "buffer_pool_manage",
+      "clear_flags",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_system_init",
+    "call_count": 1,
+    "calls": [
+      "sub_10ffc0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_system_init_mode2",
+    "call_count": 2,
+    "calls": [
+      "log_pool_init_e",
+      "log_pool_init_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_tick",
+    "call_count": 1,
+    "calls": [
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "lpm_host_notify_bt",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mac_phy_init",
+    "call_count": 7,
+    "calls": [
+      "sub_116d3c",
+      "sub_11ecb0",
+      "sub_11f5e4",
+      "sub_120408",
+      "sub_128db8",
+      "sub_129e04",
+      "sub_12ad00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "main_loop",
+    "call_count": 4,
+    "calls": [
+      "idle_processing",
+      "sub_114578",
+      "sub_115470",
+      "sub_12d050"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "math_fastpath",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "math_helper_big2",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "math_helper_int",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "math_round",
+    "call_count": 1,
+    "calls": [
+      "math_helper_int"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "me_config_monitor_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "me_data_path_flushed_ind_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "me_rc_set_rate_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "me_set_active_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "me_set_ps_disable_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "memcpy_fast",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "memset_impl",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "memset_thunk",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_ba_add_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_bcn_change_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_cfg_rssi_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_chan_ctxt_unlink_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_force_idle_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_key_add_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_key_del_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_scan_channel_end_ind_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_scan_channel_start_ind_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_arpoffload_en_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_idle_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_idle_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_ps_mode_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_ps_options_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_set_vif_state_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_sleepinfo_rx_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_sta_add_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_sta_del_cfm_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_start_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_tbtt_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_timer_schedule",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "mm_timer_set",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "msg_get_value",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "msg_parse_short",
+    "call_count": 1,
+    "calls": [
+      "sub_101a54"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "panic_loop",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "terminal_or_exception_path",
+      "expected_terminal_dispatch_pattern",
+      "single_generic_dispatch_callee",
+      "expected_terminal_dispatch_lowrisk"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "parse_int",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "parse_width_suffix",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ps_disable_cfm",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ps_enable_cfm",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ps_upm_enter",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "ps_upm_exit",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "queue_check",
+    "call_count": 4,
+    "calls": [
+      "sdio_wait_busy",
+      "feature_guard_sdio",
+      "sdio_status_check",
+      "state_flag_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "queue_pending_check",
+    "call_count": 3,
+    "calls": [
+      "buffer_pool_manage",
+      "clear_flags",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort1",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort2",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort_common",
+    "call_count": 2,
+    "calls": [
+      "sub_10ed40",
+      "sub_114ee0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rwnxl_reset_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rwnxl_wakeup",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rx_queue_head_init",
+    "call_count": 1,
+    "calls": [
+      "list_insert_sorted"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "rx_queue_init",
+    "call_count": 1,
+    "calls": [
+      "clear_flags"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "scan_cancel_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "scan_start_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sdio_replenish_rx_msgqueue",
+    "call_count": 3,
+    "calls": [
+      "clear_flags",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sdio_rx_evt",
+    "call_count": 3,
+    "calls": [
+      "clear_flags",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sm_connect_req_handler",
+    "call_count": 2,
+    "calls": [
+      "ke_msg_alloc",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "state_flag_check",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_101a54",
+    "call_count": 2,
+    "calls": [
+      "msg_parse_short",
+      "sub_1320bc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_10ed40",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_10ffc0",
+    "call_count": 1,
+    "calls": [
+      "log_system_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_1140f4",
+    "call_count": 1,
+    "calls": [
+      "log_enqueue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_114ee0",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_11ecb0",
+    "call_count": 1,
+    "calls": [
+      "sub_12ad00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_11f5e4",
+    "call_count": 1,
+    "calls": [
+      "sub_11ecb0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_120408",
+    "call_count": 1,
+    "calls": [
+      "sub_11f5e4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_128db8",
+    "call_count": 1,
+    "calls": [
+      "sub_129e04"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_129e04",
+    "call_count": 1,
+    "calls": [
+      "sub_116d3c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "sub_12ad00",
+    "call_count": 1,
+    "calls": [
+      "sub_128db8"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "thunk",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_get"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "timer_set_relative",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "timestamp_list_contains",
+    "call_count": 1,
+    "calls": [
+      "timestamp_update"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "timestamp_remove",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "timestamp_update",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "tx_dequeue",
+    "call_count": 4,
+    "calls": [
+      "list_push_tail",
+      "log_hw_init",
+      "log_queue_push",
+      "msg_parse"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "tx_submit",
+    "call_count": 3,
+    "calls": [
+      "list_push_tail",
+      "log_queue_push",
+      "rf_cmd_queue_next"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "tx_timeout_check",
+    "call_count": 1,
+    "calls": [
+      "error_handler"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "txl_cfm_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "uart_putc",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "uart_puts",
+    "call_count": 1,
+    "calls": [
+      "uart_putc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "usb_rx_evt",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "usb_trans_error_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "usb_wlan_recv",
+    "call_count": 2,
+    "calls": [
+      "rx_queue_init",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "usb_wlan_recv_fc_on",
+    "call_count": 2,
+    "calls": [
+      "rx_queue_init",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "usb_wlan_rx_pkt_free_list_init",
+    "call_count": 1,
+    "calls": [
+      "list_insert_sorted"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "wlan_epbulk_recv_compl_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "wlan_epbulk_send_compl_handler",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_event_dispatch_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "chip_feature_check",
+    "call_count": 1,
+    "calls": [
+      "feature_always_on"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_channel_calc",
+    "call_count": 1,
+    "calls": [
+      "crypto_freq_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_clear_regs",
+    "call_count": 3,
+    "calls": [
+      "crypto_state_dump",
+      "crypto_power_calc",
+      "crypto_power_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_enable",
+    "call_count": 2,
+    "calls": [
+      "crypto_hw_disable",
+      "crypto_mac_core"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "feature_guard_sdio",
+    "call_count": 1,
+    "calls": [
+      "sdio_transfer"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "firmware_init",
+    "call_count": 2,
+    "calls": [
+      "fw_config_apply",
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "fp_convert_int",
+    "call_count": 1,
+    "calls": [
+      "fp_convert_uint"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "fw_config_apply",
+    "call_count": 1,
+    "calls": [
+      "patch_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "ipc_doorbell_handler",
+    "call_count": 1,
+    "calls": [
+      "sdio_wait_busy"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "list_pop",
+    "call_count": 1,
+    "calls": [
+      "list_push_tail"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "list_push_tail",
+    "call_count": 3,
+    "calls": [
+      "log_queue_push",
+      "sub_137490",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_free_dispatch",
+    "call_count": 4,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c",
+      "log_free_pool_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_free_pool_dispatch2",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_hw_init",
+    "call_count": 4,
+    "calls": [
+      "sdio_buffer_prepare",
+      "log_enqueue",
+      "sub_1435d0",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_pool_init_d",
+    "call_count": 2,
+    "calls": [
+      "log_pool_init_e",
+      "sub_1140f4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_pool_init_e",
+    "call_count": 1,
+    "calls": [
+      "log_system_init_mode2"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_ptr_in_range",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "log_queue_push",
+    "call_count": 1,
+    "calls": [
+      "tx_dequeue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "main_loop",
+    "call_count": 4,
+    "calls": [
+      "idle_processing",
+      "sub_114578",
+      "sub_115470",
+      "sub_12d050"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "math_round",
+    "call_count": 1,
+    "calls": [
+      "math_helper_int"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "message_dispatch",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_manage"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "msg_parse",
+    "call_count": 2,
+    "calls": [
+      "msg_handler_tx",
+      "sub_137490"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "panic_loop",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "terminal_or_exception_path",
+      "expected_terminal_dispatch_pattern",
+      "single_generic_dispatch_callee",
+      "expected_terminal_dispatch_lowrisk"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "patch_apply",
+    "call_count": 1,
+    "calls": [
+      "fw_config_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "phy_rf_init",
+    "call_count": 3,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blockb",
+      "rf_init_blocka"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "queue_check",
+    "call_count": 4,
+    "calls": [
+      "sdio_wait_busy",
+      "feature_guard_sdio",
+      "sdio_status_check",
+      "state_flag_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_init",
+    "call_count": 2,
+    "calls": [
+      "rf_reg_write_cb",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_mark",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset2",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_setup",
+    "call_count": 2,
+    "calls": [
+      "rf_reg_write_cb",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write",
+    "call_count": 1,
+    "calls": [
+      "rf_bus_clear"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write2",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_dispatch",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_process",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_queue_next",
+    "call_count": 2,
+    "calls": [
+      "log_queue_push",
+      "log_queue_alloc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_send",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_wait",
+    "call_count": 1,
+    "calls": [
+      "ke_timer_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_fault_dump",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_hw_timer_init",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_hw_timer_read",
+    "call_count": 2,
+    "calls": [
+      "rf_level_step",
+      "rf_level_compute"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blocka",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blockb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockb",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blocka"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockc",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blocka",
+      "rf_init_blockb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_apply",
+    "call_count": 1,
+    "calls": [
+      "sub_102a24"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_compute",
+    "call_count": 2,
+    "calls": [
+      "rf_level_step",
+      "rf_hw_timer_read"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_dump",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_read",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_write",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_msg_handler",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_msg_log_rate",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_msg_process_body",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_power_set",
+    "call_count": 1,
+    "calls": [
+      "sub_102b00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_cb",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_core",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_wait",
+    "call_count": 1,
+    "calls": [
+      "rf_reg_ack_cb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_state_check",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_stream_start",
+    "call_count": 1,
+    "calls": [
+      "sub_111f08"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_stream_start2",
+    "call_count": 1,
+    "calls": [
+      "rf_stream_start"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_stream_start_once",
+    "call_count": 2,
+    "calls": [
+      "rf_cmd_send",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort1",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort2",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_toggle",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_toggle_update",
+    "call_count": 3,
+    "calls": [
+      "rf_hw_timer_read",
+      "rf_level_step",
+      "rf_level_compute"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_buffer_prepare",
+    "call_count": 4,
+    "calls": [
+      "log_hw_init",
+      "sub_1435d0",
+      "log_enqueue",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_dma_config",
+    "call_count": 3,
+    "calls": [
+      "chip_variant_detect",
+      "crypto_hw_enable",
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_status_check",
+    "call_count": 1,
+    "calls": [
+      "feature_guard_sdio"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_transfer",
+    "call_count": 3,
+    "calls": [
+      "log_hw_init",
+      "log_enqueue",
+      "sdio_buffer_prepare"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_wait_busy",
+    "call_count": 4,
+    "calls": [
+      "queue_check",
+      "tx_timeout_check",
+      "feature_guard_sdio",
+      "sdio_status_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "state_flag_check",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_101a54",
+    "call_count": 2,
+    "calls": [
+      "msg_parse_short",
+      "sub_1320bc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ed40",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ffc0",
+    "call_count": 1,
+    "calls": [
+      "log_system_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_1140f4",
+    "call_count": 1,
+    "calls": [
+      "log_enqueue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_114ee0",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11ecb0",
+    "call_count": 1,
+    "calls": [
+      "sub_12ad00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11f5e4",
+    "call_count": 1,
+    "calls": [
+      "sub_11ecb0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_120408",
+    "call_count": 1,
+    "calls": [
+      "sub_11f5e4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_128db8",
+    "call_count": 1,
+    "calls": [
+      "sub_129e04"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_129e04",
+    "call_count": 1,
+    "calls": [
+      "sub_116d3c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_12ad00",
+    "call_count": 1,
+    "calls": [
+      "sub_128db8"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "thunk",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_get"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "timestamp_remove",
+    "call_count": 1,
+    "calls": [
+      "timestamp_list_contains"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_phy_config",
+    "call_count": 1,
+    "calls": [
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_submit",
+    "call_count": 3,
+    "calls": [
+      "list_push_tail",
+      "log_queue_push",
+      "rf_cmd_queue_next"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_timeout_check",
+    "call_count": 1,
+    "calls": [
+      "error_handler"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_channel_calc",
+    "call_count": 1,
+    "calls": [
+      "crypto_freq_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_disable",
+    "call_count": 2,
+    "calls": [
+      "crypto_hw_enable",
+      "crypto_mac_core"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_enable",
+    "call_count": 2,
+    "calls": [
+      "crypto_hw_disable",
+      "crypto_mac_core"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_power_up",
+    "call_count": 1,
+    "calls": [
+      "crypto_power_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "event_queue_push",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_manage"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "feature_guard_sdio",
+    "call_count": 1,
+    "calls": [
+      "sdio_transfer"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "list_pop",
+    "call_count": 1,
+    "calls": [
+      "list_push_tail"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "list_push_tail",
+    "call_count": 3,
+    "calls": [
+      "log_queue_push",
+      "sub_137490",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_free_dispatch",
+    "call_count": 4,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c",
+      "log_free_pool_d"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_free_pool_dispatch2",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_hw_init",
+    "call_count": 4,
+    "calls": [
+      "sdio_buffer_prepare",
+      "log_enqueue",
+      "sub_1435d0",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_pool_init_d",
+    "call_count": 2,
+    "calls": [
+      "log_pool_init_e",
+      "sub_1140f4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_ptr_in_range",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_pool_init_d",
+      "rf_power_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "log_queue_push",
+    "call_count": 1,
+    "calls": [
+      "tx_dequeue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "main_loop",
+    "call_count": 4,
+    "calls": [
+      "idle_processing",
+      "sub_114578",
+      "sub_115470",
+      "sub_12d050"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "math_helper_big",
+    "call_count": 1,
+    "calls": [
+      "sub_142f2c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "math_helper_big2",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "math_round",
+    "call_count": 1,
+    "calls": [
+      "math_helper_int"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "message_dispatch",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_manage"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "patch_apply",
+    "call_count": 1,
+    "calls": [
+      "fw_config_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "phy_rf_init",
+    "call_count": 3,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blockb",
+      "rf_init_blocka"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "queue_check",
+    "call_count": 4,
+    "calls": [
+      "sdio_wait_busy",
+      "feature_guard_sdio",
+      "sdio_status_check",
+      "state_flag_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_mark",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset2",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_setup",
+    "call_count": 2,
+    "calls": [
+      "rf_reg_write_cb",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write",
+    "call_count": 1,
+    "calls": [
+      "rf_bus_clear"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write2",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_dispatch",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_send",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_wait",
+    "call_count": 1,
+    "calls": [
+      "ke_timer_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_hw_timer_init",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blocka",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blockb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockb",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blocka"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockc",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blocka",
+      "rf_init_blockb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_apply",
+    "call_count": 1,
+    "calls": [
+      "sub_102a24"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_compute",
+    "call_count": 2,
+    "calls": [
+      "rf_level_step",
+      "rf_hw_timer_read"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_read",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_write",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_msg_handler",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_msg_process_body",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_power_set",
+    "call_count": 1,
+    "calls": [
+      "sub_102b00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_cb",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_wait",
+    "call_count": 1,
+    "calls": [
+      "rf_reg_ack_cb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_state_check",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_stream_start",
+    "call_count": 1,
+    "calls": [
+      "sub_111f08"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_stream_start2",
+    "call_count": 1,
+    "calls": [
+      "rf_stream_start"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort1",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort2",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_buffer_prepare",
+    "call_count": 4,
+    "calls": [
+      "log_hw_init",
+      "sub_1435d0",
+      "log_enqueue",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_dma_config",
+    "call_count": 3,
+    "calls": [
+      "chip_variant_detect",
+      "crypto_hw_enable",
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_status_check",
+    "call_count": 1,
+    "calls": [
+      "feature_guard_sdio"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "state_flag_check",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_101a54",
+    "call_count": 2,
+    "calls": [
+      "msg_parse_short",
+      "sub_1320bc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ed40",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ffc0",
+    "call_count": 1,
+    "calls": [
+      "log_system_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_1140f4",
+    "call_count": 1,
+    "calls": [
+      "log_enqueue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_114ee0",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11ecb0",
+    "call_count": 1,
+    "calls": [
+      "sub_12ad00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11f5e4",
+    "call_count": 1,
+    "calls": [
+      "sub_11ecb0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_120408",
+    "call_count": 1,
+    "calls": [
+      "sub_11f5e4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_128db8",
+    "call_count": 1,
+    "calls": [
+      "sub_129e04"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_129e04",
+    "call_count": 1,
+    "calls": [
+      "sub_116d3c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_12ad00",
+    "call_count": 1,
+    "calls": [
+      "sub_128db8"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "thunk",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_get"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_submit",
+    "call_count": 3,
+    "calls": [
+      "list_push_tail",
+      "log_queue_push",
+      "rf_cmd_queue_next"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_timeout_check",
+    "call_count": 1,
+    "calls": [
+      "error_handler"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "clock_calc",
+    "call_count": 4,
+    "calls": [
+      "feature_guard_sdio",
+      "firmware_init",
+      "fw_config_apply",
+      "log_list_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_clear_regs",
+    "call_count": 3,
+    "calls": [
+      "crypto_state_dump",
+      "crypto_power_calc",
+      "crypto_power_apply"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_hw_disable",
+    "call_count": 2,
+    "calls": [
+      "crypto_hw_enable",
+      "crypto_mac_core"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_iq_calculate",
+    "call_count": 1,
+    "calls": [
+      "clock_calc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_key_load",
+    "call_count": 1,
+    "calls": [
+      "crypto_hw_write32"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "crypto_table_init",
+    "call_count": 1,
+    "calls": [
+      "crypto_iq_calculate"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "feature_guard_sdio",
+    "call_count": 1,
+    "calls": [
+      "sdio_transfer"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "list_pop",
+    "call_count": 1,
+    "calls": [
+      "list_push_tail"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "list_push_tail",
+    "call_count": 3,
+    "calls": [
+      "log_queue_push",
+      "sub_137490",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "log_free_pool_dispatch2",
+    "call_count": 3,
+    "calls": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "log_hw_init",
+    "call_count": 4,
+    "calls": [
+      "sdio_buffer_prepare",
+      "log_enqueue",
+      "sub_1435d0",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "log_pool_init_d",
+    "call_count": 2,
+    "calls": [
+      "log_pool_init_e",
+      "sub_1140f4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "main_loop",
+    "call_count": 4,
+    "calls": [
+      "idle_processing",
+      "sub_114578",
+      "sub_115470",
+      "sub_12d050"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "memset_impl",
+    "call_count": 1,
+    "calls": [
+      "math_round"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "queue_check",
+    "call_count": 4,
+    "calls": [
+      "sdio_wait_busy",
+      "feature_guard_sdio",
+      "sdio_status_check",
+      "state_flag_check"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_mark",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_reset2",
+    "call_count": 2,
+    "calls": [
+      "rf_bus_mark",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_setup",
+    "call_count": 2,
+    "calls": [
+      "rf_reg_write_cb",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write",
+    "call_count": 1,
+    "calls": [
+      "rf_bus_clear"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_bus_write2",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_dispatch",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_send",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_cmd_wait",
+    "call_count": 1,
+    "calls": [
+      "ke_timer_set"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_hw_timer_init",
+    "call_count": 2,
+    "calls": [
+      "ke_timer_set",
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockb",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blockc",
+      "rf_init_blocka"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_init_blockc",
+    "call_count": 2,
+    "calls": [
+      "rf_init_blocka",
+      "rf_init_blockb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_apply",
+    "call_count": 1,
+    "calls": [
+      "sub_102a24"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_level_compute",
+    "call_count": 2,
+    "calls": [
+      "rf_level_step",
+      "rf_hw_timer_read"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_read",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_mem_write",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_power_set",
+    "call_count": 1,
+    "calls": [
+      "sub_102b00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_cb",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_reg_write_wait",
+    "call_count": 1,
+    "calls": [
+      "rf_reg_ack_cb"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort1",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "rf_timer_abort2",
+    "call_count": 1,
+    "calls": [
+      "rf_timer_abort_common"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_buffer_prepare",
+    "call_count": 4,
+    "calls": [
+      "log_hw_init",
+      "sub_1435d0",
+      "log_enqueue",
+      "list_pop"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sdio_dma_config",
+    "call_count": 3,
+    "calls": [
+      "chip_variant_detect",
+      "crypto_hw_enable",
+      "crypto_hw_power_up"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "state_flag_check",
+    "call_count": 1,
+    "calls": [
+      "ke_evt_schedule"
+    ],
+    "risk": "low",
+    "reasons": [
+      "single_generic_dispatch_callee",
+      "expected_scheduler_bridge_pattern"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_101a54",
+    "call_count": 2,
+    "calls": [
+      "msg_parse_short",
+      "sub_1320bc"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ed40",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_10ffc0",
+    "call_count": 1,
+    "calls": [
+      "log_system_init"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_1140f4",
+    "call_count": 1,
+    "calls": [
+      "log_enqueue"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_114ee0",
+    "call_count": 1,
+    "calls": [
+      "rf_cmd_wait"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_calls",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11ecb0",
+    "call_count": 1,
+    "calls": [
+      "sub_12ad00"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_11f5e4",
+    "call_count": 1,
+    "calls": [
+      "sub_11ecb0"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_120408",
+    "call_count": 1,
+    "calls": [
+      "sub_11f5e4"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_128db8",
+    "call_count": 1,
+    "calls": [
+      "sub_129e04"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_129e04",
+    "call_count": 1,
+    "calls": [
+      "sub_116d3c"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "sub_12ad00",
+    "call_count": 1,
+    "calls": [
+      "sub_128db8"
+    ],
+    "risk": "low",
+    "reasons": [
+      "opaque_sub_function",
+      "synth_evidence_non_generic_outgoing",
+      "calls_align_with_mined_outgoing"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "thunk",
+    "call_count": 1,
+    "calls": [
+      "buffer_pool_get"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_submit",
+    "call_count": 3,
+    "calls": [
+      "list_push_tail",
+      "log_queue_push",
+      "rf_cmd_queue_next"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "tx_timeout_check",
+    "call_count": 1,
+    "calls": [
+      "error_handler"
+    ],
+    "risk": "low",
+    "reasons": [
+      "multi_callee_structural_flow"
+    ],
+    "template_evidence": true
+  }
+]

@@ -1,0 +1,3219 @@
+[
+  {
+    "function": "tx_dequeue",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x11017c",
+    "incoming_count": 2,
+    "outgoing_count": 10,
+    "selected_count": 4,
+    "top_incoming": [
+      "log_queue_push",
+      "tx_submit"
+    ],
+    "top_outgoing": [
+      "list_pop",
+      "list_push_tail",
+      "log_hw_init",
+      "log_queue_push"
+    ]
+  },
+  {
+    "function": "idle_processing",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1159a4",
+    "incoming_count": 1,
+    "outgoing_count": 7,
+    "selected_count": 4,
+    "top_incoming": [
+      "main_loop"
+    ],
+    "top_outgoing": [
+      "feature_guard_sdio",
+      "ipc_doorbell_handler",
+      "queue_check",
+      "sdio_status_check"
+    ]
+  },
+  {
+    "function": "mac_phy_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1205e0",
+    "incoming_count": 0,
+    "outgoing_count": 7,
+    "selected_count": 7,
+    "top_incoming": [],
+    "top_outgoing": [
+      "sub_116d3c",
+      "sub_11ecb0",
+      "sub_11f5e4",
+      "sub_120408"
+    ]
+  },
+  {
+    "function": "rwnxl_reset_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47674",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "emb_kmsg_hdlr",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46020",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "usb_rx_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47004",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_system_init_mode2",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f382",
+    "incoming_count": 0,
+    "outgoing_count": 3,
+    "selected_count": 2,
+    "top_incoming": [],
+    "top_outgoing": [
+      "log_pool_init_d",
+      "log_pool_init_e",
+      "sub_1140f4"
+    ]
+  },
+  {
+    "function": "log_flush",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x113578",
+    "incoming_count": 0,
+    "outgoing_count": 3,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": [
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start2"
+    ]
+  },
+  {
+    "function": "rwnxl_wakeup",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47664",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ps_enable_cfm",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x496fc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "usb_trans_error_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47010",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "usb_wlan_recv",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46d10",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "usb_wlan_recv_fc_on",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46d20",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "usb_wlan_rx_pkt_free_list_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46fc0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "wlan_epbulk_send_compl_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46fa0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ps_upm_exit",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4972c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ps_upm_enter",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4971c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "intc_spurious",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x44258",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ps_disable_cfm",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4970c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "lpm_host_notify_bt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46044",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "wlan_epbulk_recv_compl_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46f80",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "msg_parse_short",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12f35c",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "sub_101a54"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_a",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x110250",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "log_free_dispatch"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_b",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1102f0",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "log_free_dispatch"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "msg_get_value",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12cd48",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_timer_abort_common",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12ef88",
+    "incoming_count": 2,
+    "outgoing_count": 2,
+    "selected_count": 2,
+    "top_incoming": [
+      "rf_timer_abort1",
+      "rf_timer_abort2"
+    ],
+    "top_outgoing": [
+      "sub_10ed40",
+      "sub_114ee0"
+    ]
+  },
+  {
+    "function": "log_pool_init_e",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1136d4",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "log_system_init_mode2"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rx_queue_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12d0d0",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "clear_flags"
+    ]
+  },
+  {
+    "function": "log_printf",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10dae4",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "log_flush"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "clear_flags",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12d00c",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "rx_queue_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_tick",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f058",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_power_set"
+    ]
+  },
+  {
+    "function": "log_system_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f318",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "sub_10ffc0"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_replenish_rx_msgqueue",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46830",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ipc_rx_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47060",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ipc_emb_kmsg_fwd",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x46030",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ipc_emb_hostmsgbuf_get",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x45ff0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_rx_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4686c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_ptr_in_range",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10fdf4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_round",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1424dc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "hw_event_flag",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x111fbc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "uart_puts",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10d674",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "get_variant_cached",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1006cc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "get_cached_1828f8",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1018f0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "feature_flags_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12f3a8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "uart_putc",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10d65c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "timestamp_update",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x124bfc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "timestamp_remove",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x124cf4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "timestamp_list_contains",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x124e3c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "list_find_remove",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12c8fc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "list_insert_sorted",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12d240",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "list_remove_node",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12d1a8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_alloc",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10fe7c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "debug_if_40320038",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x101924",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "clear_sdio_state",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10d2c4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "timer_set_relative",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12c4a4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_e",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x11414c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_f",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1137c4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_wrapper",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f230",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_global_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f270",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_alloc",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x110340",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_alloc2",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f9e8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_alloc_b",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1102a0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_config",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f24c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_default_config",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x10f23c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_init_a",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1100e4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_init_b",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x11004c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_init_c",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x11013c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rx_queue_head_init",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12c954",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_init_queue",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1100a4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "queue_pending_check",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12a32c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "parse_width_suffix",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12f8ec",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_queue_push2",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x110edc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_queue_refill",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1103c4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "parse_int",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12f818",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "panic_loop",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1006d8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "memset_thunk",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x100200",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "memset_impl",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x100202",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "memcpy_fast",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x143630",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_fastpath",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x12d3e0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_helper_big2",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x1425fc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_helper_int",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x142e9c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_send",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13010",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "tx_prepare"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_read",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2eb18",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "phy_rf_init",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x32d0",
+    "incoming_count": 1,
+    "outgoing_count": 7,
+    "selected_count": 3,
+    "top_incoming": [
+      "fw_config_copy"
+    ],
+    "top_outgoing": [
+      "hw_reg_set_40035000",
+      "irq23_enable",
+      "irq_mask_init",
+      "rf_init_blocka"
+    ]
+  },
+  {
+    "function": "patch_apply",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x154e8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "clock_calc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "message_dispatch",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2cbb4",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "buffer_pool_manage"
+    ]
+  },
+  {
+    "function": "rf_bus_reset",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12844",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_reset2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x11858",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_setup",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x11d58",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_write",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x119c0",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_bus_clear"
+    ]
+  },
+  {
+    "function": "rf_bus_write2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x11a78",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_dispatch2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xfb38",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_dispatch",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xfe60",
+    "incoming_count": 0,
+    "outgoing_count": 4,
+    "selected_count": 4,
+    "top_incoming": [],
+    "top_outgoing": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c",
+      "log_free_pool_d"
+    ]
+  },
+  {
+    "function": "rf_cmd_dispatch",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2fc7c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_send",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12e6c",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "tx_prepare"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blocka",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xeda8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_transfer",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xd808",
+    "incoming_count": 2,
+    "outgoing_count": 4,
+    "selected_count": 3,
+    "top_incoming": [
+      "feature_guard_sdio",
+      "tx_dequeue"
+    ],
+    "top_outgoing": [
+      "log_enqueue",
+      "log_hw_init",
+      "sdio_buffer_prepare",
+      "sub_1435d0"
+    ]
+  },
+  {
+    "function": "sdio_status_check",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xd304",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": [
+      "feature_guard_sdio"
+    ]
+  },
+  {
+    "function": "sdio_dma_config",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xc840",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "sdio_dma_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_buffer_prepare",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2e11c",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "sdio_transfer",
+      "tx_dequeue"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_timer_toggle",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2f060",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_stream_start2",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x133f0",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_flush"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_stream_start",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13350",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_flush"
+    ],
+    "top_outgoing": [
+      "sub_111f08"
+    ]
+  },
+  {
+    "function": "rf_state_check",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x121d4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_reg_write_core",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xee40",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_msg_process_body",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13c48",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_msg_handler",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13104",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_write",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2fb48",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_dump",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x303a0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_compute",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x30430",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "rf_timer_toggle_update"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_apply",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x302f8",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "sub_102a24"
+    ]
+  },
+  {
+    "function": "rf_init_blockc",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xe2a0",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_write",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x2202c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_read",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1f594",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_buffer_prepare",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1ebb4",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "sdio_transfer",
+      "tx_dequeue"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blockb",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xe560",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_dma_config",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xcbe0",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "sdio_dma_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blocka",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xef50",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_apply",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x26dd8",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "sub_102a24"
+    ]
+  },
+  {
+    "function": "rf_hw_timer_read",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xe048",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "rf_timer_toggle_update"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_fault_dump",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x14748",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_wait",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x12f70",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_mark",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x116e0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_queue_next",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x134b4",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "tx_dequeue",
+      "tx_submit"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_send",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x12918",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "tx_prepare"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_process",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13558",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_dispatch",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x21f44",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_dispatch",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2fa60",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_write2",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x11c1c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_write2",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x11524",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_write",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1146c",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_bus_clear"
+    ]
+  },
+  {
+    "function": "rf_bus_write",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x11b64",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_bus_clear"
+    ]
+  },
+  {
+    "function": "rf_bus_setup",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x11efc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_reset2",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x119fc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_reset",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x129e8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_mark",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x11884",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_setup",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x11804",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_init",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x11db8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "phy_rf_init",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x3478",
+    "incoming_count": 1,
+    "outgoing_count": 7,
+    "selected_count": 3,
+    "top_incoming": [
+      "fw_config_copy"
+    ],
+    "top_outgoing": [
+      "hw_reg_set_40035000",
+      "irq23_enable",
+      "irq_mask_init",
+      "rf_init_blocka"
+    ]
+  },
+  {
+    "function": "patch_apply",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x14eac",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "clock_calc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_reset2",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x11304",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_reset",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x122f0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_bus_mark",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x1118c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_dispatch2",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xfbd0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_apply",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x30514",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "sub_102a24"
+    ]
+  },
+  {
+    "function": "sdio_dma_config",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xc698",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "sdio_dma_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_buffer_prepare",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2e344",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "sdio_transfer",
+      "tx_dequeue"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_stream_start2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x1324c",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_flush"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "message_dispatch",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2c98c",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "buffer_pool_manage"
+    ]
+  },
+  {
+    "function": "rf_state_check",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12030",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_read",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2ed40",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_mem_write",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2fd64",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_msg_handler",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12f60",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_free_pool_dispatch2",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xfce0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ipc_doorbell_handler",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x1597c",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": [
+      "sdio_wait_busy"
+    ]
+  },
+  {
+    "function": "log_free_dispatch",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x10008",
+    "incoming_count": 0,
+    "outgoing_count": 4,
+    "selected_count": 4,
+    "top_incoming": [],
+    "top_outgoing": [
+      "log_free_pool_a",
+      "log_free_pool_b",
+      "log_free_pool_c",
+      "log_free_pool_d"
+    ]
+  },
+  {
+    "function": "rf_reg_write_cb",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xed7c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_sleepinfo_rx_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4890c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_chan_ctxt_unlink_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bc6c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "me_data_path_flushed_ind_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bca4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "me_rc_set_rate_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4b6c0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "me_set_active_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bc38",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "me_set_ps_disable_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bbf8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_ba_add_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4ca78",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "hal_dma_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49fc4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ke_evt_schedule",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4a3a4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "txl_cfm_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x47a64",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ke_msg_alloc",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4a0c0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ke_timer_clear",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4a078",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "ke_timer_set",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4a068",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "apm_stop_cac_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4c2f8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "sm_connect_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bb98",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "scan_start_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49928",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "scan_cancel_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4999c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_sta_add_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bbe0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_bcn_change_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4c280",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_scan_channel_start_ind_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49940",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "apm_start_cac_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4c2dc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_cfg_rssi_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48f18",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_idle_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4b68c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_arpoffload_en_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48ef4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_force_idle_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48e70",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "apm_sta_connect_past_timer_handle",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x463bc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_timer_set",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49170",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_timer_schedule",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49180",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_tbtt_evt",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48920",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_start_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48e40",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "me_config_monitor_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4b6dc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_sta_del_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4bc54",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "hal_machw_abs_timer_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49f80",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_scan_channel_end_ind_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x49964",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "apm_start_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4c20c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_key_add_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48e8c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_key_del_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48ea4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_vif_state_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4c2bc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_idle_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48e58",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_ps_options_req_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x48ed4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "mm_set_ps_mode_cfm_handler",
+    "image": "fmacfw_8800d80_h_u02.bin",
+    "address": "0x4b6a4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_hw_timer_init",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xde48",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_hw_timer_init",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xdff0",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_hw_timer_init",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xde98",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_reg_write_wait",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xedd8",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_reg_ack_cb"
+    ]
+  },
+  {
+    "function": "rf_msg_log_rate",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x141c8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_reg_write_cb",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xefb4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_reg_write_cb",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xebd4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_stream_start",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x131ac",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_flush"
+    ],
+    "top_outgoing": [
+      "sub_111f08"
+    ]
+  },
+  {
+    "function": "rf_level_compute",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x3064c",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "rf_timer_toggle_update"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blockc",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xe0f8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_wait",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x12878",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blockc",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xe4d8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_level_compute",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x26f10",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "rf_timer_toggle_update"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_cmd_wait",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x12dcc",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_wait_busy",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2ea10",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "idle_processing",
+      "ipc_doorbell_handler"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_msg_process_body",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x13aa4",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_power_set",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2b80",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_tick"
+    ],
+    "top_outgoing": [
+      "sub_102b00"
+    ]
+  },
+  {
+    "function": "rf_init_blockb",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xe798",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_init_blockb",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xe3b8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "phy_rf_init"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sdio_status_check",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xd15c",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": [
+      "feature_guard_sdio"
+    ]
+  },
+  {
+    "function": "rf_reg_write_wait",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0xf010",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_reg_ack_cb"
+    ]
+  },
+  {
+    "function": "rf_timer_toggle_update",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x304b0",
+    "incoming_count": 0,
+    "outgoing_count": 3,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_hw_timer_read",
+      "rf_level_compute",
+      "rf_level_step"
+    ]
+  },
+  {
+    "function": "rf_power_set",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x29dc",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_tick"
+    ],
+    "top_outgoing": [
+      "sub_102b00"
+    ]
+  },
+  {
+    "function": "rf_power_set",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x29f8",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_tick"
+    ],
+    "top_outgoing": [
+      "sub_102b00"
+    ]
+  },
+  {
+    "function": "rf_reg_write_wait",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xec30",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_reg_ack_cb"
+    ]
+  },
+  {
+    "function": "rf_stream_start_once",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x14114",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_ptr_in_range",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xff34",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_round",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x426b8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_helper_big2",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x427d8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_helper_big",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x42b44",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "fp_convert_uint",
+      "math_helper"
+    ],
+    "top_outgoing": [
+      "sub_142f2c"
+    ]
+  },
+  {
+    "function": "log_queue_push",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x10fb8",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "tx_dequeue",
+      "tx_submit"
+    ],
+    "top_outgoing": [
+      "log_queue_alloc"
+    ]
+  },
+  {
+    "function": "log_ptr_in_range",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0xfd8c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "event_queue_push",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2c964",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "buffer_pool_manage"
+    ]
+  },
+  {
+    "function": "crypto_hw_power_up",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x39c4",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "tx_phy_config"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_hw_enable",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2b00",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "crypto_mac_dispatch",
+      "tx_rate_config"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_hw_disable",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x2b64",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "crypto_mac_dispatch",
+      "tx_rate_config"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_channel_calc",
+    "image": "fmacfwbt_8800d80_u02.bin",
+    "address": "0x7ed8",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "crypto_freq_set"
+    ]
+  },
+  {
+    "function": "tx_phy_config",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0xc360",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "crypto_hw_power_up"
+    ]
+  },
+  {
+    "function": "timestamp_remove",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x24e34",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "panic_loop",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x6d8",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "msg_parse",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2ea88",
+    "incoming_count": 6,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "clock_calc",
+      "crypto_mac_dispatch",
+      "error_handler",
+      "msg_dispatch"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "math_round",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x4261c",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_queue_push",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x1115c",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "tx_dequeue",
+      "tx_submit"
+    ],
+    "top_outgoing": [
+      "log_queue_alloc"
+    ]
+  },
+  {
+    "function": "log_pool_init_e",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x13814",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "log_system_init_mode2"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "fw_config_apply",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2a0",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "clock_calc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "fp_convert_int",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2d708",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "crypto_power_apply",
+      "crypto_power_calc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "firmware_init",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x478",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "clock_calc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_hw_enable",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x2ca8",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "crypto_mac_dispatch",
+      "tx_rate_config"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_hw_clear_regs",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x7518",
+    "incoming_count": 3,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "crypto_freq_set",
+      "crypto_hw_sequence",
+      "crypto_rx_calibrate"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_channel_calc",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x8080",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "crypto_freq_set"
+    ]
+  },
+  {
+    "function": "chip_feature_check",
+    "image": "fmacfw_8800d80_u02.bin",
+    "address": "0x19fc",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "chip_variant_detect"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "clock_calc",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x3334",
+    "incoming_count": 0,
+    "outgoing_count": 7,
+    "selected_count": 4,
+    "top_incoming": [],
+    "top_outgoing": [
+      "feature_guard_sdio",
+      "firmware_init",
+      "fw_config_apply",
+      "log_list_init"
+    ]
+  },
+  {
+    "function": "crypto_hw_clear_regs",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x6f08",
+    "incoming_count": 3,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "crypto_freq_set",
+      "crypto_hw_sequence",
+      "crypto_rx_calibrate"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_hw_disable",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x2b40",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "crypto_mac_dispatch",
+      "tx_rate_config"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_iq_calculate",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x3da8",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "crypto_calibrate"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "crypto_key_load",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x948",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "crypto_hw_write32"
+    ]
+  },
+  {
+    "function": "crypto_table_init",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x3a00",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "memset_impl",
+    "image": "lmacfw_rf_8800d80_u02.bin",
+    "address": "0x202",
+    "incoming_count": 0,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [],
+    "top_outgoing": []
+  },
+  {
+    "function": "list_pop",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "log_queue_alloc"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "list_push_tail",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 4,
+    "outgoing_count": 0,
+    "selected_count": 3,
+    "top_incoming": [
+      "msg_dispatch",
+      "msg_register_handler",
+      "tx_dequeue",
+      "tx_submit"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_hw_init",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 3,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "log_hw_init_if",
+      "sdio_transfer",
+      "tx_dequeue"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "log_pool_init_d",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 2,
+    "top_incoming": [
+      "log_system_init_mode2"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "main_loop",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 5,
+    "selected_count": 4,
+    "top_incoming": [
+      "clock_calc"
+    ],
+    "top_outgoing": [
+      "idle_processing",
+      "sub_114578",
+      "sub_115470",
+      "sub_12d050"
+    ]
+  },
+  {
+    "function": "queue_check",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "rf_timer_abort1",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_timer_abort_common"
+    ]
+  },
+  {
+    "function": "rf_timer_abort2",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "rf_timer_abort_common"
+    ]
+  },
+  {
+    "function": "state_flag_check",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": []
+  },
+  {
+    "function": "sub_101a54",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 0,
+    "outgoing_count": 2,
+    "selected_count": 2,
+    "top_incoming": [],
+    "top_outgoing": [
+      "msg_parse_short",
+      "sub_1320bc"
+    ],
+    "inferred_alias": "shared_leaf_101a54"
+  },
+  {
+    "function": "sub_10ed40",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "rf_timer_abort_common"
+    ],
+    "top_outgoing": [],
+    "inferred_alias": "rf_abort_10ed40",
+    "inferred_leaf_calls": [
+      "rf_cmd_wait"
+    ]
+  },
+  {
+    "function": "sub_10ffc0",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 0,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [],
+    "top_outgoing": [
+      "log_system_init"
+    ],
+    "inferred_alias": "shared_leaf_10ffc0"
+  },
+  {
+    "function": "sub_1140f4",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 0,
+    "top_incoming": [
+      "log_system_init_mode2"
+    ],
+    "top_outgoing": [],
+    "inferred_alias": "log_log_1140f4",
+    "inferred_leaf_calls": [
+      "log_enqueue"
+    ]
+  },
+  {
+    "function": "sub_114ee0",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 0,
+    "selected_count": 1,
+    "top_incoming": [
+      "rf_timer_abort_common"
+    ],
+    "top_outgoing": [],
+    "inferred_alias": "rf_abort_114ee0",
+    "inferred_leaf_calls": [
+      "rf_cmd_wait"
+    ]
+  },
+  {
+    "function": "sub_116d3c",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 0,
+    "selected_count": 4,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_129e04"
+    ],
+    "top_outgoing": [],
+    "inferred_alias": "mac_mac_116d3c",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_11ecb0",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_11f5e4"
+    ],
+    "top_outgoing": [
+      "sub_12ad00"
+    ],
+    "inferred_alias": "mac_mac_11ecb0",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_11f5e4",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_120408"
+    ],
+    "top_outgoing": [
+      "sub_11ecb0"
+    ],
+    "inferred_alias": "mac_mac_11f5e4",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_120408",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init"
+    ],
+    "top_outgoing": [
+      "sub_11f5e4"
+    ],
+    "inferred_alias": "mac_mac_120408",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_128db8",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_12ad00"
+    ],
+    "top_outgoing": [
+      "sub_129e04"
+    ],
+    "inferred_alias": "mac_mac_128db8",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_129e04",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_128db8"
+    ],
+    "top_outgoing": [
+      "sub_116d3c"
+    ],
+    "inferred_alias": "mac_mac_129e04",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "sub_12ad00",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "mac_phy_init",
+      "sub_11ecb0"
+    ],
+    "top_outgoing": [
+      "sub_128db8"
+    ],
+    "inferred_alias": "mac_mac_12ad00",
+    "inferred_leaf_calls": [
+      "ke_evt_schedule"
+    ]
+  },
+  {
+    "function": "thunk",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 2,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "tx_dequeue",
+      "tx_submit"
+    ],
+    "top_outgoing": [
+      "buffer_pool_get"
+    ]
+  },
+  {
+    "function": "tx_submit",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 5,
+    "selected_count": 4,
+    "top_incoming": [
+      "tx_dequeue"
+    ],
+    "top_outgoing": [
+      "list_push_tail",
+      "log_queue_alloc",
+      "log_queue_push",
+      "rf_cmd_queue_next"
+    ]
+  },
+  {
+    "function": "tx_timeout_check",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 1,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "idle_processing"
+    ],
+    "top_outgoing": [
+      "error_handler"
+    ]
+  },
+  {
+    "function": "feature_guard_sdio",
+    "image": "shared",
+    "address": "",
+    "incoming_count": 5,
+    "outgoing_count": 1,
+    "selected_count": 1,
+    "top_incoming": [
+      "clock_calc",
+      "crypto_mac_core",
+      "crypto_mac_dispatch",
+      "idle_processing"
+    ],
+    "top_outgoing": [
+      "sdio_transfer"
+    ]
+  }
+]

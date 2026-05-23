@@ -1,0 +1,1016 @@
+{
+  "generated_at": "2026-05-23T22:50:13Z",
+  "out_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out",
+  "totals": {
+    "images": 7,
+    "functions": 410,
+    "artifacts": 47,
+    "links": 504,
+    "calls": 198,
+    "messages": 73,
+    "state_machines": 7,
+    "queue": 326,
+    "patches": 2888
+  },
+  "progress": {
+    "base_function_estimate": 1313,
+    "base_named_functions": 410,
+    "base_coverage_pct": 31.226,
+    "linked_source_functions": 212,
+    "link_coverage_pct": 51.707,
+    "reconstructed_functions": 120000,
+    "recon_cluster_count": 61433,
+    "recon_queue_count": 4000,
+    "recon_focus_count": 256,
+    "recon_lift_count": 256,
+    "recon_compose_count": 281,
+    "recon_implqueue_count": 281,
+    "recon_implwork_count": 120,
+    "recon_implsynth_count": 281,
+    "recon_implsynth_avg_callees": 1.02,
+    "recon_implapplied_count": 212,
+    "recon_finalized_count": 356,
+    "recon_strong_count": 356,
+    "recon_fallback_count": 0,
+    "recon_todo_remaining": 0,
+    "recon_completion_pct": 100,
+    "recon_semantic_completion_pct": 100,
+    "patch_mmio_pct": 0.554,
+    "data_freshness_sec": 1,
+    "disk_free_gb": 59.399,
+    "disk_used_gb": 399.817,
+    "disk_use_pct": 87.065
+  },
+  "functions": {
+    "average_confidence": 0,
+    "unknown_role_count": 120,
+    "alias_count": 37,
+    "role_counts": [
+      {
+        "key": "unknown",
+        "count": 120
+      },
+      {
+        "key": "radio",
+        "count": 68
+      },
+      {
+        "key": "mac_state_machine",
+        "count": 67
+      },
+      {
+        "key": "datapath",
+        "count": 52
+      },
+      {
+        "key": "crypto",
+        "count": 31
+      },
+      {
+        "key": "kernel",
+        "count": 17
+      },
+      {
+        "key": "transport",
+        "count": 17
+      },
+      {
+        "key": "interrupt",
+        "count": 15
+      },
+      {
+        "key": "rate_control",
+        "count": 11
+      },
+      {
+        "key": "hal",
+        "count": 8
+      },
+      {
+        "key": "patching",
+        "count": 4
+      }
+    ],
+    "source_counts": [
+      {
+        "key": "re_notes",
+        "count": 230
+      },
+      {
+        "key": "function_names_json",
+        "count": 180
+      }
+    ],
+    "image_counts": [
+      {
+        "key": "fmacfw_8800d80_h_u02.bin",
+        "count": 410
+      }
+    ],
+    "confidence_buckets": null,
+    "unique_by_image": [
+      {
+        "key": "fmacfw_8800d80_h_u02.bin",
+        "count": 410
+      }
+    ]
+  },
+  "artifacts": {
+    "type_counts": [
+      {
+        "key": "mmio_ref",
+        "count": 29
+      },
+      {
+        "key": "vector_field",
+        "count": 10
+      },
+      {
+        "key": "patch_tag",
+        "count": 8
+      }
+    ],
+    "image_counts": [
+      {
+        "key": "fmacfw_8800d80_h_u02.bin",
+        "count": 31
+      },
+      {
+        "key": "fw_patch_table_8800d80_u02.bin",
+        "count": 8
+      },
+      {
+        "key": "fmacfw_8800d80_u02.bin",
+        "count": 2
+      },
+      {
+        "key": "fmacfwbt_8800d80_u02.bin",
+        "count": 2
+      },
+      {
+        "key": "fw_adid_8800d80_u02.bin",
+        "count": 2
+      },
+      {
+        "key": "lmacfw_rf_8800d80_u02.bin",
+        "count": 2
+      }
+    ],
+    "unique_mmio_refs": 29,
+    "unique_patch_tags": 8,
+    "vector_field_entries": 10
+  },
+  "links": {
+    "average_confidence": 0,
+    "method_counts": [
+      {
+        "key": "byte_signature_unique",
+        "count": 504
+      }
+    ],
+    "target_image_counts": [
+      {
+        "key": "fmacfw_8800d80_u02.bin",
+        "count": 212
+      },
+      {
+        "key": "fmacfwbt_8800d80_u02.bin",
+        "count": 172
+      },
+      {
+        "key": "lmacfw_rf_8800d80_u02.bin",
+        "count": 120
+      }
+    ],
+    "confidence_buckets": null,
+    "unique_source_funcs": 212,
+    "unique_target_funcs": 504,
+    "high_confidence_links": 315
+  },
+  "calls": {
+    "source_counts": null,
+    "target_counts": null,
+    "source_name_counts": null,
+    "target_name_counts": null,
+    "average_confidence": 0
+  },
+  "messages": {
+    "family_counts": [
+      {
+        "key": "mm",
+        "count": 22
+      },
+      {
+        "key": "rf",
+        "count": 13
+      },
+      {
+        "key": "msg",
+        "count": 6
+      },
+      {
+        "key": "me",
+        "count": 5
+      },
+      {
+        "key": "apm",
+        "count": 4
+      },
+      {
+        "key": "ke",
+        "count": 4
+      },
+      {
+        "key": "ipc",
+        "count": 3
+      },
+      {
+        "key": "hal",
+        "count": 2
+      },
+      {
+        "key": "log",
+        "count": 2
+      },
+      {
+        "key": "scan",
+        "count": 2
+      },
+      {
+        "key": "sdio",
+        "count": 2
+      },
+      {
+        "key": "crypto",
+        "count": 1
+      },
+      {
+        "key": "emb",
+        "count": 1
+      },
+      {
+        "key": "message",
+        "count": 1
+      },
+      {
+        "key": "rwnxl",
+        "count": 1
+      },
+      {
+        "key": "sm",
+        "count": 1
+      },
+      {
+        "key": "tx",
+        "count": 1
+      },
+      {
+        "key": "txl",
+        "count": 1
+      },
+      {
+        "key": "usb",
+        "count": 1
+      }
+    ],
+    "kind_counts": [
+      {
+        "key": "request_handler",
+        "count": 16
+      },
+      {
+        "key": "timer",
+        "count": 15
+      },
+      {
+        "key": "confirm_handler",
+        "count": 10
+      },
+      {
+        "key": "message_related",
+        "count": 10
+      },
+      {
+        "key": "event",
+        "count": 9
+      },
+      {
+        "key": "dispatch",
+        "count": 6
+      },
+      {
+        "key": "indication_handler",
+        "count": 3
+      },
+      {
+        "key": "parser",
+        "count": 3
+      },
+      {
+        "key": "message_handler",
+        "count": 1
+      }
+    ],
+    "role_counts": [
+      {
+        "key": "mac_state_machine",
+        "count": 32
+      },
+      {
+        "key": "radio",
+        "count": 13
+      },
+      {
+        "key": "unknown",
+        "count": 9
+      },
+      {
+        "key": "transport",
+        "count": 5
+      },
+      {
+        "key": "datapath",
+        "count": 4
+      },
+      {
+        "key": "kernel",
+        "count": 4
+      },
+      {
+        "key": "patching",
+        "count": 3
+      },
+      {
+        "key": "hal",
+        "count": 2
+      },
+      {
+        "key": "crypto",
+        "count": 1
+      }
+    ],
+    "average_confidence": 0,
+    "average_outgoing_calls": 0
+  },
+  "state_machines": {
+    "machine_counts": [
+      {
+        "key": "TASK_APM",
+        "count": 4
+      },
+      {
+        "key": "ipc_doorbell_handler",
+        "count": 2
+      },
+      {
+        "key": "queue_insert_sorted",
+        "count": 1
+      }
+    ],
+    "state_counts": [
+      {
+        "key": "APM_STOPPING",
+        "count": 3
+      },
+      {
+        "key": "3",
+        "count": 2
+      },
+      {
+        "key": "1",
+        "count": 1
+      },
+      {
+        "key": "APM_IDLE",
+        "count": 1
+      }
+    ],
+    "function_counts": [
+      {
+        "key": "ipc_doorbell_handler",
+        "count": 2
+      },
+      {
+        "key": "sm_assoc_req_send",
+        "count": 2
+      },
+      {
+        "key": "unknown",
+        "count": 2
+      },
+      {
+        "key": "queue_insert_sorted",
+        "count": 1
+      }
+    ],
+    "average_confidence": 0
+  },
+  "mining_queue": {
+    "average_priority": 2.633,
+    "top_reasons": [
+      {
+        "key": "low_confidence",
+        "count": 180
+      },
+      {
+        "key": "unknown_role",
+        "count": 120
+      },
+      {
+        "key": "fanin",
+        "count": 74
+      },
+      {
+        "key": "message_path",
+        "count": 73
+      },
+      {
+        "key": "fanout",
+        "count": 55
+      },
+      {
+        "key": "critical_subsystem",
+        "count": 45
+      }
+    ],
+    "role_counts": [
+      {
+        "key": "unknown",
+        "count": 120
+      },
+      {
+        "key": "mac_state_machine",
+        "count": 67
+      },
+      {
+        "key": "datapath",
+        "count": 48
+      },
+      {
+        "key": "radio",
+        "count": 26
+      },
+      {
+        "key": "kernel",
+        "count": 17
+      },
+      {
+        "key": "transport",
+        "count": 16
+      },
+      {
+        "key": "rate_control",
+        "count": 11
+      },
+      {
+        "key": "crypto",
+        "count": 8
+      },
+      {
+        "key": "hal",
+        "count": 8
+      },
+      {
+        "key": "patching",
+        "count": 3
+      },
+      {
+        "key": "interrupt",
+        "count": 2
+      }
+    ],
+    "top_targets": [
+      {
+        "key": "apm_bss_config_init",
+        "count": 1
+      },
+      {
+        "key": "apm_bss_config_send",
+        "count": 1
+      },
+      {
+        "key": "apm_probe_sta_cfm",
+        "count": 1
+      },
+      {
+        "key": "apm_sta_connect_past_timer_handle",
+        "count": 1
+      },
+      {
+        "key": "apm_start_cac_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_start_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_stop_cac_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_tx_int_ps_get_postpone",
+        "count": 1
+      },
+      {
+        "key": "bam_rx_active",
+        "count": 1
+      },
+      {
+        "key": "bam_send_air_action_frame",
+        "count": 1
+      },
+      {
+        "key": "bam_send_mm_ba_del_req",
+        "count": 1
+      },
+      {
+        "key": "buffer_pool_get",
+        "count": 1
+      },
+      {
+        "key": "chip_feature_check",
+        "count": 1
+      },
+      {
+        "key": "chip_variant_detect",
+        "count": 1
+      },
+      {
+        "key": "clear_flags",
+        "count": 1
+      },
+      {
+        "key": "clear_sdio_state",
+        "count": 1
+      },
+      {
+        "key": "clock_calc",
+        "count": 1
+      },
+      {
+        "key": "co_list_extract",
+        "count": 1
+      },
+      {
+        "key": "co_list_push_back",
+        "count": 1
+      },
+      {
+        "key": "co_list_push_front",
+        "count": 1
+      },
+      {
+        "key": "co_list_remove",
+        "count": 1
+      },
+      {
+        "key": "crypto_freq_set",
+        "count": 1
+      },
+      {
+        "key": "crypto_hw_sequence",
+        "count": 1
+      },
+      {
+        "key": "crypto_mac_core",
+        "count": 1
+      },
+      {
+        "key": "crypto_mac_dispatch",
+        "count": 1
+      }
+    ]
+  },
+  "patches": {
+    "section_counts": [
+      {
+        "key": "AICBT_TRAP_T",
+        "count": 2793
+      },
+      {
+        "key": "AICBT_PATCH_TB4",
+        "count": 48
+      },
+      {
+        "key": "AICBT_PATCH_TAF",
+        "count": 23
+      },
+      {
+        "key": "AICBT_MODE_T",
+        "count": 9
+      },
+      {
+        "key": "AICBT_VER_INFO",
+        "count": 8
+      },
+      {
+        "key": "AICBT_PINF_T",
+        "count": 4
+      },
+      {
+        "key": "AICBT_POWER_ON",
+        "count": 3
+      }
+    ],
+    "address_kinds": [
+      {
+        "key": "rom_window",
+        "count": 2864
+      },
+      {
+        "key": "mmio",
+        "count": 16
+      },
+      {
+        "key": "word",
+        "count": 8
+      }
+    ],
+    "value_kinds": [
+      {
+        "key": "word",
+        "count": 1761
+      },
+      {
+        "key": "pointer_like",
+        "count": 878
+      },
+      {
+        "key": "ascii_word",
+        "count": 130
+      },
+      {
+        "key": "small_constant",
+        "count": 119
+      }
+    ],
+    "mmio_entries": 16,
+    "pointer_values": 878,
+    "average_confidence": 0
+  },
+  "images": [
+    {
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "size": 341260,
+      "printable_strings": 4606,
+      "likely_thumb": true,
+      "has_vector": true
+    },
+    {
+      "image": "fmacfw_8800d80_u02.bin",
+      "size": 341212,
+      "printable_strings": 4656,
+      "likely_thumb": true,
+      "has_vector": true
+    },
+    {
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "size": 341512,
+      "printable_strings": 4670,
+      "likely_thumb": true,
+      "has_vector": true
+    },
+    {
+      "image": "fw_adid_8800d80_u02.bin",
+      "size": 1708,
+      "printable_strings": 0,
+      "likely_thumb": true,
+      "has_vector": true
+    },
+    {
+      "image": "fw_patch_8800d80_u02.bin",
+      "size": 24744,
+      "printable_strings": 269,
+      "likely_thumb": false,
+      "has_vector": false
+    },
+    {
+      "image": "fw_patch_table_8800d80_u02.bin",
+      "size": 23288,
+      "printable_strings": 182,
+      "likely_thumb": false,
+      "has_vector": false
+    },
+    {
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "size": 254610,
+      "printable_strings": 3586,
+      "likely_thumb": true,
+      "has_vector": true
+    }
+  ],
+  "top": {
+    "linked_functions": [
+      {
+        "key": "apm_bss_config_init",
+        "count": 1
+      },
+      {
+        "key": "apm_bss_config_send",
+        "count": 1
+      },
+      {
+        "key": "apm_probe_sta_cfm",
+        "count": 1
+      },
+      {
+        "key": "apm_sta_connect_past_timer_handle",
+        "count": 1
+      },
+      {
+        "key": "apm_start_cac_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_start_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_stop_cac_req_handler",
+        "count": 1
+      },
+      {
+        "key": "apm_tx_int_ps_get_postpone",
+        "count": 1
+      },
+      {
+        "key": "bam_rx_active",
+        "count": 1
+      },
+      {
+        "key": "bam_send_air_action_frame",
+        "count": 1
+      },
+      {
+        "key": "bam_send_mm_ba_del_req",
+        "count": 1
+      },
+      {
+        "key": "buffer_pool_get",
+        "count": 1
+      },
+      {
+        "key": "chip_feature_check",
+        "count": 1
+      },
+      {
+        "key": "chip_variant_detect",
+        "count": 1
+      },
+      {
+        "key": "clear_flags",
+        "count": 1
+      },
+      {
+        "key": "clear_sdio_state",
+        "count": 1
+      },
+      {
+        "key": "clock_calc",
+        "count": 1
+      },
+      {
+        "key": "co_list_extract",
+        "count": 1
+      },
+      {
+        "key": "co_list_push_back",
+        "count": 1
+      },
+      {
+        "key": "co_list_push_front",
+        "count": 1
+      },
+      {
+        "key": "co_list_remove",
+        "count": 1
+      },
+      {
+        "key": "crypto_freq_set",
+        "count": 1
+      },
+      {
+        "key": "crypto_hw_sequence",
+        "count": 1
+      },
+      {
+        "key": "crypto_mac_core",
+        "count": 1
+      },
+      {
+        "key": "crypto_mac_dispatch",
+        "count": 1
+      }
+    ],
+    "message_families": [
+      {
+        "key": "mm",
+        "count": 22
+      },
+      {
+        "key": "rf",
+        "count": 13
+      },
+      {
+        "key": "msg",
+        "count": 6
+      },
+      {
+        "key": "me",
+        "count": 5
+      },
+      {
+        "key": "apm",
+        "count": 4
+      },
+      {
+        "key": "ke",
+        "count": 4
+      },
+      {
+        "key": "ipc",
+        "count": 3
+      },
+      {
+        "key": "hal",
+        "count": 2
+      },
+      {
+        "key": "log",
+        "count": 2
+      },
+      {
+        "key": "scan",
+        "count": 2
+      },
+      {
+        "key": "sdio",
+        "count": 2
+      },
+      {
+        "key": "crypto",
+        "count": 1
+      },
+      {
+        "key": "emb",
+        "count": 1
+      },
+      {
+        "key": "message",
+        "count": 1
+      },
+      {
+        "key": "rwnxl",
+        "count": 1
+      },
+      {
+        "key": "sm",
+        "count": 1
+      },
+      {
+        "key": "tx",
+        "count": 1
+      },
+      {
+        "key": "txl",
+        "count": 1
+      },
+      {
+        "key": "usb",
+        "count": 1
+      }
+    ],
+    "state_machines": [
+      {
+        "key": "TASK_APM",
+        "count": 4
+      },
+      {
+        "key": "ipc_doorbell_handler",
+        "count": 2
+      },
+      {
+        "key": "queue_insert_sorted",
+        "count": 1
+      }
+    ],
+    "top_call_sources": null,
+    "mining_reasons": [
+      {
+        "key": "low_confidence",
+        "count": 180
+      },
+      {
+        "key": "unknown_role",
+        "count": 120
+      },
+      {
+        "key": "fanin",
+        "count": 74
+      },
+      {
+        "key": "message_path",
+        "count": 73
+      },
+      {
+        "key": "fanout",
+        "count": 55
+      },
+      {
+        "key": "critical_subsystem",
+        "count": 45
+      }
+    ],
+    "patch_sections": [
+      {
+        "key": "AICBT_TRAP_T",
+        "count": 2793
+      },
+      {
+        "key": "AICBT_PATCH_TB4",
+        "count": 48
+      },
+      {
+        "key": "AICBT_PATCH_TAF",
+        "count": 23
+      },
+      {
+        "key": "AICBT_MODE_T",
+        "count": 9
+      },
+      {
+        "key": "AICBT_VER_INFO",
+        "count": 8
+      },
+      {
+        "key": "AICBT_PINF_T",
+        "count": 4
+      },
+      {
+        "key": "AICBT_POWER_ON",
+        "count": 3
+      }
+    ],
+    "function_roles": [
+      {
+        "key": "unknown",
+        "count": 120
+      },
+      {
+        "key": "radio",
+        "count": 68
+      },
+      {
+        "key": "mac_state_machine",
+        "count": 67
+      },
+      {
+        "key": "datapath",
+        "count": 52
+      },
+      {
+        "key": "crypto",
+        "count": 31
+      },
+      {
+        "key": "kernel",
+        "count": 17
+      },
+      {
+        "key": "transport",
+        "count": 17
+      },
+      {
+        "key": "interrupt",
+        "count": 15
+      },
+      {
+        "key": "rate_control",
+        "count": 11
+      },
+      {
+        "key": "hal",
+        "count": 8
+      },
+      {
+        "key": "patching",
+        "count": 4
+      }
+    ],
+    "artifact_types": [
+      {
+        "key": "mmio_ref",
+        "count": 29
+      },
+      {
+        "key": "vector_field",
+        "count": 10
+      },
+      {
+        "key": "patch_tag",
+        "count": 8
+      }
+    ]
+  }
+}
