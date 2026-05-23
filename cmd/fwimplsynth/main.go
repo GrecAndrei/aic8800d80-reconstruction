@@ -596,13 +596,23 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		}
 		b.WriteString(fmt.Sprintf("  // step 2: %s\n", phase2))
 		seen := map[string]struct{}{}
+		emitted := emitControlCalls(&b, fn, outgoing, seen)
+		if fn == "log_queue_push" && emitted == 0 {
+			b.WriteString("  tx_dequeue();\n")
+		}
+		b.WriteString(fmt.Sprintf("  // step 3: %s\n", phase3))
+	}
+	b.WriteString("}\n")
+	return os.WriteFile(path, []byte(b.String()), 0o644)
+}
+
+func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen map[string]struct{}) int {
+	fn = sanitizeName(fn)
+	if forced := forcedControlCalls(fn); len(forced) > 0 {
 		emitted := 0
-		for _, e := range outgoing {
-			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+		for _, n := range forced {
+			n = sanitizeName(n)
 			if n == "" || n == fn {
-				continue
-			}
-			if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
 				continue
 			}
 			if _, ok := seen[n]; ok {
@@ -612,13 +622,44 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 			b.WriteString("  " + n + "();\n")
 			emitted++
 		}
-		if fn == "log_queue_push" && emitted == 0 {
-			b.WriteString("  tx_dequeue();\n")
-		}
-		b.WriteString(fmt.Sprintf("  // step 3: %s\n", phase3))
+		return emitted
 	}
-	b.WriteString("}\n")
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	emitted := 0
+	for _, e := range outgoing {
+		n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+		if n == "" || n == fn {
+			continue
+		}
+		if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		b.WriteString("  " + n + "();\n")
+		emitted++
+	}
+	return emitted
+}
+
+func forcedControlCalls(fn string) []string {
+	switch fn {
+	case "log_free_pool_a", "log_free_pool_b":
+		return []string{"log_free_dispatch"}
+	case "log_system_init":
+		return []string{"sub_10ffc0"}
+	case "log_pool_init_e":
+		return []string{"log_system_init_mode2"}
+	case "log_printf":
+		return []string{"log_flush"}
+	case "clear_flags":
+		return []string{"rx_queue_init"}
+	case "msg_parse_short":
+		return []string{"sub_101a54"}
+	default:
+		return nil
+	}
 }
 
 func shouldPreferLeafTemplate(fn string, outgoing []callEdge, synthCalls []string) bool {
@@ -737,7 +778,9 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 	switch fn {
 	case "idle_processing":
 		return []string{"ke_evt_schedule"}
-	case "clear_flags", "state_flag_check":
+	case "clear_flags":
+		return []string{"rx_queue_init"}
+	case "state_flag_check":
 		return []string{"ke_evt_schedule"}
 	case "main_loop":
 		return []string{"ke_evt_schedule", "ke_timer_set"}

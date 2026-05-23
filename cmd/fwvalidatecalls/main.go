@@ -51,12 +51,14 @@ func main() {
 	var minConf float64
 	var outPath string
 	var synthEvidencePath string
+	var composedDir string
 
 	flag.StringVar(&finalDir, "final-dir", "extraction_out/reconstruction/mega7/final", "Final reconstruction directory")
 	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL")
 	flag.Float64Var(&minConf, "min-conf", 0.7, "Minimum confidence for evidence calls")
 	flag.StringVar(&outPath, "out", "extraction_out/reconstruction/mega7/final/call_conformance.json", "Output conformance report")
 	flag.StringVar(&synthEvidencePath, "synth-evidence", "extraction_out/reconstruction/mega7/synth/implsynth_evidence.json", "Synth evidence JSON")
+	flag.StringVar(&composedDir, "composed-dir", "extraction_out/reconstruction/mega7/composed", "Composed reconstruction directory used as fallback evidence")
 	flag.Parse()
 
 	finalAbs, _ := filepath.Abs(finalDir)
@@ -72,6 +74,10 @@ func main() {
 		fail("load call edges: %v", err)
 	}
 	synthEvidence := loadSynthEvidence(synthEvidencePath)
+	composedEvidence, err := loadComposedEvidence(composedDir)
+	if err != nil {
+		fail("load composed evidence: %v", err)
+	}
 
 	rows := make([]row, 0, len(funcs))
 	sum := 0.0
@@ -81,6 +87,9 @@ func main() {
 		ev := evidence[fnKey]
 		if len(ev) == 0 {
 			ev = synthEvidence[fnKey]
+		}
+		if len(ev) == 0 {
+			ev = composedEvidence[fnKey]
 		}
 		evSet := make(map[string]struct{}, len(ev))
 		for _, n := range ev {
@@ -336,6 +345,59 @@ func parseFinalFunctions(dir string) ([]fnCalls, error) {
 		}
 		return out[i].File < out[j].File
 	})
+	return out, nil
+}
+
+func loadComposedEvidence(dir string) (map[string][]string, error) {
+	absDir, _ := filepath.Abs(dir)
+	ents, err := os.ReadDir(absDir)
+	if err != nil {
+		return nil, err
+	}
+	fnRe := regexp.MustCompile(`(?s)void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{(.*?)\n\}`)
+	callRe := regexp.MustCompile(`(?m)^\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*\)\s*;`)
+	out := map[string][]string{}
+	for _, e := range ents {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".reconstructed.c") {
+			continue
+		}
+		b, err := os.ReadFile(filepath.Join(absDir, e.Name()))
+		if err != nil {
+			continue
+		}
+		for _, m := range fnRe.FindAllStringSubmatch(string(b), -1) {
+			if len(m) != 3 {
+				continue
+			}
+			fn := sanitizeName(m[1])
+			if fn == "" || fn == "unknown" {
+				continue
+			}
+			seen := map[string]struct{}{}
+			calls := make([]string, 0, 6)
+			for _, c := range callRe.FindAllStringSubmatch(m[2], -1) {
+				if len(c) != 2 {
+					continue
+				}
+				n := sanitizeName(c[1])
+				if n == "" || n == "unknown" || n == fn {
+					continue
+				}
+				if _, ok := seen[n]; ok {
+					continue
+				}
+				seen[n] = struct{}{}
+				calls = append(calls, n)
+			}
+			if len(calls) == 0 {
+				continue
+			}
+			if _, exists := out[fn]; !exists {
+				sort.Strings(calls)
+				out[fn] = calls
+			}
+		}
+	}
 	return out, nil
 }
 
