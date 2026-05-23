@@ -318,6 +318,10 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 			q.Risk = "medium"
 		}
 		q.Reasons = append(q.Reasons, "terminal_or_exception_path")
+		if len(calls) == 1 && calls[0] == "ke_evt_schedule" {
+			q.Risk = "low"
+			q.Reasons = append(q.Reasons, "expected_terminal_dispatch_pattern")
+		}
 	}
 	if len(calls) > 0 {
 		evtOnly := true
@@ -330,9 +334,18 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 		if evtOnly && q.Risk == "low" {
 			q.Risk = "medium"
 			q.Reasons = append(q.Reasons, "single_generic_dispatch_callee")
+			if isExpectedTerminalDispatch(name) {
+				q.Risk = "low"
+				q.Reasons = append(q.Reasons, "expected_terminal_dispatch_lowrisk")
+				return q
+			}
 			if isExpectedEventDispatch(name) {
 				q.Risk = "low"
 				q.Reasons = append(q.Reasons, "expected_event_dispatch_pattern")
+			}
+			if isExpectedGenericScheduleLeaf(name) {
+				q.Risk = "low"
+				q.Reasons = append(q.Reasons, "expected_scheduler_bridge_pattern")
 			}
 		}
 	}
@@ -354,6 +367,26 @@ func isExpectedEventDispatch(name string) bool {
 		return true
 	}
 	return false
+}
+
+func isExpectedGenericScheduleLeaf(name string) bool {
+	name = strings.ToLower(strings.TrimSpace(name))
+	if name == "" {
+		return false
+	}
+	switch name {
+	case "clear_flags", "feature_flags_init", "idle_processing", "ke_msg_alloc", "rwnxl_wakeup", "state_flag_check", "uart_putc":
+		return true
+	}
+	if strings.HasPrefix(name, "ps_upm_") {
+		return true
+	}
+	return false
+}
+
+func isExpectedTerminalDispatch(name string) bool {
+	name = strings.ToLower(strings.TrimSpace(name))
+	return name == "panic_loop" || strings.Contains(name, "spurious")
 }
 
 func loadEvidenceHints(path string) map[string]evidenceHint {
