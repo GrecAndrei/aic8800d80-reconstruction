@@ -1,0 +1,23 @@
+{
+  "input_path": "/home/grec-alexander/Downloads/aic8800d80/lmacfw_rf_8800d80_u02.bin",
+  "segments": [
+    {
+      "name": "seg000",
+      "start_ea": 0,
+      "end_ea": 254610,
+      "size": 254610,
+      "perm": 0
+    }
+  ],
+  "functions_count": 1,
+  "functions_top": [
+    {
+      "start_ea": 187640,
+      "end_ea": 187641,
+      "size": 1,
+      "name": "nullsub_1",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "input_path": "/home/grec-alexander/Downloads/aic8800d80/fmacfwbt_8800d80_u02.bin",
+  "segments": [
+    {
+      "name": "seg000",
+      "start_ea": 0,
+      "end_ea": 341512,
+      "size": 341512,
+      "perm": 0
+    }
+  ],
+  "functions_count": 4,
+  "functions_top": [
+    {
+      "start_ea": 295594,
+      "end_ea": 295595,
+      "size": 1,
+      "name": "nullsub_1",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 305040,
+      "end_ea": 305041,
+      "size": 1,
+      "name": "nullsub_2",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 305056,
+      "end_ea": 305057,
+      "size": 1,
+      "name": "nullsub_3",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 305928,
+      "end_ea": 305929,
+      "size": 1,
+      "name": "nullsub_4",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    }
+  ]
+}

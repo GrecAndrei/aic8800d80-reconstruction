@@ -57,6 +57,8 @@ type synthEvidenceRow struct {
 	InferredLeafCall []string `json:"inferred_leaf_calls,omitempty"`
 }
 
+var nameOutgoingHints map[string][]string
+
 func main() {
 	var implQueuePath string
 	var callEdgesPath string
@@ -104,6 +106,7 @@ func main() {
 	suffixHints := buildSuffixHints(outByName, minConf, fallbackMinConf)
 	tokenHints := buildTokenHints(outByName, minConf, fallbackMinConf)
 	imageHints := buildImageHints(inAdj, outAdj, minConf, fallbackMinConf)
+	nameOutgoingHints = buildNameOutgoingHints(outByName, minConf, fallbackMinConf)
 
 	synth := make([]implTask, 0, maxTasks)
 	behaviorCount := 0
@@ -673,6 +676,12 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 		if inferred := inferLeafCallsFromOutgoing(fn, outgoing); len(inferred) > 0 {
 			return inferred
 		}
+		if hinted := nameOutgoingHints[fn]; len(hinted) > 0 {
+			if len(hinted) > 2 {
+				return hinted[:2]
+			}
+			return hinted
+		}
 		if inferred := inferLeafCallsFromIncoming(fn, incoming); len(inferred) > 0 {
 			return inferred
 		}
@@ -780,6 +789,50 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 	default:
 		return nil
 	}
+}
+
+func buildNameOutgoingHints(outByName map[string][]callEdge, minConf float64, fallbackMinConf float64) map[string][]string {
+	out := map[string][]string{}
+	for fn, edges := range outByName {
+		fn = sanitizeName(fn)
+		if fn == "" || fn == "unknown" {
+			continue
+		}
+		type pair struct {
+			name string
+			n    int
+		}
+		counts := map[string]int{}
+		for _, e := range edges {
+			if e.Confidence < fallbackMinConf {
+				continue
+			}
+			t := sanitizeName(e.TargetName)
+			if t == "" || t == "unknown" || t == fn {
+				continue
+			}
+			counts[t]++
+		}
+		if len(counts) == 0 {
+			continue
+		}
+		rows := make([]pair, 0, len(counts))
+		for n, c := range counts {
+			rows = append(rows, pair{name: n, n: c})
+		}
+		sort.Slice(rows, func(i, j int) bool {
+			if rows[i].n == rows[j].n {
+				return rows[i].name < rows[j].name
+			}
+			return rows[i].n > rows[j].n
+		})
+		top := make([]string, 0, len(rows))
+		for _, r := range rows {
+			top = append(top, r.name)
+		}
+		out[fn] = top
+	}
+	return out
 }
 
 func inferLeafCallsFromOutgoing(fn string, outgoing []callEdge) []string {

@@ -1,0 +1,79 @@
+{
+  "input_path": "/home/grec-alexander/Downloads/aic8800d80/fmacfw_8800d80_u02.bin",
+  "segments": [
+    {
+      "name": "seg000",
+      "start_ea": 0,
+      "end_ea": 341212,
+      "size": 341212,
+      "perm": 0
+    }
+  ],
+  "functions_count": 8,
+  "functions_top": [
+    {
+      "start_ea": 203776,
+      "end_ea": 203777,
+      "size": 1,
+      "name": "nullsub_1",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 204528,
+      "end_ea": 204529,
+      "size": 1,
+      "name": "nullsub_2",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 206384,
+      "end_ea": 206385,
+      "size": 1,
+      "name": "nullsub_3",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 206512,
+      "end_ea": 206513,
+      "size": 1,
+      "name": "nullsub_4",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 295194,
+      "end_ea": 295195,
+      "size": 1,
+      "name": "nullsub_5",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 304664,
+      "end_ea": 304665,
+      "size": 1,
+      "name": "nullsub_6",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 304680,
+      "end_ea": 304681,
+      "size": 1,
+      "name": "nullsub_7",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    },
+    {
+      "start_ea": 305552,
+      "end_ea": 305553,
+      "size": 1,
+      "name": "nullsub_8",
+      "xrefs_to": 0,
+      "xrefs_from": 0
+    }
+  ]
+}

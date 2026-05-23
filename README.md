@@ -77,8 +77,15 @@ go run ./cmd/fwharden
 - `cmd/`: pipeline commands (`fwrebuild`, `fwimplsynth`, `fwapplysynth`, `fwfinalize`, `fwqualityfocus`, `fwharden`, etc.)
 - `internal/`: shared internals/helpers
 - `PIPELINE.md`: pipeline-specific notes
+- `docs/notes/`: analyst notes and reconstruction logs
+- `metadata/`: recon metadata snapshots and user config files
+- `tools/local-bin/`: local helper binaries (not required for source builds)
+
+## Workspace Hygiene
+
+- Large/generated artifacts remain outside git tracking via `.gitignore` (especially `extraction_out/` and firmware databases).
+- Source-of-truth code and docs are kept in tracked top-level folders (`cmd`, `internal`, `docs`).
 
 ## Update Policy
 
 This README status section is updated whenever pipeline quality/hardening state materially changes.
-
