@@ -330,12 +330,30 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 		if evtOnly && q.Risk == "low" {
 			q.Risk = "medium"
 			q.Reasons = append(q.Reasons, "single_generic_dispatch_callee")
+			if isExpectedEventDispatch(name) {
+				q.Risk = "low"
+				q.Reasons = append(q.Reasons, "expected_event_dispatch_pattern")
+			}
 		}
 	}
 	if len(q.Reasons) == 0 {
 		q.Reasons = append(q.Reasons, "multi_callee_structural_flow")
 	}
 	return q
+}
+
+func isExpectedEventDispatch(name string) bool {
+	name = strings.ToLower(strings.TrimSpace(name))
+	if name == "" {
+		return false
+	}
+	if strings.HasSuffix(name, "_handler") || strings.HasSuffix(name, "_req") || strings.HasSuffix(name, "_cfm") || strings.HasSuffix(name, "_ind") || strings.HasSuffix(name, "_evt") {
+		return true
+	}
+	if strings.Contains(name, "timer") || strings.Contains(name, "event") || strings.Contains(name, "dispatch") {
+		return true
+	}
+	return false
 }
 
 func loadEvidenceHints(path string) map[string]evidenceHint {
