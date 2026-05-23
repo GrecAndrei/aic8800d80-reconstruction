@@ -551,7 +551,8 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		}
 	}
 	synthCalls := leafSyntheticCallees(fn, role, t.Image, incoming, outgoing)
-	if len(outgoing) == 0 {
+	forceLeafTemplate := shouldPreferLeafTemplate(fn, outgoing, synthCalls)
+	if len(outgoing) == 0 || forceLeafTemplate {
 		if len(synthCalls) > 0 {
 			b.WriteString(fmt.Sprintf("  // reconstructed micro-flow: %s\n", role))
 			if len(incoming) > 0 {
@@ -607,6 +608,25 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 	}
 	b.WriteString("}\n")
 	return os.WriteFile(path, []byte(b.String()), 0o644)
+}
+
+func shouldPreferLeafTemplate(fn string, outgoing []callEdge, synthCalls []string) bool {
+	fn = sanitizeName(fn)
+	if !strings.HasPrefix(fn, "sub_") || len(synthCalls) == 0 || len(outgoing) == 0 {
+		return false
+	}
+	// If all observed outgoing calls are unnamed sub_* helpers, keep this as a leaf
+	// and use inferred semantic leaves (e.g. rf_cmd_wait / ke_evt_schedule).
+	for _, e := range outgoing {
+		n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+		if n == "" || n == "unknown" || n == fn {
+			continue
+		}
+		if !strings.HasPrefix(n, "sub_") {
+			return false
+		}
+	}
+	return true
 }
 
 func inferredSubAlias(fn, role, image string, incoming []callEdge) string {
@@ -676,11 +696,17 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 		return []string{"ke_timer_set"}
 	}
 	if strings.HasPrefix(fn, "sub_") {
+		switch fn {
+		case "sub_10ed40", "sub_114ee0":
+			return []string{"rf_cmd_wait"}
+		case "sub_116d3c":
+			return []string{"ke_evt_schedule"}
+		}
 		if inferred := inferLeafCallsFromOutgoing(fn, outgoing); len(inferred) > 0 {
 			return inferred
 		}
 		if hinted := nameOutgoingHints[fn]; len(hinted) > 0 {
-			if len(hinted) > 2 {
+		if len(hinted) > 2 {
 				return hinted[:2]
 			}
 			return hinted

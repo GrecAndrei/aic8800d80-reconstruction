@@ -20,6 +20,15 @@ type finalizeManifest struct {
 	SemanticCompletionPct float64 `json:"semantic_completion_pct"`
 }
 
+type conformanceReport struct {
+	EvaluableCount    int `json:"evaluable_count"`
+	AvgConformancePct float64 `json:"avg_conformance_pct"`
+	Rows              []struct {
+		EvidenceFound  bool    `json:"evidence_found"`
+		ConformancePct float64 `json:"conformance_pct"`
+	} `json:"rows"`
+}
+
 func main() {
 	var finalDir string
 	var rebuiltDir string
@@ -58,6 +67,27 @@ func main() {
 	}
 	if m.CompletionPct < 100.0 || m.SemanticCompletionPct < 100.0 {
 		fail("completion gates failed: completion=%.3f semantic=%.3f", m.CompletionPct, m.SemanticCompletionPct)
+	}
+	conformancePath := filepath.Join(finalAbs, "call_conformance.json")
+	if cb, err := os.ReadFile(conformancePath); err == nil {
+		var c conformanceReport
+		if err := json.Unmarshal(cb, &c); err != nil {
+			fail("parse call conformance report: %v", err)
+		}
+		low := 0
+		for _, r := range c.Rows {
+			if r.EvidenceFound && r.ConformancePct < 100.0 {
+				low++
+			}
+		}
+		if c.EvaluableCount > 0 {
+			if c.AvgConformancePct < 100.0 {
+				fail("call conformance gate failed: avg_conformance_pct=%.3f", c.AvgConformancePct)
+			}
+			if low != 0 {
+				fail("call conformance gate failed: nonperfect_functions=%d", low)
+			}
+		}
 	}
 
 	ents, err := os.ReadDir(finalAbs)
@@ -99,4 +129,3 @@ func fail(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
 }
-
