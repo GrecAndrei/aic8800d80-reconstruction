@@ -4,6 +4,17 @@ This repository contains an automated reverse-engineering pipeline that reconstr
 
 This is a reconstruction system, not leaked vendor source.
 
+## What This Is For
+
+This project is intended for:
+
+1. Firmware research and reverse-engineering acceleration
+2. Security analysis and behavior auditing
+3. Building reproducible RE workflows with measurable quality gates
+4. Creating a structured, explainable reconstruction baseline before manual deep-dive work
+
+This project is not intended to claim exact vendor-source recovery.
+
 ## Release Snapshot
 
 Published rebuild artifacts are tracked under:
@@ -28,6 +39,8 @@ Latest validated run:
 - `nonperfect_functions`: **0**
 - `unevidenced_functions`: **0**
 
+These values are for the published `aic8800d80-rebuild-v1` release snapshot.
+
 ## Why This Is Significant
 
 The pipeline does not just generate text stubs. It:
@@ -39,6 +52,18 @@ The pipeline does not just generate text stubs. It:
 5. Publishes reproducible artifacts with manifests and checksums.
 
 Outcome: a repeatable automated RE workflow that can be rerun on the same corpus and extended to new blobs.
+
+## What "Perfect" Means Here
+
+"Perfect" in this repository means:
+
+1. All pipeline hardening gates pass
+2. No fallback/placeholder functions remain
+3. Semantic completion reaches 100%
+4. Conformance validation reaches 100% across the evaluable set
+5. The evaluable set covers all reconstructed functions for the release snapshot
+
+It does not mean byte-identical original vendor source.
 
 ## Pipeline Stages
 
@@ -63,6 +88,42 @@ go run ./cmd/fwqualityfocus
 go run ./cmd/fwharden
 ```
 
+## How To Adapt To New Firmware
+
+Use this repo as a template pipeline for another blob family:
+
+1. Add/point input firmware artifacts under `inputs/firmware/`
+2. Regenerate extraction outputs (`fwextract`, `fwsweep`, or your existing extraction flow)
+3. Build reconstruction baseline (`fwrebuild`)
+4. Run synthesis/merge/finalize (`fwimplsynth`, `fwapplysynth`, `fwfinalize`)
+5. Run quality and conformance checks (`fwvalidatecalls`, `fwqualityfocus`, `fwharden`)
+6. Iterate heuristics in `cmd/fwimplsynth` and `cmd/fwvalidatecalls` until gates close
+7. Publish a versioned artifact snapshot under `artifacts/releases/<release-name>/`
+
+Practical adaptation advice:
+
+- Keep evidence layering conservative (stronger evidence first, softer evidence only as fallback)
+- Preserve deterministic gate checks so regressions are obvious
+- Version each published snapshot (`-v1`, `-v2`, etc.) with manifests and checksums
+
+## Limitations and Downsides
+
+Important caveats:
+
+1. Reconstruction quality is only as good as available evidence (call graph, names, profile coverage, hints)
+2. A 100% internal score does not guarantee perfect semantic equivalence to unknown vendor internals
+3. Heuristic synthesis can bias behavior toward observed patterns and miss rare paths
+4. Some outputs are intentionally C-like reconstructions, not build-ready firmware source trees
+5. Pipeline tuning that helps one firmware family may not transfer cleanly to another without retuning
+
+Use reconstructed output as high-confidence RE working material, not as unquestionable ground truth.
+
+## Responsible Use
+
+- Respect applicable laws, licenses, and contractual constraints in your jurisdiction
+- Use only on firmware you are authorized to analyze
+- Prefer disclosure/defensive research workflows for security findings
+
 ## Human Writeup
 
 Plain-language milestone explanation:
@@ -77,3 +138,13 @@ Plain-language milestone explanation:
 - `docs/`: milestone and analyst documentation
 - `inputs/firmware/`: raw firmware artifacts used for analysis
 - `analysis/ida/`: local IDA artifacts (not the source of truth)
+
+## License Status
+
+No `LICENSE` file is currently present in this repository.
+
+Until a license is added, treat the repository contents as all rights reserved by default.
+
+Recommended next step:
+
+1. Add an explicit license file (`MIT`, `Apache-2.0`, `GPL-3.0`, or custom) to define reuse terms clearly.
