@@ -31,3 +31,6 @@ extraction_out/
 # Local tool state
 .antigravitycli/
 .commandcode/
+
+# IDA autosave scratch artifacts
+analysis/ida/ida_autosave.*$
