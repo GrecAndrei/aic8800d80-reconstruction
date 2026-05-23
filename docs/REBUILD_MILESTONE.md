@@ -16,7 +16,7 @@ This is a reconstructed firmware model, not leaked vendor source.
 
 ## Final Verified Outcome
 
-For the current `mega7` reconstruction set:
+For the current release snapshot:
 
 - `function_count`: `356`
 - `implemented_count`: `356`
@@ -32,9 +32,9 @@ For the current `mega7` reconstruction set:
 
 Tracked snapshot in git:
 
-- `artifacts/rebuilt_fw/mega7/final/`
-- `artifacts/rebuilt_fw/mega7/synth/`
-- `artifacts/rebuilt_fw/mega7/meta/`
+- `artifacts/releases/aic8800d80-rebuild-v1/final/`
+- `artifacts/releases/aic8800d80-rebuild-v1/synth/`
+- `artifacts/releases/aic8800d80-rebuild-v1/meta/`
 
 Includes:
 
