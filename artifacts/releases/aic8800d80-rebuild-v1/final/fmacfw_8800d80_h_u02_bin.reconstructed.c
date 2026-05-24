@@ -164,8 +164,9 @@ void crypto_hw_clear_regs(void);
 void crypto_power_calc(void);
 void log_free_pool_c(void);
 void buffer_pool_manage(void);
-void chip_variant_detect(void);
-void crypto_hw_power_up(void);
+void crypto_hw_disable(void);
+void crypto_hw_enable(void);
+void irq_vector_init(void);
 void log_hw_init_if(void);
 void sdio_transfer(void);
 void sub_137490(void);
@@ -556,6 +557,8 @@ void log_system_init_mode2(void) {
   // role: logging system init mode2 helper
   uint32_t state = 0xe92dea0aU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     log_pool_init_e();
   } else {
@@ -587,6 +590,8 @@ void log_flush(void) {
   // role: logging flush helper
   uint32_t state = 0x729efc41U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     log_printf();
   } else {
@@ -633,6 +638,8 @@ void log_free_pool_a(void) {
   // role: logging free pool stage a helper
   uint32_t state = 0x0b479444U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   log_free_dispatch();
   // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
@@ -644,6 +651,8 @@ void log_free_pool_b(void) {
   // role: logging free pool stage b helper
   uint32_t state = 0xcd507620U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   log_free_dispatch();
   // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
@@ -655,6 +664,8 @@ void log_pool_init_e(void) {
   // role: logging pool initialization stage e helper
   uint32_t state = 0xe2d507c2U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   log_system_init_mode2();
   // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
@@ -696,6 +707,8 @@ void log_printf(void) {
   // role: logging printf helper
   uint32_t state = 0x0d51deacU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   log_flush();
   // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
@@ -707,6 +720,8 @@ void log_tick(void) {
   // role: logging tick helper
   uint32_t state = 0xa4d6592bU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     rf_power_set();
   } else {
@@ -722,6 +737,8 @@ void log_system_init(void) {
   // role: logging system init helper
   uint32_t state = 0x8934f629U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   sub_10ffc0();
   // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
@@ -763,6 +780,9 @@ void sdio_rx_evt(void) {
   // role: sdio rx helper
   uint32_t state = 0xbdded9deU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;
+  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];
+  state ^= (sdio_st << 1) ^ 0x5A5A0001U;
   if ((state & 2U) != 0U) {
     clear_flags();
   } else {
@@ -813,6 +833,9 @@ void sdio_replenish_rx_msgqueue(void) {
   // role: replenish rx msgqueue helper
   uint32_t state = 0x6ea61f76U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;
+  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];
+  state ^= (sdio_st << 1) ^ 0x5A5A0001U;
   if ((state & 2U) != 0U) {
     clear_flags();
   } else {
@@ -853,8 +876,10 @@ void log_free_wrapper(void) {
   // role: logging free wrapper helper
   uint32_t state = 0x5d2341a6U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -864,7 +889,7 @@ void log_free_wrapper(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -893,8 +918,10 @@ void log_free_pool_e(void) {
   // role: logging free pool stage e helper
   uint32_t state = 0x74549085U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -904,7 +931,7 @@ void log_free_pool_e(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -918,6 +945,8 @@ void log_queue_refill(void) {
   // role: logging queue refill helper
   uint32_t state = 0x6f00da2eU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     buffer_pool_manage();
   } else {
@@ -929,7 +958,7 @@ void log_queue_refill(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -958,6 +987,8 @@ void list_insert_sorted(void) {
   // role: container/list insert sorted helper
   uint32_t state = 0xa2f9634eU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     list_remove_node();
@@ -973,13 +1004,15 @@ void log_pool_alloc(void) {
   // role: logging pool alloc helper
   uint32_t state = 0x2d375d09U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     list_pop();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -998,13 +1031,15 @@ void log_pool_alloc_b(void) {
   // role: logging pool alloc b helper
   uint32_t state = 0xc4155b74U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     list_pop();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1083,18 +1118,20 @@ void log_pool_config(void) {
   // role: logging pool config helper
   uint32_t state = 0x5d2219ddU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    chip_variant_detect();
+    crypto_hw_disable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    crypto_hw_power_up();
+    crypto_hw_enable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    irq_vector_init();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1168,8 +1205,10 @@ void log_pool_init_b(void) {
   // role: logging pool initialization stage b helper
   uint32_t state = 0xbf525065U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1179,7 +1218,7 @@ void log_pool_init_b(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1238,6 +1277,8 @@ void log_pool_init_queue(void) {
   // role: logging pool init queue helper
   uint32_t state = 0x8418f82aU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     buffer_pool_manage();
   } else {
@@ -1249,7 +1290,7 @@ void log_pool_init_queue(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1278,8 +1319,10 @@ void log_pool_init_a(void) {
   // role: logging pool initialization stage a helper
   uint32_t state = 0xd4b49c92U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1289,7 +1332,7 @@ void log_pool_init_a(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1318,6 +1361,8 @@ void log_queue_push2(void) {
   // role: logging queue push second stage helper
   uint32_t state = 0x07dc44e0U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     buffer_pool_manage();
   } else {
@@ -1329,7 +1374,7 @@ void log_queue_push2(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1343,8 +1388,10 @@ void log_global_init(void) {
   // role: logging global init helper
   uint32_t state = 0x546ec05aU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1354,7 +1401,7 @@ void log_global_init(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1368,8 +1415,10 @@ void log_pool_alloc2(void) {
   // role: logging pool alloc2 helper
   uint32_t state = 0xe8ac4b21U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1379,7 +1428,7 @@ void log_pool_alloc2(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1393,13 +1442,15 @@ void log_alloc(void) {
   // role: logging alloc helper
   uint32_t state = 0x8c6db5bbU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     list_pop();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1448,8 +1499,10 @@ void log_ptr_in_range(void) {
   // role: logging ptr in range helper
   uint32_t state = 0x83fef30fU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1459,7 +1512,7 @@ void log_ptr_in_range(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1473,18 +1526,20 @@ void log_pool_default_config(void) {
   // role: logging pool default config helper
   uint32_t state = 0xa2cc23d4U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    chip_variant_detect();
+    crypto_hw_disable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    crypto_hw_power_up();
+    crypto_hw_enable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    irq_vector_init();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1523,6 +1578,8 @@ void timer_set_relative(void) {
   // role: timer set relative
   uint32_t state = 0x6a458dcfU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_timer_set();
@@ -1559,8 +1616,10 @@ void log_pool_init_c(void) {
   // role: logging pool initialization stage c helper
   uint32_t state = 0x815c67b0U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1570,7 +1629,7 @@ void log_pool_init_c(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_e();
+    log_printf();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1599,6 +1658,8 @@ void list_remove_node(void) {
   // role: container/list remove node helper
   uint32_t state = 0x8a3af0c0U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     timestamp_list_contains();
@@ -1644,8 +1705,10 @@ void log_free_pool_f(void) {
   // role: logging free pool stage f helper
   uint32_t state = 0x8461f681U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1655,7 +1718,7 @@ void log_free_pool_f(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1669,6 +1732,8 @@ void list_find_remove(void) {
   // role: container/list find remove helper
   uint32_t state = 0x0e599085U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     list_remove_node();
@@ -1684,6 +1749,9 @@ void rf_timer_abort_common(void) {
   // role: rf timer abort common helper
   uint32_t state = 0xa0aef0eeU;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)2U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     sub_10ed40();
   } else {
@@ -1887,6 +1955,8 @@ void mm_timer_schedule(void) {
   // role: timer scheduler
   uint32_t state = 0xdb7c6901U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_timer_set();
@@ -2046,6 +2116,8 @@ void ke_timer_set(void) {
   // role: kernel timer set helper
   uint32_t state = 0xad4a9e0fU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_evt_schedule();
@@ -2118,6 +2190,8 @@ void hal_machw_abs_timer_handler(void) {
   // role: HAL absolute timer helper
   uint32_t state = 0x7fee0c86U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_evt_schedule();
@@ -2175,6 +2249,8 @@ void mm_timer_set(void) {
   // role: mac timer set helper
   uint32_t state = 0x1a313f87U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_timer_set();
@@ -2367,6 +2443,8 @@ void apm_sta_connect_past_timer_handle(void) {
   // role: sta connect past timer handle
   uint32_t state = 0x0babc7bdU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_evt_schedule();
@@ -2397,6 +2475,8 @@ void ke_timer_clear(void) {
   // role: timer clear helper
   uint32_t state = 0x993a9a4bU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t ticks = (state >> 5) & 0x7FFFU;
+  state ^= (ticks * 1000U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_evt_schedule();
@@ -2442,6 +2522,8 @@ void list_pop(void) {
   // role: container/list pop helper
   uint32_t state = 0xeac6322fU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   if ((state & 2U) != 0U) {
     list_push_tail();
   } else {
@@ -2456,6 +2538,8 @@ void list_push_tail(void) {
   // role: container/list push tail helper
   uint32_t state = 0x72014dfbU;
   state ^= ((uint32_t)4U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   if ((state & 2U) != 0U) {
     log_queue_push();
   } else {
@@ -2480,6 +2564,8 @@ void log_hw_init(void) {
   // role: logging hardware initialization helper
   uint32_t state = 0x1bbaba9eU;
   state ^= ((uint32_t)3U << 16) ^ ((uint32_t)4U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     sdio_buffer_prepare();
   } else {
@@ -2509,6 +2595,8 @@ void log_pool_init_d(void) {
   // role: logging pool initialization stage d helper
   uint32_t state = 0xd24063a4U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     log_pool_init_e();
   } else {
@@ -2558,11 +2646,6 @@ void queue_check(void) {
   uint32_t state = 0x474953c1U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)4U << 8);
   if ((state & 2U) != 0U) {
-    feature_guard_sdio();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  if ((state & 2U) != 0U) {
     sdio_status_check();
   } else {
     state ^= 0x3c6ef372U;
@@ -2577,6 +2660,11 @@ void queue_check(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
+  if ((state & 2U) != 0U) {
+    tx_timeout_check();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
   // step 3: return validation result
   state ^= 0xC3C3C3C3U;
   (void)state;
@@ -2586,6 +2674,9 @@ void rf_timer_abort1(void) {
   // role: rf timer abort1 helper
   uint32_t state = 0x9ce2fce3U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_timer_abort_common();
   } else {
@@ -2600,6 +2691,9 @@ void rf_timer_abort2(void) {
   // role: rf timer abort2 helper
   uint32_t state = 0x9adaaaf8U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_timer_abort_common();
   } else {

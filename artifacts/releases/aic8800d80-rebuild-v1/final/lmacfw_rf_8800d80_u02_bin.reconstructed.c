@@ -58,13 +58,12 @@ void sub_12ad00(void);
 void thunk(void);
 void tx_submit(void);
 void tx_timeout_check(void);
-void chip_variant_detect(void);
-void crypto_hw_power_up(void);
-void log_enqueue(void);
-void log_free_pool_c(void);
-void log_free_pool_a(void);
+void crypto_hw_enable(void);
 void log_free_pool_b(void);
+void log_free_pool_a(void);
+void log_free_pool_c(void);
 void rf_bus_clear(void);
+void log_enqueue(void);
 void sub_1435d0(void);
 void sub_102a24(void);
 void ke_timer_set(void);
@@ -76,11 +75,10 @@ void sub_102b00(void);
 void firmware_init(void);
 void fw_config_apply(void);
 void log_list_init(void);
-void crypto_hw_enable(void);
 void crypto_mac_core(void);
 void math_round(void);
-void crypto_power_calc(void);
 void crypto_state_dump(void);
+void crypto_power_calc(void);
 void crypto_power_apply(void);
 void crypto_hw_write32(void);
 void sdio_transfer(void);
@@ -108,18 +106,21 @@ void sdio_dma_config(void) {
   // role: sdio dma config helper
   uint32_t state = 0x5acfc8d2U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)3U << 8);
+  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;
+  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];
+  state ^= (sdio_st << 1) ^ 0x5A5A0001U;
   if ((state & 2U) != 0U) {
-    chip_variant_detect();
+    crypto_hw_disable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    crypto_hw_power_up();
+    crypto_hw_enable();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_enqueue();
+    feature_guard_sdio();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -133,8 +134,10 @@ void log_free_pool_dispatch2(void) {
   // role: logging free pool dispatcher
   uint32_t state = 0xcd77b186U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_c();
+    log_free_pool_b();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -144,7 +147,7 @@ void log_free_pool_dispatch2(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -158,6 +161,9 @@ void rf_bus_setup(void) {
   // role: rf bus setup helper
   uint32_t state = 0xeea9976cU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_reg_write_cb();
@@ -179,6 +185,9 @@ void rf_cmd_dispatch(void) {
   // role: rf cmd dispatch helper
   uint32_t state = 0xb0ea0c44U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -194,6 +203,9 @@ void rf_bus_reset(void) {
   // role: rf bus reset helper
   uint32_t state = 0x1cd6aea5U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_bus_mark();
@@ -215,6 +227,9 @@ void rf_mem_write(void) {
   // role: rf mem write helper
   uint32_t state = 0xd2bc4021U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -230,6 +245,9 @@ void rf_bus_write(void) {
   // role: rf bus write helper
   uint32_t state = 0x160f630aU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_bus_clear();
   } else {
@@ -245,6 +263,9 @@ void rf_cmd_send(void) {
   // role: rf cmd send helper
   uint32_t state = 0x4a1f596aU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -260,6 +281,9 @@ void rf_bus_reset2(void) {
   // role: rf bus reset2 helper
   uint32_t state = 0xbc0ca84dU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_bus_mark();
@@ -281,6 +305,9 @@ void rf_bus_mark(void) {
   // role: rf bus mark helper
   uint32_t state = 0xdc422abcU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -296,6 +323,9 @@ void sdio_buffer_prepare(void) {
   // role: sdio buffer prepare helper
   uint32_t state = 0x122ba5f3U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)4U << 8);
+  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;
+  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];
+  state ^= (sdio_st << 1) ^ 0x5A5A0001U;
   if ((state & 2U) != 0U) {
     log_hw_init();
   } else {
@@ -326,6 +356,9 @@ void rf_bus_write2(void) {
   // role: rf bus write2 helper
   uint32_t state = 0x9a4dea85U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -341,6 +374,9 @@ void rf_mem_read(void) {
   // role: rf mem read helper
   uint32_t state = 0xba9f52ebU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -356,6 +392,9 @@ void rf_level_apply(void) {
   // role: rf level apply helper
   uint32_t state = 0x8ef44a7cU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     sub_102a24();
   } else {
@@ -371,6 +410,9 @@ void rf_hw_timer_init(void) {
   // role: rf hw timer init helper
   uint32_t state = 0xdfc24d82U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_timer_set();
@@ -392,6 +434,9 @@ void rf_reg_write_cb(void) {
   // role: rf reg write helper
   uint32_t state = 0x2cbbf9e7U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -407,6 +452,9 @@ void rf_cmd_wait(void) {
   // role: rf cmd wait helper
   uint32_t state = 0x83ac3d29U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_timer_set();
@@ -422,6 +470,9 @@ void rf_level_compute(void) {
   // role: rf level compute helper
   uint32_t state = 0x32db2d95U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_hw_timer_read();
   } else {
@@ -442,6 +493,9 @@ void rf_init_blockc(void) {
   // role: rf init blockc helper
   uint32_t state = 0xe668bdc8U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_init_blockb();
   } else {
@@ -462,6 +516,9 @@ void rf_reg_write_wait(void) {
   // role: rf reg write wait helper
   uint32_t state = 0x0712e06fU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_reg_ack_cb();
   } else {
@@ -477,13 +534,16 @@ void rf_init_blockb(void) {
   // role: rf init blockb helper
   uint32_t state = 0x0fded352U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
-    rf_init_blocka();
+    rf_init_blockc();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    rf_init_blockc();
+    rf_init_blocka();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -497,6 +557,9 @@ void rf_power_set(void) {
   // role: rf power set helper
   uint32_t state = 0x76b7a883U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     sub_102b00();
   } else {
@@ -542,6 +605,8 @@ void crypto_hw_disable(void) {
   // role: crypto hardware disable helper
   uint32_t state = 0x9dfc4011U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));
+  state ^= key_mix;
   if ((state & 2U) != 0U) {
     crypto_hw_enable();
   } else {
@@ -577,13 +642,15 @@ void crypto_hw_clear_regs(void) {
   // role: clear/reset helper
   uint32_t state = 0xf580aa98U;
   state ^= ((uint32_t)3U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));
+  state ^= key_mix;
   if ((state & 2U) != 0U) {
-    crypto_power_calc();
+    crypto_state_dump();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    crypto_state_dump();
+    crypto_power_calc();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -602,6 +669,8 @@ void crypto_iq_calculate(void) {
   // role: crypto IQ calculation helper
   uint32_t state = 0x846ba426U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));
+  state ^= key_mix;
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     clock_calc();
@@ -617,6 +686,8 @@ void crypto_table_init(void) {
   // role: crypto table init helper
   uint32_t state = 0x46ec633eU;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)0U << 8);
+  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));
+  state ^= key_mix;
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     crypto_iq_calculate();
@@ -632,6 +703,8 @@ void crypto_key_load(void) {
   // role: crypto key load helper
   uint32_t state = 0xd54fc822U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));
+  state ^= key_mix;
   if ((state & 2U) != 0U) {
     crypto_hw_write32();
   } else {
@@ -662,6 +735,8 @@ void list_pop(void) {
   // role: container/list pop helper
   uint32_t state = 0xeac6322fU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   if ((state & 2U) != 0U) {
     list_push_tail();
   } else {
@@ -676,6 +751,8 @@ void list_push_tail(void) {
   // role: container/list push tail helper
   uint32_t state = 0x72014dfbU;
   state ^= ((uint32_t)4U << 16) ^ ((uint32_t)3U << 8);
+  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;
+  state ^= (list_token << 3);
   if ((state & 2U) != 0U) {
     log_queue_push();
   } else {
@@ -700,6 +777,8 @@ void log_hw_init(void) {
   // role: logging hardware initialization helper
   uint32_t state = 0x1bbaba9eU;
   state ^= ((uint32_t)3U << 16) ^ ((uint32_t)4U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     sdio_buffer_prepare();
   } else {
@@ -729,6 +808,8 @@ void log_pool_init_d(void) {
   // role: logging pool initialization stage d helper
   uint32_t state = 0xd24063a4U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)2U << 8);
+  uint32_t ring_idx = (state >> 4) & 0xFFU;
+  state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
     log_pool_init_e();
   } else {
@@ -778,11 +859,6 @@ void queue_check(void) {
   uint32_t state = 0x474953c1U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)4U << 8);
   if ((state & 2U) != 0U) {
-    feature_guard_sdio();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  if ((state & 2U) != 0U) {
     sdio_status_check();
   } else {
     state ^= 0x3c6ef372U;
@@ -797,6 +873,11 @@ void queue_check(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
+  if ((state & 2U) != 0U) {
+    tx_timeout_check();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
   // step 3: return validation result
   state ^= 0xC3C3C3C3U;
   (void)state;
@@ -806,6 +887,9 @@ void rf_timer_abort1(void) {
   // role: rf timer abort1 helper
   uint32_t state = 0x9ce2fce3U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_timer_abort_common();
   } else {
@@ -820,6 +904,9 @@ void rf_timer_abort2(void) {
   // role: rf timer abort2 helper
   uint32_t state = 0x9adaaaf8U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
+  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
+  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
+  state ^= (rf_reg ^ 0x00A500A5U);
   if ((state & 2U) != 0U) {
     rf_timer_abort_common();
   } else {

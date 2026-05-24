@@ -549,6 +549,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
 	b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
+	emitDomainScaffold(&b, fn)
 	if strings.HasPrefix(fn, "sub_") {
 		if alias := inferredSubAlias(fn, role, t.Image, incoming); alias != "" {
 			b.WriteString("  // inferred alias: " + alias + "\n")
@@ -672,6 +673,31 @@ func synthSeed(fn, addr string) uint32 {
 		h = 0x1f123bb5
 	}
 	return h
+}
+
+func emitDomainScaffold(b *strings.Builder, fn string) {
+	switch {
+	case strings.HasPrefix(fn, "rf_"):
+		b.WriteString("  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+		b.WriteString("  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];\n")
+		b.WriteString("  state ^= (rf_reg ^ 0x00A500A5U);\n")
+	case strings.HasPrefix(fn, "sdio_"):
+		b.WriteString("  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
+		b.WriteString("  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];\n")
+		b.WriteString("  state ^= (sdio_st << 1) ^ 0x5A5A0001U;\n")
+	case strings.HasPrefix(fn, "crypto_"):
+		b.WriteString("  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));\n")
+		b.WriteString("  state ^= key_mix;\n")
+	case strings.HasPrefix(fn, "log_"):
+		b.WriteString("  uint32_t ring_idx = (state >> 4) & 0xFFU;\n")
+		b.WriteString("  state ^= (ring_idx * 0x45D9F3BU);\n")
+	case strings.HasPrefix(fn, "list_"):
+		b.WriteString("  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;\n")
+		b.WriteString("  state ^= (list_token << 3);\n")
+	case strings.Contains(fn, "timer"):
+		b.WriteString("  uint32_t ticks = (state >> 5) & 0x7FFFU;\n")
+		b.WriteString("  state ^= (ticks * 1000U);\n")
+	}
 }
 
 func shouldPreferLeafTemplate(fn string, outgoing []callEdge, synthCalls []string) bool {
