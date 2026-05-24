@@ -163,16 +163,17 @@ void sdio_wait_busy(void);
 void crypto_hw_clear_regs(void);
 void crypto_power_calc(void);
 void log_free_pool_c(void);
+void log_free_pool_d(void);
 void buffer_pool_manage(void);
+void chip_variant_detect(void);
 void crypto_hw_disable(void);
 void crypto_hw_enable(void);
-void irq_vector_init(void);
 void log_hw_init_if(void);
 void sdio_transfer(void);
 void sub_137490(void);
 void sdio_buffer_prepare(void);
-void log_enqueue(void);
 void sub_1435d0(void);
+void log_enqueue(void);
 void sub_114578(void);
 void sub_115470(void);
 void sub_12d050(void);
@@ -208,7 +209,6 @@ void tx_dequeue(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit outbound completion
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -238,7 +238,6 @@ void idle_processing(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit processed results
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -334,7 +333,6 @@ void mac_phy_init(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -569,7 +567,6 @@ void log_system_init_mode2(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -580,7 +577,6 @@ void msg_parse_short(void) {
   uint32_t state = 0x0c388e05U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
   sub_101a54();
-  // step 3: finalize state / completion path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -607,7 +603,6 @@ void log_flush(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -641,7 +636,6 @@ void log_free_pool_a(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   log_free_dispatch();
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -654,7 +648,6 @@ void log_free_pool_b(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   log_free_dispatch();
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -667,7 +660,6 @@ void log_pool_init_e(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   log_system_init_mode2();
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -682,7 +674,6 @@ void rx_queue_init(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -710,7 +701,6 @@ void log_printf(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   log_flush();
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -727,7 +717,6 @@ void log_tick(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -740,7 +729,6 @@ void log_system_init(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   sub_10ffc0();
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -755,7 +743,6 @@ void ipc_emb_kmsg_fwd(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize state / completion path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -770,7 +757,6 @@ void ipc_emb_hostmsgbuf_get(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: return observed value
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -798,7 +784,6 @@ void sdio_rx_evt(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize event callback path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -823,7 +808,6 @@ void ipc_rx_evt(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize event callback path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -851,7 +835,6 @@ void sdio_replenish_rx_msgqueue(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit outbound completion
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -879,7 +862,12 @@ void log_free_wrapper(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -888,12 +876,6 @@ void log_free_wrapper(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    log_free_pool_c();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -921,7 +903,12 @@ void log_free_pool_e(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -930,12 +917,6 @@ void log_free_pool_e(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    log_free_pool_c();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -958,11 +939,10 @@ void log_queue_refill(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit outbound completion
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1012,16 +992,15 @@ void log_pool_alloc(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1039,16 +1018,15 @@ void log_pool_alloc_b(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1121,6 +1099,11 @@ void log_pool_config(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
+    chip_variant_detect();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
     crypto_hw_disable();
   } else {
     state ^= 0x3c6ef372U;
@@ -1130,12 +1113,6 @@ void log_pool_config(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    irq_vector_init();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1208,21 +1185,20 @@ void log_pool_init_b(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1290,11 +1266,10 @@ void log_pool_init_queue(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1322,21 +1297,20 @@ void log_pool_init_a(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1374,11 +1348,10 @@ void log_queue_push2(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit outbound completion
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1391,21 +1364,20 @@ void log_global_init(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1418,21 +1390,20 @@ void log_pool_alloc2(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1450,16 +1421,15 @@ void log_alloc(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1502,21 +1472,20 @@ void log_ptr_in_range(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1529,6 +1498,11 @@ void log_pool_default_config(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
+    chip_variant_detect();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
     crypto_hw_disable();
   } else {
     state ^= 0x3c6ef372U;
@@ -1538,12 +1512,6 @@ void log_pool_default_config(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    irq_vector_init();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1568,7 +1536,6 @@ void queue_pending_check(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: return validation result
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1619,21 +1586,20 @@ void log_pool_init_c(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_pool_init_d();
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_printf();
+    log_pool_init_e();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1708,7 +1674,12 @@ void log_free_pool_f(void) {
   uint32_t ring_idx = (state >> 4) & 0xFFU;
   state ^= (ring_idx * 0x45D9F3BU);
   if ((state & 2U) != 0U) {
-    log_free_pool_b();
+    log_free_pool_c();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
+    log_free_pool_d();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -1717,12 +1688,6 @@ void log_free_pool_f(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    log_free_pool_c();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: flush log updates
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -1762,7 +1727,6 @@ void rf_timer_abort_common(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit RF state
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2513,7 +2477,6 @@ void feature_guard_sdio(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit SDIO state
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2529,7 +2492,6 @@ void list_pop(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: complete removal
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2555,7 +2517,6 @@ void list_push_tail(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: complete push operation
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2572,12 +2533,12 @@ void log_hw_init(void) {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    log_enqueue();
+    sub_1435d0();
   } else {
     state ^= 0x3c6ef372U;
   }
   if ((state & 2U) != 0U) {
-    sub_1435d0();
+    log_enqueue();
   } else {
     state ^= 0x3c6ef372U;
   }
@@ -2586,7 +2547,6 @@ void log_hw_init(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2607,7 +2567,6 @@ void log_pool_init_d(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finish initialization path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2636,7 +2595,6 @@ void main_loop(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize state / completion path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2645,6 +2603,16 @@ void queue_check(void) {
   // role: queue check helper
   uint32_t state = 0x474953c1U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)4U << 8);
+  if ((state & 2U) != 0U) {
+    sdio_wait_busy();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
+  if ((state & 2U) != 0U) {
+    feature_guard_sdio();
+  } else {
+    state ^= 0x3c6ef372U;
+  }
   if ((state & 2U) != 0U) {
     sdio_status_check();
   } else {
@@ -2655,17 +2623,6 @@ void queue_check(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  if ((state & 2U) != 0U) {
-    ipc_doorbell_handler();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  if ((state & 2U) != 0U) {
-    tx_timeout_check();
-  } else {
-    state ^= 0x3c6ef372U;
-  }
-  // step 3: return validation result
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2682,7 +2639,6 @@ void rf_timer_abort1(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit RF state
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2699,7 +2655,6 @@ void rf_timer_abort2(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit RF state
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2722,7 +2677,6 @@ void sub_101a54(void) {
   // role: shared dependency leaf 101a54
   uint32_t state = 0xe7fc7534U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)2U << 8);
-  // inferred alias: shared_leaf_101a54
   if ((state & 2U) != 0U) {
     msg_parse_short();
   } else {
@@ -2733,7 +2687,6 @@ void sub_101a54(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize state / completion path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2742,7 +2695,6 @@ void sub_10ed40(void) {
   // role: rf shared dependency leaf 10ed40
   uint32_t state = 0x098a7a9aU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: rf_abort_10ed40
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -2757,13 +2709,11 @@ void sub_10ffc0(void) {
   // role: shared dependency leaf 10ffc0
   uint32_t state = 0x3ea47ed0U;
   state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: shared_leaf_10ffc0
   if ((state & 2U) != 0U) {
     log_system_init();
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: finalize state / completion path
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2772,7 +2722,6 @@ void sub_1140f4(void) {
   // role: log shared dependency leaf 1140f4
   uint32_t state = 0xcfbbae4aU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)0U << 8);
-  // inferred alias: log_log_1140f4
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     log_enqueue();
@@ -2787,7 +2736,6 @@ void sub_114ee0(void) {
   // role: rf shared dependency leaf 114ee0
   uint32_t state = 0x65d25b02U;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: rf_abort_114ee0
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     rf_cmd_wait();
@@ -2802,7 +2750,6 @@ void sub_116d3c(void) {
   // role: mac subsystem leaf 116d3c
   uint32_t state = 0x7a7132f8U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)4U << 8);
-  // inferred alias: mac_mac_116d3c
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     ke_evt_schedule();
@@ -2817,7 +2764,6 @@ void sub_11ecb0(void) {
   // role: mac subsystem leaf 11ecb0
   uint32_t state = 0x94f9e6aaU;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_11ecb0
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_12ad00();
@@ -2832,7 +2778,6 @@ void sub_11f5e4(void) {
   // role: mac subsystem leaf 11f5e4
   uint32_t state = 0x7297ae84U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_11f5e4
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_11ecb0();
@@ -2847,7 +2792,6 @@ void sub_120408(void) {
   // role: mac subsystem leaf 120408
   uint32_t state = 0x6eea1f4fU;
   state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_120408
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_11f5e4();
@@ -2862,7 +2806,6 @@ void sub_128db8(void) {
   // role: mac subsystem leaf 128db8
   uint32_t state = 0x5eb0993dU;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_128db8
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_129e04();
@@ -2877,7 +2820,6 @@ void sub_129e04(void) {
   // role: mac subsystem leaf 129e04
   uint32_t state = 0x5c995149U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_129e04
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_116d3c();
@@ -2892,7 +2834,6 @@ void sub_12ad00(void) {
   // role: mac subsystem leaf 12ad00
   uint32_t state = 0x990cf8e4U;
   state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  // inferred alias: mac_mac_12ad00
   state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;
   if ((state & 1U) != 0U) {
     sub_128db8();
@@ -2912,7 +2853,6 @@ void thunk(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: return to caller
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2936,7 +2876,6 @@ void tx_submit(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: commit outbound completion
   state ^= 0xC3C3C3C3U;
   (void)state;
 }
@@ -2950,7 +2889,6 @@ void tx_timeout_check(void) {
   } else {
     state ^= 0x3c6ef372U;
   }
-  // step 3: return validation result
   state ^= 0xC3C3C3C3U;
   (void)state;
 }

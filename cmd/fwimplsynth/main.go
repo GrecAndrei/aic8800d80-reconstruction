@@ -551,9 +551,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 	b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
 	emitDomainScaffold(&b, fn)
 	if strings.HasPrefix(fn, "sub_") {
-		if alias := inferredSubAlias(fn, role, t.Image, incoming); alias != "" {
-			b.WriteString("  // inferred alias: " + alias + "\n")
-		}
+		_ = inferredSubAlias(fn, role, t.Image, incoming)
 	}
 	synthCalls := leafSyntheticCallees(fn, role, t.Image, incoming, outgoing)
 	forceLeafTemplate := shouldPreferLeafTemplate(fn, outgoing, synthCalls)
@@ -588,14 +586,13 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 			}
 		}
 	} else {
-		_, _, phase3 := skeletonPhases(fn, role)
+		_, _, _ = skeletonPhases(fn, role)
 		seen := map[string]struct{}{}
 		emitted := emitControlCalls(&b, fn, outgoing, seen)
 		if fn == "log_queue_push" && emitted == 0 {
 			b.WriteString("  tx_dequeue();\n")
 			b.WriteString("  state ^= 0xD00D00D0U;\n")
 		}
-		b.WriteString(fmt.Sprintf("  // step 3: %s\n", phase3))
 		b.WriteString("  state ^= 0xC3C3C3C3U;\n")
 	}
 	b.WriteString("  (void)state;\n")
