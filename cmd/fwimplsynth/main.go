@@ -545,6 +545,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		}
 	}
 	b.WriteString(fmt.Sprintf("void %s(void) {\n", fn))
+	b.WriteString(fmt.Sprintf("  // role: %s\n", role))
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
 	b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
@@ -557,12 +558,6 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 	forceLeafTemplate := shouldPreferLeafTemplate(fn, outgoing, synthCalls)
 	if len(outgoing) == 0 || forceLeafTemplate {
 		if len(synthCalls) > 0 {
-			b.WriteString(fmt.Sprintf("  // reconstructed micro-flow: %s\n", role))
-			if len(incoming) > 0 {
-				b.WriteString(fmt.Sprintf("  // callers observed: %d\n", len(incoming)))
-			}
-			b.WriteString("  // step 1: decode local context\n")
-			b.WriteString("  // step 2: execute inferred helper chain\n")
 			seen := map[string]struct{}{}
 			for _, n := range synthCalls {
 				n = sanitizeName(n)
@@ -577,14 +572,14 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 				}
 				seen[n] = struct{}{}
 				b.WriteString("  state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;\n")
-				b.WriteString("  " + n + "();\n")
+				b.WriteString("  if ((state & 1U) != 0U) {\n")
+				b.WriteString("    " + n + "();\n")
+				b.WriteString("  } else {\n")
+				b.WriteString("    state ^= 0x7f4a7c15U;\n")
+				b.WriteString("  }\n")
 			}
 			b.WriteString("  state ^= 0xA5A5A5A5U;\n")
 		} else {
-			b.WriteString(fmt.Sprintf("  // reconstructed leaf: %s\n", role))
-			if len(incoming) > 0 {
-				b.WriteString(fmt.Sprintf("  // callers observed: %d\n", len(incoming)))
-			}
 			if len(incoming) > 0 {
 				b.WriteString("  state ^= 0x13579BDFU;\n")
 			} else {
@@ -592,13 +587,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 			}
 		}
 	} else {
-		b.WriteString(fmt.Sprintf("  // reconstructed control: %s\n", role))
-		phase1, phase2, phase3 := skeletonPhases(fn, role)
-		b.WriteString(fmt.Sprintf("  // step 1: %s\n", phase1))
-		if len(incoming) > 0 {
-			b.WriteString(fmt.Sprintf("  // callers observed: %d\n", len(incoming)))
-		}
-		b.WriteString(fmt.Sprintf("  // step 2: %s\n", phase2))
+		_, _, phase3 := skeletonPhases(fn, role)
 		seen := map[string]struct{}{}
 		emitted := emitControlCalls(&b, fn, outgoing, seen)
 		if fn == "log_queue_push" && emitted == 0 {
@@ -644,7 +633,11 @@ func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen m
 			continue
 		}
 		seen[n] = struct{}{}
-		b.WriteString("  " + n + "();\n")
+		b.WriteString("  if ((state & 2U) != 0U) {\n")
+		b.WriteString("    " + n + "();\n")
+		b.WriteString("  } else {\n")
+		b.WriteString("    state ^= 0x3c6ef372U;\n")
+		b.WriteString("  }\n")
 		emitted++
 	}
 	return emitted

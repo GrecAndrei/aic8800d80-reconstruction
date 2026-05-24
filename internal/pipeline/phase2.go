@@ -52,7 +52,10 @@ type patchSection struct {
 
 func collectFunctionLinks(root string, functions []FunctionRecord, embeddingModel string) ([]FunctionLinkRecord, error) {
 	baseImage := "fmacfw_8800d80_h_u02.bin"
-	basePath := filepath.Join(root, baseImage)
+	basePath := firstExistingPath(
+		filepath.Join(root, baseImage),
+		filepath.Join(root, "inputs", "firmware", baseImage),
+	)
 	baseData, err := os.ReadFile(basePath)
 	if err != nil {
 		return nil, fmt.Errorf("read base image %s: %w", baseImage, err)
@@ -272,9 +275,23 @@ func loadAlignmentTargets(root string, basePath string, baseData []byte) ([]stru
 	Name string
 	Data []byte
 }, error) {
-	paths, err := filepath.Glob(filepath.Join(root, "*.bin"))
-	if err != nil {
-		return nil, fmt.Errorf("glob images for alignment: %w", err)
+	paths := make([]string, 0, 16)
+	seen := map[string]struct{}{}
+	for _, pattern := range []string{
+		filepath.Join(root, "*.bin"),
+		filepath.Join(root, "inputs", "firmware", "*.bin"),
+	} {
+		matches, err := filepath.Glob(pattern)
+		if err != nil {
+			return nil, fmt.Errorf("glob images for alignment: %w", err)
+		}
+		for _, p := range matches {
+			if _, ok := seen[p]; ok {
+				continue
+			}
+			seen[p] = struct{}{}
+			paths = append(paths, p)
+		}
 	}
 
 	baseSP, baseRH := uint32(0), uint32(0)

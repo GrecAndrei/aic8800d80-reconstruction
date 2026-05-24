@@ -161,13 +161,17 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		return Result{}, err
 	}
 
-	notesFunctions, notesArtifacts, stateMachines, messageRoutes, err := parseNotes(filepath.Join(rootAbs, "re_notes.md"))
+	notesPath := firstExistingPath(
+		filepath.Join(rootAbs, "re_notes.md"),
+		filepath.Join(rootAbs, "docs", "notes", "re_notes.md"),
+	)
+	notesFunctions, notesArtifacts, stateMachines, messageRoutes, err := parseNotes(notesPath)
 	if err != nil {
 		return Result{}, err
 	}
 	functions = mergeFunctionRecords(functions, notesFunctions)
 
-	callEdges, err := collectCallEdges(filepath.Join(rootAbs, "re_notes.md"), functions)
+	callEdges, err := collectCallEdges(notesPath, functions)
 	if err != nil {
 		return Result{}, err
 	}
@@ -179,7 +183,10 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		return Result{}, err
 	}
 
-	patchEntries, err := decodePatchEntries(filepath.Join(rootAbs, "fw_patch_table_8800d80_u02.bin"))
+	patchEntries, err := decodePatchEntries(firstExistingPath(
+		filepath.Join(rootAbs, "fw_patch_table_8800d80_u02.bin"),
+		filepath.Join(rootAbs, "inputs", "firmware", "fw_patch_table_8800d80_u02.bin"),
+	))
 	if err != nil {
 		return Result{}, err
 	}
@@ -286,11 +293,39 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 	return summary, nil
 }
 
+func firstExistingPath(candidates ...string) string {
+	for _, p := range candidates {
+		if strings.TrimSpace(p) == "" {
+			continue
+		}
+		if _, err := os.Stat(p); err == nil {
+			return p
+		}
+	}
+	if len(candidates) == 0 {
+		return ""
+	}
+	return candidates[0]
+}
+
 func collectImageRecords(root string, minStringLen int) ([]ImageRecord, []ArtifactRecord, error) {
-	pattern := filepath.Join(root, "*.bin")
-	paths, err := filepath.Glob(pattern)
-	if err != nil {
-		return nil, nil, fmt.Errorf("glob bin files: %w", err)
+	paths := make([]string, 0, 16)
+	seen := map[string]struct{}{}
+	for _, pattern := range []string{
+		filepath.Join(root, "*.bin"),
+		filepath.Join(root, "inputs", "firmware", "*.bin"),
+	} {
+		matches, err := filepath.Glob(pattern)
+		if err != nil {
+			return nil, nil, fmt.Errorf("glob bin files: %w", err)
+		}
+		for _, p := range matches {
+			if _, ok := seen[p]; ok {
+				continue
+			}
+			seen[p] = struct{}{}
+			paths = append(paths, p)
+		}
 	}
 
 	images := make([]ImageRecord, 0, len(paths))
