@@ -98,12 +98,13 @@ func main() {
 		if err != nil {
 			fail("read %s: %v", src, err)
 		}
-		if err := os.WriteFile(dst, b, 0o644); err != nil {
+		normalized := injectForwardDecls(string(b), fnRe, callRe, nameRe)
+		if err := os.WriteFile(dst, []byte(normalized), 0o644); err != nil {
 			fail("write %s: %v", dst, err)
 		}
-		funcBodies := fnRe.FindAllString(string(b), -1)
+		funcBodies := fnRe.FindAllString(normalized, -1)
 		functions := len(funcBodies)
-		todos := len(todoRe.FindAll(b, -1))
+		todos := len(todoRe.FindAll([]byte(normalized), -1))
 		implemented := functions - todos
 		if implemented < 0 {
 			implemented = 0
@@ -469,6 +470,85 @@ func isFallbackBody(body string) bool {
 }
 
 func round3(v float64) float64 { return float64(int(v*1000+0.5)) / 1000 }
+
+func injectForwardDecls(src string, fnRe, callRe, nameRe *regexp.Regexp) string {
+	funcBodies := fnRe.FindAllString(src, -1)
+	if len(funcBodies) == 0 {
+		return src
+	}
+	definedSet := map[string]struct{}{}
+	declSet := map[string]struct{}{}
+	definedOrder := make([]string, 0, len(funcBodies))
+	calleeOrder := make([]string, 0, 512)
+	for _, body := range funcBodies {
+		m := nameRe.FindStringSubmatch(body)
+		if len(m) != 2 {
+			continue
+		}
+		fn := m[1]
+		if _, ok := definedSet[fn]; !ok {
+			definedSet[fn] = struct{}{}
+			definedOrder = append(definedOrder, fn)
+		}
+		for _, cm := range callRe.FindAllStringSubmatch(body, -1) {
+			if len(cm) != 2 {
+				continue
+			}
+			cn := cm[1]
+			if cn == "" || cn == fn {
+				continue
+			}
+			if _, ok := declSet[cn]; !ok {
+				declSet[cn] = struct{}{}
+				calleeOrder = append(calleeOrder, cn)
+			}
+		}
+	}
+	allDecls := make([]string, 0, len(definedOrder)+len(calleeOrder))
+	allDecls = append(allDecls, definedOrder...)
+	for _, n := range calleeOrder {
+		if _, ok := definedSet[n]; ok {
+			continue
+		}
+		allDecls = append(allDecls, n)
+	}
+	if len(allDecls) == 0 {
+		return src
+	}
+
+	declBlock := "/* Auto-generated forward declarations for compileability */\n"
+	for _, n := range allDecls {
+		declBlock += "void " + n + "(void);\n"
+	}
+	declBlock += "\n"
+
+	insertAt := strings.Index(src, "#include")
+	if insertAt == -1 {
+		return declBlock + src
+	}
+	// Insert declarations after include block.
+	lines := strings.Split(src, "\n")
+	lastInclude := -1
+	for i, ln := range lines {
+		t := strings.TrimSpace(ln)
+		if strings.HasPrefix(t, "#include") {
+			lastInclude = i
+			continue
+		}
+		if lastInclude >= 0 && t != "" {
+			break
+		}
+	}
+	if lastInclude < 0 {
+		return declBlock + src
+	}
+	out := make([]string, 0, len(lines)+len(allDecls)+4)
+	out = append(out, lines[:lastInclude+1]...)
+	out = append(out, "")
+	out = append(out, strings.TrimSuffix(declBlock, "\n"))
+	out = append(out, lines[lastInclude+1:]...)
+	return strings.Join(out, "\n")
+}
 
 func fail(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)

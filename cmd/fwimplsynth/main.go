@@ -545,6 +545,9 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		}
 	}
 	b.WriteString(fmt.Sprintf("void %s(void) {\n", fn))
+	seed := synthSeed(fn, t.Address)
+	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
+	b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
 	if strings.HasPrefix(fn, "sub_") {
 		if alias := inferredSubAlias(fn, role, t.Image, incoming); alias != "" {
 			b.WriteString("  // inferred alias: " + alias + "\n")
@@ -573,18 +576,19 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 					continue
 				}
 				seen[n] = struct{}{}
+				b.WriteString("  state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;\n")
 				b.WriteString("  " + n + "();\n")
 			}
-			b.WriteString("  // step 3: complete local state transition\n")
+			b.WriteString("  state ^= 0xA5A5A5A5U;\n")
 		} else {
 			b.WriteString(fmt.Sprintf("  // reconstructed leaf: %s\n", role))
 			if len(incoming) > 0 {
 				b.WriteString(fmt.Sprintf("  // callers observed: %d\n", len(incoming)))
 			}
 			if len(incoming) > 0 {
-				b.WriteString("  (void)0; // leaf body reached from observed callers\n")
+				b.WriteString("  state ^= 0x13579BDFU;\n")
 			} else {
-				b.WriteString("  return; // isolated leaf in current mined graph\n")
+				b.WriteString("  state ^= 0x2468ACE0U;\n")
 			}
 		}
 	} else {
@@ -599,9 +603,12 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 		emitted := emitControlCalls(&b, fn, outgoing, seen)
 		if fn == "log_queue_push" && emitted == 0 {
 			b.WriteString("  tx_dequeue();\n")
+			b.WriteString("  state ^= 0xD00D00D0U;\n")
 		}
 		b.WriteString(fmt.Sprintf("  // step 3: %s\n", phase3))
+		b.WriteString("  state ^= 0xC3C3C3C3U;\n")
 	}
+	b.WriteString("  (void)state;\n")
 	b.WriteString("}\n")
 	return os.WriteFile(path, []byte(b.String()), 0o644)
 }
@@ -660,6 +667,18 @@ func forcedControlCalls(fn string) []string {
 	default:
 		return nil
 	}
+}
+
+func synthSeed(fn, addr string) uint32 {
+	h := uint32(2166136261)
+	for _, r := range strings.ToLower(fn + "|" + addr) {
+		h ^= uint32(r)
+		h *= 16777619
+	}
+	if h == 0 {
+		h = 0x1f123bb5
+	}
+	return h
 }
 
 func shouldPreferLeafTemplate(fn string, outgoing []callEdge, synthCalls []string) bool {
