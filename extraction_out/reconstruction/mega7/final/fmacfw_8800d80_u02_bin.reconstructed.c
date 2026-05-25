@@ -195,7 +195,7 @@ void fw_config_copy(void);
 void tx_phy_dispatch(void);
 void crypto_hw_config(void);
 void get_variant_cached(void);
-void irq_mask_test(void);
+uint32_t irq_mask_test(uint32_t bit);
 void irq_disable(void);
 void log_free_wrapper(void);
 void list_pop(void);
@@ -211,7 +211,7 @@ void feature_always_on(void);
 void irq47_status_handler(void);
 void list_count(void);
 void irq_prio_set2(void);
-void irq_enable(void);
+void irq_enable(uint32_t bit);
 void irq23_enable(void);
 void variant_update_cache(void);
 void crypto_hw_write32(void);
@@ -27445,11 +27445,11 @@ void irq23_enable(void);
 void irq47_status_handler(void);
 void irq_config(void);
 void irq_disable(void);
-void irq_enable(void);
+void irq_enable(uint32_t bit);
 void irq_event_handler(void);
 void irq_event_set(void);
 void irq_mask_init(void);
-void irq_mask_test(void);
+uint32_t irq_mask_test(uint32_t bit);
 void irq_nesting_or(void);
 void irq_prio_set(void);
 void irq_prio_set2(void);
@@ -66377,69 +66377,11 @@ void get_variant_cached(void) {
 }
 
 /* unit=lift_0597 class=low score=3.369 addr=0xdd2c */
-void irq_mask_test(void) {
-  uint32_t state = 0x664f45dfU;
-  state ^= 0x24360a28U;
-  state ^= ((uint32_t)1U << 4);
-  state ^= ((uint32_t)0U << 1);
-  state ^= ((uint32_t)2U << 9);
-  state ^= ((uint32_t)0U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  for (uint32_t i = 0U; i < 2U; ++i) {
-    state ^= mem_prof[(state + i) & 0x1FU];
-  }
-  state ^= 0x00000001U;
-  state ^= (state & 0x0000001fU);
-  static const uint32_t imm_sig[2] = {0x00000001U, 0x00000000U};
-  for (uint32_t i = 0U; i < 2U; ++i) {
-    uint32_t off = (imm_sig[i] >> 2) & 0x1FU;
-    state ^= mem_prof[off] ^ imm_sig[i];
-    mem_prof[off] = state ^ (imm_sig[i] << 1);
-  }
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    uint32_t probe = (state >> (i & 7U)) & 0xFFU;
-    if (probe < 0x20U) {
-      state ^= 0x00010001U + i;
-    } else if (probe < 0x80U) {
-      state ^= 0x00020002U + (i << 1);
-    } else {
-      state ^= 0x00040004U + (i << 2);
-    }
-  }
-  for (uint32_t opi = 0U; opi < 8U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x66c6e2a9U);
-    opmix ^= (state >> (opi & 7U));
-    if ((opmix & 0x1FU) < ((state >> 3) & 0x1FU)) { opmix ^= 0x1U; }
-    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);
-    state = (state + opmix) ^ (opmix >> (opi & 7U));
-  }
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    uint32_t x = state ^ (0x53503928U + (i << 4));
-    x = (x << ((i & 3U) + 1U)) | (x >> (31U - (i & 3U)));
-    state ^= x;
-  }
-  uint32_t reg_touch[4] = {0xaa089907U, 0xa9a75886U, 0x2aa78b87U, 0x980643abU};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;
-  state ^= (lr_model >> 1U);
-  uint32_t acc = state ^ 0xA5A5A5A5U;
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    acc = (acc << 3) | (acc >> 29);
-    acc ^= (state >> (i & 7U)) + (0x66642ba8U * i);
-  }
-  state ^= acc;
-  state ^= (0x68a51428U + (state << 1U));
-  (void)state;
+uint32_t irq_mask_test(uint32_t bit) {
+  volatile uint32_t *const irq_mask = (volatile uint32_t *)(uintptr_t)0x40505000U;
+  uint32_t mask = *irq_mask;
+  uint32_t bit_mask = 1U << bit;
+  return (mask & bit_mask) ? 1U : 0U;
 }
 
 /* unit=lift_0581 class=low score=3.369 addr=0xdd14 */
@@ -67367,65 +67309,11 @@ void irq_prio_set2(void) {
 }
 
 /* unit=lift_0632 class=low score=3.369 addr=0xdd00 */
-void irq_enable(void) {
-  uint32_t state = 0x5794a14cU;
-  state ^= 0x1422ef31U;
-  state ^= ((uint32_t)1U << 4);
-  state ^= ((uint32_t)0U << 1);
-  state ^= ((uint32_t)2U << 9);
-  state ^= ((uint32_t)1U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  for (uint32_t i = 0U; i < 2U; ++i) {
-    state ^= mem_prof[(state + i) & 0x1FU];
-  }
-  state ^= 0x00000001U;
-  state ^= (state & 0x0000001fU);
-  static const uint32_t imm_sig[1] = {0x00000001U};
-  uint32_t ii = 0U;
-  while (ii < 1U) {
-    uint32_t off = (imm_sig[ii] >> 2) & 0x1FU;
-    state = (state + mem_prof[off]) ^ (imm_sig[ii] >> 1);
-    mem_prof[off] = state ^ (imm_sig[ii] << 1);
-    ++ii;
-  }
-  for (uint32_t opi = 0U; opi < 6U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x56d207b1U);
-    opmix ^= (state >> (opi & 7U));
-    opmix ^= (state << ((opi & 3U) + 1U));
-    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);
-    state = (state + opmix) ^ (opmix >> (opi & 7U));
-  }
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    uint32_t x = state ^ (0x6344dc31U + (i << 4));
-    x ^= (state & 0x55AA55AAU);
-    x |= ((state >> 1) & 0x0F0F0F0FU);
-    x = (x << ((i & 3U) + 1U)) | (x >> (31U - (i & 3U)));
-    state ^= x;
-  }
-  uint32_t reg_touch[4] = {0xaa089907U, 0xa9a75886U, 0x2aa78b87U, 0x29082806U};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r0 = (reg_r0 + reg_r1) ^ (reg_r1 >> 2U);
-  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;
-  state ^= (lr_model >> 1U);
-  static uint32_t leaf_state[8];
-  uint32_t idx = state & 7U;
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    uint32_t mix = (state << (i & 7U)) ^ (state >> ((8U - i) & 7U));
-    leaf_state[(idx + i) & 7U] ^= mix + (i * 0x5601e231U);
-  }
-  state ^= leaf_state[idx];
-  state ^= 0x58b1f131U;
-  (void)state;
+void irq_enable(uint32_t bit) {
+  volatile uint32_t *const irq_mask = (volatile uint32_t *)(uintptr_t)0x40505000U;
+  uint32_t mask = *irq_mask;
+  mask |= 1U << bit;
+  *irq_mask = mask;
 }
 
 /* unit=lift_0640 class=low score=3.369 addr=0xd628 */
