@@ -244,6 +244,16 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_alloc`
 - `rx_queue_init`
 - `log_pool_init_e`
+- `timestamp_update`
+- `clear_flags`
+- `log_global_init`
+- `log_pool_alloc`
+- `log_pool_alloc2`
+- `log_pool_alloc_b`
+- `log_queue_push2`
+- `list_remove_node`
+- `queue_pending_check`
+- `log_pool_init_queue`
 - `feature_guard_sdio`
 
 ## License Status
