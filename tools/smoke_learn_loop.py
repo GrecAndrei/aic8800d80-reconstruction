@@ -234,35 +234,46 @@ def main() -> int:
         )
     )
 
+    # Staged selector:
+    #  1) strict cooldown+recency with prefix diversity
+    #  2) strict cooldown+recency without prefix diversity
+    #  3) strict cooldown with softer recency (half window)
+    #  4) strict cooldown with no recency
+    #  5) one extra missing-symbol strike with no recency
     picked: list[str] = []
-    prefix_counts: dict[str, int] = defaultdict(int)
-    for c in candidates:
-        if c["missing_symbol"] >= args.missing_cooldown:
-            continue
-        if c["recent_min"] < max(0, args.recent_window_min):
-            continue
-        p = c["prefix"]
-        # Soft diversity cap: avoid spending a whole cycle on one prefix.
-        if prefix_counts[p] >= max(1, args.limit // 3):
-            continue
-        picked.append(c["name"])
-        prefix_counts[p] += 1
-        if len(picked) >= args.limit:
-            break
-    # Fallback fill if diversity gate was too strict.
-    # Keep cooldown/recent guards, only relax prefix diversity.
-    if len(picked) < args.limit:
-        picked_set = set(picked)
+    picked_set: set[str] = set()
+
+    def pick_stage(missing_max: int, recent_min: int, enforce_prefix_cap: bool) -> None:
+        prefix_counts: dict[str, int] = defaultdict(int)
+        for name in picked:
+            for c in candidates:
+                if c["name"] == name:
+                    prefix_counts[c["prefix"]] += 1
+                    break
         for c in candidates:
+            if len(picked) >= args.limit:
+                return
             if c["name"] in picked_set:
                 continue
-            if c["missing_symbol"] >= args.missing_cooldown:
+            if c["missing_symbol"] >= missing_max:
                 continue
-            if c["recent_min"] < max(0, args.recent_window_min):
+            if c["recent_min"] < recent_min:
                 continue
+            if enforce_prefix_cap:
+                p = c["prefix"]
+                if prefix_counts[p] >= max(1, args.limit // 3):
+                    continue
+                prefix_counts[p] += 1
             picked.append(c["name"])
-            if len(picked) >= args.limit:
-                break
+            picked_set.add(c["name"])
+
+    strict_recent = max(0, args.recent_window_min)
+    soft_recent = strict_recent // 2
+    pick_stage(args.missing_cooldown, strict_recent, True)
+    pick_stage(args.missing_cooldown, strict_recent, False)
+    pick_stage(args.missing_cooldown, soft_recent, False)
+    pick_stage(args.missing_cooldown, 0, False)
+    pick_stage(args.missing_cooldown + 1, 0, False)
 
     print(json.dumps({"selected": picked, "count": len(picked), "candidates": len(candidates)}, indent=2))
 
