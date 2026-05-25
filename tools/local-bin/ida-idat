@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+IDA_HOME="${IDA_HOME:-/home/grec-alexander/ida-pro-9.2}"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+if [[ ! -x "$IDA_HOME/idat" ]]; then
+  echo "ida-idat: missing executable: $IDA_HOME/idat" >&2
+  exit 1
+fi
+
+export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-offscreen}"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$IDA_HOME"
+
+if [[ -n "${IDAUSR:-}" ]]; then
+  mkdir -p "$IDAUSR"
+fi
+
+if [[ $# -gt 0 ]]; then
+  last_arg="${!#}"
+  if [[ "$last_arg" == *.bin && -f "${last_arg}.i64" ]]; then
+    chosen_db=""
+    shopt -s nullglob
+    for candidate in \
+      "$REPO_ROOT/analysis/ida_headless/$(basename "$last_arg" .bin)"*.i64 \
+      "$REPO_ROOT/analysis/ida/$(basename "$last_arg").i64" \
+      "${last_arg}.i64"; do
+      if [[ -f "$candidate" ]]; then
+        chosen_db="$candidate"
+        break
+      fi
+    done
+    shopt -u nullglob
+    if [[ -n "$chosen_db" ]]; then
+      if [[ "$chosen_db" != "${last_arg}.i64" ]]; then
+        echo "ida-idat: using analyzed database $chosen_db" >&2
+      fi
+      set -- "${@:1:$(($# - 1))}" "$chosen_db"
+    fi
+  fi
+fi
+
+exec "$IDA_HOME/idat" "$@"

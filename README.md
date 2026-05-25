@@ -197,6 +197,7 @@ Plain-language milestone explanation:
 - `docs/`: milestone and analyst documentation
 - `inputs/firmware/`: raw firmware artifacts used for analysis
 - `analysis/ida/`: local IDA artifacts (not the source of truth)
+- `tools/local-bin/ida-idat`: headless IDA wrapper used by `fwrecon`; it prefers the analyzed `analysis/ida_headless/*.i64` database when available and falls back to the raw firmware input
 
 ## License Status
 

@@ -86,7 +86,7 @@ func main() {
 	flag.IntVar(&strictMinSeen, "strict-min-seen", 2, "Minimum profile coverage for strict lane")
 	flag.Float64Var(&strictMinScore, "strict-min-score", 1.2, "Minimum score for strict lane")
 	flag.IntVar(&unionShards, "union-shards", 512, "Shard count for disk-backed dedupe")
-	flag.StringVar(&idatPath, "idat", "/home/grec-alexander/ida-pro-9.2/idat", "IDA headless executable path")
+	flag.StringVar(&idatPath, "idat", "/home/grec-alexander/Downloads/aic8800d80/tools/local-bin/ida-idat", "IDA headless wrapper path")
 	flag.StringVar(&root, "root", ".", "Workspace root for image path resolution")
 	flag.Parse()
 
