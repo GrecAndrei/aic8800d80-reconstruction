@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -48,6 +49,9 @@ func main() {
 	var autoImplOnPlateau bool
 	var plateauDeltaSuccessMax int
 	var autoImplMaxTasks int
+	var plateauEscalateAfter int
+	var plateauEscalateStep int
+	var plateauEscalateMax int
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -79,6 +83,9 @@ func main() {
 	flag.BoolVar(&autoImplOnPlateau, "auto-impl-on-plateau", true, "When learning stalls, run compose/implqueue/implsynth/applysynth/finalize automatically")
 	flag.IntVar(&plateauDeltaSuccessMax, "plateau-delta-success-max", 0, "Plateau trigger threshold for delta_learning_smoke_success_count")
 	flag.IntVar(&autoImplMaxTasks, "auto-impl-max-tasks", 80, "Max tasks for auto impl synthesis when plateau trigger fires")
+	flag.IntVar(&plateauEscalateAfter, "plateau-escalate-after", 2, "Escalate impl task budget after this many consecutive plateau cycles")
+	flag.IntVar(&plateauEscalateStep, "plateau-escalate-step", 40, "Extra impl tasks per plateau step when escalating")
+	flag.IntVar(&plateauEscalateMax, "plateau-escalate-max", 320, "Upper bound for escalated impl tasks")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -178,10 +185,19 @@ func main() {
 					DeltaLearningSmokeSuccessCount int `json:"delta_learning_smoke_success_count"`
 				}
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
+					implTasks := autoImplMaxTasks
+					historyPath := filepath.Join(rootAbs, runRoot, "cycle_history.jsonl")
+					if streak, err := consecutivePlateauStreak(historyPath, plateauDeltaSuccessMax); err == nil && plateauEscalateAfter > 0 && plateauEscalateStep > 0 && streak >= plateauEscalateAfter {
+						levels := 1 + (streak-plateauEscalateAfter)/plateauEscalateAfter
+						implTasks = autoImplMaxTasks + levels*plateauEscalateStep
+						if plateauEscalateMax > 0 && implTasks > plateauEscalateMax {
+							implTasks = plateauEscalateMax
+						}
+					}
 					steps := [][]string{
 						{"run", "./cmd/fwcompose"},
-						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", autoImplMaxTasks)},
-						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", autoImplMaxTasks)},
+						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks)},
+						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks)},
 						{"run", "./cmd/fwapplysynth"},
 						{"run", "./cmd/fwfinalize"},
 					}
@@ -210,4 +226,40 @@ func main() {
 		fmt.Fprintf(os.Stderr, "trend gate failed: %v\n", err)
 		os.Exit(1)
 	}
+}
+
+func consecutivePlateauStreak(historyPath string, threshold int) (int, error) {
+	f, err := os.Open(historyPath)
+	if err != nil {
+		return 0, err
+	}
+	defer f.Close()
+	type row struct {
+		Delta int `json:"delta_learning_smoke_success_count"`
+	}
+	rows := make([]row, 0, 256)
+	sc := bufio.NewScanner(f)
+	for sc.Scan() {
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var r row
+		if json.Unmarshal([]byte(line), &r) != nil {
+			continue
+		}
+		rows = append(rows, r)
+	}
+	if err := sc.Err(); err != nil {
+		return 0, err
+	}
+	streak := 0
+	for i := len(rows) - 1; i >= 0; i-- {
+		if rows[i].Delta <= threshold {
+			streak++
+			continue
+		}
+		break
+	}
+	return streak, nil
 }
