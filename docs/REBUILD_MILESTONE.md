@@ -38,6 +38,14 @@ Tracked snapshot in git:
 - `artifacts/releases/aic8800d80-rebuild-v1/synth/`
 - `artifacts/releases/aic8800d80-rebuild-v1/meta/`
 
+Recovered working snapshot:
+
+- `extraction_out/reconstruction/mega7/focus_leftover/`
+- `extraction_out/reconstruction/mega7/synth_deps/`
+- `extraction_out/reconstruction/mega7/synth_leftover_behaviors/`
+- `extraction_out/reconstruction/mega7/applied_recovered/`
+- `extraction_out/reconstruction/mega7/final_recovered/`
+
 Includes:
 
 - Final reconstructed C files for all four images

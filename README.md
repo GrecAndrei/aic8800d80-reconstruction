@@ -25,6 +25,18 @@ Published rebuild artifacts are tracked under:
 
 The `final/` folder contains reconstructed firmware sources for all target images plus conformance/quality reports.
 
+## Recovered Snapshot
+
+The newest organized recovery pass lives under:
+
+- `extraction_out/reconstruction/mega7/focus_leftover/`
+- `extraction_out/reconstruction/mega7/synth_deps/`
+- `extraction_out/reconstruction/mega7/synth_leftover_behaviors/`
+- `extraction_out/reconstruction/mega7/applied_recovered/`
+- `extraction_out/reconstruction/mega7/final_recovered/`
+
+This snapshot captures the leftover message, SDIO, RF, and fallback/state work that was mined after the original release bundle.
+
 ## Verified Results
 
 Latest validated run:
