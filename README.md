@@ -180,6 +180,12 @@ Each cycle writes `runs/<tag>/cycle_report.json` with summary and learning growt
 Global trend history is appended to `extraction_out/reconstruction/mega7/cycle_history.jsonl`, including delta counters for learned function/prefix coverage and smoke-success growth.
 `smoke_learn_loop.py` also learns supplemental MMIO seeds from historical fault addresses (per-prefix) to improve autonomous recovery on harder targets.
 
+Native command wrapper:
+
+```bash
+go run ./cmd/fwcycle -tag cycle_demo -limit 10 -retry-fault-once=true
+```
+
 ## Quick Run
 
 ```bash
@@ -436,6 +442,9 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_stream_start_once`
 - `tx_phy_config`
 - `tx_rate_config`
+- `crypto_hw_write32_core`
+- `crypto_table_init`
+- `rf_timer_toggle_update`
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.
