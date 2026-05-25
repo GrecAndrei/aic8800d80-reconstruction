@@ -267,6 +267,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_flush`
 - `log_enqueue`
 - `log_hw_init`
+- `rf_bus_write`
+- `rf_cmd_process`
+- `rf_cmd_wait`
+- `rf_reg_write_core`
 - `feature_guard_sdio`
 
 ## License Status
