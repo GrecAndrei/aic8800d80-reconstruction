@@ -219,6 +219,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_queue_push`
 - `log_free_pool_a`
 - `log_free_wrapper`
+- `crypto_hw_clear_regs`
+- `crypto_iq_calculate`
+- `irq_mask_init`
+- `hw_event_flag`
+- `state_flag_check`
 
 ## License Status
 
