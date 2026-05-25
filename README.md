@@ -179,6 +179,7 @@ python3 tools/recon_cycle.py \
 Each cycle writes `runs/<tag>/cycle_report.json` with summary and learning growth counters.
 Global trend history is appended to `extraction_out/reconstruction/mega7/cycle_history.jsonl`, including delta counters for learned function/prefix coverage and smoke-success growth.
 `smoke_learn_loop.py` also learns supplemental MMIO seeds from historical fault addresses (per-prefix) to improve autonomous recovery on harder targets.
+Cycle reports now include `probe_summary` with per-run probe quality stats (`probed`, `success`, `fault`, `missing_symbol`, `retried`, `retry_recovered`).
 
 Native command wrapper:
 
@@ -461,6 +462,7 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `math_helper_big2`
 - `math_helper_int`
 - `math_round`
+- `math_fastpath`
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.

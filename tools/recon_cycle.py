@@ -51,6 +51,21 @@ def read_last_jsonl(path: Path) -> dict:
         return {}
 
 
+def parse_probe_summary(stdout: str) -> dict:
+    summary: dict = {}
+    for line in stdout.splitlines():
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(row, dict) and "probe_summary" in row and isinstance(row["probe_summary"], dict):
+            summary = row["probe_summary"]
+    return summary
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", type=Path, default=Path("."), help="repo root")
@@ -120,6 +135,7 @@ def main() -> int:
     if smoke.returncode != 0:
         print(smoke.stderr)
         return smoke.returncode
+    probe_summary = parse_probe_summary(smoke.stdout)
 
     extract_cmd = [
         "go",
@@ -162,6 +178,7 @@ def main() -> int:
         "learning_reason_counts": reason_counts,
         "learning_smoke_success_count": int(reason_counts.get("learned_smoke_success", 0)),
         "outcomes_path": str(outcomes),
+        "probe_summary": probe_summary,
     }
     history_path = run_root / "cycle_history.jsonl"
     prev = read_last_jsonl(history_path)

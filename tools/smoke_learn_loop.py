@@ -261,7 +261,17 @@ def main() -> int:
 
     print(json.dumps({"selected": picked, "count": len(picked), "candidates": len(candidates)}, indent=2))
 
+    summary = {
+        "probed": 0,
+        "success": 0,
+        "fault": 0,
+        "missing_symbol": 0,
+        "other_nonzero": 0,
+        "retried": 0,
+        "retry_recovered": 0,
+    }
     for fn in picked:
+        summary["probed"] += 1
         resolved_fn = fn_canon.get(fn.lower(), fn)
         source = fn_index.get(resolved_fn, args.source)
         cmd = [
@@ -287,11 +297,20 @@ def main() -> int:
         if proc.stderr:
             print(proc.stderr.strip())
         print(f"rc={proc.returncode}")
+        if proc.returncode == 0:
+            summary["success"] += 1
+        elif proc.returncode == 2:
+            summary["fault"] += 1
+        elif proc.returncode == 3:
+            summary["missing_symbol"] += 1
+        else:
+            summary["other_nonzero"] += 1
 
         if not args.retry_fault_once:
             continue
         if proc.returncode != 2:
             continue
+        summary["retried"] += 1
         fault_addr = ""
         for line in (proc.stdout or "").splitlines():
             line = line.strip()
@@ -316,7 +335,10 @@ def main() -> int:
         if retry.stderr:
             print(retry.stderr.strip())
         print(f"retry_rc={retry.returncode}")
+        if retry.returncode == 0:
+            summary["retry_recovered"] += 1
 
+    print(json.dumps({"probe_summary": summary}, sort_keys=True))
     return 0
 
 
