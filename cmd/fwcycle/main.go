@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 func runCmd(rootAbs string, name string, args ...string) error {
@@ -20,8 +21,8 @@ func main() {
 	var root string
 	var runRoot string
 	var primarySource string
-	var sourceGlobA string
-	var sourceGlobB string
+	var sourceGlobsCSV string
+	var seedCSV string
 	var limit int
 	var maxInsns int
 	var missingCooldown int
@@ -36,8 +37,8 @@ func main() {
 	flag.StringVar(&root, "root", ".", "Repository root")
 	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
 	flag.StringVar(&primarySource, "primary-source", "extraction_out/reconstruction/mega7/final/fmacfw_8800d80_u02_bin.reconstructed.c", "Primary reconstructed C source")
-	flag.StringVar(&sourceGlobA, "source-glob-a", "extraction_out/reconstruction/mega7/final_recovered/*.c", "Additional source glob A")
-	flag.StringVar(&sourceGlobB, "source-glob-b", "extraction_out/reconstruction/mega7/final/*.c", "Additional source glob B")
+	flag.StringVar(&sourceGlobsCSV, "source-globs", "", "Comma-separated additional source globs")
+	flag.StringVar(&seedCSV, "seeds", "0x40000000=0", "Comma-separated default seeds ADDR=VALUE")
 	flag.IntVar(&limit, "limit", 10, "Probe target limit")
 	flag.IntVar(&maxInsns, "max-insns", 120, "Max instructions per probe")
 	flag.IntVar(&missingCooldown, "missing-cooldown", 2, "Skip targets with repeated missing-symbol outcomes")
@@ -46,7 +47,7 @@ func main() {
 	flag.IntVar(&checkpointMinSuccess, "checkpoint-min-success", 1, "Minimum success count required for checkpoint auto-promotion")
 	flag.IntVar(&checkpointMaxAdd, "checkpoint-max-add", 15, "Maximum checkpoint entries auto-added per cycle")
 	flag.StringVar(&readmePath, "readme", "README.md", "README path for checkpoint promotion")
-	flag.StringVar(&outcomesPath, "outcomes", "extraction_out/reconstruction/mega7/smoke_observations.jsonl", "Smoke outcomes JSONL path")
+	flag.StringVar(&outcomesPath, "outcomes", "", "Smoke outcomes JSONL path (default: <run-root>/smoke_observations.jsonl)")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -56,15 +57,34 @@ func main() {
 		os.Exit(1)
 	}
 
+	if strings.TrimSpace(sourceGlobsCSV) == "" {
+		sourceGlobsCSV = filepath.ToSlash(filepath.Join(runRoot, "final_recovered", "*.c")) + "," + filepath.ToSlash(filepath.Join(runRoot, "final", "*.c"))
+	}
+	if strings.TrimSpace(outcomesPath) == "" {
+		outcomesPath = filepath.ToSlash(filepath.Join(runRoot, "smoke_observations.jsonl"))
+	}
+
 	args := []string{
 		"tools/recon_cycle.py",
 		"--run-root", runRoot,
 		"--primary-source", primarySource,
-		"--source-glob", sourceGlobA,
-		"--source-glob", sourceGlobB,
 		"--limit", fmt.Sprintf("%d", limit),
 		"--max-insns", fmt.Sprintf("%d", maxInsns),
 		"--missing-cooldown", fmt.Sprintf("%d", missingCooldown),
+	}
+	for _, g := range strings.Split(sourceGlobsCSV, ",") {
+		g = strings.TrimSpace(g)
+		if g == "" {
+			continue
+		}
+		args = append(args, "--source-glob", g)
+	}
+	for _, s := range strings.Split(seedCSV, ",") {
+		s = strings.TrimSpace(s)
+		if s == "" {
+			continue
+		}
+		args = append(args, "--seed", s)
 	}
 	if retryFaultOnce {
 		args = append(args, "--retry-fault-once")

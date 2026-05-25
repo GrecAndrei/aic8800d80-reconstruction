@@ -191,6 +191,8 @@ go run ./cmd/fwcycle -tag cycle_demo -limit 10 -retry-fault-once=true
 ```bash
 go run ./cmd/fwcycle \
   -tag cycle_demo \
+  -source-globs 'extraction_out/reconstruction/mega7/final_recovered/*.c,extraction_out/reconstruction/mega7/final/*.c' \
+  -seeds '0x40000000=0,0x40010000=0' \
   -update-checkpoints=true \
   -checkpoint-min-success 1 \
   -checkpoint-max-add 20
