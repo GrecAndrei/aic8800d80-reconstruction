@@ -38,6 +38,8 @@ func main() {
 	var gateLast int
 	var gateMinSuccessRate float64
 	var gateMaxMissingRate float64
+	var pruneOldRuns bool
+	var pruneKeepLatest int
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -60,6 +62,8 @@ func main() {
 	flag.IntVar(&gateLast, "gate-last", 12, "Number of recent cycles to evaluate in trend gating")
 	flag.Float64Var(&gateMinSuccessRate, "gate-min-success-rate", 0, "Minimum success rate percent for trend gate")
 	flag.Float64Var(&gateMaxMissingRate, "gate-max-missing-rate", 0, "Maximum missing-symbol rate percent for trend gate")
+	flag.BoolVar(&pruneOldRuns, "prune-old-runs", true, "Gzip large run artifacts for older runs to save disk")
+	flag.IntVar(&pruneKeepLatest, "prune-keep-latest", 8, "Number of latest runs to keep uncompressed when pruning")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -124,6 +128,19 @@ func main() {
 		}
 		if err := runCmd(rootAbs, "python3", updateArgs...); err != nil {
 			fmt.Fprintf(os.Stderr, "update smoke checkpoints: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if pruneOldRuns {
+		pruneArgs := []string{
+			"tools/prune_cycle_artifacts.py",
+			"--run-root", runRoot,
+			"--keep-latest", fmt.Sprintf("%d", pruneKeepLatest),
+			"--file", "mining_queue_full.jsonl",
+		}
+		if err := runCmd(rootAbs, "python3", pruneArgs...); err != nil {
+			fmt.Fprintf(os.Stderr, "prune old runs: %v\n", err)
 			os.Exit(1)
 		}
 	}
