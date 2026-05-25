@@ -457,6 +457,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `crypto_hw_write32_core`
 - `crypto_table_init`
 - `rf_timer_toggle_update`
+- `feature_flags_init`
+- `math_helper_big2`
+- `math_helper_int`
+- `math_round`
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.

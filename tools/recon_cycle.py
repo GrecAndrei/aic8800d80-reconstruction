@@ -63,6 +63,8 @@ def main() -> int:
     ap.add_argument("--tag", default="", help="run tag for this cycle")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with repeated missing_symbol outcomes")
     ap.add_argument("--retry-fault-once", action="store_true", help="retry faulted probes once with learned fault seed")
+    ap.add_argument("--recent-window-min", type=int, default=30, help="skip functions attempted within this many minutes")
+    ap.add_argument("--prefer-non-cycle-queue", action="store_true", help="prefer latest non-cycle queue over cycle queue")
     args = ap.parse_args()
 
     root = args.root.resolve()
@@ -76,12 +78,15 @@ def main() -> int:
     else:
         tag = "cycle_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
-    # Choose the newest non-cycle queue first, then fallback to absolute newest.
-    candidates = sorted((runs_dir).glob("*/mining_queue_top300.jsonl"))
+    candidates = list((runs_dir).glob("*/mining_queue_top300.jsonl"))
     if not candidates:
         raise SystemExit("no mining_queue_top300.jsonl found under run root")
-    non_cycle = [p for p in candidates if "cycle" not in p.parent.name.lower()]
-    latest_queue = non_cycle[-1] if non_cycle else candidates[-1]
+    candidates.sort(key=lambda p: p.stat().st_mtime)
+    latest_queue = candidates[-1]
+    if args.prefer_non_cycle_queue:
+        non_cycle = [p for p in candidates if "cycle" not in p.parent.name.lower()]
+        if non_cycle:
+            latest_queue = non_cycle[-1]
 
     smoke_cmd = [
         "python3",
@@ -100,6 +105,8 @@ def main() -> int:
         str(args.max_insns),
         "--missing-cooldown",
         str(args.missing_cooldown),
+        "--recent-window-min",
+        str(args.recent_window_min),
     ]
     if args.retry_fault_once:
         smoke_cmd.append("--retry-fault-once")
