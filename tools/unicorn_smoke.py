@@ -70,7 +70,6 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
         f"-O{opt}",
         str(src),
         "-nostdlib",
-        "-Wl,--gc-sections",
         "-Wl,--unresolved-symbols=ignore-all",
         "-Wl,-Ttext=0x1000",
         f"-Wl,-e,{entry}",
@@ -99,11 +98,6 @@ def synthesize_wrapper_source(src: Path, out_dir: Path, stub_names: list[str]) -
 def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int, list[tuple[int, bytes, int]]]:
     with obj.open("rb") as f:
         elf = ELFFile(f)
-        text = elf.get_section_by_name(".text")
-        if text is None:
-            raise RuntimeError("object has no .text section")
-        code = text.data()
-        text_vaddr = int(text["sh_addr"])
         segments: list[tuple[int, bytes, int]] = []
         for seg in elf.iter_segments():
             if seg["p_type"] != "PT_LOAD":
@@ -121,9 +115,16 @@ def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int, list[tuple[
                 continue
             if sym.entry["st_info"]["type"] != "STT_FUNC":
                 continue
-            off = (int(sym.entry["st_value"]) & ~1) - text_vaddr
+            shndx = sym.entry["st_shndx"]
+            if not isinstance(shndx, int):
+                raise RuntimeError(f"function {fn_name!r} has no concrete section")
+            section = elf.get_section(shndx)
+            if section is None:
+                raise RuntimeError(f"function {fn_name!r} section is missing")
+            code = section.data()
+            fn_addr = int(sym.entry["st_value"]) & ~1
             size = int(sym.entry["st_size"])
-            return code, off, size, segments
+            return code, fn_addr, size, segments
     raise RuntimeError(f"function {fn_name!r} not found in {obj}")
 
 
@@ -145,15 +146,28 @@ def write_seed(mu: Uc, seed: Seed) -> None:
 def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, bytes, int]], seeds: list[Seed], max_insns: int) -> tuple[Uc, int]:
     mu = Uc(UC_ARCH_ARM, UC_MODE_THUMB)
     highest_end = 0
-    for vaddr, data, memsz in segments:
+    merged_ranges: list[tuple[int, int]] = []
+    for vaddr, data, memsz in sorted(segments, key=lambda item: item[0]):
         base = vaddr & ~(PAGE_SIZE - 1)
-        end = vaddr + memsz
-        highest_end = max(highest_end, end)
-        size = ((end - base + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE
+        end = ((vaddr + memsz + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE
+        highest_end = max(highest_end, vaddr + memsz)
+        if not merged_ranges:
+            merged_ranges.append((base, end))
+            continue
+        prev_base, prev_end = merged_ranges[-1]
+        if base <= prev_end:
+            merged_ranges[-1] = (prev_base, max(prev_end, end))
+        else:
+            merged_ranges.append((base, end))
+
+    for base, end in merged_ranges:
+        size = end - base
         try:
             mu.mem_map(base, size)
         except Exception:
             pass
+
+    for vaddr, data, memsz in segments:
         if data:
             mu.mem_write(vaddr, data)
     stack_base = ((highest_end + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE + PAGE_SIZE
@@ -165,7 +179,7 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
     for seed in seeds:
         write_seed(mu, seed)
 
-    start = CODE_BASE + fn_off + 1
+    start = fn_off | 1
     insn_count = {"n": 0}
     fault = {"access": None, "address": None, "size": None}
 

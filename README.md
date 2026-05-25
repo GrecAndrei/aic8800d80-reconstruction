@@ -98,7 +98,7 @@ So "finished" here means "best evidence-backed automated reconstruction currentl
 
 ## Emulator Smoke Tests
 
-You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to a linked ARM Thumb ELF, loads all `PT_LOAD` segments, maps a stack, seeds MMIO words, and runs only a bounded number of instructions.
+You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to a linked ARM Thumb ELF, merges overlapping `PT_LOAD` ranges, maps a stack, seeds MMIO words, and runs only a bounded number of instructions.
 
 For call-heavy paths, the harness now links a tiny ELF so internal calls resolve normally. If a helper is still missing, pass `--stub-fn NAME` to synthesize a temporary no-op no-arg stub before linking.
 
@@ -237,13 +237,13 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`
-- `rf_bus_setup`
 - `log_printf`
 - `log_ptr_in_range`
 - `msg_get_value`
 - `msg_parse`
 - `log_alloc`
-- `buffer_pool_manage`
+- `rx_queue_init`
+- `log_pool_init_e`
 - `feature_guard_sdio`
 
 ## License Status
