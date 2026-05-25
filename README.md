@@ -134,6 +134,18 @@ This is a function-level smoke test, not a full firmware emulator. It is best fo
 
 You can also print selected post-state words with `--dump ADDR` when you want to inspect what a path touched without turning those values into hard assertions yet. The harness places the stack above the linked image automatically and starts the stack pointer near the top of that window, which helps with larger handlers that need more room than the early smoke tests.
 
+To continuously feed smoke outcomes back into mining priority, append machine-readable results:
+
+```bash
+python3 tools/unicorn_smoke.py \
+  extraction_out/reconstruction/mega7/final/fmacfw_8800d80_u02_bin.reconstructed.c \
+  main_loop \
+  --seed 0x4000006c=0 \
+  --record-outcome extraction_out/reconstruction/mega7/smoke_observations.jsonl
+```
+
+`fwextract` now ingests these outcomes (plus the checkpoint list) and writes `learning_signals.json` per run; those signals are applied directly to mining queue scoring.
+
 ## Quick Run
 
 ```bash
@@ -163,6 +175,7 @@ Practical adaptation advice:
 
 - Keep evidence layering conservative (stronger evidence first, softer evidence only as fallback)
 - Preserve deterministic gate checks so regressions are obvious
+- Keep dynamic learning enabled: smoke outcomes and checkpointed greens should continuously steer target priority
 - Version each published snapshot (`-v1`, `-v2`, etc.) with manifests and checksums
 
 ## Limitations and Downsides

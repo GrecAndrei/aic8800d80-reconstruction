@@ -30,6 +30,7 @@ evidence-backed image while committing and pushing validated progress often.
 5. Once the path is green, add it to the smoke checkpoint list in `README.md`.
 6. Commit the documentation and push immediately.
 7. Return to step 1.
+8. Record smoke outcomes (`--record-outcome .../smoke_observations.jsonl`) so the next extraction run re-weights targets automatically.
 
 ## Validation Rules
 
@@ -38,6 +39,7 @@ evidence-backed image while committing and pushing validated progress often.
 - A path is only a checkpoint after it actually runs cleanly in the harness.
 - If a function needs a seed at `0x400000XX`, use that exact address first.
 - If a function needs a vector-table address, seed the exact system register words it reads.
+- Keep the extraction loop dynamic: every run should ingest the latest smoke outcomes and checkpoint-derived learning signals.
 
 ## What Good Progress Looks Like
 

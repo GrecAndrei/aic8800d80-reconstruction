@@ -165,7 +165,8 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		filepath.Join(rootAbs, "re_notes.md"),
 		filepath.Join(rootAbs, "docs", "notes", "re_notes.md"),
 	)
-	notesFunctions, notesArtifacts, stateMachines, messageRoutes, err := parseNotes(notesPath)
+	primaryImage := primaryImageFromFunctions(functions)
+	notesFunctions, notesArtifacts, stateMachines, messageRoutes, err := parseNotes(notesPath, primaryImage)
 	if err != nil {
 		return Result{}, err
 	}
@@ -191,7 +192,8 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		return Result{}, err
 	}
 
-	miningQueue := buildMiningQueue(functions, callEdges, functionLinks, messageSchema, queueLimit, queueMinScore)
+	learningSignals := loadLearningSignals(rootAbs, outAbs, runOutAbs, functions)
+	miningQueue := buildMiningQueue(functions, callEdges, functionLinks, messageSchema, learningSignals, queueLimit, queueMinScore)
 
 	artifacts := make([]ArtifactRecord, 0, len(patchArtifacts)+len(notesArtifacts)+256)
 	artifacts = append(artifacts, patchArtifacts...)
@@ -245,8 +247,11 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 	if err := writeJSONL(filepath.Join(runOutAbs, "mining_queue.jsonl"), miningQueue); err != nil {
 		return Result{}, err
 	}
-	fullQueue := buildMiningQueue(functions, callEdges, functionLinks, messageSchema, 0, queueMinScore)
+	fullQueue := buildMiningQueue(functions, callEdges, functionLinks, messageSchema, learningSignals, 0, queueMinScore)
 	if err := writeJSONL(filepath.Join(runOutAbs, "mining_queue_full.jsonl"), fullQueue); err != nil {
+		return Result{}, err
+	}
+	if err := writeJSON(filepath.Join(runOutAbs, "learning_signals.json"), learningSignals); err != nil {
 		return Result{}, err
 	}
 	topN := 300
@@ -447,7 +452,10 @@ func collectFunctionRecords(root string) ([]FunctionRecord, error) {
 	return rows, nil
 }
 
-func parseNotes(path string) ([]FunctionRecord, []ArtifactRecord, []StateMachineRecord, []MessageRouteRecord, error) {
+func parseNotes(path string, image string) ([]FunctionRecord, []ArtifactRecord, []StateMachineRecord, []MessageRouteRecord, error) {
+	if strings.TrimSpace(image) == "" {
+		image = "unknown.bin"
+	}
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, nil, nil, nil, fmt.Errorf("open notes: %w", err)
@@ -486,7 +494,7 @@ func parseNotes(path string) ([]FunctionRecord, []ArtifactRecord, []StateMachine
 		}
 		stateMachines = append(stateMachines, StateMachineRecord{
 			SchemaVersion: schemaVersion,
-			Image:         "fmacfw_8800d80_h_u02.bin",
+			Image:         image,
 			Function:      function,
 			Machine:       machine,
 			State:         state,
@@ -503,7 +511,7 @@ func parseNotes(path string) ([]FunctionRecord, []ArtifactRecord, []StateMachine
 		}
 		messageRoutes = append(messageRoutes, MessageRouteRecord{
 			SchemaVersion: schemaVersion,
-			Image:         "fmacfw_8800d80_h_u02.bin",
+			Image:         image,
 			Dispatcher:    dispatcher,
 			Condition:     strings.TrimSpace(condition),
 			SubtypeExpr:   strings.TrimSpace(subtypeExpr),
@@ -531,7 +539,7 @@ func parseNotes(path string) ([]FunctionRecord, []ArtifactRecord, []StateMachine
 			currentName = name
 			functions = append(functions, FunctionRecord{
 				SchemaVersion: schemaVersion,
-				Image:         "fmacfw_8800d80_h_u02.bin",
+				Image:         image,
 				Address:       addr,
 				Name:          name,
 				Role:          inferRole(name),
@@ -550,7 +558,7 @@ func parseNotes(path string) ([]FunctionRecord, []ArtifactRecord, []StateMachine
 			for _, addr := range addrs {
 				artifacts = append(artifacts, ArtifactRecord{
 					SchemaVersion: schemaVersion,
-					Image:         "fmacfw_8800d80_h_u02.bin",
+					Image:         image,
 					Type:          "mmio_ref",
 					Key:           strings.ToLower(addr),
 					Value:         strings.ToLower(addr),

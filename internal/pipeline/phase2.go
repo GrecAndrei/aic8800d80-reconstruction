@@ -51,7 +51,10 @@ type patchSection struct {
 }
 
 func collectFunctionLinks(root string, functions []FunctionRecord, embeddingModel string) ([]FunctionLinkRecord, error) {
-	baseImage := "fmacfw_8800d80_h_u02.bin"
+	baseImage := primaryImageFromFunctions(functions)
+	if baseImage == "" {
+		return nil, nil
+	}
 	basePath := firstExistingPath(
 		filepath.Join(root, baseImage),
 		filepath.Join(root, "inputs", "firmware", baseImage),

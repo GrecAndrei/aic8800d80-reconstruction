@@ -69,10 +69,32 @@ type MiningTargetRecord struct {
 	Reasons       []string `json:"reasons"`
 }
 
+func primaryImageFromFunctions(functions []FunctionRecord) string {
+	counts := map[string]int{}
+	best := ""
+	bestCount := 0
+	for _, fn := range functions {
+		img := strings.TrimSpace(fn.Image)
+		if img == "" {
+			continue
+		}
+		counts[img]++
+		if counts[img] > bestCount {
+			bestCount = counts[img]
+			best = img
+		}
+	}
+	return best
+}
+
 func collectCallEdges(notesPath string, functions []FunctionRecord) ([]CallEdgeRecord, error) {
+	baseImage := primaryImageFromFunctions(functions)
+	if baseImage == "" {
+		baseImage = "unknown.bin"
+	}
 	addrName := map[string]string{}
 	for _, fn := range functions {
-		if fn.Image != "fmacfw_8800d80_h_u02.bin" {
+		if fn.Image != baseImage {
 			continue
 		}
 		addr := strings.ToLower(fn.Address)
@@ -152,7 +174,7 @@ func collectCallEdges(notesPath string, functions []FunctionRecord) ([]CallEdgeR
 		}
 		edges = append(edges, CallEdgeRecord{
 			SchemaVersion: schemaVersion,
-			Image:         "fmacfw_8800d80_h_u02.bin",
+			Image:         baseImage,
 			SourceAddr:    srcAddr,
 			SourceName:    srcName,
 			TargetAddr:    dstAddr,
@@ -234,6 +256,7 @@ func collectCallEdges(notesPath string, functions []FunctionRecord) ([]CallEdgeR
 }
 
 func inferMessageSchema(functions []FunctionRecord, edges []CallEdgeRecord) []MessageSchemaRecord {
+	baseImage := primaryImageFromFunctions(functions)
 	outgoing := map[string]int{}
 	for _, e := range edges {
 		k := strings.ToLower(e.SourceAddr)
@@ -256,7 +279,7 @@ func inferMessageSchema(functions []FunctionRecord, edges []CallEdgeRecord) []Me
 
 	rows := make([]MessageSchemaRecord, 0, 512)
 	for _, fn := range functions {
-		if fn.Image != "fmacfw_8800d80_h_u02.bin" {
+		if baseImage != "" && fn.Image != baseImage {
 			continue
 		}
 		name := strings.ToLower(strings.TrimSpace(fn.Name))
@@ -318,6 +341,7 @@ func inferMessageSchema(functions []FunctionRecord, edges []CallEdgeRecord) []Me
 }
 
 func generateTwinScaffold(root string, outDir string, functions []FunctionRecord, edges []CallEdgeRecord, schemas []MessageSchemaRecord, patches []PatchEntryRecord) error {
+	baseImage := primaryImageFromFunctions(functions)
 	genRoot := filepath.Join(outDir, "generated_twin")
 	incDir := filepath.Join(genRoot, "include")
 	srcDir := filepath.Join(genRoot, "src")
@@ -330,7 +354,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 
 	selected := make([]FunctionRecord, 0, len(functions))
 	for _, fn := range functions {
-		if fn.Image != "fmacfw_8800d80_h_u02.bin" {
+		if baseImage != "" && fn.Image != baseImage {
 			continue
 		}
 		if strings.HasPrefix(strings.ToLower(fn.Name), "sub_") || fn.Name == "" {
@@ -463,7 +487,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 	return nil
 }
 
-func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links []FunctionLinkRecord, schemas []MessageSchemaRecord, limit int, minScore float64) []MiningTargetRecord {
+func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links []FunctionLinkRecord, schemas []MessageSchemaRecord, learning map[string]LearningSignal, limit int, minScore float64) []MiningTargetRecord {
 	outDeg := map[string]int{}
 	inDeg := map[string]int{}
 	for _, e := range edges {
@@ -483,9 +507,6 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 
 	msgHits := map[string]int{}
 	for _, m := range schemas {
-		if m.Image != "fmacfw_8800d80_h_u02.bin" {
-			continue
-		}
 		msgHits[strings.ToLower(m.Image+"|"+m.HandlerAddr)]++
 	}
 
@@ -574,6 +595,10 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 		if fn.Role == "radio" || fn.Role == "transport" || fn.Role == "patching" {
 			score += 0.4
 			reasons = append(reasons, "critical_subsystem")
+		}
+		if sig, ok := learning[strings.ToLower(fn.Image+"|"+fn.Name)]; ok {
+			score += sig.Weight
+			reasons = append(reasons, sig.Reason)
 		}
 
 		if score < minScore {

@@ -15,10 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import shutil
 import subprocess
-import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -39,8 +36,6 @@ from unicorn.arm_const import UC_ARM_REG_LR, UC_ARM_REG_PC, UC_ARM_REG_SP
 
 
 PAGE_SIZE = 0x1000
-CODE_BASE = 0x1000
-STACK_BASE = 0x2000
 STACK_SIZE = 0x8000
 RETURN_STOP = 0xDEADC000
 
@@ -90,7 +85,8 @@ def synthesize_wrapper_source(src: Path, out_dir: Path, stub_names: list[str]) -
 
             {stubs}
             """
-        ).lstrip()
+        ).lstrip(),
+        encoding="utf-8",
     )
     return wrapper
 
@@ -133,7 +129,6 @@ def map_page(mu: Uc, addr: int, size: int = PAGE_SIZE) -> None:
     try:
         mu.mem_map(base, size)
     except Exception:
-        # The page may already be mapped by another seed.
         pass
 
 
@@ -143,7 +138,14 @@ def write_seed(mu: Uc, seed: Seed) -> None:
     mu.mem_write(seed.addr, data)
 
 
-def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, bytes, int]], seeds: list[Seed], max_insns: int) -> tuple[Uc, int]:
+def run_smoke(
+    code: bytes,
+    fn_off: int,
+    fn_size: int,
+    segments: list[tuple[int, bytes, int]],
+    seeds: list[Seed],
+    max_insns: int,
+) -> tuple[Uc, int, dict[str, int | None], bool]:
     mu = Uc(UC_ARCH_ARM, UC_MODE_THUMB)
     highest_end = 0
     merged_ranges: list[tuple[int, int]] = []
@@ -170,10 +172,9 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
     for vaddr, data, memsz in segments:
         if data:
             mu.mem_write(vaddr, data)
+
     stack_base = ((highest_end + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE + PAGE_SIZE
     map_page(mu, stack_base, STACK_SIZE)
-    # Start close to the top of the mapped stack so deeper call chains have
-    # room to grow downward before they hit the artificial stack floor.
     mu.reg_write(UC_ARM_REG_SP, stack_base + STACK_SIZE - 0x100)
 
     for seed in seeds:
@@ -181,7 +182,7 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
 
     start = fn_off | 1
     insn_count = {"n": 0}
-    fault = {"access": None, "address": None, "size": None}
+    fault: dict[str, int | None] = {"access": None, "address": None, "size": None}
 
     def on_code(uc, address, size, user_data):
         insn_count["n"] += 1
@@ -204,6 +205,7 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
     )
     mu.reg_write(UC_ARM_REG_PC, start)
     mu.reg_write(UC_ARM_REG_LR, RETURN_STOP | 1)
+
     try:
         mu.emu_start(start, RETURN_STOP)
     except UcError:
@@ -218,8 +220,15 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
                     indent=2,
                 )
             )
-        raise
-    return mu, insn_count["n"]
+        return mu, insn_count["n"], fault, False
+
+    return mu, insn_count["n"], fault, True
+
+
+def append_outcome(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(payload, sort_keys=True) + "\n")
 
 
 def main() -> int:
@@ -265,6 +274,12 @@ def main() -> int:
         metavar="NAME",
         help="Synthesize an empty stub for a missing no-arg function before compiling",
     )
+    ap.add_argument(
+        "--record-outcome",
+        type=Path,
+        default=None,
+        help="Append JSONL outcome row for dynamic queue learning",
+    )
     args = ap.parse_args()
 
     if not args.source.is_file():
@@ -284,14 +299,34 @@ def main() -> int:
             source = synthesize_wrapper_source(args.source.resolve(), td_path, args.stub_fn)
         obj = compile_object(source, td_path, args.target, args.cpu, args.opt, args.function)
         code, off, size, segments = load_function(obj, args.function)
-        mu, count = run_smoke(code, off, size, segments, seeds, args.max_insns)
+        mu, count, fault, success = run_smoke(code, off, size, segments, seeds, args.max_insns)
 
-        print(json.dumps({
-            "source": str(args.source),
+        print(
+            json.dumps(
+                {
+                    "source": str(args.source),
+                    "function": args.function,
+                    "instructions": count,
+                    "object": str(obj),
+                    "status": "success" if success else "fault",
+                },
+                indent=2,
+            )
+        )
+
+    if args.record_outcome is not None:
+        row = {
             "function": args.function,
+            "status": "success" if success else "fault",
+            "source": str(args.source),
             "instructions": count,
-            "object": str(obj),
-        }, indent=2))
+        }
+        if fault.get("address") is not None:
+            row["fault_address"] = hex(int(fault["address"]))
+        append_outcome(args.record_outcome, row)
+
+    if not success:
+        return 2
 
     for a in args.check_clear_lsb:
         addr = parse_int(a)
@@ -309,9 +344,7 @@ def main() -> int:
         val = int.from_bytes(mu.mem_read(addr, 4), "little")
         print(f"{hex(addr)} = {hex(val)}")
         if val != expected:
-            raise SystemExit(
-                f"assertion failed: {hex(addr)} expected {hex(expected)} got {hex(val)}"
-            )
+            raise SystemExit(f"assertion failed: {hex(addr)} expected {hex(expected)} got {hex(val)}")
 
     for a in args.dump:
         addr = parse_int(a)
