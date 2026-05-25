@@ -52,6 +52,14 @@ func main() {
 	var plateauEscalateAfter int
 	var plateauEscalateStep int
 	var plateauEscalateMax int
+	var throttleProbesOnPlateau bool
+	var throttlePlateauAfter int
+	var throttleLimit int
+	var implMinCallConf float64
+	var implFallbackMinCallConf float64
+	var plateauLowerConfAfter int
+	var plateauLoweredMinCallConf float64
+	var plateauLoweredFallbackMinCallConf float64
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -86,6 +94,14 @@ func main() {
 	flag.IntVar(&plateauEscalateAfter, "plateau-escalate-after", 2, "Escalate impl task budget after this many consecutive plateau cycles")
 	flag.IntVar(&plateauEscalateStep, "plateau-escalate-step", 40, "Extra impl tasks per plateau step when escalating")
 	flag.IntVar(&plateauEscalateMax, "plateau-escalate-max", 320, "Upper bound for escalated impl tasks")
+	flag.BoolVar(&throttleProbesOnPlateau, "throttle-probes-on-plateau", true, "Reduce probe load when repeated zero-learning plateaus are detected")
+	flag.IntVar(&throttlePlateauAfter, "throttle-plateau-after", 3, "Start probe throttling after this many consecutive plateau cycles")
+	flag.IntVar(&throttleLimit, "throttle-limit", 3, "Probe limit used while throttling is active")
+	flag.Float64Var(&implMinCallConf, "impl-min-call-confidence", 0.7, "Default implsynth min call confidence")
+	flag.Float64Var(&implFallbackMinCallConf, "impl-fallback-min-call-confidence", 0.4, "Default implsynth fallback min call confidence")
+	flag.IntVar(&plateauLowerConfAfter, "plateau-lower-conf-after", 4, "Lower implsynth call confidence after this many consecutive plateau cycles")
+	flag.Float64Var(&plateauLoweredMinCallConf, "plateau-lowered-min-call-confidence", 0.55, "Lowered implsynth min call confidence during deep plateaus")
+	flag.Float64Var(&plateauLoweredFallbackMinCallConf, "plateau-lowered-fallback-min-call-confidence", 0.25, "Lowered implsynth fallback confidence during deep plateaus")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -100,6 +116,12 @@ func main() {
 	}
 	if strings.TrimSpace(outcomesPath) == "" {
 		outcomesPath = filepath.ToSlash(filepath.Join(runRoot, "smoke_observations.jsonl"))
+	}
+	if throttleProbesOnPlateau {
+		historyPath := filepath.Join(rootAbs, runRoot, "cycle_history.jsonl")
+		if streak, err := consecutivePlateauStreak(historyPath, plateauDeltaSuccessMax); err == nil && throttlePlateauAfter > 0 && streak >= throttlePlateauAfter && throttleLimit >= 0 {
+			limit = throttleLimit
+		}
 	}
 
 	args := []string{
@@ -187,6 +209,8 @@ func main() {
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
 					implTasks := autoImplMaxTasks
 					implSkip := 0
+					runMinCallConf := implMinCallConf
+					runFallbackCallConf := implFallbackMinCallConf
 					historyPath := filepath.Join(rootAbs, runRoot, "cycle_history.jsonl")
 					if streak, err := consecutivePlateauStreak(historyPath, plateauDeltaSuccessMax); err == nil && plateauEscalateAfter > 0 && plateauEscalateStep > 0 && streak >= plateauEscalateAfter {
 						levels := 1 + (streak-plateauEscalateAfter)/plateauEscalateAfter
@@ -199,11 +223,15 @@ func main() {
 						if streak > plateauEscalateAfter {
 							implSkip = (streak - plateauEscalateAfter) * implTasks
 						}
+						if plateauLowerConfAfter > 0 && streak >= plateauLowerConfAfter {
+							runMinCallConf = plateauLoweredMinCallConf
+							runFallbackCallConf = plateauLoweredFallbackMinCallConf
+						}
 					}
 					steps := [][]string{
 						{"run", "./cmd/fwcompose"},
 						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)},
-						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks)},
+						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
 						{"run", "./cmd/fwapplysynth"},
 						{"run", "./cmd/fwfinalize"},
 					}
