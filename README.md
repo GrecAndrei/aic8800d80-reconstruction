@@ -291,6 +291,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_init_blockc`
 - `rf_power_set`
 - `rf_timer_toggle`
+- `rf_level_compute`
+- `rf_reg_write_cb`
+- `rf_hw_timer_init`
+- `rf_reg_write_wait`
+- `rf_msg_log_rate`
 - `feature_guard_sdio`
 
 ## License Status
