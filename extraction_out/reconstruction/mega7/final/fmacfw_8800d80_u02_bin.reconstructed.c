@@ -68088,134 +68088,47 @@ void rf_fault_dump_n_432(void) {
 
 /* unit=lift_9826 class=low score=2.406 addr=0x2c84b */
 void message_dispatch_n_141(void) {
-  uint32_t state = 0xb1d0be2eU;
-  state ^= 0x16f57313U;
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x55e3ac93U);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 /* unit=lift_9824 class=low score=2.406 addr=0x147eb */
 void rf_fault_dump_na3(void) {
-  uint32_t state = 0x7220aaedU;
-  state ^= 0xf422d7cdU;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
-  state ^= (rf_reg ^ 0x00A500A5U);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xb734084dU);
-  state = (state + chain_mix) ^ (chain_mix >> 3U);
-  (void)state;
 }
 
 /* unit=lift_9823 class=low score=2.406 addr=0x11f45 */
 void rf_bus_write_n3e1(void) {
-  uint32_t state = 0x1852ab2fU;
-  state ^= 0x6e224b90U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 1) & 0x3FU];
-  state = (state + rf_reg) ^ 0x00A500A5U;
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x2d349411U);
-  state ^= chain_mix;
-  (void)state;
 }
 
 /* unit=lift_31987 class=low score=2.406 addr=0x12ad5 */
 void rf_bus_reset_ned(void) {
-  uint32_t state = 0xa74bfc30U;
-  state ^= 0xe27a9986U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 1) & 0x3FU];
-  state = (state + rf_reg) ^ 0x00A500A5U;
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xa16c4607U);
-  state ^= (chain_mix << 1U) | (chain_mix >> 31U);
-  (void)state;
 }
 
 /* unit=lift_9822 class=low score=2.406 addr=0x11a82 */
 void rf_bus_write_n_e2(void) {
-  uint32_t state = 0xec2c853aU;
-  state ^= 0xaf9a3970U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 1) & 0x3FU];
-  state = (state + rf_reg) ^ 0x00A500A5U;
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xec8ce6f1U);
-  state ^= chain_mix;
-  (void)state;
 }
 
 /* unit=lift_32042 class=low score=2.406 addr=0x12838 */
 void rf_bus_reset_n_1b0(void) {
-  uint32_t state = 0xce379a39U;
-  state ^= 0xd5106407U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 3) & 0x3FU];
-  state ^= (rf_reg + 0x00A500A5U);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x9606bb87U);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 /* unit=lift_32043 class=low score=2.406 addr=0x147c4 */
 void rf_fault_dump_n7c(void) {
-  uint32_t state = 0xe49891b7U;
-  state ^= 0xc7b8b6f9U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 1) & 0x3FU];
-  state = (state + rf_reg) ^ 0x00A500A5U;
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x84ae6979U);
-  state = (state + chain_mix) ^ (chain_mix >> 3U);
-  (void)state;
 }
 
 /* unit=lift_32047 class=low score=2.406 addr=0x13056 */
 void rf_stream_start2_n_39a(void) {
-  uint32_t state = 0xc7858da7U;
-  state ^= 0x0ca583b8U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
-  state ^= (rf_reg ^ 0x00A500A5U);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x4fb35c39U);
-  state ^= chain_mix;
-  (void)state;
 }
 
 /* unit=lift_31983 class=low score=2.406 addr=0x11792 */
 void rf_bus_write_n_3d2(void) {
-  uint32_t state = 0x44c9d8deU;
-  state ^= 0x4d3ee132U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 3) & 0x3FU];
-  state ^= (rf_reg + 0x00A500A5U);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x0e283eb3U);
-  state ^= (chain_mix << 1U) | (chain_mix >> 31U);
-  (void)state;
 }
 
 /* unit=lift_9821 class=low score=2.406 addr=0x15143 */
@@ -68264,47 +68177,17 @@ void rf_stream_start2_n139(void) {
 
 /* unit=lift_9818 class=low score=2.406 addr=0x124f9 */
 void rf_bus_reset_n_4ef(void) {
-  uint32_t state = 0x8dad708bU;
-  state ^= 0xbbd92545U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
-  state ^= (rf_reg ^ 0x00A500A5U);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xf8cffac5U);
-  state = (state + chain_mix) ^ (chain_mix >> 3U);
-  (void)state;
 }
 
 /* unit=lift_3205 class=low score=2.406 addr=0x2c75a */
 void message_dispatch_n_232(void) {
-  uint32_t state = 0x3b5610b4U;
-  state ^= 0x425ede9fU;
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x0148011fU);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 /* unit=lift_32050 class=low score=2.406 addr=0x1564f */
 void ipc_doorbell_handler_n_32d(void) {
-  uint32_t state = 0xad43502bU;
-  state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = 4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   sdio_wait_busy();
-  state = (state + 0xf3a66c04U) ^ (state >> 1U);
-  gate = (gate << 1) | (gate >> 31);
-  state ^= (gate & 0xe16cc1fdU);
-  state ^= ((gate << 1U) | (gate >> 31U)) ^ 0xde4ca7fdU;
-  (void)gate;
-  state = (state + 0xfa67157dU) ^ (state >> 2U);
-  (void)state;
 }
 
 /* unit=lift_3198 class=low score=2.406 addr=0x12618 */
@@ -68381,14 +68264,7 @@ void sdio_buffer_prepare_n_5b(void) {
 
 /* unit=lift_9810 class=low score=2.406 addr=0x2c9ce */
 void message_dispatch_n42(void) {
-  uint32_t state = 0xbed9834eU;
-  state ^= 0x67c7afd1U;
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x24d17051U);
-  state = (state + chain_mix) ^ (chain_mix >> 3U);
-  (void)state;
 }
 
 /* unit=lift_31979 class=low score=2.406 addr=0x14ee4 */
