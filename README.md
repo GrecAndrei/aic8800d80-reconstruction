@@ -159,6 +159,7 @@ python3 tools/smoke_learn_loop.py \
   --limit 12 \
   --seed 0x40000000=0
 ```
+The selector favors under-tested, high-priority functions and enforces prefix diversity, so cycles keep exploring instead of repeatedly re-probing already-stable paths.
 
 For a full unattended cycle (probe -> extract -> report):
 
@@ -293,6 +294,15 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `ps_disable_cfm`
 - `ps_upm_enter`
 - `ps_upm_exit`
+- `log_pool_alloc_b`
+- `log_hw_init_if`
+- `msg_parse_thunk`
+- `log_hw_regs_init`
+- `error_handler`
+- `math_helper`
+- `math_helper_big`
+- `thunk`
+- `list_count`
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`

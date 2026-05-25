@@ -14,13 +14,14 @@ import argparse
 import json
 import re
 import subprocess
+from collections import defaultdict
 from pathlib import Path
 
 DEF_RE = re.compile(r"^\s*(?:[A-Za-z_][A-Za-z0-9_\s\*]+)\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*\{")
 
 
-def load_queue_names(path: Path) -> list[str]:
-    names: list[str] = []
+def load_queue_records(path: Path) -> list[dict]:
+    rows: list[dict] = []
     seen: set[str] = set()
     for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
         line = line.strip()
@@ -34,13 +35,36 @@ def load_queue_names(path: Path) -> list[str]:
         if not name or name in seen:
             continue
         seen.add(name)
-        names.append(name)
-    return names
+        rows.append(row)
+    return rows
 
 
 def load_checkpointed(readme: Path) -> set[str]:
     text = readme.read_text(encoding="utf-8", errors="ignore")
     return set(re.findall(r"`([A-Za-z0-9_]+)`", text))
+
+
+def load_outcome_stats(path: Path) -> dict[str, dict[str, int]]:
+    stats: dict[str, dict[str, int]] = defaultdict(lambda: {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0})
+    if not path.is_file():
+        return stats
+    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        fn = str(row.get("function", "")).strip()
+        if not fn:
+            continue
+        st = str(row.get("status", "")).strip().lower()
+        k = fn.lower()
+        stats[k]["attempts"] += 1
+        if st in stats[k]:
+            stats[k][st] += 1
+    return stats
 
 
 def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str]]:
@@ -105,7 +129,8 @@ def main() -> int:
 
     global_seeds = [parse_seed(s) for s in args.seed]
     checkpointed = load_checkpointed(args.readme)
-    names = load_queue_names(args.queue)
+    queue_rows = load_queue_records(args.queue)
+    outcomes = load_outcome_stats(args.outcomes)
     source_pool: list[Path] = [args.source]
     for pattern in args.source_glob:
         source_pool.extend(sorted(Path(".").glob(pattern)))
@@ -130,17 +155,60 @@ def main() -> int:
         "tx": [("0x40000000", "0")],
     }
 
-    picked: list[str] = []
-    for name in names:
+    candidates: list[dict] = []
+    for row in queue_rows:
+        name = str(row.get("name", "")).strip()
         if name.startswith("sub_"):
             continue
         if name in checkpointed:
             continue
-        picked.append(name)
+        low = name.lower()
+        stat = outcomes.get(low, {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0})
+        candidates.append(
+            {
+                "name": name,
+                "priority": float(row.get("priority_score", 0.0)),
+                "attempts": int(stat.get("attempts", 0)),
+                "success": int(stat.get("success", 0)),
+                "fault": int(stat.get("fault", 0)),
+                "missing_symbol": int(stat.get("missing_symbol", 0)),
+                "prefix": prefix(name),
+            }
+        )
+
+    # Prefer under-tested, high-priority candidates and avoid immediate repeats.
+    candidates.sort(
+        key=lambda c: (
+            c["success"] > 0,              # unseen first
+            c["attempts"],                 # fewer attempts first
+            c["missing_symbol"],           # fewer missing-symbol misses first
+            -c["priority"],                # then higher queue priority
+            c["name"].lower(),
+        )
+    )
+
+    picked: list[str] = []
+    prefix_counts: dict[str, int] = defaultdict(int)
+    for c in candidates:
+        p = c["prefix"]
+        # Soft diversity cap: avoid spending a whole cycle on one prefix.
+        if prefix_counts[p] >= max(1, args.limit // 3):
+            continue
+        picked.append(c["name"])
+        prefix_counts[p] += 1
         if len(picked) >= args.limit:
             break
+    # Fallback fill if diversity gate was too strict.
+    if len(picked) < args.limit:
+        picked_set = set(picked)
+        for c in candidates:
+            if c["name"] in picked_set:
+                continue
+            picked.append(c["name"])
+            if len(picked) >= args.limit:
+                break
 
-    print(json.dumps({"selected": picked, "count": len(picked)}, indent=2))
+    print(json.dumps({"selected": picked, "count": len(picked), "candidates": len(candidates)}, indent=2))
 
     for fn in picked:
         resolved_fn = fn_canon.get(fn.lower(), fn)
