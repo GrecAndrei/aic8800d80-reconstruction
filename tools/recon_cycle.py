@@ -29,6 +29,28 @@ def load_json(path: Path, default):
         return default
 
 
+def append_jsonl(path: Path, row: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row, sort_keys=True) + "\n")
+
+
+def read_last_jsonl(path: Path) -> dict:
+    if not path.is_file():
+        return {}
+    last = ""
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            if line.strip():
+                last = line
+    if not last:
+        return {}
+    try:
+        return json.loads(last)
+    except json.JSONDecodeError:
+        return {}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", type=Path, default=Path("."), help="repo root")
@@ -126,14 +148,30 @@ def main() -> int:
         "learning_by_function_count": len(by_function),
         "learning_by_prefix_count": len(by_prefix),
         "learning_reason_counts": reason_counts,
+        "learning_smoke_success_count": int(reason_counts.get("learned_smoke_success", 0)),
         "outcomes_path": str(outcomes),
     }
+    history_path = run_root / "cycle_history.jsonl"
+    prev = read_last_jsonl(history_path)
+    prev_func = int(prev.get("learning_by_function_count", 0)) if isinstance(prev, dict) else 0
+    prev_prefix = int(prev.get("learning_by_prefix_count", 0)) if isinstance(prev, dict) else 0
+    prev_success = 0
+    if isinstance(prev, dict):
+        if "learning_smoke_success_count" in prev:
+            prev_success = int(prev.get("learning_smoke_success_count", 0))
+        else:
+            prev_reasons = prev.get("learning_reason_counts", {})
+            if isinstance(prev_reasons, dict):
+                prev_success = int(prev_reasons.get("learned_smoke_success", 0))
+    report["delta_learning_by_function_count"] = len(by_function) - prev_func
+    report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
+    report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success
     report_path = run_dir / "cycle_report.json"
     report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    append_jsonl(history_path, report)
     print(json.dumps(report, indent=2))
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

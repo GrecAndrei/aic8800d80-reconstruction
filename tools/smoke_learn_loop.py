@@ -43,8 +43,9 @@ def load_checkpointed(readme: Path) -> set[str]:
     return set(re.findall(r"`([A-Za-z0-9_]+)`", text))
 
 
-def index_functions(sources: list[Path]) -> dict[str, Path]:
+def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str]]:
     out: dict[str, Path] = {}
+    canon: dict[str, str] = {}
     for src in sources:
         if not src.is_file():
             continue
@@ -54,7 +55,9 @@ def index_functions(sources: list[Path]) -> dict[str, Path]:
                 continue
             name = m.group(1)
             out.setdefault(name, src)
-    return out
+            lower = name.lower()
+            canon.setdefault(lower, name)
+    return out, canon
 
 
 def prefix(name: str) -> str:
@@ -115,7 +118,7 @@ def main() -> int:
             continue
         seen_src.add(rp)
         uniq_pool.append(p)
-    fn_index = index_functions(uniq_pool)
+    fn_index, fn_canon = index_functions(uniq_pool)
 
     # Small generic seed hints by prefix. These are intentionally conservative.
     prefix_seeds: dict[str, list[tuple[str, str]]] = {
@@ -140,12 +143,13 @@ def main() -> int:
     print(json.dumps({"selected": picked, "count": len(picked)}, indent=2))
 
     for fn in picked:
-        source = fn_index.get(fn, args.source)
+        resolved_fn = fn_canon.get(fn.lower(), fn)
+        source = fn_index.get(resolved_fn, args.source)
         cmd = [
             "python3",
             "tools/unicorn_smoke.py",
             str(source),
-            fn,
+            resolved_fn,
             "--max-insns",
             str(args.max_insns),
             "--record-outcome",
@@ -157,7 +161,7 @@ def main() -> int:
         for a, v in merged.items():
             cmd.extend(["--seed", f"{a}={v}"])
 
-        print(f"== probe {fn} @ {source}")
+        print(f"== probe {fn} -> {resolved_fn} @ {source}")
         proc = subprocess.run(cmd, text=True, capture_output=True, timeout=90)
         if proc.stdout:
             print(proc.stdout.strip())

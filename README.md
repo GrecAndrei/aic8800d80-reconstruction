@@ -173,6 +173,7 @@ python3 tools/recon_cycle.py \
 ```
 
 Each cycle writes `runs/<tag>/cycle_report.json` with summary and learning growth counters.
+Global trend history is appended to `extraction_out/reconstruction/mega7/cycle_history.jsonl`, including delta counters for learned function/prefix coverage and smoke-success growth.
 
 ## Quick Run
 
