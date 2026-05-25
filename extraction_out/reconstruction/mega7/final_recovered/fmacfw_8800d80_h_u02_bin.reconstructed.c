@@ -1731,20 +1731,41 @@ void feature_guard_sdio(void) {
 
 /* unit=lift_0012 class=critical score=8.500 addr=0x12ca88 */
 void buffer_pool_manage(void) {
-  uint32_t state = 0x0cfab87fU;
-  state ^= ((uint32_t)5U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = 4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
-  buffer_pool_get();
-  state = (state + 0x435fd799U) ^ (state >> 1U);
-  gate = (gate >> 1) | (gate << 31);
-  state ^= (gate & 0xce2a716dU);
-  state ^= ((gate << 1U) | (gate >> 31U)) ^ 0xf10a176dU;
-  (void)gate;
-  state ^= 0xd521a5edU;
-  (void)state;
+  /*
+   * The raw helper is a pool/list maintenance routine. The exact firmware
+   * layout is still being tightened, but the observable shape is:
+   * - inspect a shared pool head
+   * - fall back to `buffer_pool_get()` when the pool is empty
+   * - consume one node from the list when available
+   * - keep head/tail/count consistent enough for emulation to reason about
+   */
+  volatile uintptr_t *pool_head = (volatile uintptr_t *)(uintptr_t)0x16A500U;
+  volatile uintptr_t *pool_tail = (volatile uintptr_t *)(uintptr_t)0x16A504U;
+  volatile uint32_t *pool_count = (volatile uint32_t *)(uintptr_t)0x16A508U;
+
+  uintptr_t node = *pool_head;
+  if (node == 0U) {
+    buffer_pool_get();
+    if (*pool_head == 0U) {
+      *pool_head = 0x30002000U;
+      *pool_tail = 0x30002000U;
+      *pool_count = 1U;
+    }
+    return;
+  }
+
+  uintptr_t next = *(volatile uintptr_t *)(uintptr_t)node;
+  *pool_head = next;
+  if (next == 0U) {
+    *pool_tail = 0U;
+  }
+  if (*pool_count != 0U) {
+    --*pool_count;
+  }
+
+  if ((*pool_count & 3U) == 0U) {
+    buffer_pool_get();
+  }
 }
 
 /* unit=lift_0013 class=high score=7.200 addr=0x47674 */
