@@ -160,6 +160,20 @@ python3 tools/smoke_learn_loop.py \
   --seed 0x40000000=0
 ```
 
+For a full unattended cycle (probe -> extract -> report):
+
+```bash
+python3 tools/recon_cycle.py \
+  --run-root extraction_out/reconstruction/mega7 \
+  --primary-source extraction_out/reconstruction/mega7/final/fmacfw_8800d80_u02_bin.reconstructed.c \
+  --source-glob 'extraction_out/reconstruction/mega7/final_recovered/*.c' \
+  --source-glob 'extraction_out/reconstruction/mega7/final/*.c' \
+  --limit 10 \
+  --tag cycle_demo
+```
+
+Each cycle writes `runs/<tag>/cycle_report.json` with summary and learning growth counters.
+
 ## Quick Run
 
 ```bash
@@ -273,6 +287,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `usb_trans_error_handler`
 - `wlan_epbulk_recv_compl_handler`
 - `wlan_epbulk_send_compl_handler`
+- `rwnxl_wakeup`
+- `ps_enable_cfm`
+- `ps_disable_cfm`
+- `ps_upm_enter`
+- `ps_upm_exit`
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`

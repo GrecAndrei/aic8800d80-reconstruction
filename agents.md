@@ -32,6 +32,7 @@ evidence-backed image while committing and pushing validated progress often.
 7. Return to step 1.
 8. Record smoke outcomes (`--record-outcome .../smoke_observations.jsonl`) so the next extraction run re-weights targets automatically.
 9. For unattended batches, run `tools/smoke_learn_loop.py` against the latest queue and source pool, then rerun `fwextract` to ingest the new outcomes.
+10. Prefer `tools/recon_cycle.py` when you want one command to execute probe+ingest+report and preserve cycle-to-cycle trend evidence.
 
 ## Validation Rules
 

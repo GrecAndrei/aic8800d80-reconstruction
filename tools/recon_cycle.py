@@ -1,0 +1,139 @@
+#!/usr/bin/env python3
+"""Run one dynamic reconstruction-learning cycle.
+
+Cycle steps:
+1. Probe top queue targets with smoke_learn_loop.py and record outcomes
+2. Re-run fwextract to ingest latest outcomes and produce updated learning signals
+3. Emit a compact cycle report JSON for dashboarding / trend checks
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def run(cmd: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(cmd, cwd=cwd, text=True, capture_output=True)
+
+
+def load_json(path: Path, default):
+    if not path.is_file():
+        return default
+    try:
+        return json.loads(path.read_text(encoding="utf-8", errors="ignore"))
+    except json.JSONDecodeError:
+        return default
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--root", type=Path, default=Path("."), help="repo root")
+    ap.add_argument("--run-root", type=Path, default=Path("extraction_out/reconstruction/mega7"), help="reconstruction run root")
+    ap.add_argument("--primary-source", type=Path, required=True, help="primary C source used by smoke loop")
+    ap.add_argument("--source-glob", action="append", default=[], help="additional source glob(s)")
+    ap.add_argument("--limit", type=int, default=10, help="number of queue targets to probe this cycle")
+    ap.add_argument("--max-insns", type=int, default=120, help="max instructions per probe")
+    ap.add_argument("--seed", action="append", default=["0x40000000=0"], help="default seed ADDR=VALUE")
+    ap.add_argument("--tag", default="", help="run tag for this cycle")
+    args = ap.parse_args()
+
+    root = args.root.resolve()
+    run_root = (root / args.run_root).resolve()
+    outcomes = run_root / "smoke_observations.jsonl"
+    runs_dir = run_root / "runs"
+    runs_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.tag.strip():
+        tag = args.tag.strip()
+    else:
+        tag = "cycle_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+    latest_queue = run_root / "runs" / "dynlearn_autoloop2" / "mining_queue_top300.jsonl"
+    if not latest_queue.is_file():
+        # Fallback to newest run queue if known tag is absent.
+        candidates = sorted((runs_dir).glob("*/mining_queue_top300.jsonl"))
+        if not candidates:
+            raise SystemExit("no mining_queue_top300.jsonl found under run root")
+        latest_queue = candidates[-1]
+
+    smoke_cmd = [
+        "python3",
+        "tools/smoke_learn_loop.py",
+        "--source",
+        str(args.primary_source),
+        "--queue",
+        str(latest_queue),
+        "--outcomes",
+        str(outcomes),
+        "--readme",
+        "README.md",
+        "--limit",
+        str(args.limit),
+        "--max-insns",
+        str(args.max_insns),
+    ]
+    for g in args.source_glob:
+        smoke_cmd.extend(["--source-glob", g])
+    for s in args.seed:
+        smoke_cmd.extend(["--seed", s])
+
+    smoke = run(smoke_cmd, root)
+    print(smoke.stdout)
+    if smoke.returncode != 0:
+        print(smoke.stderr)
+        return smoke.returncode
+
+    extract_cmd = [
+        "go",
+        "run",
+        "./cmd/fwextract",
+        "-root",
+        ".",
+        "-out",
+        str(args.run_root),
+        "-run-tag",
+        tag,
+    ]
+    ex = run(extract_cmd, root)
+    print(ex.stdout)
+    if ex.returncode != 0:
+        print(ex.stderr)
+        return ex.returncode
+
+    run_dir = run_root / "runs" / tag
+    summary = load_json(run_dir / "summary.json", {})
+    learning = load_json(run_dir / "learning_signals.json", {})
+    by_function = learning.get("by_function", {}) if isinstance(learning, dict) else {}
+    by_prefix = learning.get("by_prefix", {}) if isinstance(learning, dict) else {}
+
+    reason_counts: dict[str, int] = {}
+    for row in by_function.values():
+        if not isinstance(row, dict):
+            continue
+        reason = str(row.get("reason", "unknown"))
+        reason_counts[reason] = reason_counts.get(reason, 0) + 1
+
+    report = {
+        "schema_version": "0.1.0",
+        "tag": tag,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "queue_source": str(latest_queue),
+        "summary": summary,
+        "learning_by_function_count": len(by_function),
+        "learning_by_prefix_count": len(by_prefix),
+        "learning_reason_counts": reason_counts,
+        "outcomes_path": str(outcomes),
+    }
+    report_path = run_dir / "cycle_report.json"
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
