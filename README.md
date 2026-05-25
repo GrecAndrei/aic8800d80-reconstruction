@@ -276,6 +276,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_level_apply`
 - `rf_level_dump`
 - `rf_mem_read`
+- `rf_fault_dump`
+- `rf_cmd_queue_next`
+- `sdio_buffer_prepare`
+- `phy_rf_init`
+- `sdio_transfer`
 - `feature_guard_sdio`
 
 ## License Status
