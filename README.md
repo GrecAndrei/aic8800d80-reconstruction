@@ -186,6 +186,16 @@ Native command wrapper:
 go run ./cmd/fwcycle -tag cycle_demo -limit 10 -retry-fault-once=true
 ```
 
+`fwcycle` can also auto-promote checkpoint entries after each successful cycle:
+
+```bash
+go run ./cmd/fwcycle \
+  -tag cycle_demo \
+  -update-checkpoints=true \
+  -checkpoint-min-success 1 \
+  -checkpoint-max-add 20
+```
+
 ## Quick Run
 
 ```bash
