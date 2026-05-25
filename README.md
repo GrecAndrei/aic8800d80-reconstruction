@@ -98,7 +98,7 @@ So "finished" here means "best evidence-backed automated reconstruction currentl
 
 ## Emulator Smoke Tests
 
-You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to a linked ARM Thumb ELF, maps a small stack and a few seeded MMIO words, and runs only a bounded number of instructions.
+You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to a linked ARM Thumb ELF, loads all `PT_LOAD` segments, maps a stack, seeds MMIO words, and runs only a bounded number of instructions.
 
 For call-heavy paths, the harness now links a tiny ELF so internal calls resolve normally. If a helper is still missing, pass `--stub-fn NAME` to synthesize a temporary no-op no-arg stub before linking.
 
@@ -131,6 +131,8 @@ python3 tools/unicorn_smoke.py \
 ```
 
 This is a function-level smoke test, not a full firmware emulator. It is best for self-contained functions or paths with simple seeded state, and it is meant to confirm that recovered control flow and observable side effects still line up with the evidence we mined.
+
+You can also print selected post-state words with `--dump ADDR` when you want to inspect what a path touched without turning those values into hard assertions yet.
 
 ## Quick Run
 

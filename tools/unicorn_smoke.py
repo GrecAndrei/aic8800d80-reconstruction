@@ -32,7 +32,7 @@ from unicorn.arm_const import UC_ARM_REG_LR, UC_ARM_REG_PC, UC_ARM_REG_SP
 PAGE_SIZE = 0x1000
 CODE_BASE = 0x1000
 STACK_BASE = 0x2000
-STACK_SIZE = 0x2000
+STACK_SIZE = 0x8000
 RETURN_STOP = 0xDEADC000
 
 
@@ -62,6 +62,7 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
         str(src),
         "-nostdlib",
         "-Wl,--gc-sections",
+        "-Wl,--unresolved-symbols=ignore-all",
         "-Wl,-Ttext=0x1000",
         f"-Wl,-e,{entry}",
         "-o",
@@ -86,7 +87,7 @@ def synthesize_wrapper_source(src: Path, out_dir: Path, stub_names: list[str]) -
     return wrapper
 
 
-def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
+def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int, list[tuple[int, bytes, int]]]:
     with obj.open("rb") as f:
         elf = ELFFile(f)
         text = elf.get_section_by_name(".text")
@@ -94,6 +95,15 @@ def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
             raise RuntimeError("object has no .text section")
         code = text.data()
         text_vaddr = int(text["sh_addr"])
+        segments: list[tuple[int, bytes, int]] = []
+        for seg in elf.iter_segments():
+            if seg["p_type"] != "PT_LOAD":
+                continue
+            vaddr = int(seg["p_vaddr"])
+            memsz = int(seg["p_memsz"])
+            if memsz == 0:
+                continue
+            segments.append((vaddr, seg.data(), memsz))
         symtab = elf.get_section_by_name(".symtab")
         if symtab is None:
             raise RuntimeError("object has no symbol table")
@@ -104,7 +114,7 @@ def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
                 continue
             off = (int(sym.entry["st_value"]) & ~1) - text_vaddr
             size = int(sym.entry["st_size"])
-            return code, off, size
+            return code, off, size, segments
     raise RuntimeError(f"function {fn_name!r} not found in {obj}")
 
 
@@ -123,10 +133,18 @@ def write_seed(mu: Uc, seed: Seed) -> None:
     mu.mem_write(seed.addr, data)
 
 
-def run_smoke(code: bytes, fn_off: int, fn_size: int, seeds: list[Seed], max_insns: int) -> tuple[Uc, int]:
+def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, bytes, int]], seeds: list[Seed], max_insns: int) -> tuple[Uc, int]:
     mu = Uc(UC_ARCH_ARM, UC_MODE_THUMB)
-    map_page(mu, CODE_BASE)
-    mu.mem_write(CODE_BASE, code)
+    for vaddr, data, memsz in segments:
+        base = vaddr & ~(PAGE_SIZE - 1)
+        end = vaddr + memsz
+        size = ((end - base + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE
+        try:
+            mu.mem_map(base, size)
+        except Exception:
+            pass
+        if data:
+            mu.mem_write(vaddr, data)
     map_page(mu, STACK_BASE, STACK_SIZE)
     mu.reg_write(UC_ARM_REG_SP, STACK_BASE + STACK_SIZE // 2)
 
@@ -178,6 +196,13 @@ def main() -> int:
         help="Assert that the little-endian word at ADDR equals VALUE after execution",
     )
     ap.add_argument(
+        "--dump",
+        action="append",
+        default=[],
+        metavar="ADDR",
+        help="Print the little-endian word at ADDR after execution",
+    )
+    ap.add_argument(
         "--stub-fn",
         action="append",
         default=[],
@@ -202,8 +227,8 @@ def main() -> int:
         if args.stub_fn:
             source = synthesize_wrapper_source(args.source.resolve(), td_path, args.stub_fn)
         obj = compile_object(source, td_path, args.target, args.cpu, args.opt, args.function)
-        code, off, size = load_function(obj, args.function)
-        mu, count = run_smoke(code, off, size, seeds, args.max_insns)
+        code, off, size, segments = load_function(obj, args.function)
+        mu, count = run_smoke(code, off, size, segments, seeds, args.max_insns)
 
         print(json.dumps({
             "source": str(args.source),
@@ -231,6 +256,11 @@ def main() -> int:
             raise SystemExit(
                 f"assertion failed: {hex(addr)} expected {hex(expected)} got {hex(val)}"
             )
+
+    for a in args.dump:
+        addr = parse_int(a)
+        val = int.from_bytes(mu.mem_read(addr, 4), "little")
+        print(f"{hex(addr)} = {hex(val)}")
 
     return 0
 
