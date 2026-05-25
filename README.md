@@ -200,6 +200,22 @@ Plain-language milestone explanation:
 - `tools/local-bin/ida-idat`: headless IDA wrapper used by `fwrecon`; it prefers the analyzed `analysis/ida_headless/*.i64` database when available and falls back to the raw firmware input
 - `tools/unicorn_smoke.py`: targeted ARM Thumb smoke harness; it now reports the first unmapped memory access so seed tuning is faster
 
+## Smoke Checkpoints
+
+These firmware paths currently smoke cleanly under the targeted Unicorn harness:
+
+- `main_loop`
+- `rf_bus_init`
+- `sdio_dma_config`
+- `message_dispatch`
+- `tx_submit`
+- `firmware_init`
+- `irq_config`
+- `rf_cmd_send`
+- `sdio_status_check`
+- `feature_guard_sdio`
+- `queue_check`
+
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.
