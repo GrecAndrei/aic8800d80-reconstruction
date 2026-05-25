@@ -281,6 +281,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `sdio_buffer_prepare`
 - `phy_rf_init`
 - `sdio_transfer`
+- `uart_puts`
+- `uart_putc`
+- `irq_disable`
+- `irq23_enable`
+- `irq_vector_init`
 - `feature_guard_sdio`
 
 ## License Status
