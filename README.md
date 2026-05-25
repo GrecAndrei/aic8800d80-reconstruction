@@ -187,6 +187,12 @@ Native command wrapper:
 go run ./cmd/fwcycle -tag cycle_demo -limit 10 -retry-fault-once=true
 ```
 
+Cycle trend summary command:
+
+```bash
+go run ./cmd/fwcycletrend -run-root extraction_out/reconstruction/mega7 -last 12
+```
+
 `fwcycle` can also auto-promote checkpoint entries after each successful cycle:
 
 ```bash
