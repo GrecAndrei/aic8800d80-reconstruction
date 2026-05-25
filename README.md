@@ -96,6 +96,40 @@ So "finished" here means "best evidence-backed automated reconstruction currentl
 6. `fwqualityfocus`: generate focused triage backlog
 7. `fwharden`: enforce hard fail gates (quality + conformance)
 
+## Emulator Smoke Tests
+
+You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to an ARM Thumb object, maps a small stack and a few seeded MMIO words, and runs only a bounded number of instructions.
+
+Example: clear-bit behavior in the crypto path.
+
+```bash
+python3 tools/unicorn_smoke.py \
+  extraction_out/reconstruction/mega7/final_recovered/crypto_recovered.c \
+  sub_1073d8 \
+  --seed 0x403420CC=0xffffffff \
+  --seed 0x403420D0=0x12345679 \
+  --seed 0x403420D4=0xabcdef01 \
+  --expect-eq 0x403420CC=0xfffffffe \
+  --expect-eq 0x403420D0=0x12345678 \
+  --expect-eq 0x403420D4=0xabcdef00
+```
+
+Example: register-init behavior in the startup path.
+
+```bash
+python3 tools/unicorn_smoke.py \
+  extraction_out/reconstruction/mega7/final_recovered/init_recovered.c \
+  sub_10d068 \
+  --seed 0x40035018=0x3 \
+  --seed 0x40035008=0x0 \
+  --seed 0x4003500C=0x0 \
+  --expect-eq 0x40035018=0x0 \
+  --expect-eq 0x40035008=0x8000000 \
+  --expect-eq 0x4003500C=0x8000000
+```
+
+This is a function-level smoke test, not a full firmware emulator. It is best for self-contained functions or paths with simple seeded state, and it is meant to confirm that recovered control flow and observable side effects still line up with the evidence we mined.
+
 ## Quick Run
 
 ```bash
