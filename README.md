@@ -234,6 +234,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `list_push_tail`
 - `rf_timer_abort1`
 - `rf_timer_abort2`
+- `log_free_dispatch`
+- `patch_apply`
+- `fw_config_apply`
+- `rf_bus_setup`
 
 ## License Status
 
