@@ -224,6 +224,12 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `irq_mask_init`
 - `hw_event_flag`
 - `state_flag_check`
+- `rf_bus_setup`
+- `rf_bus_mark`
+- `rf_msg_process_body`
+- `rf_msg_handler`
+- `rf_bus_reset`
+- `tx_timeout_check`
 
 ## License Status
 
