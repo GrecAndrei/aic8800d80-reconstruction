@@ -34,6 +34,10 @@ func main() {
 	var checkpointMaxAdd int
 	var readmePath string
 	var outcomesPath string
+	var gateTrend bool
+	var gateLast int
+	var gateMinSuccessRate float64
+	var gateMaxMissingRate float64
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -52,6 +56,10 @@ func main() {
 	flag.IntVar(&checkpointMaxAdd, "checkpoint-max-add", 15, "Maximum checkpoint entries auto-added per cycle")
 	flag.StringVar(&readmePath, "readme", "README.md", "README path for checkpoint promotion")
 	flag.StringVar(&outcomesPath, "outcomes", "", "Smoke outcomes JSONL path (default: <run-root>/smoke_observations.jsonl)")
+	flag.BoolVar(&gateTrend, "gate-trend", false, "Run fwcycletrend gates after cycle")
+	flag.IntVar(&gateLast, "gate-last", 12, "Number of recent cycles to evaluate in trend gating")
+	flag.Float64Var(&gateMinSuccessRate, "gate-min-success-rate", 0, "Minimum success rate percent for trend gate")
+	flag.Float64Var(&gateMaxMissingRate, "gate-max-missing-rate", 0, "Maximum missing-symbol rate percent for trend gate")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -106,18 +114,32 @@ func main() {
 		os.Exit(1)
 	}
 
-	if !updateCheckpoints {
+	if updateCheckpoints {
+		updateArgs := []string{
+			"tools/update_smoke_checkpoints.py",
+			"--readme", readmePath,
+			"--outcomes", outcomesPath,
+			"--min-success", fmt.Sprintf("%d", checkpointMinSuccess),
+			"--max-add", fmt.Sprintf("%d", checkpointMaxAdd),
+		}
+		if err := runCmd(rootAbs, "python3", updateArgs...); err != nil {
+			fmt.Fprintf(os.Stderr, "update smoke checkpoints: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if !gateTrend {
 		return
 	}
-	updateArgs := []string{
-		"tools/update_smoke_checkpoints.py",
-		"--readme", readmePath,
-		"--outcomes", outcomesPath,
-		"--min-success", fmt.Sprintf("%d", checkpointMinSuccess),
-		"--max-add", fmt.Sprintf("%d", checkpointMaxAdd),
+	trendArgs := []string{
+		"run", "./cmd/fwcycletrend",
+		"-run-root", runRoot,
+		"-last", fmt.Sprintf("%d", gateLast),
+		"-min-success-rate", fmt.Sprintf("%.3f", gateMinSuccessRate),
+		"-max-missing-rate", fmt.Sprintf("%.3f", gateMaxMissingRate),
 	}
-	if err := runCmd(rootAbs, "python3", updateArgs...); err != nil {
-		fmt.Fprintf(os.Stderr, "update smoke checkpoints: %v\n", err)
+	if err := runCmd(rootAbs, "go", trendArgs...); err != nil {
+		fmt.Fprintf(os.Stderr, "trend gate failed: %v\n", err)
 		os.Exit(1)
 	}
 }

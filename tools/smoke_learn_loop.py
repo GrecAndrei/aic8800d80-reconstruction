@@ -250,10 +250,15 @@ def main() -> int:
         if len(picked) >= args.limit:
             break
     # Fallback fill if diversity gate was too strict.
+    # Keep cooldown/recent guards, only relax prefix diversity.
     if len(picked) < args.limit:
         picked_set = set(picked)
         for c in candidates:
             if c["name"] in picked_set:
+                continue
+            if c["missing_symbol"] >= args.missing_cooldown:
+                continue
+            if c["recent_min"] < max(0, args.recent_window_min):
                 continue
             picked.append(c["name"])
             if len(picked) >= args.limit:
