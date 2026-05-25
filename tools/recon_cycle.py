@@ -74,10 +74,13 @@ def main() -> int:
     ap.add_argument("--source-glob", action="append", default=[], help="additional source glob(s)")
     ap.add_argument("--limit", type=int, default=10, help="number of queue targets to probe this cycle")
     ap.add_argument("--max-insns", type=int, default=120, help="max instructions per probe")
+    ap.add_argument("--min-success-insns", type=int, default=8, help="treat success below this instruction count as shallow")
     ap.add_argument("--seed", action="append", default=["0x40000000=0"], help="default seed ADDR=VALUE")
     ap.add_argument("--tag", default="", help="run tag for this cycle")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with repeated missing_symbol outcomes")
     ap.add_argument("--retry-fault-once", action="store_true", help="retry faulted probes once with learned fault seed")
+    ap.add_argument("--retry-shallow-success", action="store_true", help="retry shallow successes once with higher instruction budget")
+    ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="max instructions for shallow-success retry")
     ap.add_argument("--recent-window-min", type=int, default=30, help="skip functions attempted within this many minutes")
     ap.add_argument("--prefer-non-cycle-queue", action="store_true", help="prefer latest non-cycle queue over cycle queue")
     args = ap.parse_args()
@@ -118,6 +121,10 @@ def main() -> int:
         str(args.limit),
         "--max-insns",
         str(args.max_insns),
+        "--min-success-insns",
+        str(args.min_success_insns),
+        "--shallow-retry-max-insns",
+        str(args.shallow_retry_max_insns),
         "--missing-cooldown",
         str(args.missing_cooldown),
         "--recent-window-min",
@@ -125,6 +132,8 @@ def main() -> int:
     ]
     if args.retry_fault_once:
         smoke_cmd.append("--retry-fault-once")
+    if args.retry_shallow_success:
+        smoke_cmd.append("--retry-shallow-success")
     for g in args.source_glob:
         smoke_cmd.extend(["--source-glob", g])
     for s in args.seed:

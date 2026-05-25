@@ -130,6 +130,26 @@ def parse_seed(seed: str) -> tuple[str, str]:
     return a.strip(), v.strip()
 
 
+def extract_json_objects(text: str) -> list[dict]:
+    out: list[dict] = []
+    dec = json.JSONDecoder()
+    i = 0
+    n = len(text)
+    while i < n:
+        j = text.find("{", i)
+        if j < 0:
+            break
+        try:
+            obj, k = dec.raw_decode(text, j)
+        except json.JSONDecodeError:
+            i = j + 1
+            continue
+        if isinstance(obj, dict):
+            out.append(obj)
+        i = k
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--source", type=Path, required=True, help="Primary recovered C source path")
@@ -144,6 +164,9 @@ def main() -> int:
     ap.add_argument("--readme", type=Path, default=Path("README.md"), help="README to mine known checkpoints")
     ap.add_argument("--limit", type=int, default=12, help="maximum functions to probe")
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
+    ap.add_argument("--min-success-insns", type=int, default=8, help="treat success below this instruction count as shallow")
+    ap.add_argument("--retry-shallow-success", action="store_true", help="retry shallow successes once with a larger instruction cap")
+    ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="instruction cap for shallow-success retry")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
     ap.add_argument("--fault-seed-top", type=int, default=2, help="learn up to this many historical fault addresses per prefix as seeds")
     ap.add_argument("--retry-fault-once", action="store_true", help="on fault, retry once with the reported fault address seeded")
@@ -285,6 +308,8 @@ def main() -> int:
         "other_nonzero": 0,
         "retried": 0,
         "retry_recovered": 0,
+        "shallow_success": 0,
+        "shallow_retry_upgraded": 0,
     }
     for fn in picked:
         summary["probed"] += 1
@@ -322,20 +347,51 @@ def main() -> int:
         else:
             summary["other_nonzero"] += 1
 
+        parsed_objs = extract_json_objects(proc.stdout or "")
+        if proc.returncode == 0:
+            insns = -1
+            for row in parsed_objs:
+                if str(row.get("status", "")).strip().lower() != "success":
+                    continue
+                try:
+                    insns = int(row.get("instructions", -1))
+                except (TypeError, ValueError):
+                    insns = -1
+                break
+            if 0 <= insns < max(0, args.min_success_insns):
+                summary["shallow_success"] += 1
+                if args.retry_shallow_success:
+                    retry_cmd = list(cmd)
+                    for i, tok in enumerate(retry_cmd):
+                        if tok == "--max-insns" and i+1 < len(retry_cmd):
+                            retry_cmd[i+1] = str(max(args.max_insns, args.shallow_retry_max_insns))
+                            break
+                    print(f"== retry shallow-success {fn} with max-insns={max(args.max_insns, args.shallow_retry_max_insns)}")
+                    retry = subprocess.run(retry_cmd, text=True, capture_output=True, timeout=120)
+                    if retry.stdout:
+                        print(retry.stdout.strip())
+                    if retry.stderr:
+                        print(retry.stderr.strip())
+                    print(f"retry_shallow_rc={retry.returncode}")
+                    if retry.returncode == 0:
+                        for row in extract_json_objects(retry.stdout or ""):
+                            if str(row.get("status", "")).strip().lower() != "success":
+                                continue
+                            try:
+                                r_insns = int(row.get("instructions", -1))
+                            except (TypeError, ValueError):
+                                r_insns = -1
+                            if r_insns > insns:
+                                summary["shallow_retry_upgraded"] += 1
+                            break
+
         if not args.retry_fault_once:
             continue
         if proc.returncode != 2:
             continue
         summary["retried"] += 1
         fault_addr = ""
-        for line in (proc.stdout or "").splitlines():
-            line = line.strip()
-            if not line.startswith("{"):
-                continue
-            try:
-                row = json.loads(line)
-            except json.JSONDecodeError:
-                continue
+        for row in parsed_objs:
             addr = str(row.get("fault_address", "")).strip().lower()
             if addr.startswith("0x"):
                 fault_addr = addr
