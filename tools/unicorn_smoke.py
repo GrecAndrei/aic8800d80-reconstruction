@@ -18,6 +18,7 @@ import json
 import subprocess
 import tempfile
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from textwrap import dedent
 
@@ -226,6 +227,8 @@ def run_smoke(
 
 
 def append_outcome(path: Path, payload: dict) -> None:
+    payload = dict(payload)
+    payload.setdefault("generated_at", datetime.now(timezone.utc).isoformat())
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(payload, sort_keys=True) + "\n")

@@ -15,6 +15,7 @@ import json
 import re
 import subprocess
 from collections import Counter, defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 DEF_RE = re.compile(r"^\s*(?:[A-Za-z_][A-Za-z0-9_\s\*]+)\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*\{")
@@ -44,11 +45,27 @@ def load_checkpointed(readme: Path) -> set[str]:
     return set(re.findall(r"`([A-Za-z0-9_]+)`", text))
 
 
-def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str, list[tuple[str, int]]]]:
+def parse_iso_time(s: str) -> datetime | None:
+    s = (s or "").strip()
+    if not s:
+        return None
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+    try:
+        dt = datetime.fromisoformat(s)
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str, list[tuple[str, int]]], dict[str, datetime]]:
     stats: dict[str, dict[str, int]] = defaultdict(lambda: {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0})
     fault_by_prefix: dict[str, Counter[str]] = defaultdict(Counter)
+    last_seen: dict[str, datetime] = {}
     if not path.is_file():
-        return stats, {}
+        return stats, {}, last_seen
     for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
         line = line.strip()
         if not line:
@@ -63,6 +80,11 @@ def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str,
         st = str(row.get("status", "")).strip().lower()
         k = fn.lower()
         stats[k]["attempts"] += 1
+        dt = parse_iso_time(str(row.get("generated_at", "")))
+        if dt is not None:
+            prev = last_seen.get(k)
+            if prev is None or dt > prev:
+                last_seen[k] = dt
         if st in stats[k]:
             stats[k][st] += 1
         if st == "fault":
@@ -74,7 +96,7 @@ def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str,
         for p, counter in fault_by_prefix.items()
         if counter
     }
-    return stats, top_faults
+    return stats, top_faults, last_seen
 
 
 def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str]]:
@@ -125,6 +147,7 @@ def main() -> int:
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
     ap.add_argument("--fault-seed-top", type=int, default=2, help="learn up to this many historical fault addresses per prefix as seeds")
     ap.add_argument("--retry-fault-once", action="store_true", help="on fault, retry once with the reported fault address seeded")
+    ap.add_argument("--recent-window-min", type=int, default=30, help="skip functions attempted within this many minutes")
     ap.add_argument(
         "--seed",
         action="append",
@@ -143,7 +166,8 @@ def main() -> int:
     global_seeds = [parse_seed(s) for s in args.seed]
     checkpointed = load_checkpointed(args.readme)
     queue_rows = load_queue_records(args.queue)
-    outcomes, top_faults = load_outcome_stats(args.outcomes)
+    outcomes, top_faults, last_seen = load_outcome_stats(args.outcomes)
+    now = datetime.now(timezone.utc)
     source_pool: list[Path] = [args.source]
     for pattern in args.source_glob:
         source_pool.extend(sorted(Path(".").glob(pattern)))
@@ -194,6 +218,7 @@ def main() -> int:
                 "fault": int(stat.get("fault", 0)),
                 "missing_symbol": int(stat.get("missing_symbol", 0)),
                 "prefix": prefix(name),
+                "recent_min": int((now - last_seen[low]).total_seconds() // 60) if low in last_seen else 10**9,
             }
         )
 
@@ -202,6 +227,7 @@ def main() -> int:
         key=lambda c: (
             c["success"] > 0,              # unseen first
             c["attempts"],                 # fewer attempts first
+            c["recent_min"],               # prefer less-recently attempted targets
             c["missing_symbol"],           # fewer missing-symbol misses first
             -c["priority"],                # then higher queue priority
             c["name"].lower(),
@@ -212,6 +238,8 @@ def main() -> int:
     prefix_counts: dict[str, int] = defaultdict(int)
     for c in candidates:
         if c["missing_symbol"] >= args.missing_cooldown:
+            continue
+        if c["recent_min"] < max(0, args.recent_window_min):
             continue
         p = c["prefix"]
         # Soft diversity cap: avoid spending a whole cycle on one prefix.
