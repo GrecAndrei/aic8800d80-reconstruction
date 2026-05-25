@@ -471352,18 +471352,9 @@ void msg_dispatch(void) {
 }
 
 void msg_parse_thunk(void) {
-  uint32_t state = 0x0ccd5efbU;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)0U << 8);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
-  ke_msg_alloc();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xc73a8a93U);
-  ke_evt_schedule();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xc76da113U);
-  state ^= (chain_mix << 1U) | (chain_mix >> 31U);
-  (void)state;
+  msg_parse();
 }
+
 
 void sdio_dma_init(void) {
   uint32_t state = 0xef31976aU;
