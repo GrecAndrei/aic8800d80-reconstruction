@@ -262,6 +262,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_free_wrapper`
 - `log_free_dispatch`
 - `log_system_init`
+- `log_list_init`
+- `log_queue_alloc`
+- `log_flush`
+- `log_enqueue`
+- `log_hw_init`
 - `feature_guard_sdio`
 
 ## License Status
