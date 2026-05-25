@@ -215,6 +215,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `sdio_status_check`
 - `feature_guard_sdio`
 - `queue_check`
+- `idle_processing`
+- `log_queue_push`
+- `log_free_pool_a`
+- `log_free_wrapper`
 
 ## License Status
 
