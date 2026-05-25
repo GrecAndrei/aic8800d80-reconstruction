@@ -147,6 +147,19 @@ python3 tools/unicorn_smoke.py \
 `fwextract` now ingests these outcomes (plus the checkpoint list) and writes `learning_signals.json` per run; those signals are applied directly to mining queue scoring.
 When a symbol is not present in the compiled reconstruction unit, the harness records `status=missing_symbol` instead of silently losing that attempt, so queue learning still gets the negative signal.
 
+For batch automation, use:
+
+```bash
+python3 tools/smoke_learn_loop.py \
+  --source extraction_out/reconstruction/mega7/final/fmacfw_8800d80_u02_bin.reconstructed.c \
+  --source-glob 'extraction_out/reconstruction/mega7/final_recovered/*.c' \
+  --source-glob 'extraction_out/reconstruction/mega7/final/*.c' \
+  --queue extraction_out/reconstruction/mega7/runs/<run_tag>/mining_queue_top300.jsonl \
+  --outcomes extraction_out/reconstruction/mega7/smoke_observations.jsonl \
+  --limit 12 \
+  --seed 0x40000000=0
+```
+
 ## Quick Run
 
 ```bash
@@ -248,6 +261,18 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `list_push_tail`
 - `rf_timer_abort1`
 - `rf_timer_abort2`
+- `emb_kmsg_hdlr`
+- `usb_rx_evt`
+- `rwnxl_reset_evt`
+- `subsystems_init`
+- `intc_spurious`
+- `lpm_host_notify_bt`
+- `usb_wlan_recv`
+- `usb_wlan_recv_fc_on`
+- `usb_wlan_rx_pkt_free_list_init`
+- `usb_trans_error_handler`
+- `wlan_epbulk_recv_compl_handler`
+- `wlan_epbulk_send_compl_handler`
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`

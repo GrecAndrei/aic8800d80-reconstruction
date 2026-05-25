@@ -31,6 +31,7 @@ evidence-backed image while committing and pushing validated progress often.
 6. Commit the documentation and push immediately.
 7. Return to step 1.
 8. Record smoke outcomes (`--record-outcome .../smoke_observations.jsonl`) so the next extraction run re-weights targets automatically.
+9. For unattended batches, run `tools/smoke_learn_loop.py` against the latest queue and source pool, then rerun `fwextract` to ingest the new outcomes.
 
 ## Validation Rules
 
