@@ -22,6 +22,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
+from textwrap import dedent
 
 from elftools.elf.elffile import ELFFile
 from unicorn import UC_ARCH_ARM, UC_HOOK_CODE, UC_MODE_THUMB, Uc
@@ -32,6 +33,7 @@ PAGE_SIZE = 0x1000
 CODE_BASE = 0x1000
 STACK_BASE = 0x2000
 STACK_SIZE = 0x2000
+RETURN_STOP = 0xDEADC000
 
 
 @dataclass
@@ -45,8 +47,8 @@ def parse_int(s: str) -> int:
     return int(s, 0)
 
 
-def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str) -> Path:
-    obj = out_dir / (src.stem + ".o")
+def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, entry: str) -> Path:
+    elf = out_dir / (src.stem + ".elf")
     cmd = [
         "clang",
         f"--target={target}",
@@ -54,14 +56,34 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str) ->
         "-mthumb",
         "-ffreestanding",
         "-fno-builtin",
+        "-fdata-sections",
+        "-ffunction-sections",
         f"-O{opt}",
-        "-c",
         str(src),
+        "-nostdlib",
+        "-Wl,--gc-sections",
+        "-Wl,-Ttext=0x1000",
+        f"-Wl,-e,{entry}",
         "-o",
-        str(obj),
+        str(elf),
     ]
     subprocess.run(cmd, check=True)
-    return obj
+    return elf
+
+
+def synthesize_wrapper_source(src: Path, out_dir: Path, stub_names: list[str]) -> Path:
+    wrapper = out_dir / f"{src.stem}_wrapped.c"
+    stubs = "\n".join(f"void {name}(void) {{}}" for name in stub_names)
+    wrapper.write_text(
+        dedent(
+            f"""
+            #include \"{src.as_posix()}\"
+
+            {stubs}
+            """
+        ).lstrip()
+    )
+    return wrapper
 
 
 def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
@@ -71,6 +93,7 @@ def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
         if text is None:
             raise RuntimeError("object has no .text section")
         code = text.data()
+        text_vaddr = int(text["sh_addr"])
         symtab = elf.get_section_by_name(".symtab")
         if symtab is None:
             raise RuntimeError("object has no symbol table")
@@ -79,7 +102,7 @@ def load_function(obj: Path, fn_name: str) -> tuple[bytes, int, int]:
                 continue
             if sym.entry["st_info"]["type"] != "STT_FUNC":
                 continue
-            off = int(sym.entry["st_value"]) & ~1
+            off = (int(sym.entry["st_value"]) & ~1) - text_vaddr
             size = int(sym.entry["st_size"])
             return code, off, size
     raise RuntimeError(f"function {fn_name!r} not found in {obj}")
@@ -120,8 +143,8 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, seeds: list[Seed], max_ins
 
     mu.hook_add(UC_HOOK_CODE, on_code)
     mu.reg_write(UC_ARM_REG_PC, start)
-    mu.reg_write(UC_ARM_REG_LR, start)
-    mu.emu_start(start, 0)
+    mu.reg_write(UC_ARM_REG_LR, RETURN_STOP | 1)
+    mu.emu_start(start, RETURN_STOP)
     return mu, insn_count["n"]
 
 
@@ -154,6 +177,13 @@ def main() -> int:
         metavar="ADDR=VALUE",
         help="Assert that the little-endian word at ADDR equals VALUE after execution",
     )
+    ap.add_argument(
+        "--stub-fn",
+        action="append",
+        default=[],
+        metavar="NAME",
+        help="Synthesize an empty stub for a missing no-arg function before compiling",
+    )
     args = ap.parse_args()
 
     if not args.source.is_file():
@@ -168,7 +198,10 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory(prefix="unicorn_smoke_") as td:
         td_path = Path(td)
-        obj = compile_object(args.source, td_path, args.target, args.cpu, args.opt)
+        source = args.source
+        if args.stub_fn:
+            source = synthesize_wrapper_source(args.source.resolve(), td_path, args.stub_fn)
+        obj = compile_object(source, td_path, args.target, args.cpu, args.opt, args.function)
         code, off, size = load_function(obj, args.function)
         mu, count = run_smoke(code, off, size, seeds, args.max_insns)
 

@@ -98,7 +98,9 @@ So "finished" here means "best evidence-backed automated reconstruction currentl
 
 ## Emulator Smoke Tests
 
-You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to an ARM Thumb object, maps a small stack and a few seeded MMIO words, and runs only a bounded number of instructions.
+You can sanity-check a recovered function with the local Unicorn harness in `tools/unicorn_smoke.py`. It compiles one recovered C file to a linked ARM Thumb ELF, maps a small stack and a few seeded MMIO words, and runs only a bounded number of instructions.
+
+For call-heavy paths, the harness now links a tiny ELF so internal calls resolve normally. If a helper is still missing, pass `--stub-fn NAME` to synthesize a temporary no-op no-arg stub before linking.
 
 Example: clear-bit behavior in the crypto path.
 
