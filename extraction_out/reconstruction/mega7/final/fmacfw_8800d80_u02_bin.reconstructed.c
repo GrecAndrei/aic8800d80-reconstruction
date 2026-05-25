@@ -66552,68 +66552,9 @@ void irq_disable(void) {
 
 /* unit=lift_0579 class=low score=3.369 addr=0xf370 */
 void log_free_wrapper(void) {
-  uint32_t state = 0x62859e2cU;
-  state ^= ((uint32_t)0U << 16) ^ ((uint32_t)3U << 8);
-  state ^= ((uint32_t)1U << 4);
-  state ^= ((uint32_t)0U << 1);
-  state ^= ((uint32_t)0U << 9);
-  state ^= ((uint32_t)0U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  state ^= 0x00000001U;
-  state ^= (state & 0x0000001fU);
-  static const uint32_t imm_sig[1] = {0x00000001U};
-  uint32_t ii = 0U;
-  while (ii < 1U) {
-    uint32_t off = (imm_sig[ii] >> 2) & 0x1FU;
-    state = (state + mem_prof[off]) ^ (imm_sig[ii] >> 1);
-    mem_prof[off] = state ^ (imm_sig[ii] << 1);
-    ++ii;
-  }
-  uint32_t frame_regs[2];
-  for (uint32_t fi = 0U; fi < 2U; ++fi) {
-    frame_regs[fi] = state ^ (fi * 0xf0f53045U);
-  }
-  for (uint32_t fi = 0U; fi < 1U; ++fi) {
-    state = (state + frame_regs[fi]) ^ (frame_regs[fi] >> ((fi & 3U) + 1U));
-  }
-  for (uint32_t fi = 0U; fi < 1U; ++fi) {
-    uint32_t idx = (uint32_t)2U - 1U - fi;
-    state = (state + frame_regs[idx]) ^ (frame_regs[idx] << (fi & 3U));
-  }
-  for (uint32_t opi = 0U; opi < 5U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0xff652145U);
-    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);
-    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);
-  }
-  uint32_t reg_touch[4] = {0x2a09c287U, 0xa9a75886U, 0x98575f2bU, 0x29082806U};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r0 = (reg_r0 + reg_r1) ^ (reg_r1 >> 2U);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;
-  state ^= (lr_model >> 1U);
-  uint32_t ring_idx = (state >> 4) & 0xFFU;
-  state ^= (ring_idx * 0xefd51245U);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = (uint32_t)1U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   log_free_pool_a();
-  state = (state + 0xf1208c91U) ^ (state >> 1U);
-  gate = (gate >> 2) | (gate << 30);
-  state ^= (gate & 0xe0629345U);
-  state ^= ((gate << 2U) | (gate >> 30U)) ^ 0xdf42f545U;
-  (void)gate;
-  state = (state + 0xf77c1445U) ^ (state >> 2U);
-  (void)state;
 }
+
 
 /* unit=lift_0607 class=low score=3.369 addr=0x2d2d0 */
 void list_pop(void) {
