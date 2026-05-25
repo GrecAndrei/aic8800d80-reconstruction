@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -20,7 +21,16 @@ type smokeOutcomeRecord struct {
 	FaultAddress string `json:"fault_address,omitempty"`
 }
 
-func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functions []FunctionRecord) map[string]LearningSignal {
+type LearningBundle struct {
+	ByFunction map[string]LearningSignal `json:"by_function"`
+	ByPrefix   map[string]LearningSignal `json:"by_prefix"`
+}
+
+func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functions []FunctionRecord) LearningBundle {
+	bundle := LearningBundle{
+		ByFunction: map[string]LearningSignal{},
+		ByPrefix:   map[string]LearningSignal{},
+	}
 	signals := map[string]LearningSignal{}
 	index := map[string][]FunctionRecord{}
 	for _, fn := range functions {
@@ -30,6 +40,7 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 		}
 		index[n] = append(index[n], fn)
 	}
+	successNames := map[string]struct{}{}
 
 	add := func(fn FunctionRecord, candidate LearningSignal) {
 		k := strings.ToLower(fn.Image + "|" + fn.Name)
@@ -40,6 +51,7 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 	}
 
 	for _, name := range loadSmokeCheckpointNames(filepath.Join(rootAbs, "README.md")) {
+		successNames[strings.ToLower(name)] = struct{}{}
 		for _, fn := range index[strings.ToLower(name)] {
 			add(fn, LearningSignal{
 				Weight: 1.0,
@@ -49,12 +61,7 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 		}
 	}
 
-	candidates := []string{
-		filepath.Join(rootAbs, "extraction_out", "reconstruction", "mega7", "smoke_observations.jsonl"),
-		filepath.Join(rootAbs, "extraction_out", "reconstruction", "smoke_observations.jsonl"),
-		filepath.Join(outAbs, "smoke_observations.jsonl"),
-		filepath.Join(runOutAbs, "smoke_observations.jsonl"),
-	}
+	candidates := collectSmokeOutcomePaths(rootAbs, outAbs, runOutAbs)
 	for _, path := range candidates {
 		rows := loadSmokeOutcomes(path)
 		for _, row := range rows {
@@ -63,11 +70,14 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 				continue
 			}
 			fns := index[name]
+			status := strings.ToLower(strings.TrimSpace(row.Status))
+			if status == "success" {
+				successNames[name] = struct{}{}
+			}
 			if len(fns) == 0 {
 				continue
 			}
 
-			status := strings.ToLower(strings.TrimSpace(row.Status))
 			signal := LearningSignal{
 				Weight: 0.45,
 				Reason: "learned_smoke_seen",
@@ -77,6 +87,9 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 			case "success":
 				signal.Weight = 1.3
 				signal.Reason = "learned_smoke_success"
+			case "missing_symbol":
+				signal.Weight = 0.2
+				signal.Reason = "learned_missing_symbol"
 			case "fault", "error", "failed":
 				signal.Weight = 0.9
 				signal.Reason = "learned_smoke_fault"
@@ -87,7 +100,70 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 		}
 	}
 
-	return signals
+	prefixCounts := map[string]int{}
+	for name := range successNames {
+		p := functionPrefix(name)
+		if p == "" {
+			continue
+		}
+		prefixCounts[p]++
+	}
+	for prefix, cnt := range prefixCounts {
+		// Keep only stable prefixes with repeated wins.
+		if cnt < 2 {
+			continue
+		}
+		w := 0.25
+		if cnt >= 4 {
+			w = 0.4
+		}
+		if cnt >= 8 {
+			w = 0.55
+		}
+		bundle.ByPrefix[prefix] = LearningSignal{
+			Weight: w,
+			Reason: "learned_prefix_success",
+			Source: "smoke_history",
+		}
+	}
+
+	bundle.ByFunction = signals
+	return bundle
+}
+
+func collectSmokeOutcomePaths(rootAbs string, outAbs string, runOutAbs string) []string {
+	candidates := []string{
+		filepath.Join(rootAbs, "extraction_out", "reconstruction", "mega7", "smoke_observations.jsonl"),
+		filepath.Join(rootAbs, "extraction_out", "reconstruction", "smoke_observations.jsonl"),
+		filepath.Join(outAbs, "smoke_observations.jsonl"),
+		filepath.Join(runOutAbs, "smoke_observations.jsonl"),
+	}
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(candidates)+16)
+	for _, p := range candidates {
+		if _, ok := seen[p]; ok {
+			continue
+		}
+		seen[p] = struct{}{}
+		out = append(out, p)
+	}
+	runsDir := filepath.Join(outAbs, "runs")
+	entries, err := os.ReadDir(runsDir)
+	if err == nil {
+		for _, e := range entries {
+			if !e.IsDir() {
+				continue
+			}
+			p := filepath.Join(runsDir, e.Name(), "smoke_observations.jsonl")
+			if _, ok := seen[p]; ok {
+				continue
+			}
+			seen[p] = struct{}{}
+			out = append(out, p)
+		}
+	}
+	sort.Strings(out)
+	return out
 }
 
 func loadSmokeCheckpointNames(readmePath string) []string {
@@ -157,4 +233,15 @@ func loadSmokeOutcomes(path string) []smokeOutcomeRecord {
 		out = append(out, row)
 	}
 	return out
+}
+
+func functionPrefix(name string) string {
+	name = strings.TrimSpace(strings.ToLower(name))
+	if name == "" {
+		return ""
+	}
+	if i := strings.IndexByte(name, '_'); i > 0 {
+		return name[:i]
+	}
+	return name
 }

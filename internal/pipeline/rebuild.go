@@ -487,7 +487,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 	return nil
 }
 
-func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links []FunctionLinkRecord, schemas []MessageSchemaRecord, learning map[string]LearningSignal, limit int, minScore float64) []MiningTargetRecord {
+func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links []FunctionLinkRecord, schemas []MessageSchemaRecord, learning LearningBundle, limit int, minScore float64) []MiningTargetRecord {
 	outDeg := map[string]int{}
 	inDeg := map[string]int{}
 	for _, e := range edges {
@@ -596,9 +596,13 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 			score += 0.4
 			reasons = append(reasons, "critical_subsystem")
 		}
-		if sig, ok := learning[strings.ToLower(fn.Image+"|"+fn.Name)]; ok {
+		if sig, ok := learning.ByFunction[strings.ToLower(fn.Image+"|"+fn.Name)]; ok {
 			score += sig.Weight
 			reasons = append(reasons, sig.Reason)
+		}
+		if ps, ok := learning.ByPrefix[functionPrefix(fn.Name)]; ok {
+			score += ps.Weight
+			reasons = append(reasons, ps.Reason)
 		}
 
 		if score < minScore {

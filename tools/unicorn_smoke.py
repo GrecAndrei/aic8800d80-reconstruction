@@ -298,7 +298,32 @@ def main() -> int:
         if args.stub_fn:
             source = synthesize_wrapper_source(args.source.resolve(), td_path, args.stub_fn)
         obj = compile_object(source, td_path, args.target, args.cpu, args.opt, args.function)
-        code, off, size, segments = load_function(obj, args.function)
+        try:
+            code, off, size, segments = load_function(obj, args.function)
+        except RuntimeError as err:
+            print(
+                json.dumps(
+                    {
+                        "source": str(args.source),
+                        "function": args.function,
+                        "status": "missing_symbol",
+                        "error": str(err),
+                        "object": str(obj),
+                    },
+                    indent=2,
+                )
+            )
+            if args.record_outcome is not None:
+                append_outcome(
+                    args.record_outcome,
+                    {
+                        "function": args.function,
+                        "status": "missing_symbol",
+                        "source": str(args.source),
+                        "error": str(err),
+                    },
+                )
+            return 3
         mu, count, fault, success = run_smoke(code, off, size, segments, seeds, args.max_insns)
 
         print(

@@ -145,6 +145,7 @@ python3 tools/unicorn_smoke.py \
 ```
 
 `fwextract` now ingests these outcomes (plus the checkpoint list) and writes `learning_signals.json` per run; those signals are applied directly to mining queue scoring.
+When a symbol is not present in the compiled reconstruction unit, the harness records `status=missing_symbol` instead of silently losing that attempt, so queue learning still gets the negative signal.
 
 ## Quick Run
 
