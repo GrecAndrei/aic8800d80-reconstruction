@@ -69826,20 +69826,7 @@ void rf_bus_write_n_a0(void) {
 
 /* unit=lift_9739 class=low score=2.406 addr=0x15cc9 */
 void ipc_doorbell_handler_n34d(void) {
-  uint32_t state = 0x3bfb8499U;
-  state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = 4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   sdio_wait_busy();
-  state ^= (0xf3594984U + (state << 1U));
-  gate = (gate >> 1) | (gate << 31);
-  state ^= (gate & 0xef54d05bU);
-  state ^= (gate + 0xd0a5dbdaU) ^ ((uint32_t)5U << 5);
-  (void)gate;
-  state ^= 0xf45f04daU;
-  (void)state;
 }
 
 /* unit=lift_9894 class=low score=2.406 addr=0x14ccf */
@@ -70039,17 +70026,7 @@ void sdio_buffer_prepare_n_2a5(void) {
 
 /* unit=lift_32129 class=low score=2.406 addr=0x1164e */
 void rf_bus_mark_n_236(void) {
-  uint32_t state = 0xc51d5afaU;
-  state ^= 0x28259f38U;
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 3) & 0x3FU];
-  state ^= (rf_reg + 0x00A500A5U);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x6b3340b9U);
-  state ^= chain_mix;
-  (void)state;
 }
 
 /* unit=lift_31919 class=low score=2.406 addr=0x103bb */
