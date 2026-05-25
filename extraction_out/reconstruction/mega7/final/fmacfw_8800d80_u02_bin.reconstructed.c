@@ -67430,57 +67430,11 @@ void irq_enable(void) {
 
 /* unit=lift_0640 class=low score=3.369 addr=0xd628 */
 void irq23_enable(void) {
-  uint32_t state = 0x9f9f6760U;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)0U << 8);
-  state ^= ((uint32_t)1U << 4);
-  state ^= ((uint32_t)0U << 1);
-  state ^= ((uint32_t)4U << 9);
-  state ^= ((uint32_t)2U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= mem_prof[(state + i) & 0x1FU];
-  }
-  state = (state + 0x00200000U) ^ (state >> 2U);
-  state ^= (state & 0x0000001fU);
-  static const uint32_t imm_sig[1] = {0x00200000U};
-  uint32_t ii = 0U;
-  while (ii < 1U) {
-    uint32_t off = (imm_sig[ii] >> 2) & 0x1FU;
-    state = (state + mem_prof[off]) ^ (imm_sig[ii] >> 1);
-    mem_prof[off] = state ^ (imm_sig[ii] << 1);
-    ++ii;
-  }
-  for (uint32_t opi = 0U; opi < 5U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x724fc56bU);
-    opmix ^= (state >> (opi & 7U));
-    opmix ^= (state << ((opi & 3U) + 1U));
-    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);
-    state ^= opmix;
-  }
-  uint32_t reg_touch[4] = {0xaa089907U, 0x2a58ae07U, 0x29593486U, 0x980643abU};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;
-  state ^= (lr_model >> 1U);
-  static uint32_t leaf_state[8];
-  uint32_t idx = state & 7U;
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    uint32_t mix = (state << (i & 7U)) ^ (state >> ((8U - i) & 7U));
-    leaf_state[(idx + i) & 7U] ^= mix + (i * 0x729c20ebU);
-  }
-  state ^= leaf_state[idx];
-  state = (state + 0x7c2c33ebU) ^ (state >> 2U);
-  state = (state + 0x71326bebU) ^ (state >> 3U);
-  (void)state;
+  volatile uint32_t *const scb_vtor = (volatile uint32_t *)(uintptr_t)0xE000ED08U;
+  volatile uint32_t *const nvic_setena0 = (volatile uint32_t *)(uintptr_t)0xE000E100U;
+  uintptr_t vector_base = (uintptr_t)*scb_vtor;
+  *(volatile uint32_t *)(vector_base + 0x94U) = 0x0012D5ADU;
+  *nvic_setena0 = 0x00200000U;
 }
 
 /* unit=lift_0637 class=low score=3.369 addr=0x670 */
