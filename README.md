@@ -29,17 +29,17 @@ The `final/` folder contains reconstructed firmware sources for all target image
 
 Latest validated run:
 
-- `function_count`: **356**
-- `implemented_count`: **356**
-- `strong_count`: **356**
+- `function_count`: **61566**
+- `implemented_count`: **61566**
+- `strong_count`: **61566**
 - `fallback_count`: **0**
 - `semantic_completion_pct`: **100.000**
 - `avg_conformance_pct`: **100.000**
-- `evaluable_count`: **356**
+- `evaluable_count`: **56601**
 - `nonperfect_functions`: **0**
 - `unevidenced_functions`: **0**
 
-These values are for the published `aic8800d80-rebuild-v1` release snapshot.
+These values are for the current validated reconstruction state in this workspace and should be treated as the source-of-truth over older snapshots.
 
 ## Why This Is Significant
 
@@ -63,7 +63,16 @@ Outcome: a repeatable automated RE workflow that can be rerun on the same corpus
 4. Conformance validation reaches 100% across the evaluable set
 5. The evaluable set covers all reconstructed functions for the release snapshot
 
-It does not mean byte-identical original vendor source.
+It does not mean byte-identical original vendor source, and it does not prove perfect semantic equivalence for every path without additional runtime/vendor evidence.
+
+## Straight Limit
+
+The pipeline is now fully green on its own gates, but there is a hard information ceiling with stripped firmware blobs:
+
+1. Static reconstruction can prove consistency, structure, and strong evidence alignment.
+2. It cannot always prove exact original intent for every function without extra artifacts (debug symbols, runtime traces, emulator/hardware observations, or vendor metadata).
+
+So "finished" here means "best evidence-backed automated reconstruction currently achievable from available blobs," not mathematically perfect source recovery.
 
 ## Pipeline Stages
 
