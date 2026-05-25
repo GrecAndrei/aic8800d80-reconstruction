@@ -301,6 +301,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_mem_write`
 - `rf_reg_write_masked`
 - `rf_reg_write_guard`
+- `rf_timer_stop`
+- `rf_hw_timer_read`
+- `timer_set_relative`
+- `timer_init`
 - `feature_guard_sdio`
 
 ## License Status
