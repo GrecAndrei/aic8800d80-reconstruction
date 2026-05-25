@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -40,6 +41,9 @@ func main() {
 	var gateMaxMissingRate float64
 	var pruneOldRuns bool
 	var pruneKeepLatest int
+	var autoImplOnPlateau bool
+	var plateauDeltaSuccessMax int
+	var autoImplMaxTasks int
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -64,6 +68,9 @@ func main() {
 	flag.Float64Var(&gateMaxMissingRate, "gate-max-missing-rate", 0, "Maximum missing-symbol rate percent for trend gate")
 	flag.BoolVar(&pruneOldRuns, "prune-old-runs", true, "Gzip large run artifacts for older runs to save disk")
 	flag.IntVar(&pruneKeepLatest, "prune-keep-latest", 8, "Number of latest runs to keep uncompressed when pruning")
+	flag.BoolVar(&autoImplOnPlateau, "auto-impl-on-plateau", true, "When learning stalls, run compose/implqueue/implsynth/applysynth/finalize automatically")
+	flag.IntVar(&plateauDeltaSuccessMax, "plateau-delta-success-max", 0, "Plateau trigger threshold for delta_learning_smoke_success_count")
+	flag.IntVar(&autoImplMaxTasks, "auto-impl-max-tasks", 80, "Max tasks for auto impl synthesis when plateau trigger fires")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -142,6 +149,36 @@ func main() {
 		if err := runCmd(rootAbs, "python3", pruneArgs...); err != nil {
 			fmt.Fprintf(os.Stderr, "prune old runs: %v\n", err)
 			os.Exit(1)
+		}
+	}
+
+	if autoImplOnPlateau {
+		reportPath := filepath.Join(rootAbs, runRoot, "runs", tag, "cycle_report.json")
+		if tag == "" {
+			reportPath = ""
+		}
+		if reportPath != "" {
+			b, err := os.ReadFile(reportPath)
+			if err == nil {
+				var report struct {
+					DeltaLearningSmokeSuccessCount int `json:"delta_learning_smoke_success_count"`
+				}
+				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
+					steps := [][]string{
+						{"run", "./cmd/fwcompose"},
+						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", autoImplMaxTasks)},
+						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", autoImplMaxTasks)},
+						{"run", "./cmd/fwapplysynth"},
+						{"run", "./cmd/fwfinalize"},
+					}
+					for _, step := range steps {
+						if err := runCmd(rootAbs, "go", step...); err != nil {
+							fmt.Fprintf(os.Stderr, "auto impl stage failed (%s): %v\n", strings.Join(step, " "), err)
+							os.Exit(1)
+						}
+					}
+				}
+			}
 		}
 	}
 
