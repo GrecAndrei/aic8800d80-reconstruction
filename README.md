@@ -254,6 +254,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `list_remove_node`
 - `queue_pending_check`
 - `log_pool_init_queue`
+- `log_pool_init_a`
+- `log_pool_init_b`
+- `log_pool_init_c`
+- `log_pool_init_d`
 - `feature_guard_sdio`
 
 ## License Status
