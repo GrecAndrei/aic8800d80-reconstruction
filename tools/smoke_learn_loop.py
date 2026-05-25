@@ -14,7 +14,7 @@ import argparse
 import json
 import re
 import subprocess
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 DEF_RE = re.compile(r"^\s*(?:[A-Za-z_][A-Za-z0-9_\s\*]+)\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*\{")
@@ -44,10 +44,11 @@ def load_checkpointed(readme: Path) -> set[str]:
     return set(re.findall(r"`([A-Za-z0-9_]+)`", text))
 
 
-def load_outcome_stats(path: Path) -> dict[str, dict[str, int]]:
+def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str, list[tuple[str, int]]]]:
     stats: dict[str, dict[str, int]] = defaultdict(lambda: {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0})
+    fault_by_prefix: dict[str, Counter[str]] = defaultdict(Counter)
     if not path.is_file():
-        return stats
+        return stats, {}
     for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
         line = line.strip()
         if not line:
@@ -64,7 +65,16 @@ def load_outcome_stats(path: Path) -> dict[str, dict[str, int]]:
         stats[k]["attempts"] += 1
         if st in stats[k]:
             stats[k][st] += 1
-    return stats
+        if st == "fault":
+            addr = str(row.get("fault_address", "")).strip().lower()
+            if addr.startswith("0x"):
+                fault_by_prefix[prefix(fn)][addr] += 1
+    top_faults = {
+        p: sorted(counter.items(), key=lambda kv: (-kv[1], kv[0]))[:3]
+        for p, counter in fault_by_prefix.items()
+        if counter
+    }
+    return stats, top_faults
 
 
 def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str]]:
@@ -113,6 +123,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=12, help="maximum functions to probe")
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
+    ap.add_argument("--fault-seed-top", type=int, default=2, help="learn up to this many historical fault addresses per prefix as seeds")
     ap.add_argument(
         "--seed",
         action="append",
@@ -131,7 +142,7 @@ def main() -> int:
     global_seeds = [parse_seed(s) for s in args.seed]
     checkpointed = load_checkpointed(args.readme)
     queue_rows = load_queue_records(args.queue)
-    outcomes = load_outcome_stats(args.outcomes)
+    outcomes, top_faults = load_outcome_stats(args.outcomes)
     source_pool: list[Path] = [args.source]
     for pattern in args.source_glob:
         source_pool.extend(sorted(Path(".").glob(pattern)))
@@ -155,6 +166,14 @@ def main() -> int:
         "log": [("0x40000000", "0")],
         "tx": [("0x40000000", "0")],
     }
+    # Learn additional seeds from prior unmapped-fault addresses.
+    for pfx, rows in top_faults.items():
+        learned = []
+        for addr, _count in rows[: max(0, args.fault_seed_top)]:
+            learned.append((addr, "0"))
+        if learned:
+            prefix_seeds.setdefault(pfx, [])
+            prefix_seeds[pfx].extend(learned)
 
     candidates: list[dict] = []
     for row in queue_rows:

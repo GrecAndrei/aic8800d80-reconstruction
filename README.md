@@ -171,11 +171,13 @@ python3 tools/recon_cycle.py \
   --source-glob 'extraction_out/reconstruction/mega7/final_recovered/*.c' \
   --source-glob 'extraction_out/reconstruction/mega7/final/*.c' \
   --limit 10 \
+  --missing-cooldown 2 \
   --tag cycle_demo
 ```
 
 Each cycle writes `runs/<tag>/cycle_report.json` with summary and learning growth counters.
 Global trend history is appended to `extraction_out/reconstruction/mega7/cycle_history.jsonl`, including delta counters for learned function/prefix coverage and smoke-success growth.
+`smoke_learn_loop.py` also learns supplemental MMIO seeds from historical fault addresses (per-prefix) to improve autonomous recovery on harder targets.
 
 ## Quick Run
 
@@ -314,6 +316,16 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `delay_us`
 - `fp_convert_int`
 - `event_queue_push`
+- `log_free_pool_d`
+- `log_free_pool_e`
+- `log_free_pool_f`
+- `crypto_mac_dispatch`
+- `sdio_replenish_rx_msgqueue`
+- `sdio_rx_evt`
+- `chip_feature_check`
+- `feature_always_on`
+- `hw_reg_set_40035000`
+- `system_init_chain`
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`
