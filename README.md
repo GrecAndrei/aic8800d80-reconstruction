@@ -243,6 +243,8 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `msg_get_value`
 - `msg_parse`
 - `log_alloc`
+- `buffer_pool_manage`
+- `feature_guard_sdio`
 
 ## License Status
 
