@@ -286,6 +286,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `irq_disable`
 - `irq23_enable`
 - `irq_vector_init`
+- `rf_init_blocka`
+- `rf_init_blockb`
+- `rf_init_blockc`
+- `rf_power_set`
+- `rf_timer_toggle`
 - `feature_guard_sdio`
 
 ## License Status
