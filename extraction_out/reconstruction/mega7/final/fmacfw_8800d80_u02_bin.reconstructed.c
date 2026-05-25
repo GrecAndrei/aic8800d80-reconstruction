@@ -471392,78 +471392,29 @@ void sub_12d464(void) {
 }
 
 void sub_130030(void) {
-  uint32_t state = 0x4ee2d287U;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)3U << 8);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x4605a8a1U);
-  state ^= chain_mix;
-  (void)state;
 }
 
 void sub_1342f4(void) {
-  uint32_t state = 0x660cd4e2U;
-  state ^= ((uint32_t)3U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   sub_13b82c();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x00da1d5bU);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 void sub_1365c0(void) {
-  uint32_t state = 0x67d6feb4U;
-  state ^= ((uint32_t)3U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   sub_1342f4();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x46af083bU);
-  state ^= (chain_mix << 1U) | (chain_mix >> 31U);
-  (void)state;
 }
 
 void sub_137490(void) {
-  uint32_t state = 0x07792f74U;
-  state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
   sub_1365c0();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xd1e9e853U);
-  state ^= (chain_mix << 1U) | (chain_mix >> 31U);
-  (void)state;
 }
 
 void sub_13b82c(void) {
-  uint32_t state = 0x407778e9U;
-  state ^= ((uint32_t)3U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   sub_140c5c();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xbca0ffd7U);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 void sub_140c5c(void) {
-  uint32_t state = 0x9100b1a6U;
-  state ^= ((uint32_t)3U << 16) ^ ((uint32_t)4U << 8);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xe57fb74dU);
-  state ^= chain_mix;
-  (void)state;
 }
 
 void sub_142f2c(void) {
-  uint32_t state = 0x553bb668U;
-  state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = (state << 5) ^ 0x6d2b79f5U;
   ke_evt_schedule();
-  chain_mix = (chain_mix >> 3) ^ (chain_mix << 4) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x79240a13U);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
