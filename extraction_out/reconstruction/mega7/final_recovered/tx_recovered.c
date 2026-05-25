@@ -5,6 +5,7 @@
 
 void sub_12d108(void);
 void sub_12d22c(void);
+void list_pop(void);
 void sub_11101c(void);
 void sub_11017c(void);
 void sub_112ed0(void);
@@ -47,13 +48,23 @@ void sub_12d22c(void) {
 }
 
 void sub_11017c(void) {
-  // role: tx_dequeue
-  volatile uintptr_t *queue = (volatile uintptr_t *)(uintptr_t)0x18F00CU;
-  uintptr_t node = queue[0];
-  if (node != 0U) {
-    queue[0] = *(volatile uintptr_t *)(uintptr_t)node;
-    if (queue[0] == 0U) {
-      queue[1] = 0U;
+  // role: tx_dequeue critical section wrapper
+  volatile uint32_t *irq_gate = (volatile uint32_t *)(uintptr_t)0x187F8CU;
+  volatile uint32_t *irq_depth = (volatile uint32_t *)(uintptr_t)0x182560U;
+
+  uint32_t primask = *irq_gate;
+  if ((primask & 1U) == 0U) {
+    *irq_gate = 1U;
+  }
+
+  ++*irq_depth;
+  list_pop();
+
+  if (*irq_depth != 0U) {
+    uint32_t gate = *irq_gate;
+    --*irq_depth;
+    if (*irq_depth == 0U && gate != 0U) {
+      *irq_gate = 0U;
     }
   }
 }
