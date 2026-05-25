@@ -238,6 +238,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `patch_apply`
 - `fw_config_apply`
 - `rf_bus_setup`
+- `log_printf`
+- `log_ptr_in_range`
+- `msg_get_value`
+- `msg_parse`
+- `log_alloc`
 
 ## License Status
 
