@@ -60,6 +60,8 @@ func main() {
 	var plateauLowerConfAfter int
 	var plateauLoweredMinCallConf float64
 	var plateauLoweredFallbackMinCallConf float64
+	var refreshIDAOnZeroProbes bool
+	var idatPath string
 	var tag string
 
 	flag.StringVar(&root, "root", ".", "Repository root")
@@ -102,6 +104,8 @@ func main() {
 	flag.IntVar(&plateauLowerConfAfter, "plateau-lower-conf-after", 4, "Lower implsynth call confidence after this many consecutive plateau cycles")
 	flag.Float64Var(&plateauLoweredMinCallConf, "plateau-lowered-min-call-confidence", 0.55, "Lowered implsynth min call confidence during deep plateaus")
 	flag.Float64Var(&plateauLoweredFallbackMinCallConf, "plateau-lowered-fallback-min-call-confidence", 0.25, "Lowered implsynth fallback confidence during deep plateaus")
+	flag.BoolVar(&refreshIDAOnZeroProbes, "refresh-ida-on-zero-probes", true, "Run headless IDA export refresh when a cycle probes zero functions")
+	flag.StringVar(&idatPath, "idat", "/home/grec-alexander/ida-pro-9.2/idat", "Path to IDA idat executable")
 	flag.StringVar(&tag, "tag", "", "Cycle run tag")
 	flag.Parse()
 
@@ -205,8 +209,20 @@ func main() {
 			if err == nil {
 				var report struct {
 					DeltaLearningSmokeSuccessCount int `json:"delta_learning_smoke_success_count"`
+					ProbeSummary                   struct {
+						Probed int `json:"probed"`
+					} `json:"probe_summary"`
 				}
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
+					if refreshIDAOnZeroProbes && report.ProbeSummary.Probed == 0 && strings.TrimSpace(idatPath) != "" {
+						refreshArgs := []string{
+							"tools/refresh_ida_exports.py",
+							"--idat", idatPath,
+						}
+						if err := runCmd(rootAbs, "python3", refreshArgs...); err != nil {
+							fmt.Fprintf(os.Stderr, "ida refresh failed: %v\n", err)
+						}
+					}
 					implTasks := autoImplMaxTasks
 					implSkip := 0
 					runMinCallConf := implMinCallConf
