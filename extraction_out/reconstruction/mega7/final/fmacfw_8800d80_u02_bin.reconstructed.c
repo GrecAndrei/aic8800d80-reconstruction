@@ -62511,21 +62511,9 @@ void uart_puts(void) {
 
 /* unit=lift_0440 class=medium score=3.610 addr=0xde38 */
 void irq_event_handler(void) {
-  uint32_t state = 0x0029114bU;
-  state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = 4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   irq_disable();
-  state ^= (0x86cd6fc0U + (state << 1U));
-  gate = (gate >> 1) | (gate << 31);
-  state ^= (gate & 0x9849dfb7U);
-  state ^= (gate + 0xa7b8d436U) ^ ((uint32_t)5U << 5);
-  (void)gate;
-  state = (state + 0x83420b36U) ^ (state >> 2U);
-  (void)state;
 }
+
 
 /* unit=lift_0430 class=medium score=3.610 addr=0x10390 */
 void log_free_pool_a(void) {
