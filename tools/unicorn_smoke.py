@@ -25,7 +25,16 @@ from pathlib import Path
 from textwrap import dedent
 
 from elftools.elf.elffile import ELFFile
-from unicorn import UC_ARCH_ARM, UC_HOOK_CODE, UC_MODE_THUMB, Uc
+from unicorn import (
+    UC_ARCH_ARM,
+    UC_HOOK_CODE,
+    UC_HOOK_MEM_FETCH_UNMAPPED,
+    UC_HOOK_MEM_READ_UNMAPPED,
+    UC_HOOK_MEM_WRITE_UNMAPPED,
+    UC_MODE_THUMB,
+    Uc,
+    UcError,
+)
 from unicorn.arm_const import UC_ARM_REG_LR, UC_ARM_REG_PC, UC_ARM_REG_SP
 
 
@@ -158,16 +167,44 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
 
     start = CODE_BASE + fn_off + 1
     insn_count = {"n": 0}
+    fault = {"access": None, "address": None, "size": None}
 
     def on_code(uc, address, size, user_data):
         insn_count["n"] += 1
         if insn_count["n"] >= max_insns:
             uc.emu_stop()
 
+    def on_unmapped(uc, access, address, size, value, user_data):
+        fault["access"] = access
+        fault["address"] = address
+        fault["size"] = size
+        uc.emu_stop()
+        return False
+
     mu.hook_add(UC_HOOK_CODE, on_code)
+    mu.hook_add(
+        UC_HOOK_MEM_READ_UNMAPPED
+        | UC_HOOK_MEM_WRITE_UNMAPPED
+        | UC_HOOK_MEM_FETCH_UNMAPPED,
+        on_unmapped,
+    )
     mu.reg_write(UC_ARM_REG_PC, start)
     mu.reg_write(UC_ARM_REG_LR, RETURN_STOP | 1)
-    mu.emu_start(start, RETURN_STOP)
+    try:
+        mu.emu_start(start, RETURN_STOP)
+    except UcError:
+        if fault["address"] is not None:
+            print(
+                json.dumps(
+                    {
+                        "fault_access": fault["access"],
+                        "fault_address": hex(int(fault["address"])),
+                        "fault_size": fault["size"],
+                    },
+                    indent=2,
+                )
+            )
+        raise
     return mu, insn_count["n"]
 
 

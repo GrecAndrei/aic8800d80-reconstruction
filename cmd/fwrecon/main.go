@@ -432,7 +432,7 @@ func buildIDAJobs(idaDir string, rows []unionRecord, rootAbs, idatPath string) (
 		}
 		_ = f.Close()
 
-		imagePath := filepath.Join(rootAbs, img)
+		imagePath := resolveImagePath(rootAbs, img)
 		cmd := fmt.Sprintf("%s -A \"%s\"", shellQuote(idatPath), shellQuote(imagePath))
 		jobs = append(jobs, idaJob{
 			Image:        img,
@@ -443,6 +443,24 @@ func buildIDAJobs(idaDir string, rows []unionRecord, rootAbs, idatPath string) (
 		})
 	}
 	return jobs, nil
+}
+
+func resolveImagePath(rootAbs, img string) string {
+	if filepath.IsAbs(img) {
+		return img
+	}
+	candidates := []string{
+		filepath.Join(rootAbs, img),
+		filepath.Join(rootAbs, "inputs", "firmware", img),
+		filepath.Join(rootAbs, "inputs", img),
+		filepath.Join(rootAbs, "analysis", "ida_headless", img),
+	}
+	for _, p := range candidates {
+		if st, err := os.Stat(p); err == nil && !st.IsDir() {
+			return p
+		}
+	}
+	return filepath.Join(rootAbs, img)
 }
 
 func streamJSONL(path string, onLine func(string) error) error {
