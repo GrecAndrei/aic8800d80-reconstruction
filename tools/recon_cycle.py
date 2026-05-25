@@ -62,6 +62,7 @@ def main() -> int:
     ap.add_argument("--seed", action="append", default=["0x40000000=0"], help="default seed ADDR=VALUE")
     ap.add_argument("--tag", default="", help="run tag for this cycle")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with repeated missing_symbol outcomes")
+    ap.add_argument("--retry-fault-once", action="store_true", help="retry faulted probes once with learned fault seed")
     args = ap.parse_args()
 
     root = args.root.resolve()
@@ -100,6 +101,8 @@ def main() -> int:
         "--missing-cooldown",
         str(args.missing_cooldown),
     ]
+    if args.retry_fault_once:
+        smoke_cmd.append("--retry-fault-once")
     for g in args.source_glob:
         smoke_cmd.extend(["--source-glob", g])
     for s in args.seed:

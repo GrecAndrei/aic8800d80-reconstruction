@@ -172,6 +172,7 @@ python3 tools/recon_cycle.py \
   --source-glob 'extraction_out/reconstruction/mega7/final/*.c' \
   --limit 10 \
   --missing-cooldown 2 \
+  --retry-fault-once \
   --tag cycle_demo
 ```
 
@@ -425,6 +426,16 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `log_pool_default_config`
 - `log_queue_refill`
 - `sdio_wait_busy`
+- `crypto_hw_disable`
+- `crypto_hw_mode_select`
+- `crypto_hw_power_up`
+- `log_free_pool_dispatch2`
+- `memset_impl`
+- `rf_stream_start`
+- `rf_stream_start2`
+- `rf_stream_start_once`
+- `tx_phy_config`
+- `tx_rate_config`
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.

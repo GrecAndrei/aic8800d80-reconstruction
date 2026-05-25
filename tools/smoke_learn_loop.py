@@ -124,6 +124,7 @@ def main() -> int:
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
     ap.add_argument("--fault-seed-top", type=int, default=2, help="learn up to this many historical fault addresses per prefix as seeds")
+    ap.add_argument("--retry-fault-once", action="store_true", help="on fault, retry once with the reported fault address seeded")
     ap.add_argument(
         "--seed",
         action="append",
@@ -258,6 +259,35 @@ def main() -> int:
         if proc.stderr:
             print(proc.stderr.strip())
         print(f"rc={proc.returncode}")
+
+        if not args.retry_fault_once:
+            continue
+        if proc.returncode != 2:
+            continue
+        fault_addr = ""
+        for line in (proc.stdout or "").splitlines():
+            line = line.strip()
+            if not line.startswith("{"):
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            addr = str(row.get("fault_address", "")).strip().lower()
+            if addr.startswith("0x"):
+                fault_addr = addr
+                break
+        if not fault_addr:
+            continue
+        retry_cmd = list(cmd)
+        retry_cmd.extend(["--seed", f"{fault_addr}=0"])
+        print(f"== retry {fn} with learned seed {fault_addr}=0")
+        retry = subprocess.run(retry_cmd, text=True, capture_output=True, timeout=90)
+        if retry.stdout:
+            print(retry.stdout.strip())
+        if retry.stderr:
+            print(retry.stderr.strip())
+        print(f"retry_rc={retry.returncode}")
 
     return 0
 
