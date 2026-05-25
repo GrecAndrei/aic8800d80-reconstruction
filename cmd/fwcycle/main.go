@@ -27,6 +27,7 @@ func main() {
 	var limit int
 	var maxInsns int
 	var minSuccessInsns int
+	var shallowCooldown int
 	var missingCooldown int
 	var recentWindowMin int
 	var retryFaultOnce bool
@@ -57,6 +58,7 @@ func main() {
 	flag.IntVar(&limit, "limit", 10, "Probe target limit")
 	flag.IntVar(&maxInsns, "max-insns", 120, "Max instructions per probe")
 	flag.IntVar(&minSuccessInsns, "min-success-insns", 8, "Treat success below this instruction count as shallow")
+	flag.IntVar(&shallowCooldown, "shallow-cooldown", 3, "Skip targets with repeated shallow-success outcomes")
 	flag.IntVar(&missingCooldown, "missing-cooldown", 2, "Skip targets with repeated missing-symbol outcomes")
 	flag.IntVar(&recentWindowMin, "recent-window-min", 30, "Skip targets attempted within this many minutes")
 	flag.BoolVar(&retryFaultOnce, "retry-fault-once", true, "Retry one time with learned fault seed on unmapped faults")
@@ -100,6 +102,7 @@ func main() {
 		"--limit", fmt.Sprintf("%d", limit),
 		"--max-insns", fmt.Sprintf("%d", maxInsns),
 		"--min-success-insns", fmt.Sprintf("%d", minSuccessInsns),
+		"--shallow-cooldown", fmt.Sprintf("%d", shallowCooldown),
 		"--shallow-retry-max-insns", fmt.Sprintf("%d", shallowRetryMaxInsns),
 		"--missing-cooldown", fmt.Sprintf("%d", missingCooldown),
 		"--recent-window-min", fmt.Sprintf("%d", recentWindowMin),

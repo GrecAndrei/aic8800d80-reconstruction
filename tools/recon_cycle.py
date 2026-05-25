@@ -75,6 +75,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=10, help="number of queue targets to probe this cycle")
     ap.add_argument("--max-insns", type=int, default=120, help="max instructions per probe")
     ap.add_argument("--min-success-insns", type=int, default=8, help="treat success below this instruction count as shallow")
+    ap.add_argument("--shallow-cooldown", type=int, default=3, help="skip targets with repeated shallow-success outcomes")
     ap.add_argument("--seed", action="append", default=["0x40000000=0"], help="default seed ADDR=VALUE")
     ap.add_argument("--tag", default="", help="run tag for this cycle")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with repeated missing_symbol outcomes")
@@ -123,6 +124,8 @@ def main() -> int:
         str(args.max_insns),
         "--min-success-insns",
         str(args.min_success_insns),
+        "--shallow-cooldown",
+        str(args.shallow_cooldown),
         "--shallow-retry-max-insns",
         str(args.shallow_retry_max_insns),
         "--missing-cooldown",

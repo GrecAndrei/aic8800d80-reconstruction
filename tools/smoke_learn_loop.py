@@ -60,8 +60,8 @@ def parse_iso_time(s: str) -> datetime | None:
     return dt.astimezone(timezone.utc)
 
 
-def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str, list[tuple[str, int]]], dict[str, datetime]]:
-    stats: dict[str, dict[str, int]] = defaultdict(lambda: {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0})
+def load_outcome_stats(path: Path, min_success_insns: int) -> tuple[dict[str, dict[str, int]], dict[str, list[tuple[str, int]]], dict[str, datetime]]:
+    stats: dict[str, dict[str, int]] = defaultdict(lambda: {"attempts": 0, "success": 0, "fault": 0, "missing_symbol": 0, "shallow_success": 0})
     fault_by_prefix: dict[str, Counter[str]] = defaultdict(Counter)
     last_seen: dict[str, datetime] = {}
     if not path.is_file():
@@ -87,6 +87,13 @@ def load_outcome_stats(path: Path) -> tuple[dict[str, dict[str, int]], dict[str,
                 last_seen[k] = dt
         if st in stats[k]:
             stats[k][st] += 1
+        if st == "success":
+            try:
+                insns = int(row.get("instructions", -1))
+            except (TypeError, ValueError):
+                insns = -1
+            if 0 <= insns < max(0, min_success_insns):
+                stats[k]["shallow_success"] += 1
         if st == "fault":
             addr = str(row.get("fault_address", "")).strip().lower()
             if addr.startswith("0x"):
@@ -165,6 +172,7 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=12, help="maximum functions to probe")
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
     ap.add_argument("--min-success-insns", type=int, default=8, help="treat success below this instruction count as shallow")
+    ap.add_argument("--shallow-cooldown", type=int, default=3, help="skip targets with this many shallow successes")
     ap.add_argument("--retry-shallow-success", action="store_true", help="retry shallow successes once with a larger instruction cap")
     ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="instruction cap for shallow-success retry")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
@@ -189,7 +197,7 @@ def main() -> int:
     global_seeds = [parse_seed(s) for s in args.seed]
     checkpointed = load_checkpointed(args.readme)
     queue_rows = load_queue_records(args.queue)
-    outcomes, top_faults, last_seen = load_outcome_stats(args.outcomes)
+    outcomes, top_faults, last_seen = load_outcome_stats(args.outcomes, args.min_success_insns)
     now = datetime.now(timezone.utc)
     source_pool: list[Path] = [args.source]
     for pattern in args.source_glob:
@@ -240,6 +248,7 @@ def main() -> int:
                 "success": int(stat.get("success", 0)),
                 "fault": int(stat.get("fault", 0)),
                 "missing_symbol": int(stat.get("missing_symbol", 0)),
+                "shallow_success": int(stat.get("shallow_success", 0)),
                 "prefix": prefix(name),
                 "recent_min": int((now - last_seen[low]).total_seconds() // 60) if low in last_seen else 10**9,
             }
@@ -252,6 +261,7 @@ def main() -> int:
             c["attempts"],                 # fewer attempts first
             c["recent_min"],               # prefer less-recently attempted targets
             c["missing_symbol"],           # fewer missing-symbol misses first
+            c["shallow_success"],          # fewer shallow successes first
             -c["priority"],                # then higher queue priority
             c["name"].lower(),
         )
@@ -279,6 +289,8 @@ def main() -> int:
             if c["name"] in picked_set:
                 continue
             if c["missing_symbol"] >= missing_max:
+                continue
+            if c["shallow_success"] >= max(0, args.shallow_cooldown):
                 continue
             if c["recent_min"] < recent_min:
                 continue
