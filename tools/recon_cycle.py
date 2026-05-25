@@ -61,6 +61,7 @@ def main() -> int:
     ap.add_argument("--max-insns", type=int, default=120, help="max instructions per probe")
     ap.add_argument("--seed", action="append", default=["0x40000000=0"], help="default seed ADDR=VALUE")
     ap.add_argument("--tag", default="", help="run tag for this cycle")
+    ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with repeated missing_symbol outcomes")
     args = ap.parse_args()
 
     root = args.root.resolve()
@@ -74,13 +75,12 @@ def main() -> int:
     else:
         tag = "cycle_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
-    latest_queue = run_root / "runs" / "dynlearn_autoloop2" / "mining_queue_top300.jsonl"
-    if not latest_queue.is_file():
-        # Fallback to newest run queue if known tag is absent.
-        candidates = sorted((runs_dir).glob("*/mining_queue_top300.jsonl"))
-        if not candidates:
-            raise SystemExit("no mining_queue_top300.jsonl found under run root")
-        latest_queue = candidates[-1]
+    # Choose the newest non-cycle queue first, then fallback to absolute newest.
+    candidates = sorted((runs_dir).glob("*/mining_queue_top300.jsonl"))
+    if not candidates:
+        raise SystemExit("no mining_queue_top300.jsonl found under run root")
+    non_cycle = [p for p in candidates if "cycle" not in p.parent.name.lower()]
+    latest_queue = non_cycle[-1] if non_cycle else candidates[-1]
 
     smoke_cmd = [
         "python3",
@@ -97,6 +97,8 @@ def main() -> int:
         str(args.limit),
         "--max-insns",
         str(args.max_insns),
+        "--missing-cooldown",
+        str(args.missing_cooldown),
     ]
     for g in args.source_glob:
         smoke_cmd.extend(["--source-glob", g])

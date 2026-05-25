@@ -160,6 +160,7 @@ python3 tools/smoke_learn_loop.py \
   --seed 0x40000000=0
 ```
 The selector favors under-tested, high-priority functions and enforces prefix diversity, so cycles keep exploring instead of repeatedly re-probing already-stable paths.
+It also supports `--missing-cooldown` to temporarily skip repeatedly unresolved symbol names and keep cycle throughput high.
 
 For a full unattended cycle (probe -> extract -> report):
 
@@ -303,6 +304,16 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `math_helper_big`
 - `thunk`
 - `list_count`
+- `log_tick`
+- `log_free_pool_b`
+- `log_free_pool_c`
+- `list_pop`
+- `fallback_handler`
+- `hw_config_init`
+- `variant_update_cache`
+- `delay_us`
+- `fp_convert_int`
+- `event_queue_push`
 - `log_free_dispatch`
 - `patch_apply`
 - `fw_config_apply`

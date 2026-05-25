@@ -34,6 +34,7 @@ evidence-backed image while committing and pushing validated progress often.
 9. For unattended batches, run `tools/smoke_learn_loop.py` against the latest queue and source pool, then rerun `fwextract` to ingest the new outcomes.
 10. Prefer `tools/recon_cycle.py` when you want one command to execute probe+ingest+report and preserve cycle-to-cycle trend evidence.
 11. Keep cycle selection exploratory: prioritize under-tested queue targets, preserve prefix diversity, and avoid re-running the same stable winners unless a harness change requires revalidation.
+12. Use `--missing-cooldown` during long unattended loops to avoid burning slots on repeated unresolved symbols.
 
 ## Validation Rules
 

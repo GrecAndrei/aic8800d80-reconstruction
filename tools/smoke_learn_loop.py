@@ -112,6 +112,7 @@ def main() -> int:
     ap.add_argument("--readme", type=Path, default=Path("README.md"), help="README to mine known checkpoints")
     ap.add_argument("--limit", type=int, default=12, help="maximum functions to probe")
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
+    ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
     ap.add_argument(
         "--seed",
         action="append",
@@ -190,6 +191,8 @@ def main() -> int:
     picked: list[str] = []
     prefix_counts: dict[str, int] = defaultdict(int)
     for c in candidates:
+        if c["missing_symbol"] >= args.missing_cooldown:
+            continue
         p = c["prefix"]
         # Soft diversity cap: avoid spending a whole cycle on one prefix.
         if prefix_counts[p] >= max(1, args.limit // 3):
