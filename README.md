@@ -271,6 +271,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_cmd_process`
 - `rf_cmd_wait`
 - `rf_reg_write_core`
+- `rf_state_check`
+- `rf_cmd_dispatch`
+- `rf_level_apply`
+- `rf_level_dump`
+- `rf_mem_read`
 - `feature_guard_sdio`
 
 ## License Status
