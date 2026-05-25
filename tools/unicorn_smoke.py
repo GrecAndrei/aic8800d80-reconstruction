@@ -135,9 +135,11 @@ def write_seed(mu: Uc, seed: Seed) -> None:
 
 def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, bytes, int]], seeds: list[Seed], max_insns: int) -> tuple[Uc, int]:
     mu = Uc(UC_ARCH_ARM, UC_MODE_THUMB)
+    highest_end = 0
     for vaddr, data, memsz in segments:
         base = vaddr & ~(PAGE_SIZE - 1)
         end = vaddr + memsz
+        highest_end = max(highest_end, end)
         size = ((end - base + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE
         try:
             mu.mem_map(base, size)
@@ -145,8 +147,9 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
             pass
         if data:
             mu.mem_write(vaddr, data)
-    map_page(mu, STACK_BASE, STACK_SIZE)
-    mu.reg_write(UC_ARM_REG_SP, STACK_BASE + STACK_SIZE // 2)
+    stack_base = ((highest_end + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE + PAGE_SIZE
+    map_page(mu, stack_base, STACK_SIZE)
+    mu.reg_write(UC_ARM_REG_SP, stack_base + STACK_SIZE // 2)
 
     for seed in seeds:
         write_seed(mu, seed)
