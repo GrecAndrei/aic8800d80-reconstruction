@@ -38,6 +38,7 @@ type implManifest struct {
 	SchemaVersion string `json:"schema_version"`
 	GeneratedAt   string `json:"generated_at"`
 	ComposeIndex  string `json:"compose_index_path"`
+	SkipTasks     int    `json:"skip_tasks"`
 	TaskCount     int    `json:"task_count"`
 	BehaviorCount int    `json:"behavior_lift_count"`
 	DepImplCount  int    `json:"dependency_impl_count"`
@@ -48,10 +49,12 @@ func main() {
 	var composeIndexPath string
 	var outDir string
 	var maxTasks int
+	var skipTasks int
 
 	flag.StringVar(&composeIndexPath, "compose-index", "extraction_out/reconstruction/mega7/composed/compose_index.json", "Compose index JSON")
 	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/implqueue", "Output directory")
 	flag.IntVar(&maxTasks, "max-tasks", 600, "Maximum implementation tasks")
+	flag.IntVar(&skipTasks, "skip-tasks", 0, "Rotate queue start by this many tasks before truncation")
 	flag.Parse()
 
 	idxAbs, _ := filepath.Abs(composeIndexPath)
@@ -86,6 +89,10 @@ func main() {
 		}
 		return tasks[i].RankScore > tasks[j].RankScore
 	})
+	if len(tasks) > 0 && skipTasks > 0 {
+		off := skipTasks % len(tasks)
+		tasks = append(tasks[off:], tasks[:off]...)
+	}
 	if maxTasks > 0 && len(tasks) > maxTasks {
 		tasks = tasks[:maxTasks]
 	}
@@ -97,6 +104,7 @@ func main() {
 		SchemaVersion: "0.1.0",
 		GeneratedAt:   time.Now().UTC().Format(time.RFC3339),
 		ComposeIndex:  idxAbs,
+		SkipTasks:     skipTasks,
 		TaskCount:     len(tasks),
 		OutputDir:     outAbs,
 	}
@@ -124,6 +132,7 @@ func main() {
 	}
 
 	fmt.Printf("implementation queue generated.\n")
+	fmt.Printf("  skip_tasks: %d\n", skipTasks)
 	fmt.Printf("  task_count: %d\n", m.TaskCount)
 	fmt.Printf("  behavior_lift_count: %d\n", m.BehaviorCount)
 	fmt.Printf("  dependency_impl_count: %d\n", m.DepImplCount)

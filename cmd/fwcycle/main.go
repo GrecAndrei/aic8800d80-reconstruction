@@ -186,6 +186,7 @@ func main() {
 				}
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
 					implTasks := autoImplMaxTasks
+					implSkip := 0
 					historyPath := filepath.Join(rootAbs, runRoot, "cycle_history.jsonl")
 					if streak, err := consecutivePlateauStreak(historyPath, plateauDeltaSuccessMax); err == nil && plateauEscalateAfter > 0 && plateauEscalateStep > 0 && streak >= plateauEscalateAfter {
 						levels := 1 + (streak-plateauEscalateAfter)/plateauEscalateAfter
@@ -193,10 +194,15 @@ func main() {
 						if plateauEscalateMax > 0 && implTasks > plateauEscalateMax {
 							implTasks = plateauEscalateMax
 						}
+						// Rotate implementation queue window on prolonged plateaus
+						// to avoid repeatedly synthesizing the same top-ranked slice.
+						if streak > plateauEscalateAfter {
+							implSkip = (streak - plateauEscalateAfter) * implTasks
+						}
 					}
 					steps := [][]string{
 						{"run", "./cmd/fwcompose"},
-						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks)},
+						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)},
 						{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks)},
 						{"run", "./cmd/fwapplysynth"},
 						{"run", "./cmd/fwfinalize"},
