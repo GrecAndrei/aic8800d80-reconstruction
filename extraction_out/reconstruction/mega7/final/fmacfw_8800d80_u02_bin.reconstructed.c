@@ -63790,24 +63790,9 @@ void rf_reg_write_guard(void) {
 
 /* unit=lift_0478 class=medium score=3.569 addr=0x11db4 */
 void rf_bus_write_wrapper(void) {
-  uint32_t state = 0x733122c8U;
-  state ^= 0x137b65edU;
-  state ^= ((uint32_t)2U << 4);
-  state ^= ((uint32_t)1U << 1);
-  for (uint32_t opi = 0U; opi < 2U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x518b8d6dU);
-    state ^= opmix;
-  }
-  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;
-  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];
-  state ^= (rf_reg ^ 0x00A500A5U);
-  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;
-  rf_cmd_wait();
-  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0x506dba6dU);
-  state = (state + chain_mix) ^ (chain_mix >> 3U);
-  (void)state;
+  rf_bus_write();
 }
+
 
 /* unit=lift_0484 class=medium score=3.558 addr=0x104c0 */
 void log_free_pool_c(void) {
