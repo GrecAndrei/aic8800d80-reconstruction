@@ -57389,27 +57389,9 @@ void crypto_channel_calc(void) {
 
 /* unit=lift_0305 class=medium score=3.679 addr=0x2f52c */
 void fallback_handler(void) {
-  uint32_t state = 0x1635f170U;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
-  state ^= ((uint32_t)2U << 4);
-  state ^= ((uint32_t)1U << 1);
-  for (uint32_t opi = 0U; opi < 2U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0xedfe2769U);
-    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);
-  }
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = (uint32_t)0U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   state_check();
-  state ^= 0x5453754dU;
-  gate = (gate << 1) | (gate >> 31);
-  state ^= (gate & 0xf2f99569U);
-  state ^= gate ^ 0xcdaad7e8U;
-  (void)gate;
-  state = (state + 0xe9f241e8U) ^ (state >> 2U);
-  (void)state;
 }
+
 
 /* unit=lift_0304 class=medium score=3.679 addr=0x2c73c */
 void event_queue_push(void) {
