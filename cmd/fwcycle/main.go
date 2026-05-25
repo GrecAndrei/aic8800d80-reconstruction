@@ -244,6 +244,14 @@ func main() {
 							runFallbackCallConf = plateauLoweredFallbackMinCallConf
 						}
 					}
+					// If mining is fully exhausted, widen synthesis window further to
+					// maximize chance of new applied functions from rotated segments.
+					if report.ProbeSummary.Probed == 0 {
+						implTasks *= 2
+						if plateauEscalateMax > 0 && implTasks > plateauEscalateMax {
+							implTasks = plateauEscalateMax
+						}
+					}
 					steps := [][]string{
 						{"run", "./cmd/fwcompose"},
 						{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)},
