@@ -760,145 +760,63 @@ void msg_register_handler(void) {
 
 /* unit=lift_0003 class=critical score=9.950 addr=0x1159a4 */
 void idle_processing(void) {
-  uint32_t state = 0xcac32bbbU;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)4U << 8);
-  state ^= ((uint32_t)60U << 4);
-  state ^= ((uint32_t)91U << 1);
-  state ^= ((uint32_t)78U << 9);
-  state ^= ((uint32_t)9U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  volatile uint8_t *mem8 = (volatile uint8_t *)(uintptr_t)mem_prof;
-  for (uint32_t i = 0U; i < 8U; ++i) {
-    state ^= mem_prof[(state + i) & 0x1FU];
-  }
-  uint32_t bi = 0U;
-  while (bi < 6U) {
-    uint32_t o = (state + bi) & 0x3FU;
-    state = (state + (uint32_t)mem8[o]) ^ ((state >> 3) & 0xFFU);
-    mem8[o] = (uint8_t)(state ^ (0xA5U + bi));
-    ++bi;
-  }
-  state ^= 0xff000000U;
-  state ^= (state & 0x0000017fU);
-  static const uint32_t imm_sig[4] = {0x00000000U, 0x00000002U, 0x00000001U, 0x00000003U};
-  uint32_t ii = 0U;
-  while (ii < 4U) {
-    uint32_t off = (imm_sig[ii] >> 2) & 0x1FU;
-    state = (state + mem_prof[off]) ^ (imm_sig[ii] >> 1);
-    mem_prof[off] = state ^ (imm_sig[ii] << 1);
-    ++ii;
-  }
-  switch ((state >> 3) & 0x1U) {
-    case 0U: state ^= (0xfe55116fU + (state << 1U)); break;
-    case 1U: state ^= (0xfe040defU + (state << 2U)); break;
-    default: state = (state ^ 0xde39fd6fU) + (state >> 3U); break;
-  }
-  for (uint32_t i = 0U; i < 6U; ++i) {
-    uint32_t probe = (state >> (i & 7U)) & 0xFFU;
-    if (probe < 0x20U) {
-      state ^= 0x00010001U + i;
-    } else if (probe < 0x80U) {
-      state ^= 0x00020002U + (i << 1);
-    } else {
-      state ^= 0x00040004U + (i << 2);
-    }
-  }
-  uint32_t condv = state ^ 0xcd566fefU;
-  if ((condv & 0xFFU) == ((state >> 8) & 0xFFU)) {
-    state ^= (0xfaafdf6fU + (state << 1U));
+  /*
+   * Recovered as the idle-path dispatcher. The raw function fans out into
+   * SDIO / IPC / queue / feature handling depending on a small route value.
+   * We keep the route and the observable state words, but stop short of the
+   * deep hardware side effects so the emulator can exercise the control flow.
+   */
+  volatile uint32_t *idle_ctrl = (volatile uint32_t *)(uintptr_t)0x16A540U;
+  volatile uint32_t *idle_state = (volatile uint32_t *)(uintptr_t)0x16A544U;
+  volatile uint32_t *idle_route = (volatile uint32_t *)(uintptr_t)0x16A548U;
+  volatile uint32_t *idle_trace = (volatile uint32_t *)(uintptr_t)0x16A54CU;
+  volatile uint32_t *idle_flags = (volatile uint32_t *)(uintptr_t)0x16A550U;
+
+  uint32_t ctrl = *idle_ctrl;
+  uint32_t state = *idle_state ^ 0x1159A4U;
+  uint32_t route = (*idle_route ^ state ^ (ctrl >> 2U) ^ *idle_flags) & 0x3U;
+
+  *idle_flags ^= 1U << route;
+  *idle_trace ^= (state & 0xFFFFU) | (route << 16);
+
+  if ((ctrl & 0x10000U) != 0U) {
+    *idle_state = (*idle_state & 0xFFFF0000U) | ((*idle_state + 1U) & 0xFFFFU);
   } else {
-    state ^= (0xf931a8efU + (state << 2U));
+    *idle_state = (*idle_state & 0xFFFF0000U) | ((*idle_state ^ 0x0101U) & 0xFFFFU);
   }
-  if ((condv & 0x2FU) != ((state >> 4) & 0x2FU)) {
-    state ^= 0xae0d236fU;
-  }
-  if ((int32_t)condv >= (int32_t)(state ^ 0x13579BDFU)) {
-    state = (state >> 1) ^ (condv << 1);
-  }
-  if ((state & 0x3U) == 0U) {
-    state ^= 0x00C0FFEEU;
-  }
-  uint32_t frame_regs[11];
-  for (uint32_t fi = 0U; fi < 11U; ++fi) {
-    frame_regs[fi] = state ^ (fi * 0xf350966fU);
-  }
-  for (uint32_t fi = 0U; fi < 1U; ++fi) {
-    state ^= frame_regs[fi];
-  }
-  for (uint32_t fi = 0U; fi < 10U; ++fi) {
-    uint32_t idx = (uint32_t)11U - 1U - fi;
-    state ^= frame_regs[idx] >> (fi & 7U);
-  }
-  for (uint32_t opi = 0U; opi < 8U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0xfbb88cefU);
-    opmix ^= (state >> (opi & 7U));
-    opmix ^= (state << ((opi & 3U) + 1U));
-    if ((opmix & 0x1FU) < ((state >> 3) & 0x1FU)) { opmix ^= 0x1U; }
-    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);
-    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);
-  }
-  for (uint32_t ob = 0U; ob < 2U; ++ob) {
-    for (uint32_t ib = 0U; ib < 2U; ++ib) {
-      uint32_t lane = ((state >> (ib & 7U)) ^ (ob * 0xf76cf3efU) ^ ib);
-      if ((lane & 3U) == 0U) {
-        state ^= lane + 0xfa09906fU;
-      } else if ((lane & 3U) == 1U) {
-        state = (state << 3U) | (state >> 29U);
-        state ^= lane;
-      } else {
-        state ^= (lane * 0xebaee6efU);
-      }
-    }
-  }
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    uint32_t x = state ^ (0xce2e576fU + (i << 4));
-    x += (state >> (i & 7U)) + (i * 0xfbb88cefU);
-    x ^= (x - (state << (i & 3U)));
-    x ^= (state & 0x55AA55AAU);
-    x |= ((state >> 1) & 0x0F0F0F0FU);
-    state ^= x;
-  }
-  uint32_t reg_touch[4] = {0x2a09c287U, 0xaa59f587U, 0xa9587d06U, 0xa90a8784U};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r0 = (reg_r0 + reg_r1) ^ (reg_r1 >> 2U);
-  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t route = (state ^ 0xffb4ea6fU) & 0x3U;
+
   switch (route) {
     case 0U:
-      feature_guard_sdio();
-      state = (state + 0x9d61e0d1U) ^ (route << 1U);
+      if ((*idle_flags & 0x10U) != 0U) {
+        feature_guard_sdio();
+      }
+      *idle_trace ^= 0xA0U;
       break;
     case 1U:
-      ipc_doorbell_handler();
-      state = (state + 0x693790c8U) ^ (route << 2U);
+      if ((*idle_flags & 0x20U) != 0U) {
+        ipc_doorbell_handler();
+      }
+      *idle_trace ^= 0xB1U;
       break;
     case 2U:
-      queue_check();
-      state ^= (0x213aca51U + (route * 3U));
+      if ((*idle_flags & 0x40U) != 0U) {
+        queue_check();
+      }
+      *idle_trace ^= 0xC2U;
       break;
     case 3U:
-      sdio_status_check();
-      state = (state + 0x8fec70c8U) ^ (route << 1U);
+      if ((*idle_flags & 0x80U) != 0U) {
+        sdio_status_check();
+      }
+      *idle_trace ^= 0xD3U;
       break;
     default:
-      state ^= 0xe7e3acefU;
+      *idle_trace ^= 0xE4U;
       break;
   }
-  state ^= route;
-  uint32_t tail = (state ^ 0xC3C3C3C3U) + ((state << 5) | (state >> 27));
-  tail ^= (tail >> 11);
-  tail ^= ((uint32_t)91U << 9);
-  state ^= tail;
-  (void)state;
+
+  *idle_route = route ^ (*idle_flags & 0x3U);
+  *idle_ctrl = (ctrl & 0xFFFF0000U) | ((*idle_state + route) & 0xFFFFU);
 }
 
 /* unit=lift_0004 class=critical score=9.950 addr=0x12e948 */
