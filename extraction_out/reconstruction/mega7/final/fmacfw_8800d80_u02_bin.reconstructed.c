@@ -67675,18 +67675,9 @@ void crypto_hw_write32(void) {
 
 /* unit=lift_0634 class=low score=3.369 addr=0x2ca38 */
 void thunk(void) {
-  uint32_t state = 0xbb353116U;
-  state ^= ((uint32_t)2U << 16) ^ ((uint32_t)1U << 8);
-  state ^= ((uint32_t)2U << 4);
-  state ^= ((uint32_t)1U << 1);
-  for (uint32_t opi = 0U; opi < 2U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x521524f1U);
-    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);
-  }
   buffer_pool_manage();
-  state ^= (0x56194271U + (state << 1U));
-  (void)state;
 }
+
 
 /* unit=lift_48940 class=low score=2.406 addr=0x15e58 */
 void ipc_doorbell_handler_n4dc(void) {
