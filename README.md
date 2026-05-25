@@ -230,6 +230,10 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_msg_handler`
 - `rf_bus_reset`
 - `tx_timeout_check`
+- `log_system_init`
+- `list_push_tail`
+- `rf_timer_abort1`
+- `rf_timer_abort2`
 
 ## License Status
 
