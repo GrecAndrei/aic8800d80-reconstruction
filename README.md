@@ -310,6 +310,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `crypto_power_apply`
 - `crypto_state_dump`
 - `crypto_hw_enable`
+- `state_check`
+- `clock_calc`
+- `buffer_pool_get`
+- `list_insert_sorted`
+- `list_find_remove`
 - `feature_guard_sdio`
 
 ## License Status
