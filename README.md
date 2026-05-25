@@ -414,6 +414,17 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `panic_loop`
 - `feature_guard_sdio`
 
+- `mac_phy_init`
+- `fp_convert_uint`
+- `fw_config_copy`
+- `log_system_init_mode2`
+- `crypto_channel_calc`
+- `crypto_mac_core`
+- `ipc_doorbell_handler`
+- `log_pool_config`
+- `log_pool_default_config`
+- `log_queue_refill`
+- `sdio_wait_busy`
 ## License Status
 
 This repository is licensed under **Apache License 2.0**.
