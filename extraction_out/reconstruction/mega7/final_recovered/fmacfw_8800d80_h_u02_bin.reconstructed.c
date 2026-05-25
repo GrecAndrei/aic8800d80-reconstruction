@@ -1474,80 +1474,10 @@ void main_loop(void) {
 
 /* unit=lift_0010 class=critical score=9.150 addr=0x12d5a0 */
 void fp_convert_uint(void) {
-  uint32_t state = 0x5dcccb4dU;
-  state ^= ((uint32_t)2U << 16) ^ ((uint32_t)4U << 8);
-  state ^= ((uint32_t)1U << 4);
-  state ^= ((uint32_t)0U << 1);
-  state ^= ((uint32_t)1U << 9);
-  state ^= ((uint32_t)0U << 13);
-  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x40000000U;
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    state ^= mem_prof[(state + i) & 0x1FU];
-  }
-  state ^= (0x0122d700U + (state << 1U));
-  state ^= (state & 0x0000001fU);
-  static const uint32_t imm_sig[1] = {0x0122d700U};
-  for (uint32_t i = 0U; i < 1U; ++i) {
-    uint32_t off = (imm_sig[i] >> 2) & 0x1FU;
-    state ^= mem_prof[off] ^ imm_sig[i];
-    mem_prof[off] = state ^ (imm_sig[i] << 1);
-  }
-  uint32_t frame_regs[2];
-  for (uint32_t fi = 0U; fi < 2U; ++fi) {
-    frame_regs[fi] = state ^ (fi * 0x9bec2c70U);
-  }
-  for (uint32_t fi = 0U; fi < 1U; ++fi) {
-    state = (state + frame_regs[fi]) ^ (frame_regs[fi] >> ((fi & 3U) + 1U));
-  }
-  for (uint32_t fi = 0U; fi < 1U; ++fi) {
-    uint32_t idx = (uint32_t)2U - 1U - fi;
-    state ^= frame_regs[idx] ^ (frame_regs[idx] >> ((fi & 3U) + 1U));
-  }
-  for (uint32_t opi = 0U; opi < 5U; ++opi) {
-    uint32_t opmix = state ^ (opi * 0x947c3d71U);
-    opmix ^= (state >> (opi & 7U));
-    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);
-  }
-  uint32_t reg_touch[4] = {0x2a09c287U, 0x98a87aabU, 0xaaa6d007U, 0x27dc4c27U};
-  for (uint32_t i = 0U; i < 4U; ++i) {
-    state ^= reg_touch[i] + (i << 8);
-    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);
-  }
-  uint32_t reg_r0 = state;
-  uint32_t reg_r1 = state ^ 0x11111111U;
-  uint32_t reg_r2 = state ^ 0x22222222U;
-  uint32_t reg_r3 = state ^ 0x33333333U;
-  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);
-  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);
-  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;
-  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;
-  state ^= (lr_model >> 1U);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = (uint32_t)4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   sub_12d464();
-  state ^= 0x9b3a3412U;
-  gate = (gate >> 2) | (gate << 30);
-  state ^= (gate & 0x8b7b8f71U);
-  sub_142f2c();
-  state ^= 0x7dd08513U;
-  gate = (gate << 1) | (gate >> 31);
-  state ^= (gate & 0x8baaaaf1U);
   math_helper();
-  state ^= 0x6ef51295U;
-  gate = (gate >> 1) | (gate << 31);
-  state ^= (gate & 0x8bda4671U);
   math_helper_big();
-  state ^= 0xc1770ebaU;
-  gate = (gate >> 1) | (gate << 31);
-  state ^= (gate & 0x8a0d5df1U);
-  state ^= gate ^ 0xb73da070U;
-  (void)gate;
-  uint32_t tail = (uint32_t)(0xC3C30000U | ((state >> 3) & 0xFFFFU));
-  tail ^= ((uint32_t)4U << 10);
-  state ^= tail;
-  (void)state;
+  sub_142f2c();
 }
 
 /* unit=lift_0011 class=critical score=8.850 addr=0x12eb90 */

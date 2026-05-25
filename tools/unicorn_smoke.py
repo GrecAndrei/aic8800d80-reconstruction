@@ -149,7 +149,9 @@ def run_smoke(code: bytes, fn_off: int, fn_size: int, segments: list[tuple[int, 
             mu.mem_write(vaddr, data)
     stack_base = ((highest_end + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE + PAGE_SIZE
     map_page(mu, stack_base, STACK_SIZE)
-    mu.reg_write(UC_ARM_REG_SP, stack_base + STACK_SIZE // 2)
+    # Start close to the top of the mapped stack so deeper call chains have
+    # room to grow downward before they hit the artificial stack floor.
+    mu.reg_write(UC_ARM_REG_SP, stack_base + STACK_SIZE - 0x100)
 
     for seed in seeds:
         write_seed(mu, seed)

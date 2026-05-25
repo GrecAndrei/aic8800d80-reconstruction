@@ -132,7 +132,7 @@ python3 tools/unicorn_smoke.py \
 
 This is a function-level smoke test, not a full firmware emulator. It is best for self-contained functions or paths with simple seeded state, and it is meant to confirm that recovered control flow and observable side effects still line up with the evidence we mined.
 
-You can also print selected post-state words with `--dump ADDR` when you want to inspect what a path touched without turning those values into hard assertions yet. The harness places the stack above the linked image automatically, which helps with larger handlers that need more room than the early smoke tests.
+You can also print selected post-state words with `--dump ADDR` when you want to inspect what a path touched without turning those values into hard assertions yet. The harness places the stack above the linked image automatically and starts the stack pointer near the top of that window, which helps with larger handlers that need more room than the early smoke tests.
 
 ## Quick Run
 
