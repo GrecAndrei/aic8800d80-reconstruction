@@ -315,6 +315,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `buffer_pool_get`
 - `list_insert_sorted`
 - `list_find_remove`
+- `msg_register_handler`
+- `msg_handler_tx`
+- `msg_parse_short`
+- `panic_entry`
+- `panic_loop`
 - `feature_guard_sdio`
 
 ## License Status
