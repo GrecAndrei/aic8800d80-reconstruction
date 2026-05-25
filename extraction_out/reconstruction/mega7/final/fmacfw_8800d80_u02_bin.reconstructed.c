@@ -471201,31 +471201,11 @@ void sub_101a54(void) {
 }
 
 void sub_10ed40(void) {
-  uint32_t state = 0x098a7a9aU;
-  state ^= ((uint32_t)1U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t chain_mix = state ^ 0x6d2b79f5U;
   rf_cmd_wait();
-  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;
-  state ^= (chain_mix & 0xa43de913U);
-  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);
-  (void)state;
 }
 
 void sub_10ffc0(void) {
-  uint32_t state = 0x3ea47ed0U;
-  state ^= ((uint32_t)0U << 16) ^ ((uint32_t)1U << 8);
-  uint32_t gate = state ^ 0x6d2b79f5U;
-  uint32_t flow_budget = 0U;
-  flow_budget = 4U;
-  if (flow_budget == 0U) { flow_budget = 1U; }
   log_system_init();
-  state = (state ^ 0x2e9e9d5aU) + (state >> 1U);
-  gate = (gate >> 2) | (gate << 30);
-  state ^= (gate & 0x1e4e0b7bU);
-  state ^= ((gate >> 7U) | (gate << 25U)) + 0x2208247bU;
-  (void)gate;
-  state ^= (0x0545dffbU + (state << 1U));
-  (void)state;
 }
 
 void sub_1140f4(void) {
