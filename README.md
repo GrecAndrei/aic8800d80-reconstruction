@@ -305,6 +305,11 @@ These firmware paths currently smoke cleanly under the targeted Unicorn harness:
 - `rf_hw_timer_read`
 - `timer_set_relative`
 - `timer_init`
+- `crypto_key_load`
+- `crypto_power_calc`
+- `crypto_power_apply`
+- `crypto_state_dump`
+- `crypto_hw_enable`
 - `feature_guard_sdio`
 
 ## License Status
