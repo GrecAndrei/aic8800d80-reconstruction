@@ -193,6 +193,13 @@ Cycle trend summary command:
 go run ./cmd/fwcycletrend -run-root extraction_out/reconstruction/mega7 -last 12
 ```
 
+Machine-readable output and simple quality gates:
+
+```bash
+go run ./cmd/fwcycletrend -run-root extraction_out/reconstruction/mega7 -last 12 -json
+go run ./cmd/fwcycletrend -run-root extraction_out/reconstruction/mega7 -last 12 -min-success-rate 70 -max-missing-rate 40
+```
+
 `fwcycle` can also auto-promote checkpoint entries after each successful cycle:
 
 ```bash
