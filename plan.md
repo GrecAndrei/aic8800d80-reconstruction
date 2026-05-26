@@ -344,6 +344,38 @@ As of 2026-05-26:
 - Blockers:
   - None currently; the main remaining work is breadth and calibration.
 
+## 2026-05-26 (A1/A2 harder batch: policy memory + evidence-backed emitters)
+
+- Completed:
+  - Strengthened controller memory in `tools/recon_cycle.py`:
+    - fixed IDA evidence discovery to read the real exported CFG and pseudocode corpora,
+    - added reusable policy-memory aggregation from `controller_experience.jsonl`,
+    - controller actions now carry historical effectiveness stats and score adjustments,
+    - kept compact default stdout while preserving structured controller artifacts.
+  - Generalized synthesis away from project-specific pseudocode special cases in `cmd/fwimplsynth/main.go`:
+    - replaced direct function-name lowering with motif detection over Hex-Rays pseudocode + CFG + MMIO + behavior role,
+    - motif families now include callback-state gate, IRQ-wait guard, and staged MMIO transfer,
+    - behavioral-class emitters for radio/I/O/dispatcher/crypto/memory-pool now use real outgoing-call evidence instead of seed-only generic bodies.
+  - Validated the controller layer across real quiet cycles and used the expensive rebuild/cycle pass only after the broader source changes were in place.
+- Evidence:
+  - Focused verification passed:
+    - `python3 -m py_compile tools/recon_cycle.py`
+    - `go test ./cmd/fwimplsynth ./cmd/fwcycle`
+  - Real quiet representative cycle `cycle_20260526T_harder_batch`:
+    - `probed=20`, `returned=2`, `capped=18`, `nontrivial_return=1`, `deep_returned=1`, `mmio_touch_probes=20`, `selected_distinct_images=3`
+    - controller state now records real IDA evidence counts: `cfg_hint_rows=2993`, `pseudocode_hint_rows=151`
+  - Rebuild quality after the harder batch:
+    - `implemented_count=428`
+    - `completion_pct=0.695`
+    - `semantic_completion_pct=0.507`
+    - `avg_conformance_pct=100.000`
+- Next:
+  - Extend motif families for the next hard cohorts: radio register commit/write waits, crypto key-load/strobe, and dispatcher/pool cascades.
+  - Make controller policy memory influence mode choice more strongly when cap-heavy plateaus have poor motif-family yield.
+  - Add neighbor propagation using successful motif-family evidence rather than only generic synthesis volume.
+- Blockers:
+  - Hard RF/SDIO cohorts still cap heavily enough that policy-memory and motif breadth need another pass before controller recommendations consistently prefer the best remediation mode.
+
 ## Update Template
 
 Use this format when updating:

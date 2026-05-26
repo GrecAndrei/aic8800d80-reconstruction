@@ -133,7 +133,92 @@ def collect_ida_evidence(root: Path, run_root: Path) -> dict:
     }
 
 
-def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, embedder_enabled: bool) -> dict:
+def build_action_policy_memory(experience_rows: list[dict]) -> dict:
+    buckets: dict[str, dict] = {}
+    for row in experience_rows:
+        if not isinstance(row, dict):
+            continue
+        action = row.get("controller_primary_action")
+        if not isinstance(action, dict):
+            continue
+        name = str(action.get("name", "")).strip().lower()
+        mode = str(action.get("mode", "")).strip().lower()
+        if not name:
+            continue
+        key = f"{name}|{mode}"
+        bucket = buckets.setdefault(
+            key,
+            {
+                "name": name,
+                "mode": mode,
+                "count": 0,
+                "sum_delta": 0.0,
+                "sum_return_rate": 0.0,
+                "sum_nontrivial_rate": 0.0,
+                "sum_deep_return_rate": 0.0,
+                "sum_cap_rate": 0.0,
+            },
+        )
+        probe = row.get("probe_summary") if isinstance(row.get("probe_summary"), dict) else {}
+        probed = max(1, int(probe.get("probed", 0)))
+        bucket["count"] += 1
+        bucket["sum_delta"] += float(row.get("delta_learning_smoke_success_count", 0))
+        bucket["sum_return_rate"] += percent(int(probe.get("returned", 0)), probed)
+        bucket["sum_nontrivial_rate"] += percent(int(probe.get("nontrivial_return", 0)), probed)
+        bucket["sum_deep_return_rate"] += percent(int(probe.get("deep_returned", 0)), max(1, int(probe.get("deep_probed", 0))))
+        bucket["sum_cap_rate"] += percent(int(probe.get("capped", 0)), probed)
+
+    stats: dict[str, dict] = {}
+    for key, bucket in buckets.items():
+        count = max(1, int(bucket["count"]))
+        stats[key] = {
+            "name": bucket["name"],
+            "mode": bucket["mode"],
+            "count": count,
+            "avg_delta_learning_smoke_success": round(bucket["sum_delta"] / count, 3),
+            "avg_return_rate": round(bucket["sum_return_rate"] / count, 3),
+            "avg_nontrivial_rate": round(bucket["sum_nontrivial_rate"] / count, 3),
+            "avg_deep_return_rate": round(bucket["sum_deep_return_rate"] / count, 3),
+            "avg_cap_rate": round(bucket["sum_cap_rate"] / count, 3),
+        }
+    return stats
+
+
+def apply_policy_memory(action_rows: list[dict], policy_memory: dict) -> None:
+    for row in action_rows:
+        key = f"{str(row.get('name', '')).strip().lower()}|{str(row.get('mode', '')).strip().lower()}"
+        stats = policy_memory.get(key)
+        if not isinstance(stats, dict):
+            continue
+        count = int(stats.get("count", 0))
+        if count <= 0:
+            continue
+        delta = float(stats.get("avg_delta_learning_smoke_success", 0.0))
+        return_rate = float(stats.get("avg_return_rate", 0.0))
+        nontrivial_rate = float(stats.get("avg_nontrivial_rate", 0.0))
+        deep_rate = float(stats.get("avg_deep_return_rate", 0.0))
+        cap_rate = float(stats.get("avg_cap_rate", 0.0))
+        confidence = min(1.0, count / 5.0)
+        adjustment = confidence * (
+            delta * 1.25 +
+            return_rate / 35.0 +
+            nontrivial_rate / 25.0 +
+            deep_rate / 30.0 -
+            cap_rate / 45.0
+        )
+        row["score"] = round(float(row.get("score", 0.0)) + adjustment, 3)
+        row["policy_memory"] = {
+            "count": count,
+            "avg_delta_learning_smoke_success": round(delta, 3),
+            "avg_return_rate": round(return_rate, 3),
+            "avg_nontrivial_rate": round(nontrivial_rate, 3),
+            "avg_deep_return_rate": round(deep_rate, 3),
+            "avg_cap_rate": round(cap_rate, 3),
+            "score_adjustment": round(adjustment, 3),
+        }
+
+
+def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, embedder_enabled: bool, policy_memory: dict) -> dict:
     summary = report.get("summary", {}) if isinstance(report.get("summary"), dict) else {}
     probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
     probed = max(1, int(probe.get("probed", 0)))
@@ -245,6 +330,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             overrides={"keep_current_policy": True},
         )
 
+    apply_policy_memory(action_rows, policy_memory)
     action_rows.sort(key=lambda row: (-float(row.get("score", 0.0)), str(row.get("name", ""))))
     primary = action_rows[0]
     return {
@@ -265,6 +351,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             "completion_pct": summary.get("completion_pct", 0.0),
             "semantic_completion_pct": summary.get("semantic_completion_pct", 0.0),
         },
+        "policy_memory": policy_memory,
     }
 
 
@@ -530,7 +617,8 @@ def main() -> int:
     report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
     report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success
     ida_evidence = collect_ida_evidence(root, run_root)
-    controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, bool(args.embedder_model))
+    policy_memory = build_action_policy_memory(read_jsonl_rows(run_root / "controller_experience.jsonl"))
+    controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, bool(args.embedder_model), policy_memory)
     report["ida_evidence"] = ida_evidence
     report["controller_primary_action"] = controller_state.get("primary_action", {})
     report["controller_recommended_mode"] = controller_state.get("recommended_mode", "synthesize")

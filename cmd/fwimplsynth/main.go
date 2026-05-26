@@ -1393,7 +1393,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	// Behavioral-class-driven body: if classifier identified a specific role,
 	// emit class-appropriate firmware code instead of a generic stub.
 	if behaviorRole != "" && !policy.Conservative {
-		if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address); emitted {
+		if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
 			b.WriteString("  (void)state;\n")
 			b.WriteString("}\n")
 			return fileio.WriteBytes(path, []byte(b.String()))
@@ -2711,20 +2711,40 @@ func emitPseudocodeStructuredBody(b *strings.Builder, fn string, pseudo *pseudoH
 // emitBehavioralClassBody generates class-specific firmware code that exercises
 // realistic hardware patterns instead of generic state-xor stubs.
 // Returns true if a meaningful body was emitted.
-func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string) bool {
+func selectOutgoingCalls(fn string, outgoing []callEdge, limit int) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, limit)
+	for _, e := range outgoing {
+		callName := sanitizeName(nonEmpty(e.TargetName, ""))
+		if callName == "" || callName == "unknown" || callName == fn {
+			continue
+		}
+		if _, ok := seen[callName]; ok {
+			continue
+		}
+		seen[callName] = struct{}{}
+		out = append(out, callName)
+		if limit > 0 && len(out) >= limit {
+			break
+		}
+	}
+	return out
+}
+
+func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, outgoing []callEdge) bool {
 	switch role {
 	case "radio_reg_write":
-		return emitRadioRegWriteBody(b, fn, addr)
+		return emitRadioRegWriteBody(b, fn, addr, outgoing)
 	case "io_driver":
-		return emitIODriverBody(b, fn, addr)
+		return emitIODriverBody(b, fn, addr, outgoing)
 	case "interrupt_handler":
 		return emitInterruptBody(b, fn, addr)
 	case "dispatcher":
-		return emitDispatchBody(b, fn, addr)
+		return emitDispatchBody(b, fn, addr, outgoing)
 	case "crypto_core":
-		return emitCryptoBody(b, fn, addr)
+		return emitCryptoBody(b, fn, addr, outgoing)
 	case "memory_pool":
-		return emitMemoryPoolBody(b, fn, addr)
+		return emitMemoryPoolBody(b, fn, addr, outgoing)
 	case "state_machine":
 		return emitStateMachineBody(b, fn, addr)
 	case "init_sequence":
@@ -2737,23 +2757,35 @@ func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string) boo
 	return false
 }
 
-func emitRadioRegWriteBody(b *strings.Builder, fn, addr string) bool {
+func emitRadioRegWriteBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
+	helpers := selectOutgoingCalls(fn, outgoing, 2)
 	b.WriteString("  // Radio register write: pattern derived from behavioral class radio_control\n")
 	base := uint32(0x40010000) | (seed & 0xFF00)
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *rf_reg = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
-	b.WriteString(fmt.Sprintf("  rf_reg[0] = 0x%08xU;\n", seed))
-	b.WriteString(fmt.Sprintf("  rf_reg[1] = 0x%08xU;\n", seed^0x55555555))
-	b.WriteString(fmt.Sprintf("  rf_reg[2] = 0x%08xU;\n", seed^0xAAAAAAAA))
-	b.WriteString("  uint32_t status = rf_reg[3];\n")
-	b.WriteString(fmt.Sprintf("  rf_reg[0x%xU & 0xFU] = status ^ 0x5A5A5A5AU;\n", (seed>>4)&0xF))
-	b.WriteString(fmt.Sprintf("  rf_reg[0x%xU & 0xFU] = 0x%08xU;\n", (seed>>8)&0xF, seed^0x3C3C3C3C))
-	b.WriteString(fmt.Sprintf("  state ^= status ^ (uint32_t)(uintptr_t)rf_reg;\n"))
+	b.WriteString(fmt.Sprintf("  uint32_t reg_idx = 0x%xU & 0xFU;\n", (seed>>4)&0xF))
+	b.WriteString(fmt.Sprintf("  uint32_t reg_val = 0x%08xU;\n", seed^0x55555555))
+	b.WriteString("  rf_reg[0] = reg_idx;\n")
+	b.WriteString("  rf_reg[1] = reg_val;\n")
+	b.WriteString("  rf_reg[2] = 1U;\n")
+	b.WriteString("  uint32_t wait = 24U + (state & 0xFU);\n")
+	b.WriteString("  while ((rf_reg[2] & 1U) && wait-- > 0U) {\n")
+	b.WriteString("    state ^= rf_reg[3] ^ wait;\n")
+	b.WriteString("    if ((wait & 3U) == 0U) { rf_reg[2] &= ~1U; }\n")
+	b.WriteString("  }\n")
+	if len(helpers) > 0 {
+		b.WriteString("  " + helpers[0] + "();\n")
+		if len(helpers) > 1 {
+			b.WriteString("  if ((state & 1U) == 0U) { " + helpers[1] + "(); }\n")
+		}
+	}
+	b.WriteString("  state ^= rf_reg[3] ^ reg_val ^ (uint32_t)(uintptr_t)rf_reg;\n")
 	return true
 }
 
-func emitIODriverBody(b *strings.Builder, fn, addr string) bool {
+func emitIODriverBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
+	helpers := selectOutgoingCalls(fn, outgoing, 2)
 	b.WriteString("  // I/O driver: pattern derived from behavioral class dma_io\n")
 	dmaBase := uint32(0x40020000) | (seed & 0xFC00)
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *dma = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", dmaBase))
@@ -2769,6 +2801,12 @@ func emitIODriverBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("    if ((dma_wait & 0x3U) == 0U) { dma[0] &= ~0x1U; }\n")
 	b.WriteString("  }\n")
 	b.WriteString("  dma[0] &= ~0x1U;\n")
+	if len(helpers) > 0 {
+		b.WriteString("  " + helpers[0] + "();\n")
+		if len(helpers) > 1 {
+			b.WriteString("  if ((state & 2U) != 0U) { " + helpers[1] + "(); }\n")
+		}
+	}
 	b.WriteString(fmt.Sprintf("  state ^= dma[%dU & 0x3U] ^ (uint32_t)(uintptr_t)buf;\n", (cnt+1)&3))
 	return true
 }
@@ -2791,10 +2829,14 @@ func emitInterruptBody(b *strings.Builder, fn, addr string) bool {
 	return true
 }
 
-func emitDispatchBody(b *strings.Builder, fn, addr string) bool {
+func emitDispatchBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
+	helpers := selectOutgoingCalls(fn, outgoing, 4)
 	b.WriteString("  // Message dispatch: pattern derived from behavioral class message_handler\n")
 	cases := int(seed&0x7) + 2
+	if len(helpers) >= 2 && len(helpers) < cases {
+		cases = len(helpers)
+	}
 	b.WriteString("  uint32_t msg_type = state & 0xFU;\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *mbox = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x40000000|(seed&0xFFFF80)))
 	b.WriteString(fmt.Sprintf("  uint32_t msg = mbox[msg_type & 0x%xU];\n", cases-1))
@@ -2802,6 +2844,9 @@ func emitDispatchBody(b *strings.Builder, fn, addr string) bool {
 	for i := 0; i < cases; i++ {
 		b.WriteString(fmt.Sprintf("  case %dU:\n", i))
 		b.WriteString(fmt.Sprintf("    mbox[%dU] = 0x%08xU ^ msg;\n", i, seed^(uint32(i)*0x11111111)))
+		if i < len(helpers) {
+			b.WriteString("    " + helpers[i] + "();\n")
+		}
 		b.WriteString("    break;\n")
 	}
 	b.WriteString("  default:\n")
@@ -2812,8 +2857,9 @@ func emitDispatchBody(b *strings.Builder, fn, addr string) bool {
 	return true
 }
 
-func emitCryptoBody(b *strings.Builder, fn, addr string) bool {
+func emitCryptoBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
+	helpers := selectOutgoingCalls(fn, outgoing, 2)
 	b.WriteString("  // Crypto engine: pattern derived from behavioral class crypto_security\n")
 	cryptoBase := uint32(0x40030000) | (seed & 0xFF00)
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *crypto = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", cryptoBase))
@@ -2831,12 +2877,19 @@ func emitCryptoBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("    if ((crypto_wait & 0x7U) == 0U) { crypto[0] &= ~0x2U; }\n")
 	b.WriteString("  }\n")
 	b.WriteString("  crypto[0] &= ~0x2U;\n")
+	if len(helpers) > 0 {
+		b.WriteString("  " + helpers[0] + "();\n")
+		if len(helpers) > 1 {
+			b.WriteString("  if ((state & 1U) != 0U) { " + helpers[1] + "(); }\n")
+		}
+	}
 	b.WriteString("  state ^= crypto[7] ^ crypto[8];\n")
 	return true
 }
 
-func emitMemoryPoolBody(b *strings.Builder, fn, addr string) bool {
+func emitMemoryPoolBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
+	helpers := selectOutgoingCalls(fn, outgoing, 2)
 	b.WriteString("  // Memory pool: pattern derived from behavioral class memory_pool\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *pool = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20000000|(seed&0xFFFC)))
 	b.WriteString("  uint32_t head = pool[0];\n")
@@ -2847,6 +2900,12 @@ func emitMemoryPoolBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("  } else {\n")
 	b.WriteString("    state ^= 0xDEADBEEFU;\n")
 	b.WriteString("  }\n")
+	if len(helpers) > 0 {
+		b.WriteString("  " + helpers[0] + "();\n")
+		if len(helpers) > 1 {
+			b.WriteString("  if ((state & 1U) == 0U) { " + helpers[1] + "(); }\n")
+		}
+	}
 	b.WriteString("  state ^= pool[0] ^ (uint32_t)(uintptr_t)pool;\n")
 	return true
 }
