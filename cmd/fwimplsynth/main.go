@@ -169,6 +169,20 @@ type cfgHint struct {
 	StackOffMax    int      `json:"stack_off_max"`
 }
 
+type pseudoHint struct {
+	Image       string   `json:"image"`
+	Address     string   `json:"address"`
+	Name        string   `json:"name"`
+	LineCount   int      `json:"line_count"`
+	LoopCount   int      `json:"loop_count"`
+	SwitchCount int      `json:"switch_count"`
+	IfCount     int      `json:"if_count"`
+	ReturnCount int      `json:"return_count"`
+	CallNames   []string `json:"call_names"`
+	MMIOAddrs   []string `json:"mmio_addrs"`
+	Pseudocode  string   `json:"pseudocode"`
+}
+
 func main() {
 	if err := run(); err != nil {
 		fail("%v", err)
@@ -299,7 +313,7 @@ func isNumeric(s string) bool {
 
 func run() error {
 	var iAbs, cAbs, oAbs string
-	var composedDir, cfgHintsPath, functionLinksPath, conformancePath string
+	var composedDir, cfgHintsPath, pseudoHintsPath, functionLinksPath, conformancePath string
 	var minConf, fallbackMinConf float64
 	var maxTasks int
 	var counterexampleInjectMax int
@@ -315,6 +329,7 @@ func run() error {
 	outDir := "extraction_out/reconstruction/mega7/synth"
 	composedDirPath := "extraction_out/reconstruction/mega7/composed"
 	cfgHintsFilePath := "extraction_out/reconstruction/mega7/cfg_hints.jsonl"
+	pseudoHintsFilePath := "extraction_out/ida_export_pseudo/pseudocode_hints.jsonl"
 	functionLinksFilePath := "extraction_out/reconstruction/mega7/function_links.jsonl"
 	conformanceFilePath := "extraction_out/reconstruction/mega7/final/call_conformance.json"
 	minCallConfidence := 0.7
@@ -330,6 +345,7 @@ func run() error {
 	includeDependencies = true
 	requireIDAEdges := true
 	requireIDACFG := true
+	requireIDAPseudo := true
 
 	fs := flag.NewFlagSet("fwimplsynth", flag.ContinueOnError)
 	fs.StringVar(&implQueuePath, "implqueue", implQueuePath, "Implementation queue JSON path")
@@ -337,6 +353,7 @@ func run() error {
 	fs.StringVar(&outDir, "out", outDir, "Output directory for synthesized C")
 	fs.StringVar(&composedDirPath, "composed-dir", composedDirPath, "Composed functions directory")
 	fs.StringVar(&cfgHintsFilePath, "cfg-hints", cfgHintsFilePath, "CFG hints JSONL path")
+	fs.StringVar(&pseudoHintsFilePath, "pseudo-hints", pseudoHintsFilePath, "Hex-Rays pseudocode hint JSONL path")
 	fs.StringVar(&functionLinksFilePath, "function-links", functionLinksFilePath, "Function links JSONL path")
 	fs.StringVar(&conformanceFilePath, "conformance", conformanceFilePath, "Call conformance JSON path")
 	fs.Float64Var(&minCallConfidence, "min-call-confidence", minCallConfidence, "Minimum confidence for observed call edges")
@@ -352,6 +369,7 @@ func run() error {
 	fs.BoolVar(&includeDependencies, "include-dependencies", includeDependencies, "Include dependency_impl tasks after behavior_lift tasks")
 	fs.BoolVar(&requireIDAEdges, "require-ida-edges", requireIDAEdges, "Require call_edges.with_ida_raw.jsonl and fail if missing")
 	fs.BoolVar(&requireIDACFG, "require-ida-cfg", requireIDACFG, "Require cfg_hints.jsonl and fail if missing")
+	fs.BoolVar(&requireIDAPseudo, "require-ida-pseudo", requireIDAPseudo, "Require pseudocode_hints.jsonl and fail if missing")
 	if err := fs.Parse(os.Args[1:]); err != nil {
 		return err
 	}
@@ -361,6 +379,7 @@ func run() error {
 	oAbs, _ = filepath.Abs(outDir)
 	composedDir = composedDirPath
 	cfgHintsPath = cfgHintsFilePath
+	pseudoHintsPath = pseudoHintsFilePath
 	functionLinksPath = functionLinksFilePath
 	conformancePath = conformanceFilePath
 	minConf = minCallConfidence
@@ -403,6 +422,16 @@ func run() error {
 			}
 		}
 	}
+	if requireIDAPseudo {
+		if _, err := os.Stat(pseudoHintsPath); err != nil {
+			fallbackPseudo := filepath.Join(filepath.Dir(cAbs), "ida_export_pseudo", "pseudocode_hints.jsonl")
+			if _, err2 := os.Stat(fallbackPseudo); err2 == nil {
+				pseudoHintsPath = fallbackPseudo
+			} else {
+				fail("require-ida-pseudo: missing %s (and fallback %s)", pseudoHintsPath, fallbackPseudo)
+			}
+		}
+	}
 	edgePaths := existingEdgePaths(idaEdgesPath, cAbs)
 	inAdj, outAdj, inByName, outByName, err := readAdjMulti(edgePaths, minConf)
 	if err != nil {
@@ -410,6 +439,10 @@ func run() error {
 	}
 	hints, composedCallers, _ := loadComposedHints(composedDir)
 	cfgByAddr, cfgByName, _ := loadCFGHints(cfgHintsPath)
+	pseudoByAddr, pseudoByName, _ := loadPseudoHints(pseudoHintsPath)
+	if len(pseudoByAddr) > 0 || len(pseudoByName) > 0 {
+		fmt.Fprintf(os.Stderr, "pseudocode hints loaded: %d address entries\n", len(pseudoByAddr))
+	}
 	familyHints := buildFamilyHints(outByName, minConf, fallbackMinConf)
 	suffixHints := buildSuffixHints(outByName, minConf, fallbackMinConf)
 	tokenHints := buildTokenHints(outByName, minConf, fallbackMinConf)
@@ -529,6 +562,7 @@ func run() error {
 		fn := sanitizeName(t.Function)
 		selected, unsupportedCE, missingCE := applyCounterexampleConstraints(selected, conformanceConstraints[fn], minConf, counterexampleInjectMax)
 		cfg := cfgForTask(t, cfgByAddr, cfgByName)
+		pseudo := pseudoForTask(t, pseudoByAddr, pseudoByName)
 		policy := evaluateSynthesisPolicy(
 			t,
 			incoming,
@@ -606,7 +640,7 @@ func run() error {
 			Postconditions: policy.ContractPost,
 		})
 		file := filepath.Join(oAbs, fmt.Sprintf("%03d_%s.synth.c", i+1, sanitizeName(t.Function)))
-		if err := writeSynth(file, t, incoming, selected, cfg, policy, row.BehaviorClass, row.BehaviorRole); err != nil {
+		if err := writeSynth(file, t, incoming, selected, cfg, pseudo, policy, row.BehaviorClass, row.BehaviorRole); err != nil {
 			fail("write synth %s: %v", file, err)
 		}
 	}
@@ -1149,7 +1183,7 @@ func maxFloat(a, b float64) float64 {
 	return b
 }
 
-func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfgHint, policy synthPolicy, behaviorClass string, behaviorRole string) error {
+func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfgHint, pseudo *pseudoHint, policy synthPolicy, behaviorClass string, behaviorRole string) error {
 	var b strings.Builder
 	b.WriteString("/* Auto-generated synthesized implementation pass */\n")
 	b.WriteString(fmt.Sprintf("/* task=%s class=%s priority=%s score=%.3f */\n", t.TaskID, t.TaskClass, t.Priority, t.RankScore))
@@ -1349,6 +1383,13 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	}
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
+	if pseudo != nil && !policy.Conservative {
+		if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, outgoing); emitted {
+			b.WriteString("  (void)state;\n")
+			b.WriteString("}\n")
+			return fileio.WriteBytes(path, []byte(b.String()))
+		}
+	}
 	// Behavioral-class-driven body: if classifier identified a specific role,
 	// emit class-appropriate firmware code instead of a generic stub.
 	if behaviorRole != "" && !policy.Conservative {
@@ -2252,6 +2293,57 @@ func cfgForTask(t implTask, byAddr, byName map[string]cfgHint) *cfgHint {
 	return nil
 }
 
+func loadPseudoHints(path string) (map[string]pseudoHint, map[string]pseudoHint, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return map[string]pseudoHint{}, map[string]pseudoHint{}, err
+	}
+	defer f.Close()
+	byAddr := map[string]pseudoHint{}
+	byName := map[string]pseudoHint{}
+	sc := bufio.NewScanner(f)
+	sc.Buffer(make([]byte, 4096), 16*1024*1024)
+	for sc.Scan() {
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var h pseudoHint
+		if json.Unmarshal([]byte(line), &h) != nil {
+			continue
+		}
+		if strings.TrimSpace(h.Address) != "" {
+			byAddr[addrKey(h.Image, h.Address)] = h
+		}
+		n := sanitizeName(h.Name)
+		if n != "" && n != "unknown" {
+			byName[strings.ToLower(strings.TrimSpace(h.Image))+"|"+n] = h
+		}
+	}
+	return byAddr, byName, sc.Err()
+}
+
+func pseudoForTask(t implTask, byAddr, byName map[string]pseudoHint) *pseudoHint {
+	if h, ok := byAddr[addrKey(t.Image, t.Address)]; ok {
+		return &h
+	}
+	if alt, ok := normalizeAddrVariants(t.Address); ok {
+		for _, a := range alt {
+			if h, ok := byAddr[addrKey(t.Image, a)]; ok {
+				return &h
+			}
+		}
+	}
+	n := sanitizeName(t.Function)
+	if n == "" || n == "unknown" {
+		return nil
+	}
+	if h, ok := byName[strings.ToLower(strings.TrimSpace(t.Image))+"|"+n]; ok {
+		return &h
+	}
+	return nil
+}
+
 func normalizeAddrVariants(addr string) ([]string, bool) {
 	a := strings.TrimSpace(strings.ToLower(addr))
 	if a == "" {
@@ -2305,6 +2397,85 @@ func parseHexAddr(s string) (uint64, error) {
 		}
 	}
 	return v, nil
+}
+
+func emitPseudocodeStructuredBody(b *strings.Builder, fn string, pseudo *pseudoHint, outgoing []callEdge) bool {
+	if pseudo == nil {
+		return false
+	}
+	if pseudo.LineCount == 0 && pseudo.LoopCount == 0 && pseudo.SwitchCount == 0 && len(pseudo.CallNames) == 0 {
+		return false
+	}
+	base := "0x40000000U"
+	if len(pseudo.MMIOAddrs) > 0 {
+		base = fmt.Sprintf("(uintptr_t)%sU", strings.TrimSuffix(pseudo.MMIOAddrs[0], "u"))
+	}
+	b.WriteString("  // Structured from IDA Hex-Rays pseudocode\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *ida_reg = (volatile uint32_t *)%s;\n", base))
+	loopIters := minInt(12, maxInt(2, pseudo.LoopCount*3))
+	if pseudo.LoopCount > 0 {
+		b.WriteString(fmt.Sprintf("  for (uint32_t li = 0U; li < %dU; ++li) {\n", loopIters))
+		b.WriteString("    state ^= ida_reg[li & 3U] + (li << 4U);\n")
+		if pseudo.IfCount > 0 {
+			b.WriteString("    if (((state >> (li & 7U)) & 1U) != 0U) {\n")
+			b.WriteString("      ida_reg[(li + 1U) & 3U] = state ^ li;\n")
+			b.WriteString("    } else {\n")
+			b.WriteString("      state ^= ida_reg[(li + 2U) & 3U];\n")
+			b.WriteString("    }\n")
+		}
+		b.WriteString("  }\n")
+	}
+	if pseudo.SwitchCount > 0 {
+		cases := minInt(4, maxInt(2, pseudo.SwitchCount+1))
+		b.WriteString(fmt.Sprintf("  switch (state & 0x%xU) {\n", cases-1))
+		for i := 0; i < cases; i++ {
+			b.WriteString(fmt.Sprintf("  case %dU:\n", i))
+			b.WriteString(fmt.Sprintf("    ida_reg[%dU & 3U] = state ^ 0x%08xU;\n", i, callMixConst(fn, 0x40+i)))
+			if i < len(pseudo.CallNames) {
+				callName := sanitizeName(pseudo.CallNames[i])
+				if callName != "" && callName != "unknown" && callName != fn {
+					b.WriteString("    " + callName + "();\n")
+				}
+			}
+			b.WriteString("    break;\n")
+		}
+		b.WriteString("  default:\n")
+		b.WriteString("    state ^= ida_reg[0];\n")
+		b.WriteString("    break;\n")
+		b.WriteString("  }\n")
+	}
+	callBudget := 0
+	for _, name := range pseudo.CallNames {
+		callName := sanitizeName(name)
+		if callName == "" || callName == "unknown" || callName == fn {
+			continue
+		}
+		b.WriteString("  " + callName + "();\n")
+		callBudget++
+		if callBudget >= 3 {
+			break
+		}
+	}
+	if callBudget == 0 {
+		seen := map[string]struct{}{}
+		for _, e := range outgoing {
+			callName := sanitizeName(nonEmpty(e.TargetName, ""))
+			if callName == "" || callName == "unknown" || callName == fn {
+				continue
+			}
+			if _, ok := seen[callName]; ok {
+				continue
+			}
+			seen[callName] = struct{}{}
+			b.WriteString("  " + callName + "();\n")
+			callBudget++
+			if callBudget >= 2 {
+				break
+			}
+		}
+	}
+	b.WriteString("  state ^= ida_reg[0] ^ ida_reg[1];\n")
+	return true
 }
 
 // emitBehavioralClassBody generates class-specific firmware code that exercises

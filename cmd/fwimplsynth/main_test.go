@@ -37,7 +37,7 @@ func TestWriteSynthUsesNormalizedRoleText(t *testing.T) {
 		Priority:  "medium",
 		RankScore: 1.0,
 	}
-	if err := writeSynth(p, task, nil, nil, nil, synthPolicy{}, "", ""); err != nil {
+	if err := writeSynth(p, task, nil, nil, nil, nil, synthPolicy{}, "", ""); err != nil {
 		t.Fatalf("writeSynth: %v", err)
 	}
 	b, err := os.ReadFile(p)

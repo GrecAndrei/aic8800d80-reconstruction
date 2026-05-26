@@ -23,11 +23,15 @@ func runCmd(rootAbs string, name string, args ...string) error {
 	return cmd.Run()
 }
 
-func runIDARefresh(rootAbs, idatPath string) error {
+func runIDARefresh(rootAbs, runRoot, idatPath string) error {
 	if strings.TrimSpace(idatPath) == "" {
 		return fmt.Errorf("empty idat path")
 	}
-	refreshArgs := []string{"tools/refresh_ida_exports.py", "--idat", idatPath}
+	targetFile := filepath.Join(rootAbs, runRoot, "pseudocode_targets.json")
+	if err := runCmd(rootAbs, "python3", "tools/select_pseudocode_targets.py", "--run-root", runRoot, "--out", targetFile); err != nil {
+		return fmt.Errorf("select pseudocode targets: %w", err)
+	}
+	refreshArgs := []string{"tools/refresh_ida_exports.py", "--idat", idatPath, "--pseudo-targets", targetFile}
 	return runCmd(rootAbs, "python3", refreshArgs...)
 }
 
@@ -193,7 +197,7 @@ func main() {
 		outcomesPath = filepath.ToSlash(filepath.Join(runRoot, "smoke_observations.jsonl"))
 	}
 	if refreshIDABeforeCycle {
-		if err := runIDARefresh(rootAbs, idatPath); err != nil {
+		if err := runIDARefresh(rootAbs, runRoot, idatPath); err != nil {
 			if refreshIDAStrict {
 				fmt.Fprintf(os.Stderr, "ida pre-cycle refresh failed: %v\n", err)
 				os.Exit(1)
@@ -305,7 +309,7 @@ func main() {
 				var report cycleReport
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
 					if refreshIDAOnZeroProbes && report.ProbeSummary.Probed == 0 && strings.TrimSpace(idatPath) != "" {
-						if err := runIDARefresh(rootAbs, idatPath); err != nil {
+						if err := runIDARefresh(rootAbs, runRoot, idatPath); err != nil {
 							fmt.Fprintf(os.Stderr, "ida refresh failed: %v\n", err)
 						}
 					}
@@ -322,7 +326,7 @@ func main() {
 					switch routing.Mode {
 					case "explore":
 						if strings.TrimSpace(idatPath) != "" {
-							if err := runIDARefresh(rootAbs, idatPath); err != nil {
+							if err := runIDARefresh(rootAbs, runRoot, idatPath); err != nil {
 								fmt.Fprintf(os.Stderr, "explore mode IDA refresh failed: %v\n", err)
 							}
 						}
