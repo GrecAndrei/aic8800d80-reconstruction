@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type CallEdgeRecord struct {
@@ -67,6 +69,25 @@ type MiningTargetRecord struct {
 	MessageHits   int      `json:"message_hits"`
 	PriorityScore float64  `json:"priority_score"`
 	Reasons       []string `json:"reasons"`
+}
+
+type FamilyConsensusRecord struct {
+	SchemaVersion       string   `json:"schema_version"`
+	CanonicalFunction   string   `json:"canonical_function"`
+	ImageCount          int      `json:"image_count"`
+	LinkCount           int      `json:"link_count"`
+	AvgLinkConfidence   float64  `json:"avg_link_confidence"`
+	ConsensusConfidence float64  `json:"consensus_confidence"`
+	MemberImages        []string `json:"member_images"`
+	RoleHints           []string `json:"role_hints"`
+	TopOutgoingCalls    []string `json:"top_outgoing_calls"`
+	MessageFamilies     []string `json:"message_families"`
+	MessageKinds        []string `json:"message_kinds"`
+}
+
+type consensusCallVote struct {
+	count int
+	conf  float64
 }
 
 func primaryImageFromFunctions(functions []FunctionRecord) string {
@@ -409,7 +430,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 		hb.WriteByte('\n')
 	}
 	hb.WriteString("\n#endif\n")
-	if err := os.WriteFile(headerPath, []byte(hb.String()), 0o644); err != nil {
+	if err := fileio.WriteBytes(headerPath, []byte(hb.String())); err != nil {
 		return fmt.Errorf("write contracts header: %w", err)
 	}
 
@@ -438,7 +459,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 			sb.WriteString("    return 0;\n")
 			sb.WriteString("}\n\n")
 		}
-		if err := os.WriteFile(path, []byte(sb.String()), 0o644); err != nil {
+		if err := fileio.WriteBytes(path, []byte(sb.String())); err != nil {
 			return fmt.Errorf("write source %s: %w", fileName, err)
 		}
 		sourceFiles = append(sourceFiles, path)
@@ -471,7 +492,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 	if err != nil {
 		return fmt.Errorf("marshal twin plan: %w", err)
 	}
-	if err := os.WriteFile(filepath.Join(genRoot, "twin_plan.json"), append(b, '\n'), 0o644); err != nil {
+	if err := fileio.WriteBytes(filepath.Join(genRoot, "twin_plan.json"), append(b, '\n')); err != nil {
 		return fmt.Errorf("write twin plan: %w", err)
 	}
 
@@ -480,7 +501,7 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 		"- `include/fw_twin_contracts.h`: extracted API contract surface\n" +
 		"- `src/fw_role_*.c`: role-grouped stub implementations\n" +
 		"- `twin_plan.json`: machine-readable generation plan and counts\n"
-	if err := os.WriteFile(filepath.Join(genRoot, "README.md"), []byte(readme), 0o644); err != nil {
+	if err := fileio.WriteBytes(filepath.Join(genRoot, "README.md"), []byte(readme)); err != nil {
 		return fmt.Errorf("write twin readme: %w", err)
 	}
 
@@ -488,6 +509,8 @@ func generateTwinScaffold(root string, outDir string, functions []FunctionRecord
 }
 
 func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links []FunctionLinkRecord, schemas []MessageSchemaRecord, learning LearningBundle, limit int, minScore float64) []MiningTargetRecord {
+	weights := loadMiningWeightsFromEnv()
+
 	outDeg := map[string]int{}
 	inDeg := map[string]int{}
 	for _, e := range edges {
@@ -565,35 +588,35 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 		score := 0.0
 		reasons := make([]string, 0, 6)
 		if fn.Role == "unknown" {
-			score += 3.0
+			score += weights.UnknownRole
 			reasons = append(reasons, "unknown_role")
 		}
 		if fn.Confidence < 0.7 {
-			score += 2.0
+			score += weights.LowConfidence
 			reasons = append(reasons, "low_confidence")
 		}
 		if strings.HasPrefix(strings.ToLower(name), "sub_") {
-			score += 2.5
+			score += weights.UnnamedFunction
 			reasons = append(reasons, "unnamed_function")
 		}
 		if od > 0 {
-			score += float64(od) * 0.35
+			score += float64(od) * weights.Fanout
 			reasons = append(reasons, "fanout")
 		}
 		if id > 0 {
-			score += float64(id) * 0.25
+			score += float64(id) * weights.Fanin
 			reasons = append(reasons, "fanin")
 		}
 		if ld > 0 {
-			score += float64(ld) * 0.2
+			score += float64(ld) * weights.CrossImageAnchor
 			reasons = append(reasons, "cross_image_anchor")
 		}
 		if mh > 0 {
-			score += float64(mh) * 0.5
+			score += float64(mh) * weights.MessagePath
 			reasons = append(reasons, "message_path")
 		}
 		if fn.Role == "radio" || fn.Role == "transport" || fn.Role == "patching" {
-			score += 0.4
+			score += weights.CriticalSubsystem
 			reasons = append(reasons, "critical_subsystem")
 		}
 		if sig, ok := learning.ByFunction[strings.ToLower(fn.Image+"|"+fn.Name)]; ok {
@@ -603,6 +626,25 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 		if ps, ok := learning.ByPrefix[functionPrefix(fn.Name)]; ok {
 			score += ps.Weight
 			reasons = append(reasons, ps.Reason)
+		}
+		obs := learning.OutcomeByFunction[strings.ToLower(fn.Image+"|"+fn.Name)]
+		if obs.Seen == 0 {
+			score += weights.NoveltyUnseenBonus
+			reasons = append(reasons, "novelty_unseen")
+		} else {
+			score -= float64(obs.Seen) * weights.NoveltySeenPenalty
+			if obs.Success > 1 {
+				score -= float64(obs.Success-1) * weights.NoveltySuccessDecay
+				reasons = append(reasons, "novelty_repeat_success_decay")
+			}
+			if obs.Fault > 0 {
+				score += float64(obs.Fault) * weights.NoveltyFaultRecovery
+				reasons = append(reasons, "novelty_fault_recovery")
+			}
+			if obs.Missing > 0 {
+				score -= float64(obs.Missing) * weights.NoveltyMissingPenalty
+				reasons = append(reasons, "novelty_missing_symbol_penalty")
+			}
 		}
 
 		if score < minScore {
@@ -635,15 +677,15 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 		if role == "" || role == "unknown" {
 			role = inferRole(l.SourceName)
 		}
-		score := 0.9 + l.Confidence*2.2
+		score := weights.CrossImageProjectionBase + l.Confidence*weights.CrossImageProjectionScale
 		reasons := []string{"cross_image_projection", "cross_image_anchor"}
 		if strings.HasPrefix(strings.ToLower(l.SourceName), "sub_") {
 			reasons = append(reasons, "unnamed_function")
-			score += 0.4
+			score += weights.CrossImageUnnamedBonus
 		}
 		if role == "radio" || role == "transport" || role == "patching" {
 			reasons = append(reasons, "critical_subsystem")
-			score += 0.2
+			score += weights.CrossImageCriticalBonus
 		}
 		if score < minScore {
 			continue
@@ -694,15 +736,15 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 			if strings.EqualFold(l1.TargetImage, l2.TargetImage) && strings.EqualFold(l1.TargetAddress, l2.TargetAddress) {
 				continue
 			}
-			score := 0.55 + (l1.Confidence*l2.Confidence)*1.9
+			score := weights.Hop2Base + (l1.Confidence*l2.Confidence)*weights.Hop2Scale
 			reasons := []string{"cross_image_projection_hop2", "cross_image_anchor"}
 			if role == "radio" || role == "transport" || role == "patching" {
 				reasons = append(reasons, "critical_subsystem")
-				score += 0.15
+				score += weights.Hop2CriticalBonus
 			}
 			if strings.HasPrefix(strings.ToLower(propagatedName), "sub_") {
 				reasons = append(reasons, "unnamed_function")
-				score += 0.2
+				score += weights.Hop2UnnamedBonus
 			}
 			if score < minScore {
 				continue
@@ -756,11 +798,11 @@ func buildMiningQueue(functions []FunctionRecord, edges []CallEdgeRecord, links 
 				continue
 			}
 			addr := fmt.Sprintf("0x%x", uint64(na))
-			score := 0.35 + l.Confidence*1.35
+			score := weights.NeighborhoodBase + l.Confidence*weights.NeighborhoodScale
 			reasons := []string{"cross_image_neighborhood", "cross_image_anchor"}
 			if role == "radio" || role == "transport" || role == "patching" {
 				reasons = append(reasons, "critical_subsystem")
-				score += 0.1
+				score += weights.NeighborhoodCriticalBonus
 			}
 			if score < minScore {
 				continue
@@ -845,6 +887,197 @@ func dedupeMessageSchema(in []MessageSchemaRecord) []MessageSchemaRecord {
 	return out
 }
 
+func buildFamilyConsensus(functions []FunctionRecord, links []FunctionLinkRecord, edges []CallEdgeRecord, schemas []MessageSchemaRecord) []FamilyConsensusRecord {
+	fnByName := map[string][]FunctionRecord{}
+	for _, fn := range functions {
+		n := normalizeConsensusName(fn.Name)
+		if n == "" || n == "unknown" {
+			continue
+		}
+		fnByName[n] = append(fnByName[n], fn)
+	}
+
+	outgoingByName := map[string]map[string]consensusCallVote{}
+	for _, e := range edges {
+		if e.Confidence < 0.55 {
+			continue
+		}
+		src := normalizeConsensusName(e.SourceName)
+		tgt := normalizeConsensusName(e.TargetName)
+		if src == "" || src == "unknown" || tgt == "" || tgt == "unknown" || src == tgt {
+			continue
+		}
+		if outgoingByName[src] == nil {
+			outgoingByName[src] = map[string]consensusCallVote{}
+		}
+		cur := outgoingByName[src][tgt]
+		cur.count++
+		cur.conf += e.Confidence
+		outgoingByName[src][tgt] = cur
+	}
+
+	familyByName := map[string]map[string]struct{}{}
+	kindByName := map[string]map[string]struct{}{}
+	for _, s := range schemas {
+		h := normalizeConsensusName(s.HandlerName)
+		if h == "" || h == "unknown" {
+			continue
+		}
+		if familyByName[h] == nil {
+			familyByName[h] = map[string]struct{}{}
+		}
+		if kindByName[h] == nil {
+			kindByName[h] = map[string]struct{}{}
+		}
+		if strings.TrimSpace(s.Family) != "" {
+			familyByName[h][s.Family] = struct{}{}
+		}
+		if strings.TrimSpace(s.Kind) != "" {
+			kindByName[h][s.Kind] = struct{}{}
+		}
+	}
+
+	grouped := map[string][]FunctionLinkRecord{}
+	for _, l := range links {
+		n := normalizeConsensusName(l.SourceName)
+		if n == "" || n == "unknown" || strings.HasPrefix(n, "sub_") {
+			continue
+		}
+		grouped[n] = append(grouped[n], l)
+	}
+
+	out := make([]FamilyConsensusRecord, 0, len(grouped))
+	for name, rows := range grouped {
+		imgSet := map[string]struct{}{}
+		roleSet := map[string]struct{}{}
+		avgConf := 0.0
+		for _, r := range rows {
+			if strings.TrimSpace(r.SourceImage) != "" {
+				imgSet[r.SourceImage] = struct{}{}
+			}
+			if strings.TrimSpace(r.TargetImage) != "" {
+				imgSet[r.TargetImage] = struct{}{}
+			}
+			avgConf += r.Confidence
+		}
+		for _, fn := range fnByName[name] {
+			if strings.TrimSpace(fn.Role) == "" {
+				continue
+			}
+			roleSet[fn.Role] = struct{}{}
+			imgSet[fn.Image] = struct{}{}
+		}
+		if len(imgSet) < 2 {
+			continue
+		}
+		avgConf /= float64(len(rows))
+
+		memberImages := setToSortedList(imgSet)
+		roles := setToSortedList(roleSet)
+		families := setToSortedList(familyByName[name])
+		kinds := setToSortedList(kindByName[name])
+		topCalls := topConsensusOutgoing(outgoingByName[name], 6)
+		conf := 0.45 + (avgConf * 0.35)
+		if len(memberImages) >= 3 {
+			conf += 0.10
+		}
+		if len(topCalls) > 0 {
+			conf += 0.05
+		}
+		if conf > 0.99 {
+			conf = 0.99
+		}
+		out = append(out, FamilyConsensusRecord{
+			SchemaVersion:       schemaVersion,
+			CanonicalFunction:   name,
+			ImageCount:          len(memberImages),
+			LinkCount:           len(rows),
+			AvgLinkConfidence:   round3Local(avgConf),
+			ConsensusConfidence: round3Local(conf),
+			MemberImages:        memberImages,
+			RoleHints:           roles,
+			TopOutgoingCalls:    topCalls,
+			MessageFamilies:     families,
+			MessageKinds:        kinds,
+		})
+	}
+
+	sort.Slice(out, func(i, j int) bool {
+		if out[i].ImageCount == out[j].ImageCount {
+			if out[i].ConsensusConfidence == out[j].ConsensusConfidence {
+				return out[i].CanonicalFunction < out[j].CanonicalFunction
+			}
+			return out[i].ConsensusConfidence > out[j].ConsensusConfidence
+		}
+		return out[i].ImageCount > out[j].ImageCount
+	})
+	return out
+}
+
+func setToSortedList(set map[string]struct{}) []string {
+	if len(set) == 0 {
+		return nil
+	}
+	out := make([]string, 0, len(set))
+	for k := range set {
+		if strings.TrimSpace(k) == "" {
+			continue
+		}
+		out = append(out, k)
+	}
+	sort.Strings(out)
+	return out
+}
+
+func topConsensusOutgoing(votes map[string]consensusCallVote, n int) []string {
+	if len(votes) == 0 || n <= 0 {
+		return nil
+	}
+	type kv struct {
+		name  string
+		score float64
+	}
+	items := make([]kv, 0, len(votes))
+	for name, v := range votes {
+		score := float64(v.count) + (v.conf * 0.25)
+		items = append(items, kv{name: name, score: score})
+	}
+	sort.Slice(items, func(i, j int) bool {
+		if items[i].score == items[j].score {
+			return items[i].name < items[j].name
+		}
+		return items[i].score > items[j].score
+	})
+	if len(items) > n {
+		items = items[:n]
+	}
+	out := make([]string, 0, len(items))
+	for _, it := range items {
+		out = append(out, it.name)
+	}
+	return out
+}
+
+func normalizeConsensusName(s string) string {
+	s = strings.TrimSpace(strings.ToLower(s))
+	if s == "" {
+		return ""
+	}
+	var b strings.Builder
+	for _, r := range s {
+		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') || r == '_' {
+			b.WriteRune(r)
+		} else {
+			b.WriteByte('_')
+		}
+	}
+	return strings.Trim(b.String(), "_")
+}
+
+func round3Local(v float64) float64 {
+	return float64(int(v*1000+0.5)) / 1000
+}
+
 func sanitizeRole(role string) string {
 	role = strings.ToLower(role)
 	role = strings.ReplaceAll(role, "-", "_")
@@ -880,6 +1113,74 @@ func envInt64(name string, def int64) int64 {
 		valText = raw[2:]
 	}
 	v, err := strconv.ParseInt(valText, base, 64)
+	if err != nil {
+		return def
+	}
+	return v
+}
+
+type miningWeights struct {
+	UnknownRole               float64
+	LowConfidence             float64
+	UnnamedFunction           float64
+	Fanout                    float64
+	Fanin                     float64
+	CrossImageAnchor          float64
+	MessagePath               float64
+	CriticalSubsystem         float64
+	CrossImageProjectionBase  float64
+	CrossImageProjectionScale float64
+	CrossImageUnnamedBonus    float64
+	CrossImageCriticalBonus   float64
+	Hop2Base                  float64
+	Hop2Scale                 float64
+	Hop2CriticalBonus         float64
+	Hop2UnnamedBonus          float64
+	NeighborhoodBase          float64
+	NeighborhoodScale         float64
+	NeighborhoodCriticalBonus float64
+	NoveltyUnseenBonus        float64
+	NoveltySeenPenalty        float64
+	NoveltySuccessDecay       float64
+	NoveltyFaultRecovery      float64
+	NoveltyMissingPenalty     float64
+}
+
+func loadMiningWeightsFromEnv() miningWeights {
+	return miningWeights{
+		UnknownRole:               envFloat64("FW_MINING_SCORE_UNKNOWN_ROLE", 3.0),
+		LowConfidence:             envFloat64("FW_MINING_SCORE_LOW_CONFIDENCE", 2.0),
+		UnnamedFunction:           envFloat64("FW_MINING_SCORE_UNNAMED", 2.5),
+		Fanout:                    envFloat64("FW_MINING_SCORE_FANOUT", 0.35),
+		Fanin:                     envFloat64("FW_MINING_SCORE_FANIN", 0.25),
+		CrossImageAnchor:          envFloat64("FW_MINING_SCORE_CROSS_IMAGE_ANCHOR", 0.2),
+		MessagePath:               envFloat64("FW_MINING_SCORE_MESSAGE_PATH", 0.5),
+		CriticalSubsystem:         envFloat64("FW_MINING_SCORE_CRITICAL_SUBSYSTEM", 0.4),
+		CrossImageProjectionBase:  envFloat64("FW_MINING_SCORE_PROJECTION_BASE", 0.9),
+		CrossImageProjectionScale: envFloat64("FW_MINING_SCORE_PROJECTION_SCALE", 2.2),
+		CrossImageUnnamedBonus:    envFloat64("FW_MINING_SCORE_PROJECTION_UNNAMED", 0.4),
+		CrossImageCriticalBonus:   envFloat64("FW_MINING_SCORE_PROJECTION_CRITICAL", 0.2),
+		Hop2Base:                  envFloat64("FW_MINING_SCORE_HOP2_BASE", 0.55),
+		Hop2Scale:                 envFloat64("FW_MINING_SCORE_HOP2_SCALE", 1.9),
+		Hop2CriticalBonus:         envFloat64("FW_MINING_SCORE_HOP2_CRITICAL", 0.15),
+		Hop2UnnamedBonus:          envFloat64("FW_MINING_SCORE_HOP2_UNNAMED", 0.2),
+		NeighborhoodBase:          envFloat64("FW_MINING_SCORE_NEIGHBOR_BASE", 0.35),
+		NeighborhoodScale:         envFloat64("FW_MINING_SCORE_NEIGHBOR_SCALE", 1.35),
+		NeighborhoodCriticalBonus: envFloat64("FW_MINING_SCORE_NEIGHBOR_CRITICAL", 0.1),
+		NoveltyUnseenBonus:        envFloat64("FW_MINING_SCORE_NOVELTY_UNSEEN_BONUS", 0.55),
+		NoveltySeenPenalty:        envFloat64("FW_MINING_SCORE_NOVELTY_SEEN_PENALTY", 0.05),
+		NoveltySuccessDecay:       envFloat64("FW_MINING_SCORE_NOVELTY_SUCCESS_DECAY", 0.18),
+		NoveltyFaultRecovery:      envFloat64("FW_MINING_SCORE_NOVELTY_FAULT_RECOVERY", 0.22),
+		NoveltyMissingPenalty:     envFloat64("FW_MINING_SCORE_NOVELTY_MISSING_PENALTY", 0.08),
+	}
+}
+
+func envFloat64(name string, def float64) float64 {
+	raw := strings.TrimSpace(os.Getenv(name))
+	if raw == "" {
+		return def
+	}
+	v, err := strconv.ParseFloat(raw, 64)
 	if err != nil {
 		return def
 	}

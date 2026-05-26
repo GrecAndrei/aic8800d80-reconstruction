@@ -14,6 +14,8 @@ import (
 	"sync"
 	"syscall"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type profile struct {
@@ -126,6 +128,13 @@ func main() {
 		fmt.Fprintf(os.Stderr, "mkdir out: %v\n", err)
 		os.Exit(1)
 	}
+	lockPath := filepath.Join(outAbs, ".fwmega.lock")
+	lock, err := fileio.AcquireFileLock(lockPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "acquire fwmega lock: %v\n", err)
+		os.Exit(1)
+	}
+	defer lock.Release()
 	pruneTargets := []string{outAbs}
 	for _, raw := range strings.Split(extraPruneOuts, ",") {
 		raw = strings.TrimSpace(raw)
@@ -165,12 +174,12 @@ func main() {
 			os.Exit(1)
 		}
 		summaryPath := filepath.Join(outAbs, fmt.Sprintf("%s_%s_summary.json", sanitize(runTagPrefix), time.Now().UTC().Format("20060102T150405Z")))
-		if err := writeJSON(summaryPath, recon); err != nil {
+		if err := fileio.WriteJSON(summaryPath, recon); err != nil {
 			fmt.Fprintf(os.Stderr, "write reconciled summary: %v\n", err)
 			os.Exit(1)
 		}
 		latestPath := filepath.Join(outAbs, "latest_mega_summary.json")
-		if err := writeJSON(latestPath, recon); err != nil {
+		if err := fileio.WriteJSON(latestPath, recon); err != nil {
 			fmt.Fprintf(os.Stderr, "write latest reconciled summary: %v\n", err)
 			os.Exit(1)
 		}
@@ -238,12 +247,12 @@ func main() {
 	}
 
 	summaryPath := filepath.Join(outAbs, fmt.Sprintf("%s_%s_summary.json", sanitize(runTagPrefix), now.Format("20060102T150405Z")))
-	if err := writeJSON(summaryPath, summary); err != nil {
+	if err := fileio.WriteJSON(summaryPath, summary); err != nil {
 		fmt.Fprintf(os.Stderr, "write mega summary: %v\n", err)
 		os.Exit(1)
 	}
 	latestPath := filepath.Join(outAbs, "latest_mega_summary.json")
-	if err := writeJSON(latestPath, summary); err != nil {
+	if err := fileio.WriteJSON(latestPath, summary); err != nil {
 		fmt.Fprintf(os.Stderr, "write latest mega summary: %v\n", err)
 		os.Exit(1)
 	}
@@ -307,7 +316,7 @@ func runProfile(rootAbs, outAbs, runTagPrefix string, p profile, keepSweeps, kee
 		Status:      "ok",
 	}
 	res.LogPath = filepath.Join(runOut, "last_fwmega_run.log")
-	_ = os.WriteFile(res.LogPath, out, 0o644)
+	_ = fileio.WriteBytes(res.LogPath, out)
 	if err != nil {
 		res.Status = "failed"
 		res.Error = strings.TrimSpace(string(out))
@@ -457,14 +466,6 @@ func parseProfiles(spec string) ([]profile, error) {
 		return nil, fmt.Errorf("no valid profiles")
 	}
 	return out, nil
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
 }
 
 func sanitize(s string) string {

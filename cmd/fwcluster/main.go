@@ -12,9 +12,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type reconRecord struct {
+	SchemaVersion string   `json:"schema_version,omitempty"`
 	Image         string   `json:"image"`
 	Address       string   `json:"address"`
 	Name          string   `json:"name"`
@@ -29,15 +32,17 @@ type reconRecord struct {
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	TargetAddr string  `json:"target_addr"`
-	SourceName string  `json:"source_name"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	TargetAddr    string  `json:"target_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type clusterSummary struct {
+	SchemaVersion    string   `json:"schema_version"`
 	ClusterID        string   `json:"cluster_id"`
 	Image            string   `json:"image"`
 	NodeCount        int      `json:"node_count"`
@@ -158,6 +163,9 @@ func main() {
 		if err := json.Unmarshal([]byte(line), &e); err != nil {
 			continue
 		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			fail("call edges schema mismatch: got %s, want 0.1.0", e.SchemaVersion)
+		}
 		edgesConsidered++
 		if e.Confidence < minEdgeConfidence {
 			continue
@@ -198,6 +206,9 @@ func main() {
 		var e callEdge
 		if err := json.Unmarshal([]byte(line), &e); err != nil {
 			continue
+		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			fail("call edges schema mismatch: got %s, want 0.1.0", e.SchemaVersion)
 		}
 		if e.Confidence < minEdgeConfidence {
 			continue
@@ -252,6 +263,7 @@ func main() {
 			}
 		}
 		clusters = append(clusters, clusterSummary{
+			SchemaVersion:    "0.1.0",
 			ClusterID:        fmt.Sprintf("cluster_%04d", clusterIdx),
 			Image:            members[0].Image,
 			NodeCount:        len(members),
@@ -273,7 +285,7 @@ func main() {
 		clusters[i].ClusterID = fmt.Sprintf("cluster_%04d", i+1)
 	}
 
-	if err := writeJSONL(filepath.Join(outAbs, "recon_clusters.jsonl"), clusters); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(outAbs, "recon_clusters.jsonl"), clusters); err != nil {
 		fail("write clusters: %v", err)
 	}
 	manifest := clusterManifest{
@@ -288,7 +300,7 @@ func main() {
 		LargestCluster:  largest,
 		OutputDir:       outAbs,
 	}
-	if err := writeJSON(filepath.Join(outAbs, "cluster_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "cluster_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -321,6 +333,9 @@ func readWorkset(path string) (map[string]reconRecord, []string, map[string]int,
 		if err := json.Unmarshal([]byte(line), &r); err != nil {
 			continue
 		}
+		if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+			return nil, nil, nil, fmt.Errorf("workset schema mismatch: got %s, want 0.1.0", r.SchemaVersion)
+		}
 		k := key(r.Image, r.Address)
 		if _, exists := nodes[k]; exists {
 			continue
@@ -348,30 +363,6 @@ func openMaybeGzip(path string) (io.Reader, func() error, error) {
 		}, nil
 	}
 	return nil, nil, fmt.Errorf("missing input: %s(.gz)", path)
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
-}
-
-func writeJSONL(path string, rows []clusterSummary) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	bw := bufio.NewWriterSize(f, 1<<20)
-	enc := json.NewEncoder(bw)
-	for _, r := range rows {
-		if err := enc.Encode(r); err != nil {
-			return err
-		}
-	}
-	return bw.Flush()
 }
 
 func key(img, addr string) string {

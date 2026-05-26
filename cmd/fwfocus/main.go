@@ -12,9 +12,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type queueItem struct {
+	SchemaVersion  string  `json:"schema_version,omitempty"`
 	WorkID         string  `json:"work_id"`
 	ClusterID      string  `json:"cluster_id"`
 	Image          string  `json:"image"`
@@ -25,6 +28,7 @@ type queueItem struct {
 }
 
 type reconRecord struct {
+	SchemaVersion string   `json:"schema_version,omitempty"`
 	Image         string   `json:"image"`
 	Address       string   `json:"address"`
 	Name          string   `json:"name"`
@@ -39,12 +43,13 @@ type reconRecord struct {
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	SourceName string  `json:"source_name"`
-	TargetAddr string  `json:"target_addr"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetAddr    string  `json:"target_addr"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type focusBundle struct {
@@ -164,13 +169,14 @@ func main() {
 		manifest.BundleCount++
 
 		base := sanitizeName(q.WorkID)
-		if err := writeJSON(filepath.Join(outAbs, base+".bundle.json"), b); err != nil {
+		if err := fileio.WriteJSON(filepath.Join(outAbs, base+".bundle.json"), b); err != nil {
 			fail("write bundle json %s: %v", base, err)
 		}
 		if err := writeCStub(filepath.Join(outAbs, base+".focus.c"), b); err != nil {
 			fail("write bundle c %s: %v", base, err)
 		}
 		indexRows = append(indexRows, map[string]any{
+			"schema_version":   "0.1.0",
 			"work_id":          b.WorkID,
 			"cluster_id":       b.ClusterID,
 			"image":            b.Image,
@@ -191,10 +197,10 @@ func main() {
 		return ai > aj
 	})
 
-	if err := writeJSON(filepath.Join(outAbs, "focus_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "focus_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
-	if err := writeJSON(filepath.Join(outAbs, "focus_index.json"), indexRows); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "focus_index.json"), indexRows); err != nil {
 		fail("write index: %v", err)
 	}
 
@@ -222,6 +228,9 @@ func readQueueAll(path string) ([]queueItem, error) {
 		var q queueItem
 		if err := json.Unmarshal([]byte(line), &q); err != nil {
 			continue
+		}
+		if strings.TrimSpace(q.SchemaVersion) != "" && q.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("queue schema mismatch: got %s, want 0.1.0", q.SchemaVersion)
 		}
 		out = append(out, q)
 	}
@@ -298,6 +307,14 @@ func selectQueueRows(all []queueItem, maxBundles int, includeMedium bool, seedPe
 			addIf(q)
 		}
 	}
+	for _, q := range all {
+		if len(selected) >= maxBundles {
+			break
+		}
+		if q.PriorityClass == "low" {
+			addIf(q)
+		}
+	}
 	return selected
 }
 
@@ -318,6 +335,9 @@ func readWorksetIndex(path string) (map[string]reconRecord, error) {
 		var r reconRecord
 		if err := json.Unmarshal([]byte(line), &r); err != nil {
 			continue
+		}
+		if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("workset schema mismatch: got %s, want 0.1.0", r.SchemaVersion)
 		}
 		out[addrKey(r.Image, r.Address)] = r
 	}
@@ -342,6 +362,9 @@ func readCallAdj(path string, minConf float64) (map[string][]callEdge, map[strin
 		var e callEdge
 		if err := json.Unmarshal([]byte(line), &e); err != nil {
 			continue
+		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			return nil, nil, fmt.Errorf("call edges schema mismatch: got %s, want 0.1.0", e.SchemaVersion)
 		}
 		if e.Confidence < minConf {
 			continue
@@ -401,7 +424,7 @@ func writeCStub(path string, b focusBundle) error {
 	sb.WriteString(fmt.Sprintf("  // call evidence: incoming=%d outgoing=%d (confidence-filtered)\n", len(b.IncomingCalls), len(b.OutgoingCalls)))
 	sb.WriteString("  // TODO: replace placeholder with lifted control/data flow.\n")
 	sb.WriteString("}\n")
-	return os.WriteFile(path, []byte(sb.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(sb.String()))
 }
 
 func addrKey(img, addr string) string {
@@ -433,14 +456,6 @@ func nonEmpty(v, fallback string) string {
 		return fallback
 	}
 	return v
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
 }
 
 func flt(v any) float64 {

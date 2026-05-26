@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -16,31 +17,89 @@ type LearningSignal struct {
 }
 
 type smokeOutcomeRecord struct {
-	Function     string `json:"function"`
-	Status       string `json:"status"`
-	FaultAddress string `json:"fault_address,omitempty"`
+	Image            string `json:"image,omitempty"`
+	Address          string `json:"address,omitempty"`
+	Function         string `json:"function"`
+	Status           string `json:"status"`
+	FaultAddress     string `json:"fault_address,omitempty"`
+	Instructions     int    `json:"instructions,omitempty"`
+	MMIOReadCount    int    `json:"mmio_read_count,omitempty"`
+	MMIOWriteCount   int    `json:"mmio_write_count,omitempty"`
+	HelperTouchCount int    `json:"helper_touch_count,omitempty"`
+	BranchDepthMax   int    `json:"branch_depth_max,omitempty"`
 }
 
 type LearningBundle struct {
-	ByFunction map[string]LearningSignal `json:"by_function"`
-	ByPrefix   map[string]LearningSignal `json:"by_prefix"`
+	ByFunction        map[string]LearningSignal `json:"by_function"`
+	ByPrefix          map[string]LearningSignal `json:"by_prefix"`
+	OutcomeByFunction map[string]OutcomeStats   `json:"outcome_by_function,omitempty"`
+}
+
+type OutcomeStats struct {
+	Seen                int `json:"seen"`
+	Success             int `json:"success"`
+	Returned            int `json:"returned,omitempty"`
+	Capped              int `json:"capped,omitempty"`
+	Fault               int `json:"fault"`
+	Missing             int `json:"missing_symbol"`
+	TraceMMIO           int `json:"trace_mmio_total"`
+	TraceHelperTouch    int `json:"trace_helper_touch_total"`
+	TraceBranchDepthMax int `json:"trace_branch_depth_max"`
 }
 
 func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functions []FunctionRecord) LearningBundle {
+	weights := learningWeightsFromEnv()
+
 	bundle := LearningBundle{
-		ByFunction: map[string]LearningSignal{},
-		ByPrefix:   map[string]LearningSignal{},
+		ByFunction:        map[string]LearningSignal{},
+		ByPrefix:          map[string]LearningSignal{},
+		OutcomeByFunction: map[string]OutcomeStats{},
 	}
 	signals := map[string]LearningSignal{}
-	index := map[string][]FunctionRecord{}
+	indexByName := map[string][]FunctionRecord{}
+	indexByImageAddr := map[string][]FunctionRecord{}
+	indexByImageName := map[string][]FunctionRecord{}
 	for _, fn := range functions {
 		n := strings.ToLower(strings.TrimSpace(fn.Name))
 		if n == "" {
 			continue
 		}
-		index[n] = append(index[n], fn)
+		indexByName[n] = append(indexByName[n], fn)
+		image := strings.ToLower(strings.TrimSpace(fn.Image))
+		addr := normalizeAddressKey(fn.Address)
+		if image != "" && addr != "" {
+			indexByImageAddr[image+"|"+addr] = append(indexByImageAddr[image+"|"+addr], fn)
+		}
+		if image != "" {
+			indexByImageName[image+"|"+n] = append(indexByImageName[image+"|"+n], fn)
+		}
 	}
-	successNames := map[string]struct{}{}
+	returnedNames := map[string]struct{}{}
+
+	resolveOutcomeFunctions := func(row smokeOutcomeRecord) []FunctionRecord {
+		name := strings.ToLower(strings.TrimSpace(row.Function))
+		if name == "" {
+			return nil
+		}
+		image := strings.ToLower(strings.TrimSpace(row.Image))
+		addr := normalizeAddressKey(row.Address)
+		if image != "" && addr != "" {
+			if fns := indexByImageAddr[image+"|"+addr]; len(fns) > 0 {
+				return fns
+			}
+		}
+		if image != "" {
+			if fns := indexByImageName[image+"|"+name]; len(fns) > 0 {
+				return fns
+			}
+		}
+		// Legacy outcomes may only carry function name. To avoid cross-image
+		// leakage, only use name-only mapping when it is unique.
+		if fns := indexByName[name]; len(fns) == 1 {
+			return fns
+		}
+		return nil
+	}
 
 	add := func(fn FunctionRecord, candidate LearningSignal) {
 		k := strings.ToLower(fn.Image + "|" + fn.Name)
@@ -51,10 +110,15 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 	}
 
 	for _, name := range loadSmokeCheckpointNames(filepath.Join(rootAbs, "README.md")) {
-		successNames[strings.ToLower(name)] = struct{}{}
-		for _, fn := range index[strings.ToLower(name)] {
+		lowerName := strings.ToLower(name)
+		fns := indexByName[lowerName]
+		if len(fns) != 1 {
+			continue
+		}
+		returnedNames[lowerName] = struct{}{}
+		for _, fn := range fns {
 			add(fn, LearningSignal{
-				Weight: 1.0,
+				Weight: weights.Checkpoint,
 				Reason: "learned_smoke_checkpoint",
 				Source: "readme_smoke_checkpoints",
 			})
@@ -65,43 +129,85 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 	for _, path := range candidates {
 		rows := loadSmokeOutcomes(path)
 		for _, row := range rows {
-			name := strings.ToLower(strings.TrimSpace(row.Function))
-			if name == "" {
+			resolved := resolveOutcomeFunctions(row)
+			if len(resolved) == 0 {
 				continue
 			}
-			fns := index[name]
 			status := strings.ToLower(strings.TrimSpace(row.Status))
 			if status == "success" {
-				successNames[name] = struct{}{}
+				status = "returned"
 			}
-			if len(fns) == 0 {
-				continue
+			if status == "returned" {
+				for _, fn := range resolved {
+					returnedNames[strings.ToLower(strings.TrimSpace(fn.Name))] = struct{}{}
+				}
+			}
+			for _, fn := range resolved {
+				k := strings.ToLower(fn.Image + "|" + fn.Name)
+				st := bundle.OutcomeByFunction[k]
+				st.Seen++
+				st.TraceMMIO += maxInt(0, row.MMIOReadCount) + maxInt(0, row.MMIOWriteCount)
+				st.TraceHelperTouch += maxInt(0, row.HelperTouchCount)
+				if row.BranchDepthMax > st.TraceBranchDepthMax {
+					st.TraceBranchDepthMax = row.BranchDepthMax
+				}
+				switch status {
+				case "returned":
+					st.Success++
+					st.Returned++
+				case "capped":
+					st.Capped++
+				case "missing_symbol":
+					st.Missing++
+				case "fault", "error", "failed":
+					st.Fault++
+				}
+				bundle.OutcomeByFunction[k] = st
+			}
+
+			traceBoost := 0.0
+			if row.BranchDepthMax > 0 {
+				traceBoost += float64(minInt(row.BranchDepthMax, 6)) * weights.TraceBranchDepth
+			}
+			if row.HelperTouchCount > 0 {
+				traceBoost += float64(minInt(row.HelperTouchCount, 8)) * weights.TraceHelperTouch
+			}
+			mmioTotal := maxInt(0, row.MMIOReadCount) + maxInt(0, row.MMIOWriteCount)
+			if mmioTotal > 0 {
+				traceBoost += float64(minInt(mmioTotal, 16)) * weights.TraceMMIO
 			}
 
 			signal := LearningSignal{
-				Weight: 0.45,
+				Weight: weights.Seen,
 				Reason: "learned_smoke_seen",
 				Source: "smoke_observations",
 			}
 			switch status {
-			case "success":
-				signal.Weight = 1.3
-				signal.Reason = "learned_smoke_success"
+			case "returned":
+				signal.Weight = weights.Success
+				signal.Reason = "learned_smoke_returned"
+			case "capped":
+				signal.Weight = weights.Capped
+				signal.Reason = "learned_smoke_capped"
 			case "missing_symbol":
-				signal.Weight = 0.2
+				signal.Weight = weights.MissingSymbol
 				signal.Reason = "learned_missing_symbol"
 			case "fault", "error", "failed":
-				signal.Weight = 0.9
+				signal.Weight = weights.Fault
 				signal.Reason = "learned_smoke_fault"
 			}
-			for _, fn := range fns {
+			signal.Weight += traceBoost
+			if traceBoost > 0 {
+				signal.Reason = signal.Reason + "_trace_enriched"
+			}
+			for _, fn := range resolved {
 				add(fn, signal)
 			}
 		}
 	}
 
 	prefixCounts := map[string]int{}
-	for name := range successNames {
+	for name := range returnedNames {
 		p := functionPrefix(name)
 		if p == "" {
 			continue
@@ -113,12 +219,12 @@ func loadLearningSignals(rootAbs string, outAbs string, runOutAbs string, functi
 		if cnt < 2 {
 			continue
 		}
-		w := 0.25
+		w := weights.PrefixBase
 		if cnt >= 4 {
-			w = 0.4
+			w = weights.PrefixMid
 		}
 		if cnt >= 8 {
-			w = 0.55
+			w = weights.PrefixHigh
 		}
 		bundle.ByPrefix[prefix] = LearningSignal{
 			Weight: w,
@@ -244,4 +350,81 @@ func functionPrefix(name string) string {
 		return name[:i]
 	}
 	return name
+}
+
+func normalizeAddressKey(v string) string {
+	raw := strings.TrimSpace(strings.ToLower(v))
+	if raw == "" {
+		return ""
+	}
+	if strings.HasPrefix(raw, "0x") {
+		n, err := strconv.ParseUint(raw[2:], 16, 64)
+		if err != nil {
+			return ""
+		}
+		return "0x" + strconv.FormatUint(n, 16)
+	}
+	n, err := strconv.ParseUint(raw, 0, 64)
+	if err != nil {
+		return ""
+	}
+	return "0x" + strconv.FormatUint(n, 16)
+}
+
+type learningWeights struct {
+	Checkpoint       float64
+	Seen             float64
+	Success          float64
+	Capped           float64
+	MissingSymbol    float64
+	Fault            float64
+	PrefixBase       float64
+	PrefixMid        float64
+	PrefixHigh       float64
+	TraceMMIO        float64
+	TraceHelperTouch float64
+	TraceBranchDepth float64
+}
+
+func learningWeightsFromEnv() learningWeights {
+	return learningWeights{
+		Checkpoint:       envLearningFloat("FW_LEARNING_WEIGHT_CHECKPOINT", 1.0),
+		Seen:             envLearningFloat("FW_LEARNING_WEIGHT_SEEN", 0.45),
+		Success:          envLearningFloat("FW_LEARNING_WEIGHT_SUCCESS", 1.3),
+		Capped:           envLearningFloat("FW_LEARNING_WEIGHT_CAPPED", 0.3),
+		MissingSymbol:    envLearningFloat("FW_LEARNING_WEIGHT_MISSING_SYMBOL", 0.2),
+		Fault:            envLearningFloat("FW_LEARNING_WEIGHT_FAULT", 0.9),
+		PrefixBase:       envLearningFloat("FW_LEARNING_WEIGHT_PREFIX_BASE", 0.25),
+		PrefixMid:        envLearningFloat("FW_LEARNING_WEIGHT_PREFIX_MID", 0.4),
+		PrefixHigh:       envLearningFloat("FW_LEARNING_WEIGHT_PREFIX_HIGH", 0.55),
+		TraceMMIO:        envLearningFloat("FW_LEARNING_WEIGHT_TRACE_MMIO", 0.015),
+		TraceHelperTouch: envLearningFloat("FW_LEARNING_WEIGHT_TRACE_HELPER_TOUCH", 0.04),
+		TraceBranchDepth: envLearningFloat("FW_LEARNING_WEIGHT_TRACE_BRANCH_DEPTH", 0.03),
+	}
+}
+
+func maxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func minInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func envLearningFloat(name string, def float64) float64 {
+	raw := strings.TrimSpace(os.Getenv(name))
+	if raw == "" {
+		return def
+	}
+	v, err := strconv.ParseFloat(raw, 64)
+	if err != nil {
+		return def
+	}
+	return v
 }

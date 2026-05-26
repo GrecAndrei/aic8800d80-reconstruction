@@ -10,6 +10,7 @@ Running the pipeline emits:
 - `functions.jsonl` - canonical function records merged from symbol dump + RE notes
 - `artifacts.jsonl` - deterministic artifacts (MMIO refs, patch tags, vector fields)
 - `function_links.jsonl` - cross-image function alignment links with confidence
+- `consensus_behavior.jsonl` - family-level consensus behavior specs inferred from cross-image links
 - `patch_entries.jsonl` - decoded patch table entries (section/tag + addr/value tuples)
 - `call_edges.jsonl` - extracted call relationships from RE notes
 - `message_schema.jsonl` - inferred message/handler schema map
@@ -36,7 +37,7 @@ Optional flags:
 
 - `-min-string-len` (default: `4`) controls ASCII string extraction threshold.
 - `-embedding-model` (optional) points to a GGUF embedding model path used as a semantic-alignment hook.
-  - Example: `-embedding-model /home/grec-alexander/Downloads/bge-code-v1-q8_0.gguf`
+  - Example: `-embedding-model /path/to/bge-code-v1-q8_0.gguf`
 - `-queue-limit` (default: `1200`) controls mining frontier width (`0` = no limit).
 - `-queue-min-score` (default: `0.8`) controls inclusion threshold for mining candidates.
 - `-run-tag` (optional) writes to `<out>/runs/<tag>/` instead of clobbering root outputs.

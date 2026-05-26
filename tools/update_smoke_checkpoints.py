@@ -12,6 +12,7 @@ from pathlib import Path
 
 def load_success_counts(path: Path) -> dict[str, int]:
     counts: dict[str, int] = defaultdict(int)
+    identities_by_name: dict[str, set[str]] = defaultdict(set)
     if not path.is_file():
         return counts
     for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
@@ -24,10 +25,19 @@ def load_success_counts(path: Path) -> dict[str, int]:
             continue
         status = str(row.get("status", "")).strip().lower()
         fn = str(row.get("function", "")).strip()
+        image = str(row.get("image", "")).strip().lower()
+        address = str(row.get("address", "")).strip().lower()
         if not fn:
             continue
-        if status == "success":
+        if status in {"success", "returned"}:
             counts[fn] += 1
+            identities_by_name[fn.lower()].add(f"{image}|{address}")
+    # Do not auto-promote ambiguous same-name functions that appear with
+    # multiple identities across images/addresses.
+    for fn in list(counts.keys()):
+        ids = identities_by_name.get(fn.lower(), set())
+        if len(ids) > 1:
+            counts.pop(fn, None)
     return counts
 
 

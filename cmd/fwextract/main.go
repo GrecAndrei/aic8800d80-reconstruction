@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"aic8800d80/internal/pipeline"
+	"aic8800d80/internal/extract"
 )
 
 func main() {
@@ -30,7 +30,7 @@ func main() {
 		runTag = time.Now().UTC().Format("20060102T150405Z")
 	}
 
-	result, err := pipeline.Run(root, outDir, minStringLen, embeddingModel, queueLimit, queueMinScore, runTag)
+	result, err := extract.Run(root, outDir, minStringLen, embeddingModel, queueLimit, queueMinScore, runTag)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "pipeline failed: %v\n", err)
 		os.Exit(1)
@@ -46,6 +46,7 @@ func main() {
 	fmt.Printf("  patches:   %d\n", result.PatchEntryCount)
 	fmt.Printf("  calls:     %d\n", result.CallEdgeCount)
 	fmt.Printf("  messages:  %d\n", result.MessageCount)
+	fmt.Printf("  consensus: %d\n", result.ConsensusCount)
 	fmt.Printf("  state_machines: %d\n", result.StateMachineCount)
 	fmt.Printf("  message_routes: %d\n", result.MessageRouteCount)
 	fmt.Printf("  queue:     %d\n", result.MiningQueueCount)

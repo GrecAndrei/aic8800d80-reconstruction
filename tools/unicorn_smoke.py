@@ -26,12 +26,15 @@ from elftools.elf.elffile import ELFFile
 from unicorn import (
     UC_ARCH_ARM,
     UC_HOOK_CODE,
+    UC_HOOK_MEM_READ,
+    UC_HOOK_MEM_WRITE,
     UC_HOOK_MEM_FETCH_UNMAPPED,
     UC_HOOK_MEM_READ_UNMAPPED,
     UC_HOOK_MEM_WRITE_UNMAPPED,
     UC_MODE_THUMB,
     Uc,
     UcError,
+    UC_MEM_READ,
 )
 from unicorn.arm_const import UC_ARM_REG_LR, UC_ARM_REG_PC, UC_ARM_REG_SP
 
@@ -39,6 +42,15 @@ from unicorn.arm_const import UC_ARM_REG_LR, UC_ARM_REG_PC, UC_ARM_REG_SP
 PAGE_SIZE = 0x1000
 STACK_SIZE = 0x8000
 RETURN_STOP = 0xDEADC000
+SRAM_BASE = 0x20000000
+SRAM_SIZE = 0x20000
+HEAP_BASE = 0x21000000
+HEAP_SIZE = 0x10000
+
+
+def is_mmio_addr(addr: int) -> bool:
+    # Common peripheral/system-mapped ranges for firmware smoke traces.
+    return (0x40000000 <= addr <= 0x5FFFFFFF) or (0xE0000000 <= addr <= 0xE00FFFFF)
 
 
 @dataclass
@@ -139,6 +151,18 @@ def write_seed(mu: Uc, seed: Seed) -> None:
     mu.mem_write(seed.addr, data)
 
 
+def try_map_region(mu: Uc, base: int, size: int) -> bool:
+    aligned_base = base & ~(PAGE_SIZE - 1)
+    aligned_size = ((size + PAGE_SIZE - 1) // PAGE_SIZE) * PAGE_SIZE
+    if aligned_size <= 0:
+        return False
+    try:
+        mu.mem_map(aligned_base, aligned_size)
+        return True
+    except Exception:
+        return False
+
+
 def run_smoke(
     code: bytes,
     fn_off: int,
@@ -146,7 +170,10 @@ def run_smoke(
     segments: list[tuple[int, bytes, int]],
     seeds: list[Seed],
     max_insns: int,
-) -> tuple[Uc, int, dict[str, int | None], bool]:
+    state_profile: str,
+    mmio_autopage: bool,
+    mmio_default: int,
+) -> tuple[Uc, int, dict[str, int | None], str, dict]:
     mu = Uc(UC_ARCH_ARM, UC_MODE_THUMB)
     highest_end = 0
     merged_ranges: list[tuple[int, int]] = []
@@ -178,19 +205,83 @@ def run_smoke(
     map_page(mu, stack_base, STACK_SIZE)
     mu.reg_write(UC_ARM_REG_SP, stack_base + STACK_SIZE - 0x100)
 
+    if state_profile == "rich":
+        if try_map_region(mu, SRAM_BASE, SRAM_SIZE):
+            try:
+                mu.mem_write(SRAM_BASE, b"\x00" * SRAM_SIZE)
+            except Exception:
+                pass
+        if try_map_region(mu, HEAP_BASE, HEAP_SIZE):
+            try:
+                mu.mem_write(HEAP_BASE, b"\x00" * HEAP_SIZE)
+            except Exception:
+                pass
+
     for seed in seeds:
         write_seed(mu, seed)
 
     start = fn_off | 1
     insn_count = {"n": 0}
     fault: dict[str, int | None] = {"access": None, "address": None, "size": None}
+    mmio_reads = {"count": 0}
+    mmio_writes = {"count": 0}
+    mmio_addrs: set[int] = set()
+    helper_touches = {"count": 0}
+    branch_taken = {"count": 0}
+    branch_depth = {"cur": 0, "max": 0}
+    prev = {"addr": None, "size": None}
+    stop_reason = {"value": "running"}
+    mmio_auto_mapped = {"count": 0}
 
     def on_code(uc, address, size, user_data):
+        if prev["addr"] is not None and prev["size"] is not None:
+            expected = int(prev["addr"]) + int(prev["size"])
+            if int(address) != expected:
+                branch_taken["count"] += 1
+                branch_depth["cur"] += 1
+                if branch_depth["cur"] > branch_depth["max"]:
+                    branch_depth["max"] = branch_depth["cur"]
+            else:
+                branch_depth["cur"] = 0
+        prev["addr"] = int(address)
+        prev["size"] = int(size)
+
+        # Approximate helper touches by counting BL/BLX-like opcodes.
+        try:
+            h1 = int.from_bytes(bytes(uc.mem_read(address, 2)), "little")
+            if (h1 & 0xF800) == 0xF000:
+                h2 = int.from_bytes(bytes(uc.mem_read(address + 2, 2)), "little")
+                if (h2 & 0xD000) == 0xD000:
+                    helper_touches["count"] += 1
+            elif (h1 & 0xFF87) == 0x4780:
+                helper_touches["count"] += 1
+        except UcError:
+            pass
+
         insn_count["n"] += 1
         if insn_count["n"] >= max_insns:
+            stop_reason["value"] = "instruction_cap"
             uc.emu_stop()
 
+    def on_mem_access(uc, access, address, size, value, user_data):
+        if not is_mmio_addr(int(address)):
+            return
+        mmio_addrs.add(int(address))
+        if access == UC_MEM_READ:
+            mmio_reads["count"] += 1
+        else:
+            mmio_writes["count"] += 1
+
     def on_unmapped(uc, access, address, size, value, user_data):
+        if mmio_autopage and is_mmio_addr(int(address)):
+            map_page(uc, int(address))
+            mmio_auto_mapped["count"] += 1
+            # For read/fetch, provide deterministic default data.
+            try:
+                uc.mem_write(int(address), int(mmio_default).to_bytes(4, "little", signed=False))
+            except Exception:
+                pass
+            return True
         fault["access"] = access
         fault["address"] = address
         fault["size"] = size
@@ -198,6 +289,7 @@ def run_smoke(
         return False
 
     mu.hook_add(UC_HOOK_CODE, on_code)
+    mu.hook_add(UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem_access)
     mu.hook_add(
         UC_HOOK_MEM_READ_UNMAPPED
         | UC_HOOK_MEM_WRITE_UNMAPPED
@@ -210,6 +302,7 @@ def run_smoke(
     try:
         mu.emu_start(start, RETURN_STOP)
     except UcError:
+        stop_reason["value"] = "fault"
         if fault["address"] is not None:
             print(
                 json.dumps(
@@ -221,9 +314,33 @@ def run_smoke(
                     indent=2,
                 )
             )
-        return mu, insn_count["n"], fault, False
+        trace = {
+            "termination_reason": "fault",
+            "mmio_auto_mapped_count": mmio_auto_mapped["count"],
+            "mmio_read_count": mmio_reads["count"],
+            "mmio_write_count": mmio_writes["count"],
+            "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)[:16]],
+            "branch_taken_count": branch_taken["count"],
+            "branch_depth_max": branch_depth["max"],
+            "helper_touch_count": helper_touches["count"],
+        }
+        return mu, insn_count["n"], fault, "fault", trace
 
-    return mu, insn_count["n"], fault, True
+    status = "returned"
+    if stop_reason["value"] == "instruction_cap":
+        status = "capped"
+
+    trace = {
+        "termination_reason": "natural_return" if status == "returned" else "instruction_cap",
+        "mmio_auto_mapped_count": mmio_auto_mapped["count"],
+        "mmio_read_count": mmio_reads["count"],
+        "mmio_write_count": mmio_writes["count"],
+        "mmio_unique_addrs": [hex(a) for a in sorted(mmio_addrs)[:16]],
+        "branch_taken_count": branch_taken["count"],
+        "branch_depth_max": branch_depth["max"],
+        "helper_touch_count": helper_touches["count"],
+    }
+    return mu, insn_count["n"], fault, status, trace
 
 
 def append_outcome(path: Path, payload: dict) -> None:
@@ -238,10 +355,15 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("source", type=Path, help="Recovered C source file")
     ap.add_argument("function", help="Function name to smoke-test")
+    ap.add_argument("--image", default="", help="Optional image identifier for outcome identity")
+    ap.add_argument("--address", default="", help="Optional function address for outcome identity")
     ap.add_argument("--target", default="armv7m-none-eabi", help="Clang target triple")
     ap.add_argument("--cpu", default="cortex-m3", help="Clang CPU target")
     ap.add_argument("--opt", default="0", choices=["0", "1", "2", "3", "s"], help="Clang optimization level")
     ap.add_argument("--max-insns", type=int, default=40, help="Maximum instructions to execute")
+    ap.add_argument("--state-profile", choices=["basic", "rich"], default="rich", help="Memory/state initialization profile")
+    ap.add_argument("--mmio-autopage", action="store_true", help="Auto-map MMIO pages on first unmapped access")
+    ap.add_argument("--mmio-default", default="0", help="Default MMIO word value used with --mmio-autopage")
     ap.add_argument(
         "--seed",
         action="append",
@@ -294,6 +416,7 @@ def main() -> int:
             raise SystemExit(f"invalid --seed {item!r}, expected ADDR=VALUE")
         a, v = item.split("=", 1)
         seeds.append(Seed(addr=parse_int(a), value=parse_int(v)))
+    mmio_default = parse_int(args.mmio_default)
 
     with tempfile.TemporaryDirectory(prefix="unicorn_smoke_") as td:
         td_path = Path(td)
@@ -308,6 +431,8 @@ def main() -> int:
                 json.dumps(
                     {
                         "source": str(args.source),
+                        "image": args.image,
+                        "address": args.address,
                         "function": args.function,
                         "status": "missing_symbol",
                         "error": str(err),
@@ -320,6 +445,8 @@ def main() -> int:
                 append_outcome(
                     args.record_outcome,
                     {
+                        "image": args.image,
+                        "address": args.address,
                         "function": args.function,
                         "status": "missing_symbol",
                         "source": str(args.source),
@@ -327,16 +454,29 @@ def main() -> int:
                     },
                 )
             return 3
-        mu, count, fault, success = run_smoke(code, off, size, segments, seeds, args.max_insns)
+        mu, count, fault, status, trace = run_smoke(
+            code,
+            off,
+            size,
+            segments,
+            seeds,
+            args.max_insns,
+            args.state_profile,
+            args.mmio_autopage,
+            mmio_default,
+        )
 
         print(
             json.dumps(
                 {
                     "source": str(args.source),
+                    "image": args.image,
+                    "address": args.address,
                     "function": args.function,
                     "instructions": count,
                     "object": str(obj),
-                    "status": "success" if success else "fault",
+                    "status": status,
+                    **trace,
                 },
                 indent=2,
             )
@@ -344,17 +484,22 @@ def main() -> int:
 
     if args.record_outcome is not None:
         row = {
+            "image": args.image,
+            "address": args.address,
             "function": args.function,
-            "status": "success" if success else "fault",
+            "status": status,
             "source": str(args.source),
             "instructions": count,
+            **trace,
         }
         if fault.get("address") is not None:
             row["fault_address"] = hex(int(fault["address"]))
         append_outcome(args.record_outcome, row)
 
-    if not success:
+    if status == "fault":
         return 2
+    if status == "capped":
+        return 4
 
     for a in args.check_clear_lsb:
         addr = parse_int(a)

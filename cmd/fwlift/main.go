@@ -12,9 +12,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type focusIndexRow struct {
+	SchemaVersion  string  `json:"schema_version,omitempty"`
 	WorkID         string  `json:"work_id"`
 	ClusterID      string  `json:"cluster_id"`
 	Image          string  `json:"image"`
@@ -25,15 +28,17 @@ type focusIndexRow struct {
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	SourceName string  `json:"source_name"`
-	TargetAddr string  `json:"target_addr"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetAddr    string  `json:"target_addr"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type liftedUnit struct {
+	SchemaVersion     string   `json:"schema_version"`
 	UnitID            string   `json:"unit_id"`
 	WorkID            string   `json:"work_id"`
 	ClusterID         string   `json:"cluster_id"`
@@ -108,6 +113,7 @@ func main() {
 		k := addrKey(r.Image, r.TargetAddress)
 		depAddrs, depNames := collectDeps(inAdj[k], outAdj[k], maxDeps)
 		u := liftedUnit{
+			SchemaVersion:     "0.1.0",
 			UnitID:            fmt.Sprintf("lift_%04d", i+1),
 			WorkID:            r.WorkID,
 			ClusterID:         r.ClusterID,
@@ -133,7 +139,7 @@ func main() {
 		return units[i].WorkScore > units[j].WorkScore
 	})
 
-	if err := writeJSON(filepath.Join(outAbs, "lift_units.json"), units); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "lift_units.json"), units); err != nil {
 		fail("write units: %v", err)
 	}
 
@@ -177,7 +183,7 @@ func main() {
 		ImageSummaries: summaries,
 		OutputDir:      outAbs,
 	}
-	if err := writeJSON(filepath.Join(outAbs, "lift_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "lift_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -195,6 +201,11 @@ func readFocusIndex(path string) ([]focusIndexRow, error) {
 	var rows []focusIndexRow
 	if err := json.Unmarshal(b, &rows); err != nil {
 		return nil, err
+	}
+	for _, r := range rows {
+		if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("focus index schema mismatch: got %s, want 0.1.0", r.SchemaVersion)
+		}
 	}
 	return rows, nil
 }
@@ -217,6 +228,9 @@ func readAdj(path string, minConf float64) (map[string][]callEdge, map[string][]
 		var e callEdge
 		if err := json.Unmarshal([]byte(line), &e); err != nil {
 			continue
+		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			return nil, nil, fmt.Errorf("call edges schema mismatch: got %s, want 0.1.0", e.SchemaVersion)
 		}
 		if e.Confidence < minConf {
 			continue
@@ -300,19 +314,11 @@ func writeImageLiftC(path, image string, units []liftedUnit) error {
 		b.WriteString("  // TODO: replace lifted skeleton with recovered logic.\n")
 		b.WriteString("}\n\n")
 	}
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(b.String()))
 }
 
 func addrKey(img, addr string) string {
 	return strings.TrimSpace(img) + "|" + strings.ToLower(strings.TrimSpace(addr))
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
 }
 
 func nonEmpty(v, fallback string) string {

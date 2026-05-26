@@ -7,6 +7,8 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+
+	"aic8800d80/internal/fileio"
 )
 
 type functionQuality struct {
@@ -74,11 +76,7 @@ func main() {
 	if maxItems > 0 && len(items) > maxItems {
 		items = items[:maxItems]
 	}
-	ob, err := json.MarshalIndent(items, "", "  ")
-	if err != nil {
-		fail("marshal focus: %v", err)
-	}
-	if err := os.WriteFile(oAbs, append(ob, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(oAbs, items); err != nil {
 		fail("write focus: %v", err)
 	}
 	fmt.Printf("quality focus generated.\n")
@@ -109,4 +107,3 @@ func fail(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
 }
-

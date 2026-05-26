@@ -7,6 +7,8 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+
+	"aic8800d80/internal/fileio"
 )
 
 type row struct {
@@ -68,11 +70,7 @@ func main() {
 	if maxItems > 0 && len(focus) > maxItems {
 		focus = focus[:maxItems]
 	}
-	ob, err := json.MarshalIndent(focus, "", "  ")
-	if err != nil {
-		fail("marshal output: %v", err)
-	}
-	if err := os.WriteFile(outAbs, append(ob, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(outAbs, focus); err != nil {
 		fail("write output: %v", err)
 	}
 	fmt.Printf("conformance focus generated.\n")
@@ -85,4 +83,3 @@ func fail(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
 }
-

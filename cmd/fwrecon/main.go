@@ -11,6 +11,8 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type miningRecord struct {
@@ -29,7 +31,8 @@ type miningRecord struct {
 }
 
 type runSummary struct {
-	MiningQueueCount int `json:"mining_queue_count"`
+	SchemaVersion    string `json:"schema_version,omitempty"`
+	MiningQueueCount int    `json:"mining_queue_count"`
 }
 
 type unionRecord struct {
@@ -44,7 +47,8 @@ type profileResult struct {
 }
 
 type megaSummary struct {
-	Results []profileResult `json:"results"`
+	SchemaVersion string          `json:"schema_version,omitempty"`
+	Results       []profileResult `json:"results"`
 }
 
 type idaJob struct {
@@ -86,7 +90,7 @@ func main() {
 	flag.IntVar(&strictMinSeen, "strict-min-seen", 2, "Minimum profile coverage for strict lane")
 	flag.Float64Var(&strictMinScore, "strict-min-score", 1.2, "Minimum score for strict lane")
 	flag.IntVar(&unionShards, "union-shards", 512, "Shard count for disk-backed dedupe")
-	flag.StringVar(&idatPath, "idat", "/home/grec-alexander/Downloads/aic8800d80/tools/local-bin/ida-idat", "IDA headless wrapper path")
+	flag.StringVar(&idatPath, "idat", "tools/local-bin/ida-idat", "IDA headless wrapper path")
 	flag.StringVar(&root, "root", ".", "Workspace root for image path resolution")
 	flag.Parse()
 
@@ -148,13 +152,13 @@ func main() {
 	unionPath := filepath.Join(outAbs, "recon_union.jsonl")
 	strictPath := filepath.Join(outAbs, "recon_strict.jsonl")
 	worksetPath := filepath.Join(outAbs, "recon_workset.jsonl")
-	if err := writeJSONL(unionPath, unionRows); err != nil {
+	if err := fileio.WriteJSONL(unionPath, unionRows); err != nil {
 		fail("write union: %v", err)
 	}
-	if err := writeJSONL(strictPath, strict); err != nil {
+	if err := fileio.WriteJSONL(strictPath, strict); err != nil {
 		fail("write strict: %v", err)
 	}
-	if err := writeJSONL(worksetPath, workset); err != nil {
+	if err := fileio.WriteJSONL(worksetPath, workset); err != nil {
 		fail("write workset: %v", err)
 	}
 
@@ -166,7 +170,7 @@ func main() {
 	if err != nil {
 		fail("build ida jobs: %v", err)
 	}
-	if err := writeJSON(filepath.Join(outAbs, "ida_jobs.json"), idaJobs); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "ida_jobs.json"), idaJobs); err != nil {
 		fail("write ida jobs: %v", err)
 	}
 
@@ -184,7 +188,7 @@ func main() {
 		IdatPath:        idatPath,
 		Profiles:        profiles,
 	}
-	if err := writeJSON(filepath.Join(outAbs, "recon_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "recon_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -208,6 +212,9 @@ func discoverProfiles(megaAbs string) ([]string, error) {
 	if err == nil {
 		var s megaSummary
 		if json.Unmarshal(b, &s) == nil && len(s.Results) > 0 {
+			if strings.TrimSpace(s.SchemaVersion) != "" && s.SchemaVersion != "0.1.0" {
+				return nil, fmt.Errorf("mega summary schema mismatch: got %s want 0.1.0", s.SchemaVersion)
+			}
 			out := make([]string, 0, len(s.Results))
 			for _, r := range s.Results {
 				if strings.TrimSpace(r.Name) != "" {
@@ -278,6 +285,9 @@ func buildUnionRowsSharded(megaAbs string, profiles []string, shardCount int) ([
 			var r miningRecord
 			if err := json.Unmarshal([]byte(line), &r); err != nil {
 				return err
+			}
+			if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+				return fmt.Errorf("mining queue schema mismatch: got %s want 0.1.0", r.SchemaVersion)
 			}
 			key := strings.ToLower(r.Image + "|" + r.Address + "|" + r.Name)
 			idx := shardIndex(key, shardCount)
@@ -378,6 +388,9 @@ func bestRunQueuePath(megaAbs, profile string) (string, error) {
 		var s runSummary
 		if err := json.Unmarshal(b, &s); err != nil {
 			continue
+		}
+		if strings.TrimSpace(s.SchemaVersion) != "" && s.SchemaVersion != "0.1.0" {
+			return "", fmt.Errorf("run summary schema mismatch (%s): got %s want 0.1.0", summaryPath, s.SchemaVersion)
 		}
 		if s.MiningQueueCount > bestCount {
 			bestCount = s.MiningQueueCount
@@ -481,30 +494,6 @@ func streamJSONL(path string, onLine func(string) error) error {
 		}
 	}
 	return s.Err()
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
-}
-
-func writeJSONL[T any](path string, rows []T) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	bw := bufio.NewWriter(f)
-	enc := json.NewEncoder(bw)
-	for _, row := range rows {
-		if err := enc.Encode(row); err != nil {
-			return err
-		}
-	}
-	return bw.Flush()
 }
 
 func hasReason(reasons []string, want string) bool {

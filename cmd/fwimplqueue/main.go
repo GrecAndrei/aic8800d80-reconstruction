@@ -7,22 +7,27 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type composeIndexRow struct {
-	Function     string  `json:"function"`
-	Image        string  `json:"image"`
-	Address      string  `json:"address"`
-	Priority     string  `json:"priority"`
-	WorkScore    float64 `json:"work_score"`
-	Kind         string  `json:"kind"` // lifted_unit | dependency_stub
-	Incoming     int     `json:"incoming_calls"`
-	Outgoing     int     `json:"outgoing_calls"`
-	Dependencies int     `json:"dependencies"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Function      string  `json:"function"`
+	Image         string  `json:"image"`
+	Address       string  `json:"address"`
+	Priority      string  `json:"priority"`
+	WorkScore     float64 `json:"work_score"`
+	Kind          string  `json:"kind"` // lifted_unit | dependency_stub
+	Incoming      int     `json:"incoming_calls"`
+	Outgoing      int     `json:"outgoing_calls"`
+	Dependencies  int     `json:"dependencies"`
 }
 
 type implTask struct {
+	SchemaVersion  string   `json:"schema_version"`
 	TaskID         string   `json:"task_id"`
 	Function       string   `json:"function"`
 	Image          string   `json:"image"`
@@ -77,10 +82,14 @@ func main() {
 
 	tasks := make([]implTask, 0, maxTasks)
 	for _, r := range rows {
+		if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+			fail("compose index schema mismatch: got %s want 0.1.0", r.SchemaVersion)
+		}
 		t, ok := toTask(r)
 		if !ok {
 			continue
 		}
+		t.SchemaVersion = "0.1.0"
 		tasks = append(tasks, t)
 	}
 	sort.Slice(tasks, func(i, j int) bool {
@@ -116,18 +125,10 @@ func main() {
 		}
 	}
 
-	tb, err := json.MarshalIndent(tasks, "", "  ")
-	if err != nil {
-		fail("marshal tasks: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(outAbs, "implementation_queue.json"), append(tb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "implementation_queue.json"), tasks); err != nil {
 		fail("write queue: %v", err)
 	}
-	mb, err := json.MarshalIndent(m, "", "  ")
-	if err != nil {
-		fail("marshal manifest: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(outAbs, "implqueue_manifest.json"), append(mb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "implqueue_manifest.json"), m); err != nil {
 		fail("write manifest: %v", err)
 	}
 

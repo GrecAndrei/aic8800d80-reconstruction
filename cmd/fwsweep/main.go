@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"aic8800d80/internal/fileio"
 	"aic8800d80/internal/pipeline"
 )
 
@@ -863,6 +864,9 @@ func streamMiningQueue(path string, onRecord func(pipeline.MiningTargetRecord) e
 		if err := json.Unmarshal([]byte(line), &rec); err != nil {
 			return err
 		}
+		if strings.TrimSpace(rec.SchemaVersion) != "" && rec.SchemaVersion != "0.1.0" {
+			return fmt.Errorf("mining queue schema mismatch: got %s want 0.1.0", rec.SchemaVersion)
+		}
 		if err := onRecord(rec); err != nil {
 			return err
 		}
@@ -874,27 +878,11 @@ func streamMiningQueue(path string, onRecord func(pipeline.MiningTargetRecord) e
 }
 
 func writeJSONL[T any](path string, rows []T) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	bw := bufio.NewWriter(f)
-	enc := json.NewEncoder(bw)
-	for _, row := range rows {
-		if err := enc.Encode(row); err != nil {
-			return err
-		}
-	}
-	return bw.Flush()
+	return fileio.WriteJSONL(path, rows)
 }
 
 func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
+	return fileio.WriteJSON(path, v)
 }
 
 func contains(items []string, val string) bool {

@@ -10,9 +10,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type implTask struct {
+	SchemaVersion  string   `json:"schema_version,omitempty"`
 	TaskID         string   `json:"task_id"`
 	Function       string   `json:"function"`
 	Image          string   `json:"image"`
@@ -25,12 +28,13 @@ type implTask struct {
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	SourceName string  `json:"source_name"`
-	TargetAddr string  `json:"target_addr"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetAddr    string  `json:"target_addr"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type implWorkManifest struct {
@@ -97,11 +101,7 @@ func main() {
 		WorkfileCount: count,
 		OutputDir:     outAbs,
 	}
-	mb, err := json.MarshalIndent(m, "", "  ")
-	if err != nil {
-		fail("marshal manifest: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(outAbs, "implwork_manifest.json"), append(mb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "implwork_manifest.json"), m); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -118,6 +118,11 @@ func readTasks(path string) ([]implTask, error) {
 	var t []implTask
 	if err := json.Unmarshal(b, &t); err != nil {
 		return nil, err
+	}
+	for _, task := range t {
+		if strings.TrimSpace(task.SchemaVersion) != "" && task.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("implqueue schema mismatch: got %s want 0.1.0", task.SchemaVersion)
+		}
 	}
 	return t, nil
 }
@@ -140,6 +145,9 @@ func readAdj(path string, minConf float64) (map[string][]callEdge, map[string][]
 		var e callEdge
 		if json.Unmarshal([]byte(line), &e) != nil {
 			continue
+		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			return nil, nil, fmt.Errorf("call edges schema mismatch: got %s want 0.1.0", e.SchemaVersion)
 		}
 		if e.Confidence < minConf {
 			continue
@@ -205,7 +213,7 @@ func writeWorkfile(path string, t implTask, incoming, outgoing []callEdge) error
 	}
 	b.WriteString("}\n")
 
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(b.String()))
 }
 
 func addrKey(img, addr string) string {

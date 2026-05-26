@@ -12,6 +12,8 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type reconRecord struct {
@@ -139,7 +141,7 @@ func main() {
 		})
 
 		jsonOut := filepath.Join(outAbs, sanitizeName(img)+".reconstructed.json")
-		if err := writeJSON(jsonOut, recs); err != nil {
+		if err := fileio.WriteJSON(jsonOut, recs); err != nil {
 			fail("write reconstructed json (%s): %v", img, err)
 		}
 		cOut := filepath.Join(outAbs, sanitizeName(img)+".reconstructed.c")
@@ -151,7 +153,7 @@ func main() {
 	sort.Slice(manifest.ImageSummaries, func(i, j int) bool {
 		return manifest.ImageSummaries[i].FunctionCount > manifest.ImageSummaries[j].FunctionCount
 	})
-	if err := writeJSON(filepath.Join(outAbs, "rebuild_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "rebuild_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -182,6 +184,9 @@ func readJSONL(path string) ([]reconRecord, error) {
 		if err := json.Unmarshal([]byte(line), &r); err != nil {
 			return nil, err
 		}
+		if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("workset schema mismatch: got %s want 0.1.0", r.SchemaVersion)
+		}
 		out = append(out, r)
 	}
 	return out, s.Err()
@@ -205,14 +210,6 @@ func openMaybeGzip(path string) (io.Reader, func() error, error) {
 	return nil, nil, fmt.Errorf("missing input: %s(.gz)", path)
 }
 
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
-}
-
 func writeCStubs(path, image string, recs []reconRecord) error {
 	var b strings.Builder
 	b.WriteString("/* Auto-generated mined reconstruction stubs */\n")
@@ -231,7 +228,7 @@ func writeCStubs(path, image string, recs []reconRecord) error {
 		}
 		b.WriteString("}\n\n")
 	}
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(b.String()))
 }
 
 func sanitizeName(s string) string {

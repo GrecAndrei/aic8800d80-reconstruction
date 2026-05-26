@@ -16,6 +16,8 @@ evidence-backed image while committing and pushing validated progress often.
 
 - Move in short, high-signal batches.
 - Validate before claiming progress.
+- Before starting non-trivial work, read `plan.md` and align to the active milestone.
+- For repo-wide audits, prefer quick scripted scans (`bash`/Python/`rg`) to gather candidate issues in one pass, then do focused file reads only where edits are needed.
 - Record every newly confirmed checkpoint in `README.md`.
 - Commit and push often enough that the remote state tracks the local work.
 - If a path faults in the emulator, use the exact fault address as the next seed.
@@ -97,8 +99,19 @@ When choosing the next batch, prefer:
 
 - Keep `README.md` as the user-facing checkpoint log.
 - Keep `agents.md` as the coordination and process guide.
+- Keep `plan.md` as the long-term roadmap and milestone tracker; update it continuously.
 - Keep harness code in `tools/`.
 - Prefer small changes that make the next validation easier.
+
+## Long-Term Goal Rule
+
+- Lock long-term goals early, then execute against the active `plan.md` milestone.
+- Do not switch lanes mid-cycle unless blocked; if priorities change, re-baseline `plan.md` first.
+- Every meaningful batch must leave `plan.md` more up to date than before.
+- Prioritize changes that improve deterministic, evidence-backed reconstruction quality, not cosmetic churn.
+- Do not pause mid-task to ask for direction; continue executing the active `plan.md` milestone unless the user explicitly stops or redirects.
+- After finishing any task, immediately pick up the next task from `plan.md`.
+- Only stop autonomously when the active `plan.md` milestone is fully complete.
 
 ## Commit Discipline
 

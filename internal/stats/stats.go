@@ -10,6 +10,8 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 const (
@@ -197,7 +199,7 @@ func CollectAndPersist(outDir string) (Snapshot, error) {
 	if err != nil {
 		return Snapshot{}, err
 	}
-	if err := writeJSON(filepath.Join(outAbs, latestFileName), snap); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, latestFileName), snap); err != nil {
 		return Snapshot{}, err
 	}
 	if err := appendHistory(outAbs, snap); err != nil {
@@ -205,7 +207,7 @@ func CollectAndPersist(outDir string) (Snapshot, error) {
 	}
 	h, _ := ReadHistory(outAbs, 300)
 	snap.History = h
-	if err := writeJSON(filepath.Join(outAbs, latestFileName), snap); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, latestFileName), snap); err != nil {
 		return Snapshot{}, err
 	}
 	return snap, nil
@@ -355,9 +357,9 @@ func Collect(outDir string) (Snapshot, error) {
 
 	reconFuncs, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow := reconstructionProgress(outAbs)
 	snap.Progress = Progress{
-		BaseFunctionEstimate: baseFunctionEstimate,
-		BaseNamedFunctions:   baseNamed,
-		BaseCoveragePct:      round3(baseCoverage),
+		BaseFunctionEstimate:  baseFunctionEstimate,
+		BaseNamedFunctions:    baseNamed,
+		BaseCoveragePct:       round3(baseCoverage),
 		LinkedSourceFunctions: len(srcLinked),
 		LinkCoveragePct:       round3(linkCoverage),
 		ReconstructedFuncs:    reconFuncs,
@@ -421,6 +423,10 @@ func ReadHistory(outDir string, limit int) ([]HistoryPoint, error) {
 
 func appendHistory(outDir string, snap Snapshot) error {
 	p := filepath.Join(outDir, historyFileName)
+	lock, err := fileio.AcquireFileLock(p + ".lock")
+	if err == nil {
+		defer lock.Release()
+	}
 	f, err := os.OpenFile(p, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o644)
 	if err != nil {
 		return err
@@ -494,14 +500,6 @@ func topNPairs(m map[string]int, n int) []CountPair {
 		return p[:n]
 	}
 	return p
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
 }
 
 func str(v any) string {
@@ -641,10 +639,6 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 		} `json:"rows"`
 	}
 	reconDir := filepath.Join(outDir, "reconstruction")
-	entries, err := os.ReadDir(reconDir)
-	if err != nil {
-		return 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	}
 	var bestRebuild string
 	var bestCluster string
 	var bestQueue string
@@ -669,70 +663,103 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 	var bestImplAppliedTime time.Time
 	var bestFinalizeTime time.Time
 	var bestConformanceTime time.Time
-	for _, e := range entries {
-		if !e.IsDir() {
-			continue
+	if cache, ok := loadManifestCache(reconDir); ok {
+		bestRebuild = cache.Rebuild
+		bestCluster = cache.Cluster
+		bestQueue = cache.Queue
+		bestFocus = cache.Focus
+		bestLift = cache.Lift
+		bestCompose = cache.Compose
+		bestImplQueue = cache.ImplQueue
+		bestImplWork = cache.ImplWork
+		bestImplSynth = cache.ImplSynth
+		bestImplApplied = cache.ImplApplied
+		bestFinalize = cache.Finalize
+		bestConformance = cache.Conformance
+	} else {
+		entries, err := os.ReadDir(reconDir)
+		if err != nil {
+			return 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 		}
-		rebuildPath := filepath.Join(reconDir, e.Name(), "rebuilt", "rebuild_manifest.json")
-		if st, err := os.Stat(rebuildPath); err == nil && st.ModTime().After(bestRebuildTime) {
-			bestRebuildTime = st.ModTime()
-			bestRebuild = rebuildPath
+		for _, e := range entries {
+			if !e.IsDir() {
+				continue
+			}
+			rebuildPath := filepath.Join(reconDir, e.Name(), "rebuilt", "rebuild_manifest.json")
+			if st, err := os.Stat(rebuildPath); err == nil && st.ModTime().After(bestRebuildTime) {
+				bestRebuildTime = st.ModTime()
+				bestRebuild = rebuildPath
+			}
+			clusterPath := filepath.Join(reconDir, e.Name(), "clusters", "cluster_manifest.json")
+			if st, err := os.Stat(clusterPath); err == nil && st.ModTime().After(bestClusterTime) {
+				bestClusterTime = st.ModTime()
+				bestCluster = clusterPath
+			}
+			queuePath := filepath.Join(reconDir, e.Name(), "queue", "queue_manifest.json")
+			if st, err := os.Stat(queuePath); err == nil && st.ModTime().After(bestQueueTime) {
+				bestQueueTime = st.ModTime()
+				bestQueue = queuePath
+			}
+			focusPath := filepath.Join(reconDir, e.Name(), "focus", "focus_manifest.json")
+			if st, err := os.Stat(focusPath); err == nil && st.ModTime().After(bestFocusTime) {
+				bestFocusTime = st.ModTime()
+				bestFocus = focusPath
+			}
+			liftPath := filepath.Join(reconDir, e.Name(), "lift", "lift_manifest.json")
+			if st, err := os.Stat(liftPath); err == nil && st.ModTime().After(bestLiftTime) {
+				bestLiftTime = st.ModTime()
+				bestLift = liftPath
+			}
+			composePath := filepath.Join(reconDir, e.Name(), "composed", "compose_manifest.json")
+			if st, err := os.Stat(composePath); err == nil && st.ModTime().After(bestComposeTime) {
+				bestComposeTime = st.ModTime()
+				bestCompose = composePath
+			}
+			implQueuePath := filepath.Join(reconDir, e.Name(), "implqueue", "implqueue_manifest.json")
+			if st, err := os.Stat(implQueuePath); err == nil && st.ModTime().After(bestImplQueueTime) {
+				bestImplQueueTime = st.ModTime()
+				bestImplQueue = implQueuePath
+			}
+			implWorkPath := filepath.Join(reconDir, e.Name(), "implwork", "implwork_manifest.json")
+			if st, err := os.Stat(implWorkPath); err == nil && st.ModTime().After(bestImplWorkTime) {
+				bestImplWorkTime = st.ModTime()
+				bestImplWork = implWorkPath
+			}
+			implSynthPath := filepath.Join(reconDir, e.Name(), "synth", "implsynth_manifest.json")
+			if st, err := os.Stat(implSynthPath); err == nil && st.ModTime().After(bestImplSynthTime) {
+				bestImplSynthTime = st.ModTime()
+				bestImplSynth = implSynthPath
+			}
+			implAppliedPath := filepath.Join(reconDir, e.Name(), "applied", "applysynth_manifest.json")
+			if st, err := os.Stat(implAppliedPath); err == nil && st.ModTime().After(bestImplAppliedTime) {
+				bestImplAppliedTime = st.ModTime()
+				bestImplApplied = implAppliedPath
+			}
+			finalizePath := filepath.Join(reconDir, e.Name(), "final", "finalize_manifest.json")
+			if st, err := os.Stat(finalizePath); err == nil && st.ModTime().After(bestFinalizeTime) {
+				bestFinalizeTime = st.ModTime()
+				bestFinalize = finalizePath
+			}
+			conformancePath := filepath.Join(reconDir, e.Name(), "final", "call_conformance.json")
+			if st, err := os.Stat(conformancePath); err == nil && st.ModTime().After(bestConformanceTime) {
+				bestConformanceTime = st.ModTime()
+				bestConformance = conformancePath
+			}
 		}
-		clusterPath := filepath.Join(reconDir, e.Name(), "clusters", "cluster_manifest.json")
-		if st, err := os.Stat(clusterPath); err == nil && st.ModTime().After(bestClusterTime) {
-			bestClusterTime = st.ModTime()
-			bestCluster = clusterPath
-		}
-		queuePath := filepath.Join(reconDir, e.Name(), "queue", "queue_manifest.json")
-		if st, err := os.Stat(queuePath); err == nil && st.ModTime().After(bestQueueTime) {
-			bestQueueTime = st.ModTime()
-			bestQueue = queuePath
-		}
-		focusPath := filepath.Join(reconDir, e.Name(), "focus", "focus_manifest.json")
-		if st, err := os.Stat(focusPath); err == nil && st.ModTime().After(bestFocusTime) {
-			bestFocusTime = st.ModTime()
-			bestFocus = focusPath
-		}
-		liftPath := filepath.Join(reconDir, e.Name(), "lift", "lift_manifest.json")
-		if st, err := os.Stat(liftPath); err == nil && st.ModTime().After(bestLiftTime) {
-			bestLiftTime = st.ModTime()
-			bestLift = liftPath
-		}
-		composePath := filepath.Join(reconDir, e.Name(), "composed", "compose_manifest.json")
-		if st, err := os.Stat(composePath); err == nil && st.ModTime().After(bestComposeTime) {
-			bestComposeTime = st.ModTime()
-			bestCompose = composePath
-		}
-		implQueuePath := filepath.Join(reconDir, e.Name(), "implqueue", "implqueue_manifest.json")
-		if st, err := os.Stat(implQueuePath); err == nil && st.ModTime().After(bestImplQueueTime) {
-			bestImplQueueTime = st.ModTime()
-			bestImplQueue = implQueuePath
-		}
-		implWorkPath := filepath.Join(reconDir, e.Name(), "implwork", "implwork_manifest.json")
-		if st, err := os.Stat(implWorkPath); err == nil && st.ModTime().After(bestImplWorkTime) {
-			bestImplWorkTime = st.ModTime()
-			bestImplWork = implWorkPath
-		}
-		implSynthPath := filepath.Join(reconDir, e.Name(), "synth", "implsynth_manifest.json")
-		if st, err := os.Stat(implSynthPath); err == nil && st.ModTime().After(bestImplSynthTime) {
-			bestImplSynthTime = st.ModTime()
-			bestImplSynth = implSynthPath
-		}
-		implAppliedPath := filepath.Join(reconDir, e.Name(), "applied", "applysynth_manifest.json")
-		if st, err := os.Stat(implAppliedPath); err == nil && st.ModTime().After(bestImplAppliedTime) {
-			bestImplAppliedTime = st.ModTime()
-			bestImplApplied = implAppliedPath
-		}
-		finalizePath := filepath.Join(reconDir, e.Name(), "final", "finalize_manifest.json")
-		if st, err := os.Stat(finalizePath); err == nil && st.ModTime().After(bestFinalizeTime) {
-			bestFinalizeTime = st.ModTime()
-			bestFinalize = finalizePath
-		}
-		conformancePath := filepath.Join(reconDir, e.Name(), "final", "call_conformance.json")
-		if st, err := os.Stat(conformancePath); err == nil && st.ModTime().After(bestConformanceTime) {
-			bestConformanceTime = st.ModTime()
-			bestConformance = conformancePath
-		}
+		storeManifestCache(reconDir, manifestCache{
+			Rebuild:     bestRebuild,
+			Cluster:     bestCluster,
+			Queue:       bestQueue,
+			Focus:       bestFocus,
+			Lift:        bestLift,
+			Compose:     bestCompose,
+			ImplQueue:   bestImplQueue,
+			ImplWork:    bestImplWork,
+			ImplSynth:   bestImplSynth,
+			ImplApplied: bestImplApplied,
+			Finalize:    bestFinalize,
+			Conformance: bestConformance,
+		})
 	}
 	if bestRebuild != "" {
 		var m rebuildManifest
@@ -834,4 +861,48 @@ func reconstructionProgress(outDir string) (reconstructedFunctions int, reconClu
 		}
 	}
 	return reconstructedFunctions, reconClusters, reconQueue, reconFocus, reconLift, reconCompose, reconImplQueue, reconImplWork, reconImplSynth, reconImplSynthAvg, reconImplApplied, reconFinalized, reconStrong, reconFallback, reconTodoRemaining, reconCompletion, reconSemantic, reconConformance, reconConformanceEval, reconConformanceLow
+}
+
+type manifestCache struct {
+	Rebuild     string `json:"rebuild"`
+	Cluster     string `json:"cluster"`
+	Queue       string `json:"queue"`
+	Focus       string `json:"focus"`
+	Lift        string `json:"lift"`
+	Compose     string `json:"compose"`
+	ImplQueue   string `json:"implqueue"`
+	ImplWork    string `json:"implwork"`
+	ImplSynth   string `json:"implsynth"`
+	ImplApplied string `json:"implapplied"`
+	Finalize    string `json:"finalize"`
+	Conformance string `json:"conformance"`
+}
+
+func manifestCachePath(reconDir string) string {
+	return filepath.Join(reconDir, "latest_manifests.json")
+}
+
+func loadManifestCache(reconDir string) (manifestCache, bool) {
+	path := manifestCachePath(reconDir)
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return manifestCache{}, false
+	}
+	var c manifestCache
+	if err := json.Unmarshal(b, &c); err != nil {
+		return manifestCache{}, false
+	}
+	for _, p := range []string{c.Rebuild, c.Cluster, c.Queue, c.Focus, c.Lift, c.Compose, c.ImplQueue, c.ImplWork, c.ImplSynth, c.ImplApplied, c.Finalize, c.Conformance} {
+		if strings.TrimSpace(p) == "" {
+			continue
+		}
+		if _, err := os.Stat(p); err != nil {
+			return manifestCache{}, false
+		}
+	}
+	return c, true
+}
+
+func storeManifestCache(reconDir string, c manifestCache) {
+	_ = fileio.WriteJSON(manifestCachePath(reconDir), c)
 }

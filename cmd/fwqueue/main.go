@@ -12,9 +12,12 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type clusterRecord struct {
+	SchemaVersion  string   `json:"schema_version,omitempty"`
 	ClusterID      string   `json:"cluster_id"`
 	Image          string   `json:"image"`
 	NodeCount      int      `json:"node_count"`
@@ -26,6 +29,7 @@ type clusterRecord struct {
 }
 
 type reconRecord struct {
+	SchemaVersion string   `json:"schema_version,omitempty"`
 	Image         string   `json:"image"`
 	Address       string   `json:"address"`
 	Name          string   `json:"name"`
@@ -38,6 +42,7 @@ type reconRecord struct {
 }
 
 type queueItem struct {
+	SchemaVersion   string   `json:"schema_version"`
 	WorkID          string   `json:"work_id"`
 	ClusterID       string   `json:"cluster_id"`
 	Image           string   `json:"image"`
@@ -128,6 +133,7 @@ func main() {
 			seen[k] = struct{}{}
 			score := scoreWork(c, r)
 			items = append(items, queueItem{
+				SchemaVersion:  "0.1.0",
 				WorkID:         fmt.Sprintf("%s_%s", c.ClusterID, strings.TrimPrefix(strings.ToLower(r.Address), "0x")),
 				ClusterID:      c.ClusterID,
 				Image:          r.Image,
@@ -188,10 +194,10 @@ func main() {
 		}
 	}
 
-	if err := writeJSONL(filepath.Join(outAbs, "recon_queue.jsonl"), items); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(outAbs, "recon_queue.jsonl"), items); err != nil {
 		fail("write queue: %v", err)
 	}
-	if err := writeJSON(filepath.Join(outAbs, "queue_manifest.json"), manifest); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "queue_manifest.json"), manifest); err != nil {
 		fail("write manifest: %v", err)
 	}
 
@@ -217,6 +223,9 @@ func readClusters(path string) ([]clusterRecord, error) {
 		}
 		var r clusterRecord
 		if err := json.Unmarshal([]byte(line), &r); err == nil {
+			if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+				return nil, fmt.Errorf("clusters schema mismatch: got %s, want 0.1.0", r.SchemaVersion)
+			}
 			out = append(out, r)
 		}
 	}
@@ -239,6 +248,9 @@ func readWorkset(path string) ([]reconRecord, error) {
 		}
 		var r reconRecord
 		if err := json.Unmarshal([]byte(line), &r); err == nil {
+			if strings.TrimSpace(r.SchemaVersion) != "" && r.SchemaVersion != "0.1.0" {
+				return nil, fmt.Errorf("workset schema mismatch: got %s, want 0.1.0", r.SchemaVersion)
+			}
 			out = append(out, r)
 		}
 	}
@@ -317,30 +329,6 @@ func hasReason(reasons []string, want string) bool {
 		}
 	}
 	return false
-}
-
-func writeJSON(path string, v any) error {
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(path, append(b, '\n'), 0o644)
-}
-
-func writeJSONL(path string, rows []queueItem) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	bw := bufio.NewWriterSize(f, 1<<20)
-	enc := json.NewEncoder(bw)
-	for _, r := range rows {
-		if err := enc.Encode(r); err != nil {
-			return err
-		}
-	}
-	return bw.Flush()
 }
 
 func round3(v float64) float64 { return float64(int(v*1000+0.5)) / 1000 }

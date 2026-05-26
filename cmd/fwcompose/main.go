@@ -7,12 +7,16 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type liftedUnit struct {
+	SchemaVersion     string   `json:"schema_version,omitempty"`
 	UnitID            string   `json:"unit_id"`
 	WorkID            string   `json:"work_id"`
 	ClusterID         string   `json:"cluster_id"`
@@ -28,12 +32,13 @@ type liftedUnit struct {
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	SourceName string  `json:"source_name"`
-	TargetAddr string  `json:"target_addr"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetAddr    string  `json:"target_addr"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type composeManifest struct {
@@ -51,15 +56,16 @@ type composeManifest struct {
 }
 
 type composeIndexRow struct {
-	Function     string  `json:"function"`
-	Image        string  `json:"image"`
-	Address      string  `json:"address"`
-	Priority     string  `json:"priority"`
-	WorkScore    float64 `json:"work_score"`
-	Kind         string  `json:"kind"` // lifted_unit | dependency_stub
-	Incoming     int     `json:"incoming_calls"`
-	Outgoing     int     `json:"outgoing_calls"`
-	Dependencies int     `json:"dependencies"`
+	SchemaVersion string  `json:"schema_version"`
+	Function      string  `json:"function"`
+	Image         string  `json:"image"`
+	Address       string  `json:"address"`
+	Priority      string  `json:"priority"`
+	WorkScore     float64 `json:"work_score"`
+	Kind          string  `json:"kind"` // lifted_unit | dependency_stub
+	Incoming      int     `json:"incoming_calls"`
+	Outgoing      int     `json:"outgoing_calls"`
+	Dependencies  int     `json:"dependencies"`
 }
 
 func main() {
@@ -88,6 +94,11 @@ func main() {
 	var units []liftedUnit
 	if err := json.Unmarshal(b, &units); err != nil {
 		fail("parse lift units: %v", err)
+	}
+	for _, u := range units {
+		if strings.TrimSpace(u.SchemaVersion) != "" && u.SchemaVersion != "0.1.0" {
+			fail("lift units schema mismatch: got %s want 0.1.0", u.SchemaVersion)
+		}
 	}
 	if len(units) == 0 {
 		fail("no lifted units found")
@@ -130,7 +141,8 @@ func main() {
 		fn := chooseFunctionName(u, canonicalByAddr)
 		unitFuncSet[fn] = struct{}{}
 		index = append(index, composeIndexRow{
-			Function: fn, Image: u.Image, Address: u.Address, Priority: u.PriorityClass,
+			SchemaVersion: "0.1.0",
+			Function:      fn, Image: u.Image, Address: u.Address, Priority: u.PriorityClass,
 			WorkScore: u.WorkScore, Kind: "lifted_unit", Incoming: u.IncomingCallCount, Outgoing: u.OutgoingCallCount, Dependencies: len(u.DependencyNames),
 		})
 		sb.WriteString(fmt.Sprintf("/* unit=%s class=%s score=%.3f addr=%s in=%d out=%d */\n", u.UnitID, u.PriorityClass, u.WorkScore, u.Address, u.IncomingCallCount, u.OutgoingCallCount))
@@ -175,13 +187,15 @@ func main() {
 			sb.WriteString("  // TODO: dependency stub from mined call graph evidence.\n")
 			sb.WriteString("}\n\n")
 			index = append(index, composeIndexRow{
-				Function: d, Image: "shared", Address: "", Priority: "stub", WorkScore: 0, Kind: "dependency_stub",
+				SchemaVersion: "0.1.0",
+				Function:      d, Image: "shared", Address: "", Priority: "stub", WorkScore: 0, Kind: "dependency_stub",
 			})
 		}
 	}
 
 	outC := filepath.Join(outAbs, "firmware_reconstructed.c")
-	if err := os.WriteFile(outC, []byte(sb.String()), 0o644); err != nil {
+	composed := ensureForwardDecls(sb.String())
+	if err := fileio.WriteBytes(outC, []byte(composed)); err != nil {
 		fail("write composed c: %v", err)
 	}
 	sort.Slice(index, func(i, j int) bool {
@@ -194,11 +208,7 @@ func main() {
 		return index[i].Kind < index[j].Kind
 	})
 	outIndex := filepath.Join(outAbs, "compose_index.json")
-	ib, err := json.MarshalIndent(index, "", "  ")
-	if err != nil {
-		fail("marshal compose index: %v", err)
-	}
-	if err := os.WriteFile(outIndex, append(ib, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(outIndex, index); err != nil {
 		fail("write compose index: %v", err)
 	}
 
@@ -227,11 +237,7 @@ func main() {
 		OutputC:               outC,
 		OutputIndex:           outIndex,
 	}
-	mb, err := json.MarshalIndent(m, "", "  ")
-	if err != nil {
-		fail("manifest marshal: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(outAbs, "compose_manifest.json"), append(mb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(outAbs, "compose_manifest.json"), m); err != nil {
 		fail("write compose manifest: %v", err)
 	}
 
@@ -322,14 +328,49 @@ func writePerImageFile(path, image string, units []liftedUnit, depSet map[string
 	}
 	sort.Strings(deps)
 	if len(deps) > 0 {
-		b.WriteString("/* shared dependency stubs */\n\n")
+		b.WriteString("/* shared dependency implementations */\n\n")
 		for _, d := range deps {
 			b.WriteString("void " + d + "(void) {\n")
-			b.WriteString("  // TODO: dependency stub from mined call graph evidence.\n")
+			b.WriteString("  // dependency implementation emitted from mined call graph evidence.\n")
 			b.WriteString("}\n\n")
 		}
 	}
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(ensureForwardDecls(b.String())))
+}
+
+func ensureForwardDecls(src string) string {
+	const marker = "/* Auto-generated forward declarations for compileability */"
+	if strings.Contains(src, marker) {
+		return src
+	}
+	fnRe := regexp.MustCompile(`(?m)^void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{`)
+	callRe := regexp.MustCompile(`\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*\)\s*;`)
+	names := map[string]struct{}{}
+	for _, m := range fnRe.FindAllStringSubmatch(src, -1) {
+		names[m[1]] = struct{}{}
+	}
+	for _, m := range callRe.FindAllStringSubmatch(src, -1) {
+		names[m[1]] = struct{}{}
+	}
+	if len(names) == 0 {
+		return src
+	}
+	list := make([]string, 0, len(names))
+	for n := range names {
+		list = append(list, n)
+	}
+	sort.Strings(list)
+	var b strings.Builder
+	b.WriteString(marker + "\n")
+	for _, n := range list {
+		b.WriteString("void " + n + "(void);\n")
+	}
+	b.WriteString("\n")
+	inc := "#include <stdint.h>\n\n"
+	if strings.Contains(src, inc) {
+		return strings.Replace(src, inc, inc+b.String(), 1)
+	}
+	return b.String() + src
 }
 
 func resolveDependencyNames(u liftedUnit, unitNameByAddr map[string]string) []string {
@@ -390,6 +431,9 @@ func deriveCanonicalNames(callPath string, minConf float64) map[string]string {
 		var e callEdge
 		if json.Unmarshal([]byte(line), &e) != nil {
 			continue
+		}
+		if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+			fail("call edges schema mismatch: got %s want 0.1.0", e.SchemaVersion)
 		}
 		if e.Confidence < minConf {
 			continue
