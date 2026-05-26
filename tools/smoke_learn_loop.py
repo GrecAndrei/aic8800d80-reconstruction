@@ -89,6 +89,33 @@ def load_contract_hints(path: Path) -> dict[str, list[str]]:
     return out
 
 
+def load_cfg_hints(path: Path) -> tuple[dict[str, dict], dict[str, dict]]:
+    by_identity: dict[str, dict] = {}
+    by_name: dict[str, dict] = {}
+    if not path.is_file():
+        return by_identity, by_name
+    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(row, dict):
+            continue
+        name = str(row.get("name", "")).strip()
+        image = str(row.get("image", "")).strip()
+        address = str(row.get("address", "")).strip()
+        ik = identity_key(name, image, address)
+        nk = identity_key(name)
+        if ik:
+            by_identity[ik] = row
+        if nk and nk not in by_name:
+            by_name[nk] = row
+    return by_identity, by_name
+
+
 def load_queue_records(path: Path) -> list[dict]:
     rows: list[dict] = []
     seen: set[str] = set()
@@ -339,6 +366,35 @@ def extract_return_insns(rows: list[dict]) -> int:
     return -1
 
 
+def adaptive_probe_budget(base: int, hint: Optional[dict], cls: Optional[dict]) -> int:
+    budget = max(32, int(base))
+    if isinstance(hint, dict):
+        bb = int(hint.get("bb_count", 0) or 0)
+        edges = int(hint.get("edge_count", 0) or 0)
+        insns = int(hint.get("insn_count", 0) or 0)
+        branches = int(hint.get("branch_count", 0) or 0)
+        calls = int(hint.get("callsite_count", 0) or 0)
+        if bool(hint.get("has_loop", False)):
+            budget += 256
+        if bb >= 8:
+            budget += 128
+        if edges >= 12:
+            budget += 128
+        if insns >= 80:
+            budget += 128
+        if branches >= 6:
+            budget += 64
+        if calls >= 4:
+            budget += 64
+    if isinstance(cls, dict):
+        role = str(cls.get("synth_role", "")).strip().lower()
+        if role in {"io_driver", "crypto_core", "interrupt_handler", "dispatcher", "state_machine"}:
+            budget += 128
+        elif role in {"radio_reg_write", "memory_pool"}:
+            budget += 64
+    return min(2048, max(base, budget))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--source", type=Path, required=True, help="Primary recovered C source path")
@@ -351,6 +407,7 @@ def main() -> int:
     ap.add_argument("--queue", type=Path, required=True, help="mining_queue_top300.jsonl or similar")
     ap.add_argument("--outcomes", type=Path, required=True, help="smoke_observations.jsonl path")
     ap.add_argument("--contract-hints", type=Path, default=Path("extraction_out/reconstruction/mega7/synth/implsynth_contract_hints.json"), help="Optional implsynth contract hints JSON")
+    ap.add_argument("--cfg-hints", type=Path, default=Path("extraction_out/ida_export_cfg/cfg_hints.jsonl"), help="IDA CFG hints JSONL used for adaptive probe budgets")
     ap.add_argument("--readme", type=Path, default=Path("README.md"), help="README to mine known checkpoints")
     ap.add_argument("--limit", type=int, default=12, help="maximum functions to probe")
     ap.add_argument("--max-insns", type=int, default=120, help="instruction cap per probe")
@@ -402,6 +459,7 @@ def main() -> int:
 
     global_seeds = [parse_seed(s) for s in args.seed]
     contract_hints = load_contract_hints(args.contract_hints)
+    cfg_by_identity, cfg_by_name = load_cfg_hints(args.cfg_hints)
     checkpointed = load_checkpointed(args.readme)
     queue_rows = load_queue_records(args.queue)
     outcomes, top_faults, last_seen = load_outcome_stats(args.outcomes, args.min_success_insns)
@@ -706,6 +764,8 @@ def main() -> int:
         address = target["address"]
         resolved_fn = fn_canon.get(fn.lower(), fn)
         source = pick_source_for_target(resolved_fn, image, fn_index, fn_by_source, args.source)
+        cfg_hint = cfg_by_identity.get(target["id_key"]) or cfg_by_name.get(identity_key(fn))
+        probe_budget = adaptive_probe_budget(args.max_insns, cfg_hint, target.get("behavior_class"))
         cmd = [
             "python3",
             "tools/unicorn_smoke.py",
@@ -718,7 +778,7 @@ def main() -> int:
             "--state-profile",
             args.probe_state_profile,
             "--max-insns",
-            str(args.max_insns),
+            str(probe_budget),
             "--record-outcome",
             str(args.outcomes),
         ]
@@ -804,9 +864,9 @@ def main() -> int:
                     retry_cmd = list(cmd)
                     for i, tok in enumerate(retry_cmd):
                         if tok == "--max-insns" and i+1 < len(retry_cmd):
-                            retry_cmd[i+1] = str(max(args.max_insns, args.shallow_retry_max_insns))
+                            retry_cmd[i+1] = str(max(probe_budget, args.shallow_retry_max_insns))
                             break
-                    print(f"== retry shallow-success {fn} with max-insns={max(args.max_insns, args.shallow_retry_max_insns)}")
+                    print(f"== retry shallow-success {fn} with max-insns={max(probe_budget, args.shallow_retry_max_insns)}")
                     retry = subprocess.run(retry_cmd, text=True, capture_output=True, timeout=120)
                     if retry.stdout:
                         print(retry.stdout.strip())
@@ -825,9 +885,9 @@ def main() -> int:
             retry_cmd = list(cmd)
             for i, tok in enumerate(retry_cmd):
                 if tok == "--max-insns" and i + 1 < len(retry_cmd):
-                    retry_cmd[i + 1] = str(max(args.max_insns, args.capped_retry_max_insns))
+                    retry_cmd[i + 1] = str(max(probe_budget, args.capped_retry_max_insns))
                     break
-            print(f"== retry capped {fn} with max-insns={max(args.max_insns, args.capped_retry_max_insns)}")
+            print(f"== retry capped {fn} with max-insns={max(probe_budget, args.capped_retry_max_insns)}")
             retry = subprocess.run(retry_cmd, text=True, capture_output=True, timeout=150)
             if retry.stdout:
                 print(retry.stdout.strip())
@@ -918,6 +978,8 @@ def main() -> int:
             address = target["address"]
             resolved_fn = fn_canon.get(fn.lower(), fn)
             source = pick_source_for_target(resolved_fn, image, fn_index, fn_by_source, args.source)
+            cfg_hint = cfg_by_identity.get(target["id_key"]) or cfg_by_name.get(identity_key(fn))
+            deep_budget = adaptive_probe_budget(max(args.max_insns, args.deep_max_insns), cfg_hint, target.get("behavior_class"))
 
             deep_cmd = [
                 "python3",
@@ -931,7 +993,7 @@ def main() -> int:
                 "--state-profile",
                 args.probe_state_profile,
                 "--max-insns",
-                str(max(args.max_insns, args.deep_max_insns)),
+                str(deep_budget),
                 "--record-outcome",
                 str(args.outcomes),
             ]
