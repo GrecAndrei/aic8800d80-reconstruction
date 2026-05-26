@@ -9,7 +9,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -19,22 +18,25 @@ import (
 	"strings"
 	"sync"
 
+	"aic8800d80/internal/fileio"
 	"aic8800d80/internal/stats"
 )
 
 const schemaVersion = "0.1.0"
 
 type Result struct {
-	ImageCount        int `json:"image_count"`
-	FunctionCount     int `json:"function_count"`
-	ArtifactCount     int `json:"artifact_count"`
-	FunctionLinkCount int `json:"function_link_count"`
-	PatchEntryCount   int `json:"patch_entry_count"`
-	CallEdgeCount     int `json:"call_edge_count"`
-	MessageCount      int `json:"message_count"`
-	StateMachineCount int `json:"state_machine_count"`
-	MessageRouteCount int `json:"message_route_count"`
-	MiningQueueCount  int `json:"mining_queue_count"`
+	SchemaVersion     string `json:"schema_version"`
+	ImageCount        int    `json:"image_count"`
+	FunctionCount     int    `json:"function_count"`
+	ArtifactCount     int    `json:"artifact_count"`
+	FunctionLinkCount int    `json:"function_link_count"`
+	PatchEntryCount   int    `json:"patch_entry_count"`
+	CallEdgeCount     int    `json:"call_edge_count"`
+	MessageCount      int    `json:"message_count"`
+	StateMachineCount int    `json:"state_machine_count"`
+	MessageRouteCount int    `json:"message_route_count"`
+	ConsensusCount    int    `json:"consensus_count"`
+	MiningQueueCount  int    `json:"mining_queue_count"`
 }
 
 type MiningQueueDelta struct {
@@ -165,11 +167,23 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		filepath.Join(rootAbs, "re_notes.md"),
 		filepath.Join(rootAbs, "docs", "notes", "re_notes.md"),
 	)
+	notesJSONPath := firstExistingPath(
+		filepath.Join(rootAbs, "re_notes.json"),
+		filepath.Join(rootAbs, "docs", "notes", "re_notes.json"),
+	)
 	primaryImage := primaryImageFromFunctions(functions)
 	notesFunctions, notesArtifacts, stateMachines, messageRoutes, err := parseNotes(notesPath, primaryImage)
 	if err != nil {
 		return Result{}, err
 	}
+	structuredFunctions, structuredArtifacts, structuredStateMachines, structuredMessageRoutes, err := parseStructuredNotes(notesJSONPath, primaryImage)
+	if err != nil {
+		return Result{}, err
+	}
+	notesFunctions = append(notesFunctions, structuredFunctions...)
+	notesArtifacts = append(notesArtifacts, structuredArtifacts...)
+	stateMachines = append(stateMachines, structuredStateMachines...)
+	messageRoutes = append(messageRoutes, structuredMessageRoutes...)
 	functions = mergeFunctionRecords(functions, notesFunctions)
 
 	callEdges, err := collectCallEdges(notesPath, functions)
@@ -179,10 +193,12 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 
 	messageSchema := inferMessageSchema(functions, callEdges)
 
-	functionLinks, err := collectFunctionLinks(rootAbs, functions, embeddingModel)
+	embedderCachePath := filepath.Join(outAbs, "embedder_cache.json")
+	functionLinks, err := collectFunctionLinks(rootAbs, functions, embeddingModel, embedderCachePath)
 	if err != nil {
 		return Result{}, err
 	}
+	consensus := buildFamilyConsensus(functions, functionLinks, callEdges, messageSchema)
 
 	patchEntries, err := decodePatchEntries(firstExistingPath(
 		filepath.Join(rootAbs, "fw_patch_table_8800d80_u02.bin"),
@@ -217,41 +233,44 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		return artifacts[i].Type < artifacts[j].Type
 	})
 
-	if err := writeJSONL(filepath.Join(runOutAbs, "images.jsonl"), images); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "images.jsonl"), images); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "functions.jsonl"), functions); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "functions.jsonl"), functions); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "artifacts.jsonl"), artifacts); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "artifacts.jsonl"), artifacts); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "function_links.jsonl"), functionLinks); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "function_links.jsonl"), functionLinks); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "patch_entries.jsonl"), patchEntries); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "patch_entries.jsonl"), patchEntries); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "call_edges.jsonl"), callEdges); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "call_edges.jsonl"), callEdges); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "message_schema.jsonl"), messageSchema); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "message_schema.jsonl"), messageSchema); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "state_machines.jsonl"), stateMachines); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "consensus_behavior.jsonl"), consensus); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "message_routes.jsonl"), messageRoutes); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "state_machines.jsonl"), stateMachines); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSONL(filepath.Join(runOutAbs, "mining_queue.jsonl"), miningQueue); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "message_routes.jsonl"), messageRoutes); err != nil {
+		return Result{}, err
+	}
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "mining_queue.jsonl"), miningQueue); err != nil {
 		return Result{}, err
 	}
 	fullQueue := buildMiningQueue(functions, callEdges, functionLinks, messageSchema, learningSignals, 0, queueMinScore)
-	if err := writeJSONL(filepath.Join(runOutAbs, "mining_queue_full.jsonl"), fullQueue); err != nil {
+	if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "mining_queue_full.jsonl"), fullQueue); err != nil {
 		return Result{}, err
 	}
-	if err := writeJSON(filepath.Join(runOutAbs, "learning_signals.json"), learningSignals); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(runOutAbs, "learning_signals.json"), learningSignals); err != nil {
 		return Result{}, err
 	}
 	topN := 300
@@ -262,12 +281,12 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		topN = len(fullQueue)
 	}
 	if topN > 0 {
-		if err := writeJSONL(filepath.Join(runOutAbs, "mining_queue_top300.jsonl"), fullQueue[:topN]); err != nil {
+		if err := fileio.WriteJSONL(filepath.Join(runOutAbs, "mining_queue_top300.jsonl"), fullQueue[:topN]); err != nil {
 			return Result{}, err
 		}
 	}
 	delta := buildMiningQueueDelta(prevQueue, fullQueue, baselinePath, filepath.Join(runOutAbs, "mining_queue_full.jsonl"))
-	if err := writeJSON(filepath.Join(runOutAbs, "mining_queue_delta.json"), delta); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(runOutAbs, "mining_queue_delta.json"), delta); err != nil {
 		return Result{}, err
 	}
 
@@ -276,6 +295,7 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 	}
 
 	summary := Result{
+		SchemaVersion:     schemaVersion,
 		ImageCount:        len(images),
 		FunctionCount:     len(functions),
 		ArtifactCount:     len(artifacts),
@@ -285,9 +305,10 @@ func Run(root string, outDir string, minStringLen int, embeddingModel string, qu
 		MessageCount:      len(messageSchema),
 		StateMachineCount: len(stateMachines),
 		MessageRouteCount: len(messageRoutes),
+		ConsensusCount:    len(consensus),
 		MiningQueueCount:  len(miningQueue),
 	}
-	if err := writeJSON(filepath.Join(runOutAbs, "summary.json"), summary); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(runOutAbs, "summary.json"), summary); err != nil {
 		return Result{}, err
 	}
 
@@ -474,6 +495,7 @@ func parseNotes(path string, image string) ([]FunctionRecord, []ArtifactRecord, 
 	handlerTableRe := regexp.MustCompile(`(?i)handler table at\s*(0x[0-9a-f]+)\s*\+\s*16\*type`)
 	subtypeRe := regexp.MustCompile(`(?i)subtype\s*\(a1\s*&\s*0xFF\)|a1\s*&\s*0xFF|a1\s*>>\s*8`)
 	ifCallRe := regexp.MustCompile(`(?i)-\s*if\s+([^:]+):\s*calls\s+(.+)`)
+	calledSubRe := regexp.MustCompile(`sub_([0-9A-Fa-f]{4,8})`)
 
 	functions := make([]FunctionRecord, 0, 512)
 	artifacts := make([]ArtifactRecord, 0, 512)
@@ -523,6 +545,18 @@ func parseNotes(path string, image string) ([]FunctionRecord, []ArtifactRecord, 
 			Confidence:    confidence,
 			Evidence:      trimForContext(evidence),
 		})
+	}
+
+	addRoutesFromLine := func(dispatcher, condition, subtypeExpr, source, evidence string, confidence float64) {
+		matches := calledSubRe.FindAllStringSubmatch(evidence, -1)
+		for _, m := range matches {
+			if len(m) != 2 {
+				continue
+			}
+			addr := "0x" + strings.ToLower(m[1])
+			action, targetName, sideEffect := inferMessageRouteSemantic(evidence, addr)
+			addRoute(dispatcher, condition, subtypeExpr, action, targetName, addr, sideEffect, source, evidence, confidence)
+		}
 	}
 
 	var currentName string
@@ -611,24 +645,7 @@ func parseNotes(path string, image string) ([]FunctionRecord, []ArtifactRecord, 
 			if m := typeGTRe.FindStringSubmatch(line); len(m) == 2 {
 				cond = "type>" + m[1]
 			}
-			if strings.Contains(line, "sub_12D108") {
-				addRoute(currentName, cond, subtype, "enqueue", "queue_push", "0x12d108", "queue mutation", "re_notes_message_pipeline", line, 0.9)
-			}
-			if strings.Contains(line, "sub_12CFC4") {
-				addRoute(currentName, cond, subtype, "set_flag", "set_flag", "0x12cfc4", "flag update", "re_notes_message_pipeline", line, 0.88)
-			}
-			if strings.Contains(line, "sub_12F32C") {
-				addRoute(currentName, cond, subtype, "error_path", "error_handler", "0x12f32c", "blocking/error", "re_notes_message_pipeline", line, 0.9)
-			}
-			if strings.Contains(line, "sub_12E948") {
-				addRoute(currentName, cond, subtype, "parse_message", "msg_parse", "0x12e948", "parser dispatch", "re_notes_message_pipeline", line, 0.92)
-			}
-			if strings.Contains(line, "sub_12CA88") {
-				addRoute(currentName, cond, subtype, "pool_get", "buffer_pool_get", "0x12ca88", "buffer allocation", "re_notes_message_pipeline", line, 0.86)
-			}
-			if strings.Contains(line, "sub_12F3EC") {
-				addRoute(currentName, cond, subtype, "fallback", "fallback_handler", "0x12f3ec", "fallback path", "re_notes_message_pipeline", line, 0.84)
-			}
+			addRoutesFromLine(currentName, cond, subtype, "re_notes_message_pipeline", line, 0.84)
 		}
 
 		if strings.Contains(lower, "otherwise:") && strings.Contains(lower, "calls") {
@@ -637,15 +654,7 @@ func parseNotes(path string, image string) ([]FunctionRecord, []ArtifactRecord, 
 			if m := subtypeRe.FindString(line); m != "" {
 				subtype = m
 			}
-			if strings.Contains(line, "sub_12E948") {
-				addRoute(currentName, cond, subtype, "parse_message", "msg_parse", "0x12e948", "parser dispatch", "re_notes_message_pipeline", line, 0.92)
-			}
-			if strings.Contains(line, "sub_12CA88") {
-				addRoute(currentName, cond, subtype, "pool_get", "buffer_pool_get", "0x12ca88", "buffer allocation", "re_notes_message_pipeline", line, 0.86)
-			}
-			if strings.Contains(line, "sub_12F3EC") {
-				addRoute(currentName, cond, subtype, "fallback", "fallback_handler", "0x12f3ec", "fallback path", "re_notes_message_pipeline", line, 0.84)
-			}
+			addRoutesFromLine(currentName, cond, subtype, "re_notes_message_pipeline", line, 0.82)
 		}
 
 		if m := handlerTableRe.FindStringSubmatch(line); len(m) == 2 {
@@ -945,43 +954,6 @@ func trimForContext(s string) string {
 	return s[:200]
 }
 
-func writeJSONL[T any](path string, rows []T) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return fmt.Errorf("create %s: %w", path, err)
-	}
-	defer f.Close()
-
-	bw := bufio.NewWriter(f)
-	enc := json.NewEncoder(bw)
-	for _, row := range rows {
-		if err := enc.Encode(row); err != nil {
-			return fmt.Errorf("encode %s: %w", path, err)
-		}
-	}
-	if err := bw.Flush(); err != nil {
-		return fmt.Errorf("flush %s: %w", path, err)
-	}
-	return nil
-}
-
-func writeJSON(path string, v any) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return fmt.Errorf("create %s: %w", path, err)
-	}
-	defer f.Close()
-
-	b, err := json.MarshalIndent(v, "", "  ")
-	if err != nil {
-		return fmt.Errorf("marshal json %s: %w", path, err)
-	}
-	if _, err := io.WriteString(f, string(b)+"\n"); err != nil {
-		return fmt.Errorf("write %s: %w", path, err)
-	}
-	return nil
-}
-
 func parseHex(s string) uint64 {
 	s = strings.TrimSpace(strings.ToLower(s))
 	s = strings.TrimPrefix(s, "0x")
@@ -1083,6 +1055,9 @@ func readMiningQueueJSONL(path string) ([]MiningTargetRecord, error) {
 		var rec MiningTargetRecord
 		if err := json.Unmarshal([]byte(line), &rec); err != nil {
 			return nil, err
+		}
+		if strings.TrimSpace(rec.SchemaVersion) != "" && rec.SchemaVersion != schemaVersion {
+			return nil, fmt.Errorf("schema mismatch in %s: got %s, want %s", path, rec.SchemaVersion, schemaVersion)
 		}
 		out = append(out, rec)
 	}

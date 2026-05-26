@@ -50,7 +50,9 @@ type patchSection struct {
 	EndOff   int
 }
 
-func collectFunctionLinks(root string, functions []FunctionRecord, embeddingModel string) ([]FunctionLinkRecord, error) {
+func collectFunctionLinks(root string, functions []FunctionRecord, embeddingModel string, embedderCachePath string) ([]FunctionLinkRecord, error) {
+	embedderClasses := loadEmbedderClasses(embedderCachePath)
+
 	baseImage := primaryImageFromFunctions(functions)
 	if baseImage == "" {
 		return nil, nil
@@ -156,9 +158,15 @@ func collectFunctionLinks(root string, functions []FunctionRecord, embeddingMode
 							continue
 						}
 
+						method := "byte_signature_unique"
 						matches := findMatches(tgt.Data, sig, 2)
 						if len(matches) != 1 {
-							continue
+							mask := branchMaskedSignature(sig)
+							matches = findMaskedMatches(tgt.Data, sig, mask, 2)
+							if len(matches) != 1 {
+								continue
+							}
+							method = "byte_signature_masked_unique"
 						}
 
 						confidence := 0.78 + float64(sigLen)/512.0
@@ -170,8 +178,25 @@ func collectFunctionLinks(root string, functions []FunctionRecord, embeddingMode
 								confidence += 0.01
 							}
 						}
+						// Semantic boost: if embedder classified both source and target functions
+						// into the same behavioral class, boost link confidence.
+						if len(embedderClasses) > 0 {
+							srcCls := lookupClass(embedderClasses, baseImage, fmt.Sprintf("0x%x", symOffset), symName)
+							tgtCls := lookupClass(embedderClasses, tgt.Name, fmt.Sprintf("0x%x", matches[0]), "")
+							if srcCls != "" && tgtCls != "" && srcCls == tgtCls {
+								confidence += 0.06
+							} else if srcCls != "" || tgtCls != "" {
+								confidence += 0.02
+							}
+						}
+						if method == "byte_signature_masked_unique" {
+							confidence -= 0.05
+						}
 						if confidence > 0.98 {
 							confidence = 0.98
+						}
+						if confidence < 0.65 {
+							confidence = 0.65
 						}
 
 						localRows = append(localRows, FunctionLinkRecord{
@@ -181,7 +206,7 @@ func collectFunctionLinks(root string, functions []FunctionRecord, embeddingMode
 							SourceName:    symName,
 							TargetImage:   tgt.Name,
 							TargetAddress: fmt.Sprintf("0x%x", matches[0]),
-							Method:        "byte_signature_unique",
+							Method:        method,
 							SignatureLen:  sigLen,
 							Confidence:    confidence,
 							Evidence:      "sig=" + hex.EncodeToString(sig[:min(8, len(sig))]),
@@ -394,6 +419,47 @@ func findMatches(hay []byte, needle []byte, max int) []int {
 	return out
 }
 
+func branchMaskedSignature(sig []byte) []byte {
+	mask := make([]byte, len(sig))
+	for i := range mask {
+		mask[i] = 0xFF
+	}
+	for i := 0; i+2 < len(sig); i += 2 {
+		hw := binary.LittleEndian.Uint16(sig[i : i+2])
+		op := hw >> 11
+		if op == 0x1C || op == 0x1D {
+			// Thumb B/BL-family: mask immediate bits to survive minor relocation.
+			mask[i] = 0x00
+			mask[i+1] = 0xF8
+		}
+	}
+	return mask
+}
+
+func findMaskedMatches(hay []byte, needle []byte, mask []byte, max int) []int {
+	if len(needle) == 0 || len(hay) < len(needle) || len(mask) != len(needle) {
+		return nil
+	}
+	out := make([]int, 0, max)
+	for pos := 0; pos <= len(hay)-len(needle); pos++ {
+		ok := true
+		for i := 0; i < len(needle); i++ {
+			if (hay[pos+i] & mask[i]) != (needle[i] & mask[i]) {
+				ok = false
+				break
+			}
+		}
+		if !ok {
+			continue
+		}
+		out = append(out, pos)
+		if len(out) >= max {
+			break
+		}
+	}
+	return out
+}
+
 func parsePatchSections(data []byte) []patchSection {
 	sections := make([]patchSection, 0, 16)
 	for off := 0; off+24 <= len(data); {
@@ -513,4 +579,46 @@ func normalizeToFileOffset(addr string) int {
 		return -1
 	}
 	return int(v)
+}
+
+type embedderClassEntry struct {
+	Classification struct {
+		PrimaryClass string `json:"primary_class"`
+	} `json:"classification"`
+}
+
+func loadEmbedderClasses(path string) map[string]string {
+	if path == "" {
+		return nil
+	}
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return nil
+	}
+	var raw map[string]embedderClassEntry
+	if err := json.Unmarshal(b, &raw); err != nil {
+		return nil
+	}
+	out := make(map[string]string, len(raw))
+	for k, v := range raw {
+		if v.Classification.PrimaryClass != "" {
+			out[k] = v.Classification.PrimaryClass
+		}
+	}
+	return out
+}
+
+func lookupClass(classes map[string]string, image, addr, name string) string {
+	n := strings.ToLower(strings.TrimSpace(name))
+	img := strings.ToLower(strings.TrimSpace(image))
+	a := strings.ToLower(strings.TrimSpace(addr))
+	// Try image|address|name first
+	if img != "" || a != "" {
+		k := fmt.Sprintf("%s|%s|%s", img, a, n)
+		if cls, ok := classes[k]; ok {
+			return cls
+		}
+	}
+	k := fmt.Sprintf("|%s", n)
+	return classes[k]
 }

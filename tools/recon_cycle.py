@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -51,6 +52,46 @@ def read_last_jsonl(path: Path) -> dict:
         return {}
 
 
+def read_jsonl_rows(path: Path) -> list[dict]:
+    if not path.is_file():
+        return []
+    out: list[dict] = []
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(row, dict):
+                out.append(row)
+    return out
+
+
+def recommend_fault_seeds(outcomes_path: Path, top_n: int) -> list[str]:
+    if top_n <= 0:
+        return []
+    counts: Counter[str] = Counter()
+    for row in read_jsonl_rows(outcomes_path):
+        status = str(row.get("status", "")).strip().lower()
+        if status not in {"fault", "error", "failed"}:
+            continue
+        fault_addr = str(row.get("fault_address", "")).strip().lower()
+        if not fault_addr:
+            continue
+        if not fault_addr.startswith("0x"):
+            fault_addr = "0x" + fault_addr
+        try:
+            _ = int(fault_addr, 16)
+        except ValueError:
+            continue
+        counts[fault_addr] += 1
+    ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    return [f"{addr}=0" for addr, _ in ranked[:top_n]]
+
+
 def parse_probe_summary(stdout: str) -> dict:
     summary: dict = {}
     for line in stdout.splitlines():
@@ -84,6 +125,8 @@ def main() -> int:
     ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="max instructions for shallow-success retry")
     ap.add_argument("--recent-window-min", type=int, default=30, help="skip functions attempted within this many minutes")
     ap.add_argument("--prefer-non-cycle-queue", action="store_true", help="prefer latest non-cycle queue over cycle queue")
+    ap.add_argument("--auto-seed-top", type=int, default=8, help="auto-append top recurring fault-address seeds from historical outcomes")
+    ap.add_argument("--embedder-model", default="", help="Path to GGUF embedding model for behavioral classification")
     args = ap.parse_args()
 
     root = args.root.resolve()
@@ -106,6 +149,16 @@ def main() -> int:
         non_cycle = [p for p in candidates if "cycle" not in p.parent.name.lower()]
         if non_cycle:
             latest_queue = non_cycle[-1]
+
+    auto_seeds = recommend_fault_seeds(outcomes, args.auto_seed_top)
+    merged_seeds: list[str] = []
+    seen_seeds: set[str] = set()
+    for seed in list(args.seed) + auto_seeds:
+        key = seed.strip().lower()
+        if not key or key in seen_seeds:
+            continue
+        seen_seeds.add(key)
+        merged_seeds.append(seed)
 
     smoke_cmd = [
         "python3",
@@ -139,8 +192,10 @@ def main() -> int:
         smoke_cmd.append("--retry-shallow-success")
     for g in args.source_glob:
         smoke_cmd.extend(["--source-glob", g])
-    for s in args.seed:
+    for s in merged_seeds:
         smoke_cmd.extend(["--seed", s])
+    if args.embedder_model:
+        smoke_cmd.extend(["--embedder-model", str(args.embedder_model)])
 
     smoke = run(smoke_cmd, root)
     print(smoke.stdout)
@@ -188,9 +243,16 @@ def main() -> int:
         "learning_by_function_count": len(by_function),
         "learning_by_prefix_count": len(by_prefix),
         "learning_reason_counts": reason_counts,
-        "learning_smoke_success_count": int(reason_counts.get("learned_smoke_success", 0)),
+        "learning_smoke_success_count": int(
+            reason_counts.get("learned_smoke_returned", 0)
+            + reason_counts.get("learned_smoke_success", 0)
+        ),
+        "learning_smoke_returned_count": int(reason_counts.get("learned_smoke_returned", 0)),
+        "learning_smoke_capped_count": int(reason_counts.get("learned_smoke_capped", 0)),
         "outcomes_path": str(outcomes),
         "probe_summary": probe_summary,
+        "recommended_seeds": auto_seeds,
+        "effective_seeds": merged_seeds,
     }
     history_path = run_root / "cycle_history.jsonl"
     prev = read_last_jsonl(history_path)
@@ -203,7 +265,10 @@ def main() -> int:
         else:
             prev_reasons = prev.get("learning_reason_counts", {})
             if isinstance(prev_reasons, dict):
-                prev_success = int(prev_reasons.get("learned_smoke_success", 0))
+                prev_success = int(
+                    prev_reasons.get("learned_smoke_returned", 0)
+                    + prev_reasons.get("learned_smoke_success", 0)
+                )
     report["delta_learning_by_function_count"] = len(by_function) - prev_func
     report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
     report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success

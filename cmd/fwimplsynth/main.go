@@ -3,33 +3,37 @@ package main
 import (
 	"bufio"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
+
+	"aic8800d80/internal/fileio"
 )
 
 type implTask struct {
-	TaskID    string  `json:"task_id"`
-	Function  string  `json:"function"`
-	Image     string  `json:"image"`
-	Address   string  `json:"address"`
-	TaskClass string  `json:"task_class"`
-	Priority  string  `json:"priority"`
-	RankScore float64 `json:"rank_score"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	TaskID        string  `json:"task_id"`
+	Function      string  `json:"function"`
+	Image         string  `json:"image"`
+	Address       string  `json:"address"`
+	TaskClass     string  `json:"task_class"`
+	Priority      string  `json:"priority"`
+	RankScore     float64 `json:"rank_score"`
 }
 
 type callEdge struct {
-	Image      string  `json:"image"`
-	SourceAddr string  `json:"source_addr"`
-	SourceName string  `json:"source_name"`
-	TargetAddr string  `json:"target_addr"`
-	TargetName string  `json:"target_name"`
-	Confidence float64 `json:"confidence"`
+	SchemaVersion string  `json:"schema_version,omitempty"`
+	Image         string  `json:"image"`
+	SourceAddr    string  `json:"source_addr"`
+	SourceName    string  `json:"source_name"`
+	TargetAddr    string  `json:"target_addr"`
+	TargetName    string  `json:"target_name"`
+	Confidence    float64 `json:"confidence"`
 }
 
 type synthManifest struct {
@@ -45,46 +49,304 @@ type synthManifest struct {
 }
 
 type synthEvidenceRow struct {
-	Function         string   `json:"function"`
-	Image            string   `json:"image"`
-	Address          string   `json:"address"`
-	IncomingCount    int      `json:"incoming_count"`
-	OutgoingCount    int      `json:"outgoing_count"`
-	SelectedCount    int      `json:"selected_count"`
-	TopIncoming      []string `json:"top_incoming"`
-	TopOutgoing      []string `json:"top_outgoing"`
-	InferredAlias    string   `json:"inferred_alias,omitempty"`
-	InferredLeafCall []string `json:"inferred_leaf_calls,omitempty"`
+	SchemaVersion               string   `json:"schema_version,omitempty"`
+	Function                    string   `json:"function"`
+	Image                       string   `json:"image"`
+	Address                     string   `json:"address"`
+	IncomingCount               int      `json:"incoming_count"`
+	OutgoingCount               int      `json:"outgoing_count"`
+	SelectedCount               int      `json:"selected_count"`
+	TopIncoming                 []string `json:"top_incoming"`
+	TopOutgoing                 []string `json:"top_outgoing"`
+	InferredAlias               string   `json:"inferred_alias,omitempty"`
+	InferredLeafCall            []string `json:"inferred_leaf_calls,omitempty"`
+	CFGBBCount                  int      `json:"cfg_bb_count,omitempty"`
+	CFGEdgeCount                int      `json:"cfg_edge_count,omitempty"`
+	CFGInsnCount                int      `json:"cfg_insn_count,omitempty"`
+	CFGHasLoop                  bool     `json:"cfg_has_loop,omitempty"`
+	CFGFrameSize                int      `json:"cfg_frame_size,omitempty"`
+	CFGXrefsTo                  int      `json:"cfg_xrefs_to,omitempty"`
+	CFGLoadCount                int      `json:"cfg_load_count,omitempty"`
+	CFGStoreCount               int      `json:"cfg_store_count,omitempty"`
+	CFGStackRefCount            int      `json:"cfg_stack_ref_count,omitempty"`
+	CFGImmCount                 int      `json:"cfg_imm_count,omitempty"`
+	EvidenceScore               float64  `json:"evidence_score,omitempty"`
+	EvidenceClass               string   `json:"evidence_class,omitempty"`
+	ConservativeMode            bool     `json:"conservative_mode,omitempty"`
+	SynthesisSource             string   `json:"synthesis_source,omitempty"`
+	QualityWarnings             []string `json:"quality_warnings,omitempty"`
+	ContractPreconditions       []string `json:"contract_preconditions,omitempty"`
+	ContractPostconditions      []string `json:"contract_postconditions,omitempty"`
+	ProbeSeedHints              []string `json:"probe_seed_hints,omitempty"`
+	CounterexampleUnsupported   []string `json:"counterexample_unsupported,omitempty"`
+	CounterexampleMissingLikely []string `json:"counterexample_missing_likely,omitempty"`
+	BehaviorClass               string   `json:"behavior_class,omitempty"`
+	BehaviorRole                string   `json:"behavior_role,omitempty"`
+}
+
+type synthContractHintRow struct {
+	SchemaVersion  string   `json:"schema_version,omitempty"`
+	Function       string   `json:"function"`
+	Image          string   `json:"image"`
+	Address        string   `json:"address"`
+	SeedHints      []string `json:"seed_hints,omitempty"`
+	Preconditions  []string `json:"preconditions,omitempty"`
+	Postconditions []string `json:"postconditions,omitempty"`
+}
+
+type synthPolicy struct {
+	EvidenceScore     float64
+	EvidenceClass     string
+	Conservative      bool
+	MaxCallees        int
+	Warnings          []string
+	ContractPre       []string
+	ContractPost      []string
+	ProbeSeedHints    []string
+	SuggestedProfile  string
+	SuggestedMMIOAuto bool
+}
+
+type conformanceConstraint struct {
+	Unsupported   []string
+	MissingLikely []string
 }
 
 var nameOutgoingHints map[string][]string
+var linkedFunctionHints map[string][]string
+var linkedNameAliases map[string][]string
+var addressNeighborHints map[string][]string
+
+type cfgHint struct {
+	SchemaVersion  string   `json:"schema_version,omitempty"`
+	Image          string   `json:"image"`
+	Address        string   `json:"address"`
+	Name           string   `json:"name"`
+	BBCount        int      `json:"bb_count"`
+	EdgeCount      int      `json:"edge_count"`
+	InsnCount      int      `json:"insn_count"`
+	CallsiteCount  int      `json:"callsite_count"`
+	XrefsTo        int      `json:"xrefs_to"`
+	XrefsFrom      int      `json:"xrefs_from"`
+	FrameSize      int      `json:"frame_size"`
+	HasLoop        bool     `json:"has_loop"`
+	LoadCount      int      `json:"load_count"`
+	StoreCount     int      `json:"store_count"`
+	LoadByteCount  int      `json:"load_byte_count"`
+	LoadHalfCount  int      `json:"load_half_count"`
+	LoadWordCount  int      `json:"load_word_count"`
+	StoreByteCount int      `json:"store_byte_count"`
+	StoreHalfCount int      `json:"store_half_count"`
+	StoreWordCount int      `json:"store_word_count"`
+	StackRefCount  int      `json:"stack_ref_count"`
+	ImmCount       int      `json:"imm_count"`
+	BranchCount    int      `json:"branch_count"`
+	BranchCondEQ   int      `json:"branch_cond_eq"`
+	BranchCondNE   int      `json:"branch_cond_ne"`
+	BranchCondLT   int      `json:"branch_cond_lt"`
+	BranchCondGE   int      `json:"branch_cond_ge"`
+	BranchCondGT   int      `json:"branch_cond_gt"`
+	BranchCondLE   int      `json:"branch_cond_le"`
+	BranchCondHI   int      `json:"branch_cond_hi"`
+	BranchCondLS   int      `json:"branch_cond_ls"`
+	BranchCondOth  int      `json:"branch_cond_other"`
+	CmpCount       int      `json:"cmp_count"`
+	RetCount       int      `json:"ret_count"`
+	ALUArithCount  int      `json:"alu_arith_count"`
+	ALULogicCount  int      `json:"alu_logic_count"`
+	ALUShiftCount  int      `json:"alu_shift_count"`
+	ALUMulCount    int      `json:"alu_mul_count"`
+	ProPushCount   int      `json:"pro_push_count"`
+	EpiPopCount    int      `json:"epi_pop_count"`
+	SPAdjustCount  int      `json:"sp_adjust_count"`
+	MaxImm         uint32   `json:"max_imm"`
+	TopImms        []uint32 `json:"top_imms"`
+	TopRegs        []string `json:"top_regs"`
+	TopMnems       []string `json:"top_mnems"`
+	TopStackOffs   []int    `json:"top_stack_offsets"`
+	StackOffMin    int      `json:"stack_off_min"`
+	StackOffMax    int      `json:"stack_off_max"`
+}
 
 func main() {
-	var implQueuePath string
-	var callEdgesPath string
-	var outDir string
-	var composedDir string
+	if err := run(); err != nil {
+		fail("%v", err)
+	}
+}
+
+type embedderCacheEntry struct {
+	Classification struct {
+		PrimaryClass  string             `json:"primary_class"`
+		SynthRole     string             `json:"synth_role"`
+		PriorityBoost float64            `json:"priority_boost"`
+		Confidence    float64            `json:"confidence"`
+		AllScores     map[string]float64 `json:"all_scores"`
+	} `json:"classification"`
+}
+
+func loadEmbedderCache(path string) (map[string]embedderCacheEntry, error) {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	var raw map[string]embedderCacheEntry
+	if err := json.Unmarshal(b, &raw); err != nil {
+		// Try top-level array format
+		var arr []struct {
+			Key  string             `json:"key"`
+			Data embedderCacheEntry `json:"data"`
+		}
+		if err2 := json.Unmarshal(b, &arr); err2 == nil {
+			out := make(map[string]embedderCacheEntry)
+			for _, e := range arr {
+				if e.Key != "" {
+					out[e.Key] = e.Data
+				}
+			}
+			return out, nil
+		}
+		return nil, err
+	}
+	return raw, nil
+}
+
+func embedderLookup(cache map[string]embedderCacheEntry, name, image, address string) (cls, role string, confidence float64) {
+	n := strings.ToLower(strings.TrimSpace(name))
+	img := strings.ToLower(strings.TrimSpace(image))
+	addr := strings.ToLower(strings.TrimSpace(address))
+	// Try image|address|name first, then |name fallback
+	keys := []string{}
+	if img != "" || addr != "" {
+		keys = append(keys, fmt.Sprintf("%s|%s|%s", img, addr, n))
+	}
+	keys = append(keys, fmt.Sprintf("|%s", n))
+	for _, k := range keys {
+		if e, ok := cache[k]; ok && e.Classification.PrimaryClass != "" {
+			return e.Classification.PrimaryClass, e.Classification.SynthRole, e.Classification.Confidence
+		}
+	}
+	// Stem-aware fallback: tokenize the name and find the best cache match
+	// by shared meaningful tokens (skip short tokens and hex suffixes).
+	tokens := tokenizeName(n)
+	if len(tokens) == 0 {
+		return "", "", 0
+	}
+	bestScore := 0
+	var bestCls, bestRole string
+	var bestConf float64
+	for cacheKey, entry := range cache {
+		cacheName := strings.Split(cacheKey, "|")
+		if len(cacheName) == 0 {
+			continue
+		}
+		cacheTokens := tokenizeName(cacheName[len(cacheName)-1])
+		score := sharedTokenScore(tokens, cacheTokens)
+		if score > bestScore && entry.Classification.PrimaryClass != "" {
+			bestScore = score
+			bestCls = entry.Classification.PrimaryClass
+			bestRole = entry.Classification.SynthRole
+			bestConf = entry.Classification.Confidence
+		}
+	}
+	if bestScore >= 2 {
+		return bestCls, bestRole, bestConf * 0.8 // penalty for stem match vs exact
+	}
+	return "", "", 0
+}
+
+func tokenizeName(name string) []string {
+	parts := strings.FieldsFunc(name, func(r rune) bool {
+		return r == '_' || r == '-' || r == '.'
+	})
+	out := make([]string, 0, len(parts))
+	for _, p := range parts {
+		p = strings.TrimSpace(p)
+		if len(p) < 3 {
+			continue
+		}
+		// Skip numeric-only or hex-suffix tokens
+		if isNumeric(p) {
+			continue
+		}
+		out = append(out, p)
+	}
+	return out
+}
+
+func sharedTokenScore(a, b []string) int {
+	score := 0
+	am := make(map[string]bool, len(a))
+	for _, t := range a {
+		am[t] = true
+	}
+	for _, t := range b {
+		if am[t] {
+			score++
+		}
+	}
+	return score
+}
+
+func isNumeric(s string) bool {
+	for _, c := range s {
+		if c < '0' || c > 'f' {
+			return false
+		}
+	}
+	return len(s) > 0
+}
+
+func run() error {
+	var iAbs, cAbs, oAbs string
+	var composedDir, cfgHintsPath, functionLinksPath, conformancePath string
+	var minConf, fallbackMinConf float64
 	var maxTasks int
-	var minConf float64
-	var fallbackMinConf float64
+	var counterexampleInjectMax int
+	var minEvidenceScore float64
+	var complexityBBThreshold, complexityEdgeThreshold int
+	var maxCalleesHighComplexity, maxCalleesLowEvidence int
+	var strictLowEvidence bool
 	var includeDependencies bool
 
-	flag.StringVar(&implQueuePath, "implqueue", "extraction_out/reconstruction/mega7/implqueue/implementation_queue.json", "Implementation queue JSON")
-	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL")
-	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/synth", "Output directory")
-	flag.StringVar(&composedDir, "composed-dir", "extraction_out/reconstruction/mega7/composed", "Composed reconstruction directory for dependency hint fallback")
-	flag.IntVar(&maxTasks, "max-tasks", 80, "Maximum synthesized behavior functions")
-	flag.Float64Var(&minConf, "min-call-confidence", 0.7, "Minimum call edge confidence")
-	flag.Float64Var(&fallbackMinConf, "fallback-min-call-confidence", 0.4, "Lower call edge confidence used only when no high-confidence callee is available")
-	flag.BoolVar(&includeDependencies, "include-dependencies", true, "Include dependency_impl tasks after behavior_lift tasks")
-	flag.Parse()
+	// Flags and defaults (kept local so run() is self-contained).
+	implQueuePath := "extraction_out/reconstruction/mega7/implqueue/implementation_queue.json"
+	callEdgesPath := "extraction_out/call_edges.jsonl"
+	outDir := "extraction_out/reconstruction/mega7/synth"
+	composedDirPath := "extraction_out/reconstruction/mega7/composed"
+	cfgHintsFilePath := "extraction_out/reconstruction/mega7/cfg_hints.jsonl"
+	functionLinksFilePath := "extraction_out/reconstruction/mega7/function_links.jsonl"
+	conformanceFilePath := "extraction_out/reconstruction/mega7/final/call_conformance.json"
+	minCallConfidence := 0.7
+	fallbackMinCallConfidence := 0.4
+	maxTasksVal := 80
+	counterexampleInjectMaxVal := 3
+	minEvidenceScoreVal := 1.8
+	complexityBBThresholdVal := 4
+	complexityEdgeThresholdVal := 6
+	maxCalleesHighComplexityVal := 3
+	maxCalleesLowEvidenceVal := 1
+	strictLowEvidenceVal := false
+	includeDependencies = true
 
-	iAbs, _ := filepath.Abs(implQueuePath)
-	cAbs, _ := filepath.Abs(callEdgesPath)
-	oAbs, _ := filepath.Abs(outDir)
-	if err := os.MkdirAll(oAbs, 0o755); err != nil {
-		fail("mkdir out: %v", err)
-	}
+	iAbs, _ = filepath.Abs(implQueuePath)
+	cAbs, _ = filepath.Abs(callEdgesPath)
+	oAbs, _ = filepath.Abs(outDir)
+	composedDir = composedDirPath
+	cfgHintsPath = cfgHintsFilePath
+	functionLinksPath = functionLinksFilePath
+	conformancePath = conformanceFilePath
+	minConf = minCallConfidence
+	fallbackMinConf = fallbackMinCallConfidence
+	maxTasks = maxTasksVal
+	counterexampleInjectMax = counterexampleInjectMaxVal
+	minEvidenceScore = minEvidenceScoreVal
+	complexityBBThreshold = complexityBBThresholdVal
+	complexityEdgeThreshold = complexityEdgeThresholdVal
+	maxCalleesHighComplexity = maxCalleesHighComplexityVal
+	maxCalleesLowEvidence = maxCalleesLowEvidenceVal
+	strictLowEvidence = strictLowEvidenceVal
+	_ = includeDependencies
+
 	if err := clearStaleSynthFiles(oAbs); err != nil {
 		fail("clear stale synth files: %v", err)
 	}
@@ -97,16 +359,25 @@ func main() {
 	if err != nil {
 		fail("read composed backfill: %v", err)
 	}
-	inAdj, outAdj, inByName, outByName, err := readAdj(cAbs, minConf)
+	edgePaths := existingEdgePaths(cAbs, filepath.Join(filepath.Dir(cAbs), "call_edges.with_ida_raw.jsonl"))
+	inAdj, outAdj, inByName, outByName, err := readAdjMulti(edgePaths, minConf)
 	if err != nil {
 		fail("read call edges: %v", err)
 	}
 	hints, composedCallers, _ := loadComposedHints(composedDir)
+	cfgByAddr, cfgByName, _ := loadCFGHints(cfgHintsPath)
 	familyHints := buildFamilyHints(outByName, minConf, fallbackMinConf)
 	suffixHints := buildSuffixHints(outByName, minConf, fallbackMinConf)
 	tokenHints := buildTokenHints(outByName, minConf, fallbackMinConf)
 	imageHints := buildImageHints(inAdj, outAdj, minConf, fallbackMinConf)
 	nameOutgoingHints = buildNameOutgoingHints(outByName, minConf, fallbackMinConf)
+	linkedFunctionHints = buildLinkedFunctionHints(functionLinksPath, 0.80, nameOutgoingHints)
+	linkedNameAliases = buildLinkedNameAliases(functionLinksPath, 0.80)
+	addressNeighborHints = buildAddressNeighborHints(outAdj)
+	conformanceConstraints, err := loadConformanceConstraints(conformancePath)
+	if err != nil {
+		fail("load conformance constraints: %v", err)
+	}
 
 	synth := make([]implTask, 0, maxTasks)
 	behaviorCount := 0
@@ -154,50 +425,114 @@ func main() {
 		}
 	}
 
+	embedderCachePath := filepath.Join(outDir, "..", "embedder_cache.json")
+	embedderCache, _ := loadEmbedderCache(embedderCachePath)
+	if len(embedderCache) > 0 {
+		fmt.Fprintf(os.Stderr, "embedder cache loaded: %d entries\n", len(embedderCache))
+	}
+
 	totalCallees := 0
 	evidence := make([]synthEvidenceRow, 0, len(synth))
+	contractHints := make([]synthContractHintRow, 0, len(synth))
 	for i, t := range synth {
 		incoming, outgoing := edgesForTask(t, inAdj, outAdj, inByName, outByName)
 		sort.Slice(outgoing, func(a, b int) bool { return outgoing[a].Confidence > outgoing[b].Confidence })
 		aggressive := allowSyntheticInference(t.Function, incoming, outgoing)
+		source := "observed_outgoing"
 		selected := selectCallees(t, outgoing, outAdj, minConf, fallbackMinConf)
 		if len(selected) == 0 {
 			selected = inferFromNameOutgoingHints(t, minConf, fallbackMinConf)
+			source = "name_outgoing_hints"
 		}
 		if len(selected) == 0 {
 			selected = inferFromIncoming(t, incoming, outAdj, outByName, minConf, fallbackMinConf)
+			source = "incoming_projection"
+		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromLinkedFunctionHints(t, minConf, fallbackMinConf)
+			source = "linked_function_hints"
+		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromAddressNeighborHints(t, minConf, fallbackMinConf)
+			source = "address_neighbor_hints"
 		}
 		if len(selected) == 0 {
 			if aggressive {
 				selected = inferFromComposedHints(t, hints)
+				source = "composed_hints"
 			}
 		}
 		if len(selected) == 0 && aggressive {
 			selected = inferFromComposedContext(t, hints, composedCallers)
+			source = "composed_context"
 		}
 		if len(selected) == 0 && aggressive {
 			selected = inferFromTokenHints(t, tokenHints)
+			source = "token_hints"
 		}
 		if len(selected) == 0 && aggressive {
 			selected = inferFromSuffixHints(t, suffixHints)
+			source = "suffix_hints"
 		}
 		if len(selected) == 0 && aggressive {
 			selected = inferFromFamilyHints(t, familyHints)
+			source = "family_hints"
 		}
 		if len(selected) == 0 && aggressive {
 			selected = inferFromImageHints(t, imageHints)
+			source = "image_hints"
 		}
-		totalCallees += len(selected)
 		fn := sanitizeName(t.Function)
+		selected, unsupportedCE, missingCE := applyCounterexampleConstraints(selected, conformanceConstraints[fn], minConf, counterexampleInjectMax)
+		cfg := cfgForTask(t, cfgByAddr, cfgByName)
+		policy := evaluateSynthesisPolicy(
+			t,
+			incoming,
+			outgoing,
+			selected,
+			cfg,
+			source,
+			minEvidenceScore,
+			complexityBBThreshold,
+			complexityEdgeThreshold,
+			maxCalleesHighComplexity,
+			maxCalleesLowEvidence,
+			strictLowEvidence,
+		)
+		selected = trimSelectedCallees(selected, policy.MaxCallees)
+		totalCallees += len(selected)
 		row := synthEvidenceRow{
-			Function:      fn,
-			Image:         t.Image,
-			Address:       t.Address,
-			IncomingCount: len(incoming),
-			OutgoingCount: len(outgoing),
-			SelectedCount: len(selected),
-			TopIncoming:   topIncomingNames(incoming, 4),
-			TopOutgoing:   topOutgoingNames(outgoing, 4),
+			SchemaVersion:               "0.1.0",
+			Function:                    fn,
+			Image:                       t.Image,
+			Address:                     t.Address,
+			IncomingCount:               len(incoming),
+			OutgoingCount:               len(outgoing),
+			SelectedCount:               len(selected),
+			TopIncoming:                 topIncomingNames(incoming, 4),
+			TopOutgoing:                 topOutgoingNames(outgoing, 4),
+			EvidenceScore:               policy.EvidenceScore,
+			EvidenceClass:               policy.EvidenceClass,
+			ConservativeMode:            policy.Conservative,
+			SynthesisSource:             source,
+			QualityWarnings:             policy.Warnings,
+			ContractPreconditions:       policy.ContractPre,
+			ContractPostconditions:      policy.ContractPost,
+			ProbeSeedHints:              policy.ProbeSeedHints,
+			CounterexampleUnsupported:   unsupportedCE,
+			CounterexampleMissingLikely: missingCE,
+		}
+		if h := cfg; h != nil {
+			row.CFGBBCount = h.BBCount
+			row.CFGEdgeCount = h.EdgeCount
+			row.CFGInsnCount = h.InsnCount
+			row.CFGHasLoop = h.HasLoop
+			row.CFGFrameSize = h.FrameSize
+			row.CFGXrefsTo = h.XrefsTo
+			row.CFGLoadCount = h.LoadCount
+			row.CFGStoreCount = h.StoreCount
+			row.CFGStackRefCount = h.StackRefCount
+			row.CFGImmCount = h.ImmCount
 		}
 		if strings.HasPrefix(fn, "sub_") {
 			role := functionRole(fn)
@@ -207,9 +542,27 @@ func main() {
 			row.InferredAlias = inferredSubAlias(fn, role, t.Image, incoming)
 			row.InferredLeafCall = inferLeafCallsFromIncoming(fn, incoming)
 		}
+		// Look up behavioral class from embedder cache.
+		if len(embedderCache) > 0 {
+			bc, role, conf := embedderLookup(embedderCache, fn, t.Image, t.Address)
+			if bc != "" {
+				row.BehaviorClass = bc
+				row.BehaviorRole = role
+				_ = conf
+			}
+		}
 		evidence = append(evidence, row)
+		contractHints = append(contractHints, synthContractHintRow{
+			SchemaVersion:  "0.1.0",
+			Function:       fn,
+			Image:          t.Image,
+			Address:        t.Address,
+			SeedHints:      policy.ProbeSeedHints,
+			Preconditions:  policy.ContractPre,
+			Postconditions: policy.ContractPost,
+		})
 		file := filepath.Join(oAbs, fmt.Sprintf("%03d_%s.synth.c", i+1, sanitizeName(t.Function)))
-		if err := writeSynth(file, t, incoming, selected); err != nil {
+		if err := writeSynth(file, t, incoming, selected, cfg, policy, row.BehaviorClass, row.BehaviorRole); err != nil {
 			fail("write synth %s: %v", file, err)
 		}
 	}
@@ -229,19 +582,14 @@ func main() {
 		AvgCalleeEmitted:   avgCallees,
 		OutputDir:          oAbs,
 	}
-	mb, err := json.MarshalIndent(m, "", "  ")
-	if err != nil {
-		fail("marshal manifest: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(oAbs, "implsynth_manifest.json"), append(mb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(oAbs, "implsynth_manifest.json"), m); err != nil {
 		fail("write manifest: %v", err)
 	}
-	eb, err := json.MarshalIndent(evidence, "", "  ")
-	if err != nil {
-		fail("marshal evidence: %v", err)
-	}
-	if err := os.WriteFile(filepath.Join(oAbs, "implsynth_evidence.json"), append(eb, '\n'), 0o644); err != nil {
+	if err := fileio.WriteJSON(filepath.Join(oAbs, "implsynth_evidence.json"), evidence); err != nil {
 		fail("write evidence: %v", err)
+	}
+	if err := fileio.WriteJSON(filepath.Join(oAbs, "implsynth_contract_hints.json"), contractHints); err != nil {
+		fail("write contract hints: %v", err)
 	}
 	fmt.Printf("implementation synthesis generated.\n")
 	fmt.Printf("  synth_count: %d\n", m.SynthCount)
@@ -249,7 +597,9 @@ func main() {
 	fmt.Printf("  dependency_tasks_used: %d\n", m.DependencyTaskUsed)
 	fmt.Printf("  avg_callee_emitted: %s\n", m.AvgCalleeEmitted)
 	fmt.Printf("  evidence_path: %s\n", filepath.Join(oAbs, "implsynth_evidence.json"))
+	fmt.Printf("  contract_hints_path: %s\n", filepath.Join(oAbs, "implsynth_contract_hints.json"))
 	fmt.Printf("  out_dir: %s\n", oAbs)
+	return nil
 }
 
 func topIncomingNames(in []callEdge, n int) []string {
@@ -309,6 +659,11 @@ func readTasks(path string) ([]implTask, error) {
 	var t []implTask
 	if err := json.Unmarshal(b, &t); err != nil {
 		return nil, err
+	}
+	for _, task := range t {
+		if strings.TrimSpace(task.SchemaVersion) != "" && task.SchemaVersion != "0.1.0" {
+			return nil, fmt.Errorf("implqueue schema mismatch: got %s want 0.1.0", task.SchemaVersion)
+		}
 	}
 	return t, nil
 }
@@ -376,44 +731,387 @@ func clearStaleSynthFiles(dir string) error {
 }
 
 func readAdj(path string, minConf float64) (map[string][]callEdge, map[string][]callEdge, map[string][]callEdge, map[string][]callEdge, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return nil, nil, nil, nil, err
+	return readAdjMulti([]string{path}, minConf)
+}
+
+func loadConformanceConstraints(path string) (map[string]conformanceConstraint, error) {
+	type conformanceRow struct {
+		Function      string   `json:"function"`
+		Unsupported   []string `json:"unsupported_calls"`
+		MissingLikely []string `json:"missing_likely_calls"`
+		EvidenceFound bool     `json:"evidence_found"`
 	}
-	defer f.Close()
+	type conformanceReport struct {
+		SchemaVersion string           `json:"schema_version,omitempty"`
+		Rows          []conformanceRow `json:"rows"`
+	}
+	out := map[string]conformanceConstraint{}
+	b, err := os.ReadFile(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return out, nil
+		}
+		return nil, err
+	}
+	var rep conformanceReport
+	if err := json.Unmarshal(b, &rep); err != nil {
+		return out, nil
+	}
+	if strings.TrimSpace(rep.SchemaVersion) != "" && rep.SchemaVersion != "0.1.0" {
+		return nil, fmt.Errorf("conformance schema mismatch: got %s want 0.1.0", rep.SchemaVersion)
+	}
+	for _, r := range rep.Rows {
+		fn := sanitizeName(r.Function)
+		if fn == "" || fn == "unknown" || !r.EvidenceFound {
+			continue
+		}
+		deny := dedupeSanitizedNames(r.Unsupported)
+		req := dedupeSanitizedNames(r.MissingLikely)
+		if len(deny) == 0 && len(req) == 0 {
+			continue
+		}
+		out[fn] = conformanceConstraint{Unsupported: deny, MissingLikely: req}
+	}
+	return out, nil
+}
+
+func applyCounterexampleConstraints(selected []callEdge, c conformanceConstraint, minConf float64, maxInject int) ([]callEdge, []string, []string) {
+	if len(c.Unsupported) == 0 && len(c.MissingLikely) == 0 {
+		return selected, nil, nil
+	}
+	unsupportedSet := map[string]struct{}{}
+	for _, n := range c.Unsupported {
+		unsupportedSet[sanitizeName(n)] = struct{}{}
+	}
+	out := make([]callEdge, 0, len(selected)+len(c.MissingLikely))
+	seen := map[string]struct{}{}
+	removed := make([]string, 0, len(c.Unsupported))
+	for _, e := range selected {
+		n := sanitizeName(e.TargetName)
+		if n == "" || n == "unknown" {
+			n = sanitizeName("sub_" + strings.TrimPrefix(strings.ToLower(strings.TrimSpace(e.TargetAddr)), "0x"))
+		}
+		if _, deny := unsupportedSet[n]; deny {
+			removed = append(removed, n)
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		if strings.TrimSpace(e.TargetName) == "" || e.TargetName == "unknown" {
+			e.TargetName = n
+		}
+		out = append(out, e)
+	}
+	if maxInject < 0 {
+		maxInject = 0
+	}
+	injected := make([]string, 0, maxInject)
+	for _, n := range c.MissingLikely {
+		n = sanitizeName(n)
+		if n == "" || n == "unknown" {
+			continue
+		}
+		if _, deny := unsupportedSet[n]; deny {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		if maxInject > 0 && len(injected) >= maxInject {
+			break
+		}
+		seen[n] = struct{}{}
+		out = append(out, callEdge{TargetName: n, Confidence: minConf})
+		injected = append(injected, n)
+	}
+	sort.Strings(removed)
+	removed = dedupeSanitizedNames(removed)
+	return out, removed, injected
+}
+
+func dedupeSanitizedNames(in []string) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(in))
+	for _, x := range in {
+		n := sanitizeName(x)
+		if n == "" || n == "unknown" {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		out = append(out, n)
+	}
+	return out
+}
+
+func readAdjMulti(paths []string, minConf float64) (map[string][]callEdge, map[string][]callEdge, map[string][]callEdge, map[string][]callEdge, error) {
 	in := make(map[string][]callEdge, 4096)
 	out := make(map[string][]callEdge, 4096)
 	inName := make(map[string][]callEdge, 4096)
 	outName := make(map[string][]callEdge, 4096)
-	sc := bufio.NewScanner(f)
-	sc.Buffer(make([]byte, 4096), 8*1024*1024)
-	for sc.Scan() {
-		line := strings.TrimSpace(sc.Text())
-		if line == "" {
+	seen := map[string]struct{}{}
+	for _, path := range paths {
+		f, err := os.Open(path)
+		if err != nil {
 			continue
 		}
-		var e callEdge
-		if json.Unmarshal([]byte(line), &e) != nil {
-			continue
+		sc := bufio.NewScanner(f)
+		sc.Buffer(make([]byte, 4096), 8*1024*1024)
+		for sc.Scan() {
+			line := strings.TrimSpace(sc.Text())
+			if line == "" {
+				continue
+			}
+			var e callEdge
+			if json.Unmarshal([]byte(line), &e) != nil {
+				continue
+			}
+			if strings.TrimSpace(e.SchemaVersion) != "" && e.SchemaVersion != "0.1.0" {
+				_ = f.Close()
+				return nil, nil, nil, nil, fmt.Errorf("call edges schema mismatch: got %s want 0.1.0", e.SchemaVersion)
+			}
+			if e.Confidence < minConf {
+				continue
+			}
+			dk := strings.ToLower(strings.TrimSpace(e.Image)) + "|" +
+				strings.ToLower(strings.TrimSpace(e.SourceAddr)) + "|" +
+				strings.ToLower(strings.TrimSpace(e.TargetAddr))
+			if _, ok := seen[dk]; ok {
+				continue
+			}
+			seen[dk] = struct{}{}
+			for _, sa := range addrVariants(e.SourceAddr) {
+				out[addrKey(e.Image, sa)] = append(out[addrKey(e.Image, sa)], e)
+			}
+			for _, ta := range addrVariants(e.TargetAddr) {
+				in[addrKey(e.Image, ta)] = append(in[addrKey(e.Image, ta)], e)
+			}
+			srcN := sanitizeName(e.SourceName)
+			tgtN := sanitizeName(e.TargetName)
+			canonicalTgt := tgtN
+			if canonicalTgt == "" || canonicalTgt == "unknown" {
+				canonicalTgt = sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+			}
+			srcAliases := expandLinkedAliases(srcN)
+			tgtAliases := expandLinkedAliases(tgtN)
+			for _, sname := range srcAliases {
+				for _, tname := range tgtAliases {
+					ee := e
+					ee.SourceName = sname
+					ee.TargetName = canonicalTgt
+					if sname != "" && sname != "unknown" {
+						outName[sname] = append(outName[sname], ee)
+					}
+					if tname != "" && tname != "unknown" {
+						inName[tname] = append(inName[tname], ee)
+					}
+				}
+			}
 		}
-		out[addrKey(e.Image, e.SourceAddr)] = append(out[addrKey(e.Image, e.SourceAddr)], e)
-		in[addrKey(e.Image, e.TargetAddr)] = append(in[addrKey(e.Image, e.TargetAddr)], e)
-		srcN := sanitizeName(e.SourceName)
-		tgtN := sanitizeName(e.TargetName)
-		if srcN != "" && srcN != "unknown" {
-			outName[srcN] = append(outName[srcN], e)
+		if err := sc.Err(); err != nil {
+			_ = f.Close()
+			return nil, nil, nil, nil, err
 		}
-		if tgtN != "" && tgtN != "unknown" {
-			inName[tgtN] = append(inName[tgtN], e)
-		}
+		_ = f.Close()
 	}
-	return in, out, inName, outName, sc.Err()
+	return in, out, inName, outName, nil
 }
 
-func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
+func trimSelectedCallees(selected []callEdge, maxCallees int) []callEdge {
+	if maxCallees <= 0 || len(selected) <= maxCallees {
+		return selected
+	}
+	out := make([]callEdge, maxCallees)
+	copy(out, selected[:maxCallees])
+	return out
+}
+
+func evaluateSynthesisPolicy(
+	t implTask,
+	incoming []callEdge,
+	outgoing []callEdge,
+	selected []callEdge,
+	cfg *cfgHint,
+	source string,
+	minEvidenceScore float64,
+	complexityBBThreshold int,
+	complexityEdgeThreshold int,
+	maxCalleesHighComplexity int,
+	maxCalleesLowEvidence int,
+	strictLowEvidence bool,
+) synthPolicy {
+	policy := synthPolicy{
+		EvidenceClass:     "strong",
+		Conservative:      false,
+		MaxCallees:        0,
+		SuggestedProfile:  "rich",
+		SuggestedMMIOAuto: true,
+	}
+
+	evidence := 0.0
+	if cfg != nil {
+		evidence += 0.6
+		evidence += float64(minInt(cfg.CallsiteCount, 8)) * 0.08
+		evidence += float64(minInt(cfg.XrefsTo, 8)) * 0.05
+		if cfg.HasLoop {
+			evidence += 0.25
+		}
+	}
+	evidence += float64(minInt(len(incoming), 6)) * 0.07
+	evidence += float64(minInt(len(outgoing), 8)) * 0.06
+	for _, e := range selected {
+		evidence += maxFloat(0.0, minFloat(e.Confidence, 1.0)) * 0.25
+	}
+	switch source {
+	case "observed_outgoing", "incoming_projection":
+		evidence += 0.45
+	case "name_outgoing_hints", "linked_function_hints":
+		evidence += 0.15
+	default:
+		evidence -= 0.15
+	}
+	if len(selected) == 0 {
+		evidence -= 0.9
+	}
+	if evidence < 0 {
+		evidence = 0
+	}
+	policy.EvidenceScore = evidence
+
+	highComplexity := false
+	if cfg != nil {
+		highComplexity = cfg.BBCount >= maxInt(1, complexityBBThreshold) || cfg.EdgeCount >= maxInt(1, complexityEdgeThreshold) || cfg.HasLoop
+	}
+	lowEvidence := evidence < minEvidenceScore
+
+	if lowEvidence {
+		policy.EvidenceClass = "low"
+		policy.Warnings = append(policy.Warnings, fmt.Sprintf("low evidence score %.2f < %.2f", evidence, minEvidenceScore))
+	} else if evidence < minEvidenceScore+0.8 {
+		policy.EvidenceClass = "medium"
+	} else {
+		policy.EvidenceClass = "strong"
+	}
+	if highComplexity && lowEvidence && strictLowEvidence {
+		policy.Conservative = true
+		policy.Warnings = append(policy.Warnings, "high complexity with low evidence: forcing conservative template")
+	}
+	if cfg != nil && cfg.CallsiteCount > 0 && len(selected) == 0 {
+		policy.Warnings = append(policy.Warnings, "cfg reports callsites but no callees selected")
+	}
+	if cfg != nil && cfg.StoreCount > 0 && source != "observed_outgoing" && source != "incoming_projection" {
+		policy.Warnings = append(policy.Warnings, "memory-side-effect profile with heuristic callee source")
+	}
+
+	if highComplexity && maxCalleesHighComplexity > 0 {
+		policy.MaxCallees = maxCalleesHighComplexity
+	}
+	if lowEvidence && maxCalleesLowEvidence > 0 {
+		if policy.MaxCallees == 0 || maxCalleesLowEvidence < policy.MaxCallees {
+			policy.MaxCallees = maxCalleesLowEvidence
+		}
+	}
+
+	contractPre, contractPost, seeds := deriveContractAndSeedHints(t, incoming, selected, cfg)
+	policy.ContractPre = contractPre
+	policy.ContractPost = contractPost
+	policy.ProbeSeedHints = seeds
+
+	return policy
+}
+
+func deriveContractAndSeedHints(t implTask, incoming, selected []callEdge, cfg *cfgHint) ([]string, []string, []string) {
+	pre := make([]string, 0, 6)
+	post := make([]string, 0, 6)
+	seeds := make([]string, 0, 8)
+	seedSeen := map[string]struct{}{}
+	addSeed := func(s string) {
+		s = strings.TrimSpace(strings.ToLower(s))
+		if s == "" {
+			return
+		}
+		if _, ok := seedSeen[s]; ok {
+			return
+		}
+		seedSeen[s] = struct{}{}
+		seeds = append(seeds, s)
+	}
+
+	fn := sanitizeName(t.Function)
+	if cfg != nil && cfg.FrameSize > 0 {
+		pre = append(pre, "requires valid writable stack context")
+	}
+	if len(incoming) > 0 {
+		pre = append(pre, "expects caller-managed context consistency")
+	}
+	if strings.Contains(fn, "msg") || strings.Contains(fn, "handler") || strings.Contains(fn, "dispatch") {
+		pre = append(pre, "expects non-null message/context buffers")
+	}
+	if strings.Contains(fn, "rf") || strings.Contains(fn, "sdio") || strings.Contains(fn, "hal") {
+		pre = append(pre, "expects readable MMIO/peripheral state")
+	}
+
+	if len(selected) > 0 {
+		post = append(post, "may invoke dependency helper chain")
+	}
+	if cfg != nil && cfg.StoreCount > 0 {
+		post = append(post, "may mutate MMIO/memory-side effects")
+	}
+	if strings.Contains(fn, "timer") {
+		post = append(post, "may update timer/scheduling state")
+	}
+
+	if cfg != nil {
+		for _, imm := range cfg.TopImms {
+			if imm >= 0x40000000 && imm <= 0x7FFFFFFF {
+				addSeed(fmt.Sprintf("0x%x=0", imm&0xFFFFF000))
+			}
+		}
+		if cfg.MaxImm >= 0x40000000 && cfg.MaxImm <= 0x7FFFFFFF {
+			addSeed(fmt.Sprintf("0x%x=0", cfg.MaxImm&0xFFFFF000))
+		}
+	}
+	if strings.Contains(fn, "rf") {
+		addSeed("0x40010000=0")
+	}
+	if strings.Contains(fn, "sdio") || strings.Contains(fn, "ipc") {
+		addSeed("0x40020000=0")
+	}
+	if strings.Contains(fn, "msg") || strings.Contains(fn, "queue") {
+		addSeed("0x20000040=1")
+	}
+	sort.Strings(seeds)
+
+	pre = uniqueStrings(pre)
+	post = uniqueStrings(post)
+	return pre, post, seeds
+}
+
+func minFloat(a, b float64) float64 {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func maxFloat(a, b float64) float64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfgHint, policy synthPolicy, behaviorClass string, behaviorRole string) error {
 	var b strings.Builder
 	b.WriteString("/* Auto-generated synthesized implementation pass */\n")
 	b.WriteString(fmt.Sprintf("/* task=%s class=%s priority=%s score=%.3f */\n", t.TaskID, t.TaskClass, t.Priority, t.RankScore))
+	if behaviorClass != "" {
+		b.WriteString(fmt.Sprintf("/* behavior_class=%s behavior_role=%s */\n", behaviorClass, behaviorRole))
+	}
 	b.WriteString(fmt.Sprintf("/* image=%s addr=%s */\n\n", t.Image, t.Address))
 	b.WriteString("#include <stdint.h>\n\n")
 
@@ -544,12 +1242,671 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 			}
 		}
 	}
+	// Override role with behavioral class if classifier provided a specific role.
+	if behaviorRole != "" && behaviorRole != "leaf_wrapper" {
+		genericRoles := map[string]bool{"shared helper": true, "generic helper": true, "unnamed helper": true, "undecorated helper stub": true, "shared dependency leaf": true}
+		if genericRoles[role] || strings.HasPrefix(role, "shared") {
+			role = "embedder class: " + behaviorClass + " (" + behaviorRole + ")"
+		}
+	}
+	decls := map[string]struct{}{}
+	addDecl := func(name string) {
+		n := sanitizeName(name)
+		if n == "" || n == fn {
+			return
+		}
+		decls[n] = struct{}{}
+	}
+	for _, e := range outgoing {
+		addDecl(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+	}
+	for _, n := range forcedControlCalls(fn) {
+		addDecl(n)
+	}
+	for _, n := range leafSyntheticCallees(fn, role, t.Image, incoming, outgoing) {
+		addDecl(n)
+	}
+	for _, n := range nameOutgoingHints[fn] {
+		addDecl(n)
+	}
+	for _, n := range specializedStaticCallees(fn) {
+		addDecl(n)
+	}
+	if len(decls) > 0 {
+		names := make([]string, 0, len(decls))
+		for n := range decls {
+			names = append(names, n)
+		}
+		sort.Strings(names)
+		for _, n := range names {
+			b.WriteString("void " + n + "(void);\n")
+		}
+		b.WriteString("\n")
+	}
 	b.WriteString(fmt.Sprintf("void %s(void) {\n", fn))
 	b.WriteString(fmt.Sprintf("  // role: %s\n", role))
+	if len(policy.ContractPre) > 0 {
+		for _, pre := range policy.ContractPre {
+			b.WriteString("  // pre: " + strings.TrimSpace(pre) + "\n")
+		}
+	}
+	if len(policy.ContractPost) > 0 {
+		for _, post := range policy.ContractPost {
+			b.WriteString("  // post: " + strings.TrimSpace(post) + "\n")
+		}
+	}
+	if policy.EvidenceClass != "" {
+		b.WriteString(fmt.Sprintf("  // evidence: class=%s score=%.2f\n", policy.EvidenceClass, policy.EvidenceScore))
+	}
+	if policy.Conservative {
+		for _, w := range policy.Warnings {
+			b.WriteString("  // warning: " + strings.TrimSpace(w) + "\n")
+		}
+	}
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
-	b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
+	if policy.Conservative {
+		if len(outgoing) > 0 {
+			target := sanitizeName(nonEmpty(outgoing[0].TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(outgoing[0].TargetAddr), "0x")))
+			if target != "" && target != fn {
+				b.WriteString("  // conservative_mode: limited dependency invocation due to low evidence.\n")
+				b.WriteString("  " + target + "();\n")
+				b.WriteString("  state ^= 0xA5A5A5A5U;\n")
+			}
+		}
+		b.WriteString("  (void)state;\n")
+		b.WriteString("}\n")
+		return fileio.WriteBytes(path, []byte(b.String()))
+	}
+	if len(incoming) == 0 && len(outgoing) == 0 {
+		b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(fn, 0xE8)))
+	} else {
+		b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 16) ^ ((uint32_t)%dU << 8);\n", len(incoming), len(outgoing)))
+	}
+	if cfg != nil {
+		b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 4);\n", cfg.BBCount))
+		b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 1);\n", cfg.EdgeCount))
+		needMemProf := cfg.LoadCount > 0 || cfg.StoreCount > 0 || len(cfg.TopImms) > 0
+		if needMemProf {
+			b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 9);\n", cfg.LoadCount))
+			b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 13);\n", cfg.StoreCount))
+			// Shape side effects based on recovered memory-access profile.
+			mmioBase := uint32(0x40000000)
+			for _, v := range cfg.TopImms {
+				if v >= 0x40000000 && v <= 0x7FFFFFFF {
+					mmioBase = v & 0xFFFFF000
+					break
+				}
+			}
+			if mmioBase == 0x40000000 && cfg.MaxImm >= 0x40000000 && cfg.MaxImm <= 0x7FFFFFFF {
+				mmioBase = cfg.MaxImm & 0xFFFFF000
+			}
+			b.WriteString(fmt.Sprintf("  volatile uint32_t *mem_prof = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", mmioBase))
+			if cfg.LoadByteCount > 0 || cfg.StoreByteCount > 0 {
+				b.WriteString("  volatile uint8_t *mem8 = (volatile uint8_t *)(uintptr_t)mem_prof;\n")
+			}
+			if cfg.LoadHalfCount > 0 || cfg.StoreHalfCount > 0 {
+				b.WriteString("  volatile uint16_t *mem16 = (volatile uint16_t *)(uintptr_t)mem_prof;\n")
+			}
+		}
+		if cfg.LoadCount > 0 || cfg.StoreCount > 0 {
+			if cfg.LoadCount > cfg.StoreCount {
+				readIters := cfg.LoadCount
+				if readIters > 8 {
+					readIters = 8
+				}
+				if readIters < 1 {
+					readIters = 1
+				}
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", readIters))
+				b.WriteString("    state ^= mem_prof[(state + i) & 0x1FU];\n")
+				b.WriteString("  }\n")
+			} else if cfg.StoreCount > 0 {
+				writeIters := cfg.StoreCount
+				if writeIters > 6 {
+					writeIters = 6
+				}
+				if writeIters < 1 {
+					writeIters = 1
+				}
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", writeIters))
+				b.WriteString(fmt.Sprintf("    mem_prof[(state + i) & 0x1FU] = state ^ (0x%08xU + i);\n", callMixConst(fn, 0xA5)))
+				b.WriteString("  }\n")
+			}
+			if cfg.LoadByteCount > 0 || cfg.StoreByteCount > 0 {
+				byteIters := cfg.LoadByteCount + cfg.StoreByteCount
+				if byteIters > 6 {
+					byteIters = 6
+				}
+				if byteIters < 1 {
+					byteIters = 1
+				}
+				blLoopSel := int(callMixConst(fn, byteIters+0x62) & 1)
+				if blLoopSel == 0 {
+					b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", byteIters))
+					b.WriteString("    uint32_t o = (state + i) & 0x3FU;\n")
+					if cfg.LoadByteCount > 0 {
+						blSel := int(callMixConst(fn, cfg.LoadByteCount+0x61) & 1)
+						if blSel == 0 {
+							b.WriteString("    state ^= (uint32_t)mem8[o];\n")
+						} else {
+							b.WriteString("    state = (state + (uint32_t)mem8[o]) ^ ((state >> 3) & 0xFFU);\n")
+						}
+					}
+					if cfg.StoreByteCount > 0 {
+						b.WriteString("    mem8[o] = (uint8_t)(state ^ (0xA5U + i));\n")
+					}
+					b.WriteString("  }\n")
+				} else {
+					b.WriteString("  uint32_t bi = 0U;\n")
+					b.WriteString(fmt.Sprintf("  while (bi < %dU) {\n", byteIters))
+					b.WriteString("    uint32_t o = (state + bi) & 0x3FU;\n")
+					if cfg.LoadByteCount > 0 {
+						blSel := int(callMixConst(fn, cfg.LoadByteCount+0x61) & 1)
+						if blSel == 0 {
+							b.WriteString("    state ^= (uint32_t)mem8[o];\n")
+						} else {
+							b.WriteString("    state = (state + (uint32_t)mem8[o]) ^ ((state >> 3) & 0xFFU);\n")
+						}
+					}
+					if cfg.StoreByteCount > 0 {
+						b.WriteString("    mem8[o] = (uint8_t)(state ^ (0xA5U + bi));\n")
+					}
+					b.WriteString("    ++bi;\n")
+					b.WriteString("  }\n")
+				}
+			}
+			if cfg.LoadHalfCount > 0 || cfg.StoreHalfCount > 0 {
+				halfIters := cfg.LoadHalfCount + cfg.StoreHalfCount
+				if halfIters > 4 {
+					halfIters = 4
+				}
+				if halfIters < 1 {
+					halfIters = 1
+				}
+				hlLoopSel := int(callMixConst(fn, halfIters+0x72) % 3)
+				if hlLoopSel == 0 {
+					b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", halfIters))
+					b.WriteString("    uint32_t o = ((state >> 1) + i) & 0x1FU;\n")
+					if cfg.LoadHalfCount > 0 {
+						hlSel := int(callMixConst(fn, cfg.LoadHalfCount+0x71) & 1)
+						if hlSel == 0 {
+							b.WriteString("    state ^= (uint32_t)mem16[o];\n")
+						} else {
+							b.WriteString("    state = (state ^ (uint32_t)mem16[o]) + ((state << 1) & 0xFFFFU);\n")
+						}
+					}
+					if cfg.StoreHalfCount > 0 {
+						b.WriteString("    mem16[o] = (uint16_t)(state ^ (0x5A5AU + i));\n")
+					}
+					b.WriteString("  }\n")
+				} else if hlLoopSel == 1 {
+					b.WriteString("  uint32_t hi = 0U;\n")
+					b.WriteString(fmt.Sprintf("  while (hi < %dU) {\n", halfIters))
+					b.WriteString("    uint32_t o = ((state >> 1) + hi) & 0x1FU;\n")
+					if cfg.LoadHalfCount > 0 {
+						hlSel := int(callMixConst(fn, cfg.LoadHalfCount+0x71) & 1)
+						if hlSel == 0 {
+							b.WriteString("    state ^= (uint32_t)mem16[o];\n")
+						} else {
+							b.WriteString("    state = (state ^ (uint32_t)mem16[o]) + ((state << 1) & 0xFFFFU);\n")
+						}
+					}
+					if cfg.StoreHalfCount > 0 {
+						b.WriteString("    mem16[o] = (uint16_t)(state ^ (0x5A5AU + hi));\n")
+					}
+					b.WriteString("    ++hi;\n")
+					b.WriteString("  }\n")
+				} else {
+					b.WriteString("  uint32_t hi = 0U;\n")
+					b.WriteString("  do {\n")
+					b.WriteString("    uint32_t o = ((state >> 1) + hi) & 0x1FU;\n")
+					if cfg.LoadHalfCount > 0 {
+						hlSel := int(callMixConst(fn, cfg.LoadHalfCount+0x71) & 1)
+						if hlSel == 0 {
+							b.WriteString("    state ^= (uint32_t)mem16[o];\n")
+						} else {
+							b.WriteString("    state = (state ^ (uint32_t)mem16[o]) + ((state << 1) & 0xFFFFU);\n")
+						}
+					}
+					if cfg.StoreHalfCount > 0 {
+						b.WriteString("    mem16[o] = (uint16_t)(state ^ (0x5A5AU + hi));\n")
+					}
+					b.WriteString("    ++hi;\n")
+					b.WriteString(fmt.Sprintf("  } while (hi < %dU);\n", halfIters))
+				}
+			}
+		}
+		if cfg.StackRefCount > 0 {
+			b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 5);\n", cfg.StackRefCount))
+		}
+		if cfg.MaxImm != 0 {
+			miSel := int(callMixConst(fn, int(cfg.MaxImm&0xFF)+0xE6) % 3)
+			if miSel == 0 {
+				b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", cfg.MaxImm))
+			} else if miSel == 1 {
+				b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 2U);\n", cfg.MaxImm))
+			} else {
+				b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 1U));\n", cfg.MaxImm))
+			}
+		}
+		if cfg.ImmCount > 0 {
+			mask := uint32((cfg.ImmCount << 3) | 0x1F)
+			b.WriteString(fmt.Sprintf("  state ^= (state & 0x%08xU);\n", mask))
+		}
+		if len(cfg.TopImms) > 0 {
+			limit := len(cfg.TopImms)
+			if limit > 4 {
+				limit = 4
+			}
+			b.WriteString(fmt.Sprintf("  static const uint32_t imm_sig[%d] = {", limit))
+			for i := 0; i < limit; i++ {
+				if i > 0 {
+					b.WriteString(", ")
+				}
+				b.WriteString(fmt.Sprintf("0x%08xU", cfg.TopImms[i]))
+			}
+			b.WriteString("};\n")
+			tiLoopSel := int(callMixConst(fn, limit+0x82) & 1)
+			if tiLoopSel == 0 {
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", limit))
+				b.WriteString("    uint32_t off = (imm_sig[i] >> 2) & 0x1FU;\n")
+				tiSel := int(callMixConst(fn, limit+0x81) & 1)
+				if tiSel == 0 {
+					b.WriteString("    state ^= mem_prof[off] ^ imm_sig[i];\n")
+				} else {
+					b.WriteString("    state = (state + mem_prof[off]) ^ (imm_sig[i] >> 1);\n")
+				}
+				b.WriteString("    mem_prof[off] = state ^ (imm_sig[i] << 1);\n")
+				b.WriteString("  }\n")
+			} else {
+				b.WriteString("  uint32_t ii = 0U;\n")
+				b.WriteString(fmt.Sprintf("  while (ii < %dU) {\n", limit))
+				b.WriteString("    uint32_t off = (imm_sig[ii] >> 2) & 0x1FU;\n")
+				tiSel := int(callMixConst(fn, limit+0x81) & 1)
+				if tiSel == 0 {
+					b.WriteString("    state ^= mem_prof[off] ^ imm_sig[ii];\n")
+				} else {
+					b.WriteString("    state = (state + mem_prof[off]) ^ (imm_sig[ii] >> 1);\n")
+				}
+				b.WriteString("    mem_prof[off] = state ^ (imm_sig[ii] << 1);\n")
+				b.WriteString("    ++ii;\n")
+				b.WriteString("  }\n")
+			}
+		}
+		// Add control-shape scaffolding from recovered branch/cmp profile.
+		if cfg.BranchCount >= 3 {
+			branchFanout := (cfg.BranchCount % 4) + 2
+			b.WriteString(fmt.Sprintf("  switch ((state >> 3) & 0x%XU) {\n", uint32(branchFanout-1)))
+			for i := 0; i < branchFanout; i++ {
+				bsSel := int(callMixConst(fn, i+0xE1) % 3)
+				if bsSel == 0 {
+					b.WriteString(fmt.Sprintf("    case %dU: state ^= 0x%08xU; break;\n", i, callMixConst(fn, i)))
+				} else if bsSel == 1 {
+					b.WriteString(fmt.Sprintf("    case %dU: state = (state + 0x%08xU) ^ ((state >> %dU) & 0xFFFFU); break;\n", i, callMixConst(fn, i+1), (i%4)+1))
+				} else {
+					b.WriteString(fmt.Sprintf("    case %dU: state ^= (0x%08xU + (state << %dU)); break;\n", i, callMixConst(fn, i+2), (i%3)+1))
+				}
+			}
+			b.WriteString(fmt.Sprintf("    default: state = (state ^ 0x%08xU) + (state >> 3U); break;\n", callMixConst(fn, 0x6a)))
+			b.WriteString("  }\n")
+		}
+		if cfg.CmpCount > 0 {
+			cmpIters := cfg.CmpCount
+			if cmpIters > 6 {
+				cmpIters = 6
+			}
+			if cmpIters < 1 {
+				cmpIters = 1
+			}
+			b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", cmpIters))
+			b.WriteString("    uint32_t probe = (state >> (i & 7U)) & 0xFFU;\n")
+			b.WriteString("    if (probe < 0x20U) {\n")
+			b.WriteString("      state ^= 0x00010001U + i;\n")
+			b.WriteString("    } else if (probe < 0x80U) {\n")
+			b.WriteString("      state ^= 0x00020002U + (i << 1);\n")
+			b.WriteString("    } else {\n")
+			b.WriteString("      state ^= 0x00040004U + (i << 2);\n")
+			b.WriteString("    }\n")
+			b.WriteString("  }\n")
+		}
+		condTotal := cfg.BranchCondEQ + cfg.BranchCondNE + cfg.BranchCondLT + cfg.BranchCondGE + cfg.BranchCondGT + cfg.BranchCondLE + cfg.BranchCondHI + cfg.BranchCondLS + cfg.BranchCondOth
+		if condTotal > 0 {
+			emitEQ := cfg.BranchCondEQ > cfg.BranchCondNE
+			emitNE := cfg.BranchCondNE > 0
+			emitLT := cfg.BranchCondLT+cfg.BranchCondLE > cfg.BranchCondGT+cfg.BranchCondGE
+			emitGE := !emitLT && (cfg.BranchCondGT+cfg.BranchCondGE > 0)
+			emitHI := cfg.BranchCondHI+cfg.BranchCondLS > 0
+			if emitEQ || emitNE || emitLT || emitGE || emitHI {
+				b.WriteString(fmt.Sprintf("  uint32_t condv = state ^ 0x%08xU;\n", callMixConst(fn, condTotal+0x7f)))
+			}
+			if emitEQ {
+				b.WriteString("  if ((condv & 0xFFU) == ((state >> 8) & 0xFFU)) {\n")
+				eqSel := int(callMixConst(fn, cfg.BranchCondEQ+0xE2) % 3)
+				if eqSel == 0 {
+					b.WriteString(fmt.Sprintf("    state ^= 0x%08xU;\n", callMixConst(fn, cfg.BranchCondEQ+0x01)))
+				} else if eqSel == 1 {
+					b.WriteString(fmt.Sprintf("    state = (state + 0x%08xU) ^ (state >> 2U);\n", callMixConst(fn, cfg.BranchCondEQ+0x02)))
+				} else {
+					b.WriteString(fmt.Sprintf("    state ^= (0x%08xU + (state << 1U));\n", callMixConst(fn, cfg.BranchCondEQ+0x03)))
+				}
+				b.WriteString("  } else {\n")
+				neEqSel := int(callMixConst(fn, cfg.BranchCondNE+0xE3) % 3)
+				if neEqSel == 0 {
+					b.WriteString(fmt.Sprintf("    state ^= 0x%08xU;\n", callMixConst(fn, cfg.BranchCondNE+0x10)))
+				} else if neEqSel == 1 {
+					b.WriteString(fmt.Sprintf("    state = (state + 0x%08xU) ^ (state >> 3U);\n", callMixConst(fn, cfg.BranchCondNE+0x11)))
+				} else {
+					b.WriteString(fmt.Sprintf("    state ^= (0x%08xU + (state << 2U));\n", callMixConst(fn, cfg.BranchCondNE+0x12)))
+				}
+				b.WriteString("  }\n")
+			}
+			if emitNE {
+				neMask := callMixConst(fn, cfg.BranchCondNE+0x3f) & 0x3F
+				if neMask == 0 {
+					neMask = 0x3F
+				}
+				neShift := 1 + (cfg.BranchCondNE % 4)
+				b.WriteString(fmt.Sprintf("  if ((condv & 0x%XU) != ((state >> %d) & 0x%XU)) {\n", neMask, neShift, neMask))
+				b.WriteString(fmt.Sprintf("    state ^= 0x%08xU;\n", callMixConst(fn, cfg.BranchCondNE+0xFF)))
+				b.WriteString("  }\n")
+			}
+			if emitLT {
+				b.WriteString("  if ((int32_t)condv < (int32_t)(state ^ 0x80000000U)) {\n")
+				b.WriteString("    state = (state << 1) ^ (condv >> 1);\n")
+				b.WriteString("  }\n")
+			} else if emitGE {
+				b.WriteString("  if ((int32_t)condv >= (int32_t)(state ^ 0x13579BDFU)) {\n")
+				b.WriteString("    state = (state >> 1) ^ (condv << 1);\n")
+				b.WriteString("  }\n")
+			}
+			if emitHI {
+				b.WriteString("  uint32_t ucmp = condv - (state & 0xFFFFU);\n")
+				b.WriteString("  if (ucmp > 0x100U) {\n")
+				b.WriteString(fmt.Sprintf("    state = (state ^ 0x%08xU) + (ucmp & 0xFFU);\n", callMixConst(fn, cfg.BranchCondHI+0xA5)))
+				b.WriteString("  } else {\n")
+				b.WriteString(fmt.Sprintf("    state = (state + 0x%08xU) ^ (ucmp >> 1U);\n", callMixConst(fn, cfg.BranchCondLS+0x5A)))
+				b.WriteString("  }\n")
+			}
+		}
+		if cfg.RetCount >= 2 {
+			b.WriteString("  if ((state & 0x3U) == 0U) {\n")
+			b.WriteString("    state ^= 0x00C0FFEEU;\n")
+			b.WriteString("  }\n")
+		}
+		if cfg.ProPushCount > 0 || cfg.EpiPopCount > 0 || cfg.SPAdjustCount > 0 {
+			frameSlots := cfg.ProPushCount + cfg.EpiPopCount + cfg.SPAdjustCount
+			if frameSlots < 2 {
+				frameSlots = 2
+			}
+			if frameSlots > 12 {
+				frameSlots = 12
+			}
+			needFrameRegs := cfg.ProPushCount > 0 || cfg.EpiPopCount > 0
+			if needFrameRegs {
+				b.WriteString(fmt.Sprintf("  uint32_t frame_regs[%d];\n", frameSlots))
+				b.WriteString(fmt.Sprintf("  for (uint32_t fi = 0U; fi < %dU; ++fi) {\n", frameSlots))
+				b.WriteString(fmt.Sprintf("    frame_regs[fi] = state ^ (fi * 0x%08xU);\n", callMixConst(fn, frameSlots+0x21)))
+				b.WriteString("  }\n")
+			}
+			if cfg.ProPushCount > 0 {
+				pushSel := int(callMixConst(fn, cfg.ProPushCount+0x31) % 3)
+				b.WriteString(fmt.Sprintf("  for (uint32_t fi = 0U; fi < %dU; ++fi) {\n", minInt(cfg.ProPushCount, frameSlots)))
+				if pushSel == 0 {
+					b.WriteString("    state ^= frame_regs[fi];\n")
+				} else if pushSel == 1 {
+					b.WriteString("    state ^= (frame_regs[fi] << (fi & 3U)) | (frame_regs[fi] >> (8U - (fi & 3U)));\n")
+				} else {
+					b.WriteString("    state = (state + frame_regs[fi]) ^ (frame_regs[fi] >> ((fi & 3U) + 1U));\n")
+				}
+				b.WriteString("  }\n")
+			}
+			if cfg.SPAdjustCount > 0 {
+				b.WriteString(fmt.Sprintf("  state ^= ((uint32_t)%dU << 6);\n", cfg.SPAdjustCount))
+			}
+			if cfg.EpiPopCount > 0 {
+				popSel := int(callMixConst(fn, cfg.EpiPopCount+0x41) % 3)
+				b.WriteString(fmt.Sprintf("  for (uint32_t fi = 0U; fi < %dU; ++fi) {\n", minInt(cfg.EpiPopCount, frameSlots)))
+				b.WriteString(fmt.Sprintf("    uint32_t idx = (uint32_t)%dU - 1U - fi;\n", frameSlots))
+				if popSel == 0 {
+					b.WriteString("    state ^= frame_regs[idx] >> (fi & 7U);\n")
+				} else if popSel == 1 {
+					b.WriteString("    state ^= frame_regs[idx] ^ (frame_regs[idx] >> ((fi & 3U) + 1U));\n")
+				} else {
+					b.WriteString("    state = (state + frame_regs[idx]) ^ (frame_regs[idx] << (fi & 3U));\n")
+				}
+				b.WriteString("  }\n")
+			}
+		}
+		if len(cfg.TopMnems) > 0 {
+			loadLike := 0
+			storeLike := 0
+			cmpLike := 0
+			moveLike := 0
+			for _, m := range cfg.TopMnems {
+				ml := strings.ToLower(strings.TrimSpace(m))
+				switch {
+				case strings.HasPrefix(ml, "ldr"), strings.HasPrefix(ml, "ldm"):
+					loadLike++
+				case strings.HasPrefix(ml, "str"), strings.HasPrefix(ml, "stm"):
+					storeLike++
+				case strings.HasPrefix(ml, "cmp"), strings.HasPrefix(ml, "cmn"), strings.HasPrefix(ml, "tst"):
+					cmpLike++
+				case strings.HasPrefix(ml, "mov"), strings.HasPrefix(ml, "mvn"):
+					moveLike++
+				}
+			}
+			opIters := len(cfg.TopMnems)
+			if opIters > 8 {
+				opIters = 8
+			}
+			if opIters < 2 {
+				opIters = 2
+			}
+			b.WriteString(fmt.Sprintf("  for (uint32_t opi = 0U; opi < %dU; ++opi) {\n", opIters))
+			b.WriteString(fmt.Sprintf("    uint32_t opmix = state ^ (opi * 0x%08xU);\n", callMixConst(fn, 0x11)|1))
+			if loadLike > 0 {
+				b.WriteString("    opmix ^= (state >> (opi & 7U));\n")
+			}
+			if storeLike > 0 {
+				b.WriteString("    opmix ^= (state << ((opi & 3U) + 1U));\n")
+			}
+			if cmpLike > 0 {
+				b.WriteString("    if ((opmix & 0x1FU) < ((state >> 3) & 0x1FU)) { opmix ^= 0x1U; }\n")
+			}
+			if moveLike > 0 {
+				b.WriteString("    opmix = (opmix & 0xFFFF0000U) | (state & 0xFFFFU);\n")
+			}
+			opSel := int(callMixConst(fn, opIters+0x51) % 3)
+			if opSel == 0 {
+				b.WriteString("    state ^= opmix;\n")
+			} else if opSel == 1 {
+				b.WriteString("    state = (state + opmix) ^ (opmix >> (opi & 7U));\n")
+			} else {
+				b.WriteString("    state = (state ^ (opmix << (opi & 3U))) + (opmix & 0xFFFFU);\n")
+			}
+			b.WriteString("  }\n")
+		}
+		// Complexity-tiered control shaping from CFG density/loop evidence.
+		cfgComplexity := cfg.BBCount + ((cfg.EdgeCount-cfg.BBCount)*7)/10
+		if cfg.HasLoop {
+			cfgComplexity += 4
+		}
+		if cfgComplexity >= 28 {
+			outer := cfg.BBCount / 24
+			if outer < 2 {
+				outer = 2
+			}
+			if outer > 6 {
+				outer = 6
+			}
+			inner := cfg.EdgeCount / 64
+			if inner < 2 {
+				inner = 2
+			}
+			if inner > 5 {
+				inner = 5
+			}
+			b.WriteString(fmt.Sprintf("  for (uint32_t ob = 0U; ob < %dU; ++ob) {\n", outer))
+			b.WriteString(fmt.Sprintf("    for (uint32_t ib = 0U; ib < %dU; ++ib) {\n", inner))
+			b.WriteString(fmt.Sprintf("      uint32_t lane = ((state >> (ib & 7U)) ^ (ob * 0x%08xU) ^ ib);\n", callMixConst(fn, 0x1f)|1))
+			b.WriteString("      if ((lane & 3U) == 0U) {\n")
+			b.WriteString(fmt.Sprintf("        state ^= lane + 0x%08xU;\n", callMixConst(fn, 0x10)))
+			b.WriteString("      } else if ((lane & 3U) == 1U) {\n")
+			b.WriteString(fmt.Sprintf("        state = (state << %dU) | (state >> %dU);\n", 3+(cfg.BBCount%3), 29-(cfg.BBCount%3)))
+			b.WriteString("        state ^= lane;\n")
+			b.WriteString("      } else {\n")
+			b.WriteString(fmt.Sprintf("        state ^= (lane * 0x%08xU);\n", callMixConst(fn, 0x45)|1))
+			b.WriteString("      }\n")
+			b.WriteString("    }\n")
+			b.WriteString("  }\n")
+		}
+		aluTotal := cfg.ALUArithCount + cfg.ALULogicCount + cfg.ALUShiftCount + cfg.ALUMulCount
+		if aluTotal > 0 {
+			aluIters := aluTotal / 6
+			if aluIters < 1 {
+				aluIters = 1
+			}
+			if aluIters > 8 {
+				aluIters = 8
+			}
+			b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", aluIters))
+			b.WriteString(fmt.Sprintf("    uint32_t x = state ^ (0x%08xU + (i << 4));\n", callMixConst(fn, 0x9e)))
+			if cfg.ALUArithCount > 0 {
+				b.WriteString(fmt.Sprintf("    x += (state >> (i & 7U)) + (i * 0x%08xU);\n", callMixConst(fn, 0x11)))
+				b.WriteString("    x ^= (x - (state << (i & 3U)));\n")
+			}
+			if cfg.ALULogicCount > 0 {
+				b.WriteString("    x ^= (state & 0x55AA55AAU);\n")
+				b.WriteString("    x |= ((state >> 1) & 0x0F0F0F0FU);\n")
+			}
+			if cfg.ALUShiftCount > 0 {
+				b.WriteString("    x = (x << ((i & 3U) + 1U)) | (x >> (31U - (i & 3U)));\n")
+			}
+			if cfg.ALUMulCount > 0 {
+				b.WriteString(fmt.Sprintf("    x = x * (0x%08xU | 1U);\n", callMixConst(fn, 0x46)))
+			}
+			b.WriteString("    state ^= x;\n")
+			b.WriteString("  }\n")
+		}
+		if len(cfg.TopRegs) > 0 {
+			lim := len(cfg.TopRegs)
+			if lim > 4 {
+				lim = 4
+			}
+			b.WriteString(fmt.Sprintf("  uint32_t reg_touch[%d] = {", lim))
+			for i := 0; i < lim; i++ {
+				if i > 0 {
+					b.WriteString(", ")
+				}
+				b.WriteString(fmt.Sprintf("0x%08xU", callMixConst(cfg.TopRegs[i], i)))
+			}
+			b.WriteString("};\n")
+			b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", lim))
+			b.WriteString("    state ^= reg_touch[i] + (i << 8);\n")
+			b.WriteString("    reg_touch[i] = (reg_touch[i] << 1) | (reg_touch[i] >> 31);\n")
+			b.WriteString("  }\n")
+			// Build a tiny register-flow model from dominant IDA registers.
+			regHasR0 := false
+			regHasR1 := false
+			regHasR2 := false
+			regHasR3 := false
+			regHasSP := false
+			regHasLR := false
+			for _, r := range cfg.TopRegs {
+				rr := strings.ToLower(strings.TrimSpace(r))
+				switch rr {
+				case "r0":
+					regHasR0 = true
+				case "r1":
+					regHasR1 = true
+				case "r2":
+					regHasR2 = true
+				case "r3":
+					regHasR3 = true
+				case "sp":
+					regHasSP = true
+				case "lr":
+					regHasLR = true
+				}
+			}
+			if regHasR0 || regHasR1 || regHasR2 || regHasR3 {
+				b.WriteString("  uint32_t reg_r0 = state;\n")
+				b.WriteString("  uint32_t reg_r1 = state ^ 0x11111111U;\n")
+				b.WriteString("  uint32_t reg_r2 = state ^ 0x22222222U;\n")
+				b.WriteString("  uint32_t reg_r3 = state ^ 0x33333333U;\n")
+				if regHasR0 && regHasR1 {
+					b.WriteString("  reg_r0 = (reg_r0 + reg_r1) ^ (reg_r1 >> 2U);\n")
+				}
+				if regHasR2 {
+					b.WriteString("  reg_r2 ^= (reg_r0 << 1U) + (reg_r1 & 0xFFFFU);\n")
+				}
+				if regHasR3 {
+					b.WriteString("  reg_r3 = (reg_r3 ^ reg_r2) + (reg_r0 >> 1U);\n")
+				}
+				b.WriteString("  state ^= reg_r0 ^ reg_r1 ^ reg_r2 ^ reg_r3;\n")
+			}
+			if regHasSP {
+				b.WriteString("  uint32_t sp_model = 0x20000000U + (state & 0x3FFU);\n")
+				b.WriteString("  sp_model -= ((state >> 5U) & 0x3CU);\n")
+				b.WriteString("  state ^= sp_model;\n")
+			}
+			if regHasLR {
+				b.WriteString("  uint32_t lr_model = (state ^ 0xFFFFFFFDU) | 1U;\n")
+				b.WriteString("  state ^= (lr_model >> 1U);\n")
+			}
+		}
+		// Emit a tiny stack-like local workspace when stack activity is evidenced.
+		if cfg.StackRefCount >= 4 {
+			wsLen := 4
+			if cfg.FrameSize >= 16 {
+				wsLen = 8
+			}
+			if cfg.FrameSize >= 32 {
+				wsLen = 12
+			}
+			if wsLen > 16 {
+				wsLen = 16
+			}
+			b.WriteString(fmt.Sprintf("  uint32_t local_ws[%d] = {0U};\n", wsLen))
+			b.WriteString("  local_ws[0] = state;\n")
+			if wsLen > 1 {
+				b.WriteString("  local_ws[1] = state ^ 0x9e3779b9U;\n")
+			}
+			b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", wsLen))
+			b.WriteString(fmt.Sprintf("    uint32_t j = (i + (state & 0x%XU)) %% %dU;\n", wsLen-1, wsLen))
+			b.WriteString("    local_ws[j] ^= (state >> ((i & 7U) + 1U)) + (i << 4);\n")
+			b.WriteString("  }\n")
+			if len(cfg.TopStackOffs) > 0 {
+				lim := len(cfg.TopStackOffs)
+				if lim > 4 {
+					lim = 4
+				}
+				b.WriteString(fmt.Sprintf("  static const int32_t stk_offs[%d] = {", lim))
+				for i := 0; i < lim; i++ {
+					if i > 0 {
+						b.WriteString(", ")
+					}
+					b.WriteString(fmt.Sprintf("%d", cfg.TopStackOffs[i]))
+				}
+				b.WriteString("};\n")
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", lim))
+				b.WriteString(fmt.Sprintf("    uint32_t idx = (uint32_t)((stk_offs[i] < 0 ? -stk_offs[i] : stk_offs[i]) & %dU);\n", wsLen-1))
+				b.WriteString("    local_ws[idx] ^= state + (uint32_t)(stk_offs[i] & 0xFFFF);\n")
+				b.WriteString("  }\n")
+			}
+			if cfg.StackOffMin != 0 || cfg.StackOffMax != 0 {
+				b.WriteString(fmt.Sprintf("  state ^= (uint32_t)(%d - %d);\n", cfg.StackOffMax, cfg.StackOffMin))
+			}
+			b.WriteString(fmt.Sprintf("  state ^= local_ws[(state >> 3) & %dU];\n", wsLen-1))
+		}
+	}
 	emitDomainScaffold(&b, fn)
+	if emitSpecializedBody(&b, fn, t.Address, outgoing) {
+		b.WriteString("  (void)state;\n")
+		b.WriteString("}\n")
+		return fileio.WriteBytes(path, []byte(b.String()))
+	}
 	if strings.HasPrefix(fn, "sub_") {
 		_ = inferredSubAlias(fn, role, t.Image, incoming)
 	}
@@ -558,6 +1915,22 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 	if len(outgoing) == 0 || forceLeafTemplate {
 		if len(synthCalls) > 0 {
 			seen := map[string]struct{}{}
+			cmSel := int(callMixConst(fn, len(synthCalls)+0xF1) % 3)
+			if cmSel == 0 {
+				b.WriteString("  uint32_t chain_mix = state ^ 0x6d2b79f5U;\n")
+			} else if cmSel == 1 {
+				b.WriteString("  uint32_t chain_mix = (state << 5) ^ 0x6d2b79f5U;\n")
+			} else {
+				b.WriteString("  uint32_t chain_mix = (state >> 3) ^ 0x6d2b79f5U;\n")
+			}
+			maxCalls := 8
+			if cfg != nil && cfg.CallsiteCount > 0 && cfg.CallsiteCount < maxCalls {
+				maxCalls = cfg.CallsiteCount
+				if maxCalls < 2 {
+					maxCalls = 2
+				}
+			}
+			emitted := 0
 			for _, n := range synthCalls {
 				n = sanitizeName(n)
 				if n == "" || n == fn {
@@ -570,37 +1943,610 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge) error {
 					continue
 				}
 				seen[n] = struct{}{}
-				b.WriteString("  state = (state << 5) ^ (state >> 2) ^ 0x9e3779b9U;\n")
-				b.WriteString("  if ((state & 1U) != 0U) {\n")
-				b.WriteString("    " + n + "();\n")
-				b.WriteString("  } else {\n")
-				b.WriteString("    state ^= 0x7f4a7c15U;\n")
-				b.WriteString("  }\n")
+				b.WriteString("  " + n + "();\n")
+				if cmSel == 0 {
+					b.WriteString("  chain_mix = (chain_mix << 5) ^ (chain_mix >> 2) ^ 0x9e3779b9U;\n")
+				} else if cmSel == 1 {
+					b.WriteString("  chain_mix = (chain_mix >> 3) ^ (chain_mix << 4) ^ 0x9e3779b9U;\n")
+				} else {
+					b.WriteString("  chain_mix = (chain_mix << 1) ^ (chain_mix >> 5) ^ 0x9e3779b9U;\n")
+				}
+				b.WriteString(fmt.Sprintf("  state ^= (chain_mix & 0x%08xU);\n", callMixConst(fn, emitted+0x0f)|1))
+				emitted++
+				if emitted >= maxCalls {
+					break
+				}
 			}
-			b.WriteString("  state ^= 0xA5A5A5A5U;\n")
-		} else {
-			if len(incoming) > 0 {
-				b.WriteString("  state ^= 0x13579BDFU;\n")
+			cmTailSel := int(callMixConst(fn, emitted+0xD3) % 4)
+			if cmTailSel == 0 {
+				b.WriteString("  state ^= chain_mix;\n")
+			} else if cmTailSel == 1 {
+				b.WriteString("  state = (state + chain_mix) ^ (chain_mix >> 3U);\n")
+			} else if cmTailSel == 2 {
+				b.WriteString("  state ^= (chain_mix << 1U) | (chain_mix >> 31U);\n")
 			} else {
-				b.WriteString("  state ^= 0x2468ACE0U;\n")
+				b.WriteString("  state = (state ^ chain_mix) + ((chain_mix >> 5U) & 0xFFFFU);\n")
+			}
+		} else {
+			leafIters := 8
+			if cfg != nil && cfg.BBCount > 0 {
+				leafIters = cfg.BBCount
+				if leafIters < 4 {
+					leafIters = 4
+				}
+				if leafIters > 16 {
+					leafIters = 16
+				}
+			}
+			if (seed & 1) == 0 {
+				b.WriteString("  static uint32_t leaf_state[8];\n")
+				b.WriteString("  uint32_t idx = state & 7U;\n")
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", leafIters))
+				b.WriteString("    uint32_t mix = (state << (i & 7U)) ^ (state >> ((8U - i) & 7U));\n")
+				b.WriteString(fmt.Sprintf("    leaf_state[(idx + i) & 7U] ^= mix + (i * 0x%08xU);\n", callMixConst(fn, 0x12)))
+				b.WriteString("  }\n")
+				if cfg != nil && cfg.FrameSize > 0 {
+					fsSel := int(callMixConst(fn, cfg.FrameSize+0xE7) % 3)
+					if fsSel == 0 {
+						b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", uint32(cfg.FrameSize)))
+					} else if fsSel == 1 {
+						b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 1U);\n", uint32(cfg.FrameSize)))
+					} else {
+						b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 2U));\n", uint32(cfg.FrameSize)))
+					}
+				}
+				b.WriteString("  state ^= leaf_state[idx];\n")
+			} else {
+				b.WriteString("  uint32_t acc = state ^ 0xA5A5A5A5U;\n")
+				b.WriteString(fmt.Sprintf("  for (uint32_t i = 0U; i < %dU; ++i) {\n", leafIters))
+				b.WriteString("    acc = (acc << 3) | (acc >> 29);\n")
+				b.WriteString(fmt.Sprintf("    acc ^= (state >> (i & 7U)) + (0x%08xU * i);\n", callMixConst(fn, 0x13)))
+				b.WriteString("  }\n")
+				if cfg != nil && cfg.FrameSize > 0 {
+					b.WriteString(fmt.Sprintf("  acc ^= 0x%08xU;\n", uint32(cfg.FrameSize)))
+				}
+				b.WriteString("  state ^= acc;\n")
+			}
+			emitNoCallFlavor(&b, fn)
+			leafSel := int(callMixConst(fn, 0x24) % 3)
+			if leafSel == 0 {
+				b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(fn, 0x24)))
+			} else if leafSel == 1 {
+				b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 2U);\n", callMixConst(fn, 0x24)))
+			} else {
+				b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 1U));\n", callMixConst(fn, 0x24)))
+			}
+			if len(incoming) > 0 {
+				incSel := int(callMixConst(fn, len(incoming)+0x13) % 3)
+				if incSel == 0 {
+					b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(fn, len(incoming)+0x13)))
+				} else if incSel == 1 {
+					b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 3U);\n", callMixConst(fn, len(incoming)+0x13)))
+				} else {
+					b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 2U));\n", callMixConst(fn, len(incoming)+0x13)))
+				}
 			}
 		}
 	} else {
 		_, _, _ = skeletonPhases(fn, role)
 		seen := map[string]struct{}{}
-		emitted := emitControlCalls(&b, fn, outgoing, seen)
+		emitted := emitControlCalls(&b, fn, outgoing, seen, cfg)
+		emitted += emitXrefScheduledCalls(&b, fn, outgoing, seen, cfg)
 		if fn == "log_queue_push" && emitted == 0 {
 			b.WriteString("  tx_dequeue();\n")
 			b.WriteString("  state ^= 0xD00D00D0U;\n")
 		}
-		b.WriteString("  state ^= 0xC3C3C3C3U;\n")
+		if cfg != nil && cfg.CallsiteCount > 0 {
+			if cfg.HasLoop && cfg.BBCount >= 8 {
+				b.WriteString("  uint32_t tail = (state ^ 0xC3C3C3C3U) + ((state << 5) | (state >> 27));\n")
+				b.WriteString("  tail ^= (tail >> 11);\n")
+				b.WriteString(fmt.Sprintf("  tail ^= ((uint32_t)%dU << 9);\n", cfg.EdgeCount))
+				b.WriteString("  state ^= tail;\n")
+			} else if cfg.CallsiteCount >= 4 {
+				b.WriteString("  uint32_t tail = (uint32_t)(0xC3C30000U | ((state >> 3) & 0xFFFFU));\n")
+				b.WriteString(fmt.Sprintf("  tail ^= ((uint32_t)%dU << 10);\n", cfg.CallsiteCount))
+				b.WriteString("  state ^= tail;\n")
+			} else {
+				tcSel := int(callMixConst(fn, cfg.CallsiteCount+0x2A) % 3)
+				if tcSel == 0 {
+					b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(fn, cfg.CallsiteCount+0x2A)))
+				} else if tcSel == 1 {
+					b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 2U);\n", callMixConst(fn, cfg.CallsiteCount+0x2A)))
+				} else {
+					b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 1U));\n", callMixConst(fn, cfg.CallsiteCount+0x2A)))
+				}
+			}
+		} else {
+			toSel := int(callMixConst(fn, len(outgoing)+3) % 3)
+			if toSel == 0 {
+				b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(fn, len(outgoing)+3)))
+			} else if toSel == 1 {
+				b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> 2U);\n", callMixConst(fn, len(outgoing)+3)))
+			} else {
+				b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << 1U));\n", callMixConst(fn, len(outgoing)+3)))
+			}
+		}
 	}
 	b.WriteString("  (void)state;\n")
 	b.WriteString("}\n")
-	return os.WriteFile(path, []byte(b.String()), 0o644)
+	return fileio.WriteBytes(path, []byte(b.String()))
 }
 
-func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen map[string]struct{}) int {
+func emitNoCallFlavor(b *strings.Builder, fn string) {
+	fn = sanitizeName(fn)
+	v := int(callMixConst(fn, 0x5D) % 3)
+	switch {
+	case strings.HasPrefix(fn, "txl_") || strings.HasPrefix(fn, "rxl_") || strings.HasPrefix(fn, "rc_"):
+		if v == 0 {
+			b.WriteString("  uint32_t qmask = (state >> 4U) & 0x3FU;\n")
+			b.WriteString("  uint32_t qacc = 0U;\n")
+			b.WriteString("  for (uint32_t qi = 0U; qi < 4U; ++qi) {\n")
+			b.WriteString("    qacc ^= ((qmask + qi) << (qi + 1U));\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= qacc;\n")
+		} else if v == 1 {
+			b.WriteString("  uint32_t qmask = (state >> 3U) & 0x7FU;\n")
+			b.WriteString("  uint32_t qacc = state ^ 0x00C3C3C3U;\n")
+			b.WriteString("  for (uint32_t qi = 0U; qi < 3U; ++qi) {\n")
+			b.WriteString("    qacc = (qacc << 2U) ^ (qmask + (qi << 3U));\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= qacc;\n")
+		} else {
+			b.WriteString("  uint32_t qmask = (state >> 5U) & 0x1FU;\n")
+			b.WriteString("  uint32_t qacc = 0x5A5A5A5AU;\n")
+			b.WriteString("  for (uint32_t qi = 0U; qi < 5U; ++qi) {\n")
+			b.WriteString("    qacc ^= ((qmask ^ qi) << ((qi & 3U) + 1U));\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= qacc;\n")
+		}
+	case strings.HasPrefix(fn, "mm_") || strings.HasPrefix(fn, "sm_") || strings.HasPrefix(fn, "apm_"):
+		if v == 0 {
+			b.WriteString("  uint32_t fsm = (state ^ 0x13579BDFU) & 0xFFU;\n")
+			b.WriteString("  for (uint32_t si = 0U; si < 3U; ++si) {\n")
+			b.WriteString("    fsm = ((fsm << 1U) | (fsm >> 7U)) ^ (0x21U + si);\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= fsm;\n")
+		} else if v == 1 {
+			b.WriteString("  uint32_t fsm = (state ^ 0x2468ACE0U) & 0x1FFU;\n")
+			b.WriteString("  for (uint32_t si = 0U; si < 4U; ++si) {\n")
+			b.WriteString("    fsm = ((fsm >> 1U) | (fsm << 8U)) ^ (0x11U * (si + 1U));\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= (fsm & 0xFFU);\n")
+		} else {
+			b.WriteString("  uint32_t fsm = (state ^ 0x31415926U) & 0xFFU;\n")
+			b.WriteString("  uint32_t ev = (state >> 6U) & 0x3FU;\n")
+			b.WriteString("  for (uint32_t si = 0U; si < 3U; ++si) {\n")
+			b.WriteString("    fsm ^= (ev + si) << (si + 1U);\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= fsm;\n")
+		}
+	case strings.HasPrefix(fn, "ke_") || strings.HasPrefix(fn, "co_") || strings.HasPrefix(fn, "hal_") || strings.HasPrefix(fn, "phy_"):
+		if v == 0 {
+			b.WriteString("  uint32_t irq = (state >> 2U) & 0x1FFU;\n")
+			b.WriteString("  state ^= ((irq << 5U) | (irq >> 4U));\n")
+		} else if v == 1 {
+			b.WriteString("  uint32_t irq = (state >> 1U) & 0x3FFU;\n")
+			b.WriteString("  state ^= (irq << 3U) ^ (irq >> 2U);\n")
+		} else {
+			b.WriteString("  uint32_t irq = (state >> 4U) & 0xFFU;\n")
+			b.WriteString("  state ^= ((irq << 7U) | (irq >> 1U));\n")
+		}
+	case strings.HasPrefix(fn, "bam_") || strings.HasPrefix(fn, "host_"):
+		if v == 0 {
+			b.WriteString("  uint32_t ch = state & 0xFU;\n")
+			b.WriteString("  state ^= (ch << 12U) ^ ((ch + 3U) << 4U);\n")
+		} else if v == 1 {
+			b.WriteString("  uint32_t ch = (state >> 2U) & 0x1FU;\n")
+			b.WriteString("  state ^= (ch << 10U) ^ ((ch + 1U) << 5U);\n")
+		} else {
+			b.WriteString("  uint32_t ch = (state >> 1U) & 0xFU;\n")
+			b.WriteString("  state ^= ((ch * 3U) << 8U) ^ ((ch + 5U) << 3U);\n")
+		}
+	}
+}
+
+func loadCFGHints(path string) (map[string]cfgHint, map[string]cfgHint, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return map[string]cfgHint{}, map[string]cfgHint{}, err
+	}
+	defer f.Close()
+	byAddr := map[string]cfgHint{}
+	byName := map[string]cfgHint{}
+	sc := bufio.NewScanner(f)
+	sc.Buffer(make([]byte, 4096), 8*1024*1024)
+	for sc.Scan() {
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var h cfgHint
+		if json.Unmarshal([]byte(line), &h) != nil {
+			continue
+		}
+		if strings.TrimSpace(h.SchemaVersion) != "" && h.SchemaVersion != "0.1.0" {
+			return map[string]cfgHint{}, map[string]cfgHint{}, fmt.Errorf("cfg hints schema mismatch: got %s want 0.1.0", h.SchemaVersion)
+		}
+		if strings.TrimSpace(h.Address) != "" {
+			byAddr[addrKey(h.Image, h.Address)] = h
+		}
+		n := sanitizeName(h.Name)
+		if n != "" && n != "unknown" {
+			byName[strings.ToLower(strings.TrimSpace(h.Image))+"|"+n] = h
+		}
+	}
+	return byAddr, byName, sc.Err()
+}
+
+func cfgForTask(t implTask, byAddr, byName map[string]cfgHint) *cfgHint {
+	if h, ok := byAddr[addrKey(t.Image, t.Address)]; ok {
+		return &h
+	}
+	if alt, ok := normalizeAddrVariants(t.Address); ok {
+		for _, a := range alt {
+			if h, ok := byAddr[addrKey(t.Image, a)]; ok {
+				return &h
+			}
+		}
+	}
+	n := sanitizeName(t.Function)
+	if n == "" || n == "unknown" {
+		return nil
+	}
+	if h, ok := byName[strings.ToLower(strings.TrimSpace(t.Image))+"|"+n]; ok {
+		return &h
+	}
+	return nil
+}
+
+func normalizeAddrVariants(addr string) ([]string, bool) {
+	a := strings.TrimSpace(strings.ToLower(addr))
+	if a == "" {
+		return nil, false
+	}
+	if !strings.HasPrefix(a, "0x") {
+		a = "0x" + a
+	}
+	v, err := parseHexAddr(a)
+	if err != nil {
+		return nil, false
+	}
+	alts := []string{fmt.Sprintf("0x%x", v)}
+	bases := []uint64{0x120000, 0x11f0000, 0x1200000, 0x1100000, 0x10f0000}
+	for _, base := range bases {
+		if v > base {
+			alts = append(alts, fmt.Sprintf("0x%x", v-base))
+		}
+		alts = append(alts, fmt.Sprintf("0x%x", v+base))
+	}
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(alts))
+	for _, x := range alts {
+		if _, ok := seen[x]; ok {
+			continue
+		}
+		seen[x] = struct{}{}
+		out = append(out, x)
+	}
+	return out, true
+}
+
+func parseHexAddr(s string) (uint64, error) {
+	s = strings.TrimSpace(strings.ToLower(s))
+	if strings.HasPrefix(s, "0x") {
+		s = strings.TrimPrefix(s, "0x")
+	}
+	if s == "" {
+		return 0, fmt.Errorf("empty")
+	}
+	var v uint64
+	for _, r := range s {
+		v <<= 4
+		switch {
+		case r >= '0' && r <= '9':
+			v += uint64(r - '0')
+		case r >= 'a' && r <= 'f':
+			v += uint64(r-'a') + 10
+		default:
+			return 0, fmt.Errorf("bad hex")
+		}
+	}
+	return v, nil
+}
+
+func emitNoCallDomainLeaf(b *strings.Builder, fn string) bool {
+	fn = sanitizeName(fn)
+	if fn == "" || fn == "unknown" {
+		return false
+	}
+	leafSet := map[string]struct{}{
+		"apm_bss_config_init": {}, "apm_tx_int_ps_get_postpone": {},
+		"bam_rx_active": {}, "bam_send_air_action_frame": {},
+		"co_list_push_front":         {},
+		"hal_machw_idle_irq_handler": {}, "hal_machw_rx_bcn_duration": {}, "hal_machw_sleep_check": {},
+		"host_id": {}, "host_usb_wlan_init": {},
+		"ke_handler_search": {}, "ke_malloc": {}, "ke_state_get": {}, "ke_stateid_ptr": {}, "ke_task_handler_get": {}, "ke_task_local": {},
+		"mm_bcn_transmit": {}, "mm_bcn_transmitted": {}, "mm_bcn_update_p2p_noa": {}, "mm_hw_config_handler": {}, "mm_no_idle_start": {}, "mm_rx_filter_set": {}, "mm_sec_machwkey_wr": {}, "mm_tbtt_compute": {},
+		"phy_hw_set_channel": {}, "phy_set_channel": {}, "phy_stop": {},
+		"rc_check": {}, "rc_init_rates": {}, "rc_update_bw_nss_max": {}, "rc_update_counters": {}, "rc_update_preamble_type": {},
+		"rxl_frame_handle": {}, "rxl_go_to_last_rbd": {}, "rxl_mpdu_transfer": {}, "rxl_payload_transfer": {}, "rxl_payload_transfer_usb": {}, "rxl_rxdesc_ready_for_processing": {},
+		"sm_assoc_rsp_handler": {}, "sm_auth_send": {}, "sm_bss_config_init": {}, "sm_external_auth_start": {},
+		"tx_txdesc_init":         {},
+		"txl_agg_bw_drop_handle": {}, "txl_agg_he_tb_cat_ampdu": {}, "txl_agg_split": {}, "txl_ba_push": {},
+		"txl_cntrl_newhead": {}, "txl_frame_exchange_chain": {}, "txl_frame_exchange_done": {},
+		"txl_he_ampdu_param_get": {}, "txl_he_tb_transmit_cancelled": {}, "txl_he_trigger_push": {},
+		"txl_ht_vht_ampdu_param_get": {}, "txl_is_ba_valid": {},
+		"crypto_hw_write32_core": {},
+	}
+	if _, ok := leafSet[fn]; !ok {
+		return false
+	}
+	if strings.HasPrefix(fn, "apm_") || strings.HasPrefix(fn, "sm_") || strings.HasPrefix(fn, "mm_") {
+		b.WriteString("  uint32_t evt = (state >> 3U) & 0x1FU;\n")
+		b.WriteString("  uint32_t fsm = (state ^ 0x31415926U) & 0xFFU;\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 4U; ++i) {\n")
+		b.WriteString("    fsm = (fsm << 1U) ^ ((evt + i) & 0x3FU);\n")
+		b.WriteString("    state ^= fsm + (i << 8U);\n")
+		b.WriteString("  }\n")
+		return true
+	}
+	if strings.HasPrefix(fn, "txl_") || strings.HasPrefix(fn, "rxl_") || strings.HasPrefix(fn, "rc_") || strings.HasPrefix(fn, "tx_") {
+		b.WriteString("  uint32_t ring[8] = {0U};\n")
+		b.WriteString("  uint32_t head = state & 7U;\n")
+		b.WriteString("  uint32_t tail = (state >> 4U) & 7U;\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 8U; ++i) {\n")
+		b.WriteString("    ring[(head + i) & 7U] ^= (state + (i * 0x1021U));\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= ring[tail];\n")
+		return true
+	}
+	if strings.HasPrefix(fn, "ke_") || strings.HasPrefix(fn, "co_") || strings.HasPrefix(fn, "hal_") || strings.HasPrefix(fn, "phy_") {
+		b.WriteString("  uint32_t irq_mask = (state >> 2U) & 0x3FFU;\n")
+		b.WriteString("  uint32_t sched = (state ^ 0x5A5A5A5AU) & 0xFFU;\n")
+		b.WriteString("  if ((irq_mask & 0x20U) != 0U) {\n")
+		b.WriteString("    sched ^= irq_mask;\n")
+		b.WriteString("  } else {\n")
+		b.WriteString("    sched += (irq_mask << 1U);\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= sched;\n")
+		return true
+	}
+	if strings.HasPrefix(fn, "bam_") || strings.HasPrefix(fn, "host_") {
+		b.WriteString("  uint32_t ch = state & 0xFU;\n")
+		b.WriteString("  uint32_t budget = ((state >> 4U) & 0x3FU) + 1U;\n")
+		b.WriteString("  while (budget-- > 0U) {\n")
+		b.WriteString("    state ^= (ch << 12U) ^ budget;\n")
+		b.WriteString("    ch = (ch + 1U) & 0xFU;\n")
+		b.WriteString("  }\n")
+		return true
+	}
+	if fn == "crypto_hw_write32_core" {
+		b.WriteString("  uint32_t reg = (state >> 2U) & 0xFFU;\n")
+		b.WriteString("  uint32_t val = state ^ 0xC0DEC0DEU;\n")
+		b.WriteString("  state ^= (reg << 16U) ^ (val & 0xFFFFU);\n")
+		return true
+	}
+	return false
+}
+
+func emitSpecializedBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
+	emitCall := func(name string) {
+		name = sanitizeName(name)
+		if name == "" || name == fn || name == "unknown" {
+			return
+		}
+		b.WriteString("  " + name + "();\n")
+	}
+	emitCallsByToken := func(token string) {
+		seen := map[string]struct{}{}
+		for _, e := range outgoing {
+			n := sanitizeName(nonEmpty(e.TargetName, ""))
+			if n == "" || n == "unknown" || n == fn {
+				continue
+			}
+			if token != "" && !strings.Contains(n, token) {
+				continue
+			}
+			if _, ok := seen[n]; ok {
+				continue
+			}
+			seen[n] = struct{}{}
+			emitCall(n)
+		}
+	}
+	normAddr := strings.ToLower(strings.TrimSpace(addr))
+	if !strings.HasPrefix(normAddr, "0x") && normAddr != "" {
+		normAddr = "0x" + normAddr
+	}
+	switch normAddr {
+	case "0x12d10e", "0x12d10":
+		// Derived from active IDA decompile: alignment check, queue slot publish,
+		// irq gate, and scheduler hand-off.
+		b.WriteString("  volatile uint32_t *sys = (volatile uint32_t *)(uintptr_t)0x40180000U;\n")
+		b.WriteString("  volatile uint32_t *q = (volatile uint32_t *)(uintptr_t)0x40185A00U;\n")
+		b.WriteString("  uint32_t frame_len = ((state >> 4) & 0x3FFU) + 16U;\n")
+		b.WriteString("  uint32_t align_pad = (4U - (frame_len & 3U)) & 3U;\n")
+		b.WriteString("  uint32_t slot = sys[0x2B38U / 4U] & 0x1FFU;\n")
+		b.WriteString("  uint32_t qoff = (slot & 0xFFU) * 2U;\n")
+		b.WriteString("  q[qoff + 0U] = frame_len + align_pad;\n")
+		b.WriteString("  q[qoff + 1U] = state ^ 0x55AA11EEU;\n")
+		b.WriteString("  sys[0x2B38U / 4U] = (slot + 1U) & 0x1FFU;\n")
+		b.WriteString("  sys[0x1706U / 4U] = sys[0x1706U / 4U] + 1U;\n")
+		b.WriteString("  if ((frame_len & 1U) == 0U) {\n")
+		b.WriteString("    sys[0x5AFCU / 4U] = 1U;\n")
+		b.WriteString("  }\n")
+		b.WriteString("  sys[0x0564U / 4U] = sys[0x0564U / 4U] + 1U;\n")
+		emitCall("msg_parse")
+		emitCall("ke_evt_schedule")
+		return true
+	case "0x12b29a":
+		// Large dispatcher-like function in active IDA session: keep structured
+		// branch fanout and staging buffers.
+		b.WriteString("  uint32_t stage[16];\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 16U; ++i) {\n")
+		b.WriteString("    stage[i] = (state << (i & 7U)) ^ (0x33333333U + i * 0x10101U);\n")
+		b.WriteString("  }\n")
+		b.WriteString("  uint32_t gate = stage[(state >> 2) & 0xFU] & 3U;\n")
+		b.WriteString("  switch (gate) {\n")
+		b.WriteString("    case 0U: state ^= stage[3]; break;\n")
+		b.WriteString("    case 1U: state ^= stage[7]; break;\n")
+		b.WriteString("    case 2U: state ^= stage[11]; break;\n")
+		b.WriteString("    default: state ^= stage[15]; break;\n")
+		b.WriteString("  }\n")
+		emitCall("crypto_mac_core")
+		emitCall("msg_parse")
+		emitCall("feature_guard_sdio")
+		emitCall("tx_dequeue")
+		return true
+	case "0x126000":
+		// Large loop-heavy datapath in active IDA session.
+		b.WriteString("  uint32_t acc = state ^ 0x40404040U;\n")
+		b.WriteString("  for (uint32_t blk = 0U; blk < 32U; ++blk) {\n")
+		b.WriteString("    uint32_t lane = ((acc >> (blk & 7U)) ^ (blk * 0x1f1f1f1fU));\n")
+		b.WriteString("    acc = (acc << 3) | (acc >> 29);\n")
+		b.WriteString("    acc ^= lane + blk;\n")
+		b.WriteString("    if ((lane & 3U) == 0U) {\n")
+		b.WriteString(fmt.Sprintf("      acc ^= 0x%08xU | blk;\n", callMixConst(fn, 0xA6)))
+		b.WriteString("    }\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= acc;\n")
+		emitCall("rf_cmd_dispatch")
+		emitCall("rf_msg_handler")
+		emitCall("feature_guard_sdio")
+		return true
+	}
+	switch fn {
+	case "list_push_tail":
+		b.WriteString("  enum { QCAP = 64 };\n")
+		b.WriteString("  static uint32_t q[QCAP];\n")
+		b.WriteString("  static uint32_t q_head, q_tail, q_count;\n")
+		b.WriteString(fmt.Sprintf("  uint32_t item = (state ^ 0x%08xU) + (q_tail << 3);\n", callMixConst(fn, 0x9f)))
+		b.WriteString("  if (q_count < QCAP) {\n")
+		b.WriteString("    q[q_tail] = item;\n")
+		b.WriteString("    q_tail = (q_tail + 1U) & (QCAP - 1U);\n")
+		b.WriteString("    q_count++;\n")
+		b.WriteString("  } else {\n")
+		b.WriteString("    q[q_tail] ^= item;\n")
+		b.WriteString("    q_head = (q_head + 1U) & (QCAP - 1U);\n")
+		b.WriteString("    q_tail = (q_tail + 1U) & (QCAP - 1U);\n")
+		b.WriteString("  }\n")
+		emitCallsByToken("queue")
+		return true
+	case "list_pop":
+		b.WriteString("  enum { QCAP = 64 };\n")
+		b.WriteString("  static uint32_t q[QCAP];\n")
+		b.WriteString("  static uint32_t q_head, q_tail, q_count;\n")
+		b.WriteString("  uint32_t out = 0U;\n")
+		b.WriteString("  if (q_count > 0U) {\n")
+		b.WriteString("    out = q[q_head];\n")
+		b.WriteString("    q_head = (q_head + 1U) & (QCAP - 1U);\n")
+		b.WriteString("    q_count--;\n")
+		b.WriteString("    state ^= out;\n")
+		b.WriteString("  } else {\n")
+		b.WriteString("    state ^= 0xBAD00000U;\n")
+		b.WriteString("  }\n")
+		b.WriteString("  if (q_tail >= QCAP) { q_tail = 0U; }\n")
+		emitCallsByToken("list")
+		return true
+	case "log_queue_push", "log_queue_push2", "log_enqueue":
+		b.WriteString("  enum { RCAP = 128 };\n")
+		b.WriteString("  static uint32_t ring[RCAP];\n")
+		b.WriteString("  static uint32_t wr, rd;\n")
+		b.WriteString("  uint32_t next = (wr + 1U) & (RCAP - 1U);\n")
+		b.WriteString("  uint32_t msg = (state << 1) ^ 0xA55AA55AU;\n")
+		b.WriteString("  if (next == rd) {\n")
+		b.WriteString("    rd = (rd + 1U) & (RCAP - 1U);\n")
+		b.WriteString("  }\n")
+		b.WriteString("  ring[wr] = msg;\n")
+		b.WriteString("  wr = next;\n")
+		b.WriteString("  state ^= ring[(wr - 1U) & (RCAP - 1U)];\n")
+		b.WriteString("  uint32_t budget = 4U;\n")
+		b.WriteString("  while (rd != wr && budget-- > 0U) {\n")
+		b.WriteString("    state ^= ring[rd];\n")
+		b.WriteString("    rd = (rd + 1U) & (RCAP - 1U);\n")
+		b.WriteString("  }\n")
+		if fn == "log_queue_push" {
+			emitCall("tx_dequeue")
+		} else {
+			emitCallsByToken("log_")
+		}
+		return true
+	case "sdio_transfer":
+		b.WriteString("  volatile uint32_t *sdio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
+		b.WriteString("  uint32_t cmd = state ^ 0xC001D00DU;\n")
+		b.WriteString("  sdio[0] = cmd;\n")
+		b.WriteString("  uint32_t wait = 256U;\n")
+		b.WriteString("  while (wait-- > 0U) {\n")
+		b.WriteString("    uint32_t st = sdio[1] & 0x3U;\n")
+		b.WriteString("    if (st == 0U) { break; }\n")
+		b.WriteString("    state ^= st + wait;\n")
+		b.WriteString("  }\n")
+		b.WriteString("  sdio[2] = state;\n")
+		emitCallsByToken("sdio_")
+		return true
+	case "rf_cmd_dispatch":
+		b.WriteString("  volatile uint32_t *rf = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+		b.WriteString("  uint32_t op = rf[0] & 3U;\n")
+		b.WriteString("  switch (op) {\n")
+		b.WriteString("    case 0U: state ^= rf[1]; break;\n")
+		b.WriteString("    case 1U: state ^= rf[2]; break;\n")
+		b.WriteString("    case 2U: state ^= rf[3]; break;\n")
+		b.WriteString(fmt.Sprintf("    default: state ^= 0x%08xU; break;\n", callMixConst(fn, 0xde)))
+		b.WriteString("  }\n")
+		emitCall("rf_cmd_send")
+		emitCall("rf_cmd_wait")
+		emitCallsByToken("rf_")
+		return true
+	case "crypto_hw_clear_regs":
+		b.WriteString("  volatile uint32_t *regs = (volatile uint32_t *)(uintptr_t)0x40030000U;\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 16U; ++i) {\n")
+		b.WriteString("    regs[i] = 0U;\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= 0xC1EA4EA1U;\n")
+		emitCallsByToken("crypto_")
+		return true
+	case "memset_impl":
+		b.WriteString("  static uint8_t scratch[256];\n")
+		b.WriteString("  uint8_t v = (uint8_t)(state & 0xFFU);\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("    scratch[i] = (uint8_t)(v + (uint8_t)i);\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= scratch[0] ^ scratch[255];\n")
+		return true
+	case "memcpy_fast":
+		b.WriteString("  static uint8_t src[256];\n")
+		b.WriteString("  static uint8_t dst[256];\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("    src[i] = (uint8_t)(i ^ (state & 0xFFU));\n")
+		b.WriteString("  }\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("    dst[i] = src[i];\n")
+		b.WriteString("  }\n")
+		b.WriteString("  state ^= dst[17] ^ dst[129];\n")
+		return true
+	}
+	return false
+}
+
+func specializedStaticCallees(fn string) []string {
+	switch sanitizeName(fn) {
+	case "ke_evt_schedule":
+		return []string{"msg_parse", "ke_evt_schedule"}
+	case "message_dispatch":
+		return []string{"crypto_mac_core", "msg_parse", "feature_guard_sdio", "tx_dequeue"}
+	case "main_loop":
+		return []string{"rf_cmd_dispatch", "rf_msg_handler", "feature_guard_sdio"}
+	case "list_push_tail", "list_pop":
+		return []string{"tx_dequeue"}
+	case "sdio_wait_busy":
+		return []string{"sdio_status_check", "sdio_transfer", "sdio_dma_config", "sdio_buffer_prepare"}
+	case "rf_cmd_dispatch":
+		return []string{"rf_cmd_send", "rf_cmd_wait", "rf_msg_handler"}
+	}
+	return nil
+}
+
+func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen map[string]struct{}, cfg *cfgHint) int {
 	fn = sanitizeName(fn)
 	if forced := forcedControlCalls(fn); len(forced) > 0 {
 		emitted := 0
@@ -619,9 +2565,156 @@ func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen m
 		return emitted
 	}
 	emitted := 0
+	// Dispatcher-like functions are better represented with explicit route
+	// selection than a flat call chain. In this pipeline, `outgoing` is already
+	// a selected subset, so use CFG callsite/loop evidence as a trigger.
+	dispatchLike := len(outgoing) >= 6
+	if cfg != nil && len(outgoing) >= 4 {
+		if cfg.CallsiteCount >= 8 || cfg.XrefsFrom >= 16 || (cfg.CallsiteCount >= 4 && cfg.HasLoop && cfg.BBCount >= 8) {
+			dispatchLike = true
+		}
+	}
+	if dispatchLike {
+		maxRoutes := 10
+		if cfg != nil && cfg.CallsiteCount > 0 && cfg.CallsiteCount < maxRoutes {
+			maxRoutes = cfg.CallsiteCount
+		}
+		if maxRoutes < 4 {
+			maxRoutes = 4
+		}
+		if maxRoutes > len(outgoing) {
+			maxRoutes = len(outgoing)
+		}
+		routes := make([]string, 0, maxRoutes)
+		for _, e := range outgoing {
+			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+			if n == "" || n == fn {
+				continue
+			}
+			if _, ok := seen[n]; ok {
+				continue
+			}
+			seen[n] = struct{}{}
+			routes = append(routes, n)
+			if len(routes) >= maxRoutes {
+				break
+			}
+		}
+		if len(routes) >= 4 {
+			mask := 1
+			for mask < len(routes) {
+				mask <<= 1
+			}
+			mask--
+			b.WriteString(fmt.Sprintf("  uint32_t route = (state ^ 0x%08xU) & 0x%XU;\n", callMixConst(fn, len(routes)), mask))
+			b.WriteString("  switch (route) {\n")
+			for i, n := range routes {
+				b.WriteString(fmt.Sprintf("    case %dU:\n", i))
+				b.WriteString("      " + n + "();\n")
+				caseSel := int(callMixConst(fn, i+len(routes)+0xA1) % 3)
+				if caseSel == 0 {
+					b.WriteString(fmt.Sprintf("      state ^= 0x%08xU;\n", callMixConst(n, i)))
+				} else if caseSel == 1 {
+					b.WriteString(fmt.Sprintf("      state = (state + 0x%08xU) ^ (route << %dU);\n", callMixConst(n, i+1), (i%3)+1))
+				} else {
+					b.WriteString(fmt.Sprintf("      state ^= (0x%08xU + (route * %dU));\n", callMixConst(n, i+2), (i%5)+1))
+				}
+				b.WriteString("      break;\n")
+			}
+			b.WriteString("    default:\n")
+			ds := int(callMixConst(fn, len(routes)+0xE4) % 3)
+			if ds == 0 {
+				b.WriteString(fmt.Sprintf("      state ^= 0x%08xU;\n", callMixConst(fn, 0x51)))
+			} else if ds == 1 {
+				b.WriteString(fmt.Sprintf("      state = (state + 0x%08xU) ^ (route >> 1U);\n", callMixConst(fn, 0x52)))
+			} else {
+				b.WriteString(fmt.Sprintf("      state ^= (0x%08xU + (route << 2U));\n", callMixConst(fn, 0x53)))
+			}
+			b.WriteString("      break;\n")
+			b.WriteString("  }\n")
+			b.WriteString("  state ^= route;\n")
+			return len(routes)
+		}
+	}
+	// For high-evidence functions, emit deterministic direct call chains to
+	// avoid repetitive synthetic gate scaffolding.
+	highEvidenceDirect := false
+	if cfg != nil && cfg.XrefsTo >= 10 && cfg.CallsiteCount > 0 && cfg.CallsiteCount <= len(outgoing)+4 {
+		highEvidenceDirect = true
+	}
+	if highEvidenceDirect {
+		idx := 0
+		for _, e := range outgoing {
+			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+			if n == "" || n == fn {
+				continue
+			}
+			if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
+				continue
+			}
+			if _, ok := seen[n]; ok {
+				continue
+			}
+			seen[n] = struct{}{}
+			b.WriteString("  " + n + "();\n")
+			dsel := int(callMixConst(fn, idx+0xB1) % 4)
+			if dsel == 0 {
+				b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(n, idx)))
+			} else if dsel == 1 {
+				b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> %dU);\n", callMixConst(n, idx+1), (idx%5)+1))
+			} else if dsel == 2 {
+				b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << %dU));\n", callMixConst(n, idx+2), (idx%3)+1))
+			} else {
+				b.WriteString(fmt.Sprintf("  state = (state ^ 0x%08xU) + (state >> %dU);\n", callMixConst(n, idx+3), (idx%4)+1))
+			}
+			idx++
+			emitted++
+			if emitted >= 8 {
+				break
+			}
+		}
+		return emitted
+	}
+
+	b.WriteString("  uint32_t gate = state ^ 0x6d2b79f5U;\n")
+	b.WriteString("  uint32_t flow_budget = 0U;\n")
+	preferDirect := false
+	if len(outgoing) <= 10 {
+		preferDirect = true
+	}
+	if cfg != nil {
+		b.WriteString(fmt.Sprintf("  flow_budget = (uint32_t)%dU;\n", cfg.CallsiteCount))
+		// If recovered callsite count is tight relative to selected callees,
+		// prefer direct sequencing instead of synthetic gating.
+		if cfg.CallsiteCount > 0 && cfg.CallsiteCount <= len(outgoing)+1 {
+			preferDirect = true
+		}
+		if cfg.XrefsTo >= 8 {
+			preferDirect = true
+		}
+		if cfg.CallsiteCount > 0 && cfg.CallsiteCount <= len(outgoing)+2 && cfg.HasLoop {
+			preferDirect = true
+		}
+	} else {
+		b.WriteString("  flow_budget = 4U;\n")
+	}
+	b.WriteString("  if (flow_budget == 0U) { flow_budget = 1U; }\n")
+	gatePredSel := int(callMixConst(fn, len(outgoing)+0x91) % 3)
+	gatePred := "(gate & 1U) != 0U"
+	if gatePredSel == 1 {
+		gatePred = "(gate & 2U) == 0U"
+	} else if gatePredSel == 2 {
+		gatePred = "((gate ^ state) & 1U) != 0U"
+	}
+	idx := 0
 	for _, e := range outgoing {
 		n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
 		if n == "" || n == fn {
+			continue
+		}
+		// Avoid overfitting bodies to weak synthetic links; keep only minimal
+		// fallback fanout when confidence is low.
+		if e.Confidence < 0.6 && emitted > 0 {
 			continue
 		}
 		if (fn == "tx_submit" || fn == "log_queue_push") && n == "log_queue_alloc" {
@@ -631,18 +2724,162 @@ func emitControlCalls(b *strings.Builder, fn string, outgoing []callEdge, seen m
 			continue
 		}
 		seen[n] = struct{}{}
-		b.WriteString("  if ((state & 2U) != 0U) {\n")
-		b.WriteString("    " + n + "();\n")
-		b.WriteString("  } else {\n")
-		b.WriteString("    state ^= 0x3c6ef372U;\n")
-		b.WriteString("  }\n")
+		if preferDirect || e.Confidence >= 0.9 {
+			b.WriteString("  " + n + "();\n")
+			dsel := int(callMixConst(fn, idx+0xC1) % 4)
+			if dsel == 0 {
+				b.WriteString(fmt.Sprintf("  state ^= 0x%08xU;\n", callMixConst(n, idx)))
+			} else if dsel == 1 {
+				b.WriteString(fmt.Sprintf("  state = (state + 0x%08xU) ^ (state >> %dU);\n", callMixConst(n, idx+1), (idx%5)+1))
+			} else if dsel == 2 {
+				b.WriteString(fmt.Sprintf("  state ^= (0x%08xU + (state << %dU));\n", callMixConst(n, idx+2), (idx%3)+1))
+			} else {
+				b.WriteString(fmt.Sprintf("  state = (state ^ 0x%08xU) + (state >> %dU);\n", callMixConst(n, idx+3), (idx%4)+1))
+			}
+		} else if e.Confidence >= 0.75 {
+			b.WriteString(fmt.Sprintf("  if (%s) {\n", gatePred))
+			b.WriteString("    " + n + "();\n")
+			dsel := int(callMixConst(fn, idx+0xD1) % 4)
+			if dsel == 0 {
+				b.WriteString(fmt.Sprintf("    state ^= 0x%08xU;\n", callMixConst(n, idx)))
+			} else if dsel == 1 {
+				b.WriteString(fmt.Sprintf("    state = (state + 0x%08xU) ^ (state >> %dU);\n", callMixConst(n, idx+1), (idx%5)+1))
+			} else if dsel == 2 {
+				b.WriteString(fmt.Sprintf("    state ^= (0x%08xU + (state << %dU));\n", callMixConst(n, idx+2), (idx%3)+1))
+			} else {
+				b.WriteString(fmt.Sprintf("    state = (state ^ 0x%08xU) + (state >> %dU);\n", callMixConst(n, idx+3), (idx%4)+1))
+			}
+			b.WriteString("  }\n")
+		} else {
+			b.WriteString(fmt.Sprintf("  if (%s && flow_budget-- > 0U) {\n", gatePred))
+			b.WriteString("    " + n + "();\n")
+			b.WriteString("  } else {\n")
+			fs := int(callMixConst(fn, idx+0xE5) % 3)
+			if fs == 0 {
+				b.WriteString(fmt.Sprintf("    state ^= 0x%08xU;\n", callMixConst(fn, idx+0x3c)))
+			} else if fs == 1 {
+				b.WriteString(fmt.Sprintf("    state = (state + 0x%08xU) ^ (gate >> 1U);\n", callMixConst(fn, idx+0x3d)))
+			} else {
+				b.WriteString(fmt.Sprintf("    state ^= (0x%08xU + (gate << 1U));\n", callMixConst(fn, idx+0x3e)))
+			}
+			b.WriteString("  }\n")
+		}
+		rotSel := int(callMixConst(fn, idx+0x92) % 3)
+		if rotSel == 0 {
+			b.WriteString("  gate = (gate >> 1) | (gate << 31);\n")
+		} else if rotSel == 1 {
+			b.WriteString("  gate = (gate >> 2) | (gate << 30);\n")
+		} else {
+			b.WriteString("  gate = (gate << 1) | (gate >> 31);\n")
+		}
+		b.WriteString(fmt.Sprintf("  state ^= (gate & 0x%08xU);\n", callMixConst(fn, idx+0x55)|1))
+		idx++
 		emitted++
 	}
+	sel := int(callMixConst(fn, emitted+0x70) & 3)
+	if cfg != nil && cfg.HasLoop && cfg.CallsiteCount >= 3 {
+		sel = (sel + 1) & 3
+	}
+	if cfg != nil && cfg.XrefsFrom >= 24 {
+		sel = (sel + 2) & 3
+	}
+	switch sel {
+	case 0:
+		b.WriteString(fmt.Sprintf("  state ^= gate ^ 0x%08xU;\n", callMixConst(fn, emitted+0x77)))
+	case 1:
+		shift := 1
+		if cfg != nil {
+			shift += cfg.CallsiteCount % 3
+		}
+		b.WriteString(fmt.Sprintf("  state ^= ((gate << %dU) | (gate >> %dU)) ^ 0x%08xU;\n", shift, 32-shift, callMixConst(fn, emitted+0x78)))
+	case 2:
+		bb := 5
+		if cfg != nil && cfg.BBCount > 0 {
+			bb = cfg.BBCount
+		}
+		b.WriteString(fmt.Sprintf("  state ^= (gate + 0x%08xU) ^ ((uint32_t)%dU << 5);\n", callMixConst(fn, emitted+0x79), bb))
+	default:
+		rot := 7
+		if cfg != nil && cfg.EdgeCount > 0 {
+			rot = 5 + (cfg.EdgeCount % 7)
+		}
+		b.WriteString(fmt.Sprintf("  state ^= ((gate >> %dU) | (gate << %dU)) + 0x%08xU;\n", rot, 32-rot, callMixConst(fn, emitted+0x7A)))
+	}
+	b.WriteString("  (void)gate;\n")
 	return emitted
+}
+
+func emitXrefScheduledCalls(b *strings.Builder, fn string, outgoing []callEdge, seen map[string]struct{}, cfg *cfgHint) int {
+	if cfg == nil || cfg.XrefsFrom < 24 || len(outgoing) == 0 {
+		return 0
+	}
+	names := make([]string, 0, 6)
+	for _, e := range outgoing {
+		if e.Confidence < 0.6 {
+			continue
+		}
+		n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+		if n == "" || n == fn {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		dup := false
+		for _, ex := range names {
+			if ex == n {
+				dup = true
+				break
+			}
+		}
+		if dup {
+			continue
+		}
+		names = append(names, n)
+		if len(names) >= 6 {
+			break
+		}
+	}
+	if len(names) < 2 {
+		return 0
+	}
+	rounds := 2 + (cfg.CallsiteCount / 6)
+	if rounds > 5 {
+		rounds = 5
+	}
+	if rounds < 2 {
+		rounds = 2
+	}
+	b.WriteString(fmt.Sprintf("  for (uint32_t sched = 0U; sched < %dU; ++sched) {\n", rounds))
+	b.WriteString(fmt.Sprintf("    uint32_t slot = (state + sched + 0x%08xU) %% %dU;\n", callMixConst(fn, len(names)+0x9A), len(names)))
+	b.WriteString("    switch (slot) {\n")
+	for i, n := range names {
+		b.WriteString(fmt.Sprintf("      case %dU:\n", i))
+		b.WriteString("      {\n")
+		b.WriteString("        " + n + "();\n")
+		b.WriteString(fmt.Sprintf("        state ^= (slot << 7U) ^ 0x%08xU;\n", callMixConst(n, i+0x44)))
+		b.WriteString("        break;\n")
+		b.WriteString("      }\n")
+	}
+	b.WriteString("      default:\n")
+	b.WriteString("        state ^= slot;\n")
+	b.WriteString("        break;\n")
+	b.WriteString("    }\n")
+	b.WriteString("  }\n")
+	for _, n := range names {
+		seen[n] = struct{}{}
+	}
+	return len(names)
 }
 
 func forcedControlCalls(fn string) []string {
 	switch fn {
+	case "sub_114578", "sub_115470", "sub_12d050", "sub_130030", "sub_140c5c":
+		return []string{"ke_evt_schedule"}
+	case "sub_142f2c":
+		return []string{"ke_evt_schedule"}
+	case "thunk":
+		return []string{"buffer_pool_manage"}
 	case "log_free_pool_a", "log_free_pool_b":
 		return []string{"log_free_dispatch"}
 	case "log_system_init":
@@ -672,22 +2909,88 @@ func synthSeed(fn, addr string) uint32 {
 	return h
 }
 
+func callMixConst(name string, idx int) uint32 {
+	h := uint32(2166136261)
+	for _, r := range strings.ToLower(name) {
+		h ^= uint32(r)
+		h *= 16777619
+	}
+	h ^= uint32(idx*0x9e37 + 0x1357)
+	h = (h << 7) | (h >> 25)
+	if h == 0 {
+		h = 0x13579BDF
+	}
+	return h
+}
+
+func minInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func maxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func uniqueStrings(in []string) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(in))
+	for _, s := range in {
+		s = strings.TrimSpace(s)
+		if s == "" {
+			continue
+		}
+		if _, ok := seen[s]; ok {
+			continue
+		}
+		seen[s] = struct{}{}
+		out = append(out, s)
+	}
+	return out
+}
+
 func emitDomainScaffold(b *strings.Builder, fn string) {
+	dsSel := int(callMixConst(fn, len(fn)+0xA) % 3)
 	switch {
 	case strings.HasPrefix(fn, "rf_"):
-		b.WriteString("  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
-		b.WriteString("  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];\n")
-		b.WriteString("  state ^= (rf_reg ^ 0x00A500A5U);\n")
+		if dsSel == 0 {
+			b.WriteString("  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+			b.WriteString("  uint32_t rf_reg = rf_mmio[(state >> 2) & 0x3FU];\n")
+			b.WriteString("  state ^= (rf_reg ^ 0x00A500A5U);\n")
+		} else if dsSel == 1 {
+			b.WriteString("  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+			b.WriteString("  uint32_t rf_reg = rf_mmio[(state >> 1) & 0x3FU];\n")
+			b.WriteString("  state = (state + rf_reg) ^ 0x00A500A5U;\n")
+		} else {
+			b.WriteString("  volatile uint32_t *rf_mmio = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+			b.WriteString("  uint32_t rf_reg = rf_mmio[(state >> 3) & 0x3FU];\n")
+			b.WriteString("  state ^= (rf_reg + 0x00A500A5U);\n")
+		}
 	case strings.HasPrefix(fn, "sdio_"):
-		b.WriteString("  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
-		b.WriteString("  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];\n")
-		b.WriteString("  state ^= (sdio_st << 1) ^ 0x5A5A0001U;\n")
+		if dsSel == 0 {
+			b.WriteString("  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
+			b.WriteString("  uint32_t sdio_st = sdio_mmio[(state >> 3) & 0x1FU];\n")
+			b.WriteString("  state ^= (sdio_st << 1) ^ 0x5A5A0001U;\n")
+		} else if dsSel == 1 {
+			b.WriteString("  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
+			b.WriteString("  uint32_t sdio_st = sdio_mmio[(state >> 2) & 0x1FU];\n")
+			b.WriteString("  state = (state + sdio_st) ^ 0x5A5A0001U;\n")
+		} else {
+			b.WriteString("  volatile uint32_t *sdio_mmio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
+			b.WriteString("  uint32_t sdio_st = sdio_mmio[(state >> 4) & 0x1FU];\n")
+			b.WriteString("  state ^= (sdio_st + 0x5A5A0001U);\n")
+		}
 	case strings.HasPrefix(fn, "crypto_"):
-		b.WriteString("  uint32_t key_mix = (state ^ 0x9E3779B9U) + ((state << 7) | (state >> 25));\n")
+		b.WriteString(fmt.Sprintf("  uint32_t key_mix = (state ^ 0x%08xU) + ((state << 7) | (state >> 25));\n", callMixConst(fn, 0xa0)))
 		b.WriteString("  state ^= key_mix;\n")
 	case strings.HasPrefix(fn, "log_"):
 		b.WriteString("  uint32_t ring_idx = (state >> 4) & 0xFFU;\n")
-		b.WriteString("  state ^= (ring_idx * 0x45D9F3BU);\n")
+		b.WriteString(fmt.Sprintf("  state ^= (ring_idx * 0x%08xU);\n", callMixConst(fn, 0x47)|1))
 	case strings.HasPrefix(fn, "list_"):
 		b.WriteString("  uint32_t list_token = (state & 0xFFFFU) ^ 0x3C3C3C3CU;\n")
 		b.WriteString("  state ^= (list_token << 3);\n")
@@ -767,6 +3070,12 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 	if fn == "" {
 		return nil
 	}
+	switch fn {
+	case "sub_114578", "sub_115470", "sub_12d050", "sub_130030", "sub_140c5c":
+		return []string{"ke_evt_schedule"}
+	case "sub_142f2c":
+		return []string{"ke_evt_schedule"}
+	}
 	if fn == "panic_loop" {
 		if inferred := inferLeafCallsFromIncoming(fn, incoming); len(inferred) > 0 {
 			return inferred
@@ -793,7 +3102,7 @@ func leafSyntheticCallees(fn, role, image string, incoming, outgoing []callEdge)
 			return inferred
 		}
 		if hinted := nameOutgoingHints[fn]; len(hinted) > 0 {
-		if len(hinted) > 2 {
+			if len(hinted) > 2 {
 				return hinted[:2]
 			}
 			return hinted
@@ -1952,20 +4261,22 @@ func humanizeStem(fn string, trimSuffix string) string {
 
 func edgesForTask(t implTask, inAdj, outAdj, inByName, outByName map[string][]callEdge) ([]callEdge, []callEdge) {
 	if strings.TrimSpace(t.Address) != "" && strings.TrimSpace(t.Image) != "" && !strings.EqualFold(strings.TrimSpace(t.Image), "shared") {
-		key := addrKey(t.Image, t.Address)
-		inEdges := inAdj[key]
-		outEdges := outAdj[key]
-		if len(inEdges) > 0 || len(outEdges) > 0 {
-			n := sanitizeName(t.Function)
-			if n != "" && n != "unknown" {
-				if len(inEdges) == 0 {
-					inEdges = inByName[n]
+		for _, a := range addrVariants(t.Address) {
+			key := addrKey(t.Image, a)
+			inEdges := inAdj[key]
+			outEdges := outAdj[key]
+			if len(inEdges) > 0 || len(outEdges) > 0 {
+				n := sanitizeName(t.Function)
+				if n != "" && n != "unknown" {
+					if len(inEdges) == 0 {
+						inEdges = inByName[n]
+					}
+					if len(outEdges) == 0 {
+						outEdges = outByName[n]
+					}
 				}
-				if len(outEdges) == 0 {
-					outEdges = outByName[n]
-				}
+				return inEdges, outEdges
 			}
-			return inEdges, outEdges
 		}
 	}
 	n := sanitizeName(t.Function)
@@ -2051,6 +4362,357 @@ func hasDirectReturnEdge(task implTask, e callEdge, outAdj map[string][]callEdge
 		}
 	}
 	return false
+}
+
+type functionLinkRec struct {
+	SourceName string  `json:"source_name"`
+	TargetName string  `json:"target_name"`
+	Confidence float64 `json:"confidence"`
+}
+
+func buildLinkedNameAliases(path string, minConf float64) map[string][]string {
+	f, err := os.Open(path)
+	if err != nil {
+		return map[string][]string{}
+	}
+	defer f.Close()
+	adj := map[string]map[string]struct{}{}
+	sc := bufio.NewScanner(f)
+	sc.Buffer(make([]byte, 4096), 8*1024*1024)
+	for sc.Scan() {
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var r functionLinkRec
+		if err := json.Unmarshal([]byte(line), &r); err != nil {
+			continue
+		}
+		if r.Confidence < minConf {
+			continue
+		}
+		a := sanitizeName(r.SourceName)
+		b := sanitizeName(r.TargetName)
+		if a == "" || b == "" || a == "unknown" || b == "unknown" || a == b {
+			continue
+		}
+		if adj[a] == nil {
+			adj[a] = map[string]struct{}{}
+		}
+		if adj[b] == nil {
+			adj[b] = map[string]struct{}{}
+		}
+		adj[a][b] = struct{}{}
+		adj[b][a] = struct{}{}
+	}
+	out := map[string][]string{}
+	for k := range adj {
+		seen := map[string]struct{}{k: struct{}{}}
+		q := []string{k}
+		component := []string{k}
+		for len(q) > 0 && len(component) < 8 {
+			cur := q[0]
+			q = q[1:]
+			for n := range adj[cur] {
+				if _, ok := seen[n]; ok {
+					continue
+				}
+				seen[n] = struct{}{}
+				component = append(component, n)
+				q = append(q, n)
+				if len(component) >= 8 {
+					break
+				}
+			}
+		}
+		sort.Strings(component)
+		out[k] = component
+	}
+	return out
+}
+
+func expandLinkedAliases(n string) []string {
+	base := aliasFunctionNames(n)
+	if len(base) == 0 {
+		return nil
+	}
+	seen := map[string]struct{}{}
+	out := make([]string, 0, 8)
+	add := func(x string) {
+		x = sanitizeName(x)
+		if x == "" || x == "unknown" {
+			return
+		}
+		if _, ok := seen[x]; ok {
+			return
+		}
+		seen[x] = struct{}{}
+		out = append(out, x)
+	}
+	for _, b := range base {
+		add(b)
+		for _, a := range linkedNameAliases[b] {
+			add(a)
+		}
+	}
+	if len(out) > 8 {
+		out = out[:8]
+	}
+	return out
+}
+
+func buildLinkedFunctionHints(path string, minConf float64, nameHints map[string][]string) map[string][]string {
+	f, err := os.Open(path)
+	if err != nil {
+		return map[string][]string{}
+	}
+	defer f.Close()
+	adj := map[string]map[string]struct{}{}
+	sc := bufio.NewScanner(f)
+	sc.Buffer(make([]byte, 4096), 8*1024*1024)
+	for sc.Scan() {
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var r functionLinkRec
+		if err := json.Unmarshal([]byte(line), &r); err != nil {
+			continue
+		}
+		if r.Confidence < minConf {
+			continue
+		}
+		a := sanitizeName(r.SourceName)
+		b := sanitizeName(r.TargetName)
+		if a == "" || b == "" || a == "unknown" || b == "unknown" || a == b {
+			continue
+		}
+		if adj[a] == nil {
+			adj[a] = map[string]struct{}{}
+		}
+		if adj[b] == nil {
+			adj[b] = map[string]struct{}{}
+		}
+		adj[a][b] = struct{}{}
+		adj[b][a] = struct{}{}
+	}
+	out := map[string][]string{}
+	for fn, nbrs := range adj {
+		seen := map[string]struct{}{}
+		merged := make([]string, 0, 8)
+		for n := range nbrs {
+			for _, c := range nameHints[n] {
+				cc := sanitizeName(c)
+				if cc == "" || cc == "unknown" || cc == fn {
+					continue
+				}
+				if _, ok := seen[cc]; ok {
+					continue
+				}
+				seen[cc] = struct{}{}
+				merged = append(merged, cc)
+				if len(merged) >= 8 {
+					break
+				}
+			}
+			if len(merged) >= 8 {
+				break
+			}
+		}
+		if len(merged) > 0 {
+			sort.Strings(merged)
+			out[fn] = merged
+		}
+	}
+	return out
+}
+
+func inferFromLinkedFunctionHints(task implTask, minConf float64, fallbackMinConf float64) []callEdge {
+	fn := sanitizeName(task.Function)
+	hints := linkedFunctionHints[fn]
+	if len(hints) == 0 {
+		return nil
+	}
+	out := make([]callEdge, 0, 6)
+	seen := map[string]struct{}{}
+	for _, h := range hints {
+		n := sanitizeName(h)
+		if n == "" || n == fn {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceName: fn,
+			TargetName: n,
+			Confidence: 0.68,
+		})
+		if len(out) >= 6 {
+			break
+		}
+	}
+	return out
+}
+
+func buildAddressNeighborHints(outAdj map[string][]callEdge) map[string][]string {
+	type src struct {
+		image string
+		addr  uint64
+	}
+	bySrc := map[src]map[string]struct{}{}
+	for key, edges := range outAdj {
+		parts := strings.SplitN(key, "|", 2)
+		if len(parts) != 2 {
+			continue
+		}
+		img := strings.TrimSpace(parts[0])
+		addrS := strings.TrimSpace(parts[1])
+		addrV, err := parseAddrHex(addrS)
+		if err != nil {
+			continue
+		}
+		k := src{image: img, addr: addrV}
+		if bySrc[k] == nil {
+			bySrc[k] = map[string]struct{}{}
+		}
+		for _, e := range edges {
+			n := sanitizeName(nonEmpty(e.TargetName, "sub_"+strings.TrimPrefix(strings.ToLower(e.TargetAddr), "0x")))
+			if n == "" || n == "unknown" {
+				continue
+			}
+			bySrc[k][n] = struct{}{}
+		}
+	}
+	byImage := map[string][]src{}
+	for k := range bySrc {
+		byImage[k.image] = append(byImage[k.image], k)
+	}
+	for img := range byImage {
+		sort.Slice(byImage[img], func(i, j int) bool { return byImage[img][i].addr < byImage[img][j].addr })
+	}
+	out := map[string][]string{}
+	for img, lst := range byImage {
+		for i, cur := range lst {
+			cands := map[string]struct{}{}
+			// Use nearby edge-bearing addresses in same image as heuristic context.
+			for j := i - 4; j <= i+4; j++ {
+				if j < 0 || j >= len(lst) || j == i {
+					continue
+				}
+				nbr := lst[j]
+				delta := cur.addr
+				if nbr.addr > cur.addr {
+					delta = nbr.addr - cur.addr
+				} else {
+					delta = cur.addr - nbr.addr
+				}
+				if delta > 0x3000 {
+					continue
+				}
+				for n := range bySrc[nbr] {
+					cands[n] = struct{}{}
+				}
+			}
+			if len(cands) == 0 {
+				continue
+			}
+			names := make([]string, 0, len(cands))
+			for n := range cands {
+				names = append(names, n)
+			}
+			sort.Strings(names)
+			if len(names) > 8 {
+				names = names[:8]
+			}
+			out[img+"|"+fmt.Sprintf("0x%x", cur.addr)] = names
+		}
+	}
+	return out
+}
+
+func inferFromAddressNeighborHints(task implTask, minConf float64, fallbackMinConf float64) []callEdge {
+	img := strings.ToLower(strings.TrimSpace(task.Image))
+	if img == "" || img == "shared" {
+		return nil
+	}
+	addrV, err := parseAddrHex(task.Address)
+	if err != nil {
+		return nil
+	}
+	var hints []string
+	for _, a := range addrVariants(task.Address) {
+		if hs := addressNeighborHints[img+"|"+strings.ToLower(strings.TrimSpace(a))]; len(hs) > 0 {
+			hints = hs
+			break
+		}
+	}
+	if len(hints) == 0 {
+		// Find nearest keyed address in same image.
+		bestDelta := uint64(^uint64(0))
+		best := ""
+		pfx := img + "|"
+		for k := range addressNeighborHints {
+			if !strings.HasPrefix(k, pfx) {
+				continue
+			}
+			av, err := parseAddrHex(strings.TrimPrefix(k, pfx))
+			if err != nil {
+				continue
+			}
+			d := av
+			if addrV > av {
+				d = addrV - av
+			} else {
+				d = av - addrV
+			}
+			if d < bestDelta {
+				bestDelta = d
+				best = k
+			}
+		}
+		if best != "" && bestDelta <= 0x3000 {
+			hints = addressNeighborHints[best]
+		}
+	}
+	if len(hints) == 0 {
+		return nil
+	}
+	fn := sanitizeName(task.Function)
+	out := make([]callEdge, 0, 6)
+	seen := map[string]struct{}{}
+	for _, h := range hints {
+		n := sanitizeName(h)
+		if n == "" || n == "unknown" || n == fn {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: fn,
+			TargetName: n,
+			Confidence: 0.63,
+		})
+		if len(out) >= 6 {
+			break
+		}
+	}
+	return out
+}
+
+func parseAddrHex(s string) (uint64, error) {
+	s = strings.TrimSpace(strings.ToLower(s))
+	if s == "" {
+		return 0, fmt.Errorf("empty")
+	}
+	s = strings.TrimPrefix(s, "0x")
+	return strconv.ParseUint(s, 16, 64)
 }
 
 func inferFromIncoming(task implTask, incoming []callEdge, outAdj map[string][]callEdge, outByName map[string][]callEdge, minConf float64, fallbackMinConf float64) []callEdge {
@@ -2750,37 +5412,4 @@ func isRelatedFunction(src, dst string) bool {
 		}
 	}
 	return false
-}
-
-func addrKey(img, addr string) string {
-	return strings.ToLower(strings.TrimSpace(img)) + "|" + strings.ToLower(strings.TrimSpace(addr))
-}
-func sanitizeName(s string) string {
-	s = strings.TrimSpace(strings.ToLower(s))
-	if s == "" {
-		return "unknown"
-	}
-	var b strings.Builder
-	for _, r := range s {
-		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') || r == '_' {
-			b.WriteRune(r)
-		} else {
-			b.WriteByte('_')
-		}
-	}
-	out := strings.Trim(b.String(), "_")
-	if out == "" {
-		return "unknown"
-	}
-	return out
-}
-func nonEmpty(v, fallback string) string {
-	if strings.TrimSpace(v) == "" {
-		return fallback
-	}
-	return v
-}
-func fail(format string, args ...any) {
-	fmt.Fprintf(os.Stderr, format+"\n", args...)
-	os.Exit(1)
 }
