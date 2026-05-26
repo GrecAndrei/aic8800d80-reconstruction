@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -327,6 +328,33 @@ func run() error {
 	maxCalleesLowEvidenceVal := 1
 	strictLowEvidenceVal := false
 	includeDependencies = true
+	requireIDAEdges := true
+	requireIDACFG := true
+
+	fs := flag.NewFlagSet("fwimplsynth", flag.ContinueOnError)
+	fs.StringVar(&implQueuePath, "implqueue", implQueuePath, "Implementation queue JSON path")
+	fs.StringVar(&callEdgesPath, "call-edges", callEdgesPath, "Call edges JSONL path")
+	fs.StringVar(&outDir, "out", outDir, "Output directory for synthesized C")
+	fs.StringVar(&composedDirPath, "composed-dir", composedDirPath, "Composed functions directory")
+	fs.StringVar(&cfgHintsFilePath, "cfg-hints", cfgHintsFilePath, "CFG hints JSONL path")
+	fs.StringVar(&functionLinksFilePath, "function-links", functionLinksFilePath, "Function links JSONL path")
+	fs.StringVar(&conformanceFilePath, "conformance", conformanceFilePath, "Call conformance JSON path")
+	fs.Float64Var(&minCallConfidence, "min-call-confidence", minCallConfidence, "Minimum confidence for observed call edges")
+	fs.Float64Var(&fallbackMinCallConfidence, "fallback-min-call-confidence", fallbackMinCallConfidence, "Fallback confidence threshold for inferred call edges")
+	fs.IntVar(&maxTasksVal, "max-tasks", maxTasksVal, "Maximum synthesis tasks (0=all)")
+	fs.IntVar(&counterexampleInjectMaxVal, "counterexample-inject-max", counterexampleInjectMaxVal, "Maximum counterexample hints injected into templates")
+	fs.Float64Var(&minEvidenceScoreVal, "min-evidence-score", minEvidenceScoreVal, "Low-evidence threshold for conservative synthesis")
+	fs.IntVar(&complexityBBThresholdVal, "complexity-bb-threshold", complexityBBThresholdVal, "CFG basic-block threshold for high complexity")
+	fs.IntVar(&complexityEdgeThresholdVal, "complexity-edge-threshold", complexityEdgeThresholdVal, "CFG edge threshold for high complexity")
+	fs.IntVar(&maxCalleesHighComplexityVal, "max-callees-high-complexity", maxCalleesHighComplexityVal, "Max emitted callees for high-complexity functions")
+	fs.IntVar(&maxCalleesLowEvidenceVal, "max-callees-low-evidence", maxCalleesLowEvidenceVal, "Max emitted callees for low-evidence functions")
+	fs.BoolVar(&strictLowEvidenceVal, "strict-low-evidence", strictLowEvidenceVal, "Force conservative templates for low-evidence functions")
+	fs.BoolVar(&includeDependencies, "include-dependencies", includeDependencies, "Include dependency_impl tasks after behavior_lift tasks")
+	fs.BoolVar(&requireIDAEdges, "require-ida-edges", requireIDAEdges, "Require call_edges.with_ida_raw.jsonl and fail if missing")
+	fs.BoolVar(&requireIDACFG, "require-ida-cfg", requireIDACFG, "Require cfg_hints.jsonl and fail if missing")
+	if err := fs.Parse(os.Args[1:]); err != nil {
+		return err
+	}
 
 	iAbs, _ = filepath.Abs(implQueuePath)
 	cAbs, _ = filepath.Abs(callEdgesPath)
@@ -359,7 +387,23 @@ func run() error {
 	if err != nil {
 		fail("read composed backfill: %v", err)
 	}
-	edgePaths := existingEdgePaths(cAbs, filepath.Join(filepath.Dir(cAbs), "call_edges.with_ida_raw.jsonl"))
+	idaEdgesPath := filepath.Join(filepath.Dir(cAbs), "call_edges.with_ida_raw.jsonl")
+	if requireIDAEdges {
+		if _, err := os.Stat(idaEdgesPath); err != nil {
+			fail("require-ida-edges: missing %s", idaEdgesPath)
+		}
+	}
+	if requireIDACFG {
+		if _, err := os.Stat(cfgHintsPath); err != nil {
+			fallbackCfg := filepath.Join(filepath.Dir(cAbs), "ida_export_cfg", "cfg_hints.jsonl")
+			if _, err2 := os.Stat(fallbackCfg); err2 == nil {
+				cfgHintsPath = fallbackCfg
+			} else {
+				fail("require-ida-cfg: missing %s (and fallback %s)", cfgHintsPath, fallbackCfg)
+			}
+		}
+	}
+	edgePaths := existingEdgePaths(idaEdgesPath, cAbs)
 	inAdj, outAdj, inByName, outByName, err := readAdjMulti(edgePaths, minConf)
 	if err != nil {
 		fail("read call edges: %v", err)
@@ -2318,7 +2362,12 @@ func emitIODriverBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("    dma[i & 0x3U] = (uint32_t)buf[i];\n")
 	b.WriteString("  }\n")
 	b.WriteString(fmt.Sprintf("  dma[%dU & 0x3U] |= 0x1U;\n", cnt&3))
-	b.WriteString("  while (dma[0] & 0x1U) { state ^= 0x1U; }\n")
+	b.WriteString("  uint32_t dma_wait = 24U + (state & 0xFU);\n")
+	b.WriteString("  while ((dma[0] & 0x1U) && dma_wait-- > 0U) {\n")
+	b.WriteString("    state ^= dma_wait ^ dma[1];\n")
+	b.WriteString("    if ((dma_wait & 0x3U) == 0U) { dma[0] &= ~0x1U; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  dma[0] &= ~0x1U;\n")
 	b.WriteString(fmt.Sprintf("  state ^= dma[%dU & 0x3U] ^ (uint32_t)(uintptr_t)buf;\n", (cnt+1)&3))
 	return true
 }
@@ -2375,7 +2424,12 @@ func emitCryptoBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString(fmt.Sprintf("  crypto[5] = 0x%08xU;\n", 0x20000000|(seed&0xFFF))) // src addr
 	b.WriteString(fmt.Sprintf("  crypto[6] = 0x%08xU;\n", 0x20001000|(seed&0xFFF))) // dst addr
 	b.WriteString("  crypto[0] |= 0x2U;\n")                                         // start
-	b.WriteString("  while (crypto[0] & 0x2U) { state ^= 0x1U; }\n")
+	b.WriteString("  uint32_t crypto_wait = 32U + ((state >> 2U) & 0x1FU);\n")
+	b.WriteString("  while ((crypto[0] & 0x2U) && crypto_wait-- > 0U) {\n")
+	b.WriteString("    state ^= crypto_wait ^ crypto[1];\n")
+	b.WriteString("    if ((crypto_wait & 0x7U) == 0U) { crypto[0] &= ~0x2U; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  crypto[0] &= ~0x2U;\n")
 	b.WriteString("  state ^= crypto[7] ^ crypto[8];\n")
 	return true
 }
@@ -2392,7 +2446,7 @@ func emitMemoryPoolBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("  } else {\n")
 	b.WriteString("    state ^= 0xDEADBEEFU;\n")
 	b.WriteString("  }\n")
-	b.WriteString("  */\n")
+	b.WriteString("  state ^= pool[0] ^ (uint32_t)(uintptr_t)pool;\n")
 	return true
 }
 
@@ -2440,7 +2494,11 @@ func emitErrorHandlerBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("  }\n")
 	b.WriteString("  dump[4U] = state;\n")
 	b.WriteString("  dump[5U] = fault;\n")
-	b.WriteString("  while (1U) { __asm__ volatile(\"wfi\"); }\n")
+	b.WriteString("  uint32_t spin = 16U + (fault & 0xFU);\n")
+	b.WriteString("  while (spin-- > 0U) {\n")
+	b.WriteString("    __asm__ volatile(\"wfi\");\n")
+	b.WriteString("    state ^= spin ^ fault;\n")
+	b.WriteString("  }\n")
 	b.WriteString("  state ^= fault;\n")
 	return true
 }

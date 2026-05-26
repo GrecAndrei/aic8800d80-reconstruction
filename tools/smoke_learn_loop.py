@@ -242,13 +242,22 @@ def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str
 def pick_source_for_target(resolved_fn: str, image: str, fn_index: dict[str, Path], by_source: dict[str, set[str]], default: Path) -> Path:
     fn_lower = resolved_fn.lower()
     image_token = normalize_token(image)
+    image_candidates: list[Path] = []
     if image_token:
         for src_key, fn_names in by_source.items():
+            src_name = Path(src_key).name
+            if image_token not in normalize_token(src_name):
+                continue
+            src_path = Path(src_key)
+            image_candidates.append(src_path)
             if fn_lower not in fn_names:
                 continue
-            src_name = Path(src_key).name
-            if image_token and image_token in normalize_token(src_name):
-                return Path(src_key)
+            return src_path
+    if image_candidates:
+        # Keep image identity strict: if the function is missing in this image,
+        # return the image-specific source anyway so smoke reports missing symbols
+        # instead of silently probing a different image's implementation.
+        return image_candidates[0]
     return fn_index.get(resolved_fn, default)
 
 

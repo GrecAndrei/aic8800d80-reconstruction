@@ -23,6 +23,14 @@ func runCmd(rootAbs string, name string, args ...string) error {
 	return cmd.Run()
 }
 
+func runIDARefresh(rootAbs, idatPath string) error {
+	if strings.TrimSpace(idatPath) == "" {
+		return fmt.Errorf("empty idat path")
+	}
+	refreshArgs := []string{"tools/refresh_ida_exports.py", "--idat", idatPath}
+	return runCmd(rootAbs, "python3", refreshArgs...)
+}
+
 func main() {
 	var root string
 	var runRoot string
@@ -73,6 +81,8 @@ func main() {
 	var plateauLoweredMinCallConf float64
 	var plateauLoweredFallbackMinCallConf float64
 	var refreshIDAOnZeroProbes bool
+	var refreshIDABeforeCycle bool
+	var refreshIDAStrict bool
 	var idatPath string
 	var gateHarden bool
 	var gateFocusOnFailure bool
@@ -136,6 +146,8 @@ func main() {
 	flag.Float64Var(&plateauLoweredMinCallConf, "plateau-lowered-min-call-confidence", 0.55, "Lowered implsynth min call confidence during deep plateaus")
 	flag.Float64Var(&plateauLoweredFallbackMinCallConf, "plateau-lowered-fallback-min-call-confidence", 0.25, "Lowered implsynth fallback confidence during deep plateaus")
 	flag.BoolVar(&refreshIDAOnZeroProbes, "refresh-ida-on-zero-probes", true, "Run headless IDA export refresh when a cycle probes zero functions")
+	flag.BoolVar(&refreshIDABeforeCycle, "refresh-ida-before-cycle", true, "Refresh IDA-derived exports before every cycle")
+	flag.BoolVar(&refreshIDAStrict, "refresh-ida-strict", true, "Fail cycle immediately if IDA refresh fails")
 	flag.StringVar(&idatPath, "idat", "tools/local-bin/ida-idat", "Path to IDA idat executable")
 	flag.BoolVar(&gateHarden, "gate-harden", true, "Run fwharden after cycle stages complete")
 	flag.BoolVar(&gateFocusOnFailure, "gate-focus-on-failure", true, "Generate quality/conformance focus reports when harden gate fails")
@@ -175,6 +187,15 @@ func main() {
 	}
 	if strings.TrimSpace(outcomesPath) == "" {
 		outcomesPath = filepath.ToSlash(filepath.Join(runRoot, "smoke_observations.jsonl"))
+	}
+	if refreshIDABeforeCycle {
+		if err := runIDARefresh(rootAbs, idatPath); err != nil {
+			if refreshIDAStrict {
+				fmt.Fprintf(os.Stderr, "ida pre-cycle refresh failed: %v\n", err)
+				os.Exit(1)
+			}
+			fmt.Fprintf(os.Stderr, "ida pre-cycle refresh failed (continuing): %v\n", err)
+		}
 	}
 	if throttleProbesOnPlateau {
 		historyPath := filepath.Join(rootAbs, runRoot, "cycle_history.jsonl")
@@ -276,11 +297,7 @@ func main() {
 				var report cycleReport
 				if json.Unmarshal(b, &report) == nil && report.DeltaLearningSmokeSuccessCount <= plateauDeltaSuccessMax {
 					if refreshIDAOnZeroProbes && report.ProbeSummary.Probed == 0 && strings.TrimSpace(idatPath) != "" {
-						refreshArgs := []string{
-							"tools/refresh_ida_exports.py",
-							"--idat", idatPath,
-						}
-						if err := runCmd(rootAbs, "python3", refreshArgs...); err != nil {
+						if err := runIDARefresh(rootAbs, idatPath); err != nil {
 							fmt.Fprintf(os.Stderr, "ida refresh failed: %v\n", err)
 						}
 					}
@@ -297,8 +314,7 @@ func main() {
 					switch routing.Mode {
 					case "explore":
 						if strings.TrimSpace(idatPath) != "" {
-							refreshArgs := []string{"tools/refresh_ida_exports.py", "--idat", idatPath}
-							if err := runCmd(rootAbs, "python3", refreshArgs...); err != nil {
+							if err := runIDARefresh(rootAbs, idatPath); err != nil {
 								fmt.Fprintf(os.Stderr, "explore mode IDA refresh failed: %v\n", err)
 							}
 						}
