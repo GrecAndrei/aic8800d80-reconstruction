@@ -2665,7 +2665,7 @@ func emitSpecializedBody(b *strings.Builder, fn, addr string, outgoing []callEdg
 	case "0x126000":
 		// Large loop-heavy datapath in active IDA session.
 		b.WriteString("  uint32_t acc = state ^ 0x40404040U;\n")
-		b.WriteString("  for (uint32_t blk = 0U; blk < 32U; ++blk) {\n")
+		b.WriteString("  for (uint32_t blk = 0U; blk < 12U; ++blk) {\n")
 		b.WriteString("    uint32_t lane = ((acc >> (blk & 7U)) ^ (blk * 0x1f1f1f1fU));\n")
 		b.WriteString("    acc = (acc << 3) | (acc >> 29);\n")
 		b.WriteString("    acc ^= lane + blk;\n")
@@ -2739,7 +2739,7 @@ func emitSpecializedBody(b *strings.Builder, fn, addr string, outgoing []callEdg
 		b.WriteString("  volatile uint32_t *sdio = (volatile uint32_t *)(uintptr_t)0x40020000U;\n")
 		b.WriteString("  uint32_t cmd = state ^ 0xC001D00DU;\n")
 		b.WriteString("  sdio[0] = cmd;\n")
-		b.WriteString("  uint32_t wait = 256U;\n")
+		b.WriteString("  uint32_t wait = 48U;\n")
 		b.WriteString("  while (wait-- > 0U) {\n")
 		b.WriteString("    uint32_t st = sdio[1] & 0x3U;\n")
 		b.WriteString("    if (st == 0U) { break; }\n")
@@ -2770,23 +2770,23 @@ func emitSpecializedBody(b *strings.Builder, fn, addr string, outgoing []callEdg
 		emitCallsByToken("crypto_")
 		return true
 	case "memset_impl":
-		b.WriteString("  static uint8_t scratch[256];\n")
+		b.WriteString("  static uint8_t scratch[64];\n")
 		b.WriteString("  uint8_t v = (uint8_t)(state & 0xFFU);\n")
-		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 64U; ++i) {\n")
 		b.WriteString("    scratch[i] = (uint8_t)(v + (uint8_t)i);\n")
 		b.WriteString("  }\n")
-		b.WriteString("  state ^= scratch[0] ^ scratch[255];\n")
+		b.WriteString("  state ^= scratch[0] ^ scratch[63];\n")
 		return true
 	case "memcpy_fast":
-		b.WriteString("  static uint8_t src[256];\n")
-		b.WriteString("  static uint8_t dst[256];\n")
-		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("  static uint8_t src[64];\n")
+		b.WriteString("  static uint8_t dst[64];\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 64U; ++i) {\n")
 		b.WriteString("    src[i] = (uint8_t)(i ^ (state & 0xFFU));\n")
 		b.WriteString("  }\n")
-		b.WriteString("  for (uint32_t i = 0U; i < 256U; ++i) {\n")
+		b.WriteString("  for (uint32_t i = 0U; i < 64U; ++i) {\n")
 		b.WriteString("    dst[i] = src[i];\n")
 		b.WriteString("  }\n")
-		b.WriteString("  state ^= dst[17] ^ dst[129];\n")
+		b.WriteString("  state ^= dst[17] ^ dst[41];\n")
 		return true
 	}
 	return false

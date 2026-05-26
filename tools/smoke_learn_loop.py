@@ -327,6 +327,18 @@ def extract_json_objects(text: str) -> list[dict]:
     return out
 
 
+def extract_return_insns(rows: list[dict]) -> int:
+    for row in rows:
+        status_value = str(row.get("status", "")).strip().lower()
+        if status_value not in {"returned", "success"}:
+            continue
+        try:
+            return int(row.get("instructions", -1))
+        except (TypeError, ValueError):
+            return -1
+    return -1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--source", type=Path, required=True, help="Primary recovered C source path")
@@ -346,6 +358,9 @@ def main() -> int:
     ap.add_argument("--shallow-cooldown", type=int, default=3, help="skip targets with this many shallow successes")
     ap.add_argument("--retry-shallow-success", action="store_true", help="retry shallow successes once with a larger instruction cap")
     ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="instruction cap for shallow-success retry")
+    ap.add_argument("--retry-capped-once", dest="retry_capped_once", action="store_true", help="retry capped probes once with a larger instruction cap")
+    ap.add_argument("--no-retry-capped-once", dest="retry_capped_once", action="store_false", help="disable capped probe retry")
+    ap.add_argument("--capped-retry-max-insns", type=int, default=1024, help="instruction cap for capped probe retry")
     ap.add_argument("--missing-cooldown", type=int, default=3, help="skip targets with this many missing_symbol hits")
     ap.add_argument("--fault-seed-top", type=int, default=2, help="learn up to this many historical fault addresses per prefix as seeds")
     ap.add_argument("--retry-fault-once", action="store_true", help="on fault, retry once with the reported fault address seeded")
@@ -362,7 +377,8 @@ def main() -> int:
     ap.add_argument("--no-deep-pass", dest="deep_pass", action="store_false", help="disable deeper second-pass probes")
     ap.add_argument("--deep-top-k", type=int, default=3, help="max number of promising targets to run in deep pass")
     ap.add_argument("--deep-max-insns", type=int, default=512, help="instruction cap for deep-pass probes")
-    ap.add_argument("--deep-on-capped", action="store_true", help="always run deep pass for capped targets")
+    ap.add_argument("--deep-on-capped", dest="deep_on_capped", action="store_true", help="always run deep pass for capped targets")
+    ap.add_argument("--no-deep-on-capped", dest="deep_on_capped", action="store_false", help="disable deep pass for capped targets")
     ap.add_argument(
         "--seed",
         action="append",
@@ -373,6 +389,8 @@ def main() -> int:
     ap.set_defaults(image_balance=True)
     ap.set_defaults(probe_mmio_autopage=True)
     ap.set_defaults(deep_pass=True)
+    ap.set_defaults(deep_on_capped=True)
+    ap.set_defaults(retry_capped_once=True)
     args = ap.parse_args()
 
     if not args.source.is_file():
@@ -665,6 +683,8 @@ def main() -> int:
         "shallow_return": 0,
         "shallow_success": 0,
         "shallow_retry_upgraded": 0,
+        "capped_retried": 0,
+        "capped_recovered": 0,
         "trace_mmio_read_count": 0,
         "trace_mmio_write_count": 0,
         "trace_helper_touch_count": 0,
@@ -776,16 +796,7 @@ def main() -> int:
             if (mmio_reads + mmio_writes) > 0 or helper_touches > 0 or branch_depth > 0:
                 summary["rich_trace_probes"] += 1
         if primary_status == "returned":
-            insns = -1
-            for row in parsed_objs:
-                status_value = str(row.get("status", "")).strip().lower()
-                if status_value not in {"returned", "success"}:
-                    continue
-                try:
-                    insns = int(row.get("instructions", -1))
-                except (TypeError, ValueError):
-                    insns = -1
-                break
+            insns = extract_return_insns(parsed_objs)
             if 0 <= insns < max(0, args.min_success_insns):
                 summary["shallow_return"] += 1
                 summary["shallow_success"] += 1
@@ -803,19 +814,61 @@ def main() -> int:
                         print(retry.stderr.strip())
                     print(f"retry_shallow_rc={retry.returncode}")
                     if retry.returncode == 0:
-                        for row in extract_json_objects(retry.stdout or ""):
-                            status_value = str(row.get("status", "")).strip().lower()
-                            if status_value not in {"returned", "success"}:
-                                continue
-                            try:
-                                r_insns = int(row.get("instructions", -1))
-                            except (TypeError, ValueError):
-                                r_insns = -1
-                            if r_insns > insns:
-                                summary["shallow_retry_upgraded"] += 1
-                            break
+                        r_insns = extract_return_insns(extract_json_objects(retry.stdout or ""))
+                        if r_insns > insns:
+                            summary["shallow_retry_upgraded"] += 1
             elif insns >= max(0, args.min_success_insns):
                 summary["nontrivial_return"] += 1
+
+        if primary_status == "capped" and args.retry_capped_once:
+            summary["capped_retried"] += 1
+            retry_cmd = list(cmd)
+            for i, tok in enumerate(retry_cmd):
+                if tok == "--max-insns" and i + 1 < len(retry_cmd):
+                    retry_cmd[i + 1] = str(max(args.max_insns, args.capped_retry_max_insns))
+                    break
+            print(f"== retry capped {fn} with max-insns={max(args.max_insns, args.capped_retry_max_insns)}")
+            retry = subprocess.run(retry_cmd, text=True, capture_output=True, timeout=150)
+            if retry.stdout:
+                print(retry.stdout.strip())
+            if retry.stderr:
+                print(retry.stderr.strip())
+            print(f"retry_capped_rc={retry.returncode}")
+            retry_objs = extract_json_objects(retry.stdout or "")
+            retry_status = ""
+            for row in retry_objs:
+                status_value = str(row.get("status", "")).strip().lower()
+                if status_value in {"returned", "success", "capped", "fault", "missing_symbol"}:
+                    retry_status = "returned" if status_value == "success" else status_value
+                    break
+            if retry_status == "returned":
+                summary["capped_recovered"] += 1
+                summary["success"] += 1
+                summary["returned"] += 1
+                summary["capped"] = max(0, summary["capped"] - 1)
+                r_insns = extract_return_insns(retry_objs)
+                if r_insns >= max(0, args.min_success_insns):
+                    summary["nontrivial_return"] += 1
+                else:
+                    summary["shallow_return"] += 1
+                    summary["shallow_success"] += 1
+                for row in retry_objs:
+                    if str(row.get("status", "")).strip().lower() not in {"returned", "success", "capped", "fault"}:
+                        continue
+                    mmio_reads = int(row.get("mmio_read_count", 0) or 0)
+                    mmio_writes = int(row.get("mmio_write_count", 0) or 0)
+                    helper_touches = int(row.get("helper_touch_count", 0) or 0)
+                    summary["trace_mmio_read_count"] += mmio_reads
+                    summary["trace_mmio_write_count"] += mmio_writes
+                    summary["trace_helper_touch_count"] += helper_touches
+                    branch_depth = int(row.get("branch_depth_max", 0) or 0)
+                    if branch_depth > summary["trace_branch_depth_max"]:
+                        summary["trace_branch_depth_max"] = branch_depth
+                    if (mmio_reads + mmio_writes) > 0:
+                        summary["mmio_touch_probes"] += 1
+                    if (mmio_reads + mmio_writes) > 0 or helper_touches > 0 or branch_depth > 0:
+                        summary["rich_trace_probes"] += 1
+                    break
 
         if not args.retry_fault_once:
             continue

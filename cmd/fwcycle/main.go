@@ -45,7 +45,9 @@ func main() {
 	var recentWindowMin int
 	var retryFaultOnce bool
 	var retryShallowSuccess bool
+	var retryCappedOnce bool
 	var shallowRetryMaxInsns int
+	var cappedRetryMaxInsns int
 	var preferNonCycleQueue bool
 	var updateCheckpoints bool
 	var checkpointMinSuccess int
@@ -103,14 +105,16 @@ func main() {
 	flag.StringVar(&sourceGlobsCSV, "source-globs", "", "Comma-separated additional source globs")
 	flag.StringVar(&seedCSV, "seeds", "0x40000000=0", "Comma-separated default seeds ADDR=VALUE")
 	flag.IntVar(&limit, "limit", 10, "Probe target limit")
-	flag.IntVar(&maxInsns, "max-insns", 120, "Max instructions per probe")
+	flag.IntVar(&maxInsns, "max-insns", 192, "Max instructions per probe")
 	flag.IntVar(&minSuccessInsns, "min-success-insns", 8, "Treat success below this instruction count as shallow")
 	flag.IntVar(&shallowCooldown, "shallow-cooldown", 3, "Skip targets with repeated shallow-success outcomes")
 	flag.IntVar(&missingCooldown, "missing-cooldown", 2, "Skip targets with repeated missing-symbol outcomes")
 	flag.IntVar(&recentWindowMin, "recent-window-min", 30, "Skip targets attempted within this many minutes")
 	flag.BoolVar(&retryFaultOnce, "retry-fault-once", true, "Retry one time with learned fault seed on unmapped faults")
 	flag.BoolVar(&retryShallowSuccess, "retry-shallow-success", true, "Retry shallow successes once with higher instruction budget")
-	flag.IntVar(&shallowRetryMaxInsns, "shallow-retry-max-insns", 512, "Instruction cap used for shallow-success retries")
+	flag.BoolVar(&retryCappedOnce, "retry-capped-once", true, "Retry capped probes once with higher instruction budget")
+	flag.IntVar(&shallowRetryMaxInsns, "shallow-retry-max-insns", 1024, "Instruction cap used for shallow-success retries")
+	flag.IntVar(&cappedRetryMaxInsns, "capped-retry-max-insns", 1024, "Instruction cap used for capped retries")
 	flag.BoolVar(&preferNonCycleQueue, "prefer-non-cycle-queue", false, "Prefer latest non-cycle queue over latest cycle queue")
 	flag.BoolVar(&updateCheckpoints, "update-checkpoints", true, "Automatically promote stable smoke successes into README after cycle")
 	flag.IntVar(&checkpointMinSuccess, "checkpoint-min-success", 1, "Minimum success count required for checkpoint auto-promotion")
@@ -213,6 +217,7 @@ func main() {
 		"--min-success-insns", fmt.Sprintf("%d", minSuccessInsns),
 		"--shallow-cooldown", fmt.Sprintf("%d", shallowCooldown),
 		"--shallow-retry-max-insns", fmt.Sprintf("%d", shallowRetryMaxInsns),
+		"--capped-retry-max-insns", fmt.Sprintf("%d", cappedRetryMaxInsns),
 		"--missing-cooldown", fmt.Sprintf("%d", missingCooldown),
 		"--recent-window-min", fmt.Sprintf("%d", recentWindowMin),
 	}
@@ -235,6 +240,9 @@ func main() {
 	}
 	if retryShallowSuccess {
 		args = append(args, "--retry-shallow-success")
+	}
+	if retryCappedOnce {
+		args = append(args, "--retry-capped-once")
 	}
 	if preferNonCycleQueue {
 		args = append(args, "--prefer-non-cycle-queue")

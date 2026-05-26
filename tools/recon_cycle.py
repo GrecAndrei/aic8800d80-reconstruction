@@ -123,6 +123,8 @@ def main() -> int:
     ap.add_argument("--retry-fault-once", action="store_true", help="retry faulted probes once with learned fault seed")
     ap.add_argument("--retry-shallow-success", action="store_true", help="retry shallow successes once with higher instruction budget")
     ap.add_argument("--shallow-retry-max-insns", type=int, default=512, help="max instructions for shallow-success retry")
+    ap.add_argument("--retry-capped-once", action="store_true", help="retry capped probes once with higher instruction budget")
+    ap.add_argument("--capped-retry-max-insns", type=int, default=1024, help="max instructions for capped retry")
     ap.add_argument("--recent-window-min", type=int, default=30, help="skip functions attempted within this many minutes")
     ap.add_argument("--prefer-non-cycle-queue", action="store_true", help="prefer latest non-cycle queue over cycle queue")
     ap.add_argument("--auto-seed-top", type=int, default=8, help="auto-append top recurring fault-address seeds from historical outcomes")
@@ -190,6 +192,9 @@ def main() -> int:
         smoke_cmd.append("--retry-fault-once")
     if args.retry_shallow_success:
         smoke_cmd.append("--retry-shallow-success")
+    if args.retry_capped_once:
+        smoke_cmd.append("--retry-capped-once")
+    smoke_cmd.extend(["--capped-retry-max-insns", str(args.capped_retry_max_insns)])
     for g in args.source_glob:
         smoke_cmd.extend(["--source-glob", g])
     for s in merged_seeds:
