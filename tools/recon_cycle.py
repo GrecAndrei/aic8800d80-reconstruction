@@ -36,6 +36,11 @@ def append_jsonl(path: Path, row: dict) -> None:
         f.write(json.dumps(row, sort_keys=True) + "\n")
 
 
+def write_json(path: Path, row: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(row, indent=2) + "\n", encoding="utf-8")
+
+
 def read_last_jsonl(path: Path) -> dict:
     if not path.is_file():
         return {}
@@ -68,6 +73,225 @@ def read_jsonl_rows(path: Path) -> list[dict]:
             if isinstance(row, dict):
                 out.append(row)
     return out
+
+
+def count_jsonl_rows(path: Path) -> int:
+    if not path.is_file():
+        return 0
+    count = 0
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            if line.strip():
+                count += 1
+    return count
+
+
+def percent(numer: int, denom: int) -> float:
+    if denom <= 0:
+        return 0.0
+    return 100.0 * float(numer) / float(denom)
+
+
+def plateau_streak(history_rows: list[dict], threshold: int) -> int:
+    streak = 0
+    for row in reversed(history_rows):
+        if not isinstance(row, dict):
+            break
+        delta = int(row.get("delta_learning_smoke_success_count", 0))
+        if delta <= threshold:
+            streak += 1
+            continue
+        break
+    return streak
+
+
+def collect_ida_evidence(run_root: Path) -> dict:
+    pseudo_path = run_root / "ida_export_pseudo" / "pseudocode_hints.jsonl"
+    cfg_path = run_root / "ida_export_cfg" / "cfg_hints.jsonl"
+    return {
+        "cfg_hint_rows": count_jsonl_rows(cfg_path),
+        "pseudocode_hint_rows": count_jsonl_rows(pseudo_path),
+    }
+
+
+def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, embedder_enabled: bool) -> dict:
+    summary = report.get("summary", {}) if isinstance(report.get("summary"), dict) else {}
+    probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
+    probed = max(1, int(probe.get("probed", 0)))
+    capped = int(probe.get("capped", 0))
+    returned = int(probe.get("returned", 0))
+    nontrivial = int(probe.get("nontrivial_return", 0))
+    mmio_touch = int(probe.get("mmio_touch_probes", 0))
+    distinct_images = int(probe.get("selected_distinct_images", 0))
+    deep_returned = int(probe.get("deep_returned", 0))
+    candidate_count = int(probe.get("candidate_count", 0))
+    plateau = plateau_streak(history_rows, 0)
+
+    action_rows: list[dict] = []
+
+    def add_action(name: str, mode: str, score: float, *reasons: str, overrides: dict | None = None) -> None:
+        clean = [r for r in reasons if r]
+        action_rows.append(
+            {
+                "name": name,
+                "mode": mode,
+                "score": round(score, 3),
+                "reasons": clean,
+                "overrides": overrides or {},
+            }
+        )
+
+    if ida_evidence.get("cfg_hint_rows", 0) == 0 or ida_evidence.get("pseudocode_hint_rows", 0) == 0:
+        add_action(
+            "refresh_ida_exports",
+            "explore",
+            10.0,
+            f"IDA evidence incomplete: cfg={ida_evidence.get('cfg_hint_rows', 0)} pseudo={ida_evidence.get('pseudocode_hint_rows', 0)}",
+            "refresh grounded facts before further synthesis",
+            {"refresh_ida": True},
+        )
+    if not embedder_enabled or not bool(probe.get("embedder_active", False)):
+        add_action(
+            "enable_embedder_guidance",
+            "explore",
+            9.0,
+            "embedder model absent or inactive in probe selection",
+            "restore IDA-facts plus embedder-priors operation",
+            {"require_embedder": True},
+        )
+
+    capped_rate = percent(capped, probed)
+    returned_rate = percent(returned, probed)
+    nontrivial_rate = percent(nontrivial, probed)
+    mmio_rate = percent(mmio_touch, probed)
+
+    if capped_rate >= 70.0:
+        add_action(
+            "deepen_probe_and_raise_evidence",
+            "deepen",
+            8.0 + capped_rate / 25.0,
+            f"cap-hit rate {capped_rate:.1f}% is dominating returns",
+            f"returned rate only {returned_rate:.1f}%",
+            {"suggested_max_insns_multiplier": 2, "prefer_deep_on_capped": True},
+        )
+    if nontrivial > 0 or deep_returned > 0:
+        add_action(
+            "propagate_recipe_to_neighbors",
+            "synthesize",
+            7.0 + percent(nontrivial + deep_returned, probed) / 20.0,
+            f"nontrivial/deep-return evidence available ({nontrivial} nontrivial, {deep_returned} deep)",
+            "apply successful motif families to embedding-near neighbors",
+            {"propagate_neighbors": True},
+        )
+    if report.get("delta_learning_smoke_success_count", 0) <= 0:
+        add_action(
+            "synthesize_new_motif_family",
+            "synthesize",
+            6.0 + float(max(0, plateau-1)),
+            f"learning plateau streak={plateau + 1}",
+            "current queue traversal is not increasing learned smoke returns",
+            {"prefer_new_motifs": True},
+        )
+    if distinct_images < 2 and candidate_count > probed:
+        add_action(
+            "rebalance_frontier_diversity",
+            "explore",
+            5.5,
+            f"selected image diversity is low ({distinct_images}) with remaining candidates available",
+            "shift budget toward under-covered images/clusters",
+            {"prefer_image_diversity": True},
+        )
+    if mmio_rate < 20.0 and capped_rate >= 50.0:
+        add_action(
+            "validate_mmio_state_model",
+            "validate",
+            5.0,
+            f"mmio-touch rate {mmio_rate:.1f}% is low while capped rate is {capped_rate:.1f}%",
+            "likely harness or peripheral-state mismatch rather than true behavior",
+            {"review_mmio_state": True},
+        )
+
+    if not action_rows:
+        add_action(
+            "continue_balanced_cycle",
+            "synthesize",
+            1.0,
+            "no dominant failure mode detected",
+            {"keep_current_policy": True},
+        )
+
+    action_rows.sort(key=lambda row: (-float(row.get("score", 0.0)), str(row.get("name", ""))))
+    primary = action_rows[0]
+    return {
+        "schema_version": "0.1.0",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "tag": report.get("tag", ""),
+        "primary_action": primary,
+        "recommended_actions": action_rows,
+        "recommended_mode": primary.get("mode", "synthesize"),
+        "ida_evidence": ida_evidence,
+        "embedder": {
+            "model_enabled": embedder_enabled,
+            "probe_embedder_active": bool(probe.get("embedder_active", False)),
+        },
+        "frontier_metrics": {
+            "candidate_count": candidate_count,
+            "selected_distinct_images": distinct_images,
+            "completion_pct": summary.get("completion_pct", 0.0),
+            "semantic_completion_pct": summary.get("semantic_completion_pct", 0.0),
+        },
+    }
+
+
+def build_experience_record(report: dict, controller_state: dict, queue_source: str) -> dict:
+    probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
+    return {
+        "schema_version": "0.1.0",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "tag": report.get("tag", ""),
+        "queue_source": queue_source,
+        "probe_summary": probe,
+        "learning_smoke_success_count": int(report.get("learning_smoke_success_count", 0)),
+        "delta_learning_smoke_success_count": int(report.get("delta_learning_smoke_success_count", 0)),
+        "learning_reason_counts": report.get("learning_reason_counts", {}),
+        "controller_primary_action": controller_state.get("primary_action", {}),
+        "controller_recommended_mode": controller_state.get("recommended_mode", "synthesize"),
+        "ida_evidence": controller_state.get("ida_evidence", {}),
+    }
+
+
+def compact_cycle_summary(report: dict, controller_state: dict) -> dict:
+    probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
+    return {
+        "tag": report.get("tag", ""),
+        "learning_smoke_success_count": int(report.get("learning_smoke_success_count", 0)),
+        "delta_learning_smoke_success_count": int(report.get("delta_learning_smoke_success_count", 0)),
+        "probe_summary": {
+            "probed": int(probe.get("probed", 0)),
+            "returned": int(probe.get("returned", 0)),
+            "capped": int(probe.get("capped", 0)),
+            "nontrivial_return": int(probe.get("nontrivial_return", 0)),
+            "deep_returned": int(probe.get("deep_returned", 0)),
+            "mmio_touch_probes": int(probe.get("mmio_touch_probes", 0)),
+            "selected_distinct_images": int(probe.get("selected_distinct_images", 0)),
+        },
+        "ida_evidence": controller_state.get("ida_evidence", {}),
+        "controller_primary_action": controller_state.get("primary_action", {}),
+    }
+
+
+def emit_failure(label: str, proc: subprocess.CompletedProcess[str]) -> None:
+    payload = {
+        "stage": label,
+        "returncode": proc.returncode,
+    }
+    stderr = proc.stderr.strip()
+    stdout = proc.stdout.strip()
+    if stderr:
+        payload["stderr_tail"] = stderr.splitlines()[-20:]
+    elif stdout:
+        payload["stdout_tail"] = stdout.splitlines()[-20:]
+    print(json.dumps(payload, indent=2))
 
 
 def recommend_fault_seeds(outcomes_path: Path, top_n: int) -> list[str]:
@@ -129,6 +353,7 @@ def main() -> int:
     ap.add_argument("--prefer-non-cycle-queue", action="store_true", help="prefer latest non-cycle queue over cycle queue")
     ap.add_argument("--auto-seed-top", type=int, default=8, help="auto-append top recurring fault-address seeds from historical outcomes")
     ap.add_argument("--embedder-model", default="", help="Path to GGUF embedding model for behavioral classification")
+    ap.add_argument("--verbose", action="store_true", help="emit underlying command stdout/stderr instead of compact summaries")
     args = ap.parse_args()
 
     root = args.root.resolve()
@@ -203,9 +428,10 @@ def main() -> int:
         smoke_cmd.extend(["--embedder-model", str(args.embedder_model)])
 
     smoke = run(smoke_cmd, root)
-    print(smoke.stdout)
+    if args.verbose and smoke.stdout:
+        print(smoke.stdout)
     if smoke.returncode != 0:
-        print(smoke.stderr)
+        emit_failure("smoke_learn_loop", smoke)
         return smoke.returncode
     probe_summary = parse_probe_summary(smoke.stdout)
 
@@ -221,9 +447,10 @@ def main() -> int:
         tag,
     ]
     ex = run(extract_cmd, root)
-    print(ex.stdout)
+    if args.verbose and ex.stdout:
+        print(ex.stdout)
     if ex.returncode != 0:
-        print(ex.stderr)
+        emit_failure("fwextract", ex)
         return ex.returncode
 
     run_dir = run_root / "runs" / tag
@@ -277,10 +504,18 @@ def main() -> int:
     report["delta_learning_by_function_count"] = len(by_function) - prev_func
     report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
     report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success
+    ida_evidence = collect_ida_evidence(run_root)
+    controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, bool(args.embedder_model))
+    report["ida_evidence"] = ida_evidence
+    report["controller_primary_action"] = controller_state.get("primary_action", {})
+    report["controller_recommended_mode"] = controller_state.get("recommended_mode", "synthesize")
     report_path = run_dir / "cycle_report.json"
-    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    write_json(report_path, report)
+    write_json(run_dir / "controller_state.json", controller_state)
+    write_json(run_root / "controller_state.json", controller_state)
     append_jsonl(history_path, report)
-    print(json.dumps(report, indent=2))
+    append_jsonl(run_root / "controller_experience.jsonl", build_experience_record(report, controller_state, str(latest_queue)))
+    print(json.dumps(compact_cycle_summary(report, controller_state), indent=2))
     return 0
 
 

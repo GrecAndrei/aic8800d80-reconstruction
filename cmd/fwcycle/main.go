@@ -449,6 +449,8 @@ type cycleReport struct {
 	DeltaLearningSmokeSuccessCount int               `json:"delta_learning_smoke_success_count"`
 	LearningReasonCounts           map[string]int    `json:"learning_reason_counts"`
 	ProbeSummary                   probeSummaryCycle `json:"probe_summary"`
+	ControllerRecommendedMode      string            `json:"controller_recommended_mode"`
+	ControllerPrimaryAction        map[string]any    `json:"controller_primary_action"`
 }
 
 type probeSummaryCycle struct {
@@ -639,6 +641,12 @@ func classifyPlateau(report cycleReport, forcedMode string) (plateauRouting, err
 	mode := "synthesize"
 	if m := strings.ToLower(strings.TrimSpace(forcedMode)); m != "" && m != "auto" {
 		mode = m
+	} else if m := strings.ToLower(strings.TrimSpace(report.ControllerRecommendedMode)); m != "" {
+		mode = m
+		reasons = append(reasons, fmt.Sprintf("controller recommended mode %s", m))
+		if name, _ := report.ControllerPrimaryAction["name"].(string); strings.TrimSpace(name) != "" {
+			reasons = append(reasons, fmt.Sprintf("controller primary action %s", name))
+		}
 	} else {
 		switch primary {
 		case "missing_symbols", "identity_ambiguity":
