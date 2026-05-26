@@ -1384,7 +1384,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
 	if pseudo != nil && !policy.Conservative {
-		if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, outgoing); emitted {
+		if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
 			b.WriteString("  (void)state;\n")
 			b.WriteString("}\n")
 			return fileio.WriteBytes(path, []byte(b.String()))
@@ -2399,86 +2399,242 @@ func parseHexAddr(s string) (uint64, error) {
 	return v, nil
 }
 
-func emitPseudocodeStructuredBody(b *strings.Builder, fn string, pseudo *pseudoHint, outgoing []callEdge) bool {
+var pseudoMemoryAddrRE = regexp.MustCompile(`MEMORY\[0x([0-9A-Fa-f]+)\]`)
+
+func extractPseudoMemoryAddrs(text string, limit int) []uint32 {
+	if limit <= 0 {
+		limit = 8
+	}
+	matches := pseudoMemoryAddrRE.FindAllStringSubmatch(text, -1)
+	out := make([]uint32, 0, minInt(len(matches), limit))
+	seen := map[uint32]struct{}{}
+	for _, m := range matches {
+		if len(m) < 2 {
+			continue
+		}
+		v, err := parseHexAddr(m[1])
+		if err != nil {
+			continue
+		}
+		vv := uint32(v)
+		if _, ok := seen[vv]; ok {
+			continue
+		}
+		seen[vv] = struct{}{}
+		out = append(out, vv)
+		if len(out) >= limit {
+			break
+		}
+	}
+	return out
+}
+
+func pseudoDistinctCallNames(fn string, pseudo *pseudoHint) []string {
+	seen := map[string]struct{}{}
+	out := make([]string, 0, len(pseudo.CallNames))
+	for _, name := range pseudo.CallNames {
+		callName := sanitizeName(name)
+		if callName == "" || callName == "unknown" || callName == fn {
+			continue
+		}
+		if strings.HasPrefix(callName, "__") {
+			continue
+		}
+		if _, ok := seen[callName]; ok {
+			continue
+		}
+		seen[callName] = struct{}{}
+		out = append(out, callName)
+	}
+	return out
+}
+
+func pseudoHasCallName(pseudo *pseudoHint, names ...string) bool {
+	if pseudo == nil {
+		return false
+	}
+	need := map[string]struct{}{}
+	for _, name := range names {
+		need[strings.ToLower(strings.TrimSpace(name))] = struct{}{}
+	}
+	for _, name := range pseudo.CallNames {
+		if _, ok := need[strings.ToLower(strings.TrimSpace(name))]; ok {
+			return true
+		}
+	}
+	return false
+}
+
+func detectPseudocodeMotif(pseudo *pseudoHint, cfg *cfgHint, behaviorRole string) string {
+	if pseudo == nil {
+		return ""
+	}
+	text := strings.ToLower(pseudo.Pseudocode)
+	role := strings.ToLower(strings.TrimSpace(behaviorRole))
+	if (strings.Contains(text, "__get_cpsr") || pseudoHasCallName(pseudo, "__get_CPSR")) &&
+		(strings.Contains(text, "__disable_irq") || pseudoHasCallName(pseudo, "__disable_irq")) &&
+		(strings.Contains(text, "__enable_irq") || pseudoHasCallName(pseudo, "__enable_irq")) &&
+		pseudo.LoopCount > 0 {
+		return "irq_wait_guard"
+	}
+	if strings.Contains(text, "return 1;") &&
+		strings.Contains(text, "return 0;") &&
+		strings.Contains(text, " = 4;") &&
+		strings.Contains(text, " = 3;") &&
+		cfg != nil && cfg.CallsiteCount >= 2 {
+		return "callback_state_gate"
+	}
+	if len(pseudo.MMIOAddrs) > 0 && pseudo.LoopCount > 0 && cfg != nil && cfg.LoadCount >= 4 && cfg.StoreCount >= 4 {
+		if strings.Contains(role, "transfer") || strings.Contains(role, "dma") || strings.Contains(role, "copy") || strings.Contains(role, "io") {
+			return "staged_mmio_transfer"
+		}
+		if cfg.LoadWordCount >= 4 && cfg.StoreWordCount >= 2 && cfg.CallsiteCount <= 2 {
+			return "staged_mmio_transfer"
+		}
+	}
+	return ""
+}
+
+func emitCallbackStateGateMotif(b *strings.Builder, fn string, pseudo *pseudoHint) bool {
+	addrs := extractPseudoMemoryAddrs(pseudo.Pseudocode, 6)
+	if len(addrs) < 2 {
+		return false
+	}
+	stateAddr := addrs[0]
+	activeAddr := addrs[1]
+	callbackAddr := activeAddr
+	phaseAddr := stateAddr
+	if len(addrs) > 2 {
+		callbackAddr = addrs[2]
+	}
+	if len(addrs) > 3 {
+		phaseAddr = addrs[len(addrs)-1]
+	}
+	calls := pseudoDistinctCallNames(fn, pseudo)
+	b.WriteString("  // Motif: callback-gated state transition from Hex-Rays pseudocode\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *state_slot = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", stateAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *active_slot = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", activeAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *callback_slot = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", callbackAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *phase_slot = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", phaseAddr))
+	b.WriteString("  uint32_t active = active_slot[0];\n")
+	b.WriteString("  state_slot[0] = active;\n")
+	b.WriteString("  if (active != 0U) {\n")
+	b.WriteString("    uint32_t callback_ready = callback_slot[0] != 0U;\n")
+	b.WriteString("    if (callback_ready && ((state ^ active) & 1U) == 0U) {\n")
+	b.WriteString("      ((volatile uint8_t *)state_slot)[3] = 4U;\n")
+	b.WriteString("      phase_slot[0] = 7U;\n")
+	if len(calls) > 0 {
+		b.WriteString("      uint32_t helper_ok = 1U;\n")
+		b.WriteString("      " + calls[0] + "();\n")
+		b.WriteString("      helper_ok ^= state & 1U;\n")
+		if len(calls) > 1 {
+			b.WriteString("      if ((helper_ok & 1U) == 0U) { " + calls[1] + "(); }\n")
+		}
+	}
+	b.WriteString("      state ^= active ^ phase_slot[0];\n")
+	b.WriteString("    } else {\n")
+	b.WriteString("      state ^= active ^ callback_slot[0] ^ 0xBAD00000U;\n")
+	b.WriteString("    }\n")
+	b.WriteString("  } else {\n")
+	b.WriteString("    ((volatile uint8_t *)state_slot)[3] = 3U;\n")
+	b.WriteString("    state ^= state_slot[0] ^ 3U;\n")
+	b.WriteString("  }\n")
+	return true
+}
+
+func emitIRQWaitGuardMotif(b *strings.Builder, pseudo *pseudoHint) bool {
+	addrs := extractPseudoMemoryAddrs(pseudo.Pseudocode, 4)
+	if len(addrs) < 3 {
+		return false
+	}
+	guardAddr := addrs[0]
+	irqDepthAddr := addrs[1]
+	flagAddr := addrs[2]
+	mmioAddr := uint32(0x40000000)
+	if len(pseudo.MMIOAddrs) > 0 {
+		if v, err := parseHexAddr(pseudo.MMIOAddrs[0]); err == nil {
+			mmioAddr = uint32(v)
+		}
+	}
+	b.WriteString("  // Motif: IRQ guard plus bounded hardware wait from Hex-Rays pseudocode\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *guard = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", guardAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *irq_depth = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", irqDepthAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *wait_flag = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", flagAddr))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", mmioAddr))
+	b.WriteString("  if ((state & 1U) == 0U) {\n")
+	b.WriteString("    guard[0] = 1U;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  uint32_t depth = ++irq_depth[0];\n")
+	b.WriteString("  if ((wait_flag[0] & 0xFFU) != 0U) {\n")
+	b.WriteString("    mmio[0] |= 1U;\n")
+	b.WriteString("    for (uint32_t spin = 24U; spin > 0U; --spin) {\n")
+	b.WriteString("      state ^= mmio[0] ^ spin;\n")
+	b.WriteString("      if ((spin & 7U) == 0U) { wait_flag[0] &= ~0xFFU; }\n")
+	b.WriteString("    }\n")
+	b.WriteString("    mmio[0] &= ~1U;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  if (depth != 0U) {\n")
+	b.WriteString("    irq_depth[0] = depth - 1U;\n")
+	b.WriteString("    if (depth == 1U && guard[0] != 0U) { guard[0] = 0U; }\n")
+	b.WriteString("  }\n")
+	return true
+}
+
+func emitStagedMMIOTransferMotif(b *strings.Builder, pseudo *pseudoHint, cfg *cfgHint) bool {
+	mmioAddr := uint32(0x40000000)
+	if len(pseudo.MMIOAddrs) > 0 {
+		if v, err := parseHexAddr(pseudo.MMIOAddrs[0]); err == nil {
+			mmioAddr = uint32(v)
+		}
+	}
+	blocks := 8
+	if cfg != nil {
+		blocks = minInt(24, maxInt(8, cfg.LoadCount+cfg.StoreCount))
+	}
+	b.WriteString("  // Motif: staged MMIO transfer with bounded completion polling\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x%08XU;\n", mmioAddr))
+	b.WriteString("  volatile uint8_t *src = (volatile uint8_t *)(uintptr_t)(0x20000000U + (state & 0x1FFU));\n")
+	b.WriteString("  volatile uint8_t *dst = (volatile uint8_t *)(uintptr_t)(0x20000400U + (state & 0x1FFU));\n")
+	b.WriteString(fmt.Sprintf("  uint32_t blocks = %dU;\n", blocks))
+	b.WriteString("  uint32_t acc = 0U;\n")
+	b.WriteString("  for (uint32_t blk = 0U; blk < blocks; ++blk) {\n")
+	b.WriteString("    uint8_t v = src[blk & 0x3FU] ^ (uint8_t)(blk + state);\n")
+	b.WriteString("    dst[blk & 0x3FU] = v;\n")
+	b.WriteString("    acc += v;\n")
+	b.WriteString("    mmio[blk & 3U] = (blk << 16U) | v;\n")
+	b.WriteString("    if ((blk & 1U) == 0U) { state ^= mmio[blk & 3U]; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  mmio[1] = 3U;\n")
+	b.WriteString("  for (uint32_t wait = 32U; wait > 0U; --wait) {\n")
+	b.WriteString("    uint32_t st = mmio[1] & 3U;\n")
+	b.WriteString("    state ^= st + acc + wait;\n")
+	b.WriteString("    if ((wait & 7U) == 0U) { mmio[1] = 0U; }\n")
+	b.WriteString("    if (st == 0U) { break; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  mmio[2] = acc ^ state;\n")
+	return true
+}
+
+func emitPseudocodeStructuredBody(b *strings.Builder, fn string, pseudo *pseudoHint, cfg *cfgHint, outgoing []callEdge, behaviorRole string) bool {
 	if pseudo == nil {
 		return false
 	}
 	if pseudo.LineCount == 0 && pseudo.LoopCount == 0 && pseudo.SwitchCount == 0 && len(pseudo.CallNames) == 0 {
 		return false
 	}
-	switch sanitizeName(fn) {
-	case "rf_state_check":
-		b.WriteString("  // Lowered from Hex-Rays: callback gate + status state update\n")
-		b.WriteString("  volatile uint32_t *ctx = (volatile uint32_t *)(uintptr_t)0x001822D0U;\n")
-		b.WriteString("  volatile uint32_t *st = (volatile uint32_t *)(uintptr_t)0x0018231CU;\n")
-		b.WriteString("  uint32_t active = ctx[0x1A8U / 4U];\n")
-		b.WriteString("  st[0] = active;\n")
-		b.WriteString("  if (active != 0U) {\n")
-		b.WriteString("    uint32_t cb_ready = ctx[0x0CU / 4U] != 0U;\n")
-		b.WriteString("    if (cb_ready && ((active ^ state) & 1U) == 0U) {\n")
-		b.WriteString("      ((volatile uint8_t *)st)[3] = 4U;\n")
-		b.WriteString("      ctx[0x194U / 4U] = 7U;\n")
-		b.WriteString("      if ((ctx[0x194U / 4U] & 1U) == 0U) {\n")
-		b.WriteString("        ctx[0x198U / 4U] ^= 1U;\n")
-		b.WriteString("      }\n")
-		b.WriteString("      state ^= active ^ ctx[0x198U / 4U];\n")
-		b.WriteString("    } else {\n")
-		b.WriteString("      state ^= active ^ 0xBAD00000U;\n")
-		b.WriteString("    }\n")
-		b.WriteString("  } else {\n")
-		b.WriteString("    ((volatile uint8_t *)st)[3] = 3U;\n")
-		b.WriteString("    state ^= 0x18231CU;\n")
-		b.WriteString("  }\n")
-		return true
-	case "rf_cmd_wait":
-		b.WriteString("  // Lowered from Hex-Rays: IRQ guard + wait latch + bounded escape\n")
-		b.WriteString("  volatile uint32_t *irq = (volatile uint32_t *)(uintptr_t)0x00182560U;\n")
-		b.WriteString("  volatile uint32_t *guard = (volatile uint32_t *)(uintptr_t)0x00187F8CU;\n")
-		b.WriteString("  volatile uint32_t *flags = (volatile uint32_t *)(uintptr_t)0x00182520U;\n")
-		b.WriteString("  volatile uint32_t *rf = (volatile uint32_t *)(uintptr_t)0x40200800U;\n")
-		b.WriteString("  uint32_t cpsr = state & 1U;\n")
-		b.WriteString("  if (cpsr == 0U) {\n")
-		b.WriteString("    guard[0] = 1U;\n")
-		b.WriteString("  }\n")
-		b.WriteString("  uint32_t depth = ++irq[0];\n")
-		b.WriteString("  if (((volatile uint8_t *)flags)[2] != 0U) {\n")
-		b.WriteString("    rf[1] |= 1U;\n")
-		b.WriteString("    uint32_t spin = 24U;\n")
-		b.WriteString("    while (spin-- > 0U) {\n")
-		b.WriteString("      state ^= rf[1] ^ spin;\n")
-		b.WriteString("      if ((spin & 7U) == 0U) { ((volatile uint8_t *)flags)[2] = 0U; }\n")
-		b.WriteString("    }\n")
-		b.WriteString("    rf[1] &= ~1U;\n")
-		b.WriteString("  }\n")
-		b.WriteString("  if (depth != 0U) {\n")
-		b.WriteString("    irq[0] = depth - 1U;\n")
-		b.WriteString("    if (depth == 1U && guard[0] != 0U) { guard[0] = 0U; }\n")
-		b.WriteString("  }\n")
-		return true
-	case "sdio_transfer":
-		b.WriteString("  // Lowered from Hex-Rays: staged SDIO transfer with bounded block copy and completion polling\n")
-		b.WriteString("  volatile uint32_t *sdio = (volatile uint32_t *)(uintptr_t)0x40200000U;\n")
-		b.WriteString("  volatile uint8_t *src = (volatile uint8_t *)(uintptr_t)(0x20000000U + (state & 0x1FFU));\n")
-		b.WriteString("  volatile uint8_t *dst = (volatile uint8_t *)(uintptr_t)(0x20000400U + (state & 0x1FFU));\n")
-		b.WriteString("  uint32_t blocks = 8U + ((state >> 4U) & 7U);\n")
-		b.WriteString("  uint32_t acc = 0U;\n")
-		b.WriteString("  for (uint32_t blk = 0U; blk < blocks; ++blk) {\n")
-		b.WriteString("    uint8_t v = src[blk & 0x3FU] ^ (uint8_t)(blk + state);\n")
-		b.WriteString("    dst[blk & 0x3FU] = v;\n")
-		b.WriteString("    acc += v;\n")
-		b.WriteString("    sdio[blk & 3U] = (blk << 16U) | v;\n")
-		b.WriteString("    if ((blk & 1U) == 0U) { state ^= sdio[blk & 3U]; }\n")
-		b.WriteString("  }\n")
-		b.WriteString("  uint32_t wait = 32U;\n")
-		b.WriteString("  sdio[1] = 3U;\n")
-		b.WriteString("  while (wait-- > 0U) {\n")
-		b.WriteString("    uint32_t st = sdio[1] & 3U;\n")
-		b.WriteString("    state ^= st + acc + wait;\n")
-		b.WriteString("    if ((wait & 7U) == 0U) { sdio[1] = 0U; }\n")
-		b.WriteString("    if (st == 0U) { break; }\n")
-		b.WriteString("  }\n")
-		b.WriteString("  sdio[2] = acc ^ state;\n")
-		return true
+	switch detectPseudocodeMotif(pseudo, cfg, behaviorRole) {
+	case "callback_state_gate":
+		if emitCallbackStateGateMotif(b, fn, pseudo) {
+			return true
+		}
+	case "irq_wait_guard":
+		if emitIRQWaitGuardMotif(b, pseudo) {
+			return true
+		}
+	case "staged_mmio_transfer":
+		if emitStagedMMIOTransferMotif(b, pseudo, cfg) {
+			return true
+		}
 	}
 	base := "0x40000000U"
 	if len(pseudo.MMIOAddrs) > 0 {

@@ -105,12 +105,31 @@ def plateau_streak(history_rows: list[dict], threshold: int) -> int:
     return streak
 
 
-def collect_ida_evidence(run_root: Path) -> dict:
-    pseudo_path = run_root / "ida_export_pseudo" / "pseudocode_hints.jsonl"
-    cfg_path = run_root / "ida_export_cfg" / "cfg_hints.jsonl"
+def first_existing_path(candidates: list[Path]) -> Path | None:
+    for path in candidates:
+        if path.is_file():
+            return path
+    return None
+
+
+def collect_ida_evidence(root: Path, run_root: Path) -> dict:
+    pseudo_path = first_existing_path(
+        [
+            root / "extraction_out" / "ida_export_pseudo" / "pseudocode_hints.jsonl",
+            run_root / "ida_export_pseudo" / "pseudocode_hints.jsonl",
+        ]
+    )
+    cfg_path = first_existing_path(
+        [
+            root / "extraction_out" / "ida_export_cfg" / "cfg_hints.jsonl",
+            run_root / "ida_export_cfg" / "cfg_hints.jsonl",
+        ]
+    )
     return {
-        "cfg_hint_rows": count_jsonl_rows(cfg_path),
-        "pseudocode_hint_rows": count_jsonl_rows(pseudo_path),
+        "cfg_hint_rows": count_jsonl_rows(cfg_path) if cfg_path else 0,
+        "pseudocode_hint_rows": count_jsonl_rows(pseudo_path) if pseudo_path else 0,
+        "cfg_hint_path": str(cfg_path) if cfg_path else "",
+        "pseudocode_hint_path": str(pseudo_path) if pseudo_path else "",
     }
 
 
@@ -148,7 +167,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             10.0,
             f"IDA evidence incomplete: cfg={ida_evidence.get('cfg_hint_rows', 0)} pseudo={ida_evidence.get('pseudocode_hint_rows', 0)}",
             "refresh grounded facts before further synthesis",
-            {"refresh_ida": True},
+            overrides={"refresh_ida": True},
         )
     if not embedder_enabled or not bool(probe.get("embedder_active", False)):
         add_action(
@@ -157,7 +176,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             9.0,
             "embedder model absent or inactive in probe selection",
             "restore IDA-facts plus embedder-priors operation",
-            {"require_embedder": True},
+            overrides={"require_embedder": True},
         )
 
     capped_rate = percent(capped, probed)
@@ -165,14 +184,17 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
     nontrivial_rate = percent(nontrivial, probed)
     mmio_rate = percent(mmio_touch, probed)
 
+    deepen_score = 8.0 + capped_rate / 25.0
+    if capped_rate >= 85.0 and returned == 0:
+        deepen_score += 3.0
     if capped_rate >= 70.0:
         add_action(
             "deepen_probe_and_raise_evidence",
             "deepen",
-            8.0 + capped_rate / 25.0,
+            deepen_score,
             f"cap-hit rate {capped_rate:.1f}% is dominating returns",
             f"returned rate only {returned_rate:.1f}%",
-            {"suggested_max_insns_multiplier": 2, "prefer_deep_on_capped": True},
+            overrides={"suggested_max_insns_multiplier": 2, "prefer_deep_on_capped": True},
         )
     if nontrivial > 0 or deep_returned > 0:
         add_action(
@@ -181,16 +203,19 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             7.0 + percent(nontrivial + deep_returned, probed) / 20.0,
             f"nontrivial/deep-return evidence available ({nontrivial} nontrivial, {deep_returned} deep)",
             "apply successful motif families to embedding-near neighbors",
-            {"propagate_neighbors": True},
+            overrides={"propagate_neighbors": True},
         )
     if report.get("delta_learning_smoke_success_count", 0) <= 0:
+        motif_score = 6.0 + float(max(0, plateau - 1))
+        if capped_rate >= 85.0 and returned == 0:
+            motif_score -= 3.5
         add_action(
             "synthesize_new_motif_family",
             "synthesize",
-            6.0 + float(max(0, plateau-1)),
+            motif_score,
             f"learning plateau streak={plateau + 1}",
             "current queue traversal is not increasing learned smoke returns",
-            {"prefer_new_motifs": True},
+            overrides={"prefer_new_motifs": True},
         )
     if distinct_images < 2 and candidate_count > probed:
         add_action(
@@ -199,7 +224,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             5.5,
             f"selected image diversity is low ({distinct_images}) with remaining candidates available",
             "shift budget toward under-covered images/clusters",
-            {"prefer_image_diversity": True},
+            overrides={"prefer_image_diversity": True},
         )
     if mmio_rate < 20.0 and capped_rate >= 50.0:
         add_action(
@@ -208,7 +233,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             5.0,
             f"mmio-touch rate {mmio_rate:.1f}% is low while capped rate is {capped_rate:.1f}%",
             "likely harness or peripheral-state mismatch rather than true behavior",
-            {"review_mmio_state": True},
+            overrides={"review_mmio_state": True},
         )
 
     if not action_rows:
@@ -217,7 +242,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             "synthesize",
             1.0,
             "no dominant failure mode detected",
-            {"keep_current_policy": True},
+            overrides={"keep_current_policy": True},
         )
 
     action_rows.sort(key=lambda row: (-float(row.get("score", 0.0)), str(row.get("name", ""))))
@@ -504,7 +529,7 @@ def main() -> int:
     report["delta_learning_by_function_count"] = len(by_function) - prev_func
     report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
     report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success
-    ida_evidence = collect_ida_evidence(run_root)
+    ida_evidence = collect_ida_evidence(root, run_root)
     controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, bool(args.embedder_model))
     report["ida_evidence"] = ida_evidence
     report["controller_primary_action"] = controller_state.get("primary_action", {})
