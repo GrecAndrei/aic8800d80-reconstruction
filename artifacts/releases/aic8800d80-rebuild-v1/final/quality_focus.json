@@ -1,79 +1,13 @@
 [
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "sub_116d3c",
+    "function": "log_queue_push2",
     "risk": "high",
     "reasons": [
-      "opaque_sub_function"
+      "no_callee_calls"
     ],
-    "calls": [
-      "sub_120408",
-      "sub_128db8",
-      "sub_129e04",
-      "sub_12ad00"
-    ],
+    "calls": null,
     "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_116d3c",
-    "risk": "high",
-    "reasons": [
-      "opaque_sub_function"
-    ],
-    "calls": [
-      "sub_120408",
-      "sub_128db8",
-      "sub_129e04",
-      "sub_12ad00"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_116d3c",
-    "risk": "high",
-    "reasons": [
-      "opaque_sub_function"
-    ],
-    "calls": [
-      "sub_120408",
-      "sub_128db8",
-      "sub_129e04",
-      "sub_12ad00"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_116d3c",
-    "risk": "high",
-    "reasons": [
-      "opaque_sub_function"
-    ],
-    "calls": [
-      "sub_120408",
-      "sub_128db8",
-      "sub_129e04",
-      "sub_12ad00"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
       "Confirm call targets with xrefs in IDA",
       "Recover branch conditions and side effects from decompilation",
       "Replace templated helper chain with evidence-backed calls"
@@ -81,17 +15,13 @@
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "sub_10ed40",
-    "risk": "medium",
+    "function": "memcpy_fast",
+    "risk": "high",
     "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
+      "no_callee_calls"
     ],
-    "calls": [
-      "sub_114ee0"
-    ],
+    "calls": null,
     "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
       "Confirm call targets with xrefs in IDA",
       "Recover branch conditions and side effects from decompilation",
       "Replace templated helper chain with evidence-backed calls"
@@ -99,89 +29,13 @@
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "sub_114ee0",
-    "risk": "medium",
+    "function": "memset_impl",
+    "risk": "high",
     "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
+      "no_callee_calls"
     ],
-    "calls": [
-      "sub_10ed40"
-    ],
+    "calls": null,
     "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_10ed40",
-    "risk": "medium",
-    "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
-    ],
-    "calls": [
-      "sub_114ee0"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_114ee0",
-    "risk": "medium",
-    "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
-    ],
-    "calls": [
-      "sub_10ed40"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_10ed40",
-    "risk": "medium",
-    "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
-    ],
-    "calls": [
-      "sub_114ee0"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_114ee0",
-    "risk": "medium",
-    "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
-    ],
-    "calls": [
-      "sub_10ed40"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
       "Confirm call targets with xrefs in IDA",
       "Recover branch conditions and side effects from decompilation",
       "Replace templated helper chain with evidence-backed calls"
@@ -189,35 +43,13 @@
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_10ed40",
-    "risk": "medium",
+    "function": "memset_impl",
+    "risk": "high",
     "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
+      "no_callee_calls"
     ],
-    "calls": [
-      "sub_114ee0"
-    ],
+    "calls": null,
     "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
-      "Confirm call targets with xrefs in IDA",
-      "Recover branch conditions and side effects from decompilation",
-      "Replace templated helper chain with evidence-backed calls"
-    ]
-  },
-  {
-    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
-    "function": "sub_114ee0",
-    "risk": "medium",
-    "reasons": [
-      "opaque_sub_function",
-      "synth_evidence_non_generic_calls"
-    ],
-    "calls": [
-      "sub_10ed40"
-    ],
-    "next_steps": [
-      "Rename function from caller/context evidence before behavior lift",
       "Confirm call targets with xrefs in IDA",
       "Recover branch conditions and side effects from decompilation",
       "Replace templated helper chain with evidence-backed calls"

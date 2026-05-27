@@ -293,7 +293,7 @@ Exit criteria:
 
 ## Active Milestone
 
-- Current: A1 - Controller Memory and Quiet Telemetry
+- Current: A2/A3 - Descriptor Transfer, Motif Expansion, and Policy Learning
 
 ## Immediate Execution Plan
 
@@ -315,6 +315,249 @@ As of 2026-05-26:
 - Plateau routing exists.
 - Recent direct pseudocode lowering improved representative hard-cohort behavior.
 - The next necessary step is not more one-off lowering. It is persistent controller memory plus motif generalization.
+
+## Comprehensive Next Plan
+
+The next major stretch should be executed as one connected program, not as unrelated micro-fixes.
+
+### Phase 1 - Stabilize The Semantic Core
+
+Goal: make descriptors, transfer evidence, and release metrics trustworthy enough to drive every later decision.
+
+Required work:
+
+- consolidate all descriptor inputs into one explicit schema contract:
+  - CFG hints
+  - pseudocode hints
+  - function links
+  - consensus behavior
+  - synth evidence
+  - smoke outcomes
+  - embedder vectors and class scores
+- add schema-version checks and drift detectors across:
+  - `fwdescriptors`
+  - `fwimplqueue`
+  - `fwimplsynth`
+  - `fwfinalize`
+  - `fwharden`
+  - `fwcycle`
+- add explicit descriptor coverage metrics:
+  - descriptor rows with CFG
+  - descriptor rows with pseudocode
+  - descriptor rows with embedder vectors
+  - descriptor rows with consensus links
+  - descriptor rows with transfer confidence above threshold
+- detect stale or contradictory evidence:
+  - motif says dispatcher but body never branches
+  - transfer cluster says strong reuse but outgoing calls diverge heavily
+  - probe phenotype says MMIO wait but synthesized body has no bounded wait
+
+Exit criteria:
+
+- every downstream stage consumes the same descriptor schema without ad hoc field guessing
+- descriptor summary can explain where evidence is missing, contradictory, or strong
+- release metrics no longer overstate quality when transfer/body alignment is weak
+
+### Phase 2 - Expand Motif Coverage Aggressively
+
+Goal: replace the remaining generic synthesis surface with reusable motif families that cover the real hard cohorts.
+
+Required work:
+
+- add more motif families beyond the current dispatcher/queue/MMIO/wait/state set:
+  - RF command queue and command latch chains
+  - RF register write callback and completion gates
+  - SDIO busy/wait and DMA setup sequences
+  - timer-arm / timer-cancel / timer-drain patterns
+  - logging allocator / free-pool cascades
+  - message allocation / event scheduling bridges
+  - crypto key-load / table-init / power-up / clear-register flows
+  - patch-application and firmware configuration sequences
+- define selection rules from evidence, not names:
+  - required CFG shape
+  - required pseudocode tokens
+  - required MMIO profile
+  - required outgoing-call profile
+  - acceptable probe phenotypes
+- split motif implementation into:
+  - body emitter
+  - contract hints
+  - probe seed hints
+  - release-time validation rule
+
+Exit criteria:
+
+- most previously hard-coded or special-cased families are represented as descriptor-selected motifs
+- capped and shallow-wrapper cohorts have a materially lower share of generic bodies
+
+### Phase 3 - Make Transfer Real, Not Decorative
+
+Goal: use embedder-neighbor and cluster transfer to change emitted code, not just rank rows.
+
+Required work:
+
+- turn transfer clusters into reusable recipe objects with:
+  - preferred emitter
+  - top outgoing set
+  - optional incoming/caller context
+  - common probe seeds
+  - expected validation signatures
+- add cluster-level consensus body fingerprints so `fwimplsynth` can choose among:
+  - pseudocode-first
+  - motif-first
+  - behavior-class-first
+  - cluster-transfer-first
+- add anti-transfer safeguards:
+  - reject neighbor propagation when image roles differ too much
+  - reject cluster transfer when outgoing-call overlap is too low
+  - penalize transfer if previous accepted neighbors later failed finalize or harden
+- track transfer outcomes explicitly in artifacts:
+  - transfer selected
+  - transfer accepted
+  - transfer downgraded
+  - transfer contradicted by finalize/harden
+
+Exit criteria:
+
+- cluster transfer measurably improves call conformance, nontrivial returns, or finalize risk
+- failed transfer patterns are remembered and automatically demoted
+
+### Phase 4 - Strengthen The Controller Into A Real Decision Engine
+
+Goal: make the controller choose between probe, synth, refresh, validate, and harden actions based on evidence and memory.
+
+Required work:
+
+- expand controller action families:
+  - refresh exports
+  - deepen probe
+  - widen image diversity
+  - prioritize motif family
+  - prioritize transfer cluster
+  - prefer descriptor motifs over generic emitters
+  - focus capped MMIO waits
+  - focus shallow wrappers
+  - validate conformance early
+  - tighten harden gates late
+- add counterfactual logging:
+  - what the top 3 unchosen actions were
+  - which evidence pushed the chosen action up
+  - whether the chosen action actually improved downstream metrics
+- move from one-cycle heuristics to short-horizon control:
+  - if two synth-heavy cycles fail, force a deepen or validate pass
+  - if motif-backed finalize risk drops, expand cluster transfer
+  - if conformance is green but returns stall, prioritize runtime/state hypotheses instead of more generic synthesis
+
+Exit criteria:
+
+- controller recommendations explain why they were chosen and whether they worked
+- the system stops retrying the same losing move on repeated plateau phenotypes
+
+### Phase 5 - Add Stronger Validation And Negative Evidence
+
+Goal: stop counting structurally plausible but behaviorally weak outputs as wins.
+
+Required work:
+
+- expand `fwfinalize` quality rules to score:
+  - transfer/body alignment
+  - motif/body alignment
+  - bounded-wait presence for capped MMIO phenotypes
+  - queue or dispatcher structure for wrapper cohorts
+  - mismatch between expected and emitted callee sets
+- expand `fwharden` so it can gate on:
+  - high-risk finalize rows
+  - underused transfer-backed descriptors
+  - motif-backed coverage floor
+  - capped-MMIO phenotype ceiling
+  - wrapper dominance ceiling
+- expand smoke/cycle evidence so failed runtime signals are useful:
+  - repeated missing symbols
+  - repeated cap-only loops
+  - repeated zero-MMIO returns
+  - deep-pass vs shallow-pass divergence
+
+Exit criteria:
+
+- release quality metrics correlate better with real autonomous improvement
+- false greens are harder to publish
+
+### Phase 6 - Refresh The Tracked Release Deliberately
+
+Goal: make `artifacts/releases/` represent a real, current, curated publication boundary.
+
+Required work:
+
+- refresh the tracked release from the newest validated workspace state
+- ensure release docs match actual tracked contents
+- ensure release metadata includes:
+  - descriptor summary snapshot
+  - controller summary snapshot
+  - finalize manifest
+  - conformance report
+  - checksums
+- separate intentionally published synth metadata from local scratch synth bodies
+
+Exit criteria:
+
+- the tracked release can be understood without opening the live workspace
+- release docs and machine-readable metadata agree with the tracked files
+
+### Phase 7 - Prepare For New Binary Families
+
+Goal: stop embedding assumptions that only work for this exact corpus.
+
+Required work:
+
+- define a reusable adaptation checklist:
+  - how to load a new blob
+  - how to refresh exports
+  - how to build descriptors
+  - how to validate whether transfer is safe
+- isolate AIC8800D80-specific constants, seeds, and MMIO assumptions behind explicit data or config paths where practical
+- identify what is really generic in:
+  - motif emitters
+  - descriptor clustering
+  - controller actions
+  - smoke learning
+
+Exit criteria:
+
+- porting to another firmware family does not require a rewrite of the core rebuild loop
+
+### Phase 8 - Operational Cleanliness And Automation Discipline
+
+Goal: keep the repo and workspace usable while the pipeline grows more capable.
+
+Required work:
+
+- continue tightening tracked vs generated boundaries
+- add release refresh scripts or documented procedures so publishing is deliberate
+- keep root-level navigation obvious and current
+- ensure every new command or artifact format has a discoverable doc entry
+- keep default logs compact and move bulk detail into structured artifacts
+
+Exit criteria:
+
+- a new operator can navigate the repo and run the core path without tribal knowledge
+
+## Immediate Next Execution Queue
+
+The next execution queue should be:
+
+1. refresh the tracked release bundle from the newest validated live state, not just the older curated baseline
+2. expand motif families for RF register-write waits, SDIO wait/DMA flows, and logging free-pool cascades
+3. add explicit transfer-outcome tracking so cluster propagation can be promoted or demoted automatically
+4. strengthen `fwfinalize` and `fwharden` around transfer-underuse and transfer-mismatch conditions
+5. make `fwcycle` consume transfer-backed descriptor counts as a first-class plateau signal
+6. add tests around descriptor summaries, transfer confidence, and controller action ranking
+
+## What To Avoid Next
+
+- do not hand-edit generated `final/` sources as a substitute for fixing the pipeline
+- do not add more function-name one-offs when a descriptor or motif rule can express the same behavior
+- do not publish new release artifacts until the live workspace state has been deliberately refreshed and checked
+- do not let release metrics drift away from what the release files actually contain
 
 ## Progress Log
 

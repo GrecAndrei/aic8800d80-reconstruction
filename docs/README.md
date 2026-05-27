@@ -24,4 +24,9 @@ Start here if you need to understand how this repo is organized.
 - `../artifacts/README.md`: artifact policy and tracked release rules
 - `../artifacts/releases/README.md`: release catalog
 - `../artifacts/releases/aic8800d80-rebuild-v1/README.md`: current published release snapshot
+- `../cmd/README.md`: command catalog
+- `../tools/README.md`: tool catalog
+- `../internal/README.md`: internal package map
+- `../inputs/README.md`: input asset rules
+- `../metadata/README.md`: stable metadata notes
 - `../extracted_kernel/README.md`: historical kernel extraction notes

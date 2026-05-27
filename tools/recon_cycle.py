@@ -133,6 +133,29 @@ def collect_ida_evidence(root: Path, run_root: Path) -> dict:
     }
 
 
+def collect_descriptor_evidence(run_root: Path) -> dict:
+    analysis_dir = run_root / "analysis"
+    summary = load_json(analysis_dir / "descriptor_summary.json", {})
+    motif_memory = load_json(analysis_dir / "motif_recipe_memory.json", [])
+    top_motifs: list[dict] = []
+    if isinstance(motif_memory, list):
+        sorted_rows = sorted(
+            [row for row in motif_memory if isinstance(row, dict)],
+            key=lambda row: (
+                -float(row.get("avg_confidence", 0.0)),
+                -float(row.get("success_rate", 0.0)),
+                str(row.get("family", "")),
+            ),
+        )
+        top_motifs = sorted_rows[:4]
+    return {
+        "summary": summary if isinstance(summary, dict) else {},
+        "top_motifs": top_motifs,
+        "descriptor_count": int(summary.get("descriptor_count", 0)) if isinstance(summary, dict) else 0,
+        "motif_backed_count": int(summary.get("motif_backed_count", 0)) if isinstance(summary, dict) else 0,
+    }
+
+
 def build_action_policy_memory(experience_rows: list[dict]) -> dict:
     buckets: dict[str, dict] = {}
     for row in experience_rows:
@@ -251,9 +274,11 @@ def choose_recommended_mode(action_rows: list[dict], probe: dict) -> tuple[str, 
     }
 
 
-def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, embedder_enabled: bool, policy_memory: dict) -> dict:
+def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, descriptor_evidence: dict, embedder_enabled: bool, policy_memory: dict) -> dict:
     summary = report.get("summary", {}) if isinstance(report.get("summary"), dict) else {}
     probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
+    descriptor_summary = descriptor_evidence.get("summary", {}) if isinstance(descriptor_evidence.get("summary"), dict) else {}
+    top_motifs = descriptor_evidence.get("top_motifs", []) if isinstance(descriptor_evidence.get("top_motifs"), list) else []
     probed = max(1, int(probe.get("probed", 0)))
     capped = int(probe.get("capped", 0))
     returned = int(probe.get("returned", 0))
@@ -353,6 +378,43 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             "likely harness or peripheral-state mismatch rather than true behavior",
             overrides={"review_mmio_state": True},
         )
+    if int(descriptor_summary.get("motif_backed_count", 0)) > 0:
+        motif_rows = [row for row in top_motifs if isinstance(row, dict)]
+        if motif_rows:
+            best = motif_rows[0]
+            family = str(best.get("family", "")).strip()
+            avg_conf = float(best.get("avg_confidence", 0.0))
+            success_rate = float(best.get("success_rate", 0.0))
+            if family and avg_conf >= 0.65:
+                add_action(
+                    "apply_descriptor_motif_memory",
+                    "synthesize",
+                    6.5 + avg_conf * 2.0 + success_rate / 40.0,
+                    f"descriptor motif memory identifies reusable family {family}",
+                    f"family confidence {avg_conf:.2f} success_rate {success_rate:.1f}%",
+                    overrides={"prefer_descriptor_motifs": True, "motif_family": family},
+                )
+    phenotype_counts = descriptor_summary.get("phenotype_counts", {}) if isinstance(descriptor_summary.get("phenotype_counts"), dict) else {}
+    capped_mmio = int(phenotype_counts.get("capped_mmio_wait", 0))
+    shallow_wrappers = int(phenotype_counts.get("shallow_wrapper", 0))
+    if capped_mmio > 0:
+        add_action(
+            "prioritize_mmio_wait_family",
+            "synthesize",
+            5.0 + min(6.0, capped_mmio * 0.4),
+            f"descriptor layer sees {capped_mmio} capped MMIO wait functions",
+            "promote bounded wait and MMIO-transfer motif recovery",
+            overrides={"prefer_mmio_wait_family": True},
+        )
+    if shallow_wrappers > 0:
+        add_action(
+            "unwrap_shallow_dispatchers",
+            "synthesize",
+            4.5 + min(5.0, shallow_wrappers * 0.3),
+            f"descriptor layer sees {shallow_wrappers} shallow wrapper functions",
+            "promote dispatcher/queue/state-machine motif routing ahead of generic synthesis",
+            overrides={"prefer_wrapper_breaking": True},
+        )
 
     if not action_rows:
         add_action(
@@ -376,6 +438,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
         "recommended_mode": recommended_mode,
         "mode_decision": mode_decision,
         "ida_evidence": ida_evidence,
+        "descriptor_evidence": descriptor_evidence,
         "embedder": {
             "model_enabled": embedder_enabled,
             "probe_embedder_active": bool(probe.get("embedder_active", False)),
@@ -404,6 +467,7 @@ def build_experience_record(report: dict, controller_state: dict, queue_source: 
         "controller_primary_action": controller_state.get("primary_action", {}),
         "controller_recommended_mode": controller_state.get("recommended_mode", "synthesize"),
         "ida_evidence": controller_state.get("ida_evidence", {}),
+        "descriptor_evidence": controller_state.get("descriptor_evidence", {}),
     }
 
 
@@ -423,6 +487,7 @@ def compact_cycle_summary(report: dict, controller_state: dict) -> dict:
             "selected_distinct_images": int(probe.get("selected_distinct_images", 0)),
         },
         "ida_evidence": controller_state.get("ida_evidence", {}),
+        "descriptor_evidence": controller_state.get("descriptor_evidence", {}),
         "controller_primary_action": controller_state.get("primary_action", {}),
     }
 
@@ -652,9 +717,11 @@ def main() -> int:
     report["delta_learning_by_prefix_count"] = len(by_prefix) - prev_prefix
     report["delta_learning_smoke_success_count"] = int(report["learning_smoke_success_count"]) - prev_success
     ida_evidence = collect_ida_evidence(root, run_root)
+    descriptor_evidence = collect_descriptor_evidence(run_root)
     policy_memory = build_action_policy_memory(read_jsonl_rows(run_root / "controller_experience.jsonl"))
-    controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, bool(args.embedder_model), policy_memory)
+    controller_state = recommend_controller_actions(report, read_jsonl_rows(history_path), ida_evidence, descriptor_evidence, bool(args.embedder_model), policy_memory)
     report["ida_evidence"] = ida_evidence
+    report["descriptor_evidence"] = descriptor_evidence
     report["controller_primary_action"] = controller_state.get("primary_action", {})
     report["controller_recommended_mode"] = controller_state.get("recommended_mode", "synthesize")
     report_path = run_dir / "cycle_report.json"

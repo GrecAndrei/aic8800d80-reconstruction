@@ -63,6 +63,19 @@ type cycleReport struct {
 	ProbeSummary cycleProbeSummary `json:"probe_summary"`
 }
 
+type descriptorSummary struct {
+	DescriptorCount   int            `json:"descriptor_count"`
+	MotifBackedCount  int            `json:"motif_backed_count"`
+	PhenotypeCounts   map[string]int `json:"phenotype_counts,omitempty"`
+	MotifFamilyCounts map[string]int `json:"motif_family_counts,omitempty"`
+}
+
+type qualityRow struct {
+	Risk                string `json:"risk"`
+	DescriptorPhenotype string `json:"descriptor_phenotype,omitempty"`
+	MotifFamily         string `json:"motif_family,omitempty"`
+}
+
 func pct(numer int, denom int) float64 {
 	if denom <= 0 {
 		return 0
@@ -82,6 +95,11 @@ func main() {
 	var minDistinctImages int
 	var maxWrapperDominanceRate float64
 	var minDeepReturnRate float64
+	var descriptorSummaryPath string
+	var qualityPath string
+	var minMotifBackedCount int
+	var maxCappedMMIOPhenotypes int
+	var maxHighRiskFunctions int
 
 	flag.StringVar(&finalDir, "final-dir", "extraction_out/reconstruction/mega7/final", "Final reconstruction directory")
 	flag.StringVar(&rebuiltDir, "rebuilt-dir", "extraction_out/reconstruction/mega7/rebuilt", "Rebuilt artifacts directory")
@@ -94,6 +112,11 @@ func main() {
 	flag.IntVar(&minDistinctImages, "min-distinct-images", 1, "Minimum distinct images in selected probe set")
 	flag.Float64Var(&maxWrapperDominanceRate, "max-wrapper-dominance-rate", 100.0, "Maximum shallow-wrapper dominance percent")
 	flag.Float64Var(&minDeepReturnRate, "min-deep-return-rate", 0.0, "Minimum deep-pass return rate percent when deep pass runs")
+	flag.StringVar(&descriptorSummaryPath, "descriptor-summary", "extraction_out/reconstruction/mega7/analysis/descriptor_summary.json", "Descriptor summary JSON path")
+	flag.StringVar(&qualityPath, "quality", "extraction_out/reconstruction/mega7/final/finalize_quality.json", "Finalize quality JSON path")
+	flag.IntVar(&minMotifBackedCount, "min-motif-backed-count", 0, "Minimum descriptor motif-backed function count")
+	flag.IntVar(&maxCappedMMIOPhenotypes, "max-capped-mmio-phenotypes", 0, "Maximum allowed capped_mmio_wait descriptor count (0 disables)")
+	flag.IntVar(&maxHighRiskFunctions, "max-high-risk-functions", 0, "Maximum allowed high-risk functions in finalize_quality (0 disables)")
 	flag.Parse()
 
 	finalAbs, _ := filepath.Abs(finalDir)
@@ -220,6 +243,45 @@ func main() {
 		}
 	} else {
 		fmt.Fprintf(os.Stderr, "behavior health: cycle report not found at %s (skipping behavioral-depth gates)\n", cycleReportPath)
+	}
+	if b, err := os.ReadFile(descriptorSummaryPath); err == nil {
+		var ds descriptorSummary
+		if err := json.Unmarshal(b, &ds); err != nil {
+			fail("parse descriptor summary: %v", err)
+		}
+		if minMotifBackedCount > 0 && ds.MotifBackedCount < minMotifBackedCount {
+			fail("descriptor gate failed: motif_backed_count %d < %d", ds.MotifBackedCount, minMotifBackedCount)
+		}
+		if maxCappedMMIOPhenotypes > 0 {
+			cappedMMIO := 0
+			if ds.PhenotypeCounts != nil {
+				cappedMMIO = ds.PhenotypeCounts["capped_mmio_wait"]
+			}
+			if cappedMMIO > maxCappedMMIOPhenotypes {
+				fail("descriptor gate failed: capped_mmio_wait count %d > %d", cappedMMIO, maxCappedMMIOPhenotypes)
+			}
+		}
+	} else if minMotifBackedCount > 0 || maxCappedMMIOPhenotypes > 0 {
+		fail("missing descriptor summary: %s", descriptorSummaryPath)
+	}
+	if b, err := os.ReadFile(qualityPath); err == nil {
+		var rows []qualityRow
+		if err := json.Unmarshal(b, &rows); err != nil {
+			fail("parse quality report: %v", err)
+		}
+		if maxHighRiskFunctions > 0 {
+			high := 0
+			for _, row := range rows {
+				if row.Risk == "high" {
+					high++
+				}
+			}
+			if high > maxHighRiskFunctions {
+				fail("quality gate failed: high-risk functions %d > %d", high, maxHighRiskFunctions)
+			}
+		}
+	} else if maxHighRiskFunctions > 0 {
+		fail("missing quality report: %s", qualityPath)
 	}
 
 	ents, err := os.ReadDir(finalAbs)

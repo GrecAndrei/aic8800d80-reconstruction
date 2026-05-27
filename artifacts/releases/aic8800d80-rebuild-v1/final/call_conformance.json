@@ -3,7 +3,7 @@
   "call_edges_path": "extraction_out/call_edges.jsonl",
   "min_confidence": 0.7,
   "function_count": 356,
-  "evaluable_count": 356,
+  "evaluable_count": 352,
   "avg_conformance_pct": 100,
   "rows": [
     {
@@ -430,14 +430,10 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "list_push_tail",
       "emitted_calls": [
-        "log_queue_push",
-        "sub_137490",
-        "list_pop"
+        "log_queue_push"
       ],
       "evidence_calls": [
-        "list_pop",
-        "log_queue_push",
-        "sub_137490"
+        "log_queue_push"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -463,13 +459,13 @@
       "function": "log_alloc",
       "emitted_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "evidence_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -586,14 +582,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_global_init",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -625,13 +621,13 @@
       "function": "log_pool_alloc",
       "emitted_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "evidence_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -642,14 +638,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_pool_alloc2",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -661,13 +657,13 @@
       "function": "log_pool_alloc_b",
       "emitted_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "evidence_calls": [
         "list_pop",
-        "log_free_pool_a",
-        "log_pool_init_d"
+        "log_pool_init_d",
+        "log_printf"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -679,13 +675,13 @@
       "function": "log_pool_config",
       "emitted_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "hw_config_init",
+        "irq_vector_init"
       ],
       "evidence_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "hw_config_init",
+        "irq_vector_init"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -697,13 +693,13 @@
       "function": "log_pool_default_config",
       "emitted_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "hw_config_init",
+        "irq_vector_init"
       ],
       "evidence_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "hw_config_init",
+        "irq_vector_init"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -714,14 +710,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_pool_init_a",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -732,14 +728,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_pool_init_b",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -750,14 +746,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_pool_init_c",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -830,14 +826,14 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_ptr_in_range",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -847,20 +843,12 @@
     {
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "log_queue_push2",
-      "emitted_calls": [
-        "buffer_pool_manage",
-        "clear_flags",
-        "list_pop"
-      ],
-      "evidence_calls": [
-        "buffer_pool_manage",
-        "clear_flags",
-        "list_pop"
-      ],
+      "emitted_calls": [],
+      "evidence_calls": null,
       "unsupported_calls": [],
       "missing_likely_calls": [],
       "conformance_pct": 100,
-      "evidence_found": true
+      "evidence_found": false
     },
     {
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1157,30 +1145,22 @@
     {
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "memcpy_fast",
-      "emitted_calls": [
-        "math_round"
-      ],
-      "evidence_calls": [
-        "math_round"
-      ],
+      "emitted_calls": [],
+      "evidence_calls": null,
       "unsupported_calls": [],
       "missing_likely_calls": [],
       "conformance_pct": 100,
-      "evidence_found": true
+      "evidence_found": false
     },
     {
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "memset_impl",
-      "emitted_calls": [
-        "math_round"
-      ],
-      "evidence_calls": [
-        "math_round"
-      ],
+      "emitted_calls": [],
+      "evidence_calls": null,
       "unsupported_calls": [],
       "missing_likely_calls": [],
       "conformance_pct": 100,
-      "evidence_found": true
+      "evidence_found": false
     },
     {
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1656,16 +1636,16 @@
       "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
       "function": "queue_check",
       "emitted_calls": [
-        "sdio_wait_busy",
-        "feature_guard_sdio",
         "sdio_status_check",
-        "state_flag_check"
+        "state_flag_check",
+        "ipc_doorbell_handler",
+        "tx_timeout_check"
       ],
       "evidence_calls": [
-        "feature_guard_sdio",
+        "ipc_doorbell_handler",
         "sdio_status_check",
-        "sdio_wait_busy",
-        "state_flag_check"
+        "state_flag_check",
+        "tx_timeout_check"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -2446,8 +2426,8 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "crypto_hw_clear_regs",
       "emitted_calls": [
-        "crypto_state_dump",
         "crypto_power_calc",
+        "crypto_state_dump",
         "crypto_power_apply"
       ],
       "evidence_calls": [
@@ -2572,14 +2552,10 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "list_push_tail",
       "emitted_calls": [
-        "log_queue_push",
-        "sub_137490",
-        "list_pop"
+        "log_queue_push"
       ],
       "evidence_calls": [
-        "list_pop",
-        "log_queue_push",
-        "sub_137490"
+        "log_queue_push"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -2685,14 +2661,14 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "log_ptr_in_range",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -2866,16 +2842,16 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "queue_check",
       "emitted_calls": [
-        "sdio_wait_busy",
-        "feature_guard_sdio",
         "sdio_status_check",
-        "state_flag_check"
+        "state_flag_check",
+        "ipc_doorbell_handler",
+        "tx_timeout_check"
       ],
       "evidence_calls": [
-        "feature_guard_sdio",
+        "ipc_doorbell_handler",
         "sdio_status_check",
-        "sdio_wait_busy",
-        "state_flag_check"
+        "state_flag_check",
+        "tx_timeout_check"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -2995,9 +2971,11 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "rf_cmd_dispatch",
       "emitted_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "evidence_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "unsupported_calls": [],
@@ -3113,8 +3091,8 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "rf_init_blocka",
       "emitted_calls": [
-        "rf_init_blockc",
-        "rf_init_blockb"
+        "rf_init_blockb",
+        "rf_init_blockc"
       ],
       "evidence_calls": [
         "rf_init_blockb",
@@ -3145,8 +3123,8 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "rf_init_blockc",
       "emitted_calls": [
-        "rf_init_blocka",
-        "rf_init_blockb"
+        "rf_init_blockb",
+        "rf_init_blocka"
       ],
       "evidence_calls": [
         "rf_init_blocka",
@@ -3178,8 +3156,8 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "rf_level_compute",
       "emitted_calls": [
-        "rf_level_step",
-        "rf_hw_timer_read"
+        "rf_hw_timer_read",
+        "rf_level_step"
       ],
       "evidence_calls": [
         "rf_hw_timer_read",
@@ -3473,8 +3451,8 @@
       "function": "sdio_buffer_prepare",
       "emitted_calls": [
         "log_hw_init",
-        "sub_1435d0",
         "log_enqueue",
+        "sub_1435d0",
         "list_pop"
       ],
       "evidence_calls": [
@@ -3493,13 +3471,13 @@
       "function": "sdio_dma_config",
       "emitted_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "evidence_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -3527,8 +3505,6 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "sdio_transfer",
       "emitted_calls": [
-        "log_hw_init",
-        "log_enqueue",
         "sdio_buffer_prepare"
       ],
       "evidence_calls": [
@@ -3547,6 +3523,8 @@
         "@0x111130",
         "@0x12dfdc",
         "@0x1435d0",
+        "log_enqueue",
+        "log_hw_init",
         "sub_1435d0"
       ],
       "conformance_pct": 100,
@@ -3556,16 +3534,16 @@
       "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
       "function": "sdio_wait_busy",
       "emitted_calls": [
-        "queue_check",
-        "tx_timeout_check",
         "feature_guard_sdio",
-        "sdio_status_check"
+        "sdio_status_check",
+        "state_flag_check",
+        "ipc_doorbell_handler"
       ],
       "evidence_calls": [
         "feature_guard_sdio",
-        "queue_check",
+        "ipc_doorbell_handler",
         "sdio_status_check",
-        "tx_timeout_check"
+        "state_flag_check"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -3992,14 +3970,10 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "list_push_tail",
       "emitted_calls": [
-        "log_queue_push",
-        "sub_137490",
-        "list_pop"
+        "log_queue_push"
       ],
       "evidence_calls": [
-        "list_pop",
-        "log_queue_push",
-        "sub_137490"
+        "log_queue_push"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -4091,14 +4065,14 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "log_ptr_in_range",
       "emitted_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "evidence_calls": [
-        "log_free_pool_a",
         "log_pool_init_d",
-        "rf_power_set"
+        "log_printf",
+        "rf_stream_start"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -4273,16 +4247,16 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "queue_check",
       "emitted_calls": [
-        "sdio_wait_busy",
-        "feature_guard_sdio",
         "sdio_status_check",
-        "state_flag_check"
+        "state_flag_check",
+        "ipc_doorbell_handler",
+        "tx_timeout_check"
       ],
       "evidence_calls": [
-        "feature_guard_sdio",
+        "ipc_doorbell_handler",
         "sdio_status_check",
-        "sdio_wait_busy",
-        "state_flag_check"
+        "state_flag_check",
+        "tx_timeout_check"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -4386,9 +4360,11 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "rf_cmd_dispatch",
       "emitted_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "evidence_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "unsupported_calls": [],
@@ -4444,8 +4420,8 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "rf_init_blocka",
       "emitted_calls": [
-        "rf_init_blockc",
-        "rf_init_blockb"
+        "rf_init_blockb",
+        "rf_init_blockc"
       ],
       "evidence_calls": [
         "rf_init_blockb",
@@ -4476,8 +4452,8 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "rf_init_blockc",
       "emitted_calls": [
-        "rf_init_blocka",
-        "rf_init_blockb"
+        "rf_init_blockb",
+        "rf_init_blocka"
       ],
       "evidence_calls": [
         "rf_init_blocka",
@@ -4509,8 +4485,8 @@
       "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
       "function": "rf_level_compute",
       "emitted_calls": [
-        "rf_level_step",
-        "rf_hw_timer_read"
+        "rf_hw_timer_read",
+        "rf_level_step"
       ],
       "evidence_calls": [
         "rf_hw_timer_read",
@@ -4705,8 +4681,8 @@
       "function": "sdio_buffer_prepare",
       "emitted_calls": [
         "log_hw_init",
-        "sub_1435d0",
         "log_enqueue",
+        "sub_1435d0",
         "list_pop"
       ],
       "evidence_calls": [
@@ -4725,13 +4701,13 @@
       "function": "sdio_dma_config",
       "emitted_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "evidence_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -5074,8 +5050,8 @@
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "crypto_hw_clear_regs",
       "emitted_calls": [
-        "crypto_state_dump",
         "crypto_power_calc",
+        "crypto_state_dump",
         "crypto_power_apply"
       ],
       "evidence_calls": [
@@ -5184,14 +5160,10 @@
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "list_push_tail",
       "emitted_calls": [
-        "log_queue_push",
-        "sub_137490",
-        "list_pop"
+        "log_queue_push"
       ],
       "evidence_calls": [
-        "list_pop",
-        "log_queue_push",
-        "sub_137490"
+        "log_queue_push"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -5287,31 +5259,27 @@
     {
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "memset_impl",
-      "emitted_calls": [
-        "math_round"
-      ],
-      "evidence_calls": [
-        "math_round"
-      ],
+      "emitted_calls": [],
+      "evidence_calls": null,
       "unsupported_calls": [],
       "missing_likely_calls": [],
       "conformance_pct": 100,
-      "evidence_found": true
+      "evidence_found": false
     },
     {
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "queue_check",
       "emitted_calls": [
-        "sdio_wait_busy",
-        "feature_guard_sdio",
         "sdio_status_check",
-        "state_flag_check"
+        "state_flag_check",
+        "ipc_doorbell_handler",
+        "tx_timeout_check"
       ],
       "evidence_calls": [
-        "feature_guard_sdio",
+        "ipc_doorbell_handler",
         "sdio_status_check",
-        "sdio_wait_busy",
-        "state_flag_check"
+        "state_flag_check",
+        "tx_timeout_check"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],
@@ -5415,9 +5383,11 @@
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "rf_cmd_dispatch",
       "emitted_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "evidence_calls": [
+        "rf_cmd_send",
         "rf_cmd_wait"
       ],
       "unsupported_calls": [],
@@ -5489,8 +5459,8 @@
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "rf_init_blockc",
       "emitted_calls": [
-        "rf_init_blocka",
-        "rf_init_blockb"
+        "rf_init_blockb",
+        "rf_init_blocka"
       ],
       "evidence_calls": [
         "rf_init_blocka",
@@ -5522,8 +5492,8 @@
       "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
       "function": "rf_level_compute",
       "emitted_calls": [
-        "rf_level_step",
-        "rf_hw_timer_read"
+        "rf_hw_timer_read",
+        "rf_level_step"
       ],
       "evidence_calls": [
         "rf_hw_timer_read",
@@ -5645,8 +5615,8 @@
       "function": "sdio_buffer_prepare",
       "emitted_calls": [
         "log_hw_init",
-        "sub_1435d0",
         "log_enqueue",
+        "sub_1435d0",
         "list_pop"
       ],
       "evidence_calls": [
@@ -5665,13 +5635,13 @@
       "function": "sdio_dma_config",
       "emitted_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "evidence_calls": [
         "chip_variant_detect",
-        "crypto_hw_enable",
-        "crypto_hw_power_up"
+        "feature_guard_sdio",
+        "hw_config_init"
       ],
       "unsupported_calls": [],
       "missing_likely_calls": [],

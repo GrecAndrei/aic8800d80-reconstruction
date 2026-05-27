@@ -1,6 +1,39 @@
 [
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "log_queue_push2",
+    "call_count": 0,
+    "calls": null,
+    "risk": "high",
+    "reasons": [
+      "no_callee_calls"
+    ],
+    "template_evidence": false
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "memcpy_fast",
+    "call_count": 0,
+    "calls": null,
+    "risk": "high",
+    "reasons": [
+      "no_callee_calls"
+    ],
+    "template_evidence": false
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
+    "function": "memset_impl",
+    "call_count": 0,
+    "calls": null,
+    "risk": "high",
+    "reasons": [
+      "no_callee_calls"
+    ],
+    "template_evidence": false
+  },
+  {
+    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "sub_116d3c",
     "call_count": 1,
     "calls": [
@@ -12,7 +45,7 @@
       "cross_image_consistent_opaque_leaf",
       "cross_image_consistency_promoted"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -27,7 +60,7 @@
       "cross_image_consistent_opaque_leaf",
       "cross_image_consistency_promoted"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -42,7 +75,18 @@
       "cross_image_consistent_opaque_leaf",
       "cross_image_consistency_promoted"
     ],
-    "template_evidence": true
+    "template_evidence": false
+  },
+  {
+    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
+    "function": "memset_impl",
+    "call_count": 0,
+    "calls": null,
+    "risk": "high",
+    "reasons": [
+      "no_callee_calls"
+    ],
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -57,7 +101,7 @@
       "cross_image_consistent_opaque_leaf",
       "cross_image_consistency_promoted"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -71,7 +115,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -85,7 +129,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -99,7 +143,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -113,7 +157,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -126,7 +170,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -139,7 +183,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -152,7 +196,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -166,7 +210,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -180,20 +224,21 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "feature_guard_sdio",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_transfer",
       "sdio_transfer"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -206,7 +251,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -219,7 +264,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -233,7 +278,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -247,7 +292,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -261,23 +306,27 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "idle_processing",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "feature_guard_sdio",
+      "feature_guard_sdio",
+      "ipc_doorbell_handler",
       "ipc_doorbell_handler",
       "queue_check",
+      "queue_check",
+      "sdio_status_check",
       "sdio_status_check"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -293,48 +342,53 @@
       "single_generic_dispatch_callee",
       "expected_terminal_dispatch_lowrisk"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "ipc_emb_hostmsgbuf_get",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_wait_busy",
       "sdio_wait_busy"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "ipc_emb_kmsg_fwd",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_wait_busy",
       "sdio_wait_busy"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "ipc_rx_evt",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "clear_flags",
+      "clear_flags",
       "crypto_hw_clear_regs",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc",
       "crypto_power_calc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -347,7 +401,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -361,7 +415,7 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -375,7 +429,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -389,7 +443,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -402,7 +456,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -415,7 +469,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -428,22 +482,20 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "list_push_tail",
-    "call_count": 3,
+    "call_count": 1,
     "calls": [
-      "log_queue_push",
-      "sub_137490",
-      "list_pop"
+      "log_queue_push"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -456,37 +508,43 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_alloc",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_pop",
-      "log_free_pool_a",
-      "log_pool_init_d"
+      "list_pop",
+      "log_pool_init_d",
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_flush",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_printf",
+      "log_printf",
       "rf_stream_start",
+      "rf_stream_start",
+      "rf_stream_start2",
       "rf_stream_start2"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -499,7 +557,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -512,217 +570,259 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_free_pool_e",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_free_pool_f",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_free_wrapper",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_global_init",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_hw_init",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "sdio_buffer_prepare",
+      "sdio_buffer_prepare",
+      "log_enqueue",
       "log_enqueue",
       "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_alloc",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_pop",
-      "log_free_pool_a",
-      "log_pool_init_d"
+      "list_pop",
+      "log_pool_init_d",
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_alloc2",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_alloc_b",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_pop",
-      "log_free_pool_a",
-      "log_pool_init_d"
+      "list_pop",
+      "log_pool_init_d",
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_config",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "chip_variant_detect",
-      "crypto_hw_enable",
-      "crypto_hw_power_up"
+      "chip_variant_detect",
+      "hw_config_init",
+      "hw_config_init",
+      "irq_vector_init",
+      "irq_vector_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_default_config",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "chip_variant_detect",
-      "crypto_hw_enable",
-      "crypto_hw_power_up"
+      "chip_variant_detect",
+      "hw_config_init",
+      "hw_config_init",
+      "irq_vector_init",
+      "irq_vector_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_init_a",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_init_b",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_init_c",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_init_d",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_pool_init_e",
+      "log_pool_init_e",
+      "sub_1140f4",
       "sub_1140f4"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -735,22 +835,25 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_pool_init_queue",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "buffer_pool_manage",
+      "buffer_pool_manage",
       "clear_flags",
+      "clear_flags",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -763,52 +866,43 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_ptr_in_range",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
-  },
-  {
-    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "log_queue_push2",
-    "call_count": 3,
-    "calls": [
-      "buffer_pool_manage",
-      "clear_flags",
-      "list_pop"
-    ],
-    "risk": "low",
-    "reasons": [
-      "multi_callee_structural_flow"
-    ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_queue_refill",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "buffer_pool_manage",
+      "buffer_pool_manage",
       "clear_flags",
+      "clear_flags",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -821,34 +915,37 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_system_init_mode2",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_pool_init_e",
+      "log_pool_init_e",
+      "log_pool_init_d",
       "log_pool_init_d"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "log_tick",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_power_set",
       "rf_power_set"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -862,42 +959,53 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "mac_phy_init",
-    "call_count": 7,
+    "call_count": 14,
     "calls": [
       "sub_116d3c",
+      "sub_116d3c",
+      "sub_11ecb0",
       "sub_11ecb0",
       "sub_11f5e4",
+      "sub_11f5e4",
+      "sub_120408",
       "sub_120408",
       "sub_128db8",
+      "sub_128db8",
       "sub_129e04",
+      "sub_129e04",
+      "sub_12ad00",
       "sub_12ad00"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "main_loop",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "idle_processing",
+      "idle_processing",
+      "sub_114578",
       "sub_114578",
       "sub_115470",
+      "sub_115470",
+      "sub_12d050",
       "sub_12d050"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -910,7 +1018,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -923,7 +1031,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -936,7 +1044,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -949,7 +1057,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -963,7 +1071,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -977,7 +1085,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -991,7 +1099,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1005,7 +1113,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1019,33 +1127,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
-  },
-  {
-    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "memcpy_fast",
-    "call_count": 1,
-    "calls": [
-      "math_round"
-    ],
-    "risk": "low",
-    "reasons": [
-      "multi_callee_structural_flow"
-    ],
-    "template_evidence": true
-  },
-  {
-    "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
-    "function": "memset_impl",
-    "call_count": 1,
-    "calls": [
-      "math_round"
-    ],
-    "risk": "low",
-    "reasons": [
-      "multi_callee_structural_flow"
-    ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1058,7 +1140,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1072,7 +1154,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1086,7 +1168,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1100,7 +1182,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1114,7 +1196,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1128,7 +1210,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1142,7 +1224,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1156,7 +1238,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1170,7 +1252,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1184,7 +1266,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1198,7 +1280,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1212,7 +1294,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1226,7 +1308,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1240,7 +1322,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1254,7 +1336,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1268,7 +1350,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1282,7 +1364,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1296,7 +1378,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1310,7 +1392,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1324,7 +1406,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1338,7 +1420,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1352,7 +1434,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1366,7 +1448,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1380,7 +1462,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1393,7 +1475,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1409,7 +1491,7 @@
       "single_generic_dispatch_callee",
       "expected_terminal_dispatch_lowrisk"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1422,7 +1504,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1435,7 +1517,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1449,7 +1531,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1463,7 +1545,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1477,7 +1559,7 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1491,78 +1573,89 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "queue_check",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
-      "sdio_wait_busy",
-      "feature_guard_sdio",
       "sdio_status_check",
-      "state_flag_check"
+      "sdio_status_check",
+      "state_flag_check",
+      "state_flag_check",
+      "ipc_doorbell_handler",
+      "ipc_doorbell_handler",
+      "tx_timeout_check",
+      "tx_timeout_check"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "queue_pending_check",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "buffer_pool_manage",
+      "buffer_pool_manage",
       "clear_flags",
+      "clear_flags",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "rf_timer_abort1",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "rf_timer_abort2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "rf_timer_abort_common",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "sub_10ed40",
+      "sub_10ed40",
+      "sub_114ee0",
       "sub_114ee0"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1576,7 +1669,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1590,7 +1683,7 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1603,20 +1696,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "rx_queue_init",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "clear_flags",
       "clear_flags"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1630,7 +1724,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1644,37 +1738,43 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "sdio_replenish_rx_msgqueue",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "clear_flags",
+      "clear_flags",
       "crypto_hw_clear_regs",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc",
       "crypto_power_calc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "sdio_rx_evt",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "clear_flags",
+      "clear_flags",
       "crypto_hw_clear_regs",
+      "crypto_hw_clear_regs",
+      "crypto_power_calc",
       "crypto_power_calc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1688,7 +1788,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1702,14 +1802,16 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "sub_101a54",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "msg_parse_short",
+      "msg_parse_short",
+      "sub_1320bc",
       "sub_1320bc"
     ],
     "risk": "low",
@@ -1718,7 +1820,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1733,13 +1835,14 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "sub_10ffc0",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "log_system_init",
       "log_system_init"
     ],
     "risk": "low",
@@ -1748,7 +1851,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1763,7 +1866,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1778,7 +1881,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1793,7 +1896,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1808,7 +1911,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1823,7 +1926,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1838,7 +1941,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1853,7 +1956,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1868,20 +1971,21 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "thunk",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_get",
       "buffer_pool_get"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1895,7 +1999,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1908,7 +2012,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1921,7 +2025,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1934,51 +2038,59 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "tx_dequeue",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "list_push_tail",
+      "list_push_tail",
+      "log_hw_init",
       "log_hw_init",
       "log_queue_push",
+      "log_queue_push",
+      "msg_parse",
       "msg_parse"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "tx_submit",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_push_tail",
+      "list_push_tail",
       "log_queue_push",
+      "log_queue_push",
+      "rf_cmd_queue_next",
       "rf_cmd_queue_next"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
     "function": "tx_timeout_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "error_handler",
       "error_handler"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -1992,7 +2104,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2006,7 +2118,7 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2019,7 +2131,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2033,7 +2145,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2047,7 +2159,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2061,7 +2173,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2075,7 +2187,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2088,7 +2200,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2102,7 +2214,7 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_h_u02_bin.reconstructed.c",
@@ -2116,75 +2228,80 @@
       "single_generic_dispatch_callee",
       "expected_event_dispatch_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "chip_feature_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "feature_always_on",
       "feature_always_on"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_channel_calc",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "crypto_freq_set",
       "crypto_freq_set"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_clear_regs",
     "call_count": 3,
     "calls": [
-      "crypto_state_dump",
       "crypto_power_calc",
+      "crypto_state_dump",
       "crypto_power_apply"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_enable",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "crypto_hw_disable",
+      "crypto_hw_disable",
+      "crypto_mac_core",
       "crypto_mac_core"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "feature_guard_sdio",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_transfer",
       "sdio_transfer"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2198,46 +2315,49 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "fp_convert_int",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "fp_convert_uint",
       "fp_convert_uint"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "fw_config_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "patch_apply",
       "patch_apply"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "ipc_doorbell_handler",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_wait_busy",
       "sdio_wait_busy"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2250,83 +2370,94 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "list_push_tail",
-    "call_count": 3,
+    "call_count": 1,
     "calls": [
-      "log_queue_push",
-      "sub_137490",
-      "list_pop"
+      "log_queue_push"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "log_free_dispatch",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
+      "log_free_pool_b",
       "log_free_pool_b",
       "log_free_pool_c",
+      "log_free_pool_c",
+      "log_free_pool_d",
       "log_free_pool_d"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "log_free_pool_dispatch2",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "log_hw_init",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "sdio_buffer_prepare",
+      "sdio_buffer_prepare",
+      "log_enqueue",
       "log_enqueue",
       "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "log_pool_init_d",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_pool_init_e",
+      "log_pool_init_e",
+      "sub_1140f4",
       "sub_1140f4"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2339,22 +2470,25 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "log_ptr_in_range",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2367,23 +2501,27 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "main_loop",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "idle_processing",
+      "idle_processing",
+      "sub_114578",
       "sub_114578",
       "sub_115470",
+      "sub_115470",
+      "sub_12d050",
       "sub_12d050"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2396,34 +2534,37 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "message_dispatch",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_manage",
       "buffer_pool_manage"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "msg_parse",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "msg_handler_tx",
+      "msg_handler_tx",
+      "sub_137490",
       "sub_137490"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2439,51 +2580,59 @@
       "single_generic_dispatch_callee",
       "expected_terminal_dispatch_lowrisk"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "patch_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "fw_config_apply",
       "fw_config_apply"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "phy_rf_init",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "rf_init_blockc",
+      "rf_init_blockc",
       "rf_init_blockb",
+      "rf_init_blockb",
+      "rf_init_blocka",
       "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "queue_check",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
-      "sdio_wait_busy",
-      "feature_guard_sdio",
       "sdio_status_check",
-      "state_flag_check"
+      "sdio_status_check",
+      "state_flag_check",
+      "state_flag_check",
+      "ipc_doorbell_handler",
+      "ipc_doorbell_handler",
+      "tx_timeout_check",
+      "tx_timeout_check"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2497,7 +2646,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2510,7 +2659,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2524,7 +2673,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2538,7 +2687,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2552,20 +2701,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_bus_write",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_bus_clear",
       "rf_bus_clear"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2578,20 +2728,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_cmd_dispatch",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_cmd_send",
       "rf_cmd_wait"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2604,21 +2755,23 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_cmd_queue_next",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_queue_push",
+      "log_queue_push",
+      "log_queue_alloc",
       "log_queue_alloc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2631,7 +2784,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2644,7 +2797,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2657,7 +2810,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2671,90 +2824,101 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_hw_timer_read",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "rf_level_step",
+      "rf_level_step",
+      "rf_level_compute",
       "rf_level_compute"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blocka",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_init_blockb",
+      "rf_init_blockb",
       "rf_init_blockc",
-      "rf_init_blockb"
+      "rf_init_blockc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockb",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "rf_init_blockc",
+      "rf_init_blockc",
+      "rf_init_blocka",
       "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockc",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_init_blockb",
+      "rf_init_blockb",
       "rf_init_blocka",
-      "rf_init_blockb"
+      "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102a24",
       "sub_102a24"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_compute",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_hw_timer_read",
+      "rf_hw_timer_read",
       "rf_level_step",
-      "rf_hw_timer_read"
+      "rf_level_step"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2767,7 +2931,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2780,7 +2944,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2793,7 +2957,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2806,7 +2970,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2819,7 +2983,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2832,20 +2996,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_power_set",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102b00",
       "sub_102b00"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2858,7 +3023,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2871,20 +3036,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_reg_write_wait",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_reg_ack_cb",
       "rf_reg_ack_cb"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2897,33 +3063,35 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_stream_start",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_111f08",
       "sub_111f08"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_stream_start2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_stream_start",
       "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2937,33 +3105,35 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort1",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -2977,97 +3147,110 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_toggle_update",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "rf_hw_timer_read",
+      "rf_hw_timer_read",
       "rf_level_step",
+      "rf_level_step",
+      "rf_level_compute",
       "rf_level_compute"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_buffer_prepare",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "log_hw_init",
-      "sub_1435d0",
+      "log_hw_init",
       "log_enqueue",
+      "log_enqueue",
+      "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_dma_config",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "chip_variant_detect",
-      "crypto_hw_enable",
-      "crypto_hw_power_up"
+      "chip_variant_detect",
+      "feature_guard_sdio",
+      "feature_guard_sdio",
+      "hw_config_init",
+      "hw_config_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_status_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "feature_guard_sdio",
       "feature_guard_sdio"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_transfer",
-    "call_count": 3,
+    "call_count": 1,
     "calls": [
-      "log_hw_init",
-      "log_enqueue",
       "sdio_buffer_prepare"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_wait_busy",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
-      "queue_check",
-      "tx_timeout_check",
       "feature_guard_sdio",
-      "sdio_status_check"
+      "feature_guard_sdio",
+      "sdio_status_check",
+      "sdio_status_check",
+      "state_flag_check",
+      "state_flag_check",
+      "ipc_doorbell_handler",
+      "ipc_doorbell_handler"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3081,14 +3264,16 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sub_101a54",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "msg_parse_short",
+      "msg_parse_short",
+      "sub_1320bc",
       "sub_1320bc"
     ],
     "risk": "low",
@@ -3097,7 +3282,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3112,13 +3297,14 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "sub_10ffc0",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "log_system_init",
       "log_system_init"
     ],
     "risk": "low",
@@ -3127,7 +3313,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3142,7 +3328,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3157,7 +3343,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3172,7 +3358,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3187,7 +3373,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3202,7 +3388,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3217,7 +3403,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3232,7 +3418,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3247,20 +3433,21 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "thunk",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_get",
       "buffer_pool_get"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
@@ -3273,89 +3460,99 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "tx_phy_config",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "crypto_hw_power_up",
       "crypto_hw_power_up"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "tx_submit",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_push_tail",
+      "list_push_tail",
       "log_queue_push",
+      "log_queue_push",
+      "rf_cmd_queue_next",
       "rf_cmd_queue_next"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfw_8800d80_u02_bin.reconstructed.c",
     "function": "tx_timeout_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "error_handler",
       "error_handler"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_channel_calc",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "crypto_freq_set",
       "crypto_freq_set"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_disable",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "crypto_hw_enable",
+      "crypto_hw_enable",
+      "crypto_mac_core",
       "crypto_mac_core"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_enable",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "crypto_hw_disable",
+      "crypto_hw_disable",
+      "crypto_mac_core",
       "crypto_mac_core"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3368,33 +3565,35 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "event_queue_push",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_manage",
       "buffer_pool_manage"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "feature_guard_sdio",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_transfer",
       "sdio_transfer"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3407,98 +3606,112 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "list_push_tail",
-    "call_count": 3,
+    "call_count": 1,
     "calls": [
-      "log_queue_push",
-      "sub_137490",
-      "list_pop"
+      "log_queue_push"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "log_free_dispatch",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
+      "log_free_pool_b",
       "log_free_pool_b",
       "log_free_pool_c",
+      "log_free_pool_c",
+      "log_free_pool_d",
       "log_free_pool_d"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "log_free_pool_dispatch2",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "log_hw_init",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "sdio_buffer_prepare",
+      "sdio_buffer_prepare",
+      "log_enqueue",
       "log_enqueue",
       "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "log_pool_init_d",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_pool_init_e",
+      "log_pool_init_e",
+      "sub_1140f4",
       "sub_1140f4"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "log_ptr_in_range",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
-      "log_free_pool_a",
       "log_pool_init_d",
-      "rf_power_set"
+      "log_pool_init_d",
+      "log_printf",
+      "log_printf",
+      "rf_stream_start",
+      "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3511,36 +3724,41 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "main_loop",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "idle_processing",
+      "idle_processing",
+      "sub_114578",
       "sub_114578",
       "sub_115470",
+      "sub_115470",
+      "sub_12d050",
       "sub_12d050"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "math_helper_big",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_142f2c",
       "sub_142f2c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3553,7 +3771,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3566,64 +3784,73 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "message_dispatch",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_manage",
       "buffer_pool_manage"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "patch_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "fw_config_apply",
       "fw_config_apply"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "phy_rf_init",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "rf_init_blockc",
+      "rf_init_blockc",
       "rf_init_blockb",
+      "rf_init_blockb",
+      "rf_init_blocka",
       "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "queue_check",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
-      "sdio_wait_busy",
-      "feature_guard_sdio",
       "sdio_status_check",
-      "state_flag_check"
+      "sdio_status_check",
+      "state_flag_check",
+      "state_flag_check",
+      "ipc_doorbell_handler",
+      "ipc_doorbell_handler",
+      "tx_timeout_check",
+      "tx_timeout_check"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3636,7 +3863,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3650,7 +3877,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3664,7 +3891,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3678,20 +3905,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_bus_write",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_bus_clear",
       "rf_bus_clear"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3704,20 +3932,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_cmd_dispatch",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_cmd_send",
       "rf_cmd_wait"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3730,7 +3959,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3743,7 +3972,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3757,76 +3986,85 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blocka",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_init_blockb",
+      "rf_init_blockb",
       "rf_init_blockc",
-      "rf_init_blockb"
+      "rf_init_blockc"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockb",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "rf_init_blockc",
+      "rf_init_blockc",
+      "rf_init_blocka",
       "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockc",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_init_blockb",
+      "rf_init_blockb",
       "rf_init_blocka",
-      "rf_init_blockb"
+      "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102a24",
       "sub_102a24"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_compute",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_hw_timer_read",
+      "rf_hw_timer_read",
       "rf_level_step",
-      "rf_hw_timer_read"
+      "rf_level_step"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3839,7 +4077,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3852,7 +4090,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3865,7 +4103,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3878,20 +4116,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_power_set",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102b00",
       "sub_102b00"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3904,20 +4143,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_reg_write_wait",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_reg_ack_cb",
       "rf_reg_ack_cb"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -3930,103 +4170,115 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_stream_start",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_111f08",
       "sub_111f08"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_stream_start2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_stream_start",
       "rf_stream_start"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort1",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_buffer_prepare",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "log_hw_init",
-      "sub_1435d0",
+      "log_hw_init",
       "log_enqueue",
+      "log_enqueue",
+      "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_dma_config",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "chip_variant_detect",
-      "crypto_hw_enable",
-      "crypto_hw_power_up"
+      "chip_variant_detect",
+      "feature_guard_sdio",
+      "feature_guard_sdio",
+      "hw_config_init",
+      "hw_config_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_status_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "feature_guard_sdio",
       "feature_guard_sdio"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4040,14 +4292,16 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "sub_101a54",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "msg_parse_short",
+      "msg_parse_short",
+      "sub_1320bc",
       "sub_1320bc"
     ],
     "risk": "low",
@@ -4056,7 +4310,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4071,13 +4325,14 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "sub_10ffc0",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "log_system_init",
       "log_system_init"
     ],
     "risk": "low",
@@ -4086,7 +4341,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4101,7 +4356,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4116,7 +4371,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4131,7 +4386,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4146,7 +4401,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4161,7 +4416,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4176,7 +4431,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4191,7 +4446,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
@@ -4206,93 +4461,104 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "thunk",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_get",
       "buffer_pool_get"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "tx_submit",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_push_tail",
+      "list_push_tail",
       "log_queue_push",
+      "log_queue_push",
+      "rf_cmd_queue_next",
       "rf_cmd_queue_next"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "fmacfwbt_8800d80_u02_bin.reconstructed.c",
     "function": "tx_timeout_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "error_handler",
       "error_handler"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "clock_calc",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "feature_guard_sdio",
+      "feature_guard_sdio",
+      "firmware_init",
       "firmware_init",
       "fw_config_apply",
+      "fw_config_apply",
+      "log_list_init",
       "log_list_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_clear_regs",
     "call_count": 3,
     "calls": [
-      "crypto_state_dump",
       "crypto_power_calc",
+      "crypto_state_dump",
       "crypto_power_apply"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_hw_disable",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "crypto_hw_enable",
+      "crypto_hw_enable",
+      "crypto_mac_core",
       "crypto_mac_core"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4305,20 +4571,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "crypto_key_load",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "crypto_hw_write32",
       "crypto_hw_write32"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4331,20 +4598,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "feature_guard_sdio",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sdio_transfer",
       "sdio_transfer"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4357,112 +4625,114 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "list_push_tail",
-    "call_count": 3,
+    "call_count": 1,
     "calls": [
-      "log_queue_push",
-      "sub_137490",
-      "list_pop"
+      "log_queue_push"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "log_free_pool_dispatch2",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "log_free_pool_a",
+      "log_free_pool_a",
       "log_free_pool_b",
+      "log_free_pool_b",
+      "log_free_pool_c",
       "log_free_pool_c"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "log_hw_init",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "sdio_buffer_prepare",
+      "sdio_buffer_prepare",
+      "log_enqueue",
       "log_enqueue",
       "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "log_pool_init_d",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "log_pool_init_e",
+      "log_pool_init_e",
+      "sub_1140f4",
       "sub_1140f4"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "main_loop",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "idle_processing",
+      "idle_processing",
+      "sub_114578",
       "sub_114578",
       "sub_115470",
+      "sub_115470",
+      "sub_12d050",
       "sub_12d050"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
-  },
-  {
-    "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
-    "function": "memset_impl",
-    "call_count": 1,
-    "calls": [
-      "math_round"
-    ],
-    "risk": "low",
-    "reasons": [
-      "multi_callee_structural_flow"
-    ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "queue_check",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
-      "sdio_wait_busy",
-      "feature_guard_sdio",
       "sdio_status_check",
-      "state_flag_check"
+      "sdio_status_check",
+      "state_flag_check",
+      "state_flag_check",
+      "ipc_doorbell_handler",
+      "ipc_doorbell_handler",
+      "tx_timeout_check",
+      "tx_timeout_check"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4475,7 +4745,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4489,7 +4759,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4503,7 +4773,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4517,20 +4787,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_bus_write",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_bus_clear",
       "rf_bus_clear"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4543,20 +4814,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_cmd_dispatch",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_cmd_send",
       "rf_cmd_wait"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4569,7 +4841,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4582,7 +4854,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4596,62 +4868,69 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockb",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "rf_init_blockc",
+      "rf_init_blockc",
+      "rf_init_blocka",
       "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_init_blockc",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_init_blockb",
+      "rf_init_blockb",
       "rf_init_blocka",
-      "rf_init_blockb"
+      "rf_init_blocka"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_apply",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102a24",
       "sub_102a24"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_level_compute",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
+      "rf_hw_timer_read",
+      "rf_hw_timer_read",
       "rf_level_step",
-      "rf_hw_timer_read"
+      "rf_level_step"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4664,7 +4943,7 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4677,20 +4956,21 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_power_set",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "sub_102b00",
       "sub_102b00"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4703,77 +4983,87 @@
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_reg_write_wait",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_reg_ack_cb",
       "rf_reg_ack_cb"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort1",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "rf_timer_abort2",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "rf_timer_abort_common",
       "rf_timer_abort_common"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_buffer_prepare",
-    "call_count": 4,
+    "call_count": 8,
     "calls": [
       "log_hw_init",
-      "sub_1435d0",
+      "log_hw_init",
       "log_enqueue",
+      "log_enqueue",
+      "sub_1435d0",
+      "sub_1435d0",
+      "list_pop",
       "list_pop"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "sdio_dma_config",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "chip_variant_detect",
-      "crypto_hw_enable",
-      "crypto_hw_power_up"
+      "chip_variant_detect",
+      "feature_guard_sdio",
+      "feature_guard_sdio",
+      "hw_config_init",
+      "hw_config_init"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4787,14 +5077,16 @@
       "single_generic_dispatch_callee",
       "expected_scheduler_bridge_pattern"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "sub_101a54",
-    "call_count": 2,
+    "call_count": 4,
     "calls": [
       "msg_parse_short",
+      "msg_parse_short",
+      "sub_1320bc",
       "sub_1320bc"
     ],
     "risk": "low",
@@ -4803,7 +5095,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4818,13 +5110,14 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "sub_10ffc0",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "log_system_init",
       "log_system_init"
     ],
     "risk": "low",
@@ -4833,7 +5126,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4848,7 +5141,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4863,7 +5156,7 @@
       "synth_evidence_non_generic_calls",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4878,7 +5171,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4893,7 +5186,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4908,7 +5201,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4923,7 +5216,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4938,7 +5231,7 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
@@ -4953,47 +5246,52 @@
       "synth_evidence_non_generic_outgoing",
       "calls_align_with_mined_outgoing"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "thunk",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "buffer_pool_get",
       "buffer_pool_get"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "tx_submit",
-    "call_count": 3,
+    "call_count": 6,
     "calls": [
       "list_push_tail",
+      "list_push_tail",
       "log_queue_push",
+      "log_queue_push",
+      "rf_cmd_queue_next",
       "rf_cmd_queue_next"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   },
   {
     "file": "lmacfw_rf_8800d80_u02_bin.reconstructed.c",
     "function": "tx_timeout_check",
-    "call_count": 1,
+    "call_count": 2,
     "calls": [
+      "error_handler",
       "error_handler"
     ],
     "risk": "low",
     "reasons": [
       "multi_callee_structural_flow"
     ],
-    "template_evidence": true
+    "template_evidence": false
   }
 ]

@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"aic8800d80/internal/fileio"
+	"aic8800d80/internal/reconstruct"
 )
 
 type composeIndexRow struct {
@@ -27,28 +28,35 @@ type composeIndexRow struct {
 }
 
 type implTask struct {
-	SchemaVersion  string   `json:"schema_version"`
-	TaskID         string   `json:"task_id"`
-	Function       string   `json:"function"`
-	Image          string   `json:"image"`
-	Address        string   `json:"address"`
-	TaskClass      string   `json:"task_class"` // behavior_lift | dependency_impl
-	Priority       string   `json:"priority"`
-	RankScore      float64  `json:"rank_score"`
-	Reasons        []string `json:"reasons"`
-	Implementation []string `json:"implementation_steps"`
+	SchemaVersion       string   `json:"schema_version"`
+	TaskID              string   `json:"task_id"`
+	Function            string   `json:"function"`
+	Image               string   `json:"image"`
+	Address             string   `json:"address"`
+	TaskClass           string   `json:"task_class"` // behavior_lift | dependency_impl
+	Priority            string   `json:"priority"`
+	RankScore           float64  `json:"rank_score"`
+	UrgencyScore        float64  `json:"urgency_score,omitempty"`
+	DescriptorPhenotype string   `json:"descriptor_phenotype,omitempty"`
+	MotifFamily         string   `json:"motif_family,omitempty"`
+	MotifConfidence     float64  `json:"motif_confidence,omitempty"`
+	BehaviorRole        string   `json:"behavior_role,omitempty"`
+	Reasons             []string `json:"reasons"`
+	Implementation      []string `json:"implementation_steps"`
 }
 
 type implManifest struct {
-	SchemaVersion string `json:"schema_version"`
-	GeneratedAt   string `json:"generated_at"`
-	ComposeIndex  string `json:"compose_index_path"`
-	SkipTasks     int    `json:"skip_tasks"`
-	FocusCount    int    `json:"focus_count"`
-	TaskCount     int    `json:"task_count"`
-	BehaviorCount int    `json:"behavior_lift_count"`
-	DepImplCount  int    `json:"dependency_impl_count"`
-	OutputDir     string `json:"output_dir"`
+	SchemaVersion    string `json:"schema_version"`
+	GeneratedAt      string `json:"generated_at"`
+	ComposeIndex     string `json:"compose_index_path"`
+	SkipTasks        int    `json:"skip_tasks"`
+	FocusCount       int    `json:"focus_count"`
+	DescriptorCount  int    `json:"descriptor_count"`
+	MotifFamilyCount int    `json:"motif_family_count"`
+	TaskCount        int    `json:"task_count"`
+	BehaviorCount    int    `json:"behavior_lift_count"`
+	DepImplCount     int    `json:"dependency_impl_count"`
+	OutputDir        string `json:"output_dir"`
 }
 
 func main() {
@@ -58,6 +66,8 @@ func main() {
 	var skipTasks int
 	var focusFunctionsCSV string
 	var focusBonus float64
+	var descriptorsPath string
+	var motifMemoryPath string
 
 	flag.StringVar(&composeIndexPath, "compose-index", "extraction_out/reconstruction/mega7/composed/compose_index.json", "Compose index JSON")
 	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/implqueue", "Output directory")
@@ -65,6 +75,8 @@ func main() {
 	flag.IntVar(&skipTasks, "skip-tasks", 0, "Rotate queue start by this many tasks before truncation")
 	flag.StringVar(&focusFunctionsCSV, "focus-functions", "", "Comma-separated function names to prioritize in the queue")
 	flag.Float64Var(&focusBonus, "focus-bonus", 1000.0, "Rank score bonus applied to focus functions")
+	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
 	flag.Parse()
 
 	idxAbs, _ := filepath.Abs(composeIndexPath)
@@ -85,6 +97,14 @@ func main() {
 		fail("compose index empty")
 	}
 	focusSet := parseFocusFunctions(focusFunctionsCSV)
+	descriptors, err := reconstruct.LoadDescriptorSet(descriptorsPath)
+	if err != nil {
+		fail("load descriptors: %v", err)
+	}
+	motifMemory, err := reconstruct.LoadMotifMemorySet(motifMemoryPath)
+	if err != nil {
+		fail("load motif memory: %v", err)
+	}
 
 	tasks := make([]implTask, 0, maxTasks)
 	for _, r := range rows {
@@ -96,6 +116,7 @@ func main() {
 			continue
 		}
 		t = applyFocusBoost(t, focusSet, focusBonus)
+		t = applyDescriptorBoost(t, descriptors.Lookup(t.Function, t.Image, t.Address), motifMemory)
 		t.SchemaVersion = "0.1.0"
 		tasks = append(tasks, t)
 	}
@@ -117,13 +138,15 @@ func main() {
 	}
 
 	m := implManifest{
-		SchemaVersion: "0.1.0",
-		GeneratedAt:   time.Now().UTC().Format(time.RFC3339),
-		ComposeIndex:  idxAbs,
-		SkipTasks:     skipTasks,
-		FocusCount:    len(focusSet),
-		TaskCount:     len(tasks),
-		OutputDir:     outAbs,
+		SchemaVersion:    "0.1.0",
+		GeneratedAt:      time.Now().UTC().Format(time.RFC3339),
+		ComposeIndex:     idxAbs,
+		SkipTasks:        skipTasks,
+		FocusCount:       len(focusSet),
+		DescriptorCount:  len(descriptors.Rows),
+		MotifFamilyCount: len(motifMemory.Rows),
+		TaskCount:        len(tasks),
+		OutputDir:        outAbs,
 	}
 	for _, t := range tasks {
 		if t.TaskClass == "behavior_lift" {
@@ -146,6 +169,40 @@ func main() {
 	fmt.Printf("  behavior_lift_count: %d\n", m.BehaviorCount)
 	fmt.Printf("  dependency_impl_count: %d\n", m.DepImplCount)
 	fmt.Printf("  out_dir: %s\n", outAbs)
+}
+
+func applyDescriptorBoost(t implTask, desc *reconstruct.FunctionDescriptor, memory *reconstruct.MotifMemorySet) implTask {
+	if desc == nil {
+		return t
+	}
+	t.UrgencyScore = desc.Priority.RebuildUrgency
+	t.DescriptorPhenotype = desc.Probe.Phenotype
+	t.MotifFamily = desc.Motif.Family
+	t.MotifConfidence = desc.Motif.Confidence
+	t.BehaviorRole = desc.Behavior.Role
+	boost := desc.Priority.RebuildUrgency
+	if desc.Behavior.Role != "" {
+		t.Reasons = append(t.Reasons, fmt.Sprintf("descriptor behavior role=%s", desc.Behavior.Role))
+	}
+	if desc.Probe.Phenotype != "" {
+		t.Reasons = append(t.Reasons, fmt.Sprintf("descriptor phenotype=%s", desc.Probe.Phenotype))
+	}
+	if desc.Motif.Family != "" {
+		t.Reasons = append(t.Reasons, fmt.Sprintf("descriptor motif=%s (%.2f)", desc.Motif.Family, desc.Motif.Confidence))
+	}
+	if memory != nil && desc.Motif.Family != "" {
+		if fam := memory.Lookup(desc.Motif.Family); fam != nil {
+			boost += fam.AvgConfidence + fam.SuccessRate/50.0
+			t.Reasons = append(t.Reasons, fmt.Sprintf("motif memory %s success=%.1f%% samples=%d", fam.Family, fam.SuccessRate, fam.SampleCount))
+		}
+	}
+	t.RankScore += boost
+	if boost >= 6.0 {
+		t.Priority = "critical"
+	} else if boost >= 3.0 && (t.Priority == "" || t.Priority == "low" || t.Priority == "medium") {
+		t.Priority = "high"
+	}
+	return t
 }
 
 func parseFocusFunctions(csv string) map[string]struct{} {
