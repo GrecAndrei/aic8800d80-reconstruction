@@ -1,19 +1,20 @@
-# Published Reconstruction Releases
+# Published Releases
 
-This directory contains curated, versioned reconstruction snapshots intended for sharing and review.
+This directory contains curated reconstruction snapshots that are intended to stay in git.
 
 ## Available Releases
 
 - `aic8800d80-rebuild-v1`
 
-## Snapshot Contents
+## Release Layout
 
-Each release includes:
+Each release should contain:
 
-- `final/`: finalized reconstructed C outputs and conformance/quality reports
-- `synth/`: synthesis evidence and synthesis manifest
-- `meta/`: pipeline manifests, stats snapshot, and source checksums
+- `README.md`: human-readable summary of what was published
+- `final/`: finalized reconstructed sources and quality/conformance reports
+- `meta/`: manifests, checksums, release metadata
+- `synth/`: optional synthesis corpus when intentionally included in the published snapshot
 
-## Integrity
+## Current Snapshot
 
-Use `meta/final_sources.sha256` to verify the published reconstructed source files.
+See `aic8800d80-rebuild-v1/README.md` for the current published release details.

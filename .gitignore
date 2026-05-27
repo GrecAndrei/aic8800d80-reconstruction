@@ -4,6 +4,11 @@
 
 # Generated reconstruction outputs
 extraction_out/
+analysis/
+
+# Local caches and bytecode
+.gocache/
+__pycache__/
 
 # Local reverse-engineering databases/caches
 *.i64
@@ -31,6 +36,12 @@ extraction_out/
 # Local tool state
 .antigravitycli/
 .commandcode/
+
+# Root-level built binaries
+/fw*
+
+# Local release scratch synthesis files (curate with git add -f when publishing)
+artifacts/releases/*/synth/*.synth.c
 
 # IDA autosave scratch artifacts
 analysis/ida/ida_autosave.*$

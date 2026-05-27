@@ -1,66 +1,56 @@
-# Rebuild Milestone: Human Summary
+# Rebuild Milestone
 
-## What We Actually Did
+## What This Repo Delivers
 
-We started from vendor firmware blobs (no original source code) and built an automated reverse-engineering pipeline that reconstructs readable C-like firmware logic.
+This repository reconstructs readable, auditable firmware logic from stripped AIC8800D80 firmware blobs.
 
-The pipeline ingests mined evidence (addresses, names, call edges, message/state hints), synthesizes function bodies, merges them into per-image outputs, and validates the result with strict gates.
+The rebuild path is evidence-driven:
 
-## What "Rebuilt Firmware" Means Here
+- IDA exports provide grounded structural facts
+- embedder outputs provide retrieval and transfer priors
+- descriptors unify those signals per function
+- compose, synth, finalize, validate, and harden stages turn those signals into tracked release outputs
 
-This is a reconstructed firmware model, not leaked vendor source.
+## Current Published Snapshot
 
-- It is behavior-oriented and evidence-driven.
-- It is deterministic/reproducible with pipeline commands.
-- It is validated by hardening and conformance gates.
+Current curated release:
 
-## Final Verified Outcome
+- `artifacts/releases/aic8800d80-rebuild-v1/`
 
-For the current release snapshot:
+Published metrics recorded in that release:
 
-- `function_count`: `61566`
-- `implemented_count`: `61566`
-- `strong_count`: `61566`
+- `function_count`: `356`
+- `implemented_count`: `356`
+- `strong_count`: `356`
 - `fallback_count`: `0`
 - `semantic_completion_pct`: `100.000`
-- `call_conformance avg`: `100.000`
-- `evaluable_count`: `56601`
-- `nonperfect_functions`: `0`
-- `unevidenced_functions`: `0`
+- `evaluable_count`: `352`
+- `avg_conformance_pct`: `100.000`
 
-These values reflect the latest validated reconstruction state and supersede older snapshots.
+## Active Working Snapshot
 
-## Where The Published Rebuilt Outputs Are
+Live autonomous work happens under:
 
-Tracked snapshot in git:
+- `extraction_out/reconstruction/mega7/`
 
-- `artifacts/releases/aic8800d80-rebuild-v1/final/`
-- `artifacts/releases/aic8800d80-rebuild-v1/synth/`
-- `artifacts/releases/aic8800d80-rebuild-v1/meta/`
+This workspace includes:
 
-Recovered working snapshot:
+- run-tagged cycle outputs
+- controller state and experience logs
+- descriptor, motif, and transfer analysis
+- compose, synth, applied, and final generated outputs
 
-- `extraction_out/reconstruction/mega7/focus_leftover/`
-- `extraction_out/reconstruction/mega7/synth_deps/`
-- `extraction_out/reconstruction/mega7/synth_leftover_behaviors/`
-- `extraction_out/reconstruction/mega7/applied_recovered/`
-- `extraction_out/reconstruction/mega7/final_recovered/`
+## Why The Current Milestone Matters
 
-Includes:
+The project is no longer just generating placeholders from names. The current path now pushes richer semantic evidence through the rebuild pipeline:
 
-- Final reconstructed C files for all four images
-- Final manifests and quality/conformance reports
-- Synth evidence/manifest
-- Rebuild/apply manifests
-- SHA256 file list for final reconstructed sources
+- descriptors and motif memory
+- embedder-neighbor retrieval
+- transfer clusters and preferred emitters
+- finalize and hardening stages that see the same evidence
 
-## Why This Matters
+That means the pipeline is improving actual rebuild behavior rather than only improving isolated tools.
 
-This is not one-off manual RE output. It is an automated RE system with measurable pass/fail quality gates that can be rerun and extended on new firmware inputs.
+## Constraint To Keep In Mind
 
-## Practical Limit
-
-Even with all gates green, there is a hard ceiling when working from stripped firmware blobs:
-
-- Static reconstruction can demonstrate strong structural and behavioral consistency.
-- It cannot always prove exact original vendor intent for every edge case without additional runtime/vendor evidence.
+Even with strong internal scores, this is still reconstructed firmware behavior from stripped blobs, not original vendor source. The goal is the strongest reproducible, evidence-backed reconstruction we can build from the available artifacts.

@@ -1,5 +1,13 @@
 # AIC8800D80 KE Kernel Extraction
 
+This file documents a historical kernel-focused extraction pass.
+
+For the current repo layout and active reconstruction workflow, start with:
+
+- `README.md`
+- `docs/README.md`
+- `PIPELINE.md`
+
 Extracted from `fmacfw_8800d80_h_u02.bin` — the FullMAC WiFi firmware for the AIC8800D80 wireless chip.
 
 ## Binary Slices Extracted

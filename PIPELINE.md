@@ -1,111 +1,147 @@
-# Firmware Extraction Pipeline (Go)
+# Firmware Reconstruction Pipeline
 
-This repository now includes a first-pass extraction pipeline implemented in Go.
+This file describes the end-to-end pipeline used in this repository.
 
-## What It Produces
+It covers three layers:
 
-Running the pipeline emits:
+1. evidence extraction,
+2. reconstruction and validation,
+3. autonomous probe-and-rebuild cycling.
 
-- `images.jsonl` - per-image metadata (hashes, size, vector words, string counts)
-- `functions.jsonl` - canonical function records merged from symbol dump + RE notes
-- `artifacts.jsonl` - deterministic artifacts (MMIO refs, patch tags, vector fields)
-- `function_links.jsonl` - cross-image function alignment links with confidence
-- `consensus_behavior.jsonl` - family-level consensus behavior specs inferred from cross-image links
-- `patch_entries.jsonl` - decoded patch table entries (section/tag + addr/value tuples)
-- `call_edges.jsonl` - extracted call relationships from RE notes
-- `message_schema.jsonl` - inferred message/handler schema map
-- `message_routes.jsonl` - dispatcher contract routes (type guards -> handler actions)
-- `state_machines.jsonl` - first-pass task/state guard extraction from RE notes
-- `mining_queue.jsonl` - prioritized targets for next reverse-engineering passes
-- `mining_queue_full.jsonl` - full prioritized frontier without truncation
-- `mining_queue_top300.jsonl` - stable top-300 slice for focused/manual passes
-- `mining_queue_delta.json` - diff vs previous frontier (added/removed targets)
-- `summary.json` - run totals
-- `stats_latest.json` - detailed aggregated statistics snapshot
-- `stats_history.jsonl` - time-series progress history for dashboarding
-- `generated_twin/` - generated firmware twin scaffold (headers, role stubs, plan)
+## Pipeline Layout
 
-All outputs use a normalized schema suitable for downstream indexing and large-scale enrichment.
+The repository is organized around three output classes:
 
-## Run
+- source and tooling: `cmd/`, `internal/`, `tools/`
+- generated working state: `extraction_out/`, `analysis/`
+- curated tracked releases: `artifacts/releases/`
+
+The active working run root is currently `extraction_out/reconstruction/mega7/`.
+
+## Stage 1: Evidence Extraction
+
+Primary extraction command:
 
 ```bash
 go run ./cmd/fwextract -root . -out extraction_out
 ```
 
-Optional flags:
+This stage emits normalized evidence such as:
 
-- `-min-string-len` (default: `4`) controls ASCII string extraction threshold.
-- `-embedding-model` (optional) points to a GGUF embedding model path used as a semantic-alignment hook.
-  - Example: `-embedding-model /path/to/bge-code-v1-q8_0.gguf`
-- `-queue-limit` (default: `1200`) controls mining frontier width (`0` = no limit).
-- `-queue-min-score` (default: `0.8`) controls inclusion threshold for mining candidates.
-- `-run-tag` (optional) writes to `<out>/runs/<tag>/` instead of clobbering root outputs.
-  - Use `-run-tag auto` for timestamped runs.
+- `images.jsonl`
+- `functions.jsonl`
+- `artifacts.jsonl`
+- `function_links.jsonl`
+- `consensus_behavior.jsonl`
+- `call_edges.jsonl`
+- `message_schema.jsonl`
+- `state_machines.jsonl`
+- mining queue outputs and stats snapshots
 
-## Sweep Mining (Multi-Threshold)
+Supporting commands:
 
-Run multiple score thresholds and generate a deduplicated frontier union:
+- `go run ./cmd/fwsweep ...`: multi-threshold frontier generation
+- `go run ./cmd/fwstats ...`: stats collection and watch mode
+- `go run ./cmd/fwdashboard ...`: live progress dashboard
 
-```bash
-go run ./cmd/fwsweep -root . -out extraction_out -thresholds "0.6,0.8,1.0,1.2" -queue-limit 0 -run-tag-prefix sweep
-```
+## Stage 2: IDA Exports And Semantic Inputs
 
-Sweep outputs:
+The reconstruction path depends on grounded IDA exports plus embedder outputs.
 
-- `extraction_out/runs/<tag>/...` per-threshold full pipeline artifacts
-- `extraction_out/sweeps/<prefix>_<timestamp>_union.jsonl` union frontier with run coverage metadata
-- `extraction_out/sweeps/<prefix>_<timestamp>_summary.json` sweep summary and per-run queue counts
-- `extraction_out/sweeps/<prefix>_<timestamp>_high_impact.jsonl` high-impact cut (`impact-min-score` + `impact-min-seen`)
-- `extraction_out/sweeps/<prefix>_<timestamp>_hotspots.json` role/reason/coverage hotspot analytics
-- `extraction_out/sweeps/<prefix>_<timestamp>_top_actionable.jsonl` ranked top actionable targets
-- `extraction_out/sweeps/<prefix>_<timestamp>_tier_core.jsonl` stable high-signal targets
-- `extraction_out/sweeps/<prefix>_<timestamp>_tier_aggressive.jsonl` medium-confidence expansion set
-- `extraction_out/sweeps/<prefix>_<timestamp>_tier_experimental.jsonl` speculative neighborhood set
-- `extraction_out/sweeps/<prefix>_<timestamp>_recon_strict.jsonl` strict reconstruction lane (stable, non-neighborhood)
-- `extraction_out/sweeps/<prefix>_<timestamp>_recon_aggressive.jsonl` aggressive reconstruction lane (stable + broader signal)
-- `extraction_out/sweeps/<prefix>_<timestamp>_packs/manifest.json` shard manifest for parallel triage packs
+Key sources:
 
-High-power expansion knobs (runtime):
+- `tools/refresh_ida_exports.py`
+- `tools/export_ida_cfg.py`
+- `tools/export_ida_pseudocode.py`
+- `tools/select_pseudocode_targets.py`
+- `tools/embedder.py`
 
-- `-neighbor-max` sets `FW_MINING_NEIGHBOR_MAX` for this sweep run.
-- `-neighbor-step` sets `FW_MINING_NEIGHBOR_STEP` for this sweep run.
+Important generated inputs:
 
-## Statistics Collector
+- `extraction_out/ida_export_cfg/cfg_hints.jsonl`
+- `extraction_out/ida_export_pseudo/pseudocode_hints.jsonl`
+- `extraction_out/reconstruction/mega7/embedder_cache.json`
+- `extraction_out/reconstruction/mega7/function_links.jsonl`
+- `extraction_out/reconstruction/mega7/consensus_behavior.jsonl`
 
-Collect once:
+## Stage 3: Reconstruction Build Path
 
-```bash
-go run ./cmd/fwstats -out extraction_out
-```
-
-Watch mode:
+The real rebuild path is:
 
 ```bash
-go run ./cmd/fwstats -out extraction_out -watch -interval 5s
+RUN_ROOT=extraction_out/reconstruction/mega7
+
+go run ./cmd/fwcompose
+go run ./cmd/fwdescriptors -run-root "$RUN_ROOT"
+go run ./cmd/fwimplqueue -max-tasks 128
+go run ./cmd/fwimplsynth -max-tasks 128
+go run ./cmd/fwapplysynth
+go run ./cmd/fwfinalize
+go run ./cmd/fwvalidatecalls
+go run ./cmd/fwharden
 ```
 
-## Live Progress Dashboard
+What each stage does:
 
-Start dashboard server:
+- `fwcompose`: constructs composed reconstruction units from lifted work
+- `fwdescriptors`: builds per-function descriptors, motif memory, transfer clusters, and descriptor summaries
+- `fwimplqueue`: ranks implementation tasks using urgency, motif, phenotype, and transfer evidence
+- `fwimplsynth`: synthesizes function bodies using observed evidence, motif memory, embedder neighbors, and transfer clusters
+- `fwapplysynth`: merges synthesized bodies into the composed outputs
+- `fwfinalize`: normalizes, scores, and publishes final reconstructed sources and quality reports
+- `fwvalidatecalls`: checks emitted call behavior against evidence
+- `fwharden`: enforces hard fail gates over quality and conformance outputs
+
+## Stage 4: Autonomous Cycle
+
+Autonomous loop entry point:
 
 ```bash
-go run ./cmd/fwdashboard -out extraction_out -addr 127.0.0.1:8090 -interval 2s
+go run ./cmd/fwcycle -run-root extraction_out/reconstruction/mega7 -tag cycle_demo
 ```
 
-Then open `http://127.0.0.1:8090`.
+Supporting tools:
 
-The dashboard auto-refreshes via server-sent events and shows detailed totals, coverage metrics, confidence distributions, role breakdowns, patch section analytics, image stats, and time-series progress.
+- `tools/recon_cycle.py`: quiet controller and probe loop
+- `tools/smoke_learn_loop.py`: batch smoke learning
+- `tools/unicorn_smoke.py`: per-function bounded smoke harness
+- `cmd/fwcycletrend`: trend summaries and gating
+- `cmd/fwcycleauto`: detached multi-cycle supervisor
 
-## Current Data Sources
+Cycle outputs are written under:
 
-- `inputs/firmware/*.bin`
-- `extracted_kernel/function_names.json`
-- `docs/notes/re_notes.md`
+- `extraction_out/reconstruction/mega7/runs/<tag>/`
+- `extraction_out/reconstruction/mega7/cycle_history.jsonl`
+- `extraction_out/reconstruction/mega7/controller_state.json`
+- `extraction_out/reconstruction/mega7/controller_experience.jsonl`
 
-## Next Expansion Targets
+## Stage 5: Published Release Snapshot
 
-1. Add direct disassembly/IDB ingestion to attach callers/callees, xrefs, and function sizes.
-2. Expand queue/state-machine contract extraction (task states, event IDs, transition guards).
-3. Recover protocol schemas from dispatcher/parser functions and emit message DSL.
-4. Generate C headers/stubs from extracted contracts to bootstrap firmware twin implementation.
+Only curated release outputs belong in git:
+
+- `artifacts/releases/aic8800d80-rebuild-v1/final/`
+- `artifacts/releases/aic8800d80-rebuild-v1/meta/`
+- `artifacts/releases/aic8800d80-rebuild-v1/README.md`
+
+The release bundle should contain:
+
+- finalized reconstructed sources
+- manifests and checksums
+- call conformance and quality reports
+- release-level metadata describing what was published
+
+## Operational Rules
+
+- Treat `extraction_out/` as generated working state
+- Treat `analysis/` as local scratch
+- Prefer descriptor/motif/transfer changes over direct edits to generated outputs
+- Use IDA exports and embedder outputs together; do not degrade to name-only heuristics when stronger evidence is available
+- Publish only curated release artifacts under `artifacts/releases/`
+
+## Related Docs
+
+- `README.md`
+- `docs/README.md`
+- `docs/RUNBOOK.md`
+- `docs/REPO_LAYOUT.md`
+- `plan.md`

@@ -318,6 +318,34 @@ As of 2026-05-26:
 
 ## Progress Log
 
+## 2026-05-27 (repo organization, docs cleanup, and release indexing)
+
+- Completed:
+  - Reorganized the repository at the documentation and policy level so the source tree, generated workspaces, and tracked release artifacts are clearly separated.
+  - Rewrote the top-level `README.md` and `PIPELINE.md` so they now describe the actual current descriptor-driven rebuild path instead of a partially stale mix of historical states.
+  - Added an explicit docs index and operator docs:
+    - `docs/README.md`
+    - `docs/REPO_LAYOUT.md`
+    - `docs/RUNBOOK.md`
+  - Added artifact policy and release indexing:
+    - `artifacts/README.md`
+    - `artifacts/releases/aic8800d80-rebuild-v1/README.md`
+    - `artifacts/releases/aic8800d80-rebuild-v1/meta/release_index.json`
+  - Tightened repo hygiene in `.gitignore` for generated scratch, caches, Python bytecode, and root-level built binaries.
+- Evidence:
+  - The repository now has one canonical navigation path for new work:
+    - `README.md` -> `docs/README.md` -> `PIPELINE.md` / `docs/RUNBOOK.md` / `plan.md`
+  - The tracked release bundle now has a self-contained summary and machine-readable release index.
+  - Repo hygiene now explicitly separates:
+    - tracked releases under `artifacts/releases/`
+    - generated active work under `extraction_out/`
+    - local scratch under `analysis/`
+- Next:
+  - Keep pushing descriptor/transfer evidence deeper into the real rebuild outputs.
+  - When the live workspace stabilizes, refresh the curated release bundle itself from the newest validated state instead of only updating release metadata.
+- Blockers:
+  - The live workspace contains a large amount of untracked/generated state and unrelated local edits, so release publication still has to stay selective and deliberate.
+
 ## 2026-05-26 (re-baseline to autonomous IDA-plus-embedder controller)
 
 - Completed:
