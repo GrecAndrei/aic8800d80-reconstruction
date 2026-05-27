@@ -266,10 +266,26 @@ def index_functions(sources: list[Path]) -> tuple[dict[str, Path], dict[str, str
     return out, canon, by_source
 
 
+def source_stage_priority(src: Path) -> int:
+    parts = {part.lower() for part in src.parts}
+    if "final" in parts:
+        return 3
+    if "applied" in parts:
+        return 2
+    if "final_recovered" in parts:
+        return 1
+    return 0
+
+
+def preferred_source(candidates: list[Path]) -> Path:
+    return sorted(candidates, key=lambda p: (-source_stage_priority(p), str(p.resolve())))[0]
+
+
 def pick_source_for_target(resolved_fn: str, image: str, fn_index: dict[str, Path], by_source: dict[str, set[str]], default: Path) -> Path:
     fn_lower = resolved_fn.lower()
     image_token = normalize_token(image)
     image_candidates: list[Path] = []
+    function_candidates: list[Path] = []
     if image_token:
         for src_key, fn_names in by_source.items():
             src_name = Path(src_key).name
@@ -279,12 +295,16 @@ def pick_source_for_target(resolved_fn: str, image: str, fn_index: dict[str, Pat
             image_candidates.append(src_path)
             if fn_lower not in fn_names:
                 continue
-            return src_path
+            function_candidates.append(src_path)
+    if function_candidates:
+        # Prefer finalized output over older recovery stages when the same
+        # image/function exists in multiple reconstruction stages.
+        return preferred_source(function_candidates)
     if image_candidates:
         # Keep image identity strict: if the function is missing in this image,
         # return the image-specific source anyway so smoke reports missing symbols
         # instead of silently probing a different image's implementation.
-        return image_candidates[0]
+        return preferred_source(image_candidates)
     return fn_index.get(resolved_fn, default)
 
 

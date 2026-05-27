@@ -363,9 +363,14 @@ func main() {
 								implTasks = plateauEscalateMax
 							}
 						}
+						implqueueStep := []string{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)}
+						focusFunctions, err := recentCappedFunctions(outcomesPath, 16)
+						if err == nil && len(focusFunctions) > 0 {
+							implqueueStep = append(implqueueStep, "-focus-functions", strings.Join(focusFunctions, ","))
+						}
 						steps := [][]string{
 							{"run", "./cmd/fwcompose"},
-							{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)},
+							implqueueStep,
 							{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
 							{"run", "./cmd/fwapplysynth"},
 							{"run", "./cmd/fwfinalize"},
@@ -831,4 +836,89 @@ func consecutivePlateauStreak(historyPath string, threshold int) (int, error) {
 		break
 	}
 	return streak, nil
+}
+
+type smokeOutcomeSummary struct {
+	Function string `json:"function"`
+	Status   string `json:"status"`
+}
+
+func recentCappedFunctions(outcomesPath string, limit int) ([]string, error) {
+	if limit <= 0 {
+		return nil, nil
+	}
+	f, err := os.Open(outcomesPath)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	defer f.Close()
+
+	type cappedStat struct {
+		cappedCount int
+		lastLine    int
+		lastStatus  string
+	}
+	stats := map[string]cappedStat{}
+	sc := bufio.NewScanner(f)
+	buf := make([]byte, 0, 1024*1024)
+	sc.Buffer(buf, 1024*1024)
+	lineNo := 0
+	for sc.Scan() {
+		lineNo++
+		line := strings.TrimSpace(sc.Text())
+		if line == "" {
+			continue
+		}
+		var row smokeOutcomeSummary
+		if err := json.Unmarshal([]byte(line), &row); err != nil {
+			continue
+		}
+		fn := strings.TrimSpace(row.Function)
+		if fn == "" {
+			continue
+		}
+		st := strings.ToLower(strings.TrimSpace(row.Status))
+		item := stats[fn]
+		if st == "capped" {
+			item.cappedCount++
+		}
+		item.lastLine = lineNo
+		item.lastStatus = st
+		stats[fn] = item
+	}
+	if err := sc.Err(); err != nil {
+		return nil, err
+	}
+	type rankedFocus struct {
+		name       string
+		capped     int
+		lastLineNo int
+	}
+	ranked := make([]rankedFocus, 0, len(stats))
+	for fn, stat := range stats {
+		if stat.cappedCount == 0 || stat.lastStatus != "capped" {
+			continue
+		}
+		ranked = append(ranked, rankedFocus{name: fn, capped: stat.cappedCount, lastLineNo: stat.lastLine})
+	}
+	sort.Slice(ranked, func(i, j int) bool {
+		if ranked[i].capped == ranked[j].capped {
+			if ranked[i].lastLineNo == ranked[j].lastLineNo {
+				return ranked[i].name < ranked[j].name
+			}
+			return ranked[i].lastLineNo > ranked[j].lastLineNo
+		}
+		return ranked[i].capped > ranked[j].capped
+	})
+	if len(ranked) > limit {
+		ranked = ranked[:limit]
+	}
+	out := make([]string, 0, len(ranked))
+	for _, item := range ranked {
+		out = append(out, item.name)
+	}
+	return out, nil
 }

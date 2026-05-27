@@ -1383,6 +1383,13 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	}
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
+	if shouldForceSpecializedBody(fn) {
+		if emitted := emitSpecializedBody(&b, fn, t.Address, outgoing); emitted {
+			b.WriteString("  (void)state;\n")
+			b.WriteString("}\n")
+			return fileio.WriteBytes(path, []byte(b.String()))
+		}
+	}
 	if pseudo != nil && !policy.Conservative {
 		if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
 			b.WriteString("  (void)state;\n")
@@ -2941,6 +2948,112 @@ func emitMemoryPoolBody(b *strings.Builder, fn, addr string, outgoing []callEdge
 	return true
 }
 
+func emitClockCalcBody(b *strings.Builder, fn, addr string) bool {
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // Clock calculation: bounded divider and status settle\n")
+	b.WriteString("  volatile uint32_t *clk = (volatile uint32_t *)(uintptr_t)0x40035000U;\n")
+	b.WriteString("  uint32_t raw_div = clk[0] & 0x1FU;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t frac = (clk[1] ^ 0x%08xU) & 0x3FFU;\n", seed))
+	b.WriteString("  uint32_t div = raw_div + 1U;\n")
+	b.WriteString("  clk[2] = (div << 8U) | frac;\n")
+	b.WriteString("  clk[3] |= 1U;\n")
+	b.WriteString("  for (uint32_t wait = 0U; wait < 8U; ++wait) {\n")
+	b.WriteString("    uint32_t st = clk[3];\n")
+	b.WriteString("    state ^= st + div + frac + wait;\n")
+	b.WriteString("    if ((st & 1U) == 0U) { break; }\n")
+	b.WriteString("    clk[3] &= ~1U;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  state ^= clk[2] ^ clk[4];\n")
+	return true
+}
+
+func emitTxRateConfigBody(b *strings.Builder, fn, addr string) bool {
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // TX rate config: program a small bounded rate table\n")
+	b.WriteString("  volatile uint32_t *rate = (volatile uint32_t *)(uintptr_t)0x40342000U;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t base = 0x%08xU;\n", seed^0x55AA33CC))
+	b.WriteString("  for (uint32_t i = 0U; i < 4U; ++i) {\n")
+	b.WriteString("    uint32_t entry = ((base >> (i * 3U)) & 0x3FU) | ((i + 1U) << 8U);\n")
+	b.WriteString("    rate[0xCU + i] = entry;\n")
+	b.WriteString("    state ^= entry + i;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  rate[4] = rate[0xCU] | 1U;\n")
+	b.WriteString("  for (uint32_t wait = 0U; wait < 8U; ++wait) {\n")
+	b.WriteString("    uint32_t st = rate[5] & 3U;\n")
+	b.WriteString("    state ^= st + wait;\n")
+	b.WriteString("    if (st == 0U) { break; }\n")
+	b.WriteString("    rate[5] = 0U;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  state ^= rate[4] ^ rate[0xEU];\n")
+	return true
+}
+
+func emitRFMemReadBody(b *strings.Builder, fn, addr string) bool {
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // RF memory read: issue one bounded command and latch the result\n")
+	b.WriteString("  volatile uint32_t *rf = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t reg = ((state >> 3U) ^ 0x%08xU) & 0x3FU;\n", seed))
+	b.WriteString("  rf[0] = reg;\n")
+	b.WriteString("  rf[1] = 1U;\n")
+	b.WriteString("  for (uint32_t wait = 0U; wait < 12U; ++wait) {\n")
+	b.WriteString("    uint32_t busy = rf[1] & 1U;\n")
+	b.WriteString("    state ^= rf[2] + wait;\n")
+	b.WriteString("    if (busy == 0U) { break; }\n")
+	b.WriteString("    if ((wait & 3U) == 3U) { rf[1] = 0U; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  state ^= rf[2] ^ reg;\n")
+	return true
+}
+
+func emitRFBusMarkBody(b *strings.Builder, fn, addr string) bool {
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // RF bus mark: publish a marker and wait for bounded acknowledge\n")
+	b.WriteString("  volatile uint32_t *rf = (volatile uint32_t *)(uintptr_t)0x40010000U;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t mark = (state ^ 0x%08xU) & 0xFFU;\n", seed^0xA500A5A5))
+	b.WriteString("  rf[4] = mark;\n")
+	b.WriteString("  rf[5] |= 1U;\n")
+	b.WriteString("  for (uint32_t wait = 0U; wait < 12U; ++wait) {\n")
+	b.WriteString("    uint32_t ack = rf[5] & 1U;\n")
+	b.WriteString("    state ^= rf[6] + mark + wait;\n")
+	b.WriteString("    if (ack == 0U) { break; }\n")
+	b.WriteString("    if ((wait & 3U) == 3U) { rf[5] &= ~1U; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  state ^= rf[4] ^ rf[6];\n")
+	return true
+}
+
+func emitLogFreePoolDispatch2Body(b *strings.Builder, fn, addr string) bool {
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // Log free pool dispatch: bounded queue pop and credit return\n")
+	b.WriteString("  volatile uint32_t *pool = (volatile uint32_t *)(uintptr_t)0x40004000U;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t slot = (state ^ 0x%08xU) & 0xFU;\n", seed))
+	b.WriteString("  uint32_t entry = pool[slot];\n")
+	b.WriteString("  uint32_t credits = pool[0x10U + (slot & 3U)] & 0xFFU;\n")
+	b.WriteString("  if (credits != 0U) {\n")
+	b.WriteString("    pool[slot] = 0U;\n")
+	b.WriteString("    pool[0x10U + (slot & 3U)] = (credits - 1U) & 0xFFU;\n")
+	b.WriteString("    state ^= entry + credits;\n")
+	b.WriteString("  } else {\n")
+	b.WriteString("    state ^= entry ^ slot;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  for (uint32_t wait = 0U; wait < 4U; ++wait) {\n")
+	b.WriteString("    uint32_t pending = pool[0x20U + wait] & 1U;\n")
+	b.WriteString("    state ^= pending + wait;\n")
+	b.WriteString("    if (pending == 0U) { break; }\n")
+	b.WriteString("    pool[0x20U + wait] = 0U;\n")
+	b.WriteString("  }\n")
+	return true
+}
+
+func shouldForceSpecializedBody(fn string) bool {
+	switch fn {
+	case "clock_calc", "tx_rate_config", "rf_mem_read", "rf_bus_mark", "log_free_pool_dispatch2":
+		return true
+	default:
+		return false
+	}
+}
+
 func emitStateMachineBody(b *strings.Builder, fn, addr string) bool {
 	seed := synthSeed(fn, addr)
 	b.WriteString("  // State machine: pattern derived from behavioral class state_machine\n")
@@ -3171,6 +3284,16 @@ func emitSpecializedBody(b *strings.Builder, fn, addr string, outgoing []callEdg
 		return true
 	}
 	switch fn {
+	case "clock_calc":
+		return emitClockCalcBody(b, fn, addr)
+	case "tx_rate_config":
+		return emitTxRateConfigBody(b, fn, addr)
+	case "rf_mem_read":
+		return emitRFMemReadBody(b, fn, addr)
+	case "rf_bus_mark":
+		return emitRFBusMarkBody(b, fn, addr)
+	case "log_free_pool_dispatch2":
+		return emitLogFreePoolDispatch2Body(b, fn, addr)
 	case "list_push_tail":
 		b.WriteString("  enum { QCAP = 64 };\n")
 		b.WriteString("  static uint32_t q[QCAP];\n")

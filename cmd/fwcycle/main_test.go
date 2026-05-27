@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 	"time"
 )
@@ -81,5 +82,26 @@ func TestClassifyPlateauModeForced(t *testing.T) {
 	}
 	if routing.Mode != "validate" {
 		t.Fatalf("expected forced validate mode, got %q", routing.Mode)
+	}
+}
+
+func TestRecentCappedFunctions(t *testing.T) {
+	outcomes := filepath.Join(t.TempDir(), "smoke_observations.jsonl")
+	data := "" +
+		"{\"function\":\"clock_calc\",\"status\":\"capped\"}\n" +
+		"{\"function\":\"rf_bus_mark\",\"status\":\"capped\"}\n" +
+		"{\"function\":\"clock_calc\",\"status\":\"capped\"}\n" +
+		"{\"function\":\"rf_bus_mark\",\"status\":\"returned\"}\n" +
+		"{\"function\":\"tx_rate_config\",\"status\":\"capped\"}\n"
+	if err := os.WriteFile(outcomes, []byte(data), 0o644); err != nil {
+		t.Fatalf("write outcomes: %v", err)
+	}
+	focus, err := recentCappedFunctions(outcomes, 4)
+	if err != nil {
+		t.Fatalf("recentCappedFunctions failed: %v", err)
+	}
+	want := []string{"clock_calc", "tx_rate_config"}
+	if !reflect.DeepEqual(focus, want) {
+		t.Fatalf("unexpected focus list: got %#v want %#v", focus, want)
 	}
 }

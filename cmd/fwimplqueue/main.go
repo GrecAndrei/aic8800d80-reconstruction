@@ -44,6 +44,7 @@ type implManifest struct {
 	GeneratedAt   string `json:"generated_at"`
 	ComposeIndex  string `json:"compose_index_path"`
 	SkipTasks     int    `json:"skip_tasks"`
+	FocusCount    int    `json:"focus_count"`
 	TaskCount     int    `json:"task_count"`
 	BehaviorCount int    `json:"behavior_lift_count"`
 	DepImplCount  int    `json:"dependency_impl_count"`
@@ -55,11 +56,15 @@ func main() {
 	var outDir string
 	var maxTasks int
 	var skipTasks int
+	var focusFunctionsCSV string
+	var focusBonus float64
 
 	flag.StringVar(&composeIndexPath, "compose-index", "extraction_out/reconstruction/mega7/composed/compose_index.json", "Compose index JSON")
 	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/implqueue", "Output directory")
 	flag.IntVar(&maxTasks, "max-tasks", 600, "Maximum implementation tasks")
 	flag.IntVar(&skipTasks, "skip-tasks", 0, "Rotate queue start by this many tasks before truncation")
+	flag.StringVar(&focusFunctionsCSV, "focus-functions", "", "Comma-separated function names to prioritize in the queue")
+	flag.Float64Var(&focusBonus, "focus-bonus", 1000.0, "Rank score bonus applied to focus functions")
 	flag.Parse()
 
 	idxAbs, _ := filepath.Abs(composeIndexPath)
@@ -79,6 +84,7 @@ func main() {
 	if len(rows) == 0 {
 		fail("compose index empty")
 	}
+	focusSet := parseFocusFunctions(focusFunctionsCSV)
 
 	tasks := make([]implTask, 0, maxTasks)
 	for _, r := range rows {
@@ -89,6 +95,7 @@ func main() {
 		if !ok {
 			continue
 		}
+		t = applyFocusBoost(t, focusSet, focusBonus)
 		t.SchemaVersion = "0.1.0"
 		tasks = append(tasks, t)
 	}
@@ -114,6 +121,7 @@ func main() {
 		GeneratedAt:   time.Now().UTC().Format(time.RFC3339),
 		ComposeIndex:  idxAbs,
 		SkipTasks:     skipTasks,
+		FocusCount:    len(focusSet),
 		TaskCount:     len(tasks),
 		OutputDir:     outAbs,
 	}
@@ -138,6 +146,33 @@ func main() {
 	fmt.Printf("  behavior_lift_count: %d\n", m.BehaviorCount)
 	fmt.Printf("  dependency_impl_count: %d\n", m.DepImplCount)
 	fmt.Printf("  out_dir: %s\n", outAbs)
+}
+
+func parseFocusFunctions(csv string) map[string]struct{} {
+	out := map[string]struct{}{}
+	for _, part := range strings.Split(csv, ",") {
+		name := strings.ToLower(strings.TrimSpace(part))
+		if name == "" {
+			continue
+		}
+		out[name] = struct{}{}
+	}
+	return out
+}
+
+func applyFocusBoost(t implTask, focusSet map[string]struct{}, focusBonus float64) implTask {
+	if len(focusSet) == 0 || focusBonus <= 0 {
+		return t
+	}
+	if _, ok := focusSet[strings.ToLower(strings.TrimSpace(t.Function))]; !ok {
+		return t
+	}
+	t.RankScore += focusBonus
+	t.Reasons = append([]string{fmt.Sprintf("prioritized from recent capped smoke outcomes (+%.1f)", focusBonus)}, t.Reasons...)
+	if t.Priority == "" || t.Priority == "low" || t.Priority == "medium" {
+		t.Priority = "critical"
+	}
+	return t
 }
 
 func toTask(r composeIndexRow) (implTask, bool) {
