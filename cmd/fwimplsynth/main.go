@@ -14,17 +14,23 @@ import (
 	"time"
 
 	"aic8800d80/internal/fileio"
+	"aic8800d80/internal/reconstruct"
 )
 
 type implTask struct {
-	SchemaVersion string  `json:"schema_version,omitempty"`
-	TaskID        string  `json:"task_id"`
-	Function      string  `json:"function"`
-	Image         string  `json:"image"`
-	Address       string  `json:"address"`
-	TaskClass     string  `json:"task_class"`
-	Priority      string  `json:"priority"`
-	RankScore     float64 `json:"rank_score"`
+	SchemaVersion       string  `json:"schema_version,omitempty"`
+	TaskID              string  `json:"task_id"`
+	Function            string  `json:"function"`
+	Image               string  `json:"image"`
+	Address             string  `json:"address"`
+	TaskClass           string  `json:"task_class"`
+	Priority            string  `json:"priority"`
+	RankScore           float64 `json:"rank_score"`
+	UrgencyScore        float64 `json:"urgency_score,omitempty"`
+	DescriptorPhenotype string  `json:"descriptor_phenotype,omitempty"`
+	MotifFamily         string  `json:"motif_family,omitempty"`
+	MotifConfidence     float64 `json:"motif_confidence,omitempty"`
+	BehaviorRole        string  `json:"behavior_role,omitempty"`
 }
 
 type callEdge struct {
@@ -83,6 +89,15 @@ type synthEvidenceRow struct {
 	CounterexampleMissingLikely []string `json:"counterexample_missing_likely,omitempty"`
 	BehaviorClass               string   `json:"behavior_class,omitempty"`
 	BehaviorRole                string   `json:"behavior_role,omitempty"`
+	DescriptorPhenotype         string   `json:"descriptor_phenotype,omitempty"`
+	MotifFamily                 string   `json:"motif_family,omitempty"`
+	MotifConfidence             float64  `json:"motif_confidence,omitempty"`
+	MotifMemorySuccessRate      float64  `json:"motif_memory_success_rate,omitempty"`
+	TransferConfidence          float64  `json:"transfer_confidence,omitempty"`
+	PreferredEmitter            string   `json:"preferred_emitter,omitempty"`
+	EmbedderNeighborCount       int      `json:"embedder_neighbor_count,omitempty"`
+	ClusterSize                 int      `json:"cluster_size,omitempty"`
+	ClusterTopOutgoing          []string `json:"cluster_top_outgoing,omitempty"`
 }
 
 type synthContractHintRow struct {
@@ -96,16 +111,18 @@ type synthContractHintRow struct {
 }
 
 type synthPolicy struct {
-	EvidenceScore     float64
-	EvidenceClass     string
-	Conservative      bool
-	MaxCallees        int
-	Warnings          []string
-	ContractPre       []string
-	ContractPost      []string
-	ProbeSeedHints    []string
-	SuggestedProfile  string
-	SuggestedMMIOAuto bool
+	EvidenceScore      float64
+	EvidenceClass      string
+	Conservative       bool
+	MaxCallees         int
+	TemplatePreference string
+	TransferConfidence float64
+	Warnings           []string
+	ContractPre        []string
+	ContractPost       []string
+	ProbeSeedHints     []string
+	SuggestedProfile   string
+	SuggestedMMIOAuto  bool
 }
 
 type conformanceConstraint struct {
@@ -117,6 +134,7 @@ var nameOutgoingHints map[string][]string
 var linkedFunctionHints map[string][]string
 var linkedNameAliases map[string][]string
 var addressNeighborHints map[string][]string
+var descriptorNeighborHints map[string][]string
 
 type cfgHint struct {
 	SchemaVersion  string   `json:"schema_version,omitempty"`
@@ -322,6 +340,8 @@ func run() error {
 	var maxCalleesHighComplexity, maxCalleesLowEvidence int
 	var strictLowEvidence bool
 	var includeDependencies bool
+	var descriptorsPath string
+	var motifMemoryPath string
 
 	// Flags and defaults (kept local so run() is self-contained).
 	implQueuePath := "extraction_out/reconstruction/mega7/implqueue/implementation_queue.json"
@@ -332,6 +352,8 @@ func run() error {
 	pseudoHintsFilePath := "extraction_out/ida_export_pseudo/pseudocode_hints.jsonl"
 	functionLinksFilePath := "extraction_out/reconstruction/mega7/function_links.jsonl"
 	conformanceFilePath := "extraction_out/reconstruction/mega7/final/call_conformance.json"
+	descriptorsFilePath := "extraction_out/reconstruction/mega7/analysis/function_descriptors.json"
+	motifMemoryFilePath := "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json"
 	minCallConfidence := 0.7
 	fallbackMinCallConfidence := 0.4
 	maxTasksVal := 80
@@ -356,6 +378,8 @@ func run() error {
 	fs.StringVar(&pseudoHintsFilePath, "pseudo-hints", pseudoHintsFilePath, "Hex-Rays pseudocode hint JSONL path")
 	fs.StringVar(&functionLinksFilePath, "function-links", functionLinksFilePath, "Function links JSONL path")
 	fs.StringVar(&conformanceFilePath, "conformance", conformanceFilePath, "Call conformance JSON path")
+	fs.StringVar(&descriptorsFilePath, "descriptors", descriptorsFilePath, "Function descriptor JSON path")
+	fs.StringVar(&motifMemoryFilePath, "motif-memory", motifMemoryFilePath, "Motif memory JSON path")
 	fs.Float64Var(&minCallConfidence, "min-call-confidence", minCallConfidence, "Minimum confidence for observed call edges")
 	fs.Float64Var(&fallbackMinCallConfidence, "fallback-min-call-confidence", fallbackMinCallConfidence, "Fallback confidence threshold for inferred call edges")
 	fs.IntVar(&maxTasksVal, "max-tasks", maxTasksVal, "Maximum synthesis tasks (0=all)")
@@ -382,6 +406,8 @@ func run() error {
 	pseudoHintsPath = pseudoHintsFilePath
 	functionLinksPath = functionLinksFilePath
 	conformancePath = conformanceFilePath
+	descriptorsPath = descriptorsFilePath
+	motifMemoryPath = motifMemoryFilePath
 	minConf = minCallConfidence
 	fallbackMinConf = fallbackMinCallConfidence
 	maxTasks = maxTasksVal
@@ -455,6 +481,15 @@ func run() error {
 	if err != nil {
 		fail("load conformance constraints: %v", err)
 	}
+	descriptors, err := reconstruct.LoadDescriptorSet(descriptorsPath)
+	if err != nil {
+		fail("load descriptors: %v", err)
+	}
+	motifMemory, err := reconstruct.LoadMotifMemorySet(motifMemoryPath)
+	if err != nil {
+		fail("load motif memory: %v", err)
+	}
+	descriptorNeighborHints = buildDescriptorNeighborHints(descriptors)
 
 	synth := make([]implTask, 0, maxTasks)
 	behaviorCount := 0
@@ -512,6 +547,11 @@ func run() error {
 	evidence := make([]synthEvidenceRow, 0, len(synth))
 	contractHints := make([]synthContractHintRow, 0, len(synth))
 	for i, t := range synth {
+		desc := descriptors.Lookup(t.Function, t.Image, t.Address)
+		var motifMem *reconstruct.MotifMemoryEntry
+		if desc != nil && desc.Motif.Family != "" {
+			motifMem = motifMemory.Lookup(desc.Motif.Family)
+		}
 		incoming, outgoing := edgesForTask(t, inAdj, outAdj, inByName, outByName)
 		sort.Slice(outgoing, func(a, b int) bool { return outgoing[a].Confidence > outgoing[b].Confidence })
 		aggressive := allowSyntheticInference(t.Function, incoming, outgoing)
@@ -559,16 +599,37 @@ func run() error {
 			selected = inferFromImageHints(t, imageHints)
 			source = "image_hints"
 		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromMotifMemory(t, desc, motifMem)
+			source = "motif_memory"
+		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromTransferCluster(t, desc)
+			source = "transfer_cluster"
+		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromEmbedderNeighbors(t, desc, descriptors)
+			source = "embedder_neighbors"
+		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromDescriptorNeighbors(t, desc)
+			source = "descriptor_neighbors"
+		}
 		fn := sanitizeName(t.Function)
 		selected, unsupportedCE, missingCE := applyCounterexampleConstraints(selected, conformanceConstraints[fn], minConf, counterexampleInjectMax)
 		cfg := cfgForTask(t, cfgByAddr, cfgByName)
 		pseudo := pseudoForTask(t, pseudoByAddr, pseudoByName)
+		if desc != nil && desc.Behavior.Role != "" && t.BehaviorRole == "" {
+			t.BehaviorRole = desc.Behavior.Role
+		}
 		policy := evaluateSynthesisPolicy(
 			t,
 			incoming,
 			outgoing,
 			selected,
 			cfg,
+			desc,
+			motifMem,
 			source,
 			minEvidenceScore,
 			complexityBBThreshold,
@@ -629,6 +690,25 @@ func run() error {
 				_ = conf
 			}
 		}
+		if desc != nil {
+			if row.BehaviorClass == "" {
+				row.BehaviorClass = desc.Behavior.Class
+			}
+			if row.BehaviorRole == "" {
+				row.BehaviorRole = desc.Behavior.Role
+			}
+			row.DescriptorPhenotype = desc.Probe.Phenotype
+			row.MotifFamily = desc.Motif.Family
+			row.MotifConfidence = desc.Motif.Confidence
+			row.TransferConfidence = desc.Transfer.TransferConfidence
+			row.PreferredEmitter = desc.Transfer.PreferredEmitter
+			row.EmbedderNeighborCount = len(desc.Relations.EmbedderNeighbors)
+			row.ClusterSize = desc.Transfer.ClusterSize
+			row.ClusterTopOutgoing = append([]string(nil), desc.Transfer.TopClusterOutgoing...)
+			if motifMem != nil {
+				row.MotifMemorySuccessRate = motifMem.SuccessRate
+			}
+		}
 		evidence = append(evidence, row)
 		contractHints = append(contractHints, synthContractHintRow{
 			SchemaVersion:  "0.1.0",
@@ -640,7 +720,7 @@ func run() error {
 			Postconditions: policy.ContractPost,
 		})
 		file := filepath.Join(oAbs, fmt.Sprintf("%03d_%s.synth.c", i+1, sanitizeName(t.Function)))
-		if err := writeSynth(file, t, incoming, selected, cfg, pseudo, policy, row.BehaviorClass, row.BehaviorRole); err != nil {
+		if err := writeSynth(file, t, incoming, selected, cfg, pseudo, desc, motifMem, policy, row.BehaviorClass, row.BehaviorRole); err != nil {
 			fail("write synth %s: %v", file, err)
 		}
 	}
@@ -1014,6 +1094,8 @@ func evaluateSynthesisPolicy(
 	outgoing []callEdge,
 	selected []callEdge,
 	cfg *cfgHint,
+	desc *reconstruct.FunctionDescriptor,
+	motifMem *reconstruct.MotifMemoryEntry,
 	source string,
 	minEvidenceScore float64,
 	complexityBBThreshold int,
@@ -1023,11 +1105,12 @@ func evaluateSynthesisPolicy(
 	strictLowEvidence bool,
 ) synthPolicy {
 	policy := synthPolicy{
-		EvidenceClass:     "strong",
-		Conservative:      false,
-		MaxCallees:        0,
-		SuggestedProfile:  "rich",
-		SuggestedMMIOAuto: true,
+		EvidenceClass:      "strong",
+		Conservative:       false,
+		MaxCallees:         0,
+		TemplatePreference: "generic",
+		SuggestedProfile:   "rich",
+		SuggestedMMIOAuto:  true,
 	}
 
 	evidence := 0.0
@@ -1054,6 +1137,25 @@ func evaluateSynthesisPolicy(
 	}
 	if len(selected) == 0 {
 		evidence -= 0.9
+	}
+	if desc != nil {
+		evidence += minFloat(desc.Motif.Confidence, 1.0) * 0.45
+		evidence += minFloat(desc.Priority.RebuildUrgency, 8.0) * 0.05
+		evidence += minFloat(desc.Transfer.TransferConfidence, 1.0) * 0.4
+		policy.TransferConfidence = desc.Transfer.TransferConfidence
+		if desc.Transfer.PreferredEmitter != "" {
+			policy.TemplatePreference = desc.Transfer.PreferredEmitter
+		}
+		if desc.Probe.Returned > 0 && desc.Probe.Phenotype == "stable_nontrivial" {
+			evidence += 0.2
+		}
+		if desc.Probe.Phenotype == "shallow_wrapper" && desc.Motif.Family != "" {
+			evidence += 0.25
+		}
+	}
+	if motifMem != nil {
+		evidence += minFloat(motifMem.AvgConfidence, 1.0) * 0.35
+		evidence += minFloat(motifMem.SuccessRate/100.0, 1.0) * 0.25
 	}
 	if evidence < 0 {
 		evidence = 0
@@ -1084,6 +1186,21 @@ func evaluateSynthesisPolicy(
 	if cfg != nil && cfg.StoreCount > 0 && source != "observed_outgoing" && source != "incoming_projection" {
 		policy.Warnings = append(policy.Warnings, "memory-side-effect profile with heuristic callee source")
 	}
+	if desc != nil && desc.Probe.Phenotype != "" {
+		policy.Warnings = append(policy.Warnings, "descriptor phenotype: "+desc.Probe.Phenotype)
+	}
+	if desc != nil && desc.Motif.Family != "" {
+		policy.Warnings = append(policy.Warnings, fmt.Sprintf("descriptor motif: %s @ %.2f", desc.Motif.Family, desc.Motif.Confidence))
+	}
+	if desc != nil && desc.Transfer.TransferConfidence > 0 {
+		policy.Warnings = append(policy.Warnings, fmt.Sprintf("transfer confidence: %.2f via %s", desc.Transfer.TransferConfidence, nonEmpty(desc.Transfer.PreferredEmitter, "cluster hints")))
+		if len(desc.Transfer.TopClusterOutgoing) > 0 {
+			policy.Warnings = append(policy.Warnings, "cluster outgoing: "+strings.Join(desc.Transfer.TopClusterOutgoing[:minInt(len(desc.Transfer.TopClusterOutgoing), 3)], ", "))
+		}
+	}
+	if motifMem != nil && motifMem.SampleCount >= 2 {
+		policy.Warnings = append(policy.Warnings, fmt.Sprintf("motif memory: %s success %.1f%% across %d samples", motifMem.Family, motifMem.SuccessRate, motifMem.SampleCount))
+	}
 
 	if highComplexity && maxCalleesHighComplexity > 0 {
 		policy.MaxCallees = maxCalleesHighComplexity
@@ -1095,6 +1212,10 @@ func evaluateSynthesisPolicy(
 	}
 
 	contractPre, contractPost, seeds := deriveContractAndSeedHints(t, incoming, selected, cfg)
+	if desc != nil && desc.Pseudo.PrimaryMMIO != "" {
+		seeds = append(seeds, strings.ToLower(strings.TrimSpace(desc.Pseudo.PrimaryMMIO))+"=0")
+		seeds = uniqueStrings(seeds)
+	}
 	policy.ContractPre = contractPre
 	policy.ContractPost = contractPost
 	policy.ProbeSeedHints = seeds
@@ -1183,7 +1304,7 @@ func maxFloat(a, b float64) float64 {
 	return b
 }
 
-func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfgHint, pseudo *pseudoHint, policy synthPolicy, behaviorClass string, behaviorRole string) error {
+func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfgHint, pseudo *pseudoHint, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry, policy synthPolicy, behaviorClass string, behaviorRole string) error {
 	var b strings.Builder
 	b.WriteString("/* Auto-generated synthesized implementation pass */\n")
 	b.WriteString(fmt.Sprintf("/* task=%s class=%s priority=%s score=%.3f */\n", t.TaskID, t.TaskClass, t.Priority, t.RankScore))
@@ -1390,20 +1511,75 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 			return fileio.WriteBytes(path, []byte(b.String()))
 		}
 	}
-	if pseudo != nil && !policy.Conservative {
-		if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
-			b.WriteString("  (void)state;\n")
-			b.WriteString("}\n")
-			return fileio.WriteBytes(path, []byte(b.String()))
+	descriptorAllowed := desc != nil && (!policy.Conservative || policy.TransferConfidence >= 0.72)
+	pseudoAllowed := pseudo != nil && !policy.Conservative
+	behaviorAllowed := behaviorRole != "" && !policy.Conservative
+	switch policy.TemplatePreference {
+	case "descriptor_motif", "cluster_transfer":
+		if descriptorAllowed {
+			if emitted := emitDescriptorMotifBody(&b, fn, t.Address, desc, motifMem, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
 		}
-	}
-	// Behavioral-class-driven body: if classifier identified a specific role,
-	// emit class-appropriate firmware code instead of a generic stub.
-	if behaviorRole != "" && !policy.Conservative {
-		if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
-			b.WriteString("  (void)state;\n")
-			b.WriteString("}\n")
-			return fileio.WriteBytes(path, []byte(b.String()))
+		if pseudoAllowed {
+			if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+		if behaviorAllowed {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+	case "behavioral_class":
+		if behaviorAllowed {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+		if descriptorAllowed {
+			if emitted := emitDescriptorMotifBody(&b, fn, t.Address, desc, motifMem, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+		if pseudoAllowed {
+			if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+	default:
+		if pseudoAllowed {
+			if emitted := emitPseudocodeStructuredBody(&b, fn, pseudo, cfg, outgoing, behaviorRole); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+		if descriptorAllowed {
+			if emitted := emitDescriptorMotifBody(&b, fn, t.Address, desc, motifMem, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
+		}
+		if behaviorAllowed {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+				b.WriteString("  (void)state;\n")
+				b.WriteString("}\n")
+				return fileio.WriteBytes(path, []byte(b.String()))
+			}
 		}
 	}
 	if policy.Conservative {
@@ -2781,6 +2957,189 @@ func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, out
 		return emitPatchBody(b, fn, addr)
 	}
 	return false
+}
+
+func emitDescriptorMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry, outgoing []callEdge) bool {
+	if desc == nil || desc.Motif.Family == "" || desc.Motif.Confidence < 0.6 {
+		return false
+	}
+	switch desc.Motif.Family {
+	case "dispatcher":
+		return emitDispatchBody(b, fn, addr, outgoing)
+	case "queue_pump":
+		return emitQueuePumpMotifBody(b, fn, addr, desc, outgoing)
+	case "staged_mmio_transfer":
+		return emitDescriptorMMIOTransferBody(b, fn, addr, desc, outgoing)
+	case "register_commit":
+		return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
+	case "bounded_poll":
+		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem)
+	case "state_machine":
+		return emitStateMachineBody(b, fn, addr)
+	case "irq_wait_guard":
+		return emitDescriptorIRQWaitGuardBody(b, fn, addr, desc)
+	case "callback_state_gate":
+		return emitDescriptorCallbackStateGateBody(b, fn, addr, desc, outgoing)
+	}
+	return false
+}
+
+func descriptorMMIOBase(desc *reconstruct.FunctionDescriptor, fallback uint32) uint32 {
+	if desc != nil && strings.TrimSpace(desc.Pseudo.PrimaryMMIO) != "" {
+		if v, err := parseHexAddr(strings.TrimSpace(desc.Pseudo.PrimaryMMIO)); err == nil {
+			return uint32(v)
+		}
+	}
+	if desc != nil {
+		for _, imm := range desc.CFG.TopImmediates {
+			if imm >= 0x40000000 && imm <= 0x7fffffff {
+				return imm & 0xfffff000
+			}
+		}
+		if desc.CFG.MaxImmediate >= 0x40000000 && desc.CFG.MaxImmediate <= 0x7fffffff {
+			return desc.CFG.MaxImmediate & 0xfffff000
+		}
+	}
+	return fallback
+}
+
+func emitQueuePumpMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) bool {
+	seed := synthSeed(fn, addr)
+	depth := 16
+	if desc != nil && desc.CFG.CallsiteCount > 0 {
+		depth = minInt(64, maxInt(16, desc.CFG.CallsiteCount*4))
+	}
+	b.WriteString("  // Descriptor motif: queue/ring pump with bounded backlog drain\n")
+	b.WriteString(fmt.Sprintf("  enum { QCAP = %d };\n", depth))
+	b.WriteString("  static uint32_t ring[QCAP];\n")
+	b.WriteString("  static uint32_t q_head, q_tail, q_count;\n")
+	b.WriteString(fmt.Sprintf("  uint32_t item = state ^ 0x%08xU;\n", seed^0x4a6d3c21))
+	b.WriteString("  if (q_count == QCAP) {\n")
+	b.WriteString("    q_head = (q_head + 1U) & (QCAP - 1U);\n")
+	b.WriteString("    q_count--;\n")
+	b.WriteString("  }\n")
+	b.WriteString("  ring[q_tail] = item;\n")
+	b.WriteString("  q_tail = (q_tail + 1U) & (QCAP - 1U);\n")
+	b.WriteString("  q_count++;\n")
+	b.WriteString("  uint32_t budget = (state & 7U) + 4U;\n")
+	b.WriteString("  while (q_count > 0U && budget-- > 0U) {\n")
+	b.WriteString("    state ^= ring[q_head] + budget;\n")
+	b.WriteString("    q_head = (q_head + 1U) & (QCAP - 1U);\n")
+	b.WriteString("    q_count--;\n")
+	b.WriteString("  }\n")
+	_ = emitHelperCascade(b, selectOutgoingCalls(fn, outgoing, 3), 3)
+	return true
+}
+
+func emitDescriptorMMIOTransferBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) bool {
+	base := descriptorMMIOBase(desc, 0x40020000)
+	blocks := 8
+	if desc != nil {
+		blocks = minInt(24, maxInt(8, desc.CFG.LoadCount+desc.CFG.StoreCount))
+	}
+	b.WriteString("  // Descriptor motif: staged MMIO transfer with explicit completion window\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
+	b.WriteString("  volatile uint8_t *src = (volatile uint8_t *)(uintptr_t)(0x20000000U + (state & 0x3FFU));\n")
+	b.WriteString("  volatile uint8_t *dst = (volatile uint8_t *)(uintptr_t)(0x20000800U + (state & 0x3FFU));\n")
+	b.WriteString(fmt.Sprintf("  for (uint32_t blk = 0U; blk < %dU; ++blk) {\n", blocks))
+	b.WriteString("    uint8_t v = src[blk & 0x7FU] ^ (uint8_t)(state + blk);\n")
+	b.WriteString("    dst[blk & 0x7FU] = v;\n")
+	b.WriteString("    mmio[blk & 3U] = ((blk & 0xFFU) << 16U) | v;\n")
+	b.WriteString("    state ^= mmio[blk & 3U];\n")
+	b.WriteString("  }\n")
+	b.WriteString("  mmio[1] = 1U;\n")
+	b.WriteString("  for (uint32_t wait = 48U; wait > 0U; --wait) {\n")
+	b.WriteString("    uint32_t status = mmio[1] & 3U;\n")
+	b.WriteString("    state ^= status + wait;\n")
+	b.WriteString("    if ((wait & 7U) == 0U) { mmio[1] = 0U; }\n")
+	b.WriteString("    if (status == 0U) { break; }\n")
+	b.WriteString("  }\n")
+	_ = emitHelperCascade(b, selectOutgoingCalls(fn, outgoing, 2), 2)
+	return true
+}
+
+func emitRegisterCommitMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) bool {
+	base := descriptorMMIOBase(desc, 0x40010000)
+	seed := synthSeed(fn, addr)
+	b.WriteString("  // Descriptor motif: register commit with bounded ack wait\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *regs = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
+	b.WriteString(fmt.Sprintf("  uint32_t reg = 0x%xU & 0x1FU;\n", (seed>>3)&0x1f))
+	b.WriteString(fmt.Sprintf("  uint32_t value = state ^ 0x%08xU;\n", seed^0x6d4b7e11))
+	b.WriteString("  regs[0] = reg;\n")
+	b.WriteString("  regs[1] = value;\n")
+	b.WriteString("  regs[2] = 1U;\n")
+	b.WriteString("  for (uint32_t wait = 32U; wait > 0U; --wait) {\n")
+	b.WriteString("    uint32_t ack = regs[2] & 1U;\n")
+	b.WriteString("    state ^= regs[1] ^ ack ^ wait;\n")
+	b.WriteString("    if ((wait & 3U) == 0U) { regs[2] = 0U; }\n")
+	b.WriteString("    if (ack == 0U) { break; }\n")
+	b.WriteString("  }\n")
+	_ = emitHelperCascade(b, selectOutgoingCalls(fn, outgoing, 2), 2)
+	return true
+}
+
+func emitBoundedPollMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry) bool {
+	base := descriptorMMIOBase(desc, 0x40000000)
+	wait := 24
+	if desc != nil && desc.Probe.Capped > 0 {
+		wait = minInt(96, maxInt(24, desc.Probe.Capped*12))
+	}
+	if motifMem != nil && motifMem.SampleCount > 0 {
+		wait = minInt(128, wait+motifMem.SampleCount*4)
+	}
+	b.WriteString("  // Descriptor motif: bounded hardware polling loop\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *poll = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
+	b.WriteString(fmt.Sprintf("  for (uint32_t wait = %dU; wait > 0U; --wait) {\n", wait))
+	b.WriteString("    uint32_t status = poll[0] & 0xFFU;\n")
+	b.WriteString("    state ^= status + wait;\n")
+	b.WriteString("    if ((status & 1U) == 0U) { break; }\n")
+	b.WriteString("    if ((wait & 7U) == 0U) { poll[0] &= ~1U; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  poll[1] = state;\n")
+	return true
+}
+
+func emitDescriptorIRQWaitGuardBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor) bool {
+	seed := synthSeed(fn, addr)
+	base := descriptorMMIOBase(desc, 0x40000000)
+	b.WriteString("  // Descriptor motif: IRQ guard around bounded wait\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *guard = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20000000|(seed&0x1ff0)))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *depth = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20000200|((seed>>4)&0x1ff0)))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
+	b.WriteString("  guard[0] = 1U;\n")
+	b.WriteString("  depth[0] += 1U;\n")
+	b.WriteString("  for (uint32_t spin = 32U; spin > 0U; --spin) {\n")
+	b.WriteString("    state ^= mmio[0] ^ spin;\n")
+	b.WriteString("    if ((spin & 7U) == 0U) { mmio[0] &= ~1U; }\n")
+	b.WriteString("    if ((mmio[0] & 1U) == 0U) { break; }\n")
+	b.WriteString("  }\n")
+	b.WriteString("  if (depth[0] > 0U) { depth[0] -= 1U; }\n")
+	b.WriteString("  if (depth[0] == 0U) { guard[0] = 0U; }\n")
+	return true
+}
+
+func emitDescriptorCallbackStateGateBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) bool {
+	seed := synthSeed(fn, addr)
+	helperCalls := selectOutgoingCalls(fn, outgoing, 2)
+	b.WriteString("  // Descriptor motif: callback-gated state transition\n")
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *state_slot = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20001000|(seed&0x7f0)))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *phase_slot = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20001400|((seed>>4)&0x7f0)))
+	b.WriteString(fmt.Sprintf("  volatile uint32_t *cb_slot = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20001800|((seed>>8)&0x7f0)))
+	b.WriteString("  uint32_t active = state_slot[0] & 1U;\n")
+	b.WriteString("  if (active != 0U && cb_slot[0] != 0U) {\n")
+	b.WriteString("    phase_slot[0] = 4U;\n")
+	if len(helperCalls) > 0 {
+		b.WriteString("    " + helperCalls[0] + "();\n")
+	}
+	if len(helperCalls) > 1 {
+		b.WriteString("    if ((state & 1U) == 0U) { " + helperCalls[1] + "(); }\n")
+	}
+	b.WriteString("    state ^= phase_slot[0] ^ cb_slot[0];\n")
+	b.WriteString("  } else {\n")
+	b.WriteString("    phase_slot[0] = 3U;\n")
+	b.WriteString("    state ^= phase_slot[0] ^ 0xBAD00000U;\n")
+	b.WriteString("  }\n")
+	return true
 }
 
 func emitRadioRegWriteBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
@@ -5889,6 +6248,241 @@ func inferFromFamilyHints(task implTask, familyHints map[string][]string) []call
 		})
 	}
 	return out
+}
+
+func inferFromMotifMemory(task implTask, desc *reconstruct.FunctionDescriptor, memory *reconstruct.MotifMemoryEntry) []callEdge {
+	if desc == nil || memory == nil || desc.Motif.Family == "" {
+		return nil
+	}
+	self := sanitizeName(task.Function)
+	out := make([]callEdge, 0, len(memory.TopOutgoing))
+	baseConfidence := 0.18 + minFloat(desc.Motif.Confidence*0.25, 0.22)
+	if memory.SuccessRate >= 40.0 {
+		baseConfidence += 0.08
+	}
+	for _, name := range memory.TopOutgoing {
+		n := sanitizeName(name)
+		if n == "" || n == "unknown" || n == self {
+			continue
+		}
+		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+			continue
+		}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: task.Function,
+			TargetName: n,
+			Confidence: baseConfidence,
+		})
+		if len(out) >= 4 {
+			break
+		}
+	}
+	return out
+}
+
+func buildDescriptorNeighborHints(descriptors *reconstruct.DescriptorSet) map[string][]string {
+	out := map[string][]string{}
+	if descriptors == nil {
+		return out
+	}
+	type vote struct {
+		name  string
+		count float64
+	}
+	votesByCluster := map[string]map[string]float64{}
+	for _, desc := range descriptors.Rows {
+		key := descriptorClusterKey(&desc)
+		if key == "" {
+			continue
+		}
+		if votesByCluster[key] == nil {
+			votesByCluster[key] = map[string]float64{}
+		}
+		weight := maxFloat(0.2, desc.Motif.Confidence)
+		for _, name := range desc.Synthesis.TopOutgoing {
+			n := sanitizeName(name)
+			if n == "" || n == "unknown" || n == sanitizeName(desc.Name) {
+				continue
+			}
+			votesByCluster[key][n] += weight
+		}
+	}
+	for key, votes := range votesByCluster {
+		rows := make([]vote, 0, len(votes))
+		for name, count := range votes {
+			rows = append(rows, vote{name: name, count: count})
+		}
+		sort.Slice(rows, func(i, j int) bool {
+			if rows[i].count == rows[j].count {
+				return rows[i].name < rows[j].name
+			}
+			return rows[i].count > rows[j].count
+		})
+		limit := 4
+		if len(rows) < limit {
+			limit = len(rows)
+		}
+		list := make([]string, 0, limit)
+		for i := 0; i < limit; i++ {
+			list = append(list, rows[i].name)
+		}
+		out[key] = list
+	}
+	return out
+}
+
+func inferFromEmbedderNeighbors(task implTask, desc *reconstruct.FunctionDescriptor, descriptors *reconstruct.DescriptorSet) []callEdge {
+	if desc == nil || descriptors == nil || len(desc.Relations.EmbedderNeighbors) == 0 {
+		return nil
+	}
+	votes := map[string]float64{}
+	self := sanitizeName(task.Function)
+	for _, neighbor := range desc.Relations.EmbedderNeighbors {
+		nd := descriptors.Lookup(neighbor.Name, neighbor.Image, neighbor.Address)
+		if nd == nil {
+			continue
+		}
+		for _, name := range nd.Synthesis.TopOutgoing {
+			n := sanitizeName(name)
+			if n == "" || n == "unknown" || n == self {
+				continue
+			}
+			votes[n] += neighbor.Similarity
+		}
+		for _, name := range nd.Relations.ConsensusOutgoing {
+			n := sanitizeName(name)
+			if n == "" || n == "unknown" || n == self {
+				continue
+			}
+			votes[n] += neighbor.Similarity * 0.5
+		}
+	}
+	type pair struct {
+		name  string
+		score float64
+	}
+	rows := make([]pair, 0, len(votes))
+	for name, score := range votes {
+		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, name) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+			continue
+		}
+		rows = append(rows, pair{name: name, score: score})
+	}
+	sort.Slice(rows, func(i, j int) bool {
+		if rows[i].score == rows[j].score {
+			return rows[i].name < rows[j].name
+		}
+		return rows[i].score > rows[j].score
+	})
+	limit := 4
+	if len(rows) < limit {
+		limit = len(rows)
+	}
+	out := make([]callEdge, 0, limit)
+	for i := 0; i < limit; i++ {
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: task.Function,
+			TargetName: rows[i].name,
+			Confidence: minFloat(0.45, 0.18+rows[i].score*0.18),
+		})
+	}
+	return out
+}
+
+func inferFromTransferCluster(task implTask, desc *reconstruct.FunctionDescriptor) []callEdge {
+	if desc == nil || desc.Transfer.TransferConfidence < 0.45 || len(desc.Transfer.TopClusterOutgoing) == 0 {
+		return nil
+	}
+	self := sanitizeName(task.Function)
+	limit := 4
+	if len(desc.Transfer.TopClusterOutgoing) < limit {
+		limit = len(desc.Transfer.TopClusterOutgoing)
+	}
+	out := make([]callEdge, 0, limit)
+	baseConfidence := minFloat(0.52, 0.18+desc.Transfer.TransferConfidence*0.35)
+	for _, name := range desc.Transfer.TopClusterOutgoing {
+		n := sanitizeName(name)
+		if n == "" || n == "unknown" || n == self {
+			continue
+		}
+		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" && desc.Motif.Family != "queue_pump" {
+			continue
+		}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: task.Function,
+			TargetName: n,
+			Confidence: baseConfidence,
+		})
+		if len(out) >= limit {
+			break
+		}
+	}
+	return out
+}
+
+func inferFromDescriptorNeighbors(task implTask, desc *reconstruct.FunctionDescriptor) []callEdge {
+	if desc == nil {
+		return nil
+	}
+	cluster := descriptorClusterKey(desc)
+	if cluster == "" {
+		return nil
+	}
+	ns := descriptorNeighborHints[cluster]
+	if len(ns) == 0 {
+		return nil
+	}
+	self := sanitizeName(task.Function)
+	out := make([]callEdge, 0, len(ns))
+	baseConfidence := 0.2 + minFloat(desc.Motif.Confidence*0.2, 0.18)
+	for _, n := range ns {
+		if n == "" || n == "unknown" || n == self {
+			continue
+		}
+		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+			continue
+		}
+		out = append(out, callEdge{
+			Image:      task.Image,
+			SourceAddr: task.Address,
+			SourceName: task.Function,
+			TargetName: n,
+			Confidence: baseConfidence,
+		})
+		if len(out) >= 4 {
+			break
+		}
+	}
+	return out
+}
+
+func descriptorClusterKey(desc *reconstruct.FunctionDescriptor) string {
+	if desc == nil {
+		return ""
+	}
+	fam := strings.TrimSpace(strings.ToLower(desc.Motif.Family))
+	role := strings.TrimSpace(strings.ToLower(desc.Behavior.Role))
+	phen := strings.TrimSpace(strings.ToLower(desc.Probe.Phenotype))
+	if fam == "" && role == "" {
+		return ""
+	}
+	parts := []string{}
+	if fam != "" {
+		parts = append(parts, "motif="+fam)
+	}
+	if role != "" {
+		parts = append(parts, "role="+role)
+	}
+	if phen != "" {
+		parts = append(parts, "phen="+phen)
+	}
+	return strings.Join(parts, "|")
 }
 
 func familyKey(fn string) string {

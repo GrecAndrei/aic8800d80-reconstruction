@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"aic8800d80/internal/fileio"
+	"aic8800d80/internal/reconstruct"
 )
 
 type fileSummary struct {
@@ -41,18 +42,34 @@ type finalizeManifest struct {
 }
 
 type functionQuality struct {
-	File             string   `json:"file"`
-	Function         string   `json:"function"`
-	CallCount        int      `json:"call_count"`
-	Calls            []string `json:"calls"`
-	Risk             string   `json:"risk"`
-	Reasons          []string `json:"reasons"`
-	TemplateEvidence bool     `json:"template_evidence"`
+	File                string   `json:"file"`
+	Function            string   `json:"function"`
+	CallCount           int      `json:"call_count"`
+	Calls               []string `json:"calls"`
+	Risk                string   `json:"risk"`
+	Reasons             []string `json:"reasons"`
+	TemplateEvidence    bool     `json:"template_evidence"`
+	BehaviorRole        string   `json:"behavior_role,omitempty"`
+	DescriptorPhenotype string   `json:"descriptor_phenotype,omitempty"`
+	MotifFamily         string   `json:"motif_family,omitempty"`
+	MotifConfidence     float64  `json:"motif_confidence,omitempty"`
+	MotifSuccessRate    float64  `json:"motif_success_rate,omitempty"`
+	TransferConfidence  float64  `json:"transfer_confidence,omitempty"`
+	PreferredEmitter    string   `json:"preferred_emitter,omitempty"`
+	ClusterSize         int      `json:"cluster_size,omitempty"`
 }
 
 type evidenceHint struct {
-	InferredLeafCalls []string
-	TopOutgoing       []string
+	InferredLeafCalls   []string
+	TopOutgoing         []string
+	BehaviorRole        string
+	DescriptorPhenotype string
+	MotifFamily         string
+	MotifConfidence     float64
+	MotifSuccessRate    float64
+	TransferConfidence  float64
+	PreferredEmitter    string
+	ClusterSize         int
 }
 
 type applyContractReport struct {
@@ -79,10 +96,14 @@ func main() {
 	var appliedDir string
 	var outDir string
 	var synthEvidencePath string
+	var descriptorsPath string
+	var motifMemoryPath string
 
 	flag.StringVar(&appliedDir, "applied-dir", "extraction_out/reconstruction/mega7/applied", "Applied reconstruction directory")
 	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/final", "Finalized reconstruction directory")
 	flag.StringVar(&synthEvidencePath, "synth-evidence", "extraction_out/reconstruction/mega7/synth/implsynth_evidence.json", "Synth evidence JSON for risk scoring")
+	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
 	flag.Parse()
 
 	appAbs, _ := filepath.Abs(appliedDir)
@@ -126,6 +147,14 @@ func main() {
 	evidenceHints, err := loadEvidenceHints(synthEvidencePath)
 	if err != nil {
 		fail("load synth evidence hints: %v", err)
+	}
+	descriptors, err := reconstruct.LoadDescriptorSet(descriptorsPath)
+	if err != nil {
+		fail("load descriptors: %v", err)
+	}
+	motifMemory, err := reconstruct.LoadMotifMemorySet(motifMemoryPath)
+	if err != nil {
+		fail("load motif memory: %v", err)
 	}
 	contracts := finalizeContractReport{SchemaVersion: "0.1.0", GeneratedAt: time.Now().UTC().Format(time.RFC3339)}
 
@@ -177,7 +206,8 @@ func main() {
 					calls = append(calls, cm[1])
 				}
 			}
-			q := classifyQuality(e.Name(), name, body, calls, evidenceHints)
+			desc := descriptors.Lookup(name, strings.TrimSuffix(e.Name(), ".reconstructed.c"), "")
+			q := classifyQuality(e.Name(), name, body, calls, evidenceHints, desc, motifMemory)
 			qualities = append(qualities, q)
 			if isFallbackBody(body) {
 				fallback++
@@ -328,7 +358,7 @@ func hasReasonSlice(reasons []string, reason string) bool {
 	return false
 }
 
-func classifyQuality(file, name, body string, calls []string, evidenceHints map[string]evidenceHint) functionQuality {
+func classifyQuality(file, name, body string, calls []string, evidenceHints map[string]evidenceHint, desc *reconstruct.FunctionDescriptor, motifMemory *reconstruct.MotifMemorySet) functionQuality {
 	q := functionQuality{
 		File:      file,
 		Function:  name,
@@ -336,6 +366,20 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 		Calls:     append([]string(nil), calls...),
 		Risk:      "low",
 		Reasons:   []string{},
+	}
+	if desc != nil {
+		q.BehaviorRole = desc.Behavior.Role
+		q.DescriptorPhenotype = desc.Probe.Phenotype
+		q.MotifFamily = desc.Motif.Family
+		q.MotifConfidence = desc.Motif.Confidence
+		q.TransferConfidence = desc.Transfer.TransferConfidence
+		q.PreferredEmitter = desc.Transfer.PreferredEmitter
+		q.ClusterSize = desc.Transfer.ClusterSize
+		if motifMemory != nil && desc.Motif.Family != "" {
+			if fam := motifMemory.Lookup(desc.Motif.Family); fam != nil {
+				q.MotifSuccessRate = fam.SuccessRate
+			}
+		}
 	}
 	if strings.Contains(body, "reconstructed micro-flow") || strings.Contains(body, "reconstructed control") {
 		q.TemplateEvidence = true
@@ -373,6 +417,53 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 			if q.Risk == "medium" && callAlignsWithEvidence(calls, hint) {
 				q.Risk = "low"
 				q.Reasons = append(q.Reasons, "calls_align_with_mined_outgoing")
+			}
+		}
+	}
+	if desc != nil && desc.Motif.Family != "" {
+		if bodyMatchesDescriptorMotif(body, desc.Motif.Family) {
+			q.Reasons = append(q.Reasons, "body_matches_descriptor_motif")
+			if desc.Motif.Confidence >= 0.75 && q.Risk == "medium" {
+				q.Risk = "low"
+			}
+		} else if desc.Motif.Confidence >= 0.7 {
+			q.Reasons = append(q.Reasons, "descriptor_motif_not_visible_in_body")
+			if q.Risk == "low" {
+				q.Risk = "medium"
+			}
+		}
+	}
+	if desc != nil && desc.Transfer.TransferConfidence >= 0.65 {
+		if bodyAlignsWithPreferredEmitter(body, calls, desc.Transfer.PreferredEmitter, desc.Motif.Family) {
+			q.Reasons = append(q.Reasons, "body_aligns_with_transfer_preference")
+			if q.Risk == "medium" || (q.Risk == "high" && len(calls) > 0) {
+				q.Risk = "low"
+			}
+		} else {
+			q.Reasons = append(q.Reasons, "transfer_preference_not_visible_in_body")
+			if q.Risk == "low" {
+				q.Risk = "medium"
+			}
+		}
+	}
+	if desc != nil {
+		switch desc.Probe.Phenotype {
+		case "capped_mmio_wait", "capped_low_mmio":
+			if !bodyHasBoundedWait(body) {
+				q.Risk = "high"
+				q.Reasons = append(q.Reasons, "capped_probe_phenotype_without_bounded_wait")
+			}
+		case "shallow_wrapper":
+			if len(calls) <= 1 && !isStructuredLeafBody(body) {
+				if q.Risk == "low" {
+					q.Risk = "medium"
+				}
+				q.Reasons = append(q.Reasons, "shallow_wrapper_still_understructured")
+			}
+		case "stable_nontrivial":
+			if q.Risk == "medium" && (bodyMatchesDescriptorMotif(body, desc.Motif.Family) || isStructuredLeafBody(body)) {
+				q.Risk = "low"
+				q.Reasons = append(q.Reasons, "stable_nontrivial_probe_alignment")
 			}
 		}
 	}
@@ -468,10 +559,18 @@ func loadEvidenceHints(path string) (map[string]evidenceHint, error) {
 		return out, nil
 	}
 	type row struct {
-		SchemaVersion    string   `json:"schema_version,omitempty"`
-		Function         string   `json:"function"`
-		InferredLeafCall []string `json:"inferred_leaf_calls"`
-		TopOutgoing      []string `json:"top_outgoing"`
+		SchemaVersion          string   `json:"schema_version,omitempty"`
+		Function               string   `json:"function"`
+		InferredLeafCall       []string `json:"inferred_leaf_calls"`
+		TopOutgoing            []string `json:"top_outgoing"`
+		BehaviorRole           string   `json:"behavior_role"`
+		DescriptorPhenotype    string   `json:"descriptor_phenotype"`
+		MotifFamily            string   `json:"motif_family"`
+		MotifConfidence        float64  `json:"motif_confidence"`
+		MotifMemorySuccessRate float64  `json:"motif_memory_success_rate"`
+		TransferConfidence     float64  `json:"transfer_confidence"`
+		PreferredEmitter       string   `json:"preferred_emitter"`
+		ClusterSize            int      `json:"cluster_size"`
 	}
 	var rows []row
 	if err := json.Unmarshal(b, &rows); err != nil {
@@ -486,11 +585,69 @@ func loadEvidenceHints(path string) (map[string]evidenceHint, error) {
 			continue
 		}
 		out[fn] = evidenceHint{
-			InferredLeafCalls: append([]string(nil), r.InferredLeafCall...),
-			TopOutgoing:       append([]string(nil), r.TopOutgoing...),
+			InferredLeafCalls:   append([]string(nil), r.InferredLeafCall...),
+			TopOutgoing:         append([]string(nil), r.TopOutgoing...),
+			BehaviorRole:        r.BehaviorRole,
+			DescriptorPhenotype: r.DescriptorPhenotype,
+			MotifFamily:         r.MotifFamily,
+			MotifConfidence:     r.MotifConfidence,
+			MotifSuccessRate:    r.MotifMemorySuccessRate,
+			TransferConfidence:  r.TransferConfidence,
+			PreferredEmitter:    r.PreferredEmitter,
+			ClusterSize:         r.ClusterSize,
 		}
 	}
 	return out, nil
+}
+
+func bodyAlignsWithPreferredEmitter(body string, calls []string, preferred string, motif string) bool {
+	preferred = strings.ToLower(strings.TrimSpace(preferred))
+	switch preferred {
+	case "descriptor_motif", "cluster_transfer":
+		return bodyMatchesDescriptorMotif(body, motif) || len(calls) > 1
+	case "pseudocode_structured":
+		return isStructuredLeafBody(body) || strings.Contains(strings.ToLower(body), "switch (")
+	case "behavioral_class":
+		return len(calls) > 0 || isStructuredLeafBody(body)
+	default:
+		return false
+	}
+}
+
+func bodyHasBoundedWait(body string) bool {
+	needles := []string{"while (", "for (", "wait-- > 0U", "spin > 0U", "mmio[", "poll[", "status ="}
+	hits := 0
+	for _, n := range needles {
+		if strings.Contains(body, n) {
+			hits++
+		}
+	}
+	return hits >= 3
+}
+
+func bodyMatchesDescriptorMotif(body, family string) bool {
+	body = strings.ToLower(body)
+	family = strings.ToLower(strings.TrimSpace(family))
+	switch family {
+	case "dispatcher":
+		return strings.Contains(body, "switch (") || strings.Contains(body, "route =")
+	case "queue_pump":
+		return strings.Contains(body, "ring[") || strings.Contains(body, "q_head") || strings.Contains(body, "q_tail")
+	case "staged_mmio_transfer":
+		return strings.Contains(body, "mmio[") && strings.Contains(body, "volatile uint8_t *src")
+	case "register_commit":
+		return strings.Contains(body, "regs[") && strings.Contains(body, "wait-- > 0u")
+	case "bounded_poll":
+		return bodyHasBoundedWait(body)
+	case "irq_wait_guard":
+		return strings.Contains(body, "guard[") && strings.Contains(body, "depth[")
+	case "callback_state_gate":
+		return strings.Contains(body, "phase_slot[") && strings.Contains(body, "cb_slot[")
+	case "state_machine":
+		return strings.Contains(body, "switch (") || strings.Contains(body, "state ^=")
+	default:
+		return false
+	}
 }
 
 func hasNonGenericOutgoing(names []string) bool {

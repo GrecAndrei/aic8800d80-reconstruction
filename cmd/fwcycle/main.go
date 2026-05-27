@@ -35,6 +35,10 @@ func runIDARefresh(rootAbs, runRoot, idatPath string) error {
 	return runCmd(rootAbs, "python3", refreshArgs...)
 }
 
+func runDescriptorRefresh(rootAbs, runRoot string) error {
+	return runCmd(rootAbs, "go", "run", "./cmd/fwdescriptors", "-run-root", runRoot)
+}
+
 func main() {
 	var root string
 	var runRoot string
@@ -93,6 +97,7 @@ func main() {
 	var gateHarden bool
 	var gateFocusOnFailure bool
 	var gateFocusMax int
+	var refreshDescriptors bool
 	var hardenMinNaturalReturnRate float64
 	var hardenMaxCapHitRate float64
 	var hardenMinNontrivialRate float64
@@ -100,6 +105,9 @@ func main() {
 	var hardenMinDistinctImages int
 	var hardenMaxWrapperDominanceRate float64
 	var hardenMinDeepReturnRate float64
+	var hardenMinMotifBackedCount int
+	var hardenMaxCappedMMIOPhenotypes int
+	var hardenMaxHighRiskFunctions int
 	var plateauMode string
 	var tag string
 
@@ -160,6 +168,7 @@ func main() {
 	flag.BoolVar(&gateHarden, "gate-harden", true, "Run fwharden after cycle stages complete")
 	flag.BoolVar(&gateFocusOnFailure, "gate-focus-on-failure", true, "Generate quality/conformance focus reports when harden gate fails")
 	flag.IntVar(&gateFocusMax, "gate-focus-max", 120, "Maximum rows for generated focus reports on harden failure")
+	flag.BoolVar(&refreshDescriptors, "refresh-descriptors", true, "Refresh per-function descriptors and motif memory during cycle")
 	flag.Float64Var(&hardenMinNaturalReturnRate, "harden-min-natural-return-rate", 0.0, "Minimum natural return rate percent for hardening gate")
 	flag.Float64Var(&hardenMaxCapHitRate, "harden-max-cap-hit-rate", 95.0, "Maximum cap-hit rate percent for hardening gate")
 	flag.Float64Var(&hardenMinNontrivialRate, "harden-min-nontrivial-rate", 0.0, "Minimum nontrivial return rate percent for hardening gate")
@@ -167,6 +176,9 @@ func main() {
 	flag.IntVar(&hardenMinDistinctImages, "harden-min-distinct-images", 1, "Minimum distinct selected images for hardening gate")
 	flag.Float64Var(&hardenMaxWrapperDominanceRate, "harden-max-wrapper-dominance-rate", 100.0, "Maximum shallow-wrapper dominance rate percent for hardening gate")
 	flag.Float64Var(&hardenMinDeepReturnRate, "harden-min-deep-return-rate", 0.0, "Minimum deep-pass return rate percent for hardening gate")
+	flag.IntVar(&hardenMinMotifBackedCount, "harden-min-motif-backed-count", 0, "Minimum descriptor motif-backed count for hardening gate")
+	flag.IntVar(&hardenMaxCappedMMIOPhenotypes, "harden-max-capped-mmio-phenotypes", 0, "Maximum capped_mmio_wait descriptor count for hardening gate")
+	flag.IntVar(&hardenMaxHighRiskFunctions, "harden-max-high-risk-functions", 0, "Maximum high-risk finalize quality rows for hardening gate")
 	flag.StringVar(&plateauMode, "plateau-mode", "auto", "Plateau response mode: auto|explore|deepen|synthesize|validate")
 	var embedderModel string
 	flag.StringVar(&embedderModel, "embedder-model", "", "Path to GGUF embedding model for behavioral classification")
@@ -262,6 +274,12 @@ func main() {
 		fmt.Fprintf(os.Stderr, "run recon cycle: %v\n", err)
 		os.Exit(1)
 	}
+	if refreshDescriptors {
+		if err := runDescriptorRefresh(rootAbs, runRoot); err != nil {
+			fmt.Fprintf(os.Stderr, "descriptor refresh failed: %v\n", err)
+			os.Exit(1)
+		}
+	}
 
 	if updateCheckpoints {
 		updateArgs := []string{
@@ -296,6 +314,12 @@ func main() {
 		if t, err := latestRunTag(runsDir); err == nil {
 			effectiveTag = t
 		}
+	}
+	if effectiveTag != "" {
+		_ = mergeCycleReportDescriptors(
+			filepath.Join(rootAbs, runRoot, "runs", effectiveTag, "cycle_report.json"),
+			filepath.Join(rootAbs, runRoot, "analysis", "descriptor_summary.json"),
+		)
 	}
 
 	if autoImplOnPlateau {
@@ -370,10 +394,12 @@ func main() {
 						}
 						steps := [][]string{
 							{"run", "./cmd/fwcompose"},
+							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
 							implqueueStep,
 							{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
 							{"run", "./cmd/fwapplysynth"},
 							{"run", "./cmd/fwfinalize"},
+							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
 							{"run", "./cmd/fwvalidatecalls"},
 						}
 						for _, step := range steps {
@@ -381,6 +407,12 @@ func main() {
 								fmt.Fprintf(os.Stderr, "auto impl stage failed (%s): %v\n", strings.Join(step, " "), err)
 								os.Exit(1)
 							}
+						}
+						if effectiveTag != "" {
+							_ = mergeCycleReportDescriptors(
+								filepath.Join(rootAbs, runRoot, "runs", effectiveTag, "cycle_report.json"),
+								filepath.Join(rootAbs, runRoot, "analysis", "descriptor_summary.json"),
+							)
 						}
 					}
 				}
@@ -397,6 +429,9 @@ func main() {
 			MinDistinctImages:       hardenMinDistinctImages,
 			MaxWrapperDominanceRate: hardenMaxWrapperDominanceRate,
 			MinDeepReturnRate:       hardenMinDeepReturnRate,
+			MinMotifBackedCount:     hardenMinMotifBackedCount,
+			MaxCappedMMIOPhenotypes: hardenMaxCappedMMIOPhenotypes,
+			MaxHighRiskFunctions:    hardenMaxHighRiskFunctions,
 		}
 		if _, err := runHardeningGate(rootAbs, runRoot, effectiveTag, gateFocusOnFailure, gateFocusMax, hardenCfg); err != nil {
 			fmt.Fprintf(os.Stderr, "hardening gate failed: %v\n", err)
@@ -448,14 +483,28 @@ type hardenConfig struct {
 	MinDistinctImages       int
 	MaxWrapperDominanceRate float64
 	MinDeepReturnRate       float64
+	MinMotifBackedCount     int
+	MaxCappedMMIOPhenotypes int
+	MaxHighRiskFunctions    int
 }
 
 type cycleReport struct {
-	DeltaLearningSmokeSuccessCount int               `json:"delta_learning_smoke_success_count"`
-	LearningReasonCounts           map[string]int    `json:"learning_reason_counts"`
-	ProbeSummary                   probeSummaryCycle `json:"probe_summary"`
-	ControllerRecommendedMode      string            `json:"controller_recommended_mode"`
-	ControllerPrimaryAction        map[string]any    `json:"controller_primary_action"`
+	DeltaLearningSmokeSuccessCount int                    `json:"delta_learning_smoke_success_count"`
+	LearningReasonCounts           map[string]int         `json:"learning_reason_counts"`
+	ProbeSummary                   probeSummaryCycle      `json:"probe_summary"`
+	DescriptorSummary              descriptorCycleSummary `json:"descriptor_summary"`
+	ControllerRecommendedMode      string                 `json:"controller_recommended_mode"`
+	ControllerPrimaryAction        map[string]any         `json:"controller_primary_action"`
+}
+
+type descriptorCycleSummary struct {
+	DescriptorCount             int `json:"descriptor_count"`
+	MotifBackedCount            int `json:"motif_backed_count"`
+	NeighborBackedCount         int `json:"neighbor_backed_count"`
+	ConsensusBackedCount        int `json:"consensus_backed_count"`
+	TransferBackedCount         int `json:"transfer_backed_count"`
+	HighTransferConfidenceCount int `json:"high_transfer_confidence_count"`
+	ClusterCount                int `json:"cluster_count"`
 }
 
 type probeSummaryCycle struct {
@@ -501,6 +550,9 @@ func runHardeningGate(rootAbs, runRoot, tag string, focusOnFailure bool, focusMa
 			"-min-distinct-images", fmt.Sprintf("%d", cfg.MinDistinctImages),
 			"-max-wrapper-dominance-rate", fmt.Sprintf("%.3f", cfg.MaxWrapperDominanceRate),
 			"-min-deep-return-rate", fmt.Sprintf("%.3f", cfg.MinDeepReturnRate),
+			"-min-motif-backed-count", fmt.Sprintf("%d", cfg.MinMotifBackedCount),
+			"-max-capped-mmio-phenotypes", fmt.Sprintf("%d", cfg.MaxCappedMMIOPhenotypes),
+			"-max-high-risk-functions", fmt.Sprintf("%d", cfg.MaxHighRiskFunctions),
 		)
 	}
 	err := runCmd(rootAbs, "go", hardenArgs...)
@@ -583,6 +635,28 @@ func mergeCycleReportGate(cycleReportPath string, report gateReport) error {
 	return fileio.WriteJSON(cycleReportPath, raw)
 }
 
+func mergeCycleReportDescriptors(cycleReportPath string, summaryPath string) error {
+	b, err := os.ReadFile(cycleReportPath)
+	if err != nil {
+		return err
+	}
+	var raw map[string]any
+	if err := json.Unmarshal(b, &raw); err != nil {
+		return err
+	}
+	summaryBytes, err := os.ReadFile(summaryPath)
+	if err != nil {
+		return err
+	}
+	var summary descriptorCycleSummary
+	if err := json.Unmarshal(summaryBytes, &summary); err != nil {
+		return err
+	}
+	raw["descriptor_summary"] = summary
+	raw["descriptor_summary_path"] = summaryPath
+	return fileio.WriteJSON(cycleReportPath, raw)
+}
+
 func pct(numer int, denom int) float64 {
 	if denom <= 0 {
 		return 0
@@ -602,6 +676,7 @@ func classifyPlateau(report cycleReport, forcedMode string) (plateauRouting, err
 	shallowRate := pct(ps.ShallowReturn, probed)
 	nontrivialRate := pct(ps.NontrivialReturn, probed)
 	mmioRate := pct(ps.MmioTouchProbes, probed)
+	ds := report.DescriptorSummary
 
 	if missingRate >= 25 {
 		scores["missing_symbols"] += missingRate
@@ -626,6 +701,18 @@ func classifyPlateau(report cycleReport, forcedMode string) (plateauRouting, err
 	if ps.SelectedDistinctImgs > 0 && ps.SelectedDistinctImgs < 2 {
 		scores["identity_ambiguity"] += 10
 		reasons = append(reasons, fmt.Sprintf("image diversity low (%d)", ps.SelectedDistinctImgs))
+	}
+	if ds.TransferBackedCount >= 8 && ds.HighTransferConfidenceCount >= 4 && nontrivialRate < 35 {
+		scores["template_underuse"] += float64(ds.HighTransferConfidenceCount) * 1.6
+		reasons = append(reasons, fmt.Sprintf("%d high-transfer descriptors available but nontrivial-return rate is %.1f%%", ds.HighTransferConfidenceCount, nontrivialRate))
+	}
+	if ds.ClusterCount >= 6 && shallowRate >= 35 {
+		scores["template_underuse"] += float64(ds.ClusterCount) * 0.4
+		reasons = append(reasons, fmt.Sprintf("descriptor clusters %d with shallow-wrapper rate %.1f%%", ds.ClusterCount, shallowRate))
+	}
+	if ds.ConsensusBackedCount >= 12 && ps.SelectedDistinctImgs < 2 {
+		scores["identity_ambiguity"] += float64(ds.ConsensusBackedCount) * 0.2
+		reasons = append(reasons, fmt.Sprintf("consensus-backed descriptors %d but low image diversity", ds.ConsensusBackedCount))
 	}
 
 	for reason, cnt := range report.LearningReasonCounts {

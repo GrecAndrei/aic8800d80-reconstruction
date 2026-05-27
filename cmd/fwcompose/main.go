@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"aic8800d80/internal/fileio"
+	"aic8800d80/internal/reconstruct"
 )
 
 type liftedUnit struct {
@@ -56,16 +57,24 @@ type composeManifest struct {
 }
 
 type composeIndexRow struct {
-	SchemaVersion string  `json:"schema_version"`
-	Function      string  `json:"function"`
-	Image         string  `json:"image"`
-	Address       string  `json:"address"`
-	Priority      string  `json:"priority"`
-	WorkScore     float64 `json:"work_score"`
-	Kind          string  `json:"kind"` // lifted_unit | dependency_stub
-	Incoming      int     `json:"incoming_calls"`
-	Outgoing      int     `json:"outgoing_calls"`
-	Dependencies  int     `json:"dependencies"`
+	SchemaVersion       string  `json:"schema_version"`
+	Function            string  `json:"function"`
+	Image               string  `json:"image"`
+	Address             string  `json:"address"`
+	Priority            string  `json:"priority"`
+	WorkScore           float64 `json:"work_score"`
+	UrgencyScore        float64 `json:"urgency_score,omitempty"`
+	BehaviorRole        string  `json:"behavior_role,omitempty"`
+	DescriptorPhenotype string  `json:"descriptor_phenotype,omitempty"`
+	MotifFamily         string  `json:"motif_family,omitempty"`
+	MotifConfidence     float64 `json:"motif_confidence,omitempty"`
+	TransferConfidence  float64 `json:"transfer_confidence,omitempty"`
+	PreferredEmitter    string  `json:"preferred_emitter,omitempty"`
+	ClusterSize         int     `json:"cluster_size,omitempty"`
+	Kind                string  `json:"kind"` // lifted_unit | dependency_stub
+	Incoming            int     `json:"incoming_calls"`
+	Outgoing            int     `json:"outgoing_calls"`
+	Dependencies        int     `json:"dependencies"`
 }
 
 func main() {
@@ -73,11 +82,15 @@ func main() {
 	var outDir string
 	var callEdgesPath string
 	var minNameConfidence float64
+	var descriptorsPath string
+	var motifMemoryPath string
 
 	flag.StringVar(&liftUnitsPath, "lift-units", "extraction_out/reconstruction/mega7/lift/lift_units.json", "Lift units JSON")
 	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/composed", "Output directory")
 	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL for canonical naming")
 	flag.Float64Var(&minNameConfidence, "min-name-confidence", 0.7, "Minimum edge confidence for canonical naming")
+	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
 	flag.Parse()
 
 	liftAbs, _ := filepath.Abs(liftUnitsPath)
@@ -104,6 +117,17 @@ func main() {
 		fail("no lifted units found")
 	}
 	canonicalByAddr := deriveCanonicalNames(callAbs, minNameConfidence)
+	descriptors, err := reconstruct.LoadDescriptorSet(descriptorsPath)
+	if err != nil {
+		fail("load descriptors: %v", err)
+	}
+	motifMemory, err := reconstruct.LoadMotifMemorySet(motifMemoryPath)
+	if err != nil {
+		fail("load motif memory: %v", err)
+	}
+	for i := range units {
+		units[i] = applyDescriptorPriority(units[i], descriptors.Lookup(units[i].Function, units[i].Image, units[i].Address), motifMemory)
+	}
 
 	sort.Slice(units, func(i, j int) bool {
 		if units[i].Image == units[j].Image {
@@ -140,12 +164,19 @@ func main() {
 		}
 		fn := chooseFunctionName(u, canonicalByAddr)
 		unitFuncSet[fn] = struct{}{}
+		desc := descriptors.Lookup(fn, u.Image, u.Address)
 		index = append(index, composeIndexRow{
 			SchemaVersion: "0.1.0",
 			Function:      fn, Image: u.Image, Address: u.Address, Priority: u.PriorityClass,
 			WorkScore: u.WorkScore, Kind: "lifted_unit", Incoming: u.IncomingCallCount, Outgoing: u.OutgoingCallCount, Dependencies: len(u.DependencyNames),
+			UrgencyScore: descriptorUrgency(desc), BehaviorRole: descriptorRole(desc), DescriptorPhenotype: descriptorPhenotype(desc), MotifFamily: descriptorMotif(desc), MotifConfidence: descriptorMotifConfidence(desc), TransferConfidence: descriptorTransferConfidence(desc), PreferredEmitter: descriptorPreferredEmitter(desc), ClusterSize: descriptorClusterSize(desc),
 		})
 		sb.WriteString(fmt.Sprintf("/* unit=%s class=%s score=%.3f addr=%s in=%d out=%d */\n", u.UnitID, u.PriorityClass, u.WorkScore, u.Address, u.IncomingCallCount, u.OutgoingCallCount))
+		if desc != nil {
+			if desc.Behavior.Role != "" || desc.Motif.Family != "" || desc.Probe.Phenotype != "" {
+				sb.WriteString(fmt.Sprintf("/* descriptor: urgency=%.3f role=%s motif=%s phenotype=%s transfer=%.2f emitter=%s cluster=%d */\n", desc.Priority.RebuildUrgency, nonEmpty(desc.Behavior.Role, "unknown"), nonEmpty(desc.Motif.Family, "unknown"), nonEmpty(desc.Probe.Phenotype, "unknown"), desc.Transfer.TransferConfidence, nonEmpty(desc.Transfer.PreferredEmitter, "generic"), desc.Transfer.ClusterSize))
+			}
+		}
 		if len(u.DependencyNames) > 0 {
 			sb.WriteString("/* deps: " + strings.Join(u.DependencyNames, ", ") + " */\n")
 		}
@@ -158,7 +189,14 @@ func main() {
 		}
 		sb.WriteString("void " + fn + "(void) {\n")
 		if len(resolvedDeps) == 0 {
-			sb.WriteString("  // TODO: integrate full control/data flow from focused bundle evidence.\n")
+			if desc != nil && desc.Motif.Family != "" {
+				sb.WriteString(fmt.Sprintf("  // TODO: drive full body from %s using motif %s (transfer %.2f).\n", nonEmpty(desc.Transfer.PreferredEmitter, "descriptor evidence"), desc.Motif.Family, desc.Transfer.TransferConfidence))
+				if len(desc.Transfer.TopClusterOutgoing) > 0 {
+					sb.WriteString("  // cluster outgoing: " + strings.Join(desc.Transfer.TopClusterOutgoing[:minInt(len(desc.Transfer.TopClusterOutgoing), 4)], ", ") + "\n")
+				}
+			} else {
+				sb.WriteString("  // TODO: integrate full control/data flow from focused bundle evidence.\n")
+			}
 		} else {
 			sb.WriteString("  // Reconstructed call scaffold from mined dependency evidence.\n")
 			for _, d := range resolvedDeps {
@@ -189,6 +227,7 @@ func main() {
 			index = append(index, composeIndexRow{
 				SchemaVersion: "0.1.0",
 				Function:      d, Image: "shared", Address: "", Priority: "stub", WorkScore: 0, Kind: "dependency_stub",
+				UrgencyScore: descriptorUrgency(descriptors.Lookup(d, "shared", "")), BehaviorRole: descriptorRole(descriptors.Lookup(d, "shared", "")), DescriptorPhenotype: descriptorPhenotype(descriptors.Lookup(d, "shared", "")), MotifFamily: descriptorMotif(descriptors.Lookup(d, "shared", "")), MotifConfidence: descriptorMotifConfidence(descriptors.Lookup(d, "shared", "")), TransferConfidence: descriptorTransferConfidence(descriptors.Lookup(d, "shared", "")), PreferredEmitter: descriptorPreferredEmitter(descriptors.Lookup(d, "shared", "")), ClusterSize: descriptorClusterSize(descriptors.Lookup(d, "shared", "")),
 			})
 		}
 	}
@@ -251,6 +290,83 @@ func main() {
 	fmt.Printf("  output_c: %s\n", outC)
 }
 
+func applyDescriptorPriority(u liftedUnit, desc *reconstruct.FunctionDescriptor, memory *reconstruct.MotifMemorySet) liftedUnit {
+	if desc == nil {
+		return u
+	}
+	boost := desc.Priority.RebuildUrgency
+	if memory != nil && desc.Motif.Family != "" {
+		if fam := memory.Lookup(desc.Motif.Family); fam != nil {
+			boost += fam.AvgConfidence + fam.SuccessRate/50.0
+		}
+	}
+	boost += desc.Transfer.TransferConfidence * 2.0
+	boost += minFloat(float64(desc.Transfer.ClusterSize)*0.2, 1.2)
+	u.WorkScore += boost
+	if boost >= 6.0 {
+		u.PriorityClass = "critical"
+	} else if boost >= 3.0 && classRank(u.PriorityClass) > classRank("high") {
+		u.PriorityClass = "high"
+	}
+	return u
+}
+
+func descriptorUrgency(desc *reconstruct.FunctionDescriptor) float64 {
+	if desc == nil {
+		return 0
+	}
+	return desc.Priority.RebuildUrgency
+}
+
+func descriptorRole(desc *reconstruct.FunctionDescriptor) string {
+	if desc == nil {
+		return ""
+	}
+	return desc.Behavior.Role
+}
+
+func descriptorPhenotype(desc *reconstruct.FunctionDescriptor) string {
+	if desc == nil {
+		return ""
+	}
+	return desc.Probe.Phenotype
+}
+
+func descriptorMotif(desc *reconstruct.FunctionDescriptor) string {
+	if desc == nil {
+		return ""
+	}
+	return desc.Motif.Family
+}
+
+func descriptorMotifConfidence(desc *reconstruct.FunctionDescriptor) float64 {
+	if desc == nil {
+		return 0
+	}
+	return desc.Motif.Confidence
+}
+
+func descriptorTransferConfidence(desc *reconstruct.FunctionDescriptor) float64 {
+	if desc == nil {
+		return 0
+	}
+	return desc.Transfer.TransferConfidence
+}
+
+func descriptorPreferredEmitter(desc *reconstruct.FunctionDescriptor) string {
+	if desc == nil {
+		return ""
+	}
+	return desc.Transfer.PreferredEmitter
+}
+
+func descriptorClusterSize(desc *reconstruct.FunctionDescriptor) int {
+	if desc == nil {
+		return 0
+	}
+	return desc.Transfer.ClusterSize
+}
+
 func classRank(c string) int {
 	switch c {
 	case "critical":
@@ -289,6 +405,20 @@ func nonEmpty(v, fallback string) string {
 		return fallback
 	}
 	return v
+}
+
+func minInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func minFloat(a, b float64) float64 {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func writePerImageFile(path, image string, units []liftedUnit, depSet map[string]struct{}, unitFuncSet map[string]struct{}, canonicalByAddr map[string]string, unitNameByAddr map[string]string) error {
