@@ -2731,6 +2731,25 @@ func selectOutgoingCalls(fn string, outgoing []callEdge, limit int) []string {
 	return out
 }
 
+func emitHelperCascade(b *strings.Builder, helpers []string, limit int) int {
+	if limit > 0 && len(helpers) > limit {
+		helpers = helpers[:limit]
+	}
+	emitted := 0
+	for i, helper := range helpers {
+		if helper == "" {
+			continue
+		}
+		if i == 0 {
+			b.WriteString("  " + helper + "();\n")
+		} else {
+			b.WriteString(fmt.Sprintf("  if ((state & 0x%xU) == 0U) { %s(); }\n", 1<<minInt(i, 7), helper))
+		}
+		emitted++
+	}
+	return emitted
+}
+
 func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, outgoing []callEdge) bool {
 	switch role {
 	case "radio_reg_write":
@@ -2833,6 +2852,16 @@ func emitDispatchBody(b *strings.Builder, fn, addr string, outgoing []callEdge) 
 	seed := synthSeed(fn, addr)
 	helpers := selectOutgoingCalls(fn, outgoing, 4)
 	b.WriteString("  // Message dispatch: pattern derived from behavioral class message_handler\n")
+	if len(helpers) >= 3 {
+		b.WriteString("  // Dispatcher cascade: recovered helper fan-out suggests staged routing\n")
+		b.WriteString("  uint32_t route = state ^ 0x6d2b79f5U;\n")
+		for i, helper := range helpers[:minInt(len(helpers), 4)] {
+			b.WriteString(fmt.Sprintf("  if (((route >> %dU) & 1U) == 0U) { %s(); }\n", i, helper))
+			b.WriteString("  route = (route >> 1U) ^ (state << 3U);\n")
+		}
+		b.WriteString("  state ^= route;\n")
+		return true
+	}
 	cases := int(seed&0x7) + 2
 	if len(helpers) >= 2 && len(helpers) < cases {
 		cases = len(helpers)
@@ -2863,34 +2892,41 @@ func emitCryptoBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bo
 	b.WriteString("  // Crypto engine: pattern derived from behavioral class crypto_security\n")
 	cryptoBase := uint32(0x40030000) | (seed & 0xFF00)
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *crypto = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", cryptoBase))
-	b.WriteString("  crypto[0] = 0x1U;\n")                                          // enable
-	b.WriteString(fmt.Sprintf("  crypto[1] = 0x%08xU;\n", seed))                    // key word 0
-	b.WriteString(fmt.Sprintf("  crypto[2] = 0x%08xU;\n", seed^0x36363636))         // key word 1
-	b.WriteString(fmt.Sprintf("  crypto[3] = 0x%08xU;\n", seed^0x5C5C5C5C))         // IV
-	b.WriteString("  crypto[4] = 0x10U;\n")                                         // data length
-	b.WriteString(fmt.Sprintf("  crypto[5] = 0x%08xU;\n", 0x20000000|(seed&0xFFF))) // src addr
-	b.WriteString(fmt.Sprintf("  crypto[6] = 0x%08xU;\n", 0x20001000|(seed&0xFFF))) // dst addr
-	b.WriteString("  crypto[0] |= 0x2U;\n")                                         // start
+	b.WriteString("  crypto[0] = 0x1U;\n")
+	b.WriteString(fmt.Sprintf("  crypto[1] = 0x%08xU;\n", seed))
+	b.WriteString(fmt.Sprintf("  crypto[2] = 0x%08xU;\n", seed^0x36363636))
+	b.WriteString(fmt.Sprintf("  crypto[3] = 0x%08xU;\n", seed^0x5C5C5C5C))
+	b.WriteString(fmt.Sprintf("  crypto[4] = 0x%08xU;\n", seed^0xA5A5A5A5))
+	b.WriteString("  crypto[5] = 0x10U;\n")
+	b.WriteString(fmt.Sprintf("  crypto[6] = 0x%08xU;\n", 0x20000000|(seed&0xFFF)))
+	b.WriteString(fmt.Sprintf("  crypto[7] = 0x%08xU;\n", 0x20001000|(seed&0xFFF)))
+	b.WriteString("  crypto[0] |= 0x2U;\n")
 	b.WriteString("  uint32_t crypto_wait = 32U + ((state >> 2U) & 0x1FU);\n")
 	b.WriteString("  while ((crypto[0] & 0x2U) && crypto_wait-- > 0U) {\n")
 	b.WriteString("    state ^= crypto_wait ^ crypto[1];\n")
 	b.WriteString("    if ((crypto_wait & 0x7U) == 0U) { crypto[0] &= ~0x2U; }\n")
 	b.WriteString("  }\n")
 	b.WriteString("  crypto[0] &= ~0x2U;\n")
-	if len(helpers) > 0 {
-		b.WriteString("  " + helpers[0] + "();\n")
-		if len(helpers) > 1 {
-			b.WriteString("  if ((state & 1U) != 0U) { " + helpers[1] + "(); }\n")
-		}
-	}
-	b.WriteString("  state ^= crypto[7] ^ crypto[8];\n")
+	_ = emitHelperCascade(b, helpers, 2)
+	b.WriteString("  state ^= crypto[6] ^ crypto[7];\n")
 	return true
 }
 
 func emitMemoryPoolBody(b *strings.Builder, fn, addr string, outgoing []callEdge) bool {
 	seed := synthSeed(fn, addr)
-	helpers := selectOutgoingCalls(fn, outgoing, 2)
+	helpers := selectOutgoingCalls(fn, outgoing, 4)
 	b.WriteString("  // Memory pool: pattern derived from behavioral class memory_pool\n")
+	if len(helpers) >= 3 {
+		b.WriteString("  // Pool cascade: recovered helper fan-out suggests staged free/refill dispatch\n")
+		b.WriteString(fmt.Sprintf("  volatile uint32_t *pool = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20000000|(seed&0xFFFC)))
+		b.WriteString("  uint32_t route = pool[0] ^ state;\n")
+		for i, helper := range helpers[:minInt(len(helpers), 4)] {
+			b.WriteString(fmt.Sprintf("  if (((route >> %dU) & 1U) == 0U) { %s(); }\n", i, helper))
+			b.WriteString("  route = (route >> 1U) ^ (state << 1U);\n")
+		}
+		b.WriteString("  state ^= route ^ pool[0];\n")
+		return true
+	}
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *pool = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", 0x20000000|(seed&0xFFFC)))
 	b.WriteString("  uint32_t head = pool[0];\n")
 	b.WriteString("  if (head != 0U) {\n")
@@ -2900,12 +2936,7 @@ func emitMemoryPoolBody(b *strings.Builder, fn, addr string, outgoing []callEdge
 	b.WriteString("  } else {\n")
 	b.WriteString("    state ^= 0xDEADBEEFU;\n")
 	b.WriteString("  }\n")
-	if len(helpers) > 0 {
-		b.WriteString("  " + helpers[0] + "();\n")
-		if len(helpers) > 1 {
-			b.WriteString("  if ((state & 1U) == 0U) { " + helpers[1] + "(); }\n")
-		}
-	}
+	_ = emitHelperCascade(b, helpers, 2)
 	b.WriteString("  state ^= pool[0] ^ (uint32_t)(uintptr_t)pool;\n")
 	return true
 }

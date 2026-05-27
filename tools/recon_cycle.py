@@ -218,6 +218,39 @@ def apply_policy_memory(action_rows: list[dict], policy_memory: dict) -> None:
         }
 
 
+def choose_recommended_mode(action_rows: list[dict], probe: dict) -> tuple[str, dict]:
+    mode_scores: dict[str, float] = {}
+    mode_reasons: dict[str, list[str]] = {}
+    capped_rate = percent(int(probe.get("capped", 0)), max(1, int(probe.get("probed", 0))))
+    returned_rate = percent(int(probe.get("returned", 0)), max(1, int(probe.get("probed", 0))))
+    for row in action_rows:
+        mode = str(row.get("mode", "")).strip().lower()
+        if not mode:
+            continue
+        score = float(row.get("score", 0.0))
+        mode_scores[mode] = max(score, mode_scores.get(mode, -1e9))
+        mode_reasons.setdefault(mode, []).append(str(row.get("name", "")))
+        memory = row.get("policy_memory") if isinstance(row.get("policy_memory"), dict) else {}
+        if mode == "synthesize" and memory:
+            avg_delta = float(memory.get("avg_delta_learning_smoke_success", 0.0))
+            avg_cap = float(memory.get("avg_cap_rate", 0.0))
+            if avg_delta <= 0.0 and avg_cap >= 75.0:
+                mode_scores[mode] -= 2.0
+        if mode == "deepen" and capped_rate >= 85.0 and returned_rate <= 10.0:
+            mode_scores[mode] += 2.5
+        if mode == "deepen" and int(probe.get("deep_returned", 0)) > 0:
+            mode_scores[mode] += 1.0
+    if not mode_scores:
+        return "synthesize", {"reason": "no_mode_candidates"}
+    best_mode = sorted(mode_scores.items(), key=lambda item: (-item[1], item[0]))[0][0]
+    return best_mode, {
+        "mode_scores": {k: round(v, 3) for k, v in sorted(mode_scores.items())},
+        "mode_reason_actions": {k: v for k, v in sorted(mode_reasons.items())},
+        "capped_rate": round(capped_rate, 3),
+        "returned_rate": round(returned_rate, 3),
+    }
+
+
 def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evidence: dict, embedder_enabled: bool, policy_memory: dict) -> dict:
     summary = report.get("summary", {}) if isinstance(report.get("summary"), dict) else {}
     probe = report.get("probe_summary", {}) if isinstance(report.get("probe_summary"), dict) else {}
@@ -333,13 +366,15 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
     apply_policy_memory(action_rows, policy_memory)
     action_rows.sort(key=lambda row: (-float(row.get("score", 0.0)), str(row.get("name", ""))))
     primary = action_rows[0]
+    recommended_mode, mode_decision = choose_recommended_mode(action_rows, probe)
     return {
         "schema_version": "0.1.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "tag": report.get("tag", ""),
         "primary_action": primary,
         "recommended_actions": action_rows,
-        "recommended_mode": primary.get("mode", "synthesize"),
+        "recommended_mode": recommended_mode,
+        "mode_decision": mode_decision,
         "ida_evidence": ida_evidence,
         "embedder": {
             "model_enabled": embedder_enabled,
