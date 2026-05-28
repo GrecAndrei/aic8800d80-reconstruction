@@ -901,6 +901,9 @@ func readComposedFunctionBackfill(composedDir string) ([]implTask, error) {
 }
 
 func clearStaleSynthFiles(dir string) error {
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
 	ents, err := os.ReadDir(dir)
 	if err != nil {
 		return err

@@ -49,3 +49,13 @@ func TestWriteSynthUsesNormalizedRoleText(t *testing.T) {
 		t.Fatalf("missing normalized role in synth output:\n%s", s)
 	}
 }
+
+func TestClearStaleSynthFilesCreatesMissingDir(t *testing.T) {
+	dir := filepath.Join(t.TempDir(), "synth")
+	if err := clearStaleSynthFiles(dir); err != nil {
+		t.Fatalf("clearStaleSynthFiles: %v", err)
+	}
+	if _, err := os.Stat(dir); err != nil {
+		t.Fatalf("stat synth dir: %v", err)
+	}
+}
