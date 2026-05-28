@@ -85,6 +85,30 @@ func TestClassifyPlateauModeForced(t *testing.T) {
 	}
 }
 
+func TestClassifyPlateauEmptyFrontierOverridesToValidate(t *testing.T) {
+	report := cycleReport{
+		ControllerRecommendedMode: "synthesize",
+		ControllerPrimaryAction: map[string]any{
+			"name": "synthesize_new_motif_family",
+		},
+		ProbeSummary: probeSummaryCycle{
+			CandidateCount: 0,
+			Probed:         0,
+			SelectedCount:  0,
+		},
+	}
+	routing, err := classifyPlateau(report, "auto")
+	if err != nil {
+		t.Fatalf("classifyPlateau failed: %v", err)
+	}
+	if routing.Mode != "validate" {
+		t.Fatalf("expected validate mode for empty frontier, got %q", routing.Mode)
+	}
+	if routing.PrimaryCause != "empty_frontier" {
+		t.Fatalf("expected empty_frontier cause, got %q", routing.PrimaryCause)
+	}
+}
+
 func TestRecentCappedFunctions(t *testing.T) {
 	outcomes := filepath.Join(t.TempDir(), "smoke_observations.jsonl")
 	data := "" +

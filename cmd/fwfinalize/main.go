@@ -655,7 +655,7 @@ func bodyMatchesDescriptorMotif(body, family string) bool {
 	case "staged_mmio_transfer":
 		return strings.Contains(body, "mmio[") && strings.Contains(body, "volatile uint8_t *src")
 	case "register_commit":
-		return strings.Contains(body, "regs[") && strings.Contains(body, "wait-- > 0u")
+		return strings.Contains(body, "regs[") && (strings.Contains(body, "wait > 0u") || bodyHasBoundedWait(body))
 	case "bounded_poll":
 		return bodyHasBoundedWait(body)
 	case "irq_wait_guard":

@@ -93,6 +93,8 @@ func main() {
 	var refreshIDAOnZeroProbes bool
 	var refreshIDABeforeCycle bool
 	var refreshIDAStrict bool
+	var deadPlateauAfter int
+	var skipAutoImplOnDeadPlateau bool
 	var idatPath string
 	var gateHarden bool
 	var gateFocusOnFailure bool
@@ -164,6 +166,8 @@ func main() {
 	flag.BoolVar(&refreshIDAOnZeroProbes, "refresh-ida-on-zero-probes", true, "Run headless IDA export refresh when a cycle probes zero functions")
 	flag.BoolVar(&refreshIDABeforeCycle, "refresh-ida-before-cycle", true, "Refresh IDA-derived exports before every cycle")
 	flag.BoolVar(&refreshIDAStrict, "refresh-ida-strict", true, "Fail cycle immediately if IDA refresh fails")
+	flag.IntVar(&deadPlateauAfter, "dead-plateau-after", 6, "Treat repeated zero-probe/zero-selection plateaus as exhausted frontier after this many consecutive plateau cycles")
+	flag.BoolVar(&skipAutoImplOnDeadPlateau, "skip-auto-impl-on-dead-plateau", true, "Skip auto-impl stages when the frontier is exhausted and repeated plateaus persist")
 	flag.StringVar(&idatPath, "idat", "tools/local-bin/ida-idat", "Path to IDA idat executable")
 	flag.BoolVar(&gateHarden, "gate-harden", true, "Run fwharden after cycle stages complete")
 	flag.BoolVar(&gateFocusOnFailure, "gate-focus-on-failure", true, "Generate quality/conformance focus reports when harden gate fails")
@@ -342,8 +346,15 @@ func main() {
 					if s, err := consecutivePlateauStreak(historyPath, plateauDeltaSuccessMax); err == nil {
 						streak = s
 					}
+					deadPlateau := deadPlateauAfter > 0 && streak >= deadPlateauAfter && report.ProbeSummary.Probed == 0 && report.ProbeSummary.SelectedCount == 0
 					routing, _ := classifyPlateau(report, plateauMode)
 					routing.Streak = streak
+					if deadPlateau {
+						routing.Mode = "validate"
+						routing.PrimaryCause = "empty_frontier"
+						routing.CauseScores["empty_frontier"] += float64(streak) * 2.0
+						routing.Reasons = append(routing.Reasons, fmt.Sprintf("dead plateau: streak=%d with probed=0 and selected=0", streak))
+					}
 					_ = writePlateauRouting(rootAbs, runRoot, effectiveTag, routing)
 
 					switch routing.Mode {
@@ -362,6 +373,10 @@ func main() {
 							fmt.Fprintf(os.Stderr, "validate mode failed: %v\n", err)
 						}
 					default:
+						if deadPlateau && skipAutoImplOnDeadPlateau {
+							fmt.Fprintf(os.Stderr, "dead plateau detected: skipping auto-impl stages for exhausted frontier\n")
+							break
+						}
 						implTasks := autoImplMaxTasks
 						implSkip := 0
 						runMinCallConf := implMinCallConf
@@ -507,6 +522,7 @@ type descriptorCycleSummary struct {
 }
 
 type probeSummaryCycle struct {
+	CandidateCount       int `json:"candidate_count"`
 	Probed               int `json:"probed"`
 	Returned             int `json:"returned"`
 	Capped               int `json:"capped"`
@@ -517,6 +533,7 @@ type probeSummaryCycle struct {
 	MmioTouchProbes      int `json:"mmio_touch_probes"`
 	DeepProbed           int `json:"deep_probed"`
 	DeepReturned         int `json:"deep_returned"`
+	SelectedCount        int `json:"selected_count"`
 	SelectedDistinctImgs int `json:"selected_distinct_images"`
 }
 
@@ -675,7 +692,22 @@ func classifyPlateau(report cycleReport, forcedMode string) (plateauRouting, err
 	shallowRate := pct(ps.ShallowReturn, probed)
 	nontrivialRate := pct(ps.NontrivialReturn, probed)
 	mmioRate := pct(ps.MmioTouchProbes, probed)
+	selectedCount := ps.SelectedCount
+	candidateCount := ps.CandidateCount
 	ds := report.DescriptorSummary
+
+	if ps.Probed == 0 {
+		scores["empty_frontier"] += 20
+		reasons = append(reasons, "probe count is zero")
+	}
+	if selectedCount == 0 {
+		scores["empty_frontier"] += 28
+		reasons = append(reasons, "selected frontier count is zero")
+	}
+	if candidateCount == 0 {
+		scores["empty_frontier"] += 18
+		reasons = append(reasons, "candidate frontier count is zero")
+	}
 
 	if missingRate >= 25 {
 		scores["missing_symbols"] += missingRate
@@ -738,8 +770,14 @@ func classifyPlateau(report cycleReport, forcedMode string) (plateauRouting, err
 		if name, _ := report.ControllerPrimaryAction["name"].(string); strings.TrimSpace(name) != "" {
 			reasons = append(reasons, fmt.Sprintf("controller primary action %s", name))
 		}
+		if primary == "empty_frontier" && mode != "validate" {
+			mode = "validate"
+			reasons = append(reasons, "override to validate because frontier is exhausted")
+		}
 	} else {
 		switch primary {
+		case "empty_frontier":
+			mode = "validate"
 		case "missing_symbols", "identity_ambiguity":
 			mode = "explore"
 		case "harness_weakness", "mmio_state_faults", "repeated_trivial_wrappers":

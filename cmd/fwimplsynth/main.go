@@ -1174,11 +1174,20 @@ func evaluateSynthesisPolicy(
 		if desc.Transfer.PreferredEmitter != "" {
 			policy.TemplatePreference = desc.Transfer.PreferredEmitter
 		}
+		if shouldPreferHardwareDescriptorEmitter(desc) {
+			evidence += 0.45
+			policy.TemplatePreference = "descriptor_motif"
+			policy.Warnings = append(policy.Warnings, "hardware transfer emitter preferred for register/MMIO family")
+		}
 		if desc.Probe.Returned > 0 && desc.Probe.Phenotype == "stable_nontrivial" {
 			evidence += 0.2
 		}
 		if desc.Probe.Phenotype == "shallow_wrapper" && desc.Motif.Family != "" {
 			evidence += 0.25
+		}
+		if isMMIOPressurePhenotype(desc) && len(selected) == 0 {
+			evidence += 0.25
+			policy.Warnings = append(policy.Warnings, "mmio-pressure phenotype with no callee evidence: favor motif emitter over generic body")
 		}
 	}
 	if motifMem != nil {
@@ -2988,8 +2997,11 @@ func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, out
 }
 
 func emitDescriptorMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry, outgoing []callEdge) bool {
-	if desc == nil || desc.Motif.Family == "" || desc.Motif.Confidence < 0.6 {
+	if desc == nil {
 		return false
+	}
+	if desc.Motif.Family == "" || desc.Motif.Confidence < 0.6 {
+		return emitHardwareTransferPhenotypeBody(b, fn, addr, desc, motifMem, outgoing)
 	}
 	switch desc.Motif.Family {
 	case "dispatcher":
@@ -3001,7 +3013,7 @@ func emitDescriptorMotifBody(b *strings.Builder, fn, addr string, desc *reconstr
 	case "register_commit":
 		return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
 	case "bounded_poll":
-		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem)
+		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem, outgoing)
 	case "state_machine":
 		return emitStateMachineBody(b, fn, addr)
 	case "irq_wait_guard":
@@ -3009,7 +3021,43 @@ func emitDescriptorMotifBody(b *strings.Builder, fn, addr string, desc *reconstr
 	case "callback_state_gate":
 		return emitDescriptorCallbackStateGateBody(b, fn, addr, desc, outgoing)
 	}
-	return false
+	return emitHardwareTransferPhenotypeBody(b, fn, addr, desc, motifMem, outgoing)
+}
+
+func emitHardwareTransferPhenotypeBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry, outgoing []callEdge) bool {
+	if desc == nil {
+		return false
+	}
+	phen := strings.ToLower(strings.TrimSpace(desc.Probe.Phenotype))
+	role := strings.ToLower(strings.TrimSpace(desc.Behavior.Role))
+	family := strings.ToLower(strings.TrimSpace(desc.Motif.Family))
+	if desc.Transfer.TransferConfidence < 0.58 && phen != "capped_mmio_wait" && phen != "capped_low_mmio" {
+		return false
+	}
+	switch {
+	case family == "staged_mmio_transfer":
+		return emitDescriptorMMIOTransferBody(b, fn, addr, desc, outgoing)
+	case family == "register_commit":
+		return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
+	case family == "bounded_poll":
+		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem, outgoing)
+	case role == "radio_reg_write":
+		return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
+	case role == "io_driver" && desc.CFG.StoreCount >= desc.CFG.LoadCount:
+		return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
+	case phen == "capped_mmio_wait":
+		if desc.CFG.StoreCount > 0 || role == "interrupt_handler" || role == "io_driver" {
+			return emitRegisterCommitMotifBody(b, fn, addr, desc, outgoing)
+		}
+		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem, outgoing)
+	case phen == "capped_low_mmio":
+		if desc.Transfer.TransferConfidence >= 0.72 {
+			return emitDescriptorMMIOTransferBody(b, fn, addr, desc, outgoing)
+		}
+		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem, outgoing)
+	default:
+		return false
+	}
 }
 
 func descriptorMMIOBase(desc *reconstruct.FunctionDescriptor, fallback uint32) uint32 {
@@ -3065,10 +3113,12 @@ func emitDescriptorMMIOTransferBody(b *strings.Builder, fn, addr string, desc *r
 	if desc != nil {
 		blocks = minInt(24, maxInt(8, desc.CFG.LoadCount+desc.CFG.StoreCount))
 	}
+	helperCalls := selectTransferAwareHelpers(fn, outgoing, desc, 3)
 	b.WriteString("  // Descriptor motif: staged MMIO transfer with explicit completion window\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
 	b.WriteString("  volatile uint8_t *src = (volatile uint8_t *)(uintptr_t)(0x20000000U + (state & 0x3FFU));\n")
 	b.WriteString("  volatile uint8_t *dst = (volatile uint8_t *)(uintptr_t)(0x20000800U + (state & 0x3FFU));\n")
+	b.WriteString("  mmio[0] = 0U;\n")
 	b.WriteString(fmt.Sprintf("  for (uint32_t blk = 0U; blk < %dU; ++blk) {\n", blocks))
 	b.WriteString("    uint8_t v = src[blk & 0x7FU] ^ (uint8_t)(state + blk);\n")
 	b.WriteString("    dst[blk & 0x7FU] = v;\n")
@@ -3076,55 +3126,108 @@ func emitDescriptorMMIOTransferBody(b *strings.Builder, fn, addr string, desc *r
 	b.WriteString("    state ^= mmio[blk & 3U];\n")
 	b.WriteString("  }\n")
 	b.WriteString("  mmio[1] = 1U;\n")
-	b.WriteString("  for (uint32_t wait = 48U; wait > 0U; --wait) {\n")
+	b.WriteString("  mmio[2] = state;\n")
+	b.WriteString("  for (uint32_t wait = 64U; wait > 0U; --wait) {\n")
 	b.WriteString("    uint32_t status = mmio[1] & 3U;\n")
-	b.WriteString("    state ^= status + wait;\n")
+	b.WriteString("    state ^= status + wait + mmio[2];\n")
 	b.WriteString("    if ((wait & 7U) == 0U) { mmio[1] = 0U; }\n")
 	b.WriteString("    if (status == 0U) { break; }\n")
 	b.WriteString("  }\n")
-	_ = emitHelperCascade(b, selectOutgoingCalls(fn, outgoing, 2), 2)
+	b.WriteString("  mmio[3] = state ^ mmio[0];\n")
+	_ = emitHelperCascade(b, helperCalls, 3)
 	return true
 }
 
 func emitRegisterCommitMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) bool {
 	base := descriptorMMIOBase(desc, 0x40010000)
 	seed := synthSeed(fn, addr)
+	wait := 32
+	if desc != nil {
+		wait = minInt(128, maxInt(32, desc.Probe.Capped*10+desc.CFG.StoreCount*4+16))
+		if desc.Transfer.TransferConfidence >= 0.75 {
+			wait = minInt(160, wait+16)
+		}
+	}
+	helperCalls := selectTransferAwareHelpers(fn, outgoing, desc, 4)
 	b.WriteString("  // Descriptor motif: register commit with bounded ack wait\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *regs = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
 	b.WriteString(fmt.Sprintf("  uint32_t reg = 0x%xU & 0x1FU;\n", (seed>>3)&0x1f))
 	b.WriteString(fmt.Sprintf("  uint32_t value = state ^ 0x%08xU;\n", seed^0x6d4b7e11))
+	b.WriteString("  uint32_t shadow = value ^ 0x55AA00FFU;\n")
 	b.WriteString("  regs[0] = reg;\n")
 	b.WriteString("  regs[1] = value;\n")
-	b.WriteString("  regs[2] = 1U;\n")
-	b.WriteString("  for (uint32_t wait = 32U; wait > 0U; --wait) {\n")
-	b.WriteString("    uint32_t ack = regs[2] & 1U;\n")
-	b.WriteString("    state ^= regs[1] ^ ack ^ wait;\n")
-	b.WriteString("    if ((wait & 3U) == 0U) { regs[2] = 0U; }\n")
+	b.WriteString("  regs[2] = shadow;\n")
+	b.WriteString("  regs[3] = 1U;\n")
+	b.WriteString(fmt.Sprintf("  for (uint32_t wait = %dU; wait > 0U; --wait) {\n", wait))
+	b.WriteString("    uint32_t mirror = regs[2] ^ shadow;\n")
+	b.WriteString("    uint32_t ack = regs[3] & 1U;\n")
+	b.WriteString("    state ^= regs[1] ^ mirror ^ ack ^ wait;\n")
+	b.WriteString("    if ((wait & 7U) == 0U) { regs[1] ^= (wait << 1U); }\n")
+	b.WriteString("    if ((wait & 3U) == 0U) { regs[3] = 0U; }\n")
 	b.WriteString("    if (ack == 0U) { break; }\n")
 	b.WriteString("  }\n")
-	_ = emitHelperCascade(b, selectOutgoingCalls(fn, outgoing, 2), 2)
+	b.WriteString("  regs[4] = regs[1] ^ shadow ^ state;\n")
+	_ = emitHelperCascade(b, helperCalls, 3)
+	if len(helperCalls) > 0 {
+		b.WriteString("  if ((state & 1U) == 0U) { regs[5] ^= state; }\n")
+	}
 	return true
 }
 
-func emitBoundedPollMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry) bool {
+func emitBoundedPollMotifBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor, motifMem *reconstruct.MotifMemoryEntry, outgoing []callEdge) bool {
 	base := descriptorMMIOBase(desc, 0x40000000)
 	wait := 24
 	if desc != nil && desc.Probe.Capped > 0 {
 		wait = minInt(96, maxInt(24, desc.Probe.Capped*12))
 	}
+	if desc != nil && desc.Transfer.TransferConfidence >= 0.7 {
+		wait = minInt(144, wait+24)
+	}
 	if motifMem != nil && motifMem.SampleCount > 0 {
 		wait = minInt(128, wait+motifMem.SampleCount*4)
 	}
+	helperCalls := selectTransferAwareHelpers(fn, outgoing, desc, 2)
 	b.WriteString("  // Descriptor motif: bounded hardware polling loop\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *poll = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
+	b.WriteString("  uint32_t command = state ^ 0x3C6EF35FU;\n")
+	b.WriteString("  poll[1] = command;\n")
+	b.WriteString("  poll[2] = 1U;\n")
 	b.WriteString(fmt.Sprintf("  for (uint32_t wait = %dU; wait > 0U; --wait) {\n", wait))
 	b.WriteString("    uint32_t status = poll[0] & 0xFFU;\n")
-	b.WriteString("    state ^= status + wait;\n")
+	b.WriteString("    state ^= status + wait + poll[1];\n")
 	b.WriteString("    if ((status & 1U) == 0U) { break; }\n")
 	b.WriteString("    if ((wait & 7U) == 0U) { poll[0] &= ~1U; }\n")
 	b.WriteString("  }\n")
-	b.WriteString("  poll[1] = state;\n")
+	b.WriteString("  poll[3] = state ^ command;\n")
+	_ = emitHelperCascade(b, helperCalls, 2)
+	b.WriteString("  poll[2] = 0U;\n")
 	return true
+}
+
+func selectTransferAwareHelpers(fn string, outgoing []callEdge, desc *reconstruct.FunctionDescriptor, limit int) []string {
+	helpers := selectOutgoingCalls(fn, outgoing, limit)
+	if len(helpers) >= limit || desc == nil || len(desc.Transfer.TopClusterOutgoing) == 0 {
+		return helpers
+	}
+	seen := map[string]struct{}{}
+	for _, h := range helpers {
+		seen[sanitizeName(h)] = struct{}{}
+	}
+	for _, name := range desc.Transfer.TopClusterOutgoing {
+		n := sanitizeName(name)
+		if n == "" || n == "unknown" || n == sanitizeName(fn) {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		helpers = append(helpers, n)
+		if len(helpers) >= limit {
+			break
+		}
+	}
+	return helpers
 }
 
 func emitDescriptorIRQWaitGuardBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor) bool {
@@ -6293,7 +6396,7 @@ func inferFromMotifMemory(task implTask, desc *reconstruct.FunctionDescriptor, m
 		if n == "" || n == "unknown" || n == self {
 			continue
 		}
-		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+		if !allowTransferHint(desc, self, n) {
 			continue
 		}
 		out = append(out, callEdge{
@@ -6393,7 +6496,7 @@ func inferFromEmbedderNeighbors(task implTask, desc *reconstruct.FunctionDescrip
 	}
 	rows := make([]pair, 0, len(votes))
 	for name, score := range votes {
-		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, name) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+		if !allowTransferHint(desc, self, name) {
 			continue
 		}
 		rows = append(rows, pair{name: name, score: score})
@@ -6427,17 +6530,20 @@ func inferFromTransferCluster(task implTask, desc *reconstruct.FunctionDescripto
 	}
 	self := sanitizeName(task.Function)
 	limit := 4
+	if shouldPreferHardwareDescriptorEmitter(desc) {
+		limit = 6
+	}
 	if len(desc.Transfer.TopClusterOutgoing) < limit {
 		limit = len(desc.Transfer.TopClusterOutgoing)
 	}
 	out := make([]callEdge, 0, limit)
-	baseConfidence := minFloat(0.52, 0.18+desc.Transfer.TransferConfidence*0.35)
+	baseConfidence := minFloat(0.62, 0.18+desc.Transfer.TransferConfidence*0.35)
 	for _, name := range desc.Transfer.TopClusterOutgoing {
 		n := sanitizeName(name)
 		if n == "" || n == "unknown" || n == self {
 			continue
 		}
-		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" && desc.Motif.Family != "queue_pump" {
+		if !allowTransferHint(desc, self, n) {
 			continue
 		}
 		out = append(out, callEdge{
@@ -6473,7 +6579,7 @@ func inferFromDescriptorNeighbors(task implTask, desc *reconstruct.FunctionDescr
 		if n == "" || n == "unknown" || n == self {
 			continue
 		}
-		if !isDispatcherLike(task.Function) && !isRelatedFunction(self, n) && desc.Motif.Family != "dispatcher" && desc.Motif.Family != "state_machine" {
+		if !allowTransferHint(desc, self, n) {
 			continue
 		}
 		out = append(out, callEdge{
@@ -6488,6 +6594,53 @@ func inferFromDescriptorNeighbors(task implTask, desc *reconstruct.FunctionDescr
 		}
 	}
 	return out
+}
+
+func shouldPreferHardwareDescriptorEmitter(desc *reconstruct.FunctionDescriptor) bool {
+	if desc == nil {
+		return false
+	}
+	family := strings.ToLower(strings.TrimSpace(desc.Motif.Family))
+	role := strings.ToLower(strings.TrimSpace(desc.Behavior.Role))
+	if desc.Transfer.TransferConfidence < 0.58 {
+		return false
+	}
+	if family == "register_commit" || family == "bounded_poll" || family == "staged_mmio_transfer" || family == "irq_wait_guard" {
+		return true
+	}
+	if role == "radio_reg_write" || role == "io_driver" || role == "interrupt_handler" {
+		return true
+	}
+	return isMMIOPressurePhenotype(desc)
+}
+
+func isMMIOPressurePhenotype(desc *reconstruct.FunctionDescriptor) bool {
+	if desc == nil {
+		return false
+	}
+	phen := strings.ToLower(strings.TrimSpace(desc.Probe.Phenotype))
+	return phen == "capped_mmio_wait" || phen == "capped_low_mmio"
+}
+
+func allowTransferHint(desc *reconstruct.FunctionDescriptor, self, target string) bool {
+	if desc == nil {
+		return false
+	}
+	if isDispatcherLike(self) || isRelatedFunction(self, target) {
+		return true
+	}
+	family := strings.ToLower(strings.TrimSpace(desc.Motif.Family))
+	role := strings.ToLower(strings.TrimSpace(desc.Behavior.Role))
+	if family == "dispatcher" || family == "state_machine" || family == "queue_pump" {
+		return true
+	}
+	if family == "register_commit" || family == "bounded_poll" || family == "staged_mmio_transfer" || family == "irq_wait_guard" {
+		return true
+	}
+	if role == "radio_reg_write" || role == "io_driver" || role == "interrupt_handler" {
+		return true
+	}
+	return isMMIOPressurePhenotype(desc)
 }
 
 func descriptorClusterKey(desc *reconstruct.FunctionDescriptor) string {

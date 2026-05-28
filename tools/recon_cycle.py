@@ -246,6 +246,9 @@ def choose_recommended_mode(action_rows: list[dict], probe: dict) -> tuple[str, 
     mode_reasons: dict[str, list[str]] = {}
     capped_rate = percent(int(probe.get("capped", 0)), max(1, int(probe.get("probed", 0))))
     returned_rate = percent(int(probe.get("returned", 0)), max(1, int(probe.get("probed", 0))))
+    selected_count = int(probe.get("selected_count", 0))
+    candidate_count = int(probe.get("candidate_count", 0))
+    probed_count = int(probe.get("probed", 0))
     for row in action_rows:
         mode = str(row.get("mode", "")).strip().lower()
         if not mode:
@@ -263,6 +266,14 @@ def choose_recommended_mode(action_rows: list[dict], probe: dict) -> tuple[str, 
             mode_scores[mode] += 2.5
         if mode == "deepen" and int(probe.get("deep_returned", 0)) > 0:
             mode_scores[mode] += 1.0
+        if mode == "deepen" and (selected_count == 0 or probed_count == 0):
+            mode_scores[mode] -= 5.0
+        if mode == "validate" and selected_count == 0:
+            mode_scores[mode] += 4.0
+        if mode == "explore" and candidate_count == 0:
+            mode_scores[mode] -= 3.0
+        if mode == "synthesize" and selected_count == 0 and candidate_count == 0:
+            mode_scores[mode] -= 2.5
     if not mode_scores:
         return "synthesize", {"reason": "no_mode_candidates"}
     best_mode = sorted(mode_scores.items(), key=lambda item: (-item[1], item[0]))[0][0]
@@ -287,6 +298,7 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
     distinct_images = int(probe.get("selected_distinct_images", 0))
     deep_returned = int(probe.get("deep_returned", 0))
     candidate_count = int(probe.get("candidate_count", 0))
+    selected_count = int(probe.get("selected_count", 0))
     plateau = plateau_streak(history_rows, 0)
 
     action_rows: list[dict] = []
@@ -360,6 +372,18 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             "current queue traversal is not increasing learned smoke returns",
             overrides={"prefer_new_motifs": True},
         )
+    if candidate_count == 0 or selected_count == 0:
+        empty_score = 9.5 + float(max(0, plateau))
+        if candidate_count == 0:
+            empty_score += 2.0
+        add_action(
+            "retask_empty_frontier",
+            "validate",
+            empty_score,
+            f"frontier is empty or unselectable (candidates={candidate_count}, selected={selected_count})",
+            f"plateau streak={plateau + 1} suggests generic probing is exhausted",
+            overrides={"retask_frontier": True, "skip_auto_impl": True},
+        )
     if distinct_images < 2 and candidate_count > probed:
         add_action(
             "rebalance_frontier_diversity",
@@ -395,8 +419,11 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
                     overrides={"prefer_descriptor_motifs": True, "motif_family": family},
                 )
     phenotype_counts = descriptor_summary.get("phenotype_counts", {}) if isinstance(descriptor_summary.get("phenotype_counts"), dict) else {}
+    motif_family_counts = descriptor_summary.get("motif_family_counts", {}) if isinstance(descriptor_summary.get("motif_family_counts"), dict) else {}
     capped_mmio = int(phenotype_counts.get("capped_mmio_wait", 0))
     shallow_wrappers = int(phenotype_counts.get("shallow_wrapper", 0))
+    register_commit = int(motif_family_counts.get("register_commit", 0))
+    bounded_poll = int(motif_family_counts.get("bounded_poll", 0))
     if capped_mmio > 0:
         add_action(
             "prioritize_mmio_wait_family",
@@ -405,6 +432,24 @@ def recommend_controller_actions(report: dict, history_rows: list[dict], ida_evi
             f"descriptor layer sees {capped_mmio} capped MMIO wait functions",
             "promote bounded wait and MMIO-transfer motif recovery",
             overrides={"prefer_mmio_wait_family": True},
+        )
+    if register_commit > 0:
+        add_action(
+            "specialize_register_commit_family",
+            "synthesize",
+            6.5 + min(8.0, register_commit * 0.02),
+            f"descriptor motif memory tracks {register_commit} register_commit functions",
+            "prefer transfer-backed register-commit emitters over generic queue walking",
+            overrides={"prefer_register_commit_family": True},
+        )
+    if bounded_poll > 0 and capped_mmio > 0:
+        add_action(
+            "specialize_bounded_poll_family",
+            "synthesize",
+            6.0 + min(5.0, bounded_poll * 0.15),
+            f"bounded_poll motifs={bounded_poll} with capped_mmio_wait phenotype count={capped_mmio}",
+            "promote explicit MMIO wait-loop emitters before generic synthesis",
+            overrides={"prefer_bounded_poll_family": True},
         )
     if shallow_wrappers > 0:
         add_action(
@@ -478,9 +523,11 @@ def compact_cycle_summary(report: dict, controller_state: dict) -> dict:
         "learning_smoke_success_count": int(report.get("learning_smoke_success_count", 0)),
         "delta_learning_smoke_success_count": int(report.get("delta_learning_smoke_success_count", 0)),
         "probe_summary": {
+            "candidate_count": int(probe.get("candidate_count", 0)),
             "probed": int(probe.get("probed", 0)),
             "returned": int(probe.get("returned", 0)),
             "capped": int(probe.get("capped", 0)),
+            "selected_count": int(probe.get("selected_count", 0)),
             "nontrivial_return": int(probe.get("nontrivial_return", 0)),
             "deep_returned": int(probe.get("deep_returned", 0)),
             "mmio_touch_probes": int(probe.get("mmio_touch_probes", 0)),

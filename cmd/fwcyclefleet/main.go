@@ -229,12 +229,13 @@ func buildWorkerChildArgs(workerIndex int, base []string) []string {
 	args = ensureArg(args, "-update-checkpoints=false")
 	args = ensureArg(args, "-refresh-ida-before-cycle=false")
 	args = ensureArg(args, "-refresh-ida-on-zero-probes=false")
+	args = ensureArg(args, "-dead-plateau-after=4")
 	args = ensurePrefixedArg(args, "-plateau-mode=", defaultPlateauMode(workerIndex))
 	return args
 }
 
 func defaultPlateauMode(workerIndex int) string {
-	modes := []string{"auto", "synthesize", "deepen", "explore"}
+	modes := []string{"synthesize", "synthesize", "auto", "explore"}
 	if workerIndex <= 0 {
 		return modes[0]
 	}

@@ -22,8 +22,11 @@ func TestBuildWorkerChildArgsAddsSharedSafeDefaults(t *testing.T) {
 	if !joined["-refresh-ida-on-zero-probes=false"] {
 		t.Fatalf("missing refresh-ida-on-zero-probes disable arg: %v", args)
 	}
-	if !joined["-plateau-mode=deepen"] {
-		t.Fatalf("expected deepen diversification for worker 3, got %v", args)
+	if !joined["-dead-plateau-after=4"] {
+		t.Fatalf("missing dead-plateau cutoff arg: %v", args)
+	}
+	if !joined["-plateau-mode=auto"] {
+		t.Fatalf("expected auto diversification for worker 3, got %v", args)
 	}
 }
 
