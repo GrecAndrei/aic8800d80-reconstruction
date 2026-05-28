@@ -68,8 +68,10 @@ type workerRoleProfile struct {
 
 var workerCopyDirs = []string{
 	"analysis",
+	"applied",
 	"final",
 	"lift",
+	"rebuilt",
 }
 
 var workerCopyFiles = []string{

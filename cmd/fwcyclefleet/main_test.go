@@ -90,3 +90,33 @@ func TestCopyRecentRunsKeepsNewestOnly(t *testing.T) {
 		t.Fatalf("expected oldest run_a to be omitted, err=%v", err)
 	}
 }
+
+func TestProvisionWorkerRootCopiesHardeningGateDirs(t *testing.T) {
+	tmp := t.TempDir()
+	base := filepath.Join(tmp, "base")
+	worker := filepath.Join(tmp, "worker")
+	for _, dir := range []string{"analysis", "applied", "final", "lift", "rebuilt", filepath.Join("runs", "run_001")} {
+		if err := os.MkdirAll(filepath.Join(base, dir), 0o755); err != nil {
+			t.Fatalf("mkdir %s: %v", dir, err)
+		}
+	}
+	for rel, body := range map[string]string{
+		"applied/apply_contracts.json":        `{"schema_version":"0.1.0","violations":0}`,
+		"rebuilt/rebuild_manifest.json":      `{"schema_version":"0.1.0"}`,
+		"final/finalize_manifest.json":       `{"file_count":1,"function_count":1}`,
+		"runs/run_001/cycle_report.json":     `{"probe_summary":{"probed":1}}`,
+		"controller_state.json":              `{}`,
+	} {
+		if err := os.WriteFile(filepath.Join(base, rel), []byte(body), 0o644); err != nil {
+			t.Fatalf("write %s: %v", rel, err)
+		}
+	}
+	if err := provisionWorkerRoot(base, worker, 1); err != nil {
+		t.Fatalf("provisionWorkerRoot: %v", err)
+	}
+	for _, rel := range []string{"applied/apply_contracts.json", "rebuilt/rebuild_manifest.json", "final/finalize_manifest.json", "runs/run_001/cycle_report.json"} {
+		if _, err := os.Stat(filepath.Join(worker, rel)); err != nil {
+			t.Fatalf("missing provisioned %s: %v", rel, err)
+		}
+	}
+}
