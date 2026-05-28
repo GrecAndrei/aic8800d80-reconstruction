@@ -8,7 +8,18 @@ import (
 )
 
 func TestBuildWorkerChildArgsAddsSharedSafeDefaults(t *testing.T) {
-	args := buildWorkerChildArgs(3, nil)
+	profiles := buildWorkerProfiles()
+	var profile workerRoleProfile
+	for _, p := range profiles {
+		if p.Role == "auto_mmio_recovery" {
+			profile = p
+			break
+		}
+	}
+	if profile.Role == "" {
+		t.Fatalf("auto_mmio_recovery profile not found")
+	}
+	args := buildWorkerChildArgs(profile, nil)
 	joined := map[string]bool{}
 	for _, arg := range args {
 		joined[arg] = true
@@ -27,6 +38,22 @@ func TestBuildWorkerChildArgsAddsSharedSafeDefaults(t *testing.T) {
 	}
 	if !joined["-plateau-mode=auto"] {
 		t.Fatalf("expected auto diversification for worker 3, got %v", args)
+	}
+	if !joined["-prefer-phenotype=capped_mmio_wait,capped_low_mmio"] {
+		t.Fatalf("expected worker-specific focus args, got %v", args)
+	}
+}
+
+func TestBuildWorkerProfilesCountAndRoles(t *testing.T) {
+	profiles := buildWorkerProfiles()
+	if len(profiles) < 16 {
+		t.Fatalf("expected at least 16 profiles, got %d", len(profiles))
+	}
+	if profiles[0].Role != "register_commit_strict" {
+		t.Fatalf("unexpected first role: %s", profiles[0].Role)
+	}
+	if profiles[len(profiles)-1].Role != "frontier_guard" {
+		t.Fatalf("unexpected last role: %s", profiles[len(profiles)-1].Role)
 	}
 }
 

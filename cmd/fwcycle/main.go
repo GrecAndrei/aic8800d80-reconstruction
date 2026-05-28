@@ -87,6 +87,10 @@ func main() {
 	var throttleLimit int
 	var implMinCallConf float64
 	var implFallbackMinCallConf float64
+	var preferMotifFamily string
+	var preferPhenotype string
+	var preferBehaviorRole string
+	var preferDescriptorBonus float64
 	var plateauLowerConfAfter int
 	var plateauLoweredMinCallConf float64
 	var plateauLoweredFallbackMinCallConf float64
@@ -160,6 +164,10 @@ func main() {
 	flag.IntVar(&throttleLimit, "throttle-limit", 3, "Probe limit used while throttling is active")
 	flag.Float64Var(&implMinCallConf, "impl-min-call-confidence", 0.7, "Default implsynth min call confidence")
 	flag.Float64Var(&implFallbackMinCallConf, "impl-fallback-min-call-confidence", 0.4, "Default implsynth fallback min call confidence")
+	flag.StringVar(&preferMotifFamily, "prefer-motif-family", "", "Comma-separated descriptor motif families to prioritize during auto-impl queueing")
+	flag.StringVar(&preferPhenotype, "prefer-phenotype", "", "Comma-separated descriptor phenotypes to prioritize during auto-impl queueing")
+	flag.StringVar(&preferBehaviorRole, "prefer-behavior-role", "", "Comma-separated descriptor behavior roles to prioritize during auto-impl queueing")
+	flag.Float64Var(&preferDescriptorBonus, "prefer-descriptor-bonus", 12.0, "Rank score bonus for matching preferred descriptor families/phenotypes/roles")
 	flag.IntVar(&plateauLowerConfAfter, "plateau-lower-conf-after", 4, "Lower implsynth call confidence after this many consecutive plateau cycles")
 	flag.Float64Var(&plateauLoweredMinCallConf, "plateau-lowered-min-call-confidence", 0.55, "Lowered implsynth min call confidence during deep plateaus")
 	flag.Float64Var(&plateauLoweredFallbackMinCallConf, "plateau-lowered-fallback-min-call-confidence", 0.25, "Lowered implsynth fallback confidence during deep plateaus")
@@ -402,6 +410,18 @@ func main() {
 							}
 						}
 						implqueueStep := []string{"run", "./cmd/fwimplqueue", "-run-root", runRoot, "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)}
+						if strings.TrimSpace(preferMotifFamily) != "" {
+							implqueueStep = append(implqueueStep, "-prefer-motif-family", preferMotifFamily)
+						}
+						if strings.TrimSpace(preferPhenotype) != "" {
+							implqueueStep = append(implqueueStep, "-prefer-phenotype", preferPhenotype)
+						}
+						if strings.TrimSpace(preferBehaviorRole) != "" {
+							implqueueStep = append(implqueueStep, "-prefer-behavior-role", preferBehaviorRole)
+						}
+						if preferDescriptorBonus > 0 {
+							implqueueStep = append(implqueueStep, "-prefer-descriptor-bonus", fmt.Sprintf("%.3f", preferDescriptorBonus))
+						}
 						focusFunctions, err := recentCappedFunctions(outcomesPath, 16)
 						if err == nil && len(focusFunctions) > 0 {
 							implqueueStep = append(implqueueStep, "-focus-functions", strings.Join(focusFunctions, ","))

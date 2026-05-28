@@ -69,6 +69,10 @@ func main() {
 	var focusBonus float64
 	var descriptorsPath string
 	var motifMemoryPath string
+	var preferMotifFamilyCSV string
+	var preferPhenotypeCSV string
+	var preferBehaviorRoleCSV string
+	var preferDescriptorBonus float64
 
 	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
 	flag.StringVar(&composeIndexPath, "compose-index", "", "Compose index JSON")
@@ -79,6 +83,10 @@ func main() {
 	flag.Float64Var(&focusBonus, "focus-bonus", 1000.0, "Rank score bonus applied to focus functions")
 	flag.StringVar(&descriptorsPath, "descriptors", "", "Function descriptor JSON path")
 	flag.StringVar(&motifMemoryPath, "motif-memory", "", "Motif memory JSON path")
+	flag.StringVar(&preferMotifFamilyCSV, "prefer-motif-family", "", "Comma-separated descriptor motif families to prioritize")
+	flag.StringVar(&preferPhenotypeCSV, "prefer-phenotype", "", "Comma-separated descriptor phenotypes to prioritize")
+	flag.StringVar(&preferBehaviorRoleCSV, "prefer-behavior-role", "", "Comma-separated descriptor behavior roles to prioritize")
+	flag.Float64Var(&preferDescriptorBonus, "prefer-descriptor-bonus", 12.0, "Rank score bonus for matching preferred descriptor families/phenotypes/roles")
 	flag.Parse()
 
 	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
@@ -113,6 +121,9 @@ func main() {
 		fail("compose index empty")
 	}
 	focusSet := parseFocusFunctions(focusFunctionsCSV)
+	preferMotifSet := parseFocusFunctions(preferMotifFamilyCSV)
+	preferPhenotypeSet := parseFocusFunctions(preferPhenotypeCSV)
+	preferRoleSet := parseFocusFunctions(preferBehaviorRoleCSV)
 	descriptors, err := reconstruct.LoadDescriptorSet(descriptorsPath)
 	if err != nil {
 		fail("load descriptors: %v", err)
@@ -133,6 +144,7 @@ func main() {
 		}
 		t = applyFocusBoost(t, focusSet, focusBonus)
 		t = applyDescriptorBoost(t, descriptors.Lookup(t.Function, t.Image, t.Address), motifMemory)
+		t = applyDescriptorPreferenceBoost(t, preferMotifSet, preferPhenotypeSet, preferRoleSet, preferDescriptorBonus)
 		t.SchemaVersion = "0.1.0"
 		tasks = append(tasks, t)
 	}
@@ -231,6 +243,41 @@ func parseFocusFunctions(csv string) map[string]struct{} {
 		out[name] = struct{}{}
 	}
 	return out
+}
+
+func applyDescriptorPreferenceBoost(t implTask, motifs, phenotypes, roles map[string]struct{}, bonus float64) implTask {
+	if bonus <= 0 {
+		return t
+	}
+	matchReasons := make([]string, 0, 3)
+	boost := 0.0
+	if len(motifs) > 0 {
+		if _, ok := motifs[strings.ToLower(strings.TrimSpace(t.MotifFamily))]; ok {
+			boost += bonus
+			matchReasons = append(matchReasons, fmt.Sprintf("preferred motif=%s (+%.1f)", t.MotifFamily, bonus))
+		}
+	}
+	if len(phenotypes) > 0 {
+		if _, ok := phenotypes[strings.ToLower(strings.TrimSpace(t.DescriptorPhenotype))]; ok {
+			boost += bonus * 0.75
+			matchReasons = append(matchReasons, fmt.Sprintf("preferred phenotype=%s (+%.1f)", t.DescriptorPhenotype, bonus*0.75))
+		}
+	}
+	if len(roles) > 0 {
+		if _, ok := roles[strings.ToLower(strings.TrimSpace(t.BehaviorRole))]; ok {
+			boost += bonus * 0.75
+			matchReasons = append(matchReasons, fmt.Sprintf("preferred role=%s (+%.1f)", t.BehaviorRole, bonus*0.75))
+		}
+	}
+	if boost <= 0 {
+		return t
+	}
+	t.RankScore += boost
+	t.Reasons = append(matchReasons, t.Reasons...)
+	if t.Priority == "" || t.Priority == "low" || t.Priority == "medium" || t.Priority == "high" {
+		t.Priority = "critical"
+	}
+	return t
 }
 
 func applyFocusBoost(t implTask, focusSet map[string]struct{}, focusBonus float64) implTask {

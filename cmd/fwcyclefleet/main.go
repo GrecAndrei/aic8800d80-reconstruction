@@ -45,13 +45,25 @@ type fleetManifest struct {
 }
 
 type fleetWorker struct {
-	Name       string   `json:"name"`
-	RunRoot    string   `json:"run_root"`
-	LogPath    string   `json:"log_path"`
-	StatusPath string   `json:"status_path"`
-	TagPrefix  string   `json:"tag_prefix"`
-	ChildArgs  []string `json:"child_args"`
-	PID        int      `json:"pid,omitempty"`
+	Name        string   `json:"name"`
+	Role        string   `json:"role,omitempty"`
+	Mission     string   `json:"mission,omitempty"`
+	RunRoot     string   `json:"run_root"`
+	LogPath     string   `json:"log_path"`
+	StatusPath  string   `json:"status_path"`
+	TagPrefix   string   `json:"tag_prefix"`
+	ChildArgs   []string `json:"child_args"`
+	Limit       int      `json:"limit,omitempty"`
+	AutoImplMax int      `json:"auto_impl_max_tasks,omitempty"`
+	PID         int      `json:"pid,omitempty"`
+}
+
+type workerRoleProfile struct {
+	Role        string
+	Mission     string
+	ChildArgs   []string
+	Limit       int
+	AutoImplMax int
 }
 
 var workerCopyDirs = []string{
@@ -161,7 +173,9 @@ func run() error {
 		WorkerRows:    make([]fleetWorker, 0, workers),
 	}
 
+	profiles := buildWorkerProfiles()
 	for i := 1; i <= workers; i++ {
+		profile := profiles[(i-1)%len(profiles)]
 		name := fmt.Sprintf("worker-%02d", i)
 		workerRootAbs := filepath.Join(fleetRootAbs, "workers", name, "run-root")
 		workerDir := filepath.Dir(workerRootAbs)
@@ -181,12 +195,16 @@ func run() error {
 		}
 		statusPath := filepath.Join(workerRootAbs, "fwcycleauto_status.json")
 		row := fleetWorker{
-			Name:       name,
-			RunRoot:    workerRunRootRel,
-			LogPath:    logPath,
-			StatusPath: statusPath,
-			TagPrefix:  fmt.Sprintf("fleet_w%02d", i),
-			ChildArgs:  buildWorkerChildArgs(i, append([]string(nil), childArgs...)),
+			Name:        name,
+			Role:        profile.Role,
+			Mission:     profile.Mission,
+			RunRoot:     workerRunRootRel,
+			LogPath:     logPath,
+			StatusPath:  statusPath,
+			TagPrefix:   fmt.Sprintf("fleet_w%02d", i),
+			ChildArgs:   buildWorkerChildArgs(profile, append([]string(nil), childArgs...)),
+			Limit:       firstPositive(profile.Limit, limit),
+			AutoImplMax: firstPositive(profile.AutoImplMax, autoImplMaxTasks),
 		}
 		manifest.WorkerRows = append(manifest.WorkerRows, row)
 	}
@@ -200,13 +218,13 @@ func run() error {
 		fmt.Printf("fwcyclefleet: planned %d workers\n", len(manifest.WorkerRows))
 		fmt.Printf("  manifest: %s\n", manifestPath)
 		for _, row := range manifest.WorkerRows {
-			fmt.Printf("  %s run_root=%s log=%s child_args=%s\n", row.Name, row.RunRoot, row.LogPath, strings.Join(row.ChildArgs, " "))
+			fmt.Printf("  %s role=%s run_root=%s log=%s child_args=%s\n", row.Name, row.Role, row.RunRoot, row.LogPath, strings.Join(row.ChildArgs, " "))
 		}
 		return nil
 	}
 
 	for i := range manifest.WorkerRows {
-		pid, err := launchWorker(rootAbs, manifest.WorkerRows[i], hours, limit, autoImplMaxTasks, sleepSec, maxConsecutiveFailures, embedderModel)
+		pid, err := launchWorker(rootAbs, manifest.WorkerRows[i], hours, sleepSec, maxConsecutiveFailures, embedderModel)
 		if err != nil {
 			return err
 		}
@@ -219,27 +237,52 @@ func run() error {
 	fmt.Printf("fwcyclefleet: launched %d workers\n", len(manifest.WorkerRows))
 	fmt.Printf("  manifest: %s\n", manifestPath)
 	for _, row := range manifest.WorkerRows {
-		fmt.Printf("  %s pid=%d run_root=%s log=%s\n", row.Name, row.PID, row.RunRoot, row.LogPath)
+		fmt.Printf("  %s role=%s pid=%d run_root=%s log=%s\n", row.Name, row.Role, row.PID, row.RunRoot, row.LogPath)
 	}
 	return nil
 }
 
-func buildWorkerChildArgs(workerIndex int, base []string) []string {
+func buildWorkerProfiles() []workerRoleProfile {
+	return []workerRoleProfile{
+		{Role: "register_commit_strict", Mission: "high-confidence register commit recovery", Limit: 10, AutoImplMax: 384, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=register_commit", "-prefer-behavior-role=radio_reg_write", "-prefer-phenotype=capped_mmio_wait", "-prefer-descriptor-bonus=18", "-impl-min-call-confidence=0.72", "-impl-fallback-min-call-confidence=0.35", "-throttle-probes-on-plateau=false"}},
+		{Role: "register_commit_relaxed", Mission: "relaxed register commit and io_driver transfer lane", Limit: 10, AutoImplMax: 448, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=register_commit", "-prefer-behavior-role=io_driver,radio_reg_write", "-prefer-phenotype=capped_mmio_wait,capped_low_mmio", "-prefer-descriptor-bonus=20", "-impl-min-call-confidence=0.55", "-impl-fallback-min-call-confidence=0.20", "-throttle-probes-on-plateau=false"}},
+		{Role: "bounded_poll_waits", Mission: "bounded MMIO wait-loop recovery for capped waits", Limit: 8, AutoImplMax: 320, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=bounded_poll", "-prefer-phenotype=capped_mmio_wait", "-prefer-descriptor-bonus=18", "-impl-min-call-confidence=0.60", "-impl-fallback-min-call-confidence=0.25"}},
+		{Role: "bounded_poll_low_mmio", Mission: "bounded polling for low-MMIO capped families", Limit: 8, AutoImplMax: 320, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=bounded_poll", "-prefer-phenotype=capped_low_mmio", "-prefer-descriptor-bonus=16", "-impl-min-call-confidence=0.58", "-impl-fallback-min-call-confidence=0.22"}},
+		{Role: "staged_mmio_transfer", Mission: "staged MMIO transfer and DMA-style body recovery", Limit: 10, AutoImplMax: 384, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=staged_mmio_transfer", "-prefer-behavior-role=io_driver,transport", "-prefer-descriptor-bonus=18", "-impl-min-call-confidence=0.62", "-impl-fallback-min-call-confidence=0.28"}},
+		{Role: "irq_wait_guard", Mission: "interrupt-driven guarded wait recovery", Limit: 8, AutoImplMax: 320, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=irq_wait_guard", "-prefer-behavior-role=interrupt_handler,interrupt", "-prefer-descriptor-bonus=16"}},
+		{Role: "dispatcher_unwrap", Mission: "unwrap shallow dispatcher scaffolds", Limit: 12, AutoImplMax: 256, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=dispatcher", "-prefer-phenotype=shallow_wrapper", "-prefer-descriptor-bonus=14"}},
+		{Role: "queue_pump_unwrap", Mission: "queue pump and wrapper breaking lane", Limit: 12, AutoImplMax: 256, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=queue_pump", "-prefer-phenotype=shallow_wrapper", "-prefer-behavior-role=memory_pool", "-prefer-descriptor-bonus=14"}},
+		{Role: "state_machine_lane", Mission: "state machine transfer propagation", Limit: 10, AutoImplMax: 256, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-motif-family=state_machine", "-prefer-behavior-role=state_machine", "-prefer-descriptor-bonus=13"}},
+		{Role: "crypto_core_lane", Mission: "crypto core and hardware helper specialization", Limit: 8, AutoImplMax: 256, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-behavior-role=crypto,crypto_core", "-prefer-descriptor-bonus=12"}},
+		{Role: "memory_pool_lane", Mission: "memory pool and queue helper propagation", Limit: 10, AutoImplMax: 256, ChildArgs: []string{"-plateau-mode=synthesize", "-prefer-behavior-role=memory_pool", "-prefer-motif-family=queue_pump", "-prefer-descriptor-bonus=12"}},
+		{Role: "auto_mmio_recovery", Mission: "balanced auto lane biased toward MMIO pressure phenotypes", Limit: 12, AutoImplMax: 320, ChildArgs: []string{"-plateau-mode=auto", "-prefer-phenotype=capped_mmio_wait,capped_low_mmio", "-prefer-motif-family=register_commit,bounded_poll,staged_mmio_transfer", "-prefer-descriptor-bonus=16", "-impl-min-call-confidence=0.60", "-impl-fallback-min-call-confidence=0.25"}},
+		{Role: "auto_balanced_transfer", Mission: "balanced auto lane biased toward transfer-backed motifs", Limit: 12, AutoImplMax: 320, ChildArgs: []string{"-plateau-mode=auto", "-prefer-motif-family=register_commit,queue_pump,state_machine", "-prefer-descriptor-bonus=12"}},
+		{Role: "explore_missing_symbols", Mission: "explore unresolved and missing-symbol frontier", Limit: 10, AutoImplMax: 224, ChildArgs: []string{"-plateau-mode=explore", "-prefer-phenotype=missing_symbols", "-prefer-behavior-role=unknown", "-prefer-non-cycle-queue", "-prefer-descriptor-bonus=10"}},
+		{Role: "explore_diversity", Mission: "explore under-covered clusters and image diversity", Limit: 10, AutoImplMax: 224, ChildArgs: []string{"-plateau-mode=explore", "-prefer-non-cycle-queue", "-prefer-descriptor-bonus=8"}},
+		{Role: "frontier_guard", Mission: "validate exhausted frontier and prevent churn", Limit: 6, AutoImplMax: 160, ChildArgs: []string{"-plateau-mode=validate", "-dead-plateau-after=3", "-prefer-descriptor-bonus=6"}},
+	}
+}
+
+func buildWorkerChildArgs(profile workerRoleProfile, base []string) []string {
 	args := append([]string(nil), base...)
+	for _, arg := range profile.ChildArgs {
+		trimmed := strings.TrimSpace(arg)
+		if trimmed == "" {
+			continue
+		}
+		if strings.Contains(trimmed, "=") {
+			parts := strings.SplitN(trimmed, "=", 2)
+			prefix := parts[0] + "="
+			args = ensurePrefixedArg(args, prefix, parts[1])
+			continue
+		}
+		args = ensureArg(args, trimmed)
+	}
 	args = ensureArg(args, "-update-checkpoints=false")
 	args = ensureArg(args, "-refresh-ida-before-cycle=false")
 	args = ensureArg(args, "-refresh-ida-on-zero-probes=false")
-	args = ensureArg(args, "-dead-plateau-after=4")
-	args = ensurePrefixedArg(args, "-plateau-mode=", defaultPlateauMode(workerIndex))
+	args = ensurePrefixedArg(args, "-dead-plateau-after=", "4")
 	return args
-}
-
-func defaultPlateauMode(workerIndex int) string {
-	modes := []string{"synthesize", "synthesize", "auto", "explore"}
-	if workerIndex <= 0 {
-		return modes[0]
-	}
-	return modes[(workerIndex-1)%len(modes)]
 }
 
 func ensureArg(args []string, want string) []string {
@@ -260,7 +303,7 @@ func ensurePrefixedArg(args []string, prefix, value string) []string {
 	return append(args, prefix+value)
 }
 
-func launchWorker(rootAbs string, row fleetWorker, hours float64, limit, autoImplMaxTasks, sleepSec, maxConsecutiveFailures int, embedderModel string) (int, error) {
+func launchWorker(rootAbs string, row fleetWorker, hours float64, sleepSec, maxConsecutiveFailures int, embedderModel string) (int, error) {
 	if err := os.MkdirAll(filepath.Dir(row.LogPath), 0o755); err != nil {
 		return 0, fmt.Errorf("mkdir log dir: %w", err)
 	}
@@ -272,8 +315,8 @@ func launchWorker(rootAbs string, row fleetWorker, hours float64, limit, autoImp
 		"run", "./cmd/fwcycleauto",
 		"-run-root", row.RunRoot,
 		"-hours", fmt.Sprintf("%.3f", hours),
-		"-limit", fmt.Sprintf("%d", limit),
-		"-auto-impl-max-tasks", fmt.Sprintf("%d", autoImplMaxTasks),
+		"-limit", fmt.Sprintf("%d", firstPositive(row.Limit, 12)),
+		"-auto-impl-max-tasks", fmt.Sprintf("%d", firstPositive(row.AutoImplMax, 320)),
 		"-sleep-sec", fmt.Sprintf("%d", sleepSec),
 		"-max-consecutive-failures", fmt.Sprintf("%d", maxConsecutiveFailures),
 		"-tag-prefix", row.TagPrefix,
@@ -296,6 +339,13 @@ func launchWorker(rootAbs string, row fleetWorker, hours float64, limit, autoImp
 	_ = cmd.Process.Release()
 	_ = logFile.Close()
 	return pid, nil
+}
+
+func firstPositive(v int, fallback int) int {
+	if v > 0 {
+		return v
+	}
+	return fallback
 }
 
 func provisionWorkerRoot(baseRunRootAbs, workerRootAbs string, recentRuns int) error {
