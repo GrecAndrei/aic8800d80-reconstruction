@@ -93,18 +93,37 @@ type finalizeContractReport struct {
 }
 
 func main() {
+	var runRoot string
 	var appliedDir string
 	var outDir string
 	var synthEvidencePath string
 	var descriptorsPath string
 	var motifMemoryPath string
 
-	flag.StringVar(&appliedDir, "applied-dir", "extraction_out/reconstruction/mega7/applied", "Applied reconstruction directory")
-	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/final", "Finalized reconstruction directory")
-	flag.StringVar(&synthEvidencePath, "synth-evidence", "extraction_out/reconstruction/mega7/synth/implsynth_evidence.json", "Synth evidence JSON for risk scoring")
-	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
-	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&appliedDir, "applied-dir", "", "Applied reconstruction directory")
+	flag.StringVar(&outDir, "out", "", "Finalized reconstruction directory")
+	flag.StringVar(&synthEvidencePath, "synth-evidence", "", "Synth evidence JSON for risk scoring")
+	flag.StringVar(&descriptorsPath, "descriptors", "", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "", "Motif memory JSON path")
 	flag.Parse()
+
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(appliedDir) == "" {
+		appliedDir = filepath.Join(runRoot, "applied")
+	}
+	if strings.TrimSpace(outDir) == "" {
+		outDir = filepath.Join(runRoot, "final")
+	}
+	if strings.TrimSpace(synthEvidencePath) == "" {
+		synthEvidencePath = filepath.Join(runRoot, "synth", "implsynth_evidence.json")
+	}
+	if strings.TrimSpace(descriptorsPath) == "" {
+		descriptorsPath = filepath.Join(runRoot, "analysis", "function_descriptors.json")
+	}
+	if strings.TrimSpace(motifMemoryPath) == "" {
+		motifMemoryPath = filepath.Join(runRoot, "analysis", "motif_recipe_memory.json")
+	}
 
 	appAbs, _ := filepath.Abs(appliedDir)
 	outAbs, _ := filepath.Abs(outDir)

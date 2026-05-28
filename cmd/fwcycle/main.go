@@ -290,8 +290,7 @@ func main() {
 			"--max-add", fmt.Sprintf("%d", checkpointMaxAdd),
 		}
 		if err := runCmd(rootAbs, "python3", updateArgs...); err != nil {
-			fmt.Fprintf(os.Stderr, "update smoke checkpoints: %v\n", err)
-			os.Exit(1)
+			fmt.Fprintf(os.Stderr, "warning: update smoke checkpoints: %v\n", err)
 		}
 	}
 
@@ -359,7 +358,7 @@ func main() {
 							fmt.Fprintf(os.Stderr, "deepen mode failed: %v\n", err)
 						}
 					case "validate":
-						if err := runCmd(rootAbs, "go", "run", "./cmd/fwvalidatecalls"); err != nil {
+						if err := runCmd(rootAbs, "go", "run", "./cmd/fwvalidatecalls", "-run-root", runRoot); err != nil {
 							fmt.Fprintf(os.Stderr, "validate mode failed: %v\n", err)
 						}
 					default:
@@ -387,20 +386,20 @@ func main() {
 								implTasks = plateauEscalateMax
 							}
 						}
-						implqueueStep := []string{"run", "./cmd/fwimplqueue", "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)}
+						implqueueStep := []string{"run", "./cmd/fwimplqueue", "-run-root", runRoot, "-max-tasks", fmt.Sprintf("%d", implTasks), "-skip-tasks", fmt.Sprintf("%d", implSkip)}
 						focusFunctions, err := recentCappedFunctions(outcomesPath, 16)
 						if err == nil && len(focusFunctions) > 0 {
 							implqueueStep = append(implqueueStep, "-focus-functions", strings.Join(focusFunctions, ","))
 						}
 						steps := [][]string{
-							{"run", "./cmd/fwcompose"},
+							{"run", "./cmd/fwcompose", "-run-root", runRoot},
 							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
 							implqueueStep,
-							{"run", "./cmd/fwimplsynth", "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
-							{"run", "./cmd/fwapplysynth"},
-							{"run", "./cmd/fwfinalize"},
+							{"run", "./cmd/fwimplsynth", "-run-root", runRoot, "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
+							{"run", "./cmd/fwapplysynth", "-run-root", runRoot},
+							{"run", "./cmd/fwfinalize", "-run-root", runRoot},
 							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
-							{"run", "./cmd/fwvalidatecalls"},
+							{"run", "./cmd/fwvalidatecalls", "-run-root", runRoot},
 						}
 						for _, step := range steps {
 							if err := runCmd(rootAbs, "go", step...); err != nil {
@@ -539,7 +538,7 @@ func runHardeningGate(rootAbs, runRoot, tag string, focusOnFailure bool, focusMa
 	if strings.TrimSpace(tag) != "" {
 		cycleReportPath = filepath.ToSlash(filepath.Join(runRoot, "runs", tag, "cycle_report.json"))
 	}
-	hardenArgs := []string{"run", "./cmd/fwharden", "-final-dir", finalDir, "-rebuilt-dir", rebuiltDir}
+	hardenArgs := []string{"run", "./cmd/fwharden", "-run-root", runRoot, "-final-dir", finalDir, "-rebuilt-dir", rebuiltDir}
 	if cycleReportPath != "" {
 		hardenArgs = append(hardenArgs,
 			"-cycle-report", cycleReportPath,
@@ -793,6 +792,7 @@ func runDeepenProbePass(rootAbs, runRoot, primarySource, sourceGlobsCSV, seedCSV
 		"--source", primarySource,
 		"--queue", queuePath,
 		"--outcomes", outcomesPath,
+		"--contract-hints", filepath.ToSlash(filepath.Join(runRoot, "synth", "implsynth_contract_hints.json")),
 		"--readme", "README.md",
 		"--limit", fmt.Sprintf("%d", deepenLimit),
 		"--max-insns", fmt.Sprintf("%d", max(256, maxInsns*2)),

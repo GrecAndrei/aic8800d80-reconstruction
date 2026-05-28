@@ -78,6 +78,7 @@ type composeIndexRow struct {
 }
 
 func main() {
+	var runRoot string
 	var liftUnitsPath string
 	var outDir string
 	var callEdgesPath string
@@ -85,13 +86,28 @@ func main() {
 	var descriptorsPath string
 	var motifMemoryPath string
 
-	flag.StringVar(&liftUnitsPath, "lift-units", "extraction_out/reconstruction/mega7/lift/lift_units.json", "Lift units JSON")
-	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/composed", "Output directory")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&liftUnitsPath, "lift-units", "", "Lift units JSON")
+	flag.StringVar(&outDir, "out", "", "Output directory")
 	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL for canonical naming")
 	flag.Float64Var(&minNameConfidence, "min-name-confidence", 0.7, "Minimum edge confidence for canonical naming")
-	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
-	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
+	flag.StringVar(&descriptorsPath, "descriptors", "", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "", "Motif memory JSON path")
 	flag.Parse()
+
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(liftUnitsPath) == "" {
+		liftUnitsPath = filepath.Join(runRoot, "lift", "lift_units.json")
+	}
+	if strings.TrimSpace(outDir) == "" {
+		outDir = filepath.Join(runRoot, "composed")
+	}
+	if strings.TrimSpace(descriptorsPath) == "" {
+		descriptorsPath = filepath.Join(runRoot, "analysis", "function_descriptors.json")
+	}
+	if strings.TrimSpace(motifMemoryPath) == "" {
+		motifMemoryPath = filepath.Join(runRoot, "analysis", "motif_recipe_memory.json")
+	}
 
 	liftAbs, _ := filepath.Abs(liftUnitsPath)
 	outAbs, _ := filepath.Abs(outDir)

@@ -63,6 +63,13 @@ def extract_checkpoints(readme: str) -> tuple[int, int, list[str]]:
     return start, end, existing
 
 
+def default_checkpoint_insert_at(lines: list[str]) -> int:
+    for i, line in enumerate(lines):
+        if line.strip().lower() == "## notes":
+            return i
+    return len(lines)
+
+
 def extract_all_backtick_functions(readme: str) -> set[str]:
     return {m.lower() for m in re.findall(r"`([A-Za-z0-9_]+)`", readme)}
 
@@ -79,8 +86,6 @@ def main() -> int:
         raise SystemExit(f"README not found: {args.readme}")
     readme = args.readme.read_text(encoding="utf-8", errors="ignore")
     start, end, existing = extract_checkpoints(readme)
-    if start < 0:
-        raise SystemExit("Smoke Checkpoints section not found in README")
 
     existing_set = {x.lower() for x in existing}
     all_seen = extract_all_backtick_functions(readme)
@@ -102,6 +107,16 @@ def main() -> int:
         return 0
 
     lines = readme.splitlines()
+    if start < 0:
+        insert_at = default_checkpoint_insert_at(lines)
+        section = [
+            "## Smoke Checkpoints",
+            "",
+            "Auto-promoted stable smoke successes:",
+            "",
+        ]
+        lines[insert_at:insert_at] = section
+        start, end, _existing = extract_checkpoints("\n".join(lines))
     insert_at = end
     for fn, _cnt in selected:
         lines.insert(insert_at, f"- `{fn}`")

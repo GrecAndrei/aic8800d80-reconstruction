@@ -60,6 +60,7 @@ type implManifest struct {
 }
 
 func main() {
+	var runRoot string
 	var composeIndexPath string
 	var outDir string
 	var maxTasks int
@@ -69,15 +70,30 @@ func main() {
 	var descriptorsPath string
 	var motifMemoryPath string
 
-	flag.StringVar(&composeIndexPath, "compose-index", "extraction_out/reconstruction/mega7/composed/compose_index.json", "Compose index JSON")
-	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/implqueue", "Output directory")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&composeIndexPath, "compose-index", "", "Compose index JSON")
+	flag.StringVar(&outDir, "out", "", "Output directory")
 	flag.IntVar(&maxTasks, "max-tasks", 600, "Maximum implementation tasks")
 	flag.IntVar(&skipTasks, "skip-tasks", 0, "Rotate queue start by this many tasks before truncation")
 	flag.StringVar(&focusFunctionsCSV, "focus-functions", "", "Comma-separated function names to prioritize in the queue")
 	flag.Float64Var(&focusBonus, "focus-bonus", 1000.0, "Rank score bonus applied to focus functions")
-	flag.StringVar(&descriptorsPath, "descriptors", "extraction_out/reconstruction/mega7/analysis/function_descriptors.json", "Function descriptor JSON path")
-	flag.StringVar(&motifMemoryPath, "motif-memory", "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json", "Motif memory JSON path")
+	flag.StringVar(&descriptorsPath, "descriptors", "", "Function descriptor JSON path")
+	flag.StringVar(&motifMemoryPath, "motif-memory", "", "Motif memory JSON path")
 	flag.Parse()
+
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(composeIndexPath) == "" {
+		composeIndexPath = filepath.Join(runRoot, "composed", "compose_index.json")
+	}
+	if strings.TrimSpace(outDir) == "" {
+		outDir = filepath.Join(runRoot, "implqueue")
+	}
+	if strings.TrimSpace(descriptorsPath) == "" {
+		descriptorsPath = filepath.Join(runRoot, "analysis", "function_descriptors.json")
+	}
+	if strings.TrimSpace(motifMemoryPath) == "" {
+		motifMemoryPath = filepath.Join(runRoot, "analysis", "motif_recipe_memory.json")
+	}
 
 	idxAbs, _ := filepath.Abs(composeIndexPath)
 	outAbs, _ := filepath.Abs(outDir)

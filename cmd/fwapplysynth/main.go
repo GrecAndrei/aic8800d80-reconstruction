@@ -48,14 +48,27 @@ type applyContractReport struct {
 }
 
 func main() {
+	var runRoot string
 	var synthDir string
 	var composedDir string
 	var outDir string
 
-	flag.StringVar(&synthDir, "synth-dir", "extraction_out/reconstruction/mega7/synth", "Synthesized .synth.c directory")
-	flag.StringVar(&composedDir, "composed-dir", "extraction_out/reconstruction/mega7/composed", "Composed reconstruction directory")
-	flag.StringVar(&outDir, "out", "extraction_out/reconstruction/mega7/applied", "Output directory for merged reconstruction files")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&synthDir, "synth-dir", "", "Synthesized .synth.c directory")
+	flag.StringVar(&composedDir, "composed-dir", "", "Composed reconstruction directory")
+	flag.StringVar(&outDir, "out", "", "Output directory for merged reconstruction files")
 	flag.Parse()
+
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(synthDir) == "" {
+		synthDir = filepath.Join(runRoot, "synth")
+	}
+	if strings.TrimSpace(composedDir) == "" {
+		composedDir = filepath.Join(runRoot, "composed")
+	}
+	if strings.TrimSpace(outDir) == "" {
+		outDir = filepath.Join(runRoot, "applied")
+	}
 
 	synthAbs, _ := filepath.Abs(synthDir)
 	compAbs, _ := filepath.Abs(composedDir)

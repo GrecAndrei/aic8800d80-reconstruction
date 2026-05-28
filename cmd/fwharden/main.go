@@ -84,6 +84,7 @@ func pct(numer int, denom int) float64 {
 }
 
 func main() {
+	var runRoot string
 	var finalDir string
 	var rebuiltDir string
 	var strict bool
@@ -101,8 +102,9 @@ func main() {
 	var maxCappedMMIOPhenotypes int
 	var maxHighRiskFunctions int
 
-	flag.StringVar(&finalDir, "final-dir", "extraction_out/reconstruction/mega7/final", "Final reconstruction directory")
-	flag.StringVar(&rebuiltDir, "rebuilt-dir", "extraction_out/reconstruction/mega7/rebuilt", "Rebuilt artifacts directory")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&finalDir, "final-dir", "", "Final reconstruction directory")
+	flag.StringVar(&rebuiltDir, "rebuilt-dir", "", "Rebuilt artifacts directory")
 	flag.BoolVar(&strict, "strict", false, "Enable release-level gates (100% completion, no TODOs, no fallbacks)")
 	flag.StringVar(&cycleReportPath, "cycle-report", "", "Cycle report path for behavioral-depth gate checks")
 	flag.Float64Var(&minNaturalReturnRate, "min-natural-return-rate", 0.0, "Minimum natural-return rate percent")
@@ -112,12 +114,26 @@ func main() {
 	flag.IntVar(&minDistinctImages, "min-distinct-images", 1, "Minimum distinct images in selected probe set")
 	flag.Float64Var(&maxWrapperDominanceRate, "max-wrapper-dominance-rate", 100.0, "Maximum shallow-wrapper dominance percent")
 	flag.Float64Var(&minDeepReturnRate, "min-deep-return-rate", 0.0, "Minimum deep-pass return rate percent when deep pass runs")
-	flag.StringVar(&descriptorSummaryPath, "descriptor-summary", "extraction_out/reconstruction/mega7/analysis/descriptor_summary.json", "Descriptor summary JSON path")
-	flag.StringVar(&qualityPath, "quality", "extraction_out/reconstruction/mega7/final/finalize_quality.json", "Finalize quality JSON path")
+	flag.StringVar(&descriptorSummaryPath, "descriptor-summary", "", "Descriptor summary JSON path")
+	flag.StringVar(&qualityPath, "quality", "", "Finalize quality JSON path")
 	flag.IntVar(&minMotifBackedCount, "min-motif-backed-count", 0, "Minimum descriptor motif-backed function count")
 	flag.IntVar(&maxCappedMMIOPhenotypes, "max-capped-mmio-phenotypes", 0, "Maximum allowed capped_mmio_wait descriptor count (0 disables)")
 	flag.IntVar(&maxHighRiskFunctions, "max-high-risk-functions", 0, "Maximum allowed high-risk functions in finalize_quality (0 disables)")
 	flag.Parse()
+
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(finalDir) == "" {
+		finalDir = filepath.Join(runRoot, "final")
+	}
+	if strings.TrimSpace(rebuiltDir) == "" {
+		rebuiltDir = filepath.Join(runRoot, "rebuilt")
+	}
+	if strings.TrimSpace(descriptorSummaryPath) == "" {
+		descriptorSummaryPath = filepath.Join(runRoot, "analysis", "descriptor_summary.json")
+	}
+	if strings.TrimSpace(qualityPath) == "" {
+		qualityPath = filepath.Join(runRoot, "final", "finalize_quality.json")
+	}
 
 	finalAbs, _ := filepath.Abs(finalDir)
 	rebuiltAbs, _ := filepath.Abs(rebuiltDir)

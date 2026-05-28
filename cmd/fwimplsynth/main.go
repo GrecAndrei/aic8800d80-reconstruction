@@ -331,6 +331,7 @@ func isNumeric(s string) bool {
 
 func run() error {
 	var iAbs, cAbs, oAbs string
+	var runRoot string
 	var composedDir, cfgHintsPath, pseudoHintsPath, functionLinksPath, conformancePath string
 	var minConf, fallbackMinConf float64
 	var maxTasks int
@@ -344,16 +345,17 @@ func run() error {
 	var motifMemoryPath string
 
 	// Flags and defaults (kept local so run() is self-contained).
-	implQueuePath := "extraction_out/reconstruction/mega7/implqueue/implementation_queue.json"
+	runRoot = "extraction_out/reconstruction/mega7"
+	implQueuePath := ""
 	callEdgesPath := "extraction_out/call_edges.jsonl"
-	outDir := "extraction_out/reconstruction/mega7/synth"
-	composedDirPath := "extraction_out/reconstruction/mega7/composed"
-	cfgHintsFilePath := "extraction_out/reconstruction/mega7/cfg_hints.jsonl"
+	outDir := ""
+	composedDirPath := ""
+	cfgHintsFilePath := ""
 	pseudoHintsFilePath := "extraction_out/ida_export_pseudo/pseudocode_hints.jsonl"
-	functionLinksFilePath := "extraction_out/reconstruction/mega7/function_links.jsonl"
-	conformanceFilePath := "extraction_out/reconstruction/mega7/final/call_conformance.json"
-	descriptorsFilePath := "extraction_out/reconstruction/mega7/analysis/function_descriptors.json"
-	motifMemoryFilePath := "extraction_out/reconstruction/mega7/analysis/motif_recipe_memory.json"
+	functionLinksFilePath := ""
+	conformanceFilePath := ""
+	descriptorsFilePath := ""
+	motifMemoryFilePath := ""
 	minCallConfidence := 0.7
 	fallbackMinCallConfidence := 0.4
 	maxTasksVal := 80
@@ -370,6 +372,7 @@ func run() error {
 	requireIDAPseudo := true
 
 	fs := flag.NewFlagSet("fwimplsynth", flag.ContinueOnError)
+	fs.StringVar(&runRoot, "run-root", runRoot, "Reconstruction run root")
 	fs.StringVar(&implQueuePath, "implqueue", implQueuePath, "Implementation queue JSON path")
 	fs.StringVar(&callEdgesPath, "call-edges", callEdgesPath, "Call edges JSONL path")
 	fs.StringVar(&outDir, "out", outDir, "Output directory for synthesized C")
@@ -396,6 +399,31 @@ func run() error {
 	fs.BoolVar(&requireIDAPseudo, "require-ida-pseudo", requireIDAPseudo, "Require pseudocode_hints.jsonl and fail if missing")
 	if err := fs.Parse(os.Args[1:]); err != nil {
 		return err
+	}
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(implQueuePath) == "" {
+		implQueuePath = filepath.Join(runRoot, "implqueue", "implementation_queue.json")
+	}
+	if strings.TrimSpace(outDir) == "" {
+		outDir = filepath.Join(runRoot, "synth")
+	}
+	if strings.TrimSpace(composedDirPath) == "" {
+		composedDirPath = filepath.Join(runRoot, "composed")
+	}
+	if strings.TrimSpace(cfgHintsFilePath) == "" {
+		cfgHintsFilePath = filepath.Join(runRoot, "cfg_hints.jsonl")
+	}
+	if strings.TrimSpace(functionLinksFilePath) == "" {
+		functionLinksFilePath = filepath.Join(runRoot, "function_links.jsonl")
+	}
+	if strings.TrimSpace(conformanceFilePath) == "" {
+		conformanceFilePath = filepath.Join(runRoot, "final", "call_conformance.json")
+	}
+	if strings.TrimSpace(descriptorsFilePath) == "" {
+		descriptorsFilePath = filepath.Join(runRoot, "analysis", "function_descriptors.json")
+	}
+	if strings.TrimSpace(motifMemoryFilePath) == "" {
+		motifMemoryFilePath = filepath.Join(runRoot, "analysis", "motif_recipe_memory.json")
 	}
 
 	iAbs, _ = filepath.Abs(implQueuePath)

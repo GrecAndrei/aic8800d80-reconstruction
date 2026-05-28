@@ -80,6 +80,7 @@ type holdoutConformance struct {
 }
 
 func main() {
+	var runRoot string
 	var finalDir string
 	var callEdgesPath string
 	var minConf float64
@@ -93,21 +94,38 @@ func main() {
 	var functionLinksPath string
 	var holdoutMod int
 
-	flag.StringVar(&finalDir, "final-dir", "extraction_out/reconstruction/mega7/final", "Final reconstruction directory")
+	flag.StringVar(&runRoot, "run-root", "extraction_out/reconstruction/mega7", "Reconstruction run root")
+	flag.StringVar(&finalDir, "final-dir", "", "Final reconstruction directory")
 	flag.StringVar(&callEdgesPath, "call-edges", "extraction_out/call_edges.jsonl", "Call edges JSONL")
 	flag.Float64Var(&minConf, "min-conf", 0.7, "Minimum confidence for evidence calls")
 	flag.Float64Var(&relaxedMinConf, "relaxed-min-conf", 0.4, "Relaxed call-edge confidence used only as last-resort evidence")
 	flag.IntVar(&relaxedMinVotes, "relaxed-min-votes", 2, "Minimum repeated votes per relaxed evidence callee")
-	flag.StringVar(&outPath, "out", "extraction_out/reconstruction/mega7/final/call_conformance.json", "Output conformance report")
-	flag.StringVar(&synthEvidencePath, "synth-evidence", "extraction_out/reconstruction/mega7/synth/implsynth_evidence.json", "Synth evidence JSON")
-	flag.StringVar(&composedDir, "composed-dir", "extraction_out/reconstruction/mega7/composed", "Composed reconstruction directory used as fallback evidence")
-	flag.StringVar(&appliedDir, "applied-dir", "extraction_out/reconstruction/mega7/applied", "Applied reconstruction directory used as fallback evidence")
+	flag.StringVar(&outPath, "out", "", "Output conformance report")
+	flag.StringVar(&synthEvidencePath, "synth-evidence", "", "Synth evidence JSON")
+	flag.StringVar(&composedDir, "composed-dir", "", "Composed reconstruction directory used as fallback evidence")
+	flag.StringVar(&appliedDir, "applied-dir", "", "Applied reconstruction directory used as fallback evidence")
 	flag.StringVar(&cfgHintsPath, "cfg-hints", "extraction_out/ida_export_cfg/cfg_hints.jsonl", "IDA CFG hints JSONL")
 	flag.StringVar(&functionLinksPath, "function-links", "extraction_out/function_links.jsonl", "Cross-image function link evidence JSONL")
 	flag.IntVar(&holdoutMod, "holdout-mod", 5, "Deterministic holdout split modulus (bucket 0 is out-of-sample)")
 	flag.Parse()
 	if holdoutMod < 2 {
 		holdoutMod = 5
+	}
+	runRoot = filepath.Clean(strings.TrimSpace(runRoot))
+	if strings.TrimSpace(finalDir) == "" {
+		finalDir = filepath.Join(runRoot, "final")
+	}
+	if strings.TrimSpace(outPath) == "" {
+		outPath = filepath.Join(runRoot, "final", "call_conformance.json")
+	}
+	if strings.TrimSpace(synthEvidencePath) == "" {
+		synthEvidencePath = filepath.Join(runRoot, "synth", "implsynth_evidence.json")
+	}
+	if strings.TrimSpace(composedDir) == "" {
+		composedDir = filepath.Join(runRoot, "composed")
+	}
+	if strings.TrimSpace(appliedDir) == "" {
+		appliedDir = filepath.Join(runRoot, "applied")
 	}
 
 	finalAbs, _ := filepath.Abs(finalDir)
