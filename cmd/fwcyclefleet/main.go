@@ -68,16 +68,8 @@ type workerRoleProfile struct {
 
 var workerCopyDirs = []string{
 	"analysis",
-	"applied",
-	"applied_recovered",
-	"composed",
 	"final",
-	"final_recovered",
-	"implqueue",
-	"implwork",
 	"lift",
-	"rebuilt",
-	"synth",
 }
 
 var workerCopyFiles = []string{
