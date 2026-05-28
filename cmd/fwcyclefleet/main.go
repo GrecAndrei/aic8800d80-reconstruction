@@ -291,9 +291,10 @@ func launchWorker(rootAbs string, row fleetWorker, hours float64, limit, autoImp
 		_ = logFile.Close()
 		return 0, fmt.Errorf("launch %s: %w", row.Name, err)
 	}
+	pid := cmd.Process.Pid
 	_ = cmd.Process.Release()
 	_ = logFile.Close()
-	return cmd.Process.Pid, nil
+	return pid, nil
 }
 
 func provisionWorkerRoot(baseRunRootAbs, workerRootAbs string, recentRuns int) error {
