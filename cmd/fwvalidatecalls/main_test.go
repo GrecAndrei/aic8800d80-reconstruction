@@ -28,3 +28,14 @@ func TestComputeHoldoutConformance(t *testing.T) {
 		t.Fatalf("expected positive holdout averages: in=%.3f out=%.3f", h.InSample.AvgConformancePct, h.OutSample.AvgConformancePct)
 	}
 }
+
+func TestLoadComposedEvidenceMissingDir(t *testing.T) {
+	missing := t.TempDir() + "/does-not-exist"
+	ev, err := loadComposedEvidence(missing)
+	if err != nil {
+		t.Fatalf("loadComposedEvidence returned error for missing dir: %v", err)
+	}
+	if len(ev) != 0 {
+		t.Fatalf("expected empty evidence map for missing dir, got %d entries", len(ev))
+	}
+}

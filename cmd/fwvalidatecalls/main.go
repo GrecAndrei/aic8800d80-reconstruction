@@ -779,6 +779,9 @@ func loadComposedEvidence(dir string) (map[string][]string, error) {
 	absDir, _ := filepath.Abs(dir)
 	ents, err := os.ReadDir(absDir)
 	if err != nil {
+		if os.IsNotExist(err) {
+			return map[string][]string{}, nil
+		}
 		return nil, err
 	}
 	fnRe := regexp.MustCompile(`(?s)void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{(.*?)\n\}`)

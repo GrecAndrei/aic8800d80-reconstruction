@@ -176,13 +176,13 @@ func main() {
 		fail("load motif memory: %v", err)
 	}
 	contracts := finalizeContractReport{SchemaVersion: "0.1.0", GeneratedAt: time.Now().UTC().Format(time.RFC3339)}
+	finalizedOutputs := make(map[string]string)
 
 	for _, e := range ents {
 		if e.IsDir() || !strings.HasSuffix(e.Name(), ".reconstructed.c") {
 			continue
 		}
 		src := filepath.Join(appAbs, e.Name())
-		dst := filepath.Join(outAbs, e.Name())
 		b, err := os.ReadFile(src)
 		if err != nil {
 			fail("read %s: %v", src, err)
@@ -201,9 +201,7 @@ func main() {
 		if !match {
 			contracts.Violations++
 		}
-		if err := fileio.WriteBytes(dst, []byte(normalized)); err != nil {
-			fail("write %s: %v", dst, err)
-		}
+		finalizedOutputs[e.Name()] = normalized
 		funcBodies := fnRe.FindAllString(normalized, -1)
 		functions := len(funcBodies)
 		todos := len(todoRe.FindAll([]byte(normalized), -1))
@@ -260,6 +258,28 @@ func main() {
 		m.CompletionPct = round3((float64(m.ImplementedCount) / float64(m.FunctionCount)) * 100.0)
 		m.SemanticCompletionPct = round3((float64(m.StrongCount) / float64(m.FunctionCount)) * 100.0)
 	}
+	existing, hasExisting := loadExistingFinalizeManifest(outAbs)
+	if hasExisting && preferExistingFinalize(existing, m) {
+		fmt.Printf("finalized reconstruction retained existing output (regression guard).\n")
+		fmt.Printf("  existing_strong_count: %d\n", existing.StrongCount)
+		fmt.Printf("  candidate_strong_count: %d\n", m.StrongCount)
+		fmt.Printf("  existing_semantic_completion_pct: %.3f\n", existing.SemanticCompletionPct)
+		fmt.Printf("  candidate_semantic_completion_pct: %.3f\n", m.SemanticCompletionPct)
+		fmt.Printf("  out_dir: %s\n", outAbs)
+		return
+	}
+
+	files := make([]string, 0, len(finalizedOutputs))
+	for name := range finalizedOutputs {
+		files = append(files, name)
+	}
+	sort.Strings(files)
+	for _, name := range files {
+		dst := filepath.Join(outAbs, name)
+		if err := fileio.WriteBytes(dst, []byte(finalizedOutputs[name])); err != nil {
+			fail("write %s: %v", dst, err)
+		}
+	}
 
 	if err := fileio.WriteJSON(filepath.Join(outAbs, "finalize_manifest.json"), m); err != nil {
 		fail("write manifest: %v", err)
@@ -298,6 +318,50 @@ func main() {
 	fmt.Printf("  fallback_count: %d\n", m.FallbackCount)
 	fmt.Printf("  semantic_completion_pct: %.3f\n", m.SemanticCompletionPct)
 	fmt.Printf("  out_dir: %s\n", outAbs)
+}
+
+func loadExistingFinalizeManifest(outAbs string) (finalizeManifest, bool) {
+	path := filepath.Join(outAbs, "finalize_manifest.json")
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return finalizeManifest{}, false
+	}
+	var m finalizeManifest
+	if err := json.Unmarshal(b, &m); err != nil {
+		return finalizeManifest{}, false
+	}
+	if m.FunctionCount <= 0 {
+		return finalizeManifest{}, false
+	}
+	return m, true
+}
+
+func preferExistingFinalize(existing finalizeManifest, candidate finalizeManifest) bool {
+	if existing.FunctionCount != candidate.FunctionCount {
+		return false
+	}
+	if existing.StrongCount > candidate.StrongCount {
+		return true
+	}
+	if existing.StrongCount < candidate.StrongCount {
+		return false
+	}
+	if existing.SemanticCompletionPct > candidate.SemanticCompletionPct {
+		return true
+	}
+	if existing.SemanticCompletionPct < candidate.SemanticCompletionPct {
+		return false
+	}
+	if existing.ImplementedCount > candidate.ImplementedCount {
+		return true
+	}
+	if existing.ImplementedCount < candidate.ImplementedCount {
+		return false
+	}
+	if existing.FallbackCount < candidate.FallbackCount {
+		return true
+	}
+	return false
 }
 
 func applyCrossImageConsistency(qualities []functionQuality) {
