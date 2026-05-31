@@ -79,6 +79,18 @@ type holdoutConformance struct {
 	OutSample holdoutBucketMetrics `json:"out_of_sample"`
 }
 
+type conformanceReport struct {
+	SchemaVersion     string             `json:"schema_version"`
+	FinalDir          string             `json:"final_dir"`
+	CallEdgesPath     string             `json:"call_edges_path"`
+	MinConfidence     float64            `json:"min_confidence"`
+	FunctionCount     int                `json:"function_count"`
+	EvaluableCount    int                `json:"evaluable_count"`
+	AvgConformancePct float64            `json:"avg_conformance_pct"`
+	Holdout           holdoutConformance `json:"holdout"`
+	Rows              []row              `json:"rows"`
+}
+
 func main() {
 	var runRoot string
 	var finalDir string
@@ -310,18 +322,7 @@ func main() {
 	}
 	holdout := computeHoldoutConformance(rows, holdoutMod)
 
-	type report struct {
-		SchemaVersion     string             `json:"schema_version"`
-		FinalDir          string             `json:"final_dir"`
-		CallEdgesPath     string             `json:"call_edges_path"`
-		MinConfidence     float64            `json:"min_confidence"`
-		FunctionCount     int                `json:"function_count"`
-		EvaluableCount    int                `json:"evaluable_count"`
-		AvgConformancePct float64            `json:"avg_conformance_pct"`
-		Holdout           holdoutConformance `json:"holdout"`
-		Rows              []row              `json:"rows"`
-	}
-	rep := report{
+	rep := conformanceReport{
 		SchemaVersion:     "0.1.0",
 		FinalDir:          finalAbs,
 		CallEdgesPath:     callEdgesPath,
@@ -332,13 +333,19 @@ func main() {
 		Holdout:           holdout,
 		Rows:              rows,
 	}
-	if err := fileio.WriteJSON(outAbs, rep); err != nil {
-		fail("write report: %v", err)
+	retainedExisting := false
+	if existing, ok := loadExistingConformanceReport(outAbs); ok && preferExistingConformance(existing, rep) {
+		rep = existing
+		retainedExisting = true
+	} else {
+		if err := fileio.WriteJSON(outAbs, rep); err != nil {
+			fail("write report: %v", err)
+		}
 	}
 
 	low := 0
 	unknown := 0
-	for _, r := range rows {
+	for _, r := range rep.Rows {
 		if !r.EvidenceFound {
 			unknown++
 			continue
@@ -356,6 +363,61 @@ func main() {
 	fmt.Printf("  nonperfect_functions: %d\n", low)
 	fmt.Printf("  unevidenced_functions: %d\n", unknown)
 	fmt.Printf("  out_path: %s\n", outAbs)
+	if retainedExisting {
+		fmt.Printf("  retained_existing: true\n")
+	}
+}
+
+func loadExistingConformanceReport(path string) (conformanceReport, bool) {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return conformanceReport{}, false
+	}
+	var rep conformanceReport
+	if err := json.Unmarshal(b, &rep); err != nil {
+		return conformanceReport{}, false
+	}
+	if rep.FunctionCount <= 0 {
+		return conformanceReport{}, false
+	}
+	return rep, true
+}
+
+func nonperfectCount(rows []row) int {
+	count := 0
+	for _, r := range rows {
+		if !r.EvidenceFound || len(r.EmittedCalls) == 0 {
+			continue
+		}
+		if r.ConformancePct < 100.0 {
+			count++
+		}
+	}
+	return count
+}
+
+func preferExistingConformance(existing, candidate conformanceReport) bool {
+	if existing.FunctionCount != candidate.FunctionCount {
+		return false
+	}
+	if existing.AvgConformancePct > candidate.AvgConformancePct {
+		return true
+	}
+	if existing.AvgConformancePct < candidate.AvgConformancePct {
+		return false
+	}
+	existingLow := nonperfectCount(existing.Rows)
+	candidateLow := nonperfectCount(candidate.Rows)
+	if existingLow < candidateLow {
+		return true
+	}
+	if existingLow > candidateLow {
+		return false
+	}
+	if existing.EvaluableCount > candidate.EvaluableCount {
+		return true
+	}
+	return false
 }
 
 func computeHoldoutConformance(rows []row, splitMod int) holdoutConformance {

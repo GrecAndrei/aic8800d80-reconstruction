@@ -39,3 +39,21 @@ func TestLoadComposedEvidenceMissingDir(t *testing.T) {
 		t.Fatalf("expected empty evidence map for missing dir, got %d entries", len(ev))
 	}
 }
+
+func TestPreferExistingConformance(t *testing.T) {
+	existing := conformanceReport{
+		FunctionCount:     10,
+		EvaluableCount:    3,
+		AvgConformancePct: 100.0,
+		Rows: []row{{EvidenceFound: true, EmittedCalls: []string{"a"}, ConformancePct: 100.0}},
+	}
+	candidate := conformanceReport{
+		FunctionCount:     10,
+		EvaluableCount:    3,
+		AvgConformancePct: 80.0,
+		Rows: []row{{EvidenceFound: true, EmittedCalls: []string{"a"}, ConformancePct: 80.0}},
+	}
+	if !preferExistingConformance(existing, candidate) {
+		t.Fatalf("expected to prefer existing higher-conformance report")
+	}
+}
