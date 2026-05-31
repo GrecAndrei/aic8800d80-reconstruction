@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"aic8800d80/internal/reconstruct"
+)
 
 func TestPreferExistingFinalize(t *testing.T) {
 	tests := []struct {
@@ -42,5 +46,24 @@ func TestPreferExistingFinalize(t *testing.T) {
 				t.Fatalf("preferExistingFinalize() = %v, want %v", got, tc.want)
 			}
 		})
+	}
+}
+
+func TestClassifyQualityAllowsMotifLeafWithoutCalls(t *testing.T) {
+	desc := &reconstruct.FunctionDescriptor{}
+	desc.Motif.Family = "bounded_poll"
+	body := `void rf_hw_timer_init(void) {
+  volatile uint32_t *mmio = (volatile uint32_t *)(uintptr_t)0x40000000U;
+  uint32_t wait = 64U;
+  while (wait-- > 0U) {
+    uint32_t status = mmio[0];
+    if ((status & 1U) != 0U) {
+      break;
+    }
+  }
+}`
+	q := classifyQuality("x.c", "rf_hw_timer_init", body, nil, nil, desc, nil)
+	if q.Risk == "high" {
+		t.Fatalf("expected motif leaf bounded wait to avoid high risk, got %q reasons=%v", q.Risk, q.Reasons)
 	}
 }

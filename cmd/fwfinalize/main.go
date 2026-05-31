@@ -476,6 +476,9 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 		} else if isStructuredLeafBody(body) {
 			q.Risk = "low"
 			q.Reasons = append(q.Reasons, "structured_leaf_no_outgoing")
+		} else if desc != nil && (desc.Motif.Family == "register_commit" || desc.Motif.Family == "bounded_poll" || desc.Motif.Family == "staged_mmio_transfer") && bodyMatchesDescriptorMotif(body, desc.Motif.Family) {
+			q.Risk = "medium"
+			q.Reasons = append(q.Reasons, "descriptor_motif_leaf_no_outgoing")
 		}
 	}
 	if strings.HasPrefix(name, "sub_") {
@@ -535,6 +538,9 @@ func classifyQuality(file, name, body string, calls []string, evidenceHints map[
 			if !bodyHasBoundedWait(body) {
 				q.Risk = "high"
 				q.Reasons = append(q.Reasons, "capped_probe_phenotype_without_bounded_wait")
+			} else if q.Risk == "high" {
+				q.Risk = "medium"
+				q.Reasons = append(q.Reasons, "bounded_wait_pattern_present")
 			}
 		case "shallow_wrapper":
 			if len(calls) <= 1 && !isStructuredLeafBody(body) {
