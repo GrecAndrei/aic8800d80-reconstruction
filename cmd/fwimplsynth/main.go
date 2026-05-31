@@ -581,6 +581,8 @@ func run() error {
 			motifMem = motifMemory.Lookup(desc.Motif.Family)
 		}
 		incoming, outgoing := edgesForTask(t, inAdj, outAdj, inByName, outByName)
+		cfg := cfgForTask(t, cfgByAddr, cfgByName)
+		pseudo := pseudoForTask(t, pseudoByAddr, pseudoByName)
 		sort.Slice(outgoing, func(a, b int) bool { return outgoing[a].Confidence > outgoing[b].Confidence })
 		aggressive := allowSyntheticInference(t.Function, incoming, outgoing)
 		source := "observed_outgoing"
@@ -643,10 +645,24 @@ func run() error {
 			selected = inferFromDescriptorNeighbors(t, desc)
 			source = "descriptor_neighbors"
 		}
+		if len(selected) == 0 && aggressive {
+			selected = inferFromPseudoHints(t, pseudo, minConf, fallbackMinConf)
+			source = "pseudocode_hints"
+		}
+		if len(selected) > 0 && desc != nil && shouldBypassGenericIncoming(desc, selected) {
+			if pseudoSelected := inferFromPseudoHints(t, pseudo, minConf, fallbackMinConf); len(pseudoSelected) > 0 {
+				selected = pseudoSelected
+				source = "pseudocode_hints"
+			}
+		}
 		fn := sanitizeName(t.Function)
 		selected, unsupportedCE, missingCE := applyCounterexampleConstraints(selected, conformanceConstraints[fn], minConf, counterexampleInjectMax)
-		cfg := cfgForTask(t, cfgByAddr, cfgByName)
-		pseudo := pseudoForTask(t, pseudoByAddr, pseudoByName)
+		if len(selected) == 0 && aggressive {
+			if pseudoSelected := inferFromPseudoHints(t, pseudo, minConf, fallbackMinConf); len(pseudoSelected) > 0 {
+				selected = pseudoSelected
+				source = "pseudocode_hints"
+			}
+		}
 		if desc != nil && desc.Behavior.Role != "" && t.BehaviorRole == "" {
 			t.BehaviorRole = desc.Behavior.Role
 		}
@@ -6597,6 +6613,84 @@ func inferFromDescriptorNeighbors(task implTask, desc *reconstruct.FunctionDescr
 		}
 	}
 	return out
+}
+
+func inferFromPseudoHints(task implTask, pseudo *pseudoHint, minConf float64, fallbackMinConf float64) []callEdge {
+	if pseudo == nil || len(pseudo.CallNames) == 0 {
+		return nil
+	}
+	self := sanitizeName(task.Function)
+	deny := map[string]struct{}{
+		"unknown":     {},
+		"hidword":     {},
+		"lobyte":      {},
+		"hibyte":      {},
+		"word1":       {},
+		"byte1":       {},
+		"byte2":       {},
+		"byte3":       {},
+		"__get_cpsr":  {},
+		"__set_cpsr":  {},
+		"__disable_irq": {},
+		"__enable_irq":  {},
+		"get_cpsr":    {},
+		"set_cpsr":    {},
+		"disable_irq": {},
+		"enable_irq":  {},
+	}
+	out := make([]callEdge, 0, minInt(8, len(pseudo.CallNames)))
+	seen := map[string]struct{}{}
+	for _, raw := range pseudo.CallNames {
+		n := sanitizeName(raw)
+		if n == "" || n == self {
+			continue
+		}
+		if _, blocked := deny[n]; blocked {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		conf := minConf
+		if strings.HasPrefix(n, "sub_") {
+			conf = fallbackMinConf
+		}
+		if conf <= 0 {
+			conf = 0.2
+		}
+		out = append(out, callEdge{TargetName: n, Confidence: conf})
+		if len(out) >= 8 {
+			break
+		}
+	}
+	return out
+}
+
+func shouldBypassGenericIncoming(desc *reconstruct.FunctionDescriptor, selected []callEdge) bool {
+	if desc == nil || len(selected) == 0 {
+		return false
+	}
+	motif := strings.ToLower(strings.TrimSpace(desc.Motif.Family))
+	if motif != "register_commit" && motif != "bounded_poll" && motif != "staged_mmio_transfer" {
+		return false
+	}
+	generic := map[string]struct{}{
+		"ke_evt_schedule": {},
+		"msg_parse":       {},
+		"msg_parse_thunk": {},
+		"msg_handler_tx":  {},
+	}
+	for _, e := range selected {
+		n := sanitizeName(nonEmpty(e.TargetName, ""))
+		if n == "" {
+			continue
+		}
+		if _, ok := generic[n]; !ok {
+			return false
+		}
+	}
+	return true
 }
 
 func shouldPreferHardwareDescriptorEmitter(desc *reconstruct.FunctionDescriptor) bool {
