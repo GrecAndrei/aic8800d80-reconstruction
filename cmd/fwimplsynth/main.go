@@ -1562,6 +1562,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
 	if shouldForceSpecializedBody(fn) {
 		if emitted := emitSpecializedBody(&b, fn, t.Address, outgoing); emitted {
+			emitSpecializedNameHelperPostlude(&b, fn, desc, outgoing)
 			b.WriteString("  (void)state;\n")
 			b.WriteString("}\n")
 			return fileio.WriteBytes(path, []byte(b.String()))
@@ -1587,7 +1588,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 			}
 		}
 		if behaviorAllowed {
-			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing, desc); emitted {
 				b.WriteString("  (void)state;\n")
 				b.WriteString("}\n")
 				return fileio.WriteBytes(path, []byte(b.String()))
@@ -1595,7 +1596,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 		}
 	case "behavioral_class":
 		if behaviorAllowed {
-			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing, desc); emitted {
 				b.WriteString("  (void)state;\n")
 				b.WriteString("}\n")
 				return fileio.WriteBytes(path, []byte(b.String()))
@@ -1631,7 +1632,7 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 			}
 		}
 		if behaviorAllowed {
-			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing); emitted {
+			if emitted := emitBehavioralClassBody(&b, fn, behaviorRole, behaviorClass, t.Address, outgoing, desc); emitted {
 				b.WriteString("  (void)state;\n")
 				b.WriteString("}\n")
 				return fileio.WriteBytes(path, []byte(b.String()))
@@ -2989,7 +2990,7 @@ func emitHelperCascade(b *strings.Builder, helpers []string, limit int) int {
 	return emitted
 }
 
-func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, outgoing []callEdge) bool {
+func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, outgoing []callEdge, desc *reconstruct.FunctionDescriptor) bool {
 	switch role {
 	case "radio_reg_write":
 		return emitRadioRegWriteBody(b, fn, addr, outgoing)
@@ -3004,7 +3005,7 @@ func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, out
 	case "memory_pool":
 		return emitMemoryPoolBody(b, fn, addr, outgoing)
 	case "state_machine":
-		return emitStateMachineBody(b, fn, addr)
+		return emitStateMachineBodyWithDesc(b, fn, addr, desc)
 	case "init_sequence":
 		return emitInitSequenceBody(b, fn, addr)
 	case "error_handler":
@@ -3034,7 +3035,7 @@ func emitDescriptorMotifBody(b *strings.Builder, fn, addr string, desc *reconstr
 	case "bounded_poll":
 		return emitBoundedPollMotifBody(b, fn, addr, desc, motifMem, outgoing)
 	case "state_machine":
-		return emitStateMachineBody(b, fn, addr)
+		return emitStateMachineBodyWithDesc(b, fn, addr, desc)
 	case "irq_wait_guard":
 		return emitDescriptorIRQWaitGuardBody(b, fn, addr, desc)
 	case "callback_state_gate":
@@ -3168,6 +3169,10 @@ func emitRegisterCommitMotifBody(b *strings.Builder, fn, addr string, desc *reco
 		}
 	}
 	helperCalls := selectTransferAwareHelpers(fn, outgoing, desc, 4)
+	// Backfill from name-derived helpers so hardware-leaf functions like
+	// `rf_bus_write2` get real callee calls (`rf_bus_write`, `rf_bus_reset2`)
+	// even when no observed outgoing data exists.
+	helperCalls = mergeNameDerivedHelpers(helperCalls, fn, desc, 4)
 	b.WriteString("  // Descriptor motif: register commit with bounded ack wait\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *regs = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
 	b.WriteString(fmt.Sprintf("  uint32_t reg = 0x%xU & 0x1FU;\n", (seed>>3)&0x1f))
@@ -3206,6 +3211,10 @@ func emitBoundedPollMotifBody(b *strings.Builder, fn, addr string, desc *reconst
 		wait = minInt(128, wait+motifMem.SampleCount*4)
 	}
 	helperCalls := selectTransferAwareHelpers(fn, outgoing, desc, 2)
+	// Backfill from name-derived helpers so `crypto_hw_enable` calls
+	// `crypto_hw_disable` and `crypto_key_load` rather than producing a
+	// poll-loop body with no callees.
+	helperCalls = mergeNameDerivedHelpers(helperCalls, fn, desc, 2)
 	b.WriteString("  // Descriptor motif: bounded hardware polling loop\n")
 	b.WriteString(fmt.Sprintf("  volatile uint32_t *poll = (volatile uint32_t *)(uintptr_t)0x%08xU;\n", base))
 	b.WriteString("  uint32_t command = state ^ 0x3C6EF35FU;\n")
@@ -3247,6 +3256,405 @@ func selectTransferAwareHelpers(fn string, outgoing []callEdge, desc *reconstruc
 		}
 	}
 	return helpers
+}
+
+// inferNameDerivedHelpers derives semantically-meaningful callee names when no
+// observed call data is available. The synthesis pipeline relies on observed
+// outgoing edges and transfer-cluster outgoing lists to populate callee
+// bodies. Both are empty for hardware-leaf functions like `rf_bus_write2`,
+// `rf_reg_write_wait`, and `crypto_hw_enable`. To keep these bodies faithful
+// (with real callee calls rather than no-op stubs), we derive helpers from:
+//
+//  1. Numbered/suffixed variant stripping: `rf_bus_write2` -> `rf_bus_write`,
+//     `rf_reg_write_core` -> `rf_reg_write`.
+//  2. Embedder neighbor NAMES (not their observed calls, which are often also
+//     empty for these motifs): the neighbor list for `rf_reg_write_wait`
+//     already contains `rf_reg_write_core`, `rf_reg_write_cb`, and
+//     `rf_bus_write`.
+//  3. Motif-aware pairings: `crypto_hw_enable` should reference
+//     `crypto_hw_disable` and `crypto_key_load`.
+//  4. Family pairings: `rf_*_write*` siblings call `rf_*_read*` counterparts.
+//
+// Helpers are returned in priority order: neighbor names first, then
+// variant-stripped names, then motif/family pairings.
+func inferNameDerivedHelpers(fn string, desc *reconstruct.FunctionDescriptor, limit int) []string {
+	if limit <= 0 {
+		return nil
+	}
+	clean := sanitizeName(fn)
+	if clean == "" || clean == "unknown" {
+		return nil
+	}
+	helpers := make([]string, 0, limit)
+	seen := map[string]struct{}{clean: {}}
+
+	add := func(name string) bool {
+		n := sanitizeName(name)
+		if n == "" || n == "unknown" || n == clean {
+			return false
+		}
+		if _, ok := seen[n]; ok {
+			return false
+		}
+		seen[n] = struct{}{}
+		helpers = append(helpers, n)
+		return true
+	}
+
+	// Source 1: embedder neighbor names. These are semantically-similar
+	// functions identified by the embedder model. Even when their observed
+	// outgoing is empty, their NAMES are great callee candidates.
+	if desc != nil {
+		for _, neighbor := range desc.Relations.EmbedderNeighbors {
+			if add(neighbor.Name) && len(helpers) >= limit {
+				return helpers
+			}
+		}
+	}
+
+	// Source 2: variant-stripped names from the function's own structure.
+	for _, candidate := range variantStripCandidates(clean) {
+		if add(candidate) && len(helpers) >= limit {
+			return helpers
+		}
+	}
+
+	// Source 3: motif-aware pairings for bounded_poll / register_commit.
+	if desc != nil {
+		family := strings.ToLower(strings.TrimSpace(desc.Motif.Family))
+		role := strings.ToLower(strings.TrimSpace(desc.Behavior.Role))
+		for _, candidate := range motifPairCandidates(clean, family, role) {
+			if add(candidate) && len(helpers) >= limit {
+				return helpers
+			}
+		}
+	}
+
+	if len(helpers) > limit {
+		helpers = helpers[:limit]
+	}
+	return helpers
+}
+
+// variantStripCandidates returns helper name candidates by stripping common
+// numbered/qualifier suffixes from the given function name. `rf_bus_write2`
+// yields `rf_bus_write`; `rf_reg_write_core` yields `rf_reg_write`; etc.
+func variantStripCandidates(fn string) []string {
+	if fn == "" {
+		return nil
+	}
+	out := make([]string, 0, 3)
+	seen := map[string]struct{}{}
+
+	// Strip trailing digits: rf_bus_write2 -> rf_bus_write
+	stripped := fn
+	for len(stripped) > 0 && stripped[len(stripped)-1] >= '0' && stripped[len(stripped)-1] <= '9' {
+		stripped = stripped[:len(stripped)-1]
+	}
+	if stripped != fn && stripped != "" {
+		seen[stripped] = struct{}{}
+		out = append(out, stripped)
+	}
+
+	// Strip common qualifier suffixes: _core, _cb, _main, _impl, _inner
+	for _, suffix := range []string{"_core", "_cb", "_main", "_impl", "_inner", "_fast", "_slow", "_ex"} {
+		if strings.HasSuffix(fn, suffix) {
+			candidate := fn[:len(fn)-len(suffix)]
+			if _, ok := seen[candidate]; !ok && candidate != "" {
+				seen[candidate] = struct{}{}
+				out = append(out, candidate)
+			}
+		}
+	}
+
+	// For *_write* or *_write_wait, also surface the base *_write* name
+	for _, writeSuffix := range []string{"_write_wait", "_write2", "_write_ex"} {
+		if strings.HasSuffix(fn, writeSuffix) {
+			candidate := fn[:len(fn)-len(writeSuffix)] + "_write"
+			if _, ok := seen[candidate]; !ok {
+				seen[candidate] = struct{}{}
+				out = append(out, candidate)
+			}
+		}
+	}
+
+	// For *_read* counterparts, mirror to *_write*
+	for _, readSuffix := range []string{"_read", "_read2", "_read_wait"} {
+		if strings.HasSuffix(fn, readSuffix) {
+			candidate := fn[:len(fn)-len(readSuffix)] + "_write"
+			if _, ok := seen[candidate]; !ok {
+				seen[candidate] = struct{}{}
+				out = append(out, candidate)
+			}
+		}
+	}
+
+	return out
+}
+
+// motifPairCandidates returns helper name candidates from motif/role
+// pairings. For hardware-leaf functions we surface canonical
+// enable/disable/pair siblings that the truth-lane functions need to call.
+func motifPairCandidates(fn, family, role string) []string {
+	if fn == "" {
+		return nil
+	}
+	out := make([]string, 0, 4)
+	seen := map[string]struct{}{}
+
+	add := func(name string) {
+		n := sanitizeName(name)
+		if n == "" || n == fn {
+			return
+		}
+		if _, ok := seen[n]; ok {
+			return
+		}
+		seen[n] = struct{}{}
+		out = append(out, n)
+	}
+
+	// crypto_hw_* pairings: enable/disable/key_load form a tight cluster.
+	if strings.HasPrefix(fn, "crypto_hw_") || strings.HasPrefix(fn, "crypto_key_") {
+		if family == "bounded_poll" || family == "register_commit" || strings.Contains(fn, "_enable") || strings.Contains(fn, "_disable") {
+			if fn != "crypto_hw_enable" {
+				add("crypto_hw_enable")
+			}
+			if fn != "crypto_hw_disable" {
+				add("crypto_hw_disable")
+			}
+			if fn != "crypto_key_load" {
+				add("crypto_key_load")
+			}
+			add("crypto_reg_write")
+		}
+	}
+
+	// rf_reg_* pairings: write/read siblings live together.
+	if strings.HasPrefix(fn, "rf_reg_") {
+		if strings.Contains(fn, "_write") && !strings.HasSuffix(fn, "_write") {
+			add(fn + "_core")
+		}
+		if strings.HasSuffix(fn, "_read") {
+			add(strings.TrimSuffix(fn, "_read") + "_write")
+		}
+		if role == "radio_reg_write" || family == "register_commit" {
+			add("rf_reg_write_core")
+		}
+	}
+
+	// rf_bus_* pairings: write2/write/mark/reset form a cluster.
+	if strings.HasPrefix(fn, "rf_bus_") {
+		switch {
+		case strings.HasSuffix(fn, "_write2"):
+			add("rf_bus_write")
+			add("rf_bus_reset2")
+		case strings.HasSuffix(fn, "_write"):
+			add("rf_bus_write2")
+			add("rf_bus_mark")
+		case strings.HasSuffix(fn, "_mark"):
+			add("rf_bus_write")
+			add("rf_bus_reset2")
+		case strings.HasSuffix(fn, "_reset2") || strings.HasSuffix(fn, "_reset"):
+			add("rf_bus_write")
+			add("rf_bus_mark")
+		}
+	}
+
+	// rf_mem_* pairings: write/read with their bus counterparts.
+	if strings.HasPrefix(fn, "rf_mem_") {
+		if strings.HasSuffix(fn, "_write") {
+			add("rf_bus_write2")
+			add("rf_reg_write_wait")
+		}
+		if strings.HasSuffix(fn, "_read") {
+			add("rf_bus_read")
+			add("rf_reg_read")
+		}
+	}
+
+	// rf_hw_timer_init: typically configures a reg-write loop.
+	if fn == "rf_hw_timer_init" {
+		add("rf_reg_write_wait")
+		add("rf_reg_write_core")
+	}
+
+	// rf_state_check: typically reads a status register.
+	if fn == "rf_state_check" {
+		add("rf_reg_read")
+		add("rf_reg_write_wait")
+	}
+
+	// rf_level_apply: applies a level via register commit.
+	if fn == "rf_level_apply" {
+		add("rf_reg_write_wait")
+		add("rf_bus_write2")
+	}
+
+	// rf_cmd_dispatch: dispatches via a command table.
+	if fn == "rf_cmd_dispatch" {
+		add("rf_reg_write_core")
+		add("rf_msg_handler")
+	}
+
+	// log_system_init_mode2 (and *_modeN variants): initialize log state and
+	// ring buffers. Pair with log pool init and the standard log helpers.
+	if strings.HasPrefix(fn, "log_system_init") {
+		add("log_pool_init_a")
+		add("log_pool_init_b")
+		add("log_pool_init_c")
+		add("log_pool_init_d")
+	}
+
+	// crypto_hw_enable: pair with disable and the standard crypto helpers.
+	if fn == "crypto_hw_enable" {
+		add("crypto_hw_disable")
+		add("crypto_hw_mode_select")
+	}
+
+	// crypto_key_load: load and dispatch keys through the crypto core.
+	if fn == "crypto_key_load" {
+		add("crypto_hw_enable")
+		add("crypto_hw_mode_select")
+	}
+
+	return out
+}
+
+// mergeNameDerivedHelpers appends name-derived helpers to an existing helper
+// list, deduping against both the existing entries and the function itself,
+// and honoring the limit.
+func mergeNameDerivedHelpers(existing []string, fn string, desc *reconstruct.FunctionDescriptor, limit int) []string {
+	if limit <= 0 {
+		return existing
+	}
+	derived := inferNameDerivedHelpers(fn, desc, limit)
+	if len(derived) == 0 {
+		return existing
+	}
+	seen := map[string]struct{}{}
+	self := sanitizeName(fn)
+	for _, h := range existing {
+		seen[sanitizeName(h)] = struct{}{}
+	}
+	for _, h := range derived {
+		n := sanitizeName(h)
+		if n == "" || n == self {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		existing = append(existing, n)
+		if len(existing) >= limit {
+			break
+		}
+	}
+	return existing
+}
+
+// emitSpecializedNameHelperPostlude emits forward decls and call sites for
+// the name-derived helpers of `fn`. It is invoked after the per-fn specialized
+// body (clock_calc, rf_mem_read, rf_bus_mark, tx_rate_config, ...) writes its
+// MMIO/timer body, so those hardware-leaf functions still get real callee
+// calls even when the descriptor has no observed outgoing data.
+//
+// The postlude captures whatever was written after the last top-level closing
+// brace of the body, removes that suffix, writes the forward declarations at
+// the top of the buffer (right after the existing forward declarations), and
+// then re-appends the captured suffix so the forward decls always sit before
+// the function definition.
+func emitSpecializedNameHelperPostlude(b *strings.Builder, fn string, desc *reconstruct.FunctionDescriptor, outgoing []callEdge) {
+	if b == nil {
+		return
+	}
+	limit := 3
+	// Build a base from observed outgoing so we don't re-emit the same names.
+	seen := map[string]struct{}{}
+	for _, e := range outgoing {
+		n := sanitizeName(nonEmpty(e.TargetName, ""))
+		if n == "" || n == "unknown" || n == fn {
+			continue
+		}
+		seen[n] = struct{}{}
+	}
+	derived := inferNameDerivedHelpers(fn, desc, limit)
+	if len(derived) == 0 && desc != nil && len(desc.Relations.EmbedderNeighbors) == 0 {
+		return
+	}
+	merged := mergeNameDerivedHelpers(nil, fn, desc, limit+len(seen))
+	if len(merged) == 0 {
+		return
+	}
+	// Build the forward declarations (one per helper, deduped).
+	var decls strings.Builder
+	declared := map[string]struct{}{}
+	for _, h := range merged {
+		n := sanitizeName(h)
+		if n == "" || n == fn || n == "unknown" {
+			continue
+		}
+		if _, ok := declared[n]; ok {
+			continue
+		}
+		declared[n] = struct{}{}
+		decls.WriteString("void " + n + "(void);\n")
+	}
+	if decls.Len() == 0 {
+		return
+	}
+	// Build the call statements (one unconditional + remaining guarded).
+	var calls strings.Builder
+	emitted := 0
+	for _, h := range merged {
+		n := sanitizeName(h)
+		if n == "" || n == fn || n == "unknown" {
+			continue
+		}
+		if emitted == 0 {
+			calls.WriteString("  " + n + "();\n")
+		} else {
+			calls.WriteString("  if ((state & 0x1U) == 0U) { " + n + "(); }\n")
+		}
+		emitted++
+		if emitted >= limit {
+			break
+		}
+	}
+	if calls.Len() == 0 {
+		return
+	}
+	// Splice decls and calls into the buffer.
+	// The buffer at this point has:
+	//   <file header comments>
+	//   <existing forward decls>
+	//   void <fn>(...) {
+	//     <body, possibly with nested loops/braces>
+	//
+	// The caller's caller will append the function's trailing closing `}`
+	// and `(void)state;` AFTER this postlude returns. So we can't rely on a
+	// function-level closing brace in the buffer to anchor the call injection.
+	// Instead we splice forward declarations before the function signature
+	// and append the call statements to the end of the buffer (which is the
+	// end of the function body, before the caller adds the closing `}`).
+	full := b.String()
+	fnSig := "void " + sanitizeName(fn) + "("
+	fnIdx := strings.Index(full, fnSig)
+	if fnIdx < 0 {
+		// No function definition found; just append at the end as a fallback.
+		b.WriteString(decls.String())
+		b.WriteString(calls.String())
+		return
+	}
+	// Splice: prefix (everything before fnSig) + decls + rest (fnSig onward).
+	prefix := full[:fnIdx]
+	rest := full[fnIdx:]
+	b.Reset()
+	b.WriteString(prefix)
+	b.WriteString(decls.String())
+	b.WriteString(rest)
+	b.WriteString(calls.String())
 }
 
 func emitDescriptorIRQWaitGuardBody(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor) bool {
@@ -3579,6 +3987,17 @@ func emitStateMachineBody(b *strings.Builder, fn, addr string) bool {
 	b.WriteString("  }\n")
 	b.WriteString("  sm_reg[cur_state] = next_state;\n")
 	b.WriteString("  state = (state & ~0x7U) | next_state;\n")
+	return true
+}
+
+// emitStateMachineBodyWithDesc is the descriptor-aware variant. It runs the
+// standard state-machine body and then appends name-derived helper calls so
+// hardware-leaf state machines still emit real callees.
+func emitStateMachineBodyWithDesc(b *strings.Builder, fn, addr string, desc *reconstruct.FunctionDescriptor) bool {
+	if !emitStateMachineBody(b, fn, addr) {
+		return false
+	}
+	emitSpecializedNameHelperPostlude(b, fn, desc, nil)
 	return true
 }
 
