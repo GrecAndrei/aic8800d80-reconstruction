@@ -199,6 +199,63 @@ func TestMergeNameDerivedHelpersDedup(t *testing.T) {
 	}
 }
 
+func TestSpliceHelperForwardDeclsInsertsBeforeSignature(t *testing.T) {
+	var b strings.Builder
+	b.WriteString("/* header */\n")
+	b.WriteString("#include <stdint.h>\n\n")
+	b.WriteString("void rf_cmd_wait(void);\n\n")
+	b.WriteString("void rf_bus_write2(void) {\n")
+	b.WriteString("  uint32_t state = 0;\n")
+	b.WriteString("  rf_bus_write();\n")
+	b.WriteString("  rf_mem_write();\n")
+	b.WriteString("}\n")
+	spliceHelperForwardDecls(&b, []string{"rf_bus_write", "rf_mem_write", "rf_bus_write2"}, 4)
+	got := b.String()
+	// rf_bus_write and rf_mem_write decls must appear.
+	if !strings.Contains(got, "void rf_bus_write(void);") {
+		t.Errorf("expected rf_bus_write forward decl, got:\n%s", got)
+	}
+	if !strings.Contains(got, "void rf_mem_write(void);") {
+		t.Errorf("expected rf_mem_write forward decl, got:\n%s", got)
+	}
+	// rf_bus_write2 is the function itself; must not appear as a forward decl.
+	lines := strings.Split(got, "\n")
+	for _, l := range lines {
+		if strings.TrimSpace(l) == "void rf_bus_write2(void);" {
+			t.Errorf("fn itself must not be added as forward decl: %q", l)
+		}
+	}
+	// Existing rf_cmd_wait must NOT be duplicated.
+	count := 0
+	for _, l := range lines {
+		if strings.TrimSpace(l) == "void rf_cmd_wait(void);" {
+			count++
+		}
+	}
+	if count != 1 {
+		t.Errorf("rf_cmd_wait must appear exactly once, got %d", count)
+	}
+	// All new decls must come BEFORE the function signature.
+	idxFn := strings.Index(got, "void rf_bus_write2(void) {")
+	for _, h := range []string{"rf_bus_write", "rf_mem_write"} {
+		needle := "void " + h + "(void);"
+		idx := strings.Index(got, needle)
+		if idx < 0 || idx > idxFn {
+			t.Errorf("decl %s must come before function signature, got idx=%d fnIdx=%d", needle, idx, idxFn)
+		}
+	}
+}
+
+func TestSpliceHelperForwardDeclsEmptyHelpersNoOp(t *testing.T) {
+	var b strings.Builder
+	b.WriteString("void foo(void) {}\n")
+	before := b.String()
+	spliceHelperForwardDecls(&b, nil, 4)
+	if b.String() != before {
+		t.Errorf("expected no change with nil helpers, got:\n%s", b.String())
+	}
+}
+
 func containsString(xs []string, want string) bool {
 	for _, x := range xs {
 		if x == want {

@@ -2987,7 +2987,82 @@ func emitHelperCascade(b *strings.Builder, helpers []string, limit int) int {
 		}
 		emitted++
 	}
+	if emitted > 0 && b != nil {
+		spliceHelperForwardDecls(b, helpers, limit)
+	}
 	return emitted
+}
+
+// spliceHelperForwardDecls inserts `void <h>(void);` declarations for each
+// helper before the function signature in the buffer. Motif and behavioral
+// body emitters call this (transitively via emitHelperCascade) so that any
+// callee referenced in the body is also declared at file scope, which lets
+// the bundled C output compile cleanly without implicit-declaration warnings.
+//
+// The splice is idempotent: existing forward decls in the buffer are detected
+// and skipped, and helpers equal to `fn` itself are filtered out.
+func spliceHelperForwardDecls(b *strings.Builder, helpers []string, limit int) {
+	if b == nil || len(helpers) == 0 {
+		return
+	}
+	full := b.String()
+	// Find the function definition: a `void <name>(...)` line that is followed
+	// by `{` (not `;`). We iterate candidate `void <name>(` matches and pick
+	// the first whose `(` is matched by a `)` followed by `{` (allowing ws).
+	fnRe := regexp.MustCompile(`(?m)^void\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(`)
+	matches := fnRe.FindAllStringSubmatchIndex(full, -1)
+	var fn string
+	var fnIdx int
+	for _, m := range matches {
+		// m[2:4] is the name group span.
+		name := full[m[2]:m[3]]
+		// Look at what follows the closing paren: must be `{`, not `;`.
+		closeParen := strings.Index(full[m[1]:], ")")
+		if closeParen < 0 {
+			continue
+		}
+		after := full[m[1]+closeParen+1:]
+		trimmed := strings.TrimLeft(after, " \t\n")
+		if strings.HasPrefix(trimmed, "{") {
+			fn = name
+			fnIdx = m[0]
+			break
+		}
+	}
+	if fn == "" {
+		return
+	}
+	if limit > 0 && len(helpers) > limit {
+		helpers = helpers[:limit]
+	}
+	// Build decls, skipping any that already appear as forward decls in the
+	// buffer (the motif header often includes one of them).
+	seen := map[string]struct{}{}
+	for _, m := range regexp.MustCompile(`(?m)^void\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*\)\s*;\s*$`).FindAllStringSubmatch(full, -1) {
+		seen[m[1]] = struct{}{}
+	}
+	var decls strings.Builder
+	for _, h := range helpers {
+		n := sanitizeName(h)
+		if n == "" || n == fn || n == "unknown" {
+			continue
+		}
+		if _, ok := seen[n]; ok {
+			continue
+		}
+		seen[n] = struct{}{}
+		decls.WriteString("void " + n + "(void);\n")
+	}
+	if decls.Len() == 0 {
+		return
+	}
+	// Splice decls before the function signature.
+	prefix := full[:fnIdx]
+	rest := full[fnIdx:]
+	b.Reset()
+	b.WriteString(prefix)
+	b.WriteString(decls.String())
+	b.WriteString(rest)
 }
 
 func emitBehavioralClassBody(b *strings.Builder, fn, role, cls, addr string, outgoing []callEdge, desc *reconstruct.FunctionDescriptor) bool {
