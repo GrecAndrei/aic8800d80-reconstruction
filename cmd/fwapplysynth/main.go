@@ -288,6 +288,13 @@ func applyBodies(src string, bodies map[string]string) (string, int, []string) {
 		fn := m[1]
 		b, ok := bodies[fn]
 		if !ok {
+			if base := baseVariantName(fn); base != fn {
+				if bb, ok2 := bodies[base]; ok2 {
+					b, ok = bb, true
+				}
+			}
+		}
+		if !ok {
 			return match
 		}
 		if bm := bodyFnRe.FindStringSubmatch(b); len(bm) == 2 && bm[1] != fn {

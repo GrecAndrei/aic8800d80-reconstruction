@@ -168,3 +168,30 @@ func TestApplyBodiesReplacesBaseNameFromVariantSynth(t *testing.T) {
 		t.Fatalf("base name should appear in output, got:\n%s", out)
 	}
 }
+
+func TestApplyBodiesReplacesVariantFromBaseSynth(t *testing.T) {
+	src := `void rf_bus_mark_n_456(void) {
+  // TODO: integrate control/data flow.
+}
+void rf_bus_mark_n_221(void) {
+  // TODO: integrate control/data flow.
+}
+`
+	body := `void rf_bus_mark(void) {
+  rf_cmd_wait();
+}
+`
+	out, count, _ := applyBodies(src, map[string]string{"rf_bus_mark": body})
+	if count != 2 {
+		t.Fatalf("expected 2 variant replacements from base body, got %d", count)
+	}
+	if !strings.Contains(out, "void rf_bus_mark_n_456(void)") {
+		t.Fatalf("variant n_456 should keep its name, got:\n%s", out)
+	}
+	if !strings.Contains(out, "void rf_bus_mark_n_221(void)") {
+		t.Fatalf("variant n_221 should keep its name, got:\n%s", out)
+	}
+	if strings.Contains(out, "TODO") {
+		t.Fatalf("no TODOs should remain, got:\n%s", out)
+	}
+}
