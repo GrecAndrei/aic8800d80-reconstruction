@@ -1,0 +1,14 @@
+# tier|status|tarball|file_id
+truth_lane_eval|UPLOADED|/tmp/opencode/upload_staging/truth_lane_eval.tar.gz|1VLJ9_r3_h3ViLUVyWFPclMAeMUOhX8Ku
+recon_top|UPLOADED|/tmp/opencode/upload_staging/recon_top.tar.gz|1C5LPf3MonSVYhSR1B4HdTdHheTWdec2V
+mega_embed|UPLOADED|/tmp/opencode/upload_staging/mega_embed.tar.gz|1qic9muzT1O0_P4T49ZnLP4h0zoEL_gWe
+mega7|UPLOADED|/tmp/opencode/upload_staging/mega7.tar.gz|1vc2fCy1YcW-NiYPWg_8yhq_iUmbm4n7j
+mega7_p1|UPLOADED|/tmp/opencode/upload_staging/mega7_p1.tar.gz|1G3OB1lPsJYHU9d73t3XupONdNn4nB6OU
+mega7_p2|UPLOADED|/tmp/opencode/upload_staging/mega7_p2.tar.gz|1vLmAB9Tppj9slhyvarmudp9GIytgOpp_
+ida_jobs|UPLOADED|/tmp/opencode/upload_staging/ida_jobs.tar.gz|1kCHoM92pCatlpo7Hf7-pKKV4vQEvLYtv
+fleet_mega7_parallel_20260528T0139Z|UPLOADED|/tmp/opencode/upload_staging/fleet_mega7_parallel_20260528T0139Z.tar.gz|106mT4TcsngulJ5ttHwR-ZHw4FAjQD-u0
+fleet_mega7_parallel_breaker_20260528T2010Z|UPLOADED|/tmp/opencode/upload_staging/fleet_mega7_parallel_breaker_20260528T2010Z.tar.gz|1zb52v6L0ext_NfWrk9c5LCYGEtmamYUp
+fleet_mega7_parallel_roles16_20260528T2010Z|UPLOADED|/tmp/opencode/upload_staging/fleet_mega7_parallel_roles16_20260528T2010Z.tar.gz|1z9EeASYtzETF3SeMFsDcbhkXLexAXlmz
+truth_lane_state|UPLOADED|/tmp/opencode/upload_staging/truth_lane_state.tar.gz|1mqFkqCW7lBLbf_2rl4btOiz8RCQ7wSnR
+mega7_v11_final|UPLOADED|/tmp/opencode/mega7_v11_final.tar.gz|1j12mt1QHMjIfK-PLq97IfX9kZd0j5u8p
+truth_lane_state_v11|UPLOADED|/tmp/opencode/truth_lane_state_v11.tar.gz|1lqZHMW4OGJXWB23cKdZBBP4m5rTdqQ5P
