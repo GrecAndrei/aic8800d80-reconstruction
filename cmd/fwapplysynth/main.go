@@ -226,14 +226,27 @@ func loadSynthBodies(dir string) (map[string]string, error) {
 		if !ok {
 			continue
 		}
-		if prev, exists := out[fn]; exists {
-			if bodyStrength(body) < bodyStrength(prev) {
-				continue
-			}
+		storeBody(out, fn, body)
+		if base := baseVariantName(fn); base != fn {
+			storeBody(out, base, body)
 		}
-		out[fn] = body
 	}
 	return out, nil
+}
+
+func storeBody(out map[string]string, fn, body string) {
+	if prev, exists := out[fn]; exists {
+		if bodyStrength(body) < bodyStrength(prev) {
+			return
+		}
+	}
+	out[fn] = body
+}
+
+var variantSuffixRe = regexp.MustCompile(`_n_?[0-9a-f]+$`)
+
+func baseVariantName(fn string) string {
+	return variantSuffixRe.ReplaceAllString(fn, "")
 }
 
 func bodyStrength(body string) int {
@@ -266,18 +279,23 @@ func applyBodies(src string, bodies map[string]string) (string, int, []string) {
 	count := 0
 	funcs := map[string]struct{}{}
 	re := regexp.MustCompile(`(?s)void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{.*?\n\}`)
+	bodyFnRe := regexp.MustCompile(`void\s+([a-zA-Z0-9_]+)\s*\(`)
 	out := re.ReplaceAllStringFunc(src, func(match string) string {
 		m := regexp.MustCompile(`void\s+([a-zA-Z0-9_]+)\s*\(`).FindStringSubmatch(match)
 		if len(m) != 2 {
 			return match
 		}
 		fn := m[1]
-		if b, ok := bodies[fn]; ok {
-			count++
-			funcs[fn] = struct{}{}
-			return b
+		b, ok := bodies[fn]
+		if !ok {
+			return match
 		}
-		return match
+		if bm := bodyFnRe.FindStringSubmatch(b); len(bm) == 2 && bm[1] != fn {
+			b = bodyFnRe.ReplaceAllString(b, "void "+fn+"(")
+		}
+		count++
+		funcs[fn] = struct{}{}
+		return b
 	})
 	list := make([]string, 0, len(funcs))
 	for fn := range funcs {

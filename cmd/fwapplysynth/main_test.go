@@ -89,3 +89,82 @@ func TestMissingFunctionsDetectsAbsentSymbols(t *testing.T) {
 		t.Fatalf("unexpected missing list: %#v", missing)
 	}
 }
+
+func TestBaseVariantNameStripsVariantSuffix(t *testing.T) {
+	cases := []struct{ in, want string }{
+		{"rf_bus_write2_n3cd", "rf_bus_write2"},
+		{"rf_bus_mark_n92", "rf_bus_mark"},
+		{"rf_level_apply_n_7", "rf_level_apply"},
+		{"rf_state_check_n_1a7", "rf_state_check"},
+		{"crypto_hw_disable", "crypto_hw_disable"},
+		{"rf_bus_write", "rf_bus_write"},
+	}
+	for _, c := range cases {
+		if got := baseVariantName(c.in); got != c.want {
+			t.Errorf("baseVariantName(%q) = %q, want %q", c.in, got, c.want)
+		}
+	}
+}
+
+func TestLoadSynthBodiesAlsoStoresUnderBaseName(t *testing.T) {
+	dir := t.TempDir()
+	for i, name := range []string{
+		"17516_rf_bus_write2_n3cd.synth.c",
+		"17517_rf_bus_write2_n4d1.synth.c",
+	} {
+		content := `/* meta */
+void rf_cmd_wait(void);
+void rf_bus_write2_n3cd(void) {
+  rf_cmd_wait();
+}
+`
+		if i == 1 {
+			content = `/* meta */
+void rf_cmd_wait(void);
+void rf_bus_write2_n4d1(void) {
+  rf_cmd_wait();
+}
+`
+		}
+		if err := os.WriteFile(filepath.Join(dir, name), []byte(content), 0o644); err != nil {
+			t.Fatalf("write synth: %v", err)
+		}
+	}
+	bodies, err := loadSynthBodies(dir)
+	if err != nil {
+		t.Fatalf("loadSynthBodies: %v", err)
+	}
+	if got := bodies["rf_bus_write2_n3cd"]; !strings.Contains(got, "rf_bus_write2_n3cd") {
+		t.Fatalf("variant key missing: %s", got)
+	}
+	if got := bodies["rf_bus_write2_n4d1"]; !strings.Contains(got, "rf_bus_write2_n4d1") {
+		t.Fatalf("variant key missing: %s", got)
+	}
+	if got := bodies["rf_bus_write2"]; got == "" {
+		t.Fatalf("base name should be populated from variant body")
+	}
+}
+
+func TestApplyBodiesReplacesBaseNameFromVariantSynth(t *testing.T) {
+	src := `void rf_bus_write2(void) {
+  // TODO: integrate control/data flow.
+}
+`
+	body := `void rf_bus_write2_n3cd(void) {
+  rf_cmd_wait();
+}
+`
+	out, count, _ := applyBodies(src, map[string]string{"rf_bus_write2": body})
+	if count != 1 {
+		t.Fatalf("expected 1 replacement on base name, got %d", count)
+	}
+	if !strings.Contains(out, "rf_cmd_wait") {
+		t.Fatalf("expected base-name function replaced with variant body, got:\n%s", out)
+	}
+	if strings.Contains(out, "rf_bus_write2_n3cd") {
+		t.Fatalf("variant suffix should be rewritten to base name, got:\n%s", out)
+	}
+	if !strings.Contains(out, "void rf_bus_write2(void)") {
+		t.Fatalf("base name should appear in output, got:\n%s", out)
+	}
+}
