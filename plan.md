@@ -306,15 +306,18 @@ Exit criteria:
 
 ## Current Status Snapshot
 
-As of 2026-05-26:
+As of 2026-06-07 (v12 real-pseudocode, superseded 2026-05-26 snapshot):
 
 - IDA refresh is enforced before cycles.
 - Hex-Rays pseudocode export is integrated.
-- `fwimplsynth` can consume CFG and pseudocode hints.
-- Adaptive probe budgets exist.
-- Plateau routing exists.
-- Recent direct pseudocode lowering improved representative hard-cohort behavior.
-- The next necessary step is not more one-off lowering. It is persistent controller memory plus motif generalization.
+- `fwimplsynth` consumes CFG and pseudocode hints.
+- **Real-pseudocode transpiler** (`cmd/fwimplsynth/realpseudo.go`) produces faithful C bodies for truth-lane targets with Hex-Rays coverage.
+- `applysynth` V10/V11: variant-name and reverse-lookup body propagation (V11 alone took completion from 0.322 → 24.026).
+- `fwfinalize` injectForwardDecls: differentiated `void fn(void)` (defined) vs `int fn(...)` (undefined) with wide call regex and keyword filter.
+- All 4 final C files compile clean (fmacfw_h 906 fns, fmacfw 74441, fmacfwbt 52052, lmacfw_rf 57378).
+- Truth Lane Scorecard: **25 PASS / 0 REVIEW / 0 FAIL**.
+- Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive.
+- The next stretch is the next-phase target architecture (controller memory + motif generalization) and curating a tracked release from this v12 state.
 
 ## Comprehensive Next Plan
 
@@ -662,3 +665,32 @@ Use this format when updating:
 - Blockers:
   - ...
 ```
+
+## 2026-06-07 (v12 real-pseudocode: 0 compile errors, 25/25 truth-lane PASS)
+
+- Completed:
+  - Built `cmd/fwimplsynth/realpseudo.go` — IDA Hex-Rays pseudocode → C transpiler with full unit-test coverage (7 transpiler tests, 4 emitter tests, all passing). Handles `MEMORY[0x...](...)` fn-ptr calls, balanced `*(_DWORD *)(EXPR)` casts, `__intN` / `unsigned __intN` types, `__fastcall` param extraction, LOBYTE/HIBYTE/LOWORD/HIWORD macros (with `uintptr_t` coerce and lvalue-assignment rewrite), and ARM intrinsics.
+  - `cmd/fwapplysynth` V10/V11: variant-name and reverse-lookup body propagation. V12: only lossy transform on real-pseudo bodies is `RESULT = sub_X(args);` → `sub_X(args); RESULT = 0;`.
+  - `cmd/fwfinalize/injectForwardDecls`: differentiated decls (`void fn(void)` for defined, `int fn(...)` for undefined callees), wider call regex with C-keyword/type-name filter, strips pre-existing compose auto-gen block to prevent type conflicts.
+  - `cmd/fwimplsynth/tryRealPseudocodeFile` wired at top of `writeSynth` — emits complete file (header + macros + ARM intrinsic `#define`s + forward decls + signature + transpiled body).
+  - `tools/score_truth_lane.py` — per-function PASS/REVIEW/FAIL scoring on the 25 critical targets.
+  - Updated `README.md`, `PIPELINE.md`, `docs/REBUILD_MILESTONE.md`, `docs/RUNBOOK.md`, and this file to reflect v12.
+- Evidence:
+  - All 4 final C files compile with 0 errors:
+    - `fmacfw_h`: 906 functions, 0 errors
+    - `fmacfw`: 74441 functions, 0 errors
+    - `fmacfwbt`: 52052 functions, 0 errors
+    - `lmacfw_rf`: 57378 functions, 0 errors
+  - `applysynth`: 17365 bodies applied, 15133 unique.
+  - `implemented_count`: 17504, `completion_pct`: 28.429, `fallback_count`: 0.
+  - Truth Lane Scorecard: **25 PASS / 0 REVIEW / 0 FAIL** on the 25 critical functions.
+  - Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive (`1o2qy21F9EbMpPk4B9WqIEMHfWrL3BW4y`).
+  - Unit tests: `go test ./cmd/fwimplsynth` passes including the new transpiler tests.
+  - Commits: `5d67448` (v12 realpseudocode), `6cbca18` (v12 final, force-added 4 final C files).
+- Next:
+  - Curate a tracked release bundle from the v12 state (currently only v1 release is published).
+  - Continue expanding the IDA pseudocode corpus to cover the 17/25 truth-lane targets that still fall back to motif-body synthesis.
+  - Add helper signature awareness to the transpiler (use `pseudocode_hints.jsonl` to look up real helper signatures and emit exact decls vs. variadic fallback).
+  - Push more functions through the real-pseudocode path beyond the top 25.
+- Blockers:
+  - 17/25 truth-lane targets have no IDA pseudocode coverage (7 fmacfwbt, 6 lmacfw_rf, 4 fmacfw_h). Need IDA re-run or transpile-from-bytes fallback before those can get real bodies.

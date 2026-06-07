@@ -87,10 +87,35 @@ What each stage does:
 - `fwdescriptors`: builds per-function descriptors, motif memory, transfer clusters, and descriptor summaries
 - `fwimplqueue`: ranks implementation tasks using urgency, motif, phenotype, and transfer evidence
 - `fwimplsynth`: synthesizes function bodies using observed evidence, motif memory, embedder neighbors, and transfer clusters
+  - For functions with IDA Hex-Rays pseudocode coverage, the **real-pseudocode transpiler** (`cmd/fwimplsynth/realpseudo.go`) produces a faithful C body: function pointer calls, MMIO writes, control flow, and helper calls all preserved. See "Stage 3.5: Real-Pseudocode Transpilation" below.
 - `fwapplysynth`: merges synthesized bodies into the composed outputs
+  - The only lossy transform on real-pseudo bodies is `RESULT = sub_X(args);` → `sub_X(args); RESULT = 0;` (keeps the call, discards the return value). All other semantics are preserved.
 - `fwfinalize`: normalizes, scores, and publishes final reconstructed sources and quality reports
+  - `injectForwardDecls` emits `void fn(void);` for defined functions and `int fn(...);` (GCC variadic) for undefined callees, with a wider call regex and C-keyword/type-name filter. Strips any pre-existing compose auto-gen block to prevent type conflicts.
 - `fwvalidatecalls`: checks emitted call behavior against evidence
 - `fwharden`: enforces hard fail gates over quality and conformance outputs
+
+## Stage 3.5: Real-Pseudocode Transpilation
+
+`cmd/fwimplsynth/realpseudo.go` (`transpileIDAPseudocode`) converts Hex-Rays
+pseudocode into faithful C. It handles:
+
+- `MEMORY[0x...](...)` → fn-ptr call `(int (*)(uint32_t))0x...u`
+- `*(_DWORD *)(EXPR)` and `(_BYTE *)(EXPR)` casts (balanced parens, 1-level)
+- `__intN` and `unsigned __intN` types (latter processed first to avoid prefix collision)
+- `__fastcall` parameter declarations (preserving pointer stars)
+- `LOBYTE(x)` / `HIBYTE(x)` / `LOWORD(x)` / `HIWORD(x)` macros, with `uintptr_t` coerce so they work on pointer inputs
+- `LOBYTE(lvalue) = rhs;` → bit-field-style assignment: `x = ((x) & ~0xFFu) | (... & 0xFFu)`
+- ARM intrinsics emitted as `#define __get_CPSR() (0u)`, `#define __disable_irq() ((void)0)` — **not** as `void fn(void){}` functions, which would collide with `applysynth`'s extraction regex
+
+The transpiler is exercised by:
+
+- 7 transpiler unit tests + 4 emitter unit tests (`realpseudo_test.go`), all passing
+- The truth-lane scorecard on the 25 critical targets
+
+Per-target coverage is 8/25 today (those with `pseudocode_hints.jsonl` entries);
+the remaining 17 still fall back to motif-body synthesis and are tracked as a
+known gap.
 
 ## Stage 4: Autonomous Cycle
 
@@ -105,6 +130,7 @@ Supporting tools:
 - `tools/recon_cycle.py`: quiet controller and probe loop
 - `tools/smoke_learn_loop.py`: batch smoke learning
 - `tools/unicorn_smoke.py`: per-function bounded smoke harness
+- `tools/score_truth_lane.py`: per-function PASS/REVIEW/FAIL scoring on the top 25 critical targets
 - `cmd/fwcycletrend`: trend summaries and gating
 - `cmd/fwcycleauto`: detached multi-cycle supervisor
 
@@ -129,6 +155,12 @@ The release bundle should contain:
 - manifests and checksums
 - call conformance and quality reports
 - release-level metadata describing what was published
+
+The active v12 workspace produces full-size final outputs (fmacfw_h, fmacfw,
+fmacfwbt, lmacfw_rf) which compile cleanly. These are force-added under
+`extraction_out/reconstruction/mega7/final/` for evidence tracking. A
+curated release bundle refresh from this state is part of the next deliberate
+publish step.
 
 ## Operational Rules
 
