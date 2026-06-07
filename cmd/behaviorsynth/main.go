@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
 )
 
@@ -44,23 +42,14 @@ func main() {
 	defer f.Close()
 
 	var fps []Fingerprint
-	sc := bufio.NewScanner(f)
-	for sc.Scan() {
-		line := strings.TrimSpace(sc.Text())
-		if line == "" {
-			continue
-		}
+	dec := json.NewDecoder(f)
+	for dec.More() {
 		var fp Fingerprint
-		if err := json.Unmarshal([]byte(line), &fp); err != nil {
-			fmt.Fprintf(os.Stderr, "warning: skipping line: %v\n", err)
+		if err := dec.Decode(&fp); err != nil {
+			fmt.Fprintf(os.Stderr, "warning: skipping entry: %v\n", err)
 			continue
 		}
 		fps = append(fps, fp)
-	}
-
-	if err := sc.Err(); err != nil {
-		fmt.Fprintf(os.Stderr, "error reading %s: %v\n", inPath, err)
-		os.Exit(1)
 	}
 
 	if len(fps) == 0 {
@@ -121,7 +110,7 @@ func main() {
 		body.WriteString("(void) {\n")
 		body.WriteString("  /* reconstructed_micro_flow: yes */\n")
 
-		// Deduplicate adjacent same-addr accesses.
+		// Deduplicate adjacent same-direction accesses.
 		var deduped []string
 		for _, a := range fp.MMIOSequence {
 			if len(deduped) == 0 || deduped[len(deduped)-1] != a {
@@ -129,9 +118,24 @@ func main() {
 			}
 		}
 
-		// Emit inline volatile reads (no helper function needed).
-		for _, addr := range deduped {
-			body.WriteString(fmt.Sprintf("    (void)*((volatile uint32_t *)(uintptr_t)%sU);\n", addr))
+		// Emit inline volatile reads/writes (no helper function needed).
+		for _, entry := range deduped {
+			// Format: R:0xaddr or W:0xaddr:0xvalue
+			parts := strings.SplitN(entry, ":", 3)
+			if len(parts) < 2 {
+				continue
+			}
+			addr := strings.TrimSpace(parts[1])
+			switch parts[0] {
+			case "R":
+				body.WriteString(fmt.Sprintf("    (void)*((volatile uint32_t *)(uintptr_t)%sU);\n", addr))
+			case "W":
+				val := "0x0"
+				if len(parts) == 3 {
+					val = strings.TrimSpace(parts[2])
+				}
+				body.WriteString(fmt.Sprintf("    *((volatile uint32_t *)(uintptr_t)%sU) = %sU;\n", addr, val))
+			}
 		}
 
 		body.WriteString("}\n")
@@ -173,24 +177,4 @@ func sanitizeName(name string) string {
 	return s
 }
 
-func must(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
 
-func uniqueAddrs(addrs []string) []string {
-	seen := make(map[string]bool)
-	var out []string
-	for _, a := range addrs {
-		if !seen[a] {
-			seen[a] = true
-			out = append(out, a)
-		}
-	}
-	sort.Strings(out)
-	return out
-}
-
-var _ = must
-var _ = uniqueAddrs

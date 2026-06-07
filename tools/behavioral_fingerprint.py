@@ -125,7 +125,10 @@ def trace_function(bin_data: bytes, entry: int, max_insns: int, function_name: s
         op = "read" if access == UC_MEM_READ else "write"
         counts["mmio_reads" if op == "read" else "mmio_writes"] += 1
         unique_addrs.add(addr)
-        mmio_seq.append(hex(addr))
+        if op == "write":
+            mmio_seq.append(f"W:{hex(addr)}:{hex(int(value))}")
+        else:
+            mmio_seq.append(f"R:{hex(addr)}")
 
     mu.hook_add(UC_HOOK_CODE, on_code)
     mu.hook_add(UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem_access)
