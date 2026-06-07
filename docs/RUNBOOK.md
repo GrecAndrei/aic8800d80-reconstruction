@@ -70,6 +70,36 @@ Outputs:
 
 The current v12 build reports 25 PASS / 0 REVIEW / 0 FAIL.
 
+## Truth-Lane Unicorn Smoke
+
+The smoke runner extracts every truth-lane function from the v12 final C
+files, compiles each one with clang for ARMv7-M, loads it into Unicorn,
+and executes it with `--mmio-autopage` so that the body can read/write the
+real hardware addresses it references. This is the first time the
+reconstructed firmware has actually been executed in an emulator.
+
+```bash
+python3 tools/truth_lane_smoke.py \
+  --final-dir extraction_out/reconstruction/mega7/final \
+  --out /tmp/opencode/v12_smoke \
+  --label v12_realpseudocode
+```
+
+Outputs:
+
+- `smoke_outcomes.jsonl`: per-target MMIO traces (instructions, reads, writes, addresses)
+- `smoke_summary.md`: human-readable summary with PASS/REVIEW/FAIL verdict per target
+- `bodies/<fn>__<image>.c`: extracted C body for each target
+
+Verdict:
+
+- **PASS**: real-pseudo body that returned naturally with >0 MMIO writes
+- **REVIEW**: motif body (template logic, runs but isn't real hardware)
+- **FAIL**: compile error or runtime fault
+
+The current v12 build reports 17 PASS / 8 REVIEW / 0 FAIL — all 17
+real-pseudo truth-lane bodies execute end-to-end in the emulator.
+
 ## Real-Pseudocode Transpiler
 
 Functions with Hex-Rays pseudocode coverage in

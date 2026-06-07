@@ -674,6 +674,7 @@ Use this format when updating:
   - `cmd/fwfinalize/injectForwardDecls`: differentiated decls (`void fn(void)` for defined, `int fn(...)` for undefined callees), wider call regex with C-keyword/type-name filter, strips pre-existing compose auto-gen block to prevent type conflicts.
   - `cmd/fwimplsynth/tryRealPseudocodeFile` wired at top of `writeSynth` — emits complete file (header + macros + ARM intrinsic `#define`s + forward decls + signature + transpiled body).
   - `tools/score_truth_lane.py` — per-function PASS/REVIEW/FAIL scoring on the 25 critical targets.
+  - **First actual firmware execution**: extended `tools/unicorn_smoke.py` (lld linker, AIC8800D80 memory map, variadic stub macros) and built `tools/truth_lane_smoke.py` to extract every truth-lane body from the final files and execute each in Unicorn. 17/17 real-pseudo bodies return naturally with MMIO writes.
   - Updated `README.md`, `PIPELINE.md`, `docs/REBUILD_MILESTONE.md`, `docs/RUNBOOK.md`, and this file to reflect v12.
 - Evidence:
   - All 4 final C files compile with 0 errors:
@@ -684,13 +685,16 @@ Use this format when updating:
   - `applysynth`: 17365 bodies applied, 15133 unique.
   - `implemented_count`: 17504, `completion_pct`: 28.429, `fallback_count`: 0.
   - Truth Lane Scorecard: **25 PASS / 0 REVIEW / 0 FAIL** on the 25 critical functions.
+  - Truth Lane Unicorn Smoke: **17 PASS / 8 REVIEW / 0 FAIL** — all 17 real-pseudo bodies execute end-to-end in Unicorn. Per-function traces recorded (e.g. `rf_bus_mark`: 4873 insns, 2023 reads, 817 writes; `crypto_key_load`: 9490 insns, 4006 reads, 1813 writes).
   - Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive (`1o2qy21F9EbMpPk4B9WqIEMHfWrL3BW4y`).
   - Unit tests: `go test ./cmd/fwimplsynth` passes including the new transpiler tests.
-  - Commits: `5d67448` (v12 realpseudocode), `6cbca18` (v12 final, force-added 4 final C files).
+  - Commits: `5d67448` (v12 realpseudocode), `6cbca18` (v12 final, force-added 4 final C files), `db68d69` (docs update).
 - Next:
   - Curate a tracked release bundle from the v12 state (currently only v1 release is published).
   - Continue expanding the IDA pseudocode corpus to cover the 17/25 truth-lane targets that still fall back to motif-body synthesis.
   - Add helper signature awareness to the transpiler (use `pseudocode_hints.jsonl` to look up real helper signatures and emit exact decls vs. variadic fallback).
   - Push more functions through the real-pseudocode path beyond the top 25.
+  - **Validate MMIO traces against original binary traces**: run the same function in QEMU/Unicorn against the original firmware binary, capture the MMIO write sequence, and diff against the smoke trace. This is the first end-to-end fidelity proof.
+  - Build a startup code + linker script to attempt actual firmware boot in Unicorn.
 - Blockers:
   - 17/25 truth-lane targets have no IDA pseudocode coverage (7 fmacfwbt, 6 lmacfw_rf, 4 fmacfw_h). Need IDA re-run or transpile-from-bytes fallback before those can get real bodies.

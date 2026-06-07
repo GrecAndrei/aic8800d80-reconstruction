@@ -49,8 +49,18 @@ HEAP_SIZE = 0x10000
 
 
 def is_mmio_addr(addr: int) -> bool:
-    # Common peripheral/system-mapped ranges for firmware smoke traces.
-    return (0x40000000 <= addr <= 0x5FFFFFFF) or (0xE0000000 <= addr <= 0xE00FFFFF)
+    # AIC8800D80 SoC memory map (covers all observed body accesses):
+    #   0x00000000-0x000FFFFF : Flash / boot ROM
+    #   0x00100000-0x001FFFFF : Vendor peripherals (RF, baseband, crypto) - e.g. 0x187F50
+    #   0x20000000-0x3FFFFFFF : SRAM
+    #   0x40000000-0x5FFFFFFF : APB / AHB peripherals (ARM standard) - e.g. 0x40200914
+    #   0xE0000000-0xE00FFFFF : System control space (NVIC, etc.)
+    return (
+        (0x00000000 <= addr <= 0x001FFFFF)
+        or (0x20000000 <= addr <= 0x3FFFFFFF)
+        or (0x40000000 <= addr <= 0x5FFFFFFF)
+        or (0xE0000000 <= addr <= 0xE00FFFFF)
+    )
 
 
 @dataclass
@@ -75,11 +85,12 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
         "-fno-builtin",
         "-fdata-sections",
         "-ffunction-sections",
+        "-fuse-ld=lld",
         f"-O{opt}",
         str(src),
         "-nostdlib",
         "-Wl,--unresolved-symbols=ignore-all",
-        "-Wl,-Ttext=0x1000",
+        "-Wl,--image-base=0x1000",
         f"-Wl,-e,{entry}",
         "-o",
         str(elf),
@@ -90,13 +101,18 @@ def compile_object(src: Path, out_dir: Path, target: str, cpu: str, opt: str, en
 
 def synthesize_wrapper_source(src: Path, out_dir: Path, stub_names: list[str]) -> Path:
     wrapper = out_dir / f"{src.stem}_wrapped.c"
-    stubs = "\n".join(f"void {name}(void) {{}}" for name in stub_names)
+    # Use macro stubs that accept any arg count. A variadic function
+    # declaration `int fn(int dummy, ...)` requires the first arg, and
+    # `int fn(...)` is rejected by clang in strict ISO C. A macro with
+    # __VA_ARGS__ accepts any call pattern (including 0 args) and expands
+    # to a single expression statement.
+    stubs = "\n".join(f"#define {name}(...) 0" for name in stub_names)
     wrapper.write_text(
         dedent(
             f"""
-            #include \"{src.as_posix()}\"
-
             {stubs}
+
+            #include \"{src.as_posix()}\"
             """
         ).lstrip(),
         encoding="utf-8",

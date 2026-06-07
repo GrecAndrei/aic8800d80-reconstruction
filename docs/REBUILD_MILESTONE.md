@@ -45,6 +45,8 @@ Build metrics (v12):
 - `completion_pct`: 28.429
 - `fallback_count`: 0
 - Truth Lane Scorecard: **25 PASS / 0 REVIEW / 0 FAIL** on the 25 critical targets
+- Truth Lane Unicorn Smoke: **17 PASS / 8 REVIEW / 0 FAIL** — all 17 real-pseudo
+  bodies execute end-to-end in the Unicorn ARMv7-M emulator
 - Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive
   (`1o2qy21F9EbMpPk4B9WqIEMHfWrL3BW4y`)
 
