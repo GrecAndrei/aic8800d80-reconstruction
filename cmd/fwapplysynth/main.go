@@ -81,7 +81,7 @@ func main() {
 	if err != nil {
 		fail("load synth bodies: %v", err)
 	}
-	if len(synthBodies) == 0 {
+	if len(synthBodies.global) == 0 && len(synthBodies.perImg) == 0 {
 		fail("no synthesized bodies found in %s", synthAbs)
 	}
 
@@ -103,7 +103,8 @@ func main() {
 			fail("read %s: %v", inPath, err)
 		}
 		inputFns := functionNames(string(b))
-		outText, count, funcs := applyBodies(string(b), synthBodies)
+		bodies := bodiesForFile(synthBodies, e.Name())
+		outText, count, funcs := applyBodies(string(b), bodies)
 		outText = ensureForwardDecls(outText)
 		outputFns := functionNames(outText)
 		missing := missingFunctions(funcs, outputFns)
@@ -203,7 +204,12 @@ func missingFunctions(required []string, have map[string]struct{}) []string {
 	return missing
 }
 
-func loadSynthBodies(dir string) (map[string]string, error) {
+type imageBodies struct {
+	global  map[string]string
+	perImg  map[string]map[string]string // image -> fn -> body
+}
+
+func loadSynthBodies(dir string) (*imageBodies, error) {
 	ents, err := os.ReadDir(dir)
 	if err != nil {
 		return nil, err
@@ -216,21 +222,22 @@ func loadSynthBodies(dir string) (map[string]string, error) {
 		paths = append(paths, filepath.Join(dir, e.Name()))
 	}
 	sort.Strings(paths)
-	out := map[string]string{}
+	out := &imageBodies{
+		global: map[string]string{},
+		perImg: map[string]map[string]string{},
+	}
 	subCallRe := regexp.MustCompile(`(?m)^(\s*)([a-zA-Z_][a-zA-Z0-9_]*\s+)?([a-zA-Z_][a-zA-Z0-9_]*\s*)=\s*(sub_[0-9A-Fa-f]+)\s*\(.*\)\s*;`)
+	imageRe := regexp.MustCompile(`image\s*=\s*(\S+)`)
 	for _, p := range paths {
-		b, err := os.ReadFile(p)
+		raw, err := os.ReadFile(p)
 		if err != nil {
 			return nil, err
 		}
-		fn, body, ok := extractSingleFunction(string(b))
+		src := string(raw)
+		fn, body, ok := extractSingleFunction(src)
 		if !ok {
 			continue
 		}
-		// Rewrite `RESULT = sub_X(args);` to `sub_X(args); RESULT = 0;` so
-		// the body's int-return usage doesn't conflict with the void forward
-		// decl emitted by fwfinalize. This is a lossy transform (we discard
-		// the helper's return value) but it's needed to keep compilation clean.
 		body = subCallRe.ReplaceAllStringFunc(body, func(m string) string {
 			sm := subCallRe.FindStringSubmatch(m)
 			indent, _, lhs := sm[1], sm[2], sm[3]
@@ -245,9 +252,27 @@ func loadSynthBodies(dir string) (map[string]string, error) {
 			call = call[:len(call)-1]
 			return fmt.Sprintf("%s%s; %s = 0;", indent, call, lhs)
 		})
-		storeBody(out, fn, body)
-		if base := baseVariantName(fn); base != fn {
-			storeBody(out, base, body)
+
+		// Determine image affinity from header comments.
+		// Normalize: .bin -> _bin to match reconstructed.c filename convention.
+		img := ""
+		if m := imageRe.FindStringSubmatch(src); len(m) == 2 {
+			img = strings.TrimSpace(m[1])
+			img = strings.ReplaceAll(img, ".bin", "_bin")
+		}
+		if img == "" {
+			storeBody(out.global, fn, body)
+			if base := baseVariantName(fn); base != fn {
+				storeBody(out.global, base, body)
+			}
+		} else {
+			if out.perImg[img] == nil {
+				out.perImg[img] = map[string]string{}
+			}
+			storeBody(out.perImg[img], fn, body)
+			if base := baseVariantName(fn); base != fn {
+				storeBody(out.perImg[img], base, body)
+			}
 		}
 	}
 	return out, nil
@@ -260,6 +285,48 @@ func storeBody(out map[string]string, fn, body string) {
 		}
 	}
 	out[fn] = body
+}
+
+// bodiesForFile returns the combined body map for a given .reconstructed.c file.
+// Per-image bodies for the exact image take priority. If no per-image match
+// exists, all per-image bodies (of any image) are available as fallback so that
+// existing synth files with image tags still work across all images.
+func bodiesForFile(ib *imageBodies, fileName string) map[string]string {
+	base := strings.TrimSuffix(fileName, ".reconstructed.c")
+	merged := map[string]string{}
+	for k, v := range ib.global {
+		merged[k] = v
+	}
+	if imgBodies, ok := ib.perImg[base]; ok {
+		for k, v := range imgBodies {
+			if existing, exists := merged[k]; exists {
+				if bodyStrength(v) >= bodyStrength(existing) {
+					merged[k] = v
+				}
+			} else {
+				merged[k] = v
+			}
+		}
+		return merged
+	}
+	// No exact image match — fall back to per-image bodies from other images,
+	// but skip high-strength bodies (reconstructed_micro_flow: yes) since those
+	// contain image-specific MMIO addresses that would corrupt other images.
+	for _, imgBodies := range ib.perImg {
+		for k, v := range imgBodies {
+			if strings.Contains(v, "reconstructed_micro_flow:") {
+				continue
+			}
+			if existing, exists := merged[k]; exists {
+				if bodyStrength(v) >= bodyStrength(existing) {
+					merged[k] = v
+				}
+			} else {
+				merged[k] = v
+			}
+		}
+	}
+	return merged
 }
 
 var variantSuffixRe = regexp.MustCompile(`_n_?[0-9a-f]+$`)
