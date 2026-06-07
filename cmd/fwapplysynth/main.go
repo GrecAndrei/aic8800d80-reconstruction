@@ -217,6 +217,7 @@ func loadSynthBodies(dir string) (map[string]string, error) {
 	}
 	sort.Strings(paths)
 	out := map[string]string{}
+	subCallRe := regexp.MustCompile(`(?m)^(\s*)([a-zA-Z_][a-zA-Z0-9_]*\s+)?([a-zA-Z_][a-zA-Z0-9_]*\s*)=\s*(sub_[0-9A-Fa-f]+)\s*\(.*\)\s*;`)
 	for _, p := range paths {
 		b, err := os.ReadFile(p)
 		if err != nil {
@@ -226,6 +227,24 @@ func loadSynthBodies(dir string) (map[string]string, error) {
 		if !ok {
 			continue
 		}
+		// Rewrite `RESULT = sub_X(args);` to `sub_X(args); RESULT = 0;` so
+		// the body's int-return usage doesn't conflict with the void forward
+		// decl emitted by fwfinalize. This is a lossy transform (we discard
+		// the helper's return value) but it's needed to keep compilation clean.
+		body = subCallRe.ReplaceAllStringFunc(body, func(m string) string {
+			sm := subCallRe.FindStringSubmatch(m)
+			indent, _, lhs := sm[1], sm[2], sm[3]
+			openIdx := strings.Index(m, "=")
+			if openIdx < 0 {
+				return m
+			}
+			call := strings.TrimSpace(m[openIdx+1:])
+			if !strings.HasSuffix(call, ";") {
+				return m
+			}
+			call = call[:len(call)-1]
+			return fmt.Sprintf("%s%s; %s = 0;", indent, call, lhs)
+		})
 		storeBody(out, fn, body)
 		if base := baseVariantName(fn); base != fn {
 			storeBody(out, base, body)
@@ -251,10 +270,10 @@ func baseVariantName(fn string) string {
 
 func bodyStrength(body string) int {
 	score := 0
-	if strings.Contains(body, "reconstructed micro-flow:") {
+	if strings.Contains(body, "reconstructed_micro_flow:") || strings.Contains(body, "reconstructed micro-flow:") {
 		score += 100
 	}
-	if strings.Contains(body, "reconstructed control:") {
+	if strings.Contains(body, "reconstructed_control:") || strings.Contains(body, "reconstructed control:") {
 		score += 80
 	}
 	if strings.Contains(body, "isolated leaf in current mined graph") {

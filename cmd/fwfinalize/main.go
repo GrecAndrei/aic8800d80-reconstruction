@@ -152,7 +152,11 @@ func main() {
 	}
 
 	fnRe := regexp.MustCompile(`(?s)void\s+([a-zA-Z0-9_]+)\s*\(\s*void\s*\)\s*\{.*?\n\}`)
-	callRe := regexp.MustCompile(`(?m)^\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*\)\s*;`)
+	// Match calls anywhere on a line: `fn(args);` or `if (cond) fn(args);`.
+	// Skip C keywords via a post-filter (regex can't easily exclude them
+	// without lookbehind which Go doesn't support). The function name
+	// must look like an identifier (length > 1 to skip `f(...)` macros).
+	callRe := regexp.MustCompile(`\b([a-zA-Z_][a-zA-Z0-9_]{1,})\s*\(`)
 	nameRe := regexp.MustCompile(`void\s+([a-zA-Z0-9_]+)\s*\(`)
 	todoRe := regexp.MustCompile(`(?i)TODO`)
 	qualities := make([]functionQuality, 0, 512)
@@ -815,6 +819,14 @@ func isStructuredLeafBody(body string) bool {
 func round3(v float64) float64 { return float64(int(v*1000+0.5)) / 1000 }
 
 func injectForwardDecls(src string, fnRe, callRe, nameRe *regexp.Regexp) string {
+	// Strip any pre-existing auto-gen forward declaration block. The
+	// compose step emits its own `void fn(void);` block; if we leave it
+	// in place, our new decls (which use `int fn(...);` for undefined
+	// callees) will conflict with the old ones and trigger
+	// "conflicting types" errors.
+	staleRe := regexp.MustCompile(`(?s)/\* Auto-generated forward declarations for compileability \*/\n(?:[^\n]*\n)*?\n`)
+	src = staleRe.ReplaceAllString(src, "")
+
 	funcBodies := fnRe.FindAllString(src, -1)
 	if len(funcBodies) == 0 {
 		return src
@@ -823,6 +835,32 @@ func injectForwardDecls(src string, fnRe, callRe, nameRe *regexp.Regexp) string 
 	declSet := map[string]struct{}{}
 	definedOrder := make([]string, 0, len(funcBodies))
 	calleeOrder := make([]string, 0, 512)
+	// C keywords that look like calls but aren't. Filtering these out
+	// prevents us from emitting `int for(...);` decls which are invalid C.
+	keywordNames := map[string]struct{}{
+		// C keywords
+		"for": {}, "if": {}, "else": {}, "switch": {}, "case": {}, "default": {},
+		"while": {}, "do": {}, "return": {}, "break": {}, "continue": {},
+		"goto": {}, "sizeof": {}, "typedef": {}, "struct": {}, "union": {},
+		"enum": {}, "static": {}, "extern": {}, "const": {}, "volatile": {},
+		"inline": {}, "register": {}, "auto": {}, "restrict": {},
+		// C type names
+		"int": {}, "char": {}, "short": {}, "long": {}, "signed": {}, "unsigned": {},
+		"float": {}, "double": {}, "void": {}, "bool": {}, "_Bool": {},
+		"uint8_t": {}, "uint16_t": {}, "uint32_t": {}, "uint64_t": {},
+		"int8_t": {}, "int16_t": {}, "int32_t": {}, "int64_t": {},
+		"size_t": {}, "ssize_t": {}, "ptrdiff_t": {}, "intptr_t": {}, "uintptr_t": {},
+		"intmax_t": {}, "uintmax_t": {},
+		// GCC extensions
+		"typeof": {}, "__typeof": {}, "__typeof__": {},
+		// ARM intrinsics
+		"__get_CPSR": {}, "__set_CPSR": {}, "__disable_irq": {}, "__enable_irq": {},
+		// Macros commonly used in synth output
+		"LOBYTE": {}, "HIBYTE": {}, "LOWORD": {}, "HIWORD": {},
+		// Misc
+		"asm": {}, "__asm": {}, "__asm__": {},
+		"__attribute__": {}, "__inline__": {}, "__restrict__": {},
+	}
 	for _, body := range funcBodies {
 		m := nameRe.FindStringSubmatch(body)
 		if len(m) != 2 {
@@ -839,6 +877,9 @@ func injectForwardDecls(src string, fnRe, callRe, nameRe *regexp.Regexp) string 
 			}
 			cn := cm[1]
 			if cn == "" || cn == fn {
+				continue
+			}
+			if _, isKw := keywordNames[cn]; isKw {
 				continue
 			}
 			if _, ok := declSet[cn]; !ok {
@@ -861,7 +902,18 @@ func injectForwardDecls(src string, fnRe, callRe, nameRe *regexp.Regexp) string 
 
 	declBlock := "/* Auto-generated forward declarations for compileability */\n"
 	for _, n := range allDecls {
-		declBlock += "void " + n + "(void);\n"
+		if _, isDef := definedSet[n]; isDef {
+			// Match the actual definition: `void fn(void) { ... }` in the file.
+			declBlock += "void " + n + "(void);\n"
+		} else {
+			// Undefined callee. We don't know the real signature, so emit a
+			// variadic decl (GCC extension `int f(...);` accepts any number
+			// of args and treats the return as int). This lets body call sites
+			// like `sub_121F594(a, b, c, d)` compile without a "too many
+			// arguments" error. If a future step defines the helper, the def
+			// signature will be the source of truth.
+			declBlock += "int " + n + "(...);\n"
+		}
 	}
 	declBlock += "\n"
 

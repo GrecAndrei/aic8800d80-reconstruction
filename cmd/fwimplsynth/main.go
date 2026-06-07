@@ -1560,6 +1560,12 @@ func writeSynth(path string, t implTask, incoming, outgoing []callEdge, cfg *cfg
 	}
 	seed := synthSeed(fn, t.Address)
 	b.WriteString(fmt.Sprintf("  uint32_t state = 0x%08xU;\n", seed))
+	// Fidelity-first path: if the IDA Hex-Rays pseudocode is available and
+	// transpiles cleanly, write a real body and return immediately. This
+	// is preferred over the state-mixing template emitters below.
+	if tryRealPseudocodeFile(path, t, pseudo, incoming, outgoing, behaviorClass, behaviorRole) {
+		return nil
+	}
 	if shouldForceSpecializedBody(fn) {
 		if emitted := emitSpecializedBody(&b, fn, t.Address, outgoing); emitted {
 			emitSpecializedNameHelperPostlude(&b, fn, desc, outgoing)
@@ -2853,6 +2859,105 @@ func emitStagedMMIOTransferMotif(b *strings.Builder, pseudo *pseudoHint, cfg *cf
 	b.WriteString("  }\n")
 	b.WriteString("  mmio[2] = acc ^ state;\n")
 	return true
+}
+
+// tryRealPseudocodeFile writes a complete file from transpiled IDA pseudocode.
+// Unlike the other body emitters (which append into a state-mixing template),
+// this emitter produces a *real* C function body whose MMIO writes, register
+// state machine, and control flow mirror the disassembled implementation. It
+// is the fidelity-first path: if it succeeds, the file is written and the
+// caller returns immediately. Falls back to false (no file written) when the
+// pseudo payload is empty or transpilation fails.
+func tryRealPseudocodeFile(path string, t implTask, pseudo *pseudoHint, incoming, outgoing []callEdge, behaviorClass, behaviorRole string) bool {
+	if pseudo == nil {
+		return false
+	}
+	if strings.TrimSpace(pseudo.Pseudocode) == "" {
+		return false
+	}
+	fn := sanitizeName(t.Function)
+	if fn == "" {
+		return false
+	}
+	callRename := buildCallRenameMap(pseudo, outgoing)
+	body, helpers, ok := transpileIDAPseudocode(pseudo.Pseudocode, fn, callRename)
+	if !ok {
+		return false
+	}
+	var b strings.Builder
+	b.WriteString("/* Auto-generated synthesized implementation pass */\n")
+	b.WriteString("/* source: real IDA Hex-Rays pseudocode */\n")
+	b.WriteString(fmt.Sprintf("/* task=%s class=%s priority=%s score=%.3f */\n", t.TaskID, t.TaskClass, t.Priority, t.RankScore))
+	if behaviorClass != "" {
+		b.WriteString(fmt.Sprintf("/* behavior_class=%s behavior_role=%s */\n", behaviorClass, behaviorRole))
+	}
+	b.WriteString(fmt.Sprintf("/* image=%s addr=%s */\n", t.Image, t.Address))
+	b.WriteString("/* reconstructed_micro_flow: yes */\n")
+	b.WriteString("/* reconstructed_control: yes */\n\n")
+	b.WriteString("#include <stdint.h>\n\n")
+	b.WriteString("/* IDA byte/word extraction macros */\n")
+	b.WriteString("#ifndef LOBYTE\n#define LOBYTE(x) ((uint8_t)((x) & 0xFFu))\n#endif\n")
+	b.WriteString("#ifndef HIBYTE\n#define HIBYTE(x) ((uint8_t)(((uint32_t)(x) >> 8) & 0xFFu))\n#endif\n")
+	b.WriteString("#ifndef LOWORD\n#define LOWORD(x) ((uint16_t)((x) & 0xFFFFu))\n#endif\n")
+	b.WriteString("#ifndef HIWORD\n#define HIWORD(x) ((uint16_t)(((uint32_t)(x) >> 16) & 0xFFFFu))\n#endif\n")
+	b.WriteString("\n/* ARM intrinsics stub (macros to avoid colliding with applysynth's void fn(void) regex) */\n")
+	b.WriteString("#ifndef __get_CPSR\n#define __get_CPSR() (0u)\n#endif\n")
+	b.WriteString("#ifndef __disable_irq\n#define __disable_irq() ((void)0)\n#endif\n\n")
+	if len(helpers) > 0 {
+		b.WriteString("/* forward-declared helpers */\n")
+		for _, h := range helpers {
+			b.WriteString("int " + h + "(void);\n")
+		}
+		b.WriteString("\n")
+	}
+	b.WriteString(fmt.Sprintf("void %s(void) {\n", fn))
+	b.WriteString("  /* reconstructed_micro_flow: yes */\n")
+	b.WriteString("  /* reconstructed_control: yes */\n")
+	b.WriteString("  /* IDA byte/word extraction macros (in-body so applysynth carries them) */\n")
+	b.WriteString("  /* Coerce to uintptr_t so the macro is valid when x is a pointer. */\n")
+	b.WriteString("  #ifndef LOBYTE\n  #define LOBYTE(x) ((uint8_t)((uintptr_t)(x) & 0xFFu))\n  #endif\n")
+	b.WriteString("  #ifndef HIBYTE\n  #define HIBYTE(x) ((uint8_t)(((uintptr_t)(x) >> 8) & 0xFFu))\n  #endif\n")
+	b.WriteString("  #ifndef LOWORD\n  #define LOWORD(x) ((uint16_t)((uintptr_t)(x) & 0xFFFFu))\n  #endif\n")
+	b.WriteString("  #ifndef HIWORD\n  #define HIWORD(x) ((uint16_t)(((uintptr_t)(x) >> 16) & 0xFFFFu))\n  #endif\n")
+	b.WriteString("  /* ARM intrinsics as macros (in-body so applysynth carries them) */\n")
+	b.WriteString("  #ifndef __get_CPSR\n  #define __get_CPSR() (0u)\n  #endif\n")
+	b.WriteString("  #ifndef __disable_irq\n  #define __disable_irq() ((void)0)\n  #endif\n")
+	b.WriteString("  #ifndef __enable_irq\n  #define __enable_irq() ((void)0)\n  #endif\n")
+	b.WriteString("  /* real pseudocode transcribed from IDA */\n")
+	if strings.TrimSpace(body) != "" {
+		for _, ln := range strings.Split(strings.TrimRight(body, "\n"), "\n") {
+			if strings.TrimSpace(ln) == "" {
+				continue
+			}
+			b.WriteString("  ")
+			b.WriteString(ln)
+			b.WriteString("\n")
+		}
+	} else {
+		b.WriteString("  (void)0;\n")
+	}
+	b.WriteString("}\n")
+	if err := fileio.WriteBytes(path, []byte(b.String())); err != nil {
+		return false
+	}
+	return true
+}
+
+// buildCallRenameMap produces a name→name map for sub_XXXXXX calls in the
+// pseudocode. The map is fed to the transpiler so that `sub_1a2b()` calls
+// become friendly-name calls instead of sub_1a2b().
+func buildCallRenameMap(pseudo *pseudoHint, outgoing []callEdge) map[string]string {
+	m := map[string]string{}
+	for _, name := range pseudo.CallNames {
+		sub := strings.TrimSpace(name)
+		if !strings.HasPrefix(sub, "sub_") {
+			continue
+		}
+		// We don't know the friendly name; leave as-is, but still key
+		// the map so the transpiler doesn't strip the call.
+		m[sub] = sub
+	}
+	return m
 }
 
 func emitPseudocodeStructuredBody(b *strings.Builder, fn string, pseudo *pseudoHint, cfg *cfgHint, outgoing []callEdge, behaviorRole string) bool {
