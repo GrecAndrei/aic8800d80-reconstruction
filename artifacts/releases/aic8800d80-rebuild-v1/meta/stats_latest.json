@@ -1,11 +1,15 @@
 {
   "function_count": 61570,
-  "implemented_count": 31972,
+  "implemented_count": 59383,
   "todo_count": 29598,
-  "completion_pct": 51.928,
+  "completion_pct": 96.448,
   "strong_count": 61570,
   "fallback_count": 0,
-  "semantic_completion_pct": 100.000,
-  "truth_lane_smoke": {"pass": 19, "review": 6, "fail": 0},
+  "semantic_completion_pct": 100.0,
+  "truth_lane_smoke": {
+    "pass": 19,
+    "review": 6,
+    "fail": 0
+  },
   "behavioral_bodies": 132
 }

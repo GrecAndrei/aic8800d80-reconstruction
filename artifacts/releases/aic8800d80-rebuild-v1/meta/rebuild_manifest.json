@@ -4,14 +4,15 @@
   "run_root": "artifacts/releases/aic8800d80-rebuild-v1",
   "file_count": 4,
   "function_count": 61570,
-  "implemented_count": 31972,
+  "implemented_count": 59383,
   "todo_count": 29598,
-  "completion_pct": 51.928,
+  "completion_pct": 96.448,
   "strong_count": 61570,
   "fallback_count": 0,
-  "semantic_completion_pct": 100.000,
+  "semantic_completion_pct": 100.0,
   "build_label": "v13_behavioral_fingerprint",
   "truth_lane_smoke": "19 PASS / 6 REVIEW / 0 FAIL",
-  "behavioral_bodies": 132,
-  "cross_image_verified": true
+  "behavioral_bodies": 2689,
+  "cross_image_verified": true,
+  "functions_applied": 59236
 }
