@@ -359,7 +359,11 @@ func main() {
 					deadPlateau := deadPlateauAfter > 0 && streak >= deadPlateauAfter && report.ProbeSummary.Probed == 0 && report.ProbeSummary.SelectedCount == 0
 					routing, _ := classifyPlateau(report, plateauMode)
 					routing.Streak = streak
-					if deadPlateau {
+					if behavioral {
+						routing.Mode = "synthesize"
+						routing.PrimaryCause = "behavioral_override"
+						routing.Reasons = append(routing.Reasons, "behavioral flag set: forcing synthesize mode to run behavioral pipeline")
+					} else if deadPlateau {
 						routing.Mode = "validate"
 						routing.PrimaryCause = "empty_frontier"
 						routing.CauseScores["empty_frontier"] += float64(streak) * 2.0
@@ -383,7 +387,7 @@ func main() {
 							fmt.Fprintf(os.Stderr, "validate mode failed: %v\n", err)
 						}
 					default:
-						if deadPlateau && skipAutoImplOnDeadPlateau {
+						if deadPlateau && skipAutoImplOnDeadPlateau && !behavioral {
 							fmt.Fprintf(os.Stderr, "dead plateau detected: skipping auto-impl stages for exhausted frontier\n")
 							break
 						}
