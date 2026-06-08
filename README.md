@@ -28,9 +28,9 @@ bodies verified against the original binary's MMIO traces:
 - `fmacfw`: 74441 functions, 0 errors
 - `fmacfwbt`: 52052 functions, 0 errors
 - `lmacfw_rf`: 57378 functions, 0 errors
-- **Truth Lane Unicorn Smoke**: 20 PASS / 5 REVIEW / 0 FAIL
-- **Completion**: `implemented_count`: 59383, `completion_pct`: 96.448
-- **Behavioral bodies**: 2689 deployed, 624 name-resolved (sub_XXXXXX → human-readable)
+- **Truth Lane Unicorn Smoke**: 21 PASS / 4 REVIEW / 0 FAIL
+- **Completion**: `implemented_count`: 59383, `completion_pct`: 96.450
+- **Behavioral bodies**: 2689+ deployed across all 4 images, composed-file sourced
 - **Cross-image contamination fixed**: per-image filtering via `image=` tags
 
 The breakthrough is the **behavioral fingerprint pipeline** that runs the
