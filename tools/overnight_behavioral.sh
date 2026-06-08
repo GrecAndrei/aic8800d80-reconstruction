@@ -61,9 +61,16 @@ echo "[$(date)] Combined: $(wc -l <"$OUTDIR/fp_combined.jsonl") fingerprints"
 /tmp/opencode/behaviorsynth "$OUTDIR/fp_combined.jsonl" "$OUTDIR/synth" 2>&1
 echo "[$(date)] Synth files: $(ls "$OUTDIR/synth"/behavioral_*.synth.c 2>/dev/null | wc -l)"
 
+# Resolve sub_XXXXXX names to human-readable names
+echo "[$(date)] Resolving names..."
+python3 tools/resolve_names.py \
+  --composed-dir "$REPO/extraction_out/reconstruction/mega7/composed" \
+  --synth-dir "$OUTDIR/synth" 2>&1
+echo "[$(date)] Name resolution done"
+
 # Deploy to pipeline synth directory
 rm -f "$REPO/extraction_out/reconstruction/mega7/synth/behavioral_*.synth.c"
-cp "$OUTDIR/synth/behavioral_*.synth.c" "$REPO/extraction_out/reconstruction/mega7/synth/"
+find "$OUTDIR/synth" -name 'behavioral_*.synth.c' -exec cp {} "$REPO/extraction_out/reconstruction/mega7/synth/" \;
 echo "[$(date)] Deployed to pipeline synth dir"
 
 # Run fwapplysynth

@@ -77,6 +77,7 @@ func main() {
 	var pruneOldRuns bool
 	var pruneKeepLatest int
 	var autoImplOnPlateau bool
+	var behavioral bool
 	var plateauDeltaSuccessMax int
 	var autoImplMaxTasks int
 	var plateauEscalateAfter int
@@ -191,6 +192,7 @@ func main() {
 	flag.IntVar(&hardenMinMotifBackedCount, "harden-min-motif-backed-count", 0, "Minimum descriptor motif-backed count for hardening gate")
 	flag.IntVar(&hardenMaxCappedMMIOPhenotypes, "harden-max-capped-mmio-phenotypes", 0, "Maximum capped_mmio_wait descriptor count for hardening gate")
 	flag.IntVar(&hardenMaxHighRiskFunctions, "harden-max-high-risk-functions", 0, "Maximum high-risk finalize quality rows for hardening gate")
+	flag.BoolVar(&behavioral, "behavioral", false, "Run behavioral fingerprint pipeline before applysynth")
 	flag.StringVar(&plateauMode, "plateau-mode", "auto", "Plateau response mode: auto|explore|deepen|synthesize|validate")
 	var embedderModel string
 	flag.StringVar(&embedderModel, "embedder-model", "", "Path to GGUF embedding model for behavioral classification")
@@ -431,11 +433,18 @@ func main() {
 							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
 							implqueueStep,
 							{"run", "./cmd/fwimplsynth", "-run-root", runRoot, "-max-tasks", fmt.Sprintf("%d", implTasks), "-min-call-confidence", fmt.Sprintf("%.3f", runMinCallConf), "-fallback-min-call-confidence", fmt.Sprintf("%.3f", runFallbackCallConf)},
-							{"run", "./cmd/fwapplysynth", "-run-root", runRoot},
-							{"run", "./cmd/fwfinalize", "-run-root", runRoot},
-							{"run", "./cmd/fwdescriptors", "-run-root", runRoot},
-							{"run", "./cmd/fwvalidatecalls", "-run-root", runRoot},
 						}
+						if behavioral {
+							steps = append(steps, []string{
+								"bash", "tools/behavioral_stage.sh",
+								filepath.Clean(rootAbs),
+								runRoot,
+							})
+						}
+						steps = append(steps, []string{"run", "./cmd/fwapplysynth", "-run-root", runRoot})
+						steps = append(steps, []string{"run", "./cmd/fwfinalize", "-run-root", runRoot})
+						steps = append(steps, []string{"run", "./cmd/fwdescriptors", "-run-root", runRoot})
+						steps = append(steps, []string{"run", "./cmd/fwvalidatecalls", "-run-root", runRoot})
 						for _, step := range steps {
 							if err := runCmd(rootAbs, "go", step...); err != nil {
 								fmt.Fprintf(os.Stderr, "auto impl stage failed (%s): %v\n", strings.Join(step, " "), err)
