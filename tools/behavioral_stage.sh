@@ -11,7 +11,7 @@ mkdir -p "$BEH_OUT"
 BIN_DIR="inputs/firmware"
 
 echo "[behavioral] Extracting all function addresses from composed files..."
-python3 << 'PY'
+python3 - "$REPO/$RUN_ROOT" "$BEH_OUT" << 'PY'
 import json, re, sys
 from pathlib import Path
 
@@ -47,7 +47,7 @@ for fpath in sorted(composed_dir.glob('*.reconstructed.c')):
                         total += 1
                         break
     print(f'  {fpath.stem}: {total} candidates', file=sys.stderr)
-PY "$REPO/$RUN_ROOT" "$BEH_OUT"
+PY
 
 echo "[behavioral] Pre-scanning with Capstone (MMIO filter)..."
 declare -A BIN_MAP=(
@@ -75,6 +75,7 @@ wait
 
 echo "[behavioral] Building trace target files (MMIO only)..."
 for mmio_file in "$BEH_OUT"/mmio_*.jsonl; do
+    stem=$(basename "$mmio_file" .jsonl | sed 's/mmio_//; s/\.reconstructed//')
     python3 -c "
 import json
 with open('$mmio_file') as f:
@@ -82,7 +83,7 @@ with open('$mmio_file') as f:
         d = json.loads(line)
         if d.get('has_mmio'):
             print(json.dumps({'name': d['name'], 'address': d['runtime_address']}))
-" > "$BEH_OUT/targets_$(basename $mmio_file .jsonl | sed 's/mmio_//').jsonl"
+" > "$BEH_OUT/targets_${stem}.jsonl"
 done
 
 echo "[behavioral] Tracing with Unicorn..."
