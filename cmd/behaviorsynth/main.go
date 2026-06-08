@@ -141,7 +141,7 @@ func main() {
 		body.WriteString("}\n")
 
 		// Write the synth file (include image tag to avoid cross-image name collisions).
-		imgTag := strings.ReplaceAll(strings.ReplaceAll(fp.Image, ".", "_"), "-", "_")
+		imgTag := strings.ReplaceAll(strings.ReplaceAll(filepath.Base(fp.Image), ".", "_"), "-", "_")
 		synthName := fmt.Sprintf("behavioral_%s__%s.synth.c", funcName, imgTag)
 		outPath := filepath.Join(outDir, synthName)
 		if err := os.WriteFile(outPath, []byte(body.String()), 0644); err != nil {
