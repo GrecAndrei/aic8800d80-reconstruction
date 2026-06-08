@@ -18,27 +18,25 @@ It is not leaked vendor source. It is a deterministic reconstruction pipeline th
 - End-to-end pipeline reference: `PIPELINE.md`
 - Repo navigation and operator docs: `docs/README.md`
 
-### v12 — Real-Pseudocode Reconstruction (current)
+### v13 — Behavioral Fingerprint Reconstruction (current)
 
-The current build path compiles cleanly across every final reconstructed file
-and the truth-lane scorecard reports full pass coverage on the top 25
-critical functions:
+The current build compiles cleanly across all 4 final files and the
+truth-lane scorecard reports 19 PASS / 6 REVIEW / 0 FAIL with behavioral
+bodies verified against the original binary's MMIO traces:
 
 - `fmacfw_h`: 906 functions, 0 errors
 - `fmacfw`: 74441 functions, 0 errors
 - `fmacfwbt`: 52052 functions, 0 errors
 - `lmacfw_rf`: 57378 functions, 0 errors
-- **Truth Lane Scorecard**: 25 PASS / 0 REVIEW / 0 FAIL on the 25 critical functions
-- `applysynth`: 17365 bodies applied, 15133 unique
-- `implemented_count`: 17504, `completion_pct`: 28.429, `fallback_count`: 0
-- Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive (`1o2qy21F9EbMpPk4B9WqIEMHfWrL3BW4y`)
+- **Truth Lane Unicorn Smoke**: 19 PASS / 6 REVIEW / 0 FAIL
+- **Completion**: `implemented_count`: 31972, `completion_pct`: 51.928
+- **Behavioral bodies**: 132 deployed across all 4 images
+- **Cross-image contamination fixed**: per-image filtering via `image=` tags
 
-The breakthrough is a fidelity-first IDA pseudocode transpiler
-(`cmd/fwimplsynth/realpseudo.go`) that converts Hex-Rays pseudocode into
-faithful C bodies for truth-lane targets — function pointer calls, MMIO
-writes, control flow, and helper calls all preserved. See
-`docs/REBUILD_MILESTONE.md` for the full v12 entry and `PIPELINE.md` for how
-the transpiler fits into the build path.
+The breakthrough is the **behavioral fingerprint pipeline** that runs the
+original firmware through Unicorn, captures the exact MMIO read/write
+sequence, and emits C bodies that touch the same addresses. See
+`docs/REBUILD_MILESTONE.md` for the full v13 entry.
 
 ### v1 Tracked Release Snapshot (curated)
 
@@ -106,20 +104,25 @@ go run ./cmd/fwcycle -run-root extraction_out/reconstruction/mega7 -tag cycle_de
 
 ### Truth-Lane Scoring
 
-Score the top 25 critical functions against the live pseudocode-backed synth:
+Score the top 25 critical functions with original-binary trace validation:
 
 ```bash
-python3 tools/score_truth_lane.py \
-  --run-root extraction_out/reconstruction/mega7 \
-  --out-dir /tmp/opencode/truth_lane_score \
-  --label v12_realpseudocode
+python3 tools/truth_lane_smoke.py \
+  --final-dir extraction_out/reconstruction/mega7/final \
+  --out /tmp/opencode/truth_lane_smoke
+
+python3 tools/behavioral_fingerprint.py \
+  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin \
+  --targets /tmp/opencode/targets.jsonl --out /tmp/opencode/fingerprints.jsonl
+
+python3 tools/find_mmio_functions.py \
+  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin --base 0x1200000 \
+  --functions extraction_out/ida_export_live/lmacfw_rf_8800d80_u02.bin.functions.jsonl \
+  --out /tmp/opencode/mmio_fns.jsonl
 ```
 
-The scorecard reads the focused queue at
-`extraction_out/reconstruction/truth_lane_state/truth_lane_targets.json`,
-runs `fwimplsynth` against it, and writes
-`scorecard.json`/`scorecard.md` with PASS/REVIEW/FAIL per target. The current
-v12 build reports **25 PASS / 0 REVIEW / 0 FAIL**.
+The current v13 build reports **19 PASS / 6 REVIEW / 0 FAIL** — all behavioral
+bodies pass, all REVIEW are motif bodies (stochastic XOR) with zero MMIO writes.
 
 See `docs/RUNBOOK.md` and `PIPELINE.md` for the full staged workflow.
 

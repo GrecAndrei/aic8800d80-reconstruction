@@ -134,7 +134,31 @@ Supporting tools:
 - `cmd/fwcycletrend`: trend summaries and gating
 - `cmd/fwcycleauto`: detached multi-cycle supervisor
 
+## Stage 4.5: Behavioral Fingerprint Synthesis
+
+Replaces stochastic motif bodies with trace-verified C bodies for MMIO functions.
+
+1. **Pre-scan** (`tools/find_mmio_functions.py`): Capstone finds LDR PC-relative
+   instructions loading MMIO-range values from literal pools.
+2. **Trace** (`tools/behavioral_fingerprint.py`): Runs each MMIO function in
+   Unicorn, records direction and write values.
+3. **Generate** (`cmd/behaviorsynth`): Emits inline volatile reads
+   (`(void)*addr`) and writes (`*addr = val`) — no external macros.
+4. **Per-image apply** (`cmd/fwapplysynth`): Bodies with `image=` tags only
+   apply to matching image; `reconstructed_micro_flow` blocked cross-image.
+
+```bash
+bash tools/overnight_behavioral.sh
+```
+
 Cycle outputs are written under:
+
+- `extraction_out/reconstruction/mega7/runs/<tag>/`
+- `extraction_out/reconstruction/mega7/cycle_history.jsonl`
+- `extraction_out/reconstruction/mega7/controller_state.json`
+- `extraction_out/reconstruction/mega7/controller_experience.jsonl`
+
+## Stage 5: Published Release Snapshot
 
 - `extraction_out/reconstruction/mega7/runs/<tag>/`
 - `extraction_out/reconstruction/mega7/cycle_history.jsonl`

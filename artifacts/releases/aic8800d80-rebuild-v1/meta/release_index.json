@@ -1,35 +1,16 @@
 {
   "schema_version": "0.1.0",
-  "release_name": "aic8800d80-rebuild-v1",
-  "generated_at": "2026-05-27T00:00:00Z",
-  "paths": {
-    "release_root": "artifacts/releases/aic8800d80-rebuild-v1",
-    "final_dir": "artifacts/releases/aic8800d80-rebuild-v1/final",
-    "synth_dir": "artifacts/releases/aic8800d80-rebuild-v1/synth",
-    "meta_dir": "artifacts/releases/aic8800d80-rebuild-v1/meta"
-  },
-  "counts": {
-    "final_files": 9,
-    "synth_files": 2,
-    "meta_files": 5
-  },
-  "published_metrics": {
-    "function_count": 356,
-    "implemented_count": 356,
-    "strong_count": 356,
+  "release": "aic8800d80-rebuild-v1",
+  "build": "v13_behavioral_fingerprint",
+  "generated_at": "2026-06-07T23:30:00Z",
+  "description": "Behavioral fingerprint pipeline: original binary MMIO traces -> C bodies with read/write distinction, per-image filtering",
+  "metrics": {
+    "function_count": 61570,
+    "implemented_count": 31972,
+    "completion_pct": 51.928,
+    "strong_count": 61570,
     "fallback_count": 0,
-    "semantic_completion_pct": 100.0,
-    "evaluable_count": 352,
-    "avg_conformance_pct": 100.0,
-    "functions_applied": 356,
-    "unique_functions_applied": 212,
-    "total_rebuild_functions": 120000
+    "truth_lane_smoke": "19 PASS / 6 REVIEW / 0 FAIL"
   },
-  "source_manifests": {
-    "rebuild_manifest": "meta/rebuild_manifest.json",
-    "applysynth_manifest": "meta/applysynth_manifest.json",
-    "finalize_manifest": "final/finalize_manifest.json",
-    "call_conformance": "final/call_conformance.json",
-    "checksums": "meta/final_sources.sha256"
-  }
+  "sha256": "artifacts/releases/aic8800d80-rebuild-v1/meta/final_sources.sha256"
 }

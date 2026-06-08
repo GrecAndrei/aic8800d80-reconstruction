@@ -27,28 +27,24 @@ Published metrics recorded in that release:
 - `evaluable_count`: `352`
 - `avg_conformance_pct`: `100.000`
 
-## Current Live Build — v12 Real-Pseudocode Reconstruction
+## Current Live Build — v13 Behavioral Fingerprint Reconstruction
 
-The active workspace (`extraction_out/reconstruction/mega7/`) is on the v12
-build path. It is significantly larger than the curated v1 release and uses
-a real-pseudocode transpiler for fidelity-first reconstruction of
-truth-lane targets.
+The active workspace (`extraction_out/reconstruction/mega7/`) is on the v13
+build path. v13 adds a **behavioral fingerprint pipeline** that runs the
+original firmware through Unicorn, captures the exact ordered MMIO read/write
+sequence, and emits C bodies that touch the same addresses.
 
-Build metrics (v12):
+Build metrics (v13):
 
 - `fmacfw_h`: 906 functions, 0 compile errors
 - `fmacfw`: 74441 functions, 0 compile errors
 - `fmacfwbt`: 52052 functions, 0 compile errors
 - `lmacfw_rf`: 57378 functions, 0 compile errors
-- `applysynth`: 17365 bodies applied, 15133 unique
-- `implemented_count`: 17504
-- `completion_pct`: 28.429
-- `fallback_count`: 0
-- Truth Lane Scorecard: **25 PASS / 0 REVIEW / 0 FAIL** on the 25 critical targets
-- Truth Lane Unicorn Smoke: **17 PASS / 8 REVIEW / 0 FAIL** — all 17 real-pseudo
-  bodies execute end-to-end in the Unicorn ARMv7-M emulator
-- Cloud evidence: `mega7_v12_clean.tar.gz` uploaded to Drive
-  (`1o2qy21F9EbMpPk4B9WqIEMHfWrL3BW4y`)
+- Truth Lane Unicorn Smoke: **19 PASS / 6 REVIEW / 0 FAIL**
+- `implemented_count`: 31972, `completion_pct`: 51.928
+- Behavioral bodies deployed: 132 across all 4 images
+- Cross-image addresses verified: lmacfw_rf uses 0x185xxx,
+  fmacfwbt uses 0x187fxx (each correct for its image)
 
 What changed in v12:
 
@@ -86,6 +82,24 @@ This workspace includes:
 - controller state and experience logs
 - descriptor, motif, and transfer analysis
 - compose, synth, applied, and final generated outputs
+
+## What Changed In v13
+
+- **`tools/behavioral_fingerprint.py`** — Runs the original binary through
+  Unicorn, captures MMIO address sequence per function with direction
+  (R:addr, W:addr:value) and write values.
+- **`cmd/behaviorsynth`** — Converts fingerprint traces to self-contained C
+  bodies with inline volatile reads and writes. No external macros needed.
+  Filenames include image tag to avoid cross-image collision.
+- **`tools/find_mmio_functions.py`** — Capstone-based pre-scanner that
+  identifies LDR PC-relative instructions loading from literal pools with
+  MMIO-range values. Filters 2806 MMIO-touching functions before tracing.
+- **`cmd/fwapplysynth` — per-image body filtering** — Synth files with
+  `image=...` tags only apply to their matching image. Bodies with
+  `reconstructed_micro_flow:` marker are blocked from leaking cross-image.
+- **Cross-image contamination fix** — lmacfw_rf `rf_bus_mark` was using
+  fmacfwbt's addresses (0x187f70 instead of 0x185a1c). Now each image
+  gets its own correct addresses.
 
 ## Why The Current Milestone Matters
 
