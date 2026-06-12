@@ -52,3 +52,9 @@ harness_v15/serve.log
 harness_v15/out/
 harness_v15/tasks/
 artifacts/releases/aic8800d80-rebuild-v1/composed/*.reconstructed.c
+
+# v15 release: large composed integrated files (rebuildable)
+artifacts/releases/aic8800d80-rebuild-v1/composed/*.reconstructed.c
+artifacts/releases/aic8800d80-rebuild-v1/synth/behavioral_*.synth.c
+artifacts/releases/aic8800d80-rebuild-v1/synth/behavior_*.synth.c
+artifacts/releases/aic8800d80-rebuild-v1/synth/lift_*.synth.c

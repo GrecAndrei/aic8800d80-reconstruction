@@ -58,8 +58,8 @@ def load_behavioral_index() -> dict[str, dict[str, str]]:
     return index
 
 
-def find_function_blocks(text: str) -> list[tuple[int, int, str, str]]:
-    """Find (start, end, name, body) for each function in text."""
+def find_function_blocks(text: str) -> list[tuple[int, int, str, str, int]]:
+    """Find (start, end, name, body, open_brace_pos) for each function in text."""
     pattern = re.compile(
         r'\b(void|int|unsigned\s+int|uint8_t|uint16_t|uint32_t|uint64_t|'
         r'size_t|char|long|short|signed|bool|float|double)\b\s+'
@@ -70,9 +70,9 @@ def find_function_blocks(text: str) -> list[tuple[int, int, str, str]]:
     for m in pattern.finditer(text):
         name = m.group(2)
         start = m.start()
+        open_brace_pos = m.end() - 1
         depth = 0
-        i = m.end() - 1
-        body_start = i + 1
+        i = open_brace_pos
         while i < len(text):
             ch = text[i]
             if ch == '{':
@@ -80,13 +80,15 @@ def find_function_blocks(text: str) -> list[tuple[int, int, str, str]]:
             elif ch == '}':
                 depth -= 1
                 if depth == 0:
-                    blocks.append((start, i + 1, name, text[body_start:i]))
+                    end = i + 1
+                    body = text[open_brace_pos + 1:i]
+                    blocks.append((start, end, name, body, open_brace_pos))
                     break
             i += 1
     return blocks
 
 
-def integrate(image: str, behavioral_index: dict[str, str]) -> dict:
+def integrate(image: str, behavioral_index) -> dict:
     src = COMPOSED_DIR / f"{image}.reconstructed.c"
     text = src.read_text(errors='replace')
     print(f"[{image}] {len(text):,} bytes loaded", file=sys.stderr)
@@ -101,18 +103,17 @@ def integrate(image: str, behavioral_index: dict[str, str]) -> dict:
     repls = []
     todo_total = 0
     no_match = []
-    for start, end, name, body in blocks:
+    for start, end, name, body, open_brace_pos in blocks:
         if 'TODO' in body:
             todo_total += 1
             if name in available:
-                behavioral_body = available[name].strip()
+                behavioral_body = available.get(name, "").strip()
                 new_body = "  /* v15 behavioral: replaced TODO stub */\n  " + behavioral_body + "\n"
-                # Preserve the function signature (start to body_start) and the closing brace
-                # text[start:end] = signature + body + "}"
-                # We want: signature + new_body + "}"
-                sig_end = end - len(body) - 1  # position of '{'
-                sig = text[start:sig_end]
-                new_block = sig + "{\n" + new_body + "}"
+                # text[start:end] = sig + "{" + body + "}"
+                # We want: sig + "{" + new_body + "}"
+                # sig = text[start:open_brace_pos] (everything BEFORE the original '{')
+                sig = text[start:open_brace_pos]
+                new_block = sig + "{" + new_body + "}"  # add our own '{' and '}'
                 repls.append((start, end, new_block))
             else:
                 no_match.append(name)
