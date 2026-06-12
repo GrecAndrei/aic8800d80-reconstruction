@@ -49,3 +49,5 @@ harness_v15/keys/
 harness_v15/*.log
 harness_v15/orchestrator.pid
 harness_v15/serve.log
+harness_v15/out/
+harness_v15/tasks/

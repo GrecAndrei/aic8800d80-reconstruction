@@ -43,17 +43,23 @@ def build_symbol_set(image: str) -> set[str]:
     return {m.group(1) for m in re.finditer(r"^void\s+(\w+)\s*\(", text, re.MULTILINE)}
 
 
-def r2_disasm(binary: Path, runtime_addr: int, load_base: int = 0x120000) -> str:
-    """Run r2 pdf @ runtime_addr, return text disasm."""
-    cmd = [
-        "r2", "-q", "-A",
+def r2_disasm(binary: Path, runtime_addr: int, load_base: int = 0x120000, analyze: bool = True) -> str:
+    """Run r2 pdf @ runtime_addr, return text disasm.
+
+    analyze=True: full -A analysis (slow, used for full disasm)
+    analyze=False: no analysis (fast, used for bulk scoring where we only need BL detection)
+    """
+    cmd = ["r2", "-q"]
+    if analyze:
+        cmd.append("-A")
+    cmd.extend([
         "-a", "arm", "-b", "16",
         "-m", f"0x{load_base:x}",
         "-c", f"pdf @ 0x{runtime_addr:x}",
         str(binary),
-    ]
+    ])
     try:
-        out = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
     except subprocess.TimeoutExpired:
         return ""
     # Strip ANSI
@@ -309,14 +315,18 @@ def classify(synth_body: str, fn_name: str, disasm: str, symbol_set: set[str],
     }
 
 
-def verify(task: dict, synth_body: str) -> dict:
-    """Public API: verify a synth body against a task."""
+def verify(task: dict, synth_body: str, fast: bool = False) -> dict:
+    """Public API: verify a synth body against a task.
+
+    fast=True: skip r2 analysis (much faster, may miss some BL targets but
+    works for leaf detection where we only need to confirm no named BLs).
+    """
     binary = REPO / task["binary"]
     runtime_addr = int(task["runtime_address_hex"], 16)
     fn = task["function"]
 
     symbol_set = build_symbol_set(task["image"])
-    disasm = r2_disasm(binary, runtime_addr)
+    disasm = r2_disasm(binary, runtime_addr, analyze=not fast)
     if not disasm:
         return {"ok": False, "reason": "r2_failed_or_empty", "callees": [], "helpers": []}
 

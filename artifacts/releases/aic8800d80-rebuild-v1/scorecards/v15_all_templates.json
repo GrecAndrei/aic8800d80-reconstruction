@@ -1,0 +1,4198 @@
+{
+  "total": 281,
+  "pass": 0,
+  "fail": 281,
+  "results": [
+    {
+      "file": "004_rwnxl_reset_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "rwnxl_reset_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "003_mac_phy_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mac_phy_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_116d3c",
+        "sub_11ecb0",
+        "sub_11f5e4",
+        "sub_120408",
+        "sub_128db8",
+        "sub_129e04",
+        "sub_12ad00"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "002_idle_processing.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "idle_processing.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_guard_sdio",
+        "ipc_doorbell_handler",
+        "queue_check",
+        "sdio_status_check"
+      ],
+      "helpers": [
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "001_tx_dequeue.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "tx_dequeue.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_push_tail",
+        "log_hw_init",
+        "log_queue_push",
+        "msg_parse"
+      ],
+      "helpers": [
+        "log_hw_init",
+        "msg_parse"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "006_usb_rx_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "usb_rx_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "005_emb_kmsg_hdlr.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "emb_kmsg_hdlr.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "007_log_system_init_mode2.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_system_init_mode2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_pool_init_d",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_d",
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "008_log_flush.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_flush.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_printf",
+        "rf_stream_start",
+        "rf_stream_start2"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "010_ps_enable_cfm.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ps_enable_cfm.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "009_rwnxl_wakeup.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "rwnxl_wakeup.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "012_usb_wlan_recv.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "usb_wlan_recv.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "rx_queue_init"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "011_usb_trans_error_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "usb_trans_error_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "013_usb_wlan_recv_fc_on.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "usb_wlan_recv_fc_on.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "rx_queue_init"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "015_wlan_epbulk_send_compl_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "wlan_epbulk_send_compl_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "014_usb_wlan_rx_pkt_free_list_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "usb_wlan_rx_pkt_free_list_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "list_insert_sorted"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "016_ps_upm_exit.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ps_upm_exit.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "017_ps_upm_enter.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ps_upm_enter.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "020_lpm_host_notify_bt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "lpm_host_notify_bt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "018_intc_spurious.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "intc_spurious.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "019_ps_disable_cfm.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ps_disable_cfm.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "021_wlan_epbulk_recv_compl_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "wlan_epbulk_recv_compl_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "024_log_free_pool_b.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_free_pool_b.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_free_dispatch"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "023_log_free_pool_a.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_free_pool_a.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_free_dispatch"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "022_msg_parse_short.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "msg_parse_short.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_101a54"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "025_msg_get_value.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "msg_get_value.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "027_log_pool_init_e.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_init_e.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_system_init_mode2"
+      ],
+      "helpers": [
+        "log_system_init_mode2"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "026_rf_timer_abort_common.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "rf_timer_abort_common.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_10ed40",
+        "sub_114ee0"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "028_rx_queue_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "rx_queue_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "clear_flags"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "029_log_printf.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_printf.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_flush"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "030_clear_flags.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "clear_flags.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rx_queue_init"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "031_log_tick.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_tick.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_power_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "032_log_system_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_system_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_10ffc0"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "033_sdio_replenish_rx_msgqueue.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "sdio_replenish_rx_msgqueue.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "helpers": [
+        "crypto_hw_clear_regs"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "036_ipc_emb_hostmsgbuf_get.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ipc_emb_hostmsgbuf_get.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sdio_wait_busy"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "035_ipc_emb_kmsg_fwd.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ipc_emb_kmsg_fwd.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sdio_wait_busy"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "034_ipc_rx_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ipc_rx_evt.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "helpers": [
+        "crypto_hw_clear_regs"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "037_sdio_rx_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "sdio_rx_evt.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "clear_flags",
+        "crypto_hw_clear_regs",
+        "crypto_power_calc"
+      ],
+      "helpers": [
+        "crypto_hw_clear_regs"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "038_log_ptr_in_range.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_ptr_in_range.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "039_math_round.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "math_round.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_helper_int"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "040_hw_event_flag.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "hw_event_flag.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "041_uart_puts.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "uart_puts.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "uart_putc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "042_get_variant_cached.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "get_variant_cached.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "043_get_cached_1828f8.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "get_cached_1828f8.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "044_feature_flags_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "feature_flags_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "045_uart_putc.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "uart_putc.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "047_timestamp_remove.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "timestamp_remove.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "046_timestamp_update.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "timestamp_update.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "048_timestamp_list_contains.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "timestamp_list_contains.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_update"
+      ],
+      "helpers": [
+        "timestamp_update"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "049_list_find_remove.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "list_find_remove.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "list_remove_node"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "051_list_remove_node.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "list_remove_node.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "050_list_insert_sorted.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "list_insert_sorted.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "list_remove_node"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "052_log_alloc.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_alloc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_free_pool_b"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "053_debug_if_40320038.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "debug_if_40320038.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "uart_putc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "054_clear_sdio_state.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "clear_sdio_state.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sdio_status_check"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "055_timer_set_relative.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "timer_set_relative.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "056_log_free_pool_e.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_free_pool_e.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "057_log_free_pool_f.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_free_pool_f.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "058_log_free_wrapper.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_free_wrapper.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "059_log_global_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_global_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "060_log_pool_alloc.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_alloc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_free_pool_b"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "062_log_pool_alloc_b.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_alloc_b.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_free_pool_a",
+        "log_free_pool_b"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "061_log_pool_alloc2.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_alloc2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "064_log_pool_default_config.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_default_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "chip_variant_detect",
+        "crypto_hw_disable",
+        "hw_config_init"
+      ],
+      "helpers": [
+        "crypto_hw_disable"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "063_log_pool_config.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "chip_variant_detect",
+        "crypto_hw_disable",
+        "hw_config_init"
+      ],
+      "helpers": [
+        "crypto_hw_disable"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "065_log_pool_init_a.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_init_a.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "066_log_pool_init_b.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_init_b.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "067_log_pool_init_c.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_init_c.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "068_rx_queue_head_init.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "rx_queue_head_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "list_insert_sorted"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "069_log_pool_init_queue.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_pool_init_queue.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "070_queue_pending_check.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "queue_pending_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "071_parse_width_suffix.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "parse_width_suffix.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "072_log_queue_push2.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_queue_push2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "073_log_queue_refill.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "log_queue_refill.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage",
+        "clear_flags",
+        "list_pop"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "074_parse_int.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "parse_int.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "075_panic_loop.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "panic_loop.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "076_memset_thunk.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "memset_thunk.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "077_memset_impl.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "memset_impl.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "078_memcpy_fast.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "memcpy_fast.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "079_math_fastpath.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "math_fastpath.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "080_math_helper_big2.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "math_helper_big2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "081_math_helper_int.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "math_helper_int.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "082_rf_cmd_send.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_cmd_send.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "083_rf_mem_read.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_mem_read.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "084_phy_rf_init.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "phy_rf_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "085_patch_apply.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "patch_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "fw_config_apply"
+      ],
+      "helpers": [
+        "fw_config_apply"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "086_message_dispatch.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "message_dispatch.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "089_rf_bus_setup.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_setup.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "helpers": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "088_rf_bus_reset2.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_reset2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "087_rf_bus_reset.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_reset.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "090_rf_bus_write.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_write.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_bus_clear"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "091_rf_bus_write2.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_write2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "092_log_free_pool_dispatch2.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "log_free_pool_dispatch2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "093_log_free_dispatch.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "log_free_dispatch.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "094_rf_cmd_dispatch.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_cmd_dispatch.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "095_rf_cmd_send.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_cmd_send.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "096_rf_init_blocka.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_init_blocka.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "097_sdio_transfer.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "sdio_transfer.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_enqueue",
+        "log_hw_init",
+        "sdio_buffer_prepare"
+      ],
+      "helpers": [
+        "log_hw_init"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "098_sdio_status_check.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "sdio_status_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_guard_sdio"
+      ],
+      "helpers": [
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "099_sdio_dma_config.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "sdio_dma_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "chip_variant_detect",
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "helpers": [
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "100_sdio_buffer_prepare.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "sdio_buffer_prepare.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "helpers": [
+        "log_hw_init"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "101_rf_timer_toggle.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_timer_toggle.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "102_rf_stream_start2.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_stream_start2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_stream_start"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "103_rf_stream_start.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_stream_start.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_111f08"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "104_rf_state_check.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_state_check.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "105_rf_reg_write_core.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_reg_write_core.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "106_rf_msg_process_body.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_msg_process_body.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "108_rf_mem_write.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_mem_write.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "107_rf_msg_handler.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_msg_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "109_rf_level_dump.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_level_dump.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "110_rf_level_compute.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_level_compute.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "helpers": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "111_rf_level_apply.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_level_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102a24"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "112_rf_init_blockc.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_init_blockc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "113_rf_mem_write.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_mem_write.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "114_rf_mem_read.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_mem_read.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "117_sdio_dma_config.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "sdio_dma_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "chip_variant_detect",
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "helpers": [
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "115_sdio_buffer_prepare.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "sdio_buffer_prepare.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "helpers": [
+        "log_hw_init"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "116_rf_init_blockb.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_init_blockb.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "119_rf_level_apply.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_level_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102a24"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "118_rf_init_blocka.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_init_blocka.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "120_rf_hw_timer_read.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_hw_timer_read.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "helpers": [
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "121_rf_fault_dump.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_fault_dump.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "123_rf_bus_mark.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_bus_mark.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "125_rf_cmd_send.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_cmd_send.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "122_rf_cmd_wait.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_cmd_wait.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "124_rf_cmd_queue_next.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_cmd_queue_next.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_queue_alloc",
+        "log_queue_push"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "127_rf_cmd_dispatch.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_cmd_dispatch.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "126_rf_cmd_process.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_cmd_process.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "128_rf_cmd_dispatch.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_cmd_dispatch.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "129_rf_bus_write2.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_write2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "130_rf_bus_write2.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_write2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "131_rf_bus_write.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_write.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_bus_clear"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "132_rf_bus_write.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_write.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_bus_clear"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "133_rf_bus_setup.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_setup.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "helpers": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "135_rf_bus_reset.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_reset.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "134_rf_bus_reset2.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_reset2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "137_rf_bus_setup.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_setup.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "helpers": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "136_rf_bus_mark.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_mark.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "138_rf_bus_init.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_bus_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "helpers": [
+        "rf_cmd_wait",
+        "rf_reg_write_cb"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "139_phy_rf_init.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "phy_rf_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockb",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "141_rf_bus_reset2.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_reset2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "140_patch_apply.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "patch_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "fw_config_apply"
+      ],
+      "helpers": [
+        "fw_config_apply"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "142_rf_bus_reset.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_reset.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_bus_mark",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "143_rf_bus_mark.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_bus_mark.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "144_log_free_pool_dispatch2.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "log_free_pool_dispatch2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "145_rf_level_apply.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_level_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102a24"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "146_sdio_dma_config.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "sdio_dma_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "chip_variant_detect",
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "helpers": [
+        "crypto_hw_disable",
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "147_sdio_buffer_prepare.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "sdio_buffer_prepare.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_enqueue",
+        "log_hw_init",
+        "sub_1435d0"
+      ],
+      "helpers": [
+        "log_hw_init"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "148_rf_stream_start2.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_stream_start2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_stream_start"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "149_message_dispatch.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "message_dispatch.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "150_rf_state_check.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_state_check.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "151_rf_mem_read.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_mem_read.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "152_rf_mem_write.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_mem_write.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "153_rf_msg_handler.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_msg_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "155_ipc_doorbell_handler.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "ipc_doorbell_handler.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sdio_wait_busy"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "154_log_free_pool_dispatch2.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "log_free_pool_dispatch2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "156_log_free_dispatch.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "log_free_dispatch.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_free_pool_c",
+        "log_free_pool_d"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "157_rf_reg_write_cb.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_reg_write_cb.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "158_mm_sleepinfo_rx_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_sleepinfo_rx_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "159_mm_chan_ctxt_unlink_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_chan_ctxt_unlink_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "160_me_data_path_flushed_ind_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "me_data_path_flushed_ind_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "161_me_rc_set_rate_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "me_rc_set_rate_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "162_me_set_active_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "me_set_active_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "163_me_set_ps_disable_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "me_set_ps_disable_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "164_mm_ba_add_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_ba_add_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "165_hal_dma_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "hal_dma_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "166_ke_evt_schedule.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ke_evt_schedule.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "167_txl_cfm_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "txl_cfm_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "168_ke_msg_alloc.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ke_msg_alloc.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "169_ke_timer_clear.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ke_timer_clear.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "170_ke_timer_set.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "ke_timer_set.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "171_apm_stop_cac_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "apm_stop_cac_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "172_sm_connect_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "sm_connect_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "173_scan_start_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "scan_start_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "174_scan_cancel_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "scan_cancel_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "175_mm_sta_add_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_sta_add_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "176_mm_bcn_change_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_bcn_change_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "177_mm_scan_channel_start_ind_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_scan_channel_start_ind_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "178_apm_start_cac_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "apm_start_cac_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "179_mm_cfg_rssi_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_cfg_rssi_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "180_mm_set_idle_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_idle_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "181_mm_set_arpoffload_en_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_arpoffload_en_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "183_apm_sta_connect_past_timer_handle.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "apm_sta_connect_past_timer_handle.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "182_mm_force_idle_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_force_idle_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "184_mm_timer_set.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_timer_set.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "185_mm_timer_schedule.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_timer_schedule.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "187_mm_start_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_start_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "188_me_config_monitor_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "me_config_monitor_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "186_mm_tbtt_evt.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_tbtt_evt.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "189_mm_sta_del_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_sta_del_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "190_hal_machw_abs_timer_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "hal_machw_abs_timer_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "192_apm_start_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "apm_start_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "191_mm_scan_channel_end_ind_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_scan_channel_end_ind_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "193_mm_key_add_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_key_add_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "194_mm_key_del_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_key_del_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "195_mm_set_vif_state_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_vif_state_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "196_mm_set_idle_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_idle_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "197_mm_set_ps_options_req_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_ps_options_req_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule",
+        "ke_msg_alloc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "198_mm_set_ps_mode_cfm_handler.synth",
+      "image": "fmacfw_8800d80_h_u02.bin",
+      "function": "mm_set_ps_mode_cfm_handler.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "199_rf_hw_timer_init.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_hw_timer_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "200_rf_hw_timer_init.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_hw_timer_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "201_rf_hw_timer_init.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_hw_timer_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "202_rf_reg_write_wait.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_reg_write_wait.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_reg_ack_cb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "204_rf_reg_write_cb.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_reg_write_cb.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "203_rf_msg_log_rate.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_msg_log_rate.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "205_rf_reg_write_cb.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_reg_write_cb.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "206_rf_stream_start.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_stream_start.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_111f08"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "207_rf_level_compute.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_level_compute.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "helpers": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "208_rf_init_blockc.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_init_blockc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "209_rf_cmd_wait.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_cmd_wait.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "210_rf_init_blockc.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_init_blockc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "212_rf_cmd_wait.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_cmd_wait.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_timer_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "211_rf_level_compute.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_level_compute.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "helpers": [
+        "rf_hw_timer_read",
+        "rf_level_step"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "213_sdio_wait_busy.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "sdio_wait_busy.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "ipc_doorbell_handler",
+        "queue_check",
+        "sdio_status_check",
+        "state_flag_check"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "214_rf_msg_process_body.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_msg_process_body.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "216_rf_init_blockb.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_init_blockb.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "215_rf_power_set.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_power_set.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102b00"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "217_rf_init_blockb.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_init_blockb.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_init_blocka",
+        "rf_init_blockc"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "218_sdio_status_check.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "sdio_status_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_guard_sdio"
+      ],
+      "helpers": [
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "219_rf_reg_write_wait.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_reg_write_wait.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_reg_ack_cb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "220_rf_timer_toggle_update.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_timer_toggle_update.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_hw_timer_read",
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "helpers": [
+        "rf_hw_timer_read",
+        "rf_level_compute",
+        "rf_level_step"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "221_rf_power_set.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "rf_power_set.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102b00"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "222_rf_power_set.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_power_set.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_102b00"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "223_rf_reg_write_wait.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "rf_reg_write_wait.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_reg_ack_cb"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "225_log_ptr_in_range.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "log_ptr_in_range.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "224_rf_stream_start_once.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "rf_stream_start_once.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_send",
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_send",
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "226_math_round.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "math_round.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_helper_int"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "227_math_helper_big2.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "math_helper_big2.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "228_math_helper_big.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "math_helper_big.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sub_142f2c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "229_log_queue_push.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "log_queue_push.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "tx_dequeue"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "230_log_ptr_in_range.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "log_ptr_in_range.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_free_pool_a",
+        "log_free_pool_b",
+        "log_pool_init_e"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "231_event_queue_push.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "event_queue_push.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_manage"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "232_crypto_hw_power_up.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "crypto_hw_power_up.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "crypto_power_apply"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "233_crypto_hw_enable.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "crypto_hw_enable.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "helpers": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "234_crypto_hw_disable.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "crypto_hw_disable.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "helpers": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "235_crypto_channel_calc.synth",
+      "image": "fmacfwbt_8800d80_u02.bin",
+      "function": "crypto_channel_calc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_freq_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "236_tx_phy_config.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "tx_phy_config.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_power_up"
+      ],
+      "helpers": [
+        "crypto_hw_power_up"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "237_timestamp_remove.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "timestamp_remove.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "timestamp_list_contains"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "238_panic_loop.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "panic_loop.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "239_msg_parse.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "msg_parse.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "msg_handler_tx",
+        "sub_137490"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "241_log_queue_push.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "log_queue_push.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "tx_dequeue"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "240_math_round.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "math_round.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_helper_int"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "242_log_pool_init_e.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "log_pool_init_e.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_system_init_mode2"
+      ],
+      "helpers": [
+        "log_system_init_mode2"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "243_fw_config_apply.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "fw_config_apply.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "patch_apply"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "245_firmware_init.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "firmware_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 2 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "fw_config_apply",
+        "ke_evt_schedule"
+      ],
+      "helpers": [
+        "fw_config_apply"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "244_fp_convert_int.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "fp_convert_int.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "fp_convert_uint"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "246_crypto_hw_enable.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "crypto_hw_enable.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "helpers": [
+        "crypto_hw_disable",
+        "crypto_mac_core"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "247_crypto_hw_clear_regs.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "crypto_hw_clear_regs.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_power_apply",
+        "crypto_power_calc",
+        "crypto_state_dump"
+      ],
+      "helpers": [
+        "crypto_state_dump"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "248_crypto_channel_calc.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "crypto_channel_calc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_freq_set"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "249_chip_feature_check.synth",
+      "image": "fmacfw_8800d80_u02.bin",
+      "function": "chip_feature_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_always_on"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "250_clock_calc.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "clock_calc.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_guard_sdio",
+        "firmware_init",
+        "fw_config_apply",
+        "log_list_init"
+      ],
+      "helpers": [
+        "feature_guard_sdio",
+        "firmware_init",
+        "fw_config_apply"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "251_crypto_hw_clear_regs.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "crypto_hw_clear_regs.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_power_apply",
+        "crypto_power_calc",
+        "crypto_state_dump"
+      ],
+      "helpers": [
+        "crypto_state_dump"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "252_crypto_hw_disable.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "crypto_hw_disable.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "helpers": [
+        "crypto_hw_enable",
+        "crypto_mac_core"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "253_crypto_iq_calculate.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "crypto_iq_calculate.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "clock_calc"
+      ],
+      "helpers": [
+        "clock_calc"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "254_crypto_key_load.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "crypto_key_load.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "crypto_hw_write32"
+      ],
+      "helpers": [
+        "crypto_hw_write32"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "255_crypto_table_init.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "crypto_table_init.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "crypto_iq_calculate"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "257_list_pop.synth",
+      "image": "shared",
+      "function": "list_pop.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_push_tail"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "256_memset_impl.synth",
+      "image": "lmacfw_rf_8800d80_u02.bin",
+      "function": "memset_impl.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "math_round"
+      ],
+      "helpers": [
+        "math_round"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "258_list_push_tail.synth",
+      "image": "shared",
+      "function": "list_push_tail.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_queue_push",
+        "sub_137490"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "259_log_hw_init.synth",
+      "image": "shared",
+      "function": "log_hw_init.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_pop",
+        "log_enqueue",
+        "sdio_buffer_prepare",
+        "sub_1435d0"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "260_log_pool_init_d.synth",
+      "image": "shared",
+      "function": "log_pool_init_d.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_pool_init_e",
+        "sub_1140f4"
+      ],
+      "helpers": [
+        "log_pool_init_e"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "261_main_loop.synth",
+      "image": "shared",
+      "function": "main_loop.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "idle_processing",
+        "sub_114578",
+        "sub_115470",
+        "sub_12d050"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "262_queue_check.synth",
+      "image": "shared",
+      "function": "queue_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "feature_guard_sdio",
+        "ipc_doorbell_handler",
+        "sdio_wait_busy",
+        "tx_timeout_check"
+      ],
+      "helpers": [
+        "feature_guard_sdio"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "263_rf_timer_abort1.synth",
+      "image": "shared",
+      "function": "rf_timer_abort1.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_timer_abort_common"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "264_rf_timer_abort2.synth",
+      "image": "shared",
+      "function": "rf_timer_abort2.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "rf_timer_abort_common"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "265_state_flag_check.synth",
+      "image": "shared",
+      "function": "state_flag_check.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "266_sub_101a54.synth",
+      "image": "shared",
+      "function": "sub_101a54.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "msg_parse_short",
+        "sub_1320bc"
+      ],
+      "helpers": [
+        "msg_parse_short"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "267_sub_10ed40.synth",
+      "image": "shared",
+      "function": "sub_10ed40.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "268_sub_10ffc0.synth",
+      "image": "shared",
+      "function": "sub_10ffc0.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "log_system_init"
+      ],
+      "helpers": [
+        "log_system_init"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "270_sub_114ee0.synth",
+      "image": "shared",
+      "function": "sub_114ee0.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "rf_cmd_wait"
+      ],
+      "helpers": [
+        "rf_cmd_wait"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "269_sub_1140f4.synth",
+      "image": "shared",
+      "function": "sub_1140f4.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "log_enqueue"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "271_sub_116d3c.synth",
+      "image": "shared",
+      "function": "sub_116d3c.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "ke_evt_schedule"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "272_sub_11ecb0.synth",
+      "image": "shared",
+      "function": "sub_11ecb0.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_12ad00"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "274_sub_120408.synth",
+      "image": "shared",
+      "function": "sub_120408.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_11f5e4"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "273_sub_11f5e4.synth",
+      "image": "shared",
+      "function": "sub_11f5e4.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_11ecb0"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "275_sub_128db8.synth",
+      "image": "shared",
+      "function": "sub_128db8.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_129e04"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "276_sub_129e04.synth",
+      "image": "shared",
+      "function": "sub_129e04.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_116d3c"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "278_thunk.synth",
+      "image": "shared",
+      "function": "thunk.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "buffer_pool_get"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "277_sub_12ad00.synth",
+      "image": "shared",
+      "function": "sub_12ad00.synth",
+      "ok": false,
+      "reason": "leaf_with_callees: r2 shows 0 BL/BLX targets but body has 1 function calls. Leaf functions cannot have callees that don't exist in the binary.",
+      "callees": [
+        "sub_128db8"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0
+    },
+    {
+      "file": "279_tx_submit.synth",
+      "image": "shared",
+      "function": "tx_submit.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "list_push_tail",
+        "log_queue_push",
+        "rf_cmd_queue_next"
+      ],
+      "helpers": [
+        "rf_cmd_queue_next"
+      ],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "280_tx_timeout_check.synth",
+      "image": "shared",
+      "function": "tx_timeout_check.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "error_handler"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    },
+    {
+      "file": "281_feature_guard_sdio.synth",
+      "image": "shared",
+      "function": "feature_guard_sdio.synth",
+      "ok": false,
+      "reason": "template_detected: synth body matches v13 behavior_lift template signature (state-hash + switch dispatch)",
+      "callees": [
+        "sdio_transfer"
+      ],
+      "helpers": [],
+      "is_leaf": true,
+      "bl_targets_count": 0,
+      "bl_names_count": 0
+    }
+  ]
+}

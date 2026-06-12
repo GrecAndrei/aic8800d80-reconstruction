@@ -1,0 +1,1387 @@
+{
+  "total": 138,
+  "pass": 138,
+  "fail": 0,
+  "results": [
+    {
+      "file": "behavioral_clock_calc__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "clock_calc",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_clear_sdio_state__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "clear_sdio_state",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_clear_flags__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "clear_flags",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_crypto_hw_disable__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "crypto_hw_disable",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_crypto_hw_disable__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "crypto_hw_disable",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_crypto_hw_enable__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "crypto_hw_enable",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_crypto_hw_enable__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "crypto_hw_enable",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_crypto_key_load__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "crypto_key_load",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_debug_if_40320038__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "debug_if_40320038",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_feature_flags_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "feature_flags_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_emb_kmsg_hdlr__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "emb_kmsg_hdlr",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_feature_guard_sdio__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "feature_guard_sdio",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_get_cached_1828f8__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "get_cached_1828f8",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_get_variant_cached__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "get_variant_cached",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_hw_event_flag__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "hw_event_flag",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_idle_processing__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "idle_processing",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_intc_spurious__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "intc_spurious",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ipc_emb_hostmsgbuf_get__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ipc_emb_hostmsgbuf_get",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ipc_emb_kmsg_fwd__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ipc_emb_kmsg_fwd",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ipc_rx_evt__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ipc_rx_evt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_list_find_remove__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "list_find_remove",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_list_insert_sorted__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "list_insert_sorted",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_list_remove_node__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "list_remove_node",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_alloc__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_alloc",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_flush__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_flush",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_pool_a__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_free_pool_a",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_dispatch__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "log_free_dispatch",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_pool_b__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_free_pool_b",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_pool_e__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_free_pool_e",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_wrapper__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_free_wrapper",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_free_pool_f__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_free_pool_f",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_global_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_global_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_alloc2__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_alloc2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_alloc_b__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_alloc_b",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_alloc__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_alloc",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_default_config__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_default_config",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_config__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_config",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_init_b__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_init_b",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_init_a__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_init_a",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_init_e__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_init_e",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_init_c__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_init_c",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_pool_init_queue__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_pool_init_queue",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_printf__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_printf",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_ptr_in_range__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_ptr_in_range",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_queue_push2__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_queue_push2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_queue_refill__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_queue_refill",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_system_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_system_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_tick__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_tick",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_log_system_init_mode2__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "log_system_init_mode2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_lpm_host_notify_bt__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "lpm_host_notify_bt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_mac_phy_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "mac_phy_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_math_fastpath__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "math_fastpath",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_math_helper_big2__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "math_helper_big2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_math_round__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "math_round",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_memset_impl__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "memset_impl",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_memset_thunk__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "memset_thunk",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_msg_get_value__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "msg_get_value",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_message_dispatch__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "message_dispatch",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_msg_parse_short__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "msg_parse_short",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_panic_loop__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "panic_loop",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_parse_int__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "parse_int",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_parse_width_suffix__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "parse_width_suffix",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_patch_apply__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "patch_apply",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ps_disable_cfm__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ps_disable_cfm",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_phy_rf_init__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "phy_rf_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ps_enable_cfm__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ps_enable_cfm",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ps_upm_enter__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ps_upm_enter",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_ps_upm_exit__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "ps_upm_exit",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_queue_pending_check__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "queue_pending_check",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_mark__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_mark",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_mark__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_bus_mark",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_mark_bt__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_mark_bt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_mark_fmacfw__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_bus_mark_fmacfw",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_reset2__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_reset2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_reset__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_reset",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_setup__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_setup",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_write2__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_write2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_write2__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_bus_write2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_bus_write__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_bus_write",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_cmd_dispatch__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_cmd_dispatch",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_cmd_dispatch__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_cmd_dispatch",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_cmd_send__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_cmd_send",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_cmd_send__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_cmd_send",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_hw_timer_init__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_hw_timer_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_hw_timer_init__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_hw_timer_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_hw_timer_read__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_hw_timer_read",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_init_blocka__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_init_blocka",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_init_blocka__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_init_blocka",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_init_blockb__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_init_blockb",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_level_apply__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_level_apply",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_level_apply__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_level_apply",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_level_apply__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_level_apply",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_init_blockc__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_init_blockc",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_mem_read__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_mem_read",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_level_compute__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_level_compute",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_level_dump__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_level_dump",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_mem_read__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_mem_read",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_mem_write__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_mem_write",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_mem_write__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_mem_write",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_mem_write__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_mem_write",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_msg_handler__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_msg_handler",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_msg_process_body__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_msg_process_body",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_reg_write_wait__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_reg_write_wait",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_reg_write_core__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_reg_write_core",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_reg_write_wait__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "rf_reg_write_wait",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_state_check__fmacfwbt_8800d80_u02_bin.synth",
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "function": "rf_state_check",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_state_check__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_state_check",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_stream_start2__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_stream_start2",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_stream_start__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_stream_start",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_timer_abort_common__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rf_timer_abort_common",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_timer_toggle_update__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rf_timer_toggle_update",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rwnxl_reset_evt__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rwnxl_reset_evt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rf_timer_toggle__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "rf_timer_toggle",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rwnxl_wakeup__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rwnxl_wakeup",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rx_queue_head_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rx_queue_head_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_rx_queue_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "rx_queue_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_buffer_prepare__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "sdio_buffer_prepare",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_buffer_prepare__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "sdio_buffer_prepare",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_dma_config__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "sdio_dma_config",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_dma_config__lmacfw_rf_8800d80_u02_bin.synth",
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "function": "sdio_dma_config",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_rx_evt__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "sdio_rx_evt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_replenish_rx_msgqueue__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "sdio_replenish_rx_msgqueue",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_timer_set_relative__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "timer_set_relative",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_status_check__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "sdio_status_check",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_timestamp_list_contains__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "timestamp_list_contains",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_sdio_transfer__fmacfw_8800d80_u02_bin.synth",
+      "image": "fmacfw_8800d80_u02_bin",
+      "function": "sdio_transfer",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_timestamp_remove__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "timestamp_remove",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_timestamp_update__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "timestamp_update",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_tx_dequeue__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "tx_dequeue",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_uart_putc__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "uart_putc",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_uart_puts__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "uart_puts",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_usb_rx_evt__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "usb_rx_evt",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_usb_trans_error_handler__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "usb_trans_error_handler",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_usb_wlan_recv__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "usb_wlan_recv",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_usb_wlan_recv_fc_on__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "usb_wlan_recv_fc_on",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_usb_wlan_rx_pkt_free_list_init__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "usb_wlan_rx_pkt_free_list_init",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_wlan_epbulk_send_compl_handler__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "wlan_epbulk_send_compl_handler",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    },
+    {
+      "file": "behavioral_wlan_epbulk_recv_compl_handler__fmacfw_8800d80_h_u02_bin.synth",
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "function": "wlan_epbulk_recv_compl_handler",
+      "ok": true,
+      "reason": "leaf_with_real_ops: leaf function with register/MMIO operations",
+      "callees": [],
+      "helpers": [],
+      "is_leaf": true
+    }
+  ]
+}
