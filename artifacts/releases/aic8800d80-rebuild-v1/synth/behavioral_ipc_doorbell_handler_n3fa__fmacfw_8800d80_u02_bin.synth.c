@@ -1,0 +1,56 @@
+/* task=behavioral_ipc_doorbell_handler_n3fa class=behavioral priority=critical score=25.000 */
+/* image=fmacfw_8800d80_u02_bin addr=0x1215d76 */
+
+void ipc_doorbell_handler_n3fa(void) {
+  /* reconstructed_micro_flow: yes */
+    (void)*((volatile uint32_t *)(uintptr_t)0x182ba0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x182558U);
+    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U;
+    (void)*((volatile uint32_t *)(uintptr_t)0x1732f4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x182b5cU);
+    (void)*((volatile uint32_t *)(uintptr_t)0x6U);
+    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;
+    *((volatile uint32_t *)(uintptr_t)0xcU) = 0x1U;
+    *((volatile uint32_t *)(uintptr_t)0x8U) = 0x3U;
+    *((volatile uint32_t *)(uintptr_t)0xe000e44cU) = 0xecU;
+    *((volatile uint32_t *)(uintptr_t)0xe000e108U) = 0x1000U;
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef8U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fefcU);
+    (void)*((volatile uint32_t *)(uintptr_t)0x0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x3U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x1732f4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x8U);
+    *((volatile uint32_t *)(uintptr_t)0x8U) = 0x1U;
+    (void)*((volatile uint32_t *)(uintptr_t)0x0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x3U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x182b64U);
+    *((volatile uint32_t *)(uintptr_t)0x2007fee0U) = 0x182560U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fee4U) = 0x0U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fee8U) = 0x1922a4U;
+    *((volatile uint32_t *)(uintptr_t)0x2007feecU) = 0x182b64U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x187f8cU;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x1U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x182ba0U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x1215e4bU;
+    (void)*((volatile uint32_t *)(uintptr_t)0x1922a4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fee0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fee4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fee8U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007feecU);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef0U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef4U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef8U);
+    (void)*((volatile uint32_t *)(uintptr_t)0x2007fefcU);
+    *((volatile uint32_t *)(uintptr_t)0x2007fee4U) = 0x182560U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fee8U) = 0x0U;
+    *((volatile uint32_t *)(uintptr_t)0x2007feecU) = 0x1922a4U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x182b64U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x187f8cU;
+    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x1U;
+    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x1215dd1U;
+}
