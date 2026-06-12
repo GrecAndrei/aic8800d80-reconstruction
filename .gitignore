@@ -45,3 +45,7 @@ artifacts/releases/*/synth/*.synth.c
 
 # IDA autosave scratch artifacts
 analysis/ida/ida_autosave.*$
+harness_v15/keys/
+harness_v15/*.log
+harness_v15/orchestrator.pid
+harness_v15/serve.log
