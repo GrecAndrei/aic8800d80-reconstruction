@@ -1,0 +1,10 @@
+{
+  "cluster_id": "182b5c|2007ff00|2007ff04",
+  "size": 52,
+  "pattern": {
+    "pattern_name": "patch_apply_trigger_sync",
+    "description": "Patch apply helper: unique setup writes followed by identical trigger/sync tail (write 0x2 then 0x1 to 0xe000e188, write 0x8000 to 0xe000e180, read 0x182b5c)",
+    "category": "mmio_write",
+    "template_c": "void patch_apply_nXXX(void) {\n    /* unique patch setup: writes/reads to function-specific MMIO */\n    *((volatile uint32_t *)(uintptr_t)0xe000e188U) = 0x2U;\n    *((volatile uint32_t *)(uintptr_t)0xe000e188U) = 0x1U;\n    *((volatile uint32_t *)(uintptr_t)0xe000e180U) = 0x8000U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x182b5cU);\n}"
+  }
+}

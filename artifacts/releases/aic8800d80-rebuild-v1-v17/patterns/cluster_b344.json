@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|40|40200010",
+  "size": 102,
+  "pattern": {
+    "pattern_name": "rf_bus_cmd_sequence",
+    "description": "Sequence of MMIO writes/reads to small fixed addresses (0x0, 0x8, 0x40, 0x60, 0x80, 0xa0) implementing an RF bus reset/command sequence",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_cmd(void) {\n    *((volatile uint32_t *)(uintptr_t)0x8U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x40U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x60U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x80U);\n    (void)*((volatile uint32_t *)(uintptr_t)0xa0U);\n}"
+  }
+}

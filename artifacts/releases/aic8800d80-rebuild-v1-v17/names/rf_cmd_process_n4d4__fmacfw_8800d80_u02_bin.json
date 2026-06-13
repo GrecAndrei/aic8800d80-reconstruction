@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n4d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213a2c", "status": "ok", "name": "rf_bus_setup_n2fa", "params": [], "docstring": "Initializes/configures the RF bus interface (variant 0x2fa)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

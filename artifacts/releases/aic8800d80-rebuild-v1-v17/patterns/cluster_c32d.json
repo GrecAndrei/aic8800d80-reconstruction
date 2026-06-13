@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fef4|2007fef8|2007fefc",
+  "size": 194,
+  "pattern": {
+    "pattern_name": "rf_mailbox_clear_and_trigger",
+    "description": "Clears 3-word RF mailbox at 0x2007fef4-fefc, triggers RF controller via read of 0x40200900, then reads back mailbox status.",
+    "category": "mmio_write",
+    "template_c": "void rf_mailbox_clear_and_trigger(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x40200900U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007fef4U);\n}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0",
+  "size": 611,
+  "pattern": {
+    "pattern_name": "rf_bus_mmio_access",
+    "description": "RF bus control MMIO access: read/write/poll of RF front-end bus registers (read-mostly, occasional write).",
+    "category": "util",
+    "template_c": "void rf_bus_op(void) {\n    (void)*((volatile uint32_t *)RF_BUS_REG);\n    /* optional: *((volatile uint32_t *)RF_BUS_REG) = CMD; */\n    /* optional: (void)*((volatile uint32_t *)RF_BUS_REG); */\n}"
+  }
+}

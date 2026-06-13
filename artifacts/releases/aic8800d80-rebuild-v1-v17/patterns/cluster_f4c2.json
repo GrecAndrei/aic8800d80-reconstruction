@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182c24|2007fef0",
+  "size": 317,
+  "pattern": {
+    "pattern_name": "rf_bus_register_write_seq",
+    "description": "Burst of volatile MMIO writes to a fixed set of RF bus register addresses to apply a radio configuration",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_<op>_n_<id>(void) {\n    *((volatile uint32_t *)(uintptr_t)0xA0) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xA4) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xA8) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xAC) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xB0) = 0xVAL0;\n    *((volatile uint32_t *)(uintptr_t)0xB4) = 0xVAL1;\n    /* ...additional MMIO writes to RF bus regs... */\n}"
+  }
+}

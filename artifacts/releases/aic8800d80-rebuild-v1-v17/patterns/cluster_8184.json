@@ -1,0 +1,10 @@
+{
+  "cluster_id": "20080044|20080048|2008004c",
+  "size": 162,
+  "pattern": {
+    "pattern_name": "patch_apply_n_block_read5",
+    "description": "Read 5 consecutive 32-bit words from the patch/control register block at 0x20080044..0x20080054, discarding results (side-effect/touch read).",
+    "category": "mmio_read",
+    "template_c": "void patch_apply_n_XX(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x20080044U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x20080048U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2008004cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x20080050U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x20080054U);\n}"
+  }
+}

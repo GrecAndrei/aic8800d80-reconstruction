@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_186", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221dbe", "status": "ok", "name": "message_dispatch", "params": [], "docstring": "Central IPC message dispatch handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

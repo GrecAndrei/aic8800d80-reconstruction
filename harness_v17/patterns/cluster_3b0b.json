@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182478|18247c",
+  "size": 92,
+  "pattern": {
+    "pattern_name": "ke_error_state_set",
+    "description": "Inline prelude that initializes a kernel error-state struct (err_code, lr/pc, flags) in RAM before error handling",
+    "category": "struct_init",
+    "template_c": "static inline void ke_error_state_set(uint32_t lr) { /* @0x2007fee0 */ ke_env.err_code = 2; /* @0x2007fef4 */ ke_env.err_flag = 1; /* @0x2007fef8 */ ke_env.err_param = 0; /* @0x2007fefc */ ke_env.err_lra = lr; }"
+  }
+}

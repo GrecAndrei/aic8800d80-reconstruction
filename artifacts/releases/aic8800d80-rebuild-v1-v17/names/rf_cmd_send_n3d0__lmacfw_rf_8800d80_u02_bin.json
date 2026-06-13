@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3d0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212ce8", "status": "ok", "name": "rf_cmd_send_lmac", "params": [], "docstring": "Send command to RF block (LMAC variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

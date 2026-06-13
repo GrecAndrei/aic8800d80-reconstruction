@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_4a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211914", "status": "ok", "name": "rf_bus_init_n_4a4", "params": [], "docstring": "Initialize RF bus interface (4a4 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

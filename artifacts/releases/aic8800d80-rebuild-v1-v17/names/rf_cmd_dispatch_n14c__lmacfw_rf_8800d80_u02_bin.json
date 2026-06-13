@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n14c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222090", "status": "ok", "name": "rf_state_check_n2f0", "params": [], "docstring": "RF subsystem state check routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

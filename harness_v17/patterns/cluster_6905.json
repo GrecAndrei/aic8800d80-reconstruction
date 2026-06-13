@@ -1,0 +1,10 @@
+{
+  "cluster_id": "182c20|2007ff00|2007ff04",
+  "size": 52,
+  "pattern": {
+    "pattern_name": "hw_patch_mmio_sequence",
+    "description": "Boot/runtime hardware patch function applying a short sequence of MMIO writes and reads to configure/fix registers",
+    "category": "mmio_write",
+    "template_c": "void patch_apply_nXXX(void) {\n    *((volatile uint32_t *)(uintptr_t)0xAAA) = V1;\n    (void)*((volatile uint32_t *)(uintptr_t)0xAAA);\n    *((volatile uint32_t *)(uintptr_t)0xBBB) = V2;\n    (void)*((volatile uint32_t *)(uintptr_t)0xCCC);\n    *((volatile uint32_t *)(uintptr_t)0xE000E188) = 0x2U; /* NVIC pri */\n    *((volatile uint32_t *)(uintptr_t)0xE000E180) = 0x8000U; /* NVIC set-enable */\n}"
+  }
+}

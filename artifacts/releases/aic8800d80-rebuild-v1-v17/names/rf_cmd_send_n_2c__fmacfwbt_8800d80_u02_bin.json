@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_2c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e40", "status": "ok", "name": "sdio_buffer_prepare_n1cb", "params": [], "docstring": "Prepare SDIO transfer buffer for host IO", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

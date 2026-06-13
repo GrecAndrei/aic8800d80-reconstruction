@@ -1,0 +1,1 @@
+{"fn": "sub_123F5D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123f5d0", "status": "ok", "name": "rx_agg_dequeue_n_handle", "params": [], "docstring": "Dequeue and handle aggregated RX frame descriptor entry", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

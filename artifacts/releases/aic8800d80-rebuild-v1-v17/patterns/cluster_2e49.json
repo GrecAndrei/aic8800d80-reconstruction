@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007ff00",
+  "size": 448,
+  "pattern": {
+    "pattern_name": "mmio_dummy_read_barrier",
+    "description": "Single volatile read from fixed MMIO address 0x2007ff00, result discarded (memory barrier / sync stub).",
+    "category": "mmio_read",
+    "template_c": "(void)*((volatile uint32_t *)(uintptr_t)0x2007ff00U);"
+  }
+}

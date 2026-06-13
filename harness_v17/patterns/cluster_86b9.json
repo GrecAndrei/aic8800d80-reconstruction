@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182b60|1856f8",
+  "size": 71,
+  "pattern": {
+    "pattern_name": "rf_bus_mark_write",
+    "description": "RF bus mark/configure sequence: writes addr/cmd to small MMIO regs, writes data, then triggers via 0x2007fef0/0x4024014c",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_mark_n_xxx(void) {\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xcU) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x654U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x655U) = 0x1U;\n    *((volatile uint32_t *)(uintptr_t)0x4024014cU) = 0x10U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x10U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U;\n}"
+  }
+}

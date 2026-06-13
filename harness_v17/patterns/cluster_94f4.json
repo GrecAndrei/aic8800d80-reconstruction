@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|1|2007ff00",
+  "size": 98,
+  "pattern": {
+    "pattern_name": "sdio_buf_prepare_guard_reads",
+    "description": "SDIO buffer prepare stub performing three sentinel reads at fixed guard addresses (0x0, 0x1, 0x2007ff00) \u2014 uniform across 98 variants",
+    "category": "mmio_read",
+    "template_c": "void sdio_buffer_prepare_n_XX(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x1U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff00U);\n}"
+  }
+}

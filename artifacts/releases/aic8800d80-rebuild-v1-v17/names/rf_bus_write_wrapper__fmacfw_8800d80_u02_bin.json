@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_wrapper", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211db4", "status": "ok", "name": "rf_bus_write_wrapper", "params": [], "docstring": "Wrapper around RF bus write with address-table init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_120A5BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120a5bc", "status": "ok", "name": "bt_fmac_sub_a5bc", "params": [], "docstring": "Bluetooth FMAC auxiliary handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

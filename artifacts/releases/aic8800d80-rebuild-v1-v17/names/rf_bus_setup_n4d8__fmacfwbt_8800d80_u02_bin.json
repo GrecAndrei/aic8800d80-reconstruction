@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4d8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212230", "status": "ok", "name": "rf_bus_setup_n4d8", "params": [], "docstring": "Sets up RF bus access configuration variant n4d8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

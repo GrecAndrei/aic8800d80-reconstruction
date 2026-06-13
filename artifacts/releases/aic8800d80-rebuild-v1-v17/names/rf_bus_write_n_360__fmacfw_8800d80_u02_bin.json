@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_360", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211804", "status": "ok", "name": "rf_bus_write_n121", "params": [], "docstring": "Write to RF bus variant 0x121", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

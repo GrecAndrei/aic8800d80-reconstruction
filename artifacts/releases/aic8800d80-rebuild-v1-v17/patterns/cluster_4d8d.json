@@ -1,0 +1,10 @@
+{
+  "cluster_id": "18254c|182554|2007fe90",
+  "size": 53,
+  "pattern": {
+    "pattern_name": "trace_event_emit_5word",
+    "description": "Emit a 5-word trace/event record by writing opcode, args, and tag to consecutive trace MMIO window (0x2007feec..0x2007fefc)",
+    "category": "mmio_write",
+    "template_c": "void patch_apply_n_xxx(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007feecU) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = arg0;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = arg1;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = arg2;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = tag;\n}"
+  }
+}

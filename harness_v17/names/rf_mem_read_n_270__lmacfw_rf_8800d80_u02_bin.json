@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_270", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f324", "status": "ok", "name": "rf_mem_read_n_270", "params": [], "docstring": "Read byte from RF memory and check against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

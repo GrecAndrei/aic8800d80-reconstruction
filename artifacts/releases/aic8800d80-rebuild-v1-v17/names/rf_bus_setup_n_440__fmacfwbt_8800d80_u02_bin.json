@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_440", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211918", "status": "ok", "name": "rf_bus_setup_n_440", "params": [], "docstring": "Initialize/setup RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

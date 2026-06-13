@@ -1,0 +1,10 @@
+{
+  "cluster_id": "182814|2007fed0|2007fed4",
+  "size": 107,
+  "pattern": {
+    "pattern_name": "rf_bus_dword_write",
+    "description": "RF bus 4-dword write sequence: set addr_lo/hi/data/ctrl then trigger at 0x2007fed0",
+    "category": "mmio_write",
+    "template_c": "*((volatile uint32_t *)(uintptr_t)0x2007fef0U) = addr; *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0U; *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = data; *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = ctrl; *((volatile uint32_t *)(uintptr_t)0x2007fed0U) = trig;  /* REG_2007_fed0 */"
+  }
+}

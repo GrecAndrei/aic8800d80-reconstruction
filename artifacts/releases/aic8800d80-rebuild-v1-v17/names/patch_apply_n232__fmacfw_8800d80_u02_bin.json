@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n232", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150de", "status": "ok", "name": "patch_apply_n232", "params": [], "docstring": "Apply firmware patch n232 to memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

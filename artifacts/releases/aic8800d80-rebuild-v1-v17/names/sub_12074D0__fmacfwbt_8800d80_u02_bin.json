@@ -1,0 +1,1 @@
+{"fn": "sub_12074D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12074d0", "status": "ok", "name": "bt_init_handler", "params": [], "docstring": "Bluetooth firmware initialization entry", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

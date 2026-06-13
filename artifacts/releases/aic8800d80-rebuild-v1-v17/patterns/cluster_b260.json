@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007ff4c|2007ff50|2007ff54",
+  "size": 146,
+  "pattern": {
+    "pattern_name": "patch_apply_5x_mmio_read",
+    "description": "Patch trampoline that side-effect reads 5 consecutive dwords from a fixed MMIO window (0x2007ff4c..0x2007ff5c), likely clearing interrupt/status latches.",
+    "category": "mmio_read",
+    "template_c": "void patch_apply_n_XXX(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff4cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff50U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff58U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff5cU);\n}"
+  }
+}

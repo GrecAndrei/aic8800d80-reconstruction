@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212cc8", "status": "ok", "name": "rf_bus_reset2_n_2ca", "params": [], "docstring": "Secondary RF bus reset sequence (variant _n_2ca)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

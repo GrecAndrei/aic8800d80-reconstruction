@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_24c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e0f8", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO transfer buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

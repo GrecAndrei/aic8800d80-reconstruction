@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n3fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222428", "status": "ok", "name": "rf_mem_write_n3fc", "params": [], "docstring": "Write word to RF memory/registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

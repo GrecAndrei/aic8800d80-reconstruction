@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|14",
+  "size": 55,
+  "pattern": {
+    "pattern_name": "rf_reg_indexed_write",
+    "description": "Indexed RF register write: program data reg, set ctrl reg with strobe (0x100), with optional R/W mask (0x1490000)",
+    "category": "mmio_write",
+    "template_c": "static inline void rf_reg_indexed_write(uint32_t data, uint32_t rw_mask) {\n    *((volatile uint32_t *)0x0) = 0;\n    (void)*((volatile uint32_t *)0x0);\n    *((volatile uint32_t *)0x0) = rw_mask | data;\n    (void)*((volatile uint32_t *)0x14);\n    *((volatile uint32_t *)0x14) = 0x100U;\n    (void)*((volatile uint32_t *)0x0);\n    *((volatile uint32_t *)0x0) = rw_mask | data;\n}"
+  }
+}

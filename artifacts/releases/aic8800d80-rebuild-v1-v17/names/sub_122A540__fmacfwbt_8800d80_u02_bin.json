@@ -1,0 +1,1 @@
+{"fn": "sub_122A540", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122a540", "status": "ok", "name": "bt_rx_handler", "params": [], "docstring": "Bluetooth RX path handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n208", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124f8", "status": "ok", "name": "rf_cmd_dispatch_n_121", "params": [], "docstring": "RF command dispatch helper using shifted bit masks (0x1a, 0x19) for command encoding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

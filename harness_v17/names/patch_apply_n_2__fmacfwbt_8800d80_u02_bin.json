@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154e6", "status": "ok", "name": "rf_bus_reset_n208", "params": [], "docstring": "RF bus reset: set bit 4 in bus register and verify against 0x40200000 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_53", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146f4", "status": "ok", "name": "rf_bus_reset2_n_288", "params": [], "docstring": "Performs secondary RF bus reset variant 288", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

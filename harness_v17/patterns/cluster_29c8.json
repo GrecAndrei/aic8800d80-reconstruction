@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|40200010",
+  "size": 144,
+  "pattern": {
+    "pattern_name": "rf_bus_indirect_write",
+    "description": "RF bus indirect write: write data/addr to bus data register at 0x0 then trigger transfer via control reg 0x40200010 (bit 0x20)",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_write(uint32_t data) {\n    *((volatile uint32_t *)(uintptr_t)0x0U) = data;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    *((volatile uint32_t *)(uintptr_t)0x0U) = data;\n    *((volatile uint32_t *)(uintptr_t)0x40200010U) = 0x20U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x40200010U);\n}"
+  }
+}

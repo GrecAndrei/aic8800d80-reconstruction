@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|1804bc|1804c0",
+  "size": 137,
+  "pattern": {
+    "pattern_name": "rf_bus_write_4word",
+    "description": "Writes 4 dwords to RF bus data regs (0x2007fef0..fefc) then triggers bus via REG 0x0",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_write(uint32_t w0, uint32_t w1, uint32_t w2, uint32_t w3) {\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = w0;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = w1;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = w2;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = w3;\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n}"
+  }
+}

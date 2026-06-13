@@ -1,0 +1,16 @@
+Found 12 subsystems
+  rf: 1350 functions
+  ipc: 247 functions
+  patch: 129 functions
+  util: 126 functions
+  unknown: 88 functions
+  mmio: 86 functions
+  mac: 54 functions
+  bt: 26 functions
+  tx: 15 functions
+  ke: 7 functions
+  scan: 5 functions
+  rx: 4 functions
+  rf: ok (7395 chars)
+  tx: ok (4134 chars)
+  mac: ok (6428 chars)

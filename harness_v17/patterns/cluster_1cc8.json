@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|12|18246e",
+  "size": 52,
+  "pattern": {
+    "pattern_name": "rf_bus_reset_n_seq",
+    "description": "RF bus reset sequence: short ordered mix of MMIO writes and reads to a small register block (offsets 0x0/0x4/0x8/0x12) to assert/deassert reset",
+    "category": "util",
+    "template_c": "void rf_bus_reset_n_<id>(volatile uint32_t *rf) {\n    rf[0] = 0x0; (void)rf[0x12>>2]; (void)rf[0x8>>2];\n    rf[0] = 0x4; (void)rf[0x8>>2]; (void)rf[0x4>>2]; rf[0] = ...;\n}"
+  }
+}

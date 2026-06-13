@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n1ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215b2a", "status": "ok", "name": "rf_bus_reset2_n_197", "params": [], "docstring": "Secondary RF bus reset routine in BT firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

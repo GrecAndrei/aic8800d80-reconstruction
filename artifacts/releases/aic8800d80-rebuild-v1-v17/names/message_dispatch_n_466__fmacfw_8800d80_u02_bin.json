@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_466", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c526", "status": "ok", "name": "rf_fault_dump_n_53", "params": [], "docstring": "Dumps RF fault state for variant 53", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

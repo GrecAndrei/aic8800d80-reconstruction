@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n20e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121006e", "status": "ok", "name": "rf_bus_reset_n_3fc", "params": [], "docstring": "RF bus reset with register check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_nf6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118fa", "status": "ok", "name": "unknown_n4", "params": [], "docstring": "Unknown firmware function (no disasm available)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n3c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121391a", "status": "ok", "name": "rf_cmd_process_3c2", "params": [], "docstring": "Process incoming RF control command (variant 3c2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

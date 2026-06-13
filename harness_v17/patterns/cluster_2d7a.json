@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|180472|1859fc",
+  "size": 196,
+  "pattern": {
+    "pattern_name": "rf_bus_reset_n_mixed_mmio",
+    "description": "RF bus reset_n helper: sequence of MMIO reads (drain/sync) and writes (assert/deassert reset, clear buffers) to bring an RF bus interface into a known state",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_reset_n_XXX(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0xADDRA); /* drain read */\n    *((volatile uint32_t *)(uintptr_t)0xADDRB) = 0xVAL0; /* assert reset / clear */\n    *((volatile uint32_t *)(uintptr_t)0xADDRC) = 0xVAL1;\n    (void)*((volatile uint32_t *)(uintptr_t)0xSTATUS); /* poll status */\n    (void)*((volatile uint32_t *)(uintptr_t)0xSTATUS2);\n    *((volatile uint32_t *)(uintptr_t)0xBUF) = 0x0U; /* clear buffer */\n    *((volatile uint32_t *)(uintptr_t)0xBUF+4) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xCTRL) = 0x0U;\n}"
+  }
+}

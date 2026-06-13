@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n456", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c5a", "status": "ok", "name": "rf_bus_setup_n456", "params": [], "docstring": "Initialize RF bus pointers from constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

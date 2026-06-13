@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212ad4", "status": "ok", "name": "patch_apply_n_4dc", "params": [], "docstring": "Applies firmware patch/table (variant 0x4dc)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2b6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121248a", "status": "ok", "name": "rf_state_check_n2b6", "params": [], "docstring": "Check and verify RF state machine (2b6 variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

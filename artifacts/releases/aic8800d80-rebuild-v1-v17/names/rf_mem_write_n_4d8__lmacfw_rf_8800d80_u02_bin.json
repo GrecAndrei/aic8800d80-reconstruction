@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_4d8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221b54", "status": "ok", "name": "sub_1220AB4", "params": [], "docstring": "Trivial helper, branch on r1==0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007ff10|2007ff14|2007ff18",
+  "size": 69,
+  "pattern": {
+    "pattern_name": "rf_level_apply_seq",
+    "description": "Apply RF level settings via MMIO register writes followed by a command trigger sequence (write 2 then 3 to command reg 0x40342034).",
+    "category": "mmio_write",
+    "template_c": "void rf_level_apply_n(struct rf_regs *r) { /* set RF params */ *((volatile uint32_t *)0x40342084U) = cfg_a; *((volatile uint32_t *)0x403416e0U) = cfg_b; /* trigger */ (void)*((volatile uint32_t *)0x40342034U); *((volatile uint32_t *)0x40342034U) = 0x2U; (void)*((volatile uint32_t *)0x40342034U); *((volatile uint32_t *)0x40342034U) = 0x3U; }"
+  }
+}

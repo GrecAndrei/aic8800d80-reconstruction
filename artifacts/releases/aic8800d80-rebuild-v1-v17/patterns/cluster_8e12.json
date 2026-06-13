@@ -1,0 +1,10 @@
+{
+  "cluster_id": "14|804",
+  "size": 90,
+  "pattern": {
+    "pattern_name": "rf_bus_cmd_write_posted",
+    "description": "RFIC bus command: optionally read status, write command word to 0x804, then read 0x14 to fence/flush the posted RF bus write.",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_cmd(uint32_t cmd) { (void)*((volatile uint32_t *)0x804); *((volatile uint32_t *)0x804) = cmd; (void)*((volatile uint32_t *)0x14); }"
+  }
+}

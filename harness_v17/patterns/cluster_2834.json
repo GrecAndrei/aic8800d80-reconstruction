@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|10|18231e",
+  "size": 72,
+  "pattern": {
+    "pattern_name": "rf_bus_reg_seq",
+    "description": "Sequential MMIO reads and zero-writes to RF bus control/status registers (0x0/0x8/0xc/0xd/0x10/0x810 + 0x18231e/0x18231f) for RF bus setup or state check",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_seq(void) {\n    *((volatile uint32_t *)(uintptr_t)0x810U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0xcU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x18231fU);\n    (void)*((volatile uint32_t *)(uintptr_t)0xdU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x18231fU);\n    *((volatile uint32_t *)(uintptr_t)0x8U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x10U);\n}"
+  }
+}

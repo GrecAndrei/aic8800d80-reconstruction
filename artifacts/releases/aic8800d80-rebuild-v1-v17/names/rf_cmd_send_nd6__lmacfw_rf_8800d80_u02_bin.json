@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_nd6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12129ee", "status": "ok", "name": "rf_cmd_send_ex", "params": [], "docstring": "Send extended RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007ff00|2007ff08",
+  "size": 177,
+  "pattern": {
+    "pattern_name": "sdio_buffer_handshake",
+    "description": "SDIO controller buffer prepare/handshake: poll status (0x2007ff00), read buffer reg (0x2007ff08), re-check status, read flag, optionally write control",
+    "category": "util",
+    "template_c": "void func(void) {\n  (void)*((volatile uint32_t *)0x2007ff00U);\n  (void)*((volatile uint32_t *)0x2007ff08U);\n  (void)*((volatile uint32_t *)0x2007ff00U);\n  (void)*((volatile uint32_t *)0x0U);\n  *((volatile uint32_t *)0x2007ff10U) = val;\n}"
+  }
+}

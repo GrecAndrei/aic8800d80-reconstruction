@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_334", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fd0", "status": "ok", "name": "patch_apply_n_ff", "params": [], "docstring": "Apply firmware patch table entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

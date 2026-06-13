@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007ff0c|2007ff10|2007ff14",
+  "size": 150,
+  "pattern": {
+    "pattern_name": "rf_result_burst_drain",
+    "description": "Burst-read a sequence of consecutive volatile uint32_t status/result words from the RF result window at 0x2007ff0c..0x2007ff1c+ and discard them (drain response FIFO).",
+    "category": "mmio_read",
+    "template_c": "for (uint32_t i = 0; i < N; i++) { (void)*((volatile uint32_t *)(uintptr_t)(0x2007ff0cU + i * 4U)); }"
+  }
+}

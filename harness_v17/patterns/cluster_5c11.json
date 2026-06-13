@@ -1,0 +1,10 @@
+{
+  "cluster_id": "14",
+  "size": 64,
+  "pattern": {
+    "pattern_name": "single_mmio_read_void_stub",
+    "description": "Stub function performing a single volatile MMIO read at a fixed address (0x14) with the result discarded",
+    "category": "mmio_read",
+    "template_c": "void func(void) { (void)*((volatile uint32_t *)(uintptr_t)0x14U); }"
+  }
+}

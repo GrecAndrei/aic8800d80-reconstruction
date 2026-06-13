@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007fef0|2007fef4",
+  "size": 138,
+  "pattern": {
+    "pattern_name": "ipc_mailbox_send",
+    "description": "Zero-fill 16-byte IPC/mailbox buffer at 0x2007fef0-0x2007fefc, write magic command word, then trigger via read on mailbox register",
+    "category": "dispatcher",
+    "template_c": "void ipc_send(void) {\n    *((volatile uint32_t *)0x2007fef0U) = 0x0U;\n    *((volatile uint32_t *)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)0x2007fef8U) = 0x0U;\n    *((volatile uint32_t *)0x2007fefcU) = 0xdeadc001U;\n    (void)*((volatile uint32_t *)0x0U);\n}"
+  }
+}

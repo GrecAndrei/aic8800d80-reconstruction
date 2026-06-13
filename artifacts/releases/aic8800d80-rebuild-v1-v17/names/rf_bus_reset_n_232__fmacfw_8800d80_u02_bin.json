@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_232", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127b6", "status": "ok", "name": "rf_bus_mark_n4aa", "params": [], "docstring": "mark/assert RF bus transaction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

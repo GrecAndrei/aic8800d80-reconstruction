@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n56", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121185a", "status": "ok", "name": "patch_apply_na8", "params": [], "docstring": "Copy patch word stream from source to destination buffer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

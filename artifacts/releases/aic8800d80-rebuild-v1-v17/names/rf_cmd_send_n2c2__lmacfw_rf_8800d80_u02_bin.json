@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n2c2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212bda", "status": "ok", "name": "rf_bus_setup_n2a1", "params": [], "docstring": "Configures RF bus parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007ff04|2007ff0c",
+  "size": 67,
+  "pattern": {
+    "pattern_name": "sdio_buffer_prepare_clear_and_probe",
+    "description": "SDIO buffer prepare: clear a control register (0x2007ff04) and probe SDIO status registers in the 0x2007ffxx page",
+    "category": "mmio_write",
+    "template_c": "void sdio_buffer_prepare_*(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007ff04U) = 0x0U;  /* REG_2007_ff04: clear control */\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);  /* REG_2007_ff0c: status */\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);  /* REG_2007_ff54: status */\n    /* ...further 0x2007ffxx status reads... */\n}"
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114ea", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Writes a register to the RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

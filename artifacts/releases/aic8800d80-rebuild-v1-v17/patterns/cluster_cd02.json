@@ -1,0 +1,10 @@
+{
+  "cluster_id": "8",
+  "size": 59,
+  "pattern": {
+    "pattern_name": "mmio_tracepoint_touch",
+    "description": "Single fixed MMIO access to a low debug/trace address (0x8) used as an instrumentation marker (entry/exit probe)",
+    "category": "util",
+    "template_c": "static inline void tracepoint_touch(uint32_t val) {\n    *((volatile uint32_t *)(uintptr_t)0x8U) = val;  /* REG_0000_0008 trace/probe */\n}"
+  }
+}

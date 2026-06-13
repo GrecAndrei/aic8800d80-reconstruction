@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_178", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12112f4", "status": "ok", "name": "rf_bus_reset_n406", "params": [], "docstring": "Resets the RF bus in FMAC firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4cd", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d080", "status": "ok", "name": "message_dispatch_n4cd", "params": [], "docstring": "Dispatch IPC messages by opcode 0x70/0x78/0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

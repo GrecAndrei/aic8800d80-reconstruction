@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|158690|2007fed0",
+  "size": 174,
+  "pattern": {
+    "pattern_name": "rf_cmd_dispatch_buffer",
+    "description": "RF command dispatcher: write cmd word, fill 4-dword param buffer at 0x2007fef0, then write trigger reg 0x40320608",
+    "category": "dispatcher",
+    "template_c": "void rf_cmd_dispatch(void) {\n    *((volatile uint32_t *)(uintptr_t)CMD_REG) = CMD_OPCODE;       /* e.g. 0x0, 0x374, 0x804, 0xd */\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = param0;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = param1;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = param2;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = param3;\n    *((volatile uint32_t *)(uintptr_t)0x40320608U) = 0xffffffffU; /* REG_4032_0608 trigger */\n}"
+  }
+}

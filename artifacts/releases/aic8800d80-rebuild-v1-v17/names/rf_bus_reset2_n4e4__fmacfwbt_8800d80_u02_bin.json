@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n4e4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d3c", "status": "ok", "name": "message_dispatch", "params": [], "docstring": "Dispatch incoming IPC message", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

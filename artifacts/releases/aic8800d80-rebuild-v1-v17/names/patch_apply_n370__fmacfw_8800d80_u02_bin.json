@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n370", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121521c", "status": "ok", "name": "patch_apply_slot370", "params": [], "docstring": "Apply RF patch at slot 0x370", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007ff14|2007ff18",
+  "size": 67,
+  "pattern": {
+    "pattern_name": "rf_bus_reset_seq",
+    "description": "Reset RF bus by writing a fixed sequence of values to MMIO control registers (0x0, 0x4, 0xb00, 0xb08, 0xb14)",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_reset_nNN(void) {\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0xa000040U;\n    *((volatile uint32_t *)(uintptr_t)0x4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xb14U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0xb08U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n}"
+  }
+}

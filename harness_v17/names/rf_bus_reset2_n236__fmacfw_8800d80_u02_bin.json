@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n236", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211c32", "status": "ok", "name": "patch_apply_n_2c4", "params": [], "docstring": "Apply firmware patch entry: load 16-bit patch header and dispatch to patch handler", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

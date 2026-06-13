@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121454a", "status": "ok", "name": "sdio_buffer_prepare_n_2f6", "params": [], "docstring": "Prepare SDIO DMA buffer (variant)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

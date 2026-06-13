@@ -1,0 +1,10 @@
+{
+  "cluster_id": "1804bc|1804c0|1804c4",
+  "size": 92,
+  "pattern": {
+    "pattern_name": "rf_cmd_struct_zero_init",
+    "description": "Zero-init 16-byte RF command buffer (4 dwords) in SRAM, then read RF bus status",
+    "category": "struct_init",
+    "template_c": "volatile uint32_t *cmd = (volatile uint32_t *)0x2007fef0U;\ncmd[0] = 0; cmd[1] = 0; cmd[2] = 0; cmd[3] = 0;\n(void)*((volatile uint32_t *)(uintptr_t)0x40200b00U);  /* REG_4020_0b00 */"
+  }
+}

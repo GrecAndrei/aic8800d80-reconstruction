@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fedc|2007fee0|2007fee4",
+  "size": 94,
+  "pattern": {
+    "pattern_name": "mmio_block_zero_init",
+    "description": "Sequentially write 0 to a contiguous block of MMIO dword registers to clear/initialize the register block",
+    "category": "mmio_write",
+    "template_c": "for (volatile uint32_t *p = (volatile uint32_t *)(uintptr_t)0xBASE; p < (volatile uint32_t *)(uintptr_t)0xEND; ++p) { *p = 0x0U; }"
+  }
+}

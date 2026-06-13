@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215224", "status": "ok", "name": "patch_apply_n_2", "params": [], "docstring": "Apply firmware patch gated by magic 0x174000 / 'TCP' signature check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "103|10b|113",
+  "size": 389,
+  "pattern": {
+    "pattern_name": "rf_cmd_dispatch",
+    "description": "RF bus command dispatcher: flush ack regs, reset control, zero command slots, write mailbox descriptor",
+    "category": "dispatcher",
+    "template_c": "void rf_cmd_dispatch(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)ACK_REG);\n    (void)*((volatile uint32_t *)(uintptr_t)FLUSH_REG);\n    *((volatile uint32_t *)(uintptr_t)CTRL_REG) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)CMD_REG0) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)CMD_REG1) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)MBX_ADDR)  = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)MBX_LEN)   = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)MBX_CTRL)  = 0x0U;\n}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007ff0c|2007ff54",
+  "size": 241,
+  "pattern": {
+    "pattern_name": "shared_mmio_prolog_5reads",
+    "description": "Common function prolog: 5 fixed MMIO reads (0x0, 0x2007ff0c, 0x2007ff54, 0x2007ff58, 0x2007ff5c) prepended to RF/SDIO helper subroutines",
+    "category": "mmio_read",
+    "template_c": "void sub(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff58U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff5cU);\n    /* ... function-specific body ... */\n}"
+  }
+}

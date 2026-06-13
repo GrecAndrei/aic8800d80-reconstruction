@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fef8|2007fefc",
+  "size": 285,
+  "pattern": {
+    "pattern_name": "debug_trace_marker_write",
+    "description": "Writes a debug trace marker to fixed debug/trace MMIO registers (0x2007fef8=0, 0x2007fefc=tag/0xdeadc001)",
+    "category": "mmio_write",
+    "template_c": "*((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U; *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = tag;"
+  }
+}

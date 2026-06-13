@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182750|2007fed0",
+  "size": 78,
+  "pattern": {
+    "pattern_name": "rf_cmd_desc_push",
+    "description": "Push 4+ dword RF command descriptor to mailbox registers at 0x2007fef0..",
+    "category": "mmio_write",
+    "template_c": "void rf_cmd_push(uint32_t w0, uint32_t w1, uint32_t w2, uint32_t w3, ...) {\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = w0;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = w1;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = w2;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = w3;\n}"
+  }
+}

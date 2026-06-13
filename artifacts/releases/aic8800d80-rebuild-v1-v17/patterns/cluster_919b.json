@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182b60|184bdc",
+  "size": 90,
+  "pattern": {
+    "pattern_name": "rf_msg_body_handler",
+    "description": "RF message body handler: reads status regs, clears interrupt, processes shared-memory message struct, writes response to host buffer",
+    "category": "util",
+    "template_c": "void rf_msg_body(void) {\n    *((volatile uint32_t *)0x1eU) = 0x0U;             /* ack/clear IRQ */\n    (void)*((volatile uint32_t *)0x1dU);              /* status read */\n    (void)*((volatile uint32_t *)0x1bU);\n    (void)*((volatile uint32_t *)0x4U);\n    (void)*((volatile uint32_t *)0x184bdcU);          /* peek message field */\n    *((volatile uint32_t *)0x184bdcU) = 0x0U;         /* clear message field */\n    *((volatile uint32_t *)0x2007fef0U) = 0x80eU;     /* write response hdr */\n    *((volatile uint32_t *)0x2007fef4U) = ...;\n}"
+  }
+}

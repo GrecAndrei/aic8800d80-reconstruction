@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ce6", "status": "ok", "name": "rf_bus_write2_nca", "params": [], "docstring": "Performs masked write to RF bus register (clear bits)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

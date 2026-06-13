@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fef8|2007fefc|40200010",
+  "size": 66,
+  "pattern": {
+    "pattern_name": "rf_bus_write2",
+    "description": "RF bus dual-data write: clear two data regs, then toggle control reg 0x40200010 from 0->1 to commit",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_write2(void) {\n    *(volatile uint32_t *)0x2007fef8U = 0x0U;\n    *(volatile uint32_t *)0x2007fefcU = 0x0U;\n    *(volatile uint32_t *)0x40200010U = 0x1U;\n}"
+  }
+}

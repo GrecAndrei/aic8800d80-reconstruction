@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4e3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d096", "status": "ok", "name": "message_dispatch_n4e3", "params": [], "docstring": "Dispatch incoming host/mailbox messages", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

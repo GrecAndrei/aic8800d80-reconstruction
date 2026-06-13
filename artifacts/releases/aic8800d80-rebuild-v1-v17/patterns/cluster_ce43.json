@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|182c24|192b88",
+  "size": 156,
+  "pattern": {
+    "pattern_name": "msg_dispatch_mailbox_build",
+    "description": "Builds a message envelope in shared mailbox memory (0x2007fee0..0x2007fefc) and triggers delivery via doorbell write",
+    "category": "dispatcher",
+    "template_c": "void message_dispatch_nXX(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007fee0U) = handler;\n    *((volatile uint32_t *)(uintptr_t)0x2007fee4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fee8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007feecU) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x24U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = param;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0xdeadc001U;\n    *((volatile uint32_t *)(uintptr_t)0x4U) = 0x0U;\n}"
+  }
+}

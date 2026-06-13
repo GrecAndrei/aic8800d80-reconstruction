@@ -1,0 +1,10 @@
+{
+  "cluster_id": "18051c|2007ff00|2007ff04",
+  "size": 51,
+  "pattern": {
+    "pattern_name": "rf_bus_preamble_setup",
+    "description": "RF bus access preamble: read 0x40200900 and 0x18051c, write 0x18008000 to 0x40200900, write 0 to 0x40200104, then perform RF bus r/w",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_xxx(void) {\n    (void)*((volatile uint32_t *)0x40200900U);\n    (void)*((volatile uint32_t *)0x18051cU);\n    *((volatile uint32_t *)0x40200900U) = 0x18008000U;\n    *((volatile uint32_t *)0x40200104U) = 0x0U;\n    /* ...RF bus specific r/w... */\n}"
+  }
+}

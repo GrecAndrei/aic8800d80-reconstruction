@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_4c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fe4", "status": "ok", "name": "rf_state_check_n_4c", "params": [], "docstring": "Check/store RF state into shadow reg at offset 0xb34/0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

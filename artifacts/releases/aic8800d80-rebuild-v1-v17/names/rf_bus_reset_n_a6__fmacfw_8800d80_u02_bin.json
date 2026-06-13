@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_a6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212942", "status": "ok", "name": "unknown_func_3", "params": [], "docstring": "firmware function (unlabeled)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

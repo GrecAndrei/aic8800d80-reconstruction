@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n290", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fe8", "status": "ok", "name": "rf_bus_setup_n290", "params": [], "docstring": "Initializes RF bus configuration bits (0xb00 register)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

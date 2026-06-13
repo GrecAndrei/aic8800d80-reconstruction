@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|1|11",
+  "size": 54,
+  "pattern": {
+    "pattern_name": "struct_field_zero_clear",
+    "description": "Load struct pointer, then zero out multiple fields at small offsets (misidentified as MMIO due to small address values)",
+    "category": "struct_init",
+    "template_c": "void func(struct *p) { (void)p->field_X; p->field_A = 0; p->field_B = 0; p->field_C = 0; ... }"
+  }
+}

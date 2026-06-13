@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b14", "status": "ok", "name": "rf_cmd_send_n1fc", "params": [], "docstring": "Send RF command to hardware variant n1fc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

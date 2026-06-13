@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127ee", "status": "ok", "name": "rf_bus_reset_alt", "params": [], "docstring": "RF bus alternate reset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

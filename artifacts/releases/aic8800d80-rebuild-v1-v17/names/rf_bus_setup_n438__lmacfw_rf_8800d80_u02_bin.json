@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n438", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c3c", "status": "ok", "name": "rf_mem_read_n41a", "params": [], "docstring": "Reads RF register/memory at index n41a", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

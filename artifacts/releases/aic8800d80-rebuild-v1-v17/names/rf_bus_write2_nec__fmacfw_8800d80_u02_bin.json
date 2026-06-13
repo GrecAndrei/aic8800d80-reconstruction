@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d08", "status": "ok", "name": "rf_bus_write2_ext", "params": [], "docstring": "Extended RF bus 2-byte write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

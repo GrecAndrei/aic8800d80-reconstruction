@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|2007ff08|2007ff0c",
+  "size": 69,
+  "pattern": {
+    "pattern_name": "sdio_buf_desc_ring_op",
+    "description": "SDIO buffer/ring descriptor prepare: write descriptor word to REG_2007_ff08 then poll/read status from REG_2007_ff0c and REG_2007_ff54",
+    "category": "mmio_write",
+    "template_c": "void sdio_buffer_prepare_nN(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007ff08U) = desc_word; /* REG_2007_ff08: ring desc */\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);        /* REG_2007_ff0c: status */\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);        /* REG_2007_ff54: status2 */\n}"
+  }
+}

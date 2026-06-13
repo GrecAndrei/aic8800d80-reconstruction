@@ -1,0 +1,1 @@
+{"fn": "sub_120F30C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120f30c", "status": "ok", "name": "sub_120F30C", "params": [], "docstring": "unknown fmac handler", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n3fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12100da", "status": "ok", "name": "log_free_pool_dispatch2_n3fa", "params": [], "docstring": "Log free pool dispatch handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

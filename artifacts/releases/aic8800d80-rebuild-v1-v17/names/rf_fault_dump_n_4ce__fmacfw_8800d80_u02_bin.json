@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_4ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121427a", "status": "ok", "name": "rf_fault_dump_ext", "params": [], "docstring": "Dumps extended RF fault state and registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

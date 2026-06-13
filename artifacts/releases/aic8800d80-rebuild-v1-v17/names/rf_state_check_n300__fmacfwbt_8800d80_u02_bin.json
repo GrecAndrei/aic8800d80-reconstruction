@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n300", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212330", "status": "ok", "name": "rf_state_check_n300", "params": [], "docstring": "Check RF state and update status/MAC mailbox registers.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

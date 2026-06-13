@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fef0|2007fef4|2007fef8",
+  "size": 304,
+  "pattern": {
+    "pattern_name": "ipc_msg_header_init",
+    "description": "Initialize a 4-dword IPC/doorbell message header at 0x2007fef0 with zeros and a 0xdeadc001 magic tag",
+    "category": "struct_init",
+    "template_c": "ipc_msg_t *m = (ipc_msg_t *)0x2007fef0; m->field0 = 0; m->field1 = 0; m->field2 = 0; m->magic = 0xdeadc001;"
+  }
+}

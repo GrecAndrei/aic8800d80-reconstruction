@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fee8|2007feec|2007fef0",
+  "size": 220,
+  "pattern": {
+    "pattern_name": "msg_buf_zero_init_0x2007fee8",
+    "description": "Zero-init a message/command descriptor struct at fixed RAM address 0x2007fee8 by clearing consecutive uint32 fields",
+    "category": "struct_init",
+    "template_c": "volatile uint32_t *p = (volatile uint32_t *)(uintptr_t)0x2007fee8U; for (int i = 0; i < N; i++) p[i] = 0U;"
+  }
+}

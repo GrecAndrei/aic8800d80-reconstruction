@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_4a9", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f0ea", "status": "ok", "name": "rf_mem_read_n_4a9", "params": [], "docstring": "Reads a block of RF register/memory entries", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

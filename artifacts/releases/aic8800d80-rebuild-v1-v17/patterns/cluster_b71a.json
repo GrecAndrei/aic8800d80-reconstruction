@@ -1,0 +1,10 @@
+{
+  "cluster_id": "10",
+  "size": 126,
+  "pattern": {
+    "pattern_name": "rf_bus_doorbell_write",
+    "description": "Write a command/code to the RF bus doorbell register (0x10) followed by a read-back to flush/complete the transaction",
+    "category": "mmio_write",
+    "template_c": "void func(void) { *((volatile uint32_t *)(uintptr_t)0x10U) = cmd; (void)*((volatile uint32_t *)(uintptr_t)0x10U); }"
+  }
+}

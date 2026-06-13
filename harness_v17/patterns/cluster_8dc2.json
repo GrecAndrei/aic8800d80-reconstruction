@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|151614|1538e0",
+  "size": 58,
+  "pattern": {
+    "pattern_name": "rf_mmio_reg_write_sequence",
+    "description": "Apply RF level config via sequence of volatile MMIO register writes (with interleaved reads) to small offsets/RAM",
+    "category": "mmio_write",
+    "template_c": "void rf_level_apply_n_XXX(void) {\n  *((volatile uint32_t *)(uintptr_t)0xX) = 0xV;\n  (void)*((volatile uint32_t *)(uintptr_t)0xX);\n  *((volatile uint32_t *)(uintptr_t)0xX) = 0xV;\n  ...\n}"
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_384", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f210", "status": "ok", "name": "rf_mem_read_384", "params": [], "docstring": "Read data from RF internal memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

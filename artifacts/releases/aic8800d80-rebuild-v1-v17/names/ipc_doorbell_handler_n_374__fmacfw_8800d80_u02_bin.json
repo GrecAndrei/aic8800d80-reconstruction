@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215608", "status": "ok", "name": "patch_apply_n_348", "params": [], "docstring": "Apply firmware patch table entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

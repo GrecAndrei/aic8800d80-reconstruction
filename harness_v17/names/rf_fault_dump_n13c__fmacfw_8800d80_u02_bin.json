@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n13c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214884", "status": "ok", "name": "rf_fault_dump_n13c", "params": [], "docstring": "Dumps RF fault status to buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_192", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e9a", "status": "ok", "name": "rf_mem_write_n_192", "params": [], "docstring": "RF mem write with ASCII upper-to-lower case conversion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

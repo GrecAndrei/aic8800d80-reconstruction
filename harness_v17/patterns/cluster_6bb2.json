@@ -1,0 +1,10 @@
+{
+  "cluster_id": "2007fea4|2007fea8|2007feac",
+  "size": 61,
+  "pattern": {
+    "pattern_name": "ram_struct_zero_init_prologue",
+    "description": "Zero-initialize a contiguous RAM struct/buffer at function start (writes 0x0 to a sequence of 32-bit words beginning at a fixed base)",
+    "category": "struct_init",
+    "template_c": "for (int i = 0; i < N_FIELDS; i++) ((volatile uint32_t *)(uintptr_t)0x2007fee8U)[i] = 0x0U;  /* memset(&scratch, 0, N_FIELDS*4) */"
+  }
+}

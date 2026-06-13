@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|16ac88|2007ff0c",
+  "size": 100,
+  "pattern": {
+    "pattern_name": "sdio_buffer_prepare_drain",
+    "description": "SDIO buffer prepare routine performing a fixed sequence of side-effect-only MMIO reads to drain/clear status registers",
+    "category": "mmio_read",
+    "template_c": "void sdio_buffer_prepare_nXX(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x16ac88U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff58U);\n}"
+  }
+}

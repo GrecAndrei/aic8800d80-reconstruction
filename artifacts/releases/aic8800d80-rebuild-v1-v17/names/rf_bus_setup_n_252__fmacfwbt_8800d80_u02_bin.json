@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_252", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b06", "status": "ok", "name": "rf_bus_setup_alt", "params": [], "docstring": "Secondary RF bus configuration routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

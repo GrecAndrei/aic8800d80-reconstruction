@@ -1,0 +1,1 @@
+{"fn": "timestamp_remove", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225058", "status": "ok", "name": "timestamp_remove", "params": [], "docstring": "strip/clear timestamp field from message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|10|12",
+  "size": 63,
+  "pattern": {
+    "pattern_name": "rf_bus_setup_seq",
+    "description": "Fixed MMIO write/read sequence targeting low-address RF AFE bus control registers (0x4\u20130x12) plus one 0x4020_xxxx status read",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_setup_nXX(void) {\n    *((volatile uint32_t *)(uintptr_t)0x0eU) = 0x1U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x05U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x04U);\n    *((volatile uint32_t *)(uintptr_t)0x10U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x07U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x06U);\n    *((volatile uint32_t *)(uintptr_t)0x12U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x40200814U);\n}"
+  }
+}

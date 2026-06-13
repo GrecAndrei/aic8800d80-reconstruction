@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n498", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211624", "status": "ok", "name": "rf_fault_dump_n254", "params": [], "docstring": "Dump RF fault context by copying 12 bytes from fault record to stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

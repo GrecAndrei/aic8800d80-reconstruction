@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|103|10b",
+  "size": 141,
+  "pattern": {
+    "pattern_name": "rf_bus_cmd_write",
+    "description": "Sequential MMIO writes driving an RF bus command transaction (addr/data words + buffer poke at 0x2007fef0+).",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_cmd_write(uint32_t a, uint32_t b, uint32_t c, uint32_t d) {\n    *((volatile uint32_t *)(uintptr_t)0x800U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x4U)   = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x8U)   = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x0U)   = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x4U)   = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n}"
+  }
+}

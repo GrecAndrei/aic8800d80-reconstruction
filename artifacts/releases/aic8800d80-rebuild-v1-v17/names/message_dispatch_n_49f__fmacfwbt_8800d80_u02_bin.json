@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_49f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c714", "status": "ok", "name": "message_dispatch_n_49f", "params": [], "docstring": "Firmware message dispatcher indexing by 0xc5 offset", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

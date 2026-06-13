@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_7a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211cde", "status": "ok", "name": "rf_bus_setup_n_7a", "params": [], "docstring": "RF bus initialization/setup routine variant 7a", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

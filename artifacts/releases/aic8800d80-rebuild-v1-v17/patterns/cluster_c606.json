@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|10|16a4f8",
+  "size": 60,
+  "pattern": {
+    "pattern_name": "ipc_mailbox_message_handler",
+    "description": "Per-message-id IPC mailbox handler: reads incoming message fields from low-address mailbox registers (0x0/0x2/0x4/0x8/0xc) and writes a response/ack back to the mailbox.",
+    "category": "dispatcher",
+    "template_c": "void message_dispatch_nNNN(void) {\n    uint32_t a = *((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)a;\n    *((volatile uint32_t *)(uintptr_t)0x4U) = 0x122d1e0U; /* response/ack */\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x4U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x8U);\n    (void)*((volatile uint32_t *)(uintptr_t)0xcU);\n}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|180ac0|2007fef0",
+  "size": 215,
+  "pattern": {
+    "pattern_name": "ipc_cmd_dispatch_4reg",
+    "description": "Multi-register IPC/mailbox command dispatch: write 3 args to 0x2007fef4/8/c, then trigger via 0x2007fef0 (command word)",
+    "category": "mmio_write",
+    "template_c": "volatile uint32_t *cmd  = (volatile uint32_t *)0x2007fef0U;\nvolatile uint32_t *a0   = (volatile uint32_t *)0x2007fef4U;\nvolatile uint32_t *a1   = (volatile uint32_t *)0x2007fef8U;\nvolatile uint32_t *a2   = (volatile uint32_t *)0x2007fefcU;\n*a0 = arg0; *a1 = arg1; *a2 = arg2; *cmd = command; (void)*status;"
+  }
+}

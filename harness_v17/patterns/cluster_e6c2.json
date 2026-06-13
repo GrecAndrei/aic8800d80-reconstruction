@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|10|11",
+  "size": 95,
+  "pattern": {
+    "pattern_name": "rf_patch_mmio_sequence",
+    "description": "Small RF patch/mem-read helper that performs a fixed sequence of MMIO reads and writes to a private RF register window.",
+    "category": "util",
+    "template_c": "static void rf_patch_nXXX(void) {\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x28U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x24U);\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x14e5b8U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    /* ...fixed MMIO sequence... */\n}"
+  }
+}

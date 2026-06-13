@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|10|100",
+  "size": 193,
+  "pattern": {
+    "pattern_name": "rf_msg_body_dispatch_handler",
+    "description": "Per-message-ID body handler that reads IPC args from low MMIO, computes, and writes a 4-dword response block at 0x2007fef0..0x2007fefc.",
+    "category": "dispatcher",
+    "template_c": "void rf_msg_process_body_n_XX(void) {\n    /* read IPC msg-id/length from low MMIO (e.g. 0x14, 0x1a, 0x1b, 0x7c) */\n    (void)*((volatile uint32_t *)(uintptr_t)0x14U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x1bU);\n    /* write 4-dword response into shared msg buffer */\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = arg0;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = arg1;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = arg2;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = retcode;  /* e.g. 0x0, 0xdeadc001, or handler_addr */\n    /* acknowledge via control MMIO */\n    *((volatile uint32_t *)(uintptr_t)0xcU) = 0x0U;\n}"
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_398", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f58", "status": "ok", "name": "sub_120197C", "params": [], "docstring": "Init/setup with global config and saved registers", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

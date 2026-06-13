@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_150", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215398", "status": "ok", "name": "patch_apply_n_150", "params": [], "docstring": "Apply behavioral patch slot 150 (NOP filler)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

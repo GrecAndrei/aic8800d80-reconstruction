@@ -1,0 +1,10 @@
+{
+  "cluster_id": "158690|2007fed0|2007fed4",
+  "size": 245,
+  "pattern": {
+    "pattern_name": "rf_bus_cmd_buffer_init",
+    "description": "Initialize a 4-word RF bus command/marker buffer at 0x2007fef0 with a tag value and zeros",
+    "category": "struct_init",
+    "template_c": "func(void) { *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = tag; *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U; *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U; *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U; }"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|1824b8|1824bc",
+  "size": 295,
+  "pattern": {
+    "pattern_name": "rf_bus_reset_block_clear",
+    "description": "RF bus reset: write 0 to control reg at base 0x0, then clear 4 consecutive dword registers (0x2007FEF0..0x2007FEFC)",
+    "category": "mmio_write",
+    "template_c": "void func(void) {\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007FEF0U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007FEF4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007FEF8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007FEFCU) = 0x0U;\n}"
+  }
+}

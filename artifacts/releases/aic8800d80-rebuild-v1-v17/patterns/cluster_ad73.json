@@ -1,0 +1,10 @@
+{
+  "cluster_id": "18231f|2007febc|2007fec0",
+  "size": 70,
+  "pattern": {
+    "pattern_name": "rf_cmd_struct_zero_init",
+    "description": "RF command/stream/queue handler: trigger MMIO write (0xb30=0 or 0xb24=1) then zero out a contiguous RF command descriptor struct in RAM at 0x2007fee8+",
+    "category": "struct_init",
+    "template_c": "void rf_cmd_xxx(void) {\n    *((volatile uint32_t *)(uintptr_t)0xb30U) = 0x0U;  /* trigger */\n    volatile uint32_t *cmd = (volatile uint32_t *)(uintptr_t)0x2007fee8U;\n    cmd[0] = 0x0U; cmd[1] = 0x0U; cmd[2] = 0x0U; cmd[3] = 0x0U;\n    cmd[4] = 0x0U; cmd[5] = 0x0U; cmd[6] = 0x0U; cmd[7] = 0x0U;\n    /* ...up to struct end */\n}"
+  }
+}

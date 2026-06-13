@@ -1,0 +1,10 @@
+{
+  "cluster_id": "182464|2007ff00|2007ff04",
+  "size": 76,
+  "pattern": {
+    "pattern_name": "rf_bus_status_drain_reads",
+    "description": "Sequence of volatile MMIO reads with discarded results, used to drain/flush RF bus state (status + 4 channel/field registers)",
+    "category": "mmio_read",
+    "template_c": "void rf_bus_status_drain(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x182464U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff00U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff04U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff08U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);\n}"
+  }
+}

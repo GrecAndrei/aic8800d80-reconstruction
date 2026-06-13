@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3c4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211638", "status": "ok", "name": "ipc_doorbell_handler_n_4ac", "params": [], "docstring": "IPC doorbell interrupt/event handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

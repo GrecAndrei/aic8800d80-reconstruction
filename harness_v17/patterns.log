@@ -1,0 +1,103 @@
+Found 2660 clusters from 32560 functions
+  1/100 invented:0x2007fe,0x2007ff,0x2007fe
+  2/100 invented:0x40200,0x2007ff0
+  3/100 invented:0x2007ff,0x2007ff1
+  4/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  5/100 ok (448 funcs): mmio_dummy_read_barrier
+  6/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  7/100 ok (611 funcs): rf_bus_mmio_access
+  8/100 json_err:Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+  9/100 ok (389 funcs): rf_cmd_dispatch
+  10/100 ok (304 funcs): ipc_msg_header_init
+  11/100 invented:0x2007fef,0x2007fef,0x40240000
+  12/100 ok (285 funcs): debug_trace_marker_write
+  13/100 ok (295 funcs): rf_bus_reset_block_clear
+  14/100 ok (245 funcs): rf_bus_cmd_buffer_init
+  15/100 ok (317 funcs): rf_bus_register_write_seq
+  16/100 invented:0x2007ff,0x2007ff58
+  17/100 ok (220 funcs): msg_buf_zero_init_0x2007fee8
+  18/100 ok (241 funcs): shared_mmio_prolog_5reads
+  19/100 invented:0x2007ff,0x2007fefc,0x2007fe
+  20/100 ok (198 funcs): rf_mailbox_zero_ack
+  21/100 ok (196 funcs): rf_bus_reset_n_mixed_mmio
+  22/100 ok (215 funcs): ipc_cmd_dispatch_4reg
+  23/100 ok (215 funcs): rf_bus_mmio_handshake
+  24/100 invented:0x40342
+  25/100 ok (194 funcs): rf_mailbox_clear_and_trigger
+  26/100 ok (193 funcs): rf_msg_body_dispatch_handler
+  27/100 ok (187 funcs): rf_bus_mmio_sequence
+  28/100 ok (162 funcs): patch_apply_n_block_read5
+  29/100 ok (177 funcs): sdio_buffer_handshake
+  30/100 invented:0x2007fe,0x2007fe,0x2007fe
+  31/100 ok (156 funcs): msg_dispatch_mailbox_build
+  32/100 ok (174 funcs): rf_cmd_dispatch_buffer
+  33/100 json_err:Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+  34/100 ok (144 funcs): rf_bus_indirect_write
+  35/100 ok (146 funcs): patch_apply_5x_mmio_read
+  36/100 ok (150 funcs): rf_result_burst_drain
+  37/100 ok (141 funcs): rf_bus_cmd_write
+  38/100 invented:0x2007ff
+  39/100 ok (137 funcs): rf_bus_write_4word
+  40/100 ok (126 funcs): rf_bus_doorbell_write
+  41/100 ok (138 funcs): ipc_mailbox_send
+  42/100 ok (130 funcs): rf_bus_command_issue
+  43/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  44/100 invented:0x2007f
+  45/100 ok (102 funcs): rf_bus_cmd_sequence
+  46/100 ok (107 funcs): rf_bus_dword_write
+  47/100 invented:0x40200810,0x40200810
+  48/100 ok (102 funcs): sdio_buffer_drain_reads
+  49/100 invented:0x2007fe
+  50/100 ok (95 funcs): rf_patch_mmio_sequence
+  51/100 ok (100 funcs): sdio_buffer_prepare_drain
+  52/100 ok (98 funcs): sdio_buf_prepare_guard_reads
+  53/100 ok (96 funcs): rf_bus_regfile_drain
+  54/100 ok (92 funcs): rf_cmd_struct_zero_init
+  55/100 ok (94 funcs): mmio_block_zero_init
+  56/100 ok (92 funcs): ke_error_state_set
+  57/100 ok (90 funcs): rf_bus_cmd_write_posted
+  58/100 ok (90 funcs): rf_msg_body_handler
+  59/100 invented:0x2007fe,0x2007fe
+  60/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  61/100 ok (76 funcs): rf_bus_status_drain_reads
+  62/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  63/100 invented:0x2007ff
+  64/100 ok (78 funcs): rf_cmd_desc_push
+  65/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  66/100 ok (71 funcs): rf_bus_mark_write
+  67/100 ok (72 funcs): rf_bus_reg_seq
+  68/100 ok (69 funcs): sdio_buf_desc_ring_op
+  69/100 invented:0x40240
+  70/100 ok (69 funcs): rf_level_apply_seq
+  71/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  72/100 ok (72 funcs): clear_state_and_signal
+  73/100 ok (67 funcs): rf_bus_reset_seq
+  74/100 ok (70 funcs): rf_cmd_struct_zero_init
+  75/100 ok (66 funcs): rf_bus_write2
+  76/100 ok (64 funcs): single_mmio_read_void_stub
+  77/100 ok (67 funcs): sdio_buffer_prepare_clear_and_probe
+  78/100 ok (65 funcs): msg_dispatch_doorbell_ring
+  79/100 invented:0x2007ff00,0x2007ff1c,0x2007ff1c
+  80/100 ok (63 funcs): rf_bus_setup_seq
+  81/100 ok (61 funcs): ram_struct_zero_init_prologue
+  82/100 invented:0x2007fe
+  83/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  84/100 ok (60 funcs): ipc_mailbox_message_handler
+  85/100 ok (57 funcs): rf_bus_reset_multi_write
+  86/100 ok (57 funcs): rf_level_table_apply
+  87/100 ok (59 funcs): mmio_tracepoint_touch
+  88/100 invented:0x2007fefc,0x2007fefc,0x2007fefc
+  89/100 ok (58 funcs): rf_mmio_reg_write_sequence
+  90/100 ok (54 funcs): struct_field_zero_clear
+  91/100 ok (53 funcs): trace_event_emit_5word
+  92/100 ok (55 funcs): rf_reg_indexed_write
+  93/100 ok (52 funcs): hw_patch_mmio_sequence
+  94/100 json_err:Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
+  95/100 ok (52 funcs): patch_apply_trigger_sync
+  96/100 invented:0x4024014,0x4024019,0x2007fef
+  97/100 invented:0x2007fef8
+  98/100 invented:0x2007fe,0x2007fe
+  99/100 ok (52 funcs): rf_bus_reset_n_seq
+  100/100 ok (51 funcs): rf_bus_preamble_setup
+
+DONE: 100 in 616.5s ok=68

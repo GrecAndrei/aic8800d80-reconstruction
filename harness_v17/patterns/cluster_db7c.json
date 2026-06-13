@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|14df20|2007ff0c",
+  "size": 102,
+  "pattern": {
+    "pattern_name": "sdio_buffer_drain_reads",
+    "description": "SDIO buffer-prepare sequence performing a chain of dummy volatile MMIO reads to drain write buffers before DMA/transfer.",
+    "category": "mmio_read",
+    "template_c": "void sdio_buffer_prepare_n##(void) {\n    (void)*((volatile uint32_t *)(uintptr_t)0x14df20U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x0U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff0cU);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff54U);\n    (void)*((volatile uint32_t *)(uintptr_t)0x2007ff58U);\n    /* ...additional chained volatile reads... */\n}"
+  }
+}

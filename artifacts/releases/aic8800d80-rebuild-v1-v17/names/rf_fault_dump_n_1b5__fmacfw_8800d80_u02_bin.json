@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1b5", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214592", "status": "ok", "name": "rf_fault_dump_n_1b5", "params": [], "docstring": "Dump/record RF fault status into trace buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|14|18",
+  "size": 72,
+  "pattern": {
+    "pattern_name": "clear_state_and_signal",
+    "description": "Write 0 to multiple MMIO/shared-memory locations to clear state, then signal completion (RF bus mark, pool free, or IPC notify).",
+    "category": "util",
+    "template_c": "void f(void) {\n    *(volatile uint32_t*)0x2007fedcU = 0x0U;\n    *(volatile uint32_t*)0x2007fee0U = 0x0U;\n    *(volatile uint32_t*)0x2007fee4U = 0x0U;\n    *(volatile uint32_t*)0x2007fee8U = 0x0U;\n    *(volatile uint32_t*)0x2007feecU = 0x0U;\n    (void)*(volatile uint32_t*)0x654U;\n    (void)*(volatile uint32_t*)0x40240190U;\n    (void)*(volatile uint32_t*)0x40240188U;\n    *(volatile uint32_t*)0x18U = 0x0U;\n    *(volatile uint32_t*)0x655U = 0x1U;\n}"
+  }
+}

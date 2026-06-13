@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n378", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121254c", "status": "ok", "name": "rf_state_check_n378", "params": [], "docstring": "Poll/read RF state registers into shadow state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

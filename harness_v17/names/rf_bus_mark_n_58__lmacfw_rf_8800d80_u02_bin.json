@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211134", "status": "ok", "name": "sdio_buffer_prepare_n140", "params": [], "docstring": "Prepare SDIO buffer descriptors using left-shifted size/offset fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

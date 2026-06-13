@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|18246e|187e8c",
+  "size": 187,
+  "pattern": {
+    "pattern_name": "rf_bus_mmio_sequence",
+    "description": "RF bus config/reset function issuing a sequence of MMIO reads and writes to control radio hardware registers",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_mmio_sequence(void) {\n    *((volatile uint32_t *)(uintptr_t)0x2007fef0U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef4U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fef8U) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x2007fefcU) = 0x0U;\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x7U;\n    *((volatile uint32_t *)(uintptr_t)0x0U) = 0x2U;\n    (void)*((volatile uint32_t *)(uintptr_t)0x187e8cU);\n}"
+  }
+}

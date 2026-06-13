@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_416", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c79e", "status": "ok", "name": "message_dispatch_n_416", "params": [], "docstring": "Dispatch IPC message to handler (variant n_416)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|18246e|187f50",
+  "size": 215,
+  "pattern": {
+    "pattern_name": "rf_bus_mmio_handshake",
+    "description": "RF bus command sequence: write command/data, read status, write 0 to ack/clear status register",
+    "category": "mmio_write",
+    "template_c": "void rf_bus_op(void) {\n    *((volatile uint32_t *)BUS_CMD) = cmd;\n    *((volatile uint32_t *)BUS_DATA) = val;\n    (void)*((volatile uint32_t *)STATUS_REG);\n    *((volatile uint32_t *)STATUS_REG) = 0x0U;\n}"
+  }
+}

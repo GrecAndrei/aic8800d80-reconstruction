@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_5e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121591e", "status": "ok", "name": "ipc_doorbell_handler_n_5e", "params": [], "docstring": "IPC doorbell handler entry comparing host doorbell value against 0x60", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

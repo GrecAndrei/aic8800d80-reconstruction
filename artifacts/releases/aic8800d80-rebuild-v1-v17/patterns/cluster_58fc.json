@@ -1,0 +1,10 @@
+{
+  "cluster_id": "0|17345c|182750",
+  "size": 65,
+  "pattern": {
+    "pattern_name": "msg_dispatch_doorbell_ring",
+    "description": "Zero a 3-dword IPC message header in RAM, store handler/callback address in last dword, then write to doorbell MMIO to dispatch",
+    "category": "dispatcher",
+    "template_c": "void message_dispatch_n(void) { ((volatile uint32_t *)0x2007fef0)[0] = 0; ((volatile uint32_t *)0x2007fef0)[1] = 0; ((volatile uint32_t *)0x2007fef0)[2] = 0; ((volatile uint32_t *)0x2007fef0)[3] = (uint32_t)(uintptr_t)handler; *(volatile uint32_t *)DOORBELL_REG = TRIGGER_VAL; }"
+  }
+}

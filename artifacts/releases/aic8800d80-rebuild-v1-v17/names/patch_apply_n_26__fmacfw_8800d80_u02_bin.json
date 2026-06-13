@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_26", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e86", "status": "ok", "name": "patch_apply_n_26", "params": [], "docstring": "Check patch flag then load patch address from table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

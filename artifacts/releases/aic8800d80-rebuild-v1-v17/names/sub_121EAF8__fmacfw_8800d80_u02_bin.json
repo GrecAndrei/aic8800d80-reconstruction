@@ -1,0 +1,1 @@
+{"fn": "sub_121EAF8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121eaf8", "status": "ok", "name": "mmio_reg_poll_ready", "params": [], "docstring": "Polls MMIO register until expected value appears", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

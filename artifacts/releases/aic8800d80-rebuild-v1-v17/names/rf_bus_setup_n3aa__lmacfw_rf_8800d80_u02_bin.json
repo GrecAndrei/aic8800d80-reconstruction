@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211bae", "status": "ok", "name": "rf_bus_setup_n3aa", "params": [], "docstring": "Initializes RF bus configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

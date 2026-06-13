@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_242", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121122a", "status": "ok", "name": "rf_msg_process_body_nd8", "params": [], "docstring": "Process RF IPC message body and jump to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
