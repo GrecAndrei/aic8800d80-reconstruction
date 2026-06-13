@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212240", "status": "ok", "name": "bt_main_loop", "params": [], "docstring": "main BT HCI/LMP command dispatch loop", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

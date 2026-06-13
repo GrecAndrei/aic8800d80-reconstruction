@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_2cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ba0", "status": "ok", "name": "rf_cmd_send_n_2cc", "params": [], "docstring": "Builds and submits an RF command to the radio MCU", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

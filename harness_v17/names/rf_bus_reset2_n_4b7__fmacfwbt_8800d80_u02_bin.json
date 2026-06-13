@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4b7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113a0", "status": "ok", "name": "rf_bus_reset2_n_4b7", "params": [], "docstring": "RF bus secondary reset routine variant 4b7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

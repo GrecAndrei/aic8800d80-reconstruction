@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3ac", "status": "ok", "name": "sdio_buf_prepare_68", "params": [], "docstring": "Prepares SDIO buffer variant for BT path", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

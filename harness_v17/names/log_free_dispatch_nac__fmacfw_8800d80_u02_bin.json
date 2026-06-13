@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_nac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12100b4", "status": "ok", "name": "rf_cmd_dispatch_n14c", "params": [], "docstring": "RF command dispatch with command slot processing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

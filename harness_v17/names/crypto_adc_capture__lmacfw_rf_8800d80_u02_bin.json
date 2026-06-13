@@ -1,0 +1,1 @@
+{"fn": "crypto_adc_capture", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204a98", "status": "ok", "name": "rf_adc_capture_n_a98", "params": [], "docstring": "Capture RF ADC samples for crypto/calibration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "apm_stop_cac_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124c2f8", "status": "ok", "name": "apm_stop_cac_req_handler", "params": [], "docstring": "Handle APM stop CAC (channel availability check) request", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

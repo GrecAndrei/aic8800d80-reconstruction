@@ -1,0 +1,1 @@
+{"fn": "apm_start_cac_req_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124c2dc", "status": "ok", "name": "apm_start_cac_req_handler", "params": [], "docstring": "Handle AP manager start CAC (channel availability check) request", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

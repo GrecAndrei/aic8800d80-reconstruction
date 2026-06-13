@@ -1,0 +1,11 @@
+Processing 61803 targets in batches of 10 with 8 workers
+  200/61803 ok=56 rate=5.2/s eta=11789s
+    statuses: {'filtered': 134, 'ok': 56, 'json_err:Expecting value: line 1 column 2 (char 1)': 10}
+  400/61803 ok=113 rate=5.8/s eta=10673s
+    statuses: {'filtered': 277, 'ok': 113, 'json_err:Expecting value: line 1 column 2 (char 1)': 10}
+  600/61803 ok=149 rate=5.6/s eta=10856s
+    statuses: {'filtered': 421, 'ok': 149, 'json_err:Expecting value: line 1 column 2 (char 1)': 30}
+  800/61803 ok=217 rate=5.8/s eta=10580s
+    statuses: {'filtered': 553, 'ok': 217, 'json_err:Expecting value: line 1 column 2 (char 1)': 30}
+  1000/61803 ok=302 rate=5.8/s eta=10558s
+    statuses: {'filtered': 658, 'ok': 302, 'json_err:Expecting value: line 1 column 2 (char 1)': 40}

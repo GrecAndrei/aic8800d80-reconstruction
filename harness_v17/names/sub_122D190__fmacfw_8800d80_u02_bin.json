@@ -1,0 +1,1 @@
+{"fn": "sub_122D190", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d190", "status": "ok", "name": "fmac_init_or_handler", "params": [], "docstring": "Generic fmacfw helper (likely init/IRQ dispatch)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

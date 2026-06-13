@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121144c", "status": "ok", "name": "bt_patch_or_init_1216614", "params": [], "docstring": "BT firmware init/patch routine", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n36a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121337a", "status": "ok", "name": "patch_apply_n_9e", "params": [], "docstring": "Apply firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

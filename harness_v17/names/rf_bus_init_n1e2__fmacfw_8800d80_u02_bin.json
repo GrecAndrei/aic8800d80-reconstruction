@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n1e2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f9a", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO transfer buffers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

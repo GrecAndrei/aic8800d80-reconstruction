@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nc8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115ec", "status": "ok", "name": "rf_level_apply_n_3ad", "params": [], "docstring": "Apply RF power level configuration variant 3ad", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

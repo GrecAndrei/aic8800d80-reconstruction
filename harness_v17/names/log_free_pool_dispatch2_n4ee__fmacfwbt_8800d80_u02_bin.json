@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210026", "status": "ok", "name": "log_free_pool_dispatch", "params": [], "docstring": "Log free pool dispatch handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

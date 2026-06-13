@@ -1,0 +1,1 @@
+{"fn": "sub_123A7A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a7a0", "status": "ok", "name": "patch_apply_n_4a2", "params": [], "docstring": "apply firmware patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

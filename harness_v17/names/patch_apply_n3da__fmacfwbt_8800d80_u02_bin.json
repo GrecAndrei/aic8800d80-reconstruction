@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158c2", "status": "ok", "name": "rf_bus_reset_n310", "params": [], "docstring": "Reset RF bus interface (variant 0x310)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

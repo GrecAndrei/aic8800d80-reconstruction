@@ -1,0 +1,1 @@
+{"fn": "sub_123637C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123637c", "status": "ok", "name": "scan_state_machine", "params": [], "docstring": "Scanning state machine handler", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

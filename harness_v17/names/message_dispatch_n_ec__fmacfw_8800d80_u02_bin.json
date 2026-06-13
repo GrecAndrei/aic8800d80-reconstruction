@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c8a0", "status": "ok", "name": "msg_dispatch_hash_ec", "params": [], "docstring": "Dispatch IPC message using XOR hash against magic constants 0xa4/0xb8", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_naa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120da", "status": "ok", "name": "rf_state_check_naa", "params": [], "docstring": "Pack/extract RF state fields from byte buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

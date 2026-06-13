@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d05c", "status": "ok", "name": "rf_fault_dump_n_2ac", "params": [], "docstring": "Dump RF fault state for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

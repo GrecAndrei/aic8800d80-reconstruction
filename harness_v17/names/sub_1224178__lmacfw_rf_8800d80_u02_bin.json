@@ -1,0 +1,1 @@
+{"fn": "sub_1224178", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224178", "status": "ok", "name": "mmio_field_set_l2h2", "params": [], "docstring": "Clear/set 0x40000 bitfield in control register and trigger handler", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

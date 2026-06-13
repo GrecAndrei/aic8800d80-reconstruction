@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_372", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211512", "status": "ok", "name": "sdio_buffer_prepare_n_1ac", "params": [], "docstring": "Prepare SDIO DMA buffer for transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

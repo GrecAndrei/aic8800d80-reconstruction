@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n106", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b7e", "status": "ok", "name": "rf_bus_write2_n106", "params": [], "docstring": "RF bus 2-register write (variant n106)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

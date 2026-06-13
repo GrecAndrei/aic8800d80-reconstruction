@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nb2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1ce", "status": "ok", "name": "sdio_buffer_prepare_nb2", "params": [], "docstring": "Prepares SDIO buffer for transmission (variant nb2)", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

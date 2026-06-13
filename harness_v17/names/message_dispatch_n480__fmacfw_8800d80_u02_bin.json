@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n480", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce0c", "status": "ok", "name": "message_dispatch_n480", "params": [], "docstring": "Firmware message dispatch handler (critical path)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

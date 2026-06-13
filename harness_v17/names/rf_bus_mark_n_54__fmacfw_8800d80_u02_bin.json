@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_54", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211830", "status": "ok", "name": "rf_bus_mark_n54", "params": [], "docstring": "Mark RF bus state for channel/operation N54", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

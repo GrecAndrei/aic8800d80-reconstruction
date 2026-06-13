@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_3b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212562", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Sends an RF command to the radio", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

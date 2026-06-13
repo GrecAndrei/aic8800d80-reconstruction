@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n342", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121209a", "status": "ok", "name": "rf_msg_dispatch_n420", "params": [], "docstring": "RF message dispatch router", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

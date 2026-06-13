@@ -1,0 +1,1 @@
+{"fn": "sub_1239E30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239e30", "status": "ok", "name": "fmac_bt_idle_handler", "params": [], "docstring": "FMAC Bluetooth idle/state handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

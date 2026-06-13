@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_bb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121468c", "status": "ok", "name": "rf_fault_dump_n_bb", "params": [], "docstring": "Dump RF fault context (size 0x58)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

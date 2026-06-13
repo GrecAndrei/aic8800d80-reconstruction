@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_ff", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214dac", "status": "ok", "name": "rf_bus_reset_nb2", "params": [], "docstring": "RF bus reset (n-bus variant 2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

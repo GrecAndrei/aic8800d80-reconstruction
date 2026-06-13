@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_45a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a52", "status": "ok", "name": "patch_apply_n_45a", "params": [], "docstring": "Applies firmware patch table entry n_45a", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1a4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121568c", "status": "ok", "name": "patch_apply_1a4", "params": [], "docstring": "Applies firmware patch variant 1a4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

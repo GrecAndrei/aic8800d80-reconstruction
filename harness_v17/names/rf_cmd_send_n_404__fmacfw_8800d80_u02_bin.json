@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c0c", "status": "ok", "name": "rf_cmd_send_n404", "params": [], "docstring": "Sends RF command by writing control register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12284D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12284d0", "status": "ok", "name": "mmio_status_read_l28", "params": [], "docstring": "Read status field at offset 0x28 from sysctl base", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

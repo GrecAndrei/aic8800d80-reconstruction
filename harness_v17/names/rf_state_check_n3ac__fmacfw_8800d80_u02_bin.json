@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3ac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212580", "status": "ok", "name": "rf_mem_write_n_203", "params": [], "docstring": "Write to RF register/memory block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n39a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212296", "status": "ok", "name": "rf_bus_setup_n39a", "params": [], "docstring": "Setup RF bus address/length fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

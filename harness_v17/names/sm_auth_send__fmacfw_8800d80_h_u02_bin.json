@@ -1,0 +1,1 @@
+{"fn": "sm_auth_send", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bf7c", "status": "ok", "name": "sm_auth_send", "params": [], "docstring": "State machine transmit auth frame", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

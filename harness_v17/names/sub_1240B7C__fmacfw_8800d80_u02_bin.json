@@ -1,0 +1,1 @@
+{"fn": "sub_1240B7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240b7c", "status": "ok", "name": "fmac_irq_handler_n0b7c", "params": [], "docstring": "FMAC interrupt handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_108", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d64", "status": "ok", "name": "rf_bus_reset_n208", "params": [], "docstring": "RF bus reset (variant 208)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

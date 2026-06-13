@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2f2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157da", "status": "ok", "name": "patch_apply_n2f2", "params": [], "docstring": "Apply firmware patch variant at offset 0x2f2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

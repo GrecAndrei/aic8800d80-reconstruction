@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_106", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153e2", "status": "ok", "name": "patch_apply_n_106", "params": [], "docstring": "Apply firmware patch by magic signature", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

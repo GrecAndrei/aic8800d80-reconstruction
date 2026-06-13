@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nfc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b74", "status": "ok", "name": "rf_bus_write2_nfc", "params": [], "docstring": "Write 2 bytes to RF bus (NFC variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_23a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213a0e", "status": "ok", "name": "rf_bus_write_n_178", "params": [], "docstring": "Writes data over the RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

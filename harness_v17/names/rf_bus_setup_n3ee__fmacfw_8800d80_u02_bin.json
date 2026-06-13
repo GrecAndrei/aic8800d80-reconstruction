@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12122ea", "status": "ok", "name": "rf_bus_setup_3ee", "params": [], "docstring": "Initializes/configures the RF bus interface (variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

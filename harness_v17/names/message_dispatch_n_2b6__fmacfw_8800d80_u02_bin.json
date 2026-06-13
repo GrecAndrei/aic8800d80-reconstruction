@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_2b6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c6d6", "status": "ok", "name": "rf_unk_n4_1213xxx", "params": [], "docstring": "RF helper function (index 4, data missing)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

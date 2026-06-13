@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_25c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d14", "status": "ok", "name": "rf_cmd_wait_n_25c", "params": [], "docstring": "Waits for completion of an outstanding RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

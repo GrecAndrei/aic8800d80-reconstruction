@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n216", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213e5e", "status": "ok", "name": "rf_msg_process_body_n216", "params": [], "docstring": "RF message body handler dispatching entry via mla-computed slot into sub-handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_32", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f562", "status": "ok", "name": "rf_status_get", "params": [], "docstring": "Get current RF status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

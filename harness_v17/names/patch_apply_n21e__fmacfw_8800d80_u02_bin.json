@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n21e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150ca", "status": "ok", "name": "rf_bus_reset_secondary", "params": [], "docstring": "Alternate RF bus reset routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

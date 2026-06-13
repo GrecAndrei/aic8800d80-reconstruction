@@ -1,0 +1,1 @@
+{"fn": "sub_12018E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12018e4", "status": "ok", "name": "fmacfwbt_init_or_handler", "params": [], "docstring": "FMAC BT firmware init/handler stub", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

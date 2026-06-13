@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_5a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f53a", "status": "ok", "name": "unknown_func_2", "params": [], "docstring": "firmware function (unlabeled)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

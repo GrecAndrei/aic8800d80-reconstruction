@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127f2", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Reset the RF bus to a known state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

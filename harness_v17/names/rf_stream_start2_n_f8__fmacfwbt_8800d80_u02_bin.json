@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n_f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213154", "status": "ok", "name": "unknown_aux_helper", "params": [], "docstring": "Auxiliary helper (placeholder, missing input)", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_27c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c710", "status": "ok", "name": "message_dispatch_n_27c", "params": [], "docstring": "Dispatch host message variant 0x27c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

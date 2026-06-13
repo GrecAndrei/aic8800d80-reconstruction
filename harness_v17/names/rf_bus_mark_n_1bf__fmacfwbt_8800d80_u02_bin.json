@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1bf", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211520", "status": "ok", "name": "rf_bus_mark_n1bf", "params": [], "docstring": "Mark RF bus variant 0x1bf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

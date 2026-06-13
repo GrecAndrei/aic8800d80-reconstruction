@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_34c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125cc", "status": "ok", "name": "rf_cmd_send_n34c", "params": [], "docstring": "Send RF command to controller (variant 0x34c)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

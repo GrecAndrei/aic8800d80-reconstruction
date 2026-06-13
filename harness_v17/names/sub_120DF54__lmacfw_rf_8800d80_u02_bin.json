@@ -1,0 +1,1 @@
+{"fn": "sub_120DF54", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120df54", "status": "ok", "name": "rf_lmac_misc_n_df54", "params": [], "docstring": "LMAC RF misc handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

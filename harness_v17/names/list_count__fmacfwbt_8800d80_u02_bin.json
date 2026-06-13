@@ -1,0 +1,1 @@
+{"fn": "list_count", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d594", "status": "ok", "name": "list_count", "params": [], "docstring": "Count elements in a linked list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

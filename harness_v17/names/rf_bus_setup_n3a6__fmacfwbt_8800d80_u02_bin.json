@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120fe", "status": "ok", "name": "rf_cmd_dispatch_n4ac", "params": [], "docstring": "Dispatches RF commands in handler (variant 0x4ac)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

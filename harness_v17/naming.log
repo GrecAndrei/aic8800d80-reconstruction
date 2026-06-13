@@ -1,2 +1,4 @@
 Processing 63651 targets with 12 workers
   25/63651 ok=15 skip=0 fail=3 nodis=5 bad=0 rate=0.1/s eta=505214s
+  50/63651 ok=30 skip=0 fail=10 nodis=6 bad=0 rate=0.1/s eta=424729s
+  75/63651 ok=43 skip=0 fail=14 nodis=11 bad=0 rate=0.2/s eta=339148s

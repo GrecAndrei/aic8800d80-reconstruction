@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n4aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d2e", "status": "ok", "name": "rf_mem_write_n_49a", "params": [], "docstring": "write word to RF shared memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

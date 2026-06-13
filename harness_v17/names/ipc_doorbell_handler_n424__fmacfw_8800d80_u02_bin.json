@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n424", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215da0", "status": "ok", "name": "rf_cmd_send_n_4af", "params": [], "docstring": "send alternate RF control command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

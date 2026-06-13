@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_38a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f66", "status": "ok", "name": "log_free_dispatch_n486", "params": [], "docstring": "Log buffer free/dispatch handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
