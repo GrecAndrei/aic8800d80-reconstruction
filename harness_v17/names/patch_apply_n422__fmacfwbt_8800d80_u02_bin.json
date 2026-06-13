@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n422", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121590a", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Applies a firmware patch with aligned base address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n422", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121590a", "status": "ok", "name": "patch_apply_590a", "params": [], "docstring": "Applies a firmware patch with aligned base address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

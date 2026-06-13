@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114e4", "status": "ok", "name": "rf_bus_reset2_n_374_14e4", "params": [], "docstring": "RF bus reset with bit-shifted register masking (lsl 6)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

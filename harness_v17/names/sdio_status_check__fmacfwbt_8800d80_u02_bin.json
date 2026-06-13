@@ -1,0 +1,1 @@
+{"fn": "sdio_status_check", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120d15c", "status": "ok", "name": "sdio_status_check", "params": [], "docstring": "Check SDIO status register at 0x4050012c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

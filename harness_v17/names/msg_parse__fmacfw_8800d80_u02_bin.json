@@ -1,0 +1,1 @@
+{"fn": "msg_parse", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ea88", "status": "ok", "name": "msg_parse", "params": [], "docstring": "Parse incoming IPC message from shared buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

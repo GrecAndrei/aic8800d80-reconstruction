@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n11a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215602", "status": "ok", "name": "patch_apply_n11a", "params": [], "docstring": "Apply firmware patch n11a: extract high half of word, store as byte then call helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

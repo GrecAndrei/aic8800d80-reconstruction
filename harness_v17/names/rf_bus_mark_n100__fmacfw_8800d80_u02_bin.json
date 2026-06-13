@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n100", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211984", "status": "ok", "name": "rf_cmd_send_n50", "params": [], "docstring": "Submits an RF command to the LMAC mailbox and returns status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

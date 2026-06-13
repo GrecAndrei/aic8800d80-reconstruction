@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215696", "status": "ok", "name": "patch_apply_n1ae", "params": [], "docstring": "Apply patch writing MMIO and enabling NVIC IRQ 2 via ISER", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_4be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113c6", "status": "ok", "name": "rf_bus_mark_n_4be", "params": [], "docstring": "Mark RF bus register 0x4BE", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_4be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113c6", "status": "ok", "name": "rf_bus_mark_n_4be_13c6", "params": [], "docstring": "Mark RF bus register 0x4BE", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

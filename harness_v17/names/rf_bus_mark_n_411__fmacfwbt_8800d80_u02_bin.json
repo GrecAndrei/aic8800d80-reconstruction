@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_411", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112ce", "status": "ok", "name": "rf_bus_mark_n_411", "params": [], "docstring": "Marks RF bus register via indirect write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

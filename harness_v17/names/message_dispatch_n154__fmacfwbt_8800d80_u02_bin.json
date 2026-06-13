@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cd08", "status": "ok", "name": "message_dispatch_n154", "params": [], "docstring": "Parses message type with 'l' (0x6c) check and word-aligns payload pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

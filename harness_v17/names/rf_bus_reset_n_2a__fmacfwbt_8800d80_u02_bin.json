@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n_2a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121281a", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Reset the RF bus (deassert reset line)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n_2a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121281a", "status": "ok", "name": "rf_bus_reset_281a", "params": [], "docstring": "Reset the RF bus (deassert reset line)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

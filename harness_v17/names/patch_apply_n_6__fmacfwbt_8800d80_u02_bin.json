@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154e2", "status": "ok", "name": "patch_apply_n_6", "params": [], "docstring": "Apply firmware patch and validate PTCH signature", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

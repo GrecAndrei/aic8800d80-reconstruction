@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_226", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119f6", "status": "ok", "name": "rf_bus_write2_n_226", "params": [], "docstring": "Write to RF bus register with 0x40200000 base", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_226", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119f6", "status": "ok", "name": "rf_bus_write2_n_226_19f6", "params": [], "docstring": "Write to RF bus register with 0x40200000 base", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

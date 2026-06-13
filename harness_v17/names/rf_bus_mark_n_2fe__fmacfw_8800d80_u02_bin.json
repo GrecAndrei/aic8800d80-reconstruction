@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211586", "status": "ok", "name": "patch_apply_n_186", "params": [], "docstring": "Applies firmware patch with sequence 0x182614 references", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

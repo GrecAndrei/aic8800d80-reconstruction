@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n424", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121217c", "status": "ok", "name": "rf_bus_setup_n424", "params": [], "docstring": "Initialize and configure RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "crypto_rx_calibrate", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1207c48", "status": "ok", "name": "crypto_rx_calibrate", "params": [], "docstring": "Initialize crypto/RX calibration registers and MMIO setup", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

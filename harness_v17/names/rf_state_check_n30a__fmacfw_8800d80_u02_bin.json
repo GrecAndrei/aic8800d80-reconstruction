@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n30a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124de", "status": "ok", "name": "rf_state_check_n30a", "params": [], "docstring": "Check RF state, manipulate B14/B08/B00 control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

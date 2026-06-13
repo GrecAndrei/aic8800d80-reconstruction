@@ -1,0 +1,1 @@
+{"fn": "sm_ft_auth_over_air_start", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bfd0", "status": "ok", "name": "sm_ft_auth_over_air_start", "params": [], "docstring": "Initiate FT (fast transition) auth-over-air state machine", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

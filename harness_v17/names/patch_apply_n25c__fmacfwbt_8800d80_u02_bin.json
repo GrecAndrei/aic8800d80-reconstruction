@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n25c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215744", "status": "ok", "name": "patch_xor_apply_loop", "params": [], "docstring": "Applies XOR-based patch in 0x64-byte blocks to memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

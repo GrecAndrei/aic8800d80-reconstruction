@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n400", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12158e8", "status": "ok", "name": "patch_apply_n400", "params": [], "docstring": "Apply firmware patch helper passing register", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

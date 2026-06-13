@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_399", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116de", "status": "ok", "name": "rf_bus_write2_n_399", "params": [], "docstring": "RF bus secondary write via global pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

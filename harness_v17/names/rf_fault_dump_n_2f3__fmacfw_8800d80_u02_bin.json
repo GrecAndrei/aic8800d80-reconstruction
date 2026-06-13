@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2f3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214454", "status": "ok", "name": "rf_bus_mark_n_3ea", "params": [], "docstring": "Mark RF bus transaction slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

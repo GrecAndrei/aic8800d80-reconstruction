@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_cc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158b0", "status": "ok", "name": "rf_bus_reset_n3a0", "params": [], "docstring": "Resets an RF bus subsystem indexed by table slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

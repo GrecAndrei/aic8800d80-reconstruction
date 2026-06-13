@@ -1,1 +1,1 @@
-{"fn": "crypto_hw_power_up", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1203b6c", "status": "ok", "name": "crypto_hw_power_up", "params": [], "docstring": "Power up crypto engine via MMIO at 0x40344084/0x403440a8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_hw_power_up", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1203b6c", "status": "ok", "name": "crypto_hw_power_up_3b6c", "params": [], "docstring": "Power up crypto engine via MMIO at 0x40344084/0x403440a8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

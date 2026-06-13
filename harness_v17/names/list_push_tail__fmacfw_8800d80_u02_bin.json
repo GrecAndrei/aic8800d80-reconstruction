@@ -1,0 +1,1 @@
+{"fn": "list_push_tail", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d248", "status": "ok", "name": "list_push_tail", "params": [], "docstring": "Append node to tail of intrusive linked list if list non-empty", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

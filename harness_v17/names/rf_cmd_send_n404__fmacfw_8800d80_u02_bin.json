@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213414", "status": "ok", "name": "log_free_dispatch_n4d0", "params": [], "docstring": "Increment counter and dispatch log free", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213414", "status": "ok", "name": "log_free_dispatch_n4d0_3414", "params": [], "docstring": "Increment counter and dispatch log free", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

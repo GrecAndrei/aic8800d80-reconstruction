@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n11c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b04", "status": "ok", "name": "rf_bus_reset_n11c", "params": [], "docstring": "RF bus reset (shifts loaded value left by 0x19, masks/configures bus)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_init_blocka", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120eda8", "status": "ok", "name": "rf_init_blocka", "params": [], "docstring": "RF initialization block A: setup core with size 0x100/0x108 and enable", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_448", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211410", "status": "ok", "name": "rf_bus_reset2_n_448", "params": [], "docstring": "Resets RF bus interface, clears status and triggers sub-handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

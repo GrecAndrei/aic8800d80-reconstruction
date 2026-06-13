@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_225", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211632", "status": "ok", "name": "rf_bus_reset2_n_225", "params": [], "docstring": "Reset RF bus to initial state via MMIO control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

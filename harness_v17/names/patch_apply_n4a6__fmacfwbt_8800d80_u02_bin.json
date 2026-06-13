@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121598e", "status": "ok", "name": "patch_apply_n4a6", "params": [], "docstring": "Applies firmware patch, gating on a flag byte compared to 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c5e", "status": "ok", "name": "rf_bus_setup_n_fa", "params": [], "docstring": "Configures RF bus interface registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c5e", "status": "ok", "name": "rf_bus_setup_n_fa_1c5e", "params": [], "docstring": "Configures RF bus interface registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

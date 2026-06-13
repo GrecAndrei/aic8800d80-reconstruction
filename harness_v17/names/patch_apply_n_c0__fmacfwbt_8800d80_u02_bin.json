@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215428", "status": "ok", "name": "patch_apply_n_c0", "params": [], "docstring": "Patch trampoline with constant 4 setup", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

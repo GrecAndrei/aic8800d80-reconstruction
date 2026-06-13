@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_47a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d12", "status": "ok", "name": "rf_bus_mark_n_47a", "params": [], "docstring": "Mark RF bus register field with bit-shifted value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

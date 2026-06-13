@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_268", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211758", "status": "ok", "name": "rf_bus_write_n_268", "params": [], "docstring": "Writes RF bus register via byte access with mask and address setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123BDFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123bdfc", "status": "ok", "name": "ipc_msg_build_header", "params": [], "docstring": "Build IPC message header with shifted fields", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

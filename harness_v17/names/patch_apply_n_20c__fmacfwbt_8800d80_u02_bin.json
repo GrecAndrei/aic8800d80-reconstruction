@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_20c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152dc", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Applies a firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_20c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152dc", "status": "ok", "name": "patch_apply_52dc", "params": [], "docstring": "Applies a firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

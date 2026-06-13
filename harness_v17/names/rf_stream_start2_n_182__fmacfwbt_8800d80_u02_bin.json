@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n_182", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130ca", "status": "ok", "name": "crypto_gain_clamp", "params": [], "docstring": "Computes a scaled gain value (input/20) with FP arithmetic and clamp params", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

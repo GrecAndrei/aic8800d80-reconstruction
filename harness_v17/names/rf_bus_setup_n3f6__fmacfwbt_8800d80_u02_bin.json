@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121214e", "status": "ok", "name": "rf_bus_setup_n3f6", "params": [], "docstring": "Configure RF bus with extracted byte width parameter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

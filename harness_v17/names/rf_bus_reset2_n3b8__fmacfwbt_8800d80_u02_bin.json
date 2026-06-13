@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n3b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c10", "status": "ok", "name": "rf_bus_reset2_n3b8", "params": [], "docstring": "RF bus reset variant; clears state via helper with arg setup.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nf2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117d2", "status": "ok", "name": "rf_state_check_n2a", "params": [], "docstring": "Checks and stores current RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

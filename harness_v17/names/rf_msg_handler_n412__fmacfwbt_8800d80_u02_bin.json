@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n412", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213372", "status": "ok", "name": "sub_121B7C8", "params": [], "docstring": "Configure MMIO register window (0x40320xxx) for firmware", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

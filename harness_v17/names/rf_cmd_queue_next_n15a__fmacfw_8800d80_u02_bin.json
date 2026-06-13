@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n15a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121360e", "status": "ok", "name": "rf_bus_mark_n_427_360e", "params": [], "docstring": "Mark/flag RF bus entry by index and bit field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

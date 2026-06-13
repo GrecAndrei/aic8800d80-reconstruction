@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n16a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121317a", "status": "ok", "name": "rf_cmd_send_n16a", "params": [], "docstring": "Build and send RF command 0x16a with modulo-5 counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n174", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215020", "status": "ok", "name": "rf_bus_reset_n4a7", "params": [], "docstring": "Resets RF bus registers by writing reset masks at offsets 0x900/0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

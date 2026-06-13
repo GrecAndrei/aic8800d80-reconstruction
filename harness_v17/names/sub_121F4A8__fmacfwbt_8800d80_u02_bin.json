@@ -1,0 +1,1 @@
+{"fn": "sub_121F4A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f4a8", "status": "ok", "name": "sub_121F4A8", "params": [], "docstring": "Processes indexed per-station context entry with size-scaled offsets", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

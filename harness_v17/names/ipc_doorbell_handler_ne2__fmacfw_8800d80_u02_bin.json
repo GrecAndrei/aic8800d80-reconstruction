@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_ne2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a5e", "status": "ok", "name": "rf_bus_write2_n1b8", "params": [], "docstring": "Compares and writes an RF bus register value via branch on zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

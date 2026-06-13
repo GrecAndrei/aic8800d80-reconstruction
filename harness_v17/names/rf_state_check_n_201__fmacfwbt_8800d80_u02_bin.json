@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_201", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e2e", "status": "ok", "name": "rf_state_check_n_201", "params": [], "docstring": "Check RF state against threshold 0x320 using halfword at offset 0x3e", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

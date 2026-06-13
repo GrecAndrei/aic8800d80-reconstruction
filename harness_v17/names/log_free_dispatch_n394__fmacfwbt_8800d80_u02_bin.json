@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n394", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101f4", "status": "ok", "name": "log_free_dispatch_n394", "params": [], "docstring": "Disable IRQ and dispatch log free entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

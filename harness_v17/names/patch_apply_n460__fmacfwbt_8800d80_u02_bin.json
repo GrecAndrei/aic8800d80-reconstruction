@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n460", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215948", "status": "ok", "name": "patch_apply_n460", "params": [], "docstring": "Applies byte patches to a structure at offsets 0x15, 0x16, 0x1d", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

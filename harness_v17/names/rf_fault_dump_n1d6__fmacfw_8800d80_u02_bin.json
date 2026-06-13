@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n1d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121491e", "status": "ok", "name": "rf_fault_dump_n1d6", "params": [], "docstring": "Dump RF fault context from data table at 0x1672ec", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

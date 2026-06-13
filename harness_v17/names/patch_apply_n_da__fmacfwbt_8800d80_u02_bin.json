@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121540e", "status": "ok", "name": "patch_apply_n_da", "params": [], "docstring": "Patch 10-byte blocks from sp+0x136 into r6+r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

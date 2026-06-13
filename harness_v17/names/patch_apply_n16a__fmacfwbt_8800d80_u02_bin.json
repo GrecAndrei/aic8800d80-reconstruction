@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n16a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215652", "status": "ok", "name": "patch_apply_n16a", "params": [], "docstring": "Applies firmware patch table entry after XOR and shift transform", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

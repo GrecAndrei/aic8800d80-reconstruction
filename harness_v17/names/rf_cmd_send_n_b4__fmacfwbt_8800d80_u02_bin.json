@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212db8", "status": "ok", "name": "sdio_buffer_prepare_n_432", "params": [], "docstring": "Prepare SDIO scratch buffer descriptors for DMA transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

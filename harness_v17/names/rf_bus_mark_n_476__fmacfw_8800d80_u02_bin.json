@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_476", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121140e", "status": "ok", "name": "rf_state_check_n2b8", "params": [], "docstring": "RF state checker calling sub-handlers with 0x200000 flag and state index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

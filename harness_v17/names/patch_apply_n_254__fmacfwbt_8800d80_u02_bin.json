@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_254", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215294", "status": "ok", "name": "patch_apply_n_254", "params": [], "docstring": "Compare patch entry word against stack value for validation", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

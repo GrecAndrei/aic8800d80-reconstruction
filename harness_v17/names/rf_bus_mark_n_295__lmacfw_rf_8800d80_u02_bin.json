@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_295", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ef6", "status": "ok", "name": "rf_bus_mark_n_295", "params": [], "docstring": "Marks an RF bus slot by computing an indexed address and writing a flag word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n23e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ac2", "status": "ok", "name": "rf_bus_mark_n23e", "params": [], "docstring": "Mark/clear RF bus register flags (bit2, 0x8000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

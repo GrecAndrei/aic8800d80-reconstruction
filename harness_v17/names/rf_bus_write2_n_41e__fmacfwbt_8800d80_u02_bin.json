@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121165a", "status": "ok", "name": "rf_bus_write2_n_41e", "params": [], "docstring": "Write 2-word payload to RF bus via helper (mode=2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121165a", "status": "ok", "name": "rf_bus_write2_n_41e_165a", "params": [], "docstring": "Write 2-word payload to RF bus via helper (mode=2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

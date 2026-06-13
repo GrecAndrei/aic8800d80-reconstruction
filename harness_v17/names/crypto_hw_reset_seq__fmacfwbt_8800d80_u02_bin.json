@@ -1,0 +1,1 @@
+{"fn": "crypto_hw_reset_seq", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203ff0", "status": "ok", "name": "crypto_hw_reset_seq", "params": [], "docstring": "Crypto engine hardware reset sequence across MMIO registers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_495", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113ee", "status": "ok", "name": "rf_bus_mark_n_495", "params": [], "docstring": "Mark RF bus register half-word and shift index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

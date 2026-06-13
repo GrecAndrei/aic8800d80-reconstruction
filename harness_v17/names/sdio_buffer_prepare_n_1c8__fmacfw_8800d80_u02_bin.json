@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_1c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122df54", "status": "ok", "name": "rf_level_apply", "params": [], "docstring": "Applies RF power/level setting based on r4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_1c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122df54", "status": "ok", "name": "rf_level_apply_df54", "params": [], "docstring": "Applies RF power/level setting based on r4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

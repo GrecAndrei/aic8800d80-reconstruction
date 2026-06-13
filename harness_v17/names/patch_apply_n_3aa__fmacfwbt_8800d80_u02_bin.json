@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121513e", "status": "ok", "name": "patch_table_apply", "params": [], "docstring": "Apply firmware patch table to image", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121513e", "status": "ok", "name": "patch_table_apply_513e", "params": [], "docstring": "Apply firmware patch table to image", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

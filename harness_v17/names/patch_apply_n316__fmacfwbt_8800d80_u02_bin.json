@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n316", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157fe", "status": "ok", "name": "patch_apply_n316", "params": [], "docstring": "Apply firmware patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n316", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157fe", "status": "ok", "name": "patch_apply_n316_57fe", "params": [], "docstring": "Apply firmware patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

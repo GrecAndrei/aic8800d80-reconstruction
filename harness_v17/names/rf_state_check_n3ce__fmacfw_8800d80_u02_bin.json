@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125a2", "status": "ok", "name": "rf_state_check_n3ce", "params": [], "docstring": "Update and check RF state fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

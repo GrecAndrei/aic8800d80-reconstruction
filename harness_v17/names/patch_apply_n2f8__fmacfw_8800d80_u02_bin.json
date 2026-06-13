@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151a4", "status": "ok", "name": "patch_apply_n2f8", "params": [], "docstring": "Patch apply entry using shift-left-28 of r3", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

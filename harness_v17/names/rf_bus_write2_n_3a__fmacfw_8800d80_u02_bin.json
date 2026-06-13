@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_3a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211be2", "status": "ok", "name": "rf_bus_write2", "params": [], "docstring": "Writes a 2-byte/word value to the RF bus register and reads back a pointer.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

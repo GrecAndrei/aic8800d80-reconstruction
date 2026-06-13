@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n46c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223b0", "status": "ok", "name": "rf_cmd_dispatch_n46c", "params": [], "docstring": "Dispatches RF commands to handlers via jump table in lmacfw_rf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

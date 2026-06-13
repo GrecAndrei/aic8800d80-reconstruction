@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_2c1", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116fe", "status": "ok", "name": "rf_bus_write_n_2c1", "params": [], "docstring": "Write byte stream to RF bus register window with mask set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

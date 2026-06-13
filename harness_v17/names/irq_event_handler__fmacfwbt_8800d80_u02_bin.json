@@ -1,0 +1,1 @@
+{"fn": "irq_event_handler", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120dc90", "status": "ok", "name": "irq_event_handler", "params": [], "docstring": "IRQ event dispatch by sub-index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

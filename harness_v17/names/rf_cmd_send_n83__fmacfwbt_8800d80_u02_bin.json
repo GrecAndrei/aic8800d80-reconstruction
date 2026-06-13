@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n83", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212eee", "status": "ok", "name": "rf_cmd_send_n83", "params": [], "docstring": "Send RF command with size validation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

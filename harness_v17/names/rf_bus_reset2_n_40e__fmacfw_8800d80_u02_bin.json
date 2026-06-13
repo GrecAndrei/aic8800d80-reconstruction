@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_40e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115ee", "status": "ok", "name": "rf_bus_reset2_n_40e", "params": [], "docstring": "RF bus secondary reset; writes control regs and index increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

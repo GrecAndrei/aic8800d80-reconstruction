@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_4fb", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6b8", "status": "ok", "name": "rf_bus_mark_n_4ee", "params": [], "docstring": "Check RF bus mark/flag status from memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_4fb", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c6b8", "status": "ok", "name": "rf_bus_mark_n_4ee_c6b8", "params": [], "docstring": "Check RF bus mark/flag status from memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

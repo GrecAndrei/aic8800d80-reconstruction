@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n8a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220b6", "status": "ok", "name": "rf_mem_write_n8a", "params": [], "docstring": "Write halfword to RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_120CAE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cae0", "status": "ok", "name": "mmio_reg_modify", "params": [], "docstring": "Reads/modifies MMIO register via indirect pointer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

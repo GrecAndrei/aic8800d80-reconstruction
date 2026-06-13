@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_33c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211684", "status": "ok", "name": "rf_bus_write_n_33c", "params": [], "docstring": "Write 16-bit value to RF bus register via shift-and-mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

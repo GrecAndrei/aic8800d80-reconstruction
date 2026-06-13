@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5de", "status": "ok", "name": "rf_mem_read_n4a", "params": [], "docstring": "Reads RF memory table entries from data section pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

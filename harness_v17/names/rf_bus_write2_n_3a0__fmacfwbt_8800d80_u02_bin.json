@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n_3a0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116d8", "status": "ok", "name": "rf_bus_write2_n_3a0", "params": [], "docstring": "Write two 32-bit values to RF bus data registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n_3a0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116d8", "status": "ok", "name": "rf_bus_write2_n_3a0_16d8", "params": [], "docstring": "Write two 32-bit values to RF bus data registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

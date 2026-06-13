@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n18a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ed3e", "status": "ok", "name": "sdio_buffer_prepare_n18a", "params": [], "docstring": "Compute SDIO buffer offsets/sizes via shift-and-add for IO prep", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

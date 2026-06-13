@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nb0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128f4", "status": "ok", "name": "rf_bus_reset_nb0", "params": [], "docstring": "Reset RF bus for narrowband channel 0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

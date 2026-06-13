@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n372", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12123a2", "status": "ok", "name": "rf_state_check_n372", "params": [], "docstring": "Checks current RF state and channel parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

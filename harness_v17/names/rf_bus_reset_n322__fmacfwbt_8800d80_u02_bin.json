@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n322", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b66", "status": "ok", "name": "rf_bus_reset_322", "params": [], "docstring": "Reset RFIC bus by masking register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

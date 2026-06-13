@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n1d7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f8e", "status": "ok", "name": "rf_bus_init_n1d7", "params": [], "docstring": "Initializes RF bus window at 0x40000000 base with register probe", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

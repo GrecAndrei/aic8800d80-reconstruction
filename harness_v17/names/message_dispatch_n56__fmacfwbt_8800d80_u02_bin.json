@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n56", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc0a", "status": "ok", "name": "rf_bus_reset_n3fc", "params": [], "docstring": "RF bus reset clearing controller state at MMIO offset 0xb08", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

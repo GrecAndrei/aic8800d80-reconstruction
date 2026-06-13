@@ -1,0 +1,1 @@
+{"fn": "sub_122D578", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d578", "status": "ok", "name": "ptr_compare_or_fetch", "params": [], "docstring": "Compare pointer at r0 against r1 value", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

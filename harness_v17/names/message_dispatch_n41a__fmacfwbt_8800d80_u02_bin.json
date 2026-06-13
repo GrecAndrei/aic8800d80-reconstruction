@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n41a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cfce", "status": "ok", "name": "message_dispatch_n41a_cfce", "params": [], "docstring": "Dispatches host message to registered handler with arguments", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_7a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c912", "status": "ok", "name": "rf_bus_reset_n_21c", "params": [], "docstring": "Resets RF bus state by clearing control byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_7a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c912", "status": "ok", "name": "rf_bus_reset_n_21c_c912", "params": [], "docstring": "Resets RF bus state by clearing control byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

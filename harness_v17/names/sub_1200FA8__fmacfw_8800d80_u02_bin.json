@@ -1,0 +1,1 @@
+{"fn": "sub_1200FA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200fa8", "status": "ok", "name": "rf_clock_gate_init", "params": [], "docstring": "Ungates RF peripheral clock and configures control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

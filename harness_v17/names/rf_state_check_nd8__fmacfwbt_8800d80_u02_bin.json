@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nd8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212108", "status": "ok", "name": "rf_state_check_nd8", "params": [], "docstring": "RF state check routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

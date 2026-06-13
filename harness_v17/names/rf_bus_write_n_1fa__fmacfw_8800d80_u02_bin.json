@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_1fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121196a", "status": "ok", "name": "rf_bus_write_n_1fa", "params": [], "docstring": "Writes a 16-byte entry to the RF bus table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_1fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121196a", "status": "ok", "name": "rf_bus_write_n_1fa_196a", "params": [], "docstring": "Writes a 16-byte entry to the RF bus table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

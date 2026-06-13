@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n2ce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157b6", "status": "ok", "name": "patch_apply_n2ce", "params": [], "docstring": "Apply firmware patch slot/entry variant 2CE", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n2ce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157b6", "status": "ok", "name": "patch_apply_n2ce_57b6", "params": [], "docstring": "Apply firmware patch slot/entry variant 2CE", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

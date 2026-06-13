@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n_358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a80", "status": "ok", "name": "patch_apply_nb6", "params": [], "docstring": "Enable FPU/NVIC usage by setting CP10/CP11 in CPACR", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n_358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a80", "status": "ok", "name": "patch_apply_nb6_6a80", "params": [], "docstring": "Enable FPU/NVIC usage by setting CP10/CP11 in CPACR", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

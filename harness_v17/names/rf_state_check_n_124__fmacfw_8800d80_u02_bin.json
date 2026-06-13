@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120b0", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Write RF state fields and OR 0x84000000 mask into b00 reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_124", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120b0", "status": "ok", "name": "rf_state_check_20b0", "params": [], "docstring": "Write RF state fields and OR 0x84000000 mask into b00 reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

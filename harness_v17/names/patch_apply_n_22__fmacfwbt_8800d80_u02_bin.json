@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_22", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154c6", "status": "ok", "name": "patch_apply_n_22", "params": [], "docstring": "Apply firmware patch 0x22 via IPC write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_22", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154c6", "status": "ok", "name": "patch_apply_n_22_54c6", "params": [], "docstring": "Apply firmware patch 0x22 via IPC write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

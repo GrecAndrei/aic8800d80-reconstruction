@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n4de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121033e", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatch log buffer free operation", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n4de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121033e", "status": "ok", "name": "log_free_dispatch_033e", "params": [], "docstring": "Dispatch log buffer free operation", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

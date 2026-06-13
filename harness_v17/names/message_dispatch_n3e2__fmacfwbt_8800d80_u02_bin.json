@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf96", "status": "ok", "name": "rf_cmd_dispatch_n478", "params": [], "docstring": "Dispatches a completed RF command reply and clears pending state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

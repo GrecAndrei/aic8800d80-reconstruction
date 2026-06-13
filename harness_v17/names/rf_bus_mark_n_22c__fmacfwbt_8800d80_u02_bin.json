@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_22c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114b4", "status": "ok", "name": "rf_bus_mark_n_22c", "params": [], "docstring": "Mark RF bus transaction (variant 22c)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

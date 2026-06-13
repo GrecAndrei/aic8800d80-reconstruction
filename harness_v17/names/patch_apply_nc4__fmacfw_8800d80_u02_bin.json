@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f70", "status": "ok", "name": "patch_apply_nc4", "params": [], "docstring": "OR-mask register at offset 0x88 then patch bytes", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4e0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211200", "status": "ok", "name": "rf_bus_mark_n_4e0_1200", "params": [], "docstring": "Mark/assert RF bus state for transaction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

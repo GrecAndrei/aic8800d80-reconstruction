@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_24c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b6c", "status": "ok", "name": "rf_bus_init_n_24c", "params": [], "docstring": "RF bus initialization with bitmask checks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

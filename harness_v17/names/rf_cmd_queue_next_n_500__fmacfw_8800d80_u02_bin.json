@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_500", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212fb4", "status": "ok", "name": "rf_cmd_queue_next", "params": [], "docstring": "Advances the RF command queue by clearing the head bit and shifting the next command word.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_35e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c62e", "status": "ok", "name": "msg_dispatch_handler", "params": [], "docstring": "Dispatch outgoing message via IPC send path", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_35e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c62e", "status": "ok", "name": "msg_dispatch_handler_c62e", "params": [], "docstring": "Dispatch outgoing message via IPC send path", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

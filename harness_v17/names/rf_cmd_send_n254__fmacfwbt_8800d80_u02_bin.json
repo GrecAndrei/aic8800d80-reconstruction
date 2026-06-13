@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n254", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130c0", "status": "ok", "name": "rf_cmd_send_n254", "params": [], "docstring": "Sends RF command using 0x26/0x28/0x29 opcodes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n254", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130c0", "status": "ok", "name": "rf_cmd_send_n254_30c0", "params": [], "docstring": "Sends RF command using 0x26/0x28/0x29 opcodes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

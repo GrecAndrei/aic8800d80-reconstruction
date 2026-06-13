@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_499", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113ea", "status": "ok", "name": "rf_bus_write2_n_3a4", "params": [], "docstring": "Write second-stage RF bus transaction via descriptor pair", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

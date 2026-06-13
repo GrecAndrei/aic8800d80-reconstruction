@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_31d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226aba", "status": "ok", "name": "rf_level_apply_n_31d", "params": [], "docstring": "Apply RF level settings via 0x40342xxx registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

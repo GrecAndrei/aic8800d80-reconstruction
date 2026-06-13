@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n36c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215218", "status": "ok", "name": "patch_apply_n36c", "params": [], "docstring": "Apply patch extracting higher bits from r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

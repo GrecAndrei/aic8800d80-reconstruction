@@ -1,0 +1,1 @@
+{"fn": "sub_121AE24", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ae24", "status": "ok", "name": "rf_cal_or_init_handler", "params": [], "docstring": "RF calibration/init handler dispatching per-band ops", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

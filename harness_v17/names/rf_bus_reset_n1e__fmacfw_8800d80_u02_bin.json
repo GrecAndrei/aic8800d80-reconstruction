@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n1e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a06", "status": "ok", "name": "rf_bus_reset_n1e", "params": [], "docstring": "Clear RF bus bit0 at offset 0x804 then call RF handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n1e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a06", "status": "ok", "name": "rf_bus_reset_n1e_2a06", "params": [], "docstring": "Clear RF bus bit0 at offset 0x804 then call RF handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

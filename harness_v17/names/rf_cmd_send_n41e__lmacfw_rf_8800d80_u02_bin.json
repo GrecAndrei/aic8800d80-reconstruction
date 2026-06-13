@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n41e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d36", "status": "ok", "name": "log_free_pool_dispatch2_n49e", "params": [], "docstring": "Dispatch log entry into free pool with size-class offset", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

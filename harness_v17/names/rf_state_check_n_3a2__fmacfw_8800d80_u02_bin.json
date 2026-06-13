@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_3a2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e32", "status": "ok", "name": "rf_state_check_n_3a2", "params": [], "docstring": "RF state validation returning 0 or 2 based on condition", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

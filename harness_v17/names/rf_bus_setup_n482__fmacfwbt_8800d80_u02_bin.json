@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n482", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121da", "status": "ok", "name": "rf_bus_setup_n482", "params": [], "docstring": "load RF bus tables and check bit-0 of status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

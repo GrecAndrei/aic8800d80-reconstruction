@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_49e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121155e", "status": "ok", "name": "rf_bus_reset2_n_49e", "params": [], "docstring": "Reset RF bus via MMIO write of 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_49e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121155e", "status": "ok", "name": "rf_bus_reset2_n_49e_155e", "params": [], "docstring": "Reset RF bus via MMIO write of 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

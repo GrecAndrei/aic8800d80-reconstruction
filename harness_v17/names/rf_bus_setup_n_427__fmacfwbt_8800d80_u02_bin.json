@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_427", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211930", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Configure RF bus control registers (enable bits, ORR 0x8000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

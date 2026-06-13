@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a54", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Resets the RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n6c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a54", "status": "ok", "name": "rf_bus_reset_2a54", "params": [], "docstring": "Resets the RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

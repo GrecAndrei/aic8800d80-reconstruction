@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212720", "status": "ok", "name": "sub_1231688", "params": [], "docstring": "Initializes handler with type=5, saves args, calls setup routine, checks return", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

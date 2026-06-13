@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n39e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215886", "status": "ok", "name": "patch_apply_n39e", "params": [], "docstring": "Applies RAM patch via SCB at 0xe000ed00 and patch table 0x1676d0", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n356", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212386", "status": "ok", "name": "rf_state_check_n356", "params": [], "docstring": "Check RF state with magic 0x64 and read state byte at offset 0x1d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

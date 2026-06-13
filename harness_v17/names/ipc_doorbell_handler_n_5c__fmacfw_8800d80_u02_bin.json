@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_5c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215920", "status": "ok", "name": "rf_bus_reset_n_98", "params": [], "docstring": "RF bus reset: access 0x182520 RF register block, clear state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

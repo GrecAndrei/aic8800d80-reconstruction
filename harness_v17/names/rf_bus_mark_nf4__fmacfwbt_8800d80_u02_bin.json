@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nf4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117d4", "status": "ok", "name": "rf_bus_mark_nf4", "params": [], "docstring": "Mark RF bus with 0x10 flag and call MMIO write helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

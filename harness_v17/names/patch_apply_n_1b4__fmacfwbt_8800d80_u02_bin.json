@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_1b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215334", "status": "ok", "name": "patch_apply_n_1b4", "params": [], "docstring": "Applies a 4-byte patch from stack buffer to target", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_1b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215334", "status": "ok", "name": "patch_apply_n_1b4_5334", "params": [], "docstring": "Applies a 4-byte patch from stack buffer to target", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

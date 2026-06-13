@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n4aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215e26", "status": "ok", "name": "ipc_doorbell_handler_n4aa", "params": [], "docstring": "Handle host doorbell interrupt, dispatch by IRQ source", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

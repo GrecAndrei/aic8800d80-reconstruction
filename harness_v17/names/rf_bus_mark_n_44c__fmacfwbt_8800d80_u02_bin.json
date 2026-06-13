@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_44c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211294", "status": "ok", "name": "rf_bus_mark_n_44c", "params": [], "docstring": "Marks RF bus state and writes control bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_44c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211294", "status": "ok", "name": "rf_bus_mark_n_44c_1294", "params": [], "docstring": "Marks RF bus state and writes control bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

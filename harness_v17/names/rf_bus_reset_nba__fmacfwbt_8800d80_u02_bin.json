@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128fe", "status": "ok", "name": "rf_bus_reset_nba", "params": [], "docstring": "Resets RF bus controllers at 0x40200900/0x40200908 with config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

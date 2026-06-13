@@ -1,1 +1,1 @@
-{"fn": "sub_1224944", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224944", "status": "ok", "name": "rf_cmd_send_n_438", "params": [], "docstring": "Sends RF command toggling control bits in 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1224944", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224944", "status": "ok", "name": "rf_cmd_send_n_438_4944", "params": [], "docstring": "Sends RF command toggling control bits in 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

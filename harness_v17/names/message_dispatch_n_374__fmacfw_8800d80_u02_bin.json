@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c618", "status": "ok", "name": "message_dispatch_n_374", "params": [], "docstring": "Message dispatch handler 374 (queues/increments counter, reads task state)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

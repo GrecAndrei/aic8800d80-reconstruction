@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_494", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121124c", "status": "ok", "name": "rf_bus_mark_n_323", "params": [], "docstring": "Mark RF bus flag 0x800 via MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_494", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121124c", "status": "ok", "name": "rf_bus_mark_n_323_124c", "params": [], "docstring": "Mark RF bus flag 0x800 via MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

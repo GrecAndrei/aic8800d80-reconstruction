@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n3bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213228", "status": "ok", "name": "rf_cmd_send_n3bc", "params": [], "docstring": "Send RF command opcode 0x2b/0x29 to radio controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n3bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213228", "status": "ok", "name": "rf_cmd_send_n3bc_3228", "params": [], "docstring": "Send RF command opcode 0x2b/0x29 to radio controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

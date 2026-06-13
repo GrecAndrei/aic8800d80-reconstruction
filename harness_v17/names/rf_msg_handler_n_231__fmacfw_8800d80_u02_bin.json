@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_231", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ed2", "status": "ok", "name": "rf_msg_handler_n_231", "params": [], "docstring": "Dispatch RF IPC message by type index", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121278a", "status": "ok", "name": "mmio_write_rpc_dispatch_n_3a8", "params": [], "docstring": "Writes to MMIO 0x40320034 and dispatches RPC with opcode 0x72", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

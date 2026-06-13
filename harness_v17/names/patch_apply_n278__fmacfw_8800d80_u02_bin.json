@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n278", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215124", "status": "ok", "name": "patch_apply_n278", "params": [], "docstring": "Apply firmware patch variant 278; loads patch tables from ROM", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

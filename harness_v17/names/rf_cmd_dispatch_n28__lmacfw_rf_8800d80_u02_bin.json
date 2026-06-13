@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n28", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f6c", "status": "ok", "name": "rf_cmd_dispatch_n28", "params": [], "docstring": "Dispatch RF command slot 0x28 based on opcode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

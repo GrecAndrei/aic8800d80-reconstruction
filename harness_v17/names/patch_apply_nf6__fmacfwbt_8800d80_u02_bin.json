@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nf6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155de", "status": "ok", "name": "patch_apply_nf6", "params": [], "docstring": "Extract high byte from 0x40500000 and store at 0x182621", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

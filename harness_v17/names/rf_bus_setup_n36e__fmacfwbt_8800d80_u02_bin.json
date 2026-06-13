@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n36e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120c6", "status": "ok", "name": "rf_bus_setup_n36e", "params": [], "docstring": "Configures RF bus GPIO pin direction/function bits via byte fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4af", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129bc", "status": "ok", "name": "rf_cmd_send_n_4af", "params": [], "docstring": "Send RF command and update status word", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

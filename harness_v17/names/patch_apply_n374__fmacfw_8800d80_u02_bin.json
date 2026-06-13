@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215220", "status": "ok", "name": "patch_apply_n374", "params": [], "docstring": "Apply firmware patch bits to configuration register", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

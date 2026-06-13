@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121532e", "status": "ok", "name": "patch_apply_n_1ba", "params": [], "docstring": "Apply firmware patch entry (copies 4 bytes from stack to patch RAM)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

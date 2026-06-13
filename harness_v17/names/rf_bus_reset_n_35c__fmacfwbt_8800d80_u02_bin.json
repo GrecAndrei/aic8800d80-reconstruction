@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_35c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124e8", "status": "ok", "name": "rf_bus_reset_n_35c", "params": [], "docstring": "RF bus reset variant writing control bytes/halves to base regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

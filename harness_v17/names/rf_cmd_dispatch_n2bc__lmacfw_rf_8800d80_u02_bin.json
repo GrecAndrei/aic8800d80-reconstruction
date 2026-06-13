@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_dispatch_n2bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222200", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "Dispatch RF command to handler with sub-call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_dispatch_n2bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222200", "status": "ok", "name": "rf_cmd_dispatch_2200", "params": [], "docstring": "Dispatch RF command to handler with sub-call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212684", "status": "ok", "name": "rf_bus_reset_n_1c0_2684", "params": [], "docstring": "Reset RF bus with halfword store", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121513a", "status": "ok", "name": "patch_apply_n_3ae", "params": [], "docstring": "Apply patch writing register and returning status 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

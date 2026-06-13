@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n186", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb12", "status": "ok", "name": "message_dispatch_n186", "params": [], "docstring": "Message dispatch incrementing queue index and branching on handler result", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

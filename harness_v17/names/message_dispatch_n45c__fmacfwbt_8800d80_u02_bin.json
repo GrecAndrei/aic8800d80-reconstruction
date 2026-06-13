@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n45c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d010", "status": "ok", "name": "message_dispatch_n45c_d010", "params": [], "docstring": "Dispatch firmware message via IPC mailbox", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

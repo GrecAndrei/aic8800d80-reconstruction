@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n420", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215908", "status": "ok", "name": "patch_table_apply", "params": [], "docstring": "Apply patch entry into patch table at index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n420", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215908", "status": "ok", "name": "patch_table_apply_5908", "params": [], "docstring": "Apply patch entry into patch table at index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

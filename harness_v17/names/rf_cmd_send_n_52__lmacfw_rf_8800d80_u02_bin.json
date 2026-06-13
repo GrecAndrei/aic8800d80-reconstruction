@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_52", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128c6", "status": "ok", "name": "rf_cmd_send_n_52", "params": [], "docstring": "Prepare and send RF command encoding channel/index via shift operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

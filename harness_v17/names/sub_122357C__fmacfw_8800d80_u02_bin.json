@@ -1,0 +1,1 @@
+{"fn": "sub_122357C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122357c", "status": "ok", "name": "sub_122357C", "params": [], "docstring": "Invoke IPC/utility with cmd 0x54 sub 0xd, flag 1, arg 0", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

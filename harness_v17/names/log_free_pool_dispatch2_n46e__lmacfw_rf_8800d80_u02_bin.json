@@ -1,1 +1,1 @@
-{"fn": "log_free_pool_dispatch2_n46e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121003e", "status": "ok", "name": "log_free_pool_dispatch", "params": [], "docstring": "Dispatch log entry to free pool ring", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_pool_dispatch2_n46e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121003e", "status": "ok", "name": "log_free_pool_dispatch_003e", "params": [], "docstring": "Dispatch log entry to free pool ring", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

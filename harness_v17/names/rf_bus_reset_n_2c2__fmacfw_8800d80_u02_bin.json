@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212726", "status": "ok", "name": "rf_bus_reset_n_2c2", "params": [], "docstring": "RF bus reset variant n_2c2 gated on reg byte == 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc3c", "status": "ok", "name": "message_dispatch_n88", "params": [], "docstring": "Store dispatch header fields into message buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc3c", "status": "ok", "name": "message_dispatch_n88_cc3c", "params": [], "docstring": "Store dispatch header fields into message buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

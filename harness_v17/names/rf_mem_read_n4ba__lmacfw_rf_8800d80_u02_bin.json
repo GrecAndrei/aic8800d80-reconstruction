@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa4e", "status": "ok", "name": "rf_mem_read_n4ba", "params": [], "docstring": "Read RF register/memory with size/offset setup (writes 0x1616 marker)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

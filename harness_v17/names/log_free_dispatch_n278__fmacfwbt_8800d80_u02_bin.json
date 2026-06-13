@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n278", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12100d8", "status": "ok", "name": "log_free_dispatch_n278", "params": [], "docstring": "Dispatches log free via indirect call and reads header field", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

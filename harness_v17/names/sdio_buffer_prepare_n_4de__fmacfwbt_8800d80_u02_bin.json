@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_4de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122de66", "status": "ok", "name": "sdio_buffer_prepare_n_4de", "params": [], "docstring": "Prepare SDIO scatter-gather buffer entry", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_4de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122de66", "status": "ok", "name": "sdio_buffer_prepare_n_4de_de66", "params": [], "docstring": "Prepare SDIO scatter-gather buffer entry", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3ce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211bd2", "status": "ok", "name": "rf_bus_setup_n3ce", "params": [], "docstring": "RF bus setup clearing bit 0x10 in 0x810 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

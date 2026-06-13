@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n1a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121d6", "status": "ok", "name": "rf_state_check_n1a6", "params": [], "docstring": "Inspect RF state table and byte flag from constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_nd0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113d4", "status": "ok", "name": "rf_bus_ctrl_reset2", "params": [], "docstring": "Resets RF bus control register with specific bit pattern at 0x804", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

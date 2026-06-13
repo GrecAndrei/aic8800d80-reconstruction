@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202e1c", "status": "ok", "name": "phy_rf_init_n_4b4", "params": [], "docstring": "Initialize PHY/RF hardware registers with reset defaults", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

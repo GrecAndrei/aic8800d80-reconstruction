@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214680", "status": "ok", "name": "mmio_fault_dump", "params": [], "docstring": "Fault dump writing to MMIO registers 0x40100000/0x40103000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

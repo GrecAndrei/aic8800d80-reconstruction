@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nf0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eca4", "status": "ok", "name": "sdio_buffer_prepare_nf0", "params": [], "docstring": "Prepares SDIO buffer with size alignment check", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce5c", "status": "ok", "name": "message_dispatch_n4d0", "params": [], "docstring": "Builds and enqueues an IPC message frame with header bytes", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

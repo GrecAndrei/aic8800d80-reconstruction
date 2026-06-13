@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_44d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f146", "status": "ok", "name": "rf_mem_read_n_44d", "params": [], "docstring": "Read RF register and format hex bytes with ':'/'.' separators into buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

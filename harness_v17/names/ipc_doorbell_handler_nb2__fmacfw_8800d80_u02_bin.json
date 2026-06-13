@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_nb2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a2e", "status": "ok", "name": "ipc_doorbell_handler_nb2", "params": [], "docstring": "IPC doorbell handler loading 0x40035084 register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

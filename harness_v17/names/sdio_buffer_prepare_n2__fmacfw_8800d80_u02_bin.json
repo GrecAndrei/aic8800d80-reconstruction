@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e11e", "status": "ok", "name": "sdio_buffer_prepare_n2", "params": [], "docstring": "Build SDIO scatter-gather buffer descriptor chain from input", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

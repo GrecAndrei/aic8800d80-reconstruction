@@ -1,0 +1,1 @@
+{"fn": "sub_123A4FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a4fc", "status": "ok", "name": "rf_param_lookup_n_1fc", "params": [], "docstring": "Look up indexed RF parameter table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

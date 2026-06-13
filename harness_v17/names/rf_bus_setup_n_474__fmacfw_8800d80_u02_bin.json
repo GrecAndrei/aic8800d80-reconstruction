@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_474", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a88", "status": "ok", "name": "rf_bus_setup_n_474", "params": [], "docstring": "RF bus setup, initialize structure with r4/r5 and zeros", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_474", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a88", "status": "ok", "name": "rf_bus_setup_n_474_1a88", "params": [], "docstring": "RF bus setup, initialize structure with r4/r5 and zeros", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

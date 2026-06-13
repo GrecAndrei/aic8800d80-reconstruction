@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121455a", "status": "ok", "name": "rf_fault_dump_n_1ee", "params": [], "docstring": "Alternative RF fault dump variant initializing from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

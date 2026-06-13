@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_436", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c556", "status": "ok", "name": "message_dispatch_n_436", "params": [], "docstring": "Extract message fields via mask and ubfx, route to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

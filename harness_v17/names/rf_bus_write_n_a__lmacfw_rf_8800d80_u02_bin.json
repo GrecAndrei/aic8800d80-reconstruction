@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211462", "status": "ok", "name": "rf_bus_write_111462", "params": [], "docstring": "Computes a masked value and prepares RF bus write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

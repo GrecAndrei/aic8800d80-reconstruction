@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n26a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215752", "status": "ok", "name": "patch_apply_n26a", "params": [], "docstring": "Apply firmware patch (byte store sequence)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n26a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215752", "status": "ok", "name": "patch_apply_n26a_5752", "params": [], "docstring": "Apply firmware patch (byte store sequence)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

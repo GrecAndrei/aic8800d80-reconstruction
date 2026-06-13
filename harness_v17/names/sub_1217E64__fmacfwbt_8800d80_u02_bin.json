@@ -1,0 +1,1 @@
+{"fn": "sub_1217E64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217e64", "status": "ok", "name": "bitfield_pack_n_214", "params": [], "docstring": "Pack/shift bits into a 32-bit field with sign extension", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211824", "status": "ok", "name": "rf_bus_reset2_n_34", "params": [], "docstring": "RF bus reset epilogue tail call with register restore", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

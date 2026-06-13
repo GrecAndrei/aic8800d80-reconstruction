@@ -1,0 +1,1 @@
+{"fn": "sub_120DA88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120da88", "status": "ok", "name": "bitmask_pow2_set", "params": [], "docstring": "Computes power-of-two bitmask for given bit index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

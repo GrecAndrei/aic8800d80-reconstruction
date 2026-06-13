@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_96", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212f7a", "status": "ok", "name": "rf_cmd_send_n_96", "params": [], "docstring": "Sends an RF command under interrupt lock", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_96", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212f7a", "status": "ok", "name": "rf_cmd_send_n_96_2f7a", "params": [], "docstring": "Sends an RF command under interrupt lock", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

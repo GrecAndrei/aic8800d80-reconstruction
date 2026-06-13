@@ -1,0 +1,1 @@
+{"fn": "sub_122B8A8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b8a8", "status": "ok", "name": "mmio_set_reset_vector_n_b8", "params": [], "docstring": "Write 0x40328050 to MMIO control register and return", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

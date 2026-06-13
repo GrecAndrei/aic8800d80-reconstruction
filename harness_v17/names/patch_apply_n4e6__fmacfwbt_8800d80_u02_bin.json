@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n4e6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159ce", "status": "ok", "name": "rf_bus_setup_n396", "params": [], "docstring": "Pack and store RF bus register fields from descriptor bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n4e6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159ce", "status": "ok", "name": "rf_bus_setup_n396_59ce", "params": [], "docstring": "Pack and store RF bus register fields from descriptor bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

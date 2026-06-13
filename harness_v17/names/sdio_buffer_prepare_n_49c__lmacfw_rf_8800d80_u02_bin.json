@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_49c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e718", "status": "ok", "name": "sdio_buffer_prepare_n_49c", "params": [], "docstring": "Initialize/clear SDIO buffer descriptor structure", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

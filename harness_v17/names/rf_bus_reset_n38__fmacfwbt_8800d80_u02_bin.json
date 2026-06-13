@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121287c", "status": "ok", "name": "rf_bus_reset_n38", "params": [], "docstring": "RF bus reset with PHY register set/clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

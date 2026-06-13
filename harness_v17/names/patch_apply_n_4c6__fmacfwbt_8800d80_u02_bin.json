@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215022", "status": "ok", "name": "patch_apply_n_4c6", "params": [], "docstring": "Apply firmware patch entries with sign-extended byte multiply", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

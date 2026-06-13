@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n30c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212064", "status": "ok", "name": "rf_bus_setup_n30c", "params": [], "docstring": "Setup RF bus with branch-out to sub-init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

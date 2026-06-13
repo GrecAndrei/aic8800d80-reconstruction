@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n2e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118b2", "status": "ok", "name": "rf_bus_mark_n2e", "params": [], "docstring": "Mark RF bus context from 0x187e90 metadata", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n2e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118b2", "status": "ok", "name": "rf_bus_mark_n2e_18b2", "params": [], "docstring": "Mark RF bus context from 0x187e90 metadata", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

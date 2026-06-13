@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n120", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215608", "status": "ok", "name": "rf_fault_dump_n_2f3", "params": [], "docstring": "Dump RF fault state on error condition", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

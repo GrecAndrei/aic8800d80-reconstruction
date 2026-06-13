@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2e0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121518c", "status": "ok", "name": "rf_bus_setup_n3e8", "params": [], "docstring": "Sets up RF bus by reading status byte and checking flag bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

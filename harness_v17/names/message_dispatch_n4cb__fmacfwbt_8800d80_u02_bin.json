@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4cb", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d07e", "status": "ok", "name": "message_dispatch_n4cb", "params": [], "docstring": "Dispatches message based on command opcode switch", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

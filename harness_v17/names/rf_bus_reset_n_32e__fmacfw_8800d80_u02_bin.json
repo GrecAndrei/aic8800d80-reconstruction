@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_32e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12126ba", "status": "ok", "name": "sdio_buffer_prepare_n22", "params": [], "docstring": "Validate and prepare SDIO scatter-gather buffer entry", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n254", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e70", "status": "ok", "name": "rf_bus_write2_n254", "params": [], "docstring": "Second RF bus write variant accessing state/control globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

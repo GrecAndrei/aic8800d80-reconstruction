@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_33e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116be", "status": "ok", "name": "rf_bus_setup_n3f4", "params": [], "docstring": "Configure RF bus parameters by extracting bit fields and packing control bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

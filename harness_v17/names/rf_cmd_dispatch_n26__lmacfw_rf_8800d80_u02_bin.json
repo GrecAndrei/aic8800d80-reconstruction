@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n26", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f6a", "status": "ok", "name": "bt_enable_n42e", "params": [], "docstring": "Enable BT sub-feature and invoke handler", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

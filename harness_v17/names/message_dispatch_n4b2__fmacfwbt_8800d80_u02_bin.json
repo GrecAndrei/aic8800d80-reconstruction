@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d066", "status": "ok", "name": "message_dispatch_n4b2", "params": [], "docstring": "Dispatches incoming messages by type with cmp against 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12127e4", "status": "ok", "name": "rf_bus_reset_n_60", "params": [], "docstring": "Resets RF bus interface by checking and clearing bus state field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

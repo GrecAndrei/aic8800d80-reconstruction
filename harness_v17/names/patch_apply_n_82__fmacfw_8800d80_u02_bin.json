@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_82", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e2a", "status": "ok", "name": "patch_apply_n_82", "params": [], "docstring": "Apply firmware patch with 6-byte payload from stack", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

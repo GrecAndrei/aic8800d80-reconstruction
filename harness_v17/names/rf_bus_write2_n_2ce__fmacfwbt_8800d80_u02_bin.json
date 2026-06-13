@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_2ce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117aa", "status": "ok", "name": "rf_bus_write2_n_2ce", "params": [], "docstring": "Write OR'd command word to RF bus offset 0x900", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

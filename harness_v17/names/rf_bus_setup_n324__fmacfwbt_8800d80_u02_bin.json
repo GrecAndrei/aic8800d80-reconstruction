@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n324", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121207c", "status": "ok", "name": "patch_apply_n24", "params": [], "docstring": "Apply firmware patch to feature bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

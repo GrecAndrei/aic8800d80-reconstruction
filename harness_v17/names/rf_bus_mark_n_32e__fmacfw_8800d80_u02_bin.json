@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_32e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211556", "status": "ok", "name": "rf_bus_mark_n_32e", "params": [], "docstring": "Mark RF bus with 0x800 mask and trigger call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_tick", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f44c", "status": "ok", "name": "log_tick", "params": [], "docstring": "Periodic logging tick handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

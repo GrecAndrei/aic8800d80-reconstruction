@@ -1,0 +1,1 @@
+{"fn": "sub_1224B3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1224b3c", "status": "ok", "name": "sub_1224B3C", "params": [], "docstring": "Helper reading a byte from a global and indexing input pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

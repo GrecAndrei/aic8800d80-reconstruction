@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_38c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121515c", "status": "ok", "name": "patch_apply_n_38c", "params": [], "docstring": "Applies a patch writing a byte and calling handler", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

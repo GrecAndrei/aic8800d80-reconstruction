@@ -1,0 +1,1 @@
+{"fn": "sub_1226A48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1226a48", "status": "ok", "name": "mac_state_process_n_1c8", "params": [], "docstring": "MAC state processing with context save and large register frame", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

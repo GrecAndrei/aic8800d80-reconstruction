@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n434", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121591c", "status": "ok", "name": "patch_apply_n434", "params": [], "docstring": "Move/copy register as part of patch application sequence", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

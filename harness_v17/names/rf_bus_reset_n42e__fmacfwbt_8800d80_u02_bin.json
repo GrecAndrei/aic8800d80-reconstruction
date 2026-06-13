@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n42e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212c72", "status": "ok", "name": "rf_bus_reset_n42e", "params": [], "docstring": "RF bus reset routine checking bus status counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb08", "status": "ok", "name": "message_dispatch_n_ac", "params": [], "docstring": "Dispatch message via handler table 0xac", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

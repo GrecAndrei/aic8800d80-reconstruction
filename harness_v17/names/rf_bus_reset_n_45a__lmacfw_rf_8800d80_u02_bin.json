@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_45a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211e96", "status": "ok", "name": "rf_bus_reset_n_45a", "params": [], "docstring": "Resets RF bus byte/halfword registers then sets mode 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

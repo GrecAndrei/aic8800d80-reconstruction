@@ -1,0 +1,1 @@
+{"fn": "sub_12145F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145f4", "status": "ok", "name": "rf_msg_handler_main_45f4", "params": [], "docstring": "Top-level RF message handler dispatching on message id with stack-local context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

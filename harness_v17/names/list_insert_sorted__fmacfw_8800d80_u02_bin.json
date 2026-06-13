@@ -1,1 +1,1 @@
-{"fn": "list_insert_sorted", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d380", "status": "ok", "name": "list_insert_sorted", "params": [], "docstring": "Insert node into a sorted linked list by key", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "list_insert_sorted", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122d380", "status": "ok", "name": "list_insert_sorted_d380", "params": [], "docstring": "Insert node into a sorted linked list by key", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

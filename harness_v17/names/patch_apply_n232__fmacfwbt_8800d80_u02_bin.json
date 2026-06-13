@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n232", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121571a", "status": "ok", "name": "patch_apply_n232", "params": [], "docstring": "Apply firmware patch word to MMIO with handshake", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n232", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121571a", "status": "ok", "name": "patch_apply_n232_571a", "params": [], "docstring": "Apply firmware patch word to MMIO with handshake", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

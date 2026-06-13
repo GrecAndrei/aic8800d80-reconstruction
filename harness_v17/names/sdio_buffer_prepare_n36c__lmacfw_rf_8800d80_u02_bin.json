@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n36c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef20", "status": "ok", "name": "sdio_buffer_prepare_n36c", "params": [], "docstring": "Prepares SDIO buffer (variant 36c)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n350", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ccdc", "status": "ok", "name": "ipc_doorbell_handler_ne2", "params": [], "docstring": "Sets IPC doorbell bits/byte and triggers MMIO notification register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

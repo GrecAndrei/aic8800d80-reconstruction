@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n464", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223a8", "status": "ok", "name": "ipc_doorbell_handler_n_5c", "params": [], "docstring": "IPC doorbell interrupt handler entry, branch on msg id >= 0x60", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

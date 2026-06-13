@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_9", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215972", "status": "ok", "name": "ipc_doorbell_handler_n_9", "params": [], "docstring": "Handles IPC doorbell interrupt at MMIO 0x40320038, masking index and indexing shared state", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

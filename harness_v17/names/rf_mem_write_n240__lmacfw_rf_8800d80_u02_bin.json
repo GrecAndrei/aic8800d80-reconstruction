@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n240", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122226c", "status": "ok", "name": "log_free_dispatch_n28a_226c", "params": [], "docstring": "Free log entry and dispatch to next handler (size 0x7c)", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

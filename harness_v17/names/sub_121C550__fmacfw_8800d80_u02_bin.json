@@ -1,0 +1,1 @@
+{"fn": "sub_121C550", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121c550", "status": "ok", "name": "rf_chan_field_get_n_4c6", "params": [], "docstring": "Reads channel field at offset 0x4c6 from RF table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

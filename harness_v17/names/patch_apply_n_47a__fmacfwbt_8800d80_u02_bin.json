@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_47a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121506e", "status": "ok", "name": "patch_apply_n_47a", "params": [], "docstring": "Apply firmware patch to memory region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_47a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121506e", "status": "ok", "name": "patch_apply_n_47a_506e", "params": [], "docstring": "Apply firmware patch to memory region", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159d0", "status": "ok", "name": "patch_apply_n4e8", "params": [], "docstring": "Apply patch table and compare against threshold 0x30", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

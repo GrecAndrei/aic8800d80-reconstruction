@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n336", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210016", "status": "ok", "name": "log_free_pool_dispatch2_n336", "params": [], "docstring": "Dispatch log entries from free pool by type", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

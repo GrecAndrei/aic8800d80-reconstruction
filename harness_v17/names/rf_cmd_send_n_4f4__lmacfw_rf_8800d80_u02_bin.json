@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4f4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212424", "status": "ok", "name": "rf_cmd_send_n_4f4", "params": [], "docstring": "Trigger RF command via control register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

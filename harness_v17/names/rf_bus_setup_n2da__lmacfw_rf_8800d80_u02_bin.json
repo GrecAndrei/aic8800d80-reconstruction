@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ade", "status": "ok", "name": "rf_bus_setup_n2da", "params": [], "docstring": "Initialize RF bus by copying register state from 0x180468 to 0x180320", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

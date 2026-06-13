@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c892", "status": "ok", "name": "message_dispatch_n_fa", "params": [], "docstring": "Message dispatch stub returning status 0xa4", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c892", "status": "ok", "name": "message_dispatch_n_fa_c892", "params": [], "docstring": "Message dispatch stub returning status 0xa4", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

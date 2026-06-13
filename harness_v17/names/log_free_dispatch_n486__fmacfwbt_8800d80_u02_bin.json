@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n486", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102e6", "status": "ok", "name": "log_free_dispatch_n486", "params": [], "docstring": "Dispatch freed log entry and update counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

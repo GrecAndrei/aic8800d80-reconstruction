@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_346", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121181e", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Write multiple words to RF bus registers via indirect access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_346", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121181e", "status": "ok", "name": "rf_bus_write_181e", "params": [], "docstring": "Write multiple words to RF bus registers via indirect access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

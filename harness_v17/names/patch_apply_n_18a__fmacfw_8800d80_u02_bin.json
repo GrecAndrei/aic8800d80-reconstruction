@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_18a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d22", "status": "ok", "name": "patch_apply_n_18a", "params": [], "docstring": "Apply patch and load constant from data section", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

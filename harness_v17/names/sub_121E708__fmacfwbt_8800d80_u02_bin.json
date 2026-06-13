@@ -1,0 +1,1 @@
+{"fn": "sub_121E708", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e708", "status": "ok", "name": "sub_121E708", "params": [], "docstring": "BT firmware message handler with extended stack frame", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

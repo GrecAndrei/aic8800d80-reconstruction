@@ -1,0 +1,1 @@
+{"fn": "sub_12225DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12225dc", "status": "ok", "name": "tx_send_msg_n25dc", "params": [], "docstring": "Send TX/datapath message (id 0x59, param 0xd) via IPC", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

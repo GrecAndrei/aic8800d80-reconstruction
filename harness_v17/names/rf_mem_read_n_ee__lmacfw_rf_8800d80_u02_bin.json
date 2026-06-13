@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_ee", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f4a6", "status": "ok", "name": "rf_mem_read_n_ee", "params": [], "docstring": "Read RF memory and store in control block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

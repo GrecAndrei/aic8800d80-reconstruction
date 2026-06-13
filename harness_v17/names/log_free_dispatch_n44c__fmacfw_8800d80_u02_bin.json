@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n44c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210454", "status": "ok", "name": "log_free_dispatch_n44c", "params": [], "docstring": "Free log entry dispatcher", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n44c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210454", "status": "ok", "name": "log_free_dispatch_n44c_0454", "params": [], "docstring": "Free log entry dispatcher", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

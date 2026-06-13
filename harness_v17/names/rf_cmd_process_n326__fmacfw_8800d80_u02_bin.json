@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_process_n326", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121387e", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "dispatches RF command by opcode to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_process_n326", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121387e", "status": "ok", "name": "rf_cmd_dispatch_387e", "params": [], "docstring": "dispatches RF command by opcode to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

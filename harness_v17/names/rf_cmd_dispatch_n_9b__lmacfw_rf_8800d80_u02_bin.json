@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_9b", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221ea8", "status": "ok", "name": "rf_level_apply_n394", "params": [], "docstring": "Applies RF TX level 0x42e via reg write helper", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

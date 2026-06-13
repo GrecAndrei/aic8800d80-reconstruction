@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_ba", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eafa", "status": "ok", "name": "sdio_buf_copy_blk", "params": [], "docstring": "Copy SDIO buffer blocks via STM/LDM bulk transfers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

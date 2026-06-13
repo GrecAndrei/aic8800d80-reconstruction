@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n3b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215898", "status": "ok", "name": "patch_apply_n3b0", "params": [], "docstring": "Extract bitfield flags and store as pair", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n3b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215898", "status": "ok", "name": "patch_apply_n3b0_5898", "params": [], "docstring": "Extract bitfield flags and store as pair", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n400", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213360", "status": "ok", "name": "rf_msg_handler_n400", "params": [], "docstring": "Process RF message buffer and decrement counter", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

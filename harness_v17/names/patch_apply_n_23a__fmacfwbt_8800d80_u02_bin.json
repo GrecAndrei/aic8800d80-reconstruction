@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_23a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152ae", "status": "ok", "name": "patch_apply_n_23a", "params": [], "docstring": "Applies a firmware patch entry based on shifted index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_23a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152ae", "status": "ok", "name": "patch_apply_n_23a_52ae", "params": [], "docstring": "Applies a firmware patch entry based on shifted index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

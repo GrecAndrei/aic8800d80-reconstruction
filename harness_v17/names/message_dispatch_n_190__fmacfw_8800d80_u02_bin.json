@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_190", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c7fc", "status": "ok", "name": "message_dispatch_n_190", "params": [], "docstring": "Dispatch host messages to MAC subsystems", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

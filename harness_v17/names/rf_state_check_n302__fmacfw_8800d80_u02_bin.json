@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n302", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124d6", "status": "ok", "name": "rf_state_check_n302", "params": [], "docstring": "Check RF state and update MMIO status registers at 0x40200xxx", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

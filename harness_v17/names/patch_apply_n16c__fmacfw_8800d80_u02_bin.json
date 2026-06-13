@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n16c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215018", "status": "ok", "name": "patch_apply_n16c", "params": [], "docstring": "Apply firmware patch with XOR validation", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

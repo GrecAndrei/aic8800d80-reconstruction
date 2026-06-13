@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n320", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151cc", "status": "ok", "name": "patch_apply_n320", "params": [], "docstring": "Apply firmware patch entry n320 (write to mmio then dispatch)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

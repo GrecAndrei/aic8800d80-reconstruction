@@ -1,0 +1,1 @@
+{"fn": "sub_123C4C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123c4c0", "status": "ok", "name": "table_lookup_n_696", "params": [], "docstring": "Looks up an entry in a table using stride-based indexing (0x2b8)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

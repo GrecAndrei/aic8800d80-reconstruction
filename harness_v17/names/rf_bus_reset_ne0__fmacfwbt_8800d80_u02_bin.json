@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_ne0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212924", "status": "ok", "name": "rf_bus_reset_ne0", "params": [], "docstring": "RF bus reset path for BT coexistence image", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_ne0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212924", "status": "ok", "name": "rf_bus_reset_ne0_2924", "params": [], "docstring": "RF bus reset path for BT coexistence image", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

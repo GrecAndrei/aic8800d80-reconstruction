@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_102", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b1a", "status": "ok", "name": "rf_bus_write2_n_102", "params": [], "docstring": "Write halfword + byte to RF bus register pair", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n9c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e54", "status": "ok", "name": "rf_bus_init_n9c", "params": [], "docstring": "Initialize RF bus with symbol table reference", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

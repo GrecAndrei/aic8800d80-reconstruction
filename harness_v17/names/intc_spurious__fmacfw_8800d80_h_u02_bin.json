@@ -1,0 +1,1 @@
+{"fn": "intc_spurious", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1244258", "status": "ok", "name": "intc_spurious", "params": [], "docstring": "Spurious interrupt handler that clears pending IRQ state and masks the source", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

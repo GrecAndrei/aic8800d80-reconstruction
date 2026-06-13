@@ -1,0 +1,1 @@
+{"fn": "sub_121052C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121052c", "status": "ok", "name": "rf_init_agc_or_radio", "params": [], "docstring": "Initialize RF AGC/radio registers from config table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

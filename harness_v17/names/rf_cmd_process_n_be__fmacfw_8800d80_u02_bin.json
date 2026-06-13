@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121349a", "status": "ok", "name": "rf_cmd_process_n_be", "params": [], "docstring": "Process incoming RF command reading status byte and descriptor at offset 0x64", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

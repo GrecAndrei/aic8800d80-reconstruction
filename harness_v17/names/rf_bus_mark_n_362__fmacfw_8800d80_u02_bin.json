@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_362", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211522", "status": "ok", "name": "rf_bus_mark_n_362", "params": [], "docstring": "Mark/clear an RF bus flag byte and check state at offset 0x171 for readiness.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

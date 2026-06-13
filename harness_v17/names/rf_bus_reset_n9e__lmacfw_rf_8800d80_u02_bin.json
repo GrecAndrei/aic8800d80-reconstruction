@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n9e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121238e", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Reset RF bus: clear 0x80/0x400 bits and poll status at 0x14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

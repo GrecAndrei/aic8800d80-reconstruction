@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n5a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e176", "status": "ok", "name": "sdio_buffer_prepare_n5a", "params": [], "docstring": "Compute SDIO buffer offset/shift", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n5a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e176", "status": "ok", "name": "sdio_buffer_prepare_n5a_e176", "params": [], "docstring": "Compute SDIO buffer offset/shift", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

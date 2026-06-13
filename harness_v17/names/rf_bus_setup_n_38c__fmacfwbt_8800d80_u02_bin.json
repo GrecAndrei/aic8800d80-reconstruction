@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_38c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119cc", "status": "ok", "name": "rf_bus_setup_n_38c", "params": [], "docstring": "Set up RF bus entry (advance 8 bytes, compute strided offset, mask high bit)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c9c6", "status": "ok", "name": "message_dispatch_n3a", "params": [], "docstring": "Dispatches host IPC message to handler with id/len/payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

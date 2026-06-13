@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3f8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212428", "status": "ok", "name": "rf_state_check_n3f8", "params": [], "docstring": "Validate RF state machine constants/magic values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

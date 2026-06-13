@@ -1,0 +1,1 @@
+{"fn": "sub_120E040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120e040", "status": "ok", "name": "mmio_clock_gate_set_n040", "params": [], "docstring": "Set MMIO clock gate enable bit at 0x4010d000+4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

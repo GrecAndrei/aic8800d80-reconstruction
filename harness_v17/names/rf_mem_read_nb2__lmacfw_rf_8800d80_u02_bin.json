@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nb2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f646", "status": "ok", "name": "rf_state_check_n4e8", "params": [], "docstring": "Update/check RF state struct fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122e8", "status": "ok", "name": "rf_bus_reset2_n_35f", "params": [], "docstring": "RF bus reset variant reading status at MMIO 0x980 with magic-number division", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

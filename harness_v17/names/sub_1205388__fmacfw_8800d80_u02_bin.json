@@ -1,0 +1,1 @@
+{"fn": "sub_1205388", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1205388", "status": "ok", "name": "fmac_crypto_or_xfer_proc", "params": [], "docstring": "FMAC large handler with vpush/d8-d9, dispatches on r1==1", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

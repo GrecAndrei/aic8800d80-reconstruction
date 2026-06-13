@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_1e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215306", "status": "ok", "name": "patch_apply_n_1e2", "params": [], "docstring": "Apply firmware patch at computed offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_1e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215306", "status": "ok", "name": "patch_apply_n_1e2_5306", "params": [], "docstring": "Apply firmware patch at computed offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

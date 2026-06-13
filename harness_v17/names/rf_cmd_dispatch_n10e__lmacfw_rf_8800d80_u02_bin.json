@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n10e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222052", "status": "ok", "name": "patch_apply_multi_bits", "params": [], "docstring": "Apply patch extracting multiple bit fields from r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

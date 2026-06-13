@@ -1,0 +1,1 @@
+{"fn": "crypto_calibrate", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1203eb4", "status": "ok", "name": "crypto_calibrate", "params": [], "docstring": "Calibrate crypto engine with MMIO register setup at 0x4034xxxx", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

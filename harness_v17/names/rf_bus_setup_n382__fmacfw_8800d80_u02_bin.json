@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n382", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121227e", "status": "ok", "name": "rf_bus_setup_n382", "params": [], "docstring": "Configures RF bus control register fields via BFI/STRB operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

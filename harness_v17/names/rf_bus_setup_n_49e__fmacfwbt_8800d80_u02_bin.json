@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_49e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118ba", "status": "ok", "name": "rf_bus_setup_n_49e", "params": [], "docstring": "Configures RF bus control registers and timing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

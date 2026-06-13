@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n406", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212302", "status": "ok", "name": "rf_bus_setup_n406", "params": [], "docstring": "RF bus register field setup with shifts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

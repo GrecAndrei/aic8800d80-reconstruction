@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121281e", "status": "ok", "name": "rf_bus_reset_n_1ca_281e", "params": [], "docstring": "Reset RF bus with buffer pointer advance (variant 1ca)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

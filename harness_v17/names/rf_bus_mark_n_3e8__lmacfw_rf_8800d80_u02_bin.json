@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210da4", "status": "ok", "name": "rf_bus_mark_n_3e8", "params": [], "docstring": "Marks/updates RF bus state at register offsets 4 and 8 with HW register 0x40240148", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

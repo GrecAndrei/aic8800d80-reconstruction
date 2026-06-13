@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_3e0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121559c", "status": "ok", "name": "patch_apply_n2e0", "params": [], "docstring": "Patches byte value applying AND mask to argument", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

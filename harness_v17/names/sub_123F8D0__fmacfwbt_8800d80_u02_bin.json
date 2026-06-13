@@ -1,0 +1,1 @@
+{"fn": "sub_123F8D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f8d0", "status": "ok", "name": "bt_tx_queue_process", "params": [], "docstring": "Process BT TX queue entry and update descriptor fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

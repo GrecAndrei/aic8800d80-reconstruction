@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n36c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215854", "status": "ok", "name": "patch_apply_n36c", "params": [], "docstring": "Apply patch based on bitfield flags", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n36c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215854", "status": "ok", "name": "patch_apply_n36c_5854", "params": [], "docstring": "Apply patch based on bitfield flags", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

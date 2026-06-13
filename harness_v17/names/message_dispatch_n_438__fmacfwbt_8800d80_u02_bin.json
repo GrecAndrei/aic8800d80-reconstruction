@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_438", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c77c", "status": "ok", "name": "message_dispatch_n_438", "params": [], "docstring": "Dispatches IPC message extracting type and header fields", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

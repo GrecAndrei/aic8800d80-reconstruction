@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215892", "status": "ok", "name": "patch_apply_n3aa", "params": [], "docstring": "Apply configuration patch bits from a control word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215892", "status": "ok", "name": "patch_apply_n3aa_5892", "params": [], "docstring": "Apply configuration patch bits from a control word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n332", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210192", "status": "ok", "name": "log_free_dispatch_n332", "params": [], "docstring": "log free dispatch with stack frame variant 332", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

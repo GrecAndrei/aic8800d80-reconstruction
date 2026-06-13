@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n28e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3aa", "status": "ok", "name": "sdio_buffer_prepare_n28e", "params": [], "docstring": "Prepare SDIO DMA buffer descriptors for transfer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

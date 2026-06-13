@@ -1,0 +1,1 @@
+{"fn": "sub_1217954", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217954", "status": "ok", "name": "rf_table_lookup_handler", "params": [], "docstring": "Look up handler from RF table and invoke callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

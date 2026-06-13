@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_427", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113dc", "status": "ok", "name": "rf_bus_setup_n_427", "params": [], "docstring": "Configure RF bus MMIO register with flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

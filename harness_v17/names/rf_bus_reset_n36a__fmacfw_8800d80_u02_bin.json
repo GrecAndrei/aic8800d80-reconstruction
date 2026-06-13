@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n36a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d52", "status": "ok", "name": "rf_bus_reset_n36a", "params": [], "docstring": "RF bus reset clearing selected status bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

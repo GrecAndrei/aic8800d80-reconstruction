@@ -1,0 +1,1 @@
+{"fn": "sub_1214FD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214fd8", "status": "ok", "name": "sub_1214FD8", "params": [], "docstring": "Copy 12-byte block and call helper with saved args", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

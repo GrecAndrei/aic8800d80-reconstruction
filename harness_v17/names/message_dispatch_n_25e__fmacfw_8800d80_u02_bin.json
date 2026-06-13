@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_25e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c72e", "status": "ok", "name": "message_dispatch_n_25e", "params": [], "docstring": "Dispatch host message by opcode (0x60 range)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1207BD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1207bd8", "status": "ok", "name": "mmio_read_field_n_bd8", "params": [], "docstring": "Read shifted field from MMIO register block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

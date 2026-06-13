@@ -1,0 +1,1 @@
+{"fn": "sub_1240430", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240430", "status": "ok", "name": "fw_cmd_query", "params": [], "docstring": "Queries firmware command status (op 0xb)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

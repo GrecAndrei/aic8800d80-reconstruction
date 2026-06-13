@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_7c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121289c", "status": "ok", "name": "rf_cmd_send_n_7c", "params": [], "docstring": "Sets bit0 in RF command reg 0x804 and computes tx offset 0x2328", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

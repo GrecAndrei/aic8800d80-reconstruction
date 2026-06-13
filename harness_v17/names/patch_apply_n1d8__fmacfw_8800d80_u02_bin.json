@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215084", "status": "ok", "name": "patch_apply_n1d8", "params": [], "docstring": "Applies firmware patch via trampoline to patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

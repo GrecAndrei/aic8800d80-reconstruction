@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n246", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213e8e", "status": "ok", "name": "rf_msg_process_body_n246", "params": [], "docstring": "Process RF message body offset 0x55 with length decrement and zero check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

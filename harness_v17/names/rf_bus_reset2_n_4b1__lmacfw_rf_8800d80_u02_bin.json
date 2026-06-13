@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4b1", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e52", "status": "ok", "name": "rf_bus_reset2_clear_bit0", "params": [], "docstring": "Clears bit 0 of RF bus control register (secondary reset path)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

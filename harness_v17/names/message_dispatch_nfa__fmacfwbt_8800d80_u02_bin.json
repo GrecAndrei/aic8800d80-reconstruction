@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_nfa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ccae", "status": "ok", "name": "message_dispatch_12ccae", "params": [], "docstring": "Dispatches an outgoing message and pops call frame", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_160", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211724", "status": "ok", "name": "rf_bus_mark_n_160", "params": [], "docstring": "Clears a bit in RF bus control register using bit-mask shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_160", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211724", "status": "ok", "name": "rf_bus_mark_n_160_1724", "params": [], "docstring": "Clears a bit in RF bus control register using bit-mask shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

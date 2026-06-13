@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_466", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d6e", "status": "ok", "name": "rf_state_check_n_466", "params": [], "docstring": "Checks current RF state against valid value (5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

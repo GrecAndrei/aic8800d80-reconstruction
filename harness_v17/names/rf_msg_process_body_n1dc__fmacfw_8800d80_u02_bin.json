@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n1dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213e24", "status": "ok", "name": "rf_msg_process_body_n1dc", "params": [], "docstring": "Initialize/zero RF message structure fields in body", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

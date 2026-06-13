@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_192", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126b2", "status": "ok", "name": "rf_bus_reset_diff", "params": [], "docstring": "Reset RF bus and compute register difference", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

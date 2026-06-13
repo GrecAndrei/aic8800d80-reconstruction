@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_436", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112aa", "status": "ok", "name": "rf_bus_mark_n_436", "params": [], "docstring": "Mark/update RF bus state fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

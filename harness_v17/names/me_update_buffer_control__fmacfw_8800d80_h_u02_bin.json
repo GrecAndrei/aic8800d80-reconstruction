@@ -1,0 +1,1 @@
+{"fn": "me_update_buffer_control", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124b8f8", "status": "ok", "name": "me_update_buffer_control", "params": [], "docstring": "Update MAC engine buffer control fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

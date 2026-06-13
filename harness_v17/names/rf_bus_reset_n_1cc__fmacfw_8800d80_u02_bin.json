@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1cc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121281c", "status": "ok", "name": "rf_bus_reset_n_1cc", "params": [], "docstring": "RF bus register reset/update with halfword read-modify-write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

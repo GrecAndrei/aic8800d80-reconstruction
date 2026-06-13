@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_461", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213052", "status": "ok", "name": "rf_cmd_queue_next_n_461", "params": [], "docstring": "Trigger next RF command by writing queue register 0x900 with 0x84000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

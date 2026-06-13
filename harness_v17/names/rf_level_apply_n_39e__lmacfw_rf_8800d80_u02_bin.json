@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_39e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a3a", "status": "ok", "name": "message_dispatch_n_28a", "params": [], "docstring": "Dispatches an IPC message via queue push with header setup", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122EE6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ee6c", "status": "ok", "name": "mmio_reg_write_n6c", "params": [], "docstring": "Write MMIO register with value 0x412", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

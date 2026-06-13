@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121242e", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF command 0x29 with param 9 via MMIO 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

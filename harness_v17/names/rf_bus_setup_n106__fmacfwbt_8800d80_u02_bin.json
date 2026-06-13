@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n106", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e5e", "status": "ok", "name": "rf_bus_setup_n106", "params": [], "docstring": "Set up RF bus channel via sub-call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

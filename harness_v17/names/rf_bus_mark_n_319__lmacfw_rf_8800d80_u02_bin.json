@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_319", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e72", "status": "ok", "name": "rf_bus_mark_n_319", "params": [], "docstring": "Program RF bus registers for transfer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

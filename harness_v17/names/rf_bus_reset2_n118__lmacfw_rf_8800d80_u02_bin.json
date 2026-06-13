@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n118", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121141c", "status": "ok", "name": "rf_bus_reset2_n118", "params": [], "docstring": "Resets RF bus state by writing control values to register fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

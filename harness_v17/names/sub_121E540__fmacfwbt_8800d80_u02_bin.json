@@ -1,0 +1,1 @@
+{"fn": "sub_121E540", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e540", "status": "ok", "name": "sub_121E540", "params": [], "docstring": "BT mailbox handler reading header field then dispatching", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

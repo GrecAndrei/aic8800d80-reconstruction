@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_3c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c48", "status": "ok", "name": "rf_cmd_send_n_3c8", "params": [], "docstring": "Sends RF command selecting among delays 0x64/0xc8/0x78", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_3c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c48", "status": "ok", "name": "rf_cmd_send_n_3c8_2c48", "params": [], "docstring": "Sends RF command selecting among delays 0x64/0xc8/0x78", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

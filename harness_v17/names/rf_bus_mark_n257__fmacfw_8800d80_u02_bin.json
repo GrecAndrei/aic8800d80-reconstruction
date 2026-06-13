@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n257", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ada", "status": "ok", "name": "rf_bus_mark_n257", "params": [], "docstring": "Mark RF bus register with bit-0 set flag 0x257", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_48f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211250", "status": "ok", "name": "rf_bus_mark_n_48f", "params": [], "docstring": "Store halfword r6 to RF bus at r5 offset 0xc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

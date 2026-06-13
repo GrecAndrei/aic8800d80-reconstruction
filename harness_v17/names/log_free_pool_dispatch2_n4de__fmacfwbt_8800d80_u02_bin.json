@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4de", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210016", "status": "ok", "name": "log_free_pool_dispatch2_n4de", "params": [], "docstring": "Dispatch handler iterating a free pool log/queue, incrementing counters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n368", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222394", "status": "ok", "name": "rf_mem_write_n368", "params": [], "docstring": "Write 0x3030303 pattern to RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n3b2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213ffa", "status": "ok", "name": "rf_msg_irq_disable", "params": [], "docstring": "Disable IRQs and process RF message body (0x400000 mask)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

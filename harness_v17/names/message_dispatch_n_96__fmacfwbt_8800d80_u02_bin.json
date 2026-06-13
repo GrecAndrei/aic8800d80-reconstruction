@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_96", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb1e", "status": "ok", "name": "log_free_dispatch_n4e2", "params": [], "docstring": "Frees a log buffer entry from dispatch queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_96", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb1e", "status": "ok", "name": "log_free_dispatch_n4e2_cb1e", "params": [], "docstring": "Frees a log buffer entry from dispatch queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

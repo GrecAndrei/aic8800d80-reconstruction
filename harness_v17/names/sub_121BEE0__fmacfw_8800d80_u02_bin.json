@@ -1,0 +1,1 @@
+{"fn": "sub_121BEE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121bee0", "status": "ok", "name": "sub_121BEE0", "params": [], "docstring": "Init/setup function loading globals and checking state with stack frame", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

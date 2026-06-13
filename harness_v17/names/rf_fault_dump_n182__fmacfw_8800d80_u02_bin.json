@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n182", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12148ca", "status": "ok", "name": "rf_fault_dump_n182", "params": [], "docstring": "Dump RF fault state via function pointer callbacks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

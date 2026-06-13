@@ -1,1 +1,1 @@
-{"fn": "crypto_key_load", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12009dc", "status": "ok", "name": "crypto_key_load", "params": [], "docstring": "Load crypto key into key engine MMIO at 0x40342200 region", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
+{"fn": "crypto_key_load", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12009dc", "status": "ok", "name": "crypto_key_load_09dc", "params": [], "docstring": "Load crypto key into key engine MMIO at 0x40342200 region", "subsystem": "ke", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

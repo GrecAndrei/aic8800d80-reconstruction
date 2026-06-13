@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n_224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127c4", "status": "ok", "name": "rf_bus_reset_n_224", "params": [], "docstring": "Reset RF bus clearing specific bits in control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n_224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12127c4", "status": "ok", "name": "rf_bus_reset_n_224_27c4", "params": [], "docstring": "Reset RF bus clearing specific bits in control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

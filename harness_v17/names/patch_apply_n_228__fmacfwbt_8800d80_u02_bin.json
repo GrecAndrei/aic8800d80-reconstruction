@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_228", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152c0", "status": "ok", "name": "patch_apply_n_228", "params": [], "docstring": "Apply firmware patch with bounds check and early return", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

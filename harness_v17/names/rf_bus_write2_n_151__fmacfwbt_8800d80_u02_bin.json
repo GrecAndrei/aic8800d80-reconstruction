@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_151", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211926", "status": "ok", "name": "rf_bus_write2_n_151", "params": [], "docstring": "Writes to RF bus register at offset 0x804 with bitmask 0x8000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

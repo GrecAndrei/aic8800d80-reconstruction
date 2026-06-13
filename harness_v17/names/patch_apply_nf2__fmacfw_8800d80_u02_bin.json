@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nf2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f9e", "status": "ok", "name": "patch_apply_nf2", "params": [], "docstring": "Apply patch writing constant and computed byte value", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

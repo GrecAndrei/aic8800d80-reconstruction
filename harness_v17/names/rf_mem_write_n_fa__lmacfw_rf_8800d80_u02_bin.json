@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f32", "status": "ok", "name": "rf_mem_write_n_fa", "params": [], "docstring": "Write to RF memory with size validation (returns 1/2/-1)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

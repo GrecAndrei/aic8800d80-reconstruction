@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_326", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125f2", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF command to hardware via register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_326", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125f2", "status": "ok", "name": "rf_cmd_send_25f2", "params": [], "docstring": "Send RF command to hardware via register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

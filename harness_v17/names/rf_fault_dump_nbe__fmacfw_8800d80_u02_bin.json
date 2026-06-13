@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_nbe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214806", "status": "ok", "name": "rf_bus_reset_n_4b2", "params": [], "docstring": "Resets RF bus state via bitfield clear and write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

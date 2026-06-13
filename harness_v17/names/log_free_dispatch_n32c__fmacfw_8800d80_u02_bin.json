@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n32c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210334", "status": "ok", "name": "crypto_hw_write32_core", "params": [], "docstring": "Writes 32-bit values to crypto hardware MMIO registers with bit ops", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

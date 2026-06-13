@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_82", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb32", "status": "ok", "name": "message_dispatch_n_82", "params": [], "docstring": "Dispatch incoming message by ID", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_82", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb32", "status": "ok", "name": "message_dispatch_n_82_cb32", "params": [], "docstring": "Dispatch incoming message by ID", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

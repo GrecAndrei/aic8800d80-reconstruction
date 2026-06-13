@@ -1,0 +1,1 @@
+{"fn": "sub_120A36C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120a36c", "status": "ok", "name": "mac_aggr_setup", "params": [], "docstring": "MAC aggregation/AMPDU setup with subframe type dispatch", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

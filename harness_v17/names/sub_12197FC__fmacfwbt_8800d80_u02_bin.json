@@ -1,0 +1,1 @@
+{"fn": "sub_12197FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12197fc", "status": "ok", "name": "sub_12197FC", "params": [], "docstring": "Indexed lookup into per-instance table (0x2b8 stride) reading byte field +0x22", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

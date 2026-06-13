@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n8c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a4c", "status": "ok", "name": "log_free_dispatch_n488", "params": [], "docstring": "Increment log counter and dispatch log free entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n8c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a4c", "status": "ok", "name": "log_free_dispatch_n488_1a4c", "params": [], "docstring": "Increment log counter and dispatch log free entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

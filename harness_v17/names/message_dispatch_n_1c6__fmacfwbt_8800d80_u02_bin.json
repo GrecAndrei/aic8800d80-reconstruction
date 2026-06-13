@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c9ee", "status": "ok", "name": "message_dispatch_n_1c6_c9ee", "params": [], "docstring": "Dispatch IPC message and copy payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

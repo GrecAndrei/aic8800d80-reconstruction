@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n4de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222422", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Write 16-byte aligned entry to RF bus register window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

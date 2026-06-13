@@ -1,0 +1,1 @@
+{"fn": "sub_12389D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12389d0", "status": "ok", "name": "sub_12389D0", "params": [], "docstring": "Table-driven dispatch using index lookup with ldrsh from globals", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

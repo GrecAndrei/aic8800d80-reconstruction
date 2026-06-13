@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n198", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a1c", "status": "ok", "name": "rf_bus_mark_n198", "params": [], "docstring": "Mark/configure RF bus register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n2b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d30", "status": "ok", "name": "rf_bus_write2_n2b8", "params": [], "docstring": "Write data word to RF bus (variant)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

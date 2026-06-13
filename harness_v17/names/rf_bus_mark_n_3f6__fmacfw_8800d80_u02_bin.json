@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_3f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121148e", "status": "ok", "name": "rf_bus_mark_n_3f6", "params": [], "docstring": "Mark RF bus by writing flag value 0x400 to control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_3f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121148e", "status": "ok", "name": "rf_bus_mark_n_3f6_148e", "params": [], "docstring": "Mark RF bus by writing flag value 0x400 to control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215080", "status": "ok", "name": "patch_apply_n_468", "params": [], "docstring": "Applies firmware patch entries via indirect call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_468", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215080", "status": "ok", "name": "patch_apply_n_468_5080", "params": [], "docstring": "Applies firmware patch entries via indirect call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_22a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b8e", "status": "ok", "name": "rf_bus_init_n_22a", "params": [], "docstring": "Initialize RF bus interface with control register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

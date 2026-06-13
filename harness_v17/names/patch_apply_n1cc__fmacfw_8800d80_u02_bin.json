@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1cc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215078", "status": "ok", "name": "patch_apply_n1cc", "params": [], "docstring": "Applies a firmware patch with memory barrier synchronization", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

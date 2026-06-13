@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n24a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cbd6", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "Dispatch RF command and invoke sub-handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

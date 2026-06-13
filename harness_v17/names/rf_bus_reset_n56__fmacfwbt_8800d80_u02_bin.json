@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n56", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121289a", "status": "ok", "name": "rf_bus_reset_n56", "params": [], "docstring": "Triggers RF bus reset by setting control register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n56", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121289a", "status": "ok", "name": "rf_bus_reset_n56_289a", "params": [], "docstring": "Triggers RF bus reset by setting control register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

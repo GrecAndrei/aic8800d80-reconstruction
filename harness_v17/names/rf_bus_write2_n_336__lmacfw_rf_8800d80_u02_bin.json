@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_336", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111ee", "status": "ok", "name": "rf_bus_write2_n_336", "params": [], "docstring": "Sets mask bits in RF byte reg and writes 32-bit value to offset 0x914", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

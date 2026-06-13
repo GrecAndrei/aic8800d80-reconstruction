@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_7c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121546c", "status": "ok", "name": "patch_apply_n_7c", "params": [], "docstring": "Apply small (6-word) firmware patch via internal patch helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

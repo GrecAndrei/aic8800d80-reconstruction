@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4b5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113a2", "status": "ok", "name": "rf_bus_reset2_n_4b5", "params": [], "docstring": "Secondary RF bus reset register compare/check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

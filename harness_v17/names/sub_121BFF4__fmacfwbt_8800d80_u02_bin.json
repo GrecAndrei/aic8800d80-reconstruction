@@ -1,0 +1,1 @@
+{"fn": "sub_121BFF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121bff4", "status": "ok", "name": "bt_xx_table_lookup_n_be", "params": [], "docstring": "Looks up table entry indexed by [base+0xbe] scaled by 0x54", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

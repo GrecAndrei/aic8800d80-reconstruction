@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n35e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212c76", "status": "ok", "name": "rf_cmd_send_35e", "params": [], "docstring": "Send prepared RF command payload to RFIC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

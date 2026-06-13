@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n4fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212062", "status": "ok", "name": "rf_msg_handler", "params": [], "docstring": "Handle RF message: write to 0x804 offset and adjust pointer by 0x2328", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

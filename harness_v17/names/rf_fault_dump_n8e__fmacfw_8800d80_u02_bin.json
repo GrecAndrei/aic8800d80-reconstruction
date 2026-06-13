@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147d6", "status": "ok", "name": "rf_fault_dump_n8e", "params": [], "docstring": "Compute RF fault dump buffer range and word count", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

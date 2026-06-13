@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_19e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145aa", "status": "ok", "name": "rf_bus_reset2_n_2c8", "params": [], "docstring": "RF bus reset with MMIO write to RF controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

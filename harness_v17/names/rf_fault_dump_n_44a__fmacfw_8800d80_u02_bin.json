@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_44a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142fe", "status": "ok", "name": "rf_fault_dump_n_44a", "params": [], "docstring": "RF fault dump; fills dump struct with zeros and marker fields.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

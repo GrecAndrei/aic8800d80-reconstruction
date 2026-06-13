@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_1a7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215340", "status": "ok", "name": "patch_apply_n_1a7", "params": [], "docstring": "Applies single firmware patch entry (trivial wrapper)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_1a7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215340", "status": "ok", "name": "patch_apply_n_1a7_5340", "params": [], "docstring": "Applies single firmware patch entry (trivial wrapper)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

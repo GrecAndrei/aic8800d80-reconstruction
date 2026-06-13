@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n150", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211454", "status": "ok", "name": "rf_bus_reset2_n150", "params": [], "docstring": "Secondary RF bus reset with shifted 17-bit value load", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

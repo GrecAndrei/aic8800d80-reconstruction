@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n1ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213706", "status": "ok", "name": "rf_cmd_process_n1ae", "params": [], "docstring": "Process RF command via indirect callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

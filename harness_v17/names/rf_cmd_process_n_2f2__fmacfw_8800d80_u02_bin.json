@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_2f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213266", "status": "ok", "name": "rf_rev_id_to_bitmask", "params": [], "docstring": "Convert RF revision ID field to a single-bit mask (1 << ((id & 0xF) - 1))", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

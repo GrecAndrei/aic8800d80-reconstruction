@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_500", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221a44", "status": "ok", "name": "rf_cmd_dispatch_n_500", "params": [], "docstring": "Dispatches RF command by zero-initializing 8-byte buffer at 0x187218 then returning 0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

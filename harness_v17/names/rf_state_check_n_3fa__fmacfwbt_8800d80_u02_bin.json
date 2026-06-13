@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_3fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c36", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Compares an RF state value against zero to branch on status.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

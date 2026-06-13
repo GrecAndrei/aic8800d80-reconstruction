@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_26a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211202", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Writes value to RF bus register via indexed access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_26a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211202", "status": "ok", "name": "rf_bus_write_1202", "params": [], "docstring": "Writes value to RF bus register via indexed access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

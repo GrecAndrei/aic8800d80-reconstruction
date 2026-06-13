@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n382", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dfa", "status": "ok", "name": "rf_bus_write2_n382", "params": [], "docstring": "Write to RF bus with value range test", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

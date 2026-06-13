@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cb8", "status": "ok", "name": "patch_apply_n_1f4", "params": [], "docstring": "Applies a 4-byte patch at computed offset in patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

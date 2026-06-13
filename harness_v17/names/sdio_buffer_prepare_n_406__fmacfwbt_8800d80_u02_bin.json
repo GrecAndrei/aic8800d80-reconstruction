@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_406", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df3e", "status": "ok", "name": "rf_msg_process_body_n_236", "params": [], "docstring": "Process RF message body under disabled IRQ with shared globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

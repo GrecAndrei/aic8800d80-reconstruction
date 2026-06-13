@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dfd0", "status": "ok", "name": "sdio_buffer_prepare_n_374", "params": [], "docstring": "SDIO buffer preparation validating arg range (<=4) and type tag (==6)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

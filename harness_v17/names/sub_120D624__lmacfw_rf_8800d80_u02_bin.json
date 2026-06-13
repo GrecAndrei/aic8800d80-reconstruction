@@ -1,0 +1,1 @@
+{"fn": "sub_120D624", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d624", "status": "ok", "name": "nvic_irq_enable", "params": [], "docstring": "Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

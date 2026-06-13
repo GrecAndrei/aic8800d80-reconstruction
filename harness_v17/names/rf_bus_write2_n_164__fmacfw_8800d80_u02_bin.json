@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_164", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ab8", "status": "ok", "name": "rf_bus_write2_n_164", "params": [], "docstring": "Writes 2 values to RF bus registers (control word + masked write)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
