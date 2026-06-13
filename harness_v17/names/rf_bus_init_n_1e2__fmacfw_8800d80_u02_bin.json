@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_1e2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211bd6", "status": "ok", "name": "rf_bus_init_n_1e2", "params": [], "docstring": "RF bus init compare against zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n418", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215900", "status": "ok", "name": "patch_apply_418", "params": [], "docstring": "Apply firmware patch table entry 418", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

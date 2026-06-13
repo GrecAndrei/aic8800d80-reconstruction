@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_ncc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118d0", "status": "ok", "name": "rf_bus_setup_ncc", "params": [], "docstring": "Configures RF bus base with 0x9d00 offset, tail-calls setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_ne", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b72", "status": "ok", "name": "rf_bus_write_ne", "params": [], "docstring": "RF bus 32-bit register write with non-empty flag guard.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_1c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e68", "status": "ok", "name": "rf_state_check_n_1c8", "params": [], "docstring": "Check RF state with constant 0x190 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

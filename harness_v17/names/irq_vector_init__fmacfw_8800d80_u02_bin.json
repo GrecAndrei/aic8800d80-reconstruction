@@ -1,0 +1,1 @@
+{"fn": "irq_vector_init", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202bfc", "status": "ok", "name": "irq_vector_init", "params": [], "docstring": "Initialize NVIC interrupt vector table and enable interrupts", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

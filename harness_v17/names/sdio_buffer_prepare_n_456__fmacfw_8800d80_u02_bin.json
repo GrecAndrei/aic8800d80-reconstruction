@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dcc6", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send command to RF subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dcc6", "status": "ok", "name": "rf_cmd_send_cc6", "params": [], "docstring": "Send command to RF subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

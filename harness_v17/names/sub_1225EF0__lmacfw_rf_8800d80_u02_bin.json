@@ -1,0 +1,1 @@
+{"fn": "sub_1225EF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225ef0", "status": "ok", "name": "rf_status_check_bit", "params": [], "docstring": "Check RF status register bit 0x02000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

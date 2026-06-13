@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n2e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212946", "status": "ok", "name": "rf_cmd_send_n2e", "params": [], "docstring": "Build RF command descriptor and write to MMIO at 0x40xxxxxx", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

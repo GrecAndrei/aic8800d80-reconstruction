@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_482", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211936", "status": "ok", "name": "rf_bus_init", "params": [], "docstring": "Initializes RF bus with control register setup and bus enable", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

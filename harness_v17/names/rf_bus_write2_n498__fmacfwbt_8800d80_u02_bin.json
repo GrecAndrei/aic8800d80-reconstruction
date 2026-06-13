@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n498", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f10", "status": "ok", "name": "rf_bus_write2_n498", "params": [], "docstring": "Write two-word RF bus entry and set flag bits in reg 0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

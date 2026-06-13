@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n_183", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e8c", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF control command over bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n_183", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e8c", "status": "ok", "name": "rf_cmd_send_e8c", "params": [], "docstring": "Send RF control command over bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

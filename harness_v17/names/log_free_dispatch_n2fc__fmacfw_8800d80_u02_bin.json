@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210304", "status": "ok", "name": "mmio_read_bit28", "params": [], "docstring": "Read bit 28 from MMIO register 0x40330000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

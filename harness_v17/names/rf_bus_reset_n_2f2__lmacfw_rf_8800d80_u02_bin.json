@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n_2f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ffe", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Reset the RF bus hardware interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n_2f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ffe", "status": "ok", "name": "rf_bus_reset_ffe", "params": [], "docstring": "Reset the RF bus hardware interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

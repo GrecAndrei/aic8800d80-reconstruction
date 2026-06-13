@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_na", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213562", "status": "ok", "name": "rf_cmd_process_na", "params": [], "docstring": "RF command processing stub (sub-state 2/3)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

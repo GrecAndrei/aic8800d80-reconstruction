@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3e4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ac8", "status": "ok", "name": "patch_apply_n_3e4", "params": [], "docstring": "Pop frame then dispatch next patch via function pointer table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

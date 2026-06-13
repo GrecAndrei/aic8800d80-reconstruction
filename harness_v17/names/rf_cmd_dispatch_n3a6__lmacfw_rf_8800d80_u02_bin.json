@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n3a6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12222ea", "status": "ok", "name": "rf_cmd_dispatch_n3a6", "params": [], "docstring": "Dispatches an RF command to handler with arg copy", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1204828", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1204828", "status": "ok", "name": "scan_chan_set_init_n_28", "params": [], "docstring": "Initialize channel set with 0x500/0xa00 based on mode flag", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1218DEC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218dec", "status": "ok", "name": "sub_1226698", "params": [], "docstring": "FMAC BT helper: dispatch on arg0 with 8-register save", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121154c", "status": "ok", "name": "rf_bus_reset_check2", "params": [], "docstring": "Compare/verify RF bus reset state bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

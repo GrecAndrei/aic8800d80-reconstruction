@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_122", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d8a", "status": "ok", "name": "patch_apply_d8a", "params": [], "docstring": "Apply firmware patch entry with null check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_1227CF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227cf4", "status": "ok", "name": "bt_chan_state_get", "params": [], "docstring": "Reads current BT channel state index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

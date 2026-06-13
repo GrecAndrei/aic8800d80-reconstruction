@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b1e", "status": "ok", "name": "rf_mem_read_n_41a", "params": [], "docstring": "Read RF register/memory block into buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

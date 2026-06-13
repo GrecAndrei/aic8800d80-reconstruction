@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_2dd", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210eae", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "mark RF bus transaction slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_2dd", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210eae", "status": "ok", "name": "rf_bus_mark_eae", "params": [], "docstring": "mark RF bus transaction slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

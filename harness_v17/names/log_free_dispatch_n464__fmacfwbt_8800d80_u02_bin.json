@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n464", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102c4", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatch log buffer free events", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n464", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102c4", "status": "ok", "name": "log_free_dispatch_2c4", "params": [], "docstring": "Dispatch log buffer free events", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

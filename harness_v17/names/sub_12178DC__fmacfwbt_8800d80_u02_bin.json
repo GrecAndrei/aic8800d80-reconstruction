@@ -1,0 +1,1 @@
+{"fn": "sub_12178DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12178dc", "status": "ok", "name": "sub_12178DC", "params": [], "docstring": "Dispatch handler selecting one of 5 branches", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

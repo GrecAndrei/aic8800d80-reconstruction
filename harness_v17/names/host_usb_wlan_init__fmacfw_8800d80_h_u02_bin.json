@@ -1,0 +1,1 @@
+{"fn": "host_usb_wlan_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1246fe0", "status": "ok", "name": "host_usb_wlan_init", "params": [], "docstring": "Initialize host-side USB WLAN interface fields and resources", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

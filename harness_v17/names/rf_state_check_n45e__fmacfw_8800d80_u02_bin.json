@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212632", "status": "ok", "name": "rf_state_mask_n45e", "params": [], "docstring": "Check RF state masked with 0x1f", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

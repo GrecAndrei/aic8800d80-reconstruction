@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n45e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210466", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatches log free events and sets a 0x60 constant in r5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

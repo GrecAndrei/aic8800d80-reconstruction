@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ed0", "status": "ok", "name": "rf_bus_mark_n_2bc", "params": [], "docstring": "Mark RF bus entry and post descriptor update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

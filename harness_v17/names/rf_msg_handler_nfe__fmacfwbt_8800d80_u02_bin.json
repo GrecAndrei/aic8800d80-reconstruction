@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_nfe", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121305e", "status": "ok", "name": "rf_msg_handler_nfe", "params": [], "docstring": "Handles RF subsystem message events", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

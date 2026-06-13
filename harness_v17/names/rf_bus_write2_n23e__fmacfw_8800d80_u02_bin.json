@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n23e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e5a", "status": "ok", "name": "rf_bus_write2_n23e", "params": [], "docstring": "Writes 4-byte value to RF bus at 0x182464 region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

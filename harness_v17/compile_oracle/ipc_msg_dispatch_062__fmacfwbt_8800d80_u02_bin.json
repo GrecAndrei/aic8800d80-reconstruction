@@ -1,0 +1,136 @@
+{
+  "function": "ipc_msg_dispatch_062",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x12d062",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x12d072  00bf  nop",
+        "compiled": "0x00100000  ffffffff  invalid",
+        "fix_hint": "Reconstruction produced no code at all; entire function body is missing. Need to recompile from source with proper Thumb-2 codegen and link at 0x00100000."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d074  242c  cmp r4, 0x24",
+        "compiled": "0x00100004  ffffffff  invalid",
+        "fix_hint": "Dispatch-table size check (0x24 = 36 entries) missing from compiled output."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d076  1800  movs r0, r3",
+        "compiled": "0x00100008  ffffffff  invalid",
+        "fix_hint": "Index normalization (r3 = msg_id) not emitted by compiler."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d078  f0a4  adr r4, 0x12d43c  (jump table base)",
+        "compiled": "0x0010000c  ffffffff  invalid",
+        "fix_hint": "Jump-table base address load (ADR of dispatch table) not generated; compiler likely emitted PC-relative LDR instead or omitted table."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d07a  1600  movs r6, r2",
+        "compiled": "0x00100010  ffffffff  invalid",
+        "fix_hint": "Table-entry stride/load prologue (r6 = r2) missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d07c  a4a4  adr r4, 0x12d310  (table entry 0)",
+        "compiled": "0x00100014  ffffffff  invalid",
+        "fix_hint": "First dispatch target not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d07e  1600  movs r6, r2",
+        "compiled": "0x00100018  ffffffff  invalid",
+        "fix_hint": "Subsequent table-entry slot not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d080  782b  cmp r3, 0x78",
+        "compiled": "0x0010001c  ffffffff  invalid",
+        "fix_hint": "Bounds/case compare missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d082  1900  movs r1, r3",
+        "compiled": "0x00100020  ffffffff  invalid",
+        "fix_hint": "Case-value copy (r1 = r3) missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d084  5088  ldrh r0, [r2, 2]",
+        "compiled": "0x00100024  ffffffff  invalid",
+        "fix_hint": "Load of msg param field at [r2+2] not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d086  1800  movs r0, r3",
+        "compiled": "0x00100028  ffffffff  invalid",
+        "fix_hint": "Tail of dispatch sequence missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d088  2426  movs r6, 0x24",
+        "compiled": "0x0010002c  ffffffff  invalid",
+        "fix_hint": "Table size constant 0x24 not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d08a  1800  movs r0, r3",
+        "compiled": "0x00100030  ffffffff  invalid",
+        "fix_hint": "Intermediate mov not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d08c  702b  cmp r3, 0x70",
+        "compiled": "0x00100034  ffffffff  invalid",
+        "fix_hint": "Sub-case compare missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d08e  1900  movs r1, r3",
+        "compiled": "0x00100038  ffffffff  invalid",
+        "fix_hint": "Sub-case copy missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d090  d0a5  adr r5, 0x12d3d4",
+        "compiled": "0x0010003c  ffffffff  invalid",
+        "fix_hint": "Sub-dispatch table base not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d092  1600  movs r6, r2",
+        "compiled": "0x00100040  ffffffff  invalid",
+        "fix_hint": "Sub-table slot not emitted."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d094  94a4  adr r4, 0x12d2e8",
+        "compiled": "0x00100044  ffffffff  invalid",
+        "fix_hint": "Sub-table entry missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d096  1600  movs r6, r2",
+        "compiled": "0x00100048  ffffffff  invalid",
+        "fix_hint": "Sub-table slot missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x12d098  74a4  adr r4, 0x12d26c",
+        "compiled": "0x0010004c  ffffffff  invalid",
+        "fix_hint": "Sub-table entry missing."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled reconstruction at 0x00100000 is entirely 0xFFFFFFFF (invalid ARM instructions), indicating the mechanical reconstruction produced no code at all for this function.",
+      "The original disassembly at 0x12d062 is a jump/dispatch table (alternating ADR targets and 'movs r6, r2' slots) with a bounds check (cmp r4/r3, 0x24/0x78/0x70) and an ldrh load of msg params; the compiled side emits nothing comparable.",
+      "The address 0x00100000 is likely a wrong link address \u2014 the original function lives at 0x12d062 in the fmacfwbt image; the compiled output needs to be placed and emitted at the correct runtime address.",
+      "No behavioral trace exists for ipc_msg_dispatch_062, so there is no behavioral ground truth to validate the dispatch-table contents (case IDs, handler addresses)."
+    ]
+  }
+}

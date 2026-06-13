@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2e6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215192", "status": "ok", "name": "patch_apply_n2e6", "params": [], "docstring": "Extracts patch index/mask fields and applies a firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

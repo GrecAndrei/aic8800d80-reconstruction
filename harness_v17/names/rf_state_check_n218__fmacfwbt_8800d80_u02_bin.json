@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n218", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212248", "status": "ok", "name": "rf_state_check_n218", "params": [], "docstring": "RF state check, clear bit 0x10 in radio ctrl register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

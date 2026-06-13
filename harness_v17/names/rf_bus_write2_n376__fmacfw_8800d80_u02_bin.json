@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n376", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f92", "status": "ok", "name": "rf_bus_write2_n376", "params": [], "docstring": "RF bus write 2 with MMIO base 0x40000000+0x200000 and status bit test (-0x7fff8000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_296", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de86", "status": "ok", "name": "sdio_buffer_prepare_alt", "params": [], "docstring": "Alternate SDIO buffer prepare routine", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_296", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de86", "status": "ok", "name": "sdio_buffer_prepare_alt_e86", "params": [], "docstring": "Alternate SDIO buffer prepare routine", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

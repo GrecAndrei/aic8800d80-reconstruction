@@ -1,0 +1,1 @@
+{"fn": "sub_12286F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12286f4", "status": "ok", "name": "bt_state_get_n28", "params": [], "docstring": "Read BT state field at offset 0x28 from global control block", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

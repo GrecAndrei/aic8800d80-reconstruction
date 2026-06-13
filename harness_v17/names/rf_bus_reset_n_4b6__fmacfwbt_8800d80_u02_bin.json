@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121238e", "status": "ok", "name": "rf_bus_reset_n_4b6", "params": [], "docstring": "RF bus reset mask 0x64 then write 0xc8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

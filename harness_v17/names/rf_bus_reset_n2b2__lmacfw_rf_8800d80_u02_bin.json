@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2b2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12125a2", "status": "ok", "name": "rf_bus_reset_n2b2", "params": [], "docstring": "Reset RF bus by clearing a control byte via memory-mapped register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12150A8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12150a8", "status": "ok", "name": "rf_init_check_flags", "params": [], "docstring": "Check RF initialization flag bit and dispatch based on status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

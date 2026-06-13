@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d46", "status": "ok", "name": "ipc_doorbell_handler_n3ca", "params": [], "docstring": "IPC doorbell write/clear handler (variant n3ca)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1210C64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210c64", "status": "ok", "name": "sub_1210C64", "params": [], "docstring": "Load byte field at offset 0x1c from object", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

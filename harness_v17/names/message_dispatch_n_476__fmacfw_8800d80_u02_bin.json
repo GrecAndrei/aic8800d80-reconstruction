@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_476", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c516", "status": "ok", "name": "msg_dispatch_476", "params": [], "docstring": "Builds and dispatches message header for type 0x5c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

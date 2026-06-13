@@ -1,0 +1,1 @@
+{"fn": "rf_init_blockb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e798", "status": "ok", "name": "rf_init_blockb", "params": [], "docstring": "Initialize RF subsystem block B with control registers and vector table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

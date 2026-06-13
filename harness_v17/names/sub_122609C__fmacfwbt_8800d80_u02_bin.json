@@ -1,0 +1,1 @@
+{"fn": "sub_122609C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122609c", "status": "ok", "name": "sub_122609C", "params": [], "docstring": "BT firmware initialization or configuration routine", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

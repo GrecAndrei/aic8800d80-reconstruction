@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210034", "status": "ok", "name": "log_free_dispatch_n1d4", "params": [], "docstring": "Dispatch and free a log entry of size 0x7c, dispatching based on type byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

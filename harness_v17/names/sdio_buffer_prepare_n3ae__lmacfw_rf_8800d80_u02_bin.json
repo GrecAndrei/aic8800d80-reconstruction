@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n3ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef62", "status": "ok", "name": "sdio_buffer_prepare_n3ae", "params": [], "docstring": "Prepare SDIO buffer with shifted offset", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

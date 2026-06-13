@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n28c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221d0", "status": "ok", "name": "rf_cmd_dispatch_n28c", "params": [], "docstring": "RF command dispatcher writing halfword to RF register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

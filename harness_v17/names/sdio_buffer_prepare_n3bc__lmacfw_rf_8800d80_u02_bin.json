@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n3bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef70", "status": "ok", "name": "sdio_buffer_prepare_n3bc", "params": [], "docstring": "Compute SDIO buffer offsets via shifts", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

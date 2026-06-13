@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121280a", "status": "ok", "name": "rf_bus_reset_80a", "params": [], "docstring": "Reset RF bus with bit-length clamping", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

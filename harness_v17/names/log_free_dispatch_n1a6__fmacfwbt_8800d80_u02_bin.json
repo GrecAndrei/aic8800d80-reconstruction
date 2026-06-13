@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210006", "status": "ok", "name": "log_buf_free_dispatch_n1a6", "params": [], "docstring": "Logs and frees dispatched message buffer entry", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

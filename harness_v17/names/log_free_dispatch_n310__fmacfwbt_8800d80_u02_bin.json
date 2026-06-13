@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n310", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210170", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatch log free entries from queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n310", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210170", "status": "ok", "name": "log_free_dispatch_170", "params": [], "docstring": "Dispatch log free entries from queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

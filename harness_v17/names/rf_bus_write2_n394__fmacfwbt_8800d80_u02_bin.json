@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n394", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e0c", "status": "ok", "name": "rf_bus_write2_e0c", "params": [], "docstring": "Performs a 32-bit RF bus register write with masked OR at offset 0xB00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

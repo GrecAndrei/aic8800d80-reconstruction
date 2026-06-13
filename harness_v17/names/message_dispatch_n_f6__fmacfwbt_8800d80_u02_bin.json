@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cabe", "status": "ok", "name": "message_dispatch_n_f6_abe", "params": [], "docstring": "Message dispatch compare against op 0x6c (size 0x24)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

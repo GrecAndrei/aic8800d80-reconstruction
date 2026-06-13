@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_458", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215090", "status": "ok", "name": "patch_decode_offset", "params": [], "docstring": "Decodes patch offset by extracting byte/nibble fields", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

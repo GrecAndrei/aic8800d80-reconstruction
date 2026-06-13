@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3e6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d62", "status": "ok", "name": "ipc_doorbell_init_handlers", "params": [], "docstring": "Initialize IPC doorbell handler table and route callbacks", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

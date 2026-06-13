@@ -1,0 +1,1 @@
+{"fn": "ps_upm_exit", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124972c", "status": "ok", "name": "ps_upm_exit", "params": [], "docstring": "Power-save UPM (Ultra Power Mode) exit handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

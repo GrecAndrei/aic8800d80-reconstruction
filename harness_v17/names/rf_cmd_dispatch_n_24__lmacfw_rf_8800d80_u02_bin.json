@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_24", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f20", "status": "ok", "name": "rf_cmd_dispatch_n_24", "params": [], "docstring": "Dispatch incoming RF command based on opcode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

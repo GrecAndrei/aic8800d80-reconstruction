@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nd6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211262", "status": "ok", "name": "rf_bus_mark_bits", "params": [], "docstring": "Marks bits in RF bus register via shifted AND/OR operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

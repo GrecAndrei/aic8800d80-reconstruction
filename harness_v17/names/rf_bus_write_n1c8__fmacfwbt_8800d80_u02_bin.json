@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n1c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b88", "status": "ok", "name": "rf_bus_write_n1c8", "params": [], "docstring": "Read and extract a bit from RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

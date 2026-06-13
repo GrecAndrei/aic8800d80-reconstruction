@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_12a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12116da", "status": "ok", "name": "rf_bus_setup_n_12a", "params": [], "docstring": "Sets up RF bus configuration from offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

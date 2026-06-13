@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nd0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117b0", "status": "ok", "name": "rf_bus_mark_word", "params": [], "docstring": "Write marker word to RF bus reg at offset 0x900 (leaf)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_474", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211588", "status": "ok", "name": "rf_bus_reset2_n_474", "params": [], "docstring": "Resets RF bus state and performs modulus-based index wrap", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

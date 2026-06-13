@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215256", "status": "ok", "name": "patch_apply_n3aa", "params": [], "docstring": "Apply firmware patch based on bitfield extraction from flags", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

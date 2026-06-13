@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121474c", "status": "ok", "name": "rf_fault_dump_n4", "params": [], "docstring": "Dump RF fault context and stack frame", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

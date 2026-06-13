@@ -1,0 +1,27 @@
+{
+  "function": "rf_bus_soft_reset",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x11221c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00112270      2b7b           ldrb r3, [r5, 0xc]",
+        "compiled": "0x00108356      ffffffff       invalid",
+        "fix_hint": "Compiled function body at 0x108356 is entirely 0xffffffff padding/unmapped; ensure linked .text section actually contains rf_bus_soft_reset code and is not zero/NULL-filled"
+      },
+      {
+        "type": "missing",
+        "original": "0x00112272      03f01f03       and r3, r3, 0x1f",
+        "compiled": "0x00108358      ffffffff       invalid",
+        "fix_hint": "Same root cause - compiled image at target offset is all-ones (erased flash / unmapped); verify link map places rf_bus_soft_reset at the expected address"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The entire compiled output region at 0x108356 is 0xffffffff, which is characteristic of unprogrammed flash or an unmapped/stripped ELF section - the reconstructed C source never made it into the test image",
+      "Original function at 0x11221c is Thumb-2 code (mix of 16-bit and 32-bit encodings); the compiled disasm at 0x108356 is being interpreted as 16-bit instructions on 0xfffffffe/0xffffffff boundaries, suggesting a Thumb/ARM mode or section-base miscalculation in the loader",
+      "Cannot perform any structural comparison because the compiled side has no decodeable instructions at the function's address - this is a complete reconstruction failure, not a localized fix"
+    ]
+  }
+}

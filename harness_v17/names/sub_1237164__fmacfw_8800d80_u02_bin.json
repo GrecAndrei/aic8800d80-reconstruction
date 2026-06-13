@@ -1,0 +1,1 @@
+{"fn": "sub_1237164", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237164", "status": "ok", "name": "sub_1237164", "params": [], "docstring": "Trampoline wrapper around sub-helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

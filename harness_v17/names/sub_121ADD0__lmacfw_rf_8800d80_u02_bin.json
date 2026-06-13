@@ -1,0 +1,1 @@
+{"fn": "sub_121ADD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121add0", "status": "ok", "name": "sub_121ADD0", "params": [], "docstring": "Lookup/validate state entry against stored pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

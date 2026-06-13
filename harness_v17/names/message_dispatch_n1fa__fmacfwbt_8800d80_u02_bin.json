@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdae", "status": "ok", "name": "message_dispatch_n1fa", "params": [], "docstring": "Dispatches incoming IPC messages to handler based on 0x84-byte struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

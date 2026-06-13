@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_3ab", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116cc", "status": "ok", "name": "rf_bus_write2_n_3ab", "params": [], "docstring": "Writes two-word value to RF indirect bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

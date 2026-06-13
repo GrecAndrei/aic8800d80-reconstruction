@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_462", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113f6", "status": "ok", "name": "rf_bus_reset2_n_462", "params": [], "docstring": "Compute RF bus offset, write byte to MMIO window 0x40240194", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

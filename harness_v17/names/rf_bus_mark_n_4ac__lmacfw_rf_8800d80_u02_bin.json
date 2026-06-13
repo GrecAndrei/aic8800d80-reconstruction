@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4ac", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ce0", "status": "ok", "name": "rf_bus_mark_n_4ac", "params": [], "docstring": "Marks RF bus register with 0x400000 flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

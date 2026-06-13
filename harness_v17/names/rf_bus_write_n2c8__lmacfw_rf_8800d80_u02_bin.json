@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n2c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211734", "status": "ok", "name": "rf_bus_write_and_call", "params": [], "docstring": "Write RF bus word then invoke post-write callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

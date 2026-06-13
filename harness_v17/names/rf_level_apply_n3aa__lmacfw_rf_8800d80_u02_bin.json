@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n3aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227182", "status": "ok", "name": "rf_bus_reset_n2c8", "params": [], "docstring": "Reset RF bus state via register bit shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

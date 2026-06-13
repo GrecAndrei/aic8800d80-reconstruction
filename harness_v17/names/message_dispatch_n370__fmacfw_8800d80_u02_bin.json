@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n370", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ccfc", "status": "ok", "name": "rf_bus_reset_n_4e", "params": [], "docstring": "RF bus reset with control field extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

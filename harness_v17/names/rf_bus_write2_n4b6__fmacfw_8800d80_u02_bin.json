@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n4b6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120d2", "status": "ok", "name": "rf_bus_write2_n4b6", "params": [], "docstring": "Tail of RF bus write routine with 3/5 status returns", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

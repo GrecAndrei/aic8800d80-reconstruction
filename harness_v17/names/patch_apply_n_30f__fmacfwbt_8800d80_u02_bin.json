@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_30f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151d8", "status": "ok", "name": "patch_apply_n_30f", "params": [], "docstring": "Apply patch and read MMIO status bit 20", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

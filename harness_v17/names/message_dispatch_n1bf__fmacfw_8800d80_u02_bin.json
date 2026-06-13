@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1bf", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb4a", "status": "ok", "name": "rf_cmd_send_n342", "params": [], "docstring": "Sends command to RF MCU via mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

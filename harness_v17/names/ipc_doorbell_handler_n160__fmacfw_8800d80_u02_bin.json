@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n160", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215adc", "status": "ok", "name": "ipc_doorbell_isr_entry", "params": [], "docstring": "IPC doorbell ISR entry; checks doorbell trigger flags and dispatches pending events", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

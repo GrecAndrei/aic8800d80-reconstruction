@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n18a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12220ce", "status": "ok", "name": "rf_cmd_dispatch_n18a", "params": [], "docstring": "Dispatch an RF control command with byte-extended argument", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

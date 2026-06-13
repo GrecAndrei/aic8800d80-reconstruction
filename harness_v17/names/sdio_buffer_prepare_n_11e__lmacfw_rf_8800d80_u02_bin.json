@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_11e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ea96", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare an SDIO transfer buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_11e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ea96", "status": "ok", "name": "sdio_buffer_prepare_a96", "params": [], "docstring": "Prepare an SDIO transfer buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_96", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158e6", "status": "ok", "name": "ipc_doorbell_handler_n_96", "params": [], "docstring": "Processes doorbell value with sign-extended byte arithmetic and clamping", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

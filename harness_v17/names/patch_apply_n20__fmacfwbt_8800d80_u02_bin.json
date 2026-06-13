@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215508", "status": "ok", "name": "patch_apply_n20_508", "params": [], "docstring": "Apply firmware patch from offset 0xc", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

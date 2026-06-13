@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a7a", "status": "ok", "name": "rf_cmd_wait_n_4f6", "params": [], "docstring": "Poll RF MMIO 0x40200000+0x804 until command completes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3a9", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a2e", "status": "ok", "name": "rf_level_apply_n_3a9", "params": [], "docstring": "Applies RF TX power/level by ORing bits 0x100 into register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

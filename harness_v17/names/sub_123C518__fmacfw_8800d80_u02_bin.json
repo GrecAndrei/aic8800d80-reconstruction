@@ -1,0 +1,1 @@
+{"fn": "sub_123C518", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123c518", "status": "ok", "name": "sub_123C518", "params": [], "docstring": "Parses indexed record header and dispatches by sub-byte tag", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

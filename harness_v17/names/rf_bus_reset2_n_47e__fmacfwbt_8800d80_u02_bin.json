@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_47e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113da", "status": "ok", "name": "rf_bus_reset2", "params": [], "docstring": "Performs secondary RF bus reset with shifted mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

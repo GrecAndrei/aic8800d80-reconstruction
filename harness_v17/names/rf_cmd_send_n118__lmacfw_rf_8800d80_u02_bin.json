@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n118", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a30", "status": "ok", "name": "rf_cmd_send_n118", "params": [], "docstring": "Send RF command; saves cmd id/arg, prepares RF request", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_370", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215178", "status": "ok", "name": "patch_apply_n_370", "params": [], "docstring": "Apply patch entry 370, pops saved regs and branches via return", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

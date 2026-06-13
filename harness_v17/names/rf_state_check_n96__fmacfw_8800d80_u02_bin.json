@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n96", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121226a", "status": "ok", "name": "rf_state_update_bit_n96", "params": [], "docstring": "Update RF state byte with bit-field insert from flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

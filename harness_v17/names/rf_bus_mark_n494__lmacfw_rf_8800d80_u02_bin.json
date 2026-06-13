@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n494", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211620", "status": "ok", "name": "rf_bus_mark_n494", "params": [], "docstring": "Mark or toggle RF bus state/flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

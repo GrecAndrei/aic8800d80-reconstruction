@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n472", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c76", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Set up RF bus for transceiver access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n472", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c76", "status": "ok", "name": "rf_bus_setup_c76", "params": [], "docstring": "Set up RF bus for transceiver access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

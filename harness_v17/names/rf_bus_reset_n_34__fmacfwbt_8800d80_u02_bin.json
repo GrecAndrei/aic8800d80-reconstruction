@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212810", "status": "ok", "name": "rf_bus_reset_n34", "params": [], "docstring": "RF bus reset configuring mode byte and mode 7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

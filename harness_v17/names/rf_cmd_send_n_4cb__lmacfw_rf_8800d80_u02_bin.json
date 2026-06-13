@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4cb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121244c", "status": "ok", "name": "rf_cmd_send_n_4cb", "params": [], "docstring": "Send RF command via bus, set OR with 0xc0000 control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

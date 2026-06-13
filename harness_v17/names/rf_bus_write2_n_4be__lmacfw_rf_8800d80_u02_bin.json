@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211066", "status": "ok", "name": "rf_bus_write2_n_4be", "params": [], "docstring": "Write RF bus register via indirect pointer with pattern 0x40240218", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124b0", "status": "ok", "name": "rf_state_check_n2dc", "params": [], "docstring": "RF state check toggling bits 0x84000000 in radio control register and popping context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

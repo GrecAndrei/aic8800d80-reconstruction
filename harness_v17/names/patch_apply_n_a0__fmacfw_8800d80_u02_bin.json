@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_a0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e0c", "status": "ok", "name": "patch_apply_n_1c6", "params": [], "docstring": "Apply FW patch block (0xc-byte copy)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

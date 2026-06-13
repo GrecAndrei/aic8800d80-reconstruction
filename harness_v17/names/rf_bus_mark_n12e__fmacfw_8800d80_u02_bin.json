@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n12e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12119b2", "status": "ok", "name": "rf_bus_mark_n12e", "params": [], "docstring": "Mark RF bus state with a call into common handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

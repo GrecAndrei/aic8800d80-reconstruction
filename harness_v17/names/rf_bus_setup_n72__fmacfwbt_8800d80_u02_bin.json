@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n72", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211dca", "status": "ok", "name": "rf_bus_setup_channel_1dca", "params": [], "docstring": "Configures RF bus channel register with shift/OR mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

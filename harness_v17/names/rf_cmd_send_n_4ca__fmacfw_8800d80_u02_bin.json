@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b46", "status": "ok", "name": "rf_cmd_send_n_4ca_2b46", "params": [], "docstring": "Sends RF command with MMIO register updates and flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

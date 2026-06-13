@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n96", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f62a", "status": "ok", "name": "rf_mem_read_n96", "params": [], "docstring": "Reads from RF memory-mapped region with address shift", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_nf4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121483c", "status": "ok", "name": "rf_fault_handler_nf4", "params": [], "docstring": "RF fault handler tail that sets fault byte and triggers vector", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

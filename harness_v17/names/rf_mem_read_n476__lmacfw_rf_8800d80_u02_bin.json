@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n476", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa0a", "status": "ok", "name": "rf_mem_read_n476", "params": [], "docstring": "Read RF memory entry and store halfword by table index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

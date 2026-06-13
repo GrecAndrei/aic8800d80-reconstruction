@@ -1,0 +1,1 @@
+{"fn": "sub_123698C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123698c", "status": "ok", "name": "sub_123698C", "params": [], "docstring": "Initialize/register module with id 0x3f and 7 entries", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

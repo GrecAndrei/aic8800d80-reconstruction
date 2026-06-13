@@ -1,1 +1,1 @@
-{"fn": "patch_apply_nc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154f4", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_nc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154f4", "status": "ok", "name": "patch_apply_4f4", "params": [], "docstring": "Apply firmware patch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_25c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12117a0", "status": "ok", "name": "rf_bus_reset2_n_25c", "params": [], "docstring": "Reset RF bus controller via 0x40240018 region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

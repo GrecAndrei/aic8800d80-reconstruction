@@ -1,0 +1,1 @@
+{"fn": "sub_12247D8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12247d8", "status": "ok", "name": "sub_12247D8", "params": [], "docstring": "Branch on state value, push r3-r5/lr prologue", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

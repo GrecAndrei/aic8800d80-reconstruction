@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n32", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121551a", "status": "ok", "name": "patch_apply_n32", "params": [], "docstring": "Apply FW patch table from ROM to RAM", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1201A20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1201a20", "status": "ok", "name": "mmio_bit_modify", "params": [], "docstring": "Read-modify-write MMIO register at 0x403410a0 clearing/setting bit 3 based on arg", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

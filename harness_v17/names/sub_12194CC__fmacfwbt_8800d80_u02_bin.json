@@ -1,0 +1,1 @@
+{"fn": "sub_12194CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12194cc", "status": "ok", "name": "sub_12194CC", "params": [], "docstring": "Indexed lookup into 0x2b8-sized element array, shift-test field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

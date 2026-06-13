@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154d0", "status": "ok", "name": "fmac_init_post_load", "params": [], "docstring": "Initialize FMAC sub-modules after firmware load", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

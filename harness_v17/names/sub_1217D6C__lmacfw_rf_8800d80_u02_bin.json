@@ -1,0 +1,1 @@
+{"fn": "sub_1217D6C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217d6c", "status": "ok", "name": "sub_1217D6C", "params": [], "docstring": "Push-context helper loading offset 0x30 from argument struct", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

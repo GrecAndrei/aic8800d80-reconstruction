@@ -1,0 +1,1 @@
+{"fn": "sub_120D1FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d1fc", "status": "ok", "name": "mmio_init_or_reset", "params": [], "docstring": "Initialize MMIO region and store caller pointer to shared config reg", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

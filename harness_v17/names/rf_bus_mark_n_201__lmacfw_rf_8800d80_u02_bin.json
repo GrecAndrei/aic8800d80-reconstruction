@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_201", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f8a", "status": "ok", "name": "rf_bus_mark_n_201", "params": [], "docstring": "Mark/set RF bus state with byte extraction and bit shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

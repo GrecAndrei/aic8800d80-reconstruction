@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4f5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d0a8", "status": "ok", "name": "message_dispatch_n4f5", "params": [], "docstring": "Dispatch incoming message by type/handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

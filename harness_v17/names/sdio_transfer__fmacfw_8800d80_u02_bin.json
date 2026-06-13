@@ -1,0 +1,1 @@
+{"fn": "sdio_transfer", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d808", "status": "ok", "name": "sdio_transfer_808", "params": [], "docstring": "SDIO data transfer handler with 256-byte buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

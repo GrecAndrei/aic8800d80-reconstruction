@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n296", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121577e", "status": "ok", "name": "patch_apply_n296", "params": [], "docstring": "Applies firmware patch by writing patch entry to NVIC region (0xe000ed00)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

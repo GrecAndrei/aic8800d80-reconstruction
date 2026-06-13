@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_22a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121451e", "status": "ok", "name": "rf_fault_dump_n_22a", "params": [], "docstring": "Dump RF fault state bytes into diagnostic buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

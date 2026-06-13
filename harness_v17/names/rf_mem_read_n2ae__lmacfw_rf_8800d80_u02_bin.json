@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n2ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f842", "status": "ok", "name": "rf_mem_read_n2ae", "params": [], "docstring": "RF memory read with bit shifts by 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

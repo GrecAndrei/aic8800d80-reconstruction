@@ -1,0 +1,1 @@
+{"fn": "sub_12404CC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12404cc", "status": "ok", "name": "bt_hci_cmd_check", "params": [], "docstring": "Check/issue HCI command with id 0xb and verify result", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

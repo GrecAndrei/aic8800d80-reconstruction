@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n21e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211bde", "status": "ok", "name": "rf_bus_write_n21e", "params": [], "docstring": "Trivial RF bus write trampoline (bx lr)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

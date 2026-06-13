@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_314", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151d4", "status": "ok", "name": "patch_apply_n_108", "params": [], "docstring": "Validate patch signature against 'WIFI' magic (0x49464957)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

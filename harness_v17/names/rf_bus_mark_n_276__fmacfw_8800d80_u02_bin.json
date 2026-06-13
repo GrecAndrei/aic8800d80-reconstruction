@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_276", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121160e", "status": "ok", "name": "ipc_doorbell_handler_n188", "params": [], "docstring": "Handle host->LMAC IPC doorbell interrupt by reading doorbell state from shared ptr", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

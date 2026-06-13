@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_38f", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211350", "status": "ok", "name": "rf_mem_write_n39a", "params": [], "docstring": "Writes value to RF memory via str with byte-reversed index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

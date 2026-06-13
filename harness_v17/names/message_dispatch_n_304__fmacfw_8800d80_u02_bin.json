@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_304", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c688", "status": "ok", "name": "message_dispatch_n_304", "params": [], "docstring": "Re-enable IRQs and dispatch IPC message from shared queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

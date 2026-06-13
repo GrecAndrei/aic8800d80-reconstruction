@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f96", "status": "ok", "name": "patch_apply_nea", "params": [], "docstring": "Apply firmware patch with halfword-extended index compare", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

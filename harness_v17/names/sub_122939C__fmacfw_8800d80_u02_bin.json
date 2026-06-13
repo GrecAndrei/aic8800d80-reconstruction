@@ -1,0 +1,1 @@
+{"fn": "sub_122939C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122939c", "status": "ok", "name": "mmio_reg_init_n_39c", "params": [], "docstring": "Initialize MMIO control registers at 0x4032xxxx with status read", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

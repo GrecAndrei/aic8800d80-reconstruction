@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3cc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211630", "status": "ok", "name": "rf_bus_reset2_n_3cc", "params": [], "docstring": "Resets RF bus state by clearing registers and writing halfword values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

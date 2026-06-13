@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_415", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211056", "status": "ok", "name": "rf_cmd_queue_next_n_86", "params": [], "docstring": "Advance RF command queue to next slot", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

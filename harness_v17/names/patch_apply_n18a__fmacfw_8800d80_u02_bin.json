@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n18a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215036", "status": "ok", "name": "sub_121XXXX", "params": [], "docstring": "Unseen function; placeholder based on firmware pattern", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n18a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215036", "status": "ok", "name": "sub_121XXXX_036", "params": [], "docstring": "Unseen function; placeholder based on firmware pattern", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

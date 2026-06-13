@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n1fe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f792", "status": "ok", "name": "rf_mem_read_n1fe", "params": [], "docstring": "RF memory read entry with SVC 0x60 prologue and id 0x414", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

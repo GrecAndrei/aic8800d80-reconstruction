@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_e4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ead0", "status": "ok", "name": "sdio_buffer_prepare_n_e4", "params": [], "docstring": "Copy 32 bytes via ldm/stm from offset 0x100 in source buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n9a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fde", "status": "ok", "name": "rf_cmd_dispatch_n9a", "params": [], "docstring": "Dispatch RF command via table indexed by command ID", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

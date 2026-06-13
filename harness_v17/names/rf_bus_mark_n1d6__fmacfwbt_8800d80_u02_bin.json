@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118b6", "status": "ok", "name": "rf_bus_mark_n1d6", "params": [], "docstring": "Sets RF bus register fields via ORR/BIC bit manipulation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

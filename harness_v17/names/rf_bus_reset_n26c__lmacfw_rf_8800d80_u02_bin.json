@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n26c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121255c", "status": "ok", "name": "rf_register_field_reset_26c", "params": [], "docstring": "Compute masked/shifted RF register field for reset write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n12", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e7e", "status": "ok", "name": "rf_cmd_send_e7e", "params": [], "docstring": "Validate and send RF command (cmd_id 1-5)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n432", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210002", "status": "ok", "name": "log_free_pool_dispatch2_n432", "params": [], "docstring": "Release log entry back to free pool with header copy", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

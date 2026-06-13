@@ -1,0 +1,1 @@
+{"fn": "sub_122F730", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f730", "status": "ok", "name": "mem_clear_init", "params": [], "docstring": "Initialize/zero a 8-byte buffer then return 0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

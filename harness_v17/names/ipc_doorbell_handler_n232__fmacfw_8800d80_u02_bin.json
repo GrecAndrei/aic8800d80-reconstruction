@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n232", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215bae", "status": "ok", "name": "rf_mmio_status_poll_n188", "params": [], "docstring": "Read MMIO 0x70001044 and extract nibble status field", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

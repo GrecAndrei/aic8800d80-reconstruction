@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4d8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215384", "status": "ok", "name": "patch_apply_byte", "params": [], "docstring": "Apply firmware patch byte (checks 0x5c)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

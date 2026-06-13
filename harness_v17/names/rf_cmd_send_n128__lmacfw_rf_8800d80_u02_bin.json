@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n128", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a40", "status": "ok", "name": "rf_cmd_send_n128", "params": [], "docstring": "Build and send RF command with 128-bit/byte payload encoding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

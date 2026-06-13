@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_nfe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a16", "status": "ok", "name": "rf_cmd_send_nfe", "params": [], "docstring": "Send NFE (notification/frame event) RF command with state update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

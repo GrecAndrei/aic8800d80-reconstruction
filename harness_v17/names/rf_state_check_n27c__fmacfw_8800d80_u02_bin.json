@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n27c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212450", "status": "ok", "name": "rf_state_check_n27c", "params": [], "docstring": "Check RF state bit (bit7) and update state byte to 7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

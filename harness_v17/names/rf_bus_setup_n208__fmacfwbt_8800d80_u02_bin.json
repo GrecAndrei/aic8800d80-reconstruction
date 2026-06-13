@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n208", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f60", "status": "ok", "name": "rf_bus_setup_probe_b00", "params": [], "docstring": "Probes bus register at 0xB00 offset and checks status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n49a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124ca", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Validate RF subsystem state before op", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n49a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124ca", "status": "ok", "name": "rf_state_check_4ca", "params": [], "docstring": "Validate RF subsystem state before op", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

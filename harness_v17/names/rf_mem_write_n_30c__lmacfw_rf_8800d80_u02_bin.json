@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_30c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221d20", "status": "ok", "name": "rf_mem_write_n_30c", "params": [], "docstring": "Write RF memory structure fields and check size", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

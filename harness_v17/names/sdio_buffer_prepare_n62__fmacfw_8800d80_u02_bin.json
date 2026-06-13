@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n62", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e17e", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO buffer offset via left shifts", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

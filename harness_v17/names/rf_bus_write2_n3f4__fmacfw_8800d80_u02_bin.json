@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n3f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212010", "status": "ok", "name": "rf_bus_write2_010", "params": [], "docstring": "Write 32-bit value to RF bus (SDIO function 2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

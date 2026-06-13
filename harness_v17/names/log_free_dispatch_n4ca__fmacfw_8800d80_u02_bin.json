@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12104d2", "status": "ok", "name": "sub_1204FE0", "params": [], "docstring": "Helper comparing two pointers/handles with extra arg", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

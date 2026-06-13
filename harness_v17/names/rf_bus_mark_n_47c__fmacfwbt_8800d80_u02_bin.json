@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_47c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211264", "status": "ok", "name": "rf_bus_mark_n_47c", "params": [], "docstring": "Update RF bus counter and load calibration pointers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n304", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e68", "status": "ok", "name": "rf_bus_write_n304", "params": [], "docstring": "Write word to RF bus via mailbox and trigger transfer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

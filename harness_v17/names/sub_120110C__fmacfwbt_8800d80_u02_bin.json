@@ -1,0 +1,1 @@
+{"fn": "sub_120110C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120110c", "status": "ok", "name": "sys_irq_dispatch", "params": [], "docstring": "System interrupt dispatch reading MMIO registers 0x40344000-0x40344084", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

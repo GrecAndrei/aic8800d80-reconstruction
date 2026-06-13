@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_38a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211892", "status": "ok", "name": "rf_bus_write2_n_38a", "params": [], "docstring": "Performs 32-bit RF bus write with byte-masked control fields (0xc0 OR)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

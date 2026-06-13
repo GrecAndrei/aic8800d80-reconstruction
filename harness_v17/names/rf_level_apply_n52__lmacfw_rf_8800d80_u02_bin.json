@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n52", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e2a", "status": "ok", "name": "rf_level_apply_n52", "params": [], "docstring": "Applies RF level/calibration values into struct offsets 9-0xd", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

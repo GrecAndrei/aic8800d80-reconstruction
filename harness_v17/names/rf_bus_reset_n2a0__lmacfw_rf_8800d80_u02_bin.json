@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2a0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212590", "status": "ok", "name": "rf_bus_reset_n2a0", "params": [], "docstring": "Resets RF bus (n2a0 variant) by writing reset control sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

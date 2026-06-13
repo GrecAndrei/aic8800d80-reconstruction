@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n23c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215724", "status": "ok", "name": "patch_apply_n23c", "params": [], "docstring": "Apply firmware patch, set bit and call helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

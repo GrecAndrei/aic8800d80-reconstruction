@@ -1,0 +1,1 @@
+{"fn": "sub_1222D7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1222d7c", "status": "ok", "name": "sub_1222D7C", "params": [], "docstring": "Copy 8-byte record (ptr+4 bytes+halfword) to global table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

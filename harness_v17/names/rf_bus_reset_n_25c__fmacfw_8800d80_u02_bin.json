@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_25c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121278c", "status": "ok", "name": "rf_bus_reset_n_25c_278c", "params": [], "docstring": "RF bus reset: pack byte pair into 16-bit register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

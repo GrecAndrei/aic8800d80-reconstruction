@@ -108,7 +108,7 @@ void queue_pending_check(void);
 void uart_puts(void);
 void mm_set_idle_cfm_handler(void);
 void mm_sta_add_cfm_handler(void);
-void mm_chan_ctxt_unlink_cfm_handler(void);
+void rf_bus_reset_n_90(void);
 void mm_hw_config_handler(void);
 void mm_bss_param_setting_handler(void);
 void usb_trans_error_handler(void);
@@ -132,7 +132,7 @@ void mm_ba_add_cfm_handler(void);
 void mm_set_ps_options_req_handler(void);
 void uart_putc(void);
 void ke_timer_clear(void);
-void ke_timer_set(void);
+void rf_bus_reset_n_42e(void);
 void ke_evt_schedule(void);
 void apm_start_req_handler(void);
 void apm_start_cac_req_handler(void);
@@ -1095,7 +1095,7 @@ void mm_sta_add_cfm_handler(void) {
 }
 
 /* unit=lift_0187 class=critical score=9.961 addr=0x4bc6c */
-void mm_chan_ctxt_unlink_cfm_handler(void) {
+void rf_bus_reset_n_90(void) {
   // TODO: integrate control/data flow.
 }
 
@@ -1241,7 +1241,7 @@ void ke_timer_clear(void) {
 }
 
 /* unit=lift_0209 class=high score=9.390 addr=0x4a068 */
-void ke_timer_set(void) {
+void rf_bus_reset_n_42e(void) {
   // TODO: integrate control/data flow.
 }
 

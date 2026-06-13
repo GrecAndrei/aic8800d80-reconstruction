@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb86", "status": "ok", "name": "message_dispatch_n1fa", "params": [], "docstring": "IPC message dispatch handler with 0x84-byte payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

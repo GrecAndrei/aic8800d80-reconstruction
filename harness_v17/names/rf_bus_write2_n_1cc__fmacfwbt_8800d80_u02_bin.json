@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_1cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118ac", "status": "ok", "name": "rf_bus_write2_n_1cc", "params": [], "docstring": "Write data to RF bus with bit field manipulation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

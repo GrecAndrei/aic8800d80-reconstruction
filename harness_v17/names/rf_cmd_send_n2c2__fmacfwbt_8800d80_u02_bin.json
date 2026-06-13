@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n2c2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121312e", "status": "ok", "name": "rf_cmd_send_n2c2", "params": [], "docstring": "Sends RF command to control queue", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2e2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121200e", "status": "ok", "name": "rf_bus_reset_n_2e2", "params": [], "docstring": "Stores bus control fields and reads status halfword", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

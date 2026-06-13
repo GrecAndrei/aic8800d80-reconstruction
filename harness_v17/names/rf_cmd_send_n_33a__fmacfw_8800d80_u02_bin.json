@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_33a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212cd6", "status": "ok", "name": "rf_cmd_send_n_33a", "params": [], "docstring": "Send RF command variant 0x33a", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4e3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211738", "status": "ok", "name": "sdio_buffer_prepare_n_2de", "params": [], "docstring": "Prepares SDIO transfer buffer returning zero on entry", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

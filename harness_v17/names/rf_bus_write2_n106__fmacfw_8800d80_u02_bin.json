@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n106", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d22", "status": "ok", "name": "rf_bus_write2_n106", "params": [], "docstring": "RF bus 2-register write (variant n106)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n106", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d22", "status": "ok", "name": "rf_bus_write2_n106_d22", "params": [], "docstring": "RF bus 2-register write (variant n106)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

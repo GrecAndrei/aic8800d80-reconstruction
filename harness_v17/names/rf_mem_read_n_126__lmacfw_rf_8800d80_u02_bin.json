@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_126", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f46e", "status": "ok", "name": "rf_mem_read_n_126", "params": [], "docstring": "Reads RF memory using embedded address pointers (0x14ded0, 0x14aa88)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n37a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215862", "status": "ok", "name": "patch_apply_n37a", "params": [], "docstring": "Extract patch configuration bits and store parameters to stack", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

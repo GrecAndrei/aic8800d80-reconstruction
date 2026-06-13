@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3c4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212cdc", "status": "ok", "name": "rf_cmd_send_n3c4", "params": [], "docstring": "Send byte command to RF control register and load constant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

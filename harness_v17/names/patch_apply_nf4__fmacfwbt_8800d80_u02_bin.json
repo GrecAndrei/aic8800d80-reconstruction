@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nf4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155dc", "status": "ok", "name": "patch_apply_nf4", "params": [], "docstring": "Apply firmware patch and store revision byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

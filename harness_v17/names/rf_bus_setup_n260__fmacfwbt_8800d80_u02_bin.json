@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n260", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fb8", "status": "ok", "name": "rf_bus_setup_n260", "params": [], "docstring": "Set up RF bus registers and access window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

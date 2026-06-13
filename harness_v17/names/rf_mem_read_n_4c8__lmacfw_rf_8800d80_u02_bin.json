@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_4c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f0cc", "status": "ok", "name": "rf_mem_read_n_4c8", "params": [], "docstring": "Reads RF memory block with n4c8 access pattern", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

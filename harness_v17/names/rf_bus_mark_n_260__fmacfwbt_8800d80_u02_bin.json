@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_260", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211480", "status": "ok", "name": "rf_bus_mark_n_260", "params": [], "docstring": "RF bus mark/set variant n_260", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_260", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211480", "status": "ok", "name": "rf_bus_mark_n_260_1480", "params": [], "docstring": "RF bus mark/set variant n_260", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

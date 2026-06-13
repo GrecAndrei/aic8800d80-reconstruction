@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n36a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215852", "status": "ok", "name": "patch_apply_n36a", "params": [], "docstring": "Applies patch n36a via bit-field extraction from register", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

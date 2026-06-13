@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150d0", "status": "ok", "name": "patch_apply_n224", "params": [], "docstring": "Apply firmware patch table entry 224", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

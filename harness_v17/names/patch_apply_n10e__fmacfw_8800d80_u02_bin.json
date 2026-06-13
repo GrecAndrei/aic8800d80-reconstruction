@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n10e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fba", "status": "ok", "name": "patch_apply_n10e", "params": [], "docstring": "Applies a firmware patch by writing a byte to a target address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

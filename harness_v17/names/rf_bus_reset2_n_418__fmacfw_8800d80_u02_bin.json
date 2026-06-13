@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_418", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115e4", "status": "ok", "name": "rf_bus_reset2_n_418", "params": [], "docstring": "Reset RF bus and restore register state at offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

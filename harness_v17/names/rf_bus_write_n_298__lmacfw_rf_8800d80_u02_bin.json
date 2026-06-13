@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_298", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111d4", "status": "ok", "name": "rf_bus_write_n_298", "params": [], "docstring": "RF bus write with OR-0xc0 mask and byte stores", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

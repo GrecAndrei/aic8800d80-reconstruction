@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_1b2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212dae", "status": "ok", "name": "rf_msg_handler_n_1b2", "params": [], "docstring": "Handles RF message dispatch by reading message id from queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

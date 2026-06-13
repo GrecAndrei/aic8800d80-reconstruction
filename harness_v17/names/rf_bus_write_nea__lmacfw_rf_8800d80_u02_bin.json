@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_nea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211556", "status": "ok", "name": "rf_bus_write_nea", "params": [], "docstring": "RF bus write with OR-masked flags and conditional cmp", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

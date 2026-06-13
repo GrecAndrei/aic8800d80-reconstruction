@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121323c", "status": "ok", "name": "rf_msg_handler_n2dc", "params": [], "docstring": "Handle incoming RF mailbox message and dispatch to sub-handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

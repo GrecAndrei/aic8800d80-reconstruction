@@ -1,0 +1,41 @@
+{
+  "function": "ipc_msg_post_check",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x1136f4",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001136f4      08b5           push {r3, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output at 0x100000 is entirely 0xffffffff (unprogrammed/empty flash) - entire function body is missing or emitted to wrong image region"
+      },
+      {
+        "type": "missing",
+        "original": "0x001136f6      144b           ldr r3, [0x00113748] ; loads 0x1583b8",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "LDR literal load of 0x1583b8 (pointer to ke_env-style global) is absent in compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x001136f8      1a68           ldr r2, [r3] ; deref to get saved msg ptr",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Deref of global pointer to load r2 is absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x001136fa      9042           cmp r0, r2",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Comparison of arg0 (r0) against loaded global (r2) is absent"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled function appears to be all 0xffffffff at 0x100000 - looks like unprogrammed flash or a placeholder/no-code-emitted case",
+      "Behavioral trace is null - the mechanical generator likely never produced real code for this function",
+      "Original is a tiny 4-instruction prologue: push, load global pointer from 0x113748 (=>0x1583b8), deref to r2, cmp r0,r2 - almost certainly reads a 'last posted msg id' from ke_env and compares to arg0",
+      "Entire compiled artifact is missing, so no structural recovery is possible from the compiled side; generator may have been given wrong source, wrong base address, or failed to assemble the stub",
+      "0x1583b8 is a known global (likely ke_env or similar) - compiled C should emit an ldr.w r3, [pc, #...] loading that absolute address into r3, then ldr r2, [r3], then cmp r0, r2"
+    ]
+  }
+}

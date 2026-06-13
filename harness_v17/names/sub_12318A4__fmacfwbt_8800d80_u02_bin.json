@@ -1,0 +1,1 @@
+{"fn": "sub_12318A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12318a4", "status": "ok", "name": "subproc_acquire_id5", "params": [], "docstring": "Acquire sub-process handle id 5 and check ready", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

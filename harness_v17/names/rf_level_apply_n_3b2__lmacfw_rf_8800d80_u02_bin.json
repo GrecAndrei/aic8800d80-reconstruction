@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3b2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a26", "status": "ok", "name": "rf_cmd_wait_done", "params": [], "docstring": "Poll RF command status register for completion (0x928)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

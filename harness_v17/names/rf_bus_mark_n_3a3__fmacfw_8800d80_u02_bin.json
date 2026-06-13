@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3a3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114e0", "status": "ok", "name": "rf_bus_mark_n_3a3", "params": [], "docstring": "Mark RF bus status register compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

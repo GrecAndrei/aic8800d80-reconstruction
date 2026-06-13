@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_nbb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113be", "status": "ok", "name": "rf_bus_reset2_nbb", "params": [], "docstring": "RF bus reset2 sequence (variant nbb)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

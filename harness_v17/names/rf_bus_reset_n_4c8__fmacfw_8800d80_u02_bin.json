@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212520", "status": "ok", "name": "rf_bus_reset_n_4c8", "params": [], "docstring": "RF bus reset variant 0x4c8: writes constant 0x182324 to bus reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1b4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ed68", "status": "ok", "name": "sdio_buffer_prepare_n1b4", "params": [], "docstring": "Prepare SDIO buffer descriptor", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

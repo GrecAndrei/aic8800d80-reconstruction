@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211cb4", "status": "ok", "name": "rf_bus_init_n4b0", "params": [], "docstring": "Initialize RF bus with MMIO base/strap config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

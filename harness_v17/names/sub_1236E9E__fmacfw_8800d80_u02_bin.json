@@ -1,0 +1,1 @@
+{"fn": "sub_1236E9E", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236e9e", "status": "ok", "name": "sub_1236E9E", "params": [], "docstring": "Helper dispatching sub-task with 0x1006 tag to message queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

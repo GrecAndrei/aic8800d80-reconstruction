@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_38b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114f8", "status": "ok", "name": "rf_bus_mark_n_38b", "params": [], "docstring": "Mark RF bus transaction, write 0x1000 to 0x40240018", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

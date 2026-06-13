@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_343", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151a4", "status": "ok", "name": "patch_apply_n_343", "params": [], "docstring": "Apply firmware patch with register write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

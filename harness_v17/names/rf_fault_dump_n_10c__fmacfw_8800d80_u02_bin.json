@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_10c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121463c", "status": "ok", "name": "rf_msg_handler_n3b0", "params": [], "docstring": "Checks RF message gate flag before processing an incoming RF message", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

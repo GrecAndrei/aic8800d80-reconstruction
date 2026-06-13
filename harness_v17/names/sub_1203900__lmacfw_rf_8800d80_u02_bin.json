@@ -1,0 +1,1 @@
+{"fn": "sub_1203900", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1203900", "status": "ok", "name": "rf_pll_init_n900", "params": [], "docstring": "Initialize RF PLL/clock registers at 0x40342004/0x40342228", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

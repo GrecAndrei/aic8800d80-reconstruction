@@ -1,0 +1,1 @@
+{"fn": "sub_122B4E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b4e4", "status": "ok", "name": "ipc_msg_alloc_n0", "params": [], "docstring": "Allocate/initialize IPC message (id 0x804) and link to queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

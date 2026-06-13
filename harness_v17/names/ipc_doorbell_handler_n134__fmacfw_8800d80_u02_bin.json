@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n134", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215ab0", "status": "ok", "name": "ipc_doorbell_handler_n134", "params": [], "docstring": "Handles IPC doorbell with byte/halfword store-and-ack pattern", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

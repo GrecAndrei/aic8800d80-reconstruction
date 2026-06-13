@@ -1,0 +1,1 @@
+{"fn": "sub_12205BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12205bc", "status": "ok", "name": "wifi_mac_init_n_05bc", "params": [], "docstring": "Initialize WiFi MAC MMIO registers block", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n114", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155fc", "status": "ok", "name": "patch_apply_table", "params": [], "docstring": "Apply a patch entry by clearing control bits and reading patch data", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

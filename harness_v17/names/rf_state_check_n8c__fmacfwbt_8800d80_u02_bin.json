@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n8c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120bc", "status": "ok", "name": "rf_state_check_sub8_n8c", "params": [], "docstring": "RF state check: adjusts state by subtracting 8 and clearing status fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

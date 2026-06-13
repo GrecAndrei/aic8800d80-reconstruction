@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212806", "status": "ok", "name": "rf_bus_reset_n_3e", "params": [], "docstring": "RF bus reset reading halfword register at offset 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

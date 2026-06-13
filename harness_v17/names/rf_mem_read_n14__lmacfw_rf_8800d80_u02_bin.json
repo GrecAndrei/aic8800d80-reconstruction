@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n14", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5a8", "status": "ok", "name": "rf_mem_read_field", "params": [], "docstring": "Read and branch on RF memory field value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

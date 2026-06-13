@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_26e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c946", "status": "ok", "name": "msg_dispatch_router", "params": [], "docstring": "Route a dispatched message using a table-based switch on id", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

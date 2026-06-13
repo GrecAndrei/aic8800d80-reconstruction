@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n398", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215880", "status": "ok", "name": "ipc_doorbell_handler_n_1f4", "params": [], "docstring": "Handle IPC doorbell interrupt variant 1f4 (msg IDs 0x78/0x9c)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

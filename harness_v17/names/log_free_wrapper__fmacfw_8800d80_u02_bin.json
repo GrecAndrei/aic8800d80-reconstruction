@@ -1,0 +1,1 @@
+{"fn": "log_free_wrapper", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120f370", "status": "ok", "name": "log_free_wrapper", "params": [], "docstring": "Releases a log buffer (size 0x50) and signals completion", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

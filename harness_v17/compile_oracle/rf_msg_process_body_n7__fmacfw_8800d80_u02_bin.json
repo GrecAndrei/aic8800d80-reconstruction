@@ -1,0 +1,41 @@
+{
+  "function": "rf_msg_process_body_n7",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x113c4e",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "ldrb r7, [r0, 0x18]",
+        "compiled": "0x10a564: 0xd1a72d01 (32-bit Thumb-2, decoded as invalid) / 0x10a568: ldr r0, [0x0010a734] (loads 0x165400)",
+        "fix_hint": "First compiled insn is a 32-bit Thumb-2 load/store, not the original ldrb of struct field at offset 0x18; function prologue/structure is wrong"
+      },
+      {
+        "type": "missing",
+        "original": "cmp r3, 0x1f",
+        "compiled": "str.w r8, [sp, #0x2c] / mov r1, r4 (no comparison present)",
+        "fix_hint": "Reconstruction is performing a stack spill and argument setup, not a bounds compare against 0x1f"
+      },
+      {
+        "type": "wrong_op",
+        "original": "mov r5, r0",
+        "compiled": "mov r1, r4",
+        "fix_hint": "Wrong source register (r4 instead of r0) and wrong destination (r1 instead of r5)"
+      },
+      {
+        "type": "extra",
+        "original": "(none)",
+        "compiled": "ldr r0, [0x10a734] loading 0x165400; str.w r8, [sp, #0x2c]",
+        "fix_hint": "Compiled function loads a global pointer and spills r8; original function does no such operations at this point"
+      }
+    ],
+    "match_pct": 5,
+    "concerns": [
+      "Function address mismatch: original at 0x113c4e, compiled placed at 0x10a564 \u2014 different code region entirely",
+      "The first instruction at 0x10a564 (0xd1a72d01) is a 32-bit Thumb-2 insn; user's listing shows 'invalid' which suggests the disassembler is mis-aligned or the byte at 0x10a564 is not the real function start",
+      "Original prologue structure (ldrb offset 0x18, cmp 0x1f, save arg in r5) is a typical msg-body length check \u2014 compiled version has none of this shape",
+      "Compiled reconstruction appears to be a different function (likely a different rf_msg_process_body_nX variant or unrelated init) mapped to the wrong name",
+      "Strongly recommend re-mapping the symbol: the compiled body corresponds to a function that loads from PC-relative literal 0x165400, not the msg dispatcher in the original"
+    ]
+  }
+}

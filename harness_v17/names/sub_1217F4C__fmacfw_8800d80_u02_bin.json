@@ -1,0 +1,1 @@
+{"fn": "sub_1217F4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217f4c", "status": "ok", "name": "fw_state_check_init", "params": [], "docstring": "Check firmware state flag at 0x182720 and branch on init status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

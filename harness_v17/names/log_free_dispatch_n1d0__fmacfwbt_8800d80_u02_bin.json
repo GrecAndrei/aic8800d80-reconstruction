@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1d0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210030", "status": "ok", "name": "patch_apply_n_32", "params": [], "docstring": "Apply a 32-bit patch if the target halfword flag is non-zero", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

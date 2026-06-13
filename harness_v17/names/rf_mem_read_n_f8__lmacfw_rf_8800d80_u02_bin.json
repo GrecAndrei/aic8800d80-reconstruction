@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f49c", "status": "ok", "name": "rf_mem_read_n_f8", "params": [], "docstring": "Bulk RF mem read via SVC 0xc, store result to global, lmacfw_rf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

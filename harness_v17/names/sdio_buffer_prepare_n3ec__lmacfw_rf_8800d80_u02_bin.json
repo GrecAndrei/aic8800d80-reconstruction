@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n3ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121efa0", "status": "ok", "name": "sdio_buffer_prepare_n3ec", "params": [], "docstring": "Prepares SDIO transfer buffer header and length field", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

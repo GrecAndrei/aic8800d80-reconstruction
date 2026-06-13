@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n30e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213f56", "status": "ok", "name": "rf_msg_process_body_n30e", "params": [], "docstring": "Process RF IPC message body variant 30e", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

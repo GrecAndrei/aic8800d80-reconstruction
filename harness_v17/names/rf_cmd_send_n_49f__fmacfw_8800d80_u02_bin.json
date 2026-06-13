@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_49f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b70", "status": "ok", "name": "rf_cmd_send_n_49f", "params": [], "docstring": "Sends an RF command of size 0x50 to RF controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

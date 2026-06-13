@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_304", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d0c", "status": "ok", "name": "rf_cmd_send_n_304", "params": [], "docstring": "Send RF command with bitmask flag checks (0x40000/0x80000/0x800)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_120D02C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d02c", "status": "ok", "name": "sub_120D02C", "params": [], "docstring": "Reads MMIO register 0x40035104 and processes bit flags", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

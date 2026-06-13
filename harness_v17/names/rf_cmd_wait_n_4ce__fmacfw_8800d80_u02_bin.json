@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_4ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212aa2", "status": "ok", "name": "rf_cmd_wait_2aa2", "params": [], "docstring": "Poll MMIO command/completion registers at 0x40200900 region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

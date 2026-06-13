@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n468", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c6c", "status": "ok", "name": "rf_bus_setup_n468", "params": [], "docstring": "Set up RF bus with 0xa000040 and configure related MMIO regions", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

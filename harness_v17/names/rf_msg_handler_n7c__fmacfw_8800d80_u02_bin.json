@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n7c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213180", "status": "ok", "name": "rf_msg_handler_n7c", "params": [], "docstring": "RF message handler; mod-5 table index on 0x981 base field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

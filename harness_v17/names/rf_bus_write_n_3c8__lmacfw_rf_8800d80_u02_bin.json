@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_3c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110a4", "status": "ok", "name": "rf_bus_write_setup_3c8", "params": [], "docstring": "Sets up RF bus write with 16-bit mode and waits ready", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

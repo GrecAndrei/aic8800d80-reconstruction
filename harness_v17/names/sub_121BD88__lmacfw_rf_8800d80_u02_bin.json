@@ -1,0 +1,1 @@
+{"fn": "sub_121BD88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121bd88", "status": "ok", "name": "rf_indexed_lookup_n_88", "params": [], "docstring": "Indexed table lookup using r0*7 stride into RF state array", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

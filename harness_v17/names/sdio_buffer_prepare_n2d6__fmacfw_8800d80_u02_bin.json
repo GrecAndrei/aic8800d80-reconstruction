@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3f2", "status": "ok", "name": "sdio_buffer_prepare_n2d6", "params": [], "docstring": "Tail of SDIO buffer prepare copying register value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

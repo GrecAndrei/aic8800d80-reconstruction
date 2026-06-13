@@ -1,0 +1,1 @@
+{"fn": "sub_123EBBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123ebbc", "status": "ok", "name": "rx_desc_parse_n_ebbc", "params": [], "docstring": "Parse RX descriptor halfword, extract length/offset bit-fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

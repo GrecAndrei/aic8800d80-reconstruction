@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150a4", "status": "ok", "name": "patch_apply_n1f8", "params": [], "docstring": "Applies firmware patch table then disables interrupts", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

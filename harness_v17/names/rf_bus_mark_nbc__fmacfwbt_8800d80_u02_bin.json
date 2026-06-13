@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_nbc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121179c", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "Marks RF bus state (debug/diagnostic)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_nbc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121179c", "status": "ok", "name": "rf_bus_mark_79c", "params": [], "docstring": "Marks RF bus state (debug/diagnostic)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

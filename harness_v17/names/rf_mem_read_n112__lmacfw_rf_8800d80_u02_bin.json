@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n112", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f6a6", "status": "ok", "name": "ipc_doorbell_handler_n_340", "params": [], "docstring": "IPC doorbell interrupt handler variant 340", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

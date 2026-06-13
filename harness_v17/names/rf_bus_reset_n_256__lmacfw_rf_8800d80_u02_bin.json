@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_256", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121209a", "status": "ok", "name": "rf_bus_reset_n_256", "params": [], "docstring": "Reset RF bus entry by combining bytes 2/3 into a 16-bit word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

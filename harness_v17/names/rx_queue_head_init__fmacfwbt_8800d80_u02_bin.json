@@ -1,0 +1,1 @@
+{"fn": "rx_queue_head_init", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ccbc", "status": "ok", "name": "rf_cmd_dispatch_n_44a", "params": [], "docstring": "Dispatch incoming RF command from queue entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

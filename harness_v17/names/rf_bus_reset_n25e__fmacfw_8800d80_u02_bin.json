@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n25e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c46", "status": "ok", "name": "rf_bus_reset_n25e", "params": [], "docstring": "RF bus reset with delay loop constants (0x64, 0xc8, 0x78)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

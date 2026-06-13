@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_378", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e14", "status": "ok", "name": "rf_bus_mark_n_378", "params": [], "docstring": "Mark or check RF bus state via register read/compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

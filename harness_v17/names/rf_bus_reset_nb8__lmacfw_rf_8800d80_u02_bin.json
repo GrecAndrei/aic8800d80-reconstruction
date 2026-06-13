@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nb8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12123a8", "status": "ok", "name": "rf_bus_reset_nb8_load_consts", "params": [], "docstring": "Loads four RF bus reset constants (0x40200900, 0x40200908, 0x8008000) and prepares loop with r5=1,r7=0x40,r8=2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

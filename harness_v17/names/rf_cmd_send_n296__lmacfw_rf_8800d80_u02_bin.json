@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n296", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212bae", "status": "ok", "name": "rf_cmd_send_bae", "params": [], "docstring": "Sends an RF command via mailbox and posts a follow-up message", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

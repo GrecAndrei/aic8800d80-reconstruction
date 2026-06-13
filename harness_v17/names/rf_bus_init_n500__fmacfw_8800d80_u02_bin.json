@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n500", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12122b8", "status": "ok", "name": "rf_bus_init_n500", "params": [], "docstring": "RF bus init variant 500; clears RFIC ctrl bits at MMIO 0x40200xxx offsets 0x810/0x814", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

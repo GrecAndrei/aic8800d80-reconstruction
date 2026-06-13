@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_nbe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113c2", "status": "ok", "name": "rf_bus_reset2_nbe", "params": [], "docstring": "Reset RF bus and clear bit in control register at 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

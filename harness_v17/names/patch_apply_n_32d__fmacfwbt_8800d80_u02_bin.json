@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_32d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ba", "status": "ok", "name": "patch_apply_n_32d", "params": [], "docstring": "Trampoline patch that calls through a function pointer table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

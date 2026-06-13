@@ -1,0 +1,1 @@
+{"fn": "sub_121AD88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ad88", "status": "ok", "name": "sub_121AD88", "params": [], "docstring": "Resolve two symbol pointers and compute difference between resolved addresses", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_396", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221bae", "status": "ok", "name": "rf_cmd_dispatch_n_396", "params": [], "docstring": "Decrement RF command slot counter and return from dispatcher", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

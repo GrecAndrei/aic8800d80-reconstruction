@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_16e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c81e", "status": "ok", "name": "rf_init_8800d80", "params": [], "docstring": "Initialize RF subsystem table at 0x190f50 and trigger config load", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

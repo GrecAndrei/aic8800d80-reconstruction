@@ -1,0 +1,1 @@
+{"fn": "sub_1241D9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241d9c", "status": "ok", "name": "ke_msg_alloc_n2e4", "params": [], "docstring": "Allocate a kernel/EMB-msg buffer (id 0x3002, param len 12)", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

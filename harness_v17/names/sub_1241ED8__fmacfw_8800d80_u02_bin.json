@@ -1,0 +1,1 @@
+{"fn": "sub_1241ED8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241ed8", "status": "ok", "name": "sub_1241ED8", "params": [], "docstring": "Generic helper; saves arg and tail-calls a function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c536", "status": "ok", "name": "message_dispatch_n_456", "params": [], "docstring": "Message dispatch variant; reads state byte at 0x1730dc+0xc5 to route message", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

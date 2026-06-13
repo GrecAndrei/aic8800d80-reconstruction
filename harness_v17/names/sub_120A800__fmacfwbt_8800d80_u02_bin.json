@@ -1,0 +1,1 @@
+{"fn": "sub_120A800", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120a800", "status": "ok", "name": "rf_init_hw_setup", "params": [], "docstring": "Initialize RF hardware registers and context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n36c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf20", "status": "ok", "name": "message_dispatch_n36c", "params": [], "docstring": "Dispatch incoming message by index lookup", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

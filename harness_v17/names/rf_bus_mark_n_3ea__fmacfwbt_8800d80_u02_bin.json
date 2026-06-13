@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112f6", "status": "ok", "name": "rf_bus_mark_n_3ea", "params": [], "docstring": "Marks RF bus access by left-shifting register index for MMIO offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

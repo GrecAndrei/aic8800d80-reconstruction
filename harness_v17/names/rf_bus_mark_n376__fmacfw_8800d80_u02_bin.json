@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n376", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211bfa", "status": "ok", "name": "rf_bus_mark_n376", "params": [], "docstring": "Mark RF bus (N variant 0x376), no-op then shift r4 right by 12", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

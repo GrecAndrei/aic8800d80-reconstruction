@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3ac", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f44", "status": "ok", "name": "rf_cmd_send_n1a2", "params": [], "docstring": "Send RF command, write to mailbox and trigger with delay", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

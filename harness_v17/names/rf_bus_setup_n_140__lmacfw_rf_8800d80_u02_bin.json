@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_140", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12116c4", "status": "ok", "name": "rf_bus_mark_n_276", "params": [], "docstring": "Mark/score an RF bus slot based on register 0x60 and copy context from descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

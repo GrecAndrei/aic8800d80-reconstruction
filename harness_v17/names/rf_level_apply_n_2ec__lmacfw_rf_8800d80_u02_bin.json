@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_2ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226aec", "status": "ok", "name": "rf_level_apply_n_2ec", "params": [], "docstring": "Apply RF level by clearing mask 0x7F0000 and setting bits 0x60, 0x1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

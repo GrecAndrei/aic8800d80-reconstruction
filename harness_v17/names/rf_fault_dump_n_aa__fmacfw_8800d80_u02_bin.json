@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121469e", "status": "ok", "name": "rf_fault_dump_n_aa", "params": [], "docstring": "Dumps RF fault info, offsets 0xf4/0x5c with XOR check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

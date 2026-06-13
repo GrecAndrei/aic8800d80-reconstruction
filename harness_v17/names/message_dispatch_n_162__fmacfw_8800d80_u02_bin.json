@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_162", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c82a", "status": "ok", "name": "msg_dispatch_162", "params": [], "docstring": "Message dispatch handler for incoming event 162", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

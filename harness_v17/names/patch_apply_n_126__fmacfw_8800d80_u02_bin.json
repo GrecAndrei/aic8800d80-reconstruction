@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_126", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d86", "status": "ok", "name": "patch_apply_n_126", "params": [], "docstring": "Apply firmware patch variant handling args r5/r6/r7 and r3 count", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n33a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b7e", "status": "ok", "name": "rf_bus_reset_alt", "params": [], "docstring": "Alternate RF bus reset handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n33a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b7e", "status": "ok", "name": "rf_bus_reset_alt_b7e", "params": [], "docstring": "Alternate RF bus reset handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

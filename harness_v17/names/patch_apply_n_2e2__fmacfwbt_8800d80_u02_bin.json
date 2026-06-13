@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2e2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215206", "status": "ok", "name": "patch_apply_n_2e2", "params": [], "docstring": "Apply firmware patch by incrementing counter and invoking patch function pointer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

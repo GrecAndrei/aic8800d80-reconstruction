@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n370", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f8c", "status": "ok", "name": "rf_bus_write2_n370", "params": [], "docstring": "Write to RF bus with mask test on status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,101 @@
+{
+  "function": "ipc_doorbell_isr_c2",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x1158ba",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001158d4  ldr r3, [0x00115974]  ; loads 0x4032011c (REG_4032_011c)",
+        "compiled": "0x00100000  0x001a0000 (initial SP, vector table[0] \u2014 not code)",
+        "fix_hint": "Compiled binary was placed at 0x00100000 which collides with the firmware vector table; relocate compiled image to its actual base (e.g. 0x00000000 for the C-section) and ensure no overlap with boot ROM region."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158d6  ldrb r7, [r5, 5]",
+        "compiled": "0x00100004  0x001201a9 (Reset_Handler, vector table[1])",
+        "fix_hint": "Re-emit the compiled object with a linker script that places .text at the correct load address, not 0x00100000."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158d8  ldr r2, [r3]    ; read REG_4032_011c",
+        "compiled": "0x00100008  raw 0x0013  (vector table entry, not ldr r2,[r3])",
+        "fix_hint": "Compiled .o is not the same image being disassembled; verify you are reading the output of the mechanical recompile, not the original bin."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158da  ldrsb.w r3, [r5, 7]",
+        "compiled": "0x0010000a  0x0013  (vector entry, not ldrsb)",
+        "fix_hint": "Confirm the mechanical generator emits a valid ARM ELF/bin; current bytes are boot-vector data, not code."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158de  ldrsb.w r1, [r5, 4]",
+        "compiled": "0x0010000e  0x0013  (not ldrsb.w)",
+        "fix_hint": "Re-check the address passed to disasm_at \u2014 0x00100000 is the IVT, not the compiled function body."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158e2  and r2, r2, 3",
+        "compiled": "0x00100010  0x53fd  (strh r5,[r7,r7] in vector region)",
+        "fix_hint": "Compiled blob is invalid at this address; regenerate the mechanical build."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158e6  add r7, r2",
+        "compiled": "0x00100012  0x0013  (vector data)",
+        "fix_hint": "Compiled image base address is wrong \u2014 must be remapped."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158e8  sxtb r7, r7",
+        "compiled": "0x00100014  0x5405  (strb r5,[r0,r0])",
+        "fix_hint": "Not the compiled function \u2014 content is firmware IVT/reset data."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158ea  adds r6, r3, r7",
+        "compiled": "0x00100018  0x540d  (strb r5,[r1,r0])",
+        "fix_hint": "Wrong base address; recompile/link the C function and read it from its true entry point."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158ec  cmp r6, r1",
+        "compiled": "0x0010001c  0x0601  (lsls r1,r1,0x18)",
+        "fix_hint": "Vector table residue \u2014 rebase the compiled binary."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158ee  it ge",
+        "compiled": "0x00100020  0x4657  (mov r7,sl)",
+        "fix_hint": "Compiled output not present at expected address."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158f0  mov r6, r1  (conditional)",
+        "compiled": "0x00100024  0x0000  (movs r0,r0 \u2014 NOP filler)",
+        "fix_hint": "Rebuild mechanical C compilation and place at correct base."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158f2  sxtb r6, r6",
+        "compiled": "0x0010002c  ldr r6,[0x00100244]  (literal pool pointing back into IVT region)",
+        "fix_hint": "Literal pools reference 0x00100244/0x100248/0x100250/0x100254 \u2014 these are in the IVT/data area, confirming wrong base."
+      },
+      {
+        "type": "missing",
+        "original": "0x001158f4  mov r0, r6",
+        "compiled": "0x00100048  itttt al  (garbage in vector region)",
+        "fix_hint": "Re-run mechanical generator and verify the disassembly address."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The 'compiled' disasm is at 0x00100000, which is the firmware interrupt vector table (first dwords are 0x001a0000 = initial SP and 0x001201a9 = Reset_Handler). The mechanical reconstruction is not actually present at this address \u2014 what is shown is raw IVT/boot data, not compiled C code.",
+      "None of the compiled instructions correspond to any instruction in the original function (no ldr r3,[PC,...] for 0x4032011c, no ldrb r7,[r5,5], no ldrsb.w, no and r2,r2,3, no it ge / conditional mov, no sxtb sequence, no bl 0x102b80).",
+      "The 'invalid' (0xFFFFFFFF) lines in the supplied COMPILED DISASM are inconsistent with what read_dword returns for 0x00100000 (0x001a0000). The compiled dump in the prompt does not even match the bytes the tools see at 0x00100000, suggesting the prompt's compiled block is itself wrong/stale or the tool's image differs from the prompt's source.",
+      "Before any meaningful instruction-level comparison, the mechanical-recompile pipeline must (a) produce a real ARM Thumb ELF from the reconstructed C, (b) place .text at a non-IVT address, and (c) be re-disassembled at the function's true entry (e.g. via symbol table or the IAT/vector for ipc_doorbell_isr_c2 \u2014 which find_callers also returned empty for, so symbol resolution is broken too).",
+      "MMIO constants 0x4032011c (REG_4032_011c) and 0x40501000 (REG_4050_1000) are real named registers in this firmware; the C reconstruction must reference them by their symbolic names so the compiler emits matching PC-relative literal-pool loads rather than hard-coded immediates that drift between builds."
+    ]
+  }
+}

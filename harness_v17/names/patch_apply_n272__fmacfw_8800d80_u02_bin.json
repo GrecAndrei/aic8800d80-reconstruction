@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n272", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121511e", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply a ROM/RAM patch entry and register handler", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n272", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121511e", "status": "ok", "name": "patch_apply_11e", "params": [], "docstring": "Apply a ROM/RAM patch entry and register handler", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

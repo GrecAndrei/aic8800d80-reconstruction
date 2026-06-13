@@ -1,0 +1,1 @@
+{"fn": "sub_1215890", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1215890", "status": "ok", "name": "is_flag_set_clz", "params": [], "docstring": "Check if flag byte is set using clz, returns 0/1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

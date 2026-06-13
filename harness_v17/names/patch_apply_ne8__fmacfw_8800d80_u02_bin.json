@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f94", "status": "ok", "name": "patch_apply_ne8", "params": [], "docstring": "Applies NE8 behavioral patch with id 0x41", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

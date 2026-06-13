@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n144", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ca8", "status": "ok", "name": "rf_mmio_init_n_068", "params": [], "docstring": "Initializes RF MMIO registers at 0x403420c8/d4 with bit flags", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

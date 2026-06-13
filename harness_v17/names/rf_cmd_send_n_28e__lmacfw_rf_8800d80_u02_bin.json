@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_28e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121268a", "status": "ok", "name": "rf_cmd_send_ext", "params": [], "docstring": "Send RF command and resolve table entry via index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

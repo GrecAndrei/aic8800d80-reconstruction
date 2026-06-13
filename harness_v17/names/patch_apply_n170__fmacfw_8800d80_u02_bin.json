@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n170", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121501c", "status": "ok", "name": "patch_apply_n170", "params": [], "docstring": "Apply firmware patch slot n170 based on mode check", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

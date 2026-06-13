@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_488", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211258", "status": "ok", "name": "rf_bus_mark_n_488", "params": [], "docstring": "Mark RF bus state by comparing byte counters at offsets 0x655/0x656", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

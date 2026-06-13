@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n41d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b64", "status": "ok", "name": "rf_fault_dump_n41d", "params": [], "docstring": "RF fault handler returning status code to caller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

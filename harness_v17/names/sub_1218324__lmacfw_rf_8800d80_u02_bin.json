@@ -1,0 +1,1 @@
+{"fn": "sub_1218324", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1218324", "status": "ok", "name": "rf_chan_init_or_reset_n_324", "params": [], "docstring": "Initializes/resets an RF channel context structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

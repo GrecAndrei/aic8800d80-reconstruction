@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f97c", "status": "ok", "name": "rf_mem_read_n3e8", "params": [], "docstring": "Read RF register/memory block with index shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

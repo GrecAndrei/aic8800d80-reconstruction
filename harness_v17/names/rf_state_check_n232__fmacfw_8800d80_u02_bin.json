@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n232", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212406", "status": "ok", "name": "rf_state_check_n232", "params": [], "docstring": "Read RF state from offset 0x804 and extract nibble via shift/mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

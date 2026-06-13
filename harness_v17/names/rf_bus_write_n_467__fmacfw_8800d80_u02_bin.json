@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_467", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116fc", "status": "ok", "name": "message_dispatch_n228", "params": [], "docstring": "Dispatch IPC message by type/subtype", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

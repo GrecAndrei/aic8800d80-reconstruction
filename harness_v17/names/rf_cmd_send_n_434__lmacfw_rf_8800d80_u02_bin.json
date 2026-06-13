@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_434", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124e4", "status": "ok", "name": "rf_cmd_send_n_434", "params": [], "docstring": "Sends RF command by setting bits 0x100 and 0x200 in 0x804 reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

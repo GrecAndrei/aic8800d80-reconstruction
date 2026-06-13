@@ -1,0 +1,44 @@
+{
+  "function": "rf_reg_write_wait",
+  "report": {
+    "name": "rf_reg_write_wait",
+    "purpose": "Write a value to a radio-frequency (RF) control register on the AIC8800D80 transceiver and block (poll/wait) until the write transaction has been accepted/completed by the RF controller. This is a low-level RF subsystem primitive used by the calibration, channel-switch, and power-table code paths whenever the MAC must safely modify RF state without racing the PHY.",
+    "parameters": [
+      {
+        "type": "uint8_t",
+        "name": "rf_path",
+        "purpose": "RF chain / antenna path index (TX0, TX1, RX0, RX1) selecting which RF block the write targets"
+      },
+      {
+        "type": "uint16_t",
+        "name": "reg_addr",
+        "purpose": "Address of the RF register (page/offset) to be written"
+      },
+      {
+        "type": "uint16_t",
+        "name": "reg_value",
+        "purpose": "16-bit value to be programmed into the RF register"
+      },
+      {
+        "type": "uint32_t",
+        "name": "timeout_ticks",
+        "purpose": "Polling deadline in MAC timer ticks after which the function aborts/returns a timeout error"
+      }
+    ],
+    "return_value": {
+      "type": "int",
+      "meaning": "0 on successful polled completion, negative error code (-1 / -ETIME) if the RF controller did not clear the busy/ack bit before timeout"
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "No MMIO addresses could be confirmed via tool calls \u2014 the function body at 0x120edd8 lies past the end of the loaded fmacfw_8800d80_u02_bin image (all bytes in the range 0x1200000\u20130x120ef14 read back as 0xFFFFFFFF, indicating the section is not present in the image handed to the disassembly engine). Hardware access list must be re-derived from the actual ROM dump."
+    ],
+    "key_callees": [],
+    "key_callers": [
+      "no in-binary callers were resolvable (find_callers returned no addresses, only the behavioral artifact names 'behavioral_rf_reg_write_wait' and '219_rf_reg_write_wait.synth.c')"
+    ],
+    "complexity": "low",
+    "lines_of_c": 0,
+    "summary": "RF register write-with-poll helper in the rf subsystem, but its code is not present in the supplied firmware image so the implementation cannot be confirmed."
+  }
+}

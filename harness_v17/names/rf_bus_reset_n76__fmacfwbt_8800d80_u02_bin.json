@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n76", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128ba", "status": "ok", "name": "rf_bus_reset_n76", "params": [], "docstring": "RF bus reset clearing bit 15, dispatched by mode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

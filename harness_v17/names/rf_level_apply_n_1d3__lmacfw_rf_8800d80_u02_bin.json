@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_1d3", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226c04", "status": "ok", "name": "rf_level_apply_n_1d3", "params": [], "docstring": "RF level apply with bitfield shifts and 0xe4/0xf0 masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

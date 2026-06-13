@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4ce", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121299e", "status": "ok", "name": "rf_cmd_send_n_4ce", "params": [], "docstring": "RF command send trigger via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

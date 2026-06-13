@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_ne0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e38", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Initialize RF bus with inverted 0x400 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

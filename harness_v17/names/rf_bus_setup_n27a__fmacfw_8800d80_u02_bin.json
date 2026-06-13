@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n27a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212176", "status": "ok", "name": "rf_bus_setup_n27a", "params": [], "docstring": "Configure RF bus control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

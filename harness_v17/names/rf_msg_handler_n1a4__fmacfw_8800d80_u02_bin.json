@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n1a4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12132a8", "status": "ok", "name": "mm_chan_ctxt_unlink_cfm_handler", "params": [], "docstring": "Handles MAC channel context unlink confirmation", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

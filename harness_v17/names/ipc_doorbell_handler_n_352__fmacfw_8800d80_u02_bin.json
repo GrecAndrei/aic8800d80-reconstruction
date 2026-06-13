@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_352", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121562a", "status": "ok", "name": "ipc_doorbell_handler_n_352", "params": [], "docstring": "Handles IPC doorbell interrupt, masks channel word with 0x64006400", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

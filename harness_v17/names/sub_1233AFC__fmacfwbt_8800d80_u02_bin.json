@@ -1,0 +1,1 @@
+{"fn": "sub_1233AFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233afc", "status": "ok", "name": "chip_feature_check", "params": [], "docstring": "Read global config word and test signed halfword flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

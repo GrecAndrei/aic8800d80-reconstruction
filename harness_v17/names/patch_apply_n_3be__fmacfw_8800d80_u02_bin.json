@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214aee", "status": "ok", "name": "patch_apply_n_3be", "params": [], "docstring": "Apply firmware patch (small helper)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

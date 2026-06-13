@@ -1,0 +1,1 @@
+{"fn": "sub_1214570", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214570", "status": "ok", "name": "rf_param_set_op2", "params": [], "docstring": "Set RF parameter via opcode 2 with 12-byte payload", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

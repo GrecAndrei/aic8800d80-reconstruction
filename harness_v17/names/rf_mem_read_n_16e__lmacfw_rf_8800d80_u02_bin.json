@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_16e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f426", "status": "ok", "name": "rf_mem_read_n_16e", "params": [], "docstring": "Read RF memory region of length 0x11b words", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121F120", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f120", "status": "ok", "name": "rf_phy_field_clear_n_23c", "params": [], "docstring": "Clears/resets a 32-bit PHY field at struct offset 0x23c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

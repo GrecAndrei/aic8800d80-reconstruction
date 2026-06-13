@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119c0", "status": "ok", "name": "rf_bus_setup_9c0", "params": [], "docstring": "Configures RF bus registers with default access bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

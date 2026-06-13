@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_queue_next_n_1c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12132f2", "status": "ok", "name": "rf_cmd_queue_next", "params": [], "docstring": "Advance RF command queue to next entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_queue_next_n_1c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12132f2", "status": "ok", "name": "rf_cmd_queue_next_2f2", "params": [], "docstring": "Advance RF command queue to next entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

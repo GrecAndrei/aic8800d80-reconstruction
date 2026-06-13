@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n16e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121317e", "status": "ok", "name": "rf_cmd_send_ext", "params": [], "docstring": "Send extended RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n16e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121317e", "status": "ok", "name": "rf_cmd_send_ext_17e", "params": [], "docstring": "Send extended RF command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

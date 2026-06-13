@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_37e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121167e", "status": "ok", "name": "rf_bus_reset2_n_290", "params": [], "docstring": "RF bus reset: clear bit 0x20 and call post-reset hook", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

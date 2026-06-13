@@ -1,0 +1,1 @@
+{"fn": "feature_guard_sdio", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ecd0", "status": "ok", "name": "feature_guard_check", "params": [], "docstring": "SDIO feature availability guard testing a bitmask against feature word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

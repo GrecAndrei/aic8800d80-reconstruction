@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_420", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211464", "status": "ok", "name": "rf_bus_mark_n_420", "params": [], "docstring": "Read RF bus mark register and dispatch via function table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

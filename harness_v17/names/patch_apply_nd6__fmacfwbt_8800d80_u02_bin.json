@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nd6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155be", "status": "ok", "name": "patch_apply_nd6", "params": [], "docstring": "Apply firmware patch via SCB vector table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

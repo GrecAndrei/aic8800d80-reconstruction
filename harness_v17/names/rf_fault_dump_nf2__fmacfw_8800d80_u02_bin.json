@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_nf2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121483a", "status": "ok", "name": "rf_fault_dump_nf2", "params": [], "docstring": "Dump RF fault status byte and dispatch via table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

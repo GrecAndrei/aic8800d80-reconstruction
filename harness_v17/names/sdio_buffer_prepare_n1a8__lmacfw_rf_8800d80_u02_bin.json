@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n1a8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ed5c", "status": "ok", "name": "rf_bus_setup_n34a", "params": [], "docstring": "Configure RF bus MMIO control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121529a", "status": "ok", "name": "patch_apply_n3ee", "params": [], "docstring": "Apply firmware patch entry n3ee", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

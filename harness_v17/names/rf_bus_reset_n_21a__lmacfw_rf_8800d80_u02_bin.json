@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_21a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12120d6", "status": "ok", "name": "rf_bus_reset_n_21a", "params": [], "docstring": "Reads an RF bus byte as part of the RF bus reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

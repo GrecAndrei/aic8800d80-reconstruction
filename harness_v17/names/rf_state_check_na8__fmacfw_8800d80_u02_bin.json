@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_na8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121227c", "status": "ok", "name": "rf_state_check_na8", "params": [], "docstring": "Check/pack RF state fields via bitfield insert into byte at r5+0xc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

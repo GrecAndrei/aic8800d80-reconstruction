@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nc0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120f0", "status": "ok", "name": "rf_state_check_nc0", "params": [], "docstring": "Pack and store RF state byte pairs into halfwords in state structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

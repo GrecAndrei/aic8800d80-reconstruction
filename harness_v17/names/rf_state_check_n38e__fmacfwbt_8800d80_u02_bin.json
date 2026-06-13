@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n38e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12123be", "status": "ok", "name": "rf_state_check_3be", "params": [], "docstring": "Check current RF state against expected value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

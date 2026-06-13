@@ -1,0 +1,1 @@
+{"fn": "sub_123F54C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123f54c", "status": "ok", "name": "sub_123F54C", "params": [], "docstring": "Process indexed entry list (3x stride) with magic 0x1998 threshold", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

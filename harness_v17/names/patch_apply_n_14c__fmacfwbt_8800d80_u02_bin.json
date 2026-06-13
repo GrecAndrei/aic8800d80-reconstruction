@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_14c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121539c", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply an in-place code patch at target address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

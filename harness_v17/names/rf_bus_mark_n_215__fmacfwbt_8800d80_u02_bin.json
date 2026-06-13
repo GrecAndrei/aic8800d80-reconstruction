@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_215", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114ca", "status": "ok", "name": "rf_bus_mark_n_215", "params": [], "docstring": "Marks/flags an RF bus entry, computing slot offset via lsl 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

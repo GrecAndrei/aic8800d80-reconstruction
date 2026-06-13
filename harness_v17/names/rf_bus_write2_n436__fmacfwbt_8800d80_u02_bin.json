@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n436", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211eae", "status": "ok", "name": "sub_120D6A8", "params": [], "docstring": "Initialize and zero a 256-byte buffer with params", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

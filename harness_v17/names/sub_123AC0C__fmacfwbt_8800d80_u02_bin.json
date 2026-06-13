@@ -1,0 +1,1 @@
+{"fn": "sub_123AC0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123ac0c", "status": "ok", "name": "ethertype_check_0x600", "params": [], "docstring": "Check ethertype field (0x600) on frame", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

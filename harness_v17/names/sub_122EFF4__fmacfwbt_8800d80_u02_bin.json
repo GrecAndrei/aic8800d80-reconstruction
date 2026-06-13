@@ -1,0 +1,1 @@
+{"fn": "sub_122EFF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122eff4", "status": "ok", "name": "ipc_msg_alloc_copy", "params": [], "docstring": "Allocate and copy IPC message buffer of size 0x424", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

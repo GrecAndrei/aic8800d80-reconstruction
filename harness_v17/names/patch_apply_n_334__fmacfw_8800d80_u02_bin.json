@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_334", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b78", "status": "ok", "name": "patch_apply_helper_334", "params": [], "docstring": "Apply firmware patch and check bit 18 of result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

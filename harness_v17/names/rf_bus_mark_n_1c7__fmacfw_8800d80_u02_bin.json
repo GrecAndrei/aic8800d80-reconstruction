@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1c7", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116bc", "status": "ok", "name": "rf_chan_mark_set", "params": [], "docstring": "Marks RF channel index in bus state table at offsets 0x660/0x66d/0x980/0x984", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

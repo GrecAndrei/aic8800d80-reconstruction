@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_3a6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c6a", "status": "ok", "name": "rf_bus_write_n3f2", "params": [], "docstring": "Write halfword/word to RF MMIO bus at 0x900-offset register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

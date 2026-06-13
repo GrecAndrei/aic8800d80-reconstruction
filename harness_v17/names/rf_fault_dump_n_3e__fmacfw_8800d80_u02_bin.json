@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_3e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121470a", "status": "ok", "name": "rf_fault_dump_n_3e", "params": [], "docstring": "Dumps RF fault status and acknowledges NVIC interrupt (0xe000e100)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

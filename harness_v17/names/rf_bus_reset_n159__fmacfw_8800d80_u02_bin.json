@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n159", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b40", "status": "ok", "name": "rf_bus_reset_n159", "params": [], "docstring": "Reset RF bus configuration registers (0x810/0x814/0x81c) and assert control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

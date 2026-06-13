@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12104d8", "status": "ok", "name": "log_free_dispatch_n4d0", "params": [], "docstring": "Increment log counter and free a log buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

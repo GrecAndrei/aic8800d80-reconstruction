@@ -1,0 +1,1 @@
+{"fn": "sub_1221D44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1221d44", "status": "ok", "name": "fw_init_or_check_1221d44", "params": [], "docstring": "Firmware init/version check via shared flag pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

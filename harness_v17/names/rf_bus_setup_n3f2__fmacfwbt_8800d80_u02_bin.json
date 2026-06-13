@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3f2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121214a", "status": "ok", "name": "rf_bus_setup_n3f2_14a", "params": [], "docstring": "Configure RF bus mode checking bits 0x60", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_42a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124ee", "status": "ok", "name": "rf_cmd_send_n_42a", "params": [], "docstring": "RF command send with ORR 0x200 into 0x804 control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n400", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122242c", "status": "ok", "name": "rf_mem_write_n400", "params": [], "docstring": "Writes data to RF memory with shift/transform", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

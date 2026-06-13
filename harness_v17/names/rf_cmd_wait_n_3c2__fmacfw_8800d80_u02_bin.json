@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_wait_n_3c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bae", "status": "ok", "name": "rf_cmd_wait", "params": [], "docstring": "Waits for RF command completion with polling loop", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_wait_n_3c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bae", "status": "ok", "name": "rf_cmd_wait_bae", "params": [], "docstring": "Waits for RF command completion with polling loop", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

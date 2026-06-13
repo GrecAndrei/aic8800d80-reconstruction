@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3e2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d5e", "status": "ok", "name": "ipc_doorbell_handler_n3e2", "params": [], "docstring": "IPC doorbell handler initializing shared state and dispatching messages", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

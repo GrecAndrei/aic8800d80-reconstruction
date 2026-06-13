@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12122a0", "status": "ok", "name": "rf_bus_reset_n_50", "params": [], "docstring": "Reset the RF bus to clear stuck state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_274", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12111f8", "status": "ok", "name": "rf_bus_write16_n274", "params": [], "docstring": "RF bus 16-bit register write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212f14", "status": "ok", "name": "rf_cmd_send_n_fc", "params": [], "docstring": "Send RF command with frequency control, clearing bit 4 in 0x810 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

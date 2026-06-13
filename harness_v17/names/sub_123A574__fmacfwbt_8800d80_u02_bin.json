@@ -1,0 +1,1 @@
+{"fn": "sub_123A574", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123a574", "status": "ok", "name": "phy_flag_clear_72", "params": [], "docstring": "Clear 16-bit flag at offset 0x72 in PHY struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n2be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f852", "status": "ok", "name": "rf_mem_read_n2be", "params": [], "docstring": "Reads RF table entry at index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n12c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cab8", "status": "ok", "name": "rf_bus_setup_n14a", "params": [], "docstring": "Initializes RF bus interface and checks bus mode state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

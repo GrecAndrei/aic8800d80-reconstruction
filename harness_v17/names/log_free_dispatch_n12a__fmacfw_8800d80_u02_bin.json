@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n12a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210132", "status": "ok", "name": "log_free_dispatch_n12a", "params": [], "docstring": "Release/free a log entry slot and reset its header fields", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

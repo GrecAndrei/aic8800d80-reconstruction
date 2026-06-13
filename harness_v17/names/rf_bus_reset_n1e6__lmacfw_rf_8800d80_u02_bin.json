@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n1e6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124d6", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "RF bus reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n1e6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124d6", "status": "ok", "name": "rf_bus_reset_4d6", "params": [], "docstring": "RF bus reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

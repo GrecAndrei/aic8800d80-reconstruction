@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n33e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f8d2", "status": "ok", "name": "rf_mem_read_n33e", "params": [], "docstring": "Read RF register/memory (sh5 address calc)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

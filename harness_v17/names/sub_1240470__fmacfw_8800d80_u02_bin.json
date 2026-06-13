@@ -1,1 +1,1 @@
-{"fn": "sub_1240470", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240470", "status": "ok", "name": "fmac_misc_handler", "params": [], "docstring": "Miscellaneous FMAC handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1240470", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1240470", "status": "ok", "name": "fmac_misc_handler_470", "params": [], "docstring": "Miscellaneous FMAC handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

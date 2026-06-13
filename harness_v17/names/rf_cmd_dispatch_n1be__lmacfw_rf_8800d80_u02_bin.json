@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n1be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222102", "status": "ok", "name": "rf_cmd_dispatch_n1be", "params": [], "docstring": "RF command dispatch stub (coprocessor ops), branches on value==2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

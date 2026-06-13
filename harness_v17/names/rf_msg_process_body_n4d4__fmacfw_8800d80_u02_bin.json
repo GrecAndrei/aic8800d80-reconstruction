@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n4d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121411c", "status": "ok", "name": "rf_msg_process_body_n4d4", "params": [], "docstring": "Dispatches RF message via function pointer call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

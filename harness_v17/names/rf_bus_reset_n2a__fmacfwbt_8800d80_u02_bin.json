@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n2a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121286e", "status": "ok", "name": "rf_bus_reset_n2a", "params": [], "docstring": "Call RF bus helper, read status and shift result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

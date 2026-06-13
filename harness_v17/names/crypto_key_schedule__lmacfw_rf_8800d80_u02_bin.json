@@ -1,0 +1,1 @@
+{"fn": "crypto_key_schedule", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12053c0", "status": "ok", "name": "crypto_key_schedule", "params": [], "docstring": "Initialize crypto key schedule / expand key material", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

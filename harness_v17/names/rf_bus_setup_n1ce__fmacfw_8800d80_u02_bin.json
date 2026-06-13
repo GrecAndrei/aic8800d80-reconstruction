@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120ca", "status": "ok", "name": "rf_bus_setup_n1ce", "params": [], "docstring": "RF bus setup tail epilogue returning status codes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

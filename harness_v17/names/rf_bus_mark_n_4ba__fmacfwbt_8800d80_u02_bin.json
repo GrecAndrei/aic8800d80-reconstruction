@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211226", "status": "ok", "name": "rf_bus_mark_access_n_4ba", "params": [], "docstring": "Marks RF bus access with offset/length", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

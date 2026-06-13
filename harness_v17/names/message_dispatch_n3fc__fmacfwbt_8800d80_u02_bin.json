@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cfb0", "status": "ok", "name": "message_dispatch", "params": [], "docstring": "Dispatch message handler in BT firmware, increment counter and call sub", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12104da", "status": "ok", "name": "log_free_dispatch_n4d2", "params": [], "docstring": "Logs dispatch event and frees the entry after incrementing counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

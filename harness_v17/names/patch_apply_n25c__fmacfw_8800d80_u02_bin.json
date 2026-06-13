@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n25c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215108", "status": "ok", "name": "rf_cmd_send_n238", "params": [], "docstring": "Sends RF command, dispatches by uxtb opcode", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_12a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211f06", "status": "ok", "name": "rf_state_set_active", "params": [], "docstring": "Set RF state to active by ORing control register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

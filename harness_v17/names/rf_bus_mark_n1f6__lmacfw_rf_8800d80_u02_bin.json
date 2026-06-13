@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1f6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211382", "status": "ok", "name": "rf_bus_mark_n1f6", "params": [], "docstring": "Mark/set RF bus control register bits for transaction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

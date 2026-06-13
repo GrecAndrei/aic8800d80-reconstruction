@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n41a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c72", "status": "ok", "name": "rf_bus_reset2_n41a", "params": [], "docstring": "Reset RF bus and reconfigure NVIC IRQ", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

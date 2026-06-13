@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n24", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119e4", "status": "ok", "name": "rf_bus_write_n24", "params": [], "docstring": "Set RF bus register bit 0x200 at offset 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

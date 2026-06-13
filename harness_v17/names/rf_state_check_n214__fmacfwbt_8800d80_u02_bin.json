@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n214", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212244", "status": "ok", "name": "rf_state_clear_mmio_n214", "params": [], "docstring": "Clear a bit in RF MMIO register at 0x40200000 and update state byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

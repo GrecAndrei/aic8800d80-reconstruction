@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123a6", "status": "ok", "name": "rf_bus_setup_n4aa", "params": [], "docstring": "RF bus setup: branch on setup mode comparison against 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

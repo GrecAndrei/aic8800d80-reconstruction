@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122de96", "status": "ok", "name": "sdio_buffer_prepare_n_4ae_de96", "params": [], "docstring": "Prepares SDIO DMA buffer descriptor and validates length", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

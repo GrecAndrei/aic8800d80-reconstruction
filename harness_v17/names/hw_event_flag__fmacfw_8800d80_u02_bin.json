@@ -1,0 +1,1 @@
+{"fn": "hw_event_flag", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120fc", "status": "ok", "name": "hw_event_flag", "params": [], "docstring": "Polls hardware event flag register at MMIO 0x4004xxxx", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

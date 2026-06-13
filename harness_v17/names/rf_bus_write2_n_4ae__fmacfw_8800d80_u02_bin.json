@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121176e", "status": "ok", "name": "rf_bus_write2_n_4ae", "params": [], "docstring": "Write 32-bit value to RF bus register with offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

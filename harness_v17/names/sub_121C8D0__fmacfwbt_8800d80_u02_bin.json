@@ -1,0 +1,1 @@
+{"fn": "sub_121C8D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c8d0", "status": "ok", "name": "list_init_or_dequeue", "params": [], "docstring": "Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

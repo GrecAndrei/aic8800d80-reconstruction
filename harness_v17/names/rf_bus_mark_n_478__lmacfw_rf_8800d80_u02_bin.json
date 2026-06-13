@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_478", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d14", "status": "ok", "name": "rf_bus_setup_n_27a", "params": [], "docstring": "Initialize RF bus transfer (setup channel)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

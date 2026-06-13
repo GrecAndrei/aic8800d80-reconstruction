@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n494", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212784", "status": "ok", "name": "rf_bus_write2_n_3c0", "params": [], "docstring": "Writes 16-bit value to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

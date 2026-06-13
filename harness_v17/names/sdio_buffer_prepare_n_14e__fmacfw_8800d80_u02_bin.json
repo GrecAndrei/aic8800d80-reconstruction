@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_14e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dfce", "status": "ok", "name": "sdio_buffer_prepare_n_14e", "params": [], "docstring": "Prepares SDIO buffer by checking field offset 0x1f against expected value", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

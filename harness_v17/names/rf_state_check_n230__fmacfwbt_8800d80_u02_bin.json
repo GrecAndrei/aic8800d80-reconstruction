@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n230", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212260", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Checks RF state bits from control register with masked field extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

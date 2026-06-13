@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156be", "status": "ok", "name": "ipc_doorbell_handler_n_18b", "params": [], "docstring": "Sets doorbell flag and increments pending IPC event counter", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

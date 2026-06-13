@@ -1,0 +1,1 @@
+{"fn": "sub_120CD94", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120cd94", "status": "ok", "name": "check_mac_status", "params": [], "docstring": "Checks MAC status register 0x40035104 bit shift", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

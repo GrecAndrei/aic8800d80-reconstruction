@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215212", "status": "ok", "name": "patch_apply_n_2d6", "params": [], "docstring": "Apply firmware patch by dispatching indirect call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

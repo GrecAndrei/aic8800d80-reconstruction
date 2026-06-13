@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n2c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222058", "status": "ok", "name": "rf_mem_write", "params": [], "docstring": "Write to RF control memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n2c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222058", "status": "ok", "name": "rf_mem_write_058", "params": [], "docstring": "Write to RF control memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

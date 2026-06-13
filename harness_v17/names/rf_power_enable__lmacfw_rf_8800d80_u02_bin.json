@@ -1,0 +1,1 @@
+{"fn": "rf_power_enable", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12032dc", "status": "ok", "name": "rf_power_enable", "params": [], "docstring": "Enable RF power via control byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

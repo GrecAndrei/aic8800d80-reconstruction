@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_2ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118aa", "status": "ok", "name": "rf_bus_write_n_2ba", "params": [], "docstring": "RF bus write using constant table entry 0x187e90", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

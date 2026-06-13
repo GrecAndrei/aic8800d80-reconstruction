@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n3fe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214046", "status": "ok", "name": "rf_msg_process_body", "params": [], "docstring": "Processes RF message body; reads halfword at [r4+r0], byte at [r1+0x1e]; constant 0x60", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

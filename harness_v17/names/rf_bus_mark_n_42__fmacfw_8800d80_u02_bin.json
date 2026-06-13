@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_42", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211842", "status": "ok", "name": "rf_bus_mark_n_42", "params": [], "docstring": "Mark/select RF bus channel with bit shifting", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n23e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cbca", "status": "ok", "name": "message_dispatch_n23e", "params": [], "docstring": "Dispatch IPC message from host queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

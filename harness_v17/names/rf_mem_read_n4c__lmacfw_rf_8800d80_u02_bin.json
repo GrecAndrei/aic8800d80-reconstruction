@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n4c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5e0", "status": "ok", "name": "rf_mem_read_n4c", "params": [], "docstring": "Reads RF memory region and stages halfword value with table load", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

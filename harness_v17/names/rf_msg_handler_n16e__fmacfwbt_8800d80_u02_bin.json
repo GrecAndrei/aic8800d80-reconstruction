@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n16e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130ce", "status": "ok", "name": "rf_msg_dispatch", "params": [], "docstring": "Dispatch RF message handler by command type switch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

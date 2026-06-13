@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_163", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145e4", "status": "ok", "name": "sdio_buffer_prepare_n239", "params": [], "docstring": "Prepare/validate an SDIO DMA buffer (size < 0x2A threshold check)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

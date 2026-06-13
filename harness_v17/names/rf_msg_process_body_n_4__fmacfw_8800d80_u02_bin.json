@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213c44", "status": "ok", "name": "rf_msg_process_body_n_4", "params": [], "docstring": "Dispatch RF message body by subtype (up to 0x1f)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

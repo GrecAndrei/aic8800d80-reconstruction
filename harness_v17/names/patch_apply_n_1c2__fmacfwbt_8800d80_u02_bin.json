@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1c2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215326", "status": "ok", "name": "patch_apply_chunk", "params": [], "docstring": "Apply a patch chunk of 0xc bytes via helper", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

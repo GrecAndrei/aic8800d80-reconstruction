@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_6a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226d6e", "status": "ok", "name": "rf_level_apply_n_6a", "params": [], "docstring": "Apply RF level by clearing bit in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

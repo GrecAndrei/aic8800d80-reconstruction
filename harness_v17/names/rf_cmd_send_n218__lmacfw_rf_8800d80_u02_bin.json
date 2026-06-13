@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n218", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b30", "status": "ok", "name": "rf_cmd_send_n218", "params": [], "docstring": "Build and send RF command packet", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

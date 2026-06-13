@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113f0", "status": "ok", "name": "rf_bus_mark_n_2f0", "params": [], "docstring": "Computes RF bus slot index via mul/shift and stores byte marker", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

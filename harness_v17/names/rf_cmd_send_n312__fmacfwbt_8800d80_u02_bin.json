@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n312", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121317e", "status": "ok", "name": "rf_cmd_send_n312", "params": [], "docstring": "RF command send: XORs value and reads byte from offset 0x1d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

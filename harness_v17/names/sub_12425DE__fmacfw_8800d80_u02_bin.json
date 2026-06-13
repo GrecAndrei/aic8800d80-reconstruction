@@ -1,0 +1,1 @@
+{"fn": "sub_12425DE", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12425de", "status": "ok", "name": "sub_12425DE", "params": [], "docstring": "Helper routine with saved r4/lr; small wrapper", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

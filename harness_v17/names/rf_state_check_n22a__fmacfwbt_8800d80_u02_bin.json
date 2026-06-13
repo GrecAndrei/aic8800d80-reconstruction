@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n22a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121225a", "status": "ok", "name": "rf_state_check_n22a", "params": [], "docstring": "Check RF state via 0x804 offset register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

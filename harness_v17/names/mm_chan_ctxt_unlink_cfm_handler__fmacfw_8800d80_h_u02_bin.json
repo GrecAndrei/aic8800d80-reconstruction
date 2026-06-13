@@ -1,0 +1,1 @@
+{"fn": "mm_chan_ctxt_unlink_cfm_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bc6c", "status": "ok", "name": "rf_bus_reset_n_90", "params": [], "docstring": "Resets RF bus hardware state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

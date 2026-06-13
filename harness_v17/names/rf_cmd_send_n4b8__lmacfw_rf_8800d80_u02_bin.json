@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n4b8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212dd0", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send an RF command packet via the bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n4b8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212dd0", "status": "ok", "name": "rf_cmd_send_dd0", "params": [], "docstring": "Send an RF command packet via the bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

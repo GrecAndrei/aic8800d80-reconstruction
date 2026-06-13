@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121269a", "status": "ok", "name": "rf_bus_reset_n_1aa", "params": [], "docstring": "RF bus reset handler reading status from offset 8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

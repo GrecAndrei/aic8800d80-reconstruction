@@ -1,0 +1,1 @@
+{"fn": "tx_submit", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d154", "status": "ok", "name": "tx_submit", "params": [], "docstring": "Submit TX frame with descriptor flag manipulation", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

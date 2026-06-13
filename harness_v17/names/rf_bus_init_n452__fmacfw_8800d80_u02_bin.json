@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n452", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121220a", "status": "ok", "name": "message_dispatch_n_43a", "params": [], "docstring": "Extract and forward a host message id/channel to dispatch routine", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

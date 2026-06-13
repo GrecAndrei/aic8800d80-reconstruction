@@ -1,0 +1,1 @@
+{"fn": "sub_123CC1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123cc1c", "status": "ok", "name": "rf_chan_cfg_set", "params": [], "docstring": "Set RF channel config bits from args", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

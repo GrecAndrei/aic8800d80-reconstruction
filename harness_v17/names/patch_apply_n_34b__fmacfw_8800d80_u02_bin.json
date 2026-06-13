@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_34b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b60", "status": "ok", "name": "patch_apply_n_34b", "params": [], "docstring": "Apply small firmware patch and return status", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

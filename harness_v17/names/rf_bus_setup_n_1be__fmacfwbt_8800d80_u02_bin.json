@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_1be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b9a", "status": "ok", "name": "rf_bus_setup_n_1be", "params": [], "docstring": "Sets up RF bus with bit-masked configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

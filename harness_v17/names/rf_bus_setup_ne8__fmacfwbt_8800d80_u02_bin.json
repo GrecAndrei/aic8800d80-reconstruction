@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_ne8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e40", "status": "ok", "name": "rf_bus_setup_ne8", "params": [], "docstring": "Setup RF bus with NE8 timing/width configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

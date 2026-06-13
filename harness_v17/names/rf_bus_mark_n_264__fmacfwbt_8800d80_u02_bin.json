@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_264", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121147c", "status": "ok", "name": "rf_bus_mark_from_stack_args", "params": [], "docstring": "Builds RF bus word from stack args at sp+0x2a8/0x2ac with 0x1c selector", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

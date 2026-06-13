@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12100ca", "status": "ok", "name": "rf_msg_process_body_n_18e", "params": [], "docstring": "RF message body processing handler dispatching msg by type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

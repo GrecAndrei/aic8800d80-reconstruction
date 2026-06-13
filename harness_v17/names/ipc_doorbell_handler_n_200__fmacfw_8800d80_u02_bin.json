@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_200", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121577c", "status": "ok", "name": "ipc_doorbell_dispatch", "params": [], "docstring": "IPC doorbell message dispatch by sub-id", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

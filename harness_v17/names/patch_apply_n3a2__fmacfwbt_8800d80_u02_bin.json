@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121588a", "status": "ok", "name": "patch_apply_n3a2", "params": [], "docstring": "Apply firmware patch via SCB VTOR and target hook", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

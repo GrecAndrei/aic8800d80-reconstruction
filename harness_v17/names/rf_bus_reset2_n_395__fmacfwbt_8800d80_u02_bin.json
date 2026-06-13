@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_395", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12114c2", "status": "ok", "name": "rf_bus_reset2_n_395", "params": [], "docstring": "Resets RF bus state and recomputes base offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

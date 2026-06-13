@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212490", "status": "ok", "name": "rf_state_check_n2bc", "params": [], "docstring": "Check RF state and branch into state-specific handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

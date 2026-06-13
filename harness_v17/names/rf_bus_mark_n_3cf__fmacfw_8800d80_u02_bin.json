@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3cf", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114b4", "status": "ok", "name": "rf_bus_mark_n_3cf", "params": [], "docstring": "Writes 0x100 to MMIO register 0x40240018, RF bus marking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

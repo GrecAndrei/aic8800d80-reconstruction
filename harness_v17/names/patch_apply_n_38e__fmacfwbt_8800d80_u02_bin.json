@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_38e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121515a", "status": "ok", "name": "patch_apply_n_38e", "params": [], "docstring": "Apply firmware patch and extract 3-bit field from result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_25e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12110a6", "status": "ok", "name": "rf_bus_reset2_n_25e", "params": [], "docstring": "RF bus reset: writes 0x10 mask and polls byte flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

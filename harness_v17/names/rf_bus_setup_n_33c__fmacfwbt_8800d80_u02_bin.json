@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_33c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a1c", "status": "ok", "name": "rf_bus_setup_n_33c", "params": [], "docstring": "RF bus setup/initialization tail (compares r7 against zero for branch decision)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

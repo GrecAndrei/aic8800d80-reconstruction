@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n462", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121221a", "status": "ok", "name": "rf_bus_init_n462", "params": [], "docstring": "RF bus initialization sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

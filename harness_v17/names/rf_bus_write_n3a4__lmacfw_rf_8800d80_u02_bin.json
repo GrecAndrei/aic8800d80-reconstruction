@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3a4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211810", "status": "ok", "name": "rf_bus_write_n3a4", "params": [], "docstring": "Write payload to RF bus with multi-arg setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

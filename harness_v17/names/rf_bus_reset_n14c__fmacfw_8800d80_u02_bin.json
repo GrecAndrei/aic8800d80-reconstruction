@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212b34", "status": "ok", "name": "rf_bus_reset_n14c", "params": [], "docstring": "Reset RF bus: program 0x29/9 to control regs, clear status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

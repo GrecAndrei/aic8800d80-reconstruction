@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_5d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12130a6", "status": "ok", "name": "rf_msg_handler_n_5d", "params": [], "docstring": "Dispatches RF message IDs (0x29, 0x2a) to sub-handlers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

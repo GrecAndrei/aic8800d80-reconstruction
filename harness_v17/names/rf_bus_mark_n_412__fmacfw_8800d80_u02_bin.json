@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_412", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211472", "status": "ok", "name": "rf_bus_mark_n_412", "params": [], "docstring": "mark RF bus entry and trigger callback at 0x1856f8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

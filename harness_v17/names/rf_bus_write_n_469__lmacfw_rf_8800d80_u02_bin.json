@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_469", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211002", "status": "ok", "name": "rf_bus_write_n_469", "params": [], "docstring": "Write data to RF bus with bit-shifted register operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

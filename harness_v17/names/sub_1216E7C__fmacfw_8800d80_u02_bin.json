@@ -1,0 +1,1 @@
+{"fn": "sub_1216E7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1216e7c", "status": "ok", "name": "mac_post_patch_init", "params": [], "docstring": "Run post-patch initialization sequence", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

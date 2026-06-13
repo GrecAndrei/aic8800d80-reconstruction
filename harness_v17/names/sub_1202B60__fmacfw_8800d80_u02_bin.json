@@ -1,0 +1,1 @@
+{"fn": "sub_1202B60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1202b60", "status": "ok", "name": "rf_chan_mask_get", "params": [], "docstring": "Read RF channel count from MMIO and build 1<<n mask", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

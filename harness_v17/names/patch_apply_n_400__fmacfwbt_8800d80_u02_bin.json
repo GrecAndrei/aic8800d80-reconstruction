@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_400", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150e8", "status": "ok", "name": "patch_apply_n_400", "params": [], "docstring": "Compute patched byte from bitfield transform", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

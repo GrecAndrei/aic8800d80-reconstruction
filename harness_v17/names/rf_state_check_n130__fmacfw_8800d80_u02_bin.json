@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n130", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212304", "status": "ok", "name": "rf_state_check_n130", "params": [], "docstring": "Check/derive RF channel state via bit shifts", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

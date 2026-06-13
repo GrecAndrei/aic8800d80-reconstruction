@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_2e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ea4", "status": "ok", "name": "rf_bus_mark_alt", "params": [], "docstring": "Alternate RF bus mark routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_2e8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ea4", "status": "ok", "name": "rf_bus_mark_alt_ea4", "params": [], "docstring": "Alternate RF bus mark routine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

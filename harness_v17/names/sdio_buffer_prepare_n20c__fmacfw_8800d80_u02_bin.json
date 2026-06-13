@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n20c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e328", "status": "ok", "name": "sdio_buffer_prepare_n20c_328", "params": [], "docstring": "Validate and prepare SDIO buffer (checks against 0x68 size)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

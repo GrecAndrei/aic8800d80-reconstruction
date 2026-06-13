@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dc4e", "status": "ok", "name": "sdio_buffer_prepare_n_4ce", "params": [], "docstring": "Prepare SDIO buffer (trampoline/leaf stub)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

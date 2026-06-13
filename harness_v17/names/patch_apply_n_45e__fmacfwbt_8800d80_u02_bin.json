@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_45e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121508a", "status": "ok", "name": "patch_apply_n_45e", "params": [], "docstring": "Apply patch nibble extraction/insertion", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

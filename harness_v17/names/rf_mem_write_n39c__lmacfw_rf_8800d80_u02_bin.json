@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n39c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223c8", "status": "ok", "name": "rf_mem_write_n39c", "params": [], "docstring": "RF memory write of word/halfword to multiple indices", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

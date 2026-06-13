@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119a2", "status": "ok", "name": "rf_bus_setup_n_3b6", "params": [], "docstring": "Configures RF bus registers by reading a byte from a struct field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

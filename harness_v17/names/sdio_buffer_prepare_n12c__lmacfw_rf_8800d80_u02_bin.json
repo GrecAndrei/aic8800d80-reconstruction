@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n12c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ece0", "status": "ok", "name": "sdio_buffer_prepare_alt", "params": [], "docstring": "Prepare SDIO buffers (alternate path)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n12c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ece0", "status": "ok", "name": "sdio_buffer_prepare_alt_ce0", "params": [], "docstring": "Prepare SDIO buffers (alternate path)", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

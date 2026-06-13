@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n20e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e32a", "status": "ok", "name": "sdio_buffer_prepare_n20e", "params": [], "docstring": "Prepare SDIO buffer based on size/comparator check", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

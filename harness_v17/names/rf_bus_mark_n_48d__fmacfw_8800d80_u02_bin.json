@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_48d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113f6", "status": "ok", "name": "rf_bus_mark_n_48d", "params": [], "docstring": "Inline RF bus bit shift helper (stub)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

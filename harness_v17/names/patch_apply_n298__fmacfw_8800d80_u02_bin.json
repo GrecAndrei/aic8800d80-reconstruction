@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n298", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215144", "status": "ok", "name": "patch_apply_n298", "params": [], "docstring": "Applies firmware patch to SCB/ICSR (0xe000ed00) by writing patch words from a table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

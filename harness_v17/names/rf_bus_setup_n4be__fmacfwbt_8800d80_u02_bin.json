@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212216", "status": "ok", "name": "rf_bus_setup_n4be", "params": [], "docstring": "Set up RF bus based on mode comparison against 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_ca", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eaea", "status": "ok", "name": "sdio_buffer_prepare_n_ca", "params": [], "docstring": "Prepares an SDIO transfer buffer via bulk register copies", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

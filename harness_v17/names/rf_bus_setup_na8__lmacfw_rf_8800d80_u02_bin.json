@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_na8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118ac", "status": "ok", "name": "rf_bus_setup_na8", "params": [], "docstring": "Configure RF bus timing/control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

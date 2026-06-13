@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_nfe", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211afa", "status": "ok", "name": "rf_bus_reset2_nfe", "params": [], "docstring": "Reset RF bus loading pointers from 0x187ea8/0x187e8c/0x182464", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

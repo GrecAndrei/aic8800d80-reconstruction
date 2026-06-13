@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_18f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12157ec", "status": "ok", "name": "ipc_doorbell_handler_n_18f", "params": [], "docstring": "Handle IPC doorbell interrupt, read shared message buffer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

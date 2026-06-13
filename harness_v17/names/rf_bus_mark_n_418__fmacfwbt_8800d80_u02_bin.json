@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_418", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112c8", "status": "ok", "name": "rf_bus_mark_n_418", "params": [], "docstring": "Mark a tag/write to RF bus registers at 0x40240160/0x4024014c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

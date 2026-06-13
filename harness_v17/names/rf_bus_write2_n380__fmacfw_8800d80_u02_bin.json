@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n380", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f9c", "status": "ok", "name": "rf_bus_write2_n380", "params": [], "docstring": "Write two 16-bit values to RF bus after masked range check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

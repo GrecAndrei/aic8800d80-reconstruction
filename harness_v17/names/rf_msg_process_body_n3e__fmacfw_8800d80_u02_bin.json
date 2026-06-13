@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n3e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213c86", "status": "ok", "name": "rf_msg_process_body_n3e", "params": [], "docstring": "RF message body handler reading index and signed halfword", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

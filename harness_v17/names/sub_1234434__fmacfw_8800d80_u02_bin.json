@@ -1,0 +1,1 @@
+{"fn": "sub_1234434", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234434", "status": "ok", "name": "sub_1234434", "params": [], "docstring": "Reset/clear a control structure's status fields and byte flags", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

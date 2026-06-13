@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e6ee", "status": "ok", "name": "sdio_buffer_prepare_n_4c6", "params": [], "docstring": "Initialize/clear SDIO buffer descriptors and zero 4 dword fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

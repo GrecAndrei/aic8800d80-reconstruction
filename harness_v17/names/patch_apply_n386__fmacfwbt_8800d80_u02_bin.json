@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n386", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121586e", "status": "ok", "name": "patch_apply_n386", "params": [], "docstring": "Apply firmware patch/feature bits from a packed word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

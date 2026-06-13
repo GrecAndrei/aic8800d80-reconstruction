@@ -1,0 +1,1 @@
+{"fn": "mm_scan_channel_start_ind_handler", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1249940", "status": "ok", "name": "mm_scan_channel_start_ind_handler", "params": [], "docstring": "Handle channel-start indication during scan", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

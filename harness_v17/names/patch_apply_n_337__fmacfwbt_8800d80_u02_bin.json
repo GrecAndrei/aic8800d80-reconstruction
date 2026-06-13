@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_337", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151b0", "status": "ok", "name": "patch_apply_n_337", "params": [], "docstring": "Apply firmware patch entry, extract bit and return", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

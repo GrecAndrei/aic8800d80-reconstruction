@@ -1,0 +1,1 @@
+{"fn": "sub_1227394", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1227394", "status": "ok", "name": "rf_init_or_attach_n488", "params": [], "docstring": "Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

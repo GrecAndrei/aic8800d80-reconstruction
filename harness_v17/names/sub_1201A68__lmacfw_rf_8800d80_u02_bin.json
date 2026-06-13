@@ -1,0 +1,1 @@
+{"fn": "sub_1201A68", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201a68", "status": "ok", "name": "phy_get_link_status", "params": [], "docstring": "Read PHY status bit 28 from 0x40330000 register", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

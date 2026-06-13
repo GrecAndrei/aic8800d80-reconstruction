@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f1e", "status": "ok", "name": "rf_bus_write_n3ba", "params": [], "docstring": "Writes value to RF bus address with shift/mask math", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

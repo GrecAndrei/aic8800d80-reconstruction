@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ne", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154f6", "status": "ok", "name": "patch_apply_ne", "params": [], "docstring": "Apply patch with aligned check (ands r1, r2, 3)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

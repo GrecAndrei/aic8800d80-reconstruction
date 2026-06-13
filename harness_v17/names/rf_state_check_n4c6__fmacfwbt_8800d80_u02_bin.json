@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n4c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124f6", "status": "ok", "name": "rf_state_check_n4c6", "params": [], "docstring": "Check RF state against value 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

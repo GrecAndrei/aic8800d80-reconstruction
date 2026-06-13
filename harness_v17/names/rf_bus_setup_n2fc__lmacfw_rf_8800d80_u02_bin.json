@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b00", "status": "ok", "name": "rf_bus_setup_n2fc", "params": [], "docstring": "Initialize RF bus configuration registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_2a4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cbc", "status": "ok", "name": "rf_msg_handler_2a4", "params": [], "docstring": "Handle RF message dispatch variant 2a4", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

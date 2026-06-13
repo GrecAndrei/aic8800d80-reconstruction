@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n396", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120ee", "status": "ok", "name": "rf_bus_setup_n396", "params": [], "docstring": "RF bus setup packing bytes into 16-bit halfword fields at offsets 0xe/0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

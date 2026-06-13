@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_20e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115f6", "status": "ok", "name": "rf_bus_setup_n_20e", "params": [], "docstring": "Setup RF bus nibble/field mask from shifted value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

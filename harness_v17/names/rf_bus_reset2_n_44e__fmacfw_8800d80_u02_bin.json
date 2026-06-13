@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_44e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115ae", "status": "ok", "name": "rf_bus_reset2_n_44e", "params": [], "docstring": "RF bus reset/clear path 2; writes indexed entries into RF bus table at 0x40240198", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

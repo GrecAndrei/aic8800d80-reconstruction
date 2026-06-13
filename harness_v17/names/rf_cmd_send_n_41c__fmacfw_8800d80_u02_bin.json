@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_41c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bf4", "status": "ok", "name": "rf_cmd_send_n_41c", "params": [], "docstring": "Send RF command, set bit 0x10 in command word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

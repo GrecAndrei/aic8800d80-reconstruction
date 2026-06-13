@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212242", "status": "ok", "name": "rf_bus_reset2_n_4da", "params": [], "docstring": "RF bus reset secondary variant with shifted mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

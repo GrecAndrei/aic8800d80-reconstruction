@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120e8", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Sets up RF bus timing and configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n390", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120e8", "status": "ok", "name": "rf_bus_setup_0e8", "params": [], "docstring": "Sets up RF bus timing and configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

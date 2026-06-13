@@ -1,0 +1,1 @@
+{"fn": "sub_121C938", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121c938", "status": "ok", "name": "sub_121C938", "params": [], "docstring": "Look up and process IPC/queue slot by indexed offset", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ad0", "status": "ok", "name": "rf_bus_write2_n14c", "params": [], "docstring": "Writes a 32-bit value to RF bus register with OR-mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

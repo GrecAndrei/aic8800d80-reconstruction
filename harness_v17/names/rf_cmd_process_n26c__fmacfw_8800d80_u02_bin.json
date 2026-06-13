@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n26c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12137c4", "status": "ok", "name": "rf_cmd_process_n26c", "params": [], "docstring": "Processes RF command; allocates 0x20-byte context then dispatches", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_46e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ded6", "status": "ok", "name": "sdio_buffer_prepare_n_46e_ded6", "params": [], "docstring": "Prepares SDIO buffer descriptor entry (variant 46e).", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

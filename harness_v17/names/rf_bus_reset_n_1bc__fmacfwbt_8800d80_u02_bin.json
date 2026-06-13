@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_1bc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212688", "status": "ok", "name": "rf_bus_reset_n_1bc", "params": [], "docstring": "RF bus reset variant storing halfword to offset 0xa", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n118", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213d60", "status": "ok", "name": "rf_msg_process_body_n118", "params": [], "docstring": "Process RF message body variant N118; invokes handler via global ptr", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

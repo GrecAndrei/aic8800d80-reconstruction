@@ -1,0 +1,1 @@
+{"fn": "sub_1209E48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1209e48", "status": "ok", "name": "sub_1209E48", "params": [], "docstring": "BT/FMAC init routine enabling a control bit at 0x4033b610", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

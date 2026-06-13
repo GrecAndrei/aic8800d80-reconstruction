@@ -1,0 +1,1 @@
+{"fn": "sub_1241C0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241c0c", "status": "ok", "name": "msg_handler_1241c0c", "params": [], "docstring": "Message dispatch handler reading from offset 0x48 of input struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

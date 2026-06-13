@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3fe", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150ea", "status": "ok", "name": "patch_apply_n_3fe", "params": [], "docstring": "Applies a 3FE patch bit, sign-extending a scaled value into a byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

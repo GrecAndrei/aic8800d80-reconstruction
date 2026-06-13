@@ -1,0 +1,107 @@
+{
+  "function": "rf_bus_setup_bitfield",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x1120c2",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x1120c2  movs r2, 1",
+        "compiled": "0x100000  invalid",
+        "fix_hint": "Generate movs r2, #1 as function prologue init"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120c4  movs r0, 2",
+        "compiled": "0x100004  invalid",
+        "fix_hint": "Generate movs r0, #2"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120c6  strb r0, [r5]",
+        "compiled": "0x100008  invalid",
+        "fix_hint": "Generate strb r0, [r5] (store byte 2 to base reg)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120c8  ldrb r2, [r3]",
+        "compiled": "0x10000c  invalid",
+        "fix_hint": "Generate ldrb r2, [r3] (read first source byte)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120ca  ldrb r1, [r5, 0xc]",
+        "compiled": "0x100010  invalid",
+        "fix_hint": "Generate ldrb r1, [r5, #0xc] (read-modify-write target)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120cc  lsrs r2, r2, 7",
+        "compiled": "0x100014  invalid",
+        "fix_hint": "Generate lsrs r2, r2, #7"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120ce  bfi r1, r2, 7, 1",
+        "compiled": "0x100018  invalid",
+        "fix_hint": "Generate bfi r1, r2, #7, #1 (insert bit7)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120d2  strb r1, [r5, 0xc]",
+        "compiled": "0x10001c  invalid",
+        "fix_hint": "Generate strb r1, [r5, #0xc]"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120d8  asrs r1, r1, 5",
+        "compiled": "0x100024  invalid",
+        "fix_hint": "Generate asrs r1, r1, #5"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120da  bfi r2, r1, 5, 2",
+        "compiled": "0x100028  invalid",
+        "fix_hint": "Generate bfi r2, r1, #5, #2 (insert bits 6:5)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120e2  bfi r2, r1, 0, 5",
+        "compiled": "0x100030  invalid",
+        "fix_hint": "Generate bfi r2, r1, #0, #5 (insert bits 4:0)"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120e8  ldrb r2, [r3, 1]",
+        "compiled": "0x100038  invalid",
+        "fix_hint": "Generate ldrb r2, [r3, #1]"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120ea  strb r2, [r5, 0xd]",
+        "compiled": "0x10003c  invalid",
+        "fix_hint": "Generate strb r2, [r5, #0xd]"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120ec  ldrb r1, [r3, 3]",
+        "compiled": "0x100040  invalid",
+        "fix_hint": "Generate ldrb r1, [r3, #3]"
+      },
+      {
+        "type": "missing",
+        "original": "0x1120ee  ldrb r2, [r3, 2]",
+        "compiled": "0x100044  invalid",
+        "fix_hint": "Generate ldrb r2, [r3, #2]"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disassembly is entirely 0xFFFFFFFF (invalid) at 0x100000; the mechanical reconstruction produced no valid code at all",
+      "All 20 original instructions are missing \u2014 zero structural correspondence",
+      "The original function uses BFI bitfield insert instructions (bfi r1, r2, #7, #1 etc.) for read-modify-write byte operations, which require a C-level structure field decomposition that the compiler does not naturally emit",
+      "The three sequential read-modify-write patterns (r3[0] bit7 \u2192 r5[0xc] bit7, r3[0] bits6:5 \u2192 r5[0xc] bits6:5, r3[0] bits4:0 \u2192 r5[0xc] bits4:0) suggest a struct copy/overlay pattern that needs explicit bitfield struct definitions to reproduce",
+      "0x100000 in the actual image contains real code (0x001a0000), so the 'invalid' disassembly is a generator artifact, not the real binary"
+    ]
+  }
+}

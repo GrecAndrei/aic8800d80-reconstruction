@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121500e", "status": "ok", "name": "patch_apply_n_4da", "params": [], "docstring": "Apply patch 0x4da setting flag=1 in fmacfwbt", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

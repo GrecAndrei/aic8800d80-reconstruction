@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n49e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121190a", "status": "ok", "name": "msg_dispatch_254", "params": [], "docstring": "Message dispatch handler (msg id 0xA4)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

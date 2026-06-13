@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_470", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12124a8", "status": "ok", "name": "rf_cmd_send_n_470", "params": [], "docstring": "Sends RF command 0x13E/0x11D with bus flag set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

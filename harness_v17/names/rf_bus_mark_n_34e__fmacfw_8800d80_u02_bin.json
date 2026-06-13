@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_34e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211536", "status": "ok", "name": "rf_bus_mark_n_34e", "params": [], "docstring": "Mark RF bus state via MMIO reg 0x1812/0x1811", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

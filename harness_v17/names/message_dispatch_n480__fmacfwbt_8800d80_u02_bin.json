@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d034", "status": "ok", "name": "rf_bus_reset_n36", "params": [], "docstring": "Reset RF bus state and clear status flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

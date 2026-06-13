@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_1fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121454c", "status": "ok", "name": "rf_fault_dump_n_1fc", "params": [], "docstring": "RF fault dump epilogue/trampoline (variant 0x1fc)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_120E970", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120e970", "status": "ok", "name": "rf_init_load_constants", "params": [], "docstring": "Loads RF/board constants and pointers, likely RF init or calibration setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nd4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155bc", "status": "ok", "name": "patch_apply_nd4", "params": [], "docstring": "Apply firmware patch (SCB VTOR/VECTADDR path)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_e6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e5e", "status": "ok", "name": "rf_cmd_dispatch_table_idx", "params": [], "docstring": "Dispatches command table index from opcode minus 0x41", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f3c", "status": "ok", "name": "patch_apply_n90", "params": [], "docstring": "Validate patch range bounds 0x182000-0x182198", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

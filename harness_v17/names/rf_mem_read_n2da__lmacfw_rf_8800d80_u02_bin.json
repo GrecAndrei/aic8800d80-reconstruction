@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n2da", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f86e", "status": "ok", "name": "rf_mem_read_n2da", "params": [], "docstring": "Read RF register memory with shifted index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

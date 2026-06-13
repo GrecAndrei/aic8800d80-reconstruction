@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n_100", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213b48", "status": "ok", "name": "rf_msg_dispatch_by_id", "params": [], "docstring": "Dispatch handler based on RF message ID (checks 0x600)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

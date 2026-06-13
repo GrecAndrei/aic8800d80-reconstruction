@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n354", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101b4", "status": "ok", "name": "log_free_dispatch_bl_n354", "params": [], "docstring": "Log free dispatch: forwards call to log free helper at 0x12d4f8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

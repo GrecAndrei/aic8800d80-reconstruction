@@ -1,0 +1,1 @@
+{"fn": "sub_1217348", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1217348", "status": "ok", "name": "sub_1217348", "params": [], "docstring": "Wrapper that forwards to handler at 0x128744", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

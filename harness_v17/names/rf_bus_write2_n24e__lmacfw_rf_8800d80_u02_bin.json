@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n24e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211772", "status": "ok", "name": "rf_bus_write2_n24e", "params": [], "docstring": "Performs 32-bit+8-bit RF bus write to MMIO 0x185a20/0x185a1c registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

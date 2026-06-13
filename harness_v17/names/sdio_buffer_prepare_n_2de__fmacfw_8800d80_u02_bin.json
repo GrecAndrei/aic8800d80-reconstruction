@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_2de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122de3e", "status": "ok", "name": "rf_bus_mark_n_24b", "params": [], "docstring": "Computes indexed RF bus slot using multiply-accumulate addressing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

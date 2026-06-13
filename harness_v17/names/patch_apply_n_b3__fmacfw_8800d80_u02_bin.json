@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_b3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214df8", "status": "ok", "name": "patch_apply_n_b3", "params": [], "docstring": "Apply RF firmware patch (variant b3)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

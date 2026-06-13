@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nde", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f8a", "status": "ok", "name": "patch_apply_nde", "params": [], "docstring": "Check CPU ID (SCB->CPUID) against expected value 0xC241 before patch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

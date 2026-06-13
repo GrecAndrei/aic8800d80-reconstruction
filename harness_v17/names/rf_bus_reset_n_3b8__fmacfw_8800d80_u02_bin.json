@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212630", "status": "ok", "name": "rf_bus_reset_mask_n_3b8", "params": [], "docstring": "Mask RF bus field to 5 bits during reset sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

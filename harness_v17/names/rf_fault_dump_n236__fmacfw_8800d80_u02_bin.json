@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n236", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121497e", "status": "ok", "name": "rf_fault_dump_n236", "params": [], "docstring": "Tail of RF fault dump, restores context and returns", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

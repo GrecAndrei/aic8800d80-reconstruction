@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_34a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e8a", "status": "ok", "name": "rf_state_check_set_bits_n34a", "params": [], "docstring": "Check/set RF control state bits at offset 0xb00/0xb08", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

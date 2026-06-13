@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_na8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ec5c", "status": "ok", "name": "rf_mem_read_n21e", "params": [], "docstring": "Read RF memory entry and compare against 0x108", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

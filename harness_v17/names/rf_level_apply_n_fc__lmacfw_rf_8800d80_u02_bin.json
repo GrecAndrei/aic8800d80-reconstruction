@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226cdc", "status": "ok", "name": "rf_level_apply_clear_bits", "params": [], "docstring": "Clear high bit of RF level register and compare against 0x96c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

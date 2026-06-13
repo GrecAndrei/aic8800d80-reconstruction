@@ -1,0 +1,1 @@
+{"fn": "sub_1201A3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1201a3c", "status": "ok", "name": "rf_chip_ready_check", "params": [], "docstring": "Check RF chip ready flag at 0x40341424, return 1 if > 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

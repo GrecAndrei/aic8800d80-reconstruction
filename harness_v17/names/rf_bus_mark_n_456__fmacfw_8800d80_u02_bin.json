@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121142e", "status": "ok", "name": "rf_bus_mark_n_456", "params": [], "docstring": "Mark RF bus slot: index into table, store args, bump counter, write RF MMIO 0x4024018c/0x40240148", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

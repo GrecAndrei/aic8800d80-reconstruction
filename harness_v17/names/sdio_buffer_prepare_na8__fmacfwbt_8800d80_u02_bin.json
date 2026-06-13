@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_na8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3ec", "status": "ok", "name": "sdio_buffer_prepare_na8", "params": [], "docstring": "Prepare SDIO buffer with shift-based address/size calculations", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

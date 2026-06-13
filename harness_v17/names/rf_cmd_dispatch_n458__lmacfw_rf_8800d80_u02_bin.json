@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n458", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122239c", "status": "ok", "name": "rf_cmd_dispatch_n458", "params": [], "docstring": "Dispatch RF command to mailbox/subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

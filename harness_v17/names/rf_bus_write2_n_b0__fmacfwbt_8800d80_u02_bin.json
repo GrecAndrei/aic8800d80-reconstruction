@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119c8", "status": "ok", "name": "rf_bus_write2_n_b0", "params": [], "docstring": "Compute 32-byte RF slot offset, validate, prepare write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

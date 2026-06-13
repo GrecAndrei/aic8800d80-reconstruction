@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n2f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120aa", "status": "ok", "name": "rf_bus_init_n2f2", "params": [], "docstring": "Initializes RF bus with control flags and MMIO register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

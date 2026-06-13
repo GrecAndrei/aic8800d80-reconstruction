@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nf4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f688", "status": "ok", "name": "rf_mem_read_nf4", "params": [], "docstring": "Reads RF memory and updates transfer length counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

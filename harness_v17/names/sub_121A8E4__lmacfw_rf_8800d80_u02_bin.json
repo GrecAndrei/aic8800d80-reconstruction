@@ -1,0 +1,1 @@
+{"fn": "sub_121A8E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a8e4", "status": "ok", "name": "rf_mmio_status_read", "params": [], "docstring": "Reads byte status field and MMIO register value from 0x403200e4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

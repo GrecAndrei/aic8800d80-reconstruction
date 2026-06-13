@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n52", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121479a", "status": "ok", "name": "rf_fault_dump_n52", "params": [], "docstring": "Dump RF fault state and trigger interrupt via NVIC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

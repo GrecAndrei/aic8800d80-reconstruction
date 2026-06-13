@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n31a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121260a", "status": "ok", "name": "rf_bus_reset_n31a", "params": [], "docstring": "Reset RF bus parsing descriptor at 0x880c3c00 with mask flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

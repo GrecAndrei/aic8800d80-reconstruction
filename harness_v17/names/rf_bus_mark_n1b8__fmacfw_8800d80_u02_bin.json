@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a3c", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "Set RF bus mark bit by ORing 0x40000000 into MMIO register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

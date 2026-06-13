@@ -1,0 +1,1 @@
+{"fn": "sub_123F17C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123f17c", "status": "ok", "name": "scan_chan_lookup_n2b8", "params": [], "docstring": "Lookup channel entry from 0x2b8-stride table", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

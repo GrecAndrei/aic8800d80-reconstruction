@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_40a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f18a", "status": "ok", "name": "rf_mem_read_n_40a", "params": [], "docstring": "Reads RF nibble-pair from byte stream using 0x14df0c lookup table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

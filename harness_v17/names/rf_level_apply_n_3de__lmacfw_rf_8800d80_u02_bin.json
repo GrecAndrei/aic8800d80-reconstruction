@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3de", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269fa", "status": "ok", "name": "rf_level_reg_program", "params": [], "docstring": "Loads RF level constants and clears low byte of level register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

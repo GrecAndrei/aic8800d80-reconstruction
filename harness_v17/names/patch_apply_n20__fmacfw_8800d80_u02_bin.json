@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ecc", "status": "ok", "name": "patch_apply_n20", "params": [], "docstring": "Applies a firmware patch from descriptor", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_1ea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215792", "status": "ok", "name": "ipc_doorbell_dispatch_n1ea", "params": [], "docstring": "IPC doorbell handler dispatching core notification", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

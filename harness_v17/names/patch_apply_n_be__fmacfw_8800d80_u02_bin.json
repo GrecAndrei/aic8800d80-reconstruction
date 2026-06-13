@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214dee", "status": "ok", "name": "patch_apply_n_be", "params": [], "docstring": "Apply patch entry in big-endian mode", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

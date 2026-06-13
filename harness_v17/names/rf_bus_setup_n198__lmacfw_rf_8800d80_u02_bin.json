@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n198", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121199c", "status": "ok", "name": "rf_cmd_send_n_47c", "params": [], "docstring": "Send RF command with multi-register configuration sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

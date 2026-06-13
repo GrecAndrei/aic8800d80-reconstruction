@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e20", "status": "ok", "name": "rf_level_apply", "params": [], "docstring": "apply calibrated RF gain/level settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226e20", "status": "ok", "name": "rf_level_apply_e20", "params": [], "docstring": "apply calibrated RF gain/level settings", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

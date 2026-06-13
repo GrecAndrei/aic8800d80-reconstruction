@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n2c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213f0a", "status": "ok", "name": "rf_msg_process_body_n2c2", "params": [], "docstring": "Process RF control message body (type n2c2)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

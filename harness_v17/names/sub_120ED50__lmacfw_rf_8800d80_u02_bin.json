@@ -1,0 +1,1 @@
+{"fn": "sub_120ED50", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120ed50", "status": "ok", "name": "sub_120ED50", "params": [], "docstring": "hardware/NVIC initialization touching system control and IRQ registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "crypto_gain_clamp", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1204c08", "status": "ok", "name": "crypto_gain_clamp", "params": [], "docstring": "Computes scaled gain by dividing floating-point value by 20", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

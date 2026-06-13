@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dce4", "status": "ok", "name": "sdio_buffer_prepare_n_438", "params": [], "docstring": "Prepare and stage SDIO host buffer for DMA", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

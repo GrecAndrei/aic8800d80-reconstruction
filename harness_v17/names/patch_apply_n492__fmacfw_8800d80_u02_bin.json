@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n492", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121533e", "status": "ok", "name": "patch_apply_n492", "params": [], "docstring": "Applies a firmware patch by writing patch bytes into memory", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

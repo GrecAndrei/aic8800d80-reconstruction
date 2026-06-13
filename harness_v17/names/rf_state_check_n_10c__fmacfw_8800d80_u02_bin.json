@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_10c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120c8", "status": "ok", "name": "rf_state_check_n_10c", "params": [], "docstring": "Check RF state and return code 0/1/2 via tail-call pops", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

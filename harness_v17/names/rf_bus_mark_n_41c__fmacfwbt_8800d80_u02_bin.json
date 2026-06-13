@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_41c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112c4", "status": "ok", "name": "rf_bus_mark_n_41c", "params": [], "docstring": "RF bus-mark/handshake; writes 0x40240114-style MMIO registers to mark bus state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n1b0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b70", "status": "ok", "name": "rf_bus_write_n1b0", "params": [], "docstring": "RF bus write: selects register per arg and extracts bit 0x15", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

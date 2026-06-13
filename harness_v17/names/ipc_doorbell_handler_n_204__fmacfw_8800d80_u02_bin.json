@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_204", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215778", "status": "ok", "name": "ipc_doorbell_handler_n_204", "params": [], "docstring": "IPC doorbell message handler with size/offset decoding", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

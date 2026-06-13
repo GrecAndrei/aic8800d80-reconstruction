@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n20a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121edbe", "status": "ok", "name": "sdio_buf_check_size", "params": [], "docstring": "Validate SDIO buffer size against 0x68-byte header", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

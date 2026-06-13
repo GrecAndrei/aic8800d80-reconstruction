@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n21e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226ff6", "status": "ok", "name": "rf_level_apply_n21e", "params": [], "docstring": "Apply RF TX power level with clamp", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

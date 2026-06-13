@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n21c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150c8", "status": "ok", "name": "patch_apply_n21c", "params": [], "docstring": "Applies firmware patch with MMIO register update", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

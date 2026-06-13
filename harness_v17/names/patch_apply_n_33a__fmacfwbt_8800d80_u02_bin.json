@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_33a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ae", "status": "ok", "name": "rf_bus_mark_n44", "params": [], "docstring": "Set high bits 0xc0 on RF bus byte 3 across registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

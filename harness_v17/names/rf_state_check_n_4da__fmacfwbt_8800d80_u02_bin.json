@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_4da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b56", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "Mark RF bus access or status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_4da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b56", "status": "ok", "name": "rf_bus_mark_b56", "params": [], "docstring": "Mark RF bus access or status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

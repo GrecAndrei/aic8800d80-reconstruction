@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153f8", "status": "ok", "name": "patch_apply_n_f0", "params": [], "docstring": "Apply patch by computing shifted index offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

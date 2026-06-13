@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n342", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151ee", "status": "ok", "name": "patch_apply_n342", "params": [], "docstring": "Applies a firmware patch bit from a flag field", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

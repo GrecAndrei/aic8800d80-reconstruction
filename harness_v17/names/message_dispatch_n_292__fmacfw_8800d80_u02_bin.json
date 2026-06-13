@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_292", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c6fa", "status": "ok", "name": "rf_mem_write_n34f", "params": [], "docstring": "Write 32-bit value to two RF MMIO-mapped addresses and store tag 0x2658", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_3f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c3a", "status": "ok", "name": "rf_state_check_n_3f6", "params": [], "docstring": "Check RF state by reading field at offset 0x14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

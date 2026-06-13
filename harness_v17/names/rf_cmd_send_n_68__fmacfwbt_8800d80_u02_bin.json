@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e04", "status": "ok", "name": "rf_cmd_send_n_68", "params": [], "docstring": "Send RF command via sysctl regs; reads cmd from 0x173224, status from 0x804/0xb2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

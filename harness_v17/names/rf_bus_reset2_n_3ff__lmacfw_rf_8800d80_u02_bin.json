@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3ff", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f04", "status": "ok", "name": "rf_bus_reset2_n_3ff", "params": [], "docstring": "Reset RF bus: compute address via shift, write 32/16-bit values, store byte at 0xc00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

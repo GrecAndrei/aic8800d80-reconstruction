@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n372", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101d2", "status": "ok", "name": "log_free_dispatch", "params": [], "docstring": "Dispatch a freed log buffer to consumer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n372", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101d2", "status": "ok", "name": "log_free_dispatch_1d2", "params": [], "docstring": "Dispatch a freed log buffer to consumer", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

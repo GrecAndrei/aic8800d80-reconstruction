@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_8a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211cce", "status": "ok", "name": "rf_bus_setup_n_8a", "params": [], "docstring": "Sets up RF bus shared memory pointers and magic value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

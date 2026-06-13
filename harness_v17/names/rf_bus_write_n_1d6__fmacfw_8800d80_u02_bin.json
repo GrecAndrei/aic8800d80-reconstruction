@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_1d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121198e", "status": "ok", "name": "rf_bus_write_n_1d6", "params": [], "docstring": "Write 1 byte to RF bus at index 0x1d6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

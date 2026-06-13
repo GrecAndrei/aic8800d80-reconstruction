@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_22a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152be", "status": "ok", "name": "patch_apply_n_22a", "params": [], "docstring": "Patch apply helper: returns -1 or computes patched offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

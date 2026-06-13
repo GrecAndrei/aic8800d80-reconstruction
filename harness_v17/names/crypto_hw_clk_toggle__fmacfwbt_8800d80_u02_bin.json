@@ -1,0 +1,1 @@
+{"fn": "crypto_hw_clk_toggle", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1203ac4", "status": "ok", "name": "crypto_hw_clk_toggle", "params": [], "docstring": "Toggle crypto HW clock via bit clear on 0x40344088", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_41c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121199c", "status": "ok", "name": "rf_bus_init_n_41c", "params": [], "docstring": "Initialize RF bus with retry/timeout value 0xc8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

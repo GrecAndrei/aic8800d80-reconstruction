@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n34a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b4e", "status": "ok", "name": "rf_msg_process_body_n_179", "params": [], "docstring": "Process incoming RF message body into slot", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

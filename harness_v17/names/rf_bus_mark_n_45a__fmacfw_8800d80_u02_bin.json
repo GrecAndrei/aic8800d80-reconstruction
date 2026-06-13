@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_45a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121142a", "status": "ok", "name": "rf_cmd_dispatch_n_30a", "params": [], "docstring": "Dispatch an RF command message (type '$') to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

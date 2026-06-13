@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2c0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3dc", "status": "ok", "name": "sdio_buffer_prepare_n2c0", "params": [], "docstring": "Prepare SDIO TX/RX buffer descriptor with type/state check", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

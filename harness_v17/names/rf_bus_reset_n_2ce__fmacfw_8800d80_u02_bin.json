@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121271a", "status": "ok", "name": "rf_bus_reset_n_2ce", "params": [], "docstring": "RF bus reset fragment n_2ce", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

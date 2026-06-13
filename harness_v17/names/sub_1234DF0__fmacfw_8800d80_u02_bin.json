@@ -1,0 +1,1 @@
+{"fn": "sub_1234DF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1234df0", "status": "ok", "name": "sub_1234df0", "params": [], "docstring": "Generic FMAC stub function with constant setup", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n24", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212054", "status": "ok", "name": "rf_state_check_n24", "params": [], "docstring": "Verify/transition RF state machine", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

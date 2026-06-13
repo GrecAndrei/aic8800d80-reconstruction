@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_nc6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e1e", "status": "ok", "name": "rf_bus_setup_nc6", "params": [], "docstring": "Configure RF bus register with shift/or mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

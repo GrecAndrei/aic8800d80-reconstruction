@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n2c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d3e", "status": "ok", "name": "rf_bus_write2_n2c6", "params": [], "docstring": "RF bus write2, read and check status byte 0x1d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,22 @@
+{
+  "function": "patch_apply_bit",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x114b70",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00114b70  push {r3, lr} | mov.w r3, 0x1fc | movs r0, 0xf | ldr r3, [r3] | blx r3 | ubfx r0, r0, 0x12, 1 | pop {r3, pc}",
+        "compiled": "0x00106d3a  lsls r0, r6, 0xd | orr.w r3, r3, r0, lsl 4 | str r3, [r2] | ldr r3, [r2] | ldr r0, [sp, 0x28] | bic r3, r3, 0x400 | orr.w r3, r3, r0, lsl 10 | str r3, [r2] ...",
+        "fix_hint": "Completely wrong function compiled. The original is a 5-instruction thunk that calls a function-pointer at 0x1fc with arg 0xf and extracts one status bit (UBFX). The compiled output is an unrelated register-bitfield write function at 0x106d3a."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled function at 0x106d3a is a completely different function (hardware register field write with bic/orr pattern) \u2014 it has zero structural overlap with the original patch_apply_bit accessor.",
+      "The original patch_apply_bit is a tiny thunk (push/literal-load/blx/ubfx/pop) that returns a single bit of a status word. No such pattern exists in the compiled output.",
+      "Original function has no behavioral trace and no callees, suggesting it was inlined or never reconstructed. The mechanical generator appears to have mapped this name to the wrong function (likely due to address or symbol mismapping).",
+      "The original disasm also shows three near-identical copies of this thunk at 0x114b70/0x114b84/0x114b98 with UBFX extracting bits 0x12, 0x13, 0x14 respectively \u2014 none of which appear in compiled output."
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_1b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212dac", "status": "ok", "name": "message_dispatch_n_15a", "params": [], "docstring": "IPC message dispatch reading header word and 16-bit field offset 6", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

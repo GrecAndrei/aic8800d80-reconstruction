@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n34e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12138a6", "status": "ok", "name": "rf_cmd_process_n34e", "params": [], "docstring": "Process RF command (variant n34e)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

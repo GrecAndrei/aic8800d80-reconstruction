@@ -1,0 +1,1 @@
+{"fn": "sub_1219504", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219504", "status": "ok", "name": "rf_send_cmd_0x72", "params": [], "docstring": "Send RF command 0x72 ('r') and return status 0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

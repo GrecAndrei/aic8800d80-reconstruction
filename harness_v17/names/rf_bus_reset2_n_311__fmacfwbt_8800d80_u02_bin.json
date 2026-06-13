@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_311", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211546", "status": "ok", "name": "rf_msg_process_body_n28a", "params": [], "docstring": "Processes RF message body by reading indexed byte and dispatching", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

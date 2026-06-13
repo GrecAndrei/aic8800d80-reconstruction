@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_12e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d7e", "status": "ok", "name": "patch_apply_n_12e", "params": [], "docstring": "Applies firmware patch with large stack frame", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

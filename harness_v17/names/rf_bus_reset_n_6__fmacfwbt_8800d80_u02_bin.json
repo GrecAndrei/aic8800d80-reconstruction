@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121283e", "status": "ok", "name": "rf_bus_reset_n_6", "params": [], "docstring": "Resets RF bus path and restores default register state at 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

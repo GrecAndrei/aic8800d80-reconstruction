@@ -1,0 +1,1 @@
+{"fn": "sub_121898C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121898c", "status": "ok", "name": "rf_table_lookup_n360", "params": [], "docstring": "Looks up an entry in the RF register/object table by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

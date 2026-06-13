@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_47c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a30", "status": "ok", "name": "patch_apply_n_47c", "params": [], "docstring": "Patch apply helper: stack restore and byte store", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

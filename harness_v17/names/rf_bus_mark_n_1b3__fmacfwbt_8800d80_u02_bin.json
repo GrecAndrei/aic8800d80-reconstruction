@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1b3", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121152c", "status": "ok", "name": "rf_bus_mark_n_1b3", "params": [], "docstring": "Marks RF bus slot with command metadata and triggers callback", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n372", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b76", "status": "ok", "name": "rf_bus_setup_n372", "params": [], "docstring": "Sets individual bits in RF bus configuration register using bit-field insert (BFI) operations", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

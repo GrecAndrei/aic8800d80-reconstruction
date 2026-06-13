@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n228", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f7bc", "status": "ok", "name": "rf_mem_read_n228", "params": [], "docstring": "Read RF memory location with shift/mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1218C44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218c44", "status": "ok", "name": "sub_1218C44", "params": [], "docstring": "Resolves handler from table and dispatches call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

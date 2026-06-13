@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_228", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f64", "status": "ok", "name": "rf_bus_mark_n_228", "params": [], "docstring": "Mark RF bus register fields with channel and state bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

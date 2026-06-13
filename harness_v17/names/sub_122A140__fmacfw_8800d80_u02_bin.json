@@ -1,0 +1,1 @@
+{"fn": "sub_122A140", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122a140", "status": "ok", "name": "sub_122A140", "params": [], "docstring": "Wrapper checking global flag before operation", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

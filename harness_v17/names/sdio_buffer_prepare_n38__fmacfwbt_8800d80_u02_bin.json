@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e37c", "status": "ok", "name": "sdio_buffer_prepare_n38", "params": [], "docstring": "prepares SDIO buffer for transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e37c", "status": "ok", "name": "sdio_buffer_prepare_n38_37c", "params": [], "docstring": "prepares SDIO buffer for transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

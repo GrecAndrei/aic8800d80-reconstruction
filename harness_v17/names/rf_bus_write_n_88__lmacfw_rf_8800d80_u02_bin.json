@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113e4", "status": "ok", "name": "rf_bus_write_n_88", "params": [], "docstring": "Performs a sized RF bus write (subtracts 4) and sets bit 0 of control", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

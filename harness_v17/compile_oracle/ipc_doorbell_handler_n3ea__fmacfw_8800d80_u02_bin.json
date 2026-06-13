@@ -1,0 +1,72 @@
+{
+  "function": "ipc_doorbell_handler_n3ea",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115d66",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115d66      7049           ldr r1, [0x00115f28]        ; [0x115f28:4]=0x16df28",
+        "compiled": "(no corresponding instruction at 0x001050c2)",
+        "fix_hint": "Reconstructed function is at wrong base address; the compiled code at 0x1050c2 is an entirely different function, not a reconstruction of ipc_doorbell_handler_n3ea"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d68      7048           ldr r0, [0x00115f2c]        ; [0x115f2c:4]=0x1677a0",
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Literal pool value 0x1677a0 not present in compiled version's pool"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d6a      714d           ldr r5, [0x00115f30]        ; [0x115f30:4]=0x182b5c",
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Literal pool value 0x182b5c not present in compiled version's pool"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d6c      18f08cfe       bl 0x12ea88",
+        "compiled": "(no corresponding bl instruction found)",
+        "fix_hint": "Call target 0x12ea88 (ipc_doorbell handler helper) is not invoked"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d70      704b           ldr r3, [0x00115f34]        ; [0x115f34:4]=0x182558",
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Literal pool value 0x182558 not present in compiled version's pool"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d72      1b68           ldr r3, [r3]",
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Indirect load through pointer not generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d74      002b           cmp r3, 0",
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Null-check on returned value not generated"
+      },
+      {
+        "type": "extra",
+        "original": "(not present)",
+        "compiled": "0x001050c2  f04f    ldr r7, [0x00105484]  ; loads 0xaa1733ff",
+        "fix_hint": "Spurious literal-pool load present in compiled version"
+      },
+      {
+        "type": "extra",
+        "original": "(not present)",
+        "compiled": "0x001050d2  26f00056  bic r6, r6, 0x20000000",
+        "fix_hint": "Spurious bit-clear of 0x20000000 bit; original function has no such register manipulation"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Complete address mismatch: original function lives at 0x115d66, compiled reconstruction at 0x1050c2 \u2014 these are in entirely different regions of the image (0x115xxx vs 0x105xxx).",
+      "Size mismatch: original is a tiny 7-instruction prologue-style stub; compiled is a large ~40-instruction function with stack frame setup, multiple helper calls, and register save/restore \u2014 they are not the same function.",
+      "Literal-pool addresses are completely disjoint: original references 0x16df28/0x1677a0/0x182b5c/0x182558; compiled references 0x40342024/0xfffff000/0x40342034/0x40342218/0x164834 \u2014 none overlap.",
+      "Original's only callee 0x12ea88 does not appear in the compiled version's bl targets (which include 0x100644 and 0x12ecd0).",
+      "The 'invalid' decoding shown in the prompt is misleading \u2014 when re-disassembled at 0x1050c2 the bytes decode cleanly to valid ARM/Thumb-2 instructions, confirming the compiled output is simply a different function, not a corrupted reconstruction.",
+      "It appears the mechanical reconstructor was pointed at (or generated code for) the wrong source-level function; the C body used to emit the compiled version does not correspond to ipc_doorbell_handler_n3ea."
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_3c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212c4a", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF command with variant timing values (0x78/0xc8/0x18)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

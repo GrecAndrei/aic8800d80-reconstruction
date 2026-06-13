@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142f2", "status": "ok", "name": "rf_fault_dump_n_456", "params": [], "docstring": "Dumps RF fault info into shared fault record structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

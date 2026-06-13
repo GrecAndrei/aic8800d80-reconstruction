@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n336", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b3a", "status": "ok", "name": "rf_bus_setup_n336", "params": [], "docstring": "RF bus setup with status mask check (0x21)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

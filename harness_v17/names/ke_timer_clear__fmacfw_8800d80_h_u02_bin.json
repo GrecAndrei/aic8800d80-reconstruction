@@ -1,0 +1,1 @@
+{"fn": "ke_timer_clear", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124a078", "status": "ok", "name": "ke_timer_clear", "params": [], "docstring": "Clear kernel timer entry", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

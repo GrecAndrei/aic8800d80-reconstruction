@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121543c", "status": "ok", "name": "patch_apply_nac", "params": [], "docstring": "Apply firmware patch ac", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

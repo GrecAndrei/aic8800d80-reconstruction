@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n60", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213ca8", "status": "ok", "name": "rf_msg_process_body_n60", "params": [], "docstring": "Process RF IPC message body: clear flag, bump counter, store payload", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

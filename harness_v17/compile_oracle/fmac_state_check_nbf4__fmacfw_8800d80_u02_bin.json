@@ -1,0 +1,51 @@
+{
+  "function": "fmac_state_check_nbf4",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x138bf4",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00138bf4      2de9f047       push.w {r4, r5, r6, r7, r8, sb, sl, lr}",
+        "compiled": "0x00100000      0000           movs r0, r0",
+        "fix_hint": "Reconstructor placed the function at 0x100000 (vector table base) instead of 0x138bf4; relocate base address to match the original function entry point."
+      },
+      {
+        "type": "missing",
+        "original": "0x00138bf8      294b           ldr r3, [0x00138ca0]        ; [0x138ca0:4]=0x18e610",
+        "compiled": "(no matching LDR literal load of 0x18e610)",
+        "fix_hint": "The literal-pool LDR loading 0x18e610 is completely absent from the reconstruction."
+      },
+      {
+        "type": "missing",
+        "original": "0x00138bfa      1b7c           ldrb r3, [r3, 0x10]",
+        "compiled": "(no LDRB r3,[r3,#0x10] present)",
+        "fix_hint": "Byte read at offset 0x10 from loaded pointer is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00138bfc      ff2b           cmp r3, 0xff",
+        "compiled": "(no CMP r3,0xff present)",
+        "fix_hint": "Comparison against 0xff sentinel is missing from compiled output."
+      },
+      {
+        "type": "missing",
+        "original": "0x00138bfe      82b0           sub sp, 8",
+        "compiled": "(no stack adjustment present)",
+        "fix_hint": "Stack frame allocation (sub sp,8) is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00138c00      0646           mov r6, r0",
+        "compiled": "(no r0->r6 copy present)",
+        "fix_hint": "Argument save into r6 is missing."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output is at address 0x00100000 (firmware vector table / reset vector area) instead of the correct function address 0x138bf4 \u2014 the function has been placed at the wrong base address entirely.",
+      "Every instruction in the compiled disassembly is unrelated to the original function; this is not a partial match but a total miscompilation or wrong address selection.",
+      "The reconstructor appears to have emitted 0xFFFFFFFF fill words (or disassembled empty/FILL memory) rather than real ARM instructions, suggesting the generated object was never linked at the correct address."
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n1b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f74a", "status": "ok", "name": "rf_mem_read_n1b6", "params": [], "docstring": "Reads RF shared memory flag and tests against request mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

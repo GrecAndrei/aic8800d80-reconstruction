@@ -1,0 +1,1 @@
+{"fn": "sub_1217DC0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1217dc0", "status": "ok", "name": "rf_status_check_n_1c0", "params": [], "docstring": "Check RF status byte at offset 0x5e from radio state block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

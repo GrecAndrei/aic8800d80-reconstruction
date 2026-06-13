@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_218", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c94", "status": "ok", "name": "patch_apply_chunk", "params": [], "docstring": "Write a 4-byte patch chunk to the target address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

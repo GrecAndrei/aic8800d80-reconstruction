@@ -1,0 +1,1 @@
+{"fn": "sub_120E170", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120e170", "status": "ok", "name": "rf_subsystem_init", "params": [], "docstring": "Initialize RF subsystem MMIO at 0x4010d000/0x40100000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3ea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d66", "status": "ok", "name": "ipc_doorbell_handler_n3ea", "params": [], "docstring": "IPC doorbell ISR: loads shared structs and calls doorbell handler 0x12ea88", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

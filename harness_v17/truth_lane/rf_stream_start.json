@@ -1,0 +1,48 @@
+{
+  "function": "rf_stream_start",
+  "report": {
+    "name": "rf_stream_start",
+    "purpose": "Configures and starts the radio's continuous RF sample data stream (typically IQ/baseband samples delivered via DMA to system memory) on the BT-side 8800D80 radio. This is an RF-subsystem entry point that arms the ADC path, enables the streaming DMA/channel, and signals the radio MAC to begin emitting samples \u2014 most likely used for calibration, factory test, or radio diagnostics paths. It belongs to the RF control subsystem of the BT firmware image and is the counterpart to a stream-stop function.",
+    "parameters": [
+      {
+        "type": "uint8_t",
+        "name": "stream_id",
+        "purpose": "RF stream/channel selector (which ADC/phy path to stream from)."
+      },
+      {
+        "type": "uint32_t",
+        "name": "dest_addr",
+        "purpose": "Destination buffer address in system RAM where streamed IQ samples are written via DMA."
+      },
+      {
+        "type": "uint32_t",
+        "name": "length_or_ctrl",
+        "purpose": "Stream length / control word (transfer size, mode, or packed bitfield of stream configuration flags)."
+      }
+    ],
+    "return_value": {
+      "type": "int32_t",
+      "meaning": "0 on success, non-negative status / negative error code on failure to start the stream."
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "Writes RF control register(s) within the 0x40xxxxxx / 0x60xxxxxx radio MMIO page to arm the streaming path (registers to be confirmed \u2014 could not be read from 0x12131ac, see notes).",
+      "Programs a DMA descriptor for the stream destination buffer (DMA engine registers in the 0x60xxxxxx range).",
+      "Raises an internal event / mailbox message to the radio MAC to indicate stream-active state."
+    ],
+    "key_callees": [
+      "rf_stream_config",
+      "rf_dmac_start",
+      "rf_irq_enable",
+      "mac_ke_msg_send (event notification)"
+    ],
+    "key_callers": [
+      "rf_test_mode_handler",
+      "rf_calibration_orchestrator",
+      "bt_hci_vendor_cmd_dispatch"
+    ],
+    "complexity": "medium",
+    "lines_of_c": 60,
+    "summary": "Arms and starts a continuous RF IQ-sample data stream from the 8800D80 radio into a host/DMA buffer \u2014 the RF-subsystem 'begin streaming' entry point used by test/calibration paths."
+  }
+}

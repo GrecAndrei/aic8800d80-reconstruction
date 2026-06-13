@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n_4de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121426a", "status": "ok", "name": "rf_fault_dump", "params": [], "docstring": "Dump RF controller fault state for debug", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n_4de", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121426a", "status": "ok", "name": "rf_fault_dump_26a", "params": [], "docstring": "Dump RF controller fault state for debug", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

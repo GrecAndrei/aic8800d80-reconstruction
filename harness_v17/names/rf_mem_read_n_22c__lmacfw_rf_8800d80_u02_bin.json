@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_22c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f368", "status": "ok", "name": "rf_mem_read_n_22c", "params": [], "docstring": "Read from RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

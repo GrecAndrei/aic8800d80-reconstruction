@@ -1,0 +1,1 @@
+{"fn": "sub_121831C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121831c", "status": "ok", "name": "sub_121831C", "params": [], "docstring": "Initialize and register a small lmac control block via memset and log_alloc", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,41 @@
+{
+  "function": "fmacfwbt_init_or_handler",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x1018e4",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001018e4      064b           ldr r3, [0x00101900]        ; [0x101900:4]=0x403308a8",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Reconstruction emitted no code at all (all 0xffffffff invalid); must emit LDR r3, =0x403308a8 as first instruction of fmacfwbt_init_or_handler"
+      },
+      {
+        "type": "missing",
+        "original": "0x001018e6      0268           ldr r2, [r0]\n0x001018e8      1a60           str r2, [r3]\n0x001018ea      4268           ldr r2, [r0, 4]\n0x001018ec      5a60           str r2, [r3, 4]",
+        "compiled": "(no instructions produced)",
+        "fix_hint": "Emit 2 LDR r2,[r0]/STR r2,[r3] pairs copying 8 bytes from arg r0 to REG_4033_08a8 (offset 0,4)"
+      },
+      {
+        "type": "missing",
+        "original": "0x001018ee      0a68           ldr r2, [r1]\n0x001018f0      9a60           str r2, [r3, 8]\n0x001018f2      4a68           ldr r2, [r1, 4]\n0x001018f4      da60           str r2, [r3, 0xc]\n0x001018f6      8a68           ldr r2, [r1, 8]\n0x001018f8      1a61           str r2, [r3, 0x10]\n0x001018fa      ca68           ldr r2, [r1, 0xc]\n0x001018fc      5a61           str r2, [r3, 0x14]",
+        "compiled": "(no instructions produced)",
+        "fix_hint": "Emit 4 LDR r2,[r1,#+N]/STR r2,[r3,#+8+N] pairs (N=0,4,8,0xc) copying 16 bytes from arg r1 to REG_4033_08a8+8..+0x14"
+      },
+      {
+        "type": "missing",
+        "original": "0x001018fe      7047           bx lr",
+        "compiled": "(no instructions produced)",
+        "fix_hint": "Emit BX LR as function epilogue (no stack frame, leaf function)"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output is entirely 0xffffffff 'invalid' at 0x100000 \u2014 the mechanical reconstruction produced zero instructions for this function",
+      "Original is a 14-instruction leaf function: loads 0x403308a8 (REG_4033_08a8) and copies 24 bytes (2 dwords from r0, 4 dwords from r1) to that register/file",
+      "Disasm window in compiled output starts at 0x00100000, not the function's actual address 0x001018e4 \u2014 address mapping appears broken",
+      "No literal pool (0x403308a8) was emitted; the constant 0x403308a8 is stored as immediate in the LDR literal pool at 0x101900 in the original",
+      "Function is a small memcpy-like initializer: likely *(uint32_t*)0x403308a8 = r0[0..1]; *(uint32_t*)(0x403308a8+8) = r1[0..3] \u2014 typical BT init handler register write"
+    ]
+  }
+}

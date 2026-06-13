@@ -1,1 +1,1 @@
-{"fn": "sub_123B0A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123b0a0", "status": "ok", "name": "fmac_main_loop", "params": [], "docstring": "FMAC firmware main behavioral loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123B0A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123b0a0", "status": "ok", "name": "fmac_main_loop_0a0", "params": [], "docstring": "FMAC firmware main behavioral loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

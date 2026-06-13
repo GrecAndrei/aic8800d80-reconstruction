@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3b7", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a20", "status": "ok", "name": "rf_bus_init_n452", "params": [], "docstring": "Initialize RF bus subsystem and bring up bus endpoint", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

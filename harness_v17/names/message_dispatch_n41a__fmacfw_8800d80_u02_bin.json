@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n41a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cda6", "status": "ok", "name": "message_dispatch_n41a", "params": [], "docstring": "Firmware message dispatch to handler chain", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

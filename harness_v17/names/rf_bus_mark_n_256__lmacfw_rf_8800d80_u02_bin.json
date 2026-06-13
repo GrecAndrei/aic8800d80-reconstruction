@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_256", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f36", "status": "ok", "name": "sdio_buffer_prepare_n49a", "params": [], "docstring": "Prepares SDIO buffer descriptor (zeroes pair of words)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ps_disable_cfm", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124970c", "status": "ok", "name": "ps_disable_cfm", "params": [], "docstring": "Power-save disable confirmation state handler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

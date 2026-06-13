@@ -1,0 +1,1 @@
+{"fn": "sub_121BBA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121bba4", "status": "ok", "name": "sub_121BBA4", "params": [], "docstring": "Init handler reading control byte from 0x1863b0+0x80 and struct fields", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

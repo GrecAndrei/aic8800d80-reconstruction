@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n104", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212948", "status": "ok", "name": "rf_bus_reset_n104", "params": [], "docstring": "Initialize RF bus index by shifting operand left 14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

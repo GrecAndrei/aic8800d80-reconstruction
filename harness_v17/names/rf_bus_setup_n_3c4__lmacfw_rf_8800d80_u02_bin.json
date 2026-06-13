@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3c4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211440", "status": "ok", "name": "rf_bus_setup_n_3c4", "params": [], "docstring": "Sets up RF bus control bits (0x84000000 mask at +0x900)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

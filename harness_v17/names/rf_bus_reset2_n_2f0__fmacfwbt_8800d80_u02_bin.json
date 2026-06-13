@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_2f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211568", "status": "ok", "name": "rf_bus_reset2_n_2f0", "params": [], "docstring": "RF bus reset invoking helper at 0x12ecb0 to process MMIO descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n312", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212342", "status": "ok", "name": "rf_state_check_n312", "params": [], "docstring": "RF state check 0x312 with MMIO 0xb00/0xb08/0x814 access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

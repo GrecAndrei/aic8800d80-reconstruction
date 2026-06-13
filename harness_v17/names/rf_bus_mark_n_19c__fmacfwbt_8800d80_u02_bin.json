@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_19c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211544", "status": "ok", "name": "rf_bus_mark_n_19c", "params": [], "docstring": "Marks RF bus window pointer for indirect access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

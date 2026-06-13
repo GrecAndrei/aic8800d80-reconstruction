@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cb9a", "status": "ok", "name": "message_dispatch_n_1a", "params": [], "docstring": "Dispatch incoming message by id (threshold 0x24)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

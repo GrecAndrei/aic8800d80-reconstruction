@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n436", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210006", "status": "ok", "name": "log_free_pool_dispatch2_n436", "params": [], "docstring": "Copy log pool entries onto stack frame for dispatch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

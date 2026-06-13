@@ -1,1 +1,1 @@
-{"fn": "rf_msg_handler_n12b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121308a", "status": "ok", "name": "rf_bus_mark_n_4ca", "params": [], "docstring": "Sets/marks a flag on the RF bus (variant 0x4ca)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_msg_handler_n12b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121308a", "status": "ok", "name": "rf_bus_mark_n_4ca_308a", "params": [], "docstring": "Sets/marks a flag on the RF bus (variant 0x4ca)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

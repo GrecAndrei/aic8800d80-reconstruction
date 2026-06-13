@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n42e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210436", "status": "ok", "name": "log_free_dispatch_n42e", "params": [], "docstring": "Log free dispatch - stores entry and shifts index bit", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

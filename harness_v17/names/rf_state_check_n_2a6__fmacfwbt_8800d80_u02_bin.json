@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_2a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d8a", "status": "ok", "name": "rf_state_register_check", "params": [], "docstring": "Tests RF state register at offset 0x900 against status mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

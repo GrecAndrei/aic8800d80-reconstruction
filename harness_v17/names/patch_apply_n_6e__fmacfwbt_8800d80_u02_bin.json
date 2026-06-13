@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_6e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121547a", "status": "ok", "name": "patch_apply_n_6e", "params": [], "docstring": "Apply firmware patch and return success (variant 6e)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

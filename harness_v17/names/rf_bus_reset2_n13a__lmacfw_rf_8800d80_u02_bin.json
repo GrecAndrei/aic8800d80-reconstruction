@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n13a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121143e", "status": "ok", "name": "rf_bus_reset2_n13a", "params": [], "docstring": "RF bus reset: ORs 0x84000000 into MMIO[0x900] then tails to caller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

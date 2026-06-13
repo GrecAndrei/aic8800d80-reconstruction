@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1c3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116c0", "status": "ok", "name": "rf_bus_mark_n_1c3", "params": [], "docstring": "RF bus mark/mark-set variant 1c3; writes channel/band fields at 0x660/0x66d/0x980/0x984", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

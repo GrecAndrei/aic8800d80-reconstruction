@@ -1,0 +1,39 @@
+{
+  "function": "rf_hw_timer_init",
+  "report": {
+    "name": "rf_hw_timer_init",
+    "purpose": "Initializes the RF (radio) hardware timer block used for radio-event scheduling (slot timing, calibration windows, RX/TX turnaround deadlines). Lives in the RF subsystem bring-up path: called once during chip/phy initialization so that lower MAC/PHY code can subsequently program one-shot/periodic timeouts via rf_hw_timer_set / rf_hw_timer_clear. It belongs to the RF control-plane initialization that runs before scan, TX and RX paths become active.",
+    "parameters": [
+      {
+        "type": "void *",
+        "name": "rf_ctx",
+        "purpose": "opaque RF controller context (phy handle / base pointer) \u2014 passed in r0 by ARM-Thumb ABI, used to derive the RF MMIO base"
+      }
+    ],
+    "return_value": {
+      "type": "int",
+      "meaning": "0 on success, non-zero if RF timer block failed to respond / ready bit never asserted"
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "writes RF timer control / prescaler / load-value MMIO registers (RF_TIMER_CTRL, RF_TIMER_PRESCALE, RF_TIMER_LOAD, RF_TIMER_INT_MASK)",
+      "clears pending RF timer interrupt status",
+      "enables the RF timer IRQ line in the RF interrupt controller",
+      "may pulse the RF timer clock-gate / soft-reset bit before configuration"
+    ],
+    "key_callees": [
+      "rf_reg_write",
+      "rf_reg_read_poll (waiting for RDY/ACK)",
+      "rf_clock_enable",
+      "rc_hw_timer_register_isr (install interrupt handler)"
+    ],
+    "key_callers": [
+      "rf_init",
+      "phy_init",
+      "main (firmware entry / cold-boot sequence)"
+    ],
+    "complexity": "low",
+    "lines_of_c": 35,
+    "summary": "One-shot RF timer bring-up: clocks the timer block, programs prescaler/load, clears status, and registers its ISR before any RF scheduling API is used."
+  }
+}

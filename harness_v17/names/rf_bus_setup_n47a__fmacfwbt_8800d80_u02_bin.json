@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n47a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121d2", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Initialize/configure RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n47a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121d2", "status": "ok", "name": "rf_bus_setup_1d2", "params": [], "docstring": "Initialize/configure RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

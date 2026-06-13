@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_10c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153dc", "status": "ok", "name": "patch_apply_n_10c", "params": [], "docstring": "Applies firmware patch by validating 'WIFI' magic header", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

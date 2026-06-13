@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_32a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b82", "status": "ok", "name": "rf_bus_mark_4b82", "params": [], "docstring": "Marks RF bus register shifted by 8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

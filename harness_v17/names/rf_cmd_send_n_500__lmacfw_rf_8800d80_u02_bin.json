@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_500", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212418", "status": "ok", "name": "rf_cmd_send_n_500", "params": [], "docstring": "Send RF command (opcode 0x430) to RF controller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

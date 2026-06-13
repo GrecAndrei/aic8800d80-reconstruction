@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n2a1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215c1c", "status": "ok", "name": "ipc_doorbell_handler_n2a1", "params": [], "docstring": "IPC doorbell handler tail; pops saved regs and dispatches message of type 2", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

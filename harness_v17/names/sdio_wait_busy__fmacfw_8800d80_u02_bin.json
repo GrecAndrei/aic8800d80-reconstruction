@@ -1,0 +1,1 @@
+{"fn": "sdio_wait_busy", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ea10", "status": "ok", "name": "sdio_wait_busy_clear", "params": [], "docstring": "Polls SDIO status register until busy flag clears", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

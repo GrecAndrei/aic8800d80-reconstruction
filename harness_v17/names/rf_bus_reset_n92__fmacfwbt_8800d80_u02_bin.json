@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n92", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128d6", "status": "ok", "name": "rf_bus_reset_n92", "params": [], "docstring": "Reset RF bus by asserting bit 0x400 in 0x40200804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n92", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12128d6", "status": "ok", "name": "rf_bus_reset_n92_8d6", "params": [], "docstring": "Reset RF bus by asserting bit 0x400 in 0x40200804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

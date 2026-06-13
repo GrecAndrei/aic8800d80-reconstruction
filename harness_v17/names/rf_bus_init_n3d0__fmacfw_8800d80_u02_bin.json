@@ -1,1 +1,1 @@
-{"fn": "rf_bus_init_n3d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212188", "status": "ok", "name": "rf_bus_init", "params": [], "docstring": "Initialize RF bus interface and registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_init_n3d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212188", "status": "ok", "name": "rf_bus_init_188", "params": [], "docstring": "Initialize RF bus interface and registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

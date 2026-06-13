@@ -1,0 +1,1 @@
+{"fn": "sub_12101EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12101ec", "status": "ok", "name": "rf_lmac_init_n1ec", "params": [], "docstring": "Initialize LMAC RF state with config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

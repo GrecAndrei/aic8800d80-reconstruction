@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_4f8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c494", "status": "ok", "name": "message_dispatch_n_4f8", "params": [], "docstring": "Dispatch incoming host message, update IPC state register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

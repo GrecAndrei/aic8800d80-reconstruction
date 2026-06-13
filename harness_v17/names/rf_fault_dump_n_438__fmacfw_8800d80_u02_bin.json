@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214310", "status": "ok", "name": "rf_fault_dump_n_438", "params": [], "docstring": "Dumps RF fault state by reading PHY register banks and pushing caller context.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

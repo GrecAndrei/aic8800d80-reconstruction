@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157ba", "status": "ok", "name": "patch_apply_n2d2", "params": [], "docstring": "Patch helper loading struct fields and calling trampoline", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3eb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211418", "status": "ok", "name": "rf_bus_setup_n_3eb", "params": [], "docstring": "Initialize RF bus descriptor with default header", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n360", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215848", "status": "ok", "name": "patch_apply_n360_848", "params": [], "docstring": "Extracts bit fields from patch word and dispatches apply call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124ee", "status": "ok", "name": "rf_bus_reset_phase2", "params": [], "docstring": "Second phase of RF bus reset with bus register config", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

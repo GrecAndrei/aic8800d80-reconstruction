@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n38c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12222d0", "status": "ok", "name": "rf_cmd_dispatch_n38c", "params": [], "docstring": "Dispatch RF command ID with opcode 0x0c check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

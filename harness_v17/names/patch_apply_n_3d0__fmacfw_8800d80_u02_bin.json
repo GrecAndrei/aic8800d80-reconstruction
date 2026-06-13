@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_3d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214adc", "status": "ok", "name": "patch_apply_n_3d0", "params": [], "docstring": "Applies firmware patch bits using UBFX extraction from register", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

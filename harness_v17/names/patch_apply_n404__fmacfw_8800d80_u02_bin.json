@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n404", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12152b0", "status": "ok", "name": "patch_apply_n404", "params": [], "docstring": "Apply firmware patch entry (r7=base, r4=arg)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

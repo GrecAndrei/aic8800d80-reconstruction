@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n26a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121243e", "status": "ok", "name": "rf_state_check_n26a", "params": [], "docstring": "Branch on RF state value (cmp r3,2)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121608C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121608c", "status": "ok", "name": "sub_121608C", "params": [], "docstring": "Fetch context pointer at offset 0x48 from object", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

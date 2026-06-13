@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215560", "status": "ok", "name": "patch_apply_entry", "params": [], "docstring": "Apply single FW patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215560", "status": "ok", "name": "patch_apply_entry_560", "params": [], "docstring": "Apply single FW patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

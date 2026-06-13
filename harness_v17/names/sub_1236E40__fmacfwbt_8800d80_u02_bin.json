@@ -1,0 +1,1 @@
+{"fn": "sub_1236E40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236e40", "status": "ok", "name": "sub_1236E40", "params": [], "docstring": "FMAC behavioral routine indexed by mla with stride 0x2b8", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1214B5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214b5c", "status": "ok", "name": "rf_mode_check", "params": [], "docstring": "Check current RF mode/state byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

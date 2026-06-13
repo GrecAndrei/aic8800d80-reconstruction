@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n_48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12117bc", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Initialize RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n_48", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12117bc", "status": "ok", "name": "rf_bus_setup_7bc", "params": [], "docstring": "Initialize RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

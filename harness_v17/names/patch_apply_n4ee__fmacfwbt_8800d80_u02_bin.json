@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159d6", "status": "ok", "name": "patch_apply_n4ee", "params": [], "docstring": "Applies patch variant n4ee, branching on char compare against '0'", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

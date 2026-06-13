@@ -1,0 +1,1 @@
+{"fn": "ke_timer_set", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124a068", "status": "ok", "name": "rf_bus_reset_n_42e", "params": [], "docstring": "Issues RF bus reset sequence with multiple control byte writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

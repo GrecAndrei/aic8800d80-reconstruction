@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n216", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156fe", "status": "ok", "name": "patch_apply_n216", "params": [], "docstring": "Apply firmware patch and trigger MMIO update with DSB/ISB", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

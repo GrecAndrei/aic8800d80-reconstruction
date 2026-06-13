@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n286", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211966", "status": "ok", "name": "rf_bus_mark_n286", "params": [], "docstring": "Mark RF bus transaction (writes opcode 0xce/0xca)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

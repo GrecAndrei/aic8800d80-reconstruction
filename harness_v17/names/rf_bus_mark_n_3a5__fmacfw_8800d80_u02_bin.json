@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3a5", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114de", "status": "ok", "name": "rf_bus_mark_n_3a5", "params": [], "docstring": "Mark/check RF bus status byte at offset 0xc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

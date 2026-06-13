@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ce6", "status": "ok", "name": "rf_mem_read_n37c", "params": [], "docstring": "RF memory indirect read address compute", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

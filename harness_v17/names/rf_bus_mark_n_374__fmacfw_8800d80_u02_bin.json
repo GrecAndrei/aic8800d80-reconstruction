@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211510", "status": "ok", "name": "rf_bus_mark_n_374", "params": [], "docstring": "Clears a flag bit and stores the byte back to the RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

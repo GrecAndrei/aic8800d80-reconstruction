@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n1f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c6e", "status": "ok", "name": "rf_bus_write2_n1f6", "params": [], "docstring": "Writes to RF control via bus and configures NVIC interrupt", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

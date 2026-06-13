@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_35e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c856", "status": "ok", "name": "msg_dispatch_send", "params": [], "docstring": "Build 32-bit message id and dispatch to handler via IPC", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

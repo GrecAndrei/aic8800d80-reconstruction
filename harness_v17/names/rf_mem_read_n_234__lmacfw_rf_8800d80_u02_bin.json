@@ -1,1 +1,1 @@
-{"fn": "rf_mem_read_n_234", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f360", "status": "ok", "name": "rf_mem_read", "params": [], "docstring": "Read RF memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_read_n_234", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f360", "status": "ok", "name": "rf_mem_read_360", "params": [], "docstring": "Read RF memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

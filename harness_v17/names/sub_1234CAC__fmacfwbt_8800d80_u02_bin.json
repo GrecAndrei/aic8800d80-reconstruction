@@ -1,0 +1,1 @@
+{"fn": "sub_1234CAC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234cac", "status": "ok", "name": "bt_state_poll_n_cac", "params": [], "docstring": "Polls BT controller state by inspecting status bytes at fixed offsets", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

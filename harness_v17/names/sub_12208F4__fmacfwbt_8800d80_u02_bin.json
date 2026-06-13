@@ -1,0 +1,1 @@
+{"fn": "sub_12208F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12208f4", "status": "ok", "name": "sub_12208F4", "params": [], "docstring": "Init RF register window at 0x403200f0 with helpers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

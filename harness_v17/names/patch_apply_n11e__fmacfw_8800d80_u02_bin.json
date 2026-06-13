@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n11e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214fca", "status": "ok", "name": "patch_apply_n11e", "params": [], "docstring": "Applies patch slot by writing high half-word and chaining helper calls", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

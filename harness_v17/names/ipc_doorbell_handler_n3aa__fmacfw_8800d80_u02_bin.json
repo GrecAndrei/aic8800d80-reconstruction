@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n3aa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215d26", "status": "ok", "name": "ipc_doorbell_handle_n3aa", "params": [], "docstring": "Handle IPC doorbell interrupt with mask/hash", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

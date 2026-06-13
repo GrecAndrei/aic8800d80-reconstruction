@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n476", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215322", "status": "ok", "name": "patch_apply_n476", "params": [], "docstring": "Apply firmware patch writing per-instance byte fields", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

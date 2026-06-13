@@ -1,0 +1,1 @@
+{"fn": "rxl_payload_transfer_usb", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248400", "status": "ok", "name": "rxl_payload_transfer_usb", "params": [], "docstring": "Transfers received payload frame fields into USB endpoint buffers", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

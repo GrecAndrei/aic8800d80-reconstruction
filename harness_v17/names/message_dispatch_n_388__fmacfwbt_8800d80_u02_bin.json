@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_388", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c82c", "status": "ok", "name": "message_dispatch", "params": [], "docstring": "Dispatch host messages to handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_388", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c82c", "status": "ok", "name": "message_dispatch_82c", "params": [], "docstring": "Dispatch host messages to handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

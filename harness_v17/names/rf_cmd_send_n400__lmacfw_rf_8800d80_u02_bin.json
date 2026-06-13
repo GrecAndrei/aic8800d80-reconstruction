@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n400", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d18", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Sends RF command to RFIC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n400", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212d18", "status": "ok", "name": "rf_cmd_send_d18", "params": [], "docstring": "Sends RF command to RFIC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

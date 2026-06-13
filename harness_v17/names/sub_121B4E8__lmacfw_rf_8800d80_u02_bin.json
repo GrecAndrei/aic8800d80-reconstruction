@@ -1,0 +1,1 @@
+{"fn": "sub_121B4E8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121b4e8", "status": "ok", "name": "rf_chan_init_n4e8", "params": [], "docstring": "Initialize RF channel context from data tables, call helper, read signed halfword", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

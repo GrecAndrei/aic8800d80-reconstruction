@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_222", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221d22", "status": "ok", "name": "rf_cmd_dispatch_table", "params": [], "docstring": "Dispatches RF command via table with size bounds 0x60/0x7f", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

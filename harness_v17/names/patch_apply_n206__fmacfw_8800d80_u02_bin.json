@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n206", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12150b2", "status": "ok", "name": "patch_apply_n206", "params": [], "docstring": "Applies a firmware patch entry with interrupts masked", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

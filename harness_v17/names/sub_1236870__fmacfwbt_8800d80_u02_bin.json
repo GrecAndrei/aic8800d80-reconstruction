@@ -1,0 +1,1 @@
+{"fn": "sub_1236870", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236870", "status": "ok", "name": "sub_1236870", "params": [], "docstring": "Initialize/zero a 16-byte control structure via memset", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

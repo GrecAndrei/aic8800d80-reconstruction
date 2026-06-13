@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_12", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212832", "status": "ok", "name": "rf_bus_reset_n_12", "params": [], "docstring": "Reset RF bus with shifted parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

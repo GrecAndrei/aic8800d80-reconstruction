@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_3ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f1aa", "status": "ok", "name": "rf_mem_read_n_3ea", "params": [], "docstring": "Reads RF memory byte and decodes nibbles via lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

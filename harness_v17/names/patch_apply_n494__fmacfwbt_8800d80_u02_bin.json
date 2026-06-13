@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n494", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121597c", "status": "ok", "name": "patch_write_table_entry", "params": [], "docstring": "Store bytes into the firmware patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n388", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b8c", "status": "ok", "name": "rf_bus_setup_n388", "params": [], "docstring": "Configure RF bus parameters by packing bytes into register fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

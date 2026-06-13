@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n49a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121006a", "status": "ok", "name": "log_free_pool_dispatch2_n49a", "params": [], "docstring": "Dispatch log free pool entry with shifted indices and field writes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

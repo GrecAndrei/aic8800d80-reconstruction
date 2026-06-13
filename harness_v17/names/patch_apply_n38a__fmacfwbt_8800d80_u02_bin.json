@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n38a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215872", "status": "ok", "name": "patch_apply_n38a", "params": [], "docstring": "Extracts bitfields and applies patch n38a via helper call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

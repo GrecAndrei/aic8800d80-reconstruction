@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n432", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121591a", "status": "ok", "name": "patch_apply_n432", "params": [], "docstring": "Patch apply stub moving r4 into r1", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n432", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121591a", "status": "ok", "name": "patch_apply_n432_91a", "params": [], "docstring": "Patch apply stub moving r4 into r1", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

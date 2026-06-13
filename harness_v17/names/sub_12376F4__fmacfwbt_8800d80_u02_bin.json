@@ -1,0 +1,1 @@
+{"fn": "sub_12376F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12376f4", "status": "ok", "name": "fmac_init_context", "params": [], "docstring": "Initialize FMAC context structure at base+0xf00", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_158", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214d54", "status": "ok", "name": "patch_apply_n_158", "params": [], "docstring": "Applies patch variant 158 via register move trampoline", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

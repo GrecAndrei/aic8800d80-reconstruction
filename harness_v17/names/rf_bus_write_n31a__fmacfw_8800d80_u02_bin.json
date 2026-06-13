@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n31a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e7e", "status": "ok", "name": "rf_bus_write_n31a", "params": [], "docstring": "Writes 32-bit value to RF bus MMIO window with trigger", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

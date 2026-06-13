@@ -13,4 +13,14 @@ Found 12 subsystems
   rx: 4 functions
   rf: ok (7395 chars)
   tx: ok (4134 chars)
-  mac: ok (6428 chars)
+  mac: ok (6428 chars)  mac: ok (6320 chars)
+  unknown: invented:0x00100000,0x00240000
+  mmio: ok (6791 chars)
+  bt: ok (6984 chars)
+  patch: no_content
+  scan: ok (3824 chars)
+  ke: ok (4421 chars)
+  util: ok (8771 chars)
+  ipc: ok (5425 chars)
+
+DONE: 12 in 3056.8s ok=10

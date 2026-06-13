@@ -1,0 +1,1 @@
+{"fn": "patch_apply_ncc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f78", "status": "ok", "name": "patch_apply_ncc", "params": [], "docstring": "Patch apply helper: init buffer and fill 0x56 bytes", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

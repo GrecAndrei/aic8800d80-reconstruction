@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125c6", "status": "ok", "name": "rf_state_check_n3f2", "params": [], "docstring": "Verifies RF state string against expected characters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

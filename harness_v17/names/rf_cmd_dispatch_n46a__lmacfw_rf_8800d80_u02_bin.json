@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n46a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223ae", "status": "ok", "name": "rf_msg_process_body_n438", "params": [], "docstring": "RF message body processing loop iteration with counter decrement", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

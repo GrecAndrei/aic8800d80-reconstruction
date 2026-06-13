@@ -1,0 +1,23 @@
+{
+  "function": "ipc_doorbell_handler_n_346",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115636",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00115636: and fp, r0, 0x64006400 (start of ipc_doorbell_handler_n_346 \u2014 MMIO/MMIO handler body, push, ldr literal pool, bl 0x12ecd0)",
+        "compiled": "0x00109e42: ldr r0, [r4, #0x20] / vldr s14, [sl, #0xc] / vmul.f32 s15, s16, s15 / vmul.f32 s16, s16, s16 / vsub.f32 s15, s15, s13  (unrelated VFP math function)",
+        "fix_hint": "Reconstruction is at the wrong base address; the compiled body must emit: and fp,r0,#0x64006400; movs r0,r3; str r0,[r1,r4]; ands r3,r0; push {r3-r7,lr}; ldr r1,[=0x40500000]; ldr r2,[=0x403450e0]; ldr r3,[r1,#0x38]; orr r3,r3,#0x10; str r3,[r1,#0x38]; ldr r3,[r2]; bic r3,r3,#0x2000000; str r3,[r2]; ldr r1,[=0x1676c0]; ldr r4,[=0x182568]; movs r0,#2; bl 0x12ecd0"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Total address/body mismatch: the 'compiled' output is an unrelated VFP floating-point function at 0x109e42, not the doorbell handler.",
+      "The 'ffffffff invalid' annotations in the supplied compiled disasm are misleading \u2014 the underlying bytes are valid VFP Thumb-2 instructions; the disasm renderer was given data from the wrong region.",
+      "Literal pool of the original (0x40500000, 0x403450e0, 0x1676c0, 0x182568) must be emitted at 0x115768\u20130x115774; none of these values appear anywhere in the compiled region.",
+      "Behavioral trace lookup returned null \u2014 no behavioral summary available to cross-check; manual reconstruction from the original disasm is the only ground truth.",
+      "Root cause likely: mechanical generator is mapping function name to an incorrect address table entry for the fmacfw image; the function name 'ipc_doorbell_handler_n_346' is being resolved to the wrong slot."
+    ]
+  }
+}

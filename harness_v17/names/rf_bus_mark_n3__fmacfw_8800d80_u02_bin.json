@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211886", "status": "ok", "name": "rf_bus_mark_n3", "params": [], "docstring": "Mark RF bus state by writing pointer/value to shared struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

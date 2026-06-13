@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n408", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210268", "status": "ok", "name": "log_free_dispatch_n408", "params": [], "docstring": "Decrement log refcount and dispatch free handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

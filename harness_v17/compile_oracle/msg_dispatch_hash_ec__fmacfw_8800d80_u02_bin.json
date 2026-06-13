@@ -1,0 +1,65 @@
+{
+  "function": "msg_dispatch_hash_ec",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x12c8a0",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0012c8a0      a422           movs r2, 0xa4",
+        "compiled": "0x00104444  ~   ffffffff       invalid",
+        "fix_hint": "Entire function body is missing in compiled output \u2014 all bytes are 0xffffffff (invalid)"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8a4      6025           movs r5, 0x60",
+        "compiled": "0x0010444a  ~   ffffffff       invalid",
+        "fix_hint": "movs r5, 0x60 setup instruction absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8a8      0010           asrs r0, r0, 0x20",
+        "compiled": "0x00104452  ~   ffffffff       invalid",
+        "fix_hint": "asrs r0, r0, 0x20 (shift by 0x20 \u2014 hash mixing) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8aa      5040           eors r0, r2",
+        "compiled": "0x00104456  ~   ffffffff       invalid",
+        "fix_hint": "eor with 0xa4 constant for hash folding is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8b0      8c7f           ldrb r4, [r1, 0x1e]",
+        "compiled": "0x0010445a  ~   ffffffff       invalid",
+        "fix_hint": "ldrb r4, [r1, 0x1e] (byte field access in struct) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8b4      074b           ldr r3, [0x0012c8d4]        ; =0x1922a4",
+        "compiled": "0x00104460      ffffffff       invalid",
+        "fix_hint": "PC-relative ldr loading global pointer 0x1922a4 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8b6      5b69           ldr r3, [r3, 0x14]",
+        "compiled": "0x00104464  ~   ffffffff       invalid",
+        "fix_hint": "Final ldr r3, [r3, 0x14] (dereference global + offset) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012c8d2      7047           bx lr",
+        "compiled": "0x0010446c  ~   ffffffff       invalid",
+        "fix_hint": "bx lr function epilogue is missing"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled output is entirely 0xFFFFFFFF bytes \u2014 the mechanical reconstruction produced no valid ARM instructions whatsoever",
+      "All 20 disassembled lines decode as 'invalid' \u2014 the compiled C function does not exist or was not written to the output address",
+      "The original function is a short leaf-style function: it loads a global pointer (0x1922a4), reads [ptr+0x14], and uses inline hash mixing (asrs/eor with 0xa4/0xb8 constants) plus a byte field read at offset 0x1e",
+      "The hash-mixing idiom (movs r2, imm; movs r0, r3; asrs r0, r0, 0x20; eors r0, r2) suggests a polynomial/CRC-style hash computation that the C source must reproduce structurally",
+      "The compiled binary at 0x104444 is completely non-functional \u2014 regeneration pipeline appears broken or the C reconstruction was not actually compiled to the target address"
+    ]
+  }
+}

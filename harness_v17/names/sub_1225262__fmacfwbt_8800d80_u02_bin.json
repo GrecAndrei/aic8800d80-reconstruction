@@ -1,0 +1,1 @@
+{"fn": "sub_1225262", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1225262", "status": "ok", "name": "sub_1225262_init", "params": [], "docstring": "Saves r4-r6,lr; moves args r0->r4, r1->r6; init stub", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_4f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c49c", "status": "ok", "name": "message_dispatch_n_4f0", "params": [], "docstring": "Message dispatcher packing 16-bit fields via bic/orr/str", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

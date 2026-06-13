@@ -1,0 +1,1 @@
+{"fn": "sub_121F004", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f004", "status": "ok", "name": "mmio_set_clear_bits", "params": [], "docstring": "Set bit 0x10000 in reg, then clear same bit in another reg", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

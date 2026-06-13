@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n13e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ef6", "status": "ok", "name": "rf_bus_init_n13e", "params": [], "docstring": "Initialize the RF bus with channel selection", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

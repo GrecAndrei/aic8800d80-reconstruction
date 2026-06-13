@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_144", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212700", "status": "ok", "name": "rf_bus_reset_n_144", "params": [], "docstring": "Reset RF bus interface by clearing channel/ID register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

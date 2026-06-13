@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212bd8", "status": "ok", "name": "rf_cmd_send_n_438", "params": [], "docstring": "Send RF command, set bits 0x100/0x200 in register 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

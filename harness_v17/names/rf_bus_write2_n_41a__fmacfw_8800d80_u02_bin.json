@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_41a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211802", "status": "ok", "name": "rf_bus_write2", "params": [], "docstring": "Write value 2 to RF bus register and clear status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

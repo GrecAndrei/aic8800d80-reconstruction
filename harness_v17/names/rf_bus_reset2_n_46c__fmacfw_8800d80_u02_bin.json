@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_46c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211590", "status": "ok", "name": "rf_bus_reset2_n_46c", "params": [], "docstring": "RF bus reset variant 2 with lookup table (mod 192 op)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

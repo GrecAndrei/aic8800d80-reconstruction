@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_42", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212192", "status": "ok", "name": "rf_state_check_n_42", "params": [], "docstring": "Checks RF state register at offset 0xb00, returns 0 or 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

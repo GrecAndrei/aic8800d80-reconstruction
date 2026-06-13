@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f6e", "status": "ok", "name": "patch_apply_nc2", "params": [], "docstring": "Apply patch enabling NVIC interrupt with 0xf00000 mask", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n3b8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12126a8", "status": "ok", "name": "message_dispatch_n4bb", "params": [], "docstring": "Dispatch host messages, branching on message id range up to 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

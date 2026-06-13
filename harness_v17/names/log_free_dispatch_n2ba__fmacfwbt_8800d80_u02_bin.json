@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121011a", "status": "ok", "name": "sub_1240E60", "params": [], "docstring": "Parse 0x198000-sourced frame with X/Y header fields into local buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

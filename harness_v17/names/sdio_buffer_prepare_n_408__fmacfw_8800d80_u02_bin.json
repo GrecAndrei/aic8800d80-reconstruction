@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dd14", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO buffer with size+1 length calculation", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n500", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12153ac", "status": "ok", "name": "rf_bus_setup_nf0", "params": [], "docstring": "RF bus address setup with modulo/divide via magic constant 0xaaaaaaab", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

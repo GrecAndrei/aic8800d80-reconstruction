@@ -1,1 +1,1 @@
-{"fn": "log_free_pool_dispatch2_n4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121018e", "status": "ok", "name": "log_free_pool_dispatch2", "params": [], "docstring": "Dispatch freed log pool entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_pool_dispatch2_n4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121018e", "status": "ok", "name": "log_free_pool_dispatch2_18e", "params": [], "docstring": "Dispatch freed log pool entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

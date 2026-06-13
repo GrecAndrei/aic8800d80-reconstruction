@@ -1,0 +1,1 @@
+{"fn": "rf_timer_stop", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ef20", "status": "ok", "name": "rf_timer_stop_f20", "params": [], "docstring": "Stops RF timer, disables timer interrupt", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

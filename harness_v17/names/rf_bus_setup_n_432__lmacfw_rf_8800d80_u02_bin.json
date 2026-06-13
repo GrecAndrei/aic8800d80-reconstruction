@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_432", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113d2", "status": "ok", "name": "rf_bus_setup_n_432", "params": [], "docstring": "Configure RF bus register with bit 0x8000 and 0x2E field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

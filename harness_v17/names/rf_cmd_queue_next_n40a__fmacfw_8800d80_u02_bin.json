@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n40a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12138be", "status": "ok", "name": "rf_cmd_queue_next_n40a", "params": [], "docstring": "Advance RF command queue with IRQ disabled and counter increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

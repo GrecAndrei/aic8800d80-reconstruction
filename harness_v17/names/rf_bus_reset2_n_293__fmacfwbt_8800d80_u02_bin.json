@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_293", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115c4", "status": "ok", "name": "rf_bus_reset2_n_293", "params": [], "docstring": "Reset RF bus by clearing bit and issuing reset call", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

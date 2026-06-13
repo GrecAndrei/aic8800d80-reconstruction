@@ -1,0 +1,1 @@
+{"fn": "sub_1223D9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223d9c", "status": "ok", "name": "bt_msg_handler_main", "params": [], "docstring": "BT main message handler dispatch entry; checks a global flag and forwards args", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n292", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a96", "status": "ok", "name": "rf_msg_process_body_n4da", "params": [], "docstring": "Processes RF message body by dispatching to handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

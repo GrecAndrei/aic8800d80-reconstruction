@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce3a", "status": "ok", "name": "message_dispatch_n4ae_e3a", "params": [], "docstring": "Dispatch message handler for sub-id 0x60", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

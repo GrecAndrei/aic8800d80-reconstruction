@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n13e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ccf2", "status": "ok", "name": "msg_dispatch_entry", "params": [], "docstring": "Message dispatch entry stub returning to caller", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

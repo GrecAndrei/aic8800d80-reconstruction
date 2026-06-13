@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n395", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121039c", "status": "ok", "name": "log_free_dispatch_n395", "params": [], "docstring": "Critical-section log free dispatch with interrupt disable", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

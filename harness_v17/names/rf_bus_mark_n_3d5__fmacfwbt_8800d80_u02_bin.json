@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3d5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121130a", "status": "ok", "name": "rf_bus_mark_write_status", "params": [], "docstring": "Writes 0x100 status flag to 0x40240018 control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

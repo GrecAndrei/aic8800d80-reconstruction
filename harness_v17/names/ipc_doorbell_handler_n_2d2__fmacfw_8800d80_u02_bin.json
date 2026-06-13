@@ -1,1 +1,1 @@
-{"fn": "ipc_doorbell_handler_n_2d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12156aa", "status": "ok", "name": "ipc_doorbell_handler", "params": [], "docstring": "IPC doorbell interrupt handler (variant 2d2)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "ipc_doorbell_handler_n_2d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12156aa", "status": "ok", "name": "ipc_doorbell_handler_6aa", "params": [], "docstring": "IPC doorbell interrupt handler (variant 2d2)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

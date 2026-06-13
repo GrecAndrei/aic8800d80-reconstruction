@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb78", "status": "ok", "name": "message_dispatch_n1ec", "params": [], "docstring": "Initializes and dispatches inter-processor message queues", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

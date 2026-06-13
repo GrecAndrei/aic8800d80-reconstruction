@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n46c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211cc4", "status": "ok", "name": "rf_bus_reset2_n46c", "params": [], "docstring": "Reset secondary RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

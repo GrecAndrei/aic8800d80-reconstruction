@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1e4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb70", "status": "ok", "name": "message_dispatch_n1e4", "params": [], "docstring": "Message dispatch init copy loop against known buffers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

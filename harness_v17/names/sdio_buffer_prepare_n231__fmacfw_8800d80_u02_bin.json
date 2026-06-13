@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n231", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e34c", "status": "ok", "name": "sdio_buffer_prepare_n231", "params": [], "docstring": "Validate/prepare SDIO host buffer against length bound 0x2a", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

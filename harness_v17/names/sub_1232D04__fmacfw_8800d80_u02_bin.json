@@ -1,0 +1,1 @@
+{"fn": "sub_1232D04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1232d04", "status": "ok", "name": "stub_push_r4", "params": [], "docstring": "Minimal stub function preserving r4 register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

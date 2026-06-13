@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_8e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12146ba", "status": "ok", "name": "rf_fault_dump_46ba", "params": [], "docstring": "Dump RF fault context and trigger fault handler at 0x1732f4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
