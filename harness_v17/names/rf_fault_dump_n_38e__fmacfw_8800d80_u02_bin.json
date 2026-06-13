@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_38e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12143ba", "status": "ok", "name": "rf_fault_counter_inc", "params": [], "docstring": "Increment RF fault counter for given channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

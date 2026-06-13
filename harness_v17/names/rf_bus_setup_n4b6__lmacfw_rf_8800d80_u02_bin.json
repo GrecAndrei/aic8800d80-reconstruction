@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n4b6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211cba", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Initialize RF MMIO bus base and enable control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

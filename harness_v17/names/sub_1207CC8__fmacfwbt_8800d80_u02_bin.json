@@ -1,0 +1,1 @@
+{"fn": "sub_1207CC8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1207cc8", "status": "ok", "name": "irq_or_flag_clear", "params": [], "docstring": "Clears bit 0 in a flag register and invokes a callback.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

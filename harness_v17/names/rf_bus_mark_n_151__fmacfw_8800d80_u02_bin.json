@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_151", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211732", "status": "ok", "name": "rf_init_or_dispatch_handler", "params": [], "docstring": "RF init/dispatch handler saving many regs, loads 0x1e0000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

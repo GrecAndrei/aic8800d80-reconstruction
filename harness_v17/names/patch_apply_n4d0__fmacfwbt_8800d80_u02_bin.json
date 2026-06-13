@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4d0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159b8", "status": "ok", "name": "patch_apply_n4d0", "params": [], "docstring": "Applies in-memory code patch to target buffer at offset 0x1f", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

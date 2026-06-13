@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_4a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c942", "status": "ok", "name": "message_dispatch_n_4a", "params": [], "docstring": "Dispatch message checking signed halfword discriminator", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

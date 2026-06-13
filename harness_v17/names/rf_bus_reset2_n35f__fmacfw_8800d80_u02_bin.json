@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n35f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d5a", "status": "ok", "name": "rf_bus_reset2_n35f", "params": [], "docstring": "Stub returning immediately (bx lr) for RF bus reset variant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

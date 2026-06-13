@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n482", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119a6", "status": "ok", "name": "rf_bus_write2_n482", "params": [], "docstring": "Write a 2-word value to RF bus register at offset 0x200000 with mask 0x31|0xe", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

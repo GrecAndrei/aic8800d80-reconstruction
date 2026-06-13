@@ -1,0 +1,1 @@
+{"fn": "sub_1240B80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1240b80", "status": "ok", "name": "bt_chan_state_check_n_4b80", "params": [], "docstring": "Check BT channel state byte against expected value 3", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

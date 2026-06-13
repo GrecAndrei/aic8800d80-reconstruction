@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n438", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122237c", "status": "ok", "name": "rf_cmd_dispatch_n438", "params": [], "docstring": "Dispatch RF command into mailbox registers and issue trigger word", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

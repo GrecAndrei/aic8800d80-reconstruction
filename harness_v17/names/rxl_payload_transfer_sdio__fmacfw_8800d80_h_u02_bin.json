@@ -1,0 +1,1 @@
+{"fn": "rxl_payload_transfer_sdio", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124841c", "status": "ok", "name": "rxl_payload_transfer_sdio", "params": [], "docstring": "RX payload transfer over SDIO, copying descriptor fields to buffers", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

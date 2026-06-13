@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_392", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212bce", "status": "ok", "name": "rf_msg_handler_n_392", "params": [], "docstring": "Handle RF IPC message, mask bit 0 into stack slot", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n394", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211c18", "status": "ok", "name": "rf_bus_mark_n394", "params": [], "docstring": "Mark RF bus state (variant 394)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

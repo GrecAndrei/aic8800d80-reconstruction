@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n4c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e168", "status": "ok", "name": "rf_bus_setup_n270", "params": [], "docstring": "Configure RF bus MMIO window base and control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

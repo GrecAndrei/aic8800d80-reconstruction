@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121188c", "status": "ok", "name": "rf_bus_setup_n_4cc", "params": [], "docstring": "Configure RF bus MMIO control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

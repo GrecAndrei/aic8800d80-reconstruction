@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n104", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222130", "status": "ok", "name": "rf_mem_write_n104", "params": [], "docstring": "Allocate and forward RF memory write buffer via IPC", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

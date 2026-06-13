@@ -1,0 +1,1 @@
+{"fn": "sub_1222014", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1222014", "status": "ok", "name": "send_msg_to_host_c43", "params": [], "docstring": "Send message id 0x43 to host with arg 6 and flag=1", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

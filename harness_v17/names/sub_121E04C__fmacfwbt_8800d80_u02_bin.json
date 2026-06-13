@@ -1,0 +1,1 @@
+{"fn": "sub_121E04C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121e04c", "status": "ok", "name": "sub_1217CC4", "params": [], "docstring": "Iterative helper with 1000-iteration loop, likely polling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

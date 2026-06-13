@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_f4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153f4", "status": "ok", "name": "patch_apply_n_f4", "params": [], "docstring": "Patch apply helper with left-shift bit computation", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_16c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f428", "status": "ok", "name": "rf_mem_read_n_16c", "params": [], "docstring": "Read RF memory block using indices 0x14ded0/0x14aa88 with size 0x11b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n19e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cd52", "status": "ok", "name": "message_dispatch_n19e", "params": [], "docstring": "Conditional message routing based on type comparison", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

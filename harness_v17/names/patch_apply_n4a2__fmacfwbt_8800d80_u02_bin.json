@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121598a", "status": "ok", "name": "rf_fault_dump_n_468", "params": [], "docstring": "Trigger RF fault dump and signal completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

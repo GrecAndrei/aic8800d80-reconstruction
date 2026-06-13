@@ -7,16 +7,27 @@
       {
         "type": "missing",
         "original": "0x00115b12      012b           cmp r3, 1",
-        "compiled": "0x0010cf80  ~   ffffffff       invalid",
-        "fix_hint": "Compiled function not found at expected address; entire 'cmp r3, #1' body is missing \u2014 reconstruction likely failed or was placed at wrong base address"
+        "compiled": "(no corresponding instruction)",
+        "fix_hint": "Emit Thumb 'cmp r3, #1' (encoding 0x2b01) at the function entry, not random bytes from address 0x34"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115b12      012b           cmp r3, 1",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Reconstructed output starts at address 0x34 (wrong base) and is decoding arbitrary bytes as code; anchor to real runtime address 0x115b12"
+      },
+      {
+        "type": "extra",
+        "original": "(function body is a single 2-byte Thumb instruction)",
+        "compiled": "20+ instructions spanning 0x34..0x80 of garbage/invalid decode",
+        "fix_hint": "Generator is emitting a large bogus prologue+body instead of a single 'cmp r3, #1'; it likely failed to recognize the function as a trivial 2-instruction body"
       }
     ],
     "match_pct": 0,
     "concerns": [
-      "Compiled disasm at 0x0010cf80 is entirely 'invalid' (0xFFFFFFFF markers) \u2014 the mechanically reconstructed C function does not exist at the expected mapped address",
-      "find_callees/find_callers both return empty, confirming ipc_doorbell_handler_n196 was not registered in the reconstructed symbol table",
-      "Original function is a trivial 1-instruction Thumb-2 body (cmp r3, #1), but the compiled binary has no equivalent \u2014 total structural divergence",
-      "Raw bytes at compiled address (0x2d004605, 0x80b0f000, 0x80e9683b, 0x8963af2e, 0xf2402b6c) are real ARM/Thumb code but do not match the original \u2014 the compiled image's code was linked at entirely different addresses from the original firmware"
+      "Compiled output is anchored at address 0x00000034 instead of 0x00115b12 \u2014 the base address of the reconstructed binary appears wrong",
+      "Original is a single Thumb-1 instruction (2 bytes, 0x2b01 = 'cmp r3, #1') but compiled emits ~20 lines of garbage, including many 'invalid' decodes and addresses unrelated to the function",
+      "No behavioral trace exists for ipc_doorbell_handler_n196, so the mechanical generator has no semantic anchor and is producing pure noise"
     ]
   }
 }

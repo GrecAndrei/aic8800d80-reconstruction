@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_nac", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a28", "status": "ok", "name": "ipc_doorbell_handler_nac", "params": [], "docstring": "IPC doorbell interrupt handler for NAC", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

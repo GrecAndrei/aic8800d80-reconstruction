@@ -1,0 +1,1 @@
+{"fn": "sub_12044E2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12044e2", "status": "ok", "name": "mmio_init_patch_n4e2", "params": [], "docstring": "Configures MMIO registers at 0x40330800/0x4034206c with patch values", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

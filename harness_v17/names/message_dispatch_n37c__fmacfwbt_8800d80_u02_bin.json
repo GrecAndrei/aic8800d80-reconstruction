@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n37c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf30", "status": "ok", "name": "message_dispatch_n37c", "params": [], "docstring": "Dispatch host message to handler via table at 0x16a5f0/0x16a42c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

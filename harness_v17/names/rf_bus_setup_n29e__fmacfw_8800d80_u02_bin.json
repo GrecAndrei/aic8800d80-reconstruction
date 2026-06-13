@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n29e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121219a", "status": "ok", "name": "rf_bus_setup_n29e", "params": [], "docstring": "Configures RF bus access returning 0/1/2 status code", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

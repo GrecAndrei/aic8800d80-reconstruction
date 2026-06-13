@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n5e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3a2", "status": "ok", "name": "sdio_buffer_prepare_n5e", "params": [], "docstring": "Prepare SDIO buffer by computing byte offset via repeated lsls r1,r3,1", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

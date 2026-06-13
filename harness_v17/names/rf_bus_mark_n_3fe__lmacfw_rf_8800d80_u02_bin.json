@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3fe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d8e", "status": "ok", "name": "rf_bus_mark_n_3fe", "params": [], "docstring": "Mark RF bus slot via 9x9 stride indexing into RF bus mark table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1234FA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1234fa8", "status": "ok", "name": "sub_1234FA8", "params": [], "docstring": "Build and post a 6/0xa-typed message with 3 payload words", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

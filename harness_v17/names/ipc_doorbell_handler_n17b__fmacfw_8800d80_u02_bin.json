@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n17b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215af6", "status": "ok", "name": "rf_cmd_send_n_80", "params": [], "docstring": "Send RF command to hardware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

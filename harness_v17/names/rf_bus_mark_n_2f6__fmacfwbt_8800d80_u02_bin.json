@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2f6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113ea", "status": "ok", "name": "rf_bus_mark_n_2f6", "params": [], "docstring": "Compute index modulo 3 for RF bus slot marking", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

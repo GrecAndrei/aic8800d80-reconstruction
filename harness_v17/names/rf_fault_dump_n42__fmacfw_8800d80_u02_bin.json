@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n42", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121478a", "status": "ok", "name": "rf_fault_dump_call_handler", "params": [], "docstring": "Call fault dump handler with current state pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

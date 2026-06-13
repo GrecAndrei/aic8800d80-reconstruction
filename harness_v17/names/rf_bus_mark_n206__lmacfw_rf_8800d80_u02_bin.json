@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n206", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211392", "status": "ok", "name": "rf_bus_mark_n206", "params": [], "docstring": "Mark RF bus registers with reset values at offsets 0x810/0x814/0x81c", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

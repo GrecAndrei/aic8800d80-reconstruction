@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213490", "status": "ok", "name": "rf_cmd_process_n_c8", "params": [], "docstring": "Process RF command with opcode comparison (variant c8)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

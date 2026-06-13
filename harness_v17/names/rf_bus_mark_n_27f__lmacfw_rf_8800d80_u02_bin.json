@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_27f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f0c", "status": "ok", "name": "rf_bus_mark_index", "params": [], "docstring": "Mark RF bus entry with index and store payload", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

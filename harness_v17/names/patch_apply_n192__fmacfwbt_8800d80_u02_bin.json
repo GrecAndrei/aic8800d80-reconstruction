@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n192", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121567a", "status": "ok", "name": "patch_apply_n192", "params": [], "docstring": "Compute patch offset via arithmetic shift and bit-mask lookup", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

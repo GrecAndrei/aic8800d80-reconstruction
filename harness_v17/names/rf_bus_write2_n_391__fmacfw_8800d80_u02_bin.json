@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_391", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121188a", "status": "ok", "name": "sdio_buffer_prepare_n32", "params": [], "docstring": "SDIO buffer preparation, validates size/type against 0x58", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

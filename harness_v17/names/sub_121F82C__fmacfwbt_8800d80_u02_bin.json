@@ -1,0 +1,1 @@
+{"fn": "sub_121F82C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121f82c", "status": "ok", "name": "sub_121F82C", "params": [], "docstring": "TX descriptor/buffer setup routine", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

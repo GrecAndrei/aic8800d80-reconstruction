@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n29e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211ff6", "status": "ok", "name": "rf_bus_setup_n29e", "params": [], "docstring": "Configure RF bus register at offset 0xb00", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

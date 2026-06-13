@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_27f", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213234", "status": "ok", "name": "rf_cmd_queue_next_n_27f", "params": [], "docstring": "Fetch next RF command queue entry from pointer table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

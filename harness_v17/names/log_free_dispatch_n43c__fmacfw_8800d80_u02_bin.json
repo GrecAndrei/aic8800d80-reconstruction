@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n43c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210444", "status": "ok", "name": "rf_bus_reset_n4b4", "params": [], "docstring": "Reset RF bus via MMIO 0x84000000 mask sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

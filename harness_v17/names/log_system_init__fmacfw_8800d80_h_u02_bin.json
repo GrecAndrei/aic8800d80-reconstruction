@@ -1,0 +1,1 @@
+{"fn": "log_system_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f058", "status": "ok", "name": "hw_event_flag", "params": [], "docstring": "Read hardware event flag MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

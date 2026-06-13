@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n45c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133cc", "status": "ok", "name": "rf_cmd_wait_n45c", "params": [], "docstring": "Waits for RF command completion (busy loop)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211846", "status": "ok", "name": "rf_bus_mark_n_3e", "params": [], "docstring": "RF bus mark with shift/and on r4 and constant 0xc4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1231B9E", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1231b9e", "status": "ok", "name": "sub_1231B9E", "params": [], "docstring": "Helper routine preserving r4, saving r2 to r4", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

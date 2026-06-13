@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n14d", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212990", "status": "ok", "name": "rf_bus_reset_n14d", "params": [], "docstring": "Configure RF bus reset: set 0x100 in 0x804, program 0x814/0x81c/0x810 registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

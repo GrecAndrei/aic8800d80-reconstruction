@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nd2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ec86", "status": "ok", "name": "sdio_buffer_prepare_nd2", "params": [], "docstring": "Prepare SDIO scatter/gather buffer descriptors (variant nd2)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

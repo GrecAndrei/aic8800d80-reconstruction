@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_2a6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121155e", "status": "ok", "name": "rf_bus_setup_n_2a6", "params": [], "docstring": "RF bus setup routine configuring RF register paths", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

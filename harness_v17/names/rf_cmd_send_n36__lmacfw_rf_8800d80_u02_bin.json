@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n36", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121294e", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Posts an RF command and triggers hardware command register update.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1214090", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1214090", "status": "ok", "name": "bt_fw_init_handler", "params": [], "docstring": "BT firmware init/handler accessing global state offsets 0x234/0x23c", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

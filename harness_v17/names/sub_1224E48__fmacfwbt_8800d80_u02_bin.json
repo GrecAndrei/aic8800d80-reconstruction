@@ -1,0 +1,1 @@
+{"fn": "sub_1224E48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224e48", "status": "ok", "name": "extract_top_nibble_flag", "params": [], "docstring": "Read byte and extract high nibble as flag/selector", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

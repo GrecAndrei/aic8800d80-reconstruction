@@ -1,0 +1,1 @@
+{"fn": "rx_queue_head_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121df44", "status": "ok", "name": "rx_queue_head_init", "params": [], "docstring": "Initialize RX queue head pointer from descriptor base", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

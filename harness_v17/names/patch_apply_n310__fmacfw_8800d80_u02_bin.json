@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n310", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151bc", "status": "ok", "name": "patch_apply_n310", "params": [], "docstring": "Apply firmware patch from lookup table entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

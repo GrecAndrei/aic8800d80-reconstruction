@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_3c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12115fc", "status": "ok", "name": "rf_bus_write_n_3c4", "params": [], "docstring": "Write to RF bus register 0x40240018 with base lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

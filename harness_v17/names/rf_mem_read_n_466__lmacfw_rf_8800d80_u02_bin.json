@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_466", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f12e", "status": "ok", "name": "rf_mem_read_n_466", "params": [], "docstring": "Read RF memory region with nibble decoding", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

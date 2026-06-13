@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c918", "status": "ok", "name": "message_dispatch_n_74", "params": [], "docstring": "Dispatches host message based on type byte at offset 0x1e", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n182", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b7e", "status": "ok", "name": "rf_bus_reset2", "params": [], "docstring": "Resets RF bus state by checking/clearing 0x20000 flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

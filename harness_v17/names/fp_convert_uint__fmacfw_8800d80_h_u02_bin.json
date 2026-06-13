@@ -1,0 +1,1 @@
+{"fn": "fp_convert_uint", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d5a0", "status": "ok", "name": "fp_convert_uint", "params": [], "docstring": "Convert value via float helpers and pack into uint64", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

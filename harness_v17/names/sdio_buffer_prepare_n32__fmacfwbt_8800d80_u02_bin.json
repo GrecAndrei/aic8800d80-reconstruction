@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n32", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e376", "status": "ok", "name": "rf_bus_mark_n38", "params": [], "docstring": "Set 0xc0 bits on RX descriptor fields to mark buffers", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

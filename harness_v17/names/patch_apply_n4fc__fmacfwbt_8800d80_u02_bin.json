@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12159e4", "status": "ok", "name": "patch_apply_n4fc", "params": [], "docstring": "Apply sequential patches by dispatching to patch installer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

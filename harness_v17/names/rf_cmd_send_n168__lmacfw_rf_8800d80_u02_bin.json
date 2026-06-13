@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n168", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a80", "status": "ok", "name": "rf_cmd_send_compute_index", "params": [], "docstring": "Compute modulo-32 slot index for RF command queue send", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

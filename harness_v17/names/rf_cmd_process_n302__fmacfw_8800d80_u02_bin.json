@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n302", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121385a", "status": "ok", "name": "ipc_doorbell_handler_naa", "params": [], "docstring": "Handles IPC doorbell interrupt by reading status at offset -0x2c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

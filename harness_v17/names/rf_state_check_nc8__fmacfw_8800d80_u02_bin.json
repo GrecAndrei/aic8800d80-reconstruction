@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nc8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121229c", "status": "ok", "name": "rf_state_check_nc8", "params": [], "docstring": "Checks and updates RF PHY state fields from descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

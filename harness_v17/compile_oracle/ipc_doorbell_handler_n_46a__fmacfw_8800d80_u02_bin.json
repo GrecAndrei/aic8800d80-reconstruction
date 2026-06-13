@@ -1,0 +1,34 @@
+{
+  "function": "ipc_doorbell_handler_n_46a",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115512",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115512  1b78  ldrb r3, [r3]",
+        "compiled": "(not present - compiled base address 0x34 is wrong, disassembled as ARM 32-bit not Thumb)",
+        "fix_hint": "Reconstruct function at correct base address 0x115512 in Thumb mode; emit ldrb r3,[r3] for byte dereference of pointer arg"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115514  013b  subs r3, 1",
+        "compiled": "(not present)",
+        "fix_hint": "Emit 'subs r3, r3, #1' after the ldrb to decrement loaded value and set flags"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115516  042b  cmp r3, 4",
+        "compiled": "(not present)",
+        "fix_hint": "Emit 'cmp r3, #4' (16-bit Thumb encoding 0x2b04) as final comparison for switch dispatch"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disassembly is at the wrong base address (0x34, which is in the ELF/header region, not code)",
+      "Compiled disassembly is being decoded as ARM 32-bit instructions, but the original is Thumb-2 (16-bit instructions at 0x115512)",
+      "All 3 original instructions are completely missing from the reconstruction",
+      "Original is a tiny 3-instruction tail (ldrb/subs/cmp) likely a switch dispatcher computing case index = msg_id - 1, comparing against 4 cases"
+    ]
+  }
+}

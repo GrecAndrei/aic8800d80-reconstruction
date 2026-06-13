@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f74", "status": "ok", "name": "patch_apply_nc8", "params": [], "docstring": "Apply patch with 0xf00000 mask loop over 0x56 entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

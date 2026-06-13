@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_442", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e772", "status": "ok", "name": "sdio_buffer_prepare_n_442", "params": [], "docstring": "Validate signed SDIO buffer length and prepare transfer context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

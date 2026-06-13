@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_39c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12155e0", "status": "ok", "name": "ipc_doorbell_handler_n_39c", "params": [], "docstring": "Handles IPC doorbell interrupts, masks and clears pending host/AP bits", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

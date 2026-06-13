@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n23b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e356", "status": "ok", "name": "sdio_buffer_prepare_n23b", "params": [], "docstring": "SDIO buffer prep branch checking value against 0x2a (42)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4ee", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12100be", "status": "ok", "name": "log_free_pool_dispatch2_n4ee", "params": [], "docstring": "Dispatch entry from log free pool (function epilogue with wide pop)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

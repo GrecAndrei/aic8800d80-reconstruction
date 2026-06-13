@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n464", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c68", "status": "ok", "name": "rf_bus_setup_n464", "params": [], "docstring": "RF bus setup writing paired values to mmio 0xa000040 region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

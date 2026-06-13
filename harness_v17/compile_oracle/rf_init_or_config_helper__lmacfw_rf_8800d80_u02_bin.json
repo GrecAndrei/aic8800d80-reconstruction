@@ -1,0 +1,41 @@
+{
+  "function": "rf_init_or_config_helper",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x102e04",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00102e40      9448           ldr r0, [0x00103094]        ; [0x103094:4]=0x60190103",
+        "compiled": "0x00000034      80b584b0       addlt fp, r4, r0, lsl 11",
+        "fix_hint": "Generator produced Thumb-2 prolog bytes (push {r7,lr}; sub sp) misinterpreted; should emit `ldr r0, [pc, #0x50]` loading 0x60190103"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00102e42      1500           movs r5, r2",
+        "compiled": "0x00000038      00af3f4b       blmi 0xfebc40",
+        "fix_hint": "Should be `movs r5, r2` (15 00), not a branch-link; misaligned decode from wrong base"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00102e44      8048           ldr r0, [0x00103048]        ; [0x103048:4]=0x2c0f002",
+        "compiled": "0x0000003c      fb60fb68       ldmvs fp!, {r0, r1, r3, r4, r5, r6, r7, sp, lr} ^",
+        "fix_hint": "Should be `ldr r0, [pc, #0x...]` loading 0x02c0f002, not a load-multiple"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00102e46      1500           movs r5, r2",
+        "compiled": "0x00000040      83f48133       orrlo pc, r1, 0x83000000",
+        "fix_hint": "Should be second `movs r5, r2` (15 00), not orr/dcd"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output is entirely unrelated code - instruction addresses, encodings, and semantics do not correspond to the original function at 0x102e40",
+      "The original function consists of two PC-relative LDR literals (loading 0x60190103 and 0x02c0f002) each followed by `movs r5, r2`; the compiled version has none of these patterns",
+      "The compiled disasm appears to be misaligned or from a different function entirely (looks like Thumb-2 prolog/epilog bytes interpreted as code)",
+      "No literal pools / data constants for 0x60190103 or 0x02c0f002 are present in the compiled output",
+      "Function may not be properly reconstructed; suggest regenerating from C source targeting correct base address and emitting Thumb-1 16-bit encodings (0x4894, 0x0015, 0x4880, 0x0015)"
+    ]
+  }
+}

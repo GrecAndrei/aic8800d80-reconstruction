@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2a2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12102aa", "status": "ok", "name": "rf_bus_reset2_n_25b", "params": [], "docstring": "Reset RF bus via MMIO (variant 25B)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

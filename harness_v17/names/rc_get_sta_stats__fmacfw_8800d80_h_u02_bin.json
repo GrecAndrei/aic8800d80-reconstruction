@@ -1,0 +1,1 @@
+{"fn": "rc_get_sta_stats", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247874", "status": "ok", "name": "rc_get_sta_stats", "params": [], "docstring": "Rate control: collect per-station statistics", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

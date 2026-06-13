@@ -1,0 +1,95 @@
+{
+  "function": "rf_stream_start2_init",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x113590",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001135d8      0120           movs r0, 1",
+        "compiled": "(not present at correct address; output starts at 0x00000034)",
+        "fix_hint": "Compiled output is at wrong base address (0x00000034 vs expected 0x113590)"
+      },
+      {
+        "type": "extra",
+        "original": "(function body)",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Entire compiled disasm is garbage \u2014 generator fed wrong bytes or wrong base"
+      },
+      {
+        "type": "extra",
+        "original": "(function body)",
+        "compiled": "0x00000038      00af244b       blmi 0x92bc40",
+        "fix_hint": "Decoder is misinterpreting thumb data as ARM with conditional flags spuriously set"
+      },
+      {
+        "type": "extra",
+        "original": "(function body)",
+        "compiled": "0x00000040      fb607b69       ldmdbvs fp!, {r0, r1, r3, r4, r5, r6, r7, sp, lr} ^",
+        "fix_hint": "No original function has ldmdbvs with these registers"
+      },
+      {
+        "type": "extra",
+        "original": "(function body)",
+        "compiled": "0x00000044      03f0fc03       invalid",
+        "fix_hint": "Several 'invalid' decoded instructions indicate desync from instruction stream"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135e6      0446           mov r4, r0",
+        "compiled": "(not present)",
+        "fix_hint": "Function prologue (mov r4,r0) absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135e8      0e46           mov r6, r1",
+        "compiled": "(not present)",
+        "fix_hint": "Function prologue (mov r6,r1) absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135ea      0b48           ldr r0, [0x00113618]",
+        "compiled": "(not present)",
+        "fix_hint": "LDR literal of 0x166e48 to r0 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135ec      2978           ldrb r1, [r5]",
+        "compiled": "(not present)",
+        "fix_hint": "LDRB r1,[r5] read is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135ee      faf719fb       bl 0x10dc24",
+        "compiled": "(not present)",
+        "fix_hint": "Function call to 0x10dc24 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135f4      0948           ldr r0, [0x0011361c]",
+        "compiled": "(not present)",
+        "fix_hint": "LDR literal of 0x133559 to r0 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001135fa      00f0e5fd       bl 0x1141c8",
+        "compiled": "(not present)",
+        "fix_hint": "Function call to 0x1141c8 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00113600      bde8f081       pop.w {r4, r5, r6, r7, r8, pc}",
+        "compiled": "(not present)",
+        "fix_hint": "Function epilogue pop is missing"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output begins at 0x00000034 instead of 0x113590 \u2014 fundamental address/load-address mismatch",
+      "All compiled instructions decode to garbage ('addlt', 'blmi', 'invalid') indicating the raw bytes fed to the decoder are wrong, or the decoder is misaligned/in wrong ISA mode",
+      "No instruction from the original function body (0x1135e6\u20130x113600) appears in the compiled disasm",
+      "Even the single ground-truth instruction shown (movs r0,1 at 0x1135d8) has no counterpart in compiled output",
+      "Reconstruction is non-functional \u2014 needs full rebuild from correct source/byte stream at correct load address"
+    ]
+  }
+}

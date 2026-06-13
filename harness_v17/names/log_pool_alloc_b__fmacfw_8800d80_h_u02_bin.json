@@ -1,0 +1,1 @@
+{"fn": "log_pool_alloc_b", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1102a0", "status": "ok", "name": "log_pool_alloc_b", "params": [], "docstring": "Allocate a buffer from log pool variant B", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

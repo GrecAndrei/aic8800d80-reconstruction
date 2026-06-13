@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_6e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e3e", "status": "ok", "name": "ipc_doorbell_handler_n1d6", "params": [], "docstring": "IPC doorbell handler tail storing status byte", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1231982", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231982", "status": "ok", "name": "me_chan_ctxt_update", "params": [], "docstring": "Update MAC engine channel context fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

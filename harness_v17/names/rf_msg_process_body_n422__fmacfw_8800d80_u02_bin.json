@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n422", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121406a", "status": "ok", "name": "rf_state_check_n292", "params": [], "docstring": "RF state validation comparing state against value 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

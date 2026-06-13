@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n25c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222288", "status": "ok", "name": "rf_mem_write_n25c", "params": [], "docstring": "Write 32-bit value into RF register/memory", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

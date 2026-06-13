@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_36c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212ca4", "status": "ok", "name": "rf_bus_mark_n476", "params": [], "docstring": "Mark/flag RF bus descriptor via masked index write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

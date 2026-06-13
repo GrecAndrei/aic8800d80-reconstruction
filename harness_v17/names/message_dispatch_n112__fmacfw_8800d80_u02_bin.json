@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n112", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca9e", "status": "ok", "name": "message_dispatch_n112", "params": [], "docstring": "Dispatch IPC message into message queue slot", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

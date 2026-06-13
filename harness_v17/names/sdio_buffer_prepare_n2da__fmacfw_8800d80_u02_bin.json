@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e3f6", "status": "ok", "name": "sdio_buffer_prepare_n2da", "params": [], "docstring": "Prepares SDIO buffer by moving argument to working register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

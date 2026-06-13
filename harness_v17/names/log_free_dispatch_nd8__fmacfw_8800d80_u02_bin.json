@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_nd8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12100e0", "status": "ok", "name": "log_free_dispatch_nd8", "params": [], "docstring": "Dispatches log buffer free operations based on size class", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

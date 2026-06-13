@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_12b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12153bc", "status": "ok", "name": "patch_apply_n_12b", "params": [], "docstring": "Applies firmware patch from descriptor table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

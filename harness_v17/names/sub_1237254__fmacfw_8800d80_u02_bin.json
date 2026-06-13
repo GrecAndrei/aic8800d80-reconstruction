@@ -1,0 +1,1 @@
+{"fn": "sub_1237254", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1237254", "status": "ok", "name": "rx_status_init_n54", "params": [], "docstring": "Initializes RX status block fields to zero", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

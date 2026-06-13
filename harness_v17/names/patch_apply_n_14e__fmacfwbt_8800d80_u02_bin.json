@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_14e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121539a", "status": "ok", "name": "patch_apply_n_14e", "params": [], "docstring": "Patch application: nop then move r0 to r1 (parameter pass-through)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

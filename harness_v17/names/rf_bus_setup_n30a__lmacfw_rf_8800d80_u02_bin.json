@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n30a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b0e", "status": "ok", "name": "rf_bus_setup_n30a", "params": [], "docstring": "Configures RF bus mode (1/0) with helper dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

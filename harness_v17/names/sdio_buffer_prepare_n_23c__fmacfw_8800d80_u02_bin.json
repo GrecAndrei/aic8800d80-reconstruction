@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_23c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122dee0", "status": "ok", "name": "sdio_buffer_prepare_n_23c", "params": [], "docstring": "Validate SDIO buffer size vs 0x18, return 0 on mismatch", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

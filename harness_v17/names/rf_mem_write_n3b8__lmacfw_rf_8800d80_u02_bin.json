@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n3b8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223e4", "status": "ok", "name": "rf_mem_write_n3b8", "params": [], "docstring": "Writes register block to RF memory-mapped region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

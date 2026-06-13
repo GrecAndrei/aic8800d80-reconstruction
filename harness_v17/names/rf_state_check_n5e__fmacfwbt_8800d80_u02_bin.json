@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n5e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121208e", "status": "ok", "name": "rf_state_check_n5e", "params": [], "docstring": "Check RF state bits mask 0x21 for expected state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_436", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12115c6", "status": "ok", "name": "rf_bus_reset2_n_436", "params": [], "docstring": "RF bus reset toggling MMIO at offset 0xc00", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

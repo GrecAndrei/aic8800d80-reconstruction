@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_194", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215354", "status": "ok", "name": "patch_apply_n_194", "params": [], "docstring": "Apply firmware patch with 0x18-size header write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

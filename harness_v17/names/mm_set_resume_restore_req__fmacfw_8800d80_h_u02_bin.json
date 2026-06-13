@@ -1,0 +1,1 @@
+{"fn": "mm_set_resume_restore_req", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248f30", "status": "ok", "name": "mm_set_resume_restore_req", "params": [], "docstring": "Set resume/restore request flags in MM shared state for BT/FMAC", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

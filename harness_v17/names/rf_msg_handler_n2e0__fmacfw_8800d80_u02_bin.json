@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n2e0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12133e4", "status": "ok", "name": "rf_msg_handler_n2e0", "params": [], "docstring": "Dispatch RF messages from mailbox header chain", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

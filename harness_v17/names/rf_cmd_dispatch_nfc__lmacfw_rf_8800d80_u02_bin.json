@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_nfc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222040", "status": "ok", "name": "rf_cmd_dispatch_nfc", "params": [], "docstring": "Dispatch RF command payload chunks via helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1215E98", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1215e98", "status": "ok", "name": "rf_fault_dump_n_26c", "params": [], "docstring": "RF fault/state dump handler (variant 26c)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

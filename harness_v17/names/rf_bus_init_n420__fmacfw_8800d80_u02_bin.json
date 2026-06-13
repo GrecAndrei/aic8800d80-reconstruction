@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n420", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12121d8", "status": "ok", "name": "rf_bus_init_n420", "params": [], "docstring": "Initialize RF bus control register field from offset 0xe", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

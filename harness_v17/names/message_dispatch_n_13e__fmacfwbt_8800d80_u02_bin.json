@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_13e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ca76", "status": "ok", "name": "log_free_dispatch_n43c", "params": [], "docstring": "Increment dispatch counter and free log buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

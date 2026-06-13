@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_302", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d2e", "status": "ok", "name": "rf_state_check_n_302", "params": [], "docstring": "Check RF state field and compare mask with sentinel 0x49", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

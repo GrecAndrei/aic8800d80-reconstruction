@@ -1,0 +1,1 @@
+{"fn": "rf_reg_write_wait", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120f010", "status": "ok", "name": "rf_reg_write_wait", "params": [], "docstring": "Write RF register and wait for completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

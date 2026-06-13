@@ -11,7 +11,9 @@ from pathlib import Path
 
 REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
 NAMES_DIR = REPO / "harness_v17/names"
-COMPOSED_DIR = REPO / "extraction_out/reconstruction/mega7/final"
+# IMPORTANT: source from v15 final (which has v14 synthesis bodies),
+# NOT from extraction_out/reconstruction/mega7/final/ (which has empty TODO stubs)
+COMPOSED_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/final"
 OUT_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/composed_v17"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125ce", "status": "ok", "name": "rf_state_check_n3fa", "params": [], "docstring": "Checks RF state register values against expected constants", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

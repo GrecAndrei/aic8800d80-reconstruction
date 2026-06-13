@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nfa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e216", "status": "ok", "name": "sdio_buffer_prepare_nfa", "params": [], "docstring": "SDIO buffer preparation looking up descriptor table by index", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

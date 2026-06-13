@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n3cc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ef80", "status": "ok", "name": "sdio_buffer_prepare_n3cc", "params": [], "docstring": "Compute SDIO buffer offsets/addresses via left-shift alignment", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n48a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215e06", "status": "ok", "name": "ipc_msg_dispatch_n_efac", "params": [], "docstring": "Dispatches IPC message with saved arguments to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

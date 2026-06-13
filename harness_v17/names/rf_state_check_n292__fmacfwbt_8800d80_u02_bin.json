@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n292", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122c2", "status": "ok", "name": "rf_bus_write2_n_391", "params": [], "docstring": "RF bus write helper storing args to MMIO and indexed registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

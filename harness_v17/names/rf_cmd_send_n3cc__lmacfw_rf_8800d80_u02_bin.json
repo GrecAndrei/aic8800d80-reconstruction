@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3cc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212ce4", "status": "ok", "name": "patch_apply_n_236", "params": [], "docstring": "Patch apply helper computing shifted offset from r4", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

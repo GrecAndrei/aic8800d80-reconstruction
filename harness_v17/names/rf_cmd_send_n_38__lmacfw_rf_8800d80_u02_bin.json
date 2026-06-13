@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_38", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128e0", "status": "ok", "name": "rf_cmd_send_n_38", "params": [], "docstring": "Send RF command, decrements counter and loads RF mailbox pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

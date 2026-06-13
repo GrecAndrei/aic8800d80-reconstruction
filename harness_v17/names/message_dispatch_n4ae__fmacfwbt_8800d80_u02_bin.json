@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d062", "status": "ok", "name": "rf_msg_process_body_n11", "params": [], "docstring": "Process RF message body indexed by struct (size 0x2b8)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

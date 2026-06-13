@@ -1,0 +1,1 @@
+{"fn": "uart_puts", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d674", "status": "ok", "name": "uart_puts", "params": [], "docstring": "Write a null-terminated string to UART", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

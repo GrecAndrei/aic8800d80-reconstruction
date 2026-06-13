@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n1ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215694", "status": "ok", "name": "patch_apply_n1ac", "params": [], "docstring": "Apply firmware patch, clear/set bits and trigger NVIC", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

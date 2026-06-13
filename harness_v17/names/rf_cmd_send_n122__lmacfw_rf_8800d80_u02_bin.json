@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n122", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a3a", "status": "ok", "name": "rf_cmd_send_n122", "params": [], "docstring": "Send single byte RF command to LMAC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

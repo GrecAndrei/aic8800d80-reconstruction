@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2c2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215226", "status": "ok", "name": "patch_trampoline_n_2c2", "params": [], "docstring": "Patch trampoline: enable IRQs and return, with helper stubs", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

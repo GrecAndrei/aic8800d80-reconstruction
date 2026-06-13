@@ -1,0 +1,1 @@
+{"fn": "tx_txdesc_init", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12476b4", "status": "ok", "name": "tx_txdesc_init", "params": [], "docstring": "Initialize a TX descriptor for frame transmission", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

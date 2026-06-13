@@ -1,0 +1,59 @@
+{
+  "function": "sub_1221CD8",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x121cd8",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00121cd8      2de9f843       push.w {r3, r4, r5, r6, r7, r8, sb, lr}",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Reconstructed C function is being linked/disassembled at the wrong base address (0x34 vs 0x121cd8) and/or with wrong alignment \u2014 check linker script and Thumb mode."
+      },
+      {
+        "type": "missing",
+        "original": "0x00121cdc      9046           mov r8, r2",
+        "compiled": "(not present \u2014 disassembled at 0x38 instead of 0x121cdc)",
+        "fix_hint": "Function prologue+body offsets are off; ensure compiled image is placed at the same runtime address as the original (0x121cd8)."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00121cf4      1f4b           ldr r3, [0x00121d74]        ; =0x188428",
+        "compiled": "0x00000040      fb607b69       ldmdbvs fp!, {r0, r1, r3, r4, r5, r6, r7, sp, lr}",
+        "fix_hint": "Literal pool load missing; reconstruction did not emit the LDR from 0x121d74 to pick up base 0x188428."
+      },
+      {
+        "type": "missing",
+        "original": "0x00121cf8      4ff42e72       mov.w r2, 0x2b8  ; straddle offset for mla into vif_info[]",
+        "compiled": "(absent)",
+        "fix_hint": "The 0x2b8 element-stride constant used in `mla sb, r2, sb, r3` was not emitted in the compiled body."
+      },
+      {
+        "type": "missing",
+        "original": "0x00121cfc      02fb0939       mla sb, r2, sb, r3",
+        "compiled": "(absent)",
+        "fix_hint": "Indexing expression `vif_info[arg0].field` is not being compiled into the expected MLA \u2014 check struct_field_offset/arr_offset calls."
+      },
+      {
+        "type": "missing",
+        "original": "0x00121d02      89f89d02       strb.w r0, [sb, 0x29d] / 0x00121d06      a9f89e02       strh.w r0, [sb, 0x29e]",
+        "compiled": "(absent \u2014 body shows 7b61/7b69 strb/ldrh into arbitrary offsets)",
+        "fix_hint": "Offset 0x29d/0x29e writes into vif_info are not reproduced; compiled body writes to wrong offsets."
+      },
+      {
+        "type": "missing",
+        "original": "0x00121d26      4ff4a562       mov.w r2, 0x528 / 0x00121d2a      02fb0533       mla r3, r2, r5, r3 / 0x00121d2e      93f86a20       ldrb.w r2, [r3, 0x6a]",
+        "compiled": "(absent \u2014 compiled body never reaches second table walk)",
+        "fix_hint": "Second pass at ldr.w r3,[sb,0x2c] with stride 0x528 and field read at +0x6a is missing entirely from the compiled body."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disassembly is shown at addresses 0x00000034..0x00000080 instead of 0x00121cd8 \u2014 indicates the reconstructed ELF/object is being placed at the wrong base or read with wrong offsets.",
+      "Compiled output contains 'invalid', 'addlt', 'blmi', 'ldmdbvs' etc., which are ARM/Thumb unconditional pseudo-ops \u2014 disassembly alignment (Thumb bit) is likely wrong.",
+      "Every instruction in the compiled disassembly is garbled; this is not a minor immediate/register mismatch but a total structural failure.",
+      "The two calls in the original (bl 0x11ef08 and bl 0x121340) and the literal-pool LDR from 0x121d74 are entirely missing from the compiled body.",
+      "The two table walks (stride 0x2b8 then 0x528) are not present \u2014 vif_info indexing is not being reconstructed."
+    ]
+  }
+}

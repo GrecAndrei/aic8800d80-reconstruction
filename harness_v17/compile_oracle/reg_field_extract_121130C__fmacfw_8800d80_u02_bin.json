@@ -1,0 +1,59 @@
+{
+  "function": "reg_field_extract_121130C",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x11130c",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x0011130c  1e4b  ldr r3, [0x00111388]  ; loads 0x4024004c",
+        "compiled": "0x00000034  80b586b0  addlt fp, r6, r0, lsl 11  ; garbage data decoded as Thumb",
+        "fix_hint": "Reconstructed function is disassembled at address 0x34 instead of 0x11130c; mechanical rebuilder must use the function's runtime base address when emitting disassembly."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011130e  1968  ldr r1, [r3]  ; load from MMIO/struct at 0x4024004c",
+        "compiled": "<no matching ldr r1, [r3] instruction>",
+        "fix_hint": "Compiler emitted a load of the pointer's pointee; ensure reconstructor inserts the indirect load."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111310  c0f31502  ubfx r2, r0, 0, 0x16  ; extract bits [5:0] field with width 0x16",
+        "compiled": "<no ubfx r2, r0, 0, 0x16>",
+        "fix_hint": "The (value & 0x3F) | ((value >> 9) & 0x3FFF) field-extract pattern must be lowered to ubfx + lsl, not a generic mask."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111314  4002  lsls r0, r0, 9",
+        "compiled": "<no lsls r0, r0, 9>",
+        "fix_hint": "Reconstructor must emit the shift of the high field before the second ubfx."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111316  c1f31501  ubfx r1, r1, 0, 0x16  ; extract same field from loaded value",
+        "compiled": "<no ubfx r1, r1, 0, 0x16>",
+        "fix_hint": "Second ubfx on the loaded word is missing from the reconstruction."
+      },
+      {
+        "type": "extra",
+        "original": "<no such instruction>",
+        "compiled": "0x00000038  00af244b  blmi 0x92bc40",
+        "fix_hint": "Garbage branch instruction decoded from non-code bytes; output is not valid Thumb disassembly of the reconstructed C body."
+      },
+      {
+        "type": "extra",
+        "original": "<no such instruction>",
+        "compiled": "0x00000044  03f0fc03  invalid",
+        "fix_hint": "Decoded 'invalid' indicates disassembly of uninitialized/stack/zero bytes; do not disassemble non-code regions."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The 'compiled disasm' is not a valid disassembly of any Thumb function: addresses begin at 0x00000034 instead of 0x11130c, multiple instructions are marked 'invalid', and conditional/unpredicated forms (blmi, ldmdbvs, movwlo, movwhs, cmpeq, ldmeq) appear in code that should be plain Thumb-2.",
+      "Original function is 6 instructions (12 bytes) performing: load literal 0x4024004c -> r3, load [r3] -> r1, ubfx r2,r0,#0,#0x16, lsl r0,r0,#9, ubfx r1,r1,#0,#0x16. The mechanical reconstruction emits none of this structure.",
+      "The 'reconstruction' appears to be a raw byte dump of an unrelated section (.text) starting at file offset 0x34 being mis-decoded as Thumb \u2014 it does not correspond to a C compilation of the function body at all.",
+      "Behavioral trace lookup returned null, so no behavioral comparison is possible; the mechanical C source itself is likely missing or mis-mapped to this function symbol.",
+      "Fix the mechanical rebuilder: (1) anchor disassembly at the function's runtime address, (2) emit a PC-relative literal-pool LDR for the 0x4024004c constant, (3) lower the bitfield extract to ubfx+lsl+ubfx pattern, (4) ensure the second operand's load via the loaded pointer is preserved."
+    ]
+  }
+}

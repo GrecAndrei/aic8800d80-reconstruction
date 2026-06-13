@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n18a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121198e", "status": "ok", "name": "rf_bus_setup_n18a", "params": [], "docstring": "Configures RF bus registers and sets RFIC select", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

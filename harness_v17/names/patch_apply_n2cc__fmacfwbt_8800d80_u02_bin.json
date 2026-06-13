@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2cc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157b4", "status": "ok", "name": "patch_apply_n2cc", "params": [], "docstring": "Patch helper: load context struct fields, call helper, reload first field", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

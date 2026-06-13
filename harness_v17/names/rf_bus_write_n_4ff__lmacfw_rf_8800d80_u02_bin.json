@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4ff", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f6c", "status": "ok", "name": "rf_bus_write_n_4ff", "params": [], "docstring": "Writes multiple RF bus registers with configured values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

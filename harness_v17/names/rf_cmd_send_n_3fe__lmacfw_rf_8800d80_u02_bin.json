@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_3fe", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121251a", "status": "ok", "name": "message_dispatch_n160", "params": [], "docstring": "Message dispatch handler (aligns size and computes header end)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

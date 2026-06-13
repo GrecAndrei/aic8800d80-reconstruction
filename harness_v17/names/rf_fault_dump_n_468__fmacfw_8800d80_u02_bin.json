@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_468", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12142e0", "status": "ok", "name": "rf_state_check_n2d6", "params": [], "docstring": "Check RF state via MMIO register poll", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

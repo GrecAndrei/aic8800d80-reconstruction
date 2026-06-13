@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_ndb", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ad6", "status": "ok", "name": "log_free_dispatch_n2f4", "params": [], "docstring": "Log buffer free/dispatch helper (pushes r4/lr, shifts r3)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

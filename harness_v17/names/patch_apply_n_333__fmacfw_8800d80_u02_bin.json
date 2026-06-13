@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_333", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b78", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Calls a patch function pointer and extracts a status bit.", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

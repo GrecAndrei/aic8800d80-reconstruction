@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n48e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa22", "status": "ok", "name": "rf_mem_read_n48e", "params": [], "docstring": "RF memory read with bounds clamping and offset table indexing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

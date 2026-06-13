@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_3ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d16", "status": "ok", "name": "rf_msg_handler_n_3ee", "params": [], "docstring": "Handle RF message by loading parameter from offset 0x30", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

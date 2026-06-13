@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213204", "status": "ok", "name": "rf_cmd_send_n1f4", "params": [], "docstring": "Send RF command with header fields and dispatch via shared mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

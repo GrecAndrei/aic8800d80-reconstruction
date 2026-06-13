@@ -1,0 +1,1 @@
+{"fn": "timestamp_remove", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ac10", "status": "ok", "name": "timestamp_remove", "params": [], "docstring": "Strip/remove timestamp field from received frame", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

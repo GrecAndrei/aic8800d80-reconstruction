@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121285c", "status": "ok", "name": "rf_cmd_send_n_bc", "params": [], "docstring": "Send RF command via indirect halfword register addressing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

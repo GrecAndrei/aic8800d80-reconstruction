@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_4ad", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12154ce", "status": "ok", "name": "ipc_doorbell_handler_n_4ad", "params": [], "docstring": "Handle IPC doorbell event with opcode 'e' (0x65)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

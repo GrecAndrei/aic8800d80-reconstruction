@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_264", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215284", "status": "ok", "name": "patch_apply_n_264", "params": [], "docstring": "Apply FW patch via CLAI magic and indirect call trampoline", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

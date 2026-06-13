@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_362", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122dfe2", "status": "ok", "name": "rf_fault_dump", "params": [], "docstring": "Dumps RF fault status and triggers fault handling path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

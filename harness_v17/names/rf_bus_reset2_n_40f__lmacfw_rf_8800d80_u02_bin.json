@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_40f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ef4", "status": "ok", "name": "rf_bus_reset2_n_40f", "params": [], "docstring": "RF bus reset variant 2 (40f)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

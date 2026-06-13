@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_e", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11414c", "status": "ok", "name": "log_free_pool_e", "params": [], "docstring": "Return buffer to log free pool variant E", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

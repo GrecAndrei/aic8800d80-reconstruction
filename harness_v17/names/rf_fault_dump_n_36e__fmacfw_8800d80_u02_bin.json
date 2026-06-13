@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_36e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12143da", "status": "ok", "name": "rf_bus_reset2_n3e2", "params": [], "docstring": "RF bus reset2 stub loading single offset 0x14", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

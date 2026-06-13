@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121304c", "status": "ok", "name": "rf_cmd_send_n3c", "params": [], "docstring": "Send RF command and set 0x84000000 OR-mask in 0x900 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

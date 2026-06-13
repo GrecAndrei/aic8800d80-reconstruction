@@ -43,10 +43,13 @@ def get_function_at(image, addr):
 
 
 def find_compiled_function(name, image, elf_path):
-    """Find the compiled function in the ELF and return its disasm."""
-    # Use r2 to find the function symbol and get its disasm
-    cmd = ["r2", "-q", "-a", "arm", "-b", "16", "-m", "0x100000", "-2",
-           "-c", f"s sym.{name}; pd 30", str(elf_path)]
+    """Find the compiled function in the ELF and return its disasm.
+    Forces Thumb mode via asm.bits because the linker script doesn't set it."""
+    # ELF .text is at 0x0 in our link.ld. The compiler emits Thumb but ELF
+    # section is unmarked. -a arm + e asm.bits=16 decodes 16-bit aligned.
+    # -a thumb causes byte-granular decode (wrong).
+    cmd = ["r2", "-q", "-2",
+           "-c", f"s sym.{name}; e asm.bits=16; pd 30", str(elf_path)]
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
         import re
@@ -99,7 +102,7 @@ Use tools to verify your findings. Output JSON."""
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=2000, max_tool_rounds=4)
+        msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=1500, max_tool_rounds=3)
     except Exception as e:
         return None, f"err:{e}"
     content = (msg.get('content') or '').strip()
@@ -153,13 +156,13 @@ def main():
     # For now, just shuffle and process
     import random
     random.shuffle(targets)
-    targets = targets[:200]  # limit to 200 for first pass
+    targets = targets[:600]  # limit to 600 for first pass
 
     t0 = time.time()
     done = 0
     ok = 0
     fail = 0
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=8) as ex:
         futures = {}
         for t in targets:
             img = t['img']

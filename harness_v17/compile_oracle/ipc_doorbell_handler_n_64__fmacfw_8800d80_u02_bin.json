@@ -6,42 +6,66 @@
     "divergences": [
       {
         "type": "missing",
+        "original": "0x00115932      00bf           nop",
+        "compiled": "<absent - compiled disasm starts at 0x34 not 0x115918>",
+        "fix_hint": "Function base address is wrong; compiled output at 0x34 is unrelated data, not the function body"
+      },
+      {
+        "type": "missing",
         "original": "0x00115934      602b           cmp r3, 0x60",
-        "compiled": "0x00105b08  ~   ffffffff       invalid",
-        "fix_hint": "Compiled disassembly shows all 0xFFFFFFFF - entire function body is missing/invalid; needs recompilation"
+        "compiled": "<no Thumb-2 decode emitted>",
+        "fix_hint": "Reconstruction failed to produce Thumb-2 output; all instructions are decoded as ARM 32-bit"
       },
       {
         "type": "missing",
         "original": "0x00115938      8c7f           ldrb r4, [r1, 0x1e]",
-        "compiled": "0x00105b0c  ~   ffffffff       invalid",
-        "fix_hint": "ldrb instruction not present in compiled output; ensure pointer dereference to offset 0x1e is generated"
+        "compiled": "<no matching ldrb from [r1, #0x1e]>",
+        "fix_hint": "Memory read at [r1+0x1e] is absent from compiled output"
       },
       {
         "type": "missing",
         "original": "0x00115940      c477           strb r4, [r0, 0x1f]",
-        "compiled": "0x00105b14      ffffffff       invalid",
-        "fix_hint": "strb to [r0+0x1f] not present; store operation missing from compiled output"
+        "compiled": "<no matching strb to [r0, #0x1f]>",
+        "fix_hint": "Memory write at [r0+0x1f] is absent from compiled output"
       },
       {
         "type": "missing",
-        "original": "0x00115960      582b           cmp r3, 0x58",
-        "compiled": "0x00105b34      5bf82220       ldr.w r2, [fp, r2, lsl 2]",
-        "fix_hint": "C source structure does not produce expected comparison; control flow diverges completely"
+        "original": "0x00115944      9c43           bics r4, r3",
+        "compiled": "<no bit-clear of r4 with r3>",
+        "fix_hint": "bics r4, r3 operation missing entirely"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115954      082b           cmp r3, 8",
+        "compiled": "<no cmp r3, #8>",
+        "fix_hint": "Comparison with immediate 8 is absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115958      3027           movs r7, 0x30",
+        "compiled": "<no movs r7, #0x30>",
+        "fix_hint": "movs r7, #0x30 immediate load is absent"
       },
       {
         "type": "wrong_op",
-        "original": "0x00115964      d881           strh r0, [r3, 0xe]",
-        "compiled": "0x00105b38      ba42           cmp r2, r7",
-        "fix_hint": "Compiled emits compare instead of halfword store; byte/halfword store operations not generated correctly"
+        "original": "0x00115936      1800           movs r0, r3",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Compiled emits garbled ARM-mode decode; should be Thumb-2 movs r0, r3"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011593c      6025           movs r5, 0x60",
+        "compiled": "0x0000003c/0x40      blmi/ldmdbvs (nonsense ARM)",
+        "fix_hint": "No movs r5, #0x60 emitted; reconstruction does not produce this immediate store"
       }
     ],
     "match_pct": 0,
     "concerns": [
-      "Compiled disassembly displays 0xFFFFFFFF for all instructions - the disassembly output is entirely corrupt/invalid despite memory containing real bytes (0xd0082c01, 0xe8bdd1f5 etc. confirmed via read_dword)",
-      "Function body is completely missing - no recognizable cmp/movs/ldrb/strb sequence from the original appears in compiled output",
-      "Address mapping is wrong: original is at 0x115918, compiled shown at 0x105b00 - the compiled function is not ipc_doorbell_handler_n_64",
-      "Memory at 0x105b00 actually contains unrelated ARM code (add.w, mov, bl, ldr.w patterns), confirming complete function mismatch",
-      "All 20 listed compiled lines are invalid; this is a total reconstruction failure requiring full recompile from corrected C source"
+      "Compiled disassembly is at completely wrong base address (0x34 vs 0x115918) and appears to be unrelated data",
+      "Compiled output is decoded in ARM (32-bit) mode while original is Thumb-2 (16-bit) \u2014 entire instruction-set assumption is wrong",
+      "Multiple 'invalid' mnemonics in compiled output indicate the disassembly is not even self-consistent",
+      "No recognizable control flow, memory accesses, or immediates from the original are present in compiled output",
+      "The mechanical reconstruction appears to have failed at a fundamental level \u2014 likely the C source or compile target was not aligned with the original firmware function"
     ]
   }
 }

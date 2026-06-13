@@ -1,0 +1,1 @@
+{"fn": "sub_122B114", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b114", "status": "ok", "name": "mac_check_msg_id_0x96c", "params": [], "docstring": "Check incoming message id against 0x96c and dispatch via context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

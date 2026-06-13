@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n1fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123ce", "status": "ok", "name": "rxl_seek_last_rbd", "params": [], "docstring": "Walks RX list backwards to last receive buffer descriptor", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

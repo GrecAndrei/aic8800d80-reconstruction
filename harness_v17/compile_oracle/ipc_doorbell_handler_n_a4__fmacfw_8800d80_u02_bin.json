@@ -1,0 +1,54 @@
+{
+  "function": "ipc_doorbell_handler_n_a4",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x1158d8",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001158d8  ldr r2, [r3]; ldrsb.w r3, [r5, 7]; ldrsb.w r1, [r5, 4]; and r2, r2, 3; add r7, r2; sxtb r7, r7; adds r6, r3, r7; cmp r6, r1; it ge; mov r6, r1; sxtb r6, r6; mov r0, r6; bl 0x102b80",
+        "compiled": "0x00000034  addlt fp, r6, r0, lsl 11  (garbled decode)",
+        "fix_hint": "Reconstruct full function body starting at 0x1158d8: 20+ instructions including LDRs, SBXTB, conditional move, BL to 0x102b80, MLA with 0xea60, LDR literal pool 0x40501000, and BL to 0x12d14c"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115902  movw r1, 0xea60",
+        "compiled": "no corresponding instruction",
+        "fix_hint": "Generate movw r1, 0xea60 immediate load before the MLA"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115906  mla r1, r1, r2, r3",
+        "compiled": "no corresponding instruction",
+        "fix_hint": "Generate MLA r1, r1, r2, r3 multiply-add"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115922  mov.w r0, 0x2000000",
+        "compiled": "no corresponding instruction",
+        "fix_hint": "Generate mov.w r0, 0x2000000 with wide-encoding immediate"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115926  bl 0x12d14c",
+        "compiled": "no corresponding instruction",
+        "fix_hint": "Generate BL to 0x12d14c with correct PC-relative offset"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x001158fa  ldr r3, [0x11594c]  ; =0x40501000 (literal pool load)",
+        "compiled": "no corresponding instruction",
+        "fix_hint": "Emit PC-relative LDR to literal pool at 0x11594c containing 0x40501000"
+      }
+    ],
+    "match_pct": 5,
+    "concerns": [
+      "Compiled disassembly base address (0x34) does not match original (0x1158d8)",
+      "Compiled output is garbled/invalid ARM decode \u2014 not a faithful translation",
+      "Entire function body (~60+ instructions including arithmetic, signed extension, conditional move, MLA, LDR literal pool, two BLs) is missing",
+      "No BL 0x12d14c present in compiled version despite being the key tail call",
+      "No literal pool 0x40501000 reference generated",
+      "Mechanical reconstruction is essentially non-functional for this function"
+    ]
+  }
+}

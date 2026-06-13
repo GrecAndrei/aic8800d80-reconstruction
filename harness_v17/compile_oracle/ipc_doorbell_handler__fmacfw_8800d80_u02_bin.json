@@ -1,0 +1,28 @@
+{
+  "function": "ipc_doorbell_handler",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115bf0",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115bf0  adds r1, 0x1c",
+        "compiled": "(absent \u2014 compiled code has no adds r1, 0x1c)",
+        "fix_hint": "Original function takes r1 (a struct pointer) and offsets by 0x1c; compiled version dropped this and re-derived everything from local stack vars"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115bfa  ldr r3, [0x115d04]  ; =0x182ba0   ldr r3, [r3]   ldrb r3, [r3]   cmp r3, 1",
+        "compiled": "ldr r3, [0x1ae8]=0x840b7203  ; eor/eor/str/eors/str/and r3,3 / cmp r3,0",
+        "fix_hint": "Original does a 2-level pointer dereference of a global at 0x182ba0 reading a byte and comparing to 1; compiled version incorrectly reconstructed as a XOR-mask-and-compare-with-0 sequence"
+      }
+    ],
+    "match_pct": 5,
+    "concerns": [
+      "The compiled reconstruction is for an entirely different code path \u2014 no instruction in the compiled body (0x1a7c..0x1aa4) matches the semantics of the original (0x115bf0..0x115c00).",
+      "Original is a simple global-pointer dereference chain: ldr r3,[pool]\u2192ldr r3,[r3]\u2192ldrb r3,[r3]\u2192cmp r3,1 (i.e. read a flag byte from a singleton IPC object). The compiled code never loads from a pointer-to-pointer, never performs a ldrb, and never compares to 1.",
+      "Compiled code instead performs two EORs with 0x10000/0x100, an EOR with a literal, an AND with 3, and a compare-with-0 \u2014 none of which appear in the original snippet.",
+      "The mechanical generator has apparently hallucinated an entirely unrelated bit-stripping/masking sequence instead of reproducing the single-byte load-and-compare. Recommend regenerating from the original C source or re-anchoring the function body to the actual disassembly at 0x115bf0."
+    ]
+  }
+}

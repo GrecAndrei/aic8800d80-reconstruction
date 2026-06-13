@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n2be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b16", "status": "ok", "name": "rf_bus_reset2_n2be", "params": [], "docstring": "Resets RF bus register with high bit mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

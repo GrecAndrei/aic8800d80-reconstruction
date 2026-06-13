@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n400", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b48", "status": "ok", "name": "rf_fault_dump_n400", "params": [], "docstring": "Dump RF fault state with masked register read", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

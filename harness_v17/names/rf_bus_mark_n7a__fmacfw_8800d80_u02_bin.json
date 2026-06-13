@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n7a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118fe", "status": "ok", "name": "rf_bus_mark_n7a", "params": [], "docstring": "Mark or check RF bus state flags from byte registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

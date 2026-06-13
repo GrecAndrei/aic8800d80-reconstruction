@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n282", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121217e", "status": "ok", "name": "rf_bus_setup_n282", "params": [], "docstring": "Configures RF bus control register fields and updates bus pointer table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

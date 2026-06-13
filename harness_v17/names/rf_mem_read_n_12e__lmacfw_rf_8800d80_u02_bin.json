@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_12e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f466", "status": "ok", "name": "rf_state_check_n2f6", "params": [], "docstring": "Checks RF state from shared registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

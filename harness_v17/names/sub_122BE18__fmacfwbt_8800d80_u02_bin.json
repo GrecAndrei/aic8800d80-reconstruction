@@ -1,0 +1,1 @@
+{"fn": "sub_122BE18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122be18", "status": "ok", "name": "mmio_block_write_n_e18", "params": [], "docstring": "Writes a contiguous block to MMIO register space", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

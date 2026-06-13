@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n418", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f9ac", "status": "ok", "name": "rf_mem_read_n418", "params": [], "docstring": "Compute RF memory address offset by shifted index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

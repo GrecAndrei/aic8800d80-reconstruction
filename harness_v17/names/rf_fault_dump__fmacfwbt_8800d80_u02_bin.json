@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12145a4", "status": "ok", "name": "rf_fault_dump", "params": [], "docstring": "Dumps RF fault context from global fault/info pointers for diagnostics", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

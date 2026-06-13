@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3f0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211bf4", "status": "ok", "name": "rf_bus_setup_check_flags", "params": [], "docstring": "Validate RF bus setup flags mask 0x60 and zero state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

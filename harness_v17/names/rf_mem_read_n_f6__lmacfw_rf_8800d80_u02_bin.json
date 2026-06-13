@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_f6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f49e", "status": "ok", "name": "rf_mem_read_n_f6", "params": [], "docstring": "RF memory read wrapper issuing SVC 0x0c and caching pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

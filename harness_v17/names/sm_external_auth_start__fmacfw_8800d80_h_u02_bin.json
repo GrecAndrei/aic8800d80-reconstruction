@@ -1,0 +1,1 @@
+{"fn": "sm_external_auth_start", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124bfb8", "status": "ok", "name": "sm_external_auth_start", "params": [], "docstring": "Starts the external authentication state machine and updates SM fields", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

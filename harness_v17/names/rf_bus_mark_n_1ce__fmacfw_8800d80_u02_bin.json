@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116b6", "status": "ok", "name": "rf_bus_mark_n_1ce", "params": [], "docstring": "Marks RF bus channel state with offset calculation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

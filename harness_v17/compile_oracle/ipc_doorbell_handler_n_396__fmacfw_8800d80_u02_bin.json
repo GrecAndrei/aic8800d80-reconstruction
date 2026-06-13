@@ -1,0 +1,41 @@
+{
+  "function": "ipc_doorbell_handler_n_396",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x1155e6",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00115626      00bf           nop",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Reconstructed code is disassembled at wrong base address (0x34 vs 0x1155e6); mapping of reconstructed .text is incorrect"
+      },
+      {
+        "type": "extra",
+        "original": "(end of function / single NOP at 0x115626)",
+        "compiled": "0x00000038      00af244b       blmi 0x92bc40",
+        "fix_hint": "Entire compiled listing appears to come from an unrelated address range; the original is essentially a NOP/sparse region"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115626      00bf           nop",
+        "compiled": "0x00000040      fb607b69       ldmdbvs fp!, ...",
+        "fix_hint": "Thumb vs ARM disassembly mode mismatch; the original 0x00bf decodes as Thumb NOP, not ARM"
+      },
+      {
+        "type": "extra",
+        "original": "(no further instructions)",
+        "compiled": "0x00000044      03f0fc03       invalid",
+        "fix_hint": "Remove all spurious instructions; original function body is a single NOP at 0x115626"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled disassembly is being produced from the wrong base address (0x34) instead of the original function's address (0x1155e6)",
+      "Multiple entries in the compiled listing are marked 'invalid' by the disassembler, indicating the underlying bytes are not legitimate instructions",
+      "The original is a single Thumb NOP (0x00bf) at 0x00115626; the function is essentially empty/padding, yet the reconstruction produces ~20 lines of unrelated code",
+      "Possible ARM vs Thumb mode decoding error in the reconstruction: 0x00bf is NOP in Thumb, not a 4-byte ARM instruction",
+      "Reconstruction may have linked the wrong function body; the mechanical C compilation produced code that has no structural resemblance to the original"
+    ]
+  }
+}

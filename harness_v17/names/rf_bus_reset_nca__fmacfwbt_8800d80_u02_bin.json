@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_nca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121290e", "status": "ok", "name": "rf_bus_reset_nca", "params": [], "docstring": "Resets RF bus, setting divider to 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

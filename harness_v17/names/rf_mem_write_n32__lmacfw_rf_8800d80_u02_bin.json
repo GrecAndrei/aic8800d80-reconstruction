@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n32", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122205e", "status": "ok", "name": "rf_mem_write_n32", "params": [], "docstring": "Write 32-bit values to RF memory-mapped registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

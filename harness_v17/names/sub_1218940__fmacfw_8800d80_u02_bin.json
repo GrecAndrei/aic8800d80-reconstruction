@@ -1,0 +1,1 @@
+{"fn": "sub_1218940", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218940", "status": "ok", "name": "sub_1218940", "params": [], "docstring": "Helper with 3 args loading pointers from a 3-entry table (0x182b60/0x167bc0/0x167b74)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n4ea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121345a", "status": "ok", "name": "rf_cmd_wait_n4ea", "params": [], "docstring": "Waits for RF command completion status byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

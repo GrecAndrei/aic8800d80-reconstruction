@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n3ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211858", "status": "ok", "name": "rf_bus_write_n3ec", "params": [], "docstring": "Write halfword to RF bus with address/flag update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

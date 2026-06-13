@@ -1,0 +1,1 @@
+{"fn": "sub_120CC98", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120cc98", "status": "ok", "name": "mac_desc_init", "params": [], "docstring": "Initialize a 0x28-byte MAC descriptor/buffer entry", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

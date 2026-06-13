@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12121f4", "status": "ok", "name": "rf_bus_reset_n_fc", "params": [], "docstring": "Load RF bus control address and dispatch to bus helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

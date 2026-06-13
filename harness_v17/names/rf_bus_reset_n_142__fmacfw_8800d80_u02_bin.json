@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_142", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12128a6", "status": "ok", "name": "rf_cmd_send_n_11a", "params": [], "docstring": "RF command send handler (variant 11a)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e140", "status": "ok", "name": "sdio_buffer_prepare_n24", "params": [], "docstring": "Prepares an SDIO buffer of bounded size with zeroed scratch fields", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

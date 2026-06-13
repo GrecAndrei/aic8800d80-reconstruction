@@ -1,0 +1,90 @@
+{
+  "function": "ipc_doorbell_handler_n_72",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x11590a",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00115934  602b   cmp r3, 0x60",
+        "compiled": "0x00000034  80b586b0  addlt fp, r6, r0, lsl 11",
+        "fix_hint": "Generated Thumb-2 prologue is wrong; should emit `cmp r3, #0x60` matching the original"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115938  8c7f   ldrb r4, [r1, 0x1e]",
+        "compiled": "0x00000038  00af244b  blmi 0x92bc40",
+        "fix_hint": "Reconstruction does not emit a byte-load from r1+0x1e; emit `ldrb r4, [r1, #0x1e]`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115940  c477   strb r4, [r0, 0x1f]",
+        "compiled": "0x0000003c  7b61244b  blmi 0x918630",
+        "fix_hint": "Need `strb r4, [r0, #0x1f]` not a branch/load"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115942  1600   movs r6, r2",
+        "compiled": "0x00000040  fb607b69  ldmdbvs fp!, {...}",
+        "fix_hint": "Emit a 16-bit `movs r6, r2`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115944  9c43   bics r4, r3",
+        "compiled": "0x00000044  03f0fc03  invalid",
+        "fix_hint": "All 4 bytes invalid; need 16-bit `bics r4, r3`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115948  0004   lsls r0, r0, 0x10",
+        "compiled": "0x00000048  fa681344  ldrmi r6, [r3], -0x8fa",
+        "fix_hint": "Need 32-bit Thumb `lsls r0, r0, #0x10`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011594a  3240   ands r2, r6",
+        "compiled": "0x0000004c  1b68bb60  adcsvs r6, fp, fp, lsl r8",
+        "fix_hint": "Need 16-bit `ands r2, r6`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011594c  0010   asrs r0, r0, 0x20",
+        "compiled": "0x00000050  ba687b69  ldmdbvs fp!, {...}",
+        "fix_hint": "Need 32-bit `asrs r0, r0, #0x20`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011594e  5040   eors r0, r2",
+        "compiled": "0x00000054  534083f0  invalid",
+        "fix_hint": "Invalid decode; need 16-bit `eors r0, r2`"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115950  1800   movs r0, r3",
+        "compiled": "0x00000058  a5137b61  cmnvs fp, r5, lsr 7",
+        "fix_hint": "Need 16-bit `movs r0, r3`"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115932  00bf   nop (function-alignment padding)",
+        "compiled": "none \u2014 prologue jumps directly into garbage",
+        "fix_hint": "Insert nop alignment for Thumb function entry"
+      },
+      {
+        "type": "extra",
+        "original": "n/a",
+        "compiled": "0x00000060-0x00000080  'invalid' / nonsensical decodes (ldmdbvs, cmnvs, ldrmi, invalid)",
+        "fix_hint": "Tail of generated prologue is corrupt; rewrite using only verified Thumb/Thumb-2 encodings"
+      }
+    ],
+    "match_pct": 5,
+    "concerns": [
+      "Compiled side is decoded from raw bytes that all read as 0xFFFFFFFF / invalid at offsets 0x34-0x80; the reconstruction was not actually compiled into the firmware image",
+      "No instruction in the compiled output matches the opcode class (cmp/movs/ldrb/strb/bics/lsls/ands/asrs/eors) of any original instruction",
+      "All Thumb/Thumb-2 width boundaries (16-bit vs 32-bit) are wrong; the original interleaves 16-bit and 32-bit encodings",
+      "Register usage is completely different (e.g., original uses r0..r6 deliberately; compiled uses fp/lr/sp in nonsensical combinations)",
+      "Immediate values 0x60, 0x1e, 0x1f, 0x10, 0x20 never appear in compiled output",
+      "Behavioral trace returned null \u2014 no runtime evidence to cross-check; the reconstruction appears to be a placeholder or misaligned dump, not a real compile of the C source"
+    ]
+  }
+}

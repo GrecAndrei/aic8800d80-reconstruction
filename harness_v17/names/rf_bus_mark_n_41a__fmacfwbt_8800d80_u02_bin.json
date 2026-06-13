@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_41a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112c6", "status": "ok", "name": "patch_apply_n39e", "params": [], "docstring": "Apply firmware patch via SCB VTOR/DEMCR register at 0xe000ed00", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

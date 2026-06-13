@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121245a", "status": "ok", "name": "rf_cmd_send_n_4be", "params": [], "docstring": "Send RF command with 4-byte big-endian argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

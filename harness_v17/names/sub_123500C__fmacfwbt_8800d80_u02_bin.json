@@ -1,0 +1,1 @@
+{"fn": "sub_123500C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123500c", "status": "ok", "name": "sub_123500C", "params": [], "docstring": "Stub: compares r5 against 0x38 and moves value", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

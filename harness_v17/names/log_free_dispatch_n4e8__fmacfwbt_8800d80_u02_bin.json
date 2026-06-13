@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n4e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210348", "status": "ok", "name": "log_free_dispatch_n4e8", "params": [], "docstring": "Dispatch log buffer free based on tag and length", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

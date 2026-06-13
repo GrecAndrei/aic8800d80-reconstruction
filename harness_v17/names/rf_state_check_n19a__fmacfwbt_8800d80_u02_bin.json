@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n19a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121ca", "status": "ok", "name": "rf_state_check_n19a", "params": [], "docstring": "Check current RF state machine status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

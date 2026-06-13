@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n472", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121531e", "status": "ok", "name": "patch_apply_n472", "params": [], "docstring": "Patch helper: scatter store-bytes to indexed offsets in payload buffers", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_100", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f2c", "status": "ok", "name": "rf_mem_write_n_100", "params": [], "docstring": "Writes to RF memory decrementing loop and comparing 0x62", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

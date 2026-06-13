@@ -1,90 +1,19 @@
-Loaded 1045 candidate functions
-  rf_mem_read_slow                         lmacfw_rf_8800d80_u0 match=0% div=2
-  rf_bus_setup_bitfield                    fmacfwbt_8800d80_u02 match=0% div=15
-  patch_apply_byte_extract: invented:0x08f1ff33,0x87eea69a
-  ipc_doorbell_isr_c2                      fmacfw_8800d80_u02_b match=0% div=14
-  rf_cmd_dispatch: no_original
-  ipc_doorbell_handler_n_346               fmacfw_8800d80_u02_b match=0% div=1
-  ipc_doorbell_handler_6aa: invented:0x11fa6
-  scan_chan_entry_alloc_n_54               fmacfwbt_8800d80_u02 match=0% div=3
-  ipc_doorbell_handler_n3ea                fmacfw_8800d80_u02_b match=0% div=9
-  hw_config_init: invented:0x00101334,0x00101338,0x00101344
-  ipc_msg_send_n_2a0                       fmacfw_8800d80_u02_b match=0% div=7
-  ipc_msg_dispatch_062                     fmacfwbt_8800d80_u02 match=0% div=20
-  ipc_doorbell_handler_n374                fmacfw_8800d80_u02_b match=0% div=4
-  rf_fault_dump_n_8                        fmacfw_8800d80_u02_b match=0% div=3
-  rf_bus_soft_reset                        lmacfw_rf_8800d80_u0 match=0% div=2
-  rf_bus_reset_alt                         fmacfwbt_8800d80_u02 match=0% div=4
-  25/200 ok=12 fail=13 rate=0.1/s eta=2465s
-  ipc_doorbell_handler_n_64                fmacfw_8800d80_u02_b match=0% div=5
-  fmac_msg_handler_init                    fmacfw_8800d80_u02_b match=0% div=8
-  sdio_buffer_prepare_ne                   lmacfw_rf_8800d80_u0 match=0% div=4
-  ipc_doorbell_handler_n3ec                fmacfw_8800d80_u02_b match=0% div=4
-  rf_bus_setup                             lmacfw_rf_8800d80_u0 match=0% div=19
-  msg_dispatch_hash_ec                     fmacfw_8800d80_u02_b match=0% div=8
-  fmacfwbt_init_or_handler                 fmacfwbt_8800d80_u02 match=0% div=4
-  rf_bus_mark_indexed                      lmacfw_rf_8800d80_u0 match=0% div=7
-  fmac_state_check_nbf4                    fmacfw_8800d80_u02_b match=0% div=6
-  ipc_msg_dispatch_bt                      fmacfwbt_8800d80_u02 match=5% div=5
-  sub_121ACF0                              fmacfwbt_8800d80_u02 match=0% div=4
-  sm_auth_send                             fmacfw_8800d80_h_u02 match=0% div=1
-  50/200 ok=24 fail=26 rate=0.1/s eta=1764s
-  sub_1228548                              fmacfw_8800d80_u02_b match=0% div=1
-  ipc_msg_post_check                       lmacfw_rf_8800d80_u0 match=0% div=4
-  sub_12190B4                              fmacfw_8800d80_u02_b match=0% div=10
-  sub_121C5D8                              fmacfwbt_8800d80_u02 match=0% div=10
-  rf_level_apply_nc                        lmacfw_rf_8800d80_u0 match=0% div=4
-  msg_dispatch_enqueue                     fmacfwbt_8800d80_u02 match=0% div=4
-  apm_stop_cac_req_handler                 fmacfw_8800d80_h_u02 match=0% div=1
-  75/200 ok=31 fail=44 rate=0.1/s eta=1472s
-  rf_init_check_flags                      lmacfw_rf_8800d80_u0 match=0% div=5
-  ipc_doorbell_handler_n1d4                fmacfw_8800d80_u02_b match=0% div=3
-  fmac_msg_handler                         fmacfw_8800d80_u02_b match=0% div=6
-  rf_msg_process_body_n7                   fmacfw_8800d80_u02_b match=5% div=4
-  rf_mmio_init                             fmacfwbt_8800d80_u02 match=0% div=8
-  ipc_doorbell_handler_n_4a7               fmacfw_8800d80_u02_b match=0% div=5
-  mm_bss_param_setting_handler             lmacfw_rf_8800d80_u0 match=0% div=6
-  sub_1240AE4                              fmacfw_8800d80_u02_b match=0% div=5
-  message_dispatch_n                       fmacfwbt_8800d80_u02 match=0% div=6
-  100/200 ok=40 fail=60 rate=0.1/s eta=1148s
-  sub_1233CD8                              fmacfwbt_8800d80_u02 match=0% div=6
-  patch_apply_bit                          fmacfw_8800d80_u02_b match=0% div=1
-  sub_1222C94                              lmacfw_rf_8800d80_u0 match=0% div=6
-  sub_1212F6C                              lmacfw_rf_8800d80_u0 match=0% div=3
-  msg_send_cmd_180a                        fmacfw_8800d80_u02_b match=0% div=10
-  ipc_doorbell_handler_n196                fmacfw_8800d80_u02_b match=0% div=1
-  unknown_n4                               lmacfw_rf_8800d80_u0 match=0% div=7
-  125/200 ok=47 fail=78 rate=0.1/s eta=857s
-  sub_1222D7C                              fmacfwbt_8800d80_u02 match=0% div=7
-  sub_123A980                              fmacfw_8800d80_u02_b match=0% div=11
-  rf_bus_mark_lock                         lmacfw_rf_8800d80_u0 match=5% div=5
-  bt_hci_cmd_dispatch_n_dc                 fmacfwbt_8800d80_u02 match=0% div=8
-  sub_122288E                              fmacfw_8800d80_u02_b match=0% div=1
-  sub_123BEF8                              fmacfw_8800d80_u02_b match=0% div=9
-  mm_scan_channel_start_ind_handler        fmacfw_8800d80_h_u02 match=0% div=3
-  rf_msg_alloc_init                        lmacfw_rf_8800d80_u0 match=0% div=15
-  sub_121954C                              lmacfw_rf_8800d80_u0 match=0% div=16
-  ipc_doorbell_handler_n32                 fmacfw_8800d80_u02_b match=0% div=10
-  ipc_doorbell_handler_n398                fmacfw_8800d80_u02_b match=0% div=12
-  mmio_block_write_3reg                    fmacfw_8800d80_u02_b match=0% div=8
-  ipc_doorbell_handler_938                 fmacfw_8800d80_u02_b match=0% div=9
-  150/200 ok=60 fail=90 rate=0.1/s eta=579s
-  msg_dispatch_loop_n110                   fmacfwbt_8800d80_u02 match=0% div=9
-  rf_cmd_dispatch_uxth_fp                  lmacfw_rf_8800d80_u0 match=0% div=2
-  sdio_buffer_range_check                  fmacfw_8800d80_u02_b match=0% div=5
-  rf_bus_reset_n_6                         fmacfwbt_8800d80_u02 match=0% div=3
-  175/200 ok=64 fail=111 rate=0.1/s eta=297s
-  ipc_doorbell_handler_n_380               fmacfw_8800d80_u02_b match=0% div=1
-  rf_bus_mark_n_unknown                    lmacfw_rf_8800d80_u0 match=0% div=1
-  patch_apply                              fmacfw_8800d80_u02_b match=0% div=8
-  ipc_doorbell_handler_n3da                fmacfw_8800d80_u02_b match=0% div=5
-  ipc_doorbell_handler_n_165               fmacfw_8800d80_u02_b match=0% div=6
-  chip_info_is_fpga_or_emu                 fmacfw_8800d80_u02_b match=0% div=8
-  rf_bus_write_indirect                    lmacfw_rf_8800d80_u0 match=0% div=4
-  rf_bus_handler                           fmacfwbt_8800d80_u02 match=0% div=2
-  txq_vif_reset                            fmacfw_8800d80_u02_b match=0% div=12
-  mmio_write0x40035100_set0x100            lmacfw_rf_8800d80_u0 match=0% div=5
-  message_dispatch3                        fmacfwbt_8800d80_u02 match=0% div=4
-  200/200 ok=75 fail=125 rate=0.1/s eta=0s
-
-DONE: 200 in 2370.7s ok=75 fail=125
+Loaded 3410 candidate functions
+  ipc_msg_dispatch_n_efac: no_original
+  ipc_doorbell_handler_n_46a               fmacfw_8800d80_u02_b match=0% div=3
+  ipc_doorbell_handler_n_34f: json_err:Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+  rf_stream_start2_init                    fmacfw_8800d80_u02_b match=0% div=13
+  uart_puts: invented:0x10d656,0x10d656,0x10d674
+  rf_cmd_send_dispatch: json_err:Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+  ipc_doorbell_handler_n196                fmacfw_8800d80_u02_b match=0% div=3
+  ipc_doorbell_handler_n_64                fmacfw_8800d80_u02_b match=0% div=9
+  sub_1221CD8                              fmacfw_8800d80_u02_b match=0% div=7
+  reg_field_extract_121130C                fmacfw_8800d80_u02_b match=0% div=7
+  rf_init_or_config_helper                 lmacfw_rf_8800d80_u0 match=0% div=4
+  25/600 ok=7 fail=18 rate=0.2/s eta=2788s
+  ipc_doorbell_handler_n_396               fmacfw_8800d80_u02_b match=0% div=4
+  ipc_doorbell_handler                     fmacfw_8800d80_u02_b match=5% div=2
+  rf_bus_write_check                       fmacfw_8800d80_u02_b match=2% div=6
+  ipc_doorbell_handler_n_72                fmacfw_8800d80_u02_b match=5% div=12
+  mmio_read_bitfield_7000101c              fmacfwbt_8800d80_u02 match=0% div=6
+  ipc_doorbell_handler_n_a4                fmacfw_8800d80_u02_b match=5% div=6

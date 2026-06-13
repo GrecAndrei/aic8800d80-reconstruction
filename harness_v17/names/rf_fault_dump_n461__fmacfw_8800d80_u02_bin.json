@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n461", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214ba8", "status": "ok", "name": "rf_fault_dump_n461", "params": [], "docstring": "RF fault dump handler trampoline returning to caller", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n374", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212548", "status": "ok", "name": "phy_rf_init_n_4f4", "params": [], "docstring": "Initializes PHY RF block and checks chip version byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

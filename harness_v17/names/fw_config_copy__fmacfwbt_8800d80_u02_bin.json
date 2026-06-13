@@ -1,0 +1,1 @@
+{"fn": "fw_config_copy", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f05c", "status": "ok", "name": "rf_cmd_send_n_36c", "params": [], "docstring": "Send RF command 0x22 reading window length from MMIO", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_104", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211700", "status": "ok", "name": "rf_bus_setup_n_104", "params": [], "docstring": "Sets up RF bus, checks control field before init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

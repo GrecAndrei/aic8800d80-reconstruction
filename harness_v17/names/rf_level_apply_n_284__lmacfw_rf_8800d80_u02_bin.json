@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_284", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b54", "status": "ok", "name": "patch_apply_n_3f2", "params": [], "docstring": "Scales and stores a signed byte patch value then returns", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1217CC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1217cc4", "status": "ok", "name": "rf_bus_reset2_n_357", "params": [], "docstring": "Resets RF bus and computes modulo-based index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

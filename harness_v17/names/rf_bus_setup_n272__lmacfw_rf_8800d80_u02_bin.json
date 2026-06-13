@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n272", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a76", "status": "ok", "name": "rf_bus_setup_n272", "params": [], "docstring": "Continue RF bus register configuration writing to ip+4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n45e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12115ea", "status": "ok", "name": "rf_bus_mark_n45e", "params": [], "docstring": "Clear/mark RF bus register bits via mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

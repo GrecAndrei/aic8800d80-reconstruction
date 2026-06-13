@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n_127", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221f04", "status": "ok", "name": "message_dispatch_n4ae", "params": [], "docstring": "IPC message dispatch handler for msg id 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

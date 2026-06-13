@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214486", "status": "ok", "name": "rf_fault_dump_state", "params": [], "docstring": "Dump RF fault state to a 0x528-sized buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

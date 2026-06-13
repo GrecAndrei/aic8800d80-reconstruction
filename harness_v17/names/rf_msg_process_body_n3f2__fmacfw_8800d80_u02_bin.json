@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n3f2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121403a", "status": "ok", "name": "mmio_reset_clear_bit_n_e08", "params": [], "docstring": "Clears bit 0 of MMIO register and triggers reinit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

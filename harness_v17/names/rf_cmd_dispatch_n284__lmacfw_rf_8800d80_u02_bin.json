@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n284", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221c8", "status": "ok", "name": "rf_cmd_dispatch_n284", "params": [], "docstring": "Dispatch RF command to target subsystem", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

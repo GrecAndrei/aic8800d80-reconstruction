@@ -1,0 +1,1 @@
+{"fn": "sub_1235780", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1235780", "status": "ok", "name": "rf_msg_process_body_n_102", "params": [], "docstring": "Processes RF message body with frequency and channel data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

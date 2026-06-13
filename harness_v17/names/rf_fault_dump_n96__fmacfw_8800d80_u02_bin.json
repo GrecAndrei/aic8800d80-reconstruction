@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n96", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147de", "status": "ok", "name": "rf_fault_dump_n96", "params": [], "docstring": "Dumps RF fault context (memory region) for diagnostics", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

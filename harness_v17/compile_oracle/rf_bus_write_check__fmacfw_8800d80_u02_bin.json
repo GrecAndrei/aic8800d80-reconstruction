@@ -1,0 +1,52 @@
+{
+  "function": "rf_bus_write_check",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x111c36",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00111c36      324e           ldr r6, [0x00111d00]        ; [0x111d00:4]=0x80020000",
+        "compiled": "(no equivalent \u2014 compiled output is garbled, no literal-pool load present)",
+        "fix_hint": "Mechanical generator must emit a PC-relative LDR loading 0x80020000 from literal pool (or use MOVW/MOVT immediate)."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111c38      2e40           ands r6, r5",
+        "compiled": "(no equivalent ANDS found in compiled disasm)",
+        "fix_hint": "Reconstruction must include `r6 = r6 & arg_r5` (ANDS Rd, Rm) to mask against 0x80020000."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111c3a      b6f5003f       cmp.w r6, 0x20000",
+        "compiled": "(no equivalent CMP.W r6, #0x20000 in compiled disasm)",
+        "fix_hint": "Generator must emit `CMP r6, #0x20000` (wide immediate Thumb-2 encoding)."
+      },
+      {
+        "type": "extra",
+        "original": "(only 3 instructions total)",
+        "compiled": "0x00000034..0x00000080: ~20 garbled instructions including blmi branches to 0x92bc40/0x918630, invalid encodings (0x00000044, 0x00000054, 0x0000005c, 0x0000007c), and LDMDBVS pop sequences",
+        "fix_hint": "Compiled output is wildly wrong \u2014 likely compiled object was placed at wrong base (0x34) or disassembly is mis-aligned. Re-anchor at correct image base and re-decode."
+      },
+      {
+        "type": "wrong_op",
+        "original": "ldr r6, [0x00111d00]",
+        "compiled": "0x00000034      80b586b0       addlt fp, r6, r0, lsl 11  (first compiled insn \u2014 unrelated add to fp)",
+        "fix_hint": "Function prologue/effect is entirely absent; the compiled blob does not start with the constant load."
+      },
+      {
+        "type": "wrong_imm",
+        "original": "cmp.w r6, 0x20000",
+        "compiled": "(immediate 0x20000 never appears in compiled disasm)",
+        "fix_hint": "Ensure C source encodes the check as `(mask & val) == 0x20000` so compiler emits the matching immediate."
+      }
+    ],
+    "match_pct": 2,
+    "concerns": [
+      "Compiled disasm is at address 0x00000034 which is outside the firmware image address space (0x111c36) \u2014 indicates the mechanical reconstruction was loaded at the wrong base or dumped from an unrelocated .o.",
+      "Compiled output contains multiple 'invalid' ARM/Thumb encodings and far-range BLMI branches to 0x92bc40/0x918630, which have no relationship to the original function \u2014 the reconstruction is structurally broken, not just slightly off.",
+      "Original function is 3 instructions (8 bytes) with a single literal-pool read of 0x80020000. The compiled blob is ~80+ bytes of unrelated code \u2014 this is not a minor divergence, the C source likely does not model the mask-and-compare pattern at all.",
+      "No behavioral trace was available to cross-check intended semantics; however, the original is clearly `(0x80020000 & r5) == 0x20000` (likely a BUS write permission check) and the compiled disasm shows no AND or CMP against that constant."
+    ]
+  }
+}

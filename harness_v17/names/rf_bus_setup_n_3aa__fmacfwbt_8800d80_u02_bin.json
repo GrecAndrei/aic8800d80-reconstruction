@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_3aa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12119ae", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "RF bus setup/select with byte reads from indexed slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

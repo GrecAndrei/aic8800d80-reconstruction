@@ -1,0 +1,1 @@
+{"fn": "sub_12219E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12219e8", "status": "ok", "name": "rf_reg_init_load", "params": [], "docstring": "Initialize RF register pointers from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_nc0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e78", "status": "ok", "name": "rf_bus_init_nc0", "params": [], "docstring": "Initialize RF bus with base addresses and config", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

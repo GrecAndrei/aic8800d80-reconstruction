@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n494", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cd8", "status": "ok", "name": "rf_bus_reset_n494", "params": [], "docstring": "RF bus reset loading control table from 0x187f70", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

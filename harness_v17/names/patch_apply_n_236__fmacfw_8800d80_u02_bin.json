@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_236", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c76", "status": "ok", "name": "rf_state_check_n_3a6", "params": [], "docstring": "RF state probe wrapper that calls 0x12ea88 and returns 0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

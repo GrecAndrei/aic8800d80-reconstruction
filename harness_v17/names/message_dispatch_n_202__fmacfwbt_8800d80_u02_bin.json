@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_202", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c9b2", "status": "ok", "name": "message_dispatch_n_202", "params": [], "docstring": "Dispatch message: parse header and invoke typed handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

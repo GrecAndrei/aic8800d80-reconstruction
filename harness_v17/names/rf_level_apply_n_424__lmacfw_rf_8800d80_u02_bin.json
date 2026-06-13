@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_424", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269b4", "status": "ok", "name": "rf_level_apply_n_424", "params": [], "docstring": "Applies RF level/scale value with 0x80000000 sign bit handling", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

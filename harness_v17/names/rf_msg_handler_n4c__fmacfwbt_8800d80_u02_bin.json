@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n4c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212fac", "status": "ok", "name": "rf_msg_handler_n4c", "params": [], "docstring": "Handle incoming RF message, dispatch on top nibble", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

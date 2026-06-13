@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n19c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12130fc", "status": "ok", "name": "rf_msg_handler_n19c", "params": [], "docstring": "Handles RF subsystem message via MMIO-mapped queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
