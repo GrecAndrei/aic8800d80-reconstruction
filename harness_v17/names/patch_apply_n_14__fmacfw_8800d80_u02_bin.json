@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_14", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214e98", "status": "ok", "name": "patch_apply_n_14", "params": [], "docstring": "Apply a firmware patch entry to a base address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

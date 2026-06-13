@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n224", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121570c", "status": "ok", "name": "patch_apply_n224", "params": [], "docstring": "Apply firmware patch by writing MMIO control bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

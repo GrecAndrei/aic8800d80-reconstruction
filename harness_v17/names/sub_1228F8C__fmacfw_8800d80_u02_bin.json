@@ -1,0 +1,1 @@
+{"fn": "sub_1228F8C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1228f8c", "status": "ok", "name": "sub_1228F8C", "params": [], "docstring": "Processes command structure, reads byte at offset 0x74 with size 0x2b8", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

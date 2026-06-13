@@ -1,0 +1,1 @@
+{"fn": "sub_1210114", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210114", "status": "ok", "name": "rf_lmac_init_n114", "params": [], "docstring": "Initialize LMAC RF subsystem state and dispatch handlers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

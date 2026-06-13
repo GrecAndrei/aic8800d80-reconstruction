@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ebe2", "status": "ok", "name": "sdio_buffer_prepare_n2e", "params": [], "docstring": "Prepare SDIO buffer, validate size", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

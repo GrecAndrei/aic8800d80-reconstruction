@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12154de", "status": "ok", "name": "patch_apply_n_a", "params": [], "docstring": "Initializes patch table with PTCH magic header", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

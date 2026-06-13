@@ -1,0 +1,25 @@
+{
+  "function": "log_system_init_mode2",
+  "report": {
+    "name": "log_system_init_mode2",
+    "purpose": "Pure-software initialization entry point for the firmware logging subsystem in 'mode 2'. It belongs to the kernel util/log pool bring-up pipeline (synthesized from source-level analysis file '242_log_pool_init_e.synth.c'). It exists only as a high-level behavioral abstraction; it has no machine-code implementation in the fmacfw_8800d80_u02_bin (or sibling) image at the reported address 0x120f4c2, and therefore has no direct hardware side effects that the binary-analysis pipeline can observe.",
+    "parameters": [
+      {
+        "type": "void",
+        "name": "none",
+        "purpose": "Function takes no arguments (synthesized C body is a void(void) init stub)."
+      }
+    ],
+    "return_value": {
+      "type": "void",
+      "meaning": "No return value; mode-2 init step runs to completion and falls through."
+    },
+    "subsystem": "util",
+    "side_effects": [],
+    "key_callees": [],
+    "key_callers": [],
+    "complexity": "low",
+    "lines_of_c": 0,
+    "summary": "Synthetic, hardware-free log-pool initialization stub for 'mode 2' with no binary implementation, no MMIO, and no observable callees/callers in the firmware images."
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n19a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221c6", "status": "ok", "name": "patch_apply_n_224", "params": [], "docstring": "Applies firmware patch entry (variant 224)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

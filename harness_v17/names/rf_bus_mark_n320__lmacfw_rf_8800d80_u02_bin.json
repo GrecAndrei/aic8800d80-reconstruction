@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n320", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12114ac", "status": "ok", "name": "log_free_dispatch_n1fb", "params": [], "docstring": "Frees a log buffer entry and advances the dispatch pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

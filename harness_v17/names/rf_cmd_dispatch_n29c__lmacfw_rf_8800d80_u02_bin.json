@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n29c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221e0", "status": "ok", "name": "rf_cmd_dispatch_legacy", "params": [], "docstring": "Legacy RF command dispatch via table lookup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n30a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eebe", "status": "ok", "name": "sdio_buffer_prepare_n30a", "params": [], "docstring": "Prepare SDIO transfer buffer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

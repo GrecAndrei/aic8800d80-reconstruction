@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n3d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121323e", "status": "ok", "name": "rf_cmd_send_n3d2", "params": [], "docstring": "Send RF command by loading handler from structure slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n3d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121323e", "status": "ok", "name": "rf_cmd_send_n3d2_323e", "params": [], "docstring": "Send RF command by loading handler from structure slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

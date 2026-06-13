@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_378", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12124cc", "status": "ok", "name": "rf_bus_reset_n_378_24cc", "params": [], "docstring": "Resets RF bus and writes default register values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

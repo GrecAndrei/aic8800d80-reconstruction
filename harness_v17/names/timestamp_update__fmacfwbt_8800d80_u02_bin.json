@@ -1,1 +1,1 @@
-{"fn": "timestamp_update", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224f60", "status": "ok", "name": "timestamp_update", "params": [], "docstring": "Update firmware timestamp counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "timestamp_update", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1224f60", "status": "ok", "name": "timestamp_update_4f60", "params": [], "docstring": "Update firmware timestamp counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

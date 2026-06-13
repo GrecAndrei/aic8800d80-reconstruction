@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n_4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213062", "status": "ok", "name": "rf_cmd_process_n_4f6", "params": [], "docstring": "Return small status code (0/1/2/5) for RF command classification", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

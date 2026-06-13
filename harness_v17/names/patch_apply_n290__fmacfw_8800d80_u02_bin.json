@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n290", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121513c", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Applies firmware patch from patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n290", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121513c", "status": "ok", "name": "patch_apply_513c", "params": [], "docstring": "Applies firmware patch from patch table entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

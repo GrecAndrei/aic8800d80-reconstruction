@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_nc2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117a2", "status": "ok", "name": "rf_bus_mark_nc2", "params": [], "docstring": "Set RF bus control bits via MMIO 0x900/0x914", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

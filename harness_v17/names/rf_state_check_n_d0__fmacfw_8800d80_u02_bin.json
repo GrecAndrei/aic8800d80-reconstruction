@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_d0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212104", "status": "ok", "name": "rf_state_check_n_d0", "params": [], "docstring": "RF state check via MMIO read", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

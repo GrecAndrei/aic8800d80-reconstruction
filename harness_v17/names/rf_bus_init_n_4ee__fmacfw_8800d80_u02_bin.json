@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_4ee", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118ca", "status": "ok", "name": "rf_bus_init_n_4ee", "params": [], "docstring": "RF bus initialization setting control bits on bus registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_304", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212b68", "status": "ok", "name": "rf_cmd_send_n_78", "params": [], "docstring": "RF command send preparing mailbox and computing offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_nc8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f65c", "status": "ok", "name": "rf_mem_read_nc8", "params": [], "docstring": "Read RF memory block and check completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

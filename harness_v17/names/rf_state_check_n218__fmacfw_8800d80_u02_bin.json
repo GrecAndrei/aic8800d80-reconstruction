@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n218", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123ec", "status": "ok", "name": "rf_cmd_send_n_192", "params": [], "docstring": "Send RF command via shared mailbox at 0x185a1c/0x185a20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

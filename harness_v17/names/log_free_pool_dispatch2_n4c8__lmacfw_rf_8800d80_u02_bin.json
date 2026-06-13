@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210098", "status": "ok", "name": "log_free_pool_dispatch2_n4c8", "params": [], "docstring": "Dispatch log/free pool: alloc 0x63c bytes, forward to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

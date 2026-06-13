@@ -1,0 +1,1 @@
+{"fn": "sub_1210E24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210e24", "status": "ok", "name": "mmio_reg_init_n_e24", "params": [], "docstring": "Initializes MMIO control registers at 0x40240000 region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

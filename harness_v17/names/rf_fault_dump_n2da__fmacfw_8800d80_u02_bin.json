@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n2da", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a22", "status": "ok", "name": "rf_fault_dump_n2da", "params": [], "docstring": "Dump RF fault state and unwind", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

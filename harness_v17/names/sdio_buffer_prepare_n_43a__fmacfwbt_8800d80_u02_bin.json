@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_43a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df0a", "status": "ok", "name": "rf_bus_reset2_n_3b2", "params": [], "docstring": "Reset RF bus and reinitialize channel registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

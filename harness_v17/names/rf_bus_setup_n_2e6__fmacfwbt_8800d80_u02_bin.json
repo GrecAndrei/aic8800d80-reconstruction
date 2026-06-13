@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_2e6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211a72", "status": "ok", "name": "rf_bus_setup_n_2e6", "params": [], "docstring": "Set up the RF control bus configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

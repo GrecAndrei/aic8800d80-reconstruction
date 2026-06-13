@@ -1,0 +1,1 @@
+{"fn": "log_free_pool_dispatch2_n4f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12101d4", "status": "ok", "name": "log_free_pool_dispatch2_n4f4", "params": [], "docstring": "Log/free pool dispatch reading byte at offset 0x19 and switching on thresholds 0xa0/0xc0/0x7c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

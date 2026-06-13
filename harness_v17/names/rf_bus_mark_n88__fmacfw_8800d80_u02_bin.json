@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121190c", "status": "ok", "name": "rf_bus_mark_n88", "params": [], "docstring": "RF bus mark/strobe with status word and float constant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121190c", "status": "ok", "name": "rf_bus_mark_n88_190c", "params": [], "docstring": "RF bus mark/strobe with status word and float constant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_28f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210efc", "status": "ok", "name": "ipc_buf_scatter_write", "params": [], "docstring": "Scatter-write buffer entries into IPC ring slots", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

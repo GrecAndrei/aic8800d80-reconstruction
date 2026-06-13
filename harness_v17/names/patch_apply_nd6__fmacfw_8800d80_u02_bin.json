@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nd6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f82", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch via SCB/ICSR register access", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

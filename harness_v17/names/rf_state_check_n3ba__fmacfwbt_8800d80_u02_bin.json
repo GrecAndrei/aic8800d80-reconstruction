@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n3ba", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12123ea", "status": "ok", "name": "rf_state_check_n3ba", "params": [], "docstring": "Check RF state byte and store halfword status to global", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

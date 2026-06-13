@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_126", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121189a", "status": "ok", "name": "rf_bus_write_n_126", "params": [], "docstring": "Write to RF bus at base 0x40200000 with OR-mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

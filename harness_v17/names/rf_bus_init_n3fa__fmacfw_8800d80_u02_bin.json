@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n3fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12121b2", "status": "ok", "name": "rf_bus_mark_n_4ce", "params": [], "docstring": "Set a mark/flag on the RF bus", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

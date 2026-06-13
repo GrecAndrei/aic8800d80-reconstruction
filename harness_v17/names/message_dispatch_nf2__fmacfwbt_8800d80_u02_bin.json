@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_nf2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cca6", "status": "ok", "name": "message_dispatch_nf2", "params": [], "docstring": "Dispatch IPC message to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_nf2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cca6", "status": "ok", "name": "message_dispatch_nf2_cca6", "params": [], "docstring": "Dispatch IPC message to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

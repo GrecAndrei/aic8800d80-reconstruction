@@ -1,0 +1,1 @@
+{"fn": "sub_12146E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12146e4", "status": "ok", "name": "sub_12146E4", "params": [], "docstring": "LMAC helper with large stack frame and pointer dereference", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

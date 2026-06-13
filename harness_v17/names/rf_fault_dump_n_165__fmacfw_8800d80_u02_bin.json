@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_165", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12145e2", "status": "ok", "name": "patch_apply_ne5", "params": [], "docstring": "Apply firmware patch and check magic value 0xc241", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

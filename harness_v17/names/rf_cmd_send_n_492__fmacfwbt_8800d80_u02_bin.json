@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_492", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129da", "status": "ok", "name": "rf_cmd_send_n_492", "params": [], "docstring": "Build and send RF command (size 0x50) via shared mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

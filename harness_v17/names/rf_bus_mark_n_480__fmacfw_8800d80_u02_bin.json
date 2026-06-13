@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_480", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211404", "status": "ok", "name": "ipc_mailbox_poll", "params": [], "docstring": "Poll IPC mailbox for pending message", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

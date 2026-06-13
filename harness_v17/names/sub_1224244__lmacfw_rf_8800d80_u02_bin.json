@@ -1,0 +1,1 @@
+{"fn": "sub_1224244", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1224244", "status": "ok", "name": "check_param_eq1", "params": [], "docstring": "Compare parameter against 1 and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

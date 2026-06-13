@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n1dc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cb68", "status": "ok", "name": "rf_bus_write2_n_172_cb68", "params": [], "docstring": "Write to RF control bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

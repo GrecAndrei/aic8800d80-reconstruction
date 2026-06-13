@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n370", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101d0", "status": "ok", "name": "log_free_dispatch_n370", "params": [], "docstring": "Dispatch routine releasing log/free tracking entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n384", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215230", "status": "ok", "name": "patch_apply_n384", "params": [], "docstring": "Decodes patch bitfield bits and dispatches patch install with config", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

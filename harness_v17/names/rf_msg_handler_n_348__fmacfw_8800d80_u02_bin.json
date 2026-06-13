@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_348", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212dbc", "status": "ok", "name": "sdio_buffer_prepare_n1dc", "params": [], "docstring": "Prepare SDIO transfer buffer (variant 0x1dc)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

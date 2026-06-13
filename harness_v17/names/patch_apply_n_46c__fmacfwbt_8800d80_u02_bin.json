@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_46c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121507c", "status": "ok", "name": "patch_apply_n_46c", "params": [], "docstring": "Apply patch: store byte, call indirect via r3 with arg 0xa, then bit-shift result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

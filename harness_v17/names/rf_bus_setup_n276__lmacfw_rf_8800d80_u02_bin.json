@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n276", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a7a", "status": "ok", "name": "rf_bus_config_window", "params": [], "docstring": "Configures RF bus window at base+0x200000 with mask 0x31|0xe and writes hw regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n206", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156ee", "status": "ok", "name": "patch_apply_n206", "params": [], "docstring": "Apply firmware patch with interrupts disabled", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n206", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156ee", "status": "ok", "name": "patch_apply_n206_56ee", "params": [], "docstring": "Apply firmware patch with interrupts disabled", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

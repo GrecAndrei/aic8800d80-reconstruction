@@ -1,0 +1,52 @@
+{
+  "function": "fmac_msg_handler",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x12f036",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0012f058      a02b           cmp r3, 0xa0",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled binary at 0x00100000 contains only valid Thumb-2 bytes but all decode as 'invalid' \u2014 binary was likely not relocated/linked to the correct base, or mechanical reconstruction emitted raw filler rather than real instructions"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012f05a      1800           movs r0, r3",
+        "compiled": "0x00100002      ffffffff       invalid",
+        "fix_hint": "Entire function body missing \u2014 push/pop prologue, LDR literal, movw imm 0x42e, bl to 0x12c73c, ldrsb, cmp none of these exist in compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012f060      38b5           push {r3, r4, r5, lr}",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Function prologue (push regs) entirely absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012f062      164d           ldr r5, [0x0012f0bc]        ; [0x12f0bc:4]=0x1828b8",
+        "compiled": "0x0010000e      ffffffff       invalid",
+        "fix_hint": "LDR literal loading 0x1828b8 into r5 not present in compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012f066      40f22e40       movw r0, 0x42e",
+        "compiled": "0x00100012      ffffffff       invalid",
+        "fix_hint": "movw r0, #0x42e immediate missing \u2014 compiled has no real instruction stream at all"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012f06a      fdf767fb       bl 0x12c73c",
+        "compiled": "0x00100016      ffffffff       invalid",
+        "fix_hint": "bl to fmac_send_msg (0x12c73c) entirely missing from compiled output"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled disassembly at 0x00100000 shows all 'invalid' (0xffffffff) placeholders, yet the actual bytes at 0x00100000 in the fmacfw_8800d80_u02_bin image decode to valid Thumb-2 instructions (movs, lsls, bx, strh, etc.). This strongly suggests the mechanical reconstruction generated a binary at a different address base, or the comparison tool was pointed at a wrong/stale address range.",
+      "Entire function body of fmac_msg_handler is absent from compiled output \u2014 none of the prologue (push), literal pool load, movw immediate 0x42e, bl to 0x12c73c, ldrsb, or epilogue (pop {pc}) are present.",
+      "The compiled output appears to be 20+ instructions of 0xffffffff rather than real code \u2014 this is a complete mechanical reconstruction failure, not a partial divergence.",
+      "Recommend re-running the mechanical C \u2192 ARM pipeline for fmac_msg_handler; verify base address mapping and that the compiled object is being disassembled at the correct offset."
+    ]
+  }
+}

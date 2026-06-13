@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_45e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12113fa", "status": "ok", "name": "rf_bus_reset2_n_45e", "params": [], "docstring": "secondary RF bus reset via MMIO write with shifted address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

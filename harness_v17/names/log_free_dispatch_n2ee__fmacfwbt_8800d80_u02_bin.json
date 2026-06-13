@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2ee", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121014e", "status": "ok", "name": "ipc_doorbell_handler_n25c", "params": [], "docstring": "Handle IPC doorbell interrupts via 0x40501000", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_458", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211400", "status": "ok", "name": "rf_bus_reset2_n_458", "params": [], "docstring": "Reset RF bus register mapping window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n142", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cace", "status": "ok", "name": "message_dispatch_n142", "params": [], "docstring": "Message dispatch return path enabling interrupts", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

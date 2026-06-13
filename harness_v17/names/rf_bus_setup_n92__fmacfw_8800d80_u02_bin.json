@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n92", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f8e", "status": "ok", "name": "rf_bus_setup_n92", "params": [], "docstring": "Configure RF bus registers in MMIO region with masked flag check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

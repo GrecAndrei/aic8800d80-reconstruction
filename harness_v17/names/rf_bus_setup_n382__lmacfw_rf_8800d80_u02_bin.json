@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n382", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b86", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Configure RF bus register bitfields (channel/field select)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n382", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b86", "status": "ok", "name": "rf_bus_setup_1b86", "params": [], "docstring": "Configure RF bus register bitfields (channel/field select)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "sub_12319D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12319d0", "status": "ok", "name": "fmac_init_set_byte_pair", "params": [], "docstring": "Reads byte pair from r1, initializes RF state structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

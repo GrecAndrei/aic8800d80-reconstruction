@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_4c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121133e", "status": "ok", "name": "rf_bus_setup_n_4c6", "params": [], "docstring": "Configures RF bus base address and timing parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

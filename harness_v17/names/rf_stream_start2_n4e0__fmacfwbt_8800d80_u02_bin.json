@@ -1,0 +1,1 @@
+{"fn": "rf_stream_start2_n4e0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121372c", "status": "ok", "name": "rf_bus_reset_n_4c", "params": [], "docstring": "Resets RF bus with bitfield extraction and dispatch", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

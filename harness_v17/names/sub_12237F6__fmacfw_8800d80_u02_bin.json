@@ -1,0 +1,1 @@
+{"fn": "sub_12237F6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12237f6", "status": "ok", "name": "sub_12237F6", "params": [], "docstring": "Dispatch helper: sends cmd 0x25 via event_queue then sets state", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

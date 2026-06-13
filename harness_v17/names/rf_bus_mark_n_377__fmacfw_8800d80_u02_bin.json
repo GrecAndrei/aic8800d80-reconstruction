@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_377", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121150c", "status": "ok", "name": "rf_bus_mark_clear_bit_n377", "params": [], "docstring": "Clear bit0 of RF control byte and apply shift to field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

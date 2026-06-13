@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nc6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f72", "status": "ok", "name": "patch_apply_nc6", "params": [], "docstring": "Apply firmware patch at offset 0x88 with 0xff mask", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

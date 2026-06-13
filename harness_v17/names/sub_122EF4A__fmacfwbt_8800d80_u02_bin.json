@@ -1,0 +1,1 @@
+{"fn": "sub_122EF4A", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ef4a", "status": "ok", "name": "fmac_txq_alloc_init", "params": [], "docstring": "allocate/init TX queue slot via 0x410 call", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

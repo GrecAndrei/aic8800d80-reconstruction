@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_16a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215812", "status": "ok", "name": "ipc_doorbell_ack_irq", "params": [], "docstring": "acknowledge IPC doorbell interrupt, clear/set IRQ bits", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215540", "status": "ok", "name": "patch_apply_n58", "params": [], "docstring": "Applies firmware patch by copying words", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215540", "status": "ok", "name": "patch_apply_n58_5540", "params": [], "docstring": "Applies firmware patch by copying words", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

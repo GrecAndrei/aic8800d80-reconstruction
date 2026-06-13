@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e388", "status": "ok", "name": "sdio_buffer_prepare_n44", "params": [], "docstring": "Prepare SDIO scatter-gather buffer entries", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

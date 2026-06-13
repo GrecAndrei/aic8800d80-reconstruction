@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n3ae", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c06", "status": "ok", "name": "rf_bus_reset2_n3ae", "params": [], "docstring": "Resets RF bus with multi-register save and arg copy", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_nc2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e406", "status": "ok", "name": "sdio_buffer_prepare_nc2", "params": [], "docstring": "Prepare SDIO buffer with shift operations", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_nc2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e406", "status": "ok", "name": "sdio_buffer_prepare_nc2_e406", "params": [], "docstring": "Prepare SDIO buffer with shift operations", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

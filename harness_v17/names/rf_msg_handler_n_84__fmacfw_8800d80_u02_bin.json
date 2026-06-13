@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_84", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213080", "status": "ok", "name": "rf_msg_handler_n_84", "params": [], "docstring": "Handle RF message: write byte to IPC and status MMIO regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

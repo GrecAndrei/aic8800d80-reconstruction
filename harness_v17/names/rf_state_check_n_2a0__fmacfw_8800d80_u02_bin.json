@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_2a0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f34", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Checks RF state flags against mask 0x7fff8000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_2a0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f34", "status": "ok", "name": "rf_state_check_1f34", "params": [], "docstring": "Checks RF state flags against mask 0x7fff8000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

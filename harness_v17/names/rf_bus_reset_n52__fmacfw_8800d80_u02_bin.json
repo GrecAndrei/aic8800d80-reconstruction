@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n52", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a3a", "status": "ok", "name": "rf_bus_init_n2f6", "params": [], "docstring": "Initialize RF bus controller structure and registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_4bd", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113c6", "status": "ok", "name": "sdio_buffer_prepare_n56", "params": [], "docstring": "Compute SDIO buffer address and length via shift arithmetic", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

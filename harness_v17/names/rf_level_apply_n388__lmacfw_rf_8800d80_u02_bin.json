@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n388", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1227160", "status": "ok", "name": "rf_level_apply_n388", "params": [], "docstring": "Apply computed RF level/gain to PHY register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

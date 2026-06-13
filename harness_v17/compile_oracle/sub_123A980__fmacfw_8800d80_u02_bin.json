@@ -1,0 +1,82 @@
+{
+  "function": "sub_123A980",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x13a980",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0013a980      2de9f843       push.w {r3, r4, r5, r6, r7, r8, sb, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Entire compiled output is 0xFF padding; no Thumb prologue emitted \u2014 mechanical generator failed to produce code at all"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a984      0646           mov r6, r0",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "No instruction bytes generated; re-check that the C source actually compiles to Thumb-2"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a986      5548           ldr r0, [0x0013aadc]        ; [0x13aadc:4]=0x188428",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "LDR-literal for 0x188428 never emitted; literal pool missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a988      757f           ldrb r5, [r6, 0x1d]",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Byte load from struct offset 0x1d not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a98a      347f           ldrb r4, [r6, 0x1c]",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "Byte load from struct offset 0x1c not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a98c      4ff42e73       mov.w r3, 0x2b8",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "mov.w immediate 0x2b8 missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a990      03fb0503       mla r3, r3, r5, r0",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "MLA r3, r3, r5, r0 not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a994      8946           mov sb, r1",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "mov sb, r1 not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a996      d3f8bc70       ldr.w r7, [r3, 0xbc]",
+        "compiled": "0x00100020      ffffffff       invalid",
+        "fix_hint": "LDR r7, [r3, #0xbc] missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a99a      d7f80080       ldr.w r8, [r7]",
+        "compiled": "0x00100024      ffffffff       invalid",
+        "fix_hint": "LDR r8, [r7] missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0013a99e      b8f1000f       cmp.w r8, 0",
+        "compiled": "0x00100028      ffffffff       invalid",
+        "fix_hint": "CMP r8, #0 not emitted"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Critical: compiled output is entirely 0xFF at 0x100000-0x100044; the mechanical reconstruction produced no code whatsoever",
+      "verify_dword at 0x100000 returns 0x001a0000 and the actual image at 0x100000 contains valid Thumb instructions (movs r0,r0; movs r2,r3; lsls r1,r5,#6; bx sb; ...), so the 0xFF disasm cannot be from this image \u2014 likely the wrong binary was disassembled or the compiled object file is uninitialized/stub",
+      "No behavioral trace available for sub_123A980, so no MMIO/symbol info to cross-check",
+      "Pipeline appears broken: the compiled artifact either was never produced, was wiped, or the disassembly tool was pointed at the wrong image; restart the compile-link-disasm chain for this function"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "sub_1214588", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214588", "status": "ok", "name": "rf_emit_setup_word", "params": [], "docstring": "Emits a 4-byte setup word (type 0x14) to RF path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

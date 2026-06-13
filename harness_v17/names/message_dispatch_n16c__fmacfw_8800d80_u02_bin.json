@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n16c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122caf8", "status": "ok", "name": "msg_dispatch_0x16c", "params": [], "docstring": "Dispatch table lookup for message id 0x16c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

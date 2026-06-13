@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_4b3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113d0", "status": "ok", "name": "rf_bus_mark_n_4b3", "params": [], "docstring": "Mark/configure RF bus register window", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_4b3", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12113d0", "status": "ok", "name": "rf_bus_mark_n_4b3_13d0", "params": [], "docstring": "Mark/configure RF bus register window", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

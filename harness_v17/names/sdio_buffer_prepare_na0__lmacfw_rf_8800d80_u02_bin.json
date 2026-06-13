@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_na0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ec54", "status": "ok", "name": "patch_apply_n88_ec54", "params": [], "docstring": "Aligns and applies 4-byte ROM patch over target range", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

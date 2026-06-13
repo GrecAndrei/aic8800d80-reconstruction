@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n220", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215708", "status": "ok", "name": "patch_apply_n220", "params": [], "docstring": "Apply N220 hardware patch via MMIO register write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

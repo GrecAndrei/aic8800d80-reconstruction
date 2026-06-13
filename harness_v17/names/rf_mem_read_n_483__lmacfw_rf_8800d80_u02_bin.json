@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_483", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f110", "status": "ok", "name": "rf_mem_read_arith_n_483", "params": [], "docstring": "Arithmetic preparation for RF memory read path", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

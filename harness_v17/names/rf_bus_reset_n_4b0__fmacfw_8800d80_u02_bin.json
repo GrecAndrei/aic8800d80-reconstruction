@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_4b0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212538", "status": "ok", "name": "rf_bus_reset_n_4b0", "params": [], "docstring": "RF bus reset routine variant 0x4b0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121353c", "status": "ok", "name": "rf_bus_mark_n_3d6", "params": [], "docstring": "Marks RF bus via MMIO write to 0x40240018", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

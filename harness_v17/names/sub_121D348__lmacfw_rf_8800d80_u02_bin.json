@@ -1,0 +1,1 @@
+{"fn": "sub_121D348", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121d348", "status": "ok", "name": "message_dispatch_n2fe", "params": [], "docstring": "Dispatch incoming message by sign-extended header field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1dc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119e0", "status": "ok", "name": "rf_bus_setup_n1dc", "params": [], "docstring": "Setup RF bus configuration with PHY register init", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

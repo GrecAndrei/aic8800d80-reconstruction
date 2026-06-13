@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n_4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d26", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Check the current state bit of an RF sub-block by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n_4ae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d26", "status": "ok", "name": "rf_state_check_1d26", "params": [], "docstring": "Check the current state bit of an RF sub-block by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

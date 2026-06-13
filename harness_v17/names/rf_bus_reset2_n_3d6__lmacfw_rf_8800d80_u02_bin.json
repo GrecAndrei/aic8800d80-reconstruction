@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3d6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f2e", "status": "ok", "name": "rf_bus_reset2_n_3d6", "params": [], "docstring": "Reset RF bus and increment bus access counter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

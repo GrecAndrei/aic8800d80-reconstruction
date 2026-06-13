@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n5a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12147a2", "status": "ok", "name": "rf_fault_dump_n5a", "params": [], "docstring": "Dump RF fault info to UART log", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

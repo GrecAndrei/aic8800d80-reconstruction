@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_288", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211774", "status": "ok", "name": "rf_bus_setup_n_443", "params": [], "docstring": "Configures RF bus interface variant 443", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_288", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211774", "status": "ok", "name": "rf_bus_setup_n_443_1774", "params": [], "docstring": "Configures RF bus interface variant 443", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

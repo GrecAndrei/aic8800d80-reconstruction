@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_250", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12117ac", "status": "ok", "name": "rf_bus_reset2_n_250", "params": [], "docstring": "Loads RF bus reset handler pointer from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

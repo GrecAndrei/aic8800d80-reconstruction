@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n28a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12100ea", "status": "ok", "name": "log_free_dispatch_n28a", "params": [], "docstring": "Dispatch log free via helper and queue advance", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

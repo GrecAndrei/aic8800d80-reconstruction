@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n484", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa18", "status": "ok", "name": "rf_mem_read_n484", "params": [], "docstring": "Read signed byte from RF control structure with bounds check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

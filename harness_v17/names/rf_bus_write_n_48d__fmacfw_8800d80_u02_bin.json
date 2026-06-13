@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_48d", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12116d6", "status": "ok", "name": "rf_bus_write_n_48d", "params": [], "docstring": "Program RF bus registers then trigger RFIC update sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

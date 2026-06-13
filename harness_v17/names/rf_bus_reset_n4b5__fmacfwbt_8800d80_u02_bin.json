@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4b5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212cf8", "status": "ok", "name": "rf_bus_reset_n4b5", "params": [], "docstring": "RF bus reset, programs MMIO at 0xb00/0xb08/0xb14 with 0x84000000 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

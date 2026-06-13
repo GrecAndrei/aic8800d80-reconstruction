@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4f6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12153a2", "status": "ok", "name": "rf_bus_setup_n368", "params": [], "docstring": "Packs RF bus config word and updates type/flag byte fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

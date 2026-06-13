@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158a8", "status": "ok", "name": "ipc_doorbell_handler_n_d4", "params": [], "docstring": "IPC doorbell ring handler, updates shared queue pointers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

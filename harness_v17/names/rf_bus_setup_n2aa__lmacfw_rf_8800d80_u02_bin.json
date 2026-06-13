@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n2aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211aae", "status": "ok", "name": "rf_bus_write2_n2e2", "params": [], "docstring": "RF bus write2 with U8 clamp and range check (<=4)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

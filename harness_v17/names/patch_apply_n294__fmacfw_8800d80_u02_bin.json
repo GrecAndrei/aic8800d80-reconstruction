@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n294", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215140", "status": "ok", "name": "patch_apply_n294", "params": [], "docstring": "Apply firmware patch to SCB region (0xe000ed00)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n392", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101f2", "status": "ok", "name": "log_free_dispatch_n392", "params": [], "docstring": "Dispatch buffered log entries to free ring", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

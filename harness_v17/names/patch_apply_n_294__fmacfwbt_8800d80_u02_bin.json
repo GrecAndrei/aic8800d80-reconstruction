@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_294", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215254", "status": "ok", "name": "message_dispatch_n_4bc", "params": [], "docstring": "Dispatches IPC/control messages to handlers", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

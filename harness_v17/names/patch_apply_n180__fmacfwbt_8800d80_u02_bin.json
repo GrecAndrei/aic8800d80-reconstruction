@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n180", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215668", "status": "ok", "name": "patch_apply_n180", "params": [], "docstring": "Applies firmware patch with 0x40500000 base register access", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

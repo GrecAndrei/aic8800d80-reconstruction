@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n19a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12131aa", "status": "ok", "name": "rf_cmd_send_n19a", "params": [], "docstring": "Sends an RF command to the firmware", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

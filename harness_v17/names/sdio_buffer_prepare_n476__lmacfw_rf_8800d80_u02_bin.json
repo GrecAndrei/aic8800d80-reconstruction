@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n476", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f02a", "status": "ok", "name": "rf_msg_handler_n_416", "params": [], "docstring": "RF message dispatch handler entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_35a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f96", "status": "ok", "name": "rf_bus_reset_n_35a", "params": [], "docstring": "Resets RF bus by clearing a register at offset 0x10 and writing mask to offset 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

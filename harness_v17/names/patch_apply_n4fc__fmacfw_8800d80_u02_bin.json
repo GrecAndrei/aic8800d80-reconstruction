@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n4fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12153a8", "status": "ok", "name": "patch_apply_n_166", "params": [], "docstring": "Stub for patch apply helper N166", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

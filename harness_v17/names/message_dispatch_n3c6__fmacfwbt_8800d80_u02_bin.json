@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3c6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf7a", "status": "ok", "name": "message_dispatch_n3c6", "params": [], "docstring": "Dispatches IPC message by indexing handler table at 0x16a4a4 and calling handler at 0x12ecb0", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

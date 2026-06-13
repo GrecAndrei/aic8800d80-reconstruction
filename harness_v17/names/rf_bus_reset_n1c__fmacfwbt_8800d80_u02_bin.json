@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n1c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212860", "status": "ok", "name": "rf_bus_reset_n1c", "params": [], "docstring": "Reset RF bus: clear control bit, invoke reset handler, check status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

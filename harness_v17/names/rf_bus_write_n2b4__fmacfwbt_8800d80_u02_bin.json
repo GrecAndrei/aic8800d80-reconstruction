@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n2b4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c74", "status": "ok", "name": "patch_apply_n2e8", "params": [], "docstring": "Apply firmware patch with high-byte mask test on patch word", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

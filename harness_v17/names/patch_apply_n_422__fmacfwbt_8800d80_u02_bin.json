@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_422", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150c6", "status": "ok", "name": "patch_apply_n_422", "params": [], "docstring": "Apply firmware patch with nibble mask check (0xb)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_46e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12117ae", "status": "ok", "name": "rf_bus_write2_n_46e", "params": [], "docstring": "Writes 2 bytes to RF bus via low-level register access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

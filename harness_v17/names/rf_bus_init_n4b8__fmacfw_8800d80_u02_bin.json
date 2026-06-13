@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n4b8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212270", "status": "ok", "name": "rf_bus_init_n4b8", "params": [], "docstring": "Initialize RF bus control bit fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

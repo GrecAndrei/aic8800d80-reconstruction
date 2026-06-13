@@ -1,0 +1,70 @@
+{
+  "function": "msg_dispatch_loop_n110",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x12caa4",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0012cac6      00bf           nop",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Function body completely missing in compiled output; emit at least the entry and basic block instructions."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cac8      6c2b           cmp r3, 0x6c                ; 'l'",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "cmp r3, #0x6c not emitted; generate character compare for dispatch key 'l'."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cacc      2426           movs r6, 0x24               ; '$'",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "movs r6, #0x24 not emitted; constant '$' load missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cad0      0010           asrs r0, r0, 0x20",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "asrs r0, r0, #0x20 not emitted; arithmetic shift right missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cad2      5040           eors r0, r2",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "eors r0, r2 not emitted; XOR op missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cad4      802b           cmp r3, 0x80",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "cmp r3, #0x80 not emitted; second dispatch compare missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cad8      5088           ldrh r0, [r2, 2]",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "ldrh r0, [r2, #2] not emitted; 16-bit load from struct field missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cadc      074b           ldr r3, [0x0012cafc]        ; [0x12cafc:4]=0x192b6c",
+        "compiled": "0x00100020      ffffffff       invalid",
+        "fix_hint": "PC-relative ldr loading 0x192b6c not emitted; literal pool / global pointer load missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cade      5b69           ldr r3, [r3, 0x14]",
+        "compiled": "0x00100024      ffffffff       invalid",
+        "fix_hint": "ldr r3, [r3, #0x14] not emitted; field dereference missing."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output is entirely 0xFFFFFFFF (invalid) across the entire function region - the mechanical reconstruction produced NO code for msg_dispatch_loop_n110 at all.",
+      "Function appears to be a message dispatch loop using character compares (0x6c='l', 0x24='$', 0x80) - the reconstruction seems to have completely failed to compile this function's body.",
+      "The literal pool entry 0x192b6c referenced by ldr at 0x12cadc is a global pointer - the compiled output contains no equivalent literal pool entries either.",
+      "Possible cause: the C source for this function was missing, stubbed out, or the generator failed to emit a function body (e.g., empty return path or unresolved extern suppressed the body)."
+    ]
+  }
+}

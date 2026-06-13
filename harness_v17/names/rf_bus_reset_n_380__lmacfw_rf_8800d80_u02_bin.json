@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_380", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f70", "status": "ok", "name": "rf_fault_dump_n_33a", "params": [], "docstring": "Dumps RF fault status byte to debug buffer offset 0x655", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

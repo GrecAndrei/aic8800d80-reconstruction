@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n5c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212fbc", "status": "ok", "name": "rf_msg_handler_n5c", "params": [], "docstring": "RF message handler dispatching on subcommand 0x81 with state check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

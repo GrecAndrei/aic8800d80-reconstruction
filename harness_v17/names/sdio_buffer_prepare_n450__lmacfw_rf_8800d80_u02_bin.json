@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n450", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f004", "status": "ok", "name": "sdio_buffer_prepare_n450", "params": [], "docstring": "Prepares a buffer for SDIO transfer with byte copy loop", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

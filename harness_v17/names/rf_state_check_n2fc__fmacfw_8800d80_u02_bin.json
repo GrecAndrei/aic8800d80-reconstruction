@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124d0", "status": "ok", "name": "rf_state_check_n2fc", "params": [], "docstring": "Check and validate RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

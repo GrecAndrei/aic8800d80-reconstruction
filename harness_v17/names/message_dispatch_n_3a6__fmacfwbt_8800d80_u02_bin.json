@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_3a6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c80e", "status": "ok", "name": "msg_dispatch_n_3a6", "params": [], "docstring": "Dispatch handler with message type check", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

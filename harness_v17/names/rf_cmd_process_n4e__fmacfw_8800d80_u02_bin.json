@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n4e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12135a6", "status": "ok", "name": "rf_mem_write_vshr_n282", "params": [], "docstring": "RF memory write with vector right-shift helpers and zero return", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

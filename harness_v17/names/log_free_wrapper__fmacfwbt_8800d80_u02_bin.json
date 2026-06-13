@@ -1,0 +1,1 @@
+{"fn": "log_free_wrapper", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120f1c8", "status": "ok", "name": "log_free_wrapper", "params": [], "docstring": "Wrapper that frees log buffer and returns success", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nb4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1d0", "status": "ok", "name": "sdio_buffer_prepare_nb4", "params": [], "docstring": "Prepare SDIO buffer for NB4 operation", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

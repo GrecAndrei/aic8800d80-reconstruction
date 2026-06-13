@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3da", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212132", "status": "ok", "name": "sdio_buffer_prepare_n240", "params": [], "docstring": "Prepares SDIO buffer for command type 0x2a (CMD42)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

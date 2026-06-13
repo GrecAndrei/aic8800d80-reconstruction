@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_nbc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214804", "status": "ok", "name": "sub_123144C", "params": [], "docstring": "Helper that builds args on stack and invokes callback", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121284a", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Resets RF bus and clears control bits at 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121284a", "status": "ok", "name": "rf_bus_reset_284a", "params": [], "docstring": "Resets RF bus and clears control bits at 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

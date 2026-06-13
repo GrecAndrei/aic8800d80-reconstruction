@@ -1,0 +1,1 @@
+{"fn": "sub_1200E54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1200e54", "status": "ok", "name": "mmio_init_block_1200E54", "params": [], "docstring": "Initialize MMIO block at 0x40344000 with bit OR 0x400 patch", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

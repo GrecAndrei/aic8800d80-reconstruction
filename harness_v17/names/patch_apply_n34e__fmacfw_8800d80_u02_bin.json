@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n34e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151fa", "status": "ok", "name": "patch_apply_n34e", "params": [], "docstring": "extracts bit fields from patch word and stores to stack", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

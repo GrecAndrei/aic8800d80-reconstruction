@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121140c", "status": "ok", "name": "rf_bus_mark_n_2d4", "params": [], "docstring": "Mark RF bus state for 2.4GHz band operation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

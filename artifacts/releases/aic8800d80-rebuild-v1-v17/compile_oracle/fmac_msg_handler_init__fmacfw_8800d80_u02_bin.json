@@ -1,0 +1,65 @@
+{
+  "function": "fmac_msg_handler_init",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x126e1c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00126e1c  f8b5  push {r3, r4, r5, r6, r7, lr}",
+        "compiled": "0x00100000  ffffffff  invalid",
+        "fix_hint": "Function body is entirely missing from compiled binary; verify C source was compiled and linked, and check the actual base address of the compiled image"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e1e  784d  ldr r5, [0x00127000] = 0x190368",
+        "compiled": "0x00100004  ffffffff  invalid",
+        "fix_hint": "No corresponding PC-relative literal pool load emitted; ensure global address 0x190368 is referenced and literal pool is generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e20  784e  ldr r6, [0x00127004] = 0x18fac8",
+        "compiled": "0x00100006  ffffffff  invalid",
+        "fix_hint": "No corresponding PC-relative literal pool load emitted; ensure global address 0x18fac8 is referenced and literal pool is generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e22  ec6a  ldr r4, [r5, 0x2c]",
+        "compiled": "0x00100008  ffffffff  invalid",
+        "fix_hint": "Entire prologue/memory-load sequence absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e28  dbf7fafd  bl 0x102a20",
+        "compiled": "0x00100010  ffffffff  invalid",
+        "fix_hint": "Call to memset/memcpy (0x102a20) not emitted; verify C source invokes the function with the correct linkage"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e2c  94f90c00  ldrsb.w r0, [r4, 0xc]",
+        "compiled": "0x00100014  ffffffff  invalid",
+        "fix_hint": "Signed-byte load not present; entire compiled function body is absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e30  05f028fb  bl 0x12c484",
+        "compiled": "0x00100018  ffffffff  invalid",
+        "fix_hint": "Second BL call not emitted; function is entirely missing from compiled image"
+      },
+      {
+        "type": "missing",
+        "original": "0x00126e34-0x00126e42  ldrb/ldr/add.w/ldr/str/ldrb/cmp sequence",
+        "compiled": "0x0010001c-0x00100044  ffffffff  invalid",
+        "fix_hint": "Tail block (array indexing into table at 0x18fac8, store to 0x403200dc, final cmp) is completely absent"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled image at 0x00100000-0x00100044 contains 0xFFFFFFFF (unprogrammed/empty flash) \u2014 entire function reconstruction failed to land in the compiled binary",
+      "No behavioral trace available for fmac_msg_handler_init in either image",
+      "All 16 original instructions are missing \u2014 not a divergence in encoding, but a total absence of compiled code",
+      "Mechanical generator must be checked: the C source likely failed to compile, or the output binary was not loaded/linked, or the base address used for disassembly is wrong",
+      "Suggest re-running the mechanical reconstruction and confirming the compiled ELF/binary contains .text at the address being disassembled"
+    ]
+  }
+}

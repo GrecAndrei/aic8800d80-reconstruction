@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n496", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12120b2", "status": "ok", "name": "rf_bus_write_or_mask", "params": [], "docstring": "Store 16-bit data and OR-mask 0x84000000 into RF bus reg", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

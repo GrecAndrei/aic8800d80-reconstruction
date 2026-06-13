@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_1d2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b86", "status": "ok", "name": "rf_bus_setup_n_1d2", "params": [], "docstring": "Probe RF bus slot to read configuration bit from MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n37e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215866", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch from descriptor", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

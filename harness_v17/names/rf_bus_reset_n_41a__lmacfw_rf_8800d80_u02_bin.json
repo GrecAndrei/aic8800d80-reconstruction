@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_41a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211ed6", "status": "ok", "name": "rf_bus_reset_n_41a", "params": [], "docstring": "Reset RF bus using repeated Q (0x51) marker sequence", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

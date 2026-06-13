@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_nae", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215a2a", "status": "ok", "name": "ipc_doorbell_handler_nae", "params": [], "docstring": "Set bit 0x08000000 in IPC doorbell register to signal host", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

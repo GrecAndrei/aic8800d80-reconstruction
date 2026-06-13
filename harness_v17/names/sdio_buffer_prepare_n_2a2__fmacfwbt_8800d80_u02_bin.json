@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_2a2", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e0a2", "status": "ok", "name": "sdio_buffer_prepare_n_2a2", "params": [], "docstring": "SDIO buffer prepare (return 0 in IT NE path)", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

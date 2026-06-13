@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n242", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cbce", "status": "ok", "name": "message_dispatch_cbce", "params": [], "docstring": "Dispatch incoming IPC message based on header type", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

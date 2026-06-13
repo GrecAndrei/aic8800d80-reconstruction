@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n12", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121598e", "status": "ok", "name": "ipc_doorbell_handler_n12", "params": [], "docstring": "Handle IPC doorbell ring with subfield mask 0xf and shift 0x1c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

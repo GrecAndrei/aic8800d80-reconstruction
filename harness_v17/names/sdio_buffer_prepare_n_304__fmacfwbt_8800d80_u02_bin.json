@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_304", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e040", "status": "ok", "name": "sdio_buffer_prepare_n_304", "params": [], "docstring": "Prepares SDIO buffer (push r4 prologue)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_304", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e040", "status": "ok", "name": "sdio_buffer_prepare_n_304_e040", "params": [], "docstring": "Prepares SDIO buffer (push r4 prologue)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

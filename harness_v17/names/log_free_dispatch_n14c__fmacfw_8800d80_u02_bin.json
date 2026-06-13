@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n14c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210154", "status": "ok", "name": "rf_mem_read_n29c", "params": [], "docstring": "Compute shifted index for RF memory read access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

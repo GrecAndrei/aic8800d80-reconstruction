@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n24f", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113da", "status": "ok", "name": "rf_bus_mark_n24f", "params": [], "docstring": "Set RF bus mark register and trigger pending access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

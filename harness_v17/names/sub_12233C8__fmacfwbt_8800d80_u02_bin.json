@@ -1,0 +1,1 @@
+{"fn": "sub_12233C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12233c8", "status": "ok", "name": "sub_12233C8", "params": [], "docstring": "Sends 0x85 message and arms timer via 0x70000010 register", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

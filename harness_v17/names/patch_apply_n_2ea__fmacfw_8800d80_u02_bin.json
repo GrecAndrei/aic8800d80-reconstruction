@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_2ea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214bc2", "status": "ok", "name": "patch_apply_n_2ea", "params": [], "docstring": "Apply firmware patch with IRQ disabled", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

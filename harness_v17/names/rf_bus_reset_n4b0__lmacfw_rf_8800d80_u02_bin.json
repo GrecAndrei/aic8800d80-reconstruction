@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12127a0", "status": "ok", "name": "rf_bus_reset_n4b0", "params": [], "docstring": "Resets RF bus interface and clears status bits.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_188", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e1bc", "status": "ok", "name": "sdio_buffer_prepare", "params": [], "docstring": "Prepare SDIO buffer for transfer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_188", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e1bc", "status": "ok", "name": "sdio_buffer_prepare_e1bc", "params": [], "docstring": "Prepare SDIO buffer for transfer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

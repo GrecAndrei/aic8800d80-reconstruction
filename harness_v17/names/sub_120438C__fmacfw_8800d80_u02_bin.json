@@ -1,0 +1,1 @@
+{"fn": "sub_120438C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120438c", "status": "ok", "name": "rf_bus_reset", "params": [], "docstring": "Resets RF bus state via shifted write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

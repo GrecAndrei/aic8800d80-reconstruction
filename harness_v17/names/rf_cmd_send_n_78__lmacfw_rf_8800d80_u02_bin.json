@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_78", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12128a0", "status": "ok", "name": "rf_level_apply_n76", "params": [], "docstring": "Applies RF level value loaded from global configuration table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

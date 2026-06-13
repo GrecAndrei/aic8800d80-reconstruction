@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n_4f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124f8", "status": "ok", "name": "rf_bus_reset_n_4f0", "params": [], "docstring": "RF bus reset loading control pointer from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n_4f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12124f8", "status": "ok", "name": "rf_bus_reset_n_4f0_24f8", "params": [], "docstring": "RF bus reset loading control pointer from constant table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

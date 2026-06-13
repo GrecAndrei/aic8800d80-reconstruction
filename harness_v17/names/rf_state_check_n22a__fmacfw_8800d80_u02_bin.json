@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n22a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12123fe", "status": "ok", "name": "rf_state_check_n22a_23fe", "params": [], "docstring": "Check RF state from control register 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

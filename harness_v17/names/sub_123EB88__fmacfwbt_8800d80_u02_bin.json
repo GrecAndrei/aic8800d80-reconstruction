@@ -1,0 +1,1 @@
+{"fn": "sub_123EB88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123eb88", "status": "ok", "name": "bitfield_pack_u16_to_u32", "params": [], "docstring": "Pack u16 bitfield into u32 with bit extraction", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

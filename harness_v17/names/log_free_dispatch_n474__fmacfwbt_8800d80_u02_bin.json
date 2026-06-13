@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n474", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12102d4", "status": "ok", "name": "log_free_dispatch_n474", "params": [], "docstring": "Free log buffer entry with size 0xc0 via push/pop helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

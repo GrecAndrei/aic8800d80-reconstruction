@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_216", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214c96", "status": "ok", "name": "patch_apply_n_216", "params": [], "docstring": "Applies a 4-byte firmware patch at computed offset with scratch buffer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

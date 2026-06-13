@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n35c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf10", "status": "ok", "name": "message_dispatch_n35c", "params": [], "docstring": "Dispatches incoming message from shared mailbox queue to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

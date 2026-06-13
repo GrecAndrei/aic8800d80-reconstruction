@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nb4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f60", "status": "ok", "name": "patch_nvic_unlock", "params": [], "docstring": "Unlock NVIC by setting ICSR/VTOR/SCB bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

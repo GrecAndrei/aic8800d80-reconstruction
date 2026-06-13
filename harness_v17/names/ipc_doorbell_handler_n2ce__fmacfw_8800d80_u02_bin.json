@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n2ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215c4a", "status": "ok", "name": "ipc_doorbell_fire_msg2", "params": [], "docstring": "Triggers IPC doorbell message 2 with channel handshake via shared var 0x167770", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

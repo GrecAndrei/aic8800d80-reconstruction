@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd78", "status": "ok", "name": "message_dispatch_n3ec", "params": [], "docstring": "Message dispatcher halfword store tail", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

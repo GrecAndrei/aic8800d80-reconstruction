@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n34e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210356", "status": "ok", "name": "log_free_dispatch_n34e", "params": [], "docstring": "Increment log counter and dispatch free/cleanup call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

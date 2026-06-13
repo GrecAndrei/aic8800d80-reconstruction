@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n62", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121297a", "status": "ok", "name": "rf_bus_write2_n286", "params": [], "docstring": "RF bus write helper resolving address from pointer table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

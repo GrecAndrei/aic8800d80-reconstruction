@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n372", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12132d2", "status": "ok", "name": "rf_msg_handler_n372", "params": [], "docstring": "Saves msg ptr, calls RF handler, restores msg ptr from stack", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n366", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121036e", "status": "ok", "name": "rf_cmd_send_036e", "params": [], "docstring": "Send an RF command with payload args", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

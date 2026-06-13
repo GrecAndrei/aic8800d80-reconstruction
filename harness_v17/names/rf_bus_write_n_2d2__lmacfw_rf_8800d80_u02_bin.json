@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_2d2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121119a", "status": "ok", "name": "rf_bus_write_n_2d2", "params": [], "docstring": "Write to RF bus register with 0xc0 mask set, update bus state pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,106 @@
+{
+  "function": "rf_msg_alloc_init",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x11b80c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0011b80c      f8b5           push {r3, r4, r5, r6, r7, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output was not placed at a valid code address; 0x00100000 in lmacfw_rf contains literal-pool data (0x001a0000), not code. No reconstruction present to compare."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b80e      684d           ldr r5, [0x0011b9b0]        ; =0x186354",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "Re-emit reconstruction into the correct image/offset; the lmacfw_rf_8800d80 binary has no code at 0x00100000."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b810      684e           ldr r6, [0x0011b9b4]        ; =0x1862e8",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "No compiled body was emitted for this function in the chosen image."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b812      ec6a           ldr r4, [r5, 0x2c]",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b814      0021           movs r1, 0",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b816      201d           adds r0, r4, 4",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b818      e7f776f8       bl 0x102908",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b81c      94f90c00       ldrsb.w r0, [r4, 0xc]",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b820      02f0eaf8       bl 0x11d9f8",
+        "compiled": "0x00100020      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b824      2379           ldrb r3, [r4, 4]",
+        "compiled": "0x00100024      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b826      644a           ldr r2, [0x0011b9b8]        ; =0x403200dc",
+        "compiled": "0x00100028      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b828      06eb8303       add.w r3, r6, r3, lsl 2",
+        "compiled": "0x0010002c      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b82c      5b69           ldr r3, [r3, 0x14]",
+        "compiled": "0x00100030      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b82e      1360           str r3, [r2]",
+        "compiled": "0x00100034      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011b830      237e           ldrb r3, [r4, 0x18]",
+        "compiled": "0x00100038      ffffffff       invalid",
+        "fix_hint": "Reconstruction missing entirely."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The 'compiled disasm' was placed at 0x00100000, but the lmacfw_rf_8800d80_u02 image has no code at that address \u2014 it is literal-pool/data (dword at 0x100000 reads 0x001a0000). The 0xffffffff bytes in the compiled listing do not match the actual binary content at all.",
+      "No behavioral trace exists for rf_msg_alloc_init (behavioral_at returned null), so no MMIO/struct reference signature is available to anchor the comparison.",
+      "Literal pool values in the original were verified: 0x11b9b0=0x186354, 0x11b9b4=0x1862e8, 0x11b9b8=0x403200dc. Any reconstruction must thread these globals and the MMIO write to 0x403200dc (likely a control register) correctly.",
+      "The reconstruction pipeline appears to have failed entirely for this function \u2014 it produced no executable code, only zero/uninitialized memory. Re-run the C\u2192ARM pass with the correct link address for the LMAC RF image."
+    ]
+  }
+}

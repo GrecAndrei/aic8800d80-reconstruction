@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3eb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f18", "status": "ok", "name": "rf_bus_reset2_n342", "params": [], "docstring": "Computes masked bit field for bus reset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

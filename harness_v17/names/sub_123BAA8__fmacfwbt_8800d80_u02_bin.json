@@ -1,1 +1,1 @@
-{"fn": "sub_123BAA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123baa8", "status": "ok", "name": "rf_bus_reset_nac", "params": [], "docstring": "Reset RF bus control registers (0x40200900 region)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_123BAA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123baa8", "status": "ok", "name": "rf_bus_reset_nac_baa8", "params": [], "docstring": "Reset RF bus control registers (0x40200900 region)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

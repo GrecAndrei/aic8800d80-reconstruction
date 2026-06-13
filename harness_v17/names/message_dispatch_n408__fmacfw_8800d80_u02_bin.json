@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n408", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122cd94", "status": "ok", "name": "message_dispatch_n408", "params": [], "docstring": "Dispatch host message and decrement pending counter", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

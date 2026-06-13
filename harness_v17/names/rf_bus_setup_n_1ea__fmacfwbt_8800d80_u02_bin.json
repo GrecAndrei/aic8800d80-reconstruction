@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_1ea", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b6e", "status": "ok", "name": "rf_bus_setup_n_1ea", "params": [], "docstring": "Select RF bus (0x900/0xb00) and check busy bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

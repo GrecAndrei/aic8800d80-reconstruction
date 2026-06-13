@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121170e", "status": "ok", "name": "patch_apply_n_4f8", "params": [], "docstring": "Store byte then dispatch through function pointer and save return value", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

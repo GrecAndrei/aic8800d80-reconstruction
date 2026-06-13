@@ -1,0 +1,1 @@
+{"fn": "sub_1219698", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1219698", "status": "ok", "name": "rf_xo_pll_init", "params": [], "docstring": "Initializes RF XO/PLL subsystem (cmd 0x76)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

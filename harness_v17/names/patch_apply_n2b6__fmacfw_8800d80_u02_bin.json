@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2b6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215162", "status": "ok", "name": "patch_apply_n2b6", "params": [], "docstring": "Apply patch table entries via helper that programs patch words", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

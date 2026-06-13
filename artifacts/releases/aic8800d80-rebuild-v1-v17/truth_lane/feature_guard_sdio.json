@@ -1,0 +1,29 @@
+{
+  "function": "feature_guard_sdio",
+  "report": {
+    "name": "feature_guard_sdio",
+    "purpose": "Small utility predicate that tests a feature bitmask against a global SDIO feature word to determine whether a given SDIO capability is currently enabled in firmware. It is a thin guard used by the clock-calculation path (250_clock_calc.synth.c) to gate clock configuration on per-build/per-chip SDIO feature availability. Belongs to the firmware utility / build-feature gating subsystem.",
+    "parameters": [
+      {
+        "type": "uint32_t",
+        "name": "feature_mask",
+        "purpose": "Bitmask of the SDIO feature bit(s) to test against the global feature word."
+      }
+    ],
+    "return_value": {
+      "type": "bool",
+      "meaning": "true if every bit set in feature_mask is also set in the SDIO feature word; false otherwise."
+    },
+    "subsystem": "util",
+    "side_effects": [
+      "Reads a global SDIO feature word (no MMIO accesses; pure RAM load \u2014 no hardware side effects could be observed because the function body at 0x122ecd0 lies past the loaded image and disassembles to 0xFFFFFFFF padding in fmacfw_8800d80_u02_bin, fmacfw_8800d80_h_u02_bin, fmacfwbt_8800d80_u02_bin, and lmacfw_rf_8800d80_u02_bin)."
+    ],
+    "key_callees": [],
+    "key_callers": [
+      "250_clock_calc.synth.c"
+    ],
+    "complexity": "low",
+    "lines_of_c": 4,
+    "summary": "SDIO feature-bit guard predicate: returns whether requested feature bits are present in the global SDIO feature word."
+  }
+}

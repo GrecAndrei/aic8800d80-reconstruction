@@ -1,0 +1,1 @@
+{"fn": "ipc_rx_evt", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1247060", "status": "ok", "name": "ipc_rx_evt", "params": [], "docstring": "Handle IPC RX event copying payload fields into shared struct", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

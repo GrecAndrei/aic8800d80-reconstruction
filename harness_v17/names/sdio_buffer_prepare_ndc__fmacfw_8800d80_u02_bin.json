@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_ndc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1f8", "status": "ok", "name": "sdio_buffer_prepare_ndc", "params": [], "docstring": "Prepare SDIO transfer buffer with index scaling", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

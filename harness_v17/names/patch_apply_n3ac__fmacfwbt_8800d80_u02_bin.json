@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n3ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215894", "status": "ok", "name": "patch_apply_n3ac", "params": [], "docstring": "Apply firmware patch set n3ac with bit-field extraction", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n3ac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215894", "status": "ok", "name": "patch_apply_n3ac_5894", "params": [], "docstring": "Apply firmware patch set n3ac with bit-field extraction", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

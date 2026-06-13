@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n4ac", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223f0", "status": "ok", "name": "rf_cmd_dispatch", "params": [], "docstring": "Dispatches an RF command via MMIO to the radio block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

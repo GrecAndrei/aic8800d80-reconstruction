@@ -1,0 +1,1 @@
+{"fn": "mm_bcn_transmitted", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124922c", "status": "ok", "name": "mm_bcn_transmitted", "params": [], "docstring": "Update MM state after beacon transmission", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

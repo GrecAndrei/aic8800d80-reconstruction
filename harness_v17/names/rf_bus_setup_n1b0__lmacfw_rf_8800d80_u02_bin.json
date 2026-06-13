@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n1b0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12119b4", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Configures RF bus access window with OR 0x84000000 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

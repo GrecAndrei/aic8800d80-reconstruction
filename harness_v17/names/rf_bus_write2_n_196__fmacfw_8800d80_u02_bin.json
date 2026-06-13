@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_196", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a86", "status": "ok", "name": "rf_bus_write2_n_196", "params": [], "docstring": "Write packet to RF bus register window with sync", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215030", "status": "ok", "name": "patch_apply_bytes", "params": [], "docstring": "applies patch bytes to target with alignment", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

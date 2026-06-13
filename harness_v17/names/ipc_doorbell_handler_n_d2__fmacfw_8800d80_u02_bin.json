@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_d2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12158aa", "status": "ok", "name": "rf_bus_mark_nbe", "params": [], "docstring": "Mark RF bus control register with NBE error flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

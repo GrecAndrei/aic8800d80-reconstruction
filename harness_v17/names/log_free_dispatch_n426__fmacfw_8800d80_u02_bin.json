@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n426", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121042e", "status": "ok", "name": "log_free_dispatch_n426", "params": [], "docstring": "Dispatch log entry free/release to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n426", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121042e", "status": "ok", "name": "log_free_dispatch_n426_042e", "params": [], "docstring": "Dispatch log entry free/release to handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

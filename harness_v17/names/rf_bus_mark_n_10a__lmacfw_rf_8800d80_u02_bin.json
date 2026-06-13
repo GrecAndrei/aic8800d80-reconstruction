@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211082", "status": "ok", "name": "rf_bus_mark", "params": [], "docstring": "Mark/clear RF bus bit (0x20) in control register 0x40240100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211082", "status": "ok", "name": "rf_bus_mark_1082", "params": [], "docstring": "Mark/clear RF bus bit (0x20) in control register 0x40240100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

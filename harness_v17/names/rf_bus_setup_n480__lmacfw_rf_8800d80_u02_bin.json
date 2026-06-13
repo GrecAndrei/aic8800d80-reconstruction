@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n480", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211c84", "status": "ok", "name": "rf_bus_setup_n480", "params": [], "docstring": "Configures RF bus control registers with address 0x185a1c/0x180468 mapped values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

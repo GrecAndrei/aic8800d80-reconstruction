@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_process_n167", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12136be", "status": "ok", "name": "rf_cmd_process", "params": [], "docstring": "Process RF command, load first byte of cmd buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_process_n167", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12136be", "status": "ok", "name": "rf_cmd_process_36be", "params": [], "docstring": "Process RF command, load first byte of cmd buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

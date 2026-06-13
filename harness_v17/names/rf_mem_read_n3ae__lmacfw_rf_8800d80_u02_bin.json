@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n3ae", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f942", "status": "ok", "name": "rf_mem_read_n3ae", "params": [], "docstring": "Computes shift offset (<<5) for RF table slot indexing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

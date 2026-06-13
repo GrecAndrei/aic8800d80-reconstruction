@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n180", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f714", "status": "ok", "name": "rf_mem_read_n180", "params": [], "docstring": "Read value from RF memory mapped address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

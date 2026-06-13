@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2a2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210eea", "status": "ok", "name": "rf_bus_mark_n_2a2", "params": [], "docstring": "Marks RF bus state via 0xc00 register and reciprocal multiply", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

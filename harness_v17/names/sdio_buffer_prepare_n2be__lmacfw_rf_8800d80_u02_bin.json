@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ee72", "status": "ok", "name": "sdio_buffer_prepare_ee72", "params": [], "docstring": "Prepare SDIO buffer slot based on index lookup", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

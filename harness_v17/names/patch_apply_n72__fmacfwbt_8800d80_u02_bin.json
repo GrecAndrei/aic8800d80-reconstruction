@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n72", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121555a", "status": "ok", "name": "patch_apply_n72", "params": [], "docstring": "Apply firmware patch with address masking", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n72", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121555a", "status": "ok", "name": "patch_apply_n72_555a", "params": [], "docstring": "Apply firmware patch with address masking", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -137,3 +137,85 @@ Processing 61493 targets in batches of 10 with 8 workers
     statuses: {'ok': 7306, 'filtered': 5624, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
   13800/61493 ok=7444 rate=4.9/s eta=9677s
     statuses: {'ok': 7444, 'filtered': 5686, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  14000/61493 ok=7580 rate=4.9/s eta=9607s
+    statuses: {'ok': 7580, 'filtered': 5750, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  14200/61493 ok=7729 rate=4.9/s eta=9560s
+    statuses: {'ok': 7729, 'filtered': 5801, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  14400/61493 ok=7853 rate=5.0/s eta=9505s
+    statuses: {'ok': 7853, 'filtered': 5877, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  14600/61493 ok=7989 rate=5.0/s eta=9450s
+    statuses: {'ok': 7989, 'filtered': 5941, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  14800/61493 ok=8145 rate=5.0/s eta=9410s
+    statuses: {'ok': 8145, 'filtered': 5985, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 220, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  15000/61493 ok=8276 rate=5.0/s eta=9362s
+    statuses: {'ok': 8276, 'filtered': 6044, 'json_err:Expecting value: line 1 column 2 (char 1)': 430, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  15200/61493 ok=8375 rate=5.0/s eta=9300s
+    statuses: {'ok': 8375, 'filtered': 6135, 'json_err:Expecting value: line 1 column 2 (char 1)': 440, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  15400/61493 ok=8500 rate=5.0/s eta=9240s
+    statuses: {'ok': 8500, 'filtered': 6200, 'json_err:Expecting value: line 1 column 2 (char 1)': 450, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  15600/61493 ok=8584 rate=5.0/s eta=9190s
+    statuses: {'ok': 8584, 'filtered': 6296, 'json_err:Expecting value: line 1 column 2 (char 1)': 470, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  15800/61493 ok=8658 rate=5.0/s eta=9110s
+    statuses: {'ok': 8658, 'filtered': 6412, 'json_err:Expecting value: line 1 column 2 (char 1)': 480, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  16000/61493 ok=8774 rate=5.0/s eta=9062s
+    statuses: {'ok': 8774, 'filtered': 6496, 'json_err:Expecting value: line 1 column 2 (char 1)': 480, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  16200/61493 ok=8883 rate=5.0/s eta=9018s
+    statuses: {'ok': 8883, 'filtered': 6587, 'json_err:Expecting value: line 1 column 2 (char 1)': 480, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  16400/61493 ok=9011 rate=5.0/s eta=8962s
+    statuses: {'ok': 9011, 'filtered': 6649, 'json_err:Expecting value: line 1 column 2 (char 1)': 490, 'no_content': 230, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  16600/61493 ok=9102 rate=5.0/s eta=8905s
+    statuses: {'ok': 9102, 'filtered': 6738, 'json_err:Expecting value: line 1 column 2 (char 1)': 500, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  16800/61493 ok=9191 rate=5.0/s eta=8854s
+    statuses: {'ok': 9191, 'filtered': 6839, 'json_err:Expecting value: line 1 column 2 (char 1)': 510, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  17000/61493 ok=9318 rate=5.1/s eta=8792s
+    statuses: {'ok': 9318, 'filtered': 6902, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  17200/61493 ok=9413 rate=5.1/s eta=8756s
+    statuses: {'ok': 9413, 'filtered': 7007, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  17400/61493 ok=9541 rate=5.1/s eta=8701s
+    statuses: {'ok': 9541, 'filtered': 7079, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  17600/61493 ok=9625 rate=5.1/s eta=8652s
+    statuses: {'ok': 9625, 'filtered': 7195, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  17800/61493 ok=9745 rate=5.1/s eta=8605s
+    statuses: {'ok': 9745, 'filtered': 7275, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  18000/61493 ok=9834 rate=5.1/s eta=8555s
+    statuses: {'ok': 9834, 'filtered': 7386, 'json_err:Expecting value: line 1 column 2 (char 1)': 520, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  18200/61493 ok=9968 rate=5.1/s eta=8495s
+    statuses: {'ok': 9968, 'filtered': 7442, 'json_err:Expecting value: line 1 column 2 (char 1)': 530, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  18400/61493 ok=10071 rate=5.1/s eta=8447s
+    statuses: {'ok': 10071, 'filtered': 7539, 'json_err:Expecting value: line 1 column 2 (char 1)': 530, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  18600/61493 ok=10211 rate=5.1/s eta=8382s
+    statuses: {'ok': 10211, 'filtered': 7599, 'json_err:Expecting value: line 1 column 2 (char 1)': 530, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  18800/61493 ok=10328 rate=5.1/s eta=8334s
+    statuses: {'ok': 10328, 'filtered': 7682, 'json_err:Expecting value: line 1 column 2 (char 1)': 530, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  19000/61493 ok=10455 rate=5.1/s eta=8274s
+    statuses: {'ok': 10455, 'filtered': 7745, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  19200/61493 ok=10558 rate=5.1/s eta=8230s
+    statuses: {'ok': 10558, 'filtered': 7842, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, 'no_target': 10, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 10}
+  19400/61493 ok=10668 rate=5.2/s eta=8168s
+    statuses: {'ok': 10668, 'filtered': 7922, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 20, 'no_target': 10}
+  19600/61493 ok=10779 rate=5.2/s eta=8117s
+    statuses: {'ok': 10779, 'filtered': 8011, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 20, 'no_target': 10}
+  19800/61493 ok=10886 rate=5.2/s eta=8064s
+    statuses: {'ok': 10886, 'filtered': 8094, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  20000/61493 ok=10998 rate=5.2/s eta=8018s
+    statuses: {'ok': 10998, 'filtered': 8182, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  20200/61493 ok=11127 rate=5.2/s eta=7972s
+    statuses: {'ok': 11127, 'filtered': 8253, 'json_err:Expecting value: line 1 column 2 (char 1)': 540, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  20400/61493 ok=11247 rate=5.2/s eta=7918s
+    statuses: {'ok': 11247, 'filtered': 8323, 'json_err:Expecting value: line 1 column 2 (char 1)': 550, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  20600/61493 ok=11404 rate=5.2/s eta=7879s
+    statuses: {'ok': 11404, 'filtered': 8356, 'json_err:Expecting value: line 1 column 2 (char 1)': 560, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  20800/61493 ok=11524 rate=5.2/s eta=7832s
+    statuses: {'ok': 11524, 'filtered': 8436, 'json_err:Expecting value: line 1 column 2 (char 1)': 560, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  21000/61493 ok=11609 rate=5.2/s eta=7780s
+    statuses: {'ok': 11609, 'filtered': 8541, 'json_err:Expecting value: line 1 column 2 (char 1)': 570, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  21200/61493 ok=11755 rate=5.2/s eta=7737s
+    statuses: {'ok': 11755, 'filtered': 8595, 'json_err:Expecting value: line 1 column 2 (char 1)': 570, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  21400/61493 ok=11872 rate=5.2/s eta=7692s
+    statuses: {'ok': 11872, 'filtered': 8668, 'json_err:Expecting value: line 1 column 2 (char 1)': 580, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  21600/61493 ok=11983 rate=5.2/s eta=7645s
+    statuses: {'ok': 11983, 'filtered': 8737, 'json_err:Expecting value: line 1 column 2 (char 1)': 600, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  21800/61493 ok=12089 rate=5.2/s eta=7601s
+    statuses: {'ok': 12089, 'filtered': 8831, 'json_err:Expecting value: line 1 column 2 (char 1)': 600, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}
+  22000/61493 ok=12203 rate=5.2/s eta=7552s
+    statuses: {'ok': 12203, 'filtered': 8917, 'json_err:Expecting value: line 1 column 2 (char 1)': 600, 'no_content': 240, "json_err:Expecting ',' delimiter: line 1 column 3 (char 2)": 30, 'no_target': 10}

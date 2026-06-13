@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_2be", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226b1a", "status": "ok", "name": "rf_bus_reset_n_11a_6b1a", "params": [], "docstring": "Reset RF bus via control register at 0x1822C8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

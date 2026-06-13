@@ -22,3 +22,6 @@
   rf_status_poll                 no_contexts
   rf_stream_start2               ok name=rf_stream_start2 sub=rf
   rf_bus_setup                   invented:0x120000,0x120000
+  rf_bus_reset                   ok name=rf_bus_reset sub=rf
+
+DONE: 25 in 1519.9s ok=8

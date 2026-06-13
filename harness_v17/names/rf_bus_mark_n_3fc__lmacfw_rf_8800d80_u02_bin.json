@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3fc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d90", "status": "ok", "name": "patch_apply_n_2fe", "params": [], "docstring": "Applies a firmware patch entry then dispatches via tail-call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

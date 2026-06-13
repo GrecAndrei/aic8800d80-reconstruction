@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_40c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122df38", "status": "ok", "name": "sdio_buffer_prepare_n_40c", "params": [], "docstring": "Prepare SDIO transfer buffer (push frame setup)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

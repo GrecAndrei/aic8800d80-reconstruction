@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_2ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121445c", "status": "ok", "name": "rf_fault_dump_n_2ec", "params": [], "docstring": "Dump RF fault context to trace buffer on error", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

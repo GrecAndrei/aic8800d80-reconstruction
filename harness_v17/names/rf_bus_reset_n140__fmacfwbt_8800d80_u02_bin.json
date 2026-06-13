@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212984", "status": "ok", "name": "rf_bus_reset_n140", "params": [], "docstring": "Reset RF bus by toggling bit 0x100 in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212984", "status": "ok", "name": "rf_bus_reset_n140_2984", "params": [], "docstring": "Reset RF bus by toggling bit 0x100 in control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

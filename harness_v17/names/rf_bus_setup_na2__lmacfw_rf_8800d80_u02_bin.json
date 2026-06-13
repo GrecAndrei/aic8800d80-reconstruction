@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_na2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12118a6", "status": "ok", "name": "rf_bus_setup_na2", "params": [], "docstring": "Validate/setup RF bus address range mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

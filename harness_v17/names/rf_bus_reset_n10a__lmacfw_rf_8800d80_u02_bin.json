@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n10a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12123fa", "status": "ok", "name": "rf_bus_reset_n10a", "params": [], "docstring": "RF bus reset, shifts index by 14 for register offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

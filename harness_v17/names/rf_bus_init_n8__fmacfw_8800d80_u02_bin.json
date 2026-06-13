@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211dc0", "status": "ok", "name": "rf_bus_init_n8", "params": [], "docstring": "Initialize RF bus with zero and verify result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

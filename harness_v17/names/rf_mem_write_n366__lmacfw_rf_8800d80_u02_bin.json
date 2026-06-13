@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n366", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222392", "status": "ok", "name": "rf_mem_write", "params": [], "docstring": "Write value into RF shared memory region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n366", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222392", "status": "ok", "name": "rf_mem_write_2392", "params": [], "docstring": "Write value into RF shared memory region", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

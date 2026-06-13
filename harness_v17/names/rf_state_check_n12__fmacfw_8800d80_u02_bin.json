@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n12", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12121e6", "status": "ok", "name": "rf_state_check", "params": [], "docstring": "Checks and returns current RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n12", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12121e6", "status": "ok", "name": "rf_state_check_21e6", "params": [], "docstring": "Checks and returns current RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

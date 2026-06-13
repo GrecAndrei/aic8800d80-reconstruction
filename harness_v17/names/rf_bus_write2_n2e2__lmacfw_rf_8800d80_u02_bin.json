@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n2e2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211806", "status": "ok", "name": "patch_apply_n_2a", "params": [], "docstring": "Apply firmware patch N2A gated on signed halfword at 0x182b60", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

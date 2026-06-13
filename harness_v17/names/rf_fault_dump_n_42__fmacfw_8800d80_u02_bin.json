@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_42", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214706", "status": "ok", "name": "rf_fault_dump_n_42", "params": [], "docstring": "Dump RF fault state variant 42", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

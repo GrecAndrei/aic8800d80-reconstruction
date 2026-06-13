@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n304", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a4c", "status": "ok", "name": "rf_fault_dump_n304", "params": [], "docstring": "Decode 4-bit nibbles from shifted RF fault status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n9c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e3e0", "status": "ok", "name": "sdio_buffer_prepare_n9c", "params": [], "docstring": "Prepare SDIO buffer (N9C core variant)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

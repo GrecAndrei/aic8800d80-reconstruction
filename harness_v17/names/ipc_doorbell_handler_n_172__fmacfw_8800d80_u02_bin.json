@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_172", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121580a", "status": "ok", "name": "rf_mem_write_n3ae", "params": [], "docstring": "Writes packed payload to RF MMIO register block", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

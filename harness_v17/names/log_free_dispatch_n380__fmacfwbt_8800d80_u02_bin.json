@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n380", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12101e0", "status": "ok", "name": "log_free_dispatch_n380", "params": [], "docstring": "Free log buffer dispatch with 0xbc-byte trace entry handling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

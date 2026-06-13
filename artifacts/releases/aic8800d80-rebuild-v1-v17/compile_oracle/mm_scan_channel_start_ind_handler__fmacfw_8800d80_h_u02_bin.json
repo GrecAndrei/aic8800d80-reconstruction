@@ -1,0 +1,35 @@
+{
+  "function": "mm_scan_channel_start_ind_handler",
+  "image": "fmacfw_8800d80_h_u02_bin",
+  "addr": "0x149940",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00149940  6d6d  ldr r5, [r5, 0x54]  (actually string 'mm_scan_channel_start_ind_handler\\0')",
+        "compiled": "0x0010012c  ffffffff  invalid",
+        "fix_hint": "Address 0x149940 holds the ASCII string 'mm_scan_channel_start_ind_handler\\0' (a debug/symbol name), not code. The mechanical generator produced 0xFFFFFFFF padding instead of recognizing the string data and the actual function body."
+      },
+      {
+        "type": "extra",
+        "original": "(no code at 0x149940 \u2014 string data only)",
+        "compiled": "0x0010012c..0x00100172  20 consecutive 0xFFFFFFFF 'invalid' dwords",
+        "fix_hint": "Reconstruction emitted 20 uninitialized/invalid dwords; should have located the real function body and emitted valid Thumb code."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00149960  7200  lsls r2, r6, 1  (actually byte 0x00 of NUL terminator, decoded as instruction)",
+        "compiled": "0x0010014e  ffffffff  invalid",
+        "fix_hint": "The 'original' trace is a misinterpretation of a string as code (raw ASCII bytes decoded as 16-bit Thumb). Neither side is real function code."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Address 0x149940 is NOT a function body \u2014 it is the NUL-terminated ASCII string 'mm_scan_channel_start_ind_handler' used as a symbol/debug name. The 'original disassembly' shown is garbage from disassembling ASCII string bytes as Thumb instructions.",
+      "The compiled output is 20 consecutive 0xFFFFFFFF dwords, meaning the mechanical generator emitted no code at all for this function.",
+      "No behavioral trace exists for mm_scan_channel_start_ind_handler (find_callees/find_callers return null/empty), so the function body location and semantics are unknown.",
+      "The two artifacts cannot be meaningfully compared because neither is valid function code. The original is a string-as-code illusion, the compiled output is uninitialized memory.",
+      "To fix: the generator must (1) detect that the symbol address points to a string in .rodata rather than a code region, and (2) locate the actual function entry point (likely via a function-pointer table or xref to this name string) before emitting disassembly."
+    ]
+  }
+}

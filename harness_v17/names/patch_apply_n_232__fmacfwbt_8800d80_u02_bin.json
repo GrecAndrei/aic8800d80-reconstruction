@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_232", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152b6", "status": "ok", "name": "patch_apply_n_232", "params": [], "docstring": "Compute patch slot mask via shift of r4 by 0x19 bits", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

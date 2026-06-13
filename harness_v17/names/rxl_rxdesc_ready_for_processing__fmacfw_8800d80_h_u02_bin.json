@@ -1,0 +1,1 @@
+{"fn": "rxl_rxdesc_ready_for_processing", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1248488", "status": "ok", "name": "rxl_rxdesc_ready_for_processing", "params": [], "docstring": "Prepares RX descriptor fields and populates metadata for RX path", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1be", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121001e", "status": "ok", "name": "log_dispatch_free_read1c", "params": [], "docstring": "Log dispatch epilogue popping regs and reading byte at 0x1c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

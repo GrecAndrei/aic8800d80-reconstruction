@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_4dd", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121298e", "status": "ok", "name": "rf_cmd_send_n_4dd", "params": [], "docstring": "Builds and sends an RF command packet via IPC", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

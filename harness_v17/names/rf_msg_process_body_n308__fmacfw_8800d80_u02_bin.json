@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n308", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213f50", "status": "ok", "name": "rf_state_check_n4f4", "params": [], "docstring": "Check and validate RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

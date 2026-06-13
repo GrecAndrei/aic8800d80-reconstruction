@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n4ca", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213a22", "status": "ok", "name": "rf_cmd_process_n4ca", "params": [], "docstring": "Process RF command handler (n4ca variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n4c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211da4", "status": "ok", "name": "rf_bus_setup_n4c", "params": [], "docstring": "Configure RF bus registers at offset 0x900", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n4c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211da4", "status": "ok", "name": "rf_bus_setup_n4c_1da4", "params": [], "docstring": "Configure RF bus registers at offset 0x900", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

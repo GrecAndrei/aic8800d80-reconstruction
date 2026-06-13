@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n_33e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e006", "status": "ok", "name": "sdio_buffer_prepare_n_33e", "params": [], "docstring": "Prepare SDIO buffer for DMA transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n_33e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e006", "status": "ok", "name": "sdio_buffer_prepare_n_33e_e006", "params": [], "docstring": "Prepare SDIO buffer for DMA transfer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

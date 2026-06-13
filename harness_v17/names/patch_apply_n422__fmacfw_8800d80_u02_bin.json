@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n422", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12152ce", "status": "ok", "name": "rf_cmd_send_n_4e5", "params": [], "docstring": "Sends an RF command via mailbox", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

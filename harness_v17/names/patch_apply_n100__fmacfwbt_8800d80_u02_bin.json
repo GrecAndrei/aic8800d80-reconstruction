@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n100", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12155e8", "status": "ok", "name": "patch_apply_n100", "params": [], "docstring": "Apply firmware patch computing shifted index", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_298", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211728", "status": "ok", "name": "rf_bus_write_n_298", "params": [], "docstring": "Write data over RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_298", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211728", "status": "ok", "name": "rf_bus_write_n_298_1728", "params": [], "docstring": "Write data over RF bus interface", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

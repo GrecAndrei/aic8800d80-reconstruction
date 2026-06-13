@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_nea", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12130fa", "status": "ok", "name": "rf_cmd_send_nea_setup", "params": [], "docstring": "Sets up RF command send constants 0x30 and dispatch table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

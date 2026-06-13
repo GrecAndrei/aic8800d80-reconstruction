@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n10c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121311c", "status": "ok", "name": "rf_cmd_send_n10c", "params": [], "docstring": "Send RF command by writing status=3 and clear flag, then poll for completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

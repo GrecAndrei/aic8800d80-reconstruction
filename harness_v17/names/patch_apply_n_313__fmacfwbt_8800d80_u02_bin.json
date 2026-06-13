@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_313", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151d4", "status": "ok", "name": "patch_apply_n_313", "params": [], "docstring": "Applies a firmware patch via indirect call and bit extraction", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

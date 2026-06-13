@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_3ec", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211f04", "status": "ok", "name": "rf_bus_reset_n_3ec", "params": [], "docstring": "RF bus reset: bit-mask 0x7f0 update to 0x800 reg, write 7", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_nfa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212f66", "status": "ok", "name": "rf_cmd_send_nfa", "params": [], "docstring": "Sends an NFA RF command and increments sequence id", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

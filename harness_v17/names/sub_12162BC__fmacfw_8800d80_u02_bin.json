@@ -1,0 +1,1 @@
+{"fn": "sub_12162BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12162bc", "status": "ok", "name": "sub_12162BC", "params": [], "docstring": "Dispatch/route based on value comparison against 5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

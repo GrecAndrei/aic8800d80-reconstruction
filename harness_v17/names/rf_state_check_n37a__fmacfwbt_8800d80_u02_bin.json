@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n37a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12123aa", "status": "ok", "name": "rf_state_check_n37a", "params": [], "docstring": "Checks RF state register fields for expected values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_n_2d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121256e", "status": "ok", "name": "rf_bus_reset_n_2d6", "params": [], "docstring": "Reset RF bus and clamp configuration register values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_n_2d6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121256e", "status": "ok", "name": "rf_bus_reset_n_2d6_256e", "params": [], "docstring": "Reset RF bus and clamp configuration register values", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

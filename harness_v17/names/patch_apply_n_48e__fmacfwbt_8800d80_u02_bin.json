@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_48e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121505a", "status": "ok", "name": "fw_info_lookup_n_2ec6c", "params": [], "docstring": "Lookup data pointer at 0x182810 with size compare against 0x10", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

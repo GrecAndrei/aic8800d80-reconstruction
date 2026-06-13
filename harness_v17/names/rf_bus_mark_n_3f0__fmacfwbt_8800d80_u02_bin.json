@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12112f0", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Applies a firmware patch via memory write", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

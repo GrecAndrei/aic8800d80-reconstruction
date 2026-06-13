@@ -1,1 +1,1 @@
-{"fn": "rf_mem_write_n_4a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fe2", "status": "ok", "name": "rf_mem_write_word", "params": [], "docstring": "Write 16-bit value from buffer to RF register table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_mem_write_n_4a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221fe2", "status": "ok", "name": "rf_mem_write_word_1fe2", "params": [], "docstring": "Write 16-bit value from buffer to RF register table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

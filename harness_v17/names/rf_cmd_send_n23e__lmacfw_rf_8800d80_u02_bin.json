@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n23e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b56", "status": "ok", "name": "rf_cmd_send_n23e", "params": [], "docstring": "Send RF command with size/type validation (capped at 0xd)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

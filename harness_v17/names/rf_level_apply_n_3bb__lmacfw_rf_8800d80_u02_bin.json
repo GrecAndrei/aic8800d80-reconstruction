@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_3bb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226a1c", "status": "ok", "name": "rf_level_apply_n_3bb", "params": [], "docstring": "Apply RF gain/level by clearing/setting bitfields in PHY control regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

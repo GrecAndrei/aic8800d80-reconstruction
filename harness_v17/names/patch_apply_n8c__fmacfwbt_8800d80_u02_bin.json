@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n8c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215574", "status": "ok", "name": "rf_cmd_send_n3e", "params": [], "docstring": "Send RF command by writing into mailbox/control regs", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n1c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212934", "status": "ok", "name": "rf_cmd_send_n1c", "params": [], "docstring": "RF command send via 0x40022000 + 0x900 register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

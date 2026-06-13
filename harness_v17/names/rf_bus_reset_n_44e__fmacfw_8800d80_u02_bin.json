@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_44e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121259a", "status": "ok", "name": "rf_bus_setup_n5e", "params": [], "docstring": "Set up RF bus with 0x900 register and bounds-check 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

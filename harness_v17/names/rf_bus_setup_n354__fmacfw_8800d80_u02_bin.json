@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n354", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212250", "status": "ok", "name": "rf_bus_setup_n354", "params": [], "docstring": "Configure RF bus registers and timing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n354", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212250", "status": "ok", "name": "rf_bus_setup_n354_2250", "params": [], "docstring": "Configure RF bus registers and timing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

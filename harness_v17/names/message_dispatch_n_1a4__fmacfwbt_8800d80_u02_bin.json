@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_1a4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ca10", "status": "ok", "name": "message_dispatch_n_1a4_ca10", "params": [], "docstring": "Dispatch IPC/fmac message by opcode, compare against 0x24", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

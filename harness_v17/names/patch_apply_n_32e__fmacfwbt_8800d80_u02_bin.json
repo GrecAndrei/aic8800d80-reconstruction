@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_32e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151ba", "status": "ok", "name": "patch_apply_n_32e", "params": [], "docstring": "Apply firmware patch via indirection table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

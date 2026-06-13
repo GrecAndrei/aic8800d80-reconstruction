@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n312", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cec6", "status": "ok", "name": "message_dispatch_n312", "params": [], "docstring": "Bluetooth HCI message dispatch checking 0x6C ('l') opcode", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

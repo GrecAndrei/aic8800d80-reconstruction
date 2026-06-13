@@ -1,0 +1,1 @@
+{"fn": "rf_msg_process_body_n1d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213e1e", "status": "ok", "name": "rf_msg_process_body_n1d6", "params": [], "docstring": "RF message body handler clearing struct fields at offsets 0x24/0x42/0x48/0x52/0x54", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

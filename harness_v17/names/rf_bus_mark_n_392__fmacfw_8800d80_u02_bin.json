@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_392", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114f2", "status": "ok", "name": "rf_bus_mark_n_392", "params": [], "docstring": "Compares two RF bus indices to mark/select current entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

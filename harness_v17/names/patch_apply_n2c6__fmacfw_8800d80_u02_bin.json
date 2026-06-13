@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2c6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215172", "status": "ok", "name": "patch_apply_n2c6", "params": [], "docstring": "Loads patch parameters and invokes patch routine", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

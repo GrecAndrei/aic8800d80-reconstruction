@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n4f2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a16", "status": "ok", "name": "rf_bus_write2_n4f2", "params": [], "docstring": "Writes masked value to RF MMIO register at offset 0xb00 then conditionally continues", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

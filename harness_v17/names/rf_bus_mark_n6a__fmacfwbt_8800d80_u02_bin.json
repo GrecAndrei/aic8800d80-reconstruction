@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n6a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121174a", "status": "ok", "name": "rf_bus_mark_n6a", "params": [], "docstring": "Mark RF bus register at offset 0x914 with value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

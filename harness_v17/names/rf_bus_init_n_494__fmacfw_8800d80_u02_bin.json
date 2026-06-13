@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_494", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211924", "status": "ok", "name": "rf_bus_init_wait", "params": [], "docstring": "Configure RF bus register field and poll status bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_state_check_n42e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212602", "status": "ok", "name": "rf_state_check_n42e", "params": [], "docstring": "Validates and stores RF state register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_state_check_n42e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212602", "status": "ok", "name": "rf_state_check_n42e_2602", "params": [], "docstring": "Validates and stores RF state register bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

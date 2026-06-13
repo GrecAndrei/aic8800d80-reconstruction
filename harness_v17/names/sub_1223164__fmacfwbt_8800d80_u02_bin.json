@@ -1,0 +1,1 @@
+{"fn": "sub_1223164", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223164", "status": "ok", "name": "bt_hci_cmd_alloc_n_12c", "params": [], "docstring": "Allocate and initialize an HCI command buffer (tag 0x74)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

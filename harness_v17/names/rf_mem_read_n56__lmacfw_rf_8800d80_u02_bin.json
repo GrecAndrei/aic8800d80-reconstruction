@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n56", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f5ea", "status": "ok", "name": "rf_mem_read_n56", "params": [], "docstring": "Performs shift-right by 12 on memory address for RF register access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

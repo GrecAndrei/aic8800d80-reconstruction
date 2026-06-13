@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_76", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215906", "status": "ok", "name": "ipc_doorbell_handler_n_76", "params": [], "docstring": "Handles IPC doorbell interrupt, notifies UMAC with status flag", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

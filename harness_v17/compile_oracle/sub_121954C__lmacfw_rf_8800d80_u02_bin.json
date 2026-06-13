@@ -1,0 +1,112 @@
+{
+  "function": "sub_121954C",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x11954c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0011954c      30b5           push {r4, r5, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled binary at 0x100000 contains no valid instructions (all 0xFFFFFFFF) \u2014 compilation/linker step failed to produce output for the reconstructed C function"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011954e      1846           mov r0, r3",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "All compiled bytes are 0xFFFFFFFF; entire prologue/function body is absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119550      83b0           sub sp, 0xc",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Stack frame allocation (sub sp, 0xc) is missing from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119552      1023           movs r3, 0x10",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Argument 0x10 setup is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119554      0d46           mov r5, r1",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "Save of r1 (r5) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119556      0146           mov r1, r0",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "Register shuffle (r1 = r0) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119558      6a20           movs r0, 0x6a",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "Immediate 0x6a ('j') argument setup is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011955a      04f049fc       bl 0x11ddf0",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "bl to 0x11ddf0 is missing \u2014 call to sub_11DDF0 is absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011955e      0023           movs r3, 0",
+        "compiled": "0x00100020      ffffffff       invalid",
+        "fix_hint": "movs r3, 0 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119560      424a           ldr r2, [0x11966c]",
+        "compiled": "0x00100024      ffffffff       invalid",
+        "fix_hint": "PC-relative literal pool load (0x40500000) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119562      8df80230       strb.w r3, [sp, 2]",
+        "compiled": "0x00100028      ffffffff       invalid",
+        "fix_hint": "Stack byte store at [sp+2] is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119566      8df80330       strb.w r3, [sp, 3]",
+        "compiled": "0x0010002c      ffffffff       invalid",
+        "fix_hint": "Stack byte store at [sp+3] is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011956a      1368           ldr r3, [r2]",
+        "compiled": "0x00100030      ffffffff       invalid",
+        "fix_hint": "Indirect load via r2 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011956c      1b0e           lsrs r3, r3, 0x18",
+        "compiled": "0x00100034      ffffffff       invalid",
+        "fix_hint": "LSR r3, r3, 0x18 is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011956e      13f00203       ands r3, r3, 2",
+        "compiled": "0x00100038      ffffffff       invalid",
+        "fix_hint": "Bitmask test (ands r3, r3, 2) is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x00119572      0446           mov r4, r0",
+        "compiled": "0x0010003c      ffffffff       invalid",
+        "fix_hint": "Save of return value (r4 = r0) is missing"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled binary at 0x100000-0x10004c contains only 0xFFFFFFFF bytes \u2014 the mechanical reconstruction produced no valid code at all",
+      "Possible causes: C source reconstruction is incorrect/incomplete, compiler failed, linker did not emit a .text section, or the compiled binary was not loaded into the analysis image",
+      "Original function is 16 valid Thumb instructions (push, argument setup for bl 0x11ddf0, literal pool load of 0x40500000, byte stores to stack, bit-test sequence) \u2014 none of which appear in the compiled output",
+      "Cannot perform any meaningful structural comparison until the compiled binary is regenerated and placed in a readable image"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n316", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210176", "status": "ok", "name": "log_free_dispatch_n316", "params": [], "docstring": "Free log buffer entry from dispatch queue", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "rf_bus_mark_n_3c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114bc", "status": "ok", "name": "rf_bus_mark_slot", "params": [], "docstring": "Compute/mark RF bus slot via shift by 0x13", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_mark_n_3c8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12114bc", "status": "ok", "name": "rf_bus_mark_slot_14bc", "params": [], "docstring": "Compute/mark RF bus slot via shift by 0x13", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

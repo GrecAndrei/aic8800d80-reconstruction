@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212a00", "status": "ok", "name": "rf_bus_reset_n18", "params": [], "docstring": "Reset RF bus: clear 0x804 bit0, call helper, rotate 0x18", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

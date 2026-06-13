@@ -1,1 +1,1 @@
-{"fn": "rf_level_apply_n_3f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269e0", "status": "ok", "name": "rf_state_check_n86", "params": [], "docstring": "Check RF state machine status (variant _n86)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_level_apply_n_3f8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12269e0", "status": "ok", "name": "rf_state_check_n86_69e0", "params": [], "docstring": "Check RF state machine status (variant _n86)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

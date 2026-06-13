@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n3d6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222402", "status": "ok", "name": "rf_mem_write_n3d6", "params": [], "docstring": "Writes RF register block using packed store-multiple with magic 0xaaaa0007/0x80000007", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

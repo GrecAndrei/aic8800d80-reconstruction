@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_148", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126fc", "status": "ok", "name": "rf_bus_reset_n_148", "params": [], "docstring": "Reset RF bus interface to base address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

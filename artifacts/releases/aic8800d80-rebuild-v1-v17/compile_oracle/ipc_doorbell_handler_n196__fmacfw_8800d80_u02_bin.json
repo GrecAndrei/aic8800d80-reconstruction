@@ -1,0 +1,22 @@
+{
+  "function": "ipc_doorbell_handler_n196",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115b12",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115b12      012b           cmp r3, 1",
+        "compiled": "0x0010cf80  ~   ffffffff       invalid",
+        "fix_hint": "Compiled function not found at expected address; entire 'cmp r3, #1' body is missing \u2014 reconstruction likely failed or was placed at wrong base address"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disasm at 0x0010cf80 is entirely 'invalid' (0xFFFFFFFF markers) \u2014 the mechanically reconstructed C function does not exist at the expected mapped address",
+      "find_callees/find_callers both return empty, confirming ipc_doorbell_handler_n196 was not registered in the reconstructed symbol table",
+      "Original function is a trivial 1-instruction Thumb-2 body (cmp r3, #1), but the compiled binary has no equivalent \u2014 total structural divergence",
+      "Raw bytes at compiled address (0x2d004605, 0x80b0f000, 0x80e9683b, 0x8963af2e, 0xf2402b6c) are real ARM/Thumb code but do not match the original \u2014 the compiled image's code was linked at entirely different addresses from the original firmware"
+    ]
+  }
+}

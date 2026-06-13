@@ -1,0 +1,1 @@
+{"fn": "sub_120ECD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120ecd8", "status": "ok", "name": "mmio_lmac_init_n_ecd8", "params": [], "docstring": "Initialize LMAC MMIO control registers and doorbell", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

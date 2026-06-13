@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_302", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211ab6", "status": "ok", "name": "rf_bus_init", "params": [], "docstring": "Initialize RF bus registers with base address and clear control bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

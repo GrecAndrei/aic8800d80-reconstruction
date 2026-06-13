@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n7", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e72", "status": "ok", "name": "rf_cmd_send_n7", "params": [], "docstring": "Send RF command and check completion status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

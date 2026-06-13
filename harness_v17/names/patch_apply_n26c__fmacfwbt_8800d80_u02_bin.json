@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n26c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215754", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch with bitwise masking", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n26c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215754", "status": "ok", "name": "patch_apply_5754", "params": [], "docstring": "Apply firmware patch with bitwise masking", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

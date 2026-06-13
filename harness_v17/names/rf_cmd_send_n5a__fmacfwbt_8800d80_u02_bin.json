@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n5a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ec6", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send command to RF controller (alt path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n5a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ec6", "status": "ok", "name": "rf_cmd_send_2ec6", "params": [], "docstring": "Send command to RF controller (alt path)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

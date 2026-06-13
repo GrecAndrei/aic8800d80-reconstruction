@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_4e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121549a", "status": "ok", "name": "patch_apply_n_4e", "params": [], "docstring": "Patches 2 firmware words using constant table entries (id 0x18/0x14)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_402", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212516", "status": "ok", "name": "rf_cmd_send_n_402", "params": [], "docstring": "Sets a control flag and prepares an RF command descriptor for transmission", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

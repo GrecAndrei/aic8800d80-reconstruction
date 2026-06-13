@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n54", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214f00", "status": "ok", "name": "patch_apply_n54", "params": [], "docstring": "Apply a patch descriptor (variant n54)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_320", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214b8c", "status": "ok", "name": "patch_apply_n_320", "params": [], "docstring": "Apply ROM patch entry and check status bit", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

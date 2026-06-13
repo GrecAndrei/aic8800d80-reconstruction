@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n186", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121b6", "status": "ok", "name": "rf_set_mode_6", "params": [], "docstring": "Set RF operating mode parameter to 6 and verify result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

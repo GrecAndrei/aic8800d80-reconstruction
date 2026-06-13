@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n28e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212ba6", "status": "ok", "name": "rf_cmd_send_n28e", "params": [], "docstring": "Compare RF command id against expected value before send", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

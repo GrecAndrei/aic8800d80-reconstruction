@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3b6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12122b2", "status": "ok", "name": "rf_cmd_send_n_4af", "params": [], "docstring": "Builds and queues RF command with 0x50-byte payload, clears queue slots", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

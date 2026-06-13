@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_fa", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122caba", "status": "ok", "name": "rf_bus_reset_n4bb", "params": [], "docstring": "RF bus reset variant reading status byte from saved frame", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

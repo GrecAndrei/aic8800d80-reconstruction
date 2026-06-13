@@ -1,0 +1,1 @@
+{"fn": "sub_12236FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12236fc", "status": "ok", "name": "rf_chan_band_parse", "params": [], "docstring": "Parse channel/band byte fields from descriptor", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

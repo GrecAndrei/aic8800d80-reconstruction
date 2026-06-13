@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n254", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212b6c", "status": "ok", "name": "rf_cmd_send_n254", "params": [], "docstring": "RF command send dispatcher validating command code against 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

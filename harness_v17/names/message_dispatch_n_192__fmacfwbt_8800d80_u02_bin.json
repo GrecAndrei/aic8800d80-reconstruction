@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_192", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ca22", "status": "ok", "name": "message_dispatch_n_192", "params": [], "docstring": "Message dispatcher reading handler table and queue pointer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

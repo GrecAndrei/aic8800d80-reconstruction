@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n432", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121232e", "status": "ok", "name": "rf_bus_setup_n432", "params": [], "docstring": "RF bus setup routine comparing state against 6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n432", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121232e", "status": "ok", "name": "rf_bus_setup_n432_232e", "params": [], "docstring": "RF bus setup routine comparing state against 6", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

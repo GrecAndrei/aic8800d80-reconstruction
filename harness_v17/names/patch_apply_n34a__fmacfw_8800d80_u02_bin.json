@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n34a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12151f6", "status": "ok", "name": "patch_apply_n34a", "params": [], "docstring": "Extract patch bitfields from word value", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

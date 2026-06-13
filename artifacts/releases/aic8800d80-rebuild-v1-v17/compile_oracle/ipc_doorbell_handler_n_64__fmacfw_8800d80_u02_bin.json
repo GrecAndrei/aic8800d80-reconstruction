@@ -1,0 +1,47 @@
+{
+  "function": "ipc_doorbell_handler_n_64",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115918",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115934      602b           cmp r3, 0x60",
+        "compiled": "0x00105b08  ~   ffffffff       invalid",
+        "fix_hint": "Compiled disassembly shows all 0xFFFFFFFF - entire function body is missing/invalid; needs recompilation"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115938      8c7f           ldrb r4, [r1, 0x1e]",
+        "compiled": "0x00105b0c  ~   ffffffff       invalid",
+        "fix_hint": "ldrb instruction not present in compiled output; ensure pointer dereference to offset 0x1e is generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115940      c477           strb r4, [r0, 0x1f]",
+        "compiled": "0x00105b14      ffffffff       invalid",
+        "fix_hint": "strb to [r0+0x1f] not present; store operation missing from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115960      582b           cmp r3, 0x58",
+        "compiled": "0x00105b34      5bf82220       ldr.w r2, [fp, r2, lsl 2]",
+        "fix_hint": "C source structure does not produce expected comparison; control flow diverges completely"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x00115964      d881           strh r0, [r3, 0xe]",
+        "compiled": "0x00105b38      ba42           cmp r2, r7",
+        "fix_hint": "Compiled emits compare instead of halfword store; byte/halfword store operations not generated correctly"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disassembly displays 0xFFFFFFFF for all instructions - the disassembly output is entirely corrupt/invalid despite memory containing real bytes (0xd0082c01, 0xe8bdd1f5 etc. confirmed via read_dword)",
+      "Function body is completely missing - no recognizable cmp/movs/ldrb/strb sequence from the original appears in compiled output",
+      "Address mapping is wrong: original is at 0x115918, compiled shown at 0x105b00 - the compiled function is not ipc_doorbell_handler_n_64",
+      "Memory at 0x105b00 actually contains unrelated ARM code (add.w, mov, bl, ldr.w patterns), confirming complete function mismatch",
+      "All 20 listed compiled lines are invalid; this is a total reconstruction failure requiring full recompile from corrected C source"
+    ]
+  }
+}

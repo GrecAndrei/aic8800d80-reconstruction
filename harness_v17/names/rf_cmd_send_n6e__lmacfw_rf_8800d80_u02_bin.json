@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n6e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212986", "status": "ok", "name": "rf_cmd_send_n6e", "params": [], "docstring": "Send RF command by writing byte to multiple command register addresses", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

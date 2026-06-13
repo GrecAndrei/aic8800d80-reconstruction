@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n112", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122213e", "status": "ok", "name": "rf_mem_write_n112", "params": [], "docstring": "Write to RF memory at offset n112", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

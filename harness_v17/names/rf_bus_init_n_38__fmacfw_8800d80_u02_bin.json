@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n_38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211d80", "status": "ok", "name": "rf_bus_init_n_38", "params": [], "docstring": "Trivial RF bus init stub (just returns)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

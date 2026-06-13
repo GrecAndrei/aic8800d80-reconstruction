@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_1b4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212764", "status": "ok", "name": "message_dispatch_n32c", "params": [], "docstring": "Dispatch host message by opcode via jump table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

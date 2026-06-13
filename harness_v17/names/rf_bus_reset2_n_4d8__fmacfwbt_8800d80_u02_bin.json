@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_4d8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211380", "status": "ok", "name": "rf_bus_reset2_n_4d8_1380", "params": [], "docstring": "Reset RF bus and write marker 0x71 to control", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

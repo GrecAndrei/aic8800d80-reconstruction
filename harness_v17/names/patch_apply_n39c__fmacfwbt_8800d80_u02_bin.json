@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n39c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215884", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch via SCB->VTOR and target address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n39c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215884", "status": "ok", "name": "patch_apply_5884", "params": [], "docstring": "Apply firmware patch via SCB->VTOR and target address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

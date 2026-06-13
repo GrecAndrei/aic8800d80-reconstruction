@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n322", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ced6", "status": "ok", "name": "message_dispatch_n322", "params": [], "docstring": "Dispatch IPC message by ID to handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n322", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ced6", "status": "ok", "name": "message_dispatch_n322_ced6", "params": [], "docstring": "Dispatch IPC message by ID to handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

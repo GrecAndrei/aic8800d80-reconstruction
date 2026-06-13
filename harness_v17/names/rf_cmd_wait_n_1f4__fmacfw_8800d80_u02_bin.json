@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_wait_n_1f4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212d7c", "status": "ok", "name": "rf_mem_read_n3b6", "params": [], "docstring": "Compute RF memory read offset via shift by 5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

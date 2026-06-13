@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n402", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12152ae", "status": "ok", "name": "patch_apply", "params": [], "docstring": "Apply firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n402", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12152ae", "status": "ok", "name": "patch_apply_52ae", "params": [], "docstring": "Apply firmware patch entry", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

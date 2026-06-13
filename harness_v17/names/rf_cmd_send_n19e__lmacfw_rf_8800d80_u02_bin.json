@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n19e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212ab6", "status": "ok", "name": "rf_cmd_send_n19e", "params": [], "docstring": "Send RF command to firmware with sync/ack flow", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

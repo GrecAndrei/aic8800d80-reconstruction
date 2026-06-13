@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_4e6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202dea", "status": "ok", "name": "sdio_buffer_prepare_n_492", "params": [], "docstring": "Prepare SDIO buffer, returns 0 on null/conditional path", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

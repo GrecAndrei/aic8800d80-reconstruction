@@ -1,0 +1,28 @@
+{
+  "function": "rf_mem_read_slow",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x11f924",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0011f924  lsls r3, r6, 5",
+        "compiled": "0x00109544  invalid (0x46bada07)",
+        "fix_hint": "The original has 20 consecutive 'lsls r3, r6, #5' instructions forming a delay loop; the compiled C must emit 20 equivalent Thumb 'lsls r3, r6, #5' (or equivalent 2-cycle NOP) at function start."
+      },
+      {
+        "type": "missing",
+        "original": "0x0011f926  lsls r3, r6, 5",
+        "compiled": "0x00109546  invalid",
+        "fix_hint": "Continue emitting the 20x lsls r3,r6,#5 delay-loop sequence."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Complete loss of the 20-instruction 'lsls r3, r6, #5' delay/NOP loop prologue",
+      "Compiled function body at 0x109544 does not begin with valid Thumb code matching the original",
+      "No behavioral trace available to guide reconstruction",
+      "The mechanical generator may have been called without seeing the loop body, or the C source omitted a 'for (i=0; i<20; i++) __asm(\"lsls r3, r6, #5\");' style construct"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "function": "sub_123BEF8",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x13bef8",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x0013bef8      2de9f041       push.w {r4, r5, r6, r7, r8, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled binary placed at wrong address or contains all-0xFF padding; regenerate the compiled object at the correct base/section for sub_123BEF8."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013befc      184d           ldr r5, [0x0013bf60]",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "All instructions in the compiled image decode as invalid (0xFFFFFFFF); entire function body is missing or at the wrong address."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013befe      05eb4016       add.w r6, r5, r0, lsl 5",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Verify compiled ELF/base address matches 0x13bef8 region; current address 0x100000 is outside the function."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf02      0f28           cmp r0, 0xf",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Compiled output should encode `cmp r0, 0xf` (0x280f) but instead has 0xFFFFFFFF fill."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf04      377c           ldrb r7, [r6, 0x10]",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "ldrb r7, [r6, 0x10] is missing; compiled image has no valid bytes at this offset."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf06      84b0           sub sp, 0x10",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "sub sp, 0x10 is absent from compiled output."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf08      0446           mov r4, r0",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "mov r4, r0 is missing; entire prologue logic not present in compiled image."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf0a      4fea4018       lsl.w r8, r0, 5",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "lsl.w r8, r0, 5 not emitted; compiled image is all 0xFF."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0013bf0e      3146           mov r1, r6",
+        "compiled": "0x00100020      ffffffff       invalid",
+        "fix_hint": "mov r1, r6 missing; compiled output is blank/invalid."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disasm is at address 0x100000 but the original function is at 0x13bef8 \u2014 the base address is completely wrong (or the compiled object was linked at a different base).",
+      "Every single instruction in the compiled output decodes as `invalid` (0xFFFFFFFF), meaning the compiled binary/image contains 0xFF fill rather than the function body.",
+      "Actual firmware bytes at 0x100000 decode to valid Thumb instructions (movs, lsls, bx sb, strh, etc.) \u2014 the 0xFFFFFFFF content shown does not correspond to any known firmware image.",
+      "The mechanical reconstruction did not produce a usable compiled artifact for this function; the generator needs to be fixed to emit the function at the correct address with correct encoding."
+    ]
+  }
+}

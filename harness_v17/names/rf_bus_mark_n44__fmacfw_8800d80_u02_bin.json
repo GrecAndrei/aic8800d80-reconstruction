@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118c8", "status": "ok", "name": "rf_bus_mark_n44", "params": [], "docstring": "Mark/flag RF bus descriptor with 0xc0 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

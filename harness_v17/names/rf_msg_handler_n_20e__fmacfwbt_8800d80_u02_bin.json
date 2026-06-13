@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_20e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212d52", "status": "ok", "name": "rf_state_check_n_25a", "params": [], "docstring": "Check and update RF state flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

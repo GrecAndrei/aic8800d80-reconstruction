@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_38e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210dfe", "status": "ok", "name": "rf_bus_mark_n_38e", "params": [], "docstring": "Mark/flag RF bus with 0x400 value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

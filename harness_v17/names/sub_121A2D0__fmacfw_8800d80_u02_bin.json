@@ -1,0 +1,1 @@
+{"fn": "sub_121A2D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121a2d0", "status": "ok", "name": "sub_121A2D0", "params": [], "docstring": "Decrement reference counter at offset 0xe and deref handle at 0x154", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

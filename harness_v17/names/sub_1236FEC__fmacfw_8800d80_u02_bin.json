@@ -1,0 +1,1 @@
+{"fn": "sub_1236FEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236fec", "status": "ok", "name": "sub_1236FEC", "params": [], "docstring": "Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

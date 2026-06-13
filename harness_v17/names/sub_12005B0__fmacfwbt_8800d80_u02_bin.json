@@ -1,0 +1,1 @@
+{"fn": "sub_12005B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12005b0", "status": "ok", "name": "fw_init_setup", "params": [], "docstring": "Early firmware init: load base ptr and call init helpers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

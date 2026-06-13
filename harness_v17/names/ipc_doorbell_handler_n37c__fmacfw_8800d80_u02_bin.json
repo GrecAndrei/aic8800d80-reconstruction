@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n37c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215cf8", "status": "ok", "name": "ipc_doorbell_handler_n37c", "params": [], "docstring": "IPC doorbell handler dispatching msg ids 0x9c and 0xa0 to next stage", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

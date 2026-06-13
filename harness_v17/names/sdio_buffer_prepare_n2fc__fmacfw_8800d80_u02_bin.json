@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n2fc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e418", "status": "ok", "name": "sdio_buffer_prepare_n2fc_e418", "params": [], "docstring": "Set SDIO buffer flag bit and return", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

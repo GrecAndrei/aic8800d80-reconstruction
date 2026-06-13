@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_36", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211ffa", "status": "ok", "name": "rf_state_check_n_36", "params": [], "docstring": "Checks RF state and returns status code 1 or 2", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

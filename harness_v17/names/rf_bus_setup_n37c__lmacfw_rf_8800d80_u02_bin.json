@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n37c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b80", "status": "ok", "name": "rf_bus_setup_n37c", "params": [], "docstring": "RF bus setup: pack bits into control register field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

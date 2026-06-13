@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cad8", "status": "ok", "name": "message_dispatch_n_dc", "params": [], "docstring": "Dispatch IPC message using 16-bit field from header", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

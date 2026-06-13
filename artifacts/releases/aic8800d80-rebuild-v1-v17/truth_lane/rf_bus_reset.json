@@ -1,0 +1,31 @@
+{
+  "function": "rf_bus_reset",
+  "report": {
+    "name": "rf_bus_reset",
+    "purpose": "Resets the RF (radio-frequency) bus interface used to communicate with the on-chip RF transceiver/frontend. The function is part of the AIC8800D80 radio control subsystem and is invoked by higher-level RF bus reset routines to bring the shared RF bus back to a known idle state, typically before re-initialising the radio or recovering from a bus error. Because the BT-paired firmware image (fmacfwbt_8800d80_u02_bin) at the labelled address 0x1212844 is filled with 0xFF (erased/unmapped region of the binary), the function body could not be disassembled and this purpose is inferred from the docstring, the 'rf' subsystem tag, and the call-graph relation to rf_bus_reset2.",
+    "parameters": [
+      {
+        "type": "unknown",
+        "name": "unknown",
+        "purpose": "Signature/parameters cannot be recovered; no prologue or callers' argument setup is visible in the fmacfwbt_8800d80_u02_bin image at 0x1212844 (region reads as 0xFFFFFFFF)."
+      }
+    ],
+    "return_value": {
+      "type": "void_or_int",
+      "meaning": "Likely void or int status; cannot be confirmed \u2014 disassembly at 0x1212844 is unavailable (0xFF padding)."
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "No MMIO addresses could be captured. The disasm/read_dword/read_byte tools all return null/0xFF for the function range 0x01212844-0x01212930 in fmacfwbt_8800d80_u02_bin (and the same 0xFF pattern shows at that address in fmacfw_8800d80_h_u02_bin, fmacfw_8800d80_u02_bin, and lmacfw_rf_8800d80_u02_bin), so no register_at verification of any candidate RF-MMIO write is possible from this image."
+    ],
+    "key_callees": [
+      "(none recovered) \u2014 find_callees on rf_bus_reset_844 returned an empty list in every image; behavioural_mmio_summary also returned null."
+    ],
+    "key_callers": [
+      "rf_bus_reset2 (per find_callers on the 'rf_bus_reset' name, which returned 'behavioral_rf_bus_reset2_n_4f7' and 'behavioral_rf_bus_reset2_n_473' \u2014 these are rf_bus_reset2 variants that invoke the simpler rf_bus_reset as part of a multi-stage bus reset sequence)."
+    ],
+    "complexity": "low",
+    "lines_of_c": 0,
+    "summary": "A short, low-level RF-bus reset stub in the BT-paired fmacfw image that is invoked by rf_bus_reset2 to re-initialise the shared RF control bus; function body and MMIO footprint could not be recovered because the labelled address 0x1212844 sits in an all-0xFF (erased/empty) region of fmacfwbt_8800d80_u02_bin."
+  }
+}

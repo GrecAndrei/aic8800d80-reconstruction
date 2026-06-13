@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_472", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211412", "status": "ok", "name": "rf_bus_mark_n_472", "params": [], "docstring": "Marks/updates RF bus register at 0x40240188 with computed field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

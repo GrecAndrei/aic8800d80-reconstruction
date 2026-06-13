@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_152", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121186e", "status": "ok", "name": "rf_bus_write_n_152", "params": [], "docstring": "Writes RF bus control register 0x40200000 with OR'd flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n1bc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221e8", "status": "ok", "name": "rf_mem_write_n1bc", "params": [], "docstring": "Writes a 16-bit value into RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

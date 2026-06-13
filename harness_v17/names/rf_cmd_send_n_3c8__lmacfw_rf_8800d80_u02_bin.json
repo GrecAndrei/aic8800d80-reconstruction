@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_3c8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212550", "status": "ok", "name": "rf_cmd_send_n_3c8", "params": [], "docstring": "Dispatch RF command via shifted register writes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

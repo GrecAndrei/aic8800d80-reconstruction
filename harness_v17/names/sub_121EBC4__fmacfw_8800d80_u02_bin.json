@@ -1,0 +1,1 @@
+{"fn": "sub_121EBC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121ebc4", "status": "ok", "name": "mmio_toggle_bits_n1c4", "params": [], "docstring": "Toggle MMIO register bits via 0x403280xx control block", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

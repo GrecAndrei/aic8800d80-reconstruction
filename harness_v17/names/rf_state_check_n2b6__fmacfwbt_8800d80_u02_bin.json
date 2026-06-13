@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n2b6", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12122e6", "status": "ok", "name": "rf_state_check_n2b6", "params": [], "docstring": "Check RF state and invoke state transition handlers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

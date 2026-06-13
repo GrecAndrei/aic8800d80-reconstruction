@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2d4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157bc", "status": "ok", "name": "patch_apply_n2d4", "params": [], "docstring": "Apply firmware patch N2D4 with argument load and dispatch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

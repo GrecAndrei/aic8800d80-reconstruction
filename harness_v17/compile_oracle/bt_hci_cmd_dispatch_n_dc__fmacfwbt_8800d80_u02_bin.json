@@ -1,0 +1,65 @@
+{
+  "function": "bt_hci_cmd_dispatch_n_dc",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x14216c",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x0014216c      2de9f04f       push.w {r4, r5, r6, r7, r8, sb, sl, fp, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output at 0x100000 is entirely 0xFF padding/invalid \u2014 the function prologue was not emitted at all; mechanical generator failed to produce code for push/pop frame setup"
+      },
+      {
+        "type": "missing",
+        "original": "0x00142170      c179           ldrb r1, [r0, 7]",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "ldrb of param->field7 never emitted; the C reconstruction is missing the r0+7 byte read that captures the command opcode/OGF field"
+      },
+      {
+        "type": "missing",
+        "original": "0x00142172      027a           ldrb r2, [r0, 8]",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "ldrb of param->field8 never emitted; missing the second byte read (OCF/parameter length) into r2"
+      },
+      {
+        "type": "missing",
+        "original": "0x00142174      8f4d           ldr r5, [0x001423b4]  ; loads 0x18eef0",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Literal-pool LDR loading 0x18eef0 (global ke_env/state pointer) not generated; the compiled code has no literal pool at all"
+      },
+      {
+        "type": "missing",
+        "original": "0x00142176      ff29           cmp r1, 0xff",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Comparison of command-OGF byte against 0xff (special-cased vendor/HCI reset path) absent from compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x00142178      93b0           sub sp, 0x4c",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Stack-frame allocation of 0x4c bytes for local variables not emitted in compiled version"
+      },
+      {
+        "type": "missing",
+        "original": "0x0014217a      0446           mov r4, r0",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Save of arg0 (param pointer) into r4 (callee-saved) not generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x0014217c      1646           mov r6, r2",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Move of ldrb result r2 (param->field8) into r6 (callee-saved) not generated"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The 'COMPILED DISASM' dump is entirely 0xFFFFFFFF at addresses 0x100000-0x10004c, which decodes as INVALID \u2014 the compiled binary contains no valid instructions in the examined window.",
+      "A direct disasm at 0x100000 in the fmacfwbt image returns real Thumb code (movs/lsls/cmp), NOT 0xFFFFFFFF, confirming the compiled-side dump is corrupted/zero-filled/uninitialized rather than a genuine emission.",
+      "The mechanical reconstruction appears to have failed catastrophically: no function prologue, no argument reads, no literal pool, no stack frame. The C source model is not producing any code at the expected entry point.",
+      "All eight original instructions in the traced window (prologue + first two param-byte reads + literal-pool LDR + cmp + sub sp + two mov) are entirely absent from the compiled output. No partial match to grade upward.",
+      "Recommendation: re-run the mechanical generator with the function's C body; verify that the emitter is configured for Thumb-2 (not ARM mode) and that the literal-pool / stack-frame passes are enabled. Also verify the link/load address \u2014 the compiled image is being examined at 0x100000 while the original lives at 0x14216c, so the generator may be emitting to a wrong base."
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n44c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12121a4", "status": "ok", "name": "rf_bus_setup_21a4", "params": [], "docstring": "Initialize/configure RF bus controller registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

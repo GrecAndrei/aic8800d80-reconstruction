@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2fa", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121158a", "status": "ok", "name": "rf_bus_mark_n_2fa_158a", "params": [], "docstring": "RF bus mark/increment with modulo-7 counter using magic constant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

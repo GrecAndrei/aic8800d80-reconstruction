@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_4fb", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210f70", "status": "ok", "name": "rf_bus_write_n_4fb", "params": [], "docstring": "RF bus burst-write sequence ending with mailbox kick (0x1000000)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

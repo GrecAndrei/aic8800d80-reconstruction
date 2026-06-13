@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_8a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121545e", "status": "ok", "name": "patch_apply_n_8a", "params": [], "docstring": "Apply firmware patch entry via helper call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_8a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121545e", "status": "ok", "name": "patch_apply_n_8a_545e", "params": [], "docstring": "Apply firmware patch entry via helper call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

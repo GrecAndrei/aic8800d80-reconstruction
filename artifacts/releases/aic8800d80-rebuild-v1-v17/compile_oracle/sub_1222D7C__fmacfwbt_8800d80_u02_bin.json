@@ -1,0 +1,58 @@
+{
+  "function": "sub_1222D7C",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x122d7c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00122d7c      0868           ldr r0, [r1]",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Reconstruction produced no valid code; entire function body is missing/corrupted in compiled image"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d7e      38b5           push {r3, r4, r5, lr}",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "Function prologue not emitted; verify generator emits Thumb-2 push for callee-saved regs"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d82      054c           ldr r4, [0x00122d98]        ; loads 0x1733b0",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Literal-pool load of global 0x1733b0 (message buffer) absent; no MMIO/global access generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d84      4968           ldr r1, [r1, 4]   / 0x00122d86      2d89           ldrh r5, [r5, 8]",
+        "compiled": "0x0010000c-0x00100010      ffffffff       invalid",
+        "fix_hint": "Three input-struct field reads (word@0, word@4, halfword@8) not generated"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d88      03c4           stm r4!, {r0, r1}   / 0x00122d8e      2580           strh r5, [r4]",
+        "compiled": "0x00100014-0x0010001c      ffffffff       invalid",
+        "fix_hint": "10-byte copy into message buffer (8 bytes via STM + 2 bytes via STRH) absent"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d8a      1946           mov r1, r3   / 0x00122d8c      8a20           movs r0, 0x8a   / 0x00122d90      09f052ff       bl 0x12cc38",
+        "compiled": "0x00100020-0x00100028      ffffffff       invalid",
+        "fix_hint": "Call to sub_12cc38 with r0=0x8a, r1=saved_r3 (caller's r3) not emitted; needs explicit args (u32 0x8a, ptr/u32 from saved reg)"
+      },
+      {
+        "type": "missing",
+        "original": "0x00122d94      0020           movs r0, 0   / 0x00122d96      38bd           pop {r3, r4, r5, pc}",
+        "compiled": "0x0010002c-0x00100030      ffffffff       invalid",
+        "fix_hint": "Return 0 and epilogue not generated"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled output is entirely 0xFFFFFFFF 'invalid' bytes across 80 bytes \u2014 mechanical reconstruction produced NO valid ARM/Thumb instructions.",
+      "Original is a 12-instruction send-message stub: copies 3 fields (u32,u32,u16 = 10 bytes) from input struct into global msg-buffer at 0x1733b0, then tail-calls sub_12cc38(r0=0x8a, r1=caller_saved_r3).",
+      "Generator appears to have failed entirely (no prologue, no literal-pool load, no struct dereferences, no call emission, no epilogue). Possibly the C source is empty or compilation target/link step is broken.",
+      "Recommend re-running reconstruction with a verified C body that (a) reads *(u32*)arg0, *(u32*)(arg0+4), *(u16*)(arg0+8), (b) stores them to a 0x1733b0-anchored buffer, (c) invokes the callee sub_12cc38(0x8a, saved_r3), (d) returns 0."
+    ]
+  }
+}

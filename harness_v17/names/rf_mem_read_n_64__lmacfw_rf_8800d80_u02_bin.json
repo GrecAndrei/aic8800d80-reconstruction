@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_64", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f530", "status": "ok", "name": "sdio_buffer_prepare_n_474", "params": [], "docstring": "Prepare SDIO host buffer descriptors", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2d4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12102dc", "status": "ok", "name": "rf_msg_process_body_n33e", "params": [], "docstring": "RF message handler body N33E (id 0x60 dispatch)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

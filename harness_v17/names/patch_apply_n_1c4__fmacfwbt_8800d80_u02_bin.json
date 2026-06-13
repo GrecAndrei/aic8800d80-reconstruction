@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1c4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215324", "status": "ok", "name": "patch_apply_n_1c4", "params": [], "docstring": "Applies firmware patch with 0xc-byte slot via helper at 0x14380c", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

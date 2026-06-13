@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_166", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12126de", "status": "ok", "name": "rf_bus_reset_n_166", "params": [], "docstring": "Resets RF bus state, shifts index and reads register at offset 0x1d", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

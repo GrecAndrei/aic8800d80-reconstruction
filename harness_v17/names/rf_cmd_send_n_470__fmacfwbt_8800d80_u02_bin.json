@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_470", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12129fc", "status": "ok", "name": "rf_cmd_send_n_470", "params": [], "docstring": "Sends an RF command via MAC register interface", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

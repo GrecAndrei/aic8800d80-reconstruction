@@ -1,0 +1,1 @@
+{"fn": "rf_bus_init_n86", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e3e", "status": "ok", "name": "rf_bus_init_n86", "params": [], "docstring": "Initialize RF bus state, returns 2/3 codes or clears bit 0 in reg+8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

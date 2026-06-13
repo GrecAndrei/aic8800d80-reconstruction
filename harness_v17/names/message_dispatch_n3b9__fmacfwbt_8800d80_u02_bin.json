@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n3b9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cf6c", "status": "ok", "name": "message_dispatch_n3b9", "params": [], "docstring": "Decompose and dispatch message by id/queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

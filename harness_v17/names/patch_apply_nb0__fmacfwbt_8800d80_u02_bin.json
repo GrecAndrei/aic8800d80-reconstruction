@@ -1,0 +1,1 @@
+{"fn": "patch_apply_nb0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215598", "status": "ok", "name": "patch_apply_nb0", "params": [], "docstring": "Apply firmware vector table patch to SCB/NVIC regions", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

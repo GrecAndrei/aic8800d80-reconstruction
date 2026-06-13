@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n390", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211fac", "status": "ok", "name": "rf_bus_write2_n390", "params": [], "docstring": "Writes value to RF bus MMIO with shifted address", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

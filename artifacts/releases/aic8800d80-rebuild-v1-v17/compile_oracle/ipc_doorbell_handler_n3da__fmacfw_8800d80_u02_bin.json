@@ -1,0 +1,46 @@
+{
+  "function": "ipc_doorbell_handler_n3da",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115d56",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x00115d60  push.w {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}",
+        "compiled": "0x00106d0a  ldr r5, [r3]",
+        "fix_hint": "Compiled code is at the wrong address / wrong function entirely; original is a doorbell handler starting with a 10-register push, not a bic/orr bit-field routine"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d64  ldr r2, [0x00115f24]=0x16df04",
+        "compiled": "(no corresponding load of 0x16df04)",
+        "fix_hint": "Reconstruction must emit the four literal-pool LDRs of 0x16df04, 0x16df28, 0x1677a0, 0x182b5c that feed the helper call"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d6c  bl 0x12ea88",
+        "compiled": "(no call to 0x12ea88)",
+        "fix_hint": "Insert the helper-call bl 0x12ea88 with r0/r1/r2/r5 set from the literal pool"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d70  ldr r3, [0x115f34]=0x182558 / ldr r3,[r3] / cmp r3,0",
+        "compiled": "(no flag check against 0x182558)",
+        "fix_hint": "Reconstruction must include the post-call ldr of 0x182558, its dereference, and the cmp r3,#0"
+      },
+      {
+        "type": "extra",
+        "original": "(no bic/orr sequence)",
+        "compiled": "0x00106d0e..0x106d5c  repeated 'ldr r?,[sp,#off] ; bic ; orr.w ; str r?,[reg]' blocks",
+        "fix_hint": "Remove the 11 bic/orr field-insert blocks; they belong to a different function"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled address 0x106d0a is the wrong function: it disassembles to a bit-field update loop (bic/orr on a hardware register) unrelated to ipc_doorbell_handler_n3da.",
+      "The original function's preamble bytes at 0x115d56..0x115d5e ('movs r6,r2' / strb pairs) look like overlapping data/tail bytes from a preceding function; the real entry is 0x115d60 (push.w). The mechanical generator should target 0x115d60.",
+      "Original loads 4 global addresses from a literal pool near 0x115f24 and calls helper 0x12ea88; compiled reconstruction has none of this calling convention.",
+      "Post-helper flag check at 0x182558 (deref + cmp #0) is absent from the compiled version, so the generated C would not branch on doorbell-pending state correctly."
+    ]
+  }
+}

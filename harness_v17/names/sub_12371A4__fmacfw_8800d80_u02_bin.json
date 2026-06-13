@@ -1,0 +1,1 @@
+{"fn": "sub_12371A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12371a4", "status": "ok", "name": "sub_12371A4", "params": [], "docstring": "Helper reading shared flag/state at offset 0xf0b", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

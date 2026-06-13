@@ -1,0 +1,1 @@
+{"fn": "sub_1236B28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1236b28", "status": "ok", "name": "patch_apply_n_2ac", "params": [], "docstring": "Applies a firmware patch from the patch table", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

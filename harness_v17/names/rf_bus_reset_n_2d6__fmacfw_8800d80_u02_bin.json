@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_2d6", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212712", "status": "ok", "name": "rf_fault_dump_n_11a", "params": [], "docstring": "Dump RF fault state and clear fault indicators", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

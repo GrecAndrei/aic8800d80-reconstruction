@@ -1,0 +1,1 @@
+{"fn": "sub_121930E", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121930e", "status": "ok", "name": "sub_121930E", "params": [], "docstring": "Allocate 0xb-sized block, append 2-byte result from call to 0x11ddf0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

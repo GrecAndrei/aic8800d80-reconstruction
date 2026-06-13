@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n_ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a96", "status": "ok", "name": "rf_bus_write_word", "params": [], "docstring": "Writes single word to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n_ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211a96", "status": "ok", "name": "rf_bus_write_word_1a96", "params": [], "docstring": "Writes single word to RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n1f0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12118d0", "status": "ok", "name": "rf_bus_mark_n1f0", "params": [], "docstring": "Set RF bus mark bits (0x800004) in control register 0x800", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

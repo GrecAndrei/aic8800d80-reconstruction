@@ -1,0 +1,1 @@
+{"fn": "sub_123C698", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123c698", "status": "ok", "name": "rf_msg_process_body_n37", "params": [], "docstring": "Process RF message body with offset 0x6c and zero check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

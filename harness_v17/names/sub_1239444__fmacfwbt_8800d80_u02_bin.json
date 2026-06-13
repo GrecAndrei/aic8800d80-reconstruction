@@ -1,0 +1,1 @@
+{"fn": "sub_1239444", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1239444", "status": "ok", "name": "tx_desc_slot_lookup", "params": [], "docstring": "Index into TX descriptor slot table using queue id", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

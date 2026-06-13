@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n104", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12117e4", "status": "ok", "name": "rf_bus_mark_n104", "params": [], "docstring": "Mark RF bus slot/index for given parameter via shift+load", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

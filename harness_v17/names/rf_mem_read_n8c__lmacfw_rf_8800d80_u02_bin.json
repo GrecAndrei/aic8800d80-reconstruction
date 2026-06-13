@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n8c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f620", "status": "ok", "name": "rf_mem_read_n8c", "params": [], "docstring": "Reads data from RF memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,40 @@
+{
+  "function": "sub_121ACF0",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x11acf0",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x0011ad24      0449           ldr r1, [0x0011ad38]        ; [0x11ad38:4]=0x1680ec",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output is entirely invalid (0xffffffff) \u2014 reconstruction failed to produce any valid Thumb-2 code; needs full regen of sub_121ACF0 from behavioral/symbol trace."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011ad26      0548           ldr r0, [0x0011ad3c]        ; [0x11ad3c:4]=0x167eec",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "No valid LDR literal emitted; address base 0x00100000 vs original 0x0011ad24 is wrong and all words are 0xFFFFFFFF."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011ad28      5df8044b       ldr r4, [sp], 4",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Epilogue ldr r4, [sp], 4 (pop) missing; compiler emitted all-ones filler."
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0011ad2c      40f62b52       movw r2, 0xd2b",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "movw r2, #0xd2b (character argument) not emitted; reconstruction body is empty/filler."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled disassembly is entirely 0xFFFFFFFF (invalid) at base 0x00100000 \u2014 mechanical reconstruction produced no valid instructions for sub_121ACF0.",
+      "Address base mismatch: original at 0x0011ad24, compiled dumped at 0x00100000; suggests the reconstructed function was never linked/laid out correctly.",
+      "Behavioral trace returns null for sub_121ACF0, so no C-level body exists to compile from \u2014 this function may be a tail/thunk with no behavioral model.",
+      "Function reads two PC-relative LDR literals (0x1680ec, 0x167eec) and writes movw r2, #0xd2b \u2014 likely a printf/vprintf-like tail with string pointer in r0, format char in r2, and arg in r1; reconstruction must preserve these."
+    ]
+  }
+}

@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n300", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ceb4", "status": "ok", "name": "message_dispatch_n300", "params": [], "docstring": "Dispatch IPC message loading handler table entry", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n300", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ceb4", "status": "ok", "name": "message_dispatch_n300_ceb4", "params": [], "docstring": "Dispatch IPC message loading handler table entry", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

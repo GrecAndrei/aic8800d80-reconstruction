@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_18c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121535c", "status": "ok", "name": "patch_apply_n_18c", "params": [], "docstring": "Apply firmware patch at offset 0x18/0x14 with carry add", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n86", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca12", "status": "ok", "name": "message_dispatch_n86", "params": [], "docstring": "Dispatch message with two short fields stored to message header", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_11e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12121d2", "status": "ok", "name": "rf_bus_reset_n_11e", "params": [], "docstring": "RF bus reset, read control word from 0x1802cc offset 0x10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

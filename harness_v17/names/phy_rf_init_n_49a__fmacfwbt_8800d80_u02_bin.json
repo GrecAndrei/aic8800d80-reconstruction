@@ -1,0 +1,1 @@
+{"fn": "phy_rf_init_n_49a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1202e36", "status": "ok", "name": "phy_rf_init_n_49a", "params": [], "docstring": "Initialize PHY/RF register field by clearing and setting bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

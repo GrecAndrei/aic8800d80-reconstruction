@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n_1ea", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226bee", "status": "ok", "name": "rf_level_apply_n_1ea", "params": [], "docstring": "Apply TX/RX power level shifts to RF parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

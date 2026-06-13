@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211fdc", "status": "ok", "name": "rf_state_reset", "params": [], "docstring": "Reset RF state clearing 0x84000000 bits in 0xb00 control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

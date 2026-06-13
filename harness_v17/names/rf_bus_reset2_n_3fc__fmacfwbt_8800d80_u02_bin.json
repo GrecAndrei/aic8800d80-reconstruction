@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_3fc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121145c", "status": "ok", "name": "rf_bus_reset2_n_3fc", "params": [], "docstring": "RF bus reset handling, check error code against 0x24", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

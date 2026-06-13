@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n46c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211990", "status": "ok", "name": "rf_bus_write2_n46c", "params": [], "docstring": "Writes byte data to an indexed RF bus register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

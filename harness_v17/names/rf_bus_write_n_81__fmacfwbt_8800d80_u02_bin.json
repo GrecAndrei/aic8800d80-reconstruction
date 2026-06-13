@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_81", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121193e", "status": "ok", "name": "rf_bus_write_n_81", "params": [], "docstring": "RF bus write with bit-set update to register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

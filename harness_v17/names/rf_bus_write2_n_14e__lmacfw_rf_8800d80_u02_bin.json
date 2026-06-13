@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_14e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12113d6", "status": "ok", "name": "rf_bus_write2_n_14e", "params": [], "docstring": "Performs 2-word RF bus write with flag bit manipulation", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

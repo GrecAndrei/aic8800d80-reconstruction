@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n49c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121fa30", "status": "ok", "name": "rf_bus_reset2_n_3eb", "params": [], "docstring": "Resets RF bus register block via indirect write", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

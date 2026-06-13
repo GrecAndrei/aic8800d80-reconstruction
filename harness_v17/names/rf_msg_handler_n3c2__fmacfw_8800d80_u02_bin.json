@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n3c2", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12134c6", "status": "ok", "name": "rf_msg_handler_n3c2", "params": [], "docstring": "Handle incoming RF message, dispatch by opcode", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

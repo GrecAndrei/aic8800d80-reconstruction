@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_d1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213032", "status": "ok", "name": "rf_msg_handler_dispatch", "params": [], "docstring": "Dispatch RF message handler by shifting msg id from 0x900", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

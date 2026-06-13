@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n296", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12149de", "status": "ok", "name": "rf_fault_dump_n296", "params": [], "docstring": "Dump RF fault state and sign-extend register value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

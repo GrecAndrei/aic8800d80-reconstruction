@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n4b8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d06c", "status": "ok", "name": "message_dispatch_n4b8", "params": [], "docstring": "Dispatches BT HCI/host messages by opcode range", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

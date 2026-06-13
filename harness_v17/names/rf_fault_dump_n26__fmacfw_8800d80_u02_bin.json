@@ -1,1 +1,1 @@
-{"fn": "rf_fault_dump_n26", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121476e", "status": "ok", "name": "rf_fault_state_store", "params": [], "docstring": "Stores fault context (r3,r4,lr) into stack spill area", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_fault_dump_n26", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121476e", "status": "ok", "name": "rf_fault_state_store_476e", "params": [], "docstring": "Stores fault context (r3,r4,lr) into stack spill area", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

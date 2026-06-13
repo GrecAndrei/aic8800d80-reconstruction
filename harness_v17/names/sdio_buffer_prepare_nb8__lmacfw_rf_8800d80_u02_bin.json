@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_nb8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121ec6c", "status": "ok", "name": "rf_bus_reset2_ec6c", "params": [], "docstring": "Reset RF control bus and tail-call handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

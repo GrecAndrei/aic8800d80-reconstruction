@@ -1,0 +1,1 @@
+{"fn": "log_pool_init_b", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121018c", "status": "ok", "name": "log_pool_init_b", "params": [], "docstring": "Initializes logging memory pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

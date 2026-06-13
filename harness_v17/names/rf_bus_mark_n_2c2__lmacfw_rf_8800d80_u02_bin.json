@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2c2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210eca", "status": "ok", "name": "rf_bus_mark_chan", "params": [], "docstring": "marks RF bus channel with reg write and index update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

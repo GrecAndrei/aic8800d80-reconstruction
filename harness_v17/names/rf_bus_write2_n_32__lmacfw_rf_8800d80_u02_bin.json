@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_32", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12114f2", "status": "ok", "name": "rf_bus_write2_n_32", "params": [], "docstring": "Two-phase RF bus write with control register update", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

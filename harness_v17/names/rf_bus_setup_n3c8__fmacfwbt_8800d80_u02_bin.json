@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n3c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212120", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Clear specific bits in RF bus control/status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n3c8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212120", "status": "ok", "name": "rf_bus_setup_2120", "params": [], "docstring": "Clear specific bits in RF bus control/status registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

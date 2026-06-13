@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n2bc", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12102c4", "status": "ok", "name": "log_free_dispatch_n2bc_02c4", "params": [], "docstring": "Dispatches log free path loading a 0x187e38 descriptor", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n4e8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213448", "status": "ok", "name": "sdio_buffer_prepare_3448", "params": [], "docstring": "Prepares an SDIO buffer for host transfer", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

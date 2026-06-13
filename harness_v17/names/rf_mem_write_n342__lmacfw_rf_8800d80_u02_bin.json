@@ -1,0 +1,1 @@
+{"fn": "rf_mem_write_n342", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122236e", "status": "ok", "name": "rf_mem_write_n342", "params": [], "docstring": "Writes value to mirrored RF memory regions across address windows", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

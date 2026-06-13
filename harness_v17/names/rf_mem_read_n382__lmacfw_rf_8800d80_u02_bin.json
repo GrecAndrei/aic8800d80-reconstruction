@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n382", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f916", "status": "ok", "name": "rf_mem_read_n382_dup", "params": [], "docstring": "RF memory read computing index via repeated shift-by-5 pattern", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

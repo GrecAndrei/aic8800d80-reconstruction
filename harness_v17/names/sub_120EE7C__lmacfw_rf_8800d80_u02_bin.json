@@ -1,0 +1,1 @@
+{"fn": "sub_120EE7C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120ee7c", "status": "ok", "name": "rf_calib_init_loader", "params": [], "docstring": "Load calibration constants from ROM tables into RF MMIO block at 0x40100000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

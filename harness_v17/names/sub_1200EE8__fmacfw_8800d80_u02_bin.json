@@ -1,0 +1,1 @@
+{"fn": "sub_1200EE8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1200ee8", "status": "ok", "name": "mmio_regs_poll_1200ee8", "params": [], "docstring": "Poll MMIO registers and dispatch on byte flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n1a0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1210000", "status": "ok", "name": "msg_dispatch_lookup", "params": [], "docstring": "Dispatches incoming message by ID from header field", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

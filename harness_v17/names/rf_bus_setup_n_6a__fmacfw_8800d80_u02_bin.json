@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n_6a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211e92", "status": "ok", "name": "rf_bus_setup_n_6a", "params": [], "docstring": "RF bus setup: set 0x84000000 bits at offset 0xb00", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

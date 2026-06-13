@@ -1,0 +1,1 @@
+{"fn": "sub_1210370", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210370", "status": "ok", "name": "sub_1210370", "params": [], "docstring": "Trampoline stub with shifted register setup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

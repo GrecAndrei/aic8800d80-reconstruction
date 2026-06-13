@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215174", "status": "ok", "name": "patch_apply_bit_merge_n_48e", "params": [], "docstring": "Patch apply helper: shift-and-merge word into accumulated result", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

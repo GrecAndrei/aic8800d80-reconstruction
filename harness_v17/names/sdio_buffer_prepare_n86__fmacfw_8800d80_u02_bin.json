@@ -1,1 +1,1 @@
-{"fn": "sdio_buffer_prepare_n86", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1a2", "status": "ok", "name": "sdio_buffer_align", "params": [], "docstring": "Compute SDIO buffer alignment shifts", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sdio_buffer_prepare_n86", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1a2", "status": "ok", "name": "sdio_buffer_align_e1a2", "params": [], "docstring": "Compute SDIO buffer alignment shifts", "subsystem": "mac", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

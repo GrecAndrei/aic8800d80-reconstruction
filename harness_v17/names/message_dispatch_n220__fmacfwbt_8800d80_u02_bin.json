@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n220", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cdd4", "status": "ok", "name": "msg_dispatch_branch_24_6c", "params": [], "docstring": "Dispatches IPC messages branching on cmd IDs 0x24 and 0x6c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1241F74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1241f74", "status": "ok", "name": "fmac_msg_free_wrapper", "params": [], "docstring": "Thin wrapper freeing/handling an fmac message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

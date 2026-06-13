@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n126", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ccda", "status": "ok", "name": "rf_fault_dump_n4c4", "params": [], "docstring": "Configure and trigger RF fault dump into shared memory region", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

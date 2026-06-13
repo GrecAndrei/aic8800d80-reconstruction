@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n47e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ce0a", "status": "ok", "name": "divmod_helper_3args", "params": [], "docstring": "Performs 64-bit signed divide/modulo on three input operands using magic constants", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_2ce", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ebe", "status": "ok", "name": "rf_bus_mark_n_2ce", "params": [], "docstring": "Compute and write RF bus register index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

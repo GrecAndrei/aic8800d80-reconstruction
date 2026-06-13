@@ -1,0 +1,1 @@
+{"fn": "sub_12382DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12382dc", "status": "ok", "name": "sub_12382DC", "params": [], "docstring": "Initialize channel/scan context from global state struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122cc38", "status": "ok", "name": "message_dispatch_n84", "params": [], "docstring": "Message dispatch wrapper pushing r4 and storing halfword", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

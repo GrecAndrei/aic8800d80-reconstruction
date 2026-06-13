@@ -1,0 +1,1 @@
+{"fn": "sub_1241ED4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1241ed4", "status": "ok", "name": "msg_parse_top_nibble", "params": [], "docstring": "Extract top nibble of message header word and branch on it", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

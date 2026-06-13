@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_ca", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121178e", "status": "ok", "name": "rf_bus_reset2_n_ca", "params": [], "docstring": "reset RF bus by clearing/writing control registers at offsets 0x908/0x914", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

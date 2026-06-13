@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_3c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122c950", "status": "ok", "name": "message_dispatch_n_3c", "params": [], "docstring": "Builds and dispatches outgoing message envelope with header", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

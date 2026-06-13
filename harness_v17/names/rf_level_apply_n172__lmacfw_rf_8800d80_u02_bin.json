@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n172", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226f4a", "status": "ok", "name": "rf_level_apply_n172", "params": [], "docstring": "Apply saturated/clamped RF gain or power level to register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

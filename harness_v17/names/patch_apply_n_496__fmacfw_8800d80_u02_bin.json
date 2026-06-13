@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_496", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214a16", "status": "ok", "name": "patch_apply_n_496", "params": [], "docstring": "Compute patch table index from slot", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_292", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121144e", "status": "ok", "name": "rf_bus_mark_n_292", "params": [], "docstring": "RF bus mark; write 16-bit reg value, bump byte counter at 0xc02, advance 0xc08 stride", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

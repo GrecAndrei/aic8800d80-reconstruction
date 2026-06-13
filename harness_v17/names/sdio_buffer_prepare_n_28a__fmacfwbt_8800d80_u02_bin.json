@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_28a", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122e0ba", "status": "ok", "name": "sdio_buffer_prepare_n_28a", "params": [], "docstring": "Prepare SDIO buffer with sub-call to 0x12da54", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

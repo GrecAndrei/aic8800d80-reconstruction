@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n_2c0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211d70", "status": "ok", "name": "rf_state_check_1d70", "params": [], "docstring": "Check current RF state against bit-masked expected value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

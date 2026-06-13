@@ -1,0 +1,1 @@
+{"fn": "sub_121B202", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121b202", "status": "ok", "name": "mmio_setup_n_202", "params": [], "docstring": "Set up MMIO buffer with offset and store pointer table", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

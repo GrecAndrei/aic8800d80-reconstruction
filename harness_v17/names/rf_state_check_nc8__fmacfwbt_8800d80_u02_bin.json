@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nc8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12120f8", "status": "ok", "name": "rf_state_check_20f8", "params": [], "docstring": "Check/load RF state fields and pack into halfwords", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

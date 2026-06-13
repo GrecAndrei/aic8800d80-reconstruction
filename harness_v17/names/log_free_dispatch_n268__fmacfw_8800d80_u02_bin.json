@@ -1,1 +1,1 @@
-{"fn": "log_free_dispatch_n268", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210270", "status": "ok", "name": "log_free_dispatch_n268", "params": [], "docstring": "Dispatch freed log entries for recycling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_free_dispatch_n268", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210270", "status": "ok", "name": "log_free_dispatch_n268_0270", "params": [], "docstring": "Dispatch freed log entries for recycling", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

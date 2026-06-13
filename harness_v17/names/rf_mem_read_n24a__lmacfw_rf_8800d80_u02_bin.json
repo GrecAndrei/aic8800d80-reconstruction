@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n24a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f7de", "status": "ok", "name": "rf_mem_read_n24a", "params": [], "docstring": "Reads RF memory via shifted address/mask fields in lmacfw_rf", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

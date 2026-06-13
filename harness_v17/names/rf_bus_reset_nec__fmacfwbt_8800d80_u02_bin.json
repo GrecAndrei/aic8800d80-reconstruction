@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset_nec", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212930", "status": "ok", "name": "rf_bus_reset_nec", "params": [], "docstring": "Reset RF bus (NEC variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset_nec", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212930", "status": "ok", "name": "rf_bus_reset_nec_2930", "params": [], "docstring": "Reset RF bus (NEC variant)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

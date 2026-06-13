@@ -1,1 +1,1 @@
-{"fn": "rf_bus_reset2_n_3f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121160c", "status": "ok", "name": "rf_bus_reset2_n_3f0", "params": [], "docstring": "Reset RF bus register with mode threshold check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_reset2_n_3f0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121160c", "status": "ok", "name": "rf_bus_reset2_n_3f0_160c", "params": [], "docstring": "Reset RF bus register with mode threshold check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

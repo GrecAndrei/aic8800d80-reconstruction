@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n234", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121571c", "status": "ok", "name": "patch_apply_n234", "params": [], "docstring": "Sets bit flags in hardware control registers (bit 1 in reg+0x10, bit 1 in reg+0x804)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

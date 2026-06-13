@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_ec", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121465c", "status": "ok", "name": "rf_fault_dump_n_ec", "params": [], "docstring": "Dump RF fault state by storing and accumulating register data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

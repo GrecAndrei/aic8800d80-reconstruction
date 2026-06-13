@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n164", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212a7c", "status": "ok", "name": "rf_cmd_send_n164", "params": [], "docstring": "Send RF command with modulo-5 indexing", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

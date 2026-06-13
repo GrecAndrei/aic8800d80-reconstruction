@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n202", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e31e", "status": "ok", "name": "sdio_buffer_prepare_n202", "params": [], "docstring": "Validate SDIO buffer size (0x68 bytes)", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

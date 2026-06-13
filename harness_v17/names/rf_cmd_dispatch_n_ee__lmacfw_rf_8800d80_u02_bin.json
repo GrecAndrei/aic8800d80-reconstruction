@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n_ee", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1221e56", "status": "ok", "name": "rf_cmd_dispatch_n_ee", "params": [], "docstring": "dispatches RF command based on opcode byte (cmp #9) and mask 0x20", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

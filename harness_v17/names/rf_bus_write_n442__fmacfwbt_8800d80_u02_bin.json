@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write_n442", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e02", "status": "ok", "name": "rf_bus_write", "params": [], "docstring": "Write to RF bus register at 0x40200000 with field construction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write_n442", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e02", "status": "ok", "name": "rf_bus_write_1e02", "params": [], "docstring": "Write to RF bus register at 0x40200000 with field construction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

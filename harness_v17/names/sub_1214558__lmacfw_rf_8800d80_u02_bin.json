@@ -1,0 +1,1 @@
+{"fn": "sub_1214558", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1214558", "status": "ok", "name": "sub_1214558", "params": [], "docstring": "Trivial stub: r1=r0, r2=4, r0=1 (init/setup helper)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

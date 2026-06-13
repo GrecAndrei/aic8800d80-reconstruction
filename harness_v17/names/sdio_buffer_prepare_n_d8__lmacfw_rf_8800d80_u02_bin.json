@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n_d8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121eadc", "status": "ok", "name": "sdio_buffer_prepare_n_d8", "params": [], "docstring": "Bulk copy buffer via STM/LDM block transfers, advance by 0x140 bytes", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

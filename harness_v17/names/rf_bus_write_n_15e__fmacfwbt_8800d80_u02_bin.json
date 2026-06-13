@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n_15e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211862", "status": "ok", "name": "rf_bus_write_n_15e", "params": [], "docstring": "Write to RF bus MMIO at 0x40200000", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

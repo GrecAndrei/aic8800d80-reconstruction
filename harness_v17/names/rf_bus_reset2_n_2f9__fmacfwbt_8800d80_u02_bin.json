@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_2f9", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121155e", "status": "ok", "name": "rf_bus_reset2_n_2f9", "params": [], "docstring": "Secondary RF bus reset by toggling control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,40 @@
+{
+  "function": "rf_bus_reset_alt",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x110084",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00110084      0f48           ldr r0, [0x001100c4]        ; [0x1100c4:4]=0x187ef4",
+        "compiled": "<no matching code at 0x001052a6 \u2014 all 'invalid'>",
+        "fix_hint": "Generate the rf_bus_reset_alt function in the compiled binary; the original is 4 instructions (10 bytes) loading 0x187ef4, calling 0x12d468, then ldr r3,[r8] / ldrh r3,[r3,#8]"
+      },
+      {
+        "type": "missing",
+        "original": "0x00110086      1df0eff9       bl 0x12d468",
+        "compiled": "<no call instruction present>",
+        "fix_hint": "Emit the call to the reconstructed target of 0x12d468"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011008a      d8f80030       ldr.w r3, [r8]",
+        "compiled": "<missing>",
+        "fix_hint": "Add ldr.w r3,[r8] after the call"
+      },
+      {
+        "type": "missing",
+        "original": "0x0011008e      1b89           ldrh r3, [r3, 8]",
+        "compiled": "<missing>",
+        "fix_hint": "Add ldrh r3,[r3,#8] as final instruction"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled binary has NO behavioral trace for rf_bus_reset_alt (behavioral_at and behavioral_mmio_summary both return null).",
+      "find_callers returns empty \u2014 no other compiled function references rf_bus_reset_alt either, confirming the function was never emitted in the reconstruction.",
+      "The disasm at 0x001052a6 is entirely 'invalid' because that address is not a valid function start; the nearest real code is a prologue (mov r4,r3; mov r6,r0; mov r7,r1) at 0x1052a0 belonging to an unrelated function.",
+      "Note: the ORIGINAL prompt's listing of instructions at 0x1100c4-0x1100d2 is bogus \u2014 those are the literal pool / data words (0x187ef4 etc.), not executable code. The true rf_bus_reset_alt body is only the 4 instructions at 0x110084-0x11008e."
+    ]
+  }
+}

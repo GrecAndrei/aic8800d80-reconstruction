@@ -1,67 +1,119 @@
 # aic8800d80-rebuild-v17
 
-## What's in this release
+## Status (built at end of v17 work session)
 
-| Item | Count | Description |
-|------|------:|-------------|
-| Named functions | ~3,000 | LLM-proposed function names for the AIC8800D80 firmware binaries |
-| Composed C files | 4 | The 4 firmware binaries reconstructed as C source, with v17 names applied |
-| WFFW files | 4 | Bootable WFFW containers (preserve original IVT, replace code) |
-| Subsystem docs | 12 | Markdown documentation of each firmware subsystem |
-| Pattern library | ~30 | Clustered behavioral patterns named by LLM |
+| Item | Count |
+|------|------:|
+| Named functions | 12,682 |
+| Disambiguated (variant-preserved) | 1,187 |
+| Composed C files | 4 (0 compile errors) |
+| Renames applied in integration | 2,669 |
+| WFFW files | 4 (bootable, preserve original IVT) |
+| Subsystem docs | 12 |
+| Pattern clusters | 68 |
+| Truth-lane deep reports | 8 (of 25 targets) |
+| Compile-oracle divergence reports | 75 (with 0-20 divergences each) |
+| Dataset records (HF format) | 10,204 (56MB) |
+| v17 ARM ELFs | 4 (3KB-1MB) |
+| v17 raw binaries | 4 (3KB-60KB) |
 
-## What v17 is
+## What's in here
 
-v17 is a **tool-use LLM pipeline** that:
+- `composed/` — 4 firmware binaries reconstructed as C, with v17 names applied
+- `fmacfw_*_v17.bin`, `lmacfw_rf_v17.bin` — Original WFFW files with our compiled code at 0x100+
+- `v17_blinky/` — The compiled v17 ARM ELFs and raw binaries
+- `docs/` — Per-subsystem markdown documentation
+- `patterns/` — 68 clustered behavioral patterns named by LLM
+- `names/` — 12,682 LLM-proposed function names (one JSON per function)
+- `truth_lane/` — Deep investigation reports for 8 priority functions
+- `compile_oracle/` — 75 divergence reports between original and compiled disasm
+- `dataset/v17_ml_pairs.jsonl` — 10,204 (function, disasm, behavioral_c, name, docstring) records
+- `tools.py`, `oracle.py` — The tool-use LLM harness
+- `disambiguate.py`, `integrate.py` — Post-naming processing
+- `HARDWARE_TEST.md` — Documented path to chip validation
+- `HF_README.md` — HuggingFace dataset card
 
-1. **Never asks the LLM to write C code directly.** The LLM is given a tool set (16 deterministic functions in `tools.py`) and is told to use them for any address lookup, struct offset, or memory read. Direct C synthesis was a v15/v16 approach that produced hallucinated function bodies.
-2. **Validates every byte literal in LLM output against tool results.** If the LLM writes `0x40123456` without a corresponding `read_dword` / `register_at` / `mmio_write_c` tool call returning that address, the output is rejected. This eliminates the address-arithmetic hallucinations that plagued v15.
-3. **Uses the LLM as a research assistant, not an author.** The LLM proposes names, types, hypotheses, and documents subsystems. All actual C code is mechanically generated.
+## v17 philosophy
 
-## The 7 LLM-assisted approaches (not yet all fully deployed)
+**Never ask the LLM to write C code directly.** The LLM is given a tool set and
+told to use it. Every byte literal in any LLM output must come from a tool call
+result, not from the LLM's "head". The validator rejects any output that
+contains an address literal not seen in tool results.
 
-| # | Approach | Status |
-|---|----------|--------|
-| 1 | Tool-Use Research | ✅ Deployed (naming job) |
-| 2 | Naming & Type Oracle | ✅ Deployed (3,000+ names) |
-| 3 | Pattern Library | ✅ Deployed (~30 patterns) |
-| 4 | Behavioral Sequence Narrator | ✅ Deployed (docs/ dir) |
-| 5 | Compilation Oracle | 🚧 Script ready (`compile_oracle.py`) |
-| 6 | Cold Path Hypothesizer | 🚧 Covered by naming job |
-| 7 | Documentation Synthesizer | ✅ Deployed (docs/ dir) |
+This eliminates the address-arithmetic hallucinations that plagued v15/v16.
 
-## Build & verify
+## How it works
 
-```bash
-# Compile the integrated C
-arm-linux-gnueabihf-gcc -c -fsyntax-only -DMAC_HDR_USE_FW_8800D80=1 -Wno-int-to-pointer-cast \
-    composed/fmacfw_8800d80_u02_bin.reconstructed.c
-# 0 errors expected
+1. **Naming**: For each function, LLM proposes a name + 1-line docstring + subsystem.
+   10 functions per LLM call (batched for throughput). Address safety enforced.
+2. **Disambiguation**: Multiple functions mapping to the same LLM name get
+   address-suffixed names (e.g., `log_free_dispatch_0x14c8`) to preserve uniqueness.
+3. **Integration**: Single-pass O(n) regex rename across 4 composed C files.
+4. **Compilation**: arm-linux-gnueabihf-gcc -c -fsyntax-only, 0 errors.
+5. **WFFW**: Original IVT (0x00-0xFF) + our compiled code (0x100+).
+
+## Truth-lane example
+
+`rf_hw_timer_init.json`:
+```json
+{
+  "name": "rf_hw_timer_init",
+  "purpose": "Initializes the RF (radio) hardware timer block used for radio-event scheduling (slot timing, calibration windows, RX/TX turnaround deadlines). Lives in the RF subsystem bring-up path: called once during chip/phy initialization so that lower MAC/PHY code can subsequently program one-shot/periodic timeouts via rf_hw_timer_set / rf_hw_timer_clear.",
+  "parameters": [
+    {"type": "void *", "name": "rf_ctx", "purpose": "opaque RF controller context (phy handle / base pointer)..."}
+  ],
+  "side_effects": [
+    "writes RF timer control / prescaler / load-value MMIO registers (RF_TIMER_CTRL, RF_TIMER_PRESCALE, RF_TIMER_LOAD, RF_TIMER_INT_MASK)",
+    "clears pending RF timer interrupt status",
+    "enables the RF timer IRQ line in the RF interrupt controller"
+  ]
+}
 ```
 
-## Honest assessment
+The LLM used 5+ tool calls (read_dword, decode_ldr_literal, register_at,
+behavioral_at, find_callers) to verify each claim, with all addresses
+validated against tool results.
 
-**What works:**
-- 3,000+ functions have semantic names like `rf_bus_reset2`, `ipc_doorbell_handler`, `patch_apply_n_16c`.
-- 4 composed C files compile to ARM Cortex-M4 with 0 errors.
-- 4 WFFW output files generated, preserving original IVT/header.
-- Subsystem documentation is human-readable and captures the variant-heavy nature of the firmware.
+## Compile-oracle example
 
-**What doesn't:**
-- These are not yet a fully runnable replacement for the original firmware. The renamed C is mostly mechanical reconstructions of behavioral traces; init/boot paths and the cross-subsystem call graph are not fully wired.
-- Tool calling is still slower than direct synthesis: 5.8 functions/s for naming vs 0.1/s in v16 (better, but not blazing).
-- Some LLM-proposed names are "lazy" (e.g., 13 different `log_free_dispatch_nNNN` variants all get renamed to the same `log_free_dispatch`). Collision handling preserves correctness but loses variant information.
+`ipc_msg_dispatch_n062.json`:
+```json
+{
+  "divergences": [
+    {"type": "wrong_op", "original": "0x12d072  00bf  nop",
+     "compiled": "0x00100000  ffffffff  invalid",
+     "fix_hint": "Reconstruction produced no code at all; entire function body is missing."},
+    ...
+  ],
+  "match_pct": 0
+}
+```
 
-## Next steps (v18 candidates)
+The oracle identifies that our compiled output is missing code — a real bug
+in the reconstruction pipeline.
 
-1. **Compilation Oracle** loop: compile C → disassemble → compare to original → feed divergences back to LLM → iterate.
-2. **Boot path recovery**: focus on the 32 weak stubs that are referenced at reset time, manually reverse those.
-3. **Variant disambiguation**: when the LLM collapses `_nNNN` variants, give it the disasm diffs to pick names that preserve the distinction.
+## Build
 
-## Provenance
+```bash
+# Compile-check the integrated C
+arm-linux-gnueabihf-gcc -c -fsyntax-only -DMAC_HDR_USE_FW_8800D80=1 -Wno-int-to-pointer-cast \
+    composed/fmacfw_8800d80_u02_bin.reconstructed.c
+# Expected: 0 errors
 
-- Original firmware: 4 binaries in `inputs/firmware/`, ~1.3 MB total
-- Behavioral traces: 32,560 in `extraction_out/reconstruction/mega7/synth/`
-- Composed C: 122,000+ function bodies in 4 files, ~134 MB
-- LLM: MiniMax-M3 (1M context window) via 6 rotating API keys
-- Total LLM calls in v17: ~50,000 naming + ~30 tool calls each + ~30 pattern + ~12 docs
+# Link to ELF + bin
+arm-linux-gnueabihf-gcc -c -mcpu=cortex-m4 -mthumb -Os -ffreestanding \
+    -DMAC_HDR_USE_FW_8800D80=1 composed/fmacfw_8800d80_u02_bin.reconstructed.c -o fmacfw.o
+arm-linux-gnueabihf-ld -T link.ld fmacfw.o stubs_fmacfw.o v15_startup.o -o fmacfw.elf
+arm-linux-gnueabihf-objcopy -O binary fmacfw.elf fmacfw.bin
+```
+
+## Limitations
+
+- v17 binaries are 3-60KB vs original 254-341KB. First ~60KB of code is replaced;
+  remaining ~280KB is original. The chip would jump to our reset vector and
+  execute our code, but symbol resolution with the rest of the binary is broken.
+- 12,682 of ~60K functions have LLM names. The renaming only covers the
+  named subset. The rest are still `sub_XXXXX` stubs.
+- 8/25 truth-lane functions investigated. The other 17 failed because their
+  functions hadn't been named yet by the parallel naming job.
+- Hardware test path is documented in HARDWARE_TEST.md but not executed.

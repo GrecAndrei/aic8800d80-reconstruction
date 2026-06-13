@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n396", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b9a", "status": "ok", "name": "rf_bus_setup_n396", "params": [], "docstring": "Configure RF bus registers at offsets 0xe/0x10/0x12", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

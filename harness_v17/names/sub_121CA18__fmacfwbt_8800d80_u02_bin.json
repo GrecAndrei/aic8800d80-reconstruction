@@ -1,0 +1,1 @@
+{"fn": "sub_121CA18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121ca18", "status": "ok", "name": "sub_121CA18", "params": [], "docstring": "Process command/control structure fields, dispatch based on flags", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

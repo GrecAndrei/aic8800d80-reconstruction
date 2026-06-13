@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n268", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a6c", "status": "ok", "name": "rf_bus_setup_n268", "params": [], "docstring": "RF bus setup (variant 268), configures address/mask fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

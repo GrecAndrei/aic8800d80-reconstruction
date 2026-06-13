@@ -1,1 +1,1 @@
-{"fn": "message_dispatch_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c840", "status": "ok", "name": "rf_bus_reset_n290", "params": [], "docstring": "Reset RF bus master and notify controller via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "message_dispatch_n_374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c840", "status": "ok", "name": "rf_bus_reset_n290_c840", "params": [], "docstring": "Reset RF bus master and notify controller via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

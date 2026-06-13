@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_ne6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12123d6", "status": "ok", "name": "rf_bus_reset_ne6", "params": [], "docstring": "Resets RF bus with shifted address and stores reset control value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

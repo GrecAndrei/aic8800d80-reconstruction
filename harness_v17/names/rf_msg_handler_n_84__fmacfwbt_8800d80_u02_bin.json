@@ -1,0 +1,1 @@
+{"fn": "rf_msg_handler_n_84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212edc", "status": "ok", "name": "rf_msg_dispatch_bt", "params": [], "docstring": "dispatch RF control message and store status to BT and RF state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

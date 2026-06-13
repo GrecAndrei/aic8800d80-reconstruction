@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n124", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211928", "status": "ok", "name": "rf_bus_setup_n124", "params": [], "docstring": "Initialize RF control bus with register window and width", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

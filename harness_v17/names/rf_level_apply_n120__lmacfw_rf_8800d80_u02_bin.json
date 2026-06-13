@@ -1,0 +1,1 @@
+{"fn": "rf_level_apply_n120", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1226ef8", "status": "ok", "name": "rf_level_apply_n120", "params": [], "docstring": "Applies RF power level shifts via bit extraction", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n474", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121595c", "status": "ok", "name": "patch_apply_n474", "params": [], "docstring": "Applies byte patches to firmware image at fixed offsets", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n474", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121595c", "status": "ok", "name": "patch_apply_n474_595c", "params": [], "docstring": "Applies byte patches to firmware image at fixed offsets", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

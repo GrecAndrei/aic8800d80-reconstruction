@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_168", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ca4c", "status": "ok", "name": "message_dispatch_n_168", "params": [], "docstring": "Dispatch message: call handler at 0x12d4f8, decrement counter", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

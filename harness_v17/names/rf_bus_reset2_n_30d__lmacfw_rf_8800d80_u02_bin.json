@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_30d", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210ff6", "status": "ok", "name": "rf_bus_reset2_n_30d", "params": [], "docstring": "Reset RF bus address decoding window", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

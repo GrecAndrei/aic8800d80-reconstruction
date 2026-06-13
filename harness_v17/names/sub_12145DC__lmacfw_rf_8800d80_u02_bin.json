@@ -1,0 +1,1 @@
+{"fn": "sub_12145DC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12145dc", "status": "ok", "name": "sub_12145DC", "params": [], "docstring": "Small register move helper, likely MMIO/macro stub", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

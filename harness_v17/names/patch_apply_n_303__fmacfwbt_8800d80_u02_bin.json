@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_303", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151e4", "status": "ok", "name": "rf_cmd_wait_n_350", "params": [], "docstring": "RF command wait routine with multi-register epilogue", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

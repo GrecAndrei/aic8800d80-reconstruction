@@ -1,1 +1,1 @@
-{"fn": "log_hw_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d4e8", "status": "ok", "name": "log_hw_init", "params": [], "docstring": "Initialize hardware logging subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}
+{"fn": "log_hw_init", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x120d4e8", "status": "ok", "name": "log_hw_init_d4e8", "params": [], "docstring": "Initialize hardware logging subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

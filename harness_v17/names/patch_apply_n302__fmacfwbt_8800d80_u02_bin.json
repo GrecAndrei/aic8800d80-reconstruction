@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n302", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157ea", "status": "ok", "name": "patch_apply_n302", "params": [], "docstring": "Apply firmware patch by checking bit flag", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n302", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12157ea", "status": "ok", "name": "patch_apply_n302_57ea", "params": [], "docstring": "Apply firmware patch by checking bit flag", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

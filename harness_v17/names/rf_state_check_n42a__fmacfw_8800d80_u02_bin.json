@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n42a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12125fe", "status": "ok", "name": "rf_state_check_n42a", "params": [], "docstring": "Check RF state and set register fields with mask 0x7f0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_process_n410", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213968", "status": "ok", "name": "rf_cmd_process_3968", "params": [], "docstring": "Process RF command dispatch with opcode 0x42d/0x200", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

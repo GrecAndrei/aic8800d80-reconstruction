@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_3c2", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210dca", "status": "ok", "name": "rf_bus_mark_n_3c2", "params": [], "docstring": "Mark/test bits in RF bus register array entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

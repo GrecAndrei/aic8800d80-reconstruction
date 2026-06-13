@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_317", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12151d0", "status": "ok", "name": "patch_apply_n_317", "params": [], "docstring": "Applies firmware patch entry n317", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

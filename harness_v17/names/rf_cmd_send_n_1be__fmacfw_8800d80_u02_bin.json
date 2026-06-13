@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_1be", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e52", "status": "ok", "name": "rf_cmd_send_n_1be", "params": [], "docstring": "Initialize frame registers before RF command send", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

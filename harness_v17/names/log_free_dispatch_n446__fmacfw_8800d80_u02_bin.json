@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n446", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121044e", "status": "ok", "name": "log_free_dispatch_n446_044e", "params": [], "docstring": "Log free path: call free helper and bump log counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

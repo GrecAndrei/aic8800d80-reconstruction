@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_4bd", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211066", "status": "ok", "name": "rf_bus_write2_n_4bd", "params": [], "docstring": "Performs a 32-bit RF register read-modify-write via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

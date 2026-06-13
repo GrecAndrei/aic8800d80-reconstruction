@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_496", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e6e", "status": "ok", "name": "rf_bus_write_n_456", "params": [], "docstring": "Trigger RF bus write to register 0x40240118 with data 0x166af8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

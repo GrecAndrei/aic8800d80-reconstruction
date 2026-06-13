@@ -1,0 +1,46 @@
+{
+  "function": "ipc_msg_dispatch_bt",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "addr": "0x12cd4c",
+  "result": {
+    "divergences": [
+      {
+        "type": "wrong_op",
+        "original": "0x0012cd4c      0021           movs r1, 0",
+        "compiled": "0x00107484      2368           ldr r3, [r4]",
+        "fix_hint": "First instruction must be 'movs r1, #0' (IPC init to 0) not an ldr; function body is entirely wrong"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cd70      b3f90030       ldrsh.w r3, [r3]",
+        "compiled": "(no matching ldrsh.w; instead series of bic/str bit-clear pairs)",
+        "fix_hint": "Must emit a sign-extended halfword load ldrsh.w r3, [r3] to read the IPC msg id from the pointer"
+      },
+      {
+        "type": "missing",
+        "original": "0x0012cd74      002b           cmp r3, 0",
+        "compiled": "(no cmp r3, #0 present at all)",
+        "fix_hint": "Need a 'cmp r3, #0' immediately after the ldrsh to test the IPC msg id"
+      },
+      {
+        "type": "extra",
+        "original": "(no such sequence)",
+        "compiled": "0x00107484..0x001074b6  repeated 'ldr r3,[r4]; bic r3,r3,#imm; str r3,[r4]' pattern (5x) plus ldr/bic/orr/str on r5",
+        "fix_hint": "Remove the entire HW register bit-clearing block; reconstruction compiled the wrong function (looks like a register-init stub, not ipc_msg_dispatch_bt)"
+      },
+      {
+        "type": "wrong_op",
+        "original": "0x0012cdf0      2de9f843       push.w {r3-r8, sb, lr}",
+        "compiled": "(0x001074b8      70bd           pop {r4, r5, r6, pc} - wrong epilogue / wrong callee-save set)",
+        "fix_hint": "ipc_msg_dispatch_bt must push {r3,r4,r5,r6,r7,r8,sb,lr} as full prologue, not a simple pop-only epilogue"
+      }
+    ],
+    "match_pct": 5,
+    "concerns": [
+      "The compiled output at 0x00107484-0x001074ae contains the ldr/bic/str register-clearing pattern characteristic of a hardware-init stub, not the IPC dispatch switch table that ipc_msg_dispatch_bt implements.",
+      "Original function body is a dispatch handler (loads msg id via ldrsh, compares, branches over a jump table with adr r3,0x340 / adr r3,0x2a0 entries visible at 0x12cde8/0x12cdec); the compiled reconstruction has none of this control flow.",
+      "Function size/length: original spans ~0x12cd48..0x12ce0c+ with a push.w prologue; compiled blob is only ~52 bytes ending in pop {r4,r5,r6,pc} - structurally a different routine.",
+      "Memory regions: original lives in 0x12xxxx range; compiled lives in 0x10xxxx range - verify this is the correct linked address for the reconstructed image, otherwise the comparison is meaningless."
+    ]
+  }
+}

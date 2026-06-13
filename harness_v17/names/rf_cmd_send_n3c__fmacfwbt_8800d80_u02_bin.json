@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n3c", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212ea8", "status": "ok", "name": "rf_cmd_send_n_4da_2ea8", "params": [], "docstring": "Send RF command opcode 0x29 with type 9 via 0x804/0x81c MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,45 @@
+{
+  "function": "mmio_write0x40035100_set0x100",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x10cf2c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x0010cf2c      024b           ldr r3, [0x0010cf38]        ; loads 0x40035100",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled function not emitted or placed at wrong base; the trivial 4-instruction setter is entirely absent from the compiled image"
+      },
+      {
+        "type": "missing",
+        "original": "0x0010cf2e      4ff48072       mov.w r2, 0x100",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "mov.w r2, #0x100 instruction missing \u2014 should precede the STR"
+      },
+      {
+        "type": "missing",
+        "original": "0x0010cf32      1a60           str r2, [r3]               ; write 0x100 to REG_4003_5100",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "STR r2,[r3] store to MMIO 0x40035100 missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x0010cf34      7047           bx lr",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "BX LR epilogue missing"
+      },
+      {
+        "type": "wrong_op",
+        "original": "Literal pool at 0x10cf38 contains 0x40035100",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "Literal pool dword 0x40035100 missing after the function body"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled disassembly is entirely 'invalid' (0xFFFFFFFF fill) across 20+ lines at 0x00100000 \u2014 the reconstructed function appears to have not been emitted, or was placed at the wrong base address (0x100000 instead of 0x10cf2c).",
+      "No behavioral trace available for this function (behavioral_at returned null), so we cannot cross-check the MMIO intent from the synthesis side either.",
+      "The original is a trivial 4-instruction leaf: LDR r3,=0x40035100; MOV r2,#0x100; STR r2,[r3]; BX LR. The mechanical generator evidently failed to produce this simple MMIO-write helper at all."
+    ]
+  }
+}

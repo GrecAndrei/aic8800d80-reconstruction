@@ -1,1 +1,1 @@
-{"fn": "rf_bus_setup_n110", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121200c", "status": "ok", "name": "rf_bus_setup", "params": [], "docstring": "Initializes RF bus interface with 0x190 byte buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_setup_n110", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121200c", "status": "ok", "name": "rf_bus_setup_200c", "params": [], "docstring": "Initializes RF bus interface with 0x190 byte buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

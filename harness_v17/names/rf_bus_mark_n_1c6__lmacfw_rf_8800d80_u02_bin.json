@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_1c6", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210fc6", "status": "ok", "name": "rf_bus_mark_n_1c6", "params": [], "docstring": "Mark/tag the RF bus state (variant 1c6)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

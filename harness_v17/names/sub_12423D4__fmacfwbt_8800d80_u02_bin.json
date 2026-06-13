@@ -1,0 +1,1 @@
+{"fn": "sub_12423D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12423d4", "status": "ok", "name": "bt_chan_set_check", "params": [], "docstring": "Validate BT channel/band select mask (0x300)", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

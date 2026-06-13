@@ -1,0 +1,1 @@
+{"fn": "log_hw_init_if", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120d774", "status": "ok", "name": "log_hw_init_if", "params": [], "docstring": "Initializes hardware log interface via NVIC (0xe000e100)", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

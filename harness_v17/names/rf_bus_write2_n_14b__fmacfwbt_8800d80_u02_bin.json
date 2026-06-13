@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_14b", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121192c", "status": "ok", "name": "rf_bus_write2_n_14b", "params": [], "docstring": "RF bus write setting IRQ mask and triggering register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

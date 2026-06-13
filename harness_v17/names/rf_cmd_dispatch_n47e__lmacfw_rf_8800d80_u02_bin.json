@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n47e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12223c2", "status": "ok", "name": "rf_cmd_dispatch_n47e", "params": [], "docstring": "Dispatches an RF command to the hardware with register setup", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

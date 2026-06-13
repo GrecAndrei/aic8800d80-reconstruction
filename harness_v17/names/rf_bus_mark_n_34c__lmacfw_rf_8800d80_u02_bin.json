@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_34c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210e40", "status": "ok", "name": "rf_bus_mark_n_34c", "params": [], "docstring": "Sets RF bus request/mark bit and polls completion", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

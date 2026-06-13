@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121552c", "status": "ok", "name": "patch_apply_n44", "params": [], "docstring": "Compute sign-bit flag from patch argument and dispatch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121552c", "status": "ok", "name": "patch_apply_n44_552c", "params": [], "docstring": "Compute sign-bit flag from patch argument and dispatch", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_queue_next_n_222", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213292", "status": "ok", "name": "rf_cmd_queue_next_n_222", "params": [], "docstring": "Pop next RF command from pending queue", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

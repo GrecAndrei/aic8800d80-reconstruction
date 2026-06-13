@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n362", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211b66", "status": "ok", "name": "rf_bus_setup_n362", "params": [], "docstring": "Setup RF bus state structure and clear fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

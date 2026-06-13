@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1dc", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121530c", "status": "ok", "name": "patch_apply_n_1dc", "params": [], "docstring": "Applies patch with offset, length 0x14, and helper call", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

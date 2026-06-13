@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_370", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12118ac", "status": "ok", "name": "rf_state_check_n_b4", "params": [], "docstring": "Checks RF subsystem state byte against expected value 4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n48a", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121277a", "status": "ok", "name": "rf_bus_reset_n48a", "params": [], "docstring": "Reset RF bus state and extract 8-bit field from flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

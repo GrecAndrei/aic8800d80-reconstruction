@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write_n320", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121178c", "status": "ok", "name": "rf_bus_write_n320", "params": [], "docstring": "Write data word to RF bus register via MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

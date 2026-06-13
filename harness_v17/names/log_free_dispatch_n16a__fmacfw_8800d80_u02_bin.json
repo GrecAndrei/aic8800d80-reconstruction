@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n16a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210172", "status": "ok", "name": "log_free_dispatch_n16a", "params": [], "docstring": "Log/free dispatch cleanup with conditional path based on 0xa0 threshold", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_n22c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212400", "status": "ok", "name": "rf_state_check_n22c", "params": [], "docstring": "Check RF state from struct field at offset 0x804", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

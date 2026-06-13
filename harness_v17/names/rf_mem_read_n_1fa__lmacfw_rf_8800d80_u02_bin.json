@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_1fa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f39a", "status": "ok", "name": "ipc_doorbell_handler_n_18", "params": [], "docstring": "Handles IPC doorbell register writes/masks", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

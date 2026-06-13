@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_nac", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211b24", "status": "ok", "name": "rf_bus_write2_nac", "params": [], "docstring": "Write 2-byte payload to RF bus (no-alloc/commit)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

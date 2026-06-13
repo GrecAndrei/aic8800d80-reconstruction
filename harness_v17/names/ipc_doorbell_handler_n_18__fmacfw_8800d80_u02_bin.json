@@ -1,0 +1,1 @@
+{"fn": "ipc_doorbell_handler_n_18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1215964", "status": "ok", "name": "rf_mem_write_n_42c", "params": [], "docstring": "Writes byte from RF memory pointer with index increment", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n436", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f9ca", "status": "ok", "name": "rf_mem_read_n436", "params": [], "docstring": "RF memory read with shifted index (variant n436)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

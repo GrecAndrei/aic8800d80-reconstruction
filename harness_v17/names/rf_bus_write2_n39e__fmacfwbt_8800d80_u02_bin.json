@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n39e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e16", "status": "ok", "name": "rf_bus_write2_n39e", "params": [], "docstring": "Writes to RF bus MMIO register with bitfield update and returns", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_b5", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215432", "status": "ok", "name": "patch_apply_n_b5", "params": [], "docstring": "Apply firmware patch by copying 4 bytes from sp+0x130 to target", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

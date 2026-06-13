@@ -1,1 +1,1 @@
-{"fn": "rf_cmd_send_n398", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213204", "status": "ok", "name": "rf_cmd_send", "params": [], "docstring": "Send RF command via bus and store result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_cmd_send_n398", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213204", "status": "ok", "name": "rf_cmd_send_3204", "params": [], "docstring": "Send RF command via bus and store result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

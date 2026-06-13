@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset2_n_16e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12116ea", "status": "ok", "name": "rf_bus_reset2_n_16e", "params": [], "docstring": "Secondary RF bus reset, configures control registers 0x40200000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

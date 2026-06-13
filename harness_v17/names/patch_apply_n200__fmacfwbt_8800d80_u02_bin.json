@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n200", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156e8", "status": "ok", "name": "patch_apply_n200", "params": [], "docstring": "Apply firmware patch with IRQ disable", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n200", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12156e8", "status": "ok", "name": "patch_apply_n200_56e8", "params": [], "docstring": "Apply firmware patch with IRQ disable", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

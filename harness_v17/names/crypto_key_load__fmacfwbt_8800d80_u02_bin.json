@@ -1,0 +1,1 @@
+{"fn": "crypto_key_load", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12009dc", "status": "ok", "name": "crypto_key_load", "params": [], "docstring": "Loads crypto key material into secure register bank 0x40342xxx", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

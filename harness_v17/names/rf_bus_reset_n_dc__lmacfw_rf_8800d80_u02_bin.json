@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_dc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1212214", "status": "ok", "name": "rf_bus_reset_n_dc", "params": [], "docstring": "RF bus reset sequence clearing B00/B08/B14 status MMIO", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

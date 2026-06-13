@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n_118", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211b04", "status": "ok", "name": "rf_bus_write2_n_118", "params": [], "docstring": "RF bus write (16-bit) with branch on value 0x40, set -0x40000000 mask", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

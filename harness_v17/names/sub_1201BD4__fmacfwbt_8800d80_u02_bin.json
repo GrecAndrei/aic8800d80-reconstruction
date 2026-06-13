@@ -1,0 +1,1 @@
+{"fn": "sub_1201BD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1201bd4", "status": "ok", "name": "scan_chan_parse_n1bd4", "params": [], "docstring": "Parse scan channel descriptor from buffer", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

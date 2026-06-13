@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_ncc", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12123bc", "status": "ok", "name": "rf_bus_reset_ncc", "params": [], "docstring": "Trivial RF bus reset stub with 32-bit right shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

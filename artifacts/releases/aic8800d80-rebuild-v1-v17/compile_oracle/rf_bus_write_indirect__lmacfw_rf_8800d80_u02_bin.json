@@ -1,0 +1,40 @@
+{
+  "function": "rf_bus_write_indirect",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "addr": "0x11191e",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00111940      1c05           lsls r4, r3, 0x14",
+        "compiled": "(no matching instruction; compiled view shows 0xffffffff 'invalid' at 0x001050b6)",
+        "fix_hint": "The compiled binary at 0x1050b6 does not contain the rf_bus_write_indirect function at all; my read_byte returned 0x80/0x64 (valid Thumb), not 0xff, so the reported compiled disasm is corrupt/misaddressed."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111948      abaa           add r2, sp, 0x2ac",
+        "compiled": "(no sp-relative add with 0x2ac; compiled area shows sp-relative LDRs with offsets 0x130/0x134/0x198 \u2014 different function body)",
+        "fix_hint": "Verify the compiled .o/.axf symbol for rf_bus_write_indirect \u2014 the code at 0x1050b6 appears to be an epilogue/restoration of a different function, not rf_bus_write_indirect."
+      },
+      {
+        "type": "missing",
+        "original": "0x00111950      f8b5           push {r3, r4, r5, r6, r7, lr}",
+        "compiled": "(no matching push; compiled region has wide ldr.w from sp with very different prologue)",
+        "fix_hint": "Reconstruct the function prologue (push + ldr r3,[pc]; ldrb r3,[r3]; cmp r3,#4) in the C source \u2014 the compiled output is missing the pc-relative LDR pattern that loads 0x180323."
+      },
+      {
+        "type": "wrong_imm",
+        "original": "0x00111952      274b           ldr r3, [0x001119f0]        ; [0x1119f0:4]=0x180323",
+        "compiled": "(no pc-relative literal-pool LDR; compiled has sp-relative LDRs only)",
+        "fix_hint": "Ensure the source references the global 0x180323 symbol directly so the compiler emits a literal-pool LDR (form 1) rather than sp-based spills."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The 'COMPILED DISASM' block shows 0xffffffff 'invalid' at every line, but read_byte at 0x1050b6 returns 0x80/0x64 \u2014 the compiled disasm view itself is corrupt or pointing to the wrong address range.",
+      "The 12 instructions visible in the compiled region (0x1050cc\u20130x10514e) are Thumb-2 wide ldr.w/lsl.w/add.w sp-spill restoration code, structurally unrelated to rf_bus_write_indirect's small Thumb-1 prologue.",
+      "Function addresses are in completely different image regions (0x111xxx vs 0x105xxx) with no overlapping logic \u2014 this is not a reconstruction of rf_bus_write_indirect.",
+      "Original prologue is 14 bytes (push/lsls/add/ldr/ldrb/cmp); compiled view shows none of these, confirming the wrong function was linked or extracted."
+    ]
+  }
+}

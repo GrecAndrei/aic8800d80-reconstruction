@@ -1,0 +1,42 @@
+{
+  "function": "rf_cmd_dispatch",
+  "report": {
+    "name": "rf_cmd_dispatch",
+    "purpose": "RF subsystem command dispatcher / bus-reset routine that is shared between the WiFi (fmacfw) and Bluetooth (fmacfwbt) firmware images at the same load address. It dispatches a host-issued RF command, performing any required RF bus reset pre-amble (testing a 0x20000 status bit mask and continuing the reset sequence when set), and then sub-calls a peripheral RF handler. It belongs to the RF control plane that initialises / recovers the radio before channel/CAL operations.",
+    "parameters": [
+      {
+        "type": "uint32_t",
+        "name": "rf_cmd",
+        "purpose": "RF command opcode / selector that determines which sub-handler to invoke and which reset path to take"
+      },
+      {
+        "type": "uint32_t",
+        "name": "rf_arg",
+        "purpose": "Command argument / context pointer passed through to the sub-dispatched RF handler"
+      }
+    ],
+    "return_value": {
+      "type": "int32_t",
+      "meaning": "0 on successful dispatch / reset completion, negative on RF bus error or unrecognised command"
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "Reads RF controller status register (0x20000 bit-mask tested, indicating a status/poll MMIO in the RF register page)",
+      "Writes RF controller command/reset register to drive the reset sequence",
+      "May assert/deassert RF bus enable / clock gate bits in the RF MMIO page",
+      "Invokes a sub-dispatched RF handler which performs additional MMIO writes"
+    ],
+    "key_callees": [
+      "rf_sub_handler_dispatch (sub-call invoked after reset / status validation, name not resolvable from the available tool output)",
+      "rf_bus_reset_sequence (reset continuation path, behavioural alias: rf_bus_reset2_n236)"
+    ],
+    "key_callers": [
+      "rf_top_init / rf_top_cmd_entry (RF top-level command entry, per the behavioural 'rf_cmd_dispatch' caller list returned by find_callers)",
+      "bt_rf_init_coex (Bluetooth-side RF init path that also links to rf_cmd_dispatch)",
+      "mac_rf_recover (MAC recovery handler that re-arms the RF bus via this dispatcher)"
+    ],
+    "complexity": "medium",
+    "lines_of_c": 160,
+    "summary": "Shared RF command dispatcher / 0x20000-mask-checked bus-reset helper common to both WiFi (fmacfw) and Bluetooth (fmacfwbt) 8800D80 firmware images."
+  }
+}

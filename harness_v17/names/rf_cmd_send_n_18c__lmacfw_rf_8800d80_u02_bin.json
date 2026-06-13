@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_18c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121278c", "status": "ok", "name": "rf_cmd_send_n_18c", "params": [], "docstring": "Triggers RF command send via MMIO mailbox registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

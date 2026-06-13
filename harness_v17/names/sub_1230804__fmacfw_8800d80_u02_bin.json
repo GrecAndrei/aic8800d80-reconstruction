@@ -1,0 +1,1 @@
+{"fn": "sub_1230804", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1230804", "status": "ok", "name": "sub_1230804", "params": [], "docstring": "Writes three 16-bit fields from r1/r2/r3 into a structure pointed by r0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_456", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212592", "status": "ok", "name": "rf_bus_reset_n_456", "params": [], "docstring": "Asserts RF bus reset by writing to MMIO control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

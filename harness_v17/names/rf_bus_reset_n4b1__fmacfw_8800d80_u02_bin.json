@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n4b1", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1212e98", "status": "ok", "name": "rf_bus_reset_n4b1", "params": [], "docstring": "Reset RF bus registers and clear status flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

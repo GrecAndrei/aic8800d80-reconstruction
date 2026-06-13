@@ -1,0 +1,90 @@
+{
+  "function": "ipc_doorbell_handler_n398",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x115d14",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00115d14      907f           ldrb r0, [r2, 0x1e]",
+        "compiled": "0x0010e08c      efff08bd       invalid",
+        "fix_hint": "compiled function is mapped to a zero-padded/uninitialized region (0x10e08c), no ldrb emission"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d18      7077           strb r0, [r6, 0x1d]",
+        "compiled": "0x0010e090      0000           movs r0, r0  (actual data 0x00000000, not function code)",
+        "fix_hint": "entire strb store-bytes sequence absent; compiled code sits in zero-fill area"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d1c      6525           movs r5, 0x65",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "immediate 'e'/0x65 constant not emitted; generator likely stripped inline literal"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d20      917f           ldrb r1, [r2, 0x1e]",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "second ldrb of [r2,0x1e] never emitted in compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d24      6425           movs r5, 0x64",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "immediate 'd'/0x64 constant not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d28      00fb1800       mls r0, r0, r8, r0",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "mls multiply instruction entirely missing; compiled body has no arithmetic"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d2c      0010           asrs r0, r0, 0x20",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "shift right by 0x20 not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d2e      5040           eors r0, r2",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "eor r0,r2 not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d30      c443           mvns r4, r0",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "mvn r4,r0 not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d34      7480           strh r4, [r6, 2]",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "strh halfword store not emitted"
+      },
+      {
+        "type": "missing",
+        "original": "0x00115d3c      4080           strh r0, [r0, 2]",
+        "compiled": "(no equivalent instruction exists)",
+        "fix_hint": "second strh (problematic self-store) not emitted"
+      },
+      {
+        "type": "extra",
+        "original": "(end at 0x115d3e)",
+        "compiled": "0x0010e08c  ~   ffffffff       invalid  (x20 entries of 0xffffffff from 0x10e08c..0x10e0b4)",
+        "fix_hint": "compiled body is entirely 0xFFFFFFFF / zero-fill noise \u2014 no real code present"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "Compiled function placed at wrong base address 0x10e08c instead of 0x115d14 \u2014 off by ~0x7C68 bytes",
+      "Compiled region contains only one real instruction (stray pop {r3,pc} at 0x10e08e from a prior function) followed by all-zero data; disassembler mis-renders zeros as 0xFFFFFFFF 'invalid'",
+      "No original operations survive: every ldrb, strb, strh, movs-immediate, mls, eor, mvn from 0x115d14 is completely absent",
+      "The reconstructed C source is essentially empty / was not linked into the image \u2014 generator emitted an empty body",
+      "Function name 'ipc_doorbell_handler_n398' has no symbol entry, no callers, no callees \u2014 reconstruction is orphaned",
+      "The 'extra' ~20 lines of 0xFFFFFFFF are an artifact of disassembling a zero-padded section, not real code"
+    ]
+  }
+}

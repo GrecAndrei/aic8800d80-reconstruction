@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_400", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1210d8c", "status": "ok", "name": "rf_bus_mark_n_400", "params": [], "docstring": "Marks RF bus slot/index from computed offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

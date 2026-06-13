@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_224", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12152c4", "status": "ok", "name": "rf_cmd_dispatch_n66", "params": [], "docstring": "Dispatch incoming RF commands to handlers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

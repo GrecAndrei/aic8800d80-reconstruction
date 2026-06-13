@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n482", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211efa", "status": "ok", "name": "rf_bus_setup_n1b2", "params": [], "docstring": "RF bus setup: configure MMIO regs and OR-mask 0x84000000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

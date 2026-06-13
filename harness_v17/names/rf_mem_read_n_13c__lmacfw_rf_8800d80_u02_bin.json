@@ -1,0 +1,1 @@
+{"fn": "rf_mem_read_n_13c", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121f458", "status": "ok", "name": "rf_mem_read_n_13c", "params": [], "docstring": "Read 32-bit value from RF register/memory space", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n2ce", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121517a", "status": "ok", "name": "patch_apply_n2ce", "params": [], "docstring": "Apply patch from table entry with dword args", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

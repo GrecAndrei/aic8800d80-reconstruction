@@ -1,1 +1,1 @@
-{"fn": "sub_1218F48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218f48", "status": "ok", "name": "rf_chan_table_lookup", "params": [], "docstring": "Look up RF channel entry by index from channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "sub_1218F48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1218f48", "status": "ok", "name": "rf_chan_table_lookup_8f48", "params": [], "docstring": "Look up RF channel entry by index from channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

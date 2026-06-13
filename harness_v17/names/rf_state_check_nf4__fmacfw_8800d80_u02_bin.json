@@ -1,0 +1,1 @@
+{"fn": "rf_state_check_nf4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12122c8", "status": "ok", "name": "rf_state_clear_bit4", "params": [], "docstring": "clear bit 0x10 from RF state register 0x810", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

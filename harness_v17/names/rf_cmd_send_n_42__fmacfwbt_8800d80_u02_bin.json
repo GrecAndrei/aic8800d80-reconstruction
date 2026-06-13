@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n_42", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1212e2a", "status": "ok", "name": "rf_cmd_send_n_42", "params": [], "docstring": "Send RF command packet (variant 0x42)", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,75 @@
+{
+  "function": "sub_12190B4",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x1190b4",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x001190b4      2de9f04f       push.w {r4, r5, r6, r7, r8, sb, sl, fp, lr}",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output is entirely uninitialized/invalid \u2014 reconstruction was not linked or generated at the target address"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190b8      dff89ca1       ldr.w sl, [0x00119258]      ; [0x119258:4]=0x188428",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "No valid compiled instructions exist at 0x100000-0x100044; entire function body is missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190bc      dff89c81       ldr.w r8, [0x0011925c]      ; [0x11925c:4]=0x18e628",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Compiled binary at 0x100000 contains valid firmware data (e.g. 0x001a0000, 0x001201a9), not 0xffffffff padding \u2014 image was never patched with compiled output"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190c0      4ff42e76       mov.w r6, 0x2b8",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "Entire prologue (push, literal-pool loads, mov/MLA chain) is absent in compiled image"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190c4      06fb00a6       mla r6, r6, r0, sl",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "MLA r6, r6, r0, sl (struct base+offset*index calc for vif_info) not present"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190ca      96f82290       ldrb.w sb, [r6, 0x22]",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "ldrb sb, [r6, #0x22] (vif_info field read) missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190d2      00fb0980       mla r0, r0, sb, r8",
+        "compiled": "0x00100024      ffffffff       invalid",
+        "fix_hint": "Secondary MLA (indexed into second array with 0x528 stride) missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190d8      806c           ldr r0, [r0, 0x48]",
+        "compiled": "0x0010002c      ffffffff       invalid",
+        "fix_hint": "ldr r0, [r0, #0x48] (struct field dereference) missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190da      0093           str r3, [sp]",
+        "compiled": "0x00100030      ffffffff       invalid",
+        "fix_hint": "Stack-spill str r3, [sp] missing"
+      },
+      {
+        "type": "missing",
+        "original": "0x001190ea      0cbf           ite eq",
+        "compiled": "0x00100040      ffffffff       invalid",
+        "fix_hint": "IT block (ite eq) with conditional movs 0x1e/0x1d missing"
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled disassembly at 0x100000 shows 0xffffffff (invalid) for every word, but the actual firmware image at 0x100000 contains valid data (0x001a0000, 0x001201a9, 0x00134749, 0x001353fd). This means the mechanical reconstruction was never actually linked/written into the firmware binary \u2014 the compiled output is entirely absent.",
+      "Zero valid instructions can be compared. The match percentage is 0%.",
+      "The mechanical generator either failed to emit code, was given a wrong base address, or its output was never merged into the target image. Root cause must be fixed in the build/link pipeline before any per-instruction comparison is meaningful."
+    ]
+  }
+}

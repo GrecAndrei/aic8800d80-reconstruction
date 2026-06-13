@@ -1,1 +1,1 @@
-{"fn": "patch_apply_n_43e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150aa", "status": "ok", "name": "patch_apply_n_43e", "params": [], "docstring": "Apply patch nibble with sign-extend (variant 43e)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}
+{"fn": "patch_apply_n_43e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12150aa", "status": "ok", "name": "patch_apply_n_43e_50aa", "params": [], "docstring": "Apply patch nibble with sign-extend (variant 43e)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

@@ -1,0 +1,65 @@
+{
+  "function": "chip_info_is_fpga_or_emu",
+  "image": "fmacfw_8800d80_u02_bin",
+  "addr": "0x101a0c",
+  "result": {
+    "divergences": [
+      {
+        "type": "missing",
+        "original": "0x00101a0c      034b           ldr r3, [0x00101a1c]        ; [0x101a1c:4]=0x40341424",
+        "compiled": "0x00100000      ffffffff       invalid",
+        "fix_hint": "Compiled output is entirely 0xFFFFFFFF (uninitialized flash) at 0x100000; the function must be placed at 0x101a0c, not 0x100000. The reconstruction binary appears to be empty/erased."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a0e      1868           ldr r0, [r3]",
+        "compiled": "0x00100004      ffffffff       invalid",
+        "fix_hint": "Entire compiled function body is missing/corrupt."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a10      0128           cmp r0, 1",
+        "compiled": "0x00100008      ffffffff       invalid",
+        "fix_hint": "Compare-and-branch logic (cmp r0, #1) is not present in compiled output."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a12      94bf           ite ls",
+        "compiled": "0x0010000c      ffffffff       invalid",
+        "fix_hint": "ITE LS predicated return-value selection (0 or 1) is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a14      0020           movs r0, 0",
+        "compiled": "0x00100010      ffffffff       invalid",
+        "fix_hint": "Return-value 0 path is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a16      0120           movs r0, 1",
+        "compiled": "0x00100014      ffffffff       invalid",
+        "fix_hint": "Return-value 1 path is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a18      7047           bx lr",
+        "compiled": "0x00100018      ffffffff       invalid",
+        "fix_hint": "Function epilogue (bx lr) is missing."
+      },
+      {
+        "type": "missing",
+        "original": "0x00101a1c  literal pool 0x40341424",
+        "compiled": "0x0010001c      ffffffff       invalid",
+        "fix_hint": "Literal pool entry for the MMIO pointer 0x40341424 is missing."
+      }
+    ],
+    "match_pct": 0,
+    "concerns": [
+      "The compiled disassembly is entirely 0xFFFFFFFF (uninitialized/erased flash) starting at address 0x100000 instead of the correct function address 0x101a0c.",
+      "No valid instructions exist in the compiled output \u2014 the entire function body, literal pool, and epilogue are absent.",
+      "The base address is wrong: compiled code is at 0x100000, original function is at 0x101a0c (a 0x1a0c-byte offset).",
+      "The original function reads from MMIO 0x40341424, compares against 1, and returns 0 or 1 via ITE LS \u2014 none of this logic appears in the compiled output.",
+      "The compiled binary may not have been linked/loaded properly, or the reconstruction was not successfully compiled into the target image."
+    ]
+  }
+}

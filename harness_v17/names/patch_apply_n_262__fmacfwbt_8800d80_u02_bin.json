@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_262", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1215286", "status": "ok", "name": "patch_apply_n_262", "params": [], "docstring": "Apply patch via indirect call; verify signature 'CLAC' (0x494c4143)", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

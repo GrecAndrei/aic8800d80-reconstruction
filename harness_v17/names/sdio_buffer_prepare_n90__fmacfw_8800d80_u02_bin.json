@@ -1,0 +1,1 @@
+{"fn": "sdio_buffer_prepare_n90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122e1ac", "status": "ok", "name": "sdio_buffer_prepare_n90_e1ac", "params": [], "docstring": "SDIO buffer size preparation (double register shifts)", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

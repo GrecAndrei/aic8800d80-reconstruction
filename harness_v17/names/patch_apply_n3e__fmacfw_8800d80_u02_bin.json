@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n3e", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214eea", "status": "ok", "name": "patch_apply_n3e", "params": [], "docstring": "Apply behavioral patch table entry n3e", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "rf_bus_write2_n1a8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211c20", "status": "ok", "name": "rf_fault_dump_n_1a5", "params": [], "docstring": "RF fault state dump routine 1a5", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

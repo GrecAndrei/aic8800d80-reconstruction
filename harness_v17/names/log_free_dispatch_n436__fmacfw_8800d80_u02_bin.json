@@ -1,0 +1,1 @@
+{"fn": "log_free_dispatch_n436", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121043e", "status": "ok", "name": "log_trace_set_flag_incr", "params": [], "docstring": "Set log free flag and increment trace counter", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

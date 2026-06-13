@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_113", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211078", "status": "ok", "name": "rf_bus_mark_n_113", "params": [], "docstring": "Mark/access RF bus window registers 0x120/0x100", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

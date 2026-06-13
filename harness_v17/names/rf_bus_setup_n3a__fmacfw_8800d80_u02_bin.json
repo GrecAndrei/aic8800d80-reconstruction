@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n3a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1211f36", "status": "ok", "name": "rf_bus_write_n2b4", "params": [], "docstring": "Write to RF bus via NVIC/SCS MMIO with status comparison", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

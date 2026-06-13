@@ -1,0 +1,1 @@
+{"fn": "rf_bus_reset_n_7c", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121296c", "status": "ok", "name": "rf_bus_reset_n_7c", "params": [], "docstring": "Reset RF bus state machine when stuck in error", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "patch_apply_n_1ba", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1214cf2", "status": "ok", "name": "patch_apply_n_1ba", "params": [], "docstring": "Copy 4-byte patch payload from stack buffer to destination", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

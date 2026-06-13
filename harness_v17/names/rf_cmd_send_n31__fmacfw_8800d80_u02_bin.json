@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_send_n31", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1213040", "status": "ok", "name": "rf_bus_reset_n_358", "params": [], "docstring": "Resets RF bus registers and clears command state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

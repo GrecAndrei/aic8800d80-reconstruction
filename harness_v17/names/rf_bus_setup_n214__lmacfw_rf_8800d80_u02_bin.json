@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n214", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211a18", "status": "ok", "name": "rf_bus_setup_n214", "params": [], "docstring": "Configure RF bus control register with 0x4000000 mask, tail-call variant", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

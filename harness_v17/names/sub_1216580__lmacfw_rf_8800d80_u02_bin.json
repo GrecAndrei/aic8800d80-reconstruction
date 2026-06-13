@@ -1,0 +1,1 @@
+{"fn": "sub_1216580", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1216580", "status": "ok", "name": "rf_alloc_or_init", "params": [], "docstring": "Allocates/init RF context via 0x11e7ac then stores result", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "message_dispatch_n_294", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122c920", "status": "ok", "name": "message_dispatch_n_294", "params": [], "docstring": "Dispatches host message: reads header field then pushes onto queue", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

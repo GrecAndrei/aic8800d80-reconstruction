@@ -1,0 +1,1 @@
+{"fn": "rf_cmd_dispatch_n2aa", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12221ee", "status": "ok", "name": "rf_bus_mark_n_4a8_21ee", "params": [], "docstring": "Marks RF bus state/registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}

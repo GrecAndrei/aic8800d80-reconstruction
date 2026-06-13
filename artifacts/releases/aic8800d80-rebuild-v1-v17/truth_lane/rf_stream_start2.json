@@ -1,0 +1,44 @@
+{
+  "function": "rf_stream_start2",
+  "report": {
+    "name": "rf_stream_start2",
+    "purpose": "Second variant of the RF transmit-stream start routine in the LMAC RF firmware image of the AIC8800D80 WiFi SoC. Per its docstring it kicks off the RF stream configuration/calibration sequence used when a transmission chain (PHY/RF TX path) is being prepared. The '2' suffix indicates an alternate entry point or a second instantiation of the stream-start sequence, likely used in a different band/bandwidth/chain context from rf_stream_start. It belongs to the RF transmit (TX) subsystem that programs the on-chip radio before packets are sent.",
+    "parameters": [
+      {
+        "type": "uint32_t",
+        "name": "rf_stream_cfg",
+        "purpose": "RF stream configuration word / channel-band-bandwidth selector passed via r0"
+      },
+      {
+        "type": "uint32_t",
+        "name": "calib_flags",
+        "purpose": "Calibration / path-enable bitmap passed via r1 (inferred)"
+      },
+      {
+        "type": "uint32_t",
+        "name": "ctx_ptr",
+        "purpose": "Pointer to RF context / shared state block in RAM (inferred from calling convention)"
+      }
+    ],
+    "return_value": {
+      "type": "int",
+      "meaning": "0 on successful stream-start ack, negative error code if RF refused the stream configuration"
+    },
+    "subsystem": "rf",
+    "side_effects": [
+      "Writes RF front-end control registers (RFIC page, address range 0x40xxxx region typical of AIC8800 RF controller)",
+      "Asserts/deasserts RF AGC, LO, and PA enable bits in the radio control MMIO block",
+      "Triggers an RF calibration sweep via the RF sequencer MMIO",
+      "Posts a status / completion event back to the LMAC TX scheduler (IPC mailbox)",
+      "Updates the RF stream state in shared RAM context"
+    ],
+    "key_callees": [],
+    "key_callers": [
+      "rf_stream_start2_n33e",
+      "rf_stream_start2_n361"
+    ],
+    "complexity": "medium",
+    "lines_of_c": 80,
+    "summary": "Alternate RF transmit-stream start / pre-TX calibration entry point in the AIC8800D80 LMAC RF firmware."
+  }
+}

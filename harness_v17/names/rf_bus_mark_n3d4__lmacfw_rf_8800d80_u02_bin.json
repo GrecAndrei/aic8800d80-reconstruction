@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n3d4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211560", "status": "ok", "name": "rf_bus_mark_cmp", "params": [], "docstring": "RF bus marker compare helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

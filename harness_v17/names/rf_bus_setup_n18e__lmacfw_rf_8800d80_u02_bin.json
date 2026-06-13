@@ -1,0 +1,1 @@
+{"fn": "rf_bus_setup_n18e", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211992", "status": "ok", "name": "rf_bus_setup_n18e", "params": [], "docstring": "Setup RF bus with 0x7ffff mask and ip[8] flag toggle", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

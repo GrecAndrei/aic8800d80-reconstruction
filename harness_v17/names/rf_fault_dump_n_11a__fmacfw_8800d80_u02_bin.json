@@ -1,0 +1,1 @@
+{"fn": "rf_fault_dump_n_11a", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121462e", "status": "ok", "name": "rf_level_apply_n376", "params": [], "docstring": "Apply RF level (power/gain) by halving input value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

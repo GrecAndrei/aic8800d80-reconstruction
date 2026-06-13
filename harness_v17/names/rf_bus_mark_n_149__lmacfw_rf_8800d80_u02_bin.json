@@ -1,0 +1,1 @@
+{"fn": "rf_bus_mark_n_149", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1211042", "status": "ok", "name": "rf_bus_mark_n_149", "params": [], "docstring": "Mark/set bit on RF bus register via shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

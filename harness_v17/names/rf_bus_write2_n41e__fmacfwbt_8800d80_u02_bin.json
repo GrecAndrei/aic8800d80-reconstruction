@@ -1,1 +1,1 @@
-{"fn": "rf_bus_write2_n41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e96", "status": "ok", "name": "rf_bus_write2_n41e", "params": [], "docstring": "Prepare and issue RF bus write with two operands", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}
+{"fn": "rf_bus_write2_n41e", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1211e96", "status": "ok", "name": "rf_bus_write2_n41e_1e96", "params": [], "docstring": "Prepare and issue RF bus write with two operands", "subsystem": "rf", "tool_call_count": 0, "tool_calls": [], "disambiguated": true}
