@@ -9,7 +9,7 @@ code byte-for-byte.
 import json, sys, re, subprocess, time
 from pathlib import Path
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 NAMES_DIR = REPO / "harness_v17/names"
 OUT_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/composed_v18"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

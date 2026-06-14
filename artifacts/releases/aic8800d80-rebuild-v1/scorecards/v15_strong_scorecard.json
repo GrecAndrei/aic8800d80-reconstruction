@@ -1,7 +1,7 @@
 {
   "scorer": "v15_strong",
   "verifier_path": "harness_v15/verifier/verify.py",
-  "v14_synth_dir": "/home/grec-alexander/Downloads/aic8800d80/artifacts/releases/aic8800d80-rebuild-v1/synth",
+  "v14_synth_dir": "<repo>/artifacts/releases/aic8800d80-rebuild-v1/synth",
   "total": 25,
   "pass": 25,
   "fail": 0,

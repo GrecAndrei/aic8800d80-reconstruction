@@ -1,5 +1,5 @@
 {
-  "input_path": "/home/grec-alexander/Downloads/aic8800d80/lmacfw_rf_8800d80_u02.bin",
+  "input_path": "<repo>/lmacfw_rf_8800d80_u02.bin",
   "segments": [
     {
       "name": "seg000",

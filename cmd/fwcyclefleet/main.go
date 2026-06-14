@@ -120,7 +120,7 @@ func run() error {
 	flag.IntVar(&sleepSec, "sleep-sec", 20, "Sleep between cycles in seconds for each worker")
 	flag.IntVar(&maxConsecutiveFailures, "max-consecutive-failures", 3, "Stop a worker after this many consecutive failures")
 	flag.IntVar(&recentRuns, "recent-runs", 12, "How many recent run directories to seed into each worker snapshot")
-	flag.StringVar(&embedderModel, "embedder-model", "/home/grec-alexander/Downloads/bge-code-v1-q8_0.gguf", "Path to GGUF embedding model for behavioral classification")
+	flag.StringVar(&embedderModel, "embedder-model", "/usr/local/share/aic8800d80/models/bge-code-v1-q8_0.gguf", "Path to GGUF embedding model for behavioral classification")
 	flag.BoolVar(&dryRun, "dry-run", false, "Plan provisioning and commands without launching workers")
 	flag.Var(&childArgs, "child-arg", "Extra argument passed through to fwcycle (repeatable)")
 	flag.Parse()

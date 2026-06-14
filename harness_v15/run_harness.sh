@@ -22,7 +22,7 @@
 
 set -e
 
-REPO=/home/grec-alexander/Downloads/aic8800d80
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HARNESS_DIR="$REPO/harness_v15"
 FILTER="${1:-}"
 MAX_WORKERS="${2:-10}"

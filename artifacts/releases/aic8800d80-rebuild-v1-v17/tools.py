@@ -11,7 +11,7 @@ All addresses are 0x-prefixed hex strings.
 import json, re, subprocess, struct
 from pathlib import Path
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent.parent
 FW_DIR = REPO / "inputs/firmware"
 BEHAVIORAL_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/synth"
 

@@ -11,7 +11,7 @@ import json, sys, time, argparse, re, threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "harness_v17"))
 import tools as v17tools
 from oracle import call_api, call_tool, TOOL_SCHEMA, validate_no_invented_addresses

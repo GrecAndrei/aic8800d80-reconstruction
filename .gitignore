@@ -67,3 +67,9 @@ harness_v19/mmio_registers.json
 harness_v19/structs.json
 harness_v19/elf/
 harness_v19/llm_names.json
+
+# Pre-compiled Go binaries (build from cmd/ to regenerate)
+tools/local-bin/*.go-bin
+
+# Large drive upload logs
+drive_upload*.log

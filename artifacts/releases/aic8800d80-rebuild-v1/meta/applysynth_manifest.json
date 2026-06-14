@@ -1,11 +1,11 @@
 {
   "schema_version": "0.1.0",
   "generated_at": "2026-05-23T22:27:11Z",
-  "synth_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/synth",
-  "composed_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/composed",
+  "synth_dir": "<repo>/extraction_out/reconstruction/mega7/synth",
+  "composed_dir": "<repo>/extraction_out/reconstruction/mega7/composed",
   "files_touched": 4,
   "functions_applied": 356,
   "unique_functions_applied": 212,
-  "output_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/applied",
-  "output_index": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/applied/applysynth_index.json"
+  "output_dir": "<repo>/extraction_out/reconstruction/mega7/applied",
+  "output_index": "<repo>/extraction_out/reconstruction/mega7/applied/applysynth_index.json"
 }

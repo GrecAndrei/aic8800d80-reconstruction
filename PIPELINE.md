@@ -214,7 +214,7 @@ Each cycle:
 - **chip runtime = v14 - 0x1100000**
 - **chip runtime BASE = 0x100000** (where firmware loads)
 - **r2 disasm**: `r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR"`
-- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **IDA Pro 9.3** at `$IDAT (or default $HOME/ida-pro-9.3/idat)`
 - **Hex-Rays plugin** `hexarm.so`
 - **LLM API**: 6 keys round-robin at `https://api.tokenrouter.com/v1`,
   model `MiniMax-M3`, 1M context

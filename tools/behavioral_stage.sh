@@ -2,7 +2,7 @@
 # Behavioral fingerprint stage — called by fwcycle when --behavioral is set.
 # Pre-scans from composed file (all functions) → traces MMIO ones → generates → resolves → deploys.
 set -e
-REPO="${1:-/home/grec-alexander/Downloads/aic8800d80}"
+REPO="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 RUN_ROOT="${2:-extraction_out/reconstruction/mega7}"
 cd "$REPO"
 

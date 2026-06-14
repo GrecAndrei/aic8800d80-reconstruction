@@ -2,7 +2,7 @@
 import sys
 from pathlib import Path
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent.parent
 FW_DIR = REPO / "inputs/firmware"
 WORK_DIR = Path("/tmp/v18_blinky")
 OUT_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/wffw_v18"

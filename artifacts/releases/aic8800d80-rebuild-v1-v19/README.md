@@ -134,4 +134,4 @@ harness_v19/scripts/run_v19.sh lmacfw_rf_8800d80_u02_bin both
 python3 harness_v19/scripts/post_process.py
 ```
 
-Requires IDA Pro 9.x (`/home/grec-alexander/ida-pro-9.3/idat`).
+Requires IDA Pro 9.x (`$IDAT (or default $HOME/ida-pro-9.3/idat)`).

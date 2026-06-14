@@ -5,11 +5,21 @@ set -e
 IMG="$1"
 MODE="${2:-both}"
 
-REPO="/home/grec-alexander/Downloads/aic8800d80"
+# Resolve repo from this script's location (works regardless of cwd)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="$(cd "$SCRIPT_DIR/../.." && pwd)"
 V19="$REPO/harness_v19"
 IDB="$V19/idb/${IMG%_bin}"
 ELF="$V19/elf/${IMG%_bin}_bin.elf"
 LOG="$V19/log/${IMG}_$(date +%s).log"
+
+# IDA Pro 9.x: override with $IDAT or $IDA_DIR
+IDAT="${IDAT:-${IDA_DIR:-$HOME/ida-pro-9.3}/idat}"
+if [ ! -x "$IDAT" ]; then
+    echo "ERROR: idat not found at $IDAT"
+    echo "Set IDAT env var (e.g., export IDAT=/path/to/idat)"
+    exit 1
+fi
 
 if [ ! -f "$ELF" ]; then
     ELF="$V19/elf/${IMG%_bin}.elf"
@@ -22,7 +32,7 @@ export V19_ROOT="$V19"
 if [ "$MODE" = "setup" ] || [ "$MODE" = "both" ]; then
     echo "=== Setup $IMG ==="
     rm -f "${IDB}".*
-    /home/grec-alexander/ida-pro-9.3/idat \
+    "$IDAT" \
         -A -B \
         -L"$LOG.setup" \
         -S"$V19/scripts/ida_setup_v19.py" \
@@ -33,7 +43,7 @@ fi
 
 if [ "$MODE" = "decompile" ] || [ "$MODE" = "both" ]; then
     echo "=== Decompile $IMG ==="
-    /home/grec-alexander/ida-pro-9.3/idat \
+    "$IDAT" \
         -L"$LOG.dec" \
         -S"$V19/scripts/ida_decompile_v19.py" \
         "$IDB.i64" >/dev/null 2>&1

@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.request, urllib.error
 import threading
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 TARGETS = REPO / "harness_v16/todo_targets.json"
 OUT_DIR = REPO / "harness_v16/out/llm_todos"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -41,7 +41,7 @@ names applied automatically.
 11. **Do not modify generated files manually**; fixes via real rebuild.
 12. **Dual-track (A + B)**: hardware test path + cloud release path.
 13. **"take this to the end and dont stop until reached"** — push through.
-14. **Use Hex-Rays decompiler** (`/home/grec-alexander/ida-pro-9.3/idat`)
+14. **Use Hex-Rays decompiler** (`$IDAT (or default $HOME/ida-pro-9.3/idat)`)
     for v19 human-readable C.
 
 ## Where to start

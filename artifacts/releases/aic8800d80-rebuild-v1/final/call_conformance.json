@@ -1,5 +1,5 @@
 {
-  "final_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/final",
+  "final_dir": "<repo>/extraction_out/reconstruction/mega7/final",
   "call_edges_path": "extraction_out/call_edges.jsonl",
   "min_confidence": 0.7,
   "function_count": 356,

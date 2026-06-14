@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IDA_HOME="${IDA_HOME:-/home/grec-alexander/ida-pro-9.2}"
+IDA_HOME="${IDA_HOME:-$HOME/ida-pro-9.3}"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 if [[ ! -x "$IDA_HOME/idat" ]]; then
   echo "ida-idat: missing executable: $IDA_HOME/idat" >&2

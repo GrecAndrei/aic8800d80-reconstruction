@@ -94,7 +94,7 @@ func run() error {
 	flag.IntVar(&limit, "limit", 12, "Probe target limit passed to fwcycle")
 	flag.IntVar(&autoImplMaxTasks, "auto-impl-max-tasks", 320, "Auto implementation task budget passed to fwcycle")
 	flag.IntVar(&maxConsecutiveFailures, "max-consecutive-failures", 3, "Stop after this many consecutive fwcycle failures (<=0 disables)")
-	flag.StringVar(&embedderModel, "embedder-model", "/home/grec-alexander/Downloads/bge-code-v1-q8_0.gguf", "Path to GGUF embedding model for behavioral classification")
+	flag.StringVar(&embedderModel, "embedder-model", "/usr/local/share/aic8800d80/models/bge-code-v1-q8_0.gguf", "Path to GGUF embedding model for behavioral classification")
 	flag.StringVar(&stopFile, "stop-file", "", "Stop-file path (default: <run-root>/.fwcycleauto.stop)")
 	flag.StringVar(&statusPath, "status", "", "Status JSON path (default: <run-root>/fwcycleauto_status.json)")
 	flag.StringVar(&lockPath, "lock-file", "", "Autoloop lock path (default: <run-root>/.fwcycleauto.lock)")

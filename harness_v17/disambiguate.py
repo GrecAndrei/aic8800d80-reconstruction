@@ -13,7 +13,7 @@ import json, re, sys
 from pathlib import Path
 from collections import defaultdict
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 NAMES_DIR = REPO / "harness_v17/names"
 
 def addr_to_short(addr):

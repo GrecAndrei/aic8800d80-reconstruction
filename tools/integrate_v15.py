@@ -4,7 +4,7 @@ import re, json, sys, time
 from pathlib import Path
 from collections import defaultdict
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 V15_SYNTH = REPO / "artifacts/releases/aic8800d80-rebuild-v1/synth"
 COMPOSED_DIR = REPO / "extraction_out/reconstruction/mega7/final"
 OUT_DIR = REPO / "artifacts/releases/aic8800d80-rebuild-v1/composed"

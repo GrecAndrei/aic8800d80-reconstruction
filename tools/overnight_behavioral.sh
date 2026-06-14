@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-REPO=/home/grec-alexander/Downloads/aic8800d80
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO"
 
 OUTDIR=/tmp/opencode/behavioral_overnight

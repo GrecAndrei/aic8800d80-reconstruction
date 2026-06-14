@@ -105,7 +105,7 @@ Release tarball
 - **v18 disasm** via `r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR"`
 - **v19 ELF wrapper**: minimal ARM ELF with one LOAD segment at 0x100000
 - **MMIO phantom segment**: 0x40000000-0x60000000, 25,815 register addresses
-- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **IDA Pro 9.3** at `$IDAT (or default $HOME/ida-pro-9.3/idat)`
 - **Hex-Rays** decompiler plugin `hexarm.so`
 - **LLM API**: 6 keys round-robin at `https://api.tokenrouter.com/v1`,
   model `MiniMax-M3`, 1M context

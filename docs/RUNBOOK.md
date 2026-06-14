@@ -17,7 +17,7 @@ reconstruction project.
 ## Environment
 
 Required tools:
-- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **IDA Pro 9.3** at `$IDAT (or default $HOME/ida-pro-9.3/idat)`
 - **r2** (radare2) for disasm
 - **arm-linux-gnueabihf-gcc** for cross-compile
 - **Python 3.10+** with `idat` Python extensions

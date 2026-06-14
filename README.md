@@ -172,7 +172,7 @@ ls artifacts/releases/aic8800d80-rebuild-v1-v19/named_samples/
 less artifacts/releases/aic8800d80-rebuild-v1-v19/named_samples/fmacfw_8800d80_u02_bin__phy_rx_process_bulk.c
 ```
 
-Requires IDA Pro 9.x at `/home/grec-alexander/ida-pro-9.3/idat` for re-running
+Requires IDA Pro 9.x at `$IDAT (or default $HOME/ida-pro-9.3/idat)` for re-running
 the v19 pipeline from scratch.
 
 ## Canonical Docs

@@ -1,8 +1,8 @@
 {
   "schema_version": "0.1.0",
   "generated_at": "2026-05-24T07:15:27Z",
-  "applied_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/applied",
-  "final_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/final",
+  "applied_dir": "<repo>/extraction_out/reconstruction/mega7/applied",
+  "final_dir": "<repo>/extraction_out/reconstruction/mega7/final",
   "file_count": 4,
   "function_count": 356,
   "todo_count": 0,

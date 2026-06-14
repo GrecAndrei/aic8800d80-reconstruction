@@ -6,7 +6,7 @@
 set -u
 set -o pipefail
 
-REPO=/home/grec-alexander/Downloads/aic8800d80
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RECON=$REPO/extraction_out/reconstruction
 TRUTH_STATE=$RECON/truth_lane_state
 STATE=$TRUTH_STATE/drive_upload_state.txt

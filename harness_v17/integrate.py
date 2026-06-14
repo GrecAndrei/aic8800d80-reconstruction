@@ -9,7 +9,7 @@ O(n) implementation: single regex pass with alternation.
 import json, re, sys
 from pathlib import Path
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 NAMES_DIR = REPO / "harness_v17/names"
 # IMPORTANT: source from v15 final (which has v14 synthesis bodies),
 # NOT from extraction_out/reconstruction/mega7/final/ (which has empty TODO stubs)

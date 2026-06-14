@@ -1,11 +1,11 @@
 {
   "schema_version": "0.1.0",
   "generated_at": "2026-05-24T07:15:27Z",
-  "implqueue_path": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/implqueue/implementation_queue.json",
-  "call_edges_path": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/call_edges.jsonl",
+  "implqueue_path": "<repo>/extraction_out/reconstruction/mega7/implqueue/implementation_queue.json",
+  "call_edges_path": "<repo>/extraction_out/call_edges.jsonl",
   "synth_count": 281,
   "behavior_tasks_used": 256,
   "dependency_tasks_used": 25,
   "avg_callee_emitted": "1.02",
-  "output_dir": "/home/grec-alexander/Downloads/aic8800d80/extraction_out/reconstruction/mega7/synth"
+  "output_dir": "<repo>/extraction_out/reconstruction/mega7/synth"
 }

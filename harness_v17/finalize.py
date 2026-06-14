@@ -16,7 +16,7 @@ import json, sys, time, subprocess, re
 from pathlib import Path
 import shutil
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 NAMES_DIR = REPO / "harness_v17/names"
 DOCS_DIR = REPO / "harness_v17/docs"
 PATTERNS_DIR = REPO / "harness_v17/patterns"

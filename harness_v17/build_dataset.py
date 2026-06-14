@@ -16,7 +16,7 @@ Output: artifacts/releases/aic8800d80-rebuild-v1-v17/dataset/v17_ml_pairs.jsonl
 import json, sys
 from pathlib import Path
 
-REPO = Path("/home/grec-alexander/Downloads/aic8800d80")
+REPO = Path(__file__).resolve().parent.parent
 NAMES_DIR = REPO / "harness_v17/names"
 BEHAV_DIR = REPO / "extraction_out/reconstruction/mega7/synth"
 OUT = REPO / "artifacts/releases/aic8800d80-rebuild-v1-v17/dataset"
