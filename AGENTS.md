@@ -1,70 +1,149 @@
-# AIC8800D80 Firmware Reconstruction Project
+# AGENTS.md — Quick Reference for AI Agents
 
-## Goal
-Reconstruct human-readable C source from AIC8800D80 WiFi/BT firmware binaries
-using a sequence of progressively better pipelines (v15 → v19).
+This file gives a fast overview of the AIC8800D80 firmware reconstruction
+project so a fresh agent can orient quickly.
 
-## Constraints & Preferences
-- **THINK IN TAGS, NOT BASH COMMANDS**: never use bash as scratch
-- **LLM cost is NOT a constraint** — be aggressive, push through
-- **Address-safety rule is absolute**: LLM may NOT compute any address in its head
-- **LLM is NEVER a C author** — only tool user / naming oracle
-- **Don't artificially limit**: no max_tokens cap, no iteration cap
-- **O(n) is mandatory**: never O(n*m) text splices in loops on multi-MB files
-- **Long-running commands detached**: `setsid nohup`, never `wait` on nohup'd process
-- **No synthetic/template bodies**; demand real semantic fidelity
-- **Bugs are blocking**: fix integration bugs first
-- Regular commits on meaningful source changes
-- Do not modify generated files manually
-- **Dual-track (A + B)**: hardware test path + cloud release path
-- **"take this to the end and dont stop until reached"**
-- **Use Hex-Rays decompiler** for v19 human-readable C
+## Project goal
+Reconstruct human-readable C source from AIC8800D80 WiFi/BT firmware
+binaries using a sequence of progressively better pipelines (v15 → v19).
 
-## Progress
+## Project status (2026-06-14)
 
-### v15 — Synthesis baseline (truth lane: 25/25 PASS)
-Truth lane verifies the synthesized C is semantically equivalent to original.
+Four release layers, each serves a different verification need:
 
-### v17 — LLM tool-use pipeline
-- 16 deterministic tools, oracle.py (LLM with function calling)
-- naming_batch.py: 5 fns/s, 15,151 names, 3,475 renames
-- 8/25 truth-lane, 75 compile-oracle reports, 10K+ dataset records
+| Layer | Output | Compiles? | Human-readable? | Size |
+|-------|--------|-----------|----------------|------|
+| **v15** | Synthesized C (curated 356 funcs) | ✅ | ✅ | 1.1 MB |
+| **v17** | LLM-named C (4,002 funcs) | ✅ | ✅ | 5.7 MB |
+| **v18** | Inline-asm byte-faithful (18,841 funcs) | ✅ | ❌ | 1.2 MB |
+| **v19** | Hex-Rays decompilation (4,675 funcs) | ❌ | ✅ | 4.7 MB |
 
-### v18 — Faithful inline-asm (1.1MB tarball)
-- 18,841 functions with original bytes embedded as `.byte 0xXX`
-- 89% byte-match confirmed via compile-oracle
-- v18 is **byte-faithful** but **unreadable** to humans
+**Latest release: v19** — human-readable pseudo-C from IDA Pro's Hex-Rays
+decompiler, with 1,256 LLM-applied function names and 25,815 MMIO register
+names applied automatically.
 
-### v19 — Hex-Rays decompilation (RELEASE)
-- **4,675 of 4,723 functions decompiled (98.9%)**
-- **1,256 functions have LLM-applied names**
-- **25,815 MMIO register addresses named automatically**
-- 22MB pseudo-C across 4 binaries
-- **22MB → 4.7MB tarball** with 5,945 per-function .c files
-- README + ORACLE_RESULTS + named samples
-- ~30s per binary decompile time
-- 4.7MB tarball at `artifacts/releases/aic8800d80-rebuild-v1-v19.tar.gz`
+## Hard rules (do not violate)
 
-## Key Decisions
-- v17 = LLM tool-use, replaces v16's hallucinating C generation
-- v18 = byte-faithful layer (inline-asm), 0% hallucination
-- v19 = human-readable layer (Hex-Rays), complements v18
-- Strong verifier is the gate (v15)
-- v14 BASE = 0x1200000; chip = v14 - 0x1100000
-- Chip runtime addr = 0x100000 + file_offset
-- r2 thumb disasm: `r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR"`
-- Address-safety: validator collects addresses from tool RESULTS + INPUTS + prompt
-- IDA ELF wrapper trick: load as 32-bit ARM Thumb at 0x100000
-- IDA needs extended LOAD (sparse) to 0x200000 to enable BSS naming
-- IDA needs `create_data()` before `set_name()` for BSS/data addresses
-- IDA MMIO register naming: add_segm(0, 0x40000000, 0x60000000, "MMIO", "DATA")
-- LLMs: 6 keys round-robin, `https://api.tokenrouter.com/v1`, model `MiniMax-M3`
+1. **THINK IN TAGS, NOT BASH COMMANDS**: never use bash as scratch.
+2. **LLM cost is NOT a constraint** — be aggressive, push through.
+3. **Address-safety rule is absolute**: LLM may NOT compute any address,
+   offset, pointer, or size in its head. Provide tools.
+4. **LLM is NEVER a C author** — only tool user / naming oracle. All C
+   is mechanically generated (v17+) or decompiled (v19).
+5. **Don't artificially limit**: no max_tokens cap, no iteration cap.
+6. **O(n) is mandatory**: never O(n*m) text splices in loops on
+   multi-MB files.
+7. **Long-running commands detached**: `setsid nohup`, never `wait` on
+   nohup'd process. Bash tool has 120s timeout.
+8. **No synthetic/template bodies**; demand real semantic fidelity.
+9. **Bugs are blocking**: fix integration bugs first, then continue.
+10. **Regular commits** on meaningful source changes.
+11. **Do not modify generated files manually**; fixes via real rebuild.
+12. **Dual-track (A + B)**: hardware test path + cloud release path.
+13. **"take this to the end and dont stop until reached"** — push through.
+14. **Use Hex-Rays decompiler** (`/home/grec-alexander/ida-pro-9.3/idat`)
+    for v19 human-readable C.
 
-## Critical Context
-- 4 firmware binaries, ~340KB each, load at 0x100000
-- AIC8800D80 is a Marvell 88W8800-derived WiFi/BT chip
-- IDA Pro 9.3 at `/home/grec-alexander/ida-pro-9.3/idat`
-- v18 7,642 functions for fmacfw_u02 (inline-asm)
-- v19 1,273 functions for fmacfw_u02 (decompiled)
-- Different scopes: v18 covers LLM-named, v19 covers IDA-discovered
-- Total decompiled: 4,675/4,723 = 98.9% across 4 binaries
+## Where to start
+
+- For pipeline architecture: see `PIPELINE.md`
+- For v19 (latest): see `harness_v19/README.md`
+- For v18 (byte-faithful): see `harness_v17/disasm_to_asm.py`
+- For v17 (LLM tool-use): see `harness_v17/oracle.py`
+- For v15 (synthesis): see `harness_v15/`
+
+## Address conversion cheat sheet
+
+```
+v14 BASE           = 0x1200000
+chip runtime BASE  = 0x100000
+file_offset = 0x100000 → chip addr 0x100000
+chip addr = v14 addr - 0x1100000
+```
+
+## IDA Pro setup for AIC8800D80
+
+The firmware loads as ARM Thumb at `0x100000`. To get IDA to recognize it:
+
+1. Wrap the raw `.bin` as a minimal ARM ELF (one LOAD segment at 0x100000)
+   - See `harness_v19/scripts/make_elf.py`
+2. Load via `idat -A -B -L<log> -S<setup_script> -o<idb> <elf>`
+3. Setup script must:
+   - Set LOAD perm to RWX (default is RX, blocks data symbol naming)
+   - Extend LOAD to 0x200000 with SEGMOD_SPARSE (BSS coverage)
+   - Add MMIO phantom segment at 0x40000000-0x60000000
+4. Apply LLM names via `ida_name.set_name(addr, name, ida_name.SN_FORCE)`
+5. BSS addresses need `ida_bytes.create_data()` BEFORE `set_name()`
+6. Decompile with `idaapi.decompile(ea)`
+
+## r2 thumb disasm command
+
+```bash
+r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR" inputs/firmware/<file>.bin
+```
+
+DOES NOT work: `-a arm -b 16` (byte-granular), `-a thumb` (wrong at fn start),
+`-m 0x100000` (offsets wrong on raw .bin).
+
+## LLMs
+
+- 6 keys round-robin
+- `https://api.tokenrouter.com/v1`
+- Model: `MiniMax-M3`
+- 1M context, 120s timeout
+
+## LLM tool-use (v17)
+
+- 16 deterministic tools
+- Address-safety validator collects addrs from RESULTS + INPUTS + prompt
+- Strips leading zeros
+- Exempts sentinels
+- LLM may rename but may not invent addresses
+
+## AIC8800D80 firmware specs
+
+- 4 binaries, ~340KB each
+- Loads at 0x100000
+- Marvell 88W8800-derived WiFi/BT chip
+- 1,285 functions per image (fmacfw_h, fmacfw_u02, fmacfwbt)
+- 866 functions (lmacfw_rf)
+- Total: 4,723 functions across 4 images
+- IDB size: 2.1 GB each (with MMIO segment)
+
+## MMIO register pages
+
+- 25,815 unique MMIO addresses
+- 1,042 distinct 64KB pages
+- Range: 0x40000000 - 0x60000000
+- Top pages by address count: 0x4620 (569), 0x4604 (317), 0x4628 (260), ...
+
+## IDA quirks discovered
+
+- `idc.get_db_name` doesn't exist in 9.x
+- Use `idaapi.get_input_file_path()` to get loaded file
+- `idc.SN_FORCE` is in `ida_name.SN_FORCE`
+- `set_segm_attributes` is gone — use `seg.perm = ...` directly
+- `getnseg(0)` returns `segment_t` whose `perm` field is assignable
+- Hex-Rays output is **cached** — changes to symbols require
+  re-decompile or use `idaapi.decompile(ea, flags=idaapi.DECOMP_NO_CACHE)`
+- Hex-Rays uses MSVC types: `__int64`, `__int16`, `_DWORD`, `_BYTE`, etc.
+- Hex-Rays uses `_R0`, `_R1`, etc. for register writes
+- Hex-Rays uses `_CF`, `_ZF`, etc. for condition flags
+
+## Disk space
+
+- /tmp is 7.5GB tmpfs — keep IDB usage low
+- IDBs are 2.1GB each (due to MMIO phantom segment)
+- Use `harness_v19/idb/` for IDB storage; not in git
+- Tarball releases are < 10MB; safe for git
+
+## Critical gitignore entries
+
+- `*.i64` (IDA databases)
+- `*.id0`, `*.id1`, `*.id2`, `*.nam`, `*.til` (IDA components)
+- `*.bin` (raw firmware)
+- `*.gz`, `*.tar.gz` (release tarballs, added with -f)
+- `harness_v19/decompiled/`, `harness_v19/idb/`, `harness_v19/log/`
+- `harness_v19/boundaries.json`, `llm_names.json`, etc. (regen'd)
+- `harness_v16/out/` (44K review files, 177MB)
+- `extraction_out/`, `analysis/`

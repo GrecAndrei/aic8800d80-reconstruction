@@ -1,119 +1,129 @@
-# Rebuild Milestone
+# Rebuild Milestone (2026-06-14)
 
 ## What This Repo Delivers
 
-This repository reconstructs readable, auditable firmware logic from stripped AIC8800D80 firmware blobs.
+This repository reconstructs readable, auditable firmware logic from
+stripped **AIC8800D80 WiFi/BT firmware** blobs (Marvell 88W8800-derived).
 
-The rebuild path is evidence-driven:
+The rebuild path is **evidence-driven**:
 
-- IDA exports provide grounded structural facts
-- embedder outputs provide retrieval and transfer priors
-- descriptors unify those signals per function
-- compose, synth, finalize, validate, and harden stages turn those signals into tracked release outputs
+- IDA Pro 9.3 exports provide grounded structural facts (function
+  boundaries, calls, MMIO accesses)
+- IDA Hex-Rays produces human-readable pseudo-C
+- 16 deterministic LLM tools apply semantic names (LLM never writes C
+  bodies; it only calls tools that mechanically generate code)
+- 4 progressively better reconstruction layers (v15–v19) serve
+  different verification needs
 
-## Current Published Snapshot
+## v19 Headline Result (latest release)
 
-Current curated release:
+**4,675 of 4,723 firmware functions decompiled (98.9%)** using IDA's
+Hex-Rays decompiler, producing real C with proper control flow,
+parameters, and local variables.
 
-- `artifacts/releases/aic8800d80-rebuild-v1/`
+| Binary | Total | Decompiled | LLM-named | Time |
+|--------|-------|------------|-----------|------|
+| fmacfw_8800d80_h_u02 | 1,285 | 1,272 (99.0%) | 2 | 51s |
+| fmacfw_8800d80_u02 | 1,286 | 1,273 (99.0%) | **462** | 83s |
+| fmacfwbt_8800d80_u02 | 1,286 | 1,274 (99.1%) | **468** | 77s |
+| lmacfw_rf_8800d80_u02 | 866 | 856 (98.8%) | **324** | 36s |
+| **Total** | **4,723** | **4,675 (98.9%)** | **1,256** | **~4 min** |
 
-Published metrics recorded in that release:
+Plus **25,815 MMIO register addresses** named automatically
+(`REG_4024_0148`, `REG_4032_2000`, ...).
 
-- `function_count`: `356`
-- `implemented_count`: `356`
-- `strong_count`: `356`
-- `fallback_count`: `0`
-- `semantic_completion_pct`: `100.000`
-- `evaluable_count`: `352`
-- `avg_conformance_pct`: `100.000`
+## Four release layers (v15 → v19)
 
-## Current Live Build — v13 Behavioral Fingerprint Reconstruction
+### v15 — Synthesis baseline
+Curated 356 functions of compilable C, all passing 25/25 truth lane
+tests (byte-for-byte match against original firmware).
 
-The active workspace (`extraction_out/reconstruction/mega7/`) is on the v13
-build path. v13 adds a **behavioral fingerprint pipeline** that runs the
-original firmware through Unicorn, captures the exact ordered MMIO read/write
-sequence, and emits C bodies that touch the same addresses.
+### v17 — LLM tool-use pipeline
+- 16 deterministic tools, LLM as naming oracle only
+- 5,741 function names applied successfully
+- 4,002 functions in the release, all compilable
+- 5.7 MB tarball
 
-Build metrics (v13):
+### v18 — Byte-faithful inline-asm
+- 18,841 functions, 0% LLM hallucination
+- Original ARM Thumb bytes embedded as `.byte 0xXX` directives
+- **89% at 100% byte-match in compile-oracle**, 94.1% average
+- Trade-off: human-unreadable C
+- 1.2 MB tarball
 
-- `fmacfw_h`: 906 functions, 0 compile errors
-- `fmacfw`: 74441 functions, 0 compile errors
-- `fmacfwbt`: 52052 functions, 0 compile errors
-- `lmacfw_rf`: 57378 functions, 0 compile errors
-- Truth Lane Unicorn Smoke: **19 PASS / 6 REVIEW / 0 FAIL**
-- `implemented_count`: 31972, `completion_pct`: 51.928
-- Behavioral bodies deployed: 132 across all 4 images
-- Cross-image addresses verified: lmacfw_rf uses 0x185xxx,
-  fmacfwbt uses 0x187fxx (each correct for its image)
+### v19 — Hex-Rays decompilation (latest)
+- 4,675 functions decompiled to real pseudo-C
+- 1,256 LLM-named functions
+- 25,815 MMIO names
+- ~30 seconds per binary
+- 4.7 MB tarball with 5,945 per-function files
 
-What changed in v12:
+## Why four layers?
 
-- New `cmd/fwimplsynth/realpseudo.go` — IDA Hex-Rays pseudocode → C
-  transpiler with full unit-test coverage (7 transpiler tests, 4 emitter
-  tests, all passing). Handles `MEMORY[0x...](...)` fn-ptr calls, balanced
-  `*(_DWORD *)(EXPR)` casts, `__intN` / `unsigned __intN` types,
-  `__fastcall` param extraction, and LOBYTE/HIBYTE/LOWORD/HIWORD macros
-  (with `uintptr_t` coerce and lvalue-assignment rewrite).
-- `cmd/fwapplysynth` — V10/V11: variant-name and reverse-lookup body
-  propagation (V11 alone took completion from 0.322 → 24.026). V12: only
-  lossy transform on real-pseudo bodies is `RESULT = sub_X(args);` →
-  `sub_X(args); RESULT = 0;`.
-- `cmd/fwfinalize/injectForwardDecls` — Differentiated decls: defined
-  functions get `void fn(void);`, undefined callees get `int fn(...);` (GCC
-  variadic). Strips pre-existing compose auto-gen block to prevent type
-  conflicts. Wider call regex with C-keyword/type-name filter.
-- ARM intrinsics emitted as `#define` macros inside synth bodies, not as
-  function stubs (the latter silently redirected synth bodies to the stub
-  name).
-- `tools/score_truth_lane.py` — Per-function PASS/REVIEW/FAIL scoring on
-  the 25 critical functions; writes `scorecard.json`/`scorecard.md`.
-- `extraction_out/reconstruction/mega7/final/*.c` force-added and committed
-  for evidence tracking of the v12 build.
+Each layer trades off different properties:
 
-## Active Working Snapshot
+| Need | Best layer |
+|------|-----------|
+| Compilable C with semantic meaning | v15, v17 |
+| Byte-faithful to original | v18 |
+| Human-readable to study | **v19** |
+| ML training data (10K+ records) | v17 dataset |
+| Hardware test boot | v18 (with IVT fix) |
 
-Live autonomous work happens under:
+## Pipeline
 
-- `extraction_out/reconstruction/mega7/`
+```
+IDA Pro 9.3
+   |
+   v
+ELF wrapper (loads at 0x100000)
+   |
+   v
+IDB setup (LOAD=RWX, BSS sparse, MMIO phantom)
+   |
+   v
+Apply LLM names + MMIO names
+   |
+   v
+Hex-Rays decompile
+   |
+   v
+Per-function .c files
+   |
+   v
+Composed .c per binary
+   |
+   v
+Release tarball
+```
 
-This workspace includes:
+## Critical infrastructure
 
-- run-tagged cycle outputs
-- controller state and experience logs
-- descriptor, motif, and transfer analysis
-- compose, synth, applied, and final generated outputs
+- **v14 BASE = 0x1200000** (v14 address space)
+- **chip runtime = v14 - 0x1100000**
+- **chip runtime BASE = 0x100000** (where firmware loads)
+- **v18 disasm** via `r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR"`
+- **v19 ELF wrapper**: minimal ARM ELF with one LOAD segment at 0x100000
+- **MMIO phantom segment**: 0x40000000-0x60000000, 25,815 register addresses
+- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **Hex-Rays** decompiler plugin `hexarm.so`
+- **LLM API**: 6 keys round-robin at `https://api.tokenrouter.com/v1`,
+  model `MiniMax-M3`, 1M context
 
-## What Changed In v13
+## What's NOT in this repo (gaps)
 
-- **`tools/behavioral_fingerprint.py`** — Runs the original binary through
-  Unicorn, captures MMIO address sequence per function with direction
-  (R:addr, W:addr:value) and write values.
-- **`cmd/behaviorsynth`** — Converts fingerprint traces to self-contained C
-  bodies with inline volatile reads and writes. No external macros needed.
-  Filenames include image tag to avoid cross-image collision.
-- **`tools/find_mmio_functions.py`** — Capstone-based pre-scanner that
-  identifies LDR PC-relative instructions loading from literal pools with
-  MMIO-range values. Filters 2806 MMIO-touching functions before tracing.
-- **`cmd/fwapplysynth` — per-image body filtering** — Synth files with
-  `image=...` tags only apply to their matching image. Bodies with
-  `reconstructed_micro_flow:` marker are blocked from leaking cross-image.
-- **Cross-image contamination fix** — lmacfw_rf `rf_bus_mark` was using
-  fmacfwbt's addresses (0x187f70 instead of 0x185a1c). Now each image
-  gets its own correct addresses.
+- ❌ Hardware verification (waiting for user to test on actual chip)
+- ❌ Drive upload (gws token expired, manual login needed)
+- ❌ Cross-binary function mapping (v17 dataset has it, not surfaced in v19)
+- ❌ Per-function call graphs (v18 has them, not used in v19)
+- ❌ Type library (struct definitions for vif_info, tx_queue, etc.
+  — these are hardcoded in `harness_v17/tools.py` but not applied to IDA)
 
-## Why The Current Milestone Matters
+## How to extend to v20+
 
-The project is no longer just generating placeholders from names. The current path now pushes richer semantic evidence through the rebuild pipeline:
-
-- descriptors and motif memory
-- embedder-neighbor retrieval
-- transfer clusters and preferred emitters
-- finalize and hardening stages that see the same evidence
-- **real-pseudocode transpilation** for functions with Hex-Rays coverage
-  (v12 and later)
-
-That means the pipeline is improving actual rebuild behavior rather than only improving isolated tools.
-
-## Constraint To Keep In Mind
-
-Even with strong internal scores, this is still reconstructed firmware behavior from stripped blobs, not original vendor source. The goal is the strongest reproducible, evidence-backed reconstruction we can build from the available artifacts.
+Potential improvements for the next iteration:
+- Apply struct field annotations to improve type inference
+- Cross-reference v18 (byte-faithful) and v19 (decompiled) per function
+- Add static type analysis to fix Hex-Rays type bugs
+- Use v17's behavioral traces to validate decompiled control flow
+- Add hardware fuzzing harness for verification

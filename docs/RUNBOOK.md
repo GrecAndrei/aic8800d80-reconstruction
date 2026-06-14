@@ -1,152 +1,206 @@
 # Runbook
 
-This is the operator runbook for the current reconstruction pipeline.
+Common commands and operator workflow for the AIC8800D80 firmware
+reconstruction project.
 
-## Common Paths
+## Quick reference
 
-```bash
-RUN_ROOT=extraction_out/reconstruction/mega7
-RELEASE_ROOT=artifacts/releases/aic8800d80-rebuild-v1
-```
+| Task | Command |
+|------|---------|
+| Reproduce v19 release | `python3 harness_v19/scripts/make_elf.py` + `harness_v19/scripts/run_v19.sh <img>` |
+| Run v18 inline-asm | `python3 harness_v17/disasm_to_asm.py` |
+| Run v17 LLM naming | `python3 harness_v17/naming_batch.py` |
+| Run v15 synthesis | `go run ./cmd/fwimplsynth -max-tasks 128` |
+| Build v19 release tarball | `tar -czf artifacts/releases/v19.tar.gz -C artifacts/releases/ aic8800d80-rebuild-v1-v19` |
+| Inspect a function | `cat artifacts/releases/aic8800d80-rebuild-v1-v19/decompiled/<img>/<addr>_<name>.c` |
 
-## Full Rebuild Path
+## Environment
 
-```bash
-go run ./cmd/fwcompose
-go run ./cmd/fwdescriptors -run-root "$RUN_ROOT"
-go run ./cmd/fwimplqueue -max-tasks 128
-go run ./cmd/fwimplsynth -max-tasks 128
-go run ./cmd/fwapplysynth
-go run ./cmd/fwfinalize
-go run ./cmd/fwvalidatecalls
-go run ./cmd/fwharden
-```
+Required tools:
+- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **r2** (radare2) for disasm
+- **arm-linux-gnueabihf-gcc** for cross-compile
+- **Python 3.10+** with `idat` Python extensions
+- 8 GB disk for IDA databases (2 GB each × 4 binaries)
 
-## Autonomous Cycle
+Environment variables:
+- `V19_ROOT`: path to `harness_v19/` (default: `harness_v19`)
 
-Single cycle:
+## v19 decompilation pipeline (latest)
 
-```bash
-go run ./cmd/fwcycle -run-root "$RUN_ROOT" -tag cycle_demo
-```
-
-Detached multi-cycle supervisor:
+### One-time setup
 
 ```bash
-nohup go run ./cmd/fwcycleauto -run-root "$RUN_ROOT" > /tmp/fwcycleauto.log 2>&1 &
+# Wrap raw .bin files as ARM ELF (one-time per firmware revision)
+python3 harness_v19/scripts/make_elf.py
 ```
 
-Stop detached supervisor:
+This produces `harness_v19/elf/fmacfw_8800d80_h_u02.elf` etc.
+
+### Per-binary decompilation
 
 ```bash
-touch "$RUN_ROOT/.fwcycleauto.stop"
+# Setup IDB + decompile
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_h_u02_bin both
+
+# Or separate steps
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_h_u02_bin setup      # IDB only
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_h_u02_bin decompile  # decompile only
 ```
 
-## Focused Verification
+Output:
+- IDB: `harness_v19/idb/fmacfw_8800d80_h_u02.i64` (2.1 GB, gitignored)
+- Decompiled: `harness_v19/decompiled/fmacfw_8800d80_h_u02_bin/*.c` (one per function)
+
+### Post-processing
 
 ```bash
-go test ./cmd/fwdescriptors ./cmd/fwcompose ./cmd/fwimplqueue ./cmd/fwimplsynth ./cmd/fwapplysynth ./cmd/fwfinalize ./cmd/fwharden ./cmd/fwcycle
-python3 -m py_compile tools/recon_cycle.py tools/smoke_learn_loop.py
+# Combine per-function .c into single .c per binary
+python3 harness_v19/scripts/post_process.py
+
+# Output:
+# harness_v19/composed/fmacfw_8800d80_h_u02_bin.c
+# harness_v19/composed/fmacfw_8800d80_u02_bin.c
+# harness_v19/composed/fmacfwbt_8800d80_u02_bin.c
+# harness_v19/composed/lmacfw_rf_8800d80_u02_bin.c
 ```
 
-## Truth-Lane Scoring
-
-The truth-lane scorecard runs `fwimplsynth` against the focused queue of
-the 25 critical functions and scores each PASS/REVIEW/FAIL on
-function-level semantic fidelity (callee calls, helper signatures, MMIO
-profile, motif alignment).
+### Build release
 
 ```bash
-python3 tools/score_truth_lane.py \
-  --run-root extraction_out/reconstruction/mega7 \
-  --out-dir /tmp/opencode/truth_lane_score \
-  --label v12_realpseudocode
+# Copy outputs to release dir
+mkdir -p artifacts/releases/aic8800d80-rebuild-v1-v19/composed_v19
+mkdir -p artifacts/releases/aic8800d80-rebuild-v1-v19/decompiled
+mkdir -p artifacts/releases/aic8800d80-rebuild-v1-v19/named_samples
+mkdir -p artifacts/releases/aic8800d80-rebuild-v1-v19/elf
+
+cp harness_v19/decompiled/* artifacts/releases/aic8800d80-rebuild-v1-v19/decompiled/
+cp harness_v19/composed/* artifacts/releases/aic8800d80-rebuild-v1-v19/composed_v19/
+cp harness_v19/elf/* artifacts/releases/aic8800d80-rebuild-v1-v19/elf/
+
+# Tar
+tar -czf artifacts/releases/aic8800d80-rebuild-v1-v19.tar.gz \
+  -C artifacts/releases/ aic8800d80-rebuild-v1-v19
 ```
 
-Outputs:
-
-- `scorecard.json`: machine-readable per-target results
-- `scorecard.md`: human-readable summary
-
-The current v12 build reports 25 PASS / 0 REVIEW / 0 FAIL.
-
-## Truth-Lane Unicorn Smoke
-
-The smoke runner extracts every truth-lane function from the v12 final C
-files, compiles each one with clang for ARMv7-M, loads it into Unicorn,
-and executes it with `--mmio-autopage` so that the body can read/write the
-real hardware addresses it references. This is the first time the
-reconstructed firmware has actually been executed in an emulator.
+## v18 byte-faithful pipeline
 
 ```bash
-python3 tools/truth_lane_smoke.py \
-  --final-dir extraction_out/reconstruction/mega7/final \
-  --out /tmp/opencode/v12_smoke \
-  --label v12_realpseudocode
+# Generate inline-asm C for each named function
+python3 harness_v17/disasm_to_asm.py
+
+# Output:
+# artifacts/releases/aic8800d80-rebuild-v1/composed_v18/*.reconstructed_v18.c
 ```
 
-Outputs:
-
-- `smoke_outcomes.jsonl`: per-target MMIO traces (instructions, reads, writes, addresses)
-- `smoke_summary.md`: human-readable summary with PASS/REVIEW/FAIL verdict per target
-- `bodies/<fn>__<image>.c`: extracted C body for each target
-
-Verdict:
-
-- **PASS**: real-pseudo body that returned naturally with >0 MMIO writes
-- **REVIEW**: motif body (template logic, runs but isn't real hardware)
-- **FAIL**: compile error or runtime fault
-
-The current v12 build reports 17 PASS / 8 REVIEW / 0 FAIL — all 17
-real-pseudo truth-lane bodies execute end-to-end in the emulator.
-
-## Real-Pseudocode Transpiler
-
-Functions with Hex-Rays pseudocode coverage in
-`extraction_out/ida_export_pseudo/pseudocode_hints.jsonl` are lowered
-through the real-pseudocode transpiler
-(`cmd/fwimplsynth/realpseudo.go`) instead of motif-body synthesis. The
-transpiler preserves:
-
-- function pointer calls (`MEMORY[0x...](...)`)
-- MMIO writes to fixed addresses
-- nested if/else control flow
-- helper calls (with their args intact)
-- `__intN` types, `__fastcall` params, LOBYTE/HIBYTE/LOWORD/HIWORD macros
-- ARM intrinsics (emitted as `#define` macros)
-
-Verify the transpiler:
+## v17 LLM tool-use pipeline
 
 ```bash
-go test ./cmd/fwimplsynth -run TestTranspile -v
+# 1. Generate naming for new functions (5 fns/sec)
+python3 harness_v17/naming_batch.py
+
+# 2. Disambiguate variant names
+python3 harness_v17/disambiguate.py
+
+# 3. Integrate names into v15 composed
+python3 harness_v17/integrate.py
+
+# 4. Run compile-oracle
+python3 harness_v17/compile_oracle_run.py
 ```
 
-This runs the 7 transpiler unit tests and 4 emitter unit tests.
+## IDA Pro 9.3 setup details
 
-## Final C File Compile Check
+### ELF wrapper trick
 
-Confirm the four final C files compile clean:
+The raw `.bin` files load at chip address 0x100000. To get IDA to:
+
+1. **load as ARM (not x86 metapc)**: wrap in ELF
+2. **default to 32-bit (not 64-bit AArch64)**: use ARM ELF
+3. **start at 0x100000**: ELF with `p_vaddr = 0x100000`
+4. **treat as Thumb code**: IDA auto-detects from entry point LSB
+
+See `harness_v19/scripts/make_elf.py` for the wrapper generator.
+
+### IDB configuration
+
+Run `harness_v19/scripts/ida_setup_v19.py` on the ELF. The script:
+1. Sets LOAD segment perm to RWX (default is RX, blocks data naming)
+2. Extends LOAD to 0x200000 with SEGMOD_SPARSE (covers BSS without 1GB allocation)
+3. Adds MMIO phantom segment at 0x40000000-0x60000000
+4. Applies 25,815 MMIO register names
+5. Seeds function boundaries from `boundaries.json`
+6. Applies LLM-generated function names
+
+### Hex-Rays quirks
+
+- Output is **cached** — changes to symbols require re-decompile
+- Use `idaapi.decompile(ea, flags=idaapi.DECOMP_NO_CACHE)` for fresh
+- Output uses MSVC types (`__int64`, `_DWORD`, etc.) — needs post-processing
+- `set_name` returns False for addresses outside any segment — add
+  phantom segments first
+- For BSS addresses, call `create_data()` BEFORE `set_name()`
+
+## Disk space management
 
 ```bash
-for f in extraction_out/reconstruction/mega7/final/*.reconstructed.c; do
-  echo "==> $f"
-  aarch64-linux-gnu-gcc -Wall -Wextra -c "$f" -o /tmp/$(basename "$f").o 2>&1 | head -5
-done
+# Clean up IDBs to free 8GB
+rm -rf harness_v19/idb/*.i64
+
+# Rerun to regenerate
+harness_v19/scripts/run_v19.sh <img> setup
 ```
 
-The v12 build produces 0 errors per file.
+The /tmp partition is 7.5GB tmpfs — keep IDB usage low.
 
-## Release Refresh
+## Common issues
 
-After producing a release-quality state, refresh the tracked release bundle deliberately:
+### "idaapi.get_inf_structure() doesn't exist"
+Use `ida_ida.get_inf_structure()` instead. Or just don't call it
+— the structure_t has a `perm` field directly.
 
-1. copy curated final outputs and manifests into `artifacts/releases/<name>/`
-2. refresh release docs and metadata
-3. verify the release README and release index match the actual files
+### "set_name returns False"
+The address is outside any defined segment. Add a phantom segment
+covering the address range first.
 
-## Housekeeping
+### "Autoanalysis subsystem has been initialized" hangs
+The setup script needs `idaapi.auto_wait()` to wait for analysis
+to complete. Make sure it's called early in the script.
 
-- keep generated state in `extraction_out/`
-- keep scratch in `analysis/`
-- keep tracked release data in `artifacts/releases/`
-- do not edit generated `final/` files by hand; change the real pipeline inputs instead
+### Disk full on IDB
+IDBs are 2.1 GB each. Use `harness_v19/idb/` and clean up old ones.
+Don't put IDBs in /tmp.
+
+## Verification
+
+To verify a v19 decompile is correct:
+1. Find a named function in `named_samples/`
+2. Open the original binary in IDA
+3. Navigate to the function
+4. Press F5 to decompile
+5. Compare with the saved output
+
+To verify byte-faithfulness (v18):
+```bash
+python3 harness_v17/compile_oracle_run.py
+# Should show ~89% at 100% match
+```
+
+## Publishing
+
+When a new release is ready:
+1. Update `docs/REBUILD_MILESTONE.md` with new metrics
+2. Create release dir under `artifacts/releases/`
+3. Update top-level `README.md` and `AGENTS.md`
+4. Build tarball, force-add with `git add -f`
+5. Commit with descriptive message
+6. Push to origin
+
+## Cloud upload (Drive)
+
+```bash
+# Requires gcloud SDK and valid Drive auth
+bash tools/upload_to_drive.sh
+```
+
+Currently blocked — gws token expired. Manual browser login needed.

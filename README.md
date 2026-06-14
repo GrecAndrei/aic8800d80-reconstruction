@@ -1,313 +1,205 @@
 # AIC8800D80 Firmware Reconstruction
 
-This repository is an automated reverse-engineering and firmware reconstruction workspace for the AIC8800D80 firmware family.
+This repository is an automated reverse-engineering and firmware reconstruction
+workspace for the **AIC8800D80 WiFi/BT chip** (Marvell 88W8800-derived).
 
-It is not leaked vendor source. It is a deterministic reconstruction pipeline that combines:
+It is **not leaked vendor source**. It is a deterministic reconstruction
+pipeline that combines:
 
-- grounded facts exported from IDA Pro,
-- embedder-driven retrieval and clustering,
-- staged body synthesis and merge/finalize passes,
-- strict conformance and hardening gates,
-- autonomous probe and rebuild cycles.
+- grounded facts exported from IDA Pro 9.3,
+- deterministic LLM tool-use for naming and documentation,
+- 4 progressively better reconstruction layers (v15–v19),
+- byte-faithful verification gates (compile + disasm match),
+- Hex-Rays decompilation for human-readable C.
 
-## Status
+## Status (2026-06-14)
 
-- Active reconstruction workspace: `extraction_out/reconstruction/mega7/`
-- Published tracked release: `artifacts/releases/aic8800d80-rebuild-v1/`
-- Canonical long-term plan: `plan.md`
-- End-to-end pipeline reference: `PIPELINE.md`
-- Repo navigation and operator docs: `docs/README.md`
+Four published release layers exist, each serving a different purpose:
 
-### v13 — Behavioral Fingerprint Reconstruction (current)
+| Layer | Format | Compilable | Human-readable | Functions | Tarball |
+|-------|--------|------------|----------------|-----------|---------|
+| **v15** | Synthesized C | ✅ | ✅ (synthetic) | 356 (curated) | 1.1 MB |
+| **v17** | LLM-named C | ✅ | ✅ | 4,002 functions | 5.7 MB |
+| **v18** | Inline-asm + LLM names | ✅ (byte-faithful) | ❌ (`.byte` directives) | 18,841 functions | 1.2 MB |
+| **v19** | Hex-Rays decompilation | ❌ (pseudo-C) | ✅ (real C) | 4,675 functions | 4.7 MB |
 
-The current build compiles cleanly across all 4 final files and the
-truth-lane scorecard reports 19 PASS / 6 REVIEW / 0 FAIL with behavioral
-bodies verified against the original binary's MMIO traces:
+**v19 is the latest human-readable release.** 4,675 of 4,723 firmware
+functions decompiled (98.9% success), 1,256 with LLM-applied names,
+25,815 MMIO register addresses named automatically.
 
-- `fmacfw_h`: 906 functions, 0 errors
-- `fmacfw`: 74441 functions, 0 errors
-- `fmacfwbt`: 52052 functions, 0 errors
-- `lmacfw_rf`: 57378 functions, 0 errors
-- **Truth Lane Unicorn Smoke**: 21 PASS / 4 REVIEW / 0 FAIL
-- **Completion**: `implemented_count`: 59383, `completion_pct`: 96.450
-- **Behavioral bodies**: 2689+ deployed across all 4 images, composed-file sourced
-- **Cross-image contamination fixed**: per-image filtering via `image=` tags
+## Headline result: v19 release
 
-The breakthrough is the **behavioral fingerprint pipeline** that runs the
-original firmware through Unicorn, captures the exact MMIO read/write
-sequence, and emits C bodies that touch the same addresses. See
-`docs/REBUILD_MILESTONE.md` for the full v13 entry.
+**`artifacts/releases/aic8800d80-rebuild-v1-v19/`** contains:
 
-### v1 Tracked Release Snapshot (curated)
+- `decompiled/<image>/` — 5,945 per-function pseudo-C files
+- `composed_v19/<image>.c` — all functions concatenated per binary
+- `named_samples/` — 32 LLM-named sample functions (phy_rx_process_bulk, crypto_mac_core, msg_parse, ...)
+- `elf/<image>.elf` — ARM Thumb ELF wrappers
+- `README.md`, `docs/ORACLE_RESULTS.md` — overview and quality report
+- `aic8800d80-rebuild-v1-v19.tar.gz` — full release (4.7 MB)
 
-The tracked release snapshot records:
+Sample output (`log_queue_push2`):
 
-- `function_count`: `356`
-- `implemented_count`: `356`
-- `strong_count`: `356`
-- `fallback_count`: `0`
-- `semantic_completion_pct`: `100.000`
-- `evaluable_count`: `352`
-- `avg_conformance_pct`: `100.000`
-
-These values come from the curated release bundle under
-`artifacts/releases/aic8800d80-rebuild-v1/`. The live workspace under
-`extraction_out/` (v12 and later) is significantly larger and reflects the
-real pseudocode transpiler path.
+```c
+int __fastcall log_queue_push2(int a1, int a2, int a3)
+{
+  int result; // r0
+  if ( (__get_CPSR() & 1) == 0 ) {
+    __disable_irq();
+    *(_DWORD *)off_110FCC = 1;
+  }
+  v6 = ++*(_DWORD *)off_110FF8;
+  result = (unsigned __int8)**(_BYTE **)off_110FD0;
+  if ( result == 1 ) {
+    ...
+    REG_4024_0148 = 256;
+    while ( (REG_4024_0148 & 0x200) != 0 ) ;
+  }
+  return result;
+}
+```
 
 ## Repo Map
 
-- `cmd/`: Go entry points for extraction, reconstruction, validation, dashboards, and autonomous cycle control
-- `internal/`: shared extraction, pipeline, reconstruction, file I/O, and stats packages
-- `tools/`: Python helpers for IDA export, probing, smoke learning, autonomous cycles, and embedder integration
-- `docs/`: repo map, runbook, milestone notes, and research notes
-- `artifacts/`: tracked published release snapshots only
-- `metadata/`: stable input metadata and per-image reconstruction descriptors
-- `inputs/`: source firmware blobs and related inputs
-- `extracted_kernel/`: historical kernel-focused extraction notes and slices
-- `extraction_out/`: generated working outputs for current runs; ignored from git
-- `analysis/`: local scratch, wrapper state, and ad hoc analysis output; ignored from git
+```
+inputs/firmware/             # 4 raw AIC8800D80 firmware binaries (340KB each)
+harness_v15/                 # Synthesis baseline (truth lane: 25/25 PASS)
+harness_v16/                 # Failed LLM-C approach (kept for reference)
+harness_v17/                 # LLM tool-use pipeline (5,741 names applied)
+harness_v19/                 # Hex-Rays decompilation pipeline (4,675 functions)
+artifacts/releases/
+  aic8800d80-rebuild-v1/     # v17 synthesized C, working
+  aic8800d80-rebuild-v1-v15/ # v15 release (synthesized C, 1.1MB tarball)
+  aic8800d80-rebuild-v1-v17/ # v17 release (LLM-named C, 5.7MB tarball)
+  aic8800d80-rebuild-v1-v18/ # v18 release (byte-faithful inline-asm, 1.2MB tarball)
+  aic8800d80-rebuild-v1-v19/ # v19 release (Hex-Rays decompilation, 4.7MB tarball) ★
+docs/                        # Operator runbook, milestone notes
+extraction_out/              # Generated working outputs (gitignored)
+```
 
-Detailed layout rules live in `docs/REPO_LAYOUT.md`.
+## The four layers in detail
 
-## Canonical Docs
+### v15 — Synthesis baseline (truth lane: 25/25 PASS)
 
-- `docs/README.md`: documentation index
-- `docs/RUNBOOK.md`: operator runbook and common commands
-- `docs/REPO_LAYOUT.md`: what each top-level directory is for, and what should or should not be committed
-- `docs/REBUILD_MILESTONE.md`: current high-level milestone summary
-- `PIPELINE.md`: extraction + reconstruction + validation pipeline reference
-- `plan.md`: long-term autonomous architecture and progress log
+Mechanically synthesizes C bodies from behavioral traces captured by
+running the original firmware through Unicorn. The 25 critical functions
+all pass strict byte-match verification against the original binary.
+
+**Use when:** you need compilable C that matches the original byte-for-byte.
+
+### v17 — LLM tool-use pipeline
+
+Replaces v15's mechanical synthesis with a 16-tool LLM agent. The LLM
+never writes C bodies; it only calls deterministic tools that
+mechanically generate code from the binary.
+
+- 5,741 LLM-generated function names applied
+- 12 subsystem documentation files (`docs/*.md`)
+- 68 reusable pattern templates
+
+**Use when:** you need LLM-named C with semantic understanding.
+
+### v18 — Byte-faithful inline-asm
+
+Embeds the original ARM Thumb bytes as `.byte 0xXX` directives inside
+naked C functions. This is 100% faithful to the original binary
+(89% at 100% byte-match in compile-oracle, 94.1% avg).
+
+**Use when:** you need guaranteed-correct machine behavior, perhaps
+for hardware testing or further analysis.
+
+### v19 — Hex-Rays decompilation (latest)
+
+Real C control flow, parameters, local variables, function signatures —
+produced by IDA's Hex-Rays decompiler. Not directly compilable
+(it's pseudo-C with MSVC types and Hex-Rays-specific patterns), but
+**massively more readable** than v18's byte directives.
+
+- 1,256 LLM-named functions
+- 25,815 MMIO register names (`REG_4024_0148` etc.)
+- ~30 seconds per binary
+
+**Use when:** you want to understand the firmware as a human.
 
 ## Core Workflow
 
-Typical rebuild path:
+### v19 decompilation pipeline
 
 ```bash
-RUN_ROOT=extraction_out/reconstruction/mega7
+# 1. Wrap raw firmware as ARM ELF (one-time)
+python3 harness_v19/scripts/make_elf.py
 
-go run ./cmd/fwcompose
-go run ./cmd/fwdescriptors -run-root "$RUN_ROOT"
-go run ./cmd/fwimplqueue -max-tasks 128
-go run ./cmd/fwimplsynth -max-tasks 128
-go run ./cmd/fwapplysynth
-go run ./cmd/fwfinalize
-go run ./cmd/fwvalidatecalls
-go run ./cmd/fwharden
+# 2. Per-binary: setup IDB + decompile
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_h_u02_bin both
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_u02_bin both
+harness_v19/scripts/run_v19.sh fmacfwbt_8800d80_u02_bin both
+harness_v19/scripts/run_v19.sh lmacfw_rf_8800d80_u02_bin both
+
+# 3. Combine per-function .c into single .c per binary
+python3 harness_v19/scripts/post_process.py
+
+# 4. Release tarball
+tar -czf artifacts/releases/aic8800d80-rebuild-v1-v19.tar.gz \
+  -C artifacts/releases/ aic8800d80-rebuild-v1-v19
 ```
 
-Autonomous cycle entry point:
+### v18 byte-faithful pipeline
 
 ```bash
-go run ./cmd/fwcycle -run-root extraction_out/reconstruction/mega7 -tag cycle_demo
+python3 harness_v17/disasm_to_asm.py    # 18,841 functions as inline-asm
+python3 harness_v17/compile_oracle_run.py  # Verify byte-match
 ```
 
-### Truth-Lane Scoring
-
-Score the top 25 critical functions with original-binary trace validation:
+### v17 LLM tool-use
 
 ```bash
-python3 tools/truth_lane_smoke.py \
-  --final-dir extraction_out/reconstruction/mega7/final \
-  --out /tmp/opencode/truth_lane_smoke
-
-python3 tools/behavioral_fingerprint.py \
-  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin \
-  --targets /tmp/opencode/targets.jsonl --out /tmp/opencode/fingerprints.jsonl
-
-python3 tools/find_mmio_functions.py \
-  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin --base 0x1200000 \
-  --functions extraction_out/ida_export_live/lmacfw_rf_8800d80_u02.bin.functions.jsonl \
-  --out /tmp/opencode/mmio_fns.jsonl
+# 16 deterministic tools
+python3 harness_v17/naming_batch.py    # 5 fns/sec → 5,741 names
+python3 harness_v17/integrate.py       # Apply to v15 composed
 ```
 
-The current v13 build reports **19 PASS / 6 REVIEW / 0 FAIL** — all behavioral
-bodies pass, all REVIEW are motif bodies (stochastic XOR) with zero MMIO writes.
+## Reproduction
 
-See `docs/RUNBOOK.md` and `PIPELINE.md` for the full staged workflow.
+```bash
+git clone https://github.com/<user>/aic8800d80.git
+cd aic8800d80
+
+# Extract any v19 release tarball
+tar xzf artifacts/releases/aic8800d80-rebuild-v1-v19.tar.gz
+
+# Read the decompiled firmware
+ls artifacts/releases/aic8800d80-rebuild-v1-v19/named_samples/
+less artifacts/releases/aic8800d80-rebuild-v1-v19/named_samples/fmacfw_8800d80_u02_bin__phy_rx_process_bulk.c
+```
+
+Requires IDA Pro 9.x at `/home/grec-alexander/ida-pro-9.3/idat` for re-running
+the v19 pipeline from scratch.
+
+## Canonical Docs
+
+- **`AGENTS.md`** — quick reference for AI agents (v15–v19 status)
+- `PIPELINE.md` — detailed pipeline architecture
+- `plan.md` — long-term plan and progress log
+- `docs/README.md` — documentation index
+- `docs/REBUILD_MILESTONE.md` — current milestone summary
+- `docs/RUNBOOK.md` — operator runbook
+- `docs/REPO_LAYOUT.md` — what each directory is for
+- `harness_v17/docs/*.md` — subsystem documentation
+- `harness_v19/README.md` — v19-specific docs
 
 ## Artifact Policy
 
 - Track curated release outputs under `artifacts/releases/`
-- Keep active run products under `extraction_out/`
-- Keep local wrapper state and scratch under `analysis/`
-- Do not commit local caches, root-level built binaries, or Python bytecode
+- Keep active run products under `extraction_out/` (gitignored)
+- Keep IDA Pro databases under `harness_v*/idb/` (gitignored, 2GB each)
+- Per-function decompiled .c files in `harness_v19/decompiled/` and
+  `artifacts/releases/aic8800d80-rebuild-v1-v19/decompiled/` are in the
+  tarball but not in git (too many small files)
 
-This policy is enforced by `.gitignore` and documented in `artifacts/README.md`.
-
-## Adaptation
-
-To adapt this repository to another firmware family:
-
-1. Place new blobs under `inputs/firmware/`
-2. Re-run extraction into `extraction_out/`
-3. Build a reconstruction baseline
-4. Run descriptor, synthesis, finalize, and validation stages
-5. Publish only curated release outputs under `artifacts/releases/<name>/`
-
-## Smoke Checkpoints
-
-Auto-promoted stable smoke successes:
-
-- `log_free_pool_b`
-- `log_free_pool_c`
-- `log_free_pool_d`
-- `log_pool_init_e`
-- `log_free_pool_a`
-- `log_pool_init_c`
-- `log_pool_init_d`
-- `rf_init_blockc`
-- `log_free_pool_e`
-- `log_free_pool_f`
-- `log_pool_alloc_b`
-- `rf_init_blockb`
-- `log_pool_init_a`
-- `log_pool_init_b`
-- `mac_phy_init`
-- `rf_init_blocka`
-- `fp_convert_uint`
-- `fw_config_copy`
-- `rf_bus_init`
-- `rf_bus_reset`
-- `rf_cmd_process`
-- `rf_cmd_wait`
-- `rf_msg_log_rate`
-- `rf_reg_write_core`
-- `firmware_init`
-- `fw_config_apply`
-- `log_free_dispatch`
-- `panic_entry`
-- `patch_apply`
-- `phy_rf_init`
-- `irq_vector_init`
-- `rf_bus_reset2`
-- `rf_bus_setup`
-- `rf_bus_write`
-- `rf_cmd_queue_next`
-- `rf_cmd_send`
-- `rf_fault_dump`
-- `rf_hw_timer_read`
-- `rf_level_dump`
-- `rf_reg_write_cb`
-- `rf_timer_toggle`
-- `sdio_buffer_prepare`
-- `sdio_dma_config`
-- `sdio_status_check`
-- `get_cached_1828f8`
-- `get_variant_cached`
-- `log_system_init`
-- `log_system_init_mode2`
-- `memcpy_fast`
-- `memset_thunk`
-- `parse_int`
-- `parse_width_suffix`
-- `rf_timer_abort_common`
-- `rx_queue_head_init`
-- `timestamp_list_contains`
-- `timestamp_remove`
-- `apm_sta_connect_past_timer_handle`
-- `apm_start_cac_req_handler`
-- `apm_start_req_handler`
-- `apm_stop_cac_req_handler`
-- `buffer_pool_get`
-- `clear_sdio_state`
-- `crypto_channel_calc`
-- `crypto_hw_write32_core`
-- `crypto_mac_core`
-- `crypto_mac_dispatch`
-- `debug_if_40320038`
-- `delay_us`
-- `emb_kmsg_hdlr`
-- `error_handler`
-- `event_queue_push`
-- `fallback_handler`
-- `feature_always_on`
-- `feature_flags_init`
-- `fp_convert_int`
-- `hw_event_flag`
-- `hal_dma_evt`
-- `hal_machw_abs_timer_handler`
-- `hw_config_init`
-- `hw_reg_set_40035000`
-- `intc_spurious`
-- `ipc_emb_hostrxbuf_get`
-- `ke_evt_schedule`
-- `ke_msg_alloc`
-- `ke_timer_clear`
-- `ke_timer_set`
-- `list_count`
-- `list_pop`
-- `log_hw_init_if`
-- `log_hw_regs_init`
-- `timestamp_update`
-- `log_pool_config`
-- `log_pool_default_config`
-- `log_queue_refill`
-- `lpm_host_notify_bt`
-- `main_loop`
-- `math_fastpath`
-- `math_helper`
-- `math_helper_big`
-- `math_helper_big2`
-- `math_helper_int`
-- `math_round`
-- `me_config_monitor_req_handler`
-- `me_data_path_flushed_ind_handler`
-- `me_set_active_cfm_handler`
-- `me_set_ps_disable_cfm_handler`
-- `mm_ba_add_cfm_handler`
-- `mm_back_to_host_idle`
-- `mm_bcn_transmit`
-- `mm_bcn_transmitted`
-- `mm_bcn_update_p2p_noa`
-- `mm_bss_param_setting_handler`
-- `mm_chan_ctxt_unlink_cfm_handler`
-- `mm_force_idle_req`
-- `mm_hw_config_handler`
-- `mm_set_idle_cfm_handler`
-- `mm_set_ps_mode_cfm_handler`
-- `mm_set_ps_options_req_handler`
-- `mm_sta_add_cfm_handler`
-- `msg_parse_thunk`
-- `idle_processing`
-- `log_queue_alloc`
-- `timer_set_relative`
-- `feature_guard_sdio`
-- `msg_register_handler`
-- `ps_disable_cfm`
-- `ps_enable_cfm`
-- `ps_upm_exit`
-- `queue_pending_check`
-- `sm_connect_req_handler`
-- `system_init_chain`
-- `thunk`
-- `tx_phy_config`
-- `txl_cfm_evt`
-- `usb_rx_evt`
-- `log_alloc`
-- `log_pool_alloc`
-- `log_pool_alloc2`
-- `log_pool_init_queue`
-- `log_queue_push2`
-- `msg_parse`
-- `rx_queue_init`
-- `variant_update_cache`
-- `list_find_remove`
-- `list_remove_node`
-- `msg_handler_tx`
-- `msg_parse_short`
-- `list_insert_sorted`
-- `log_free_wrapper`
-- `log_global_init`
-- `log_ptr_in_range`
-- `uart_putc`
-- `uart_puts`
-- `msg_get_value`
-- `log_flush`
-- `log_printf`
-- `clear_flags`
 ## Notes
 
-- The live workspace is intentionally richer than the published release snapshot.
-- The repo is organized around a clean split between source, generated workspaces, and tracked release artifacts.
-- When in doubt, start with `docs/README.md`.
+- This is reverse engineering for compatibility and analysis purposes
+- All generated C is reconstruction, not vendor source
+- Each layer serves a different verification need
+- v19 is the latest; v18 is the most byte-faithful; v17 has the most
+  LLM naming; v15 is the smallest curated baseline

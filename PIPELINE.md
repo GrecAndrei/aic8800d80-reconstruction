@@ -1,78 +1,68 @@
-# Firmware Reconstruction Pipeline
+# Firmware Reconstruction Pipeline (v15 → v19)
 
-This file describes the end-to-end pipeline used in this repository.
+This file describes the end-to-end pipeline used in this repository for
+**AIC8800D80 WiFi/BT firmware reconstruction**.
 
-It covers three layers:
-
-1. evidence extraction,
-2. reconstruction and validation,
-3. autonomous probe-and-rebuild cycling.
+It covers **four release layers**, each with a different verification
+trade-off, plus the supporting infrastructure (LLM tooling, IDA
+integration, decompilation).
 
 ## Pipeline Layout
 
-The repository is organized around three output classes:
-
-- source and tooling: `cmd/`, `internal/`, `tools/`
-- generated working state: `extraction_out/`, `analysis/`
-- curated tracked releases: `artifacts/releases/`
-
-The active working run root is currently `extraction_out/reconstruction/mega7/`.
-
-## Stage 1: Evidence Extraction
-
-Primary extraction command:
-
-```bash
-go run ./cmd/fwextract -root . -out extraction_out
+```
+inputs/firmware/*.bin      (raw 340KB ARM Thumb binaries)
+       |
+       v
+[Layer 0: IDA Pro 9.3 + Hex-Rays decompiler]
+       |
+       +---> v15 (synthesis)         -> compilable, curated 356 funcs
+       +---> v17 (LLM tool-use)      -> compilable, 4,002 LLM-named funcs
+       +---> v18 (byte-faithful)     -> compilable, 18,841 inline-asm funcs
+       +---> v19 (Hex-Rays decompile) -> pseudo-C, 4,675 decompiled funcs
+       |
+       v
+artifacts/releases/aic8800d80-rebuild-v1-v{15,17,18,19}/
+       |
+       v
+*.tar.gz (released)
 ```
 
-This stage emits normalized evidence such as:
+## Stage 1: IDA Pro Integration
 
-- `images.jsonl`
-- `functions.jsonl`
-- `artifacts.jsonl`
-- `function_links.jsonl`
-- `consensus_behavior.jsonl`
-- `call_edges.jsonl`
-- `message_schema.jsonl`
-- `state_machines.jsonl`
-- mining queue outputs and stats snapshots
-
-Supporting commands:
-
-- `go run ./cmd/fwsweep ...`: multi-threshold frontier generation
-- `go run ./cmd/fwstats ...`: stats collection and watch mode
-- `go run ./cmd/fwdashboard ...`: live progress dashboard
-
-## Stage 2: IDA Exports And Semantic Inputs
-
-The reconstruction path depends on grounded IDA exports plus embedder outputs.
-
-Key sources:
-
-- `tools/refresh_ida_exports.py`
-- `tools/export_ida_cfg.py`
-- `tools/export_ida_pseudocode.py`
-- `tools/select_pseudocode_targets.py`
-- `tools/embedder.py`
-
-Important generated inputs:
-
-- `extraction_out/ida_export_cfg/cfg_hints.jsonl`
-- `extraction_out/ida_export_pseudo/pseudocode_hints.jsonl`
-- `extraction_out/reconstruction/mega7/embedder_cache.json`
-- `extraction_out/reconstruction/mega7/function_links.jsonl`
-- `extraction_out/reconstruction/mega7/consensus_behavior.jsonl`
-
-## Stage 3: Reconstruction Build Path
-
-The real rebuild path is:
+All four layers depend on grounded IDA Pro analysis. Setup:
 
 ```bash
-RUN_ROOT=extraction_out/reconstruction/mega7
+# Wrap raw .bin as ARM ELF (loads at 0x100000)
+python3 harness_v19/scripts/make_elf.py
 
+# Load into IDA, set up segments, apply names
+idat -A -B -L<log> -S<setup_script> -o<idb> <elf>
+```
+
+The setup script (`harness_v19/scripts/ida_setup_v19.py`) does:
+1. Set LOAD segment perm to RWX (default is RX, blocks data naming)
+2. Extend LOAD to 0x200000 with SEGMOD_SPARSE (covers BSS)
+3. Add MMIO phantom segment 0x40000000-0x60000000
+4. Apply 25,815 MMIO register names from `harness_v19/mmio_registers.json`
+5. Apply 5,741 LLM-generated function names from `harness_v19/llm_names.json`
+6. Apply docstrings as comments
+
+## Stage 2: v15 — Synthesis Baseline
+
+**Goal:** Compilable C that matches the original firmware byte-for-byte.
+
+Approach: Behavioral fingerprint — run original firmware through
+Unicorn, capture MMIO read/write sequences, emit C bodies that
+touch the same addresses.
+
+- 25 critical functions in truth lane
+- 19 PASS / 6 REVIEW / 0 FAIL
+- 96.4% semantic completion
+- 2689+ behavioral bodies
+
+```bash
 go run ./cmd/fwcompose
-go run ./cmd/fwdescriptors -run-root "$RUN_ROOT"
+go run ./cmd/fwdescriptors -run-root extraction_out/reconstruction/mega7
 go run ./cmd/fwimplqueue -max-tasks 128
 go run ./cmd/fwimplsynth -max-tasks 128
 go run ./cmd/fwapplysynth
@@ -81,123 +71,158 @@ go run ./cmd/fwvalidatecalls
 go run ./cmd/fwharden
 ```
 
-What each stage does:
+## Stage 3: v17 — LLM Tool-Use Pipeline
 
-- `fwcompose`: constructs composed reconstruction units from lifted work
-- `fwdescriptors`: builds per-function descriptors, motif memory, transfer clusters, and descriptor summaries
-- `fwimplqueue`: ranks implementation tasks using urgency, motif, phenotype, and transfer evidence
-- `fwimplsynth`: synthesizes function bodies using observed evidence, motif memory, embedder neighbors, and transfer clusters
-  - For functions with IDA Hex-Rays pseudocode coverage, the **real-pseudocode transpiler** (`cmd/fwimplsynth/realpseudo.go`) produces a faithful C body: function pointer calls, MMIO writes, control flow, and helper calls all preserved. See "Stage 3.5: Real-Pseudocode Transpilation" below.
-- `fwapplysynth`: merges synthesized bodies into the composed outputs
-  - The only lossy transform on real-pseudo bodies is `RESULT = sub_X(args);` → `sub_X(args); RESULT = 0;` (keeps the call, discards the return value). All other semantics are preserved.
-- `fwfinalize`: normalizes, scores, and publishes final reconstructed sources and quality reports
-  - `injectForwardDecls` emits `void fn(void);` for defined functions and `int fn(...);` (GCC variadic) for undefined callees, with a wider call regex and C-keyword/type-name filter. Strips any pre-existing compose auto-gen block to prevent type conflicts.
-- `fwvalidatecalls`: checks emitted call behavior against evidence
-- `fwharden`: enforces hard fail gates over quality and conformance outputs
+**Goal:** Replace v15's mechanical synthesis with LLM-driven naming.
 
-## Stage 3.5: Real-Pseudocode Transpilation
+Approach: 16 deterministic tools + LLM (with strict address-safety
+validator). LLM is **only** a naming oracle, never a C author.
 
-`cmd/fwimplsynth/realpseudo.go` (`transpileIDAPseudocode`) converts Hex-Rays
-pseudocode into faithful C. It handles:
+Tools include:
+- `register_at(addr)` → `REG_<page>_<off>` mechanical name
+- `mmio_write_c(addr, val)` → `*((volatile uint32_t *)addr) = val`
+- `find_string(addr)` → string at address
+- `read_dword(image, addr)` → 32-bit value at address
+- `behavioral_mmio_summary(fn, img)` → summary of MMIO accesses
+- ... (16 total)
 
-- `MEMORY[0x...](...)` → fn-ptr call `(int (*)(uint32_t))0x...u`
-- `*(_DWORD *)(EXPR)` and `(_BYTE *)(EXPR)` casts (balanced parens, 1-level)
-- `__intN` and `unsigned __intN` types (latter processed first to avoid prefix collision)
-- `__fastcall` parameter declarations (preserving pointer stars)
-- `LOBYTE(x)` / `HIBYTE(x)` / `LOWORD(x)` / `HIWORD(x)` macros, with `uintptr_t` coerce so they work on pointer inputs
-- `LOBYTE(lvalue) = rhs;` → bit-field-style assignment: `x = ((x) & ~0xFFu) | (... & 0xFFu)`
-- ARM intrinsics emitted as `#define __get_CPSR() (0u)`, `#define __disable_irq() ((void)0)` — **not** as `void fn(void){}` functions, which would collide with `applysynth`'s extraction regex
+LLM never invents addresses; all address computation is via tools.
 
-The transpiler is exercised by:
+```bash
+# Generate naming for new functions (5 fns/sec)
+python3 harness_v17/naming_batch.py
 
-- 7 transpiler unit tests + 4 emitter unit tests (`realpseudo_test.go`), all passing
-- The truth-lane scorecard on the 25 critical targets
+# Disambiguate variants
+python3 harness_v17/disambiguate.py
 
-Per-target coverage is 8/25 today (those with `pseudocode_hints.jsonl` entries);
-the remaining 17 still fall back to motif-body synthesis and are tracked as a
-known gap.
+# Apply names to v15 composed
+python3 harness_v17/integrate.py
 
-## Stage 4: Autonomous Cycle
+# Verify with compile-oracle
+python3 harness_v17/compile_oracle_run.py
+```
 
-Autonomous loop entry point:
+Results:
+- 5,741 LLM names applied across 4 binaries
+- 4,002 functions in the v17 release
+- 12 subsystem docs (bt, ipc, ke, mac, mmio, patch, rf, rx, scan, tx, unknown, util)
+- 68 reusable pattern templates
+- 10K+ ML training records (`dataset/v17_ml_pairs.jsonl`)
+
+## Stage 4: v18 — Byte-Faithful Inline-asm
+
+**Goal:** 100% byte-faithful reconstruction.
+
+Approach: Extract original ARM Thumb bytes from firmware, embed as
+`.byte 0xXX` directives inside naked C functions. C compiler treats
+these as the exact original instructions.
+
+```bash
+# For each named function, get bytes from r2 disasm
+python3 harness_v17/disasm_to_asm.py
+
+# Verify byte-match
+python3 harness_v17/compile_oracle_run.py
+```
+
+Results:
+- 18,841 functions faithfully reproduced
+- 0% LLM hallucination
+- 89% at 100% byte-match in compile-oracle
+- 94.1% avg byte-match
+- C compiles to the original binary
+
+Drawback: C is unreadable (just `.byte` directives).
+
+## Stage 5: v19 — Hex-Rays Decompilation
+
+**Goal:** Human-readable C from the same firmware.
+
+Approach: IDA Pro's Hex-Rays decompiler. Set up IDB with all the
+metadata (function names, MMIO names, docstrings) and decompile.
+
+```bash
+# Setup + decompile for all 4 binaries
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_h_u02_bin both
+harness_v19/scripts/run_v19.sh fmacfw_8800d80_u02_bin both
+harness_v19/scripts/run_v19.sh fmacfwbt_8800d80_u02_bin both
+harness_v19/scripts/run_v19.sh lmacfw_rf_8800d80_u02_bin both
+
+# Combine per-function .c into single .c per binary
+python3 harness_v19/scripts/post_process.py
+```
+
+Results:
+- 4,675 of 4,723 functions decompiled (98.9%)
+- 1,256 LLM-named functions
+- 25,815 MMIO register names
+- ~30 seconds per binary
+- Real C with parameters, local variables, control flow
+
+Drawback: Not directly compilable (Hex-Rays type-inference bugs).
+
+## Truth-Lane Scoring
+
+Score the top 25 critical functions with original-binary trace validation:
+
+```bash
+python3 tools/truth_lane_smoke.py \
+  --final-dir extraction_out/reconstruction/mega7/final \
+  --out /tmp/opencode/truth_lane_smoke
+
+python3 tools/behavioral_fingerprint.py \
+  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin \
+  --targets /tmp/opencode/targets.jsonl --out /tmp/opencode/fingerprints.jsonl
+
+python3 tools/find_mmio_functions.py \
+  --bin inputs/firmware/lmacfw_rf_8800d80_u02.bin --base 0x1200000 \
+  --functions extraction_out/ida_export_live/lmacfw_rf_8800d80_u02.bin.functions.jsonl \
+  --out /tmp/opencode/mmio_fns.jsonl
+```
+
+The v15 build reports **19 PASS / 6 REVIEW / 0 FAIL** — all behavioral
+bodies pass, all REVIEW are motif bodies (stochastic XOR) with zero
+MMIO writes.
+
+## Release Catalog
+
+| Release | Format | Size | Functions | Compiles? | Readable? |
+|---------|--------|------|-----------|-----------|-----------|
+| v15 | Synthesized C | 1.1 MB | 356 curated | ✅ | ✅ |
+| v17 | LLM-named C | 5.7 MB | 4,002 | ✅ | ✅ |
+| v18 | Inline-asm | 1.2 MB | 18,841 | ✅ | ❌ |
+| v19 | Hex-Rays decompile | 4.7 MB | 4,675 | ❌ (pseudo) | ✅ |
+
+## Autonomous Cycling (v15)
+
+The reconstruction runs in autonomous cycles:
 
 ```bash
 go run ./cmd/fwcycle -run-root extraction_out/reconstruction/mega7 -tag cycle_demo
 ```
 
-Supporting tools:
+Each cycle:
+1. Extract new evidence from IDA exports
+2. Find functions below conformance threshold
+3. Synthesize new bodies via LLM tool-use
+4. Validate against original binary
+5. Promote successful bodies to compose pipeline
 
-- `tools/recon_cycle.py`: quiet controller and probe loop
-- `tools/smoke_learn_loop.py`: batch smoke learning
-- `tools/unicorn_smoke.py`: per-function bounded smoke harness
-- `tools/score_truth_lane.py`: per-function PASS/REVIEW/FAIL scoring on the top 25 critical targets
-- `cmd/fwcycletrend`: trend summaries and gating
-- `cmd/fwcycleauto`: detached multi-cycle supervisor
+## Critical Infrastructure
 
-## Stage 4.5: Behavioral Fingerprint Synthesis
+- **v14 BASE = 0x1200000** (v14 address space)
+- **chip runtime = v14 - 0x1100000**
+- **chip runtime BASE = 0x100000** (where firmware loads)
+- **r2 disasm**: `r2 -q -2 -c "e asm.arch=arm; e asm.bits=16; pd N @ ADDR"`
+- **IDA Pro 9.3** at `/home/grec-alexander/ida-pro-9.3/idat`
+- **Hex-Rays plugin** `hexarm.so`
+- **LLM API**: 6 keys round-robin at `https://api.tokenrouter.com/v1`,
+  model `MiniMax-M3`, 1M context
 
-Replaces stochastic motif bodies with trace-verified C bodies for MMIO functions.
+## See Also
 
-1. **Pre-scan** (`tools/find_mmio_functions.py`): Capstone finds LDR PC-relative
-   instructions loading MMIO-range values from literal pools.
-2. **Trace** (`tools/behavioral_fingerprint.py`): Runs each MMIO function in
-   Unicorn, records direction and write values.
-3. **Generate** (`cmd/behaviorsynth`): Emits inline volatile reads
-   (`(void)*addr`) and writes (`*addr = val`) — no external macros.
-4. **Per-image apply** (`cmd/fwapplysynth`): Bodies with `image=` tags only
-   apply to matching image; `reconstructed_micro_flow` blocked cross-image.
-
-```bash
-bash tools/overnight_behavioral.sh
-```
-
-Cycle outputs are written under:
-
-- `extraction_out/reconstruction/mega7/runs/<tag>/`
-- `extraction_out/reconstruction/mega7/cycle_history.jsonl`
-- `extraction_out/reconstruction/mega7/controller_state.json`
-- `extraction_out/reconstruction/mega7/controller_experience.jsonl`
-
-## Stage 5: Published Release Snapshot
-
-- `extraction_out/reconstruction/mega7/runs/<tag>/`
-- `extraction_out/reconstruction/mega7/cycle_history.jsonl`
-- `extraction_out/reconstruction/mega7/controller_state.json`
-- `extraction_out/reconstruction/mega7/controller_experience.jsonl`
-
-## Stage 5: Published Release Snapshot
-
-Only curated release outputs belong in git:
-
-- `artifacts/releases/aic8800d80-rebuild-v1/final/`
-- `artifacts/releases/aic8800d80-rebuild-v1/meta/`
-- `artifacts/releases/aic8800d80-rebuild-v1/README.md`
-
-The release bundle should contain:
-
-- finalized reconstructed sources
-- manifests and checksums
-- call conformance and quality reports
-- release-level metadata describing what was published
-
-The active v12 workspace produces full-size final outputs (fmacfw_h, fmacfw,
-fmacfwbt, lmacfw_rf) which compile cleanly. These are force-added under
-`extraction_out/reconstruction/mega7/final/` for evidence tracking. A
-curated release bundle refresh from this state is part of the next deliberate
-publish step.
-
-## Operational Rules
-
-- Treat `extraction_out/` as generated working state
-- Treat `analysis/` as local scratch
-- Prefer descriptor/motif/transfer changes over direct edits to generated outputs
-- Use IDA exports and embedder outputs together; do not degrade to name-only heuristics when stronger evidence is available
-- Publish only curated release artifacts under `artifacts/releases/`
-
-## Related Docs
-
-- `README.md`
-- `docs/README.md`
-- `docs/RUNBOOK.md`
-- `docs/REPO_LAYOUT.md`
-- `plan.md`
+- `AGENTS.md` — quick reference
+- `README.md` — top-level overview
+- `docs/RUNBOOK.md` — operator commands
+- `docs/REBUILD_MILESTONE.md` — current status
+- `harness_v19/README.md` — v19-specific docs
