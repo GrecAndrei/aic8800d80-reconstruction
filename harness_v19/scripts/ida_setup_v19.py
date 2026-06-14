@@ -1,4 +1,4 @@
-"""v19 IDA setup: load ELF, verify modes, seed functions, apply LLM names/docstrings.
+"""v19 IDA setup: load ELF, set up segments, seed functions, apply LLM names.
 
 Run: idat -A -B -L<log> -S<harness_v19/scripts/ida_setup_v19.py> -o<idb> harness_v19/elf/<image>.elf
 
@@ -9,7 +9,7 @@ import json
 import os
 import sys
 from pathlib import Path
-import idc, idaapi, idautils, ida_funcs, ida_name
+import idc, idaapi, idautils, ida_funcs, ida_name, ida_segment
 
 ROOT = Path(os.environ.get('V19_ROOT', 'harness_v19'))
 
@@ -19,7 +19,6 @@ def log(msg):
 
 
 def load_bin_data(img):
-    """Load firmware binary for byte-level checks."""
     bin_map = {
         'fmacfw_8800d80_h_u02_bin': 'fmacfw_8800d80_h_u02',
         'fmacfw_8800d80_u02_bin': 'fmacfw_8800d80_u02',
@@ -34,7 +33,6 @@ def load_bin_data(img):
 
 
 def addr_has_code(bin_data, addr, base_addr=0x100000, n_bytes=4):
-    """Check if address has non-zero code (likely real function, not BSS)."""
     off = addr - base_addr
     if off < 0 or off + n_bytes > len(bin_data):
         return False
@@ -53,7 +51,35 @@ if not seg:
     idc.qexit(1)
 log(f"Segment: {hex(seg.start_ea)}-{hex(seg.end_ea)} size={seg.size()}")
 
-# Verify ARM/Thumb modes at known addresses
+# === Phase 0: Set up segments ===
+# 1. Mark LOAD segment as RWX (default is RX in ELF loader)
+seg.perm = ida_segment.SEGPERM_READ | ida_segment.SEGPERM_WRITE | ida_segment.SEGPERM_EXEC
+log(f"Set LOAD perm to RWX (was {seg.perm})")
+
+# 1b. Extend LOAD to 0x200000 to cover BSS/RAM space (sparse = no allocation)
+new_end = 0x200000
+if seg.end_ea < new_end:
+    r = ida_segment.set_segm_end(seg.start_ea, new_end, ida_segment.SEGMOD_KEEP | ida_segment.SEGMOD_SPARSE)
+    log(f"Extend LOAD to {hex(new_end)} sparse: {r}")
+    seg = idaapi.getnseg(0)
+    seg.perm = ida_segment.SEGPERM_READ | ida_segment.SEGPERM_WRITE | ida_segment.SEGPERM_EXEC
+
+# 2. Add MMIO phantom segment at 0x40000000-0x60000000
+mmio_start = 0x40000000
+mmio_end = 0x60000000
+existing_mmio = ida_segment.get_segm_by_name("MMIO")
+if not existing_mmio:
+    r = ida_segment.add_segm(0, mmio_start, mmio_end, "MMIO", "DATA")
+    log(f"Added MMIO segment: {r}")
+    if r:
+        mmio_seg = ida_segment.get_segm_by_name("MMIO")
+        if mmio_seg:
+            mmio_seg.perm = ida_segment.SEGPERM_READ | ida_segment.SEGPERM_WRITE
+            log(f"Set MMIO perm to RW")
+
+# 3. BSS is now part of LOAD (extended), no separate BSS needed
+
+# Verify ARM/Thumb modes
 ivt_t = idc.get_sreg(seg.start_ea, 'T')
 text_t = idc.get_sreg(seg.start_ea + 0x200, 'T')
 log(f"T-reg: IVT={ivt_t} (0=ARM) text={text_t} (1=Thumb)")
@@ -74,7 +100,24 @@ log(f"Image: {img} (from {input_path})")
 bin_data = load_bin_data(img)
 log(f"Bin size: {len(bin_data)} bytes")
 
-# === Phase 1: Seed function boundaries (only real code) ===
+# === Phase 1: Apply MMIO register names ===
+m = json.loads((ROOT / 'mmio_registers.json').read_text())
+log(f"MMIO registers: {len(m)}")
+n_mmio_applied = n_mmio_failed = 0
+for entry in m:
+    addr = int(entry['addr'], 16)
+    name = entry['name']
+    try:
+        r = ida_name.set_name(addr, name, ida_name.SN_FORCE)
+        if r:
+            n_mmio_applied += 1
+        else:
+            n_mmio_failed += 1
+    except Exception:
+        n_mmio_failed += 1
+log(f"MMIO names: applied={n_mmio_applied} failed={n_mmio_failed}")
+
+# === Phase 2: Seed function boundaries (only real code) ===
 bpath = ROOT / 'boundaries.json'
 img_fns = []
 n_skipped_bss = 0
@@ -82,7 +125,6 @@ if bpath.exists():
     boundaries = json.loads(bpath.read_text())
     img_fns_raw = boundaries.get(img, [])
     log(f"Raw boundaries: {len(img_fns_raw)}")
-    # Filter: only keep addresses with real code
     for addr_s, fname in img_fns_raw:
         try:
             addr = int(addr_s, 16)
@@ -95,7 +137,6 @@ if bpath.exists():
     img_fns.sort(key=lambda x: int(x[0], 16))
     log(f"Real-code boundaries: {len(img_fns)} (skipped {n_skipped_bss} BSS)")
 
-# Add functions (start, end) pairs
 n_added = n_existed = n_failed = 0
 for i, (addr_s, fname) in enumerate(img_fns):
     try:
@@ -120,7 +161,7 @@ for i, (addr_s, fname) in enumerate(img_fns):
         n_failed += 1
 log(f"Boundaries: added={n_added} existed={n_existed} failed={n_failed}")
 
-# === Phase 2: Apply LLM names (only at valid code addresses) ===
+# === Phase 3: Apply LLM names (only at valid code addresses) ===
 npath = ROOT / 'llm_names.json'
 n_names = n_failed_names = n_skipped_invalid = 0
 if npath.exists():
@@ -154,7 +195,7 @@ if npath.exists():
             n_failed_names += 1
 log(f"Names: applied={n_names} failed={n_failed_names} skipped_invalid={n_skipped_invalid}")
 
-# === Phase 3: Apply docstrings as comments (only at valid code addresses) ===
+# === Phase 4: Apply docstrings as comments (only at valid code addresses) ===
 n_docs = 0
 if npath.exists():
     names = json.loads(npath.read_text())
@@ -177,7 +218,7 @@ if npath.exists():
             name = n.get('name', '')
             sub = n.get('subsystem', '?')
             cmt = f"{name} [{sub}]: {doc}"
-            idc.set_func_cmt(addr, cmt, 0)  # 0 = repeatable
+            idc.set_func_cmt(addr, cmt, 0)
             n_docs += 1
         except Exception:
             pass
@@ -186,4 +227,3 @@ log(f"Docs: applied={n_docs}")
 # Final stats
 n_funcs = len(list(idautils.Functions()))
 log(f"Final: {n_funcs} functions in {img}")
-log(f"DB saved")
