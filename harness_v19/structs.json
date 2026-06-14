@@ -1,0 +1,47 @@
+{
+  "vif_info": {
+    "idx": 0,
+    "flags": 4,
+    "mac_addr": 8,
+    "bssid": 14,
+    "ssid": 20,
+    "channel": 52,
+    "band": 56,
+    "type": 60,
+    "state": 64,
+    "tx_power": 68
+  },
+  "tx_queue": {
+    "head": 0,
+    "tail": 4,
+    "count": 8,
+    "lock": 12,
+    "max_len": 16
+  },
+  "rx_desc": {
+    "addr": 0,
+    "len": 4,
+    "status": 8,
+    "next": 12
+  },
+  "tx_desc": {
+    "addr": 0,
+    "len": 4,
+    "ctrl": 8,
+    "next": 12,
+    "status": 16
+  },
+  "ke_env": {
+    "task_head": 0,
+    "task_tail": 4,
+    "msg_queue": 8,
+    "state": 16
+  },
+  "scan_req": {
+    "ssid": 0,
+    "ssid_len": 32,
+    "channels": 36,
+    "n_channels": 100,
+    "flags": 104
+  }
+}

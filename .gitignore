@@ -58,3 +58,12 @@ artifacts/releases/aic8800d80-rebuild-v1/composed/*.reconstructed.c
 artifacts/releases/aic8800d80-rebuild-v1/synth/behavioral_*.synth.c
 artifacts/releases/aic8800d80-rebuild-v1/synth/behavior_*.synth.c
 artifacts/releases/aic8800d80-rebuild-v1/synth/lift_*.synth.c
+harness_v19/decompiled/
+harness_v19/idb/
+harness_v19/log/
+harness_v19/boundaries.json
+harness_v19/llm_names.json
+harness_v19/mmio_registers.json
+harness_v19/structs.json
+harness_v19/elf/
+harness_v19/llm_names.json
