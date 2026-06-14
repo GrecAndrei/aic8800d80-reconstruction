@@ -1,0 +1,51 @@
+Processing 5933 LIFT targets with 24 workers
+  100/5933 (47 skip, 33 nodisa, 0 fail) 7.7/s eta=753s
+  200/5933 (129 skip, 35 nodisa, 0 fail) 11.5/s eta=497s
+  300/5933 (172 skip, 55 nodisa, 0 fail) 10.6/s eta=533s
+  400/5933 (228 skip, 79 nodisa, 0 fail) 10.8/s eta=513s
+  500/5933 (279 skip, 102 nodisa, 0 fail) 10.4/s eta=520s
+  600/5933 (354 skip, 116 nodisa, 0 fail) 11.7/s eta=458s
+  700/5933 (425 skip, 145 nodisa, 0 fail) 12.0/s eta=437s
+  800/5933 (509 skip, 161 nodisa, 0 fail) 12.9/s eta=397s
+  900/5933 (577 skip, 193 nodisa, 0 fail) 13.1/s eta=383s
+  1000/5933 (657 skip, 213 nodisa, 0 fail) 13.9/s eta=355s
+  1100/5933 (729 skip, 241 nodisa, 0 fail) 14.3/s eta=339s
+  1200/5933 (804 skip, 266 nodisa, 0 fail) 14.7/s eta=322s
+  1300/5933 (883 skip, 287 nodisa, 0 fail) 15.0/s eta=308s
+  1400/5933 (963 skip, 307 nodisa, 0 fail) 15.6/s eta=291s
+  1500/5933 (1042 skip, 328 nodisa, 0 fail) 15.9/s eta=279s
+  1600/5933 (1121 skip, 349 nodisa, 0 fail) 16.1/s eta=269s
+  1700/5933 (1189 skip, 381 nodisa, 0 fail) 16.0/s eta=264s
+  1800/5933 (1266 skip, 404 nodisa, 0 fail) 16.2/s eta=256s
+  1900/5933 (1342 skip, 428 nodisa, 0 fail) 16.4/s eta=246s
+  2000/5933 (141  2100/5933 (0 skip, 506 nodisa,   2100/5933  2100/5933 (  2200/5933 (0 skip, 534 nodisa, 0   2200/5933 (618 skip,  2300/5933 (0 skip, 561 nodisa, 0 fa  2300/5933   2300/5  2400/5933 (0 skip, 586 nodisa, 0 fail  2400/5933   2400  2500/5933 (0 skip, 616 nodisa, 0 fail)   2500/5933   25  2600/5933 (0 skip, 640 nodisa, 0 fail) 1.  2600/5933 (6  2700/5933 (0 skip, 661 nodisa, 0 fail) 1.1/  2700/5933   2800/5933 (0 skip, 686 nodisa, 0 fail) 1.1/s   2800/593  2900/5933 (0 skip, 719 nodisa, 0 fail) 1.1/s et  2900/5  3000/5933 (0 skip, 743 nodisa, 0 fail) 1.1/s eta=  3000  3100/5933 (0 skip, 776 nodisa, 0 fail) 1.1/s eta=24  31  3200/5933 (0 skip, 815 nodisa, 0 fail) 1.1/s eta=2387    3300/5933 (0 skip, 837 nodisa, 0 fail) 1.1/s eta=2303s
+  3400/5933 (0 skip, 865 nodisa, 0 fail) 1.1/s eta=2214s
+  3500/5933 (0 skip, 883 nodisa, 0 fail) 1.1/s eta=2131s
+  3600/5933 (0 skip, 905 nodisa, 0 fail) 1.1/s eta=2041s
+  3700/5933 (0 skip, 926 nodisa, 0 fail) 1.1/s eta=1954s
+  3800/5933 (0 skip, 947 nodisa, 0 fail) 1.1/s eta=1867s
+  3900/5933 (0 skip, 966 nodisa, 0 fail) 1.1/s eta=1780s
+  4000/5933 (0 skip, 989 nodisa, 0 fail) 1.1/s eta=1692s
+  4100/5933 (0 skip, 1004 nodisa, 0 fail) 1.1/s eta=1608s
+  4200/5933 (0 skip, 1023 nodisa, 0 fail) 1.1/s eta=1521s
+  4300/5933 (0 skip, 1043 nodisa, 0 fail) 1.1/s eta=1434s
+  4400/5933 (0 skip, 1061 nodisa, 0 fail) 1.1/s eta=1346s
+  4500/5933 (0 skip, 1080 nodisa, 0 fail) 1.1/s eta=1259s
+  4600/5933 (0 skip, 1095 nodisa, 0 fail) 1.1/s eta=1173s
+  4700/5933 (0 skip, 1116 nodisa, 0 fail) 1.1/s eta=1084s
+  4800/5933 (0 skip, 1136 nodisa, 0 fail) 1.1/s eta=998s
+  4900/5933 (0 skip, 1147 nodisa, 0 fail) 1.1/s eta=910s
+  5000/5933 (0 skip, 1174 nodisa, 0 fail) 1.1/s eta=819s
+  5100/5933 (0 skip, 1192 nodisa, 0 fail) 1.1/s eta=739s
+  5200/5933 (0 skip, 1215 nodisa, 0 fail) 1.1/s eta=650s
+  5300/5933 (0 skip, 1235 nodisa, 0 fail) 1.1/s eta=561s
+  5400/5933 (0 skip, 1257 nodisa, 0 fail) 1.1/s eta=471s
+  5500/5933 (0 skip, 1280 nodisa, 0 fail) 1.1/s eta=383s
+  5600/5933 (0 skip, 1299 nodisa, 0 fail) 1.1/s eta=294s
+  5700/5933 (0 skip, 1322 nodisa, 0 fail) 1.1/s eta=211s
+  5800/5933 (0 skip, 1344 nodisa, 0 fail) 1.1/s eta=120s
+  5900/5933 (0 skip, 1364 nodisa, 0 fail) 1.1/s eta=30s
+DONE: 5933 in 5375.1s
+/5933 (2020 skip, 1344 nodisa, 0 fail) 1  5900/5933 (1224 skip, 1364 nodisa, 0 fail) 1.2/s eta=27s
+DONE: 5933 in 4926.9s
+3 in 3735.4s
