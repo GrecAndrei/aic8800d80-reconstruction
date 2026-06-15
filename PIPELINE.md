@@ -226,3 +226,33 @@ Each cycle:
 - `docs/RUNBOOK.md` — operator commands
 - `docs/REBUILD_MILESTONE.md` — current status
 - `harness_v19/README.md` — v19-specific docs
+
+## Stage 6: Unified Structure Analysis (v25)
+
+After v19 decompilation, the `fwstruct` Go pipeline produces structured
+analysis outputs.
+
+```
+harness_v19/decompiled/<img>/*.c     (v19 decompiled C, 5,945 funcs)
+       |
+       v
+[fwstruct scan]        -> <img>_funcs.jsonl     (per-func metadata)
+[fwstruct structs]     -> <img>_clusters.json   (clustered by access pattern)
+[fwstruct callgraph]   -> <img>_callgraph.json  (callers/callees/hubs)
+[fwstruct magic]       -> <img>_magic.json      (classified literals)
+[fwstruct initpath]    -> <img>_initpath.json   (BFS from start)
+[fwstruct xref]        -> <img>_xref.json       (per-field reader/writer)
+[fwstruct types]       -> types_fixed/<img>/*.c (type-inference fixes)
+[fwstruct ivt]         -> ivt/<img>_ivt_v18.bin (v18 bootable WFFW)
+[fwstruct annotate]    -> annotated/<img>/*.c  (annotated C)
+[fwstruct diff]        -> diff_<a>_vs_<b>.json (version diff)
+[fwstruct report]      -> report.json           (aggregate)
+       |
+       v
+harness_v25/out/                     (all outputs)
+```
+
+Each subcommand is independent and reads/writes JSON/JSONL. The `all`
+subcommand chains them.
+
+Replaces the v20-v24 Python one-off scripts with a single static binary.
