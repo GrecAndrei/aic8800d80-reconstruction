@@ -14,6 +14,7 @@ func runAll(args []string) error {
 		{"callgraph", runCallgraph, false},
 		{"magic", runMagic, false},
 		{"initpath", runInitPath, false},
+		{"initpath2", runInitPath2, false},
 		{"diff", runDiff, true},  // diff needs explicit A,B args
 		{"annotate", runAnnotate, false},
 		{"report", runReport, false},
