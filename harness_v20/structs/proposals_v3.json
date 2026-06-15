@@ -1,0 +1,254 @@
+{
+  "proposals": [
+    {
+      "group_id": 0,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "n_total_funcs": 198,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "delay_us@0x100560",
+        "delay_us@0x100644",
+        "delay_us_0644@0x100644",
+        "mmio_read_backoff_window@0x1032e8"
+      ]
+    },
+    {
+      "group_id": 1,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 117,
+      "args": [
+        "r1",
+        "r3",
+        "r5"
+      ],
+      "sample_funcs": [
+        "bt_fw_init_or_handler@0x1029c4",
+        "fw_state_check_n_c0@0x1017c0",
+        "mmio_set_clock_gate_bit@0x100aa8",
+        "rf_byte_extract_save@0x10f14c"
+      ]
+    },
+    {
+      "group_id": 2,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "n_total_funcs": 83,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "get_variant_cached@0x1006cc",
+        "message_dispatch_n238@0x1006d8",
+        "panic_loop@0x1005f4",
+        "panic_loop_06d8@0x1006d8"
+      ]
+    },
+    {
+      "group_id": 3,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          14,
+          2
+        ]
+      ],
+      "n_total_funcs": 43,
+      "args": [
+        "r3",
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12B3A4@0x12b3a4",
+        "sub_12B3D4@0x12b3d4",
+        "sub_12B3E8@0x12b3e8",
+        "sub_12D8DC@0x12d8dc"
+      ]
+    },
+    {
+      "group_id": 4,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "n_total_funcs": 40,
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "debug_if_check_40320038@0x101924",
+        "sub_10184C@0x10184c",
+        "sub_10186C@0x10186c",
+        "sub_101874@0x101874"
+      ]
+    },
+    {
+      "group_id": 5,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "n_total_funcs": 38,
+      "args": [
+        "r0"
+      ],
+      "sample_funcs": [
+        "sub_12D648@0x12d648",
+        "sub_12D6EC@0x12d6ec",
+        "sub_12D75C@0x12d75c",
+        "sub_12D788@0x12d788"
+      ]
+    },
+    {
+      "group_id": 6,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "n_total_funcs": 33,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "rf_bus_write_n144@0x11f4b4",
+        "rf_mem_read_n_ec@0x11f4a8",
+        "sdio_wait_busy@0x12ec38",
+        "sdio_wait_busy_clear@0x12ea10"
+      ]
+    },
+    {
+      "group_id": 7,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          800,
+          4
+        ]
+      ],
+      "n_total_funcs": 30,
+      "args": [
+        "r4"
+      ],
+      "sample_funcs": [
+        "sub_111618@0x111618",
+        "sub_11164C@0x11164c",
+        "sub_111670@0x111670",
+        "sub_111B6C@0x111b6c"
+      ]
+    }
+  ],
+  "llm_response": "<think>\nLet me analyze each pattern and match them to the provided structs or propose new ones.\n\nThe reference structs are:\n- `vif_info`: idx=0x0(4), flags=0x4(4), mac_addr=0x8(6), bssid=0xe(6), ssid=0x14(32), channel=0x34(4), band=0x38(4), type=0x3c(4), state=0x40(4), tx_power=0x44(4)\n- `tx_queue`: head=0x0(4), tail=0x4(4), count=0x8(4), lock=0xc(4), max_len=0x10(4)\n- `rx_desc`: addr=0x0(4), len=0x4(4), status=0x8(4), next=0xc(4)\n- `tx_desc`: addr=0x0(4), len=0x4(4), ctrl=0x8(4), next=0xc(4), status=0x10(4)\n- `ke_env`: task_head=0x0(4), task_tail=0x4(4), msg_queue=0x8(4), state=0x10(4)\n- `scan_req`: ssid=0x0(32), ssid_len=0x20(4), channels=0x24(64), n_channels=0x64(4), flags=0x68(4)\n\nNow let me analyze each pattern:\n\n#0: 198fns arg=['sp'] [+0x0000(4),+0x0004(4)] funcs:delay_us@0x100560\n- Two 4-byte fields at 0x0 and 0x4\n- Functions named \"delay_us\" - this looks like a simple delay function with count and maybe total/spin count\n- This doesn't match any existing struct exactly. Could be a local but arg=['sp'] is mentioned... wait, the instruction says \"skip sp-arg stack locals\". But the arg here is 'sp' which means it's stack-passed. Hmm, let me re-read.\n- Actually, \"skip sp-arg stack locals\" means patterns where args are passed via sp (stack) should be skipped? But then they're listed. Let me re-read.\n- \"Identify each pattern (skip sp-arg stack locals)\" - So we skip patterns that are sp-arg stack locals. But all the patterns are listed with their args. Maybe patterns with arg=['sp'] only should be skipped?\n- Wait, looking more carefully - the arg field shows what registers/args are used. \"arg=['sp']\" might mean the pattern is accessed via stack pointer only. The instruction says to skip these.\n- Let me check each:\n  - #0: arg=['sp'] - skip (stack local)\n  - #1: arg=['r1', 'r3', 'r5'] - keep\n  - #2: arg=['sp'] - skip\n  - #3: arg=['r3', 'sp'] - keep (r3 is a register arg)\n  - #4: arg=['r3'] - keep\n  - #5: arg=['r0'] - keep\n  - #6: arg=['sp'] - skip\n  - #7: arg=['r4'] - keep\n\nWait, but the instruction says to skip sp-arg stack locals. Let me look at the patterns more carefully. The arg field might be the registers used to access the struct. If the struct is passed via stack pointer, it's a stack local and should be skipped.\n\nActually, re-reading: \"skip sp-arg stack locals\" - I think this means we should skip patterns where the struct argument is on the stack (passed via sp). So patterns with arg=['sp'] only would be stack locals and skipped.\n\nBut patterns #3 and #6 have 'sp' as one of multiple args. Let me think about this differently. In ARM, function arguments are passed in r0-r3, and if there are more, they're pushed on the stack (sp points to them). So if a function has many args, the later ones are accessed via sp.\n\nBut here, the patterns show the registers/args used to access the struct fields. The struct might be passed as a pointer in r0, r1, r3, etc. or accessed via stack.\n\nLet me reconsider - \"skip sp-arg stack locals\" likely means skip patterns where the struct is a local variable on the stack. If arg contains 'sp' without other register args, it's likely a stack local. But if it has 'r0', 'r1', 'r3', 'r4', 'r5', etc., the struct is passed as a pointer argument.\n\nLooking at the patterns:\n- #0: arg=['sp'] - this is a stack local, skip\n- #1: arg=['r1', 'r3', 'r5'] - struct passed in registers, keep\n- #2: arg=['sp'] - stack local, skip\n- #3: arg=['r3', 'sp'] - has register arg, keep\n- #4: arg=['r3'] - register arg, keep\n- #5: arg=['r0'] - register arg, keep\n- #6: arg=['sp'] - stack local, skip\n- #7: arg=['r4'] - register arg, keep\n\nSo we need to identify: #1, #3, #4, #5, #7\n\nNow let me match each:\n\n#1: 117fns arg=['r1', 'r3', 'r5'] [+0x0000(1),+0x0000(4)]\n- Fields at 0x0 (1 byte and 4 bytes overlapping or separate)\n- Functions: bt_fw_init_or_handler, fw_state_check_n_c0, mmio_set_clock_gate_bit\n- These look like firmware state/control functions\n- This doesn't match any of the provided structs\n- The fields are just 1 byte and 4 bytes at offset 0\n- This could be a small control structure. Let me think...\n- Actually, looking at the offsets [+0x0000(1),+0x0000(4)] - there's a 1-byte field and a 4-byte field both at offset 0. This is unusual.\n- This might be a union or just different accesses. Or it could be that byte at 0x0 and word at 0x0.\n- Functions like \"bt_fw_init_or_handler\" and \"fw_state_check\" suggest this is a firmware state structure.\n- This doesn't match any provided struct. Propose new.\n\n#3: 43fns arg=['r3', 'sp'] [+0x0000(4),+0x000e(2)]\n- Fields: 4 bytes at 0x0, 2 bytes at 0xe\n- Functions: sub_12B3A4, sub_12B3D4, sub_12B3E8\n- This doesn't match any provided struct directly\n- Wait, let me check vif_info: idx=0x0(4), flags=0x4(4), mac_addr=0x8(6), bssid=0xe(6)\n- bssid is at 0xe with size 6, but here we have size 2 at 0xe\n- Not a match\n- Propose new\n\n#4: 40fns arg=['r3'] [+0x0000(1),+0x0000(4),+0x0004(4),+0x0008(4),+0x000a(4),+0x000c(4),+0x000e(4),+0x0018(1),+0x001c(2)]\n- Many fields, this is a larger structure\n- Let me compare to vif_info: idx=0x0(4), flags=0x4(4), mac_addr=0x8(6), bssid=0xe(6), ssid=0x14(32)\n- The pattern has fields at 0x0(4), 0x4(4), 0x8(4)... but vif_info has mac_addr at 0x8(6)\n- Actually the pattern has +0x0008(4) and +0x000a(4) and +0x000c(4) and +0x000e(4)\n- vif_info has: idx(4) at 0, flags(4) at 4, mac_addr(6) at 8, bssid(6) at 0xe\n- The pattern has different field offsets/sizes\n- Wait, let me re-examine. The pattern shows:\n  - +0x0000(1) and +0x0000(4) - byte and word at offset 0\n  - +0x0004(4) - word at offset 4\n  - +0x0008(4) - word at offset 8\n  - +0x000a(4) - word at offset 0xa (unusual, not aligned)\n  - +0x000c(4) - word at offset 0xc\n  - +0x000e(4) - word at offset 0xe (unusual)\n  - +0x0018(1) - byte at offset 0x18\n  - +0x001c(2) - halfword at offset 0x1c\n- This doesn't match vif_info exactly. vif_info would have:\n  - 0x0(4) - idx\n  - 0x4(4) - flags\n  - 0x8(6) - mac_addr\n  - 0xe(6) - bssid\n  - 0x14(32) - ssid\n  - 0x34(4) - channel\n  - 0x38(4) - band\n  - 0x3c(4) - type\n  - 0x40(4) - state\n  - 0x44(4) - tx_power\n- The pattern has 0x18 and 0x1c which could be within ssid (0x14 to 0x34)\n- Actually, the pattern fields 0x0, 0x4, 0x8, 0xa, 0xc, 0xe don't align well with vif_info\n- Hmm, but wait. Let me look at the sizes. The pattern has +0x0008(4), +0x000a(4), +0x000c(4), +0x000e(4). These are overlapping or nearby 4-byte accesses. This could be:\n  - 0x8(4) covers 0x8-0xb\n  - 0xa(4) covers 0xa-0xd\n  - 0xc(4) covers 0xc-0xf\n  - 0xe(4) covers 0xe-0x11\n- This is weird. Maybe the structure has fields at these offsets with different sizes.\n- Actually, looking at vif_info more carefully:\n  - mac_addr at 0x8, size 6 (covers 0x8-0xd)\n  - bssid at 0xe, size 6 (covers 0xe-0x13)\n- But the pattern shows 4-byte accesses at 0x8, 0xa, 0xc, 0xe. This is consistent with accessing bytes within the mac_addr and bssid fields as 4-byte values (unaligned accesses).\n- Or, the pattern might be reading/writing 4 bytes at various offsets within a larger field.\n- Given the functions are debug_if_check and sub_10184C, this could be a debug/control structure.\n- Actually, this might be a different structure. Let me think about what struct has fields at 0x0(1), 0x0(4), 0x4(4), 0x8(4), etc.\n- The +0x0000(1) could be a byte flag, and +0x0000(4) is just a 4-byte read of the same offset.\n- Given the complexity, I'll propose a new struct or match to vif_info if close enough.\n- Wait, let me look at the pattern again. It has fields at 0x18(1) and 0x1c(2). vif_info has ssid at 0x14(32). 0x18 is within ssid, 0x1c is within ssid. So this could be accessing the ssid field.\n- But the other fields don't match well. Let me see if there's a better match.\n- Actually, for vif_info:\n  - 0x0(4): idx - pattern has 0x0(4) \u2713\n  - 0x4(4): flags - pattern has 0x4(4) \u2713\n  - 0x8(6): mac_addr - pattern has 0x8(4), 0xa(4), 0xc(4) - these could be unaligned reads of the 6-byte mac_addr\n  - 0xe(6): bssid - pattern has 0xe(4) - this could be a partial read\n  - 0x14(32): ssid - pattern has 0x18(1), 0x1c(2) - these are within ssid\n- This is a reasonable match for vif_info!\n- Functions: debug_if_check_40320038, sub_10184C, sub_10186C - these are unnamed but could be vif-related\n- I'll match this to vif_info.\n\nActually wait, let me reconsider. The pattern has 9 fields listed. Let me see if all are consistent with vif_info.\n- vif_info has: idx(4)@0, flags(4)@4, mac_addr(6)@8, bssid(6)@0xe, ssid(32)@0x14, channel(4)@0x34, band(4)@0x38, type(4)@0x3c, state(4)@0x40, tx_power(4)@0x44\n- Pattern has: 0x0(1), 0x0(4), 0x4(4), 0x8(4), 0xa(4), 0xc(4), 0xe(4), 0x18(1), 0x1c(2)\n- The pattern doesn't include channel(0x34), band(0x38), type(0x3c), state(0x40), tx_power(0x44)\n- So this is a partial match. The pattern only accesses the beginning of the struct.\n- This is consistent with vif_info being the struct, with the code only accessing the first part.\n\nOK, I'll match #4 to vif_info.\n\n#5: 38fns arg=['r0'] [+0x0000(1),+0x0001(1)]\n- Two byte fields at 0x0 and 0x1\n- Functions: sub_12D648, sub_12D6EC, sub_12D75C\n- This is a very small structure (2 bytes)\n- Doesn't match any provided struct\n- Propose new: a 2-byte structure\n\n#7: 30fns arg=['r4'] [+0x0000(4),+0x0004(4),+0x0008(4),+0x000e(4),+0x0320(4)]\n- Fields: 0x0(4), 0x4(4), 0x8(4), 0xe(4), 0x320(4)\n- Functions: sub_111618, sub_11164C, sub_111670\n- This doesn't match any provided struct\n- The struct is at least 0x324 bytes (0x320 + 4)\n- Propose new\n\nWait, let me reconsider the instruction. \"skip sp-arg stack locals\" - maybe it means skip the patterns that are obviously stack locals. Looking at the arg lists:\n- arg=['sp'] means the struct is accessed via sp (stack pointer)\n- arg=['r0'], arg=['r3'], etc. mean the struct pointer is in a register\n\nPatterns with only 'sp' in args are stack locals and should be skipped. So:\n- #0: skip\n- #2: skip\n- #6: skip\n\nPatterns with register args (possibly with sp too) are parameter structs and should be analyzed:\n- #1: keep (r1, r3, r5)\n- #3: keep (r3, sp)\n- #4: keep (r3)\n- #5: keep (r0)\n- #7: keep (r4)\n\nNow let me re-examine #1: [+0x0000(1),+0x0000(4)]\n- A byte and a word at offset 0\n- This is likely a struct with a byte field and a word field at the same offset (union?) or the byte is at 0 and word is also at 0\n- Actually, +0x0000(1) and +0x0000(4) means there are accesses of size 1 and size 4 at offset 0\n- This is typical of accessing a flag byte and a value word at the start of a struct\n- Functions: bt_fw_init_or_handler, fw_state_check_n_c0, mmio_set_clock_gate_bit\n- \"bt_fw_init\" suggests Bluetooth firmware initialization\n- \"fw_state_check\" suggests checking firmware state\n- \"mmio_set_clock_gate_bit\" suggests memory-mapped I/O for clock gating\n- This could be a firmware control structure\n- Doesn't match any provided struct\n- Propose new: fw_state or similar\n\n#3: [+0x0000(4),+0x000e(2)]\n- 4 bytes at 0x0, 2 bytes at 0xe\n- Functions: sub_12B3A4, sub_12B3D4, sub_12B3E8\n- Unnamed subs, hard to tell purpose\n- Doesn't match any provided struct\n- Propose new\n\nActually, let me check if any pattern matches the provided structs better:\n\n- `tx_queue`: head(4)@0, tail(4)@4, count(4)@8, lock(4)@0xc, max_len(4)@0x10\n  - #1 has 0x0(1) and 0x0(4) - no match\n  - #3 has 0x0(4) and 0xe(2) - no match\n  - #4 has many fields - no match\n  - #5 has 0x0(1) and 0x1(1) - no match\n  - #7 has 0x0(4), 0x4(4), 0x8(4), 0xe(4), 0x320(4) - no match (tx_queue is small)\n\n- `rx_desc`: addr(4)@0, len(4)@4, status(4)@8, next(4)@0xc\n  - None match\n\n- `tx_desc`: addr(4)@0, len(4)@4, ctrl(4)@8, next(4)@0xc, status(4)@0x10\n  - None match\n\n- `ke_env`: task_head(4)@0, task_tail(4)@4, msg_queue(4)@8, state(4)@0x10\n  - None match\n\n- `scan_req`: ssid(32)@0, ssid_len(4)@0x20, channels(64)@0x24, n_channels(4)@0x64, flags(4)@0x68\n  - None match\n\n- `vif_info`: already considered for #4\n\nSo #4 matches vif_info (partially), and the rest are new structs.\n\nLet me double-check #4 against vif_info:\n- vif_info: idx(4)@0, flags(4)@4, mac_addr(6)@8, bssid(6)@0xe, ssid(32)@0x14\n- #4: 0x0(1), 0x0(4), 0x4(4), 0x8(4), 0xa(4), 0xc(4), 0xe(4), 0x18(1), 0x1c(2)\n- The 0x0(1) could be a byte access within idx\n- The 0x0(4) is idx\n- The 0x4(4) is flags\n- The 0x8(4), 0xa(4), 0xc(4) are unaligned 4-byte accesses within mac_addr (6 bytes at 0x8)\n- The 0xe(4) is a 4-byte access starting at bssid\n- The 0x18(1) and 0x1c(2) are within ssid\n\nThis is a reasonable match. The code is accessing various parts of vif_info.\n\nFor the new structs:\n\n#1: Two fields at offset 0 (1 byte and 4 bytes). This is a small control structure.\n#3: 4 bytes at 0x0, 2 bytes at 0xe. Small structure with a gap.\n#5: 2 bytes total (1 byte at 0x0, 1 byte at 0x1). Very small.\n#7: Large structure with fields at 0x0, 0x4, 0x8, 0xe, and 0x320.\n\nNow I need to format the output as JSON. The schema asks for groups with id, name, and fields (name, off, size, type).\n\nLet me define the structs:\n\n#1: name = \"fw_state\" or similar\n- field at 0x0, size 1, type uint8_t\n- field at 0x0, size 4, type uint32_t (overlapping with the byte)\nActually, having two fields at the same offset is unusual. Let me think about this. In the pattern [+0x0000(1),+0x0000(4)], this means there are accesses of size 1 and size 4 at offset 0. This is typically:\n- A 1-byte field (e.g., a flag) at offset 0\n- A 4-byte field at offset 0 (which includes the byte)\nOr it could be that the struct has a byte at 0 and a word at 0 (which would be a union or packed struct).\nActually, in C, if you have:\nstruct {\n  uint8_t flag;\n  uint32_t value;\n} __attribute__((packed));\nThen flag is at 0 (1 byte) and value is at 1 (4 bytes), not both at 0.\nBut if you have:\nstruct {\n  union {\n    uint8_t byte;\n    uint32_t word;\n  };\n};\nThen both are at offset 0.\nOr, the pattern might just be showing that the code accesses offset 0 with both 1-byte and 4-byte sizes.\nGiven the ambiguity, I'll create two fields:\n- flag: uint8_t at 0\n- value: uint32_t at 0 (or maybe at 4?)\n\nActually, looking at this more carefully, the pattern shows the offsets and sizes of accesses. So +0x0000(1) means there's a 1-byte access at offset 0, and +0x0000(4) means there's a 4-byte access at offset 0. These could be the same field accessed differently, or overlapping fields.\n\nFor the output, I'll list them as separate fields. But I need to be careful about naming. Let me just call them \"field_0\" and \"field_1\" or use the offset.\n\nWait, the schema says \"fields\":[{\"name\":\"f\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"}]. So each field has a name, offset, size, and type.\n\nLet me define:\n\n#1: \n- name: \"byte_0\", off: 0, size: 1, type: \"uint8_t\"\n- name: \"word_0\", off: 0, size: 4, type: \"uint32_t\"\nOr maybe:\n- name: \"flags\", off: 0, size: 1, type: \"uint8_t\"\n- name: \"value\", off: 0, size: 4, type: \"uint32_t\"\n\n#3:\n- name: \"field_0\", off: 0, size: 4, type: \"uint32_t\"\n- name: \"field_e\", off: 0xe, size: 2, type: \"uint16_t\"\n\n#5:\n- name: \"byte_0\", off: 0, size: 1, type: \"uint8_t\"\n- name: \"byte_1\", off: 1, size: 1, type: \"uint8_t\"\n\n#7:\n- name: \"field_0\", off: 0, size: 4, type: \"uint32_t\"\n- name: \"field_4\", off: 4, size: 4, type: \"uint32_t\"\n- name: \"field_8\", off: 8, size: 4, type: \"uint32_t\"\n- name: \"field_e\", off: 0xe, size: 4, type: \"uint32_t\"\n- name: \"field_320\", off: 0x320, size: 4, type: \"uint32_t\"\n\nNow for #4 (vif_info):\n- idx: off 0, size 4, uint32_t\n- flags: off 4, size 4, uint32_t\n- mac_addr: off 8, size 6, uint8_t[6] (or just uint8_t with size 6)\n- bssid: off 0xe, size 6, uint8_t[6]\n- ssid: off 0x14, size 32, uint8_t[32]\n- channel: off 0x34, size 4, uint32_t\n- band: off 0x38, size 4, uint32_t\n- type: off 0x3c, size 4, uint32_t\n- state: off 0x40, size 4, uint32_t\n- tx_power: off 0x44, size 4, uint32_t\n\nWait, the pattern #4 only shows accesses up to 0x1c. It doesn't access the later fields. So maybe the struct is only partially matched. But the instruction says to match to v19 structs if possible. vif_info is a v19 struct, and the early fields match. So I'll match it.\n\nActually, let me reconsider whether to skip #3 because it has 'sp' in args. The instruction says \"skip sp-arg stack locals\". If the struct is passed in r3 and also accessed via sp, it's not purely a stack local. So I'll keep #3.\n\nLet me also consider: should I include the skipped patterns? The instruction says \"skip sp-arg stack locals\", so I should not include them in the output. So I only output #1, #3, #4, #5, #7.\n\nWait, I need to re-examine the arg field. In ARM, function arguments are passed in r0-r3. If a function takes a pointer to a struct, it's usually in r0. If it takes multiple arguments, they go in r0, r1, r2, r3. Stack (sp) is used for local variables and for passing additional arguments beyond r3.\n\nSo:\n- arg=['sp']: the struct is a local variable on the stack (sp-relative addressing)\n- arg=['r0']: the struct pointer is in r0\n- arg=['r1', 'r3', 'r5']: the struct is accessed via r1, r3, r5 (maybe different fields through different registers, or maybe r1 is the base and r3, r5 are used to access fields)\n- arg=['r3', 'sp']: the struct is accessed via r3 and sp (maybe r3 is the base pointer and sp is used for some reason, or maybe there are two different structs)\n\nGiven the instruction to skip sp-arg stack locals, I'll skip #0, #2, #6.\n\nFor the others:\n- #1: arg=['r1', 'r3', 'r5'] - not a stack local, keep\n- #3: arg=['r3', 'sp'] - has register arg, keep\n- #4: arg=['r3'] - keep\n- #5: arg=['r0'] - keep\n- #7: arg=['r4'] - keep\n\nNow, for naming the structs. Since these are unidentified patterns, I'll give them descriptive names based on the functions or fields.\n\n#1: functions are bt_fw_init_or_handler, fw_state_check_n_c0, mmio_set_clock_gate_bit\n- This seems to be a firmware state/control structure\n- Name: \"fw_ctrl\" or \"fw_state\"\n\n#3: functions are sub_12B3A4, sub_12B3D4, sub_12B3E8 (unnamed)\n- Hard to tell\n- Name: \"unknown_3\" or based on fields\n\n#4: matches vif_info\n- Name: \"vif_info\"\n\n#5: functions are sub_12D648, sub_12D6EC, sub_12D75C (unnamed)\n- Small 2-byte struct\n- Name: \"unknown_5\" or \"flags2\"\n\n#7: functions are sub_111618, sub_11164C, sub_111670 (unnamed)\n- Large struct with field at 0x320\n- Name: \"unknown_7\" or \"large_struct\"\n\nSince the instruction says \"Match to v19 structs or propose new\", I should propose new names for the unidentified ones.\n\nLet me finalize the output:\n\n```json\n{\n  \"groups\": [\n    {\n      \"id\": 1,\n      \"name\": \"fw_ctrl\",\n      \"fields\": [\n        {\"name\": \"byte_0\", \"off\": 0, \"size\": 1, \"type\": \"uint8_t\"},\n        {\"name\": \"word_0\", \"off\": 0, \"size\": 4, \"type\": \"uint32_t\"}\n      ]\n    },\n    {\n      \"id\": 3,\n      \"name\": \"struct_3\",\n      \"fields\": [\n        {\"name\": \"field_0\", \"off\": 0, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"field_e\", \"off\": 14, \"size\": 2, \"type\": \"uint16_t\"}\n      ]\n    },\n    {\n      \"id\": 4,\n      \"name\": \"vif_info\",\n      \"fields\": [\n        {\"name\": \"idx\", \"off\": 0, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"flags\", \"off\": 4, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"mac_addr\", \"off\": 8, \"size\": 6, \"type\": \"uint8_t[6]\"},\n        {\"name\": \"bssid\", \"off\": 14, \"size\": 6, \"type\": \"uint8_t[6]\"},\n        {\"name\": \"ssid\", \"off\": 20, \"size\": 32, \"type\": \"uint8_t[32]\"},\n        {\"name\": \"channel\", \"off\": 52, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"band\", \"off\": 56, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"type\", \"off\": 60, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"state\", \"off\": 64, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"tx_power\", \"off\": 68, \"size\": 4, \"type\": \"uint32_t\"}\n      ]\n    },\n    {\n      \"id\": 5,\n      \"name\": \"struct_5\",\n      \"fields\": [\n        {\"name\": \"byte_0\", \"off\": 0, \"size\": 1, \"type\": \"uint8_t\"},\n        {\"name\": \"byte_1\", \"off\": 1, \"size\": 1, \"type\": \"uint8_t\"}\n      ]\n    },\n    {\n      \"id\": 7,\n      \"name\": \"struct_7\",\n      \"fields\": [\n        {\"name\": \"field_0\", \"off\": 0, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"field_4\", \"off\": 4, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"field_8\", \"off\": 8, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"field_e\", \"off\": 14, \"size\": 4, \"type\": \"uint32_t\"},\n        {\"name\": \"field_320\", \"off\": 800, \"size\": 4, \"type\": \"uint32_t\"}\n      ]\n    }\n  ]\n}\n```\n\nWait, I need to check the offsets. The schema example shows \"off\":0, so decimal is fine. But the input uses hex (0x0000, 0x0004, etc.). Let me use decimal to be safe, or hex with 0x prefix. The schema example uses decimal 0, so I'll use decimal for clarity.\n\nLet me convert:\n- 0x0 = 0\n- 0x4 = 4\n- 0x8 = 8\n- 0xa = 10\n- 0xc = 12\n- 0xe = 14\n- 0x14 = 20\n- 0x18 = 24\n- 0x1c = 28\n- 0x20 = 32\n- 0x24 = 36\n- 0x34 = 52\n- 0x38 = 56\n- 0x3c = 60\n- 0x40 = 64\n- 0x44 = 68\n- 0x320 = 800\n\nFor #4, the pattern shows accesses at 0x0, 0x4, 0x8, 0xa, 0xc, 0xe, 0x18, 0x1c. These map to vif_info fields as discussed. But the pattern doesn't show accesses to channel(0x34), band(0x38), etc. However, the struct definition includes them. Should I include all fields of vif_info or only the ones accessed?\n\nThe instruction says \"Match to v19 structs\". If I match to vif_info, I should include the full struct definition, not just the accessed fields. So I'll include all fields of vif_info.\n\nActually, looking at the pattern #4 again:\n- +0x0000(1) and +0x0000(4) - both at offset 0\n- This could mean there's a byte and a word at offset 0\n\nIn vif_info, idx is at offset 0 with size 4. So +0x0000(4) matches idx. The +0x0000(1) is a byte access within idx (e.g., accessing the low byte of idx).\n\nSo the pattern is consistent with vif_info, where the code accesses various parts of the struct, sometimes as bytes, sometimes as words.\n\nOK, I'll include the full vif_info struct for #4.\n\nFor #1, the pattern is [+0x0000(1),+0x0000(4)]. This means:\n- A 1-byte access at offset 0\n- A 4-byte access at offset 0\nThis is unusual. It could be:\n- A union of byte and word\n- A byte field at 0 and a word field at 0 (overlapping)\n- Or the struct has a byte at 0 and a word at 0 (which would require packed/aligned attribute)\n\nGiven the function names (fw_state_check, mmio_set_clock_gate_bit), this might be a register-like structure where bits/bytes are accessed. I'll create two fields: one byte and one word at offset 0.\n\nActually, looking at the example in the schema: {\"name\":\"f\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"}, it seems each field is separate.\n</think>\n",
+  "parsed": null,
+  "timestamp": 1781518893.3932421
+}

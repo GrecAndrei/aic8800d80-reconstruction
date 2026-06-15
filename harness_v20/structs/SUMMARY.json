@@ -1,0 +1,77 @@
+{
+  "extraction": {
+    "fmacfwbt_8800d80_u02_bin": {
+      "funcs": 1741,
+      "total_accesses": 30668
+    },
+    "fmacfw_8800d80_h_u02_bin": {
+      "funcs": 1290,
+      "total_accesses": 22383
+    },
+    "fmacfw_8800d80_u02_bin": {
+      "funcs": 1735,
+      "total_accesses": 30472
+    },
+    "lmacfw_rf_8800d80_u02_bin": {
+      "funcs": 1179,
+      "total_accesses": 17940
+    }
+  },
+  "struct_candidates": {
+    "fmacfw_8800d80_h_u02_bin": {
+      "candidates": 44,
+      "accesses": 22383
+    },
+    "fmacfw_8800d80_u02_bin": {
+      "candidates": 45,
+      "accesses": 30472
+    },
+    "fmacfwbt_8800d80_u02_bin": {
+      "candidates": 44,
+      "accesses": 30668
+    },
+    "lmacfw_rf_8800d80_u02_bin": {
+      "candidates": 40,
+      "accesses": 17940
+    },
+    "aic8800d80_v20_structs": {
+      "candidates": 0,
+      "accesses": 0
+    }
+  },
+  "clusters": {
+    "fmacfw_8800d80_h_u02_bin": {
+      "total_funcs": 917,
+      "total_groups": 582,
+      "significant_groups": 15
+    },
+    "fmacfwbt_8800d80_u02_bin": {
+      "total_funcs": 1253,
+      "total_groups": 594,
+      "significant_groups": 33
+    },
+    "fmacfw_8800d80_u02_bin": {
+      "total_funcs": 1242,
+      "total_groups": 588,
+      "significant_groups": 32
+    },
+    "lmacfw_rf_8800d80_u02_bin": {
+      "total_funcs": 768,
+      "total_groups": 307,
+      "significant_groups": 26
+    }
+  },
+  "llm_proposals": {
+    "n_proposed": 8,
+    "struct_names": [
+      "delay_timer",
+      "mmio_clock_gate",
+      "ke_dispatch_ctx",
+      "vif_bssid_ref",
+      "vif_set_state_req",
+      "bt_hci_cmd",
+      "mmio_reg_poll",
+      "tx_pkt_buf"
+    ]
+  }
+}

@@ -1,0 +1,775 @@
+{
+  "proposals": [
+    {
+      "group_id": 0,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "n_total_funcs": 198,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "delay_us @0x100560",
+        "delay_us @0x100644",
+        "delay_us_0644 @0x100644",
+        "mmio_read_backoff_window @0x1032e8",
+        "mmio_reg_read_1203140 @0x103140",
+        "sub_100560 @0x100560",
+        "sub_100644 @0x100644",
+        "sub_103268 @0x103268"
+      ]
+    },
+    {
+      "group_id": 1,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 117,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r1",
+        "r3",
+        "r5"
+      ],
+      "sample_funcs": [
+        "bt_fw_init_or_handler @0x1029c4",
+        "fw_state_check_n_c0 @0x1017c0",
+        "mmio_set_clock_gate_bit @0x100aa8",
+        "rf_byte_extract_save @0x10f14c",
+        "sub_100AA8 @0x100aa8",
+        "sub_100B14 @0x100b14",
+        "sub_1017C0 @0x1017c0",
+        "sub_102984 @0x102984"
+      ]
+    },
+    {
+      "group_id": 2,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "n_total_funcs": 83,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "get_variant_cached @0x1006cc",
+        "message_dispatch_n238 @0x1006d8",
+        "panic_loop @0x1005f4",
+        "panic_loop_06d8 @0x1006d8",
+        "sub_1005E8 @0x1005e8",
+        "sub_1005F4 @0x1005f4",
+        "sub_1006CC @0x1006cc",
+        "sub_1006D8 @0x1006d8"
+      ]
+    },
+    {
+      "group_id": 3,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          14,
+          2
+        ]
+      ],
+      "n_total_funcs": 43,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3",
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12B3A4 @0x12b3a4",
+        "sub_12B3D4 @0x12b3d4",
+        "sub_12B3E8 @0x12b3e8",
+        "sub_12D8DC @0x12d8dc",
+        "sub_12D918 @0x12d918",
+        "sub_12D958 @0x12d958",
+        "sub_12DB04 @0x12db04",
+        "sub_12DB40 @0x12db40"
+      ]
+    },
+    {
+      "group_id": 4,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "n_total_funcs": 40,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "debug_if_check_40320038 @0x101924",
+        "sub_10184C @0x10184c",
+        "sub_10186C @0x10186c",
+        "sub_101874 @0x101874",
+        "sub_101924 @0x101924",
+        "sub_101944 @0x101944",
+        "sub_1019D0 @0x1019d0",
+        "sub_1019F0 @0x1019f0"
+      ]
+    },
+    {
+      "group_id": 5,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "n_total_funcs": 38,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r0"
+      ],
+      "sample_funcs": [
+        "sub_12D648 @0x12d648",
+        "sub_12D6EC @0x12d6ec",
+        "sub_12D75C @0x12d75c",
+        "sub_12D788 @0x12d788",
+        "sub_12D82C @0x12d82c",
+        "sub_12D89C @0x12d89c",
+        "sub_12D9B0 @0x12d9b0",
+        "sub_12DA54 @0x12da54"
+      ]
+    },
+    {
+      "group_id": 6,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "n_total_funcs": 33,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "rf_bus_write_n144 @0x11f4b4",
+        "rf_mem_read_n_ec @0x11f4a8",
+        "sdio_wait_busy @0x12ec38",
+        "sdio_wait_busy_clear @0x12ea10",
+        "sub_11F4A8 @0x11f4a8",
+        "sub_12E8D0 @0x12e8d0",
+        "sub_12E8EC @0x12e8ec",
+        "sub_12E8F8 @0x12e8f8"
+      ]
+    },
+    {
+      "group_id": 7,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          800,
+          4
+        ]
+      ],
+      "n_total_funcs": 30,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r4"
+      ],
+      "sample_funcs": [
+        "sub_111618 @0x111618",
+        "sub_11164C @0x11164c",
+        "sub_111670 @0x111670",
+        "sub_111B6C @0x111b6c",
+        "sub_111BA0 @0x111ba0",
+        "sub_111BC4 @0x111bc4",
+        "sub_111BD0 @0x111bd0",
+        "sub_111C04 @0x111c04"
+      ]
+    },
+    {
+      "group_id": 8,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "n_total_funcs": 24,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12DBC8 @0x12dbc8",
+        "sub_12DC08 @0x12dc08",
+        "sub_12DC48 @0x12dc48",
+        "sub_12DD08 @0x12dd08",
+        "sub_12DD48 @0x12dd48",
+        "sub_12DD88 @0x12dd88",
+        "sub_12DF30 @0x12df30",
+        "sub_12DF70 @0x12df70"
+      ]
+    },
+    {
+      "group_id": 9,
+      "fingerprint": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 23,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r2",
+        "sp"
+      ],
+      "sample_funcs": [
+        "irq47_status_handler @0x101954",
+        "sub_1018A8 @0x1018a8",
+        "sub_101954 @0x101954",
+        "sub_127AF0 @0x127af0",
+        "sub_127B04 @0x127b04",
+        "sub_127B18 @0x127b18",
+        "sub_142E38 @0x142e38",
+        "sub_142E4C @0x142e4c"
+      ]
+    },
+    {
+      "group_id": 10,
+      "fingerprint": [
+        [
+          -4,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 21,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "sub_11D5E4 @0x11d5e4",
+        "sub_11D778 @0x11d778",
+        "sub_1279E2 @0x1279e2",
+        "sub_12C0A0 @0x12c0a0",
+        "sub_12C1E0 @0x12c1e0",
+        "sub_12C408 @0x12c408",
+        "sub_142D2A @0x142d2a",
+        "sub_142D9C @0x142d9c"
+      ]
+    },
+    {
+      "group_id": 11,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          106,
+          1
+        ]
+      ],
+      "n_total_funcs": 20,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r2"
+      ],
+      "sample_funcs": [
+        "sub_122744 @0x122744",
+        "sub_122884 @0x122884",
+        "sub_122AB8 @0x122ab8",
+        "sub_122B1C @0x122b1c",
+        "sub_125764 @0x125764",
+        "sub_125780 @0x125780",
+        "sub_1258A4 @0x1258a4",
+        "sub_1258C0 @0x1258c0"
+      ]
+    },
+    {
+      "group_id": 12,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          504,
+          4
+        ]
+      ],
+      "n_total_funcs": 20,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r2"
+      ],
+      "sample_funcs": [
+        "ipc_init_buf @0x12f4e8",
+        "j_rf_state_check_n36a @0x12f748",
+        "j_state_check @0x12f52c",
+        "sub_12F3A8 @0x12f3a8",
+        "sub_12F3EC @0x12f3ec",
+        "sub_12F448 @0x12f448",
+        "sub_12F4E8 @0x12f4e8",
+        "sub_12F748 @0x12f748"
+      ]
+    },
+    {
+      "group_id": 13,
+      "fingerprint": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          20,
+          4
+        ]
+      ],
+      "n_total_funcs": 20,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_127F28 @0x127f28",
+        "sub_127F3C @0x127f3c",
+        "sub_127F50 @0x127f50",
+        "sub_143270 @0x143270",
+        "sub_143284 @0x143284",
+        "sub_143298 @0x143298",
+        "sub_1433B0 @0x1433b0",
+        "sub_1433C4 @0x1433c4"
+      ]
+    },
+    {
+      "group_id": 14,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          24,
+          4
+        ]
+      ],
+      "n_total_funcs": 16,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r4"
+      ],
+      "sample_funcs": [
+        "rf_fault_dump_n36e @0x121610",
+        "rf_timer_abort1 @0x12f2fc",
+        "rf_timer_abort2 @0x12ef94",
+        "sub_121610 @0x121610",
+        "sub_12161C @0x12161c",
+        "sub_12EF88 @0x12ef88",
+        "sub_12EF94 @0x12ef94",
+        "sub_12F2F0 @0x12f2f0"
+      ]
+    },
+    {
+      "group_id": 15,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "n_total_funcs": 16,
+      "images": [
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "sub_101A20 @0x101a20",
+        "sub_101A28 @0x101a28",
+        "sub_101A2C @0x101a2c"
+      ]
+    },
+    {
+      "group_id": 16,
+      "fingerprint": [
+        [
+          4,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          109,
+          1
+        ]
+      ],
+      "n_total_funcs": 14,
+      "images": [
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r0"
+      ],
+      "sample_funcs": [
+        "message_dispatch_n_4a3 @0x12c710",
+        "message_dispatch_n_4c4 @0x12c4c8",
+        "message_dispatch_n_4c4 @0x12c6f0",
+        "sub_12C4C8 @0x12c4c8",
+        "sub_12C4E8 @0x12c4e8",
+        "sub_12C6F0 @0x12c6f0"
+      ]
+    },
+    {
+      "group_id": 17,
+      "fingerprint": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "n_total_funcs": 13,
+      "images": [
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r7"
+      ],
+      "sample_funcs": [
+        "irq_prio_set_db48 @0x10db48",
+        "sub_10DB48 @0x10db48",
+        "sub_10DB78 @0x10db78"
+      ]
+    },
+    {
+      "group_id": 18,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          362,
+          1
+        ]
+      ],
+      "n_total_funcs": 12,
+      "images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "log_tick @0x10eff0",
+        "log_tick @0x10f44c",
+        "sub_10EFD8 @0x10efd8",
+        "sub_10EFF0 @0x10eff0",
+        "sub_10F434 @0x10f434",
+        "sub_10F44C @0x10f44c"
+      ]
+    },
+    {
+      "group_id": 19,
+      "fingerprint": [
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ],
+        [
+          80,
+          4
+        ],
+        [
+          171,
+          1
+        ]
+      ],
+      "n_total_funcs": 12,
+      "images": [
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "mmio_bit_clear_n0e0 @0x10dcd4",
+        "mmio_reg_bit_clear @0x10db2c",
+        "sub_10DB2C @0x10db2c",
+        "sub_10DB44 @0x10db44",
+        "sub_10DCD4 @0x10dcd4",
+        "sub_10DCEC @0x10dcec"
+      ]
+    }
+  ],
+  "llm_response": "<think>\nLet me analyze each group carefully based on the patterns, offsets, sizes, argument registers, and sample function names to identify the most likely struct definitions.\n\n**Group 0 (198 funcs, sp arg):**\n- Offsets: +0x0000 (4), +0x0004 (4)\n- Functions: delay_us, mmio_read_backoff_window, mmio_reg_read\n- This is a simple 8-byte struct on the stack, likely a local variable pair. Given delay_us and mmio functions, this could be a small result/temporary struct, or a hardware register pair. With arg=sp, these are local stack variables. The pattern of two 4-byte values at +0 and +4 is very common for local temporaries or return values. Let me think... delay_us would need a base address and an offset/register value. mmio_reg_read returns a value. This could be a `mmio_reg` struct or `hw_reg` with {addr, value}.\n\nActually, looking at \"mmio_read_backoff_window\" and \"mmio_reg_read\" - these likely read from a register. The struct could be a register descriptor with {base_addr, offset} or {value, mask}. Given it's on stack and 8 bytes total, this might be a local `reg_access` or `hw_reg` struct with fields like `addr` and `value`, or a simple pair used for return values.\n\n**Group 1 (117 funcs, r1/r3/r5 args):**\n- Offsets: +0x0000 (1), +0x0000 (4)\n- Functions: bt_fw_init_or_handler, fw_state_check, mmio_set_clock_gate_bit, rf_byte_extract_save\n- Single offset at 0, with both 1-byte and 4-byte accesses. This looks like a counter or flag being read as both byte and word. Could be a `state` variable or `flag`. Actually with multiple arg registers (r1, r3, r5) and byte+word access at offset 0, this is likely a uint32_t counter/state that's also accessed as bytes. Given functions like `fw_state_check` and `mmio_set_clock_gate_bit`, this could be a status register or state variable.\n\n**Group 2 (83 funcs, sp arg):**\n- Offsets: +0x0000 (4), +0x0004 (4), +0x0008 (4), +0x000c (4)\n- Functions: get_variant_cached, message_dispatch, panic_loop\n- 16-byte struct on stack. panic_loop and message_dispatch suggest this is related to message handling. This could be a local message header or task context. 4 fields of 4 bytes each. Could be {msg_id, param1, param2, param3} or a local message buffer. Given `get_variant_cached`, `message_dispatch`, `panic_loop` - this is likely a message header struct on the stack: {id, src_task, dst_task, param}.\n\n**Group 3 (43 funcs, r3/sp args):**\n- Offsets: +0x0000 (4), +0x000e (2)\n- Functions: sub_12B3A4, sub_12B3D4, etc. (all unnamed)\n- Base pointer with a word at 0 and a halfword at 0xe. The 0xe offset for a 2-byte field is unusual. This might be a packed struct or a buffer with header. Could be a descriptor-like struct. The 2-byte field at 0xe could be a length or status field in a MAC header context (since 0xe is 14 bytes in, which is the typical end of a 802.11 MAC header before the body).\n\nWait, this is interesting - 0xe = 14, which is the size of an Ethernet header or 802.11 MAC header. So offset 0x0 is the start of a frame/packet buffer, and offset 0xe is 2 bytes into the frame body. This could be a `frame_ctrl` or `mac_header` related struct, or more likely a packet buffer where offset 0 is the start and offset 0xe is a field within it.\n\n**Group 4 (40 funcs, r3 arg):**\n- Offsets: +0x0000 (1,4), +0x0004 (4), +0x0008 (4), +0x000a (4), +0x000c (4), +0x000e (4), +0x0018 (1), +0x001c (2)\n- Functions: debug_if_check, sub_10184C, etc.\n- Complex struct with fields at 0, 4, 8, 0xa, 0xc, 0xe, 0x18, 0x1c. The non-aligned offsets (0xa, 0xe) suggest this might be a packed struct or hardware register layout. This could be a debug interface struct or a hardware block descriptor. The name `debug_if_check` suggests this is a `debug_if` or `dbg_if` struct - a debug interface configuration.\n\n**Group 5 (38 funcs, r0 arg):**\n- Offsets: +0x0000 (1), +0x0001 (1)\n- Functions: sub_12D648, etc. (all unnamed)\n- Two byte fields at 0 and 1. Very small struct. Could be a 2-byte value, flags, or a small descriptor. With r0 arg, this is a pointer to this 2-byte struct. Could be a `byte_pair` or simple header.\n\n**Group 6 (33 funcs, sp arg):**\n- Offsets: +0x0000 (4), +0x000a (4), +0x000c (4), +0x000e (4), +0x001c (4)\n- Functions: rf_bus_write, rf_mem_read, sdio_wait_busy, sdio_wait_busy_clear\n- Stack-local struct. Unaligned offsets at 0xa, 0xc, 0xe suggest hardware register access. The function names suggest RF and SDIO operations. This could be a `rf_reg` or `sdio_cmd` struct used as a local variable for register access. Fields: cmd/data at 0, status/cnt at 0xa, value at 0xc, mask at 0xe, result at 0x1c.\n\nActually looking more carefully, the pattern of offsets 0, 0xa, 0xc, 0xe is very characteristic of MMIO register access patterns where:\n- offset 0: register address/value\n- offset 0xa: some sub-field\n- offset 0xc: another sub-field\n- offset 0xe: another sub-field\n- offset 0x1c: result or extended field\n\nThis looks like it could be a `mmio_access` or `reg_acc` struct for hardware register operations.\n\n**Group 7 (30 funcs, r4 arg):**\n- Offsets: +0x0000 (4), +0x0004 (4), +0x0008 (4), +0x000e (4), +0x0320 (4)\n- Functions: sub_111618, sub_11164C, etc. (all unnamed)\n- Large struct (>0x320 bytes) accessed via r4. Fields at 0, 4, 8, 0xe, 0x320. The large size and the fact it's accessed via r4 (preserved register, often points to a global/static struct) suggests this is a significant data structure. Could be a `task_env`, `controller`, or large state structure.\n\n**Group 8 (24 funcs, sp arg):**\n- Off0x0000 (4), +0x0006 (2)\n- Functions: sub_12DBC8, etc. (all unnamed)\n- Stack-local with a word at 0 and halfword at 6. Could be a local buffer with header.\n\n**Group 9 (23 funcs, r2/sp args):**\n- Offsets: +0x-008 (4), +0x0000 (4)\n- Functions: irq47_status_handler, sub_1018A8, etc.\n- Has a negative offset (-8) and zero offset. The negative offset is relative to the struct base. This looks like it could be a linked list or an interrupt frame where -8 is a previous element or saved context. Could be an `irq_handler` or `isr_context` struct.\n\n**Group 10 (21 funcs, r3 arg):**\n- Offsets: +0x-004 (4), +0x0000 (4)\n- Functions: sub_11D5E4, etc.\n- Negative offset -4 and 0. Very small range. This could be a struct with a field at -4 (maybe a count or link) and at 0 (the main value). Or it could be accessing a field and a header.\n\n**Group 11 (20 funcs, r2 arg):**\n- Offsets: +0x0000 (4), +0x006a (1)\n- Functions: sub_122744, etc.\n- Large offset 0x6a (106) for a byte field. This suggests a large struct with the main field at 0 and a flag/status byte at 0x6a. Could be a `tx_desc` related struct or a buffer descriptor.\n\n**Group 12 (20 funcs, r2 arg):**\n- Offsets: +0x0000 (4), +0x01f8 (4)\n- Functions: ipc_init_buf, j_rf_state_check, j_state_check\n- Large struct (>0x1f8 = 504 bytes). The function names suggest IPC (Inter-Processor Communication) and state checking. This could be an `ipc_buf` or `shared_mem` struct. The large size is consistent with a shared memory buffer.\n\n**Group 13 (20 funcs, sp arg):**\n- Offsets: +0x-008 (4), +0x0000 (4), +0x0004 (4), +0x0014 (4)\n- Functions: sub_127F28, etc.\n- Stack-local with negative offset -8. Fields at -8, 0, 4, 0x14. The -8 offset suggests a linked structure or a frame with a back-pointer. This is at least 0x1c (28) bytes.\n\n**Group 14 (16 funcs, r4 arg):**\n- Offsets: +0x0000 (4), +0x000a (4), +0x000c (4), +0x0012 (4), +0x0018 (4)\n- Functions: rf_fault_dump, rf_timer_abort\n- RF-related. Unaligned offsets (0xa, 0x12) suggest packed/hardware struct. This could be an `rf_timer` or `rf_fault` descriptor struct.\n\n**Group 15 (16 funcs, r3 arg):**\n- Offsets: +0x0000 (1,4), +0x0018 (1), +0x001c (2)\n- Functions: sub_101A20, etc.\n- Small struct (~0x1e bytes). Fields at 0, 0x18, 0x1c. Could be a descriptor or small control block.\n\n**Group 16 (14 funcs, r0 arg):**\n- Offsets: +0x0004 (2), +0x0006 (2), +0x0008 (4), +0x006d (1)\n- Functions: message_dispatch variants\n- Message dispatch related. Has halfword fields at 4 and 6, a word at 8, and a byte at 0x6d. This could be a `ke_msg` (kernel message) struct. The 0x6d offset for a byte could be a flag or type field at the end of the message.\n\n**Group 17 (13 funcs, r7 arg):**\n- Offsets: +0x0002 (1), +0x0005 (1)\n- Functions: irq_prio_set\n- IRQ priority related. Two byte fields at offset 2 and 5. This could be an `irq_config` or `nvic_prio` struct with priority bits.\n\n**Group 18 (12 funcs, r3 arg):**\n- Offsets: +0x0000 (1,4), +0x0004 (2), +0x0007 (1), +0x0008 (4), +0x000a (4), +0x0014 (4), +0x016a (1)\n- Functions: log_tick\n- Logging related. Large struct (>0x16a bytes) with various sized fields. This is likely a `log_entry` or `log_buffer` struct. The large size and log_tick function suggest a circular log buffer.\n\n**Group 19 (12 funcs, r3 arg):**\n- Offsets: +0x0008 (4), +0x000a (4), +0x000c (4), +0x000e (4), +0x001c (4), +0x0050 (4), +0x00ab (1)\n- Functions: mmio_bit_clear, mmio_reg_bit_clear\n- MMIO register operations. Unaligned offsets suggest hardware register layout. This is likely a `mmio_reg` or `hw_reg_block` struct for bit manipulation operations.\n\nNow let me refine my analysis and create the JSON output:\n\n**Group 0**: Stack-local 2-word struct. Given the function names (delay_us, mmio_read_backoff_window, mmio_reg_read), this looks like a local variable pair for register access or timing. I'll call it `mmio_reg` or `reg_pair` with fields `addr` and `value`.\n\n**Group 1**: Single-offset access (byte and word) via r1/r3/r5. This is likely a `state` or `flag` variable that's accessed by multiple functions. The byte+word pattern at offset 0 is typical of a status register or counter.\n\n**Group 2**: 4-word stack-local struct. Given message_dispatch and panic_loop, this could be a `ke_msg` (kernel message) local buffer: {id, param1, param2, param3} or a task context.\n\n**Group 3**: Offset 0 (word) and 0xe (halfword). The 0xe offset is suspicious - it could be accessing a field 14 bytes into a structure. This might be a `mac_hdr` or frame descriptor.\n\n**Group 4**: Complex struct with debug_if_check. This is likely a `dbg_if` or `debug_interface` struct.\n\n**Group 5**: Two byte fields. Very minimal struct. Could be a `mac_addr` (first two bytes) or a small header.\n\n**Group 6**: Stack-local with RF/SDIO functions. Unaligned offsets suggest hardware register access. Could be `rf_reg` or `sdio_cmd`.\n\n**Group 7**: Large struct (>0x320) via r4. Could be a major subsystem controller.\n\n**Group 8**: Stack-local, word at 0, halfword at 6. \n\n**Group 9**: Negative offset -8 and 0. IRQ related. Could be an `irq_node` or `isr_entry` with a link field.\n\n**Group 10**: Negative offset -4 and 0. Similar to Group 9 but smaller range.\n\n**Group 11**: Large struct with field at 0 and 0x6a. Could be a `tx_desc` or similar descriptor.\n\n**Group 12**: IPC buffer (>0x1f8 bytes). This is likely an `ipc_shared_mem` or `ipc_buf`.\n\n**Group 13**: Stack-local with -8 offset. \n\n**Group 14**: RF timer/fault struct with unaligned fields.\n\n**Group 15**: Small struct with fields at 0, 0x18, 0x1c.\n\n**Group 16**: Message dispatch with fields at 4, 6, 8, 0x6d. Likely a `ke_msg` struct variant.\n\n**Group 17**: IRQ priority struct.\n\n**Group 18**: Log buffer struct.\n\n**Group 19**: MMIO register struct for bit operations.\n\nLet me now write the JSON output with more specific names and rationales.\n\nLooking at Group 0 more carefully - it's on the stack (sp), 2 fields of 4 bytes. Functions like delay_us, mmio_read_backoff_window, mmio_reg_read. These are likely local temporaries. The pattern of {addr, value} or {reg, mask} is very common. I'll call it `reg_acc` (register access).\n\nGroup 1 - 117 funcs, byte+word at offset 0, args r1/r3/r5. This is a single variable being read/written. The functions suggest it's a state/counter. I'll call it `fw_state` or `state_var`.\n\nGroup 2 - 4 words on stack. Functions: get_variant_cached, message_dispatch, panic_loop. This is likely a local message buffer. I'll call it `msg_buf` or `ke_msg_hdr`.\n\nGroup 3 - offset 0 (word) and 0xe (halfword). 0xe = 14. In WiFi context, this is interesting. Could be a frame control field. I'll call it `mac_frame_info` or `rx_pkt`.\n\nGroup 4 - debug_if_check. This is clearly a `dbg_if` struct.\n\nGroup 5 - two bytes at 0 and 1. With r0 arg. Could be a version/ID or small descriptor. I'll call it `hw_id` or `version`.\n\nGroup 6 - rf_bus_write, rf_mem_read, sdio_wait_busy. Unaligned offsets. This is a hardware register access struct. I'll call it `rf_reg_acc` or `hw_reg`.\n\nGroup 7 - large struct >0x320. Via r4. Could be a major subsystem like `wifi_controller` or `mac_env`.\n\nGroup 8 - word at 0, halfword at 6 on stack.\n\nGroup 9 - IRQ handler with -8 offset. Could be an `irq_node` with a link pointer.\n\nGroup 10 - -4 offset and 0. Similar pattern.\n\nGroup 11 - large struct with byte at 0x6a. Could be a `tx_desc` extended.\n\nGroup 12 - IPC buffer. `ipc_buf` or `ipc_shared_mem`.\n\nGroup 13 - stack local with -8.\n\nGroup 14 - RF timer struct.\n\nGroup 15 - small struct with fields at 0, 0x18, 0x1c.\n\nGroup 16 - message_dispatch with fields at 4, 6, 8, 0x6d. This is a `ke_msg` struct.\n\nGroup 17 - irq_prio_set. `irq_prio` or `nvic_prio`.\n\nGroup 18 - log_tick\n</think>\n",
+  "timestamp": 1781518574.306539
+}

@@ -1,0 +1,492 @@
+{
+  "proposals": [
+    {
+      "group_id": 0,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "n_total_funcs": 198,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "delay_us@0x100560",
+        "delay_us@0x100644",
+        "delay_us_0644@0x100644",
+        "mmio_read_backoff_window@0x1032e8"
+      ]
+    },
+    {
+      "group_id": 1,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 117,
+      "args": [
+        "r1",
+        "r3",
+        "r5"
+      ],
+      "sample_funcs": [
+        "bt_fw_init_or_handler@0x1029c4",
+        "fw_state_check_n_c0@0x1017c0",
+        "mmio_set_clock_gate_bit@0x100aa8",
+        "rf_byte_extract_save@0x10f14c"
+      ]
+    },
+    {
+      "group_id": 2,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "n_total_funcs": 83,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "get_variant_cached@0x1006cc",
+        "message_dispatch_n238@0x1006d8",
+        "panic_loop@0x1005f4",
+        "panic_loop_06d8@0x1006d8"
+      ]
+    },
+    {
+      "group_id": 3,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          14,
+          2
+        ]
+      ],
+      "n_total_funcs": 43,
+      "args": [
+        "r3",
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12B3A4@0x12b3a4",
+        "sub_12B3D4@0x12b3d4",
+        "sub_12B3E8@0x12b3e8",
+        "sub_12D8DC@0x12d8dc"
+      ]
+    },
+    {
+      "group_id": 4,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "n_total_funcs": 40,
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "debug_if_check_40320038@0x101924",
+        "sub_10184C@0x10184c",
+        "sub_10186C@0x10186c",
+        "sub_101874@0x101874"
+      ]
+    },
+    {
+      "group_id": 5,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "n_total_funcs": 38,
+      "args": [
+        "r0"
+      ],
+      "sample_funcs": [
+        "sub_12D648@0x12d648",
+        "sub_12D6EC@0x12d6ec",
+        "sub_12D75C@0x12d75c",
+        "sub_12D788@0x12d788"
+      ]
+    },
+    {
+      "group_id": 6,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "n_total_funcs": 33,
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "rf_bus_write_n144@0x11f4b4",
+        "rf_mem_read_n_ec@0x11f4a8",
+        "sdio_wait_busy@0x12ec38",
+        "sdio_wait_busy_clear@0x12ea10"
+      ]
+    },
+    {
+      "group_id": 7,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          800,
+          4
+        ]
+      ],
+      "n_total_funcs": 30,
+      "args": [
+        "r4"
+      ],
+      "sample_funcs": [
+        "sub_111618@0x111618",
+        "sub_11164C@0x11164c",
+        "sub_111670@0x111670",
+        "sub_111B6C@0x111b6c"
+      ]
+    }
+  ],
+  "r1": "<think>\nThe user wants me to guess function names for each pattern based on the provided context. Let me analyze each pattern:\n\n#0: 198 functions, arg=['sp'], accesses [+0x0000(4),+0x0004(4)], examples are delay_us functions. This looks like a delay/wait timer pattern.\n\n#1: 117 functions, arg=['r1', 'r3', 'r5'], accesses [+0x0000(1),+0x0000(4)], includes bt_fw_init, fw_state_check, mmio_set_clock_gate_bit. This looks like a clock/power state initialization pattern.\n\n#2: 83 functions, arg=['sp'], accesses [+0x0000(4),+0x0004(4),+0x0008(4),+0x000c(4)], includes get_variant_cached, message_dispatch, panic_loop. This looks like a ke_env task/message queue pattern.\n\n#3: 43 functions, arg=['r3', 'sp'], accesses [+0x0000(4),+0x000e(2)], includes sub_12B3A4, etc. This looks like vif_info related operations (mac_addr at 0x8, bssid at 0xe).\n\n#4: 40 functions, arg=['r3'], accesses many offsets including [+0x0000(1),+0x0000(4),...+0x001c(2)], includes debug_if_check_40320038, sub_10184C. Looks like a vif_info operation pattern.\n\n#5: 38 functions, arg=['r0'], accesses [+0x0000(1),+0x0001(1)], sub_12D648, etc. Two byte access at start - could be channel/band or tx_power related.\n\n#6: 33 functions, arg=['sp'], accesses [+0x0000(4),+0x000a(4),+0x000c(4),+0x000e(4),+0x001c(4)], includes rf_bus_write, rf_mem_read, sdio_wait_busy. This looks like an rf/sdio register access pattern.\n\n#7: 30 functions, arg=['r4'], accesses [+0x0000(4),+0x0004(4),+0x0008(4),+0x000e(4),+0x0320(4)], sub_111618, etc. The 0x320 offset and 0xe (vif bssid) suggest this is a scan or related operation.\n\nLet me think more carefully about the offsets:\n\nFor #3: +0x0000(4) and +0x000e(2). Looking at vif_info: idx=0x0, flags=0x4, mac_addr=0x8, bssid=0xe, ssid=0x14. So 0xe is bssid offset (2 bytes for first 2 bytes of BSSID). This is accessing vif with bssid check. Could be a vif lookup or comparison.\n\nFor #4: many offsets. Could be a comprehensive vif_info operation.\n\nFor #5: +0x0000(1) and +0x0001(1) - two single bytes at start. Could be channel and band? In vif_info channel=0x34, band=0x38. So no... could be flag and type. Or could be a small 2-byte structure. Looking at bt functions, could be a BT related state/command.\n\nFor #6: rf_bus_write, rf_mem_read, sdio_wait_busy - this is a generic mmio/reg access pattern.\n\nFor #7: 0x320 offset is large. scan_req has channels=0x24, n_channels=0x64. The 0x320 could be a specific structure. Or 0xe (2 bytes) = bssid, 0x320 could be a buffer size. This might be a tx/rx operation with bssid.\n\nLet me provide best guesses:\n</think>\n#0: delay_timer_set\n#1: mmio_clock_gate_init\n#2: ke_msg_dispatch\n#3: vif_bssid_check\n#4: vif_info_set_state\n#5: bt_hci_cmd_send\n#6: mmio_reg_poll\n#7: tx_queue_enqueue_bssid",
+  "r2": "<think>\nThe user wants me to expand each pattern name into a full struct with field names based on the offsets and sizes seen in each pattern. Let me analyze each pattern carefully.\n\n#0: delay_timer_set - [+0x0000(4),+0x0004(4)] - 2 uint32_t fields, likely delay_us value and maybe a count/loop\n#1: mmio_clock_gate_init - [+0x0000(1),+0x0000(4)] - 1 byte field and 4 byte field at offset 0 (overlapping). Probably bit-field byte and value\n#2: ke_msg_dispatch - [+0x0000(4),+0x0004(4),+0x0008(4),+0x000c(4)] - 4 uint32_t fields. ke_env-like: task_head, task_tail, msg_queue, state - but that's already given. Actually looking at ke_env: task_head=0x0, task_tail=0x4, msg_queue=0x8, state=0x10. Here we have 0,4,8,c (4 fields of 4 bytes). The first 3 match ke_env first 3 fields, plus something at 0xc. This could be a message structure or a similar pattern.\n#3: vif_bssid_check - [+0x0000(4),+0x000e(2)] - pointer at 0 (vif ptr?) and bssid compare\n#4: vif_info_set_state - [+0x0000(1),+0x0000(4),+0x0004(4),+0x0008(4),+0x000a(4),+0x000c(4),+0x000e(4),+0x0018(1),+0x001c(2)] - lots of fields\n#5: bt_hci_cmd_send - [+0x0000(1),+0x0001(1)] - 2 bytes, opcode?\n#6: mmio_reg_poll - [+0x0000(4),+0x000a(4),+0x000c(4),+0x000e(4),+0x001c(4)] - register address, value, mask, etc.\n#7: tx_queue_enqueue_bssid - [+0x0000(4),+0x0004(4),+0x0008(4),+0x000e(4),+0x0320(4)] - tx_desc-like with bssid and large buffer\n\nLet me think more carefully based on context:\n\n#0: delay_timer_set\n- +0x0000(4) = us/delay value\n- +0x0004(4) = loop count or tick\n\n#1: mmio_clock_gate_init\n- +0x0000(1) = bit position (1 byte)\n- +0x0000(4) = register address (4 bytes, same start)\n\n#2: ke_msg_dispatch\nThis is interesting. The pattern ke_env has: task_head=0x0, task_tail=0x4, msg_queue=0x8, state=0x10. But here we have offsets 0,4,8,c - so 4 fields, not matching ke_env exactly. This might be a different struct. The functions: get_variant_cached, message_dispatch_n238, panic_loop. Could be a dispatch struct with:\n- +0x0000(4) = handler\n- +0x0004(4) = arg\n- +0x0008(4) = next\n- +0x000c(4) = state\n\nOr could be a ke_msg struct: id, param, etc.\n\nActually the ke_env: task_head=0x0, task_tail=0x4, msg_queue=0x8, state=0x10. The \"state\" is at 0x10 not 0xc. So this is not ke_env directly. But the pattern uses 'sp' arg meaning local. Hmm.\n\nLet me just make reasonable field names based on function names and sizes.\n\n#3: vif_bssid_check\n- +0x0000(4) = vif pointer\n- +0x000e(2) = bssid (first 2 bytes of bssid for comparison)\n\n#4: vif_info_set_state\nMany fields. Looking at vif_info offsets: idx=0x0, flags=0x4, mac_addr=0x8, bssid=0xe, ssid=0x14, channel=0x34, band=0x38, type=0x3c, state=0x40, tx_power=0x44\nBut the pattern has fields at 0,0,4,8,a,c,e,18,1c. These are small offsets suggesting a local or sub-struct. Could be a control/request struct.\n- +0x0000(1) = cmd/id\n- +0x0000(4) = vif ptr\n- +0x0004(4) = param1\n- +0x0008(4) = param2\n- +0x000a(4) = param3\n- +0x000c(4) = param4\n- +0x000e(4) = param5\n- +0x0018(1) = flag\n- +0x001c(2) = value\n\n#5: bt_hci_cmd_send\n- +0x0000(1) = opcode_hi\n- +0x0001(1) = opcode_lo\n\nOr could be:\n- +0x0000(1) = type\n- +0x0001(1) = code\n\n#6: mmio_reg_poll\n- +0x0000(4) = addr\n- +0x000a(4) = mask\n- +0x000c(4) = val\n- +0x000e(4) = timeout\n- +0x001c(4) = ret\n\n#7: tx_queue_enqueue_bssid\nLooking at tx_desc: addr=0x0, len=0x4, ctrl=0x8, next=0xc, status=0x10\n- +0x0000(4) = addr (matches tx_desc)\n- +0x0004(4) = len\n- +0x0008(4) = ctrl\n- +0x000e(4) = bssid_partial\n- +0x0320(4) = something\n\nLet me format this as JSON.\n</think>\n{\"groups\":[{\"id\":0,\"name\":\"delay_timer\",\"fields\":[{\"name\":\"us\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"ticks\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":1,\"name\":\"mmio_clock_gate\",\"fields\":[{\"name\":\"bit\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":2,\"name\":\"ke_dispatch_ctx\",\"fields\":[{\"name\":\"handler\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"arg\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"next\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"state\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":3,\"name\":\"vif_bssid_ref\",\"fields\":[{\"name\":\"vif\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bssid\",\"off\":14,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":4,\"name\":\"vif_set_state_req\",\"fields\":[{\"name\":\"vif_idx\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"vif\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"flags\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mac\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mac_hi\",\"off\":10,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bssid_lo\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bssid_hi\",\"off\":14,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"op\",\"off\":24,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"state\",\"off\":28,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":5,\"name\":\"bt_hci_cmd\",\"fields\":[{\"name\":\"ogf\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"ocf\",\"off\":1,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":6,\"name\":\"mmio_reg_poll\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask\",\"off\":10,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"val\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"expected\",\"off\":14,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"ret\",\"off\":28,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":7,\"name\":\"tx_pkt_buf\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"len\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"ctrl\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bssid\",\"off\":14,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"payload_end\",\"off\":800,\"size\":4,\"type\":\"uint32_t\"}]}]}",
+  "parsed": {
+    "groups": [
+      {
+        "id": 0,
+        "name": "delay_timer",
+        "fields": [
+          {
+            "name": "us",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "ticks",
+            "off": 4,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "mmio_clock_gate",
+        "fields": [
+          {
+            "name": "bit",
+            "off": 0,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "ke_dispatch_ctx",
+        "fields": [
+          {
+            "name": "handler",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "arg",
+            "off": 4,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "next",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "state",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "vif_bssid_ref",
+        "fields": [
+          {
+            "name": "vif",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bssid",
+            "off": 14,
+            "size": 2,
+            "type": "uint16_t"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "vif_set_state_req",
+        "fields": [
+          {
+            "name": "vif_idx",
+            "off": 0,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "vif",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "flags",
+            "off": 4,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mac",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mac_hi",
+            "off": 10,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bssid_lo",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bssid_hi",
+            "off": 14,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "op",
+            "off": 24,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "state",
+            "off": 28,
+            "size": 2,
+            "type": "uint16_t"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "bt_hci_cmd",
+        "fields": [
+          {
+            "name": "ogf",
+            "off": 0,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "ocf",
+            "off": 1,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "mmio_reg_poll",
+        "fields": [
+          {
+            "name": "addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mask",
+            "off": 10,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "val",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "expected",
+            "off": 14,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "ret",
+            "off": 28,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "tx_pkt_buf",
+        "fields": [
+          {
+            "name": "addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "len",
+            "off": 4,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "ctrl",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bssid",
+            "off": 14,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "payload_end",
+            "off": 800,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1781519024.4594297
+}

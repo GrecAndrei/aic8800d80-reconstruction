@@ -1,0 +1,1942 @@
+{
+  "img": "fmacfw_8800d80_h_u02_bin",
+  "total_funcs": 917,
+  "total_groups": 582,
+  "significant_groups": [
+    {
+      "group_id": 0,
+      "primary_arg": "sp",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "func_count": 31,
+      "sample_funcs": [
+        {
+          "func_addr": 1050180,
+          "func_name": "sub_100644",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1061480,
+          "func_name": "sub_103268",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "access_count": 4
+        },
+        {
+          "func_addr": 1104612,
+          "func_name": "sub_10DAE4",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1108148,
+          "func_name": "sub_10E8B4",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "access_count": 4
+        },
+        {
+          "func_addr": 1133240,
+          "func_name": "sub_114AB8",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "access_count": 2
+        }
+      ]
+    },
+    {
+      "group_id": 1,
+      "primary_arg": "r5",
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "func_count": 26,
+      "sample_funcs": [
+        {
+          "func_addr": 1051304,
+          "func_name": "sub_100AA8",
+          "primary_arg": "r5",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1051412,
+          "func_name": "sub_100B14",
+          "primary_arg": "r5",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1059420,
+          "func_name": "sub_102A5C",
+          "primary_arg": "r1",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 5
+        },
+        {
+          "func_addr": 1059484,
+          "func_name": "sub_102A9C",
+          "primary_arg": "r1",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 5
+        },
+        {
+          "func_addr": 1099916,
+          "func_name": "sub_10C88C",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 3
+        }
+      ]
+    },
+    {
+      "group_id": 2,
+      "primary_arg": "r3",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          14,
+          2
+        ]
+      ],
+      "func_count": 16,
+      "sample_funcs": [
+        {
+          "func_addr": 1225636,
+          "func_name": "sub_12B3A4",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1225684,
+          "func_name": "sub_12B3D4",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1225704,
+          "func_name": "sub_12B3E8",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1225728,
+          "func_name": "sub_12B400",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1234844,
+          "func_name": "sub_12D79C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              14,
+              2
+            ]
+          ],
+          "access_count": 2
+        }
+      ]
+    },
+    {
+      "group_id": 3,
+      "primary_arg": "sp",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "func_count": 13,
+      "sample_funcs": [
+        {
+          "func_addr": 1050316,
+          "func_name": "sub_1006CC",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              12,
+              4
+            ]
+          ],
+          "access_count": 14
+        },
+        {
+          "func_addr": 1050328,
+          "func_name": "sub_1006D8",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              12,
+              4
+            ]
+          ],
+          "access_count": 14
+        },
+        {
+          "func_addr": 1050416,
+          "func_name": "sub_100730",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              12,
+              4
+            ]
+          ],
+          "access_count": 9
+        },
+        {
+          "func_addr": 1050476,
+          "func_name": "sub_10076C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              12,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1080740,
+          "func_name": "sub_107DA4",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              12,
+              4
+            ]
+          ],
+          "access_count": 4
+        }
+      ]
+    },
+    {
+      "group_id": 4,
+      "primary_arg": "r0",
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "func_count": 12,
+      "sample_funcs": [
+        {
+          "func_addr": 1234504,
+          "func_name": "sub_12D648",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "access_count": 8
+        },
+        {
+          "func_addr": 1234668,
+          "func_name": "sub_12D6EC",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "access_count": 7
+        },
+        {
+          "func_addr": 1234780,
+          "func_name": "sub_12D75C",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1235132,
+          "func_name": "sub_12D8BC",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1235192,
+          "func_name": "sub_12D8F8",
+          "primary_arg": "r0",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "access_count": 6
+        }
+      ]
+    },
+    {
+      "group_id": 5,
+      "primary_arg": "r3",
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "func_count": 11,
+      "sample_funcs": [
+        {
+          "func_addr": 1055012,
+          "func_name": "debug_if_check_40320038",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "access_count": 18
+        },
+        {
+          "func_addr": 1055012,
+          "func_name": "sub_101924",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "access_count": 18
+        },
+        {
+          "func_addr": 1055044,
+          "func_name": "sub_101944",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "access_count": 17
+        },
+        {
+          "func_addr": 1055052,
+          "func_name": "sub_10194C",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "access_count": 17
+        },
+        {
+          "func_addr": 1055056,
+          "func_name": "sub_101950",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              2
+            ]
+          ],
+          "access_count": 17
+        }
+      ]
+    },
+    {
+      "group_id": 6,
+      "primary_arg": "sp",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "func_count": 8,
+      "sample_funcs": [
+        {
+          "func_addr": 1235912,
+          "func_name": "sub_12DBC8",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "access_count": 14
+        },
+        {
+          "func_addr": 1235976,
+          "func_name": "sub_12DC08",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "access_count": 12
+        },
+        {
+          "func_addr": 1236040,
+          "func_name": "sub_12DC48",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "access_count": 10
+        },
+        {
+          "func_addr": 1236112,
+          "func_name": "sub_12DC90",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "access_count": 7
+        },
+        {
+          "func_addr": 1236236,
+          "func_name": "sub_12DD0C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "access_count": 3
+        }
+      ]
+    },
+    {
+      "group_id": 7,
+      "primary_arg": "r2",
+      "fingerprint": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "func_count": 6,
+      "sample_funcs": [
+        {
+          "func_addr": 1054888,
+          "func_name": "sub_1018A8",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 4
+        },
+        {
+          "func_addr": 1322552,
+          "func_name": "sub_142E38",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 10
+        },
+        {
+          "func_addr": 1322572,
+          "func_name": "sub_142E4C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 8
+        },
+        {
+          "func_addr": 1322592,
+          "func_name": "sub_142E60",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1322612,
+          "func_name": "sub_142E74",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 4
+        }
+      ]
+    },
+    {
+      "group_id": 8,
+      "primary_arg": "r4",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          800,
+          4
+        ]
+      ],
+      "func_count": 6,
+      "sample_funcs": [
+        {
+          "func_addr": 1121232,
+          "func_name": "sub_111BD0",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              800,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1121284,
+          "func_name": "sub_111C04",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              800,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1121320,
+          "func_name": "sub_111C28",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              800,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1121356,
+          "func_name": "sub_111C4C",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              800,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1121396,
+          "func_name": "sub_111C74",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              800,
+              4
+            ]
+          ],
+          "access_count": 6
+        }
+      ]
+    },
+    {
+      "group_id": 9,
+      "primary_arg": "r2",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          106,
+          1
+        ]
+      ],
+      "func_count": 6,
+      "sample_funcs": [
+        {
+          "func_addr": 1189700,
+          "func_name": "sub_122744",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              106,
+              1
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1202020,
+          "func_name": "sub_125764",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              106,
+              1
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1202048,
+          "func_name": "sub_125780",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              106,
+              1
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1215408,
+          "func_name": "sub_128BB0",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              106,
+              1
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1215524,
+          "func_name": "sub_128C24",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              106,
+              1
+            ]
+          ],
+          "access_count": 2
+        }
+      ]
+    },
+    {
+      "group_id": 10,
+      "primary_arg": "sp",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "func_count": 6,
+      "sample_funcs": [
+        {
+          "func_addr": 1239248,
+          "func_name": "sub_12E8D0",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "access_count": 9
+        },
+        {
+          "func_addr": 1239276,
+          "func_name": "sub_12E8EC",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "access_count": 10
+        },
+        {
+          "func_addr": 1239288,
+          "func_name": "sub_12E8F8",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "access_count": 12
+        },
+        {
+          "func_addr": 1239300,
+          "func_name": "sub_12E904",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "access_count": 12
+        },
+        {
+          "func_addr": 1239312,
+          "func_name": "sub_12E910",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              28,
+              4
+            ]
+          ],
+          "access_count": 12
+        }
+      ]
+    },
+    {
+      "group_id": 11,
+      "primary_arg": "r4",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          24,
+          4
+        ]
+      ],
+      "func_count": 6,
+      "sample_funcs": [
+        {
+          "func_addr": 1240968,
+          "func_name": "sub_12EF88",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              18,
+              4
+            ],
+            [
+              24,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1240980,
+          "func_name": "sub_12EF94",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              18,
+              4
+            ],
+            [
+              24,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1240980,
+          "func_name": "rf_timer_abort2",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              18,
+              4
+            ],
+            [
+              24,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1241008,
+          "func_name": "fw_config_copy",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              18,
+              4
+            ],
+            [
+              24,
+              4
+            ]
+          ],
+          "access_count": 7
+        },
+        {
+          "func_addr": 1241008,
+          "func_name": "sub_12EFB0",
+          "primary_arg": "r4",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              10,
+              4
+            ],
+            [
+              12,
+              4
+            ],
+            [
+              18,
+              4
+            ],
+            [
+              24,
+              4
+            ]
+          ],
+          "access_count": 7
+        }
+      ]
+    },
+    {
+      "group_id": 12,
+      "primary_arg": "r3",
+      "fingerprint": [
+        [
+          -4,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "func_count": 5,
+      "sample_funcs": [
+        {
+          "func_addr": 1228960,
+          "func_name": "sub_12C0A0",
+          "primary_arg": "r3",
+          "fingerprint": [
+            [
+              -4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 4
+        },
+        {
+          "func_addr": 1322282,
+          "func_name": "sub_142D2A",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1322396,
+          "func_name": "sub_142D9C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1323356,
+          "func_name": "sub_14315C",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 2
+        },
+        {
+          "func_addr": 1323512,
+          "func_name": "sub_1431F8",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -4,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "access_count": 2
+        }
+      ]
+    },
+    {
+      "group_id": 13,
+      "primary_arg": "r2",
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          504,
+          4
+        ]
+      ],
+      "func_count": 5,
+      "sample_funcs": [
+        {
+          "func_addr": 1242024,
+          "func_name": "sub_12F3A8",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              504,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1242092,
+          "func_name": "sub_12F3EC",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              504,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1242184,
+          "func_name": "sub_12F448",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              504,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1242284,
+          "func_name": "sub_12F4AC",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              504,
+              4
+            ]
+          ],
+          "access_count": 3
+        },
+        {
+          "func_addr": 1242292,
+          "func_name": "sub_12F4B4",
+          "primary_arg": "r2",
+          "fingerprint": [
+            [
+              0,
+              4
+            ],
+            [
+              504,
+              4
+            ]
+          ],
+          "access_count": 3
+        }
+      ]
+    },
+    {
+      "group_id": 14,
+      "primary_arg": "sp",
+      "fingerprint": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          20,
+          4
+        ]
+      ],
+      "func_count": 5,
+      "sample_funcs": [
+        {
+          "func_addr": 1323632,
+          "func_name": "sub_143270",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              20,
+              4
+            ]
+          ],
+          "access_count": 12
+        },
+        {
+          "func_addr": 1323652,
+          "func_name": "sub_143284",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              20,
+              4
+            ]
+          ],
+          "access_count": 10
+        },
+        {
+          "func_addr": 1323672,
+          "func_name": "sub_143298",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              20,
+              4
+            ]
+          ],
+          "access_count": 8
+        },
+        {
+          "func_addr": 1323692,
+          "func_name": "sub_1432AC",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              20,
+              4
+            ]
+          ],
+          "access_count": 6
+        },
+        {
+          "func_addr": 1323712,
+          "func_name": "sub_1432C0",
+          "primary_arg": "sp",
+          "fingerprint": [
+            [
+              -8,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              20,
+              4
+            ]
+          ],
+          "access_count": 4
+        }
+      ]
+    }
+  ]
+}

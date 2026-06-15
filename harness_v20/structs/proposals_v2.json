@@ -1,0 +1,376 @@
+{
+  "proposals": [
+    {
+      "group_id": 0,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "n_total_funcs": 198,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "delay_us@0x100560",
+        "delay_us@0x100644",
+        "delay_us_0644@0x100644",
+        "mmio_read_backoff_window@0x1032e8",
+        "mmio_reg_read_1203140@0x103140",
+        "sub_100560@0x100560"
+      ]
+    },
+    {
+      "group_id": 1,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 117,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r1",
+        "r3",
+        "r5"
+      ],
+      "sample_funcs": [
+        "bt_fw_init_or_handler@0x1029c4",
+        "fw_state_check_n_c0@0x1017c0",
+        "mmio_set_clock_gate_bit@0x100aa8",
+        "rf_byte_extract_save@0x10f14c",
+        "sub_100AA8@0x100aa8",
+        "sub_100B14@0x100b14"
+      ]
+    },
+    {
+      "group_id": 2,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "n_total_funcs": 83,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "get_variant_cached@0x1006cc",
+        "message_dispatch_n238@0x1006d8",
+        "panic_loop@0x1005f4",
+        "panic_loop_06d8@0x1006d8",
+        "sub_1005E8@0x1005e8",
+        "sub_1005F4@0x1005f4"
+      ]
+    },
+    {
+      "group_id": 3,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          14,
+          2
+        ]
+      ],
+      "n_total_funcs": 43,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3",
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12B3A4@0x12b3a4",
+        "sub_12B3D4@0x12b3d4",
+        "sub_12B3E8@0x12b3e8",
+        "sub_12D8DC@0x12d8dc",
+        "sub_12D918@0x12d918",
+        "sub_12D958@0x12d958"
+      ]
+    },
+    {
+      "group_id": 4,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "n_total_funcs": 40,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r3"
+      ],
+      "sample_funcs": [
+        "debug_if_check_40320038@0x101924",
+        "sub_10184C@0x10184c",
+        "sub_10186C@0x10186c",
+        "sub_101874@0x101874",
+        "sub_101924@0x101924",
+        "sub_101944@0x101944"
+      ]
+    },
+    {
+      "group_id": 5,
+      "fingerprint": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "n_total_funcs": 38,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "r0"
+      ],
+      "sample_funcs": [
+        "sub_12D648@0x12d648",
+        "sub_12D6EC@0x12d6ec",
+        "sub_12D75C@0x12d75c",
+        "sub_12D788@0x12d788",
+        "sub_12D82C@0x12d82c",
+        "sub_12D89C@0x12d89c"
+      ]
+    },
+    {
+      "group_id": 6,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "n_total_funcs": 33,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "rf_bus_write_n144@0x11f4b4",
+        "rf_mem_read_n_ec@0x11f4a8",
+        "sdio_wait_busy@0x12ec38",
+        "sdio_wait_busy_clear@0x12ea10",
+        "sub_11F4A8@0x11f4a8",
+        "sub_12E8D0@0x12e8d0"
+      ]
+    },
+    {
+      "group_id": 7,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          800,
+          4
+        ]
+      ],
+      "n_total_funcs": 30,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r4"
+      ],
+      "sample_funcs": [
+        "sub_111618@0x111618",
+        "sub_11164C@0x11164c",
+        "sub_111670@0x111670",
+        "sub_111B6C@0x111b6c",
+        "sub_111BA0@0x111ba0",
+        "sub_111BC4@0x111bc4"
+      ]
+    },
+    {
+      "group_id": 8,
+      "fingerprint": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "n_total_funcs": 24,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin"
+      ],
+      "args": [
+        "sp"
+      ],
+      "sample_funcs": [
+        "sub_12DBC8@0x12dbc8",
+        "sub_12DC08@0x12dc08",
+        "sub_12DC48@0x12dc48",
+        "sub_12DD08@0x12dd08",
+        "sub_12DD48@0x12dd48",
+        "sub_12DD88@0x12dd88"
+      ]
+    },
+    {
+      "group_id": 9,
+      "fingerprint": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "n_total_funcs": 23,
+      "images": [
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin",
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin"
+      ],
+      "args": [
+        "r2",
+        "sp"
+      ],
+      "sample_funcs": [
+        "irq47_status_handler@0x101954",
+        "sub_1018A8@0x1018a8",
+        "sub_101954@0x101954",
+        "sub_127AF0@0x127af0",
+        "sub_127B04@0x127b04",
+        "sub_127B18@0x127b18"
+      ]
+    }
+  ],
+  "llm_response": "<think>\nLet me analyze each pattern and try to match them to the known structs from v19.\n\nThe known structs are:\n- vif_info: idx=0x0, flags=0x4, mac_addr=0x8, bssid=0xe, ssid=0x14, channel=0x34, band=0x38, type=0x3c, state=0x40, tx_power=0x44\n- tx_queue: head=0x0, tail=0x4, count=0x8, lock=0xc, max_len=0x10\n- rx_desc: addr=0x0, len=0x4, status=0x8, next=0xc\n- tx_desc: addr=0x0, len=0x4, ctrl=0x8, next=0xc, status=0x10\n- ke_env: task_head=0x0, task_tail=0x4, msg_queue=0x8, state=0x10\n- scan_req: ssid=0x0, ssid_len=0x20, channels=0x24, n_channels=0x64, flags=0x68\n\nLet me analyze each pattern:\n\n#0: fields=[+0x0000(4), +0x0004(4)] - This matches tx_queue (head=0x0, tail=0x4) or ke_env (task_head=0x0, task_tail=0x4) or rx_desc/tx_desc (addr=0x0, len=0x4). With arg=['sp'] and small struct, it could be a stack local. Let me think - if the struct is small and used on stack, this could be a pair of counters or a local queue. The pattern is very small (8 bytes), and the functions delay_us suggest a simple timing/loop structure. It could be tx_queue or ke_env. Actually, looking at it, the pattern is just 2 fields at 0x0 and 0x4, which is most likely a simple pair. This could match tx_queue (head/tail) or ke_env (task_head/task_tail). But the function names suggest delay_us which is just a timing function. This might be a simple loop counter pair. Let me skip it as trivial pair as instructed.\n\n#1: fields=[+0x0000(1), +0x0000(4)] - This is overlapping fields, not a real struct. The same offset 0x0 has both 1 byte and 4 byte accesses. This is likely just byte vs word access of the same field. Doesn't match any known struct well. Skip.\n\n#2: fields=[+0x0000(4), +0x0004(4), +0x0008(4), +0x000c(4)] - 4 fields of 4 bytes each = 16 bytes. With arg=['sp'], this is a stack local. Functions like get_variant_cached, message_dispatch_n238, panic_loop. This doesn't match any known struct well. The tx_queue has 5 fields totaling 0x14 (20 bytes), so this is smaller. Could be a subset. But it's on stack, so likely a local variable. Skip per instructions (stack local).\n\n#3: fields=[+0x0000(4), +0x000e(2)] - This matches vif_info! mac_addr=0x8 (6 bytes), bssid=0xe (6 bytes). Wait, vif_info has mac_addr at 0x8 (6 bytes) and bssid at 0xe (6 bytes). So at offset 0x0, there's idx (4 bytes), then flags at 0x4, then mac_addr at 0x8 (6 bytes), then bssid at 0xe (6 bytes). The field at +0x000e(2) could be the first 2 bytes of bssid. This looks like vif_info! With 43 functions accessing idx and the first 2 bytes of bssid.\n\nWait, let me re-examine. vif_info: idx=0x0 (4 bytes), flags=0x4, mac_addr=0x8 (6 bytes), bssid=0xe (6 bytes). So +0x0000(4) is idx, and +0x000e(2) is the first 2 bytes of bssid. Yes, this matches vif_info!\n\n#4: fields=[+0x0000(1), +0x0000(4), +0x0004(4), +0x0008(4), +0x000a(4), +0x000c(4), +0x000e(4), +0x0018(1), +0x001c(2)] - This has many fields. Looking at vif_info: idx=0x0, flags=0x4, mac_addr=0x8 (6 bytes), bssid=0xe (6 bytes), ssid=0x14. So:\n- +0x0000(1) and +0x0000(4) - idx (first byte or whole word)\n- +0x0004(4) - flags\n- +0x0008(4) - first 4 bytes of mac_addr\n- +0x000a(4) - last 2 bytes of mac_addr + first 2 bytes of bssid\n- +0x000c(4) - middle of bssid\n- +0x000e(4) - starting at bssid offset 0\n- +0x0018(1) - part of ssid (ssid starts at 0x14, so 0x18 is 4 bytes into ssid)\n- +0x001c(2) - 8 bytes into ssid\n\nYes, this is vif_info! The pattern accesses idx, flags, mac_addr, bssid, and ssid fields.\n\n#5: fields=[+0x0000(1), +0x0001(1)] - Two bytes. Doesn't match any known struct well. Skip as trivial.\n\n#6: fields=[+0x0000(4), +0x000a(4), +0x000c(4), +0x000e(4), +0x001c(4)] - With arg=['sp']. Looking at vif_info: \n- +0x0000(4) - idx\n- +0x000a(4) - last 2 bytes of mac_addr + first 2 bytes of bssid\n- +0x000c(4) - middle of bssid\n- +0x000e(4) - starting at bssid\n- +0x001c(4) - 8 bytes into ssid\n\nThis also looks like vif_info! But arg=['sp'] means it's on stack. Hmm, but the field pattern strongly suggests vif_info. Let me think - maybe it's a copy of vif_info on stack. The functions are rf_bus_write_n144, rf_mem_read_n_ec, sdio_wait_busy - these are RF/SDIO functions, not typical vif_info users. But the field pattern matches vif_info. Let me include it as vif_info.\n\nWait, the instructions say \"Skip any group that looks like a stack local (arg=sp)\". But the field pattern clearly matches vif_info. Let me think about this more carefully. The arg=['sp'] means the base register is sp, so it's stack-allocated. But the structure pattern matches vif_info. \n\nActually, re-reading: \"Skip any group that looks like a stack local (arg=sp) or trivial pair.\" - I think this means skip groups that are clearly just stack locals without a clear struct match. But if the field pattern matches a known struct, we should include it.\n\nHmm, but #6 has arg=['sp'] and the fields match vif_info. It's possible that a local copy of vif_info is on the stack. Let me include it as vif_info.\n\n#7: fields=[+0x0000(4), +0x0004(4), +0x0008(4), +0x000e(4), +0x0320(4)] - With arg=['r4']. The offset 0x320 is very large. Looking at vif_info: ssid=0x14, channel=0x34, band=0x38, type=0x3c, state=0x40, tx_power=0x44. The struct might extend further. \n- +0x0000(4) - idx\n- +0x0004(4) - flags\n- +0x0008(4) - first 4 of mac_addr\n- +0x000e(4) - starting at bssid\n- +0x0320(4) - way beyond the known fields\n\nThis could be vif_info with some additional fields. The 0x320 offset is suspicious. But the first fields match vif_info. Let me include it as vif_info.\n\n#8: fields=[+0x0000(4), +0x0006(2)] - With arg=['sp']. \n- +0x0000(4) - idx\n- +0x0006(2) - last 2 bytes of idx? No, idx is 4 bytes. Or\n</think>\n",
+  "timestamp": 1781518694.119961
+}

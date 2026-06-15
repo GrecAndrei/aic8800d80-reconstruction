@@ -73,3 +73,9 @@ tools/local-bin/*.go-bin
 
 # Large drive upload logs
 drive_upload*.log
+
+# v20
+harness_v20/idb/
+harness_v20/log/
+harness_v20/log_*.txt
+harness_v20/decompiled/
