@@ -1,0 +1,442 @@
+{
+  "img": "fmacfwbt_8800d80_u02_bin",
+  "clusters": {
+    "cluster_0": {
+      "group_id": 0,
+      "name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs_total": 25,
+      "funcs_named": [
+        "bt_msg_handler_122D3B8",
+        "list_push_tail",
+        "ptr_compare_or_fetch",
+        "sdio_wait_busy"
+      ],
+      "funcs_sub": [
+        "sub_109F90",
+        "sub_122D7C",
+        "sub_125EFC",
+        "sub_125F18",
+        "sub_128160"
+      ]
+    },
+    "cluster_1": {
+      "group_id": 1,
+      "name": "mmio_clock_gate",
+      "primary_arg": "r1",
+      "n_funcs_total": 23,
+      "funcs_named": [
+        "mmio_lmac_init_n_ecd8",
+        "mmio_read_bitfield_7000101c",
+        "rf_init_blocka",
+        "log_queue_push",
+        "bt_flag_check_init",
+        "flag_check_1218170",
+        "bt_hci_cmd_send_n0a"
+      ],
+      "funcs_sub": [
+        "sub_101DE8",
+        "sub_102984",
+        "sub_1029C4",
+        "sub_10C824",
+        "sub_10ED30"
+      ]
+    },
+    "cluster_2": {
+      "group_id": 2,
+      "name": "ke_dispatch_ctx",
+      "primary_arg": "sp",
+      "n_funcs_total": 11,
+      "funcs_named": [
+        "mmio_init_block_120DDA0",
+        "patch_apply_n_148",
+        "patch_apply_3ac"
+      ],
+      "funcs_sub": [
+        "sub_107D3C",
+        "sub_10DC60",
+        "sub_10DC78",
+        "sub_10DC90",
+        "sub_10DCEC"
+      ]
+    },
+    "cluster_3": {
+      "group_id": 3,
+      "name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs_total": 10,
+      "funcs_named": [
+        "sysctl_chip_id_get",
+        "fmacfwbt_init_or_handler"
+      ],
+      "funcs_sub": [
+        "sub_10184C",
+        "sub_10186C",
+        "sub_101874",
+        "sub_101878",
+        "sub_101888"
+      ]
+    },
+    "cluster_4": {
+      "group_id": 4,
+      "name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs_total": 22,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12D9B0",
+        "sub_12DA54",
+        "sub_12DAC4",
+        "sub_12DC24",
+        "sub_12DC60"
+      ]
+    },
+    "cluster_5": {
+      "group_id": 5,
+      "name": "vif_bssid_ref",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_6": {
+      "group_id": 6,
+      "name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_111B6C",
+        "sub_111BA0",
+        "sub_111BC4",
+        "sub_111BE8",
+        "sub_111C10"
+      ]
+    },
+    "cluster_7": {
+      "group_id": 7,
+      "name": "group_7",
+      "primary_arg": "r3",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "mmio_set_flag_bit1"
+      ],
+      "funcs_sub": [
+        "sub_114498",
+        "sub_114514",
+        "sub_114524",
+        "sub_11454C"
+      ]
+    },
+    "cluster_8": {
+      "group_id": 8,
+      "name": "ke_dispatch_ctx",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "message_dispatch_n_4c4",
+        "ipc_msg_dispatch_454"
+      ],
+      "funcs_sub": [
+        "sub_12C710",
+        "sub_12C7AC"
+      ]
+    },
+    "cluster_9": {
+      "group_id": 9,
+      "name": "group_9",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_10": {
+      "group_id": 10,
+      "name": "mmio_reg_poll",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_11": {
+      "group_id": 11,
+      "name": "log_state",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_cmd_send_n_36c",
+        "util_sub_f0b4"
+      ],
+      "funcs_sub": [
+        "sub_10EFD8",
+        "sub_10EFF0"
+      ]
+    },
+    "cluster_12": {
+      "group_id": 12,
+      "name": "phy_reg_param",
+      "primary_arg": "r2",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_122AB8",
+        "sub_122B1C",
+        "sub_125AC8",
+        "sub_125AE4",
+        "sub_128F14"
+      ]
+    },
+    "cluster_13": {
+      "group_id": 13,
+      "name": "ipc_shared_buf",
+      "primary_arg": "r2",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "j_rf_state_check_n36a",
+        "rf_bt_state_check_n0a4"
+      ],
+      "funcs_sub": [
+        "sub_12F808",
+        "sub_12F810"
+      ]
+    },
+    "cluster_14": {
+      "group_id": 14,
+      "name": "rf_param_tbl",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_param_lookup_n_1fc",
+        "bt_msg_handler_n54c"
+      ],
+      "funcs_sub": [
+        "sub_13A574",
+        "sub_13A588"
+      ]
+    },
+    "cluster_15": {
+      "group_id": 15,
+      "name": "group_15",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "message_dispatch_n_3c4"
+      ],
+      "funcs_sub": [
+        "sub_100688",
+        "sub_12C7DC",
+        "sub_12C964"
+      ]
+    },
+    "cluster_16": {
+      "group_id": 16,
+      "name": "group_16",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "irq_prio_set2",
+        "irq_enable"
+      ],
+      "funcs_sub": [
+        "sub_10DB2C"
+      ]
+    },
+    "cluster_17": {
+      "group_id": 17,
+      "name": "group_17",
+      "primary_arg": "r1",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "bt_msg_post_n364"
+      ],
+      "funcs_sub": [
+        "sub_1143AC",
+        "sub_1143B8",
+        "sub_1318A4"
+      ]
+    },
+    "cluster_18": {
+      "group_id": 18,
+      "name": "group_18",
+      "primary_arg": "r2",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "patch_apply_n_34",
+        "patch_apply_n_28"
+      ],
+      "funcs_sub": [
+        "sub_1154A8"
+      ]
+    },
+    "cluster_19": {
+      "group_id": 19,
+      "name": "group_19",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_reg_write_helper"
+      ],
+      "funcs_sub": [
+        "sub_12057C",
+        "sub_1205A8",
+        "sub_12064C"
+      ]
+    },
+    "cluster_20": {
+      "group_id": 20,
+      "name": "group_20",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_reg_clear_bits_n_5c0"
+      ],
+      "funcs_sub": [
+        "sub_1219C4",
+        "sub_1219E8",
+        "sub_12BD48"
+      ]
+    },
+    "cluster_21": {
+      "group_id": 21,
+      "name": "group_21",
+      "primary_arg": "r1",
+      "n_funcs_total": 5,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12B708",
+        "sub_12B738",
+        "sub_12B74C",
+        "sub_12B764",
+        "sub_12C068"
+      ]
+    },
+    "cluster_22": {
+      "group_id": 22,
+      "name": "group_22",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_10CAE0",
+        "sub_10CAEC",
+        "sub_10CAFC",
+        "sub_10CB08"
+      ]
+    },
+    "cluster_23": {
+      "group_id": 23,
+      "name": "group_23",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_11C924",
+        "sub_11C938",
+        "sub_11C968",
+        "sub_11C990"
+      ]
+    },
+    "cluster_24": {
+      "group_id": 24,
+      "name": "group_24",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12A74C",
+        "sub_12A788",
+        "sub_12A7F4",
+        "sub_12A818"
+      ]
+    },
+    "cluster_25": {
+      "group_id": 25,
+      "name": "group_25",
+      "primary_arg": "r2",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "mmio_block_write_n_e18",
+        "tx_timeout_check"
+      ],
+      "funcs_sub": [
+        "sub_12BE54"
+      ]
+    },
+    "cluster_26": {
+      "group_id": 26,
+      "name": "group_26",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_109350",
+        "sub_109370",
+        "sub_12C408"
+      ]
+    },
+    "cluster_27": {
+      "group_id": 27,
+      "name": "group_27",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_bus_setup_n_39c"
+      ],
+      "funcs_sub": [
+        "sub_12C580",
+        "sub_12C650",
+        "sub_12C66C"
+      ]
+    },
+    "cluster_28": {
+      "group_id": 28,
+      "name": "group_28",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12F2F0",
+        "sub_12F2FC",
+        "sub_12F318",
+        "sub_12F334"
+      ]
+    },
+    "cluster_29": {
+      "group_id": 29,
+      "name": "group_29",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "ipc_msg_write_hdr"
+      ],
+      "funcs_sub": [
+        "sub_1307D0",
+        "sub_130834"
+      ]
+    },
+    "cluster_30": {
+      "group_id": 30,
+      "name": "group_30",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_31": {
+      "group_id": 31,
+      "name": "irq_status",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_32": {
+      "group_id": 32,
+      "name": "group_32",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    }
+  }
+}

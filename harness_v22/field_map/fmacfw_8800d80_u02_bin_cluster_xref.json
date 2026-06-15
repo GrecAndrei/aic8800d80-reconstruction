@@ -1,0 +1,419 @@
+{
+  "img": "fmacfw_8800d80_u02_bin",
+  "clusters": {
+    "cluster_0": {
+      "group_id": 0,
+      "name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs_total": 24,
+      "funcs_named": [
+        "message_dispatch_n158",
+        "fmac_init_or_handler",
+        "list_push_tail",
+        "rf_bus_mark_n100_d2d0",
+        "mmio_reg_match",
+        "fmacfw_version_get"
+      ],
+      "funcs_sub": [
+        "sub_10A138",
+        "sub_125CD8",
+        "sub_125CF4",
+        "sub_127F3C",
+        "sub_12BFF0"
+      ]
+    },
+    "cluster_1": {
+      "group_id": 1,
+      "name": "mmio_clock_gate",
+      "primary_arg": "r5",
+      "n_funcs_total": 21,
+      "funcs_named": [
+        "rf_reg_write_masked",
+        "rf_init_blocka",
+        "rf_status_check",
+        "mmio_toggle_bits_n1c4",
+        "buf_ptr_deref_n_430",
+        "mmio_reg_write_n6c"
+      ],
+      "funcs_sub": [
+        "sub_100AA8",
+        "sub_100B14",
+        "sub_101F70",
+        "sub_102B0C",
+        "sub_102B4C"
+      ]
+    },
+    "cluster_2": {
+      "group_id": 2,
+      "name": "ke_dispatch_ctx",
+      "primary_arg": "sp",
+      "n_funcs_total": 8,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_107EE4",
+        "sub_10DE94",
+        "sub_10DF18",
+        "sub_10DF48",
+        "sub_114D64"
+      ]
+    },
+    "cluster_3": {
+      "group_id": 3,
+      "name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs_total": 10,
+      "funcs_named": [
+        "chip_info_is_fpga_or_emu",
+        "mmio_copy_4words"
+      ],
+      "funcs_sub": [
+        "sub_1019D0",
+        "sub_1019F0",
+        "sub_1019F8",
+        "sub_1019FC",
+        "sub_101A20"
+      ]
+    },
+    "cluster_4": {
+      "group_id": 4,
+      "name": "vif_bssid_ref",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_5": {
+      "group_id": 5,
+      "name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs_total": 21,
+      "funcs_named": [
+        "rf_bus_setup_n294"
+      ],
+      "funcs_sub": [
+        "sub_12D788",
+        "sub_12D82C",
+        "sub_12D89C",
+        "sub_12D9FC",
+        "sub_12DA38"
+      ]
+    },
+    "cluster_6": {
+      "group_id": 6,
+      "name": "mmio_reg_poll",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_7": {
+      "group_id": 7,
+      "name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_111D10",
+        "sub_111D44",
+        "sub_111D68",
+        "sub_111D8C",
+        "sub_111DB4"
+      ]
+    },
+    "cluster_8": {
+      "group_id": 8,
+      "name": "rf_state",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_flag_clear_n_90",
+        "patch_apply_n34e",
+        "rf_bus_reset_n_90"
+      ],
+      "funcs_sub": [
+        "sub_1146F0"
+      ]
+    },
+    "cluster_9": {
+      "group_id": 9,
+      "name": "group_9",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_10": {
+      "group_id": 10,
+      "name": "ipc_shared_buf",
+      "primary_arg": "r2",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "rf_msg_forward_n_1f4"
+      ],
+      "funcs_sub": [
+        "sub_12F4E8",
+        "sub_12F52C",
+        "sub_12F588",
+        "sub_12F5EC"
+      ]
+    },
+    "cluster_11": {
+      "group_id": 11,
+      "name": "irq_status",
+      "primary_arg": "r2",
+      "n_funcs_total": 1,
+      "funcs_named": [
+        "irq47_status_handler"
+      ],
+      "funcs_sub": []
+    },
+    "cluster_12": {
+      "group_id": 12,
+      "name": "rf_stream",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_stream_start2_n3f6",
+        "mmio_set_flag_122b8bc"
+      ],
+      "funcs_sub": [
+        "sub_114104",
+        "sub_114168"
+      ]
+    },
+    "cluster_13": {
+      "group_id": 13,
+      "name": "phy_reg_param",
+      "primary_arg": "r2",
+      "n_funcs_total": 6,
+      "funcs_named": [
+        "fmac_sub_1228D64"
+      ],
+      "funcs_sub": [
+        "sub_122884",
+        "sub_1258A4",
+        "sub_1258C0",
+        "sub_128CF0",
+        "sub_128EA0"
+      ]
+    },
+    "cluster_14": {
+      "group_id": 14,
+      "name": "group_14",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_15": {
+      "group_id": 15,
+      "name": "group_15",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_bit_clear_n0e0"
+      ],
+      "funcs_sub": [
+        "sub_10DCEC",
+        "sub_10DD00",
+        "sub_10DD14"
+      ]
+    },
+    "cluster_16": {
+      "group_id": 16,
+      "name": "group_16",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12A528",
+        "sub_12A564",
+        "sub_12A5D0",
+        "sub_12A5F4"
+      ]
+    },
+    "cluster_17": {
+      "group_id": 17,
+      "name": "ke_dispatch_ctx",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "message_dispatch_n_4c4",
+        "message_dispatch_408"
+      ],
+      "funcs_sub": [
+        "sub_12C4E8",
+        "sub_12C538"
+      ]
+    },
+    "cluster_18": {
+      "group_id": 18,
+      "name": "group_18",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "fmac_msg_init_header"
+      ],
+      "funcs_sub": [
+        "sub_1305B4",
+        "sub_130618"
+      ]
+    },
+    "cluster_19": {
+      "group_id": 19,
+      "name": "group_19",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "stub_push_r4",
+        "chan_ctx_lookup_n2b8"
+      ],
+      "funcs_sub": [
+        "sub_132D18"
+      ]
+    },
+    "cluster_20": {
+      "group_id": 20,
+      "name": "group_20",
+      "primary_arg": "r0",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "hw_config_init"
+      ],
+      "funcs_sub": [
+        "sub_12C5C8",
+        "sub_12C73C"
+      ]
+    },
+    "cluster_21": {
+      "group_id": 21,
+      "name": "group_21",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "patch_check_1202f80"
+      ],
+      "funcs_sub": [
+        "sub_102EB8",
+        "sub_102F4C"
+      ]
+    },
+    "cluster_22": {
+      "group_id": 22,
+      "name": "group_22",
+      "primary_arg": "r6",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_23": {
+      "group_id": 23,
+      "name": "group_23",
+      "primary_arg": "r0",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "rf_fault_dump_n_1df"
+      ],
+      "funcs_sub": [
+        "sub_114550",
+        "sub_11455C"
+      ]
+    },
+    "cluster_24": {
+      "group_id": 24,
+      "name": "group_24",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_read_status_reg"
+      ],
+      "funcs_sub": [
+        "sub_120244",
+        "sub_120270",
+        "sub_120314"
+      ]
+    },
+    "cluster_25": {
+      "group_id": 25,
+      "name": "group_25",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "ipc_msg_send_n048c"
+      ],
+      "funcs_sub": [
+        "sub_1204A8",
+        "sub_120548"
+      ]
+    },
+    "cluster_26": {
+      "group_id": 26,
+      "name": "group_26",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "ipc_doorbell_handler_n_43a",
+        "mac_check_msg_id_0x96c"
+      ],
+      "funcs_sub": [
+        "sub_12B170"
+      ]
+    },
+    "cluster_27": {
+      "group_id": 27,
+      "name": "group_27",
+      "primary_arg": "r1",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "ipc_msg_alloc_n0"
+      ],
+      "funcs_sub": [
+        "sub_12B514",
+        "sub_12B528",
+        "sub_12B540"
+      ]
+    },
+    "cluster_28": {
+      "group_id": 28,
+      "name": "group_28",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_1094F8",
+        "sub_109518",
+        "sub_12C1E0"
+      ]
+    },
+    "cluster_29": {
+      "group_id": 29,
+      "name": "group_29",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "fmac_unknown_handler"
+      ],
+      "funcs_sub": [
+        "sub_13259C",
+        "sub_1325B4",
+        "sub_1325CC"
+      ]
+    },
+    "cluster_30": {
+      "group_id": 30,
+      "name": "group_30",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_31": {
+      "group_id": 31,
+      "name": "group_31",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    }
+  }
+}

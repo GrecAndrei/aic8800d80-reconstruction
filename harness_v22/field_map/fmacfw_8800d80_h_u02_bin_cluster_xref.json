@@ -1,0 +1,192 @@
+{
+  "img": "fmacfw_8800d80_h_u02_bin",
+  "clusters": {
+    "cluster_0": {
+      "group_id": 0,
+      "name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs_total": 24,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_109FF8",
+        "sub_125B98",
+        "sub_125BB4",
+        "sub_127DFC",
+        "sub_12BEB0"
+      ]
+    },
+    "cluster_1": {
+      "group_id": 1,
+      "name": "mmio_clock_gate",
+      "primary_arg": "r5",
+      "n_funcs_total": 26,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_100AA8",
+        "sub_100B14",
+        "sub_101EC0",
+        "sub_102A5C",
+        "sub_102A9C"
+      ]
+    },
+    "cluster_2": {
+      "group_id": 2,
+      "name": "vif_bssid_ref",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12B3A4",
+        "sub_12B3D4",
+        "sub_12B3E8",
+        "sub_12B400"
+      ]
+    },
+    "cluster_3": {
+      "group_id": 3,
+      "name": "ke_dispatch_ctx",
+      "primary_arg": "sp",
+      "n_funcs_total": 8,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_107DA4",
+        "sub_10DCC8",
+        "sub_10DCE0",
+        "sub_10DCF8",
+        "sub_10DD54"
+      ]
+    },
+    "cluster_4": {
+      "group_id": 4,
+      "name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs_total": 21,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12D648",
+        "sub_12D6EC",
+        "sub_12D75C",
+        "sub_12D8BC",
+        "sub_12D8F8"
+      ]
+    },
+    "cluster_5": {
+      "group_id": 5,
+      "name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs_total": 10,
+      "funcs_named": [
+        "debug_if_check_40320038"
+      ],
+      "funcs_sub": [
+        "sub_101944",
+        "sub_10194C",
+        "sub_101950",
+        "sub_101960",
+        "sub_101974"
+      ]
+    },
+    "cluster_6": {
+      "group_id": 6,
+      "name": "group_6",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_7": {
+      "group_id": 7,
+      "name": "irq_status",
+      "primary_arg": "r2",
+      "n_funcs_total": 1,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_1018A8"
+      ]
+    },
+    "cluster_8": {
+      "group_id": 8,
+      "name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_111BD0",
+        "sub_111C04",
+        "sub_111C28",
+        "sub_111C4C",
+        "sub_111C74"
+      ]
+    },
+    "cluster_9": {
+      "group_id": 9,
+      "name": "phy_reg_param",
+      "primary_arg": "r2",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_122744",
+        "sub_125764",
+        "sub_125780",
+        "sub_128BB0",
+        "sub_128C24"
+      ]
+    },
+    "cluster_10": {
+      "group_id": 10,
+      "name": "mmio_reg_poll",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    },
+    "cluster_11": {
+      "group_id": 11,
+      "name": "group_11",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_timer_abort2"
+      ],
+      "funcs_sub": [
+        "sub_12EF88",
+        "sub_12EFB0",
+        "sub_12EFCC"
+      ]
+    },
+    "cluster_12": {
+      "group_id": 12,
+      "name": "group_12",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_1093B8",
+        "sub_1093D8",
+        "sub_12C0A0"
+      ]
+    },
+    "cluster_13": {
+      "group_id": 13,
+      "name": "ipc_shared_buf",
+      "primary_arg": "r2",
+      "n_funcs_total": 5,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12F3A8",
+        "sub_12F3EC",
+        "sub_12F448",
+        "sub_12F4AC",
+        "sub_12F4B4"
+      ]
+    },
+    "cluster_14": {
+      "group_id": 14,
+      "name": "group_14",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": []
+    }
+  }
+}

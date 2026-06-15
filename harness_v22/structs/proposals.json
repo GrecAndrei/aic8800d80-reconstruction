@@ -1,0 +1,937 @@
+{
+  "input_clusters": [
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 3,
+      "arg": "r3",
+      "n": 16,
+      "fp": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          28,
+          2
+        ]
+      ],
+      "sample": [
+        "sub_101A20",
+        "sub_101A28",
+        "sub_101A2C"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 4,
+      "arg": "r7",
+      "n": 13,
+      "fp": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "sample": [
+        "irq_prio_set_db48",
+        "sub_10DB48",
+        "sub_10DB78"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 5,
+      "arg": "r1",
+      "n": 11,
+      "fp": [
+        [
+          -12,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "sample": [
+        "sub_10DA6C",
+        "bitmask_pow2_set",
+        "sub_10DA88"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "gid": 6,
+      "arg": "sp",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "sample": [
+        "sub_12DBC8",
+        "sub_12DC08",
+        "sub_12DC48"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 7,
+      "arg": "r3",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          88,
+          4
+        ]
+      ],
+      "sample": [
+        "sub_114498",
+        "sub_114514",
+        "mmio_clear_bit1_n_524"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 8,
+      "arg": "r0",
+      "n": 8,
+      "fp": [
+        [
+          4,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          109,
+          1
+        ]
+      ],
+      "sample": [
+        "message_dispatch_n_4c4",
+        "sub_12C6F0",
+        "message_dispatch_n_4a3"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 9,
+      "arg": "sp",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "sample": [
+        "sub_12DF30",
+        "sub_12DF70",
+        "sub_12DFB0"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 8,
+      "arg": "r3",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          88,
+          4
+        ]
+      ],
+      "sample": [
+        "rf_flag_clear_n_90",
+        "sub_1146B8",
+        "sub_1146C8"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 9,
+      "arg": "sp",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "sample": [
+        "sub_12DD08",
+        "sub_12DD48",
+        "sub_12DD88"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 10,
+      "arg": "r2",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          504,
+          4
+        ]
+      ],
+      "sample": [
+        "ipc_init_buf",
+        "sub_12F4E8",
+        "j_state_check"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 8,
+      "arg": "r3",
+      "n": 8,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "sample": [
+        "sub_11AC80",
+        "sub_11CD0C",
+        "sub_11CD3C"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 11,
+      "arg": "r3",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          362,
+          1
+        ]
+      ],
+      "sample": [
+        "sub_10EFD8",
+        "log_tick",
+        "sub_10EFF0"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 12,
+      "arg": "r2",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          106,
+          1
+        ]
+      ],
+      "sample": [
+        "sub_122AB8",
+        "sub_122B1C",
+        "sub_125AC8"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 13,
+      "arg": "r2",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          504,
+          4
+        ]
+      ],
+      "sample": [
+        "sub_12F748",
+        "j_rf_state_check_n36a",
+        "sub_12F7A4"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "gid": 14,
+      "arg": "r3",
+      "n": 7,
+      "fp": [
+        [
+          38,
+          2
+        ],
+        [
+          44,
+          1
+        ],
+        [
+          76,
+          2
+        ]
+      ],
+      "sample": [
+        "rf_param_lookup_n_1fc",
+        "sub_13A4FC",
+        "bt_msg_handler_n54c"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 11,
+      "arg": "r2",
+      "n": 7,
+      "fp": [
+        [
+          -8,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "sample": [
+        "sub_101954",
+        "irq47_status_handler",
+        "sub_142F78"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 12,
+      "arg": "r3",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "sample": [
+        "rf_stream_kick",
+        "sub_114104",
+        "sub_114114"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "gid": 13,
+      "arg": "r2",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          106,
+          1
+        ]
+      ],
+      "sample": [
+        "sub_122884",
+        "sub_1258A4",
+        "sub_1258C0"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 9,
+      "arg": "r3",
+      "n": 7,
+      "fp": [
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "sample": [
+        "rf_subsystem_init",
+        "sub_10DC40",
+        "sub_10DC78"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "gid": 10,
+      "arg": "r5",
+      "n": 7,
+      "fp": [
+        [
+          0,
+          4
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "sample": [
+        "sub_116C6C",
+        "rf_calib_table_init",
+        "sub_116C94"
+      ]
+    }
+  ],
+  "r1": "<think>\nLet me analyze each struct based on the function names, offsets, and context.\n\n#0: 16fns, g3, arg=r3, offsets include +0x0018(1),+0x001c(2) - looks like a clock gate control structure with sub_101A20, sub_101A28, sub_101A2C as register access helpers\n#1: 13fns, g4, arg=r7, irq_prio_set_db48 - interrupt priority related\n#2: 11fns, g5, arg=r1, bitmask_pow2_set - bitmask/power of 2 operations\n#3: 8fns, fmacfw, sp arg, sub_12DBC8 etc - looks like message dispatch\n#4: 8fns, fmacfwbt, arg=r3, mmio_clear_bit1_n_524 - mmio clock gate\n#5: 8fns, fmacfwbt, message_dispatch_n_4c4 - message dispatch context\n#6: 8fns, fmacfwbt, sp arg - similar to #3\n#7: 8fns, fmacfw, rf_flag_clear_n_90 - rf flag\n#8: 8fns, fmacfw, sp arg - similar to #3\n#9: 8fns, fmacfw, ipc_init_buf - IPC buffer\n#10: 8fns, lmacfw, arg=r3 - rf subsystem related\n#11: 7fns, fmacfwbt, log_tick - logging\n#12: 7fns, fmacfwbt, arg=r2 - related to something with byte at 0x6a\n#13: 7fns, fmacfwbt, j_rf_state_check - rf state\n#14: 7fns, fmacfwbt, rf_param_lookup - rf parameter lookup\n#15: 7fns, fmacfw, irq47_status_handler - irq handler\n#16: 7fns, fmacfw, rf_stream_kick - rf stream\n#17: 7fns, fmacfw, similar to #12\n#18: 7fns, lmacfw, rf_subsystem_init - rf subsystem\n#19: 7fns, lmacfw, rf_calib_table_init - rf calibration\n\nLet me give them best guesses:\n</think>\n#0: mmio_clock_gate (clock gate control w/ sub-bit reg helpers)\n#1: irq_prio_set (interrupt priority config struct)\n#2: bitmask_state (bitmask w/ pow2 helpers)\n#3: msg_queue (message queue/buffer)\n#4: mmio_clock_gate (mmio clock gate variant)\n#5: ke_dispatch_ctx (message dispatch context)\n#6: msg_queue (message queue/buffer)\n#7: rf_state (RF flag/control struct)\n#8: msg_queue (message queue/buffer)\n#9: ipc_shared_buf (IPC init buffer)\n#10: rf_chan_cfg (RF channel/config table)\n#11: log_state (logging tick state)\n#12: phy_reg_param (PHY reg param w/ status byte at 0x6a)\n#13: rf_state (RF state check struct)\n#14: rf_param_tbl (RF param lookup table)\n#15: irq_status (IRQ47 status handler)\n#16: rf_stream (RF stream kick state)\n#17: phy_reg_param (PHY reg param variant)\n#18: rf_subsys (RF subsystem init)\n#19: rf_calib_tbl (RF calibration table)",
+  "r2": "<think>\nThe user wants me to expand each pattern into a full struct with field names based on the offsets, sizes, and function names. Let me analyze each one carefully.\n\n#0: arg=r3, [+0x0000(1),+0x0000(4),+0x0018(1),+0x001c(2)]\n- mmio_clock_gate\n- +0x0000(1) - byte field\n- +0x0000(4) - same offset, word access\n- +0x0018(1) - byte field\n- +0x001c(2) - halfword field\nFunctions: sub_101A20, sub_101A28, sub_101A2C - register helpers\n\n#1: arg=r7, [+0x0002(1),+0x0005(1)]\n- irq_prio_set\n- +0x0002(1) - prio byte\n- +0x0005(1) - enable flag\nFunctions: irq_prio_set_db48, sub_10DB48, sub_10DB78\n\n#2: arg=r1, [+0x-00c(4),+0x0000(4),+0x0004(4),+0x0008(4)]\n- bitmask_state\n- -0xc is likely a previous struct\n- +0x0000(4), +0x0004(4), +0x0008(4) - bitmask words\nFunctions: sub_10DA6C, bitmask_pow2_set, sub_10DA88\n\n#3: skip (sp arg)\n\n#4: arg=r3, [+0x0000(4),+0x0006(1),+0x000c(4),+0x0058(4)]\n- mmio_clock_gate\n- +0x0000(4) - base/addr\n- +0x0006(1) - bit index\n- +0x000c(4) - mask/value\n- +0x0058(4) - state\nFunctions: sub_114498, sub_114514, mmio_clear_bit1_n_524\n\n#5: arg=r0, [+0x0004(2),+0x0006(2),+0x0008(4),+0x006d(1)]\n- ke_dispatch_ctx\n- +0x0004(2) - msg id\n- +0x0006(2) - task id\n- +0x0008(4) - param\n- +0x006d(1) - status\nFunctions: message_dispatch_n_4c4, sub_12C6F0, message_dispatch_n_4a3\n\n#6: skip (sp arg)\n\n#7: arg=r3, [+0x0000(4),+0x0006(1),+0x0009(1),+0x000b(1),+0x000c(4),+0x0058(4)]\n- rf_state\n- +0x0000(4) - flags/state\n- +0x0006(1), +0x0009(1), +0x000b(1) - sub-flags\n- +0x000c(4) - value\n- +0x0058(4) - config\nFunctions: rf_flag_clear_n_90, sub_1146B8, sub_1146C8\n\n#8: skip (sp arg)\n\n#9: arg=r2, [+0x0000(4),+0x01f8(4)]\n- ipc_shared_buf\n- +0x0000(4) - ptr\n- +0x01f8(4) - state/magic\nFunctions: ipc_init_buf, sub_12F4E8, j_state_check\n\n#10: arg=r3, [+0x0000(4),+0x0008(4)]\n- rf_chan_cfg\n- +0x0000(4) - addr/base\n- +0x0008(4) - cfg\nFunctions: sub_11AC80, sub_11CD0C, sub_11CD3C\n\n#11: arg=r3, [+0x0000(1),+0x0000(4),+0x0004(2),+0x0007(1),+0x0008(4),+0x000a(4),+0x0014(4),+0x016a(1)]\n- log_state\n- +0x0000(1/4) - state/enable\n- +0x0004(2) - level\n- +0x0007(1) - flag\n- +0x0008(4) - count\n- +0x000a(4) - tick\n- +0x0014(4) - buf/ptr\n- +0x016a(1) - status\nFunctions: sub_10EFD8, log_tick, sub_10EFF0\n\n#12: arg=r2, [+0x0000(4),+0x006a(1)]\n- phy_reg_param\n- +0x0000(4) - addr\n- +0x006a(1) - status\nFunctions: sub_122AB8, sub_122B1C, sub_125AC8\n\n#13: arg=r2, [+0x0000(4),+0x01f8(4)]\n- rf_state\n- +0x0000(4) - state\n- +0x01f8(4) - flag\nFunctions: sub_12F748, j_rf_state_check_n36a, sub_12F7A4\n\n#14: arg=r3, [+0x0026(2),+0x002c(1),+0x004c(2)]\n- rf_param_tbl\n- +0x0026(2) - field1\n- +0x002c(1) - field2\n- +0x004c(2) - field3\nFunctions: rf_param_lookup_n_1fc, sub_13A4FC, bt_msg_handler_n54c\n\n#15: arg=r2, [+0x-008(4),+0x0000(4)]\n- irq_status\n- -0x8 is previous struct\n- +0x0000(4) - status\nFunctions: sub_101954, irq47_status_handler, sub_142F78\n\n#16: arg=r3, [+0x0000(4),+0x0002(1)]\n- rf_stream\n- +0x0000(4) - state\n- +0x0002(1) - kick flag\nFunctions: rf_stream_kick, sub_114104, sub_114114\n\n#17: arg=r2, [+0x0000(4),+0x006a(1)]\n- phy_reg_param\n- same as #12\nFunctions: sub_122884, sub_1258A4, sub_1258C0\n\n#18: arg=r3, [+0x0008(4),+0x000c(4)]\n- rf_subsys\n- +0x0008(4) - base/reg\n- +0x000c(4) - cfg\nFunctions: rf_subsystem_init, sub_10DC40, sub_10DC78\n\n#19: arg=r5, [+0x0000(4),+0x000a(1),+0x000b(1)]\n- rf_calib_tbl\n- +0x0000(4) - ptr/base\n- +0x000a(1) - idx\n- +0x000b(1) - count\nFunctions: sub_116C6C, rf_calib_table_init, sub_116C94\n\nLet me skip the sp-arg ones (#3, #6, #8) as instructed.\n\nLet me write the JSON output now.\n</think>\n{\"groups\":[{\"id\":0,\"name\":\"mmio_clock_gate\",\"fields\":[{\"name\":\"reg_addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bit_idx\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"mask\",\"off\":0x18,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"value\",\"off\":0x1c,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":1,\"name\":\"irq_prio_set\",\"fields\":[{\"name\":\"prio\",\"off\":2,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"enable\",\"off\":5,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":2,\"name\":\"bitmask_state\",\"fields\":[{\"name\":\"prev_base\",\"off\":-12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask0\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask1\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask2\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":4,\"name\":\"mmio_clock_gate\",\"fields\":[{\"name\":\"reg_addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bit_idx\",\"off\":6,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"mask\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"state\",\"off\":88,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":5,\"name\":\"ke_dispatch_ctx\",\"fields\":[{\"name\":\"msg_id\",\"off\":4,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"task_id\",\"off\":6,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"param\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":109,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":7,\"name\":\"rf_state\",\"fields\":[{\"name\":\"flags\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"sub_flag0\",\"off\":6,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"sub_flag1\",\"off\":9,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"sub_flag2\",\"off\":11,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"value\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":88,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":9,\"name\":\"ipc_shared_buf\",\"fields\":[{\"name\":\"ptr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"state\",\"off\":504,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":10,\"name\":\"rf_chan_cfg\",\"fields\":[{\"name\":\"base\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":11,\"name\":\"log_state\",\"fields\":[{\"name\":\"enable\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"level\",\"off\":4,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"flag\",\"off\":7,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"count\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"tick\",\"off\":10,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"buf\",\"off\":20,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":362,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":12,\"name\":\"phy_reg_param\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":106,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":13,\"name\":\"rf_state\",\"fields\":[{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"flag\",\"off\":504,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":14,\"name\":\"rf_param_tbl\",\"fields\":[{\"name\":\"field1\",\"off\":38,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"field2\",\"off\":44,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"field3\",\"off\":76,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":15,\"name\":\"irq_status\",\"fields\":[{\"name\":\"prev_ptr\",\"off\":-8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":16,\"name\":\"rf_stream\",\"fields\":[{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"kick\",\"off\":2,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":17,\"name\":\"phy_reg_param\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":106,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":18,\"name\":\"rf_subsys\",\"fields\":[{\"name\":\"base\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":19,\"name\":\"rf_calib_tbl\",\"fields\":[{\"name\":\"base\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"idx\",\"off\":10,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"count\",\"off\":11,\"size\":1,\"type\":\"uint8_t\"}]}]}",
+  "parsed": {
+    "groups": [
+      {
+        "id": 0,
+        "name": "mmio_clock_gate",
+        "fields": [
+          {
+            "name": "reg_addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bit_idx",
+            "off": 0,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "mask",
+            "off": 24,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "value",
+            "off": 28,
+            "size": 2,
+            "type": "uint16_t"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "irq_prio_set",
+        "fields": [
+          {
+            "name": "prio",
+            "off": 2,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "enable",
+            "off": 5,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "bitmask_state",
+        "fields": [
+          {
+            "name": "prev_base",
+            "off": -12,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mask0",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mask1",
+            "off": 4,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "mask2",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "mmio_clock_gate",
+        "fields": [
+          {
+            "name": "reg_addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "bit_idx",
+            "off": 6,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "mask",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "state",
+            "off": 88,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "ke_dispatch_ctx",
+        "fields": [
+          {
+            "name": "msg_id",
+            "off": 4,
+            "size": 2,
+            "type": "uint16_t"
+          },
+          {
+            "name": "task_id",
+            "off": 6,
+            "size": 2,
+            "type": "uint16_t"
+          },
+          {
+            "name": "param",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "status",
+            "off": 109,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "rf_state",
+        "fields": [
+          {
+            "name": "flags",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "sub_flag0",
+            "off": 6,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "sub_flag1",
+            "off": 9,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "sub_flag2",
+            "off": 11,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "value",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "cfg",
+            "off": 88,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "ipc_shared_buf",
+        "fields": [
+          {
+            "name": "ptr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "state",
+            "off": 504,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "rf_chan_cfg",
+        "fields": [
+          {
+            "name": "base",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "cfg",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "log_state",
+        "fields": [
+          {
+            "name": "enable",
+            "off": 0,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "state",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "level",
+            "off": 4,
+            "size": 2,
+            "type": "uint16_t"
+          },
+          {
+            "name": "flag",
+            "off": 7,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "count",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "tick",
+            "off": 10,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "buf",
+            "off": 20,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "status",
+            "off": 362,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "phy_reg_param",
+        "fields": [
+          {
+            "name": "addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "status",
+            "off": 106,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "rf_state",
+        "fields": [
+          {
+            "name": "state",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "flag",
+            "off": 504,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "rf_param_tbl",
+        "fields": [
+          {
+            "name": "field1",
+            "off": 38,
+            "size": 2,
+            "type": "uint16_t"
+          },
+          {
+            "name": "field2",
+            "off": 44,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "field3",
+            "off": 76,
+            "size": 2,
+            "type": "uint16_t"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "irq_status",
+        "fields": [
+          {
+            "name": "prev_ptr",
+            "off": -8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "status",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "rf_stream",
+        "fields": [
+          {
+            "name": "state",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "kick",
+            "off": 2,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "name": "phy_reg_param",
+        "fields": [
+          {
+            "name": "addr",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "status",
+            "off": 106,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "name": "rf_subsys",
+        "fields": [
+          {
+            "name": "base",
+            "off": 8,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "cfg",
+            "off": 12,
+            "size": 4,
+            "type": "uint32_t"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "name": "rf_calib_tbl",
+        "fields": [
+          {
+            "name": "base",
+            "off": 0,
+            "size": 4,
+            "type": "uint32_t"
+          },
+          {
+            "name": "idx",
+            "off": 10,
+            "size": 1,
+            "type": "uint8_t"
+          },
+          {
+            "name": "count",
+            "off": 11,
+            "size": 1,
+            "type": "uint8_t"
+          }
+        ]
+      }
+    ]
+  },
+  "r2_fixed": "<think>\nThe user wants me to expand each pattern into a full struct with field names based on the offsets, sizes, and function names. Let me analyze each one carefully.\n\n#0: arg=r3, [+0x0000(1),+0x0000(4),+0x0018(1),+0x001c(2)]\n- mmio_clock_gate\n- +0x0000(1) - byte field\n- +0x0000(4) - same offset, word access\n- +0x0018(1) - byte field\n- +0x001c(2) - halfword field\nFunctions: sub_101A20, sub_101A28, sub_101A2C - register helpers\n\n#1: arg=r7, [+0x0002(1),+0x0005(1)]\n- irq_prio_set\n- +0x0002(1) - prio byte\n- +0x0005(1) - enable flag\nFunctions: irq_prio_set_db48, sub_10DB48, sub_10DB78\n\n#2: arg=r1, [+0x-00c(4),+0x0000(4),+0x0004(4),+0x0008(4)]\n- bitmask_state\n- -0xc is likely a previous struct\n- +0x0000(4), +0x0004(4), +0x0008(4) - bitmask words\nFunctions: sub_10DA6C, bitmask_pow2_set, sub_10DA88\n\n#3: skip (sp arg)\n\n#4: arg=r3, [+0x0000(4),+0x0006(1),+0x000c(4),+0x0058(4)]\n- mmio_clock_gate\n- +0x0000(4) - base/addr\n- +0x0006(1) - bit index\n- +0x000c(4) - mask/value\n- +0x0058(4) - state\nFunctions: sub_114498, sub_114514, mmio_clear_bit1_n_524\n\n#5: arg=r0, [+0x0004(2),+0x0006(2),+0x0008(4),+0x006d(1)]\n- ke_dispatch_ctx\n- +0x0004(2) - msg id\n- +0x0006(2) - task id\n- +0x0008(4) - param\n- +0x006d(1) - status\nFunctions: message_dispatch_n_4c4, sub_12C6F0, message_dispatch_n_4a3\n\n#6: skip (sp arg)\n\n#7: arg=r3, [+0x0000(4),+0x0006(1),+0x0009(1),+0x000b(1),+0x000c(4),+0x0058(4)]\n- rf_state\n- +0x0000(4) - flags/state\n- +0x0006(1), +0x0009(1), +0x000b(1) - sub-flags\n- +0x000c(4) - value\n- +0x0058(4) - config\nFunctions: rf_flag_clear_n_90, sub_1146B8, sub_1146C8\n\n#8: skip (sp arg)\n\n#9: arg=r2, [+0x0000(4),+0x01f8(4)]\n- ipc_shared_buf\n- +0x0000(4) - ptr\n- +0x01f8(4) - state/magic\nFunctions: ipc_init_buf, sub_12F4E8, j_state_check\n\n#10: arg=r3, [+0x0000(4),+0x0008(4)]\n- rf_chan_cfg\n- +0x0000(4) - addr/base\n- +0x0008(4) - cfg\nFunctions: sub_11AC80, sub_11CD0C, sub_11CD3C\n\n#11: arg=r3, [+0x0000(1),+0x0000(4),+0x0004(2),+0x0007(1),+0x0008(4),+0x000a(4),+0x0014(4),+0x016a(1)]\n- log_state\n- +0x0000(1/4) - state/enable\n- +0x0004(2) - level\n- +0x0007(1) - flag\n- +0x0008(4) - count\n- +0x000a(4) - tick\n- +0x0014(4) - buf/ptr\n- +0x016a(1) - status\nFunctions: sub_10EFD8, log_tick, sub_10EFF0\n\n#12: arg=r2, [+0x0000(4),+0x006a(1)]\n- phy_reg_param\n- +0x0000(4) - addr\n- +0x006a(1) - status\nFunctions: sub_122AB8, sub_122B1C, sub_125AC8\n\n#13: arg=r2, [+0x0000(4),+0x01f8(4)]\n- rf_state\n- +0x0000(4) - state\n- +0x01f8(4) - flag\nFunctions: sub_12F748, j_rf_state_check_n36a, sub_12F7A4\n\n#14: arg=r3, [+0x0026(2),+0x002c(1),+0x004c(2)]\n- rf_param_tbl\n- +0x0026(2) - field1\n- +0x002c(1) - field2\n- +0x004c(2) - field3\nFunctions: rf_param_lookup_n_1fc, sub_13A4FC, bt_msg_handler_n54c\n\n#15: arg=r2, [+0x-008(4),+0x0000(4)]\n- irq_status\n- -0x8 is previous struct\n- +0x0000(4) - status\nFunctions: sub_101954, irq47_status_handler, sub_142F78\n\n#16: arg=r3, [+0x0000(4),+0x0002(1)]\n- rf_stream\n- +0x0000(4) - state\n- +0x0002(1) - kick flag\nFunctions: rf_stream_kick, sub_114104, sub_114114\n\n#17: arg=r2, [+0x0000(4),+0x006a(1)]\n- phy_reg_param\n- same as #12\nFunctions: sub_122884, sub_1258A4, sub_1258C0\n\n#18: arg=r3, [+0x0008(4),+0x000c(4)]\n- rf_subsys\n- +0x0008(4) - base/reg\n- +0x000c(4) - cfg\nFunctions: rf_subsystem_init, sub_10DC40, sub_10DC78\n\n#19: arg=r5, [+0x0000(4),+0x000a(1),+0x000b(1)]\n- rf_calib_tbl\n- +0x0000(4) - ptr/base\n- +0x000a(1) - idx\n- +0x000b(1) - count\nFunctions: sub_116C6C, rf_calib_table_init, sub_116C94\n\nLet me skip the sp-arg ones (#3, #6, #8) as instructed.\n\nLet me write the JSON output now.\n</think>\n{\"groups\":[{\"id\":0,\"name\":\"mmio_clock_gate\",\"fields\":[{\"name\":\"reg_addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bit_idx\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"mask\",\"off\": 24,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"value\",\"off\": 28,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":1,\"name\":\"irq_prio_set\",\"fields\":[{\"name\":\"prio\",\"off\":2,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"enable\",\"off\":5,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":2,\"name\":\"bitmask_state\",\"fields\":[{\"name\":\"prev_base\",\"off\":-12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask0\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask1\",\"off\":4,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"mask2\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":4,\"name\":\"mmio_clock_gate\",\"fields\":[{\"name\":\"reg_addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"bit_idx\",\"off\":6,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"mask\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"state\",\"off\":88,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":5,\"name\":\"ke_dispatch_ctx\",\"fields\":[{\"name\":\"msg_id\",\"off\":4,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"task_id\",\"off\":6,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"param\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":109,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":7,\"name\":\"rf_state\",\"fields\":[{\"name\":\"flags\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"sub_flag0\",\"off\":6,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"sub_flag1\",\"off\":9,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"sub_flag2\",\"off\":11,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"value\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":88,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":9,\"name\":\"ipc_shared_buf\",\"fields\":[{\"name\":\"ptr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"state\",\"off\":504,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":10,\"name\":\"rf_chan_cfg\",\"fields\":[{\"name\":\"base\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":11,\"name\":\"log_state\",\"fields\":[{\"name\":\"enable\",\"off\":0,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"level\",\"off\":4,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"flag\",\"off\":7,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"count\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"tick\",\"off\":10,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"buf\",\"off\":20,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":362,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":12,\"name\":\"phy_reg_param\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":106,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":13,\"name\":\"rf_state\",\"fields\":[{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"flag\",\"off\":504,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":14,\"name\":\"rf_param_tbl\",\"fields\":[{\"name\":\"field1\",\"off\":38,\"size\":2,\"type\":\"uint16_t\"},{\"name\":\"field2\",\"off\":44,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"field3\",\"off\":76,\"size\":2,\"type\":\"uint16_t\"}]},{\"id\":15,\"name\":\"irq_status\",\"fields\":[{\"name\":\"prev_ptr\",\"off\":-8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":16,\"name\":\"rf_stream\",\"fields\":[{\"name\":\"state\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"kick\",\"off\":2,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":17,\"name\":\"phy_reg_param\",\"fields\":[{\"name\":\"addr\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"status\",\"off\":106,\"size\":1,\"type\":\"uint8_t\"}]},{\"id\":18,\"name\":\"rf_subsys\",\"fields\":[{\"name\":\"base\",\"off\":8,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"cfg\",\"off\":12,\"size\":4,\"type\":\"uint32_t\"}]},{\"id\":19,\"name\":\"rf_calib_tbl\",\"fields\":[{\"name\":\"base\",\"off\":0,\"size\":4,\"type\":\"uint32_t\"},{\"name\":\"idx\",\"off\":10,\"size\":1,\"type\":\"uint8_t\"},{\"name\":\"count\",\"off\":11,\"size\":1,\"type\":\"uint8_t\"}]}]}"
+}

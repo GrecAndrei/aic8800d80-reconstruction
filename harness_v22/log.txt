@@ -1,0 +1,22 @@
+Turn 1: 2185 chars
+<think>
+Let me analyze each struct based on the function names, offsets, and context.
+
+#0: 16fns, g3, arg=r3, offsets include +0x0018(1),+0x001c(2) - looks like a clock gate control structure with sub_101A20, sub_101A28, sub_101A2C as register access helpers
+#1: 13fns, g4, arg=r7, irq_prio_set_db48 - interrupt priority related
+#2: 11fns, g5, arg=r1, bitmask_pow2_set - bitmask/power of 2 operations
+#3: 8fns, fmacfw, sp arg, sub_12DBC8 etc - looks like message dispatch
+#4: 8fns, fmacfwbt, arg=r3, 
+
+Turn 2: 7105 chars
+<think>
+The user wants me to expand each pattern into a full struct with field names based on the offsets, sizes, and function names. Let me analyze each one carefully.
+
+#0: arg=r3, [+0x0000(1),+0x0000(4),+0x0018(1),+0x001c(2)]
+- mmio_clock_gate
+- +0x0000(1) - byte field
+- +0x0000(4) - same offset, 
+...
+uint8_t"}]},{"id":17,"name":"phy_reg_param","fields":[{"name":"addr","off":0,"size":4,"type":"uint32_t"},{"name":"status","off":106,"size":1,"type":"uint8_t"}]},{"id":18,"name":"rf_subsys","fields":[{"name":"base","off":8,"size":4,"type":"uint32_t"},{"name":"cfg","off":12,"size":4,"type":"uint32_t"}]},{"id":19,"name":"rf_calib_tbl","fields":[{"name":"base","off":0,"size":4,"type":"uint32_t"},{"name":"idx","off":10,"size":1,"type":"uint8_t"},{"name":"count","off":11,"size":1,"type":"uint8_t"}]}]}
+JSON parse failed: Expecting ',' delimiter: line 1 column 185 (char 184)
+Saved to /home/grec-alexander/Downloads/aic8800d80/harness_v22/structs/proposals.json

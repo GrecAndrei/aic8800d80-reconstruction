@@ -1,0 +1,407 @@
+{
+  "proposals": [
+    {
+      "name": "mmio_clock_gate",
+      "fields": [
+        {
+          "name": "reg_addr",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "bit_idx",
+          "off": 0,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "mask",
+          "off": 24,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "value",
+          "off": 28,
+          "size": 2,
+          "type": "uint16_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 3,
+      "input_arg": "r3",
+      "input_n": 16
+    },
+    {
+      "name": "irq_prio_set",
+      "fields": [
+        {
+          "name": "prio",
+          "off": 2,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "enable",
+          "off": 5,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 4,
+      "input_arg": "r7",
+      "input_n": 13
+    },
+    {
+      "name": "bitmask_state",
+      "fields": [
+        {
+          "name": "prev_base",
+          "off": -12,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "mask0",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "mask1",
+          "off": 4,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "mask2",
+          "off": 8,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 5,
+      "input_arg": "r1",
+      "input_n": 11
+    },
+    {
+      "name": "ke_dispatch_ctx",
+      "fields": [
+        {
+          "name": "msg_id",
+          "off": 4,
+          "size": 2,
+          "type": "uint16_t"
+        },
+        {
+          "name": "task_id",
+          "off": 6,
+          "size": 2,
+          "type": "uint16_t"
+        },
+        {
+          "name": "param",
+          "off": 8,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "status",
+          "off": 109,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "fmacfwbt_8800d80_u02_bin",
+      "input_gid": 8,
+      "input_arg": "r0",
+      "input_n": 8
+    },
+    {
+      "name": "rf_state",
+      "fields": [
+        {
+          "name": "flags",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "sub_flag0",
+          "off": 6,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "sub_flag1",
+          "off": 9,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "sub_flag2",
+          "off": 11,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "value",
+          "off": 12,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "cfg",
+          "off": 88,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "fmacfw_8800d80_u02_bin",
+      "input_gid": 8,
+      "input_arg": "r3",
+      "input_n": 8
+    },
+    {
+      "name": "ipc_shared_buf",
+      "fields": [
+        {
+          "name": "ptr",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "state",
+          "off": 504,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "fmacfw_8800d80_u02_bin",
+      "input_gid": 10,
+      "input_arg": "r2",
+      "input_n": 8
+    },
+    {
+      "name": "rf_chan_cfg",
+      "fields": [
+        {
+          "name": "base",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "cfg",
+          "off": 8,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 8,
+      "input_arg": "r3",
+      "input_n": 8
+    },
+    {
+      "name": "log_state",
+      "fields": [
+        {
+          "name": "enable",
+          "off": 0,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "state",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "level",
+          "off": 4,
+          "size": 2,
+          "type": "uint16_t"
+        },
+        {
+          "name": "flag",
+          "off": 7,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "count",
+          "off": 8,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "tick",
+          "off": 10,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "buf",
+          "off": 20,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "status",
+          "off": 362,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "fmacfwbt_8800d80_u02_bin",
+      "input_gid": 11,
+      "input_arg": "r3",
+      "input_n": 7
+    },
+    {
+      "name": "phy_reg_param",
+      "fields": [
+        {
+          "name": "addr",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "status",
+          "off": 106,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "fmacfwbt_8800d80_u02_bin",
+      "input_gid": 12,
+      "input_arg": "r2",
+      "input_n": 7
+    },
+    {
+      "name": "rf_param_tbl",
+      "fields": [
+        {
+          "name": "field1",
+          "off": 38,
+          "size": 2,
+          "type": "uint16_t"
+        },
+        {
+          "name": "field2",
+          "off": 44,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "field3",
+          "off": 76,
+          "size": 2,
+          "type": "uint16_t"
+        }
+      ],
+      "input_img": "fmacfwbt_8800d80_u02_bin",
+      "input_gid": 14,
+      "input_arg": "r3",
+      "input_n": 7
+    },
+    {
+      "name": "irq_status",
+      "fields": [
+        {
+          "name": "prev_ptr",
+          "off": -8,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "status",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "fmacfw_8800d80_u02_bin",
+      "input_gid": 11,
+      "input_arg": "r2",
+      "input_n": 7
+    },
+    {
+      "name": "rf_stream",
+      "fields": [
+        {
+          "name": "state",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "kick",
+          "off": 2,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "fmacfw_8800d80_u02_bin",
+      "input_gid": 12,
+      "input_arg": "r3",
+      "input_n": 7
+    },
+    {
+      "name": "rf_subsys",
+      "fields": [
+        {
+          "name": "base",
+          "off": 8,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "cfg",
+          "off": 12,
+          "size": 4,
+          "type": "uint32_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 9,
+      "input_arg": "r3",
+      "input_n": 7
+    },
+    {
+      "name": "rf_calib_tbl",
+      "fields": [
+        {
+          "name": "base",
+          "off": 0,
+          "size": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "idx",
+          "off": 10,
+          "size": 1,
+          "type": "uint8_t"
+        },
+        {
+          "name": "count",
+          "off": 11,
+          "size": 1,
+          "type": "uint8_t"
+        }
+      ],
+      "input_img": "lmacfw_rf_8800d80_u02_bin",
+      "input_gid": 10,
+      "input_arg": "r5",
+      "input_n": 7
+    }
+  ],
+  "source": "v22 llm_name_more.py"
+}

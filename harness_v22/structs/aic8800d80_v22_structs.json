@@ -1,0 +1,158 @@
+{
+  "vif_info": {
+    "idx": 0,
+    "flags": 4,
+    "mac_addr": 8,
+    "bssid": 14,
+    "ssid": 20,
+    "channel": 52,
+    "band": 56,
+    "type": 60,
+    "state": 64,
+    "tx_power": 68
+  },
+  "tx_queue": {
+    "head": 0,
+    "tail": 4,
+    "count": 8,
+    "lock": 12,
+    "max_len": 16
+  },
+  "rx_desc": {
+    "addr": 0,
+    "len": 4,
+    "status": 8,
+    "next": 12
+  },
+  "tx_desc": {
+    "addr": 0,
+    "len": 4,
+    "ctrl": 8,
+    "next": 12,
+    "status": 16
+  },
+  "ke_env": {
+    "task_head": 0,
+    "task_tail": 4,
+    "msg_queue": 8,
+    "state": 16
+  },
+  "scan_req": {
+    "ssid": 0,
+    "ssid_len": 32,
+    "channels": 36,
+    "n_channels": 100,
+    "flags": 104
+  },
+  "delay_timer": {
+    "us": 0,
+    "ticks": 4
+  },
+  "mmio_clock_gate": {
+    "reg_addr": 0,
+    "bit_idx": 0,
+    "mask": 24,
+    "value": 28
+  },
+  "ke_dispatch_ctx": {
+    "msg_id": 4,
+    "task_id": 6,
+    "param": 8,
+    "status": 109
+  },
+  "vif_bssid_ref": {
+    "vif": 0,
+    "bssid": 14
+  },
+  "vif_set_state_req": {
+    "vif_idx": 0,
+    "vif": 0,
+    "flags": 4,
+    "mac": 8,
+    "mac_hi": 10,
+    "bssid_lo": 12,
+    "bssid_hi": 14,
+    "op": 24,
+    "state": 28
+  },
+  "bt_hci_cmd": {
+    "ogf": 0,
+    "ocf": 1
+  },
+  "mmio_reg_poll": {
+    "addr": 0,
+    "mask": 10,
+    "val": 12,
+    "expected": 14,
+    "ret": 28
+  },
+  "tx_pkt_buf": {
+    "addr": 0,
+    "len": 4,
+    "ctrl": 8,
+    "bssid": 14,
+    "payload_end": 800
+  },
+  "irq_prio_set": {
+    "prio": 2,
+    "enable": 5
+  },
+  "bitmask_state": {
+    "prev_base": -12,
+    "mask0": 0,
+    "mask1": 4,
+    "mask2": 8
+  },
+  "rf_state": {
+    "flags": 0,
+    "sub_flag0": 6,
+    "sub_flag1": 9,
+    "sub_flag2": 11,
+    "value": 12,
+    "cfg": 88
+  },
+  "ipc_shared_buf": {
+    "ptr": 0,
+    "state": 504
+  },
+  "rf_chan_cfg": {
+    "base": 0,
+    "cfg": 8
+  },
+  "log_state": {
+    "enable": 0,
+    "state": 0,
+    "level": 4,
+    "flag": 7,
+    "count": 8,
+    "tick": 10,
+    "buf": 20,
+    "status": 362
+  },
+  "phy_reg_param": {
+    "addr": 0,
+    "status": 106
+  },
+  "rf_param_tbl": {
+    "field1": 38,
+    "field2": 44,
+    "field3": 76
+  },
+  "irq_status": {
+    "prev_ptr": -8,
+    "status": 0
+  },
+  "rf_stream": {
+    "state": 0,
+    "kick": 2
+  },
+  "rf_subsys": {
+    "base": 8,
+    "cfg": 12
+  },
+  "rf_calib_tbl": {
+    "base": 0,
+    "idx": 10,
+    "count": 11
+  }
+}
