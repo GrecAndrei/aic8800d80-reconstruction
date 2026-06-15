@@ -1,0 +1,4544 @@
+{
+  "img": "fmacfw_8800d80_h_u02_bin",
+  "structs": {
+    "vif_info": {
+      "idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "type": {
+        "offset": 60,
+        "reads": [
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_116F34",
+            "addr": 1142580
+          },
+          {
+            "func": "sub_117FFC",
+            "addr": 1146876
+          },
+          {
+            "func": "sub_11A190",
+            "addr": 1155472
+          },
+          {
+            "func": "sub_11A1A8",
+            "addr": 1155496
+          },
+          {
+            "func": "sub_11B688",
+            "addr": 1160840
+          },
+          {
+            "func": "sub_11B688",
+            "addr": 1160840
+          }
+        ],
+        "read_count": 51,
+        "writes": [
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_10FE2C",
+            "addr": 1113644
+          },
+          {
+            "func": "sub_11B438",
+            "addr": 1160248
+          },
+          {
+            "func": "sub_11B688",
+            "addr": 1160840
+          },
+          {
+            "func": "sub_12034C",
+            "addr": 1180492
+          },
+          {
+            "func": "sub_120368",
+            "addr": 1180520
+          },
+          {
+            "func": "sub_120408",
+            "addr": 1180680
+          }
+        ],
+        "write_count": 12
+      },
+      "mac_addr": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB94",
+            "addr": 1104788
+          },
+          {
+            "func": "sub_10DBAC",
+            "addr": 1104812
+          },
+          {
+            "func": "sub_10DBC0",
+            "addr": 1104832
+          },
+          {
+            "func": "sub_10DBD4",
+            "addr": 1104852
+          },
+          {
+            "func": "sub_1104FC",
+            "addr": 1115388
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 29,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 52
+      },
+      "ssid": {
+        "offset": 20,
+        "reads": [
+          {
+            "func": "sub_104180",
+            "addr": 1065344
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_11754C",
+            "addr": 1144140
+          },
+          {
+            "func": "sub_117560",
+            "addr": 1144160
+          },
+          {
+            "func": "sub_11FA78",
+            "addr": 1178232
+          },
+          {
+            "func": "sub_120700",
+            "addr": 1181440
+          },
+          {
+            "func": "sub_124EFC",
+            "addr": 1199868
+          },
+          {
+            "func": "sub_126444",
+            "addr": 1205316
+          },
+          {
+            "func": "sub_13CD38",
+            "addr": 1297720
+          }
+        ],
+        "read_count": 9,
+        "writes": [
+          {
+            "func": "sub_104180",
+            "addr": 1065344
+          },
+          {
+            "func": "sub_10F040",
+            "addr": 1110080
+          },
+          {
+            "func": "log_system_init",
+            "addr": 1110104
+          },
+          {
+            "func": "log_system_init",
+            "addr": 1110104
+          },
+          {
+            "func": "sub_10F0C4",
+            "addr": 1110212
+          },
+          {
+            "func": "sub_115F60",
+            "addr": 1138528
+          },
+          {
+            "func": "sub_115F88",
+            "addr": 1138568
+          },
+          {
+            "func": "sub_11FA78",
+            "addr": 1178232
+          },
+          {
+            "func": "sub_125184",
+            "addr": 1200516
+          },
+          {
+            "func": "sub_125184",
+            "addr": 1200516
+          }
+        ],
+        "write_count": 15
+      },
+      "tx_power": {
+        "offset": 68,
+        "reads": [
+          {
+            "func": "sub_11397C",
+            "addr": 1128828
+          }
+        ],
+        "read_count": 1,
+        "writes": [
+          {
+            "func": "sub_10FE2C",
+            "addr": 1113644
+          }
+        ],
+        "write_count": 1
+      },
+      "state": {
+        "offset": 64,
+        "reads": [
+          {
+            "func": "sub_11B438",
+            "addr": 1160248
+          }
+        ],
+        "read_count": 1,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "tx_queue": {
+      "head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "lock": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "count": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "max_len": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130E10",
+            "addr": 1248784
+          },
+          {
+            "func": "sub_130F1C",
+            "addr": 1249052
+          }
+        ],
+        "read_count": 2,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "rx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "status": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      }
+    },
+    "tx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "status": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130E10",
+            "addr": 1248784
+          },
+          {
+            "func": "sub_130F1C",
+            "addr": 1249052
+          }
+        ],
+        "read_count": 2,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "ke_env": {
+      "task_head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "task_tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "msg_queue": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "state": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130E10",
+            "addr": 1248784
+          },
+          {
+            "func": "sub_130F1C",
+            "addr": 1249052
+          }
+        ],
+        "read_count": 2,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "scan_req": {
+      "ssid": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "n_channels": {
+        "offset": 100,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_10C4F8",
+            "addr": 1099000
+          }
+        ],
+        "write_count": 2
+      },
+      "flags": {
+        "offset": 104,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_114D6C",
+            "addr": 1133932
+          },
+          {
+            "func": "sub_114DE8",
+            "addr": 1134056
+          }
+        ],
+        "write_count": 2
+      }
+    },
+    "delay_timer": {
+      "us": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "ticks": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      }
+    },
+    "mmio_clock_gate": {
+      "bit": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      }
+    },
+    "ke_dispatch_ctx": {
+      "handler": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "state": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "arg": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "next": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      }
+    },
+    "vif_bssid_ref": {
+      "vif": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB94",
+            "addr": 1104788
+          },
+          {
+            "func": "sub_10DBAC",
+            "addr": 1104812
+          },
+          {
+            "func": "sub_10DBC0",
+            "addr": 1104832
+          },
+          {
+            "func": "sub_10DBD4",
+            "addr": 1104852
+          },
+          {
+            "func": "sub_1104FC",
+            "addr": 1115388
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 29,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 52
+      }
+    },
+    "vif_set_state_req": {
+      "vif_idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "bssid_lo": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "mac_hi": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_102BF8",
+            "addr": 1059832
+          },
+          {
+            "func": "sub_102C5C",
+            "addr": 1059932
+          },
+          {
+            "func": "sub_1031D8",
+            "addr": 1061336
+          },
+          {
+            "func": "sub_1031D8",
+            "addr": 1061336
+          },
+          {
+            "func": "sub_103268",
+            "addr": 1061480
+          }
+        ],
+        "read_count": 184,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 71
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "state": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          }
+        ],
+        "read_count": 79,
+        "writes": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          }
+        ],
+        "write_count": 54
+      },
+      "mac": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "bssid_hi": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB94",
+            "addr": 1104788
+          },
+          {
+            "func": "sub_10DBAC",
+            "addr": 1104812
+          },
+          {
+            "func": "sub_10DBC0",
+            "addr": 1104832
+          },
+          {
+            "func": "sub_10DBD4",
+            "addr": 1104852
+          },
+          {
+            "func": "sub_1104FC",
+            "addr": 1115388
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 29,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 52
+      },
+      "op": {
+        "offset": 24,
+        "reads": [
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_115F60",
+            "addr": 1138528
+          },
+          {
+            "func": "sub_115F88",
+            "addr": 1138568
+          },
+          {
+            "func": "sub_11617C",
+            "addr": 1139068
+          },
+          {
+            "func": "sub_1161E4",
+            "addr": 1139172
+          },
+          {
+            "func": "sub_116860",
+            "addr": 1140832
+          },
+          {
+            "func": "sub_116974",
+            "addr": 1141108
+          }
+        ],
+        "read_count": 27,
+        "writes": [
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_116860",
+            "addr": 1140832
+          },
+          {
+            "func": "sub_119888",
+            "addr": 1153160
+          },
+          {
+            "func": "sub_11A190",
+            "addr": 1155472
+          },
+          {
+            "func": "sub_11A1A8",
+            "addr": 1155496
+          }
+        ],
+        "write_count": 22
+      }
+    },
+    "bt_hci_cmd": {
+      "ogf": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "ocf": {
+        "offset": 1,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_12A994",
+            "addr": 1223060
+          }
+        ],
+        "write_count": 1
+      }
+    },
+    "mmio_reg_poll": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "val": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "read_count": 83,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 62
+      },
+      "mask": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_102BF8",
+            "addr": 1059832
+          },
+          {
+            "func": "sub_102C5C",
+            "addr": 1059932
+          },
+          {
+            "func": "sub_1031D8",
+            "addr": 1061336
+          },
+          {
+            "func": "sub_1031D8",
+            "addr": 1061336
+          },
+          {
+            "func": "sub_103268",
+            "addr": 1061480
+          }
+        ],
+        "read_count": 184,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 71
+      },
+      "ret": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          }
+        ],
+        "read_count": 79,
+        "writes": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_100FAC",
+            "addr": 1052588
+          },
+          {
+            "func": "sub_1033F8",
+            "addr": 1061880
+          }
+        ],
+        "write_count": 54
+      },
+      "expected": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB94",
+            "addr": 1104788
+          },
+          {
+            "func": "sub_10DBAC",
+            "addr": 1104812
+          },
+          {
+            "func": "sub_10DBC0",
+            "addr": 1104832
+          },
+          {
+            "func": "sub_10DBD4",
+            "addr": 1104852
+          },
+          {
+            "func": "sub_1104FC",
+            "addr": 1115388
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 29,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 52
+      }
+    },
+    "tx_pkt_buf": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          },
+          {
+            "func": "sub_1005B0",
+            "addr": 1050032
+          }
+        ],
+        "read_count": 2671,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          }
+        ],
+        "write_count": 1721
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          }
+        ],
+        "read_count": 171,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "sub_100BE0",
+            "addr": 1051616
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          }
+        ],
+        "write_count": 143
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "read_count": 168,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 112
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB64",
+            "addr": 1104740
+          },
+          {
+            "func": "sub_10DB94",
+            "addr": 1104788
+          },
+          {
+            "func": "sub_10DBAC",
+            "addr": 1104812
+          },
+          {
+            "func": "sub_10DBC0",
+            "addr": 1104832
+          },
+          {
+            "func": "sub_10DBD4",
+            "addr": 1104852
+          },
+          {
+            "func": "sub_1104FC",
+            "addr": 1115388
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 29,
+        "writes": [
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "debug_if_check_40320038",
+            "addr": 1055012
+          },
+          {
+            "func": "sub_101944",
+            "addr": 1055044
+          },
+          {
+            "func": "sub_10194C",
+            "addr": 1055052
+          },
+          {
+            "func": "sub_101950",
+            "addr": 1055056
+          },
+          {
+            "func": "sub_101960",
+            "addr": 1055072
+          },
+          {
+            "func": "sub_101974",
+            "addr": 1055092
+          },
+          {
+            "func": "sub_10198C",
+            "addr": 1055116
+          },
+          {
+            "func": "sub_10199C",
+            "addr": 1055132
+          },
+          {
+            "func": "sub_1019AC",
+            "addr": 1055148
+          }
+        ],
+        "write_count": 52
+      },
+      "payload_end": {
+        "offset": 800,
+        "reads": [
+          {
+            "func": "sub_1118BC",
+            "addr": 1120444
+          },
+          {
+            "func": "sub_1118BC",
+            "addr": 1120444
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "read_count": 3,
+        "writes": [
+          {
+            "func": "sub_1118BC",
+            "addr": 1120444
+          },
+          {
+            "func": "sub_1118BC",
+            "addr": 1120444
+          },
+          {
+            "func": "sub_1128A8",
+            "addr": 1124520
+          }
+        ],
+        "write_count": 3
+      }
+    }
+  }
+}

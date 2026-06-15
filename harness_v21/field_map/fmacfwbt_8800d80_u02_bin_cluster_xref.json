@@ -1,0 +1,1885 @@
+{
+  "img": "fmacfwbt_8800d80_u02_bin",
+  "clusters": {
+    "cluster_0_group_0": {
+      "group_id": 0,
+      "name": "group_0",
+      "primary_arg": "sp",
+      "n_funcs_total": 25,
+      "funcs_named": [
+        "bt_msg_handler_122D3B8",
+        "list_push_tail",
+        "ptr_compare_or_fetch",
+        "sdio_wait_busy"
+      ],
+      "funcs_sub": [
+        "sub_109F90",
+        "sub_122D7C",
+        "sub_125EFC",
+        "sub_125F18",
+        "sub_128160"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_12EC84",
+            "ptr_compare_or_fetch",
+            "sdio_wait_busy",
+            "sub_12EC78",
+            "sub_12EC54",
+            "sub_12EC60",
+            "sub_12EC6C",
+            "sub_12D594",
+            "sub_12D5A8"
+          ],
+          "writes": [
+            "sub_109F90"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_128160"
+          ],
+          "writes": [
+            "sub_128160"
+          ]
+        }
+      },
+      "llm_name": "delay_timer"
+    },
+    "cluster_1_group_1": {
+      "group_id": 1,
+      "name": "group_1",
+      "primary_arg": "r1",
+      "n_funcs_total": 23,
+      "funcs_named": [
+        "mmio_lmac_init_n_ecd8",
+        "mmio_read_bitfield_7000101c",
+        "rf_init_blocka",
+        "log_queue_push",
+        "bt_flag_check_init",
+        "flag_check_1218170",
+        "bt_hci_cmd_send_n0a"
+      ],
+      "funcs_sub": [
+        "sub_101DE8",
+        "sub_102984",
+        "sub_1029C4",
+        "sub_10C824",
+        "sub_10ED30"
+      ],
+      "field_touches": {
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_1029C4",
+            "sub_102984"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_102984",
+            "sub_12F094",
+            "sub_12D658",
+            "sub_1029C4",
+            "sub_101DE8"
+          ],
+          "writes": [
+            "sub_10C824",
+            "sub_1029C4",
+            "sub_102984",
+            "sub_101DE8"
+          ]
+        }
+      },
+      "llm_name": "mmio_clock_gate"
+    },
+    "cluster_2_group_2": {
+      "group_id": 2,
+      "name": "group_2",
+      "primary_arg": "sp",
+      "n_funcs_total": 11,
+      "funcs_named": [
+        "mmio_init_block_120DDA0",
+        "patch_apply_n_148",
+        "patch_apply_3ac"
+      ],
+      "funcs_sub": [
+        "sub_107D3C",
+        "sub_10DC60",
+        "sub_10DC78",
+        "sub_10DC90",
+        "sub_10DCEC"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_124BBC"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_3_group_3": {
+      "group_id": 3,
+      "name": "group_3",
+      "primary_arg": "r3",
+      "n_funcs_total": 10,
+      "funcs_named": [
+        "sysctl_chip_id_get",
+        "fmacfwbt_init_or_handler"
+      ],
+      "funcs_sub": [
+        "sub_10184C",
+        "sub_10186C",
+        "sub_101874",
+        "sub_101878",
+        "sub_101888"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_000e_s4": {
+          "offset": 14,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ]
+        },
+        "off_0018_s1": {
+          "offset": 24,
+          "size": 1,
+          "reads": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ],
+          "writes": []
+        },
+        "off_001c_s2": {
+          "offset": 28,
+          "size": 2,
+          "reads": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ],
+          "writes": []
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [
+            "sub_101878",
+            "sub_101874",
+            "fmacfwbt_init_or_handler",
+            "sub_1018B4",
+            "sub_10189C",
+            "sub_10186C",
+            "sub_1018C4",
+            "sub_10184C",
+            "sysctl_chip_id_get",
+            "sub_101888"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": "vif_set_state_req"
+    },
+    "cluster_4_group_4": {
+      "group_id": 4,
+      "name": "group_4",
+      "primary_arg": "r0",
+      "n_funcs_total": 22,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12D9B0",
+        "sub_12DA54",
+        "sub_12DAC4",
+        "sub_12DC24",
+        "sub_12DC60"
+      ],
+      "field_touches": {
+        "off_0001_s1": {
+          "offset": 1,
+          "size": 1,
+          "reads": [
+            "sub_12DAC4",
+            "sub_12DCE0",
+            "sub_12DD88",
+            "sub_12DF08",
+            "sub_12DEC8",
+            "sub_12DA54",
+            "sub_12DE48",
+            "sub_12DF70",
+            "sub_12DE88",
+            "sub_12DCA0"
+          ],
+          "writes": [
+            "sub_131820"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [
+            "sub_12DAC4",
+            "sub_12DCE0",
+            "sub_12DD88",
+            "sub_12DF08",
+            "sub_12DEC8",
+            "sub_12DA54",
+            "sub_12DE48",
+            "sub_12DF70",
+            "sub_12DE88",
+            "sub_12DCA0"
+          ],
+          "writes": [
+            "sub_131820"
+          ]
+        }
+      },
+      "llm_name": "bt_hci_cmd"
+    },
+    "cluster_5_group_5": {
+      "group_id": 5,
+      "name": "group_5",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_6_group_6": {
+      "group_id": 6,
+      "name": "group_6",
+      "primary_arg": "r4",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_111B6C",
+        "sub_111BA0",
+        "sub_111BC4",
+        "sub_111BE8",
+        "sub_111C10"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_111BA0",
+            "sub_111BC4",
+            "sub_111C10",
+            "sub_111B6C",
+            "sub_111C14",
+            "sub_111BE8"
+          ],
+          "writes": []
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_111BA0",
+            "sub_111BC4",
+            "sub_111C10",
+            "sub_111B6C",
+            "sub_111C14",
+            "sub_111BE8"
+          ],
+          "writes": []
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "sub_111BA0",
+            "sub_111BC4",
+            "sub_111C10",
+            "sub_111B6C",
+            "sub_111C14",
+            "sub_111BE8"
+          ],
+          "writes": []
+        },
+        "off_000e_s4": {
+          "offset": 14,
+          "size": 4,
+          "reads": [
+            "sub_111BA0",
+            "sub_111BC4",
+            "sub_111C10",
+            "sub_111B6C",
+            "sub_111C14",
+            "sub_111BE8"
+          ],
+          "writes": []
+        },
+        "off_0320_s4": {
+          "offset": 800,
+          "size": 4,
+          "reads": [
+            "sub_111BA0",
+            "sub_111BC4",
+            "sub_111C10",
+            "sub_111B6C",
+            "sub_111C14",
+            "sub_111BE8"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": "tx_pkt_buf"
+    },
+    "cluster_7_group_7": {
+      "group_id": 7,
+      "name": "group_7",
+      "primary_arg": "r3",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "mmio_set_flag_bit1"
+      ],
+      "funcs_sub": [
+        "sub_114498",
+        "sub_114514",
+        "sub_114524",
+        "sub_11454C"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_114524",
+            "sub_114514",
+            "mmio_set_flag_bit1",
+            "sub_11454C",
+            "sub_114498"
+          ],
+          "writes": [
+            "sub_114498",
+            "sub_114514"
+          ]
+        },
+        "off_0006_s1": {
+          "offset": 6,
+          "size": 1,
+          "reads": [
+            "sub_114524",
+            "sub_114514",
+            "mmio_set_flag_bit1",
+            "sub_11454C",
+            "sub_114498"
+          ],
+          "writes": []
+        },
+        "off_0058_s4": {
+          "offset": 88,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_114524",
+            "sub_114514",
+            "mmio_set_flag_bit1",
+            "sub_11454C",
+            "sub_114498"
+          ]
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_114524",
+            "sub_114514",
+            "mmio_set_flag_bit1",
+            "sub_11454C",
+            "sub_114498"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_8_group_8": {
+      "group_id": 8,
+      "name": "group_8",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "message_dispatch_n_4c4",
+        "ipc_msg_dispatch_454"
+      ],
+      "funcs_sub": [
+        "sub_12C710",
+        "sub_12C7AC"
+      ],
+      "field_touches": {
+        "off_006d_s1": {
+          "offset": 109,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "ipc_msg_dispatch_454",
+            "sub_12C7AC",
+            "message_dispatch_n_4c4",
+            "sub_12C710"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "ipc_msg_dispatch_454",
+            "sub_12C7AC",
+            "message_dispatch_n_4c4",
+            "sub_12C710"
+          ],
+          "writes": []
+        },
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [
+            "ipc_msg_dispatch_454",
+            "sub_12C7AC",
+            "message_dispatch_n_4c4",
+            "sub_12C710"
+          ],
+          "writes": []
+        },
+        "off_0006_s2": {
+          "offset": 6,
+          "size": 2,
+          "reads": [
+            "ipc_msg_dispatch_454",
+            "sub_12C7AC",
+            "message_dispatch_n_4c4",
+            "sub_12C710"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_9_group_9": {
+      "group_id": 9,
+      "name": "group_9",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_10_group_10": {
+      "group_id": 10,
+      "name": "group_10",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_11_group_11": {
+      "group_id": 11,
+      "name": "group_11",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_cmd_send_n_36c",
+        "util_sub_f0b4"
+      ],
+      "funcs_sub": [
+        "sub_10EFD8",
+        "sub_10EFF0"
+      ],
+      "field_touches": {
+        "off_016a_s1": {
+          "offset": 362,
+          "size": 1,
+          "reads": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ],
+          "writes": []
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_0007_s1": {
+          "offset": 7,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_0014_s4": {
+          "offset": 20,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_10EFF0",
+            "rf_cmd_send_n_36c",
+            "sub_10EFD8",
+            "util_sub_f0b4"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_12_group_12": {
+      "group_id": 12,
+      "name": "group_12",
+      "primary_arg": "r2",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_122AB8",
+        "sub_122B1C",
+        "sub_125AC8",
+        "sub_125AE4",
+        "sub_128F14"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_122B1C",
+            "sub_122AB8"
+          ],
+          "writes": []
+        },
+        "off_006a_s1": {
+          "offset": 106,
+          "size": 1,
+          "reads": [
+            "sub_122B1C",
+            "sub_122AB8"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_13_group_13": {
+      "group_id": 13,
+      "name": "group_13",
+      "primary_arg": "r2",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "j_rf_state_check_n36a",
+        "rf_bt_state_check_n0a4"
+      ],
+      "funcs_sub": [
+        "sub_12F808",
+        "sub_12F810"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "rf_bt_state_check_n0a4",
+            "sub_12F808",
+            "sub_12F810",
+            "j_rf_state_check_n36a"
+          ],
+          "writes": []
+        },
+        "off_01f8_s4": {
+          "offset": 504,
+          "size": 4,
+          "reads": [
+            "rf_bt_state_check_n0a4",
+            "sub_12F808",
+            "sub_12F810",
+            "j_rf_state_check_n36a"
+          ],
+          "writes": [
+            "rf_bt_state_check_n0a4",
+            "sub_12F808",
+            "sub_12F810",
+            "j_rf_state_check_n36a"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_14_group_14": {
+      "group_id": 14,
+      "name": "group_14",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_param_lookup_n_1fc",
+        "bt_msg_handler_n54c"
+      ],
+      "funcs_sub": [
+        "sub_13A574",
+        "sub_13A588"
+      ],
+      "field_touches": {
+        "off_002c_s1": {
+          "offset": 44,
+          "size": 1,
+          "reads": [
+            "bt_msg_handler_n54c",
+            "rf_param_lookup_n_1fc",
+            "sub_13A574",
+            "sub_13A588"
+          ],
+          "writes": []
+        },
+        "off_004c_s2": {
+          "offset": 76,
+          "size": 2,
+          "reads": [
+            "bt_msg_handler_n54c",
+            "rf_param_lookup_n_1fc",
+            "sub_13A574",
+            "sub_13A588"
+          ],
+          "writes": []
+        },
+        "off_0026_s2": {
+          "offset": 38,
+          "size": 2,
+          "reads": [
+            "bt_msg_handler_n54c",
+            "rf_param_lookup_n_1fc",
+            "sub_13A574",
+            "sub_13A588"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_15_group_15": {
+      "group_id": 15,
+      "name": "group_15",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "message_dispatch_n_3c4"
+      ],
+      "funcs_sub": [
+        "sub_100688",
+        "sub_12C7DC",
+        "sub_12C964"
+      ],
+      "field_touches": {
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [
+            "sub_12C7DC",
+            "message_dispatch_n_3c4",
+            "sub_100688"
+          ],
+          "writes": []
+        },
+        "off_0006_s2": {
+          "offset": 6,
+          "size": 2,
+          "reads": [
+            "sub_12C7DC",
+            "message_dispatch_n_3c4",
+            "sub_100688"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_16_group_16": {
+      "group_id": 16,
+      "name": "group_16",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "irq_prio_set2",
+        "irq_enable"
+      ],
+      "funcs_sub": [
+        "sub_10DB2C"
+      ],
+      "field_touches": {
+        "off_0050_s4": {
+          "offset": 80,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_001c_s4": {
+          "offset": 28,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_000e_s4": {
+          "offset": 14,
+          "size": 4,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ]
+        },
+        "off_00ab_s1": {
+          "offset": 171,
+          "size": 1,
+          "reads": [
+            "sub_10DB2C",
+            "irq_prio_set2",
+            "irq_enable"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_17_group_17": {
+      "group_id": 17,
+      "name": "group_17",
+      "primary_arg": "r1",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "bt_msg_post_n364"
+      ],
+      "funcs_sub": [
+        "sub_1143AC",
+        "sub_1143B8",
+        "sub_1318A4"
+      ],
+      "field_touches": {
+        "off_000a_s1": {
+          "offset": 10,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_1143B8",
+            "sub_1143AC"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_1143B8",
+            "sub_1143AC"
+          ],
+          "writes": [
+            "sub_1143B8",
+            "sub_1143AC"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_18_group_18": {
+      "group_id": 18,
+      "name": "group_18",
+      "primary_arg": "r2",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "patch_apply_n_34",
+        "patch_apply_n_28"
+      ],
+      "funcs_sub": [
+        "sub_1154A8"
+      ],
+      "field_touches": {
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ],
+          "writes": []
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        },
+        "off_0058_s4": {
+          "offset": 88,
+          "size": 4,
+          "reads": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        },
+        "off_012c_s1": {
+          "offset": 300,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "patch_apply_n_34",
+            "sub_1154A8",
+            "patch_apply_n_28"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_19_group_19": {
+      "group_id": 19,
+      "name": "group_19",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_reg_write_helper"
+      ],
+      "funcs_sub": [
+        "sub_12057C",
+        "sub_1205A8",
+        "sub_12064C"
+      ],
+      "field_touches": {
+        "off_006b_s1": {
+          "offset": 107,
+          "size": 1,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_04bc_s4": {
+          "offset": 1212,
+          "size": 4,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_04c0_s4": {
+          "offset": 1216,
+          "size": 4,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_04c4_s2": {
+          "offset": 1220,
+          "size": 2,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_01d0_s1": {
+          "offset": 464,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ]
+        },
+        "off_006a_s1": {
+          "offset": 106,
+          "size": 1,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_005c_s1": {
+          "offset": 92,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ]
+        },
+        "off_004a_s1": {
+          "offset": 74,
+          "size": 1,
+          "reads": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ],
+          "writes": []
+        },
+        "off_0050_s1": {
+          "offset": 80,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ]
+        },
+        "off_005d_s1": {
+          "offset": 93,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "mmio_reg_write_helper",
+            "sub_12057C",
+            "sub_1205A8",
+            "sub_12064C"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_20_group_20": {
+      "group_id": 20,
+      "name": "group_20",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "mmio_reg_clear_bits_n_5c0"
+      ],
+      "funcs_sub": [
+        "sub_1219C4",
+        "sub_1219E8",
+        "sub_12BD48"
+      ],
+      "field_touches": {
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_1219E8",
+            "sub_1219C4",
+            "mmio_reg_clear_bits_n_5c0",
+            "sub_12BD48"
+          ],
+          "writes": []
+        },
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "sub_1219E8",
+            "sub_1219C4"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_12BD48",
+            "mmio_reg_clear_bits_n_5c0"
+          ],
+          "writes": [
+            "sub_1219E8",
+            "sub_1219C4",
+            "mmio_reg_clear_bits_n_5c0",
+            "sub_12BD48"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_21_group_21": {
+      "group_id": 21,
+      "name": "group_21",
+      "primary_arg": "r1",
+      "n_funcs_total": 5,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12B708",
+        "sub_12B738",
+        "sub_12B74C",
+        "sub_12B764",
+        "sub_12C068"
+      ],
+      "field_touches": {
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "sub_12B74C",
+            "sub_12B738",
+            "sub_12B764",
+            "sub_12B708"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_12B74C",
+            "sub_12C068",
+            "sub_12B764",
+            "sub_12B738",
+            "sub_12B708"
+          ],
+          "writes": [
+            "sub_12B74C",
+            "sub_12B764",
+            "sub_12B738"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_22_group_22": {
+      "group_id": 22,
+      "name": "group_22",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_10CAE0",
+        "sub_10CAEC",
+        "sub_10CAFC",
+        "sub_10CB08"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_10CB08",
+            "sub_10CAEC",
+            "sub_10CAE0",
+            "sub_10CAFC"
+          ],
+          "writes": [
+            "sub_10CB08",
+            "sub_10CAEC",
+            "sub_10CAE0",
+            "sub_10CAFC"
+          ]
+        },
+        "off_0014_s4": {
+          "offset": 20,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10CB08",
+            "sub_10CAEC",
+            "sub_10CAE0",
+            "sub_10CAFC"
+          ]
+        },
+        "off_001c_s4": {
+          "offset": 28,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10CB08",
+            "sub_10CAEC",
+            "sub_10CAE0",
+            "sub_10CAFC"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_23_group_23": {
+      "group_id": 23,
+      "name": "group_23",
+      "primary_arg": "r0",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_11C924",
+        "sub_11C938",
+        "sub_11C968",
+        "sub_11C990"
+      ],
+      "field_touches": {
+        "off_002c_s4": {
+          "offset": 44,
+          "size": 4,
+          "reads": [
+            "sub_11C990",
+            "sub_11C924",
+            "sub_11C968",
+            "sub_11C938"
+          ],
+          "writes": []
+        },
+        "off_001c_s1": {
+          "offset": 28,
+          "size": 1,
+          "reads": [
+            "sub_11C990",
+            "sub_11C924",
+            "sub_11C968",
+            "sub_11C938"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_24_group_24": {
+      "group_id": 24,
+      "name": "group_24",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12A74C",
+        "sub_12A788",
+        "sub_12A7F4",
+        "sub_12A818"
+      ],
+      "field_touches": {
+        "off_0046_s1": {
+          "offset": 70,
+          "size": 1,
+          "reads": [
+            "sub_12A74C",
+            "sub_12A7F4",
+            "sub_12A818",
+            "sub_12A788"
+          ],
+          "writes": []
+        },
+        "off_000a_s1": {
+          "offset": 10,
+          "size": 1,
+          "reads": [
+            "sub_12A74C",
+            "sub_12A7F4",
+            "sub_12A818",
+            "sub_12A788"
+          ],
+          "writes": []
+        },
+        "off_0028_s1": {
+          "offset": 40,
+          "size": 1,
+          "reads": [
+            "sub_12A74C",
+            "sub_12A7F4",
+            "sub_12A818",
+            "sub_12A788"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_25_group_25": {
+      "group_id": 25,
+      "name": "group_25",
+      "primary_arg": "r2",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "mmio_block_write_n_e18",
+        "tx_timeout_check"
+      ],
+      "funcs_sub": [
+        "sub_12BE54"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "tx_timeout_check",
+            "mmio_block_write_n_e18",
+            "sub_12BE54"
+          ],
+          "writes": [
+            "mmio_block_write_n_e18",
+            "sub_12BE54"
+          ]
+        },
+        "off_0002_s2": {
+          "offset": 2,
+          "size": 2,
+          "reads": [
+            "tx_timeout_check",
+            "mmio_block_write_n_e18",
+            "sub_12BE54"
+          ],
+          "writes": []
+        },
+        "off_00b8_s2": {
+          "offset": 184,
+          "size": 2,
+          "reads": [
+            "tx_timeout_check",
+            "mmio_block_write_n_e18",
+            "sub_12BE54"
+          ],
+          "writes": []
+        },
+        "off_00ba_s2": {
+          "offset": 186,
+          "size": 2,
+          "reads": [
+            "tx_timeout_check",
+            "mmio_block_write_n_e18",
+            "sub_12BE54"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_26_group_26": {
+      "group_id": 26,
+      "name": "group_26",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_109350",
+        "sub_109370",
+        "sub_12C408"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_12C408"
+          ],
+          "writes": [
+            "sub_109350",
+            "sub_12C408",
+            "sub_109370"
+          ]
+        },
+        "off_-004_s4": {
+          "offset": -4,
+          "size": 4,
+          "reads": [
+            "sub_109350",
+            "sub_109370"
+          ],
+          "writes": [
+            "sub_12C408"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_27_group_27": {
+      "group_id": 27,
+      "name": "group_27",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_bus_setup_n_39c"
+      ],
+      "funcs_sub": [
+        "sub_12C580",
+        "sub_12C650",
+        "sub_12C66C"
+      ],
+      "field_touches": {
+        "off_015e_s1": {
+          "offset": 350,
+          "size": 1,
+          "reads": [
+            "rf_bus_setup_n_39c",
+            "sub_12C66C",
+            "sub_12C580",
+            "sub_12C650"
+          ],
+          "writes": [
+            "rf_bus_setup_n_39c",
+            "sub_12C580"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "rf_bus_setup_n_39c",
+            "sub_12C66C",
+            "sub_12C580",
+            "sub_12C650"
+          ],
+          "writes": []
+        },
+        "off_00c5_s1": {
+          "offset": 197,
+          "size": 1,
+          "reads": [
+            "rf_bus_setup_n_39c",
+            "sub_12C66C",
+            "sub_12C580",
+            "sub_12C650"
+          ],
+          "writes": []
+        },
+        "off_001e_s4": {
+          "offset": 30,
+          "size": 4,
+          "reads": [
+            "rf_bus_setup_n_39c",
+            "sub_12C66C",
+            "sub_12C580",
+            "sub_12C650"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_28_group_28": {
+      "group_id": 28,
+      "name": "group_28",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_12F2F0",
+        "sub_12F2FC",
+        "sub_12F318",
+        "sub_12F334"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_12F2F0",
+            "sub_12F2FC",
+            "sub_12F334",
+            "sub_12F318"
+          ],
+          "writes": []
+        },
+        "off_0018_s4": {
+          "offset": 24,
+          "size": 4,
+          "reads": [
+            "sub_12F2F0",
+            "sub_12F2FC",
+            "sub_12F334",
+            "sub_12F318"
+          ],
+          "writes": []
+        },
+        "off_0012_s4": {
+          "offset": 18,
+          "size": 4,
+          "reads": [
+            "sub_12F2F0",
+            "sub_12F2FC",
+            "sub_12F334",
+            "sub_12F318"
+          ],
+          "writes": []
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [
+            "sub_12F2F0",
+            "sub_12F2FC",
+            "sub_12F334",
+            "sub_12F318"
+          ],
+          "writes": []
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [
+            "sub_12F2F0",
+            "sub_12F2FC",
+            "sub_12F334",
+            "sub_12F318"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_29_group_29": {
+      "group_id": 29,
+      "name": "group_29",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "ipc_msg_write_hdr"
+      ],
+      "funcs_sub": [
+        "sub_1307D0",
+        "sub_130834"
+      ],
+      "field_touches": {
+        "off_000c_s2": {
+          "offset": 12,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_000e_s1": {
+          "offset": 14,
+          "size": 1,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0014_s2": {
+          "offset": 20,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_001c_s1": {
+          "offset": 28,
+          "size": 1,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_002a_s1": {
+          "offset": 42,
+          "size": 1,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_004e_s2": {
+          "offset": 78,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0032_s2": {
+          "offset": 50,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0034_s2": {
+          "offset": 52,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0036_s2": {
+          "offset": 54,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0038_s2": {
+          "offset": 56,
+          "size": 2,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        },
+        "off_0030_s1": {
+          "offset": 48,
+          "size": 1,
+          "reads": [
+            "sub_130834",
+            "ipc_msg_write_hdr",
+            "sub_1307D0"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_30_group_30": {
+      "group_id": 30,
+      "name": "group_30",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_31_group_31": {
+      "group_id": 31,
+      "name": "group_31",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_32_group_32": {
+      "group_id": 32,
+      "name": "group_32",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    }
+  }
+}

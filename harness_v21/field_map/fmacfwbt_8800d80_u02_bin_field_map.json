@@ -1,0 +1,4592 @@
+{
+  "img": "fmacfwbt_8800d80_u02_bin",
+  "structs": {
+    "vif_info": {
+      "idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "type": {
+        "offset": 60,
+        "reads": [
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "sub_1174B4",
+            "addr": 1143988
+          },
+          {
+            "func": "sub_11857C",
+            "addr": 1148284
+          }
+        ],
+        "read_count": 56,
+        "writes": [
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          },
+          {
+            "func": "sub_11B9B8",
+            "addr": 1161656
+          },
+          {
+            "func": "mmio_rf_table_init",
+            "addr": 1162248
+          }
+        ],
+        "write_count": 18
+      },
+      "mac_addr": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          }
+        ],
+        "read_count": 47,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 79
+      },
+      "ssid": {
+        "offset": 20,
+        "reads": [
+          {
+            "func": "sub_1040F0",
+            "addr": 1065200
+          },
+          {
+            "func": "sub_1040F0",
+            "addr": 1065200
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          },
+          {
+            "func": "sub_117ACC",
+            "addr": 1145548
+          },
+          {
+            "func": "sub_117AE0",
+            "addr": 1145568
+          },
+          {
+            "func": "sub_117AE0",
+            "addr": 1145568
+          },
+          {
+            "func": "sub_11FEF0",
+            "addr": 1179376
+          },
+          {
+            "func": "sub_120B78",
+            "addr": 1182584
+          },
+          {
+            "func": "sub_125260",
+            "addr": 1200736
+          }
+        ],
+        "read_count": 13,
+        "writes": [
+          {
+            "func": "sub_1040F0",
+            "addr": 1065200
+          },
+          {
+            "func": "sub_1040F0",
+            "addr": 1065200
+          },
+          {
+            "func": "sub_10CA3C",
+            "addr": 1100348
+          },
+          {
+            "func": "sub_10CAE0",
+            "addr": 1100512
+          },
+          {
+            "func": "sub_10CAE0",
+            "addr": 1100512
+          },
+          {
+            "func": "sub_10CAEC",
+            "addr": 1100524
+          },
+          {
+            "func": "sub_10CAFC",
+            "addr": 1100540
+          },
+          {
+            "func": "sub_10CB08",
+            "addr": 1100552
+          },
+          {
+            "func": "sub_10EFD8",
+            "addr": 1109976
+          },
+          {
+            "func": "sub_10EFF0",
+            "addr": 1110000
+          }
+        ],
+        "write_count": 26
+      },
+      "tx_power": {
+        "offset": 68,
+        "reads": [
+          {
+            "func": "rf_stream_start2_n_144",
+            "addr": 1126664
+          },
+          {
+            "func": "rf_stream_start2_n_144",
+            "addr": 1126664
+          }
+        ],
+        "read_count": 2,
+        "writes": [],
+        "write_count": 0
+      },
+      "state": {
+        "offset": 64,
+        "reads": [
+          {
+            "func": "sub_11B9B8",
+            "addr": 1161656
+          }
+        ],
+        "read_count": 1,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "tx_queue": {
+      "head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "lock": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "count": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "max_len": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_13116C",
+            "addr": 1249644
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "rx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "status": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      }
+    },
+    "tx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "status": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_13116C",
+            "addr": 1249644
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "ke_env": {
+      "task_head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "task_tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "msg_queue": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "state": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_13116C",
+            "addr": 1249644
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          },
+          {
+            "func": "sub_131278",
+            "addr": 1249912
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "scan_req": {
+      "ssid": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "n_channels": {
+        "offset": 100,
+        "reads": [
+          {
+            "func": "sub_115990",
+            "addr": 1137040
+          },
+          {
+            "func": "sub_115990",
+            "addr": 1137040
+          },
+          {
+            "func": "sub_1159CC",
+            "addr": 1137100
+          }
+        ],
+        "read_count": 3,
+        "writes": [
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_10C490",
+            "addr": 1098896
+          }
+        ],
+        "write_count": 3
+      },
+      "flags": {
+        "offset": 104,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_1154E8",
+            "addr": 1135848
+          },
+          {
+            "func": "patch_apply_n7c",
+            "addr": 1135972
+          },
+          {
+            "func": "patch_apply_n7c",
+            "addr": 1135972
+          }
+        ],
+        "write_count": 3
+      }
+    },
+    "delay_timer": {
+      "us": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "ticks": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      }
+    },
+    "mmio_clock_gate": {
+      "bit": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      }
+    },
+    "ke_dispatch_ctx": {
+      "handler": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "state": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "arg": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "next": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      }
+    },
+    "vif_bssid_ref": {
+      "vif": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          }
+        ],
+        "read_count": 47,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 79
+      }
+    },
+    "vif_set_state_req": {
+      "vif_idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "bssid_lo": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "mac_hi": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          }
+        ],
+        "read_count": 292,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 94
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "state": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          }
+        ],
+        "read_count": 122,
+        "writes": [
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          }
+        ],
+        "write_count": 97
+      },
+      "mac": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "bssid_hi": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          }
+        ],
+        "read_count": 47,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 79
+      },
+      "op": {
+        "offset": 24,
+        "reads": [
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1164E0",
+            "addr": 1139936
+          },
+          {
+            "func": "sub_1164E0",
+            "addr": 1139936
+          }
+        ],
+        "read_count": 36,
+        "writes": [
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_1032D0",
+            "addr": 1061584
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          }
+        ],
+        "write_count": 37
+      }
+    },
+    "bt_hci_cmd": {
+      "ogf": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "ocf": {
+        "offset": 1,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_12ACF8",
+            "addr": 1223928
+          },
+          {
+            "func": "sub_12ACF8",
+            "addr": 1223928
+          }
+        ],
+        "write_count": 2
+      }
+    },
+    "mmio_reg_poll": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "val": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "read_count": 118,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 123
+      },
+      "mask": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          }
+        ],
+        "read_count": 292,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 94
+      },
+      "ret": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          }
+        ],
+        "read_count": 122,
+        "writes": [
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100CD0",
+            "addr": 1051856
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "sub_100D94",
+            "addr": 1052052
+          },
+          {
+            "func": "mmio_init_block_1200E54",
+            "addr": 1052244
+          }
+        ],
+        "write_count": 97
+      },
+      "expected": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          }
+        ],
+        "read_count": 47,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 79
+      }
+    },
+    "tx_pkt_buf": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3809,
+        "writes": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2478
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          }
+        ],
+        "read_count": 243,
+        "writes": [
+          {
+            "func": "sub_100AA8",
+            "addr": 1051304
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "rf_calib_init_handler",
+            "addr": 1051412
+          },
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          }
+        ],
+        "write_count": 224
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "read_count": 280,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 174
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DAFC",
+            "addr": 1104636
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "sub_10DB2C",
+            "addr": 1104684
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_prio_set2",
+            "addr": 1104708
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          },
+          {
+            "func": "irq_enable",
+            "addr": 1104728
+          }
+        ],
+        "read_count": 47,
+        "writes": [
+          {
+            "func": "sub_10184C",
+            "addr": 1054796
+          },
+          {
+            "func": "sub_10186C",
+            "addr": 1054828
+          },
+          {
+            "func": "sub_101874",
+            "addr": 1054836
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101878",
+            "addr": 1054840
+          },
+          {
+            "func": "sub_101888",
+            "addr": 1054856
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_10189C",
+            "addr": 1054876
+          },
+          {
+            "func": "sub_1018B4",
+            "addr": 1054900
+          },
+          {
+            "func": "sub_1018C4",
+            "addr": 1054916
+          }
+        ],
+        "write_count": 79
+      },
+      "payload_end": {
+        "offset": 800,
+        "reads": [
+          {
+            "func": "sub_111858",
+            "addr": 1120344
+          },
+          {
+            "func": "sub_111858",
+            "addr": 1120344
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          }
+        ],
+        "read_count": 4,
+        "writes": [
+          {
+            "func": "sub_111858",
+            "addr": 1120344
+          },
+          {
+            "func": "sub_111858",
+            "addr": 1120344
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          },
+          {
+            "func": "rf_bus_reset_844",
+            "addr": 1124420
+          }
+        ],
+        "write_count": 4
+      }
+    }
+  }
+}

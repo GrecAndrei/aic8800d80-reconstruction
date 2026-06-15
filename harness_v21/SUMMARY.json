@@ -1,0 +1,238 @@
+{
+  "total_named_clusters": 18,
+  "unique_structs": 6,
+  "by_struct": {
+    "delay_timer": {
+      "instances": 3,
+      "total_funcs": 73,
+      "all_images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin"
+      ]
+    },
+    "mmio_clock_gate": {
+      "instances": 4,
+      "total_funcs": 95,
+      "all_images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin",
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin"
+      ]
+    },
+    "vif_bssid_ref": {
+      "instances": 1,
+      "total_funcs": 4,
+      "all_images": [
+        "fmacfw_8800d80_h_u02_bin"
+      ]
+    },
+    "bt_hci_cmd": {
+      "instances": 3,
+      "total_funcs": 64,
+      "all_images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin"
+      ]
+    },
+    "vif_set_state_req": {
+      "instances": 3,
+      "total_funcs": 30,
+      "all_images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin"
+      ]
+    },
+    "tx_pkt_buf": {
+      "instances": 4,
+      "total_funcs": 24,
+      "all_images": [
+        "fmacfwbt_8800d80_u02_bin",
+        "lmacfw_rf_8800d80_u02_bin",
+        "fmacfw_8800d80_h_u02_bin",
+        "fmacfw_8800d80_u02_bin"
+      ]
+    }
+  },
+  "all_clusters": [
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_0_group_0",
+      "llm_name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs": 24,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_1_group_1",
+      "llm_name": "mmio_clock_gate",
+      "primary_arg": "r5",
+      "n_funcs": 26,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_2_group_2",
+      "llm_name": "vif_bssid_ref",
+      "primary_arg": "r3",
+      "n_funcs": 4,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_4_group_4",
+      "llm_name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs": 21,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_5_group_5",
+      "llm_name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs": 10,
+      "top_funcs": [
+        "debug_if_check_40320038"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_h_u02_bin",
+      "cluster_id": "cluster_8_group_8",
+      "llm_name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs": 6,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "cluster_id": "cluster_0_group_0",
+      "llm_name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs": 24,
+      "top_funcs": [
+        "message_dispatch_n158",
+        "fmac_init_or_handler",
+        "list_push_tail"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "cluster_id": "cluster_1_group_1",
+      "llm_name": "mmio_clock_gate",
+      "primary_arg": "r5",
+      "n_funcs": 21,
+      "top_funcs": [
+        "rf_reg_write_masked",
+        "rf_init_blocka",
+        "rf_status_check"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "cluster_id": "cluster_3_group_3",
+      "llm_name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs": 10,
+      "top_funcs": [
+        "chip_info_is_fpga_or_emu",
+        "mmio_copy_4words"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "cluster_id": "cluster_5_group_5",
+      "llm_name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs": 21,
+      "top_funcs": [
+        "rf_bus_setup_n294"
+      ]
+    },
+    {
+      "img": "fmacfw_8800d80_u02_bin",
+      "cluster_id": "cluster_7_group_7",
+      "llm_name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs": 6,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "cluster_id": "cluster_0_group_0",
+      "llm_name": "delay_timer",
+      "primary_arg": "sp",
+      "n_funcs": 25,
+      "top_funcs": [
+        "bt_msg_handler_122D3B8",
+        "list_push_tail",
+        "ptr_compare_or_fetch"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "cluster_id": "cluster_1_group_1",
+      "llm_name": "mmio_clock_gate",
+      "primary_arg": "r1",
+      "n_funcs": 23,
+      "top_funcs": [
+        "mmio_lmac_init_n_ecd8",
+        "mmio_read_bitfield_7000101c",
+        "rf_init_blocka"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "cluster_id": "cluster_3_group_3",
+      "llm_name": "vif_set_state_req",
+      "primary_arg": "r3",
+      "n_funcs": 10,
+      "top_funcs": [
+        "sysctl_chip_id_get",
+        "fmacfwbt_init_or_handler"
+      ]
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "cluster_id": "cluster_4_group_4",
+      "llm_name": "bt_hci_cmd",
+      "primary_arg": "r0",
+      "n_funcs": 22,
+      "top_funcs": []
+    },
+    {
+      "img": "fmacfwbt_8800d80_u02_bin",
+      "cluster_id": "cluster_6_group_6",
+      "llm_name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs": 6,
+      "top_funcs": []
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "cluster_id": "cluster_1_group_1",
+      "llm_name": "mmio_clock_gate",
+      "primary_arg": "r3",
+      "n_funcs": 25,
+      "top_funcs": [
+        "rf_byte_extract_save",
+        "log_system_init_f6a4",
+        "rf_init_n_dc"
+      ]
+    },
+    {
+      "img": "lmacfw_rf_8800d80_u02_bin",
+      "cluster_id": "cluster_7_group_7",
+      "llm_name": "tx_pkt_buf",
+      "primary_arg": "r4",
+      "n_funcs": 6,
+      "top_funcs": [
+        "rf_bus_write_n274"
+      ]
+    }
+  ]
+}

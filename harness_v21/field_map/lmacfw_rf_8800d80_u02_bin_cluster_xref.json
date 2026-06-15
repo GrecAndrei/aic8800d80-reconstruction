@@ -1,0 +1,1309 @@
+{
+  "img": "lmacfw_rf_8800d80_u02_bin",
+  "clusters": {
+    "cluster_0_group_0": {
+      "group_id": 0,
+      "name": "group_0",
+      "primary_arg": "sp",
+      "n_funcs_total": 19,
+      "funcs_named": [
+        "rx_queue_head_init",
+        "list_push_tail",
+        "rf_mem_read_n_ec",
+        "rf_mem_read_f4c0",
+        "rf_mem_read_n_c8",
+        "rf_feature_check",
+        "rf_state_load"
+      ],
+      "funcs_sub": [
+        "sub_109D40",
+        "sub_115C90",
+        "sub_119400",
+        "sub_11DF94",
+        "sub_11E620"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "rf_state_load",
+            "rf_mem_read_n_ec",
+            "rf_mem_read_f4c0",
+            "rf_mem_read_n_c8",
+            "sub_11F4B4",
+            "rf_feature_check"
+          ],
+          "writes": [
+            "sub_109D40"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_1_group_1": {
+      "group_id": 1,
+      "name": "group_1",
+      "primary_arg": "r3",
+      "n_funcs_total": 25,
+      "funcs_named": [
+        "rf_byte_extract_save",
+        "log_system_init_f6a4",
+        "rf_init_n_dc"
+      ],
+      "funcs_sub": [
+        "sub_1017C0",
+        "sub_101E18",
+        "sub_10F15C",
+        "sub_10F170",
+        "sub_10F188"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "rf_init_n_dc",
+            "sub_123F4C",
+            "sub_1017C0",
+            "sub_10F15C",
+            "sub_101E18",
+            "rf_byte_extract_save",
+            "sub_119BD8",
+            "sub_1219C4",
+            "sub_10F188",
+            "sub_1246F0"
+          ],
+          "writes": [
+            "sub_11416C",
+            "sub_11413C",
+            "rf_init_n_dc",
+            "sub_1017C0",
+            "sub_113630",
+            "sub_113640",
+            "sub_1246F0",
+            "sub_1248A4",
+            "sub_1247D8",
+            "sub_113694"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [
+            "rf_init_n_dc",
+            "sub_1017C0",
+            "sub_10F15C",
+            "sub_101E18",
+            "rf_byte_extract_save",
+            "sub_1219C4",
+            "sub_10F188",
+            "sub_1248A4",
+            "sub_1247D8",
+            "log_system_init_f6a4"
+          ],
+          "writes": [
+            "sub_1248A4",
+            "sub_1247D8",
+            "rf_init_n_dc"
+          ]
+        }
+      },
+      "llm_name": "mmio_clock_gate"
+    },
+    "cluster_2_group_2": {
+      "group_id": 2,
+      "name": "group_2",
+      "primary_arg": "sp",
+      "n_funcs_total": 11,
+      "funcs_named": [
+        "divmod64_compute",
+        "rf_lmac_misc_n_df54",
+        "rf_hw_init_n008",
+        "rf_reg_probe_id"
+      ],
+      "funcs_sub": [
+        "sub_10DD20",
+        "sub_10DDC8",
+        "sub_10E0B8",
+        "sub_10E170",
+        "sub_11739C"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_11A728",
+            "rf_reg_probe_id"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_3_group_3": {
+      "group_id": 3,
+      "name": "group_3",
+      "primary_arg": "r3",
+      "n_funcs_total": 10,
+      "funcs_named": [
+        "rf_chip_ready_check",
+        "phy_get_link_status"
+      ],
+      "funcs_sub": [
+        "sub_101A20",
+        "sub_101A28",
+        "sub_101A2C",
+        "sub_101A50",
+        "sub_101A78"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_101A2C",
+            "sub_101A28",
+            "phy_get_link_status",
+            "sub_101A20",
+            "sub_101A78",
+            "sub_101A9C",
+            "sub_101AB0",
+            "sub_101A50",
+            "rf_chip_ready_check",
+            "sub_101A88"
+          ],
+          "writes": []
+        },
+        "off_0018_s1": {
+          "offset": 24,
+          "size": 1,
+          "reads": [
+            "sub_101A2C",
+            "sub_101A28",
+            "phy_get_link_status",
+            "sub_101A20",
+            "sub_101A78",
+            "sub_101A9C",
+            "sub_101AB0",
+            "sub_101A50",
+            "rf_chip_ready_check",
+            "sub_101A88"
+          ],
+          "writes": []
+        },
+        "off_001c_s2": {
+          "offset": 28,
+          "size": 2,
+          "reads": [
+            "sub_101A2C",
+            "sub_101A28",
+            "phy_get_link_status",
+            "sub_101A20",
+            "sub_101A78",
+            "sub_101A9C",
+            "sub_101AB0",
+            "sub_101A50",
+            "rf_chip_ready_check",
+            "sub_101A88"
+          ],
+          "writes": []
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [
+            "sub_101A2C",
+            "sub_101A28",
+            "phy_get_link_status",
+            "sub_101A20",
+            "sub_101A78",
+            "sub_101A9C",
+            "sub_101AB0",
+            "sub_101A50",
+            "rf_chip_ready_check",
+            "sub_101A88"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_4_group_4": {
+      "group_id": 4,
+      "name": "group_4",
+      "primary_arg": "r7",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_5_group_5": {
+      "group_id": 5,
+      "name": "group_5",
+      "primary_arg": "r1",
+      "n_funcs_total": 7,
+      "funcs_named": [
+        "bitmask_pow2_set",
+        "rf_check_bit"
+      ],
+      "funcs_sub": [
+        "sub_10DA6C",
+        "sub_10DAD8",
+        "sub_10DAF0",
+        "sub_10DB04",
+        "sub_10DB18"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ],
+          "writes": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ],
+          "writes": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ],
+          "writes": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ]
+        },
+        "off_-00c_s4": {
+          "offset": -12,
+          "size": 4,
+          "reads": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0",
+            "rf_check_bit"
+          ],
+          "writes": [
+            "sub_10DA6C",
+            "sub_10DB04",
+            "sub_10DAD8",
+            "sub_10DB18",
+            "bitmask_pow2_set",
+            "sub_10DAF0"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_6_group_6": {
+      "group_id": 6,
+      "name": "group_6",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_7_group_7": {
+      "group_id": 7,
+      "name": "group_7",
+      "primary_arg": "r4",
+      "n_funcs_total": 6,
+      "funcs_named": [
+        "rf_bus_write_n274"
+      ],
+      "funcs_sub": [
+        "sub_111618",
+        "sub_11164C",
+        "sub_111670",
+        "sub_111694",
+        "sub_1116BC"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "rf_bus_write_n274",
+            "sub_111670",
+            "sub_1116BC",
+            "sub_111694",
+            "sub_111618",
+            "sub_11164C"
+          ],
+          "writes": []
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "rf_bus_write_n274",
+            "sub_111670",
+            "sub_1116BC",
+            "sub_111694",
+            "sub_111618",
+            "sub_11164C"
+          ],
+          "writes": []
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "rf_bus_write_n274",
+            "sub_111670",
+            "sub_1116BC",
+            "sub_111694",
+            "sub_111618",
+            "sub_11164C"
+          ],
+          "writes": []
+        },
+        "off_000e_s4": {
+          "offset": 14,
+          "size": 4,
+          "reads": [
+            "rf_bus_write_n274",
+            "sub_111670",
+            "sub_1116BC",
+            "sub_111694",
+            "sub_111618",
+            "sub_11164C"
+          ],
+          "writes": []
+        },
+        "off_0320_s4": {
+          "offset": 800,
+          "size": 4,
+          "reads": [
+            "rf_bus_write_n274",
+            "sub_111670",
+            "sub_1116BC",
+            "sub_111694",
+            "sub_111618",
+            "sub_11164C"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": "tx_pkt_buf"
+    },
+    "cluster_8_group_8": {
+      "group_id": 8,
+      "name": "group_8",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_107150",
+        "sub_11AC80",
+        "sub_12141C"
+      ],
+      "field_touches": {
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_11AC80"
+          ]
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_11AC80"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_9_group_9": {
+      "group_id": 9,
+      "name": "group_9",
+      "primary_arg": "r3",
+      "n_funcs_total": 12,
+      "funcs_named": [
+        "irq_disable",
+        "irq_mask_test"
+      ],
+      "funcs_sub": [
+        "sub_10DB48",
+        "sub_10DB78",
+        "sub_10DB90",
+        "sub_10DBA4",
+        "sub_10DBF4"
+      ],
+      "field_touches": {
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [
+            "sub_10DCE8",
+            "sub_10DB90",
+            "sub_10DBF4",
+            "sub_10DBA4",
+            "irq_disable",
+            "sub_10DC40",
+            "irq_mask_test",
+            "sub_10DC78",
+            "sub_10DB78",
+            "sub_10DB48"
+          ],
+          "writes": [
+            "sub_10DCE8",
+            "sub_10DB90",
+            "sub_10DBF4",
+            "sub_10DBA4",
+            "irq_disable",
+            "sub_10DC40",
+            "irq_mask_test",
+            "sub_10DC78",
+            "sub_10DB78",
+            "sub_10DB48"
+          ]
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [
+            "sub_10DCE8",
+            "sub_10DB90",
+            "sub_10DBF4",
+            "sub_10DBA4",
+            "irq_disable",
+            "sub_10DC40",
+            "irq_mask_test",
+            "sub_10DC78",
+            "sub_10DB78",
+            "sub_10DB48"
+          ],
+          "writes": [
+            "sub_10DCE8",
+            "sub_10DB90",
+            "sub_10DBF4",
+            "sub_10DBA4",
+            "irq_disable",
+            "sub_10DC40",
+            "irq_mask_test",
+            "sub_10DC78",
+            "sub_10DB78",
+            "sub_10DB48"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_10_group_10": {
+      "group_id": 10,
+      "name": "group_10",
+      "primary_arg": "r5",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "rf_calib_table_init",
+        "accum_update_addr_pair"
+      ],
+      "funcs_sub": [
+        "sub_116C6C",
+        "sub_116CD4",
+        "sub_116CDC"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_116C6C",
+            "sub_116CDC",
+            "sub_116CD4",
+            "rf_calib_table_init",
+            "accum_update_addr_pair"
+          ],
+          "writes": []
+        },
+        "off_000a_s1": {
+          "offset": 10,
+          "size": 1,
+          "reads": [
+            "sub_116C6C",
+            "sub_116CDC",
+            "sub_116CD4",
+            "rf_calib_table_init",
+            "accum_update_addr_pair"
+          ],
+          "writes": []
+        },
+        "off_000b_s1": {
+          "offset": 11,
+          "size": 1,
+          "reads": [
+            "sub_116C6C",
+            "sub_116CDC",
+            "sub_116CD4",
+            "rf_calib_table_init",
+            "accum_update_addr_pair"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_11_group_11": {
+      "group_id": 11,
+      "name": "group_11",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "lmac_init_wait_flag",
+        "rf_table_lookup_n360"
+      ],
+      "funcs_sub": [
+        "sub_1188F4",
+        "sub_118908"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "lmac_init_wait_flag",
+            "sub_1188F4",
+            "sub_118908",
+            "rf_table_lookup_n360"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "lmac_init_wait_flag",
+            "sub_1188F4",
+            "sub_118908",
+            "rf_table_lookup_n360"
+          ]
+        },
+        "off_001a_s2": {
+          "offset": 26,
+          "size": 2,
+          "reads": [
+            "lmac_init_wait_flag",
+            "sub_1188F4",
+            "sub_118908",
+            "rf_table_lookup_n360"
+          ],
+          "writes": []
+        },
+        "off_0018_s2": {
+          "offset": 24,
+          "size": 2,
+          "reads": [
+            "lmac_init_wait_flag",
+            "sub_1188F4",
+            "sub_118908",
+            "rf_table_lookup_n360"
+          ],
+          "writes": []
+        },
+        "off_001c_s2": {
+          "offset": 28,
+          "size": 2,
+          "reads": [
+            "lmac_init_wait_flag",
+            "sub_1188F4",
+            "sub_118908",
+            "rf_table_lookup_n360"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_12_group_12": {
+      "group_id": 12,
+      "name": "group_12",
+      "primary_arg": "sp",
+      "n_funcs_total": 4,
+      "funcs_named": [
+        "rf_chan_init_or_set_n54"
+      ],
+      "funcs_sub": [
+        "sub_10E798",
+        "sub_124A88",
+        "sub_124C70"
+      ],
+      "field_touches": {
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_10E798"
+          ],
+          "writes": [
+            "sub_10E798"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_13_group_13": {
+      "group_id": 13,
+      "name": "group_13",
+      "primary_arg": "r3",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "rf_state_check"
+      ],
+      "funcs_sub": [
+        "sub_1131BC",
+        "sub_117164",
+        "sub_11E888",
+        "sub_11E8B4"
+      ],
+      "field_touches": {
+        "off_0000_s2": {
+          "offset": 0,
+          "size": 2,
+          "reads": [
+            "sub_117164"
+          ],
+          "writes": [
+            "rf_state_check"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "rf_state_check"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_14_group_14": {
+      "group_id": 14,
+      "name": "group_14",
+      "primary_arg": "r3",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "rf_clear_flag_bit1"
+      ],
+      "funcs_sub": [
+        "sub_113824",
+        "sub_113854",
+        "sub_1138D0",
+        "sub_1138F4"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ],
+          "writes": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ]
+        },
+        "off_001e_s2": {
+          "offset": 30,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ]
+        },
+        "off_0006_s1": {
+          "offset": 6,
+          "size": 1,
+          "reads": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ],
+          "writes": []
+        },
+        "off_0058_s4": {
+          "offset": 88,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ]
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_113824",
+            "sub_1138D0",
+            "sub_113854",
+            "sub_1138F4",
+            "rf_clear_flag_bit1"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_15_group_15": {
+      "group_id": 15,
+      "name": "group_15",
+      "primary_arg": "sp",
+      "n_funcs_total": 5,
+      "funcs_named": [
+        "rf_mem_write_nf0",
+        "rf_param_select_n_e60"
+      ],
+      "funcs_sub": [
+        "sub_12202C",
+        "sub_1253BC",
+        "sub_125970"
+      ],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_16_group_16": {
+      "group_id": 16,
+      "name": "group_16",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_17_group_17": {
+      "group_id": 17,
+      "name": "group_17",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_109100",
+        "sub_109120",
+        "sub_11D5E4",
+        "sub_11D778"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_11D778",
+            "sub_11D5E4"
+          ],
+          "writes": [
+            "sub_11D778",
+            "sub_109100",
+            "sub_109120"
+          ]
+        },
+        "off_-004_s4": {
+          "offset": -4,
+          "size": 4,
+          "reads": [
+            "sub_109100",
+            "sub_109120"
+          ],
+          "writes": [
+            "sub_11D778",
+            "sub_11D5E4"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_18_group_18": {
+      "group_id": 18,
+      "name": "group_18",
+      "primary_arg": "r3",
+      "n_funcs_total": 6,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_11D9C0",
+        "sub_11D9DC",
+        "sub_11D9F8",
+        "sub_11DA3C",
+        "sub_11DA5C"
+      ],
+      "field_touches": {
+        "off_00c5_s1": {
+          "offset": 197,
+          "size": 1,
+          "reads": [
+            "sub_11DA5C",
+            "sub_11D9F8",
+            "sub_11D9DC",
+            "sub_11DA3C",
+            "sub_11D9C0",
+            "sub_11DA78"
+          ],
+          "writes": []
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_11DA5C",
+            "sub_11D9F8",
+            "sub_11D9DC",
+            "sub_11DA3C",
+            "sub_11D9C0",
+            "sub_11DA78"
+          ],
+          "writes": []
+        },
+        "off_002c_s4": {
+          "offset": 44,
+          "size": 4,
+          "reads": [
+            "sub_11DA5C",
+            "sub_11D9F8",
+            "sub_11D9DC",
+            "sub_11DA3C",
+            "sub_11D9C0",
+            "sub_11DA78"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_19_group_19": {
+      "group_id": 19,
+      "name": "group_19",
+      "primary_arg": "r3",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_10F434",
+        "sub_10F44C",
+        "sub_10F4B8",
+        "sub_10F50C"
+      ],
+      "field_touches": {
+        "off_016a_s1": {
+          "offset": 362,
+          "size": 1,
+          "reads": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ],
+          "writes": []
+        },
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_0007_s1": {
+          "offset": 7,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_0004_s2": {
+          "offset": 4,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_0014_s4": {
+          "offset": 20,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        },
+        "off_0000_s1": {
+          "offset": 0,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_10F434",
+            "sub_10F4B8",
+            "sub_10F50C",
+            "sub_10F44C"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_20_group_20": {
+      "group_id": 20,
+      "name": "group_20",
+      "primary_arg": "r3",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "rf_msg_process"
+      ],
+      "funcs_sub": [
+        "sub_110BF8",
+        "sub_110C7C"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ],
+          "writes": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ],
+          "writes": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ]
+        },
+        "off_0008_s4": {
+          "offset": 8,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ]
+        },
+        "off_000c_s1": {
+          "offset": 12,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ]
+        },
+        "off_000d_s1": {
+          "offset": 13,
+          "size": 1,
+          "reads": [],
+          "writes": [
+            "sub_110C7C",
+            "sub_110BF8",
+            "rf_msg_process"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_21_group_21": {
+      "group_id": 21,
+      "name": "group_21",
+      "primary_arg": "r4",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "rf_chan_table_lookup"
+      ],
+      "funcs_sub": [
+        "sub_11146C",
+        "sub_11DDCC"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_11146C",
+            "sub_11DDCC"
+          ],
+          "writes": [
+            "sub_11146C",
+            "sub_11DDCC"
+          ]
+        },
+        "off_000e_s4": {
+          "offset": 14,
+          "size": 4,
+          "reads": [
+            "sub_11146C"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_22_group_22": {
+      "group_id": 22,
+      "name": "group_22",
+      "primary_arg": "r0",
+      "n_funcs_total": 3,
+      "funcs_named": [
+        "rf_bus_setup_1804",
+        "rf_bus_setup_n14c"
+      ],
+      "funcs_sub": [
+        "sub_111A24"
+      ],
+      "field_touches": {
+        "off_0003_s1": {
+          "offset": 3,
+          "size": 1,
+          "reads": [
+            "rf_bus_setup_1804",
+            "sub_111A24",
+            "rf_bus_setup_n14c"
+          ],
+          "writes": [
+            "rf_bus_setup_1804",
+            "sub_111A24",
+            "rf_bus_setup_n14c"
+          ]
+        },
+        "off_0000_s2": {
+          "offset": 0,
+          "size": 2,
+          "reads": [],
+          "writes": [
+            "rf_bus_setup_1804",
+            "sub_111A24",
+            "rf_bus_setup_n14c"
+          ]
+        },
+        "off_0004_s4": {
+          "offset": 4,
+          "size": 4,
+          "reads": [],
+          "writes": [
+            "rf_bus_setup_1804",
+            "sub_111A24",
+            "rf_bus_setup_n14c"
+          ]
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_23_group_23": {
+      "group_id": 23,
+      "name": "group_23",
+      "primary_arg": "r4",
+      "n_funcs_total": 4,
+      "funcs_named": [],
+      "funcs_sub": [
+        "sub_121610",
+        "sub_12161C",
+        "sub_121638",
+        "sub_121654"
+      ],
+      "field_touches": {
+        "off_0000_s4": {
+          "offset": 0,
+          "size": 4,
+          "reads": [
+            "sub_121638",
+            "sub_121610",
+            "sub_121654",
+            "sub_12161C"
+          ],
+          "writes": []
+        },
+        "off_0018_s4": {
+          "offset": 24,
+          "size": 4,
+          "reads": [
+            "sub_121638",
+            "sub_121610",
+            "sub_121654",
+            "sub_12161C"
+          ],
+          "writes": []
+        },
+        "off_0012_s4": {
+          "offset": 18,
+          "size": 4,
+          "reads": [
+            "sub_121638",
+            "sub_121610",
+            "sub_121654",
+            "sub_12161C"
+          ],
+          "writes": []
+        },
+        "off_000a_s4": {
+          "offset": 10,
+          "size": 4,
+          "reads": [
+            "sub_121638",
+            "sub_121610",
+            "sub_121654",
+            "sub_12161C"
+          ],
+          "writes": []
+        },
+        "off_000c_s4": {
+          "offset": 12,
+          "size": 4,
+          "reads": [
+            "sub_121638",
+            "sub_121610",
+            "sub_121654",
+            "sub_12161C"
+          ],
+          "writes": []
+        }
+      },
+      "llm_name": null
+    },
+    "cluster_24_group_24": {
+      "group_id": 24,
+      "name": "group_24",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    },
+    "cluster_25_group_25": {
+      "group_id": 25,
+      "name": "group_25",
+      "primary_arg": "sp",
+      "n_funcs_total": 0,
+      "funcs_named": [],
+      "funcs_sub": [],
+      "field_touches": {},
+      "llm_name": null
+    }
+  }
+}

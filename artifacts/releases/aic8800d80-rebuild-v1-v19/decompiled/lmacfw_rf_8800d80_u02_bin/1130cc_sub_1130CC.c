@@ -1,0 +1,41 @@
+// sub_1130CC @ 0x1130cc, size 124 bytes
+int sub_1130CC()
+{
+  void *v0; // r7
+  int result; // r0
+  _WORD *v2; // r9
+  _WORD *v3; // r6
+  int v4; // r8
+  int v5; // r11
+  __int16 **v6; // r10
+  unsigned __int16 v7; // r5
+  unsigned int v8; // r1
+
+  v0 = off_113148;
+  result = sub_11E71C(dword_11314C);
+  if ( *(_WORD *)(*(_DWORD *)v0 + 8) )
+  {
+    v2 = off_11315C;
+    v3 = off_113150;
+    v4 = dword_113160;
+    v5 = dword_113164;
+    v6 = (__int16 **)off_113168;
+    v7 = 0;
+    do
+    {
+      if ( !log_pool_alloc2_a18(v4, (unsigned __int16)(v2[153] - 4)) )
+      {
+        msg_parse(v5, v7);
+        if ( **v6 < 0 )
+          rf_cmd_send_n264(dword_113158, dword_113154, 495);
+      }
+      result = list_push_tail(dword_11314C);
+      v8 = *(unsigned __int16 *)(*(_DWORD *)v0 + 8);
+      ++v7;
+      ++*v3;
+    }
+    while ( v8 > v7 );
+  }
+  return result;
+}
+

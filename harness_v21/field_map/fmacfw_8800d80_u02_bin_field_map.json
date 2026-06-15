@@ -1,0 +1,4563 @@
+{
+  "img": "fmacfw_8800d80_u02_bin",
+  "structs": {
+    "vif_info": {
+      "idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "type": {
+        "offset": 60,
+        "reads": [
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "sub_1119FC",
+            "addr": 1120764
+          },
+          {
+            "func": "sub_1132AC",
+            "addr": 1127084
+          }
+        ],
+        "read_count": 56,
+        "writes": [
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "rf_clock_gate_init",
+            "addr": 1052584
+          },
+          {
+            "func": "sub_11B578",
+            "addr": 1160568
+          },
+          {
+            "func": "sub_11B7C8",
+            "addr": 1161160
+          }
+        ],
+        "write_count": 19
+      },
+      "mac_addr": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "sub_10DCEC",
+            "addr": 1105132
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD14",
+            "addr": 1105172
+          }
+        ],
+        "read_count": 40,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 70
+      },
+      "ssid": {
+        "offset": 20,
+        "reads": [
+          {
+            "func": "sub_104298",
+            "addr": 1065624
+          },
+          {
+            "func": "sub_1129E8",
+            "addr": 1124840
+          },
+          {
+            "func": "counter_increment_n1f8",
+            "addr": 1144460
+          },
+          {
+            "func": "counter_increment_n1f8",
+            "addr": 1144460
+          },
+          {
+            "func": "sub_1176A0",
+            "addr": 1144480
+          },
+          {
+            "func": "sub_11FBB8",
+            "addr": 1178552
+          },
+          {
+            "func": "sub_120840",
+            "addr": 1181760
+          },
+          {
+            "func": "sub_12503C",
+            "addr": 1200188
+          },
+          {
+            "func": "sub_126584",
+            "addr": 1205636
+          },
+          {
+            "func": "sub_13CE78",
+            "addr": 1298040
+          }
+        ],
+        "read_count": 10,
+        "writes": [
+          {
+            "func": "sub_104298",
+            "addr": 1065624
+          },
+          {
+            "func": "sub_10F180",
+            "addr": 1110400
+          },
+          {
+            "func": "sub_10F198",
+            "addr": 1110424
+          },
+          {
+            "func": "sub_10F198",
+            "addr": 1110424
+          },
+          {
+            "func": "sub_10F204",
+            "addr": 1110532
+          },
+          {
+            "func": "sub_1160A0",
+            "addr": 1138848
+          },
+          {
+            "func": "sub_1160C8",
+            "addr": 1138888
+          },
+          {
+            "func": "sub_1160C8",
+            "addr": 1138888
+          },
+          {
+            "func": "sub_11FBB8",
+            "addr": 1178552
+          },
+          {
+            "func": "rf_parse_descriptor_n3f8",
+            "addr": 1200836
+          }
+        ],
+        "write_count": 19
+      },
+      "tx_power": {
+        "offset": 68,
+        "reads": [
+          {
+            "func": "sub_1130C4",
+            "addr": 1126596
+          }
+        ],
+        "read_count": 1,
+        "writes": [],
+        "write_count": 0
+      },
+      "state": {
+        "offset": 64,
+        "reads": [
+          {
+            "func": "sub_11B578",
+            "addr": 1160568
+          }
+        ],
+        "read_count": 1,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "tx_queue": {
+      "head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "lock": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "count": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "max_len": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130F50",
+            "addr": 1249104
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "rx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "status": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      }
+    },
+    "tx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "status": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130F50",
+            "addr": 1249104
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "ke_env": {
+      "task_head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "task_tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "msg_queue": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "state": {
+        "offset": 16,
+        "reads": [
+          {
+            "func": "sub_130F50",
+            "addr": 1249104
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          },
+          {
+            "func": "sub_13105C",
+            "addr": 1249372
+          }
+        ],
+        "read_count": 3,
+        "writes": [],
+        "write_count": 0
+      }
+    },
+    "scan_req": {
+      "ssid": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "n_channels": {
+        "offset": 100,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "sub_10C638",
+            "addr": 1099320
+          }
+        ],
+        "write_count": 3
+      },
+      "flags": {
+        "offset": 104,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_114EAC",
+            "addr": 1134252
+          },
+          {
+            "func": "sub_114EAC",
+            "addr": 1134252
+          },
+          {
+            "func": "sub_114F28",
+            "addr": 1134376
+          }
+        ],
+        "write_count": 3
+      }
+    },
+    "delay_timer": {
+      "us": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "ticks": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      }
+    },
+    "mmio_clock_gate": {
+      "bit": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      }
+    },
+    "ke_dispatch_ctx": {
+      "handler": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "state": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "arg": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "next": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      }
+    },
+    "vif_bssid_ref": {
+      "vif": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "sub_10DCEC",
+            "addr": 1105132
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD14",
+            "addr": 1105172
+          }
+        ],
+        "read_count": 40,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 70
+      }
+    },
+    "vif_set_state_req": {
+      "vif_idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "bssid_lo": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "mac_hi": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          }
+        ],
+        "read_count": 265,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 87
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "state": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          }
+        ],
+        "read_count": 119,
+        "writes": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          }
+        ],
+        "write_count": 86
+      },
+      "mac": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "bssid_hi": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "sub_10DCEC",
+            "addr": 1105132
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD14",
+            "addr": 1105172
+          }
+        ],
+        "read_count": 40,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 70
+      },
+      "op": {
+        "offset": 24,
+        "reads": [
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "sub_1160A0",
+            "addr": 1138848
+          },
+          {
+            "func": "sub_1160C8",
+            "addr": 1138888
+          }
+        ],
+        "read_count": 35,
+        "writes": [
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "phy_rf_init",
+            "addr": 1062008
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          }
+        ],
+        "write_count": 33
+      }
+    },
+    "bt_hci_cmd": {
+      "ogf": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "ocf": {
+        "offset": 1,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_12AAD4",
+            "addr": 1223380
+          }
+        ],
+        "write_count": 1
+      }
+    },
+    "mmio_reg_poll": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "val": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          }
+        ],
+        "read_count": 110,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 90
+      },
+      "mask": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_100644",
+            "addr": 1050180
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006CC",
+            "addr": 1050316
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          },
+          {
+            "func": "sub_1006D8",
+            "addr": 1050328
+          }
+        ],
+        "read_count": 265,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 87
+      },
+      "ret": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          }
+        ],
+        "read_count": 119,
+        "writes": [
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100E24",
+            "addr": 1052196
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          },
+          {
+            "func": "sub_100EE8",
+            "addr": 1052392
+          }
+        ],
+        "write_count": 86
+      },
+      "expected": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "sub_10DCEC",
+            "addr": 1105132
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD14",
+            "addr": 1105172
+          }
+        ],
+        "read_count": 40,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 70
+      }
+    },
+    "tx_pkt_buf": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "fw_config_apply",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          },
+          {
+            "func": "sub_100478",
+            "addr": 1049720
+          }
+        ],
+        "read_count": 3797,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          },
+          {
+            "func": "memset_thunk",
+            "addr": 1049088
+          }
+        ],
+        "write_count": 2488
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          }
+        ],
+        "read_count": 235,
+        "writes": [
+          {
+            "func": "sub_100B90",
+            "addr": 1051536
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "rf_cmd_queue_next_n_d4",
+            "addr": 1051616
+          },
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          }
+        ],
+        "write_count": 197
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "read_count": 237,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 159
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "irq_prio_set_dca4",
+            "addr": 1105060
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "mmio_bit_clear_n0e0",
+            "addr": 1105108
+          },
+          {
+            "func": "sub_10DCEC",
+            "addr": 1105132
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD00",
+            "addr": 1105152
+          },
+          {
+            "func": "sub_10DD14",
+            "addr": 1105172
+          }
+        ],
+        "read_count": 40,
+        "writes": [
+          {
+            "func": "sub_1019D0",
+            "addr": 1055184
+          },
+          {
+            "func": "sub_1019F0",
+            "addr": 1055216
+          },
+          {
+            "func": "sub_1019F8",
+            "addr": 1055224
+          },
+          {
+            "func": "sub_1019FC",
+            "addr": 1055228
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "chip_info_is_fpga_or_emu",
+            "addr": 1055244
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A20",
+            "addr": 1055264
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          },
+          {
+            "func": "sub_101A38",
+            "addr": 1055288
+          }
+        ],
+        "write_count": 70
+      },
+      "payload_end": {
+        "offset": 800,
+        "reads": [
+          {
+            "func": "sub_1119FC",
+            "addr": 1120764
+          },
+          {
+            "func": "sub_1119FC",
+            "addr": 1120764
+          },
+          {
+            "func": "sub_1129E8",
+            "addr": 1124840
+          }
+        ],
+        "read_count": 3,
+        "writes": [
+          {
+            "func": "sub_1119FC",
+            "addr": 1120764
+          },
+          {
+            "func": "sub_1119FC",
+            "addr": 1120764
+          },
+          {
+            "func": "sub_1129E8",
+            "addr": 1124840
+          }
+        ],
+        "write_count": 3
+      }
+    }
+  }
+}

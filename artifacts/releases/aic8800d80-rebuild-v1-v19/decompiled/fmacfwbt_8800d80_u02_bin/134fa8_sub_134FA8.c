@@ -1,0 +1,25 @@
+// sub_134FA8 @ 0x134fa8, size 86 bytes
+// Doc: sub_1234FA8 [ipc]: Build and post a 6/0xa-typed message with 3 payload words
+// sub_1234FA8 [ipc]: Build and post a 6/0xa-typed message with 3 payload words
+int __fastcall sub_134FA8(int a1, int a2, int a3)
+{
+  _DWORD *v3; // r5
+
+  v3 = off_135000;
+  *((_BYTE *)off_135000 + 4) = a3;
+  v3[2] = a1;
+  *((_WORD *)v3 + 6) = a2;
+  rf_bus_mark_n_3b7(6u, 10);
+  feature_guard_sdio(
+    256,
+    dword_135008,
+    *(unsigned __int8 *)(a1 + 107),
+    a2,
+    *(unsigned __int16 *)(dword_135004 + 696 * *(unsigned __int8 *)(a1 + 116) + 50),
+    a3);
+  if ( *((_BYTE *)v3 + 4) )
+    return bt_state_poll_n_cac();
+  else
+    return sub_134B30();
+}
+

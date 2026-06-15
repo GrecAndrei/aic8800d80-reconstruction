@@ -1,0 +1,4467 @@
+{
+  "img": "lmacfw_rf_8800d80_u02_bin",
+  "structs": {
+    "vif_info": {
+      "idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "mac_addr": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "type": {
+        "offset": 60,
+        "reads": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "sub_115890",
+            "addr": 1136784
+          },
+          {
+            "func": "sub_115890",
+            "addr": 1136784
+          },
+          {
+            "func": "sub_1158A4",
+            "addr": 1136804
+          },
+          {
+            "func": "sub_1158A4",
+            "addr": 1136804
+          }
+        ],
+        "read_count": 45,
+        "writes": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "sub_118374",
+            "addr": 1147764
+          },
+          {
+            "func": "sub_1183A0",
+            "addr": 1147808
+          },
+          {
+            "func": "sub_11843C",
+            "addr": 1147964
+          },
+          {
+            "func": "sub_1184B0",
+            "addr": 1148080
+          }
+        ],
+        "write_count": 11
+      },
+      "ssid": {
+        "offset": 20,
+        "reads": [
+          {
+            "func": "sub_103C6C",
+            "addr": 1064044
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_115F78",
+            "addr": 1138552
+          },
+          {
+            "func": "sub_115FBC",
+            "addr": 1138620
+          },
+          {
+            "func": "sub_115FF0",
+            "addr": 1138672
+          },
+          {
+            "func": "sub_11AE24",
+            "addr": 1158692
+          },
+          {
+            "func": "sub_11AE24",
+            "addr": 1158692
+          },
+          {
+            "func": "sub_11CBC8",
+            "addr": 1166280
+          },
+          {
+            "func": "sub_11D8D4",
+            "addr": 1169620
+          },
+          {
+            "func": "sub_11D8F0",
+            "addr": 1169648
+          }
+        ],
+        "read_count": 16,
+        "writes": [
+          {
+            "func": "sub_103C6C",
+            "addr": 1064044
+          },
+          {
+            "func": "sub_10F434",
+            "addr": 1111092
+          },
+          {
+            "func": "sub_10F44C",
+            "addr": 1111116
+          },
+          {
+            "func": "sub_10F44C",
+            "addr": 1111116
+          },
+          {
+            "func": "sub_10F4B8",
+            "addr": 1111224
+          },
+          {
+            "func": "sub_10F50C",
+            "addr": 1111308
+          }
+        ],
+        "write_count": 6
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "sub_1125B0",
+            "addr": 1123760
+          },
+          {
+            "func": "sub_1125F4",
+            "addr": 1123828
+          }
+        ],
+        "read_count": 22,
+        "writes": [
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          },
+          {
+            "func": "sub_10D44C",
+            "addr": 1102924
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          }
+        ],
+        "write_count": 23
+      }
+    },
+    "tx_queue": {
+      "head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "count": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "lock": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      }
+    },
+    "rx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "status": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      }
+    },
+    "tx_desc": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "next": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      }
+    },
+    "ke_env": {
+      "task_head": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "task_tail": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "msg_queue": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      }
+    },
+    "scan_req": {
+      "ssid": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "n_channels": {
+        "offset": 100,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1EC",
+            "addr": 1098220
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          }
+        ],
+        "write_count": 4
+      },
+      "flags": {
+        "offset": 104,
+        "reads": [],
+        "read_count": 0,
+        "writes": [
+          {
+            "func": "sub_114A40",
+            "addr": 1133120
+          },
+          {
+            "func": "sub_114A68",
+            "addr": 1133160
+          }
+        ],
+        "write_count": 2
+      }
+    },
+    "delay_timer": {
+      "us": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "ticks": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      }
+    },
+    "mmio_clock_gate": {
+      "bit": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      }
+    },
+    "ke_dispatch_ctx": {
+      "handler": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "arg": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "next": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "state": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      }
+    },
+    "vif_bssid_ref": {
+      "vif": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "sub_1125B0",
+            "addr": 1123760
+          },
+          {
+            "func": "sub_1125F4",
+            "addr": 1123828
+          }
+        ],
+        "read_count": 22,
+        "writes": [
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          },
+          {
+            "func": "sub_10D44C",
+            "addr": 1102924
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          }
+        ],
+        "write_count": 23
+      }
+    },
+    "vif_set_state_req": {
+      "vif_idx": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "flags": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "mac": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "bssid_lo": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      },
+      "mac_hi": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "delay_us",
+            "addr": 1049952
+          },
+          {
+            "func": "delay_us",
+            "addr": 1049952
+          },
+          {
+            "func": "sub_1005E8",
+            "addr": 1050088
+          },
+          {
+            "func": "sub_1005E8",
+            "addr": 1050088
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          }
+        ],
+        "read_count": 137,
+        "writes": [
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_102B40",
+            "addr": 1059648
+          },
+          {
+            "func": "sub_102BB0",
+            "addr": 1059760
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 59
+      },
+      "state": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          }
+        ],
+        "read_count": 48,
+        "writes": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          }
+        ],
+        "write_count": 50
+      },
+      "bssid_hi": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "sub_1125B0",
+            "addr": 1123760
+          },
+          {
+            "func": "sub_1125F4",
+            "addr": 1123828
+          }
+        ],
+        "read_count": 22,
+        "writes": [
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          },
+          {
+            "func": "sub_10D44C",
+            "addr": 1102924
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          }
+        ],
+        "write_count": 23
+      },
+      "op": {
+        "offset": 24,
+        "reads": [
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1EC",
+            "addr": 1098220
+          },
+          {
+            "func": "sub_10C1EC",
+            "addr": 1098220
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          }
+        ],
+        "read_count": 10,
+        "writes": [
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          },
+          {
+            "func": "sub_10C1EC",
+            "addr": 1098220
+          },
+          {
+            "func": "sub_10C1EC",
+            "addr": 1098220
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          },
+          {
+            "func": "sub_10C2E4",
+            "addr": 1098468
+          }
+        ],
+        "write_count": 15
+      }
+    },
+    "bt_hci_cmd": {
+      "ogf": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      }
+    },
+    "mmio_reg_poll": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "val": {
+        "offset": 12,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E48",
+            "addr": 1060424
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "sub_102E84",
+            "addr": 1060484
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          },
+          {
+            "func": "sub_107A70",
+            "addr": 1079920
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          }
+        ],
+        "read_count": 80,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "bitmask_pow2_set",
+            "addr": 1104520
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAD8",
+            "addr": 1104600
+          },
+          {
+            "func": "sub_10DAF0",
+            "addr": 1104624
+          }
+        ],
+        "write_count": 80
+      },
+      "mask": {
+        "offset": 10,
+        "reads": [
+          {
+            "func": "delay_us",
+            "addr": 1049952
+          },
+          {
+            "func": "delay_us",
+            "addr": 1049952
+          },
+          {
+            "func": "sub_1005E8",
+            "addr": 1050088
+          },
+          {
+            "func": "sub_1005E8",
+            "addr": 1050088
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "panic_loop",
+            "addr": 1050100
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          }
+        ],
+        "read_count": 137,
+        "writes": [
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_1010D4",
+            "addr": 1052884
+          },
+          {
+            "func": "sub_102B40",
+            "addr": 1059648
+          },
+          {
+            "func": "sub_102BB0",
+            "addr": 1059760
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 59
+      },
+      "ret": {
+        "offset": 28,
+        "reads": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "sub_10C1B4",
+            "addr": 1098164
+          }
+        ],
+        "read_count": 48,
+        "writes": [
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "sub_100D18",
+            "addr": 1051928
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "mmio_clock_setup",
+            "addr": 1052160
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          }
+        ],
+        "write_count": 50
+      },
+      "expected": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "sub_1125B0",
+            "addr": 1123760
+          },
+          {
+            "func": "sub_1125F4",
+            "addr": 1123828
+          }
+        ],
+        "read_count": 22,
+        "writes": [
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          },
+          {
+            "func": "sub_10D44C",
+            "addr": 1102924
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          }
+        ],
+        "write_count": 23
+      }
+    },
+    "tx_pkt_buf": {
+      "addr": {
+        "offset": 0,
+        "reads": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          },
+          {
+            "func": "sub_1004CC",
+            "addr": 1049804
+          }
+        ],
+        "read_count": 2919,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1003D4",
+            "addr": 1049556
+          }
+        ],
+        "write_count": 2152
+      },
+      "len": {
+        "offset": 4,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "sub_104200",
+            "addr": 1065472
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "ftoi32_trunc_sat",
+            "addr": 1068224
+          },
+          {
+            "func": "divmod64_compute",
+            "addr": 1079508
+          }
+        ],
+        "read_count": 162,
+        "writes": [
+          {
+            "func": "start",
+            "addr": 1048832
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_100A14",
+            "addr": 1051156
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "rf_init_or_setup_n_1200a80",
+            "addr": 1051264
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          },
+          {
+            "func": "crypto_gain_clamp",
+            "addr": 1068040
+          }
+        ],
+        "write_count": 138
+      },
+      "ctrl": {
+        "offset": 8,
+        "reads": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          },
+          {
+            "func": "lmac_interrupt_init",
+            "addr": 1059416
+          }
+        ],
+        "read_count": 229,
+        "writes": [
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_100200",
+            "addr": 1049088
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "sub_1002A0",
+            "addr": 1049248
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          },
+          {
+            "func": "crypto_hw_config",
+            "addr": 1076148
+          }
+        ],
+        "write_count": 200
+      },
+      "bssid": {
+        "offset": 14,
+        "reads": [
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "rf_init_agc_or_radio",
+            "addr": 1115436
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "rf_bus_reset_n2b4",
+            "addr": 1123748
+          },
+          {
+            "func": "sub_1125B0",
+            "addr": 1123760
+          },
+          {
+            "func": "sub_1125F4",
+            "addr": 1123828
+          }
+        ],
+        "read_count": 22,
+        "writes": [
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "ipc_doorbell_handler_n_21a",
+            "addr": 1079620
+          },
+          {
+            "func": "sub_10D43C",
+            "addr": 1102908
+          },
+          {
+            "func": "sub_10D44C",
+            "addr": 1102924
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10D474",
+            "addr": 1102964
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "sub_10FE24",
+            "addr": 1113636
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          }
+        ],
+        "write_count": 23
+      },
+      "payload_end": {
+        "offset": 800,
+        "reads": [
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          }
+        ],
+        "read_count": 5,
+        "writes": [
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "rf_bus_reset2_0",
+            "addr": 1118980
+          },
+          {
+            "func": "sub_1122F0",
+            "addr": 1123056
+          }
+        ],
+        "write_count": 5
+      }
+    }
+  }
+}
