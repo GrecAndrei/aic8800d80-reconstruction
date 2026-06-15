@@ -1,0 +1,15 @@
+// v23 annotated: sub_101934 @ 0x101934
+// Original: 101934_sub_101934.c
+// Primary struct: <unclustered>
+//
+// sub_101934 @ 0x101934, size 24 bytes
+int __fastcall sub_101934(int result, int a2, int a3)
+{
+  if ( (*(_DWORD *)off_10194C & 8) != 0 )
+  {
+    result = sub_11ED58(result, a2, a3, *(_DWORD *)off_10194C << 28);
+    *(_DWORD *)off_101950 = 8;
+  }
+  return result;
+}
+

@@ -1,0 +1,36 @@
+// v23 annotated: sub_100EE8 @ 0x100ee8
+// Original: 100ee8_sub_100EE8.c
+// Primary struct: <unclustered>
+//
+// sub_100EE8 @ 0x100ee8, size 176 bytes
+_DWORD *sub_100EE8()
+{
+  unsigned int *v0; // r3
+  _DWORD *v1; // r1
+  unsigned int v2; // r4
+  _DWORD *result; // r0
+  _DWORD *v4; // r3
+
+  v0 = (unsigned int *)off_100F9C;
+  v1 = off_100FA0;
+  v2 = *(_DWORD *)off_100F9C;
+  result = off_100FA4;
+  *(_DWORD *)off_100FA0 = (*((unsigned __int8 *)off_100F98 + 1) << 10) & 0x1FC00 | *(_DWORD *)off_100FA0 & 0xFFFE03FF;
+  *v0 = *v0 & 0xFFFFFFE7 | 0x10;
+  *v0 = *v0 & 0xFFFFFFF8 | 1;
+  *v1 &= ~0x80000u;
+  *v1 &= ~0x40000u;
+  *v0 = *v0 & 0xFFFFFC1F | 0x80;
+  *result |= 2u;
+  *result &= ~1u;
+  if ( ((v2 >> 5) & 0x1F) != 4 )
+  {
+    v4 = off_100FA8;
+    *(_DWORD *)off_100FA8 |= 0x80u;
+    *v4 &= ~0x40u;
+    *v4 |= 0x40u;
+    *v4 &= ~0x80u;
+  }
+  return result;
+}
+

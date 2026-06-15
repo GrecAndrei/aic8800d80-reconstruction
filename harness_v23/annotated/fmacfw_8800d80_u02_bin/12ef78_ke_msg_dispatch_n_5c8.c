@@ -1,0 +1,15 @@
+// v23 annotated: ke_msg_dispatch_n_5c8 @ 0x12ef78
+// Original: 12ef78_ke_msg_dispatch_n_5c8.c
+// Primary struct: <unclustered>
+//
+// ke_msg_dispatch_n_5c8 @ 0x12ef78, size 42 bytes
+// Doc: ke_msg_dispatch_n_5c8 [ipc]: Dispatch KE message via IPC lookup table
+// ke_msg_dispatch_n_5c8 [ipc]: Dispatch KE message via IPC lookup table
+int __fastcall ke_msg_dispatch_n_5c8(int a1, _DWORD *a2, __int16 a3, __int16 a4)
+{
+  msg_parse(dword_12EFA4, *a2);
+  *((_DWORD *)off_12EFA8 + 1) = *a2;
+  sub_12CA10(1031, a4, a3);
+  return 0;
+}
+

@@ -1,0 +1,10 @@
+// v23 annotated: sub_11488C @ 0x11488c
+// Original: 11488c_sub_11488C.c
+// Primary struct: <unclustered>
+//
+// sub_11488C @ 0x11488c, size 12 bytes
+int __fastcall sub_11488C(int a1)
+{
+  return sub_1146E4(0x1000000, a1, 0xAu);
+}
+

@@ -1,0 +1,10 @@
+// v23 annotated: sub_115394 @ 0x115394
+// Original: 115394_sub_115394.c
+// Primary struct: <unclustered>
+//
+// sub_115394 @ 0x115394, size 10 bytes
+int __fastcall sub_115394(int a1)
+{
+  return sub_11526C(32, a1, 4u);
+}
+

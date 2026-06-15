@@ -1,0 +1,12 @@
+// v23 annotated: sub_131734 @ 0x131734
+// Original: 131734_sub_131734.c
+// Primary struct: <unclustered>
+//
+// sub_131734 @ 0x131734, size 30 bytes
+int __fastcall sub_131734(int a1, int a2, __int16 a3, __int16 a4)
+{
+  sub_14380C(dword_131754, a2, 254);
+  message_dispatch_n84(5123, a4, a3);
+  return 0;
+}
+

@@ -1,0 +1,17 @@
+// v23 annotated: sub_1202B4 @ 0x1202b4
+// Original: 1202b4_sub_1202B4.c
+// Primary struct: <unclustered>
+//
+// sub_1202B4 @ 0x1202b4, size 30 bytes
+int sub_1202B4()
+{
+  int result; // r0
+
+  if ( *((unsigned __int8 *)off_1202D4 + 18) + *((unsigned __int8 *)off_1202D4 + 17) != 1 )
+    return 0;
+  result = *((_DWORD *)off_1202D4 + 2);
+  if ( *(_BYTE *)(result + 106) )
+    return 0;
+  return result;
+}
+

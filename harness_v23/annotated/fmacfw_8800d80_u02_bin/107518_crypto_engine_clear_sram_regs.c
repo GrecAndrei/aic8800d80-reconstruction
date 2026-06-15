@@ -1,0 +1,28 @@
+// v23 annotated: crypto_engine_clear_sram_regs @ 0x107518
+// Original: 107518_crypto_engine_clear_sram_regs.c
+// Primary struct: <unclustered>
+//
+// crypto_engine_clear_sram_regs @ 0x107518, size 96 bytes
+// Doc: crypto_engine_clear_sram_regs [ke]: Clear hardware crypto SRAM control registers
+// crypto_engine_clear_sram_regs [ke]: Clear hardware crypto SRAM control registers
+_DWORD *crypto_engine_clear_sram_regs()
+{
+  unsigned int *v0; // r2
+  _DWORD *v1; // r3
+  _DWORD *result; // r0
+
+  v0 = (unsigned int *)off_107578;
+  v1 = off_10757C;
+  result = off_107580;
+  *(_DWORD *)off_107578 = *(_DWORD *)off_107578 & 0xC0FFFFFF | 0x3000000;
+  *v0 = *v0 & 0xFFC0FFFF | 0x30000;
+  *v0 = *v0 & 0xFFFFC0FF | 0x300;
+  *v0 = *v0 & 0xFFFFFFC0 | 3;
+  *v1 &= 0xC0FFFFFF;
+  *v1 &= 0xFFC0FFFF;
+  *v1 &= 0xFFFFC0FF;
+  *v1 &= 0xFFFFFFC0;
+  *result &= 0xFFFFFFC0;
+  return result;
+}
+

@@ -1,0 +1,30 @@
+// v23 annotated: bt_chan_init_all @ 0x12b064
+// Original: 12b064_bt_chan_init_all.c
+// Primary struct: <unclustered>
+//
+// bt_chan_init_all @ 0x12b064, size 48 bytes
+// Doc: bt_chan_init_all [bt]: Initialize BT channels 0..3 via per-channel setup helper
+// bt_chan_init_all [bt]: Initialize BT channels 0..3 via per-channel setup helper
+int *bt_chan_init_all()
+{
+  int *result; // r0
+  _BYTE *v1; // r3
+  int v2; // r1
+
+  phy_tbl_lookup_by_idx(0);
+  phy_tbl_lookup_by_idx(1);
+  phy_tbl_lookup_by_idx(2);
+  result = phy_tbl_lookup_by_idx(3);
+  v1 = (_BYTE *)dword_12B094;
+  v2 = dword_12B094 + 96;
+  do
+  {
+    v1[1] = 0;
+    v1[2] = 0;
+    *v1 = 0;
+    v1 += 3;
+  }
+  while ( v1 != (_BYTE *)v2 );
+  return result;
+}
+

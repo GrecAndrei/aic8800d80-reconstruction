@@ -1,0 +1,36 @@
+// v23 annotated: sub_12C068 @ 0x12c068
+// Original: 12c068_sub_12C068.c
+// Primary struct: group_21 (cluster 21)
+//
+// sub_12C068 @ 0x12c068, size 60 bytes
+int sub_12C068()
+{
+  _DWORD *v0; // r3
+  int v1; // r2
+  int result; // r0
+  int v3; // r4
+  _DWORD *v4; // r4
+
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(_DWORD *)off_12C0A4 = 1;
+  }
+  v0 = off_12C0A8;
+  v1 = *(_DWORD *)off_12C0A8;
+  result = *(_DWORD *)off_12C0B0;
+  v3 = *(_DWORD *)off_12C0A8 + 1;
+  *(_DWORD *)off_12C0A8 = v3;
+  if ( v3 )
+  {
+    v4 = off_12C0A4;
+    *v0 = v1;
+    if ( !v1 )
+    {
+      if ( *v4 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+

@@ -1,0 +1,10 @@
+// v23 annotated: sub_1154A8 @ 0x1154a8
+// Original: 1154a8_sub_1154A8.c
+// Primary struct: group_18 (cluster 18)
+//
+// sub_1154A8 @ 0x1154a8, size 10 bytes
+int __fastcall sub_1154A8(int a1)
+{
+  return sub_1153B8(2, a1, 6u);
+}
+

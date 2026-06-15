@@ -1,0 +1,16 @@
+// v23 annotated: mmio_reg_bit_clear @ 0x10db2c
+// Original: 10db2c_mmio_reg_bit_clear.c
+// Primary struct: <unclustered>
+//
+// mmio_reg_bit_clear @ 0x10db2c, size 18 bytes
+// Doc: mmio_reg_bit_clear [mmio]: Clear a single bit in MMIO register at 0x40505000
+// mmio_reg_bit_clear [mmio]: Clear a single bit in MMIO register at 0x40505000
+int __fastcall mmio_reg_bit_clear(char a1)
+{
+  int result; // r0
+
+  result = 1 << a1;
+  *((_DWORD *)off_10DB40 + 2) &= ~result;
+  return result;
+}
+

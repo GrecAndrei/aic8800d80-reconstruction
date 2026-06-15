@@ -1,0 +1,359 @@
+{
+  "fmacfw_8800d80_h_u02_bin_0x100be0": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x100be0",
+    "old_name": "sub_100BE0",
+    "new_name": "rf_cmd_queue_next_n_d4",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x117ffc": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x117ffc",
+    "old_name": "sub_117FFC",
+    "new_name": "bt_scan_channel_parse",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x124e60": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x124e60",
+    "old_name": "sub_124E60",
+    "new_name": "rf_param_select_n_e60",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x1005b0": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x1005b0",
+    "old_name": "sub_1005B0",
+    "new_name": "fw_init_setup",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x123490": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x123490",
+    "old_name": "sub_123490",
+    "new_name": "parse_subframe_header",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x114588": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x114588",
+    "old_name": "sub_114588",
+    "new_name": "rf_emit_setup_word",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x107cc8": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x107cc8",
+    "old_name": "sub_107CC8",
+    "new_name": "irq_or_flag_clear",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x12d190": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x12d190",
+    "old_name": "sub_12D190",
+    "new_name": "fmac_init_or_handler",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x12ee6c": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x12ee6c",
+    "old_name": "sub_12EE6C",
+    "new_name": "mmio_reg_write_n6c",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x100670": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x100670",
+    "old_name": "sub_100670",
+    "new_name": "variant_update_cache",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x100200": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x100200",
+    "old_name": "sub_100200",
+    "new_name": "memset_thunk",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x116f34": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x116f34",
+    "old_name": "sub_116F34",
+    "new_name": "rf_set_bit_flag",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x100b14": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x100b14",
+    "old_name": "sub_100B14",
+    "new_name": "rf_calib_init_handler",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x12fd64": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x12fd64",
+    "old_name": "sub_12FD64",
+    "new_name": "rf_mem_write_fd64",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x131548": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x131548",
+    "old_name": "sub_131548",
+    "new_name": "rx_mpdu_parse_header",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x10cc94": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x10cc94",
+    "old_name": "sub_10CC94",
+    "new_name": "mmio_radio_unlock_0x100",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x111adc": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x111adc",
+    "old_name": "sub_111ADC",
+    "new_name": "rf_state_check",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x101260": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x101260",
+    "old_name": "sub_101260",
+    "new_name": "mmio_ahb_gate_release_n_60",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x100688": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x100688",
+    "old_name": "sub_100688",
+    "new_name": "hw_config_init",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x1002a0": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x1002a0",
+    "old_name": "sub_1002A0",
+    "new_name": "fw_config_apply",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_h_u02_bin_0x130370": {
+    "img": "fmacfw_8800d80_h_u02_bin",
+    "addr": "0x130370",
+    "old_name": "sub_130370",
+    "new_name": "rf_timer_toggle_start",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x114e6c": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x114e6c",
+    "old_name": "sub_114E6C",
+    "new_name": "patch_helper",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x11bd88": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x11bd88",
+    "old_name": "sub_11BD88",
+    "new_name": "rf_indexed_lookup_n_88",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x10ed7c": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x10ed7c",
+    "old_name": "sub_10ED7C",
+    "new_name": "mmio_read_bitfield_7000101c",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x1145ac": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x1145ac",
+    "old_name": "sub_1145AC",
+    "new_name": "rf_setup_param_n5ac",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x1005b0": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x1005b0",
+    "old_name": "sub_1005B0",
+    "new_name": "fw_init_setup",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfw_8800d80_u02_bin_0x100b14": {
+    "img": "fmacfw_8800d80_u02_bin",
+    "addr": "0x100b14",
+    "old_name": "sub_100B14",
+    "new_name": "rf_calib_init_handler",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x11d0b8": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x11d0b8",
+    "old_name": "sub_11D0B8",
+    "new_name": "mmio_init_40328050",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x12ca20": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x12ca20",
+    "old_name": "sub_12CA20",
+    "new_name": "message_dispatch_n94",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x11007c": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x11007c",
+    "old_name": "sub_11007C",
+    "new_name": "log_free_pool_dispatch2_n4ac",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x100688": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x100688",
+    "old_name": "sub_100688",
+    "new_name": "hw_config_init",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x10ed6c": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x10ed6c",
+    "old_name": "sub_10ED6C",
+    "new_name": "rf_reg_read_cb",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x11f4a8": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x11f4a8",
+    "old_name": "sub_11F4A8",
+    "new_name": "rf_mem_read_n_ec",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x1197dc": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x1197dc",
+    "old_name": "sub_1197DC",
+    "new_name": "rf_iq_dc_calib_n7c",
+    "source_img": "lmacfw_rf_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x133be4": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x133be4",
+    "old_name": "sub_133BE4",
+    "new_name": "fmac_init_n_be4",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x1002a0": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x1002a0",
+    "old_name": "sub_1002A0",
+    "new_name": "fw_config_apply",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "fmacfwbt_8800d80_u02_bin_0x101954": {
+    "img": "fmacfwbt_8800d80_u02_bin",
+    "addr": "0x101954",
+    "old_name": "sub_101954",
+    "new_name": "irq47_status_handler",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x101a68": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x101a68",
+    "old_name": "phy_get_link_status",
+    "new_name": "mmio_copy_4words",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x1100d4": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x1100d4",
+    "old_name": "sub_1100D4",
+    "new_name": "log_free_dispatch_n274",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x113824": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x113824",
+    "old_name": "sub_113824",
+    "new_name": "fw_sub_1213824_load_struct_call",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x110114": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x110114",
+    "old_name": "sub_110114",
+    "new_name": "log_free_dispatch_n2b4",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x11eaa0": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x11eaa0",
+    "old_name": "sub_11EAA0",
+    "new_name": "fmac_obj_init_n_1eaa0",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x103c6c": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x103c6c",
+    "old_name": "sub_103C6C",
+    "new_name": "crypto_hw_clk_toggle_3c6c",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x100200": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x100200",
+    "old_name": "sub_100200",
+    "new_name": "memset_thunk",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x101ac4": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x101ac4",
+    "old_name": "rf_calibration_init",
+    "new_name": "hw_chip_rev_get",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x12141c": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x12141c",
+    "old_name": "sub_12141C",
+    "new_name": "rf_misc_init_n_xxx",
+    "source_img": "fmacfwbt_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x1002a0": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x1002a0",
+    "old_name": "sub_1002A0",
+    "new_name": "fw_config_apply",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x103b6c": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x103b6c",
+    "old_name": "crypto_hw_reset_seq",
+    "new_name": "crypto_hw_power_up_3b6c",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x100688": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x100688",
+    "old_name": "sub_100688",
+    "new_name": "hw_config_init",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x11ca94": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x11ca94",
+    "old_name": "sub_11CA94",
+    "new_name": "rf_stream_start2_n418",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  },
+  "lmacfw_rf_8800d80_u02_bin_0x114868": {
+    "img": "lmacfw_rf_8800d80_u02_bin",
+    "addr": "0x114868",
+    "old_name": "sub_114868",
+    "new_name": "rf_cmd_wait_n_7e",
+    "source_img": "fmacfw_8800d80_u02_bin"
+  }
+}

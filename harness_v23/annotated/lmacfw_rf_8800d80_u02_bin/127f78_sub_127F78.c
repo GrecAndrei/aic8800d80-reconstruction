@@ -1,0 +1,13 @@
+// v23 annotated: sub_127F78 @ 0x127f78
+// Original: 127f78_sub_127F78.c
+// Primary struct: <unclustered>
+//
+// sub_127F78 @ 0x127f78, size 18 bytes
+BOOL __fastcall sub_127F78(int a1, int a2)
+{
+  char v2; // cf
+
+  sub_127F10(a1, a2);
+  return !v2;
+}
+

@@ -1,0 +1,20 @@
+{
+  "images": [
+    "fmacfw_8800d80_h_u02_bin",
+    "fmacfw_8800d80_u02_bin",
+    "fmacfwbt_8800d80_u02_bin",
+    "lmacfw_rf_8800d80_u02_bin"
+  ],
+  "total_funcs": 4675,
+  "shared_addrs": 356,
+  "unique_addrs": 4319,
+  "identical_hash": 43,
+  "variant_hash": 313,
+  "in_all_3_fmacfw": 54,
+  "unique_to": {
+    "fmacfw_8800d80_h_u02_bin": 1172,
+    "fmacfw_8800d80_u02_bin": 1176,
+    "fmacfwbt_8800d80_u02_bin": 1177,
+    "lmacfw_rf_8800d80_u02_bin": 794
+  }
+}

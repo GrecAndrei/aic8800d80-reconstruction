@@ -1,0 +1,10 @@
+// v23 annotated: sub_13B7BC @ 0x13b7bc
+// Original: 13b7bc_sub_13B7BC.c
+// Primary struct: <unclustered>
+//
+// sub_13B7BC @ 0x13b7bc, size 14 bytes
+unsigned int __fastcall sub_13B7BC(int a1)
+{
+  return ((unsigned int)(a1 - (*((_DWORD *)off_13B7CC + 4) >> 10)) >> 15) & 1;
+}
+

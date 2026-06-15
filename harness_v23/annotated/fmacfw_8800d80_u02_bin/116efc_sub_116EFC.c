@@ -1,0 +1,16 @@
+// v23 annotated: sub_116EFC @ 0x116efc
+// Original: 116efc_sub_116EFC.c
+// Primary struct: <unclustered>
+//
+// sub_116EFC @ 0x116efc, size 52 bytes
+BOOL __fastcall sub_116EFC(int a1)
+{
+  if ( *((_BYTE *)off_116F30 + 510) )
+    return 0;
+  if ( !sub_128520() )
+    return 0;
+  if ( *(_BYTE *)(a1 + 1224) )
+    return sub_12A12C(*(unsigned __int8 *)(a1 + 1225)) != 0;
+  return 1;
+}
+

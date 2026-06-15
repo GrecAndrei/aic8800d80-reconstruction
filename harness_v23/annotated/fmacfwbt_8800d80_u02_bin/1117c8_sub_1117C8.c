@@ -1,0 +1,27 @@
+// v23 annotated: sub_1117C8 @ 0x1117c8
+// Original: 1117c8_sub_1117C8.c
+// Primary struct: <unclustered>
+//
+// sub_1117C8 @ 0x1117c8, size 48 bytes
+// Doc: rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
+// rf_bus_mark_nfa_17da [rf]: Mark RF bus state via helper call
+int *__fastcall sub_1117C8(int a1)
+{
+  int v2; // r0
+  int v3; // r5
+  int *result; // r0
+  int (__fastcall *v5)(_DWORD, _DWORD, int); // r3
+
+  v2 = rf_bus_write_n_1c8 + 16 * (a1 - 1);
+  v3 = *(unsigned __int8 *)(v2 + 8);
+  result = memset_thunk((int *)v2, 0, 0x10u);
+  if ( v3 )
+  {
+    result = (int *)dword_1117FC;
+    v5 = *(int (__fastcall **)(_DWORD, _DWORD, int))(dword_1117FC + 4 * a1 + 32);
+    if ( v5 )
+      return (int *)v5(0, 0, 1);
+  }
+  return result;
+}
+

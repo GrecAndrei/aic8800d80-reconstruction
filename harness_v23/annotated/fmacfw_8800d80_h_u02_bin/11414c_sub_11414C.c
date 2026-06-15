@@ -1,0 +1,39 @@
+// v23 annotated: sub_11414C @ 0x11414c
+// Original: 11414c_sub_11414C.c
+// Primary struct: <unclustered>
+//
+// sub_11414C @ 0x11414c, size 72 bytes
+int sub_11414C()
+{
+  int *v0; // r5
+  _DWORD *v1; // r4
+  int result; // r0
+  int v3; // r3
+  int v4; // r2
+
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(_DWORD *)off_114194 = 1;
+  }
+  v0 = (int *)off_114198;
+  v1 = off_11419C;
+  ++*(_DWORD *)off_114198;
+  while ( !*v1 )
+    ;
+  result = sub_12D108(*(_DWORD *)off_1141A0 + 628);
+  *v1 = 1;
+  if ( *v0 )
+  {
+    v3 = *v0 - 1;
+    v4 = *(_DWORD *)off_114194;
+    *v0 = v3;
+    if ( !v3 )
+    {
+      if ( v4 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+

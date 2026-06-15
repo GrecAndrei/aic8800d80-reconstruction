@@ -1,0 +1,22 @@
+{
+  "fmacfw_8800d80_h_u02_bin": {
+    "total_funcs": 1290,
+    "annotated": 62,
+    "with_struct": 55
+  },
+  "fmacfw_8800d80_u02_bin": {
+    "total_funcs": 1735,
+    "annotated": 106,
+    "with_struct": 63
+  },
+  "lmacfw_rf_8800d80_u02_bin": {
+    "total_funcs": 1179,
+    "annotated": 104,
+    "with_struct": 70
+  },
+  "fmacfwbt_8800d80_u02_bin": {
+    "total_funcs": 1741,
+    "annotated": 121,
+    "with_struct": 63
+  }
+}

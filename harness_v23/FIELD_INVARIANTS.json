@@ -1,0 +1,8831 @@
+{
+  "delay_timer": {
+    "ticks": {
+      "offset": 4,
+      "size": 4,
+      "read_count": 234,
+      "write_count": 186,
+      "common_readers": [
+        [
+          "sub_10F458",
+          12
+        ],
+        [
+          "log_system_init",
+          12
+        ],
+        [
+          "sub_10F318",
+          6
+        ],
+        [
+          "rf_init_blockb_e560",
+          4
+        ],
+        [
+          "mmio_reg_bit_modify",
+          4
+        ],
+        [
+          "sub_100644",
+          4
+        ],
+        [
+          "sub_10E798",
+          4
+        ],
+        [
+          "rf_init_blockb",
+          4
+        ],
+        [
+          "sub_134CAC",
+          4
+        ],
+        [
+          "buf_alloc_split_123bb64",
+          4
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_10F458",
+          4
+        ],
+        [
+          "mmio_reg_bit_modify",
+          4
+        ],
+        [
+          "sub_1236E8",
+          4
+        ],
+        [
+          "sub_100644",
+          4
+        ],
+        [
+          "log_system_init",
+          4
+        ],
+        [
+          "buf_alloc_split_123bb64",
+          4
+        ],
+        [
+          "sub_123588",
+          3
+        ],
+        [
+          "sub_1236C8",
+          3
+        ],
+        [
+          "sub_1238FC",
+          3
+        ],
+        [
+          "sub_10F318",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 47,
+          "write_count": 42,
+          "readers": [
+            [
+              "sub_10F318",
+              6
+            ],
+            [
+              "sub_10E420",
+              2
+            ],
+            [
+              "sub_10F410",
+              2
+            ],
+            [
+              "sub_11DF40",
+              2
+            ],
+            [
+              "sub_134950",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_123588",
+              3
+            ],
+            [
+              "sub_10F318",
+              2
+            ],
+            [
+              "sub_11DF40",
+              2
+            ],
+            [
+              "sub_1235A8",
+              2
+            ],
+            [
+              "sub_123780",
+              2
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 69,
+          "write_count": 55,
+          "readers": [
+            [
+              "sub_10F458",
+              12
+            ],
+            [
+              "rf_init_blockb_e560",
+              4
+            ],
+            [
+              "mmio_reg_bit_modify",
+              4
+            ],
+            [
+              "sub_100644",
+              2
+            ],
+            [
+              "mmio_read_backoff_window",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_10F458",
+              4
+            ],
+            [
+              "mmio_reg_bit_modify",
+              4
+            ],
+            [
+              "sub_1236E8",
+              4
+            ],
+            [
+              "sub_1236C8",
+              3
+            ],
+            [
+              "sub_100644",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 50,
+          "write_count": 37,
+          "readers": [
+            [
+              "sub_10E798",
+              4
+            ],
+            [
+              "delay_us",
+              2
+            ],
+            [
+              "clock_calc",
+              2
+            ],
+            [
+              "lmac_state_get_n_e0",
+              2
+            ],
+            [
+              "rf_init_or_config_n_318",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "delay_us",
+              2
+            ],
+            [
+              "clock_calc",
+              2
+            ],
+            [
+              "sub_10E798",
+              2
+            ],
+            [
+              "rf_init_or_config_n_318",
+              2
+            ],
+            [
+              "sub_11441C",
+              2
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 68,
+          "write_count": 52,
+          "readers": [
+            [
+              "log_system_init",
+              12
+            ],
+            [
+              "rf_init_blockb",
+              4
+            ],
+            [
+              "sub_134CAC",
+              4
+            ],
+            [
+              "buf_alloc_split_123bb64",
+              4
+            ],
+            [
+              "sub_100644",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "log_system_init",
+              4
+            ],
+            [
+              "buf_alloc_split_123bb64",
+              4
+            ],
+            [
+              "sub_1238FC",
+              3
+            ],
+            [
+              "sub_100644",
+              2
+            ],
+            [
+              "sub_103140",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "us": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 224,
+      "write_count": 143,
+      "common_readers": [
+        [
+          "sub_1250F4",
+          10
+        ],
+        [
+          "bt_hci_cmd_dispatch_2b8",
+          10
+        ],
+        [
+          "sub_124FB4",
+          5
+        ],
+        [
+          "sub_12A6A0",
+          4
+        ],
+        [
+          "rf_init_blockb_e560",
+          4
+        ],
+        [
+          "sub_12A7E0",
+          4
+        ],
+        [
+          "sub_100644",
+          4
+        ],
+        [
+          "sub_10E798",
+          4
+        ],
+        [
+          "rf_init_blockb",
+          4
+        ],
+        [
+          "sub_12AA04",
+          4
+        ]
+      ],
+      "common_writers": [
+        [
+          "rf_init_blockb_e560",
+          4
+        ],
+        [
+          "sub_10E9F4",
+          4
+        ],
+        [
+          "sub_10E798",
+          4
+        ],
+        [
+          "rf_init_blockb",
+          4
+        ],
+        [
+          "mmio_field_set_n1d0",
+          4
+        ],
+        [
+          "bt_fmac_init",
+          4
+        ],
+        [
+          "sub_10E420",
+          2
+        ],
+        [
+          "sub_10E8B4",
+          2
+        ],
+        [
+          "sub_10F410",
+          2
+        ],
+        [
+          "sub_123588",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 44,
+          "write_count": 36,
+          "readers": [
+            [
+              "sub_124FB4",
+              5
+            ],
+            [
+              "sub_12A6A0",
+              4
+            ],
+            [
+              "sub_10F410",
+              3
+            ],
+            [
+              "sub_10E420",
+              2
+            ],
+            [
+              "sub_123588",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_10E420",
+              2
+            ],
+            [
+              "sub_10E8B4",
+              2
+            ],
+            [
+              "sub_10F410",
+              2
+            ],
+            [
+              "sub_123588",
+              2
+            ],
+            [
+              "sub_129388",
+              2
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 63,
+          "write_count": 46,
+          "readers": [
+            [
+              "sub_1250F4",
+              10
+            ],
+            [
+              "rf_init_blockb_e560",
+              4
+            ],
+            [
+              "sub_12A7E0",
+              4
+            ],
+            [
+              "sub_10F550",
+              3
+            ],
+            [
+              "sub_100644",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "rf_init_blockb_e560",
+              4
+            ],
+            [
+              "sub_10E9F4",
+              4
+            ],
+            [
+              "mmio_read_backoff_window",
+              2
+            ],
+            [
+              "sub_10F458",
+              2
+            ],
+            [
+              "sub_10F550",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 59,
+          "write_count": 15,
+          "readers": [
+            [
+              "sub_10E798",
+              4
+            ],
+            [
+              "delay_us",
+              2
+            ],
+            [
+              "clock_calc",
+              2
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "lmac_state_get_n_e0",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_10E798",
+              4
+            ],
+            [
+              "clock_calc",
+              2
+            ],
+            [
+              "sub_10EC2C",
+              2
+            ],
+            [
+              "rf_param_load_byte",
+              2
+            ],
+            [
+              "rf_param_parse_n_5c",
+              2
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 58,
+          "write_count": 46,
+          "readers": [
+            [
+              "bt_hci_cmd_dispatch_2b8",
+              10
+            ],
+            [
+              "rf_init_blockb",
+              4
+            ],
+            [
+              "sub_12AA04",
+              4
+            ],
+            [
+              "sub_10F3A8",
+              3
+            ],
+            [
+              "sub_100644",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "rf_init_blockb",
+              4
+            ],
+            [
+              "mmio_field_set_n1d0",
+              4
+            ],
+            [
+              "bt_fmac_init",
+              4
+            ],
+            [
+              "sub_103140",
+              2
+            ],
+            [
+              "log_system_init",
+              2
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "mmio_clock_gate": {
+    "reg_addr": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 309,
+      "write_count": 172,
+      "common_readers": [
+        [
+          "sub_12072C",
+          9
+        ],
+        [
+          "sub_120750",
+          9
+        ],
+        [
+          "sub_1029C4",
+          4
+        ],
+        [
+          "sub_120770",
+          3
+        ],
+        [
+          "ipc_doorbell_handler_n_1a4",
+          2
+        ],
+        [
+          "rf_chip_ready_check",
+          2
+        ],
+        [
+          "phy_get_link_status",
+          2
+        ],
+        [
+          "sub_101A78",
+          2
+        ],
+        [
+          "sub_101A88",
+          2
+        ],
+        [
+          "sub_101A9C",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_1029C4",
+          4
+        ],
+        [
+          "sub_100AA8",
+          3
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_102984",
+          2
+        ],
+        [
+          "sub_113918",
+          2
+        ],
+        [
+          "sub_100B14",
+          1
+        ],
+        [
+          "sub_101944",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 1,
+          "write_count": 12,
+          "readers": [
+            [
+              "sub_115698",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_100AA8",
+              1
+            ],
+            [
+              "sub_100B14",
+              1
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 17,
+          "readers": [
+            [
+              "ipc_doorbell_handler_n_1a4",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_100AA8",
+              2
+            ],
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_chip_ready_check",
+              2
+            ],
+            [
+              "phy_get_link_status",
+              2
+            ],
+            [
+              "sub_101A78",
+              2
+            ],
+            [
+              "sub_101A88",
+              2
+            ],
+            [
+              "sub_101A9C",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 30,
+          "write_count": 8,
+          "readers": [
+            [
+              "sub_12072C",
+              9
+            ],
+            [
+              "sub_120750",
+              9
+            ],
+            [
+              "sub_1029C4",
+              4
+            ],
+            [
+              "sub_120770",
+              3
+            ],
+            [
+              "sub_102984",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1029C4",
+              4
+            ],
+            [
+              "sub_102984",
+              2
+            ],
+            [
+              "sub_113918",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "mask": {
+      "offset": 24,
+      "size": 1,
+      "read_count": 16,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_chip_ready_check",
+          2
+        ],
+        [
+          "phy_get_link_status",
+          2
+        ],
+        [
+          "sub_101A78",
+          2
+        ],
+        [
+          "sub_101A88",
+          2
+        ],
+        [
+          "sub_101A9C",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_chip_ready_check",
+              2
+            ],
+            [
+              "phy_get_link_status",
+              2
+            ],
+            [
+              "sub_101A78",
+              2
+            ],
+            [
+              "sub_101A88",
+              2
+            ],
+            [
+              "sub_101A9C",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "value": {
+      "offset": 28,
+      "size": 2,
+      "read_count": 16,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_chip_ready_check",
+          2
+        ],
+        [
+          "phy_get_link_status",
+          2
+        ],
+        [
+          "sub_101A78",
+          2
+        ],
+        [
+          "sub_101A88",
+          2
+        ],
+        [
+          "sub_101A9C",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_chip_ready_check",
+              2
+            ],
+            [
+              "phy_get_link_status",
+              2
+            ],
+            [
+              "sub_101A78",
+              2
+            ],
+            [
+              "sub_101A88",
+              2
+            ],
+            [
+              "sub_101A9C",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "ke_dispatch_ctx": {
+    "off_0000": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 74,
+      "write_count": 18,
+      "common_readers": [
+        [
+          "sub_1006CC",
+          20
+        ],
+        [
+          "sub_1006D8",
+          20
+        ],
+        [
+          "sub_100730",
+          8
+        ],
+        [
+          "panic_loop",
+          8
+        ],
+        [
+          "sub_10076C",
+          4
+        ],
+        [
+          "sub_1005E8",
+          4
+        ],
+        [
+          "sub_10064C",
+          4
+        ],
+        [
+          "fmac_init_dispatch",
+          2
+        ],
+        [
+          "sub_11DACC",
+          1
+        ],
+        [
+          "sub_100688",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_1006CC",
+          5
+        ],
+        [
+          "sub_1006D8",
+          5
+        ],
+        [
+          "fmac_init_dispatch",
+          2
+        ],
+        [
+          "panic_loop",
+          2
+        ],
+        [
+          "sub_11DACC",
+          1
+        ],
+        [
+          "sub_1005E8",
+          1
+        ],
+        [
+          "sub_11702C",
+          1
+        ],
+        [
+          "sub_11E04C",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 12,
+          "write_count": 3,
+          "readers": [
+            [
+              "sub_1006CC",
+              4
+            ],
+            [
+              "sub_1006D8",
+              4
+            ],
+            [
+              "sub_100730",
+              2
+            ],
+            [
+              "sub_10076C",
+              1
+            ],
+            [
+              "sub_11DACC",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              1
+            ],
+            [
+              "sub_1006D8",
+              1
+            ],
+            [
+              "sub_11DACC",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 24,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_1006CC",
+              8
+            ],
+            [
+              "sub_1006D8",
+              8
+            ],
+            [
+              "sub_100730",
+              4
+            ],
+            [
+              "sub_10076C",
+              2
+            ],
+            [
+              "fmac_init_dispatch",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              2
+            ],
+            [
+              "sub_1006D8",
+              2
+            ],
+            [
+              "fmac_init_dispatch",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 18,
+          "write_count": 4,
+          "readers": [
+            [
+              "panic_loop",
+              8
+            ],
+            [
+              "sub_1005E8",
+              4
+            ],
+            [
+              "sub_10064C",
+              4
+            ],
+            [
+              "sub_100688",
+              1
+            ],
+            [
+              "sub_11702C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "panic_loop",
+              2
+            ],
+            [
+              "sub_1005E8",
+              1
+            ],
+            [
+              "sub_11702C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 20,
+          "write_count": 5,
+          "readers": [
+            [
+              "sub_1006CC",
+              8
+            ],
+            [
+              "sub_1006D8",
+              8
+            ],
+            [
+              "sub_100730",
+              2
+            ],
+            [
+              "sub_10076C",
+              1
+            ],
+            [
+              "sub_11E04C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              2
+            ],
+            [
+              "sub_1006D8",
+              2
+            ],
+            [
+              "sub_11E04C",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "msg_id": {
+      "offset": 4,
+      "size": 4,
+      "read_count": 80,
+      "write_count": 66,
+      "common_readers": [
+        [
+          "panic_loop",
+          6
+        ],
+        [
+          "message_dispatch_n_4c4",
+          4
+        ],
+        [
+          "sub_10064C",
+          4
+        ],
+        [
+          "sub_1006CC",
+          3
+        ],
+        [
+          "sub_1006D8",
+          3
+        ],
+        [
+          "sub_1005E8",
+          3
+        ],
+        [
+          "sub_100730",
+          2
+        ],
+        [
+          "sub_10076C",
+          2
+        ],
+        [
+          "message_dispatch_408",
+          2
+        ],
+        [
+          "sub_100688",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "panic_loop",
+          6
+        ],
+        [
+          "sub_10064C",
+          4
+        ],
+        [
+          "sub_1006CC",
+          3
+        ],
+        [
+          "sub_1006D8",
+          3
+        ],
+        [
+          "sub_1005E8",
+          3
+        ],
+        [
+          "sub_100730",
+          2
+        ],
+        [
+          "sub_11DACC",
+          2
+        ],
+        [
+          "sub_11702C",
+          2
+        ],
+        [
+          "sub_10076C",
+          1
+        ],
+        [
+          "sub_100688",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 11,
+          "write_count": 11,
+          "readers": [
+            [
+              "sub_1006CC",
+              3
+            ],
+            [
+              "sub_1006D8",
+              3
+            ],
+            [
+              "sub_100730",
+              2
+            ],
+            [
+              "sub_10076C",
+              2
+            ],
+            [
+              "sub_11DACC",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              3
+            ],
+            [
+              "sub_1006D8",
+              3
+            ],
+            [
+              "sub_100730",
+              2
+            ],
+            [
+              "sub_11DACC",
+              2
+            ],
+            [
+              "sub_10076C",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "message_dispatch_408",
+              2
+            ],
+            [
+              "sub_12C4E8",
+              1
+            ],
+            [
+              "sub_12C538",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 16,
+          "readers": [
+            [
+              "panic_loop",
+              6
+            ],
+            [
+              "sub_10064C",
+              4
+            ],
+            [
+              "sub_1005E8",
+              3
+            ],
+            [
+              "sub_100688",
+              2
+            ],
+            [
+              "sub_11702C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "panic_loop",
+              6
+            ],
+            [
+              "sub_10064C",
+              4
+            ],
+            [
+              "sub_1005E8",
+              3
+            ],
+            [
+              "sub_11702C",
+              2
+            ],
+            [
+              "sub_100688",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "sub_12C710",
+              2
+            ],
+            [
+              "ipc_msg_dispatch_454",
+              2
+            ],
+            [
+              "sub_12C7AC",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "param": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 38,
+      "write_count": 24,
+      "common_readers": [
+        [
+          "message_dispatch_n_4c4",
+          4
+        ],
+        [
+          "message_dispatch_408",
+          2
+        ],
+        [
+          "panic_loop",
+          2
+        ],
+        [
+          "sub_10064C",
+          2
+        ],
+        [
+          "sub_12C710",
+          2
+        ],
+        [
+          "ipc_msg_dispatch_454",
+          2
+        ],
+        [
+          "sub_12C7AC",
+          2
+        ],
+        [
+          "sub_1006CC",
+          1
+        ],
+        [
+          "sub_1006D8",
+          1
+        ],
+        [
+          "sub_100730",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "panic_loop",
+          2
+        ],
+        [
+          "sub_10064C",
+          2
+        ],
+        [
+          "sub_1006CC",
+          1
+        ],
+        [
+          "sub_1006D8",
+          1
+        ],
+        [
+          "sub_100730",
+          1
+        ],
+        [
+          "sub_10076C",
+          1
+        ],
+        [
+          "sub_1005E8",
+          1
+        ],
+        [
+          "sub_100688",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 4,
+          "write_count": 4,
+          "readers": [
+            [
+              "sub_1006CC",
+              1
+            ],
+            [
+              "sub_1006D8",
+              1
+            ],
+            [
+              "sub_100730",
+              1
+            ],
+            [
+              "sub_11DACC",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              1
+            ],
+            [
+              "sub_1006D8",
+              1
+            ],
+            [
+              "sub_100730",
+              1
+            ],
+            [
+              "sub_10076C",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "message_dispatch_408",
+              2
+            ],
+            [
+              "sub_12C4E8",
+              1
+            ],
+            [
+              "sub_12C538",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 6,
+          "write_count": 6,
+          "readers": [
+            [
+              "panic_loop",
+              2
+            ],
+            [
+              "sub_10064C",
+              2
+            ],
+            [
+              "sub_1005E8",
+              1
+            ],
+            [
+              "sub_11702C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "panic_loop",
+              2
+            ],
+            [
+              "sub_10064C",
+              2
+            ],
+            [
+              "sub_1005E8",
+              1
+            ],
+            [
+              "sub_100688",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "sub_12C710",
+              2
+            ],
+            [
+              "ipc_msg_dispatch_454",
+              2
+            ],
+            [
+              "sub_12C7AC",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "off_000c": {
+      "offset": 12,
+      "size": 4,
+      "read_count": 5,
+      "write_count": 24,
+      "common_readers": [
+        [
+          "fmac_init_dispatch",
+          2
+        ],
+        [
+          "sub_11DACC",
+          1
+        ],
+        [
+          "sub_11702C",
+          1
+        ],
+        [
+          "sub_11E04C",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_1006CC",
+          5
+        ],
+        [
+          "sub_1006D8",
+          5
+        ],
+        [
+          "sub_100730",
+          4
+        ],
+        [
+          "sub_10076C",
+          4
+        ],
+        [
+          "panic_loop",
+          2
+        ],
+        [
+          "sub_10064C",
+          2
+        ],
+        [
+          "sub_1005E8",
+          1
+        ],
+        [
+          "sub_100688",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 1,
+          "write_count": 4,
+          "readers": [
+            [
+              "sub_11DACC",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              1
+            ],
+            [
+              "sub_1006D8",
+              1
+            ],
+            [
+              "sub_100730",
+              1
+            ],
+            [
+              "sub_10076C",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 8,
+          "readers": [
+            [
+              "fmac_init_dispatch",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              2
+            ],
+            [
+              "sub_1006D8",
+              2
+            ],
+            [
+              "sub_100730",
+              2
+            ],
+            [
+              "sub_10076C",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 1,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_11702C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "panic_loop",
+              2
+            ],
+            [
+              "sub_10064C",
+              2
+            ],
+            [
+              "sub_1005E8",
+              1
+            ],
+            [
+              "sub_100688",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 1,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_11E04C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1006CC",
+              2
+            ],
+            [
+              "sub_1006D8",
+              2
+            ],
+            [
+              "sub_100730",
+              1
+            ],
+            [
+              "sub_10076C",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "status": {
+      "offset": 109,
+      "size": 1,
+      "read_count": 0,
+      "write_count": 14,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "message_dispatch_n_4c4",
+          4
+        ],
+        [
+          "message_dispatch_408",
+          2
+        ],
+        [
+          "sub_12C710",
+          2
+        ],
+        [
+          "ipc_msg_dispatch_454",
+          2
+        ],
+        [
+          "sub_12C7AC",
+          2
+        ],
+        [
+          "sub_12C4E8",
+          1
+        ],
+        [
+          "sub_12C538",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 6,
+          "readers": [],
+          "writers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "message_dispatch_408",
+              2
+            ],
+            [
+              "sub_12C4E8",
+              1
+            ],
+            [
+              "sub_12C538",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 8,
+          "readers": [],
+          "writers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "sub_12C710",
+              2
+            ],
+            [
+              "ipc_msg_dispatch_454",
+              2
+            ],
+            [
+              "sub_12C7AC",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "task_id": {
+      "offset": 6,
+      "size": 2,
+      "read_count": 14,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "message_dispatch_n_4c4",
+          4
+        ],
+        [
+          "message_dispatch_408",
+          2
+        ],
+        [
+          "sub_12C710",
+          2
+        ],
+        [
+          "ipc_msg_dispatch_454",
+          2
+        ],
+        [
+          "sub_12C7AC",
+          2
+        ],
+        [
+          "sub_12C4E8",
+          1
+        ],
+        [
+          "sub_12C538",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "message_dispatch_408",
+              2
+            ],
+            [
+              "sub_12C4E8",
+              1
+            ],
+            [
+              "sub_12C538",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "message_dispatch_n_4c4",
+              2
+            ],
+            [
+              "sub_12C710",
+              2
+            ],
+            [
+              "ipc_msg_dispatch_454",
+              2
+            ],
+            [
+              "sub_12C7AC",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "vif_bssid_ref": {
+    "bssid": {
+      "offset": 14,
+      "size": 2,
+      "read_count": 29,
+      "write_count": 10,
+      "common_readers": [
+        [
+          "msg_alloc_and_init_n1e6",
+          2
+        ],
+        [
+          "sub_12DCE0",
+          2
+        ],
+        [
+          "sub_12DF08",
+          2
+        ],
+        [
+          "sub_12D89C",
+          1
+        ],
+        [
+          "sub_12D8DC",
+          1
+        ],
+        [
+          "sub_12D918",
+          1
+        ],
+        [
+          "sub_12DAC4",
+          1
+        ],
+        [
+          "sub_12DB04",
+          1
+        ],
+        [
+          "sub_12DB40",
+          1
+        ],
+        [
+          "sub_12DB80",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_121648",
+          2
+        ],
+        [
+          "sub_1216F4",
+          2
+        ],
+        [
+          "sub_121624",
+          1
+        ],
+        [
+          "sub_121774",
+          1
+        ],
+        [
+          "sub_12B3A4",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 10,
+          "readers": [],
+          "writers": [
+            [
+              "sub_121648",
+              2
+            ],
+            [
+              "sub_1216F4",
+              2
+            ],
+            [
+              "sub_121624",
+              1
+            ],
+            [
+              "sub_121774",
+              1
+            ],
+            [
+              "sub_12B3A4",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "msg_alloc_and_init_n1e6",
+              2
+            ],
+            [
+              "sub_12DCE0",
+              2
+            ],
+            [
+              "sub_12D89C",
+              1
+            ],
+            [
+              "sub_12D8DC",
+              1
+            ],
+            [
+              "sub_12D918",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_12DF08",
+              2
+            ],
+            [
+              "sub_12DAC4",
+              1
+            ],
+            [
+              "sub_12DB04",
+              1
+            ],
+            [
+              "sub_12DB40",
+              1
+            ],
+            [
+              "sub_12DB80",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "vif": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 224,
+      "write_count": 31,
+      "common_readers": [
+        [
+          "sub_12DCE0",
+          28
+        ],
+        [
+          "sub_12DF08",
+          28
+        ],
+        [
+          "sub_12DC20",
+          14
+        ],
+        [
+          "sub_12DC60",
+          14
+        ],
+        [
+          "sub_12DCA0",
+          14
+        ],
+        [
+          "sub_12DE48",
+          14
+        ],
+        [
+          "sub_12DE88",
+          14
+        ],
+        [
+          "sub_12DEC8",
+          14
+        ],
+        [
+          "sub_12DB60",
+          13
+        ],
+        [
+          "sub_12DD88",
+          13
+        ]
+      ],
+      "common_writers": [
+        [
+          "msg_alloc_and_init_n1e6",
+          2
+        ],
+        [
+          "sub_12DCE0",
+          2
+        ],
+        [
+          "sub_12DF08",
+          2
+        ],
+        [
+          "sub_121624",
+          1
+        ],
+        [
+          "sub_121648",
+          1
+        ],
+        [
+          "sub_12D89C",
+          1
+        ],
+        [
+          "sub_12D8DC",
+          1
+        ],
+        [
+          "sub_12D918",
+          1
+        ],
+        [
+          "sub_12DAC4",
+          1
+        ],
+        [
+          "sub_12DB04",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 2,
+          "readers": [
+            [
+              "sub_1216F4",
+              1
+            ],
+            [
+              "sub_121774",
+              1
+            ],
+            [
+              "sub_12B3A4",
+              1
+            ],
+            [
+              "sub_12B3D4",
+              1
+            ],
+            [
+              "sub_12B3E8",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_121624",
+              1
+            ],
+            [
+              "sub_121648",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 109,
+          "write_count": 15,
+          "readers": [
+            [
+              "sub_12DCE0",
+              28
+            ],
+            [
+              "sub_12DC20",
+              14
+            ],
+            [
+              "sub_12DC60",
+              14
+            ],
+            [
+              "sub_12DCA0",
+              14
+            ],
+            [
+              "sub_12DB60",
+              13
+            ]
+          ],
+          "writers": [
+            [
+              "msg_alloc_and_init_n1e6",
+              2
+            ],
+            [
+              "sub_12DCE0",
+              2
+            ],
+            [
+              "sub_12D89C",
+              1
+            ],
+            [
+              "sub_12D8DC",
+              1
+            ],
+            [
+              "sub_12D918",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 109,
+          "write_count": 14,
+          "readers": [
+            [
+              "sub_12DF08",
+              28
+            ],
+            [
+              "sub_12DE48",
+              14
+            ],
+            [
+              "sub_12DE88",
+              14
+            ],
+            [
+              "sub_12DEC8",
+              14
+            ],
+            [
+              "sub_12DD88",
+              13
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12DF08",
+              2
+            ],
+            [
+              "sub_12DAC4",
+              1
+            ],
+            [
+              "sub_12DB04",
+              1
+            ],
+            [
+              "sub_12DB40",
+              1
+            ],
+            [
+              "sub_12DB80",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "vif_set_state_req": {
+    "vif_idx": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 289,
+      "write_count": 40,
+      "common_readers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 11,
+          "write_count": 0,
+          "readers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 0,
+          "readers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "flags": {
+      "offset": 4,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 40,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 11,
+          "readers": [],
+          "writers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 14,
+          "readers": [],
+          "writers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "mac": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 40,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 11,
+          "readers": [],
+          "writers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 14,
+          "readers": [],
+          "writers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "bssid_lo": {
+      "offset": 12,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 40,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 11,
+          "readers": [],
+          "writers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 14,
+          "readers": [],
+          "writers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "mac_hi": {
+      "offset": 10,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 40,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 11,
+          "readers": [],
+          "writers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 14,
+          "readers": [],
+          "writers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "bssid_hi": {
+      "offset": 14,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 40,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 0,
+          "write_count": 11,
+          "readers": [],
+          "writers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 14,
+          "readers": [],
+          "writers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "op": {
+      "offset": 24,
+      "size": 1,
+      "read_count": 40,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 11,
+          "write_count": 0,
+          "readers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 0,
+          "readers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "state": {
+      "offset": 28,
+      "size": 2,
+      "read_count": 40,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "debug_if_check_40320038",
+          2
+        ],
+        [
+          "chip_info_is_fpga_or_emu",
+          2
+        ],
+        [
+          "sub_101A20",
+          2
+        ],
+        [
+          "sub_101A38",
+          2
+        ],
+        [
+          "mmio_copy_4words",
+          2
+        ],
+        [
+          "sub_101878",
+          2
+        ],
+        [
+          "sub_10189C",
+          2
+        ],
+        [
+          "sub_1018C4",
+          2
+        ],
+        [
+          "sysctl_chip_id_get",
+          2
+        ],
+        [
+          "fmacfwbt_init_or_handler",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 11,
+          "write_count": 0,
+          "readers": [
+            [
+              "debug_if_check_40320038",
+              2
+            ],
+            [
+              "sub_101944",
+              1
+            ],
+            [
+              "sub_10194C",
+              1
+            ],
+            [
+              "sub_101950",
+              1
+            ],
+            [
+              "sub_101960",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 0,
+          "readers": [
+            [
+              "chip_info_is_fpga_or_emu",
+              2
+            ],
+            [
+              "sub_101A20",
+              2
+            ],
+            [
+              "sub_101A38",
+              2
+            ],
+            [
+              "mmio_copy_4words",
+              2
+            ],
+            [
+              "sub_1019D0",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_101878",
+              2
+            ],
+            [
+              "sub_10189C",
+              2
+            ],
+            [
+              "sub_1018C4",
+              2
+            ],
+            [
+              "sysctl_chip_id_get",
+              2
+            ],
+            [
+              "fmacfwbt_init_or_handler",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "bt_hci_cmd": {
+    "ogf": {
+      "offset": 0,
+      "size": 1,
+      "read_count": 135,
+      "write_count": 17,
+      "common_readers": [
+        [
+          "sub_12DCE0",
+          6
+        ],
+        [
+          "sub_12DF08",
+          6
+        ],
+        [
+          "sub_12D648",
+          3
+        ],
+        [
+          "sub_12D6EC",
+          3
+        ],
+        [
+          "sub_12D8BC",
+          3
+        ],
+        [
+          "sub_12D8F8",
+          3
+        ],
+        [
+          "sub_12D938",
+          3
+        ],
+        [
+          "sub_12D788",
+          3
+        ],
+        [
+          "sub_12D82C",
+          3
+        ],
+        [
+          "sub_12D9FC",
+          3
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_121D84",
+          2
+        ],
+        [
+          "rx_mpdu_parse_header",
+          2
+        ],
+        [
+          "sub_136734",
+          2
+        ],
+        [
+          "rf_chan_param_lookup_n1f0",
+          2
+        ],
+        [
+          "sub_121C44",
+          1
+        ],
+        [
+          "sub_131408",
+          1
+        ],
+        [
+          "sub_135F64",
+          1
+        ],
+        [
+          "sub_1365F4",
+          1
+        ],
+        [
+          "sub_1360A4",
+          1
+        ],
+        [
+          "sub_131764",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 43,
+          "write_count": 4,
+          "readers": [
+            [
+              "sub_12D648",
+              3
+            ],
+            [
+              "sub_12D6EC",
+              3
+            ],
+            [
+              "sub_12D8BC",
+              3
+            ],
+            [
+              "sub_12D8F8",
+              3
+            ],
+            [
+              "sub_12D938",
+              3
+            ]
+          ],
+          "writers": [
+            [
+              "sub_121C44",
+              1
+            ],
+            [
+              "sub_131408",
+              1
+            ],
+            [
+              "sub_135F64",
+              1
+            ],
+            [
+              "sub_1365F4",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 46,
+          "write_count": 7,
+          "readers": [
+            [
+              "sub_12DCE0",
+              6
+            ],
+            [
+              "sub_12D788",
+              3
+            ],
+            [
+              "sub_12D82C",
+              3
+            ],
+            [
+              "sub_12D9FC",
+              3
+            ],
+            [
+              "sub_12DA38",
+              3
+            ]
+          ],
+          "writers": [
+            [
+              "sub_121D84",
+              2
+            ],
+            [
+              "rx_mpdu_parse_header",
+              2
+            ],
+            [
+              "sub_136734",
+              2
+            ],
+            [
+              "sub_1360A4",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 46,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_12DF08",
+              6
+            ],
+            [
+              "sub_12D9B0",
+              3
+            ],
+            [
+              "sub_12DA54",
+              3
+            ],
+            [
+              "sub_12DC24",
+              3
+            ],
+            [
+              "sub_12DC60",
+              3
+            ]
+          ],
+          "writers": [
+            [
+              "rf_chan_param_lookup_n1f0",
+              2
+            ],
+            [
+              "sub_131764",
+              1
+            ],
+            [
+              "sub_131820",
+              1
+            ],
+            [
+              "sub_1361F4",
+              1
+            ],
+            [
+              "sub_136890",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "ocf": {
+      "offset": 1,
+      "size": 1,
+      "read_count": 153,
+      "write_count": 17,
+      "common_readers": [
+        [
+          "sub_12DCE0",
+          10
+        ],
+        [
+          "sub_12DF08",
+          6
+        ],
+        [
+          "sub_12D648",
+          5
+        ],
+        [
+          "sub_12D788",
+          5
+        ],
+        [
+          "sub_12D9B0",
+          5
+        ],
+        [
+          "sub_12D6EC",
+          4
+        ],
+        [
+          "sub_12D938",
+          4
+        ],
+        [
+          "sub_12D978",
+          4
+        ],
+        [
+          "sub_12D9BC",
+          4
+        ],
+        [
+          "sub_12D82C",
+          4
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_121D84",
+          2
+        ],
+        [
+          "rx_mpdu_parse_header",
+          2
+        ],
+        [
+          "sub_136734",
+          2
+        ],
+        [
+          "rf_chan_param_lookup_n1f0",
+          2
+        ],
+        [
+          "sub_121C44",
+          1
+        ],
+        [
+          "sub_131408",
+          1
+        ],
+        [
+          "sub_135F64",
+          1
+        ],
+        [
+          "sub_1365F4",
+          1
+        ],
+        [
+          "sub_1360A4",
+          1
+        ],
+        [
+          "sub_131764",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 49,
+          "write_count": 4,
+          "readers": [
+            [
+              "sub_12D648",
+              5
+            ],
+            [
+              "sub_12D6EC",
+              4
+            ],
+            [
+              "sub_12D938",
+              4
+            ],
+            [
+              "sub_12D978",
+              4
+            ],
+            [
+              "sub_12D9BC",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "sub_121C44",
+              1
+            ],
+            [
+              "sub_131408",
+              1
+            ],
+            [
+              "sub_135F64",
+              1
+            ],
+            [
+              "sub_1365F4",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 52,
+          "write_count": 7,
+          "readers": [
+            [
+              "sub_12DCE0",
+              6
+            ],
+            [
+              "sub_12D788",
+              5
+            ],
+            [
+              "sub_12D82C",
+              4
+            ],
+            [
+              "sub_12DA78",
+              4
+            ],
+            [
+              "sub_12DAB8",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "sub_121D84",
+              2
+            ],
+            [
+              "rx_mpdu_parse_header",
+              2
+            ],
+            [
+              "sub_136734",
+              2
+            ],
+            [
+              "sub_1360A4",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 52,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_12DF08",
+              6
+            ],
+            [
+              "sub_12D9B0",
+              5
+            ],
+            [
+              "sub_12DA54",
+              4
+            ],
+            [
+              "sub_12DCA0",
+              4
+            ],
+            [
+              "sub_12DCE0",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "rf_chan_param_lookup_n1f0",
+              2
+            ],
+            [
+              "sub_131764",
+              1
+            ],
+            [
+              "sub_131820",
+              1
+            ],
+            [
+              "sub_1361F4",
+              1
+            ],
+            [
+              "sub_136890",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "mmio_reg_poll": {
+    "addr": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 33,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 9,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 10,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "ret": {
+      "offset": 28,
+      "size": 4,
+      "read_count": 33,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 9,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 10,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "mask": {
+      "offset": 10,
+      "size": 4,
+      "read_count": 33,
+      "write_count": 33,
+      "common_readers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 9,
+          "write_count": 9,
+          "readers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 10,
+          "write_count": 10,
+          "readers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 8,
+          "readers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "val": {
+      "offset": 12,
+      "size": 4,
+      "read_count": 117,
+      "write_count": 56,
+      "common_readers": [
+        [
+          "fmacfw_version_get",
+          8
+        ],
+        [
+          "sub_12EA5C",
+          8
+        ],
+        [
+          "sub_11F4B4",
+          8
+        ],
+        [
+          "rf_mem_read_f4c0",
+          8
+        ],
+        [
+          "rf_mem_read_n_c8",
+          8
+        ],
+        [
+          "rf_feature_check",
+          8
+        ],
+        [
+          "sub_12EC6C",
+          8
+        ],
+        [
+          "rf_mem_read_n_ec",
+          6
+        ],
+        [
+          "sub_12E8F8",
+          4
+        ],
+        [
+          "sub_12E904",
+          4
+        ]
+      ],
+      "common_writers": [
+        [
+          "fmacfw_version_get",
+          4
+        ],
+        [
+          "sub_12EA5C",
+          4
+        ],
+        [
+          "sub_11F4B4",
+          4
+        ],
+        [
+          "rf_mem_read_f4c0",
+          4
+        ],
+        [
+          "rf_mem_read_n_c8",
+          4
+        ],
+        [
+          "rf_feature_check",
+          4
+        ],
+        [
+          "sub_12EC6C",
+          4
+        ],
+        [
+          "sub_12E8F8",
+          2
+        ],
+        [
+          "sub_12E904",
+          2
+        ],
+        [
+          "sub_12E910",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 21,
+          "write_count": 10,
+          "readers": [
+            [
+              "sub_12E8F8",
+              4
+            ],
+            [
+              "sub_12E904",
+              4
+            ],
+            [
+              "sub_12E910",
+              4
+            ],
+            [
+              "sub_12E91C",
+              4
+            ],
+            [
+              "sub_12E8EC",
+              3
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12E8F8",
+              2
+            ],
+            [
+              "sub_12E904",
+              2
+            ],
+            [
+              "sub_12E910",
+              2
+            ],
+            [
+              "sub_12E91C",
+              2
+            ],
+            [
+              "sub_12E8D0",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 31,
+          "write_count": 15,
+          "readers": [
+            [
+              "fmacfw_version_get",
+              8
+            ],
+            [
+              "sub_12EA5C",
+              8
+            ],
+            [
+              "sub_12EA10",
+              4
+            ],
+            [
+              "sub_12EA38",
+              4
+            ],
+            [
+              "sub_12EA50",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "fmacfw_version_get",
+              4
+            ],
+            [
+              "sub_12EA5C",
+              4
+            ],
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "sub_12EA38",
+              2
+            ],
+            [
+              "sub_12EA50",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 38,
+          "write_count": 18,
+          "readers": [
+            [
+              "sub_11F4B4",
+              8
+            ],
+            [
+              "rf_mem_read_f4c0",
+              8
+            ],
+            [
+              "rf_mem_read_n_c8",
+              8
+            ],
+            [
+              "rf_feature_check",
+              8
+            ],
+            [
+              "rf_mem_read_n_ec",
+              6
+            ]
+          ],
+          "writers": [
+            [
+              "sub_11F4B4",
+              4
+            ],
+            [
+              "rf_mem_read_f4c0",
+              4
+            ],
+            [
+              "rf_mem_read_n_c8",
+              4
+            ],
+            [
+              "rf_feature_check",
+              4
+            ],
+            [
+              "rf_mem_read_n_ec",
+              2
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 27,
+          "write_count": 13,
+          "readers": [
+            [
+              "sub_12EC6C",
+              8
+            ],
+            [
+              "sdio_wait_busy",
+              4
+            ],
+            [
+              "sub_12EC60",
+              4
+            ],
+            [
+              "sub_12EC78",
+              4
+            ],
+            [
+              "sub_12EC84",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12EC6C",
+              4
+            ],
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC60",
+              2
+            ],
+            [
+              "sub_12EC78",
+              2
+            ],
+            [
+              "sub_12EC84",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "expected": {
+      "offset": 14,
+      "size": 4,
+      "read_count": 33,
+      "write_count": 33,
+      "common_readers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_12EA10",
+          2
+        ],
+        [
+          "fmacfw_version_get",
+          2
+        ],
+        [
+          "sub_12EA5C",
+          2
+        ],
+        [
+          "rf_mem_read_n_ec",
+          2
+        ],
+        [
+          "sub_11F4B4",
+          2
+        ],
+        [
+          "rf_mem_read_f4c0",
+          2
+        ],
+        [
+          "rf_mem_read_n_c8",
+          2
+        ],
+        [
+          "rf_feature_check",
+          2
+        ],
+        [
+          "sdio_wait_busy",
+          2
+        ],
+        [
+          "sub_12EC6C",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 6,
+          "readers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12E8D0",
+              1
+            ],
+            [
+              "sub_12E8EC",
+              1
+            ],
+            [
+              "sub_12E8F8",
+              1
+            ],
+            [
+              "sub_12E904",
+              1
+            ],
+            [
+              "sub_12E910",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 9,
+          "write_count": 9,
+          "readers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_12EA10",
+              2
+            ],
+            [
+              "fmacfw_version_get",
+              2
+            ],
+            [
+              "sub_12EA5C",
+              2
+            ],
+            [
+              "sub_12EA2C",
+              1
+            ],
+            [
+              "sub_12EA38",
+              1
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 10,
+          "write_count": 10,
+          "readers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "rf_mem_read_n_ec",
+              2
+            ],
+            [
+              "sub_11F4B4",
+              2
+            ],
+            [
+              "rf_mem_read_f4c0",
+              2
+            ],
+            [
+              "rf_mem_read_n_c8",
+              2
+            ],
+            [
+              "rf_feature_check",
+              2
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 8,
+          "readers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sdio_wait_busy",
+              2
+            ],
+            [
+              "sub_12EC6C",
+              2
+            ],
+            [
+              "sub_12EC54",
+              1
+            ],
+            [
+              "sub_12EC60",
+              1
+            ],
+            [
+              "sub_12EC78",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "tx_pkt_buf": {
+    "addr": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 30,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_111DB4",
+          2
+        ],
+        [
+          "sub_111DB8",
+          2
+        ],
+        [
+          "sub_1116BC",
+          2
+        ],
+        [
+          "rf_bus_write_n274",
+          2
+        ],
+        [
+          "sub_111C10",
+          2
+        ],
+        [
+          "sub_111C14",
+          2
+        ],
+        [
+          "sub_111BD0",
+          1
+        ],
+        [
+          "sub_111C04",
+          1
+        ],
+        [
+          "sub_111C28",
+          1
+        ],
+        [
+          "sub_111C4C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111BD0",
+              1
+            ],
+            [
+              "sub_111C04",
+              1
+            ],
+            [
+              "sub_111C28",
+              1
+            ],
+            [
+              "sub_111C4C",
+              1
+            ],
+            [
+              "sub_111C74",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111DB4",
+              2
+            ],
+            [
+              "sub_111DB8",
+              2
+            ],
+            [
+              "sub_111D10",
+              1
+            ],
+            [
+              "sub_111D44",
+              1
+            ],
+            [
+              "sub_111D68",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1116BC",
+              2
+            ],
+            [
+              "rf_bus_write_n274",
+              2
+            ],
+            [
+              "sub_111618",
+              1
+            ],
+            [
+              "sub_11164C",
+              1
+            ],
+            [
+              "sub_111670",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111C10",
+              2
+            ],
+            [
+              "sub_111C14",
+              2
+            ],
+            [
+              "sub_111B6C",
+              1
+            ],
+            [
+              "sub_111BA0",
+              1
+            ],
+            [
+              "sub_111BC4",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "len": {
+      "offset": 4,
+      "size": 4,
+      "read_count": 30,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_111DB4",
+          2
+        ],
+        [
+          "sub_111DB8",
+          2
+        ],
+        [
+          "sub_1116BC",
+          2
+        ],
+        [
+          "rf_bus_write_n274",
+          2
+        ],
+        [
+          "sub_111C10",
+          2
+        ],
+        [
+          "sub_111C14",
+          2
+        ],
+        [
+          "sub_111BD0",
+          1
+        ],
+        [
+          "sub_111C04",
+          1
+        ],
+        [
+          "sub_111C28",
+          1
+        ],
+        [
+          "sub_111C4C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111BD0",
+              1
+            ],
+            [
+              "sub_111C04",
+              1
+            ],
+            [
+              "sub_111C28",
+              1
+            ],
+            [
+              "sub_111C4C",
+              1
+            ],
+            [
+              "sub_111C74",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111DB4",
+              2
+            ],
+            [
+              "sub_111DB8",
+              2
+            ],
+            [
+              "sub_111D10",
+              1
+            ],
+            [
+              "sub_111D44",
+              1
+            ],
+            [
+              "sub_111D68",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1116BC",
+              2
+            ],
+            [
+              "rf_bus_write_n274",
+              2
+            ],
+            [
+              "sub_111618",
+              1
+            ],
+            [
+              "sub_11164C",
+              1
+            ],
+            [
+              "sub_111670",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111C10",
+              2
+            ],
+            [
+              "sub_111C14",
+              2
+            ],
+            [
+              "sub_111B6C",
+              1
+            ],
+            [
+              "sub_111BA0",
+              1
+            ],
+            [
+              "sub_111BC4",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "ctrl": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 60,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_111DB4",
+          4
+        ],
+        [
+          "sub_111DB8",
+          4
+        ],
+        [
+          "sub_1116BC",
+          4
+        ],
+        [
+          "rf_bus_write_n274",
+          4
+        ],
+        [
+          "sub_111C10",
+          4
+        ],
+        [
+          "sub_111C14",
+          4
+        ],
+        [
+          "sub_111BD0",
+          2
+        ],
+        [
+          "sub_111C04",
+          2
+        ],
+        [
+          "sub_111C28",
+          2
+        ],
+        [
+          "sub_111C4C",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 12,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111BD0",
+              2
+            ],
+            [
+              "sub_111C04",
+              2
+            ],
+            [
+              "sub_111C28",
+              2
+            ],
+            [
+              "sub_111C4C",
+              2
+            ],
+            [
+              "sub_111C74",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111DB4",
+              4
+            ],
+            [
+              "sub_111DB8",
+              4
+            ],
+            [
+              "sub_111D10",
+              2
+            ],
+            [
+              "sub_111D44",
+              2
+            ],
+            [
+              "sub_111D68",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1116BC",
+              4
+            ],
+            [
+              "rf_bus_write_n274",
+              4
+            ],
+            [
+              "sub_111618",
+              2
+            ],
+            [
+              "sub_11164C",
+              2
+            ],
+            [
+              "sub_111670",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111C10",
+              4
+            ],
+            [
+              "sub_111C14",
+              4
+            ],
+            [
+              "sub_111B6C",
+              2
+            ],
+            [
+              "sub_111BA0",
+              2
+            ],
+            [
+              "sub_111BC4",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "bssid": {
+      "offset": 14,
+      "size": 4,
+      "read_count": 30,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_111DB4",
+          2
+        ],
+        [
+          "sub_111DB8",
+          2
+        ],
+        [
+          "sub_1116BC",
+          2
+        ],
+        [
+          "rf_bus_write_n274",
+          2
+        ],
+        [
+          "sub_111C10",
+          2
+        ],
+        [
+          "sub_111C14",
+          2
+        ],
+        [
+          "sub_111BD0",
+          1
+        ],
+        [
+          "sub_111C04",
+          1
+        ],
+        [
+          "sub_111C28",
+          1
+        ],
+        [
+          "sub_111C4C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111BD0",
+              1
+            ],
+            [
+              "sub_111C04",
+              1
+            ],
+            [
+              "sub_111C28",
+              1
+            ],
+            [
+              "sub_111C4C",
+              1
+            ],
+            [
+              "sub_111C74",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111DB4",
+              2
+            ],
+            [
+              "sub_111DB8",
+              2
+            ],
+            [
+              "sub_111D10",
+              1
+            ],
+            [
+              "sub_111D44",
+              1
+            ],
+            [
+              "sub_111D68",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1116BC",
+              2
+            ],
+            [
+              "rf_bus_write_n274",
+              2
+            ],
+            [
+              "sub_111618",
+              1
+            ],
+            [
+              "sub_11164C",
+              1
+            ],
+            [
+              "sub_111670",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111C10",
+              2
+            ],
+            [
+              "sub_111C14",
+              2
+            ],
+            [
+              "sub_111B6C",
+              1
+            ],
+            [
+              "sub_111BA0",
+              1
+            ],
+            [
+              "sub_111BC4",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "payload_end": {
+      "offset": 800,
+      "size": 4,
+      "read_count": 30,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_111DB4",
+          2
+        ],
+        [
+          "sub_111DB8",
+          2
+        ],
+        [
+          "sub_1116BC",
+          2
+        ],
+        [
+          "rf_bus_write_n274",
+          2
+        ],
+        [
+          "sub_111C10",
+          2
+        ],
+        [
+          "sub_111C14",
+          2
+        ],
+        [
+          "sub_111BD0",
+          1
+        ],
+        [
+          "sub_111C04",
+          1
+        ],
+        [
+          "sub_111C28",
+          1
+        ],
+        [
+          "sub_111C4C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 6,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111BD0",
+              1
+            ],
+            [
+              "sub_111C04",
+              1
+            ],
+            [
+              "sub_111C28",
+              1
+            ],
+            [
+              "sub_111C4C",
+              1
+            ],
+            [
+              "sub_111C74",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111DB4",
+              2
+            ],
+            [
+              "sub_111DB8",
+              2
+            ],
+            [
+              "sub_111D10",
+              1
+            ],
+            [
+              "sub_111D44",
+              1
+            ],
+            [
+              "sub_111D68",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1116BC",
+              2
+            ],
+            [
+              "rf_bus_write_n274",
+              2
+            ],
+            [
+              "sub_111618",
+              1
+            ],
+            [
+              "sub_11164C",
+              1
+            ],
+            [
+              "sub_111670",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_111C10",
+              2
+            ],
+            [
+              "sub_111C14",
+              2
+            ],
+            [
+              "sub_111B6C",
+              1
+            ],
+            [
+              "sub_111BA0",
+              1
+            ],
+            [
+              "sub_111BC4",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "irq_prio_set": {
+    "enable": {
+      "offset": 5,
+      "size": 1,
+      "read_count": 24,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ],
+        [
+          "sub_10DB48",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 24,
+          "write_count": 0,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ],
+            [
+              "sub_10DB48",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "prio": {
+      "offset": 2,
+      "size": 1,
+      "read_count": 24,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ],
+        [
+          "sub_10DB48",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 24,
+          "write_count": 0,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ],
+            [
+              "sub_10DB48",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "bitmask_state": {
+    "mask0": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 21,
+      "write_count": 20,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DAD8",
+          4
+        ],
+        [
+          "sub_10DAF0",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          3
+        ],
+        [
+          "sub_10DB04",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DAD8",
+          4
+        ],
+        [
+          "sub_10DAF0",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          2
+        ],
+        [
+          "sub_10DB04",
+          2
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 21,
+          "write_count": 20,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DAD8",
+              4
+            ],
+            [
+              "sub_10DAF0",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              3
+            ],
+            [
+              "sub_10DB04",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DAD8",
+              4
+            ],
+            [
+              "sub_10DAF0",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "sub_10DB04",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "mask1": {
+      "offset": 4,
+      "size": 4,
+      "read_count": 14,
+      "write_count": 14,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 14,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "mask2": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 16,
+      "write_count": 16,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DAD8",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "bitmask_pow2_set",
+          4
+        ],
+        [
+          "sub_10DAD8",
+          4
+        ],
+        [
+          "sub_10DA6C",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 16,
+          "write_count": 16,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DAD8",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "bitmask_pow2_set",
+              4
+            ],
+            [
+              "sub_10DAD8",
+              4
+            ],
+            [
+              "sub_10DA6C",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "prev_base": {
+      "offset": -12,
+      "size": 4,
+      "read_count": 11,
+      "write_count": 9,
+      "common_readers": [
+        [
+          "bitmask_pow2_set",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "rf_check_bit",
+          2
+        ],
+        [
+          "sub_10DA6C",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "bitmask_pow2_set",
+          2
+        ],
+        [
+          "sub_10DAD8",
+          2
+        ],
+        [
+          "sub_10DAF0",
+          2
+        ],
+        [
+          "sub_10DA6C",
+          1
+        ],
+        [
+          "sub_10DB04",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 11,
+          "write_count": 9,
+          "readers": [
+            [
+              "bitmask_pow2_set",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "rf_check_bit",
+              2
+            ],
+            [
+              "sub_10DA6C",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "bitmask_pow2_set",
+              2
+            ],
+            [
+              "sub_10DAD8",
+              2
+            ],
+            [
+              "sub_10DAF0",
+              2
+            ],
+            [
+              "sub_10DA6C",
+              1
+            ],
+            [
+              "sub_10DB04",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "rf_state": {
+    "flags": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 46,
+      "write_count": 2,
+      "common_readers": [
+        [
+          "rf_flag_clear_n_90",
+          16
+        ],
+        [
+          "patch_apply_n34e",
+          12
+        ],
+        [
+          "rf_bus_reset_n_90",
+          10
+        ],
+        [
+          "sub_1146F0",
+          8
+        ]
+      ],
+      "common_writers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 46,
+          "write_count": 2,
+          "readers": [
+            [
+              "rf_flag_clear_n_90",
+              16
+            ],
+            [
+              "patch_apply_n34e",
+              12
+            ],
+            [
+              "rf_bus_reset_n_90",
+              10
+            ],
+            [
+              "sub_1146F0",
+              8
+            ]
+          ],
+          "writers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "sub_flag0": {
+      "offset": 6,
+      "size": 1,
+      "read_count": 8,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ],
+        [
+          "patch_apply_n34e",
+          2
+        ],
+        [
+          "rf_bus_reset_n_90",
+          2
+        ],
+        [
+          "sub_1146F0",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 8,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ],
+            [
+              "patch_apply_n34e",
+              2
+            ],
+            [
+              "rf_bus_reset_n_90",
+              2
+            ],
+            [
+              "sub_1146F0",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "cfg": {
+      "offset": 88,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 8,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ],
+        [
+          "patch_apply_n34e",
+          2
+        ],
+        [
+          "rf_bus_reset_n_90",
+          2
+        ],
+        [
+          "sub_1146F0",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 8,
+          "readers": [],
+          "writers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ],
+            [
+              "patch_apply_n34e",
+              2
+            ],
+            [
+              "rf_bus_reset_n_90",
+              2
+            ],
+            [
+              "sub_1146F0",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "value": {
+      "offset": 12,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 8,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ],
+        [
+          "patch_apply_n34e",
+          2
+        ],
+        [
+          "rf_bus_reset_n_90",
+          2
+        ],
+        [
+          "sub_1146F0",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 8,
+          "readers": [],
+          "writers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ],
+            [
+              "patch_apply_n34e",
+              2
+            ],
+            [
+              "rf_bus_reset_n_90",
+              2
+            ],
+            [
+              "sub_1146F0",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "sub_flag1": {
+      "offset": 9,
+      "size": 1,
+      "read_count": 0,
+      "write_count": 8,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ],
+        [
+          "patch_apply_n34e",
+          2
+        ],
+        [
+          "rf_bus_reset_n_90",
+          2
+        ],
+        [
+          "sub_1146F0",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 8,
+          "readers": [],
+          "writers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ],
+            [
+              "patch_apply_n34e",
+              2
+            ],
+            [
+              "rf_bus_reset_n_90",
+              2
+            ],
+            [
+              "sub_1146F0",
+              2
+            ]
+          ]
+        }
+      }
+    },
+    "sub_flag2": {
+      "offset": 11,
+      "size": 1,
+      "read_count": 0,
+      "write_count": 8,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "rf_flag_clear_n_90",
+          2
+        ],
+        [
+          "patch_apply_n34e",
+          2
+        ],
+        [
+          "rf_bus_reset_n_90",
+          2
+        ],
+        [
+          "sub_1146F0",
+          2
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 8,
+          "readers": [],
+          "writers": [
+            [
+              "rf_flag_clear_n_90",
+              2
+            ],
+            [
+              "patch_apply_n34e",
+              2
+            ],
+            [
+              "rf_bus_reset_n_90",
+              2
+            ],
+            [
+              "sub_1146F0",
+              2
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "ipc_shared_buf": {
+    "state": {
+      "offset": 504,
+      "size": 4,
+      "read_count": 30,
+      "write_count": 30,
+      "common_readers": [
+        [
+          "counter_increment_n1f8",
+          4
+        ],
+        [
+          "sub_11754C",
+          2
+        ],
+        [
+          "sub_12F4E8",
+          2
+        ],
+        [
+          "sub_12F52C",
+          2
+        ],
+        [
+          "rf_msg_forward_n_1f4",
+          2
+        ],
+        [
+          "sub_117AE0",
+          2
+        ],
+        [
+          "j_rf_state_check_n36a",
+          2
+        ],
+        [
+          "rf_bt_state_check_n0a4",
+          2
+        ],
+        [
+          "sub_12F810",
+          2
+        ],
+        [
+          "sub_117560",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "counter_increment_n1f8",
+          4
+        ],
+        [
+          "sub_11754C",
+          2
+        ],
+        [
+          "sub_12F4E8",
+          2
+        ],
+        [
+          "sub_12F52C",
+          2
+        ],
+        [
+          "rf_msg_forward_n_1f4",
+          2
+        ],
+        [
+          "sub_117AE0",
+          2
+        ],
+        [
+          "j_rf_state_check_n36a",
+          2
+        ],
+        [
+          "rf_bt_state_check_n0a4",
+          2
+        ],
+        [
+          "sub_12F810",
+          2
+        ],
+        [
+          "sub_117560",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 8,
+          "write_count": 8,
+          "readers": [
+            [
+              "sub_11754C",
+              2
+            ],
+            [
+              "sub_117560",
+              1
+            ],
+            [
+              "sub_12F3A8",
+              1
+            ],
+            [
+              "sub_12F3EC",
+              1
+            ],
+            [
+              "sub_12F448",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_11754C",
+              2
+            ],
+            [
+              "sub_117560",
+              1
+            ],
+            [
+              "sub_12F3A8",
+              1
+            ],
+            [
+              "sub_12F3EC",
+              1
+            ],
+            [
+              "sub_12F448",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 13,
+          "write_count": 13,
+          "readers": [
+            [
+              "counter_increment_n1f8",
+              4
+            ],
+            [
+              "sub_12F4E8",
+              2
+            ],
+            [
+              "sub_12F52C",
+              2
+            ],
+            [
+              "rf_msg_forward_n_1f4",
+              2
+            ],
+            [
+              "sub_1176A0",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "counter_increment_n1f8",
+              4
+            ],
+            [
+              "sub_12F4E8",
+              2
+            ],
+            [
+              "sub_12F52C",
+              2
+            ],
+            [
+              "rf_msg_forward_n_1f4",
+              2
+            ],
+            [
+              "sub_1176A0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 9,
+          "write_count": 9,
+          "readers": [
+            [
+              "sub_117AE0",
+              2
+            ],
+            [
+              "j_rf_state_check_n36a",
+              2
+            ],
+            [
+              "rf_bt_state_check_n0a4",
+              2
+            ],
+            [
+              "sub_12F810",
+              2
+            ],
+            [
+              "sub_12F808",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_117AE0",
+              2
+            ],
+            [
+              "j_rf_state_check_n36a",
+              2
+            ],
+            [
+              "rf_bt_state_check_n0a4",
+              2
+            ],
+            [
+              "sub_12F810",
+              2
+            ],
+            [
+              "sub_12F808",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "ptr": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 34,
+      "write_count": 7,
+      "common_readers": [
+        [
+          "counter_increment_n1f8",
+          4
+        ],
+        [
+          "sub_117AE0",
+          4
+        ],
+        [
+          "sub_11754C",
+          2
+        ],
+        [
+          "sub_117560",
+          2
+        ],
+        [
+          "sub_1176A0",
+          2
+        ],
+        [
+          "sub_12F4E8",
+          2
+        ],
+        [
+          "sub_12F52C",
+          2
+        ],
+        [
+          "rf_msg_forward_n_1f4",
+          2
+        ],
+        [
+          "j_rf_state_check_n36a",
+          2
+        ],
+        [
+          "rf_bt_state_check_n0a4",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "counter_increment_n1f8",
+          2
+        ],
+        [
+          "sub_117AE0",
+          2
+        ],
+        [
+          "sub_11754C",
+          1
+        ],
+        [
+          "sub_117560",
+          1
+        ],
+        [
+          "sub_1176A0",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 9,
+          "write_count": 2,
+          "readers": [
+            [
+              "sub_11754C",
+              2
+            ],
+            [
+              "sub_117560",
+              2
+            ],
+            [
+              "sub_12F3A8",
+              1
+            ],
+            [
+              "sub_12F3EC",
+              1
+            ],
+            [
+              "sub_12F448",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_11754C",
+              1
+            ],
+            [
+              "sub_117560",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 3,
+          "readers": [
+            [
+              "counter_increment_n1f8",
+              4
+            ],
+            [
+              "sub_1176A0",
+              2
+            ],
+            [
+              "sub_12F4E8",
+              2
+            ],
+            [
+              "sub_12F52C",
+              2
+            ],
+            [
+              "rf_msg_forward_n_1f4",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "counter_increment_n1f8",
+              2
+            ],
+            [
+              "sub_1176A0",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 11,
+          "write_count": 2,
+          "readers": [
+            [
+              "sub_117AE0",
+              4
+            ],
+            [
+              "j_rf_state_check_n36a",
+              2
+            ],
+            [
+              "rf_bt_state_check_n0a4",
+              2
+            ],
+            [
+              "sub_12F810",
+              2
+            ],
+            [
+              "sub_12F808",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_117AE0",
+              2
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "rf_chan_cfg": {
+    "base": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 10,
+      "write_count": 4,
+      "common_readers": [
+        [
+          "sub_1108C0",
+          7
+        ],
+        [
+          "sub_11AE24",
+          2
+        ],
+        [
+          "sub_11AC80",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_1108C0",
+          4
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 10,
+          "write_count": 4,
+          "readers": [
+            [
+              "sub_1108C0",
+              7
+            ],
+            [
+              "sub_11AE24",
+              2
+            ],
+            [
+              "sub_11AC80",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1108C0",
+              4
+            ]
+          ]
+        }
+      }
+    },
+    "cfg": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 2,
+      "write_count": 2,
+      "common_readers": [
+        [
+          "sub_11AE24",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_1108C0",
+          1
+        ],
+        [
+          "sub_11AC80",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 2,
+          "readers": [
+            [
+              "sub_11AE24",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1108C0",
+              1
+            ],
+            [
+              "sub_11AC80",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "log_state": {
+    "status": {
+      "offset": 362,
+      "size": 1,
+      "read_count": 12,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 5,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "enable": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 12,
+      "write_count": 24,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "flag": {
+      "offset": 7,
+      "size": 1,
+      "read_count": 0,
+      "write_count": 12,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "count": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 12,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "level": {
+      "offset": 4,
+      "size": 2,
+      "read_count": 0,
+      "write_count": 12,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "tick": {
+      "offset": 10,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 12,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "buf": {
+      "offset": 20,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 12,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_10F44C",
+          2
+        ],
+        [
+          "sub_10EFF0",
+          2
+        ],
+        [
+          "rf_cmd_send_n_36c",
+          2
+        ],
+        [
+          "util_sub_f0b4",
+          2
+        ],
+        [
+          "sub_10F434",
+          1
+        ],
+        [
+          "sub_10F4B8",
+          1
+        ],
+        [
+          "sub_10F50C",
+          1
+        ],
+        [
+          "sub_10EFD8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10F44C",
+              2
+            ],
+            [
+              "sub_10F434",
+              1
+            ],
+            [
+              "sub_10F4B8",
+              1
+            ],
+            [
+              "sub_10F50C",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 7,
+          "readers": [],
+          "writers": [
+            [
+              "sub_10EFF0",
+              2
+            ],
+            [
+              "rf_cmd_send_n_36c",
+              2
+            ],
+            [
+              "util_sub_f0b4",
+              2
+            ],
+            [
+              "sub_10EFD8",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "phy_reg_param": {
+    "addr": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 6,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_122744",
+          1
+        ],
+        [
+          "sub_1227A8",
+          1
+        ],
+        [
+          "sub_122884",
+          1
+        ],
+        [
+          "sub_1228E8",
+          1
+        ],
+        [
+          "sub_122AB8",
+          1
+        ],
+        [
+          "sub_122B1C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122744",
+              1
+            ],
+            [
+              "sub_1227A8",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122884",
+              1
+            ],
+            [
+              "sub_1228E8",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122AB8",
+              1
+            ],
+            [
+              "sub_122B1C",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "status": {
+      "offset": 106,
+      "size": 1,
+      "read_count": 6,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_122744",
+          1
+        ],
+        [
+          "sub_1227A8",
+          1
+        ],
+        [
+          "sub_122884",
+          1
+        ],
+        [
+          "sub_1228E8",
+          1
+        ],
+        [
+          "sub_122AB8",
+          1
+        ],
+        [
+          "sub_122B1C",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122744",
+              1
+            ],
+            [
+              "sub_1227A8",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122884",
+              1
+            ],
+            [
+              "sub_1228E8",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_122AB8",
+              1
+            ],
+            [
+              "sub_122B1C",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "rf_param_tbl": {
+    "field2": {
+      "offset": 44,
+      "size": 1,
+      "read_count": 7,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_param_lookup_n_1fc",
+          2
+        ],
+        [
+          "bt_msg_handler_n54c",
+          2
+        ],
+        [
+          "sub_13A574",
+          2
+        ],
+        [
+          "sub_13A588",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_param_lookup_n_1fc",
+              2
+            ],
+            [
+              "bt_msg_handler_n54c",
+              2
+            ],
+            [
+              "sub_13A574",
+              2
+            ],
+            [
+              "sub_13A588",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "field3": {
+      "offset": 76,
+      "size": 2,
+      "read_count": 7,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_param_lookup_n_1fc",
+          2
+        ],
+        [
+          "bt_msg_handler_n54c",
+          2
+        ],
+        [
+          "sub_13A574",
+          2
+        ],
+        [
+          "sub_13A588",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_param_lookup_n_1fc",
+              2
+            ],
+            [
+              "bt_msg_handler_n54c",
+              2
+            ],
+            [
+              "sub_13A574",
+              2
+            ],
+            [
+              "sub_13A588",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "field1": {
+      "offset": 38,
+      "size": 2,
+      "read_count": 7,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_param_lookup_n_1fc",
+          2
+        ],
+        [
+          "bt_msg_handler_n54c",
+          2
+        ],
+        [
+          "sub_13A574",
+          2
+        ],
+        [
+          "sub_13A588",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_param_lookup_n_1fc",
+              2
+            ],
+            [
+              "bt_msg_handler_n54c",
+              2
+            ],
+            [
+              "sub_13A574",
+              2
+            ],
+            [
+              "sub_13A588",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  },
+  "irq_status": {
+    "status": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 36,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "sub_127AF0",
+          5
+        ],
+        [
+          "sub_143014",
+          5
+        ],
+        [
+          "irq47_status_handler",
+          4
+        ],
+        [
+          "sub_127B04",
+          4
+        ],
+        [
+          "sub_143028",
+          4
+        ],
+        [
+          "sub_127B18",
+          3
+        ],
+        [
+          "sub_14303C",
+          3
+        ],
+        [
+          "sub_1018A8",
+          2
+        ],
+        [
+          "sub_127B2C",
+          2
+        ],
+        [
+          "sub_143050",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 2,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_1018A8",
+              2
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 4,
+          "write_count": 0,
+          "readers": [
+            [
+              "irq47_status_handler",
+              4
+            ]
+          ],
+          "writers": []
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_127AF0",
+              5
+            ],
+            [
+              "sub_127B04",
+              4
+            ],
+            [
+              "sub_127B18",
+              3
+            ],
+            [
+              "sub_127B2C",
+              2
+            ],
+            [
+              "sub_127B40",
+              1
+            ]
+          ],
+          "writers": []
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 15,
+          "write_count": 0,
+          "readers": [
+            [
+              "sub_143014",
+              5
+            ],
+            [
+              "sub_143028",
+              4
+            ],
+            [
+              "sub_14303C",
+              3
+            ],
+            [
+              "sub_143050",
+              2
+            ],
+            [
+              "sub_143064",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "prev_ptr": {
+      "offset": -8,
+      "size": 4,
+      "read_count": 3,
+      "write_count": 33,
+      "common_readers": [
+        [
+          "irq47_status_handler",
+          2
+        ],
+        [
+          "sub_1018A8",
+          1
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_127AF0",
+          5
+        ],
+        [
+          "sub_143014",
+          5
+        ],
+        [
+          "sub_127B04",
+          4
+        ],
+        [
+          "sub_143028",
+          4
+        ],
+        [
+          "sub_127B18",
+          3
+        ],
+        [
+          "sub_14303C",
+          3
+        ],
+        [
+          "irq47_status_handler",
+          2
+        ],
+        [
+          "sub_127B2C",
+          2
+        ],
+        [
+          "sub_143050",
+          2
+        ],
+        [
+          "sub_1018A8",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_h_u02_bin": {
+          "read_count": 1,
+          "write_count": 1,
+          "readers": [
+            [
+              "sub_1018A8",
+              1
+            ]
+          ],
+          "writers": [
+            [
+              "sub_1018A8",
+              1
+            ]
+          ]
+        },
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 2,
+          "write_count": 2,
+          "readers": [
+            [
+              "irq47_status_handler",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "irq47_status_handler",
+              2
+            ]
+          ]
+        },
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_127AF0",
+              5
+            ],
+            [
+              "sub_127B04",
+              4
+            ],
+            [
+              "sub_127B18",
+              3
+            ],
+            [
+              "sub_127B2C",
+              2
+            ],
+            [
+              "sub_127B40",
+              1
+            ]
+          ]
+        },
+        "fmacfwbt_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 15,
+          "readers": [],
+          "writers": [
+            [
+              "sub_143014",
+              5
+            ],
+            [
+              "sub_143028",
+              4
+            ],
+            [
+              "sub_14303C",
+              3
+            ],
+            [
+              "sub_143050",
+              2
+            ],
+            [
+              "sub_143064",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "rf_stream": {
+    "kick": {
+      "offset": 2,
+      "size": 1,
+      "read_count": 0,
+      "write_count": 5,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_114104",
+          2
+        ],
+        [
+          "rf_stream_start2_n3f6",
+          2
+        ],
+        [
+          "sub_114168",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_114104",
+              2
+            ],
+            [
+              "rf_stream_start2_n3f6",
+              2
+            ],
+            [
+              "sub_114168",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "state": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 0,
+      "write_count": 5,
+      "common_readers": [],
+      "common_writers": [
+        [
+          "sub_114104",
+          2
+        ],
+        [
+          "rf_stream_start2_n3f6",
+          2
+        ],
+        [
+          "sub_114168",
+          1
+        ]
+      ],
+      "per_binary": {
+        "fmacfw_8800d80_u02_bin": {
+          "read_count": 0,
+          "write_count": 5,
+          "readers": [],
+          "writers": [
+            [
+              "sub_114104",
+              2
+            ],
+            [
+              "rf_stream_start2_n3f6",
+              2
+            ],
+            [
+              "sub_114168",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "rf_subsys": {
+    "base": {
+      "offset": 8,
+      "size": 4,
+      "read_count": 40,
+      "write_count": 40,
+      "common_readers": [
+        [
+          "sub_10DB48",
+          4
+        ],
+        [
+          "sub_10DB90",
+          4
+        ],
+        [
+          "sub_10DBA4",
+          4
+        ],
+        [
+          "irq_disable",
+          4
+        ],
+        [
+          "irq_mask_test",
+          4
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_10DB48",
+          4
+        ],
+        [
+          "sub_10DB90",
+          4
+        ],
+        [
+          "sub_10DBA4",
+          4
+        ],
+        [
+          "irq_disable",
+          4
+        ],
+        [
+          "irq_mask_test",
+          4
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 40,
+          "write_count": 40,
+          "readers": [
+            [
+              "sub_10DB48",
+              4
+            ],
+            [
+              "sub_10DB90",
+              4
+            ],
+            [
+              "sub_10DBA4",
+              4
+            ],
+            [
+              "irq_disable",
+              4
+            ],
+            [
+              "irq_mask_test",
+              4
+            ]
+          ],
+          "writers": [
+            [
+              "sub_10DB48",
+              4
+            ],
+            [
+              "sub_10DB90",
+              4
+            ],
+            [
+              "sub_10DBA4",
+              4
+            ],
+            [
+              "irq_disable",
+              4
+            ],
+            [
+              "irq_mask_test",
+              4
+            ]
+          ]
+        }
+      }
+    },
+    "cfg": {
+      "offset": 12,
+      "size": 4,
+      "read_count": 20,
+      "write_count": 20,
+      "common_readers": [
+        [
+          "sub_10DB48",
+          2
+        ],
+        [
+          "sub_10DB90",
+          2
+        ],
+        [
+          "sub_10DBA4",
+          2
+        ],
+        [
+          "irq_disable",
+          2
+        ],
+        [
+          "irq_mask_test",
+          2
+        ]
+      ],
+      "common_writers": [
+        [
+          "sub_10DB48",
+          2
+        ],
+        [
+          "sub_10DB90",
+          2
+        ],
+        [
+          "sub_10DBA4",
+          2
+        ],
+        [
+          "irq_disable",
+          2
+        ],
+        [
+          "irq_mask_test",
+          2
+        ]
+      ],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 20,
+          "write_count": 20,
+          "readers": [
+            [
+              "sub_10DB48",
+              2
+            ],
+            [
+              "sub_10DB90",
+              2
+            ],
+            [
+              "sub_10DBA4",
+              2
+            ],
+            [
+              "irq_disable",
+              2
+            ],
+            [
+              "irq_mask_test",
+              2
+            ]
+          ],
+          "writers": [
+            [
+              "sub_10DB48",
+              2
+            ],
+            [
+              "sub_10DB90",
+              2
+            ],
+            [
+              "sub_10DBA4",
+              2
+            ],
+            [
+              "irq_disable",
+              2
+            ],
+            [
+              "irq_mask_test",
+              2
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "rf_calib_tbl": {
+    "base": {
+      "offset": 0,
+      "size": 4,
+      "read_count": 14,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_calib_table_init",
+          4
+        ],
+        [
+          "accum_update_addr_pair",
+          4
+        ],
+        [
+          "sub_116C6C",
+          2
+        ],
+        [
+          "sub_116CD4",
+          2
+        ],
+        [
+          "sub_116CDC",
+          2
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 14,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_calib_table_init",
+              4
+            ],
+            [
+              "accum_update_addr_pair",
+              4
+            ],
+            [
+              "sub_116C6C",
+              2
+            ],
+            [
+              "sub_116CD4",
+              2
+            ],
+            [
+              "sub_116CDC",
+              2
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "idx": {
+      "offset": 10,
+      "size": 1,
+      "read_count": 7,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_calib_table_init",
+          2
+        ],
+        [
+          "accum_update_addr_pair",
+          2
+        ],
+        [
+          "sub_116C6C",
+          1
+        ],
+        [
+          "sub_116CD4",
+          1
+        ],
+        [
+          "sub_116CDC",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_calib_table_init",
+              2
+            ],
+            [
+              "accum_update_addr_pair",
+              2
+            ],
+            [
+              "sub_116C6C",
+              1
+            ],
+            [
+              "sub_116CD4",
+              1
+            ],
+            [
+              "sub_116CDC",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    },
+    "count": {
+      "offset": 11,
+      "size": 1,
+      "read_count": 7,
+      "write_count": 0,
+      "common_readers": [
+        [
+          "rf_calib_table_init",
+          2
+        ],
+        [
+          "accum_update_addr_pair",
+          2
+        ],
+        [
+          "sub_116C6C",
+          1
+        ],
+        [
+          "sub_116CD4",
+          1
+        ],
+        [
+          "sub_116CDC",
+          1
+        ]
+      ],
+      "common_writers": [],
+      "per_binary": {
+        "lmacfw_rf_8800d80_u02_bin": {
+          "read_count": 7,
+          "write_count": 0,
+          "readers": [
+            [
+              "rf_calib_table_init",
+              2
+            ],
+            [
+              "accum_update_addr_pair",
+              2
+            ],
+            [
+              "sub_116C6C",
+              1
+            ],
+            [
+              "sub_116CD4",
+              1
+            ],
+            [
+              "sub_116CDC",
+              1
+            ]
+          ],
+          "writers": []
+        }
+      }
+    }
+  }
+}

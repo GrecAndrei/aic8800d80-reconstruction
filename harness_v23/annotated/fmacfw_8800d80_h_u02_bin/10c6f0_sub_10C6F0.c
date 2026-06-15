@@ -1,0 +1,11 @@
+// v23 annotated: sub_10C6F0 @ 0x10c6f0
+// Original: 10c6f0_sub_10C6F0.c
+// Primary struct: <unclustered>
+//
+// sub_10C6F0 @ 0x10c6f0, size 14 bytes
+int sub_10C6F0()
+{
+  sub_10C4F8();
+  return sub_10C5BC();
+}
+

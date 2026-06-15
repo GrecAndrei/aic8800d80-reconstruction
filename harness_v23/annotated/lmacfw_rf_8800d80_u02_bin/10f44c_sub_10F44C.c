@@ -1,0 +1,27 @@
+// v23 annotated: sub_10F44C @ 0x10f44c
+// Original: 10f44c_sub_10F44C.c
+// Primary struct: log_state (cluster 19, 4 funcs)
+// Fields: enable=0x0, state=0x0, level=0x4, flag=0x7, count=0x8, tick=0xa, buf=0x14, status=0x16a
+//
+// sub_10F44C @ 0x10f44c, size 90 bytes
+int sub_10F44C()
+{
+  _BYTE *v0; // r6
+  int v1; // r4
+  int v2; // r0
+  int result; // r0
+
+  v0 = off_10F4AC;
+  v1 = *((char *)off_10F4AC + 7) - (char)(*((_BYTE *)off_10F4AC + 5) + (*(_BYTE *)off_10F4A8 & 3));
+  if ( v1 < -62 )
+    LOBYTE(v1) = -62;
+  sub_1029DC(v1);
+  v2 = dword_10F4B0;
+  v0[7] = v1;
+  result = sub_11F504(v2, (char)v1);
+  if ( (char)v1 >= -61 )
+    return sub_11AB18(v0 + 12, *((_DWORD *)off_10F4B4 + 4) + 30000 * *((unsigned __int16 *)v0 + 4));
+  v0[11] = 0;
+  return result;
+}
+

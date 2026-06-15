@@ -1,0 +1,58 @@
+// v23 annotated: sub_1156A0 @ 0x1156a0
+// Original: 1156a0_sub_1156A0.c
+// Primary struct: <unclustered>
+//
+// sub_1156A0 @ 0x1156a0, size 154 bytes
+int *__fastcall sub_1156A0(int a1, int a2, int a3, int a4)
+{
+  bool v4; // zf
+  int *v6; // r5
+  int v7; // r2
+  int v8; // r3
+  void *v11; // r8
+  int *result; // r0
+
+  v4 = a3 == 5;
+  if ( a3 != 5 )
+    a4 = 7 * a3;
+  if ( a3 == 5 )
+    v6 = (int *)dword_115744;
+  else
+    v6 = (int *)dword_115740;
+  v7 = **(__int16 **)off_11573C;
+  if ( !v4 )
+    v6 += a4;
+  v8 = *v6;
+  if ( v7 < 0 && v8 == a1 )
+    return (int *)sub_121960(dword_11574C, dword_115748, 1972, v8);
+  if ( v8 )
+  {
+    v11 = off_115750;
+    if ( *(_BYTE *)(*(_DWORD *)off_115750 + 1) || !v6[2] )
+      *(_DWORD *)(v8 + 4) = a1;
+    else
+      *(_DWORD *)(v6[1] + 4) = a1;
+    result = (int *)sub_11532C(a3);
+  }
+  else
+  {
+    result = sub_1153F4(a1, a3, v7, 0);
+    v11 = off_115750;
+  }
+  if ( !*(_BYTE *)(*(_DWORD *)v11 + 1) )
+  {
+    if ( (*(_DWORD *)(a2 + 56) & 0x200000) != 0 )
+    {
+      v6[1] = a1;
+      v6[2] = 1;
+    }
+    else
+    {
+      v6[1] = 0;
+      v6[2] = 0;
+    }
+  }
+  *(_DWORD *)(dword_115740 + 28 * a3) = a2;
+  return result;
+}
+

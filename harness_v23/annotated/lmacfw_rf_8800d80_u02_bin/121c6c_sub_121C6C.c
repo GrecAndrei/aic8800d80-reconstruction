@@ -1,0 +1,54 @@
+// v23 annotated: sub_121C6C @ 0x121c6c
+// Original: 121c6c_sub_121C6C.c
+// Primary struct: <unclustered>
+//
+// sub_121C6C @ 0x121c6c, size 136 bytes
+// Doc: rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
+// rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
+_DWORD *__fastcall sub_121C6C(int a1, _DWORD *a2, int a3)
+{
+  int v5; // r0
+  int v6; // r11
+  int v7; // r9
+  _DWORD *v8; // r4
+  int v9; // r5
+  int v10; // r6
+  _DWORD *v11; // r10
+
+  v5 = sub_12841C(a1, 46);
+  if ( v5 )
+    v6 = v5 - a1;
+  else
+    v6 = sub_1288C0(a1);
+  if ( a3 )
+  {
+    v7 = 0;
+    v8 = a2;
+    v9 = 0;
+    do
+    {
+      while ( 1 )
+      {
+        v10 = *v8;
+        ++v9;
+        v11 = v8;
+        if ( !sub_12899C(a1, *v8, v6) )
+          break;
+        v8 += 4;
+        if ( a3 == v9 )
+          goto rf_cmd_dispatch_1ccc;
+      }
+      if ( sub_1288C0(v10) == v6 )
+        return v11;
+      a2 = v8;
+      ++v7;
+      v8 += 4;
+    }
+    while ( a3 != v9 );
+rf_cmd_dispatch_1ccc:
+    if ( v7 == 1 )
+      return a2;
+  }
+  return nullptr;
+}
+

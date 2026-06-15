@@ -1,0 +1,44 @@
+// v23 annotated: sub_128294 @ 0x128294
+// Original: 128294_sub_128294.c
+// Primary struct: <unclustered>
+//
+// sub_128294 @ 0x128294, size 160 bytes
+int __fastcall sub_128294(int result)
+{
+  int v1; // r7
+  int v2; // r5
+  _BYTE *v3; // r6
+  int v4; // r8
+  int v5; // r0
+  __int16 v6; // r5
+  __int16 v7; // r4
+  int v8; // r2
+
+  v1 = *(_DWORD *)(result + 72);
+  v2 = result;
+  if ( **(__int16 **)off_128334 < 0 && !v1 )
+    result = sub_12F32C(dword_128348, dword_128344, 3591);
+  v3 = off_128338;
+  if ( (*((_BYTE *)off_128338 + 88) & 0x20) == 0 && *((unsigned __int8 *)off_128338 + 90) > 1u )
+  {
+    v4 = *(unsigned __int8 *)(v2 + 116);
+    v5 = sub_12C7EC(70, *((_BYTE *)off_128338 + 88) & 0x20, *((_BYTE *)off_128338 + 88) & 0x20, 20);
+    *(_BYTE *)v5 = 0;
+    *(_BYTE *)(v5 + 1) = *(_BYTE *)(v2 + 107);
+    *(_BYTE *)(v5 + 2) = *(_BYTE *)(v1 + 4);
+    *(_BYTE *)(v5 + 3) = *(_BYTE *)(v1 + 5);
+    v6 = *(_WORD *)(v1 + 8);
+    v7 = *(_WORD *)(v1 + 10);
+    v8 = dword_12833C;
+    *(_WORD *)(v5 + 4) = *(_WORD *)(v1 + 6);
+    *(_WORD *)(v5 + 6) = v6;
+    *(_WORD *)(v5 + 8) = v7;
+    *(_BYTE *)(v5 + 16) = *(_BYTE *)(v1 + 12);
+    *(_DWORD *)(v5 + 12) = (unsigned int)(((unsigned int)dword_128340
+                                         * (unsigned __int64)(unsigned int)(*(_DWORD *)(v8 + 696 * v4 + 8) - 5000)) >> 32) >> 6;
+    result = sub_12C84C(v5);
+    v3[88] |= 0x20u;
+  }
+  return result;
+}
+

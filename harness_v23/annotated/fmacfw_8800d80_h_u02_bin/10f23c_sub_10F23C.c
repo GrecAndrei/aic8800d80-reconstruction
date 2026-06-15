@@ -1,0 +1,20 @@
+// v23 annotated: sub_10F23C @ 0x10f23c
+// Original: 10f23c_sub_10F23C.c
+// Primary struct: <unclustered>
+//
+// sub_10F23C @ 0x10f23c, size 48 bytes
+int sub_10F23C()
+{
+  _BYTE *v0; // r4
+  char *v1; // r0
+
+  v0 = off_10F26C;
+  v1 = (char *)off_10F26C + 1624;
+  *((_WORD *)off_10F26C + 810) = 80;
+  v0[1622] = 81;
+  sub_12D100(v1);
+  *((_WORD *)v0 + 1216) = 39;
+  v0[2434] = 40;
+  return sub_12D100(v0 + 2436);
+}
+

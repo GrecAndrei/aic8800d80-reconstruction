@@ -1,0 +1,36 @@
+// v23 annotated: sub_100AA8 @ 0x100aa8
+// Original: 100aa8_sub_100AA8.c
+// Primary struct: mmio_clock_gate (cluster 1, 21 funcs)
+// Fields: reg_addr=0x0, bit_idx=0x0, mask=0x18, value=0x1c
+//
+// sub_100AA8 @ 0x100aa8, size 90 bytes
+int sub_100AA8()
+{
+  _DWORD *v0; // r2
+  int *v1; // r3
+  int v2; // r4
+  int result; // r0
+  int v4; // r1
+  _DWORD *v5; // r2
+  _DWORD *v6; // r3
+
+  v0 = off_100B04;
+  *(_DWORD *)off_100B04 |= 0x1000u;
+  v0[4896] |= 0x20000000u;
+  v1 = (int *)dword_100B08;
+  v2 = dword_100B08 + 2048;
+  result = dword_100B0C - dword_100B08;
+  do
+  {
+    v4 = *v1;
+    v5 = (int *)((char *)v1++ + result);
+    *v5 = v4;
+  }
+  while ( v1 != (int *)v2 );
+  v6 = off_100B04;
+  *(_DWORD *)off_100B04 |= 0x80000u;
+  *v6 &= ~0x1000u;
+  *(_DWORD *)off_100B10 &= ~0x20000000u;
+  return result;
+}
+

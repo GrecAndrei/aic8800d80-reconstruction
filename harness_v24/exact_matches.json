@@ -1,0 +1,267 @@
+[
+  {
+    "code_hash": "2def0739ca45",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x1007a4",
+        "name": "sub_1007A4"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x1007a4",
+        "name": "sub_1007A4"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x1007a4",
+        "name": "sub_1007A4"
+      }
+    ]
+  },
+  {
+    "code_hash": "a539b8904efb",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100898",
+        "name": "sub_100898"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100898",
+        "name": "sub_100898"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100898",
+        "name": "sub_100898"
+      }
+    ]
+  },
+  {
+    "code_hash": "7194e6c52a0b",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x1009a0",
+        "name": "sub_1009A0"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x1009a0",
+        "name": "sub_1009A0"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x1009a0",
+        "name": "sub_1009A0"
+      }
+    ]
+  },
+  {
+    "code_hash": "883e6507141c",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x1006cc",
+        "name": "sub_1006CC"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x1006cc",
+        "name": "sub_1006CC"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x1006cc",
+        "name": "sub_1006CC"
+      }
+    ]
+  },
+  {
+    "code_hash": "0af91c4a3660",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100aa8",
+        "name": "sub_100AA8"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100aa8",
+        "name": "sub_100AA8"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100aa8",
+        "name": "sub_100AA8"
+      }
+    ]
+  },
+  {
+    "code_hash": "aed67b701d2c",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100644",
+        "name": "sub_100644"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100644",
+        "name": "sub_100644"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100644",
+        "name": "sub_100644"
+      }
+    ]
+  },
+  {
+    "code_hash": "ace1f5d54336",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x1009dc",
+        "name": "sub_1009DC"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x1009dc",
+        "name": "sub_1009DC"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x1009dc",
+        "name": "sub_1009DC"
+      }
+    ]
+  },
+  {
+    "code_hash": "3fb99ad34ad7",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x1006d8",
+        "name": "sub_1006D8"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x1006d8",
+        "name": "sub_1006D8"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x1006d8",
+        "name": "sub_1006D8"
+      }
+    ]
+  },
+  {
+    "code_hash": "9954d89b897e",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x10076c",
+        "name": "sub_10076C"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x10076c",
+        "name": "sub_10076C"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x10076c",
+        "name": "sub_10076C"
+      }
+    ]
+  },
+  {
+    "code_hash": "68a8b49b7241",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100730",
+        "name": "sub_100730"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100730",
+        "name": "sub_100730"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100730",
+        "name": "sub_100730"
+      }
+    ]
+  },
+  {
+    "code_hash": "da50898c547a",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100478",
+        "name": "sub_100478"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100478",
+        "name": "sub_100478"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100478",
+        "name": "sub_100478"
+      }
+    ]
+  },
+  {
+    "code_hash": "006439ec79c5",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100b90",
+        "name": "sub_100B90"
+      },
+      {
+        "img": "fmacfw_8800d80_u02_bin",
+        "addr": "0x100b90",
+        "name": "sub_100B90"
+      }
+    ]
+  },
+  {
+    "code_hash": "b06b2c4c5aab",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100200",
+        "name": "sub_100200"
+      },
+      {
+        "img": "lmacfw_rf_8800d80_u02_bin",
+        "addr": "0x100200",
+        "name": "sub_100200"
+      }
+    ]
+  },
+  {
+    "code_hash": "0189c2f5921b",
+    "funcs": [
+      {
+        "img": "fmacfw_8800d80_h_u02_bin",
+        "addr": "0x100688",
+        "name": "sub_100688"
+      },
+      {
+        "img": "fmacfwbt_8800d80_u02_bin",
+        "addr": "0x100688",
+        "name": "sub_100688"
+      }
+    ]
+  }
+]

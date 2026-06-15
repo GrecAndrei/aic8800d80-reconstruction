@@ -1,0 +1,43 @@
+// v23 annotated: sub_112DCC @ 0x112dcc
+// Original: 112dcc_sub_112DCC.c
+// Primary struct: <unclustered>
+//
+// sub_112DCC @ 0x112dcc, size 126 bytes
+// Doc: rf_stream_start2_n_41a [rf]: Start RF stream variant 2
+// rf_stream_start2_n_41a [rf]: Start RF stream variant 2
+void sub_112DCC()
+{
+  int *v0; // r4
+  int v1; // r2
+  int v2; // r3
+  int v3; // r3
+  int v4; // r2
+
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(_DWORD *)rf_cmd_send_n_20 = 1;
+  }
+  v0 = (int *)rf_stream_start2_e50;
+  v1 = *(unsigned __int8 *)rf_stream_start2_n_3f8;
+  v2 = *(_DWORD *)rf_stream_start2_e50 + 1;
+  *(_DWORD *)rf_stream_start2_e50 = v2;
+  if ( v1 )
+  {
+    *((_DWORD *)rf_msg_handler_n_108 + 513) |= 1u;
+    while ( 1 )
+      ;
+  }
+  if ( v2 )
+  {
+    v3 = v2 - 1;
+    v4 = *(_DWORD *)rf_cmd_send_n_20;
+    *v0 = v3;
+    if ( !v3 )
+    {
+      if ( v4 )
+        __enable_irq();
+    }
+  }
+}
+

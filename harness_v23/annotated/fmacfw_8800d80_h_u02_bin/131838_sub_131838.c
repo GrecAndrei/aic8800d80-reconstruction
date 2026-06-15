@@ -1,0 +1,18 @@
+// v23 annotated: sub_131838 @ 0x131838
+// Original: 131838_sub_131838.c
+// Primary struct: <unclustered>
+//
+// sub_131838 @ 0x131838, size 70 bytes
+int __fastcall sub_131838(int a1, int a2, unsigned int a3)
+{
+  int v4; // r1
+
+  if ( **(__int16 **)off_131880 < 0 && sub_12CD48(a3) != 1 )
+    sub_12F32C(dword_13188C, dword_131888, 670);
+  v4 = *((unsigned __int16 *)off_131884 + 4);
+  if ( v4 != 255 )
+    sub_12C8D0(5144, v4, a3);
+  sub_12CBF4(a3, 0);
+  return 0;
+}
+

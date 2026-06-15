@@ -1,0 +1,18 @@
+// v23 annotated: sub_12EA5C @ 0x12ea5c
+// Original: 12ea5c_sub_12EA5C.c
+// Primary struct: delay_timer (cluster 0, 24 funcs)
+// Fields: us=0x0, ticks=0x4
+//
+// sub_12EA5C @ 0x12ea5c, size 40 bytes
+BOOL __fastcall sub_12EA5C(unsigned int a1, unsigned int a2)
+{
+  BOOL result; // r0
+
+  if ( a1 > 9 )
+    return 0;
+  result = (*(_DWORD *)off_12EA84 >> a1) & 1;
+  if ( result )
+    return *((_DWORD *)off_12EA84 + 1) >= a2;
+  return result;
+}
+

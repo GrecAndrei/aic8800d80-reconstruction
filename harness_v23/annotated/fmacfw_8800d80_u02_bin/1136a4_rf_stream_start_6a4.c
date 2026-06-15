@@ -1,0 +1,15 @@
+// v23 annotated: rf_stream_start_6a4 @ 0x1136a4
+// Original: 1136a4_rf_stream_start_6a4.c
+// Primary struct: <unclustered>
+//
+// rf_stream_start_6a4 @ 0x1136a4, size 14 bytes
+// Doc: rf_stream_start_6a4 [rf]: start RF data stream
+// rf_stream_start_6a4 [rf]: start RF data stream
+int __fastcall rf_stream_start_6a4(unsigned int a1)
+{
+  if ( a1 > 7 )
+    return 0;
+  else
+    return *(_DWORD *)(rf_stream_start_6b4 + 4 * a1);
+}
+

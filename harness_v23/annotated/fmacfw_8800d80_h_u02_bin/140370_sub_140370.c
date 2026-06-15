@@ -1,0 +1,65 @@
+// v23 annotated: sub_140370 @ 0x140370
+// Original: 140370_sub_140370.c
+// Primary struct: <unclustered>
+//
+// sub_140370 @ 0x140370, size 94 bytes
+int __fastcall sub_140370(int a1, int a2, int a3)
+{
+  int v3; // r3
+  int v4; // r4
+  unsigned __int8 *v5; // r2
+  unsigned __int8 *v6; // r0
+  int v7; // t1
+  unsigned __int8 *v9; // r2
+  unsigned __int8 *v10; // r3
+  int v11; // t1
+
+  if ( !a3 )
+    return 1;
+  v3 = *(_DWORD *)(a3 + 8);
+  if ( v3 )
+  {
+    if ( a1 != 255 )
+    {
+      if ( v3 > 0 )
+      {
+        v9 = (unsigned __int8 *)(a3 + 12);
+        v10 = &v9[v3];
+        while ( 1 )
+        {
+          v11 = *v9++;
+          if ( v11 == a1 )
+            break;
+          if ( v9 == v10 )
+            return 0;
+        }
+        return 1;
+      }
+      return 0;
+    }
+    v4 = *(_DWORD *)(a3 + 20);
+LABEL_5:
+    if ( v4 > 0 )
+    {
+      v5 = (unsigned __int8 *)(a3 + 24);
+      v6 = &v5[v4];
+      while ( 1 )
+      {
+        v7 = *v5++;
+        if ( a2 == v7 )
+          break;
+        if ( v5 == v6 )
+          return 0;
+      }
+      return 1;
+    }
+    return 0;
+  }
+  v4 = *(_DWORD *)(a3 + 20);
+  if ( !v4 )
+    return 1;
+  if ( a1 == 255 )
+    goto LABEL_5;
+  return *(_DWORD *)(a3 + 8);
+}
+
