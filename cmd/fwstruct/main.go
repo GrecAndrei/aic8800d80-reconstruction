@@ -46,6 +46,8 @@ func main() {
 		err = runMagic(args)
 	case "initpath":
 		err = runInitPath(args)
+	case "initpath2":
+		err = runInitPath2(args)
 	case "diff":
 		err = runDiff(args)
 	case "types":
@@ -56,6 +58,8 @@ func main() {
 		err = runAnnotate(args)
 	case "stats":
 		err = runStats(args)
+	case "graph":
+		err = runGraph(args)
 	case "report":
 		err = runReport(args)
 	case "all":
