@@ -80,3 +80,9 @@ harness_v20/log/
 harness_v20/log_*.txt
 harness_v20/decompiled/
 
+
+# v25 fwstruct pipeline outputs (regen'd)
+harness_v25/out/
+harness_v25/annotated/
+harness_v25/types_fixed/
+harness_v25/ivt/
