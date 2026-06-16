@@ -64,6 +64,8 @@ func main() {
 		err = runNameFuncs(args)
 	case "extractv18":
 		err = runExtractV18(args)
+	case "applynames":
+		err = runApplyNames(args)
 	case "report":
 		err = runReport(args)
 	case "all":
@@ -103,6 +105,7 @@ Commands:
   stats         one-line summary per binary
   namefuncs     LLM-name sub_XXXXXX functions in v19 C
   extractv18    find functions in v18 that have no v19 C file
+  applynames    rename sub_XXXXXX in v19 C files using llm_names.json
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
 
