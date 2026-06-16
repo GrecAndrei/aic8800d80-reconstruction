@@ -84,6 +84,11 @@ func runCompile(args []string) error {
 		text = strings.ReplaceAll(text, "__int8", "char")
 		// 2. __asm { ... } - replace with __asm__ __volatile__ (or just comment out)
 		text = asmBlockRe.ReplaceAllString(text, "/* __asm__ block omitted */")
+		// 3. dword_XYZ[0], byte_XYZ[0], word_XYZ[0] - dword is a scalar, can't subscript.
+		// Hex-Rays treats it as both scalar and array; we collapse to scalar.
+		text = dwordArrRe0.ReplaceAllString(text, "$1$2")
+		// 4. dword_XYZ[N] with N != 0 - same issue. Replace with dword_XYZ (lossy).
+		text = dwordArrReN.ReplaceAllString(text, "$1$2")
 		buf.WriteString(text)
 		buf.WriteString("\n")
 	}
@@ -144,14 +149,43 @@ var asmBlockRe = regexp.MustCompile(`(?s)__asm\s*\{[^}]*\}`)
 var subRefRe = regexp.MustCompile(`\bsub_[0-9A-Fa-f]{6,8}\b`)
 var varRe = regexp.MustCompile(`\b(off_|dword_|byte_|word_|qword_|loc_|unk_|flt_)([0-9A-Fa-f]{6,8})\b`)
 
+// fixForwardDeclTypes normalizes Hex-Rays type spellings in forward decls.
+// Hex-Rays emits "unsigned __int8" which gcc rejects, and various forms
+// that aren't valid C. We rewrite to canonical forms.
+func fixForwardDeclTypes(sig string) string {
+	// Order matters: do compound types first
+	sig = strings.ReplaceAll(sig, "unsigned __int64", "unsigned long long")
+	sig = strings.ReplaceAll(sig, "unsigned __int32", "unsigned int")
+	sig = strings.ReplaceAll(sig, "unsigned __int16", "unsigned short")
+	sig = strings.ReplaceAll(sig, "unsigned __int8", "unsigned char")
+	// Replace " __intN" (with leading space) too
+	sig = strings.ReplaceAll(sig, " __int64", " long long")
+	sig = strings.ReplaceAll(sig, " __int32", " int")
+	sig = strings.ReplaceAll(sig, " __int16", " short")
+	sig = strings.ReplaceAll(sig, " __int8", " char")
+	// "char __intN" - rare
+	sig = strings.ReplaceAll(sig, "char __int64", "long long")
+	sig = strings.ReplaceAll(sig, "char __int32", "int")
+	sig = strings.ReplaceAll(sig, "char __int16", "short")
+	sig = strings.ReplaceAll(sig, "char __int8", "char")
+	return sig
+}
+// dwordArrRe0 matches dword_XYZ[0] / byte_XYZ[0] / word_XYZ[0] / unk_XYZ[0]
+// Captures the name only, replacement drops the [0]
+var dwordArrRe0 = regexp.MustCompile(`\b(dword_|byte_|word_|unk_)([0-9A-Fa-f]{6,8})\[0\]`)
+// dwordArrReN matches dword_XYZ[N] where N != 0
+var dwordArrReN = regexp.MustCompile(`\b(dword_|byte_|word_|unk_)([0-9A-Fa-f]{6,8})\[[^0][^\]]*\]`)
+
 func buildStubs(imgDir string) (string, error) {
 	files, err := filepath.Glob(filepath.Join(imgDir, "*.c"))
 	if err != nil {
 		return "", err
 	}
-	// First pass: find all defined function names
-	defined := make(map[string]bool)
-	funcDefRe2 := regexp.MustCompile(`^(void|int|unsigned|char|__int8|__int16|__int32|__int64)\s+(\w+)\s*\(`)
+	// First pass: find all defined function names AND all sub_ references
+	defined := make(map[string]string) // name -> full signature
+	subRefs := make(map[string]bool)
+	funcDefRe2 := regexp.MustCompile(`^(unsigned\s+(?:int|long|short|char)|int|void|char|float|double|long|short|__int8|__int16|__int32|__int64)\s+__fastcall?\s+(\w+)\s*\(`)
+	subRefRe2 := regexp.MustCompile(`\bsub_([0-9A-Fa-f]{6,8})\b`)
 	for _, f := range files {
 		fh, err := os.Open(f)
 		if err != nil {
@@ -160,12 +194,48 @@ func buildStubs(imgDir string) (string, error) {
 		sc := bufio.NewScanner(fh)
 		sc.Buffer(make([]byte, 1<<16), 1<<20)
 		for sc.Scan() {
-			m := funcDefRe2.FindStringSubmatch(sc.Text())
-			if m != nil {
-				defined[m[2]] = true
+			line := sc.Text()
+			m := funcDefRe2.FindStringSubmatchIndex(line)
+			if m == nil {
+				continue
 			}
+			// m[0],m[1] is the FULL match (up to first "("). Extend to matching close paren.
+			start := m[0]
+			depth := 0
+			end := -1
+			for i := m[1] - 1; i < len(line); i++ { // m[1]-1 is the "(" position
+				if line[i] == '(' {
+					depth++
+				} else if line[i] == ')' {
+					depth--
+					if depth == 0 {
+						end = i + 1
+						break
+					}
+				}
+			}
+			if end < 0 {
+				continue
+			}
+			// Extract function name from group 2
+			nameStart := m[4]
+			nameEnd := m[5]
+			defined[line[nameStart:nameEnd]] = line[start:end]
 		}
 		fh.Close()
+	}
+	// Second pass: find all sub_ references - track both lowercased and exact case
+	// C is case-sensitive so "sub_12D6E0" != "sub_12d6e0"
+	subRefsCase := make(map[string]bool)
+	for _, f := range files {
+		b, err := os.ReadFile(f)
+		if err != nil {
+			continue
+		}
+		for _, m := range subRefRe2.FindAllStringSubmatch(string(b), -1) {
+			subRefs[strings.ToLower(m[1])] = true
+			subRefsCase[m[1]] = true
+		}
 	}
 	globals := make(map[string]string) // name -> suggested declaration
 	globals["_BYTE"] = "typedef unsigned char _BYTE;"
@@ -191,7 +261,10 @@ func buildStubs(imgDir string) (string, error) {
 				_ = prefix
 				_ = m[2]
 				if _, ok := globals[name]; !ok {
-					// Suggest a declaration
+					// Suggest a declaration.
+					// dword_/byte_/word_/unk_ are SCALARS. Source-rewrite handles dword_X[0] -> dword_X.
+					// Most code uses dword_X + N (int + scalar) or dword_X = Y (assign to scalar).
+					// Real code would use actual MMIO mappings; this is a best-effort stub.
 					if strings.HasPrefix(prefix, "off_") || strings.HasPrefix(prefix, "qword_") {
 						globals[name] = "int (*" + name + ")(void) = (int (*)(void))0;"
 					} else if strings.HasPrefix(prefix, "dword_") {
@@ -345,13 +418,85 @@ static inline unsigned long long __rdtsc(void) { return 0; }
 
 `)
 
+	// Emit forward decls for all defined functions (sort for stable output).
+	// We capture the full signature (up to matching close paren) so the
+	// forward decl matches the actual function definition. This prevents
+	// gcc's "conflicting types" and "too many arguments" errors.
+	var fnames []string
+	for k := range defined {
+		fnames = append(fnames, k)
+	}
+	sort.Strings(fnames)
+	sb.WriteString("// === Forward declarations for defined functions ===\n")
+	for _, k := range fnames {
+		rawSig := defined[k]
+		// Find matching close paren
+		depth := 0
+		end := -1
+		for i := 0; i < len(rawSig); i++ {
+			if rawSig[i] == '(' {
+				depth++
+			} else if rawSig[i] == ')' {
+				depth--
+				if depth == 0 {
+					end = i + 1
+					break
+				}
+			}
+		}
+		if end < 0 {
+			continue
+		}
+		sig := rawSig[:end]
+		// Strip __fastcall/__noreturn
+		sig = strings.ReplaceAll(sig, "__fastcall", "")
+		sig = strings.ReplaceAll(sig, "__noreturn", "")
+		sig = strings.TrimSpace(sig)
+		// Collapse extra whitespace
+		sig = strings.Join(strings.Fields(sig), " ")
+		fmt.Fprintf(&sb, "%s;\n", fixForwardDeclTypes(sig))
+	}
+	// Build a case-insensitive view of `defined` to check for sub_ coverage
+	definedLower := make(map[string]bool)
+	for k := range defined {
+		definedLower[strings.ToLower(k)] = true
+	}
+	// Emit forward decls for all referenced sub_ funcs
+	// Need to emit BOTH lowercase and the original case (C is case-sensitive)
+	// Skip sub_ funcs that are already defined (have proper signature in `defined` map)
+	var subs []string
+	for k := range subRefs {
+		if !definedLower["sub_"+k] {
+			subs = append(subs, k)
+		}
+	}
+	sort.Strings(subs)
+	var subsCase []string
+	for k := range subRefsCase {
+		if !definedLower["sub_"+strings.ToLower(k)] {
+			subsCase = append(subsCase, k)
+		}
+	}
+	sort.Strings(subsCase)
+	sb.WriteString("// === Forward declarations for referenced sub_ funcs (not defined locally) ===\n")
+	for _, k := range subs {
+		// Emit as int() so calls work (lowercase form)
+		fmt.Fprintf(&sb, "int sub_%s(void);\n", k)
+	}
+	for _, k := range subsCase {
+		if k == strings.ToLower(k) {
+			continue // already emitted above
+		}
+		// Emit the exact case used in source
+		fmt.Fprintf(&sb, "int sub_%s(void);\n", k)
+	}
+	sb.WriteString("// === Globals ===\n")
 	// Sort globals for stable output
 	var keys []string
 	for k := range globals {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
-	// Forward declarations first
 	for _, k := range keys {
 		if strings.HasPrefix(k, "_") && (k == "_BYTE" || k == "_WORD" || k == "_DWORD" || k == "_QWORD") {
 			continue
@@ -359,8 +504,6 @@ static inline unsigned long long __rdtsc(void) { return 0; }
 		if k == "__fastcall" || k == "__noreturn" {
 			continue
 		}
-		// Skip function forward decls (have parens)
-		// Actually no, include them - they prevent implicit decl errors
 		sb.WriteString(globals[k] + "\n")
 	}
 	return sb.String(), nil
