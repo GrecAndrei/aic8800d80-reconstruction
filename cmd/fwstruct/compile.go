@@ -184,17 +184,7 @@ func buildStubs(imgDir string) (string, error) {
 		for sc.Scan() {
 			line := sc.Text()
 			matches := varRe.FindAllStringSubmatch(line, -1)
-			// Find sub_ references (function calls to sub_XXXXX)
-			subRefs := subRefRe.FindAllStringSubmatch(line, -1)
-			for _, sr := range subRefs {
-				name := sr[0]
-				if _, ok := globals[name]; !ok {
-					if !defined[name] {
-						// Not defined anywhere - generate a stub
-						globals[name] = "int " + name + "(int a, ...) { return 0; }"
-					}
-				}
-			}
+			// Skip sub_ stubs - implicit int() decl is enough
 			for _, m := range matches {
 				name := m[0]
 				prefix := m[1]
@@ -361,13 +351,16 @@ static inline unsigned long long __rdtsc(void) { return 0; }
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
+	// Forward declarations first
 	for _, k := range keys {
 		if strings.HasPrefix(k, "_") && (k == "_BYTE" || k == "_WORD" || k == "_DWORD" || k == "_QWORD") {
-			continue // already typedef'd
+			continue
 		}
 		if k == "__fastcall" || k == "__noreturn" {
-			continue // already #define'd
+			continue
 		}
+		// Skip function forward decls (have parens)
+		// Actually no, include them - they prevent implicit decl errors
 		sb.WriteString(globals[k] + "\n")
 	}
 	return sb.String(), nil
