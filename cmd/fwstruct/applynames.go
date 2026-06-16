@@ -147,6 +147,14 @@ func runApplyNames(args []string) error {
 				continue
 			}
 			renames = append(renames, rename{old: sub + "(", repl: real + "("})
+			// C files use sub_XXXXXX (lowercase prefix, uppercase suffix)
+			// E.g., sub_1002A0 - "sub_" lowercase, "1002A0" uppercase
+			// sub_ in our map is "sub_1002a0" (all lowercase)
+			// We need to also match the mixed-case version
+			mixed := "sub_" + strings.ToUpper(strings.TrimPrefix(sub, "sub_"))
+			if mixed != sub {
+				renames = append(renames, rename{old: mixed + "(", repl: real + "("})
+			}
 		}
 		// For each C file:
 		for _, f := range files {

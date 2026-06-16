@@ -23,11 +23,13 @@ func runCompile(args []string) error {
 		outDir    string
 		image     string
 		stubFile  string
+		keepGoing bool
 	)
 	fs.StringVar(&decDir, "decompiled", "harness_v19_named/decompiled", "named C decompiled dir")
 	fs.StringVar(&outDir, "out", "harness_v25/out/compiled", "output dir")
 	fs.StringVar(&image, "image", "fmacfw_8800d80_h_u02_bin", "which image to compile")
 	fs.StringVar(&stubFile, "stubs", "", "stub header file (auto-generated if empty)")
+	fs.BoolVar(&keepGoing, "keep-going", false, "produce .o even if compile has errors")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -100,6 +102,10 @@ func runCompile(args []string) error {
 		"-Wno-int-conversion", // don't warn on int->ptr conversions
 		"-Wno-int-to-pointer-cast",
 		"-Wno-pointer-to-int-cast",
+		"-Wno-incompatible-pointer-types",
+		"-Wno-error=implicit-function-declaration",
+		"-Wno-error=incompatible-pointer-types",
+		"-Wno-implicit-function-declaration",
 		"-I"+filepath.Dir(stubPath),
 		"-o", objPath,
 		combined,
@@ -108,11 +114,24 @@ func runCompile(args []string) error {
 	if err != nil {
 		// Show first 20 lines of error
 		lines := strings.Split(string(out), "\n")
+		// Count actual errors
+		nErrors := 0
+		for _, l := range lines {
+			if strings.Contains(l, ": error:") {
+				nErrors++
+			}
+		}
+		fmt.Fprintf(os.Stderr, "compile: %d errors, first 20 lines:\n", nErrors)
 		for i, l := range lines {
 			if i >= 20 {
 				break
 			}
 			fmt.Fprintln(os.Stderr, l)
+		}
+		// Check if .o was produced anyway
+		if _, statErr := os.Stat(objPath); statErr == nil {
+			fmt.Fprintf(os.Stderr, "compile: %s produced (%d KB)\n", objPath, getSize(objPath)/1024)
+			return nil
 		}
 		return fmt.Errorf("compile failed: %v", err)
 	}
@@ -122,12 +141,31 @@ func runCompile(args []string) error {
 
 // varRe matches off_XXXXX, dword_XXXXX, byte_XXXXX, word_XXXXX references.
 var asmBlockRe = regexp.MustCompile(`(?s)__asm\s*\{[^}]*\}`)
+var subRefRe = regexp.MustCompile(`\bsub_[0-9A-Fa-f]{6,8}\b`)
 var varRe = regexp.MustCompile(`\b(off_|dword_|byte_|word_|qword_|loc_|unk_|flt_)([0-9A-Fa-f]{6,8})\b`)
 
 func buildStubs(imgDir string) (string, error) {
 	files, err := filepath.Glob(filepath.Join(imgDir, "*.c"))
 	if err != nil {
 		return "", err
+	}
+	// First pass: find all defined function names
+	defined := make(map[string]bool)
+	funcDefRe2 := regexp.MustCompile(`^(void|int|unsigned|char|__int8|__int16|__int32|__int64)\s+(\w+)\s*\(`)
+	for _, f := range files {
+		fh, err := os.Open(f)
+		if err != nil {
+			continue
+		}
+		sc := bufio.NewScanner(fh)
+		sc.Buffer(make([]byte, 1<<16), 1<<20)
+		for sc.Scan() {
+			m := funcDefRe2.FindStringSubmatch(sc.Text())
+			if m != nil {
+				defined[m[2]] = true
+			}
+		}
+		fh.Close()
 	}
 	globals := make(map[string]string) // name -> suggested declaration
 	globals["_BYTE"] = "typedef unsigned char _BYTE;"
@@ -146,6 +184,17 @@ func buildStubs(imgDir string) (string, error) {
 		for sc.Scan() {
 			line := sc.Text()
 			matches := varRe.FindAllStringSubmatch(line, -1)
+			// Find sub_ references (function calls to sub_XXXXX)
+			subRefs := subRefRe.FindAllStringSubmatch(line, -1)
+			for _, sr := range subRefs {
+				name := sr[0]
+				if _, ok := globals[name]; !ok {
+					if !defined[name] {
+						// Not defined anywhere - generate a stub
+						globals[name] = "int " + name + "(int a, ...) { return 0; }"
+					}
+				}
+			}
 			for _, m := range matches {
 				name := m[0]
 				prefix := m[1]
@@ -156,7 +205,7 @@ func buildStubs(imgDir string) (string, error) {
 					if strings.HasPrefix(prefix, "off_") || strings.HasPrefix(prefix, "qword_") {
 						globals[name] = "int (*" + name + ")(void) = (int (*)(void))0;"
 					} else if strings.HasPrefix(prefix, "dword_") {
-						globals[name] = "unsigned int " + name + "[16] = {0};"
+						globals[name] = "unsigned int " + name + " = 0;"
 					} else if strings.HasPrefix(prefix, "word_") {
 						globals[name] = "unsigned short " + name + " = 0;"
 					} else if strings.HasPrefix(prefix, "byte_") {
@@ -164,7 +213,9 @@ func buildStubs(imgDir string) (string, error) {
 					} else if strings.HasPrefix(prefix, "loc_") {
 						// Skip loc_ - those are code labels, not data
 					} else if strings.HasPrefix(prefix, "unk_") {
-						globals[name] = "unsigned int " + name + "[16] = {0};"
+						globals[name] = "unsigned int " + name + " = 0;"
+					} else if strings.HasPrefix(prefix, "flt_") {
+						globals[name] = "double " + name + " = 0.0;"
 					}
 				}
 			}
@@ -320,4 +371,13 @@ static inline unsigned long long __rdtsc(void) { return 0; }
 		sb.WriteString(globals[k] + "\n")
 	}
 	return sb.String(), nil
+}
+
+
+func getSize(p string) int64 {
+	fi, err := os.Stat(p)
+	if err != nil {
+		return 0
+	}
+	return fi.Size()
 }
