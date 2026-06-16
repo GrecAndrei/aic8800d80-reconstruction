@@ -68,6 +68,8 @@ func main() {
 		err = runApplyNames(args)
 	case "compile":
 		err = runCompile(args)
+	case "extractv18c":
+		err = runExtractV18C(args)
 	case "report":
 		err = runReport(args)
 	case "all":
@@ -109,6 +111,7 @@ Commands:
   extractv18    find functions in v18 that have no v19 C file
   applynames    rename sub_XXXXXX in v19 C files using llm_names.json
   compile       best-effort compile of v19 C to verify syntactic validity
+  extractv18c   extract per-function .c files from v18 reconstructed .c
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
 
