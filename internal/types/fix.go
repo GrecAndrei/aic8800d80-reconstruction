@@ -133,3 +133,25 @@ func intToHex(n int) string {
 	}
 	return string(out)
 }
+
+// Additional patterns we can add later:
+// - Add struct field hint: v3->field_30 -> *(int*)(v3+0x78)
+// - Add explicit casts: *(int*)v3 -> *(_DWORD*)v3
+// - Fix obvious array index with struct context
+
+// Add more patterns - we can also fix:
+//   while ( 1 )  →  while (1)  (whitespace)
+//   0xFFFFFFFFU →  -1U (negative literal)
+//   (a1) when a1 is a function arg → just a1
+
+// We can also use v22 struct names to annotate accesses:
+//   *(_DWORD *)(a1 + 0x18) where a1 is the first arg and offset 0x18 is in v22's struct,
+//   annotate as a1->field_of_struct_name
+
+// For now, just add dead store elimination
+var deadStoreRe = regexp.MustCompile(`\s+v(\d+)\s*=\s*v(\d+)\s*;`)
+
+func init() {
+	// Add dead store detection - but this is risky, skip for now
+	_ = deadStoreRe
+}

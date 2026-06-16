@@ -60,6 +60,10 @@ func main() {
 		err = runStats(args)
 	case "graph":
 		err = runGraph(args)
+	case "namefuncs":
+		err = runNameFuncs(args)
+	case "extractv18":
+		err = runExtractV18(args)
 	case "report":
 		err = runReport(args)
 	case "all":
@@ -96,7 +100,9 @@ Commands:
   types        fix Hex-Rays type-inference bugs
   ivt          rewrite IVT for v18 bootable WFFW
   annotate     emit annotated C with all known context
-  stats        one-line summary per binary
+  stats         one-line summary per binary
+  namefuncs     LLM-name sub_XXXXXX functions in v19 C
+  extractv18    find functions in v18 that have no v19 C file
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
 
