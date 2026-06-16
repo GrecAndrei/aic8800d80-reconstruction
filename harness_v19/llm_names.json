@@ -26960,8 +26960,8 @@
     "name": "msg_dispatch_unk"
   },
   "fmacfw_8800d80_u02_bin|0x121cd8": {
-    "docstring": "Generic dispatcher wrapper saving r4-r8,sb,lr and calling sub-function",
-    "name": "sub_1221CD8"
+    "docstring": "",
+    "name": "rf_channel_init_dispatch"
   },
   "fmacfw_8800d80_u02_bin|0x121d84": {
     "docstring": "Initialize RF channel table entry (indexed by mla/smlabb, 0x2b8 stride).",
@@ -26984,8 +26984,8 @@
     "name": "mmio_region_setup_n148"
   },
   "fmacfw_8800d80_u02_bin|0x1222f4": {
-    "docstring": "Main dispatcher loading signed byte from shared table",
-    "name": "sub_12222F4"
+    "docstring": "",
+    "name": "main_dispatch_load_table"
   },
   "fmacfw_8800d80_u02_bin|0x1225dc": {
     "docstring": "Send TX/datapath message (id 0x59, param 0xd) via IPC",
@@ -27644,8 +27644,8 @@
     "name": "mmio_block_write_3reg"
   },
   "fmacfw_8800d80_u02_bin|0x12be40": {
-    "docstring": "Utility helper, bit-shift based index calculation",
-    "name": "sub_122BE40"
+    "docstring": "",
+    "name": "atomic_increment"
   },
   "fmacfw_8800d80_u02_bin|0x12be8c": {
     "docstring": "",
@@ -30352,8 +30352,8 @@
     "name": "fmac_init_or_handler"
   },
   "fmacfw_8800d80_u02_bin|0x12d240": {
-    "docstring": "Zero-initialize a structure and check a status flag",
-    "name": "sub_122D240"
+    "docstring": "",
+    "name": "clear_pair"
   },
   "fmacfw_8800d80_u02_bin|0x12d248": {
     "docstring": "Append node to tail of intrusive linked list if list non-empty",
@@ -30376,8 +30376,8 @@
     "name": "list_insert_sorted_d380"
   },
   "fmacfw_8800d80_u02_bin|0x12d3c8": {
-    "docstring": "Trivial stub fetching word from pointer argument",
-    "name": "sub_122D3C8"
+    "docstring": "",
+    "name": "list_insert_after"
   },
   "fmacfw_8800d80_u02_bin|0x12d430": {
     "docstring": "Dereference buffer pointer chain",
@@ -54224,8 +54224,8 @@
     "name": "rf_msg_dispatch_3800"
   },
   "fmacfwbt_8800d80_u02_bin|0x13384c": {
-    "docstring": "Unaligned 32-bit word copy from source buffer with byte shuffling",
-    "name": "sub_123384C"
+    "docstring": "",
+    "name": "unaligned_word_copy_shuffle"
   },
   "fmacfwbt_8800d80_u02_bin|0x133a60": {
     "docstring": "Dispatch command 6 to handler",
@@ -54252,8 +54252,8 @@
     "name": "fmac_status_check_init"
   },
   "fmacfwbt_8800d80_u02_bin|0x133cd8": {
-    "docstring": "Unknown helper in fmacfwbt image (reconstructed flow)",
-    "name": "sub_1233CD8"
+    "docstring": "",
+    "name": "complex_msg_dispatch_helper"
   },
   "fmacfwbt_8800d80_u02_bin|0x134008": {
     "docstring": "",
@@ -54936,8 +54936,8 @@
     "name": "rf_chan_param_get"
   },
   "lmacfw_rf_8800d80_u02_bin|0x109480": {
-    "docstring": "Null/zero check utility function",
-    "name": "sub_1209480"
+    "docstring": "",
+    "name": "string_parse_or_format"
   },
   "lmacfw_rf_8800d80_u02_bin|0x109d40": {
     "docstring": "LMAC RF handler (unidentified)",
@@ -65292,20 +65292,20 @@
     "name": "buf_alloc_0x68_init"
   },
   "lmacfw_rf_8800d80_u02_bin|0x1194f4": {
-    "docstring": "Thin wrapper invoking helper with param 0x70",
-    "name": "sub_12194F4"
+    "docstring": "",
+    "name": "rf_dispatch_0x70"
   },
   "lmacfw_rf_8800d80_u02_bin|0x119504": {
     "docstring": "Send RF command 0x72 ('r') and return status 0",
     "name": "rf_send_cmd_0x72"
   },
   "lmacfw_rf_8800d80_u02_bin|0x119514": {
-    "docstring": "Send command 0x6E to RF sub-handler and return 0",
-    "name": "sub_1219514"
+    "docstring": "",
+    "name": "rf_dispatch_0x6e"
   },
   "lmacfw_rf_8800d80_u02_bin|0x11954c": {
-    "docstring": "Issue sub-call with opcode 0x6a via dispatch",
-    "name": "sub_121954C"
+    "docstring": "",
+    "name": "rf_dispatch_0x6a"
   },
   "lmacfw_rf_8800d80_u02_bin|0x119698": {
     "docstring": "Initializes RF XO/PLL subsystem (cmd 0x76)",
@@ -65316,16 +65316,16 @@
     "name": "rf_init_msg_send"
   },
   "lmacfw_rf_8800d80_u02_bin|0x1197a4": {
-    "docstring": "Initialize LMAC subsystem, allocate and populate context buffer",
-    "name": "sub_12197A4"
+    "docstring": "",
+    "name": "lmac_init_and_dispatch_0x81"
   },
   "lmacfw_rf_8800d80_u02_bin|0x1197dc": {
     "docstring": "RF IQ/DC calibration init using 0x7c register",
     "name": "rf_iq_dc_calib_n7c"
   },
   "lmacfw_rf_8800d80_u02_bin|0x1199cc": {
-    "docstring": "Allocates 0x88-byte context and initializes RF object",
-    "name": "sub_12199CC"
+    "docstring": "",
+    "name": "rf_allocate_context_0x88"
   },
   "lmacfw_rf_8800d80_u02_bin|0x119af4": {
     "docstring": "Sets RF channel with calibration, dispatches via callback",
@@ -151690,5 +151690,473 @@
   "lmacfw_rf_8800d80_u02_bin|0x127f10": {
     "docstring": "",
     "name": "double_compare_wrap"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x104cc8": {
+    "docstring": "",
+    "name": "compute_motor_position"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x104fa8": {
+    "docstring": "",
+    "name": "configure_spi_peripheral"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x105070": {
+    "docstring": "",
+    "name": "compute_angle_delta"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x105118": {
+    "docstring": "",
+    "name": "check_position_limits"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1051d0": {
+    "docstring": "",
+    "name": "search_float_table"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x105270": {
+    "docstring": "",
+    "name": "transform_kinematic_pose"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1058d0": {
+    "docstring": "",
+    "name": "decode_capability_bitmask"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1059a4": {
+    "docstring": "",
+    "name": "init_capability_table"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x105a88": {
+    "docstring": "",
+    "name": "initialize_controller"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1062dc": {
+    "docstring": "",
+    "name": "encode_motor_command"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114c18": {
+    "docstring": "",
+    "name": "alloc_buffer_32"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114c24": {
+    "docstring": "",
+    "name": "alloc_buffer_64"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114c30": {
+    "docstring": "",
+    "name": "alloc_buffer_128"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114c3c": {
+    "docstring": "",
+    "name": "mmio_check_and_read"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114d2c": {
+    "docstring": "",
+    "name": "mmio_check_flag2"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x114d38": {
+    "docstring": "",
+    "name": "mmio_check_flag_0x400000"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x117bd0": {
+    "docstring": "",
+    "name": "is_within_tick_window"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x117bf0": {
+    "docstring": "",
+    "name": "process_event_or_state"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x117d9c": {
+    "docstring": "",
+    "name": "reset_data_structure"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x117dd8": {
+    "docstring": "",
+    "name": "set_data_field"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11c410": {
+    "docstring": "",
+    "name": "send_packet_by_index"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11c448": {
+    "docstring": "",
+    "name": "send_packets_by_index_loop"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11c498": {
+    "docstring": "",
+    "name": "process_input_message"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11c7a4": {
+    "docstring": "",
+    "name": "module_initialize"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11c954": {
+    "docstring": "",
+    "name": "module_main_handler"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x11cb38": {
+    "docstring": "",
+    "name": "interrupt_exception_handler"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x122a08": {
+    "docstring": "",
+    "name": "set_session_params_msg138"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x122a28": {
+    "docstring": "",
+    "name": "update_session_struct_msg122"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x122a80": {
+    "docstring": "",
+    "name": "set_session_bytes_143_msg134"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x122af4": {
+    "docstring": "",
+    "name": "set_session_word_112_msg76"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x126f08": {
+    "docstring": "",
+    "name": "update_state_flags"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x126f40": {
+    "docstring": "",
+    "name": "handle_timeout"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x126f74": {
+    "docstring": "",
+    "name": "try_connect"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x126f8c": {
+    "docstring": "",
+    "name": "transition_to_state"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x127030": {
+    "docstring": "",
+    "name": "schedule_event"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x127160": {
+    "docstring": "",
+    "name": "handle_link_state"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x127204": {
+    "docstring": "",
+    "name": "handle_retry"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12723c": {
+    "docstring": "",
+    "name": "process_frame"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x127528": {
+    "docstring": "",
+    "name": "parse_payload"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x127788": {
+    "docstring": "",
+    "name": "set_link_state"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12c8e0": {
+    "docstring": "",
+    "name": "write_three_words_invoke"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12c8f8": {
+    "docstring": "",
+    "name": "free_mem_thunk"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12c8fc": {
+    "docstring": "",
+    "name": "unlink_list_node_matching"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12c9a0": {
+    "docstring": "",
+    "name": "pool_alloc_locked"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12ca88": {
+    "docstring": "",
+    "name": "pool_free_locked"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12de20": {
+    "docstring": "",
+    "name": "parse_tlv_type38_len16"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12de40": {
+    "docstring": "",
+    "name": "parse_tlv_type37_len4"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12de60": {
+    "docstring": "",
+    "name": "decode_signed_q22_field"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12de70": {
+    "docstring": "",
+    "name": "compute_masked_field_bits"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x12de94": {
+    "docstring": "",
+    "name": "resolve_id_for_pointer"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x131920": {
+    "docstring": "",
+    "name": "process_data"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x131df8": {
+    "docstring": "",
+    "name": "check_and_set_flag"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x131f4c": {
+    "docstring": "",
+    "name": "dispatch_by_index"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x13248c": {
+    "docstring": "",
+    "name": "count_leading_one_pairs"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1324b4": {
+    "docstring": "",
+    "name": "get_priority_index"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1324d0": {
+    "docstring": "",
+    "name": "find_first_set_bit_12"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1324ec": {
+    "docstring": "",
+    "name": "find_last_set_bit_12"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x132518": {
+    "docstring": "",
+    "name": "decode_header_fields"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1325b4": {
+    "docstring": "",
+    "name": "jump_thunk"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x132632": {
+    "docstring": "",
+    "name": "get_count_9"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x13373c": {
+    "docstring": "",
+    "name": "dispatch_message_type"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1337a0": {
+    "docstring": "",
+    "name": "handle_state_or_log_898"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1337e0": {
+    "docstring": "",
+    "name": "handle_state_or_log_871"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x133fd4": {
+    "docstring": "",
+    "name": "parse_byte_stream"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x134228": {
+    "docstring": "",
+    "name": "reset_state_6155"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x13424c": {
+    "docstring": "",
+    "name": "irq_protected_increment"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1342ac": {
+    "docstring": "",
+    "name": "init_module_or_log_132"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x1342f4": {
+    "docstring": "",
+    "name": "clear_buffer_state"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x134334": {
+    "docstring": "",
+    "name": "get_info_pointers"
+  },
+  "fmacfw_8800d80_h_u02_bin|0x134380": {
+    "docstring": "",
+    "name": "alloc_and_copy_struct"
+  },
+  "fmacfw_8800d80_u02_bin|0x12133c": {
+    "docstring": "",
+    "name": "thunk_to_sub_12AD08"
+  },
+  "fmacfw_8800d80_u02_bin|0x121418": {
+    "docstring": "",
+    "name": "fmac_tx_desc_init"
+  },
+  "fmacfw_8800d80_u02_bin|0x122034": {
+    "docstring": "",
+    "name": "fw_state_msg_send"
+  },
+  "fmacfw_8800d80_u02_bin|0x12205c": {
+    "docstring": "",
+    "name": "fw_state_timestamp_update"
+  },
+  "fmacfw_8800d80_u02_bin|0x122124": {
+    "docstring": "",
+    "name": "signal_threshold_update"
+  },
+  "fmacfw_8800d80_u02_bin|0x12221c": {
+    "docstring": "",
+    "name": "table_bitmask_merge"
+  },
+  "fmacfw_8800d80_u02_bin|0x1222c0": {
+    "docstring": "",
+    "name": "timer_counters_bump"
+  },
+  "fmacfw_8800d80_u02_bin|0x1225fc": {
+    "docstring": "",
+    "name": "frame_buffer_process"
+  },
+  "fmacfw_8800d80_u02_bin|0x12bcc0": {
+    "docstring": "",
+    "name": "allocate_id"
+  },
+  "fmacfw_8800d80_u02_bin|0x12bd40": {
+    "docstring": "",
+    "name": "check_timeout"
+  },
+  "fmacfw_8800d80_u02_bin|0x12d144": {
+    "docstring": "",
+    "name": "irq_set_nesting"
+  },
+  "fmacfw_8800d80_u02_bin|0x12d210": {
+    "docstring": "",
+    "name": "rx_queue_init"
+  },
+  "fmacfw_8800d80_u02_bin|0x12d290": {
+    "docstring": "",
+    "name": "list_push_head"
+  },
+  "fmacfw_8800d80_u02_bin|0x12d2e8": {
+    "docstring": "",
+    "name": "list_remove"
+  },
+  "fmacfw_8800d80_u02_bin|0x12d404": {
+    "docstring": "",
+    "name": "list_push_tail"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x131820": {
+    "docstring": "",
+    "name": "rf_bus_msg_handler"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133988": {
+    "docstring": "",
+    "name": "xtea_decrypt_verify"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x1339d8": {
+    "docstring": "",
+    "name": "msg_value_dispatch_13500c"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133a18": {
+    "docstring": "",
+    "name": "msg_value_dispatch_135c9c"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133a98": {
+    "docstring": "",
+    "name": "ipc_cmd_switch_dispatch"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133be4": {
+    "docstring": "",
+    "name": "msg_value_dispatch_1349d8"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133c24": {
+    "docstring": "",
+    "name": "msg_value_state_clear"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x133e00": {
+    "docstring": "",
+    "name": "sdio_feature_guard_handler"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x143434": {
+    "docstring": "",
+    "name": "make_pair64_and_call"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x14344c": {
+    "docstring": "",
+    "name": "test_equal"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x143460": {
+    "docstring": "",
+    "name": "test_greater"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x143474": {
+    "docstring": "",
+    "name": "test_less_than"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x143488": {
+    "docstring": "",
+    "name": "pair_less_than"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x14349c": {
+    "docstring": "",
+    "name": "pair_greater_equal"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x1434b0": {
+    "docstring": "",
+    "name": "clz64"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x1434e0": {
+    "docstring": "",
+    "name": "clz32"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x1437a4": {
+    "docstring": "",
+    "name": "abs"
+  },
+  "fmacfwbt_8800d80_u02_bin|0x1437ac": {
+    "docstring": "",
+    "name": "memcmp"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x108cb8": {
+    "docstring": "",
+    "name": "wait_status_bits_set"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x108d34": {
+    "docstring": "",
+    "name": "hardware_registers_init"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109100": {
+    "docstring": "",
+    "name": "format_byte_value"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109120": {
+    "docstring": "",
+    "name": "sorted_array_insert"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109184": {
+    "docstring": "",
+    "name": "process_int_with_magic"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109368": {
+    "docstring": "",
+    "name": "triangle_box_intersect_check"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109738": {
+    "docstring": "",
+    "name": "vector3_math_operation"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x1099bc": {
+    "docstring": "",
+    "name": "vector_transform_or_compute"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x109bf8": {
+    "docstring": "",
+    "name": "config_setup_with_flags"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x119478": {
+    "docstring": "",
+    "name": "rf_set_channel_and_dispatch_0x86"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x119524": {
+    "docstring": "",
+    "name": "rf_dispatch_0x6c"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x11972c": {
+    "docstring": "",
+    "name": "rf_dispatch_0x78"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x1198ac": {
+    "docstring": "",
+    "name": "rf_update_channel_slot_table"
+  },
+  "lmacfw_rf_8800d80_u02_bin|0x11998c": {
+    "docstring": "",
+    "name": "rf_read_inverted_bit"
   }
 }
