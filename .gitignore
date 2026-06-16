@@ -86,3 +86,6 @@ harness_v25/out/
 harness_v25/annotated/
 harness_v25/types_fixed/
 harness_v25/ivt/
+harness_v16/out/
+harness_v19_named/
+harness_v25/out/compiled/

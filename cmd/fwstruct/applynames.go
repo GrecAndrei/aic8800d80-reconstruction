@@ -51,6 +51,24 @@ func runApplyNames(args []string) error {
 
 	// Group by image
 	byImage := make(map[string]map[string]string) // image -> addr_hex -> name
+	// First pass: count name occurrences per image
+	nameCount := make(map[string]map[string]int) // image -> name -> count
+	for k, v := range allNames {
+		if v.Name == "" || strings.HasPrefix(v.Name, "sub_") {
+			continue
+		}
+		parts := strings.SplitN(k, "|", 2)
+		if len(parts) != 2 {
+			continue
+		}
+		img := parts[0]
+		if _, ok := nameCount[img]; !ok {
+			nameCount[img] = make(map[string]int)
+		}
+		nameCount[img][v.Name]++
+	}
+	// Second pass: assign names, disambiguating duplicates with _n suffix
+	seen := make(map[string]map[string]int) // image -> name -> suffix count
 	for k, v := range allNames {
 		if v.Name == "" || strings.HasPrefix(v.Name, "sub_") {
 			continue
@@ -60,10 +78,21 @@ func runApplyNames(args []string) error {
 			continue
 		}
 		img, addr := parts[0], parts[1]
+		name := v.Name
+		if nameCount[img][name] > 1 {
+			// Multiple funcs with this name - need to disambiguate
+			if _, ok := seen[img]; !ok {
+				seen[img] = make(map[string]int)
+			}
+			seen[img][name]++
+			if seen[img][name] > 1 {
+				name = fmt.Sprintf("%s_%d", name, seen[img][name])
+			}
+		}
 		if _, ok := byImage[img]; !ok {
 			byImage[img] = make(map[string]string)
 		}
-		byImage[img][strings.ToLower(addr)] = v.Name
+		byImage[img][strings.ToLower(addr)] = name
 	}
 
 	if !dryRun {
