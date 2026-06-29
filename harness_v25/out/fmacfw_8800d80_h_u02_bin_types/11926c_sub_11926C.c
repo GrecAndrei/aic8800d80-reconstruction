@@ -1,0 +1,6 @@
+// sub_11926C @ 0x11926c, size 10 bytes
+int  sub_11926C(int a1, int a2)
+{
+  return *(unsigned __int8 *)(dword_119278 + (a1 | (2 * a2)));
+}
+

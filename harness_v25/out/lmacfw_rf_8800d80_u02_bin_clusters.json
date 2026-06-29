@@ -105,73 +105,6 @@
       "id": 4,
       "group_id": 4,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1e0091ad357bab48",
-      "funcs": [
-        1120592,
-        1120804
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 5,
-      "group_id": 5,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ae1204ace4b6a2e4",
-      "funcs": [
-        1050952,
-        1188556
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 6,
-      "group_id": 6,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 44,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "d3bec76ef8c6e5b6",
-      "funcs": [
-        1077108,
-        1077352
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 7,
-      "group_id": 7,
-      "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -188,27 +121,8 @@
       "confidence": 2
     },
     {
-      "id": 8,
-      "group_id": 8,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 32,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5dd2b94aede8e2b0",
-      "funcs": [
-        1119768,
-        1151792
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 9,
-      "group_id": 9,
+      "id": 5,
+      "group_id": 5,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a1",
       "fingerprint": [
@@ -271,8 +185,51 @@
       "confidence": 20
     },
     {
-      "id": 10,
-      "group_id": 10,
+      "id": 6,
+      "group_id": 6,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ae1204ace4b6a2e4",
+      "funcs": [
+        1050952,
+        1188556
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 7,
+      "group_id": 7,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 44,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "d3bec76ef8c6e5b6",
+      "funcs": [
+        1077108,
+        1077352
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 8,
+      "group_id": 8,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a1",
       "fingerprint": [
@@ -295,1368 +252,51 @@
       "confidence": 4
     },
     {
+      "id": 9,
+      "group_id": 9,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 32,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5dd2b94aede8e2b0",
+      "funcs": [
+        1119768,
+        1151792
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 10,
+      "group_id": 10,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1e0091ad357bab48",
+      "funcs": [
+        1120592,
+        1120804
+      ],
+      "confidence": 4
+    },
+    {
       "id": 11,
       "group_id": 11,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "0575200298914114",
-      "funcs": [
-        1077584
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 12,
-      "group_id": 12,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 360,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 364,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c84856e619d9b096",
-      "funcs": [
-        1166212
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 13,
-      "group_id": 13,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 2
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "349bb25ffc1cb828",
-      "funcs": [
-        1115436
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 14,
-      "group_id": 14,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 2,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "6abdb09095ee30fa",
-      "funcs": [
-        1166024
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 15,
-      "group_id": 15,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 20,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "02b937d5e3575137",
-      "funcs": [
-        1154416
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 16,
-      "group_id": 16,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5ef98d1300729b72",
-      "funcs": [
-        1173100
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 17,
-      "group_id": 17,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "3f0db2d6c78fbdeb",
-      "funcs": [
-        1063424
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 18,
-      "group_id": 18,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 28,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ffd6d6f3fd28eedc",
-      "funcs": [
-        1115124
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 19,
-      "group_id": 19,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a4",
-      "fingerprint": [
-        {
-          "Base": "a4",
-          "Offset": 1,
-          "Size": 1
-        },
-        {
-          "Base": "a4",
-          "Offset": 2,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "341bba67bc55c6c8",
-      "funcs": [
-        1087288
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 20,
-      "group_id": 20,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v1",
-          "Offset": 6,
-          "Size": 2
-        },
-        {
-          "Base": "v1",
-          "Offset": 8,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "731fc059f9ee4c06",
-      "funcs": [
-        1114096
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 21,
-      "group_id": 21,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 14,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "866cce8693c82405",
-      "funcs": [
-        1172300
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 22,
-      "group_id": 22,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 72,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "22ec57d70888b96b",
-      "funcs": [
-        1164068
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 23,
-      "group_id": 23,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a622a52e753ecd09",
-      "funcs": [
-        1184912
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 24,
-      "group_id": 24,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "4e0bc7e5657bf826",
-      "funcs": [
-        1055856
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 25,
-      "group_id": 25,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 25,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 29,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 30,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "7d39c50d21c3175f",
-      "funcs": [
-        1150936
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 26,
-      "group_id": 26,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dca9fcc8f9d3947e",
-      "funcs": [
-        1113040
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 27,
-      "group_id": 27,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 102,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 108,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 112,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 116,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "ecb940657e48d407",
-      "funcs": [
-        1151512
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 28,
-      "group_id": 28,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 6164,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "0fa67755ba3d2969",
-      "funcs": [
-        1117028
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 29,
-      "group_id": 29,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ba4db59ecb412afe",
-      "funcs": [
-        1157888
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 30,
-      "group_id": 30,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 15,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 44,
-          "Size": 4
-        },
-        {
-          "Base": "v7",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ff416ab5f1b70016",
-      "funcs": [
-        1166280
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 31,
-      "group_id": 31,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 36,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 40,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "f9c6379d3e24b2f9",
-      "funcs": [
-        1148532
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 32,
-      "group_id": 32,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "beb54edbc2808da2",
-      "funcs": [
-        1196612
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 33,
-      "group_id": 33,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 24,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "409f10655144dcf3",
-      "funcs": [
-        1186436
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 34,
-      "group_id": 34,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "193136455a54ea90",
-      "funcs": [
-        1140264
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 35,
-      "group_id": 35,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 94,
-          "Size": 1
-        },
-        {
-          "Base": "v3",
-          "Offset": 94,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c3b53ddd7be363b0",
-      "funcs": [
-        1147064
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 36,
-      "group_id": 36,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 48,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 96,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 100,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "6d3091d7dec7574a",
-      "funcs": [
-        1135500
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 37,
-      "group_id": 37,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 65,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "2cbcc6886180d383",
-      "funcs": [
-        1193788
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 38,
-      "group_id": 38,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "952b120834e8d02b",
-      "funcs": [
-        1145172
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 39,
-      "group_id": 39,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v1",
-          "Offset": 6,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "dcd56cf427c87065",
-      "funcs": [
-        1134616
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 40,
-      "group_id": 40,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "7b2936a4a1a2d468",
-      "funcs": [
-        1067672
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 41,
-      "group_id": 41,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 1,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 2,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 6,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 16,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "98f74dac57ee12d0",
-      "funcs": [
-        1163884
-      ],
-      "confidence": 8
-    },
-    {
-      "id": 42,
-      "group_id": 42,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5f8d98c95d890899",
-      "funcs": [
-        1146220
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 43,
-      "group_id": 43,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 16,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 32,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "4085fec68f5a7844",
-      "funcs": [
-        1135320
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 44,
-      "group_id": 44,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 20,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 21,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 21,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "55b89a6f37e6e4c8",
-      "funcs": [
-        1152332
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 45,
-      "group_id": 45,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 52,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 53,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "7dd1ba7268cad807",
-      "funcs": [
-        1139612
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 46,
-      "group_id": 46,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 12,
-          "Size": 2
-        },
-        {
-          "Base": "v2",
-          "Offset": 14,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "7153ecccc64f1408",
-      "funcs": [
-        1103528
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 47,
-      "group_id": 47,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 12,
-          "Size": 2
-        },
-        {
-          "Base": "v4",
-          "Offset": 24,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "ff9eb3115205ae79",
-      "funcs": [
-        1162564
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 48,
-      "group_id": 48,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "b4fc684f1d3e8d6a",
-      "funcs": [
-        1170120
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 49,
-      "group_id": 49,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 36,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7f59549c632c7357",
-      "funcs": [
-        1097512
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 50,
-      "group_id": 50,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 636,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 640,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dae7a229559994db",
-      "funcs": [
-        1087932
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 51,
-      "group_id": 51,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 36,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 80,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a277abf5f806975d",
-      "funcs": [
-        1163292
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 52,
-      "group_id": 52,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 6,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a791fe25f77459d1",
-      "funcs": [
-        1170516
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 53,
-      "group_id": 53,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 35,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 44,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "f6c9bed73e894202",
-      "funcs": [
-        1146036
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 54,
-      "group_id": 54,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 95,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7ee99fb9ee45593b",
-      "funcs": [
-        1163064
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 55,
-      "group_id": 55,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 64,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1fbd3e90349dfea9",
-      "funcs": [
-        1195780
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 56,
-      "group_id": 56,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v1",
-          "Offset": 48,
-          "Size": 2
-        },
-        {
-          "Base": "v1",
-          "Offset": 84,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 152,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "70ff902047ce18e9",
-      "funcs": [
-        1145288
-      ],
-      "confidence": 6
-    },
-    {
-      "id": 57,
-      "group_id": 57,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 28,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "bf706901a513e4dd",
-      "funcs": [
-        1165276
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 58,
-      "group_id": 58,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v7",
-          "Offset": 6,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "27d2ad114e4fa19d",
-      "funcs": [
-        1170704
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 59,
-      "group_id": 59,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a4",
-      "fingerprint": [
-        {
-          "Base": "a4",
-          "Offset": 104,
-          "Size": 4
-        },
-        {
-          "Base": "a4",
-          "Offset": 132,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7b95c7643aea318b",
-      "funcs": [
-        1072588
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 60,
-      "group_id": 60,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 80,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 94,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "f97e01fef11b47f8",
-      "funcs": [
-        1158692
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 61,
-      "group_id": 61,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 16,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "a2b80567eae5185d",
-      "funcs": [
-        1161024
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 62,
-      "group_id": 62,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 2,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 5,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "4a771e920e9db4cd",
-      "funcs": [
-        1092632
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 63,
-      "group_id": 63,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 60,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "9858a6d1e63adaed",
-      "funcs": [
-        1185516
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 64,
-      "group_id": 64,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 52,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 56,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 94,
-          "Size": 1
-        },
-        {
-          "Base": "v1",
-          "Offset": 97,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "6ef1f87e4a007900",
-      "funcs": [
-        1146356
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 65,
-      "group_id": 65,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "989d79c8f6841867",
-      "funcs": [
-        1153484
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 66,
-      "group_id": 66,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v2",
       "fingerprint": [
@@ -1678,411 +318,8 @@
       "confidence": 2
     },
     {
-      "id": 67,
-      "group_id": 67,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 3,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "94d9183d978b5770",
-      "funcs": [
-        1166672
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 68,
-      "group_id": 68,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 95,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "ccf0e6af23073e20",
-      "funcs": [
-        1151344
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 69,
-      "group_id": 69,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 11,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "da41885616d9f320",
-      "funcs": [
-        1118892
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 70,
-      "group_id": 70,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 152,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "d9451a761b0e5b77",
-      "funcs": [
-        1140428
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 71,
-      "group_id": 71,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "b10137c031c212bd",
-      "funcs": [
-        1157912
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 72,
-      "group_id": 72,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 96,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 100,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c6fae80132b57a32",
-      "funcs": [
-        1140144
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 73,
-      "group_id": 73,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 11,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "5f913cb8bc708d42",
-      "funcs": [
-        1124632
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 74,
-      "group_id": 74,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 2,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 5,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "9522ba571bbbb575",
-      "funcs": [
-        1192908
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 75,
-      "group_id": 75,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 32,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "a9da358ceb7904fe",
-      "funcs": [
-        1207768
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 76,
-      "group_id": 76,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 7,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "4465f9198320e57b",
-      "funcs": [
-        1208080
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 77,
-      "group_id": 77,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 32,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a985326216d2eaf8",
-      "funcs": [
-        1147592
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 78,
-      "group_id": 78,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 2,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "a0414dffebd7e511",
-      "funcs": [
-        1169648
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 79,
-      "group_id": 79,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 2,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "da0e2545c0b045da",
-      "funcs": [
-        1148080
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 80,
-      "group_id": 80,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v7",
-          "Offset": 8,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "e6d7646e0b18348a",
-      "funcs": [
-        1162792
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 81,
-      "group_id": 81,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 16,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 20,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 24,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 28,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 32,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 33,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 35,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 36,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 40,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 44,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 124,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "f36044a4ed9a54dc",
-      "funcs": [
-        1145676
-      ],
-      "confidence": 14
-    },
-    {
-      "id": 82,
-      "group_id": 82,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 592,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 624,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 628,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 632,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7c3a14e4950f39dc",
-      "funcs": [
-        1070228
-      ],
-      "confidence": 5
-    },
-    {
-      "id": 83,
-      "group_id": 83,
+      "id": 12,
+      "group_id": 12,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a2",
       "fingerprint": [
@@ -2114,8 +351,108 @@
       "confidence": 4
     },
     {
-      "id": 84,
-      "group_id": 84,
+      "id": 13,
+      "group_id": 13,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 367,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "3473d82ffc7f9d38",
+      "funcs": [
+        1165732
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 14,
+      "group_id": 14,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "42eec7356608c879",
+      "funcs": [
+        1188124
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 15,
+      "group_id": 15,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "0575200298914114",
+      "funcs": [
+        1077584
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 16,
+      "group_id": 16,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5f8d98c95d890899",
+      "funcs": [
+        1146220
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 17,
+      "group_id": 17,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 360,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 364,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c84856e619d9b096",
+      "funcs": [
+        1166212
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 18,
+      "group_id": 18,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v5",
       "fingerprint": [
@@ -2147,77 +484,44 @@
       "confidence": 4
     },
     {
-      "id": 85,
-      "group_id": 85,
+      "id": 19,
+      "group_id": 19,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v2",
       "fingerprint": [
         {
           "Base": "v2",
-          "Offset": 80,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 85,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 94,
+          "Offset": 2,
           "Size": 4
         }
       ],
-      "fp_hash": "26101caaaab44b04",
+      "fp_hash": "13e44f03037cbbdb",
       "funcs": [
-        1163608
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 86,
-      "group_id": 86,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 4,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "98a0511e6845f572",
-      "funcs": [
-        1137096
+        1059760
       ],
       "confidence": 1
     },
     {
-      "id": 87,
-      "group_id": 87,
+      "id": 20,
+      "group_id": 20,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "primary_arg": "v7",
       "fingerprint": [
         {
-          "Base": "v1",
-          "Offset": 8,
+          "Base": "v7",
+          "Offset": 266,
           "Size": 4
         }
       ],
-      "fp_hash": "e2a1725c24ebc590",
+      "fp_hash": "5a48f826a86a86bc",
       "funcs": [
-        1138716
+        1152032
       ],
       "confidence": 1
     },
     {
-      "id": 88,
-      "group_id": 88,
+      "id": 21,
+      "group_id": 21,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v2",
       "fingerprint": [
@@ -2289,91 +593,62 @@
       "confidence": 12
     },
     {
-      "id": 89,
-      "group_id": 89,
+      "id": 22,
+      "group_id": 22,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 85,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "5d51b974e1ed30b4",
+      "funcs": [
+        1164608
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 23,
+      "group_id": 23,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a2",
       "fingerprint": [
         {
           "Base": "a2",
           "Offset": 4,
-          "Size": 4
-        },
+          "Size": 2
+        }
+      ],
+      "fp_hash": "8a036e7e8c8f34e7",
+      "funcs": [
+        1084724
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 24,
+      "group_id": 24,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
         {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 9,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 9,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 10,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 11,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 11,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 13,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 14,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 15,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 16,
+          "Base": "v5",
+          "Offset": 6164,
           "Size": 4
         }
       ],
-      "fp_hash": "59bac8b9771d05f0",
+      "fp_hash": "0fa67755ba3d2969",
       "funcs": [
-        1177500
+        1117028
       ],
-      "confidence": 14
+      "confidence": 1
     },
     {
-      "id": 90,
-      "group_id": 90,
+      "id": 25,
+      "group_id": 25,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v3",
       "fingerprint": [
@@ -2395,372 +670,49 @@
       "confidence": 2
     },
     {
-      "id": 91,
-      "group_id": 91,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 96,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 100,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 104,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 108,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 112,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 116,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 120,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 132,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "68fb6a36900213a1",
-      "funcs": [
-        1144208
-      ],
-      "confidence": 11
-    },
-    {
-      "id": 92,
-      "group_id": 92,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 2
-        },
-        {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5982f24b8f374757",
-      "funcs": [
-        1142828
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 93,
-      "group_id": 93,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 36,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "f87c91cd66a0e061",
-      "funcs": [
-        1170040
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 94,
-      "group_id": 94,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 5,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 6,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "62f550d8f0fe0a62",
-      "funcs": [
-        1153196
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 95,
-      "group_id": 95,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dcf6c447ba1b79c4",
-      "funcs": [
-        1147684
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 96,
-      "group_id": 96,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 56,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5dddf4f405933bcb",
-      "funcs": [
-        1136288
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 97,
-      "group_id": 97,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v8",
-          "Offset": 24,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "3624d98ee7ad4438",
-      "funcs": [
-        1139496
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 98,
-      "group_id": 98,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "e40dc22b933af723",
-      "funcs": [
-        1119236
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 99,
-      "group_id": 99,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 2,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "13e44f03037cbbdb",
-      "funcs": [
-        1059760
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 100,
-      "group_id": 100,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 2,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v6",
-          "Offset": 6,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 8,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "3a92092eb62ac16b",
-      "funcs": [
-        1101932
-      ],
-      "confidence": 5
-    },
-    {
-      "id": 101,
-      "group_id": 101,
+      "id": 26,
+      "group_id": 26,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v1",
       "fingerprint": [
         {
           "Base": "v1",
-          "Offset": 36,
-          "Size": 4
+          "Offset": 3,
+          "Size": 1
         },
         {
           "Base": "v1",
-          "Offset": 38,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 40,
-          "Size": 4
+          "Offset": 6,
+          "Size": 1
         }
       ],
-      "fp_hash": "f670ad470489e3d9",
+      "fp_hash": "dcd56cf427c87065",
       "funcs": [
-        1150096
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 102,
-      "group_id": 102,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 38,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "c64a916477296c91",
-      "funcs": [
-        1136468
+        1134616
       ],
       "confidence": 2
     },
     {
-      "id": 103,
-      "group_id": 103,
+      "id": 27,
+      "group_id": 27,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "primary_arg": "v5",
       "fingerprint": [
         {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 4,
           "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 8,
-          "Size": 2
         }
       ],
-      "fp_hash": "7831ef8ca2b3f0b1",
+      "fp_hash": "a622a52e753ecd09",
       "funcs": [
-        1152000
+        1184912
       ],
-      "confidence": 2
+      "confidence": 1
     },
     {
-      "id": 104,
-      "group_id": 104,
+      "id": 28,
+      "group_id": 28,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a1",
       "fingerprint": [
@@ -2802,44 +754,758 @@
       "confidence": 6
     },
     {
-      "id": 105,
-      "group_id": 105,
+      "id": 29,
+      "group_id": 29,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a4",
+      "fingerprint": [
+        {
+          "Base": "a4",
+          "Offset": 104,
+          "Size": 4
+        },
+        {
+          "Base": "a4",
+          "Offset": 132,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7b95c7643aea318b",
+      "funcs": [
+        1072588
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 30,
+      "group_id": 30,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 25,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 29,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 30,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "7d39c50d21c3175f",
+      "funcs": [
+        1150936
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 31,
+      "group_id": 31,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "dca9fcc8f9d3947e",
+      "funcs": [
+        1113040
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 32,
+      "group_id": 32,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 38,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "c64a916477296c91",
+      "funcs": [
+        1136468
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 33,
+      "group_id": 33,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 3,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4c2761b26d9968ff",
+      "funcs": [
+        1118604
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 34,
+      "group_id": 34,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a2",
       "fingerprint": [
         {
           "Base": "a2",
-          "Offset": 367,
-          "Size": 1
+          "Offset": 5,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 6,
+          "Size": 4
         }
       ],
-      "fp_hash": "3473d82ffc7f9d38",
+      "fp_hash": "62f550d8f0fe0a62",
       "funcs": [
-        1165732
+        1153196
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 35,
+      "group_id": 35,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "7b2936a4a1a2d468",
+      "funcs": [
+        1067672
       ],
       "confidence": 1
     },
     {
-      "id": 106,
-      "group_id": 106,
+      "id": 36,
+      "group_id": 36,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 32,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "fddbd8a3b87c202c",
+      "funcs": [
+        1145544
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 37,
+      "group_id": 37,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 94,
+          "Size": 1
+        },
+        {
+          "Base": "v3",
+          "Offset": 94,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c3b53ddd7be363b0",
+      "funcs": [
+        1147064
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 38,
+      "group_id": 38,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "e40dc22b933af723",
+      "funcs": [
+        1119236
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 39,
+      "group_id": 39,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v8",
+          "Offset": 24,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "3624d98ee7ad4438",
+      "funcs": [
+        1139496
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 40,
+      "group_id": 40,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 14,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "866cce8693c82405",
+      "funcs": [
+        1172300
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 41,
+      "group_id": 41,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 636,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 640,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "dae7a229559994db",
+      "funcs": [
+        1087932
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 42,
+      "group_id": 42,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "b10137c031c212bd",
+      "funcs": [
+        1157912
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 43,
+      "group_id": 43,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 588,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "308af5cb21157398",
+      "funcs": [
+        1101164
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 44,
+      "group_id": 44,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "46d8a43be1476f36",
+      "funcs": [
+        1118836
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 45,
+      "group_id": 45,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 2,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 5,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "4a771e920e9db4cd",
+      "funcs": [
+        1092632
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 46,
+      "group_id": 46,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 96,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 100,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c6fae80132b57a32",
+      "funcs": [
+        1140144
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 47,
+      "group_id": 47,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 28,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ffd6d6f3fd28eedc",
+      "funcs": [
+        1115124
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 48,
+      "group_id": 48,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 14,
+          "Size": 2
+        },
+        {
+          "Base": "v4",
+          "Offset": 24,
+          "Size": 1
+        },
+        {
+          "Base": "v4",
+          "Offset": 24,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f428326965d542a0",
+      "funcs": [
+        1160100
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 49,
+      "group_id": 49,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 64,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1fbd3e90349dfea9",
+      "funcs": [
+        1195780
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 50,
+      "group_id": 50,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "4e0bc7e5657bf826",
+      "funcs": [
+        1055856
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 51,
+      "group_id": 51,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 52,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 56,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 94,
+          "Size": 1
+        },
+        {
+          "Base": "v1",
+          "Offset": 97,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "6ef1f87e4a007900",
+      "funcs": [
+        1146356
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 52,
+      "group_id": 52,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 72,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 80,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 94,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "f97e01fef11b47f8",
+      "funcs": [
+        1158692
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 53,
+      "group_id": 53,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 20,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 21,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 21,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "55b89a6f37e6e4c8",
+      "funcs": [
+        1152332
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 54,
+      "group_id": 54,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "952b120834e8d02b",
+      "funcs": [
+        1145172
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 55,
+      "group_id": 55,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 60,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "9858a6d1e63adaed",
+      "funcs": [
+        1185516
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 56,
+      "group_id": 56,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 12,
+          "Size": 2
+        },
+        {
+          "Base": "v4",
+          "Offset": 24,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "ff9eb3115205ae79",
+      "funcs": [
+        1162564
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 57,
+      "group_id": 57,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 1,
+          "Size": 1
+        },
+        {
+          "Base": "v5",
+          "Offset": 2,
+          "Size": 1
+        },
+        {
+          "Base": "v5",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v5",
+          "Offset": 6,
+          "Size": 2
+        },
+        {
+          "Base": "v5",
+          "Offset": 8,
+          "Size": 2
+        },
+        {
+          "Base": "v5",
+          "Offset": 12,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 16,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "98f74dac57ee12d0",
+      "funcs": [
+        1163884
+      ],
+      "confidence": 8
+    },
+    {
+      "id": 58,
+      "group_id": 58,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v7",
       "fingerprint": [
         {
           "Base": "v7",
-          "Offset": 266,
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 16,
           "Size": 4
         }
       ],
-      "fp_hash": "5a48f826a86a86bc",
+      "fp_hash": "2182e65d2e9f910f",
       "funcs": [
-        1152032
+        1162944
       ],
-      "confidence": 1
+      "confidence": 2
     },
     {
-      "id": 107,
-      "group_id": 107,
+      "id": 59,
+      "group_id": 59,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a3",
       "fingerprint": [
@@ -2856,8 +1522,399 @@
       "confidence": 1
     },
     {
-      "id": 108,
-      "group_id": 108,
+      "id": 60,
+      "group_id": 60,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 2,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 6,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "3a92092eb62ac16b",
+      "funcs": [
+        1101932
+      ],
+      "confidence": 5
+    },
+    {
+      "id": 61,
+      "group_id": 61,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a4",
+      "fingerprint": [
+        {
+          "Base": "a4",
+          "Offset": 1,
+          "Size": 1
+        },
+        {
+          "Base": "a4",
+          "Offset": 2,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "341bba67bc55c6c8",
+      "funcs": [
+        1087288
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 62,
+      "group_id": 62,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 16,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "e2eb643af7bf3cd7",
+      "funcs": [
+        1161696
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 63,
+      "group_id": 63,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 20,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7e5e6534533d0ae6",
+      "funcs": [
+        1243476
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 64,
+      "group_id": 64,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 72,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "dcf6c447ba1b79c4",
+      "funcs": [
+        1147684
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 65,
+      "group_id": 65,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 7,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4465f9198320e57b",
+      "funcs": [
+        1208080
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 66,
+      "group_id": 66,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 6,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "fe34963d565524c4",
+      "funcs": [
+        1170144
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 67,
+      "group_id": 67,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 102,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 108,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 112,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 116,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "ecb940657e48d407",
+      "funcs": [
+        1151512
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 68,
+      "group_id": 68,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 20,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "02b937d5e3575137",
+      "funcs": [
+        1154416
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 69,
+      "group_id": 69,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 14,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 24,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4e8265f279dbdf36",
+      "funcs": [
+        1162632
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 70,
+      "group_id": 70,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 12,
+          "Size": 2
+        },
+        {
+          "Base": "v2",
+          "Offset": 14,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "7153ecccc64f1408",
+      "funcs": [
+        1103528
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 71,
+      "group_id": 71,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5ef98d1300729b72",
+      "funcs": [
+        1173100
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 72,
+      "group_id": 72,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "285e0f9d5adb78a1",
+      "funcs": [
+        1146460
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 73,
+      "group_id": 73,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 2
+        },
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c1f2edc4666a62e5",
+      "funcs": [
+        1090992
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 74,
+      "group_id": 74,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "beb54edbc2808da2",
+      "funcs": [
+        1196612
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 75,
+      "group_id": 75,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v8",
+          "Offset": 24,
+          "Size": 4
+        },
+        {
+          "Base": "v8",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "cf00cd48a7f934b6",
+      "funcs": [
+        1138940
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 76,
+      "group_id": 76,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 102,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 116,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "507cdcd951aec6fd",
+      "funcs": [
+        1149192
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 77,
+      "group_id": 77,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v7",
       "fingerprint": [
@@ -2939,85 +1996,67 @@
       "confidence": 14
     },
     {
-      "id": 109,
-      "group_id": 109,
+      "id": 78,
+      "group_id": 78,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a1",
       "fingerprint": [
         {
           "Base": "a1",
+          "Offset": 24,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "409f10655144dcf3",
+      "funcs": [
+        1186436
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 79,
+      "group_id": 79,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 104,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "11b1333002455250",
+      "funcs": [
+        1068040
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 80,
+      "group_id": 80,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
           "Offset": 4,
           "Size": 4
         },
         {
-          "Base": "a1",
+          "Base": "v4",
           "Offset": 6,
           "Size": 4
         }
       ],
-      "fp_hash": "fe34963d565524c4",
+      "fp_hash": "a791fe25f77459d1",
       "funcs": [
-        1170144
+        1170516
       ],
       "confidence": 2
     },
     {
-      "id": 110,
-      "group_id": 110,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c5b283e3fc0dc5df",
-      "funcs": [
-        1160424
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 111,
-      "group_id": 111,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 20,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7e5e6534533d0ae6",
-      "funcs": [
-        1243476
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 112,
-      "group_id": 112,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "166a6958e173a83a",
-      "funcs": [
-        1078204
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 113,
-      "group_id": 113,
+      "id": 81,
+      "group_id": 81,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a2",
       "fingerprint": [
@@ -3069,8 +2108,710 @@
       "confidence": 8
     },
     {
-      "id": 114,
-      "group_id": 114,
+      "id": 82,
+      "group_id": 82,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "989d79c8f6841867",
+      "funcs": [
+        1153484
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 83,
+      "group_id": 83,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 56,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5dddf4f405933bcb",
+      "funcs": [
+        1136288
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 84,
+      "group_id": 84,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "7831ef8ca2b3f0b1",
+      "funcs": [
+        1152000
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 85,
+      "group_id": 85,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 592,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 624,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 628,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 632,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7c3a14e4950f39dc",
+      "funcs": [
+        1070228
+      ],
+      "confidence": 5
+    },
+    {
+      "id": 86,
+      "group_id": 86,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 2
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "349bb25ffc1cb828",
+      "funcs": [
+        1115436
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 87,
+      "group_id": 87,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 9,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 9,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 10,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 11,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 11,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 13,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 14,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 15,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 16,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "59bac8b9771d05f0",
+      "funcs": [
+        1177500
+      ],
+      "confidence": 14
+    },
+    {
+      "id": 88,
+      "group_id": 88,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 97,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "0f3a9e2bf7ccbd87",
+      "funcs": [
+        1169980
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 89,
+      "group_id": 89,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 52,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 53,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "7dd1ba7268cad807",
+      "funcs": [
+        1139612
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 90,
+      "group_id": 90,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "193136455a54ea90",
+      "funcs": [
+        1140264
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 91,
+      "group_id": 91,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "b4fc684f1d3e8d6a",
+      "funcs": [
+        1170120
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 92,
+      "group_id": 92,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 38,
+          "Size": 2
+        },
+        {
+          "Base": "a1",
+          "Offset": 44,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "2a0d4bd02e91b1c0",
+      "funcs": [
+        1139908
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 93,
+      "group_id": 93,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 72,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "22ec57d70888b96b",
+      "funcs": [
+        1164068
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 94,
+      "group_id": 94,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 48,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 96,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 100,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "6d3091d7dec7574a",
+      "funcs": [
+        1135500
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 95,
+      "group_id": 95,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 36,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7f59549c632c7357",
+      "funcs": [
+        1097512
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 96,
+      "group_id": 96,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 38,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f670ad470489e3d9",
+      "funcs": [
+        1150096
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 97,
+      "group_id": 97,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 35,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 44,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f6c9bed73e894202",
+      "funcs": [
+        1146036
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 98,
+      "group_id": 98,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1fde98a9a9b51dd8",
+      "funcs": [
+        1159588
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 99,
+      "group_id": 99,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v7",
+          "Offset": 6,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "27d2ad114e4fa19d",
+      "funcs": [
+        1170704
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 100,
+      "group_id": 100,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 2,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "6abdb09095ee30fa",
+      "funcs": [
+        1166024
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 101,
+      "group_id": 101,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v1",
+          "Offset": 6,
+          "Size": 2
+        },
+        {
+          "Base": "v1",
+          "Offset": 8,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "731fc059f9ee4c06",
+      "funcs": [
+        1114096
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 102,
+      "group_id": 102,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 15,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 44,
+          "Size": 4
+        },
+        {
+          "Base": "v7",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ff416ab5f1b70016",
+      "funcs": [
+        1166280
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 103,
+      "group_id": 103,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 65,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "2cbcc6886180d383",
+      "funcs": [
+        1193788
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 104,
+      "group_id": 104,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 16,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "a2b80567eae5185d",
+      "funcs": [
+        1161024
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 105,
+      "group_id": 105,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 12,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 16,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 20,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 24,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 28,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 32,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 33,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 35,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 40,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 44,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 124,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "f36044a4ed9a54dc",
+      "funcs": [
+        1145676
+      ],
+      "confidence": 14
+    },
+    {
+      "id": 106,
+      "group_id": 106,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v4",
       "fingerprint": [
@@ -3092,8 +2833,623 @@
       "confidence": 2
     },
     {
+      "id": 107,
+      "group_id": 107,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 80,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 85,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 94,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "26101caaaab44b04",
+      "funcs": [
+        1163608
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 108,
+      "group_id": 108,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 32,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "a9da358ceb7904fe",
+      "funcs": [
+        1207768
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 109,
+      "group_id": 109,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ba4db59ecb412afe",
+      "funcs": [
+        1157888
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 110,
+      "group_id": 110,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "166a6958e173a83a",
+      "funcs": [
+        1078204
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 111,
+      "group_id": 111,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 2
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5982f24b8f374757",
+      "funcs": [
+        1142828
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 112,
+      "group_id": 112,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 14,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 24,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 26,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "8cfbc74f5dad038c",
+      "funcs": [
+        1158488
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 113,
+      "group_id": 113,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 96,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 100,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 104,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 108,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 112,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 116,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 120,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 132,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "68fb6a36900213a1",
+      "funcs": [
+        1144208
+      ],
+      "confidence": 11
+    },
+    {
+      "id": 114,
+      "group_id": 114,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 14,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "ebe081d5a6602816",
+      "funcs": [
+        1048832
+      ],
+      "confidence": 1
+    },
+    {
       "id": 115,
       "group_id": 115,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 152,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "d9451a761b0e5b77",
+      "funcs": [
+        1140428
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 116,
+      "group_id": 116,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 11,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "5f913cb8bc708d42",
+      "funcs": [
+        1124632
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 117,
+      "group_id": 117,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c5b283e3fc0dc5df",
+      "funcs": [
+        1160424
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 118,
+      "group_id": 118,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 36,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f87c91cd66a0e061",
+      "funcs": [
+        1170040
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 119,
+      "group_id": 119,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 2,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "a0414dffebd7e511",
+      "funcs": [
+        1169648
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 120,
+      "group_id": 120,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v7",
+          "Offset": 8,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "e6d7646e0b18348a",
+      "funcs": [
+        1162792
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 121,
+      "group_id": 121,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 2
+        },
+        {
+          "Base": "a1",
+          "Offset": 65,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 84,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "a194d4361fd8b82d",
+      "funcs": [
+        1140824
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 122,
+      "group_id": 122,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 2,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "da0e2545c0b045da",
+      "funcs": [
+        1148080
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 123,
+      "group_id": 123,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "3f0db2d6c78fbdeb",
+      "funcs": [
+        1063424
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 124,
+      "group_id": 124,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 11,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "da41885616d9f320",
+      "funcs": [
+        1118892
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 125,
+      "group_id": 125,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "e2a1725c24ebc590",
+      "funcs": [
+        1138716
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 126,
+      "group_id": 126,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f9c6379d3e24b2f9",
+      "funcs": [
+        1148532
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 127,
+      "group_id": 127,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 56,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 88,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7b80613e79cb9d5c",
+      "funcs": [
+        1151060
+      ],
+      "confidence": 2
+    },
+    {
+      "id": 128,
+      "group_id": 128,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 4,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "98a0511e6845f572",
+      "funcs": [
+        1137096
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 129,
+      "group_id": 129,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1dea9ed6c2a0bce2",
+      "funcs": [
+        1135380
+      ],
+      "confidence": 1
+    },
+    {
+      "id": 130,
+      "group_id": 130,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 28,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "bf706901a513e4dd",
+      "funcs": [
+        1165276
+      ],
+      "confidence": 3
+    },
+    {
+      "id": 131,
+      "group_id": 131,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 16,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 32,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4085fec68f5a7844",
+      "funcs": [
+        1135320
+      ],
+      "confidence": 4
+    },
+    {
+      "id": 132,
+      "group_id": 132,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "a1",
       "fingerprint": [
@@ -3130,261 +3486,26 @@
       "confidence": 5
     },
     {
-      "id": 116,
-      "group_id": 116,
+      "id": 133,
+      "group_id": 133,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "a1",
-          "Offset": 14,
+          "Base": "v1",
+          "Offset": 32,
           "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 24,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 26,
-          "Size": 1
         }
       ],
-      "fp_hash": "8cfbc74f5dad038c",
+      "fp_hash": "a985326216d2eaf8",
       "funcs": [
-        1158488
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 117,
-      "group_id": 117,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 104,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "11b1333002455250",
-      "funcs": [
-        1068040
+        1147592
       ],
       "confidence": 1
     },
     {
-      "id": 118,
-      "group_id": 118,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 3,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "4c2761b26d9968ff",
-      "funcs": [
-        1118604
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 119,
-      "group_id": 119,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 38,
-          "Size": 2
-        },
-        {
-          "Base": "a1",
-          "Offset": 44,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "2a0d4bd02e91b1c0",
-      "funcs": [
-        1139908
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 120,
-      "group_id": 120,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v8",
-          "Offset": 24,
-          "Size": 4
-        },
-        {
-          "Base": "v8",
-          "Offset": 40,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "cf00cd48a7f934b6",
-      "funcs": [
-        1138940
-      ],
-      "confidence": 3
-    },
-    {
-      "id": 121,
-      "group_id": 121,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "46d8a43be1476f36",
-      "funcs": [
-        1118836
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 122,
-      "group_id": 122,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "285e0f9d5adb78a1",
-      "funcs": [
-        1146460
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 123,
-      "group_id": 123,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 2
-        },
-        {
-          "Base": "a1",
-          "Offset": 65,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 84,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a194d4361fd8b82d",
-      "funcs": [
-        1140824
-      ],
-      "confidence": 4
-    },
-    {
-      "id": 124,
-      "group_id": 124,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 14,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 24,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "4e8265f279dbdf36",
-      "funcs": [
-        1162632
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 125,
-      "group_id": 125,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 85,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "5d51b974e1ed30b4",
-      "funcs": [
-        1164608
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 126,
-      "group_id": 126,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "8a036e7e8c8f34e7",
-      "funcs": [
-        1084724
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 127,
-      "group_id": 127,
+      "id": 134,
+      "group_id": 134,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v8",
       "fingerprint": [
@@ -3406,196 +3527,70 @@
       "confidence": 2
     },
     {
-      "id": 128,
-      "group_id": 128,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1fde98a9a9b51dd8",
-      "funcs": [
-        1159588
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 129,
-      "group_id": 129,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 102,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 116,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "507cdcd951aec6fd",
-      "funcs": [
-        1149192
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 130,
-      "group_id": 130,
+      "id": 135,
+      "group_id": 135,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "primary_arg": "v7",
       "fingerprint": [
         {
           "Base": "v7",
-          "Offset": 16,
+          "Offset": 2,
           "Size": 1
         },
         {
           "Base": "v7",
-          "Offset": 16,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "2182e65d2e9f910f",
-      "funcs": [
-        1162944
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 131,
-      "group_id": 131,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 56,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 88,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7b80613e79cb9d5c",
-      "funcs": [
-        1151060
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 132,
-      "group_id": 132,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 2
-        },
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c1f2edc4666a62e5",
-      "funcs": [
-        1090992
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 133,
-      "group_id": 133,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 32,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "fddbd8a3b87c202c",
-      "funcs": [
-        1145544
-      ],
-      "confidence": 2
-    },
-    {
-      "id": 134,
-      "group_id": 134,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 588,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "308af5cb21157398",
-      "funcs": [
-        1101164
-      ],
-      "confidence": 1
-    },
-    {
-      "id": 135,
-      "group_id": 135,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 16,
+          "Offset": 5,
           "Size": 1
         }
       ],
-      "fp_hash": "e2eb643af7bf3cd7",
+      "fp_hash": "9522ba571bbbb575",
       "funcs": [
-        1161696
+        1192908
       ],
-      "confidence": 1
+      "confidence": 2
     },
     {
       "id": 136,
       "group_id": 136,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "v4",
+          "Base": "v1",
           "Offset": 4,
           "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 12,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v1",
+          "Offset": 48,
+          "Size": 2
+        },
+        {
+          "Base": "v1",
+          "Offset": 84,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 152,
+          "Size": 1
         }
       ],
-      "fp_hash": "42eec7356608c879",
+      "fp_hash": "70ff902047ce18e9",
       "funcs": [
-        1188124
+        1145288
       ],
-      "confidence": 1
+      "confidence": 6
     },
     {
       "id": 137,
@@ -3605,13 +3600,13 @@
       "fingerprint": [
         {
           "Base": "a1",
-          "Offset": 14,
-          "Size": 2
+          "Offset": 95,
+          "Size": 1
         }
       ],
-      "fp_hash": "ebe081d5a6602816",
+      "fp_hash": "ccf0e6af23073e20",
       "funcs": [
-        1048832
+        1151344
       ],
       "confidence": 1
     },
@@ -3619,47 +3614,42 @@
       "id": 138,
       "group_id": 138,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "primary_arg": "v2",
       "fingerprint": [
         {
-          "Base": "a1",
-          "Offset": 97,
-          "Size": 1
+          "Base": "v2",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 80,
+          "Size": 4
         }
       ],
-      "fp_hash": "0f3a9e2bf7ccbd87",
+      "fp_hash": "a277abf5f806975d",
       "funcs": [
-        1169980
+        1163292
       ],
-      "confidence": 1
+      "confidence": 2
     },
     {
       "id": 139,
       "group_id": 139,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "primary_arg": "a1",
       "fingerprint": [
         {
-          "Base": "v4",
-          "Offset": 14,
-          "Size": 2
-        },
-        {
-          "Base": "v4",
-          "Offset": 24,
+          "Base": "a1",
+          "Offset": 3,
           "Size": 1
-        },
-        {
-          "Base": "v4",
-          "Offset": 24,
-          "Size": 4
         }
       ],
-      "fp_hash": "f428326965d542a0",
+      "fp_hash": "94d9183d978b5770",
       "funcs": [
-        1160100
+        1166672
       ],
-      "confidence": 3
+      "confidence": 1
     },
     {
       "id": 140,
@@ -3669,180 +3659,190 @@
       "fingerprint": [
         {
           "Base": "a1",
-          "Offset": 28,
+          "Offset": 72,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 95,
           "Size": 4
         }
       ],
-      "fp_hash": "1dea9ed6c2a0bce2",
+      "fp_hash": "7ee99fb9ee45593b",
       "funcs": [
-        1135380
+        1163064
       ],
-      "confidence": 1
+      "confidence": 3
     }
   ],
   "func_map": {
-    "100100": 137,
+    "100100": 114,
     "1006c0": 0,
-    "100948": 5,
-    "101c70": 24,
-    "102bb0": 99,
-    "103a00": 17,
-    "104a98": 40,
-    "104c08": 117,
-    "105494": 82,
-    "105dcc": 59,
+    "100948": 6,
+    "101c70": 50,
+    "102bb0": 19,
+    "103a00": 123,
+    "104a98": 35,
+    "104c08": 79,
+    "105494": 85,
+    "105dcc": 29,
     "105e94": 1,
-    "105fd0": 113,
-    "106f74": 6,
-    "107068": 6,
-    "107150": 11,
-    "107214": 107,
-    "1073bc": 112,
-    "107a70": 104,
-    "108d34": 126,
-    "109738": 19,
-    "1099bc": 50,
-    "10a5b0": 132,
-    "10ac18": 62,
-    "10bf28": 49,
-    "10cd6c": 134,
-    "10cf48": 84,
-    "10d06c": 100,
-    "10d6a8": 46,
+    "105fd0": 81,
+    "106f74": 7,
+    "107068": 7,
+    "107150": 15,
+    "107214": 59,
+    "1073bc": 110,
+    "107a70": 28,
+    "108d34": 23,
+    "109738": 61,
+    "1099bc": 41,
+    "10a5b0": 73,
+    "10ac18": 45,
+    "10bf28": 95,
+    "10cd6c": 43,
+    "10cf48": 18,
+    "10d06c": 60,
+    "10d6a8": 70,
     "10f814": 0,
-    "10fa18": 10,
-    "10fbd0": 26,
-    "10fff0": 20,
-    "1103f4": 18,
-    "11052c": 13,
-    "110b64": 28,
-    "11118c": 118,
-    "111274": 121,
-    "1112ac": 69,
-    "111404": 98,
-    "111618": 8,
-    "111950": 4,
-    "111a24": 4,
-    "112918": 73,
-    "112b7c": 10,
-    "115018": 39,
-    "1152d8": 43,
-    "115314": 140,
-    "11538c": 36,
-    "1156a0": 96,
-    "115754": 102,
-    "1159c8": 86,
-    "115b60": 115,
+    "10fa18": 8,
+    "10fbd0": 31,
+    "10fff0": 101,
+    "1103f4": 47,
+    "11052c": 86,
+    "110b64": 24,
+    "11118c": 33,
+    "111274": 44,
+    "1112ac": 124,
+    "111404": 38,
+    "111618": 9,
+    "111950": 10,
+    "111a24": 10,
+    "112918": 116,
+    "112b7c": 8,
+    "115018": 26,
+    "1152d8": 131,
+    "115314": 129,
+    "11538c": 94,
+    "1156a0": 83,
+    "115754": 32,
+    "1159c8": 128,
+    "115b60": 132,
     "115dbc": 3,
     "115f78": 3,
-    "11601c": 87,
-    "1160fc": 120,
-    "116328": 97,
-    "11639c": 45,
-    "1164c4": 119,
-    "1165b0": 72,
-    "116628": 34,
-    "1166cc": 70,
-    "116858": 123,
+    "11601c": 125,
+    "1160fc": 75,
+    "116328": 39,
+    "11639c": 89,
+    "1164c4": 92,
+    "1165b0": 46,
+    "116628": 90,
+    "1166cc": 115,
+    "116858": 121,
     "116cdc": 2,
     "116d98": 2,
     "116e24": 2,
-    "11702c": 92,
-    "11739c": 83,
-    "117590": 91,
-    "117954": 38,
-    "1179c8": 56,
-    "117ac8": 133,
-    "117b4c": 81,
-    "117cb4": 53,
-    "117d6c": 42,
-    "117df4": 64,
-    "117e5c": 122,
-    "1180b8": 35,
-    "1182c8": 77,
-    "118324": 95,
-    "1184b0": 79,
-    "118674": 31,
-    "118908": 129,
-    "118c90": 101,
-    "118fd8": 25,
-    "119054": 131,
-    "119170": 68,
-    "119218": 27,
-    "119330": 8,
-    "119400": 103,
-    "119420": 106,
-    "11954c": 44,
-    "1198ac": 94,
-    "1199cc": 65,
-    "119d70": 15,
-    "11ab00": 29,
-    "11ab18": 71,
-    "11ad58": 116,
+    "11702c": 111,
+    "11739c": 12,
+    "117590": 113,
+    "117954": 54,
+    "1179c8": 136,
+    "117ac8": 36,
+    "117b4c": 105,
+    "117cb4": 97,
+    "117d6c": 16,
+    "117df4": 51,
+    "117e5c": 72,
+    "1180b8": 37,
+    "1182c8": 133,
+    "118324": 64,
+    "1184b0": 122,
+    "118674": 126,
+    "118908": 76,
+    "118c90": 96,
+    "118fd8": 30,
+    "119054": 127,
+    "119170": 137,
+    "119218": 67,
+    "119330": 9,
+    "119400": 84,
+    "119420": 20,
+    "11954c": 53,
+    "1198ac": 34,
+    "1199cc": 82,
+    "119d70": 68,
+    "11ab00": 109,
+    "11ab18": 42,
+    "11ad58": 112,
     "11ad88": 1,
-    "11add0": 66,
-    "11ae24": 60,
-    "11b088": 114,
-    "11b1a4": 128,
-    "11b3a4": 139,
-    "11b4e8": 110,
-    "11b740": 61,
-    "11b80c": 88,
-    "11b9e0": 135,
-    "11bd44": 47,
-    "11bd88": 124,
-    "11be28": 80,
-    "11bec0": 130,
-    "11bf38": 54,
-    "11c01c": 51,
-    "11c158": 85,
-    "11c26c": 41,
-    "11c324": 22,
-    "11c38c": 90,
-    "11c540": 125,
-    "11c7dc": 57,
-    "11c9a4": 105,
-    "11cac8": 14,
-    "11cb84": 12,
-    "11cbc8": 30,
-    "11cd50": 67,
-    "11d8f0": 78,
-    "11da3c": 138,
-    "11da78": 93,
-    "11dac8": 48,
-    "11dae0": 109,
-    "11dc54": 52,
-    "11dd10": 58,
+    "11add0": 11,
+    "11ae24": 52,
+    "11b088": 106,
+    "11b1a4": 98,
+    "11b3a4": 48,
+    "11b4e8": 117,
+    "11b740": 104,
+    "11b80c": 21,
+    "11b9e0": 62,
+    "11bd44": 56,
+    "11bd88": 69,
+    "11be28": 120,
+    "11bec0": 58,
+    "11bf38": 140,
+    "11c01c": 138,
+    "11c158": 107,
+    "11c26c": 57,
+    "11c324": 93,
+    "11c38c": 25,
+    "11c540": 22,
+    "11c7dc": 130,
+    "11c9a4": 13,
+    "11cac8": 100,
+    "11cb84": 17,
+    "11cbc8": 102,
+    "11cd50": 139,
+    "11d8f0": 119,
+    "11da3c": 88,
+    "11da78": 118,
+    "11dac8": 91,
+    "11dae0": 66,
+    "11dc54": 80,
+    "11dd10": 99,
     "11deec": 1,
     "11e184": 0,
-    "11e34c": 21,
-    "11e66c": 16,
-    "11e724": 7,
+    "11e34c": 40,
+    "11e66c": 71,
+    "11e724": 4,
     "11e7ac": 1,
-    "11e7c4": 7,
-    "11f79c": 89,
+    "11e7c4": 4,
+    "11f79c": 87,
     "1212d0": 0,
-    "12135c": 127,
-    "121490": 23,
+    "12135c": 134,
+    "121490": 27,
     "121654": 0,
-    "1216ec": 63,
-    "121a84": 33,
+    "1216ec": 55,
+    "121a84": 78,
     "121be0": 0,
-    "12211c": 136,
-    "1222cc": 5,
+    "12211c": 14,
+    "1222cc": 6,
     "123394": 1,
-    "1233cc": 74,
-    "12373c": 37,
-    "123a20": 9,
-    "123ab4": 9,
-    "123f04": 55,
-    "124244": 32,
-    "1242f0": 108,
+    "1233cc": 135,
+    "12373c": 103,
+    "123a20": 5,
+    "123ab4": 5,
+    "123f04": 49,
+    "124244": 74,
+    "1242f0": 77,
     "1246f0": 0,
     "125e18": 0,
     "125f58": 0,
-    "126dd8": 75,
-    "126f10": 76,
-    "12f954": 111
+    "126dd8": 108,
+    "126f10": 65,
+    "12f954": 63
   }
 }

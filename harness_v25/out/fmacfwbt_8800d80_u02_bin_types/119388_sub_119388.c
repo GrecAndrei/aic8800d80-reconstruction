@@ -1,0 +1,87 @@
+// sub_119388 @ 0x119388, size 304 bytes
+// Doc: sub_1219388 [unknown]: Unknown micro-flow helper at 0x1219388
+// sub_1219388 [unknown]: Unknown micro-flow helper at 0x1219388
+int  sub_119388(int a1, __int16 a2, int a3, int a4)
+{
+  int v4; // r11
+  int v5; // r4
+  int v7; // r7
+  int v9; // r0
+  int v12; // r2
+  int v13; // r5
+  int v14; // r7
+  int v15; // r3
+  int v16; // r4
+  int v17; // r1
+  int v18; // r12
+  __int16 v19; // lr
+  int v20; // r0
+  __int16 v21; // r2
+  char v22; // r3
+
+  v4 = dword_1194C8;
+  v5 = dword_1194B8;
+  v7 = *(unsigned __int8 *)(dword_1194C8 + 696 * a1 + 34);
+  v9 = *(uint32_t *)(dword_1194B8 + 1320 * v7 + 72);
+  if ( !v9 )
+  {
+    if ( **(__int16 **)off_1194BC >= 0 )
+    {
+LABEL_10:
+      v13 = sub_119084(1, 26);
+      if ( !v13 )
+        return 1;
+      goto LABEL_4;
+    }
+LABEL_9:
+    sub_12F694(dword_1194C4, dword_1194C0, 520);
+    goto LABEL_10;
+  }
+  v12 = *(unsigned __int8 *)(v9 + 4);
+  if ( **(__int16 **)off_1194BC < 0 && v12 == 2 )
+    goto LABEL_9;
+  v13 = sub_119084((*(unsigned __int8 *)(dword_1194B8 + 1320 * v7 + 1224) | v12) != 0, 26);
+  if ( !v13 )
+    return 1;
+LABEL_4:
+  v14 = v5 + 1320 * v7;
+  message_dispatch_n_4a3(v14, v13);
+  v15 = v4 + 696 * a1;
+  v16 = *(uint32_t *)(v13 + 72);
+  v17 = *(uint32_t *)(v15 + 38);
+  v18 = *(unsigned __int8 *)(v14 + 106);
+  v19 = *(uint16_t *)(v15 + 42);
+  v20 = *(uint32_t *)(v14 + 100);
+  v21 = *(uint16_t *)(v14 + 104);
+  *(uint16_t *)(v16 + 122) = v21;
+  *(uint16_t *)(v16 + 116) = v19;
+  *(uint32_t *)(v16 + 112) = v17;
+  *(uint32_t *)(v16 + 118) = v20;
+  *(uint8_t *)(v16 + 110) = 0;
+  *(uint8_t *)(v16 + 111) = 0;
+  if ( v18 )
+  {
+    *(uint32_t *)(v16 + 124) = *(uint32_t *)(v14 + 100);
+    *(uint16_t *)(v16 + 128) = v21;
+    *(uint8_t *)(v16 + 108) = -56;
+    *(uint8_t *)(v16 + 109) = 2;
+  }
+  else
+  {
+    *(uint32_t *)(v16 + 124) = v17;
+    *(uint16_t *)(v16 + 128) = v19;
+    *(uint8_t *)(v16 + 108) = -56;
+    *(uint8_t *)(v16 + 109) = 1;
+  }
+  v22 = *(uint8_t *)(v4 + 696 * a1 + 34);
+  *(uint16_t *)(v16 + 132) = a2;
+  *(uint8_t *)(v16 + 130) = 0;
+  *(uint8_t *)(v16 + 131) = 0;
+  *(uint32_t *)(v13 + 88) = a3;
+  *(uint32_t *)(v13 + 92) = a4;
+  *(uint8_t *)(v13 + 28) = v22;
+  *(uint8_t *)(v13 + 29) = a1;
+  sub_1190B4(v13, 5);
+  return 0;
+}
+

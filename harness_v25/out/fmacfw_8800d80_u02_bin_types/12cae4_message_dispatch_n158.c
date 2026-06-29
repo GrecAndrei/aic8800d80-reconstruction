@@ -1,0 +1,90 @@
+// message_dispatch_n158 @ 0x12cae4, size 200 bytes
+// Doc: message_dispatch_n17a_b06 [ipc]: Dispatches host/firmware messages by opcode
+// message_dispatch_n17a_b06 [ipc]: Dispatches host/firmware messages by opcode
+int  message_dispatch_n158(int a1)
+{
+  __int16 **v1; // r7
+  unsigned int v2; // r4
+  unsigned int v3; // r6
+  uint32_t *v4; // r3
+  int *v5; // r5
+  int v6; // r12
+  uint32_t *v7; // r1
+  unsigned int v8; // r2
+  uint32_t *v9; // r2
+  unsigned int v10; // r3
+  int result; // r0
+  int v12; // r2
+
+  v1 = (__int16 **)off_12CBAC;
+  v2 = (a1 + 3) & 0xFFFFFFFC;
+  v3 = v2 + 4;
+  if ( **(__int16 **)off_12CBAC < 0 && v3 <= 7 )
+    sub_12F46C(dword_12CBC4, dword_12CBBC, 132);
+  v4 = *((uint32_t **)msg_dispatch_handler_bb0 + 7);
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(uint32_t *)sdio_buffer_prepare_n1bc = 1;
+  }
+  v5 = (int *)message_dispatch_n22c;
+  v6 = *(uint32_t *)message_dispatch_n22c + 1;
+  *(uint32_t *)message_dispatch_n22c = v6;
+  if ( v4 )
+  {
+    v7 = nullptr;
+    while ( 1 )
+    {
+      while ( 1 )
+      {
+        v8 = v4[1];
+        if ( v8 >= v2 + 12 )
+          break;
+LABEL_8:
+        v4 = (uint32_t *)*v4;
+        if ( !v4 )
+          goto LABEL_12;
+      }
+      if ( v7 )
+      {
+        if ( v8 < v7[1] )
+          v7 = v4;
+        goto LABEL_8;
+      }
+      v7 = v4;
+      v4 = (uint32_t *)*v4;
+      if ( !v4 )
+      {
+LABEL_12:
+        if ( **v1 < 0 && !v7 )
+          goto LABEL_20;
+        v9 = v7;
+        goto LABEL_14;
+      }
+    }
+  }
+  if ( **v1 >= 0 )
+    __und(0xFFu);
+LABEL_20:
+  sub_12F46C(message_dispatch_n234, dword_12CBBC, 160);
+  v9 = nullptr;
+  v6 = *v5;
+  v7 = nullptr;
+LABEL_14:
+  v10 = v7[1] - v3;
+  v7[1] = v10;
+  result = (int)v9 + v10 + 4;
+  *(uint32_t *)((char *)v9 + v10) = v3;
+  if ( v6 )
+  {
+    v12 = *(uint32_t *)sdio_buffer_prepare_n1bc;
+    *v5 = v6 - 1;
+    if ( v6 == 1 )
+    {
+      if ( v12 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+

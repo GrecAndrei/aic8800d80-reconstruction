@@ -1,0 +1,161 @@
+// fwstruct annotate: 11ca94_rf_stream_start2_n418.c
+// rf_stream_start2_n418 @ 0x11ca94, size 444 bytes
+// Doc: rf_stream_start2_n418 [rf]: Starts an RF stream by setting up a descriptor and saving context
+// rf_stream_start2_n418 [rf]: Starts an RF stream by setting up a descriptor and saving context
+int __fastcall rf_stream_start2_n418(int result)
+{
+  _BYTE *v1; // r6
+  int v2; // r3
+  int v3; // r1
+  int v4; // r7
+  int v5; // r8
+  int v6; // r5
+  int v7; // r3
+  __int16 **v8; // r10
+  int v9; // r9
+  int v10; // r12
+  int v11; // r3
+  int v12; // r2
+  int v13; // r1
+  int v14; // r3
+  int v15; // r4
+  int v16; // r4
+  int v17; // r3
+  int v18; // r3
+  int v19; // r3
+  int v20; // r5
+  int v21; // r3
+  int v22; // r0
+  _DWORD *v23; // r1
+  unsigned int v24; // r3
+  unsigned int v25; // r2
+  int v26; // r0
+  int v27; // r3
+
+  v1 = off_11CC50;
+  v2 = *((_DWORD *)off_11CC50 + 52);
+  v3 = v2 << 30;
+  if ( (v2 & 2) != 0 )
+  {
+    *((_DWORD *)off_11CC50 + 52) = v2 & 0xFFFFFFFD;
+    return result;
+  }
+  v4 = *((unsigned __int8 *)off_11CC50 + 190);
+  v5 = dword_11CC74;
+  v6 = dword_11CC74 + 84 * v4;
+  v7 = *(unsigned __int8 *)(v6 + 26);
+  if ( *(_BYTE *)(v6 + 26) )
+  {
+LABEL_12:
+    v16 = *(_DWORD *)(v5 + 84 * v4 + 36);
+    if ( v7 == 2 )
+      v17 = v16 + 16;
+    else
+      v17 = v16 + 84;
+    v18 = *(_DWORD *)(v17 + 60);
+    if ( v18 >= 0 )
+      return result;
+    if ( (v18 & 0x800000) != 0 )
+    {
+      v19 = *(unsigned __int16 *)(v16 + 8);
+      if ( (v19 & 0x20) == 0 )
+      {
+        sub_11EBFC(result);
+        v20 = 9;
+        while ( 1 )
+        {
+          v19 = *(unsigned __int16 *)(v16 + 8);
+          if ( (v19 & 0x20) != 0 )
+            break;
+          sub_11EBFC(v19 << 26);
+          if ( !--v20 )
+          {
+            v19 = *(unsigned __int16 *)(v16 + 8);
+            if ( **(__int16 **)off_11CC58 < 0 )
+            {
+              v3 = v19 << 26;
+              if ( (v19 & 0x20) == 0 )
+                return fmac_phy_op_handler(dword_11CC60, dword_11CC5C, 2274, v19);
+            }
+            break;
+          }
+        }
+      }
+      if ( (v19 & 0x40) != 0 )
+      {
+        if ( v1[199] )
+        {
+          *(_DWORD *)off_11CC6C = ((unsigned __int8)v1[164] << 24) & 0x7000000 | *(_DWORD *)off_11CC6C & 0xF8FFFFFF;
+        }
+        else
+        {
+          fmac_flag_read_a0((unsigned __int8)v1[190], v3, (unsigned __int8)v1[199], v19);
+          LOWORD(v19) = *(_WORD *)(v16 + 8);
+        }
+        goto LABEL_35;
+      }
+    }
+    else
+    {
+      rf_bus_mark_n100_d2d0(v5 + 84 * v4 + 28);
+      LOWORD(v19) = *(_WORD *)(v16 + 8);
+    }
+    if ( v1[199] )
+    {
+      v25 = (HIBYTE(*(_DWORD *)off_11CC6C) & 7) + 1;
+      if ( v25 >= (unsigned __int8)v1[165] )
+        v25 = (unsigned __int8)v1[165];
+      *(_DWORD *)off_11CC6C = (v25 << 24) & 0x7000000 | *(_DWORD *)off_11CC6C & 0xF8FFFFFF;
+    }
+LABEL_35:
+    v26 = *(_DWORD *)(dword_11CC70 + 4 * v4);
+    *(_WORD *)(v16 + 8) = v19 | 0x10;
+    irq_nesting_or_d104(v26);
+    v27 = v5 + 84 * v4;
+    *(_BYTE *)(v27 + 26) = 0;
+    *(_DWORD *)(v27 + 36) = 0;
+LABEL_25:
+    v21 = (int)&v1[28 * v4];
+    if ( !*(_BYTE *)(v21 + 46) )
+    {
+      v22 = *(_DWORD *)(v21 + 36);
+      if ( v22 )
+        mmio_reg_poll_n6b4(v22, v4, *(unsigned __int8 *)(v21 + 46), v21);
+      *(_DWORD *)&v1[28 * v4 + 36] = 0;
+    }
+    v23 = off_11CC68;
+    *(_DWORD *)off_11CC64 &= ~0x40u;
+    *v23 = 64;
+    v24 = *((_DWORD *)v1 + 52) & 0xFFFFFFFE;
+    --*(_BYTE *)(v5 + 84 * v4 + 80);
+    *((_DWORD *)v1 + 52) = v24;
+    return sub_11A7E8(v4);
+  }
+  v8 = (__int16 **)off_11CC58;
+  v9 = dword_11CC5C;
+  while ( 1 )
+  {
+    v15 = *(_DWORD *)(v6 + 12);
+    if ( **v8 < 0 && !v15 )
+      sub_12F46C(dword_11CC54, v9, 2199);
+    v10 = *(_DWORD *)(v15 + 76);
+    v11 = *(_DWORD *)(v10 + 72);
+    v12 = v11 | 0x400000;
+    result = v15;
+    v13 = v11 | 0x400000;
+    if ( v11 >= 0 )
+      return result;
+    v14 = *(_DWORD *)(v15 + 36);
+    *(_DWORD *)(v10 + 72) = v12;
+    if ( (v14 & 0x200000) == 0 )
+    {
+      rf_bus_init_5d8(v15, v13);
+      goto LABEL_25;
+    }
+    result = sub_11BBB4(v15, v13);
+    v7 = *(unsigned __int8 *)(v6 + 26);
+    if ( *(_BYTE *)(v6 + 26) )
+      goto LABEL_12;
+  }
+}
+

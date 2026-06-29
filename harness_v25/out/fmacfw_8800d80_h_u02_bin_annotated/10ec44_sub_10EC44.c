@@ -1,0 +1,43 @@
+// fwstruct annotate: 10ec44_sub_10EC44.c
+// sub_10EC44 @ 0x10ec44, size 70 bytes
+int __fastcall sub_10EC44(int a1, int a2)
+{
+  int *v2; // r5
+  _DWORD *v3; // r4
+  int result; // r0
+  int v5; // r3
+  int v6; // r2
+
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(_DWORD *)off_10EC8C = 1;
+  }
+  v2 = (int *)off_10EC90;
+  ++*(_DWORD *)off_10EC90;
+  if ( a2 )
+  {
+    v3 = off_10EC94;
+    while ( !*(_DWORD *)off_10EC94 )
+      ;
+    result = sub_10EC2C();
+    *v3 = 1;
+  }
+  else
+  {
+    result = sub_10EC2C();
+  }
+  if ( *v2 )
+  {
+    v5 = *v2 - 1;
+    v6 = *(_DWORD *)off_10EC8C;
+    *v2 = v5;
+    if ( !v5 )
+    {
+      if ( v6 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+

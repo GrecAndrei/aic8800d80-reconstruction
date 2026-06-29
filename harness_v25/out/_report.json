@@ -1,0 +1,64 @@
+{
+  "images": [
+    {
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "funcs": 1290,
+      "clusters": 416,
+      "llm_named_structs": 0,
+      "callers_in_callgraph": 1291,
+      "max_init_depth": 0,
+      "magic_literals": 1630,
+      "types_fixed": 1204,
+      "xref_fields": 3951,
+      "ivt_handlers_named": 1
+    },
+    {
+      "image": "fmacfw_8800d80_u02_bin",
+      "funcs": 1735,
+      "clusters": 415,
+      "llm_named_structs": 0,
+      "callers_in_callgraph": 1736,
+      "max_init_depth": 0,
+      "magic_literals": 1631,
+      "types_fixed": 1621,
+      "xref_fields": 3942,
+      "ivt_handlers_named": 1
+    },
+    {
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "funcs": 1741,
+      "clusters": 422,
+      "llm_named_structs": 0,
+      "callers_in_callgraph": 1741,
+      "max_init_depth": 0,
+      "magic_literals": 1649,
+      "types_fixed": 1624,
+      "xref_fields": 4182,
+      "ivt_handlers_named": 1
+    },
+    {
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "funcs": 1179,
+      "clusters": 141,
+      "llm_named_structs": 0,
+      "callers_in_callgraph": 1179,
+      "max_init_depth": 0,
+      "magic_literals": 1119,
+      "types_fixed": 1086,
+      "xref_fields": 746,
+      "ivt_handlers_named": 1
+    }
+  ],
+  "total": {
+    "image": "",
+    "funcs": 5945,
+    "clusters": 1394,
+    "llm_named_structs": 0,
+    "callers_in_callgraph": 5947,
+    "max_init_depth": 0,
+    "magic_literals": 0,
+    "types_fixed": 5535,
+    "xref_fields": 12821,
+    "ivt_handlers_named": 0
+  }
+}

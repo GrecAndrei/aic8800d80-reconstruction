@@ -1,0 +1,24 @@
+// sub_12AD00 @ 0x12ad00, size 48 bytes
+int *sub_12AD00()
+{
+  int *result; // r0
+  uint8_t *v1; // r3
+  int v2; // r1
+
+  sub_12ACC4(0);
+  sub_12ACC4(1);
+  sub_12ACC4(2);
+  result = sub_12ACC4(3);
+  v1 = (uint8_t *)dword_12AD30;
+  v2 = dword_12AD30 + 96;
+  do
+  {
+    v1[1] = 0;
+    v1[2] = 0;
+    *v1 = 0;
+    v1 += 3;
+  }
+  while ( v1 != (uint8_t *)v2 );
+  return result;
+}
+

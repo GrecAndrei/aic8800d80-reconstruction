@@ -1,0 +1,32 @@
+// sub_136E40 @ 0x136e40, size 84 bytes
+// Doc: sub_1236E40 [mac]: FMAC behavioral routine indexed by mla with stride 0x2b8
+// sub_1236E40 [mac]: FMAC behavioral routine indexed by mla with stride 0x2b8
+int  sub_136E40(int result, int a2)
+{
+  int v2; // r4
+  char v3; // r1
+  int v4; // r0
+  __int16 v5; // r1
+
+  if ( *(uint8_t *)(result + 106) == 2 )
+  {
+    v2 = dword_136E94 + 696 * a2;
+    result = sub_11F704(result, v2, 0);
+    v3 = *(uint8_t *)(v2 + 53);
+    if ( (v3 & 0xA) != 0 )
+    {
+      *(uint8_t *)(v2 + 53) = v3 & 0xF5;
+      if ( (v3 & 0xF5) == 0 )
+      {
+        v4 = rf_bus_setup_n3a8(65, 0, 5, 4u);
+        v5 = *(uint16_t *)(v2 + 32);
+        *(uint8_t *)(v4 + 3) = *(uint8_t *)(v2 + 34);
+        *(uint8_t *)(v4 + 2) = 0;
+        *(uint16_t *)v4 = v5;
+        return sub_12CBB4(v4);
+      }
+    }
+  }
+  return result;
+}
+

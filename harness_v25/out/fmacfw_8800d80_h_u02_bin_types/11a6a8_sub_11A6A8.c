@@ -1,0 +1,39 @@
+// sub_11A6A8 @ 0x11a6a8, size 68 bytes
+int  sub_11A6A8(int result)
+{
+  int *v1; // r4
+  int v2; // r2
+  int v3; // r1
+  int v4; // r3
+  int v5; // r3
+  int v6; // r2
+
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(uint32_t *)off_11A6EC = 1;
+  }
+  v1 = (int *)off_11A6F4;
+  v2 = dword_11A6F0 + 84 * result;
+  v3 = *(unsigned __int8 *)(v2 + 80);
+  v4 = *(uint32_t *)off_11A6F4 + 1;
+  *(uint32_t *)off_11A6F4 = v4;
+  if ( !v3 && *(uint32_t *)(v2 + 44) )
+  {
+    result = sub_119D88(result);
+    v4 = *v1;
+  }
+  if ( v4 )
+  {
+    v5 = v4 - 1;
+    v6 = *(uint32_t *)off_11A6EC;
+    *v1 = v5;
+    if ( !v5 )
+    {
+      if ( v6 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+
