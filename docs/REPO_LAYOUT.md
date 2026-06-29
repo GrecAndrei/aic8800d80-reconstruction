@@ -11,6 +11,7 @@ should or should not be committed.
 | `metadata/` | Stable per-image reconstruction descriptors | ✅ |
 | `extracted_kernel/` | Historical kernel extraction notes | ✅ |
 | `artifacts/` | Tracked published release snapshots | ✅ (curated) |
+| `bin/` | Compiled Go binaries (built from `cmd/`) | ✅ |
 | `extraction_out/` | Generated working outputs for current runs | ❌ (gitignored) |
 | `analysis/` | Local scratch, wrapper state, ad hoc analysis | ❌ (gitignored) |
 | `tmp/` | Per-session scratch space | ❌ (gitignored) |
@@ -22,11 +23,57 @@ should or should not be committed.
 | `harness_v15/` | v15 | Synthesis baseline (Unicorn-driven body capture) | ✅ source only |
 | `harness_v16/` | v16 | Failed LLM-C approach (kept for reference) | ✅ source, ❌ out/ (177MB reviews) |
 | `harness_v17/` | v17 | LLM tool-use pipeline (16 tools, naming, integration) | ✅ source only |
+| `harness_v18_oracle/` | — | Empty stub (v18 source lives in `harness_v17/disasm_to_asm.py`) | n/a |
 | `harness_v19/` | v19 | Hex-Rays decompilation pipeline | ✅ source only |
+| `harness_v20/` | v20 | Struct discovery (access patterns) | ✅ tracked outputs |
+| `harness_v21/` | v21 | Struct cross-reference | ✅ tracked outputs |
+| `harness_v22/` | v22 | Expanded struct names | ✅ tracked outputs |
+| `harness_v23/` | v23 | Annotated v19 C + field invariants | ✅ tracked outputs |
+| `harness_v24/` | v24 | Cross-binary function map | ✅ tracked outputs |
+| `harness_v25/` | v25 | In-flight callgraph analysis (no source yet) | ❌ out/ (gitignored) |
 
 Within each harness:
 - `scripts/`, `docs/`, `tools.py`, etc.: ✅ commit
 - `idb/`, `log/`, `decompiled/`, `names/`, `out/`: ❌ gitignored (large)
+
+## v20-v24: Struct recovery family
+
+These five harnesses form a single struct-recovery pipeline that
+builds on v19's decompiled C output. Each one feeds the next:
+
+```
+v19 decompiled C
+   ↓
+v20  access patterns (r2 disasm) → structs → clusters
+v21  cross-reference (which funcs touch which fields)
+v22  expanded struct names (LLM proposes more)
+v23  annotated C (prepend struct context to each function)
+v24  cross-binary map (functions shared across the 4 binaries)
+```
+
+Unlike v15-v19, v20-v24's generated output dirs (`access_patterns/`,
+`structs/`, `field_map/`, `annotated/`, `*.json`) are **committed**
+to git — they are the canonical release artifacts of each pipeline
+stage and re-running the scripts reproduces them deterministically.
+
+## Bin directory
+
+Compiled Go binaries live in `bin/` (the Go idiom). They are built
+from sources in `cmd/` and force-tracked with `git add -f`. The
+following binaries are tracked:
+
+- `fwapplysynth`, `fwcompact`, `fwcompose`, `fwcycle`, `fwfinalize`,
+  `fwharden`, `fwimplsynth`, `fwstruct`
+
+Tools that invoke binaries by path use `$REPO/bin/<binary>` (see
+`tools/overnight_behavioral.sh` and `tools/score_truth_lane.py` for
+examples).
+
+## Historical workflow guide
+
+The lowercase `agents.md` (smoke-cycle / `fwextract` era, v15-v18)
+has been renamed to `docs/WORKFLOW_LEGACY.md`. AGENTS.md is the
+current pipeline-oriented guide (v15-v25).
 
 ## Release artifacts
 
