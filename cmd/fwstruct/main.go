@@ -46,8 +46,6 @@ func main() {
 		err = runMagic(args)
 	case "initpath":
 		err = runInitPath(args)
-	case "initpath2":
-		err = runInitPath2(args)
 	case "diff":
 		err = runDiff(args)
 	case "types":
@@ -56,10 +54,6 @@ func main() {
 		err = runIVT(args)
 	case "annotate":
 		err = runAnnotate(args)
-	case "stats":
-		err = runStats(args)
-	case "graph":
-		err = runGraph(args)
 	case "report":
 		err = runReport(args)
 	case "all":
@@ -96,7 +90,6 @@ Commands:
   types        fix Hex-Rays type-inference bugs
   ivt          rewrite IVT for v18 bootable WFFW
   annotate     emit annotated C with all known context
-  stats        one-line summary per binary
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
 

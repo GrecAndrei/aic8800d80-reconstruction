@@ -1,5 +1,9 @@
 # AGENTS.md — Quick Reference for AI Agents
 
+> **Historical workflow guide:** `docs/WORKFLOW_LEGACY.md` (formerly
+> `agents.md`) covers the older `fwextract`/smoke-loop/`recon_cycle` era
+> (v15-v18). Use this file for the v15-v25 pipeline state.
+
 This file gives a fast overview of the AIC8800D80 firmware reconstruction
 project so a fresh agent can orient quickly.
 
