@@ -1,0 +1,1016 @@
+{
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "total_literals": 1649,
+  "by_category": {
+    "bit_mask": 155,
+    "data_addr": 63,
+    "high": 66,
+    "medium": 252,
+    "mmio_unknown": 45,
+    "other": 4852,
+    "small": 14567,
+    "timer_freq": 65
+  },
+  "top_100": [
+    {
+      "literal": "1",
+      "category": "small",
+      "count": 1206,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "2",
+      "category": "small",
+      "count": 857,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "4",
+      "category": "small",
+      "count": 840,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "8",
+      "category": "small",
+      "count": 614,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "3",
+      "category": "small",
+      "count": 555,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "16",
+      "category": "small",
+      "count": 384,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "hw_config_init"
+      ]
+    },
+    {
+      "literal": "12",
+      "category": "small",
+      "count": 374,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "crypto_key_load"
+      ]
+    },
+    {
+      "literal": "6",
+      "category": "small",
+      "count": 360,
+      "sample_funcs": [
+        "hw_config_init",
+        "hw_config_init_0688",
+        "sub_100898"
+      ]
+    },
+    {
+      "literal": "5",
+      "category": "small",
+      "count": 357,
+      "sample_funcs": [
+        "sub_1002A0",
+        "fw_init_setup",
+        "sub_1005B0"
+      ]
+    },
+    {
+      "literal": "7",
+      "category": "small",
+      "count": 287,
+      "sample_funcs": [
+        "fw_init_setup",
+        "sub_1005B0",
+        "sub_100CD0"
+      ]
+    },
+    {
+      "literal": "32",
+      "category": "small",
+      "count": 275,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "delay_us"
+      ]
+    },
+    {
+      "literal": "10",
+      "category": "small",
+      "count": 244,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "fw_init_setup"
+      ]
+    },
+    {
+      "literal": "28",
+      "category": "small",
+      "count": 228,
+      "sample_funcs": [
+        "sub_1017E0",
+        "sub_10184C",
+        "sdio_buffer_prepare_n_2e2"
+      ]
+    },
+    {
+      "literal": "9",
+      "category": "small",
+      "count": 220,
+      "sample_funcs": [
+        "fw_init_setup",
+        "sub_1005B0",
+        "scan_chan_parse_n1bd4"
+      ]
+    },
+    {
+      "literal": "20",
+      "category": "small",
+      "count": 218,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "sub_10197C"
+      ]
+    },
+    {
+      "literal": "24",
+      "category": "small",
+      "count": 196,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "sub_10110C"
+      ]
+    },
+    {
+      "literal": "1320",
+      "category": "other",
+      "count": 160,
+      "sample_funcs": [
+        "rf_msg_process_body_3aa4",
+        "sub_113AA4",
+        "sub_116764"
+      ]
+    },
+    {
+      "literal": "14",
+      "category": "small",
+      "count": 160,
+      "sample_funcs": [
+        "phy_rf_init_2d0",
+        "sub_1032D0",
+        "crypto_hw_mode_select"
+      ]
+    },
+    {
+      "literal": "11",
+      "category": "small",
+      "count": 159,
+      "sample_funcs": [
+        "fw_init_setup",
+        "sub_1005B0",
+        "mmio_init_block_1200E54"
+      ]
+    },
+    {
+      "literal": "1u",
+      "category": "small",
+      "count": 159,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "sub_100CD0"
+      ]
+    },
+    {
+      "literal": "696",
+      "category": "other",
+      "count": 150,
+      "sample_funcs": [
+        "sub_10F3A8",
+        "rf_msg_process_body_3aa4",
+        "sub_113AA4"
+      ]
+    },
+    {
+      "literal": "13",
+      "category": "small",
+      "count": 139,
+      "sample_funcs": [
+        "crypto_table_init_3e84",
+        "sub_103E84",
+        "scan_chan_meas_12051e0"
+      ]
+    },
+    {
+      "literal": "36",
+      "category": "small",
+      "count": 135,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_101818",
+        "sub_10197C"
+      ]
+    },
+    {
+      "literal": "72",
+      "category": "small",
+      "count": 128,
+      "sample_funcs": [
+        "scb_vtor_setup",
+        "sub_102A74",
+        "sub_10C1B8"
+      ]
+    },
+    {
+      "literal": "48",
+      "category": "small",
+      "count": 122,
+      "sample_funcs": [
+        "crypto_key_load",
+        "sub_1009DC",
+        "sub_102DA4"
+      ]
+    },
+    {
+      "literal": "18",
+      "category": "small",
+      "count": 120,
+      "sample_funcs": [
+        "sub_102898",
+        "crypto_table_init_3e84",
+        "sub_103E84"
+      ]
+    },
+    {
+      "literal": "255",
+      "category": "small",
+      "count": 116,
+      "sample_funcs": [
+        "crypto_mac_core",
+        "sub_1080D8",
+        "sub_10AE68"
+      ]
+    },
+    {
+      "literal": "29",
+      "category": "small",
+      "count": 108,
+      "sample_funcs": [
+        "crypto_calibrate",
+        "sub_104338",
+        "sub_10F3A8"
+      ]
+    },
+    {
+      "literal": "64",
+      "category": "small",
+      "count": 107,
+      "sample_funcs": [
+        "sub_1007A4",
+        "mmio_init_block_1200E54",
+        "sub_100E54"
+      ]
+    },
+    {
+      "literal": "106",
+      "category": "small",
+      "count": 104,
+      "sample_funcs": [
+        "sub_116034",
+        "sub_116764",
+        "cmd_dispatch_handler"
+      ]
+    },
+    {
+      "literal": "108",
+      "category": "small",
+      "count": 104,
+      "sample_funcs": [
+        "rf_msg_handler_n_13a",
+        "sub_10294C",
+        "sub_10F3A8"
+      ]
+    },
+    {
+      "literal": "4u",
+      "category": "small",
+      "count": 100,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "sub_10110C"
+      ]
+    },
+    {
+      "literal": "30",
+      "category": "small",
+      "count": 99,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1018D4"
+      ]
+    },
+    {
+      "literal": "17",
+      "category": "small",
+      "count": 98,
+      "sample_funcs": [
+        "message_dispatch_n238",
+        "sub_1006D8",
+        "mmio_init_block_1200E54"
+      ]
+    },
+    {
+      "literal": "0x80000000",
+      "category": "other",
+      "count": 96,
+      "sample_funcs": [
+        "sub_10110C",
+        "sys_irq_dispatch",
+        "phy_rf_init_n_4f8"
+      ]
+    },
+    {
+      "literal": "15",
+      "category": "small",
+      "count": 96,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_10197C",
+        "scan_chan_parse_n1bd4"
+      ]
+    },
+    {
+      "literal": "2u",
+      "category": "small",
+      "count": 96,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "crypto_key_load"
+      ]
+    },
+    {
+      "literal": "31",
+      "category": "small",
+      "count": 92,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_100898",
+        "sub_10197C"
+      ]
+    },
+    {
+      "literal": "0xF",
+      "category": "small",
+      "count": 87,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "firmware_init_0478"
+      ]
+    },
+    {
+      "literal": "22",
+      "category": "small",
+      "count": 85,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "phy_rf_init_2d0"
+      ]
+    },
+    {
+      "literal": "40",
+      "category": "small",
+      "count": 85,
+      "sample_funcs": [
+        "scan_chan_meas_12051e0",
+        "sub_1051E0",
+        "log_free_pool_dispatch2_n4e6"
+      ]
+    },
+    {
+      "literal": "128",
+      "category": "small",
+      "count": 82,
+      "sample_funcs": [
+        "sub_1007A4",
+        "crypto_key_load",
+        "sub_1009DC"
+      ]
+    },
+    {
+      "literal": "76",
+      "category": "small",
+      "count": 82,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "scb_vtor_setup"
+      ]
+    },
+    {
+      "literal": "116",
+      "category": "small",
+      "count": 81,
+      "sample_funcs": [
+        "sub_114C98",
+        "fmacfwbt_phy_chan_init",
+        "sub_119204"
+      ]
+    },
+    {
+      "literal": "107",
+      "category": "small",
+      "count": 79,
+      "sample_funcs": [
+        "sub_1196A4",
+        "bt_hci_cmd_handler",
+        "sub_11D760"
+      ]
+    },
+    {
+      "literal": "84",
+      "category": "small",
+      "count": 79,
+      "sample_funcs": [
+        "scb_vtor_setup",
+        "sub_102A74",
+        "rf_msg_process_body_3aa4"
+      ]
+    },
+    {
+      "literal": "0x20",
+      "category": "small",
+      "count": 77,
+      "sample_funcs": [
+        "phy_rf_init_n_4f8",
+        "sub_102DD8",
+        "sub_1059F8"
+      ]
+    },
+    {
+      "literal": "0x10",
+      "category": "small",
+      "count": 75,
+      "sample_funcs": [
+        "phy_rf_init_2d0",
+        "sub_1032D0",
+        "crypto_hw_power_up_39c4"
+      ]
+    },
+    {
+      "literal": "34",
+      "category": "small",
+      "count": 75,
+      "sample_funcs": [
+        "rf_bus_write2_n482",
+        "sub_11454C",
+        "patch_apply_n7c"
+      ]
+    },
+    {
+      "literal": "0x2000",
+      "category": "other",
+      "count": 70,
+      "sample_funcs": [
+        "sub_102BD4",
+        "tx_rate_config",
+        "crypto_hw_power_up_39c4"
+      ]
+    },
+    {
+      "literal": "26",
+      "category": "small",
+      "count": 69,
+      "sample_funcs": [
+        "sub_1018B4",
+        "log_free_pool_dispatch2_n4e6",
+        "sub_106314"
+      ]
+    },
+    {
+      "literal": "27",
+      "category": "small",
+      "count": 67,
+      "sample_funcs": [
+        "fw_init_setup",
+        "sub_1005B0",
+        "sub_10AE68"
+      ]
+    },
+    {
+      "literal": "52",
+      "category": "small",
+      "count": 67,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_10C1B8",
+        "rf_msg_handler_n_418"
+      ]
+    },
+    {
+      "literal": "80",
+      "category": "small",
+      "count": 67,
+      "sample_funcs": [
+        "sub_1002A0",
+        "scb_vtor_setup",
+        "sub_102A74"
+      ]
+    },
+    {
+      "literal": "256",
+      "category": "other",
+      "count": 66,
+      "sample_funcs": [
+        "mac_init_set_bits",
+        "sub_103E00",
+        "sub_104680"
+      ]
+    },
+    {
+      "literal": "8u",
+      "category": "small",
+      "count": 66,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "hw_config_init"
+      ]
+    },
+    {
+      "literal": "88",
+      "category": "small",
+      "count": 64,
+      "sample_funcs": [
+        "sub_1002A0",
+        "scb_vtor_setup",
+        "sub_102A74"
+      ]
+    },
+    {
+      "literal": "1224",
+      "category": "other",
+      "count": 62,
+      "sample_funcs": [
+        "bt_sub_121733C",
+        "sub_11733C",
+        "sub_11857C"
+      ]
+    },
+    {
+      "literal": "44",
+      "category": "small",
+      "count": 62,
+      "sample_funcs": [
+        "sub_1002A0",
+        "scan_chan_meas_12051e0",
+        "sub_1051E0"
+      ]
+    },
+    {
+      "literal": "0x40",
+      "category": "small",
+      "count": 60,
+      "sample_funcs": [
+        "phy_rf_init_2d0",
+        "sub_1032D0",
+        "crypto_hw_config_701c"
+      ]
+    },
+    {
+      "literal": "0x80",
+      "category": "small",
+      "count": 60,
+      "sample_funcs": [
+        "mmio_status_check_n0d94",
+        "sub_100D94",
+        "phy_rf_init_2d0"
+      ]
+    },
+    {
+      "literal": "19",
+      "category": "small",
+      "count": 59,
+      "sample_funcs": [
+        "sub_102898",
+        "crypto_table_init_3e84",
+        "sub_103E84"
+      ]
+    },
+    {
+      "literal": "100",
+      "category": "small",
+      "count": 58,
+      "sample_funcs": [
+        "bt_init_handler",
+        "sub_1074D0",
+        "crypto_mac_core"
+      ]
+    },
+    {
+      "literal": "68",
+      "category": "small",
+      "count": 58,
+      "sample_funcs": [
+        "rf_msg_process_body_3aa4",
+        "sub_113AA4",
+        "sub_116764"
+      ]
+    },
+    {
+      "literal": "0x200000",
+      "category": "other",
+      "count": 57,
+      "sample_funcs": [
+        "crypto_mac_core",
+        "sub_1080D8",
+        "sdio_status_check"
+      ]
+    },
+    {
+      "literal": "512",
+      "category": "other",
+      "count": 56,
+      "sample_funcs": [
+        "crypto_key_load",
+        "sub_1009DC",
+        "mac_init_set_bits"
+      ]
+    },
+    {
+      "literal": "50",
+      "category": "small",
+      "count": 54,
+      "sample_funcs": [
+        "crypto_hw_enable",
+        "sub_102B00",
+        "crypto_hw_disable"
+      ]
+    },
+    {
+      "literal": "140",
+      "category": "small",
+      "count": 53,
+      "sample_funcs": [
+        "log_free_pool_dispatch2_n4e6",
+        "sub_106314",
+        "sub_1063C0"
+      ]
+    },
+    {
+      "literal": "33",
+      "category": "small",
+      "count": 52,
+      "sample_funcs": [
+        "crypto_hw_enable",
+        "sub_102B00",
+        "crypto_hw_mode_select"
+      ]
+    },
+    {
+      "literal": "21",
+      "category": "small",
+      "count": 51,
+      "sample_funcs": [
+        "chip_feature_check",
+        "sub_101878",
+        "sub_102898"
+      ]
+    },
+    {
+      "literal": "6u",
+      "category": "small",
+      "count": 51,
+      "sample_funcs": [
+        "rf_state_check_n54",
+        "sub_112084",
+        "patch_apply_n_40"
+      ]
+    },
+    {
+      "literal": "96",
+      "category": "small",
+      "count": 51,
+      "sample_funcs": [
+        "sub_1009A0",
+        "sub_104858",
+        "sub_104FE0"
+      ]
+    },
+    {
+      "literal": "0x400",
+      "category": "other",
+      "count": 50,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "sub_10110C"
+      ]
+    },
+    {
+      "literal": "112",
+      "category": "small",
+      "count": 50,
+      "sample_funcs": [
+        "sub_105088",
+        "sub_106450",
+        "sub_109350"
+      ]
+    },
+    {
+      "literal": "60",
+      "category": "small",
+      "count": 50,
+      "sample_funcs": [
+        "sub_1059F8",
+        "sub_106450",
+        "crypto_mac_core"
+      ]
+    },
+    {
+      "literal": "0x8000",
+      "category": "timer_freq",
+      "count": 48,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "crypto_mac_core"
+      ]
+    },
+    {
+      "literal": "56",
+      "category": "small",
+      "count": 48,
+      "sample_funcs": [
+        "crypto_hw_disable",
+        "sub_102B64",
+        "sub_109350"
+      ]
+    },
+    {
+      "literal": "23",
+      "category": "small",
+      "count": 47,
+      "sample_funcs": [
+        "crypto_table_init_3e84",
+        "sub_103E84",
+        "mmio_config_clear_bits_n_0f0"
+      ]
+    },
+    {
+      "literal": "124",
+      "category": "small",
+      "count": 45,
+      "sample_funcs": [
+        "sub_106450",
+        "log_hw_init",
+        "sub_10D4A0"
+      ]
+    },
+    {
+      "literal": "1024",
+      "category": "other",
+      "count": 43,
+      "sample_funcs": [
+        "scan_chan_meas_12051e0",
+        "sub_1051E0",
+        "crypto_mac_core"
+      ]
+    },
+    {
+      "literal": "38",
+      "category": "small",
+      "count": 43,
+      "sample_funcs": [
+        "sub_114C98",
+        "fmacfwbt_phy_chan_init",
+        "sub_119204"
+      ]
+    },
+    {
+      "literal": "0x80000",
+      "category": "medium",
+      "count": 42,
+      "sample_funcs": [
+        "crypto_mac_core",
+        "sub_1080D8",
+        "sub_10C1B8"
+      ]
+    },
+    {
+      "literal": "136",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "firmware_init_0478",
+        "sub_100478",
+        "crypto_hw_reset_seq"
+      ]
+    },
+    {
+      "literal": "92",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "scb_vtor_setup",
+        "sub_102A74",
+        "bt_fmac_sub_a5bc"
+      ]
+    },
+    {
+      "literal": "0x800",
+      "category": "other",
+      "count": 41,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "sub_10110C"
+      ]
+    },
+    {
+      "literal": "104",
+      "category": "small",
+      "count": 41,
+      "sample_funcs": [
+        "crypto_hw_reset_seq",
+        "sub_103FF0",
+        "sub_105088"
+      ]
+    },
+    {
+      "literal": "132",
+      "category": "small",
+      "count": 41,
+      "sample_funcs": [
+        "sub_104858",
+        "sub_10624C",
+        "sub_106450"
+      ]
+    },
+    {
+      "literal": "0x10000",
+      "category": "medium",
+      "count": 40,
+      "sample_funcs": [
+        "sub_10110C",
+        "sys_irq_dispatch",
+        "sub_103154"
+      ]
+    },
+    {
+      "literal": "192",
+      "category": "small",
+      "count": 40,
+      "sample_funcs": [
+        "sub_10110C",
+        "sys_irq_dispatch",
+        "scan_chan_meas_12051e0"
+      ]
+    },
+    {
+      "literal": "0x2000000",
+      "category": "other",
+      "count": 39,
+      "sample_funcs": [
+        "phy_rf_init_2d0",
+        "sub_1032D0",
+        "sub_1059F8"
+      ]
+    },
+    {
+      "literal": "0x20000",
+      "category": "medium",
+      "count": 38,
+      "sample_funcs": [
+        "mmio_init_block_1200E54",
+        "sub_100E54",
+        "sub_10110C"
+      ]
+    },
+    {
+      "literal": "0xFFFFFFFC",
+      "category": "other",
+      "count": 38,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100200",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "1225",
+      "category": "other",
+      "count": 38,
+      "sample_funcs": [
+        "bt_sub_121733C",
+        "sub_11733C",
+        "sub_11857C"
+      ]
+    },
+    {
+      "literal": "54",
+      "category": "small",
+      "count": 38,
+      "sample_funcs": [
+        "rf_init_hw_setup",
+        "sub_10A800",
+        "rf_cmd_dispatch_n451"
+      ]
+    },
+    {
+      "literal": "51",
+      "category": "small",
+      "count": 37,
+      "sample_funcs": [
+        "sub_116508",
+        "sub_116764",
+        "sub_116EF4"
+      ]
+    },
+    {
+      "literal": "0x40000",
+      "category": "medium",
+      "count": 36,
+      "sample_funcs": [
+        "crypto_iq_calculate",
+        "sub_10422C",
+        "crypto_mac_core"
+      ]
+    },
+    {
+      "literal": "109",
+      "category": "small",
+      "count": 36,
+      "sample_funcs": [
+        "fmacfwbt_phy_chan_init",
+        "sub_119204",
+        "sub_119388"
+      ]
+    },
+    {
+      "literal": "25",
+      "category": "small",
+      "count": 36,
+      "sample_funcs": [
+        "log_free_pool_dispatch2_n4e6",
+        "sub_106314",
+        "sub_1073DC"
+      ]
+    },
+    {
+      "literal": "35",
+      "category": "small",
+      "count": 36,
+      "sample_funcs": [
+        "sub_10F3A8",
+        "sub_1198E8",
+        "sub_11A18C"
+      ]
+    },
+    {
+      "literal": "37",
+      "category": "small",
+      "count": 36,
+      "sample_funcs": [
+        "sub_10F3A8",
+        "rf_msg_process_body_3aa4",
+        "sub_113AA4"
+      ]
+    }
+  ]
+}
