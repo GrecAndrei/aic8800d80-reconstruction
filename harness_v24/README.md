@@ -1,4 +1,9 @@
-# v24: Cross-Binary Function Map
+# v24: Cross-Binary Function Map (historical)
+
+> **⚠️ Historical. Superseded by v25 `fwstruct diff`.**
+> The unified `fwstruct` tool (Go binary in `bin/fwstruct`, source in
+> `cmd/fwstruct/`) now does cross-binary comparison via
+> `fwstruct diff`. See `harness_v25/README.md`.
 
 Firmware has 4 binaries (fmacfw_h, fmacfw_u02, fmacfwbt, lmacfw_rf).
 Same code lives at the same address in fmacfw_h/u02/bt (they're 3 versions

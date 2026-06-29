@@ -1,4 +1,10 @@
-# v21 — Struct Field Access Cross-Reference
+# v21 — Struct Field Access Cross-Reference (historical)
+
+> **⚠️ Historical. Superseded by v25 `fwstruct xref`.**
+> The unified `fwstruct` tool (Go binary in `bin/fwstruct`, source in
+> `cmd/fwstruct/`) now provides cross-reference as `fwstruct xref`
+> (currently TODO — pipeline still works through v22's re_xref.py).
+> See `harness_v25/README.md` for the current state.
 
 ## Goal
 

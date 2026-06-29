@@ -1,4 +1,18 @@
-# v20 — Struct Recovery from Access Patterns
+# v20 — Struct Recovery from Access Patterns (historical)
+
+> **⚠️ Historical. Superseded by v25 `fwstruct`.**
+> The unified `fwstruct` tool (Go binary in `bin/fwstruct`, source in
+> `cmd/fwstruct/`) now does struct discovery in one step:
+>
+> ```bash
+> bin/fwstruct scan       # per-func metadata
+> bin/fwstruct structs    # access-pattern clusters
+> bin/fwstruct names      # LLM-named struct candidates
+> ```
+>
+> See `harness_v25/README.md` for the current pipeline. The Python
+> scripts in this directory remain for cross-validation against the
+> r2-based access-pattern extraction (different parser, same idea).
 
 ## Goal
 
