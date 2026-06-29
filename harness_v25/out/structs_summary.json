@@ -1,0 +1,10 @@
+{
+  "images": [
+    "fmacfw_8800d80_h_u02_bin",
+    "fmacfw_8800d80_u02_bin",
+    "fmacfwbt_8800d80_u02_bin",
+    "lmacfw_rf_8800d80_u02_bin"
+  ],
+  "total_clustered_funcs": 1525,
+  "total_clusters": 1394
+}
