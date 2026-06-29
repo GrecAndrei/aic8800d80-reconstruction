@@ -70,9 +70,10 @@ tools/local-bin/*.go-bin
 # Large drive upload logs
 drive_upload*.log
 
-# v20
-harness_v20/idb/
-harness_v20/log/
-harness_v20/log_*.txt
-harness_v20/decompiled/
+# v20-v24: All generated output dirs are TRACKED in git
+# (they're the canonical releases of each pipeline stage). Don't ignore them.
+# Per-harness gitignores only apply to truly ephemeral state (logs, idb).
+
+# v25 (in-flight callgraph analysis, no source yet)
+harness_v25/out/
 
