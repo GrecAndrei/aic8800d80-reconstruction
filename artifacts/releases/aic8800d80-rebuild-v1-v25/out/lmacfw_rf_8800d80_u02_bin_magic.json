@@ -1,0 +1,1016 @@
+{
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "total_literals": 1119,
+  "by_category": {
+    "bit_mask": 106,
+    "data_addr": 93,
+    "high": 42,
+    "medium": 184,
+    "mmio_unknown": 36,
+    "other": 2493,
+    "small": 6902,
+    "timer_freq": 52
+  },
+  "top_100": [
+    {
+      "literal": "1",
+      "category": "small",
+      "count": 797,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "rf_init_setup_n_2a0"
+      ]
+    },
+    {
+      "literal": "2",
+      "category": "small",
+      "count": 502,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "rf_init_setup_n_2a0"
+      ]
+    },
+    {
+      "literal": "4",
+      "category": "small",
+      "count": 499,
+      "sample_funcs": [
+        "memset_thunk",
+        "rf_init_setup_n_2a0",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "8",
+      "category": "small",
+      "count": 346,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "rf_init_setup_n_2a0"
+      ]
+    },
+    {
+      "literal": "3",
+      "category": "small",
+      "count": 324,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "rf_init_setup_n_2a0"
+      ]
+    },
+    {
+      "literal": "16",
+      "category": "small",
+      "count": 209,
+      "sample_funcs": [
+        "memset_thunk",
+        "hw_config_init",
+        "sub_1005A4"
+      ]
+    },
+    {
+      "literal": "5",
+      "category": "small",
+      "count": 195,
+      "sample_funcs": [
+        "rf_init_setup_n_2a0",
+        "sub_1002A0",
+        "sub_1004CC"
+      ]
+    },
+    {
+      "literal": "32",
+      "category": "small",
+      "count": 170,
+      "sample_funcs": [
+        "memset_thunk",
+        "delay_us",
+        "sub_100560"
+      ]
+    },
+    {
+      "literal": "12",
+      "category": "small",
+      "count": 169,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "sub_100948"
+      ]
+    },
+    {
+      "literal": "6",
+      "category": "small",
+      "count": 145,
+      "sample_funcs": [
+        "hw_config_init",
+        "sub_1005A4",
+        "sub_1007B4"
+      ]
+    },
+    {
+      "literal": "7",
+      "category": "small",
+      "count": 145,
+      "sample_funcs": [
+        "sub_1004CC",
+        "sub_100C3C",
+        "mmio_clock_setup"
+      ]
+    },
+    {
+      "literal": "20",
+      "category": "small",
+      "count": 139,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "rf_calibration_init"
+      ]
+    },
+    {
+      "literal": "10",
+      "category": "small",
+      "count": 116,
+      "sample_funcs": [
+        "sub_1004CC",
+        "sub_1006C0",
+        "sub_100C3C"
+      ]
+    },
+    {
+      "literal": "28",
+      "category": "small",
+      "count": 106,
+      "sample_funcs": [
+        "sub_1019B4",
+        "phy_get_link_status",
+        "sub_101A68"
+      ]
+    },
+    {
+      "literal": "1u",
+      "category": "small",
+      "count": 102,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "sub_100C3C"
+      ]
+    },
+    {
+      "literal": "14",
+      "category": "small",
+      "count": 93,
+      "sample_funcs": [
+        "start",
+        "sub_103678",
+        "crypto_table_init"
+      ]
+    },
+    {
+      "literal": "11",
+      "category": "small",
+      "count": 91,
+      "sample_funcs": [
+        "sub_1004CC",
+        "mmio_clock_setup",
+        "sub_100E00"
+      ]
+    },
+    {
+      "literal": "24",
+      "category": "small",
+      "count": 87,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_mmio_set_byte_field"
+      ]
+    },
+    {
+      "literal": "9",
+      "category": "small",
+      "count": 81,
+      "sample_funcs": [
+        "sub_1004CC",
+        "sub_101C70",
+        "sub_102BB0"
+      ]
+    },
+    {
+      "literal": "31",
+      "category": "small",
+      "count": 71,
+      "sample_funcs": [
+        "sub_1006C0",
+        "sub_1007B4",
+        "rf_calibration_init"
+      ]
+    },
+    {
+      "literal": "2u",
+      "category": "small",
+      "count": 69,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "sub_100948"
+      ]
+    },
+    {
+      "literal": "4u",
+      "category": "small",
+      "count": 67,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "0x80000000",
+      "category": "other",
+      "count": 58,
+      "sample_funcs": [
+        "rf_init_hw_setup",
+        "sub_1010D4",
+        "sub_10300C"
+      ]
+    },
+    {
+      "literal": "18",
+      "category": "small",
+      "count": 58,
+      "sample_funcs": [
+        "crypto_table_init",
+        "sub_103A00",
+        "lmac_rf_behavioral_handler"
+      ]
+    },
+    {
+      "literal": "64",
+      "category": "small",
+      "count": 52,
+      "sample_funcs": [
+        "sub_1006C0",
+        "lmac_interrupt_init",
+        "sub_102A58"
+      ]
+    },
+    {
+      "literal": "0x2000000",
+      "category": "other",
+      "count": 51,
+      "sample_funcs": [
+        "sub_102E84",
+        "sub_105578",
+        "sub_105FD0"
+      ]
+    },
+    {
+      "literal": "0xF",
+      "category": "small",
+      "count": 49,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_1004CC",
+        "chip_revision_get"
+      ]
+    },
+    {
+      "literal": "48",
+      "category": "small",
+      "count": 49,
+      "sample_funcs": [
+        "sub_100948",
+        "rf_init_hw_setup",
+        "sub_1010D4"
+      ]
+    },
+    {
+      "literal": "13",
+      "category": "small",
+      "count": 46,
+      "sample_funcs": [
+        "sub_102E84",
+        "crypto_table_init",
+        "sub_103A00"
+      ]
+    },
+    {
+      "literal": "17",
+      "category": "small",
+      "count": 46,
+      "sample_funcs": [
+        "panic_loop",
+        "sub_1005F4",
+        "mmio_clock_setup"
+      ]
+    },
+    {
+      "literal": "21",
+      "category": "small",
+      "count": 44,
+      "sample_funcs": [
+        "sub_101A2C",
+        "crypto_table_init",
+        "sub_103A00"
+      ]
+    },
+    {
+      "literal": "15",
+      "category": "small",
+      "count": 43,
+      "sample_funcs": [
+        "sub_1006C0",
+        "crypto_table_init",
+        "sub_103A00"
+      ]
+    },
+    {
+      "literal": "36",
+      "category": "small",
+      "count": 43,
+      "sample_funcs": [
+        "rf_init_setup_n_2a0",
+        "sub_1002A0",
+        "get_cached_1828f8"
+      ]
+    },
+    {
+      "literal": "8u",
+      "category": "small",
+      "count": 43,
+      "sample_funcs": [
+        "hw_config_init",
+        "sub_1005A4",
+        "mmio_clock_setup"
+      ]
+    },
+    {
+      "literal": "255",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "sub_107C70",
+        "rf_rx_dc_calib",
+        "sub_10AC18"
+      ]
+    },
+    {
+      "literal": "19",
+      "category": "small",
+      "count": 40,
+      "sample_funcs": [
+        "crypto_table_init",
+        "sub_103A00",
+        "lmac_rf_behavioral_handler"
+      ]
+    },
+    {
+      "literal": "256",
+      "category": "other",
+      "count": 39,
+      "sample_funcs": [
+        "sub_10397C",
+        "sub_104200",
+        "rf_calib_setup_n3d8"
+      ]
+    },
+    {
+      "literal": "30",
+      "category": "small",
+      "count": 39,
+      "sample_funcs": [
+        "memset_thunk",
+        "mmio_get_bit_30",
+        "sub_101A78"
+      ]
+    },
+    {
+      "literal": "0x2000",
+      "category": "other",
+      "count": 38,
+      "sample_funcs": [
+        "sub_102BB0",
+        "crypto_hw_power_up",
+        "sub_103540"
+      ]
+    },
+    {
+      "literal": "128",
+      "category": "small",
+      "count": 37,
+      "sample_funcs": [
+        "sub_1006C0",
+        "sub_100948",
+        "lmac_interrupt_init"
+      ]
+    },
+    {
+      "literal": "72",
+      "category": "small",
+      "count": 37,
+      "sample_funcs": [
+        "lmac_interrupt_init",
+        "sub_102A58",
+        "sub_10BF28"
+      ]
+    },
+    {
+      "literal": "0x10000",
+      "category": "medium",
+      "count": 35,
+      "sample_funcs": [
+        "rf_init_hw_setup",
+        "sub_1010D4",
+        "sub_1033C4"
+      ]
+    },
+    {
+      "literal": "512",
+      "category": "other",
+      "count": 35,
+      "sample_funcs": [
+        "sub_100948",
+        "sub_10397C",
+        "crypto_table_init"
+      ]
+    },
+    {
+      "literal": "44",
+      "category": "small",
+      "count": 34,
+      "sample_funcs": [
+        "rf_init_setup_n_2a0",
+        "sub_1002A0",
+        "lmac_rf_behavioral_handler"
+      ]
+    },
+    {
+      "literal": "0x20",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "sub_10300C",
+        "sub_105578",
+        "sub_105FD0"
+      ]
+    },
+    {
+      "literal": "0x200000",
+      "category": "other",
+      "count": 32,
+      "sample_funcs": [
+        "sub_107C70",
+        "sub_10D474",
+        "timer_init"
+      ]
+    },
+    {
+      "literal": "0x80",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "sub_100D18",
+        "sub_102BB0",
+        "sub_103C6C"
+      ]
+    },
+    {
+      "literal": "0x8000",
+      "category": "timer_freq",
+      "count": 32,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "sub_107C70"
+      ]
+    },
+    {
+      "literal": "1024",
+      "category": "other",
+      "count": 32,
+      "sample_funcs": [
+        "lmac_rf_behavioral_handler",
+        "sub_104D60",
+        "sub_107C70"
+      ]
+    },
+    {
+      "literal": "40",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "lmac_rf_behavioral_handler",
+        "sub_104D60",
+        "crypto_table_copy_165d00"
+      ]
+    },
+    {
+      "literal": "0x400",
+      "category": "other",
+      "count": 30,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "152",
+      "category": "small",
+      "count": 30,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "sub_105FD0"
+      ]
+    },
+    {
+      "literal": "224",
+      "category": "small",
+      "count": 29,
+      "sample_funcs": [
+        "sub_1166CC",
+        "sub_116858",
+        "sub_117B4C"
+      ]
+    },
+    {
+      "literal": "26",
+      "category": "small",
+      "count": 29,
+      "sample_funcs": [
+        "crypto_table_copy_165d00",
+        "sub_105E94",
+        "sub_10EC2C"
+      ]
+    },
+    {
+      "literal": "88",
+      "category": "small",
+      "count": 29,
+      "sample_funcs": [
+        "lmac_interrupt_init",
+        "sub_102A58",
+        "sub_1166CC"
+      ]
+    },
+    {
+      "literal": "0x10",
+      "category": "small",
+      "count": 28,
+      "sample_funcs": [
+        "sub_100D18",
+        "crypto_hw_power_up",
+        "sub_103540"
+      ]
+    },
+    {
+      "literal": "0x20000",
+      "category": "medium",
+      "count": 28,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "0xFFFFFFFC",
+      "category": "other",
+      "count": 27,
+      "sample_funcs": [
+        "memset_thunk",
+        "rf_init_setup_n_2a0",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "94",
+      "category": "small",
+      "count": 27,
+      "sample_funcs": [
+        "rf_init_blockb_e798",
+        "sub_10E798",
+        "sub_1166CC"
+      ]
+    },
+    {
+      "literal": "96",
+      "category": "small",
+      "count": 27,
+      "sample_funcs": [
+        "mmio_set_bit_120090C",
+        "sub_10090C",
+        "rf_calib_setup_n3d8"
+      ]
+    },
+    {
+      "literal": "80",
+      "category": "small",
+      "count": 26,
+      "sample_funcs": [
+        "lmac_interrupt_init",
+        "sub_102A58",
+        "sub_10300C"
+      ]
+    },
+    {
+      "literal": "0x80000",
+      "category": "medium",
+      "count": 24,
+      "sample_funcs": [
+        "sub_107C70",
+        "sub_10BF28",
+        "tx_phy_config"
+      ]
+    },
+    {
+      "literal": "23",
+      "category": "small",
+      "count": 24,
+      "sample_funcs": [
+        "start",
+        "crypto_table_init",
+        "sub_103A00"
+      ]
+    },
+    {
+      "literal": "0x40",
+      "category": "small",
+      "count": 23,
+      "sample_funcs": [
+        "crypto_hw_config",
+        "sub_106BB4",
+        "sub_106F74"
+      ]
+    },
+    {
+      "literal": "102",
+      "category": "small",
+      "count": 23,
+      "sample_funcs": [
+        "message_dispatch_n286",
+        "sub_10D6A8",
+        "sub_10F1E0"
+      ]
+    },
+    {
+      "literal": "4096",
+      "category": "other",
+      "count": 23,
+      "sample_funcs": [
+        "sub_103DA8",
+        "sub_103FBC",
+        "sub_103FF0"
+      ]
+    },
+    {
+      "literal": "90",
+      "category": "small",
+      "count": 23,
+      "sample_funcs": [
+        "sub_105578",
+        "sub_105FD0",
+        "sub_107C70"
+      ]
+    },
+    {
+      "literal": "0x100000",
+      "category": "data_addr",
+      "count": 22,
+      "sample_funcs": [
+        "sub_103C6C",
+        "sub_107C70",
+        "sub_10ED50"
+      ]
+    },
+    {
+      "literal": "0x1000000",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "0x4000",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "rf_pll_init_n900",
+        "sub_103900",
+        "sub_103D60"
+      ]
+    },
+    {
+      "literal": "0x800",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "0x8000000",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "sub_102BB0",
+        "mmio_status_flag_read",
+        "sub_102DE0"
+      ]
+    },
+    {
+      "literal": "0xFFFFFF00",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "sub_1006C0",
+        "mmio_clock_setup",
+        "sub_100E00"
+      ]
+    },
+    {
+      "literal": "0xFFFFFFF0",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "memset_thunk",
+        "mmio_clock_setup",
+        "sub_100E00"
+      ]
+    },
+    {
+      "literal": "104",
+      "category": "small",
+      "count": 21,
+      "sample_funcs": [
+        "crypto_hw_reset_seq",
+        "sub_103B6C",
+        "crypto_gain_clamp"
+      ]
+    },
+    {
+      "literal": "22",
+      "category": "small",
+      "count": 21,
+      "sample_funcs": [
+        "lmac_rf_init_globals",
+        "sub_1003D4",
+        "crypto_table_init"
+      ]
+    },
+    {
+      "literal": "25",
+      "category": "small",
+      "count": 21,
+      "sample_funcs": [
+        "sub_102E84",
+        "crypto_table_copy_165d00",
+        "sub_105E94"
+      ]
+    },
+    {
+      "literal": "296",
+      "category": "other",
+      "count": 21,
+      "sample_funcs": [
+        "sub_10DD20",
+        "sub_10DDC8",
+        "sub_10DE98"
+      ]
+    },
+    {
+      "literal": "52",
+      "category": "small",
+      "count": 21,
+      "sample_funcs": [
+        "sub_10BF28",
+        "tx_phy_config",
+        "rf_level_apply_n_358"
+      ]
+    },
+    {
+      "literal": "0x1F",
+      "category": "small",
+      "count": 20,
+      "sample_funcs": [
+        "sub_100C3C",
+        "sub_100D18",
+        "sub_10BF28"
+      ]
+    },
+    {
+      "literal": "0x40000",
+      "category": "medium",
+      "count": 20,
+      "sample_funcs": [
+        "rf_init_hw_setup",
+        "sub_1010D4",
+        "sub_103DA8"
+      ]
+    },
+    {
+      "literal": "0x400000",
+      "category": "other",
+      "count": 20,
+      "sample_funcs": [
+        "sub_10300C",
+        "sub_107C70",
+        "rf_init_or_isr"
+      ]
+    },
+    {
+      "literal": "0x800000",
+      "category": "other",
+      "count": 19,
+      "sample_funcs": [
+        "sub_107C70",
+        "sub_10D44C",
+        "sub_110C7C"
+      ]
+    },
+    {
+      "literal": "56",
+      "category": "small",
+      "count": 19,
+      "sample_funcs": [
+        "sub_102B40",
+        "sub_109100",
+        "rf_rx_dc_calib"
+      ]
+    },
+    {
+      "literal": "76",
+      "category": "small",
+      "count": 19,
+      "sample_funcs": [
+        "start",
+        "rf_init_setup_n_2a0",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "0x40000000",
+      "category": "mmio_unknown",
+      "count": 18,
+      "sample_funcs": [
+        "rf_init_hw_setup",
+        "sub_1010D4",
+        "rf_cmd_send_2918"
+      ]
+    },
+    {
+      "literal": "0xC0",
+      "category": "small",
+      "count": 18,
+      "sample_funcs": [
+        "sub_100C3C",
+        "sub_100D18",
+        "mmio_clock_setup"
+      ]
+    },
+    {
+      "literal": "100",
+      "category": "small",
+      "count": 18,
+      "sample_funcs": [
+        "log_free_pool_dispatch2_n324",
+        "sub_107068",
+        "sub_107C70"
+      ]
+    },
+    {
+      "literal": "1000",
+      "category": "timer_freq",
+      "count": 18,
+      "sample_funcs": [
+        "sub_101A20",
+        "ipc_doorbell_handler_n_21a",
+        "sub_107944"
+      ]
+    },
+    {
+      "literal": "29",
+      "category": "small",
+      "count": 18,
+      "sample_funcs": [
+        "sub_102E84",
+        "crypto_calibrate",
+        "sub_103EB4"
+      ]
+    },
+    {
+      "literal": "33",
+      "category": "small",
+      "count": 18,
+      "sample_funcs": [
+        "sub_102ADC",
+        "sub_103678",
+        "ftoi32_trunc_sat"
+      ]
+    },
+    {
+      "literal": "63",
+      "category": "small",
+      "count": 18,
+      "sample_funcs": [
+        "rf_calib_setup_n3d8",
+        "sub_1043D8",
+        "rf_phy_process_handler"
+      ]
+    },
+    {
+      "literal": "0x100",
+      "category": "other",
+      "count": 17,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "sub_105578"
+      ]
+    },
+    {
+      "literal": "15360",
+      "category": "other",
+      "count": 17,
+      "sample_funcs": [
+        "rf_subsystem_init",
+        "sub_10DC40",
+        "sub_10DC78"
+      ]
+    },
+    {
+      "literal": "0xF000FFFF",
+      "category": "other",
+      "count": 16,
+      "sample_funcs": [
+        "ipc_doorbell_handler_n_21a",
+        "sub_107944",
+        "mmio_read_field_n_bd8"
+      ]
+    },
+    {
+      "literal": "2048",
+      "category": "other",
+      "count": 16,
+      "sample_funcs": [
+        "sub_100A14",
+        "sub_10B048",
+        "sub_10CD6C"
+      ]
+    },
+    {
+      "literal": "50",
+      "category": "small",
+      "count": 16,
+      "sample_funcs": [
+        "sub_102ADC",
+        "sub_102B40",
+        "crypto_hw_power_up"
+      ]
+    },
+    {
+      "literal": "95",
+      "category": "small",
+      "count": 16,
+      "sample_funcs": [
+        "sub_109BF8",
+        "sub_116858",
+        "sub_117E5C"
+      ]
+    },
+    {
+      "literal": "192",
+      "category": "small",
+      "count": 15,
+      "sample_funcs": [
+        "mmio_clock_setup",
+        "sub_100E00",
+        "rf_init_hw_setup"
+      ]
+    },
+    {
+      "literal": "0x7FFFFFFF",
+      "category": "bit_mask",
+      "count": 14,
+      "sample_funcs": [
+        "sub_105578",
+        "sub_105FD0",
+        "sub_107C70"
+      ]
+    }
+  ]
+}

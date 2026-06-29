@@ -1,0 +1,9 @@
+// rf_channel_set_n6838 @ 0x116838, size 4 bytes
+// Doc: rf_channel_set_n6838 [rf]: Set RF channel by querying current state and applying delta (sub 1)
+// rf_channel_set_n6838 [rf]: Set RF channel by querying current state and applying delta (sub 1)
+// attributes: thunk
+int  rf_channel_set_n6838(int a1, int a2, int a3)
+{
+  return sub_1166CC(a1, a2, a3);
+}
+

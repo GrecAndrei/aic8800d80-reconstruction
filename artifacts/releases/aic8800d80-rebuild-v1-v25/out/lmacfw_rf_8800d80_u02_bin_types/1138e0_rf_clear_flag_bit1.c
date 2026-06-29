@@ -1,0 +1,8 @@
+// rf_clear_flag_bit1 @ 0x1138e0, size 14 bytes
+// Doc: rf_clear_flag_bit1 [mmio]: Clears bit 1 in shared mmio control register (bic r3, r3, 2)
+// rf_clear_flag_bit1 [mmio]: Clears bit 1 in shared mmio control register (bic r3, r3, 2)
+void rf_clear_flag_bit1()
+{
+  *(uint32_t *)(*(uint32_t *)off_1138F0 + 8) &= ~2u;
+}
+

@@ -1,0 +1,20 @@
+// fwstruct annotate: 10d204_sub_10D204.c
+// sub_10D204 @ 0x10d204, size 66 bytes
+int __fastcall sub_10D204(int result)
+{
+  if ( result == 1 )
+  {
+    *(_DWORD *)off_10D248 = 0x40000;
+  }
+  else if ( result == 2 )
+  {
+    *(_DWORD *)off_10D248 = 0x80000;
+  }
+  else if ( **(__int16 **)off_10D250 < 0 )
+  {
+    result = sub_12F694(dword_10D258, dword_10D254, 2118);
+  }
+  *((_DWORD *)off_10D24C + 1) |= 0x400000u;
+  return result;
+}
+

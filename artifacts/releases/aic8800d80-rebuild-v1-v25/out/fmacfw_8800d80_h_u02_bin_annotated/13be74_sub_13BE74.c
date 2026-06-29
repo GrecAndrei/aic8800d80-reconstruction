@@ -1,0 +1,55 @@
+// fwstruct annotate: 13be74_sub_13BE74.c
+// sub_13BE74 @ 0x13be74, size 222 bytes
+int __fastcall sub_13BE74(int a1, int a2, __int16 a3)
+{
+  int v6; // r0
+  char v7; // r11
+  _DWORD *v8; // r8
+  int v9; // r4
+  __int16 v10; // r6
+  char v11; // r0
+  __int16 v12; // r12
+  int v13; // r2
+  bool v14; // zf
+  __int16 v15; // r0
+  int v16; // r7
+  int v17; // r2
+  unsigned __int16 v18; // r6
+
+  v6 = sub_13BE38();
+  v7 = v6;
+  if ( (unsigned __int8)v6 == 33 )
+    return 3;
+  v8 = off_13BF60;
+  v9 = dword_13BF54 + 32 * (unsigned __int8)v6;
+  v10 = v6;
+  *(_BYTE *)(v9 + 22) = a2;
+  *(_BYTE *)(v9 + 16) = a1;
+  v11 = sub_14383C(v6);
+  v13 = dword_13BF58;
+  *(_BYTE *)(v9 + 23) = v11;
+  v14 = (*(_DWORD *)(v13 + 696 * a1 + 4) & 0x20) == 0;
+  v15 = *(_WORD *)(*(_DWORD *)off_13BF5C + 2);
+  *(_BYTE *)(v9 + 18) = 1;
+  *(_BYTE *)(v9 + 17) = 1;
+  *(_DWORD *)(v9 + 4) = 0;
+  v16 = v13 + 696 * a1 + 12 * a2;
+  if ( !v14 )
+    v12 = 256;
+  v17 = v8[4];
+  if ( v14 )
+    v12 = 64;
+  *(_WORD *)(v9 + 20) = v12;
+  *(_WORD *)(v9 + 14) = v15;
+  *(_DWORD *)(v9 + 8) = v17;
+  *(_WORD *)(v9 + 12) = a3;
+  *(_BYTE *)(v16 + 453) = v7;
+  sub_13B558(a1, v9, 2, 0, 0, 39, 0);
+  v18 = (v10 << 8) | 8;
+  sub_13B558(a1, v9, 0, 0, 0, 0, 0);
+  *(_DWORD *)(v16 + 444) = v8[4];
+  sub_12C4A4(0x2000, v18, 0x7D000u);
+  sub_12CBF4(v18, 2);
+  return 0;
+}
+

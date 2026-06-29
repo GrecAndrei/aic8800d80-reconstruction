@@ -1,0 +1,84 @@
+// sub_13BFD8 @ 0x13bfd8, size 344 bytes
+unsigned int  sub_13BFD8(unsigned int result)
+{
+  int v1; // r1
+  int v2; // r2
+  int v3; // r5
+  int v4; // r6
+  int v5; // r12
+  unsigned int v6; // r4
+  int v7; // r3
+  int v8; // r7
+  int v9; // r2
+  int v10; // r8
+  int v11; // r9
+  int v12; // r7
+  int v13; // r9
+  __int16 v14; // r3
+  int ( *v15)(int, int); // r2
+  __int16 v16; // r1
+
+  v1 = *(unsigned __int8 *)(result + 27);
+  v2 = *((uint32_t *)off_13C130 + 4);
+  if ( v1 != 255 )
+  {
+    v3 = *(unsigned __int8 *)(result + 29);
+    v4 = dword_13C134;
+    v5 = dword_13C134 + 696 * v3;
+    v6 = result;
+    result = *(uint32_t *)(v5 + 4) << 30;
+    if ( (*(uint32_t *)(v5 + 4) & 2) != 0 )
+    {
+      v7 = 696 * v3 + 12 * v1 + dword_13C134;
+      v8 = *(unsigned __int8 *)(v7 + 453);
+      ++*(uint8_t *)(v7 + 455);
+      if ( v8 == 33 )
+      {
+        result = v2 + 1000000 - *(uint32_t *)(v7 + 444);
+        if ( result > dword_13C14C && v2 - 500000 - *(uint32_t *)(v7 + 448) >= 0 && *(uint8_t *)(v5 + 36) != 1 )
+        {
+          result = dword_13C13C;
+          v9 = *(unsigned __int8 *)(dword_13C138 + v1);
+          if ( !*(uint32_t *)(dword_13C13C + 84 * v9)
+            && !*(uint32_t *)(dword_13C144 + 8 * v9)
+            && !*(uint32_t *)(v4 + 8 * (v9 + 87 * v3 + 78)) )
+          {
+            result = dword_13C148;
+            if ( !*(uint32_t *)(dword_13C148 + 8 * (165 * *(unsigned __int8 *)(v6 + 28) + v9 + 159)) )
+              return sub_13BE74(v3, v1, *(uint16_t *)(v6 + 32));
+          }
+        }
+      }
+      else
+      {
+        v10 = dword_13C150;
+        v11 = dword_13C150 + 32 * v8;
+        *(uint32_t *)(v11 + 8) = v2;
+        result = sub_12CD48((v8 << 8) | 8);
+        v12 = 32 * v8;
+        if ( result == 1 )
+        {
+          v13 = *(uint32_t *)(v11 + 28);
+          v14 = *(uint16_t *)(v6 + 30);
+          result = *(unsigned __int16 *)(v13 + 4);
+          *(uint16_t *)(v6 + 34) = result;
+          if ( (v14 & 1) == 0 || (v14 & 3) == 3 )
+          {
+            if ( (*(uint8_t *)(*(uint32_t *)(v4 + 696 * v3 + 340) + 166) & 4) != 0 )
+              *(uint32_t *)(v6 + 36) |= 0x200000u;
+            v15 = *(int ( **)(int, int))v13;
+            v16 = *(uint16_t *)(v6 + 32) - result;
+            *(uint16_t *)(v6 + 30) = v14 | 2;
+            result = v15(v13, v16 & 0xFFF) + v13;
+            *(uint8_t *)(result + 6) = 1;
+            if ( (*(uint16_t *)(v6 + 30) & 1) == 0 )
+              *(uint16_t *)(v6 + 64) = *((uint16_t *)off_13C140 + 22) + (*((uint32_t *)off_13C130 + 4) >> 10);
+            ++*(uint32_t *)(v12 + v10 + 4);
+          }
+        }
+      }
+    }
+  }
+  return result;
+}
+

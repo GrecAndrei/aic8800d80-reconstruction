@@ -1,0 +1,65 @@
+// sub_12942C @ 0x12942c, size 184 bytes
+void  sub_12942C(unsigned __int16 *a1, __int16 a2, int a3)
+{
+  uint8_t *v3; // r5
+  unsigned __int16 v4; // r6
+  int v6; // r3
+  int v7; // r1
+  int v8; // r3
+  int v9; // r3
+  int v10; // r1
+
+  v3 = off_1294E4;
+  if ( *(uint8_t *)off_1294E4 )
+  {
+    v4 = *a1;
+    if ( (a1[2] & 1) != 0 )
+    {
+      if ( *((uint8_t *)off_1294E4 + 29) == 5 )
+      {
+        sub_125058((int)off_1294E4 + 12);
+        v3[29] = 0;
+      }
+      if ( (v4 & 0x2000) == 0 || *(uint8_t *)(a3 + 114) )
+      {
+        *(uint32_t *)(a3 + 4) &= ~2u;
+      }
+      else
+      {
+        *(uint32_t *)(a3 + 4) |= 2u;
+        if ( !v3[29] )
+        {
+          v9 = *((uint32_t *)off_1294F0 + 4);
+          v10 = *(unsigned __int16 *)(*(uint32_t *)off_1294EC + 56);
+          *((uint32_t *)v3 + 5) = a3;
+          v3[29] = 5;
+          sub_124F60(dword_1294F4, v10 + v9);
+        }
+      }
+    }
+    else if ( *(uint8_t *)off_1294E8 )
+    {
+      sub_1423D4(a3, *a1, a1);
+    }
+    else if ( (a2 & 0x200) == 0 )
+    {
+      v6 = *((uint32_t *)off_1294F0 + 4);
+      v7 = *(unsigned __int16 *)(*(uint32_t *)off_1294EC + 54);
+      *((uint32_t *)off_1294E4 + 5) = a3;
+      v3[29] = 2;
+      sub_124F60((int)(v3 + 12), v7 + v6);
+      v8 = *(uint32_t *)(a3 + 4);
+      if ( (v4 & 0x2000) != 0 )
+      {
+        if ( (v8 & 4) == 0 )
+          *(uint32_t *)(a3 + 4) = v8 | 4;
+        sub_1290C4();
+      }
+      else
+      {
+        *(uint32_t *)(a3 + 4) = v8 & 0xFFFFFFFB;
+      }
+    }
+  }
+}
+

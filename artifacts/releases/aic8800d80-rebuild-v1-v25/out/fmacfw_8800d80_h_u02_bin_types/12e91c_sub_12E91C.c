@@ -1,0 +1,13 @@
+// sub_12E91C @ 0x12e91c, size 40 bytes
+BOOL  sub_12E91C(unsigned int a1, unsigned int a2)
+{
+  BOOL result; // r0
+
+  if ( a1 > 9 )
+    return 0;
+  result = (*(uint32_t *)off_12E944 >> a1) & 1;
+  if ( result )
+    return *((uint32_t *)off_12E944 + 1) >= a2;
+  return result;
+}
+

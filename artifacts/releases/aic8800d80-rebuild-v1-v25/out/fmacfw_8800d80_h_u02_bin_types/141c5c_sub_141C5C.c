@@ -1,0 +1,15 @@
+// sub_141C5C @ 0x141c5c, size 50 bytes
+int  sub_141C5C(char a1, int a2)
+{
+  int v4; // r0
+  __int16 v5; // r2
+
+  v4 = sub_12C7EC(12290, 13, 12, 8u);
+  v5 = *(uint16_t *)(a2 + 8);
+  *(uint32_t *)(v4 + 2) = *(uint32_t *)(a2 + 4);
+  *(uint16_t *)(v4 + 6) = v5;
+  *(uint8_t *)(v4 + 1) = *(uint8_t *)(a2 + 46);
+  *(uint8_t *)v4 = a1;
+  return sub_12C84C(v4);
+}
+
