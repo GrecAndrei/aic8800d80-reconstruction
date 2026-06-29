@@ -23,20 +23,19 @@ should or should not be committed.
 | `harness_v15/` | v15 | Synthesis baseline (Unicorn-driven body capture) | ✅ source only |
 | `harness_v16/` | v16 | Failed LLM-C approach (kept for reference) | ✅ source, ❌ out/ (177MB reviews) |
 | `harness_v17/` | v17 | LLM tool-use pipeline (16 tools, naming, integration) | ✅ source only |
-| `harness_v18_oracle/` | — | Empty stub (v18 source lives in `harness_v17/disasm_to_asm.py`) | n/a |
 | `harness_v19/` | v19 | Hex-Rays decompilation pipeline | ✅ source only |
-| `harness_v20/` | v20 | Struct discovery (access patterns) | ✅ tracked outputs |
-| `harness_v21/` | v21 | Struct cross-reference | ✅ tracked outputs |
-| `harness_v22/` | v22 | Expanded struct names | ✅ tracked outputs |
-| `harness_v23/` | v23 | Annotated v19 C + field invariants | ✅ tracked outputs |
-| `harness_v24/` | v24 | Cross-binary function map | ✅ tracked outputs |
-| `harness_v25/` | v25 | In-flight callgraph analysis (no source yet) | ❌ out/ (gitignored) |
+| `harness_v20/` | v20 | Struct discovery (access patterns, Python/r2) | ✅ tracked outputs, **historical** |
+| `harness_v21/` | v21 | Struct cross-reference | ✅ tracked outputs, **historical** |
+| `harness_v22/` | v22 | Expanded struct names | ✅ tracked outputs, **historical** |
+| `harness_v23/` | v23 | Annotated v19 C + field invariants | ✅ tracked outputs, **historical** |
+| `harness_v24/` | v24 | Cross-binary function map | ✅ tracked outputs, **historical** |
+| `harness_v25/` | v25 | Unified structure analysis (Go `fwstruct`) | ❌ out/ (gitignored) |
 
 Within each harness:
 - `scripts/`, `docs/`, `tools.py`, etc.: ✅ commit
 - `idb/`, `log/`, `decompiled/`, `names/`, `out/`: ❌ gitignored (large)
 
-## v20-v24: Struct recovery family
+## v20-v24: Historical Python struct recovery
 
 These five harnesses form a single struct-recovery pipeline that
 builds on v19's decompiled C output. Each one feeds the next:
@@ -53,8 +52,12 @@ v24  cross-binary map (functions shared across the 4 binaries)
 
 Unlike v15-v19, v20-v24's generated output dirs (`access_patterns/`,
 `structs/`, `field_map/`, `annotated/`, `*.json`) are **committed**
-to git — they are the canonical release artifacts of each pipeline
+to git — they are the canonical historical artifacts of each pipeline
 stage and re-running the scripts reproduces them deterministically.
+
+**Note:** The Go-based `fwstruct` tool (v25) supersedes v20-v24. New
+analysis should use `bin/fwstruct` instead. The Python harnesses remain
+in the tree for cross-validation and historical reference.
 
 ## Bin directory
 

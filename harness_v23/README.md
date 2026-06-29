@@ -1,4 +1,9 @@
-# v23: Annotated v19 C + Field Invariants
+# v23: Annotated v19 C + Field Invariants (historical)
+
+> **⚠️ Historical. Superseded by v25 `fwstruct annotate` (TODO).**
+> The unified `fwstruct` tool (Go binary in `bin/fwstruct`, source in
+> `cmd/fwstruct/`) will replace this when `fwstruct annotate` is
+> implemented. See `harness_v25/README.md`.
 
 Builds on v19 (Hex-Rays decompilation) + v22 (named structs).
 

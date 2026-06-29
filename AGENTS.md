@@ -11,20 +11,25 @@ project so a fresh agent can orient quickly.
 Reconstruct human-readable C source from AIC8800D80 WiFi/BT firmware
 binaries using a sequence of progressively better pipelines (v15 → v19).
 
-## Project status (2026-06-14)
+## Project status (2026-06-30)
 
-Four release layers, each serves a different verification need:
+Five release layers, each serves a different verification need:
 
-| Layer | Output | Compiles? | Human-readable? | Size |
-|-------|--------|-----------|----------------|------|
-| **v15** | Synthesized C (curated 356 funcs) | ✅ | ✅ | 1.1 MB |
-| **v17** | LLM-named C (4,002 funcs) | ✅ | ✅ | 5.7 MB |
-| **v18** | Inline-asm byte-faithful (18,841 funcs) | ✅ | ❌ | 1.2 MB |
-| **v19** | Hex-Rays decompilation (4,675 funcs) | ❌ | ✅ | 4.7 MB |
+| Layer | Output | Compiles? | Human-readable? | Functions |
+|-------|--------|-----------|-----------------|-----------|
+| **v15** | Synthesized C (curated 356 funcs) | ✅ | ✅ | 356 |
+| **v17** | LLM-named C (4,002 funcs in release) | ✅ | ✅ | 4,002 |
+| **v18** | Inline-asm byte-faithful (18,841 funcs) | ✅ | ❌ | 18,841 |
+| **v19** | Hex-Rays decompilation (4,675 funcs) | ❌ (pseudo) | ✅ | 4,675 |
+| **v25** | Per-function metadata via `fwstruct` | n/a | n/a | 5,945 analyzed |
 
-**Latest release: v19** — human-readable pseudo-C from IDA Pro's Hex-Rays
-decompiler, with 1,256 LLM-applied function names and 25,815 MMIO register
-names applied automatically.
+**Latest human-readable C: v19** — 4,675 functions, 1,256 LLM-named,
+25,815 MMIO register names.
+
+**Latest analysis layer: v25** — unified Go tool (`bin/fwstruct`)
+that parses v19's Hex-Rays C and produces per-function callees,
+access patterns, numeric literals, struct candidates, boot init
+path, and cross-binary diffs. Supersedes the v20-v24 Python harnesses.
 
 ## Hard rules (do not violate)
 
@@ -47,6 +52,8 @@ names applied automatically.
 13. **"take this to the end and dont stop until reached"** — push through.
 14. **Use Hex-Rays decompiler** (`$IDAT (or default $HOME/ida-pro-9.3/idat)`)
     for v19 human-readable C.
+15. **Use `bin/fwstruct`** for v25 per-function metadata. Build with
+    `go build -o bin/fwstruct ./cmd/fwstruct`.
 
 ## Where to start
 

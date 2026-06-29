@@ -8,13 +8,14 @@ pipeline that combines:
 
 - grounded facts exported from IDA Pro 9.3,
 - deterministic LLM tool-use for naming and documentation,
-- 4 progressively better reconstruction layers (v15–v19),
+- 5 progressively richer reconstruction layers (v15, v17, v18, v19, v25),
 - byte-faithful verification gates (compile + disasm match),
-- Hex-Rays decompilation for human-readable C.
+- Hex-Rays decompilation for human-readable C,
+- Go-based structure analysis (call graphs, access patterns, struct typing).
 
-## Status (2026-06-14)
+## Status (2026-06-30)
 
-Four published release layers exist, each serving a different purpose:
+Five published release layers exist, each serving a different purpose:
 
 | Layer | Format | Compilable | Human-readable | Functions | Tarball |
 |-------|--------|------------|----------------|-----------|---------|
@@ -22,10 +23,17 @@ Four published release layers exist, each serving a different purpose:
 | **v17** | LLM-named C | ✅ | ✅ | 4,002 functions | 5.7 MB |
 | **v18** | Inline-asm + LLM names | ✅ (byte-faithful) | ❌ (`.byte` directives) | 18,841 functions | 1.2 MB |
 | **v19** | Hex-Rays decompilation | ❌ (pseudo-C) | ✅ (real C) | 4,675 functions | 4.7 MB |
+| **v25** | Per-function metadata (JSONL) | n/a | n/a | 5,945 analyzed | n/a (dataset) |
 
-**v19 is the latest human-readable release.** 4,675 of 4,723 firmware
+**v19 is the latest human-readable C release.** 4,675 of 4,723 firmware
 functions decompiled (98.9% success), 1,256 with LLM-applied names,
 25,815 MMIO register addresses named automatically.
+
+**v25 is the latest analysis layer** (June 2026). `fwstruct` parses
+v19's Hex-Rays C into per-function metadata (callees, accesses, literals,
+struct candidates, boot init path, cross-binary diffs). 5,945 functions
+analyzed across all 4 binaries. Not a release tarball — it's a dataset
+consumed by downstream analysis. See `harness_v25/README.md`.
 
 ## Headline result: v19 release
 
@@ -67,6 +75,8 @@ harness_v15/                 # Synthesis baseline (truth lane: 25/25 PASS)
 harness_v16/                 # Failed LLM-C approach (kept for reference)
 harness_v17/                 # LLM tool-use pipeline (5,741 names applied)
 harness_v19/                 # Hex-Rays decompilation pipeline (4,675 functions)
+harness_v20-v24/             # Python struct-recovery family (superseded by v25)
+harness_v25/                 # fwstruct: unified Go structure analyzer
 artifacts/releases/
   aic8800d80-rebuild-v1/     # v17 synthesized C, working
   aic8800d80-rebuild-v1-v15/ # v15 release (synthesized C, 1.1MB tarball)
@@ -75,6 +85,7 @@ artifacts/releases/
   aic8800d80-rebuild-v1-v19/ # v19 release (Hex-Rays decompilation, 4.7MB tarball) ★
 docs/                        # Operator runbook, milestone notes
 extraction_out/              # Generated working outputs (gitignored)
+bin/                         # Compiled Go binaries (built from cmd/)
 ```
 
 ## The four layers in detail
@@ -121,6 +132,25 @@ produced by IDA's Hex-Rays decompiler. Not directly compilable
 
 **Use when:** you want to understand the firmware as a human.
 
+### v25 — Unified structure analysis (latest)
+
+`fwstruct` (Go binary, source in `cmd/fwstruct/`) parses v19's Hex-Rays
+C output and produces per-function metadata:
+
+- **callees** (call graph traversal)
+- **access patterns** (load/store base+offset fingerprints → struct candidates)
+- **numeric literals** (classified by category: bit_masks, timeouts, sizes, ...)
+- **boot init path** (BFS walk from `start()`)
+- **cross-binary diff** (same-address function comparison across the 4 binaries)
+- **LLM-named struct candidates** (replaces v20-v22's naming pipeline)
+
+5,945 functions analyzed across 4 binaries. ~50% of clusters got
+LLM-applied struct names.
+
+**Use when:** you need per-function structural detail beyond what
+decompilation gives you — for call graph traversal, struct typing,
+or cross-binary function matching.
+
 ## Core Workflow
 
 ### v19 decompilation pipeline
@@ -141,6 +171,21 @@ python3 harness_v19/scripts/post_process.py
 # 4. Release tarball
 tar -czf artifacts/releases/aic8800d80-rebuild-v1-v19.tar.gz \
   -C artifacts/releases/ aic8800d80-rebuild-v1-v19
+```
+
+### v25 structure analysis
+
+```bash
+# Build fwstruct (one-time)
+go build -o bin/fwstruct ./cmd/fwstruct
+
+# Run per-function analysis (requires v19 decompiled output)
+bin/fwstruct scan       # per-func metadata → harness_v25/out/<img>_funcs.jsonl
+bin/fwstruct structs    # cluster by access pattern
+bin/fwstruct callgraph  # call graph
+bin/fwstruct magic      # numeric literal classification
+bin/fwstruct initpath   # boot init chain
+bin/fwstruct diff       # cross-binary diff
 ```
 
 ### v18 byte-faithful pipeline
@@ -177,8 +222,8 @@ the v19 pipeline from scratch.
 
 ## Canonical Docs
 
-- **`AGENTS.md`** — quick reference for AI agents (v15–v19 status)
-- `PIPELINE.md` — detailed pipeline architecture
+- **`AGENTS.md`** — quick reference for AI agents (v15–v25 status)
+- `PIPELINE.md` — detailed pipeline architecture (v15–v25)
 - `plan.md` — long-term plan and progress log
 - `docs/README.md` — documentation index
 - `docs/REBUILD_MILESTONE.md` — current milestone summary
@@ -186,6 +231,7 @@ the v19 pipeline from scratch.
 - `docs/REPO_LAYOUT.md` — what each directory is for
 - `harness_v17/docs/*.md` — subsystem documentation
 - `harness_v19/README.md` — v19-specific docs
+- `harness_v25/README.md` — fwstruct unified structure analyzer
 
 ## Artifact Policy
 

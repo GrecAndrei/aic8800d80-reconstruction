@@ -1,11 +1,11 @@
-# Firmware Reconstruction Pipeline (v15 → v19)
+# Firmware Reconstruction Pipeline (v15 → v25)
 
 This file describes the end-to-end pipeline used in this repository for
 **AIC8800D80 WiFi/BT firmware reconstruction**.
 
-It covers **four release layers**, each with a different verification
-trade-off, plus the supporting infrastructure (LLM tooling, IDA
-integration, decompilation).
+It covers **five release layers** (v15, v17, v18, v19, v25) each with a
+different verification trade-off, plus the supporting infrastructure
+(LLM tooling, IDA integration, decompilation, structure analysis).
 
 ## Pipeline Layout
 
@@ -19,6 +19,7 @@ inputs/firmware/*.bin      (raw 340KB ARM Thumb binaries)
        +---> v17 (LLM tool-use)      -> compilable, 4,002 LLM-named funcs
        +---> v18 (byte-faithful)     -> compilable, 18,841 inline-asm funcs
        +---> v19 (Hex-Rays decompile) -> pseudo-C, 4,675 decompiled funcs
+       +---> v25 (structure analysis)  -> per-func struct detail via fwstruct
        |
        v
 artifacts/releases/aic8800d80-rebuild-v1-v{15,17,18,19}/
@@ -161,6 +162,45 @@ Results:
 
 Drawback: Not directly compilable (Hex-Rays type-inference bugs).
 
+## Stage 6: v25 — Unified Structure Analysis
+
+**Goal:** Per-function structural detail beyond decompilation.
+
+`fwstruct` (Go binary in `bin/fwstruct`, sources in `cmd/fwstruct/`)
+parses v19's Hex-Rays C output and produces per-function metadata:
+callees, access patterns, numeric literals, struct candidates, boot
+init path, and cross-binary diffs. This is the unified replacement for
+the v20-v24 Python harnesses.
+
+```bash
+# Build fwstruct
+go build -o bin/fwstruct ./cmd/fwstruct
+
+# Per-binary analysis (reads harness_v19/decompiled/<img>/*.c)
+bin/fwstruct scan       # → <out>/<img>_funcs.jsonl (per-func metadata)
+bin/fwstruct structs    # → <out>/<img>_clusters.json (access-pattern clusters)
+bin/fwstruct names      # → LLM-named struct candidates (needs API keys)
+bin/fwstruct callgraph  # → <out>/<img>_callgraph.json
+bin/fwstruct magic      # → <out>/<img>_magic.json (literal classification)
+bin/fwstruct initpath   # → <out>/<img>_initpath.json (boot chain from start())
+bin/fwstruct diff       # → <out>/diff_<a>_vs_<b>.json (cross-binary)
+```
+
+Results (current run):
+- 5,945 functions scanned across 4 binaries
+- 1,394 clusters identified, ~50% LLM-named
+- 51 init-path entries (boot chain depth)
+- 4 cross-binary diff reports (h↔u02, u02↔bt, h↔lmac, bt↔lmac)
+
+The Python harnesses `harness_v20/` through `harness_v24/` remain in
+the tree as historical reference; their outputs were produced via
+`radare2` disassembly rather than Hex-Rays C parsing. When both exist,
+prefer fwstruct (faster, simpler schemas, no r2 round-trip).
+
+Use when: you need per-function metadata (callees, accesses, literals)
+for downstream analysis — call graph traversal, struct typing,
+boot path extraction, cross-binary function matching.
+
 ## Truth-Lane Scoring
 
 Score the top 25 critical functions with original-binary trace validation:
@@ -192,6 +232,10 @@ MMIO writes.
 | v17 | LLM-named C | 5.7 MB | 4,002 | ✅ | ✅ |
 | v18 | Inline-asm | 1.2 MB | 18,841 | ✅ | ❌ |
 | v19 | Hex-Rays decompile | 4.7 MB | 4,675 | ❌ (pseudo) | ✅ |
+| v25 | Per-func metadata | n/a (JSONL) | 5,945 analyzed | n/a | n/a |
+
+v25 is the most recent layer (June 2026) and is not a release tarball
+but a per-function metadata dataset consumed by downstream analysis.
 
 ## Autonomous Cycling (v15)
 
@@ -226,3 +270,4 @@ Each cycle:
 - `docs/RUNBOOK.md` — operator commands
 - `docs/REBUILD_MILESTONE.md` — current status
 - `harness_v19/README.md` — v19-specific docs
+- `harness_v25/README.md` — fwstruct unified structure analyzer

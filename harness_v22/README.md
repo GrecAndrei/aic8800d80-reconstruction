@@ -1,4 +1,9 @@
-# v22 — Expanded Struct Names
+# v22 — Expanded Struct Names (historical)
+
+> **⚠️ Historical. Superseded by v25 `fwstruct names`.**
+> The unified `fwstruct` tool (Go binary in `bin/fwstruct`, source in
+> `cmd/fwstruct/`) now does struct naming via `fwstruct names` (LLM
+> call against cluster access patterns). See `harness_v25/README.md`.
 
 ## Goal
 
