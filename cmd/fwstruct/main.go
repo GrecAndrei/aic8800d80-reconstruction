@@ -1,19 +1,19 @@
 // fwstruct - unified firmware-structure analyzer.
 //
-// Subcommands:
+// All 13 subcommands are implemented:
 //   scan        parse v19 decompiled C into funcs.jsonl
 //   structs     cluster funcs by access pattern, propose struct types
-//   names       LLM-name proposed structs
-//   xref        cross-reference struct fields to functions (TODO)
-//   callgraph   build call graph
+//   names       LLM-name proposed structs (calls MiniMax-M3)
+//   xref        cross-reference struct fields to functions
+//   callgraph   build call graph from C
 //   magic       classify numeric literals (magic numbers)
 //   initpath    extract boot path from start()
 //   diff        cross-binary version diff
-//   types       fix Hex-Rays type-inference bugs (TODO)
-//   ivt         rewrite IVT for v18 bootable (TODO)
-//   annotate    emit annotated C with all known context (TODO)
-//   report      aggregate summary across all subcommands (TODO)
-//   all         run scan+structs+names+xref+callgraph+magic+initpath+annotate (TODO)
+//   types       fix Hex-Rays type-inference bugs (rewrite MSVC -> C99)
+//   ivt         parse + name the Cortex-M Interrupt Vector Table
+//   annotate    emit annotated C with cluster context prepended
+//   report      aggregate summary across all subcommands
+//   all         run scan..report end-to-end
 //
 // All outputs go to <out>/. Each subcommand reads prior outputs when
 // available, so a re-run of `names` doesn't re-parse v19.
@@ -23,12 +23,6 @@ import (
 	"fmt"
 	"os"
 )
-
-// runStub prints a TODO message for unimplemented subcommands.
-func runStub(args []string, name string) error {
-	fmt.Fprintf(os.Stderr, "fwstruct %s: not yet implemented\n", name)
-	return nil
-}
 
 func main() {
 	if len(os.Args) < 2 {
@@ -45,7 +39,7 @@ func main() {
 	case "names":
 		err = runNames(args)
 	case "xref":
-		err = runStub(args, "xref")
+		err = runXref(args)
 	case "callgraph":
 		err = runCallgraph(args)
 	case "magic":
@@ -55,15 +49,15 @@ func main() {
 	case "diff":
 		err = runDiff(args)
 	case "types":
-		err = runStub(args, "types")
+		err = runTypes(args)
 	case "ivt":
-		err = runStub(args, "ivt")
+		err = runIVT(args)
 	case "annotate":
-		err = runStub(args, "annotate")
+		err = runAnnotate(args)
 	case "report":
-		err = runStub(args, "report")
+		err = runReport(args)
 	case "all":
-		err = runStub(args, "all")
+		err = runAll(args)
 	case "-h", "--help", "help":
 		usage()
 		return

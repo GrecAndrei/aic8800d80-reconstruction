@@ -1,0 +1,54 @@
+// fwstruct annotate: 12b6c4_sub_12B6C4.c
+// sub_12B6C4 @ 0x12b6c4, size 120 bytes
+int sub_12B6C4()
+{
+  _DWORD *v0; // r1
+  int v1; // r6
+  int *v2; // r4
+  _DWORD *v3; // r2
+  _DWORD *v4; // r5
+  _DWORD *v5; // r7
+  int v6; // r3
+  int result; // r0
+  _DWORD *v8; // r4
+  int v9; // r3
+  int *v10; // r3
+  int v11; // r3
+
+  if ( **(__int16 **)off_12B73C < 0 && !(*(_DWORD *)off_12B758 << 28) )
+    return sub_12F2C8(dword_12B764, dword_12B760, 213, *(_DWORD *)off_12B758);
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(_DWORD *)off_12B740 = 1;
+  }
+  v0 = off_12B748;
+  v1 = *(_DWORD *)off_12B748;
+  v2 = (int *)off_12B74C;
+  v3 = off_12B750;
+  v4 = off_12B754;
+  v5 = off_12B758;
+  v6 = *(_DWORD *)off_12B744 + 25000;
+  result = *(_DWORD *)off_12B748 + 1;
+  *(_DWORD *)off_12B748 = result;
+  *v2 = v6;
+  v8 = off_12B75C;
+  *v3 = 128;
+  v9 = v8[1] | 4;
+  *v4 |= 0x80u;
+  v8[1] = v9;
+  *v5 = 0;
+  if ( result )
+  {
+    v10 = (int *)off_12B740;
+    *v0 = v1;
+    v11 = *v10;
+    if ( !v1 )
+    {
+      if ( v11 )
+        __enable_irq();
+    }
+  }
+  return result;
+}
+

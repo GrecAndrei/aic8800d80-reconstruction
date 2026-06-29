@@ -1,0 +1,135 @@
+// fwstruct annotate: 122db8_sub_122DB8.c
+// sub_122DB8 @ 0x122db8, size 344 bytes
+// Doc: sub_1222DB8 [rf]: Initializes LMAC RF control structure with zeroed params
+// sub_1222DB8 [rf]: Initializes LMAC RF control structure with zeroed params
+int __fastcall sub_122DB8(int a1, unsigned int a2)
+{
+  unsigned int v2; // r3
+  int v3; // r5
+  int v6; // r5
+  int status; // r4
+  int v8; // r1
+  int v9; // r0
+  int v11; // r0
+  int v12; // r4
+  int v13; // r1
+  unsigned int v14; // r1
+  int v15; // r6
+  int inited; // r5
+  int v17; // r2
+  int v18; // r2
+  unsigned int v19; // r1
+  unsigned int v20; // r1
+  __int16 v21; // [sp+Ah] [bp-6h] BYREF
+  int v22; // [sp+Ch] [bp-4h] BYREF
+
+  v21 = 0;
+  v2 = *(_DWORD *)off_122F10;
+  v22 = 0;
+  v3 = HIBYTE(v2) & 2;
+  if ( v3 )
+  {
+    if ( !a1 )
+    {
+      v6 = sub_113B88(&v21);
+      status = rf_cmd_query_status((_BYTE *)&v21 + 1);
+      msg_parse(dword_122F14, (unsigned __int8)v21, v6, HIBYTE(v21), status);
+      v8 = status << 24;
+      v9 = v6 << 16;
+      return (unsigned __int8)v21 | (HIBYTE(v21) << 8) | v8 | v9;
+    }
+  }
+  else
+  {
+    v11 = sub_114558((int)&v22);
+    if ( !a1 )
+    {
+      if ( v11 )
+      {
+        msg_parse(dword_122F20);
+        v9 = 917504;
+        v8 = 234881024;
+      }
+      else
+      {
+        v21 = v22;
+        msg_parse(dword_122F24);
+        v9 = 983040;
+        v8 = 251658240;
+      }
+      return (unsigned __int8)v21 | (HIBYTE(v21) << 8) | v8 | v9;
+    }
+  }
+  if ( a1 == 1 )
+  {
+    v13 = *((unsigned __int8 *)off_122F18 + 4);
+    if ( a2 >= 0x1F )
+      a2 = 31;
+    if ( a2 == v13 )
+    {
+      v15 = *((char *)off_122F18 + 2);
+      if ( v3 )
+      {
+        inited = rf_init_channel_n6(a2);
+        if ( inited < 0 )
+        {
+          msg_parse(dword_122F38);
+          v12 = 65280;
+        }
+        else
+        {
+          msg_parse(dword_122F2C, a2);
+          v12 = a2 | (inited << 8);
+        }
+      }
+      else
+      {
+        LOBYTE(v22) = a2;
+        sub_114564((int)&v22);
+        v20 = a2;
+        v12 = a2 | 0xF00;
+        msg_parse(dword_122F34, v20);
+      }
+      sub_122C94(1, v15, v17);
+    }
+    else
+    {
+      v12 = ~((unsigned int)~(v13 << 23) >> 23);
+      msg_parse(dword_122F1C);
+    }
+  }
+  else if ( a1 == 2 )
+  {
+    if ( a2 >= 0x3F )
+      a2 = 63;
+    if ( v3 )
+    {
+      v18 = rf_reg_check((unsigned __int8)a2);
+      if ( v18 < 0 )
+      {
+        msg_parse(dword_122F38);
+        return 65280;
+      }
+      else
+      {
+        v19 = a2;
+        v12 = a2 | (v18 << 8);
+        msg_parse(dword_122F30, v19);
+      }
+    }
+    else
+    {
+      BYTE1(v22) = a2;
+      sub_114564((int)&v22);
+      v14 = a2;
+      v12 = a2 | 0xF00;
+      msg_parse(dword_122F28, v14);
+    }
+  }
+  else
+  {
+    return 0;
+  }
+  return v12;
+}
+

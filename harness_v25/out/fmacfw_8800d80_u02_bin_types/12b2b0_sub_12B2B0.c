@@ -1,0 +1,74 @@
+// sub_12B2B0 @ 0x12b2b0, size 218 bytes
+int  sub_12B2B0(int a1, int a2, int a3)
+{
+  int v3; // r9
+  int v4; // r3
+  int v6; // r5
+  int v9; // r3
+  int v10; // r0
+  int result; // r0
+  int v12; // r4
+  uint16_t *v13; // lr
+  int v14; // r1
+  uint64_t v15; // kr00_8
+  __int16 v16; // r5
+  int v17; // r9
+  int v18; // r0
+  int v19; // r9
+
+  v3 = dword_12B390;
+  v4 = dword_12B390 + 1320 * a1;
+  v6 = *(unsigned __int8 *)(v4 + 116);
+  if ( *(uint8_t *)(v4 + 1224) )
+  {
+    result = sub_118C44(1, 26);
+    v12 = result;
+    if ( result )
+    {
+LABEL_5:
+      v13 = off_12B394;
+      v14 = dword_12B38C + 696 * v6;
+      v15 = *(QWORD *)(result + 72);
+      v16 = *((uint16_t *)off_12B394 + 254);
+      *(uint32_t *)(v15 + 112) = *(uint32_t *)(v14 + 38);
+      v17 = v3 + 1320 * a1;
+      *(uint8_t *)(v15 + 108) = 64;
+      *(uint16_t *)(v15 + 116) = *(uint16_t *)(v14 + 42);
+      v18 = *(uint32_t *)(v17 + 100);
+      LOWORD(v17) = *(uint16_t *)(v17 + 104);
+      *(uint32_t *)(v15 + 118) = v18;
+      LOWORD(v18) = *(uint16_t *)(v14 + 42);
+      *(uint16_t *)(v15 + 122) = v17;
+      ++v16;
+      v19 = *(uint32_t *)(v14 + 38);
+      *(uint16_t *)(v15 + 128) = v18;
+      *(uint8_t *)(v15 + 109) = 0;
+      *(uint8_t *)(v15 + 110) = 0;
+      *(uint8_t *)(v15 + 111) = 0;
+      *(uint32_t *)(v15 + 124) = v19;
+      v13[254] = v16;
+      *(uint8_t *)(v15 + 132) = 0;
+      *(uint8_t *)(v15 + 133) = 0;
+      *(uint16_t *)(v15 + 130) = 16 * v16;
+      *(uint32_t *)(HIDWORD(v15) + 24) = 0;
+      *(uint8_t *)(v12 + 28) = a1;
+      *(uint8_t *)(v12 + 29) = *(uint8_t *)(v14 + 35);
+      *(uint32_t *)(v12 + 88) = a2;
+      *(uint32_t *)(v12 + 92) = a3;
+      return rf_param_get_status(v12, 5);
+    }
+  }
+  else
+  {
+    v9 = *(uint32_t *)(v4 + 72);
+    v10 = *(unsigned __int8 *)(v9 + 4);
+    if ( *(uint8_t *)(v9 + 4) )
+      v10 = 1;
+    result = sub_118C44(v10, 26);
+    v12 = result;
+    if ( result )
+      goto LABEL_5;
+  }
+  return result;
+}
+

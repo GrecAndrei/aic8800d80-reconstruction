@@ -133,6 +133,14 @@ func runInitPath(args []string) error {
 				return cats[k][i].Name < cats[k][j].Name
 			})
 		}
+		// Compute max depth seen in the reachable set.
+		maxDepth := 0
+		for _, d := range visited {
+			if d > maxDepth {
+				maxDepth = d
+			}
+		}
+
 		report := struct {
 			Image   string               `json:"image"`
 			Start   string               `json:"start"`
@@ -143,7 +151,7 @@ func runInitPath(args []string) error {
 		}{
 			Image: img, Start: startName,
 			Total: len(allNames), Reachable: len(visited),
-			InitDepth: 0,
+			InitDepth: maxDepth,
 			ByCategory: cats,
 		}
 		for _, c := range cats["init"] {

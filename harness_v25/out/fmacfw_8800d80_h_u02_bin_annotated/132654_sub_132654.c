@@ -1,0 +1,46 @@
+// fwstruct annotate: 132654_sub_132654.c
+// sub_132654 @ 0x132654, size 128 bytes
+int __fastcall sub_132654(unsigned __int8 *a1, int a2)
+{
+  int v2; // r11
+  __int16 **v3; // r8
+  int v4; // r10
+  int v5; // r9
+  unsigned __int8 *v8; // r4
+  int v9; // r7
+  int v10; // r0
+
+  v2 = *a1;
+  if ( *a1 )
+  {
+    v3 = (__int16 **)off_1326D4;
+    v4 = dword_1326D8;
+    v5 = dword_1326DC;
+    v8 = a1;
+    v9 = 0;
+    while ( 1 )
+    {
+      if ( a2 && (v8[1] & 0x80u) == 0 )
+        goto LABEL_6;
+      sub_1325B4();
+      if ( **v3 < 0 )
+        break;
+      if ( v10 <= 11 )
+        goto LABEL_11;
+LABEL_6:
+      if ( ++v8 - a1 >= v2 )
+        return v9;
+    }
+    if ( v10 > 11 )
+    {
+      sub_12F35C(v5, v4, 598);
+      v2 = *a1;
+      goto LABEL_6;
+    }
+LABEL_11:
+    v9 = (unsigned __int16)(v9 | (1 << v10));
+    goto LABEL_6;
+  }
+  return *a1;
+}
+

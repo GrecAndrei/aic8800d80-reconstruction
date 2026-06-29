@@ -1,0 +1,45 @@
+// fwstruct annotate: 12ca3c_list_find_remove_ca3c.c
+// list_find_remove_ca3c @ 0x12ca3c, size 86 bytes
+// Doc: message_dispatch_nf8 [ipc]: Dispatch incoming message and return to caller
+// message_dispatch_nf8 [ipc]: Dispatch incoming message and return to caller
+_DWORD *__fastcall list_find_remove_ca3c(int a1, int (__fastcall *a2)(_DWORD *, int), int a3)
+{
+  _DWORD *v3; // r4
+  _DWORD *v7; // r8
+  int i; // r0
+  int v9; // r3
+
+  v3 = *(_DWORD **)a1;
+  if ( !*(_DWORD *)a1 )
+    return nullptr;
+  v7 = nullptr;
+  for ( i = a2(v3, a3); ; i = a2(v3, a3) )
+  {
+    v9 = *v3;
+    if ( i )
+      break;
+    v7 = v3;
+    if ( !v9 )
+      return nullptr;
+    v3 = (_DWORD *)*v3;
+  }
+  if ( v7 )
+  {
+    *v7 = v9;
+    if ( *v3 )
+    {
+rf_bus_reset2_n_18e_ca70:
+      *v3 = 0;
+      return v3;
+    }
+  }
+  else
+  {
+    *(_DWORD *)a1 = v9;
+    if ( v9 )
+      goto rf_bus_reset2_n_18e_ca70;
+  }
+  *(_DWORD *)(a1 + 4) = v7;
+  return v3;
+}
+

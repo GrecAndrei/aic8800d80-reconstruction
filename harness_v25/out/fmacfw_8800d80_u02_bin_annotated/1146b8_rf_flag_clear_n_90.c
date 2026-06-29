@@ -1,0 +1,9 @@
+// fwstruct annotate: 1146b8_rf_flag_clear_n_90.c
+// rf_flag_clear_n_90 @ 0x1146b8, size 10 bytes
+// Doc: rf_flag_clear_n_90 [rf]: Clear a global RF status flag by zeroing word
+// rf_flag_clear_n_90 [rf]: Clear a global RF status flag by zeroing word
+void rf_flag_clear_n_90()
+{
+  **(_DWORD **)rf_fault_dump_n_84 = **(_DWORD **)rf_fault_dump_n_84;
+}
+

@@ -1,0 +1,8 @@
+// sub_1428FC @ 0x1428fc, size 106 bytes
+int  sub_1428FC(uint64_t a1)
+{
+  if ( a1 )
+    JUMPOUT(0x1426E2);
+  return a1;
+}
+

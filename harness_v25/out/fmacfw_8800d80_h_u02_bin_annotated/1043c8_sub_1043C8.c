@@ -1,0 +1,51 @@
+// fwstruct annotate: 1043c8_sub_1043C8.c
+// sub_1043C8 @ 0x1043c8, size 212 bytes
+int sub_1043C8()
+{
+  int *v0; // r1
+  _DWORD *v1; // r3
+  int v2; // r0
+  int v3; // r5
+  _DWORD *v4; // r6
+  int *v5; // r4
+  int v6; // r1
+  int result; // r0
+  _DWORD *v8; // r3
+  _DWORD *v9; // r1
+
+  v0 = (int *)off_10449C;
+  v1 = off_1044A4;
+  v2 = dword_1044A8;
+  v3 = *(_DWORD *)off_1044A0;
+  *(_DWORD *)off_1044A0 = dword_1044AC;
+  *v0 = v2;
+  v4 = off_1044B0;
+  v5 = (int *)off_1044B4;
+  *v1 = *v1 & 0xFC000FFF | 0x333000;
+  *v1 &= 0x3FFFFFFFu;
+  *v1 |= 0xC000000u;
+  *v1 = ~(~(*v1 >> 12) << 12);
+  v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
+  *v1 |= 0x10000000u;
+  sub_100644(10);
+  *v4 = dword_1044B8;
+  sub_100644(125);
+  *v4 = dword_1044BC;
+  while ( *v5 < 0 )
+    sub_100644(1);
+  sub_12EB90(1, dword_1044C0);
+  v6 = dword_1044C4;
+  *(_DWORD *)off_1044B0 = 0;
+  sub_12EB90(1, v6);
+  *(_DWORD *)off_1044A0 = v3;
+  sub_1042BC();
+  result = sub_12EB90(1, dword_1044C8);
+  v8 = off_1044A4;
+  v9 = off_1044CC;
+  *(_DWORD *)off_1044A4 &= 0xF3FFFFFF;
+  *v9 |= 0xF0u;
+  *v8 &= ~0x10000000u;
+  *v8 &= 0x3FFFFFFFu;
+  return result;
+}
+

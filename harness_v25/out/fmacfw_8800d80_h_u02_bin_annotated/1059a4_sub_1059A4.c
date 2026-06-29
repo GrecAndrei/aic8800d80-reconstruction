@@ -1,0 +1,83 @@
+// fwstruct annotate: 1059a4_sub_1059A4.c
+// sub_1059A4 @ 0x1059a4, size 206 bytes
+int __fastcall sub_1059A4(unsigned int a1, int a2, int a3)
+{
+  int v5; // r5
+  int v6; // r8
+  int v7; // r10
+  int v8; // r7
+  int v9; // r9
+  int result; // r0
+  int v11; // r1
+  int v12; // r2
+  unsigned int v13; // r0
+  int v14; // r2
+  int v15; // r2
+  int v16; // r1
+
+  v5 = 0;
+  *(_QWORD *)(a2 + 628) = 0x40000000FLL;
+  *(_DWORD *)(a2 + 624) = 0;
+  v6 = dword_105A80;
+  v7 = dword_105A84;
+  if ( a3 )
+    v8 = 7;
+  else
+    v8 = 4;
+  if ( a3 )
+    v9 = 15;
+  else
+    v9 = 13;
+  result = sub_12EB90(1, dword_105A74);
+  do
+  {
+    if ( a1 )
+    {
+      if ( ((1 << v5) & a1) >> v5 == 1 )
+      {
+        *(_DWORD *)(a2 + 4 * (*(_DWORD *)(a2 + 624) + 148)) = v5;
+        sub_12EB90(1, v6);
+        v13 = ((1 << v5) & a1) >> v5;
+        v14 = *(_DWORD *)(a2 + 4 * (*(_DWORD *)(a2 + 624) + 148));
+        if ( v14 < v8 )
+        {
+          result = sub_12EB90(v13, v7);
+          v12 = *(_DWORD *)(a2 + 624);
+          if ( !v12 )
+          {
+            v12 = *(_DWORD *)(a2 + 592);
+            *(_DWORD *)(a2 + 632) = v12;
+          }
+        }
+        else if ( v14 > v9 )
+        {
+          result = sub_12EB90(v13, v7);
+          v12 = *(_DWORD *)(a2 + 624);
+          if ( !v12 )
+          {
+            v12 = *(_DWORD *)(a2 + 592);
+            *(_DWORD *)(a2 + 628) = v12;
+          }
+        }
+        else
+        {
+          result = sub_12EB90(v13, dword_105A7C);
+          v15 = *(_DWORD *)(a2 + 624);
+          v16 = v15 + 148;
+          v12 = v15 + 1;
+          v11 = *(_DWORD *)(a2 + 4 * v16);
+          *(_DWORD *)(a2 + 624) = v12;
+          *(_DWORD *)(a2 + 628) = v11;
+        }
+      }
+    }
+    else
+    {
+      result = sub_12E948(dword_105A78, v11, v12);
+    }
+    ++v5;
+  }
+  while ( v5 != 16 );
+  return result;
+}
+
