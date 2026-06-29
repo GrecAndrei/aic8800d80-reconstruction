@@ -75,7 +75,7 @@ echo "[$(date)] Deployed to pipeline synth dir"
 
 # Run fwapplysynth
 rm -rf "$OUTDIR/fwapply"
-/tmp/opencode/fwapplysynth \
+"$REPO/bin/fwapplysynth" \
   --composed-dir "$REPO/extraction_out/reconstruction/mega7/composed" \
   --out "$OUTDIR/fwapply" \
   --synth-dir "$REPO/extraction_out/reconstruction/mega7/synth" \
