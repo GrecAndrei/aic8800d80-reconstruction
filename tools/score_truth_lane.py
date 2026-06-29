@@ -28,7 +28,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 TRUTH_LANE_STATE = REPO / "extraction_out/reconstruction/truth_lane_state"
 DEFAULT_RUN_ROOT = REPO / "extraction_out/reconstruction/mega7"
-FWIMPLSYNTH = REPO / "fwimplsynth"
+FWIMPLSYNTH = REPO / "bin" / "fwimplsynth"
 
 CALLEE_RE = re.compile(r"\b([A-Za-z_][A-Za-z0-9_]*)\s*\(\s*\)\s*;", re.MULTILINE)
 MOTIF_COMMENT_RE = re.compile(r"//\s*Descriptor motif:\s*([A-Za-z_]+)")
