@@ -1,19 +1,19 @@
-// fwstruct is the unified firmware-structure analyzer.
+// fwstruct - unified firmware-structure analyzer.
 //
 // Subcommands:
 //   scan        parse v19 decompiled C into funcs.jsonl
 //   structs     cluster funcs by access pattern, propose struct types
 //   names       LLM-name proposed structs
-//   xref        cross-reference struct fields to functions
+//   xref        cross-reference struct fields to functions (TODO)
 //   callgraph   build call graph
 //   magic       classify numeric literals (magic numbers)
 //   initpath    extract boot path from start()
 //   diff        cross-binary version diff
-//   types       fix Hex-Rays type-inference bugs
-//   ivt         rewrite IVT for v18 bootable
-//   annotate    emit annotated C with all known context
-//   report      aggregate summary
-//   all         run scan+structs+names+xref+callgraph+magic+initpath+annotate
+//   types       fix Hex-Rays type-inference bugs (TODO)
+//   ivt         rewrite IVT for v18 bootable (TODO)
+//   annotate    emit annotated C with all known context (TODO)
+//   report      aggregate summary across all subcommands (TODO)
+//   all         run scan+structs+names+xref+callgraph+magic+initpath+annotate (TODO)
 //
 // All outputs go to <out>/. Each subcommand reads prior outputs when
 // available, so a re-run of `names` doesn't re-parse v19.
@@ -23,6 +23,12 @@ import (
 	"fmt"
 	"os"
 )
+
+// runStub prints a TODO message for unimplemented subcommands.
+func runStub(args []string, name string) error {
+	fmt.Fprintf(os.Stderr, "fwstruct %s: not yet implemented\n", name)
+	return nil
+}
 
 func main() {
 	if len(os.Args) < 2 {
@@ -39,7 +45,7 @@ func main() {
 	case "names":
 		err = runNames(args)
 	case "xref":
-		err = runXref(args)
+		err = runStub(args, "xref")
 	case "callgraph":
 		err = runCallgraph(args)
 	case "magic":
@@ -49,15 +55,15 @@ func main() {
 	case "diff":
 		err = runDiff(args)
 	case "types":
-		err = runTypes(args)
+		err = runStub(args, "types")
 	case "ivt":
-		err = runIVT(args)
+		err = runStub(args, "ivt")
 	case "annotate":
-		err = runAnnotate(args)
+		err = runStub(args, "annotate")
 	case "report":
-		err = runReport(args)
+		err = runStub(args, "report")
 	case "all":
-		err = runAll(args)
+		err = runStub(args, "all")
 	case "-h", "--help", "help":
 		usage()
 		return
