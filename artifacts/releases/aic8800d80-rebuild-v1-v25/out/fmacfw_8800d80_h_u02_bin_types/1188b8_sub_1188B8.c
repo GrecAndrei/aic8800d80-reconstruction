@@ -1,0 +1,51 @@
+// sub_1188B8 @ 0x1188b8, size 102 bytes
+int  sub_1188B8(int a1, int a2)
+{
+  __int16 **v2; // r5
+  int v3; // r7
+  int v4; // r6
+  int v6; // r0
+  int v7; // r1
+  int v8; // r3
+  int v9; // r2
+  int v10; // r0
+
+  v2 = (__int16 **)off_118920;
+  v3 = dword_118924;
+  v4 = dword_118928;
+LABEL_2:
+  v6 = sub_12D190(a2);
+  v7 = 2080374784;
+  v8 = v6;
+  if ( v6 )
+  {
+    while ( 1 )
+    {
+      v9 = *(uint32_t *)(v8 + 76);
+      if ( *(uint32_t *)(v8 + 68) )
+        goto LABEL_4;
+      if ( *(int *)(v9 + 4) >= 0 )
+        break;
+LABEL_5:
+      if ( !*(uint16_t *)(v8 + 4) )
+      {
+        sub_118BA0(v8);
+        goto LABEL_2;
+      }
+      if ( **v2 >= 0 )
+        goto LABEL_2;
+      sub_12F32C(v4, v3, 1147);
+      v10 = sub_12D190(a2);
+      v7 = 2080374784;
+      v8 = v10;
+      if ( !v10 )
+        return sub_118BE8();
+    }
+    v7 = 0x40000000;
+LABEL_4:
+    *(uint32_t *)(v9 + 4) = v7;
+    goto LABEL_5;
+  }
+  return sub_118BE8();
+}
+

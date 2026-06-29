@@ -1,0 +1,1016 @@
+{
+  "image": "fmacfw_8800d80_h_u02_bin",
+  "total_literals": 1630,
+  "by_category": {
+    "bit_mask": 117,
+    "data_addr": 46,
+    "high": 44,
+    "medium": 165,
+    "mmio_unknown": 34,
+    "other": 3506,
+    "small": 10803,
+    "timer_freq": 47
+  },
+  "top_100": [
+    {
+      "literal": "1",
+      "category": "small",
+      "count": 889,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "2",
+      "category": "small",
+      "count": 639,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "4",
+      "category": "small",
+      "count": 611,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "8",
+      "category": "small",
+      "count": 445,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_1002A0",
+        "sub_1005B0"
+      ]
+    },
+    {
+      "literal": "3",
+      "category": "small",
+      "count": 405,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "sub_1002A0"
+      ]
+    },
+    {
+      "literal": "16",
+      "category": "small",
+      "count": 276,
+      "sample_funcs": [
+        "memset_thunk",
+        "hw_config_init",
+        "sub_1007A4"
+      ]
+    },
+    {
+      "literal": "6",
+      "category": "small",
+      "count": 268,
+      "sample_funcs": [
+        "hw_config_init",
+        "sub_100898",
+        "sub_100FAC"
+      ]
+    },
+    {
+      "literal": "5",
+      "category": "small",
+      "count": 265,
+      "sample_funcs": [
+        "start",
+        "sub_1002A0",
+        "sub_1005B0"
+      ]
+    },
+    {
+      "literal": "12",
+      "category": "small",
+      "count": 262,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_1009DC",
+        "sub_100FAC"
+      ]
+    },
+    {
+      "literal": "7",
+      "category": "small",
+      "count": 214,
+      "sample_funcs": [
+        "sub_1005B0",
+        "sub_100E24",
+        "sub_100FAC"
+      ]
+    },
+    {
+      "literal": "32",
+      "category": "small",
+      "count": 206,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100644",
+        "sub_1006D8"
+      ]
+    },
+    {
+      "literal": "10",
+      "category": "small",
+      "count": 179,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_1005B0",
+        "sub_1007A4"
+      ]
+    },
+    {
+      "literal": "28",
+      "category": "small",
+      "count": 170,
+      "sample_funcs": [
+        "sub_101888",
+        "debug_if_check_40320038",
+        "sub_101924"
+      ]
+    },
+    {
+      "literal": "9",
+      "category": "small",
+      "count": 164,
+      "sample_funcs": [
+        "sub_1005B0",
+        "sub_101CAC",
+        "sub_102970"
+      ]
+    },
+    {
+      "literal": "20",
+      "category": "small",
+      "count": 160,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_101A54",
+        "sub_102970"
+      ]
+    },
+    {
+      "literal": "24",
+      "category": "small",
+      "count": 149,
+      "sample_funcs": [
+        "sub_100FAC",
+        "mmio_ahb_gate_release_n_60",
+        "sub_101E7C"
+      ]
+    },
+    {
+      "literal": "1320",
+      "category": "other",
+      "count": 123,
+      "sample_funcs": [
+        "sub_113B08",
+        "sub_1161E4",
+        "sub_116974"
+      ]
+    },
+    {
+      "literal": "14",
+      "category": "small",
+      "count": 121,
+      "sample_funcs": [
+        "sub_1033F8",
+        "sub_103B8C",
+        "sub_103F14"
+      ]
+    },
+    {
+      "literal": "11",
+      "category": "small",
+      "count": 120,
+      "sample_funcs": [
+        "sub_1005B0",
+        "sub_100FAC",
+        "sub_1019DC"
+      ]
+    },
+    {
+      "literal": "1u",
+      "category": "small",
+      "count": 120,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_100E24",
+        "sub_100EE8"
+      ]
+    },
+    {
+      "literal": "696",
+      "category": "other",
+      "count": 111,
+      "sample_funcs": [
+        "sub_10F410",
+        "sub_113B08",
+        "sub_115500"
+      ]
+    },
+    {
+      "literal": "13",
+      "category": "small",
+      "count": 106,
+      "sample_funcs": [
+        "sub_103F14",
+        "sub_105270",
+        "sub_1059A4"
+      ]
+    },
+    {
+      "literal": "36",
+      "category": "small",
+      "count": 101,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_1018F0",
+        "sub_101A54"
+      ]
+    },
+    {
+      "literal": "18",
+      "category": "small",
+      "count": 94,
+      "sample_funcs": [
+        "sub_102970",
+        "sub_103F14",
+        "sub_105270"
+      ]
+    },
+    {
+      "literal": "72",
+      "category": "small",
+      "count": 93,
+      "sample_funcs": [
+        "sub_102B4C",
+        "sub_10C220",
+        "sub_113B08"
+      ]
+    },
+    {
+      "literal": "255",
+      "category": "small",
+      "count": 91,
+      "sample_funcs": [
+        "sub_108140",
+        "sub_10AED0",
+        "sub_10B2F0"
+      ]
+    },
+    {
+      "literal": "48",
+      "category": "small",
+      "count": 91,
+      "sample_funcs": [
+        "sub_1009DC",
+        "sub_102E9C",
+        "sub_1033F8"
+      ]
+    },
+    {
+      "literal": "106",
+      "category": "small",
+      "count": 81,
+      "sample_funcs": [
+        "sub_1159A4",
+        "sub_1161E4",
+        "sub_117560"
+      ]
+    },
+    {
+      "literal": "29",
+      "category": "small",
+      "count": 79,
+      "sample_funcs": [
+        "sub_1043C8",
+        "sub_10F410",
+        "sub_110CE4"
+      ]
+    },
+    {
+      "literal": "64",
+      "category": "small",
+      "count": 79,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_100FAC",
+        "sub_102B4C"
+      ]
+    },
+    {
+      "literal": "108",
+      "category": "small",
+      "count": 76,
+      "sample_funcs": [
+        "sub_102A24",
+        "sub_10F410",
+        "sub_1120E8"
+      ]
+    },
+    {
+      "literal": "15",
+      "category": "small",
+      "count": 76,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_101A54",
+        "sub_101CAC"
+      ]
+    },
+    {
+      "literal": "17",
+      "category": "small",
+      "count": 73,
+      "sample_funcs": [
+        "sub_1006D8",
+        "sub_100FAC",
+        "sub_102BF8"
+      ]
+    },
+    {
+      "literal": "30",
+      "category": "small",
+      "count": 73,
+      "sample_funcs": [
+        "start",
+        "memset_thunk",
+        "sub_1019AC"
+      ]
+    },
+    {
+      "literal": "4u",
+      "category": "small",
+      "count": 73,
+      "sample_funcs": [
+        "sub_100FAC",
+        "mmio_ahb_gate_release_n_60",
+        "sub_102ED0"
+      ]
+    },
+    {
+      "literal": "0x80000000",
+      "category": "other",
+      "count": 72,
+      "sample_funcs": [
+        "sub_100B14",
+        "sub_100B90",
+        "sub_102ED0"
+      ]
+    },
+    {
+      "literal": "31",
+      "category": "small",
+      "count": 70,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_100898",
+        "sub_101A54"
+      ]
+    },
+    {
+      "literal": "2u",
+      "category": "small",
+      "count": 68,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_1009DC",
+        "sub_100E24"
+      ]
+    },
+    {
+      "literal": "40",
+      "category": "small",
+      "count": 68,
+      "sample_funcs": [
+        "sub_105270",
+        "sub_1063A4",
+        "sub_10779C"
+      ]
+    },
+    {
+      "literal": "76",
+      "category": "small",
+      "count": 63,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_102B4C",
+        "sub_113B08"
+      ]
+    },
+    {
+      "literal": "0xF",
+      "category": "small",
+      "count": 62,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_100478",
+        "sub_1005B0"
+      ]
+    },
+    {
+      "literal": "128",
+      "category": "small",
+      "count": 60,
+      "sample_funcs": [
+        "sub_1007A4",
+        "sub_1009DC",
+        "sub_102B4C"
+      ]
+    },
+    {
+      "literal": "107",
+      "category": "small",
+      "count": 57,
+      "sample_funcs": [
+        "sub_119124",
+        "sub_11D1E0",
+        "sub_11F3B4"
+      ]
+    },
+    {
+      "literal": "22",
+      "category": "small",
+      "count": 57,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_1033F8",
+        "sub_103F14"
+      ]
+    },
+    {
+      "literal": "84",
+      "category": "small",
+      "count": 57,
+      "sample_funcs": [
+        "sub_102B4C",
+        "sub_113B08",
+        "sub_116860"
+      ]
+    },
+    {
+      "literal": "0x20",
+      "category": "small",
+      "count": 56,
+      "sample_funcs": [
+        "sub_102ED0",
+        "sub_105A88",
+        "sub_1064E0"
+      ]
+    },
+    {
+      "literal": "116",
+      "category": "small",
+      "count": 56,
+      "sample_funcs": [
+        "sub_118C84",
+        "sub_118E08",
+        "sub_118F74"
+      ]
+    },
+    {
+      "literal": "34",
+      "category": "small",
+      "count": 56,
+      "sample_funcs": [
+        "sub_1145B0",
+        "sub_114DE8",
+        "sub_114EE0"
+      ]
+    },
+    {
+      "literal": "0x10",
+      "category": "small",
+      "count": 55,
+      "sample_funcs": [
+        "sub_100EE8",
+        "sub_1033F8",
+        "sub_103A54"
+      ]
+    },
+    {
+      "literal": "0x2000",
+      "category": "other",
+      "count": 53,
+      "sample_funcs": [
+        "sub_102CCC",
+        "sub_103A54",
+        "sub_103AFC"
+      ]
+    },
+    {
+      "literal": "256",
+      "category": "other",
+      "count": 53,
+      "sample_funcs": [
+        "sub_103E90",
+        "sub_104710",
+        "sub_1048E8"
+      ]
+    },
+    {
+      "literal": "52",
+      "category": "small",
+      "count": 53,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_10C220",
+        "sub_112BAC"
+      ]
+    },
+    {
+      "literal": "1224",
+      "category": "other",
+      "count": 50,
+      "sample_funcs": [
+        "sub_116DBC",
+        "sub_117FFC",
+        "sub_118C84"
+      ]
+    },
+    {
+      "literal": "80",
+      "category": "small",
+      "count": 50,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_102B4C",
+        "sub_102ED0"
+      ]
+    },
+    {
+      "literal": "44",
+      "category": "small",
+      "count": 48,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_105270",
+        "sub_1063A4"
+      ]
+    },
+    {
+      "literal": "26",
+      "category": "small",
+      "count": 47,
+      "sample_funcs": [
+        "sub_10198C",
+        "sub_1063A4",
+        "sub_10E8B4"
+      ]
+    },
+    {
+      "literal": "19",
+      "category": "small",
+      "count": 46,
+      "sample_funcs": [
+        "sub_102970",
+        "sub_103F14",
+        "sub_105270"
+      ]
+    },
+    {
+      "literal": "27",
+      "category": "small",
+      "count": 46,
+      "sample_funcs": [
+        "sub_1005B0",
+        "sub_10AED0",
+        "sub_10C9A0"
+      ]
+    },
+    {
+      "literal": "68",
+      "category": "small",
+      "count": 46,
+      "sample_funcs": [
+        "sub_113B08",
+        "sub_1161E4",
+        "sub_116974"
+      ]
+    },
+    {
+      "literal": "88",
+      "category": "small",
+      "count": 45,
+      "sample_funcs": [
+        "sub_1002A0",
+        "sub_102B4C",
+        "sub_115E28"
+      ]
+    },
+    {
+      "literal": "0x200000",
+      "category": "other",
+      "count": 43,
+      "sample_funcs": [
+        "sub_108140",
+        "sub_10D1C4",
+        "sub_10D494"
+      ]
+    },
+    {
+      "literal": "0x80",
+      "category": "small",
+      "count": 43,
+      "sample_funcs": [
+        "sub_100EE8",
+        "sub_1033F8",
+        "sub_104180"
+      ]
+    },
+    {
+      "literal": "100",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "sub_107538",
+        "sub_108140",
+        "sub_10A868"
+      ]
+    },
+    {
+      "literal": "140",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "sub_1063A4",
+        "sub_106450",
+        "sub_1064E0"
+      ]
+    },
+    {
+      "literal": "512",
+      "category": "other",
+      "count": 42,
+      "sample_funcs": [
+        "sub_1009DC",
+        "sub_102B4C",
+        "sub_103E90"
+      ]
+    },
+    {
+      "literal": "8u",
+      "category": "small",
+      "count": 42,
+      "sample_funcs": [
+        "sub_100478",
+        "hw_config_init",
+        "sub_100FAC"
+      ]
+    },
+    {
+      "literal": "0x40",
+      "category": "small",
+      "count": 41,
+      "sample_funcs": [
+        "sub_1033F8",
+        "sub_107084",
+        "sub_107444"
+      ]
+    },
+    {
+      "literal": "21",
+      "category": "small",
+      "count": 41,
+      "sample_funcs": [
+        "sub_101950",
+        "sub_102970",
+        "sub_1033F8"
+      ]
+    },
+    {
+      "literal": "112",
+      "category": "small",
+      "count": 40,
+      "sample_funcs": [
+        "sub_105118",
+        "sub_1064E0",
+        "sub_1093B8"
+      ]
+    },
+    {
+      "literal": "50",
+      "category": "small",
+      "count": 39,
+      "sample_funcs": [
+        "sub_102BF8",
+        "sub_102C5C",
+        "sub_103A54"
+      ]
+    },
+    {
+      "literal": "33",
+      "category": "small",
+      "count": 38,
+      "sample_funcs": [
+        "sub_102BF8",
+        "sub_103B8C",
+        "sub_1051D0"
+      ]
+    },
+    {
+      "literal": "6u",
+      "category": "small",
+      "count": 38,
+      "sample_funcs": [
+        "sub_1120E8",
+        "sub_114D2C",
+        "sub_1212D8"
+      ]
+    },
+    {
+      "literal": "60",
+      "category": "small",
+      "count": 37,
+      "sample_funcs": [
+        "sub_105A88",
+        "sub_1064E0",
+        "sub_108140"
+      ]
+    },
+    {
+      "literal": "96",
+      "category": "small",
+      "count": 37,
+      "sample_funcs": [
+        "sub_1009A0",
+        "sub_1048E8",
+        "sub_105070"
+      ]
+    },
+    {
+      "literal": "56",
+      "category": "small",
+      "count": 36,
+      "sample_funcs": [
+        "sub_102C5C",
+        "sub_1093B8",
+        "sub_10AED0"
+      ]
+    },
+    {
+      "literal": "23",
+      "category": "small",
+      "count": 35,
+      "sample_funcs": [
+        "start",
+        "sub_103F14",
+        "sub_104180"
+      ]
+    },
+    {
+      "literal": "0x400",
+      "category": "other",
+      "count": 34,
+      "sample_funcs": [
+        "sub_100FAC",
+        "mmio_ahb_gate_release_n_60",
+        "sub_105270"
+      ]
+    },
+    {
+      "literal": "0x8000",
+      "category": "timer_freq",
+      "count": 34,
+      "sample_funcs": [
+        "sub_100FAC",
+        "sub_108140",
+        "sub_109188"
+      ]
+    },
+    {
+      "literal": "124",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "sub_1064E0",
+        "sub_10D508",
+        "sub_10D6C8"
+      ]
+    },
+    {
+      "literal": "132",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "sub_1048E8",
+        "sub_1062DC",
+        "sub_1064E0"
+      ]
+    },
+    {
+      "literal": "92",
+      "category": "small",
+      "count": 32,
+      "sample_funcs": [
+        "start",
+        "sub_102B4C",
+        "sub_10A624"
+      ]
+    },
+    {
+      "literal": "1024",
+      "category": "other",
+      "count": 31,
+      "sample_funcs": [
+        "sub_105270",
+        "sub_108140",
+        "sub_10E160"
+      ]
+    },
+    {
+      "literal": "104",
+      "category": "small",
+      "count": 31,
+      "sample_funcs": [
+        "sub_104080",
+        "sub_105118",
+        "sub_1062DC"
+      ]
+    },
+    {
+      "literal": "136",
+      "category": "small",
+      "count": 31,
+      "sample_funcs": [
+        "sub_100478",
+        "sub_104080",
+        "sub_109C74"
+      ]
+    },
+    {
+      "literal": "54",
+      "category": "small",
+      "count": 31,
+      "sample_funcs": [
+        "sub_10A868",
+        "sub_1119BC",
+        "sub_119F50"
+      ]
+    },
+    {
+      "literal": "192",
+      "category": "small",
+      "count": 30,
+      "sample_funcs": [
+        "sub_105270",
+        "sub_1064E0",
+        "sub_10B2F0"
+      ]
+    },
+    {
+      "literal": "38",
+      "category": "small",
+      "count": 30,
+      "sample_funcs": [
+        "sub_118C84",
+        "sub_118E08",
+        "sub_11927C"
+      ]
+    },
+    {
+      "literal": "51",
+      "category": "small",
+      "count": 30,
+      "sample_funcs": [
+        "sub_115F88",
+        "sub_1161E4",
+        "sub_116974"
+      ]
+    },
+    {
+      "literal": "1225",
+      "category": "other",
+      "count": 28,
+      "sample_funcs": [
+        "sub_116DBC",
+        "sub_117FFC",
+        "sub_11F680"
+      ]
+    },
+    {
+      "literal": "35",
+      "category": "small",
+      "count": 28,
+      "sample_funcs": [
+        "sub_10F410",
+        "sub_119368",
+        "sub_119C0C"
+      ]
+    },
+    {
+      "literal": "0x10000",
+      "category": "medium",
+      "count": 27,
+      "sample_funcs": [
+        "mmio_ahb_gate_release_n_60",
+        "sub_10327C",
+        "sub_107084"
+      ]
+    },
+    {
+      "literal": "0x80000",
+      "category": "medium",
+      "count": 27,
+      "sample_funcs": [
+        "sub_108140",
+        "sub_10C220",
+        "sub_10C9A0"
+      ]
+    },
+    {
+      "literal": "0xFFFFFFFC",
+      "category": "other",
+      "count": 27,
+      "sample_funcs": [
+        "memset_thunk",
+        "sub_1002A0",
+        "sub_102ED0"
+      ]
+    },
+    {
+      "literal": "37",
+      "category": "small",
+      "count": 27,
+      "sample_funcs": [
+        "sub_10F410",
+        "sub_113B08",
+        "sub_115500"
+      ]
+    },
+    {
+      "literal": "0x200",
+      "category": "other",
+      "count": 26,
+      "sample_funcs": [
+        "sub_100B14",
+        "sub_102ED0",
+        "sub_10C700"
+      ]
+    },
+    {
+      "literal": "0x2000000",
+      "category": "other",
+      "count": 26,
+      "sample_funcs": [
+        "sub_1033F8",
+        "sub_105A88",
+        "sub_1064E0"
+      ]
+    },
+    {
+      "literal": "109",
+      "category": "small",
+      "count": 26,
+      "sample_funcs": [
+        "sub_118C84",
+        "sub_118E08",
+        "sub_118F74"
+      ]
+    },
+    {
+      "literal": "25",
+      "category": "small",
+      "count": 26,
+      "sample_funcs": [
+        "sub_1063A4",
+        "sub_107444",
+        "sub_107538"
+      ]
+    },
+    {
+      "literal": "0x100",
+      "category": "other",
+      "count": 25,
+      "sample_funcs": [
+        "sub_100FAC",
+        "sub_105A88",
+        "sub_1064E0"
+      ]
+    },
+    {
+      "literal": "0x40000",
+      "category": "medium",
+      "count": 25,
+      "sample_funcs": [
+        "mmio_ahb_gate_release_n_60",
+        "sub_1042BC",
+        "sub_108140"
+      ]
+    }
+  ]
+}

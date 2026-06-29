@@ -1,0 +1,334 @@
+{
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "n_vectors": 64,
+  "stack_top": 1703936,
+  "reset": 1180073,
+  "reset_name": "rf_mem_read_n208",
+  "entries": [
+    {
+      "index": 0,
+      "address": 1703936,
+      "offset": 0
+    },
+    {
+      "index": 1,
+      "address": 1180073,
+      "offset": 0
+    },
+    {
+      "index": 2,
+      "address": 1259853,
+      "offset": 1259853
+    },
+    {
+      "index": 3,
+      "address": 1265457,
+      "offset": 1265457
+    },
+    {
+      "index": 4,
+      "address": 1265465,
+      "offset": 1265465
+    },
+    {
+      "index": 5,
+      "address": 1265473,
+      "offset": 1265473
+    },
+    {
+      "index": 6,
+      "address": 1265481,
+      "offset": 1265481
+    },
+    {
+      "index": 7,
+      "address": 101253377,
+      "offset": 101253377
+    },
+    {
+      "index": 8,
+      "address": 1464223319,
+      "offset": 1464223319
+    },
+    {
+      "index": 9,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 10,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 11,
+      "address": 1264193,
+      "offset": 1264193
+    },
+    {
+      "index": 12,
+      "address": 1264193,
+      "offset": 1264193
+    },
+    {
+      "index": 13,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 14,
+      "address": 1264193,
+      "offset": 1264193
+    },
+    {
+      "index": 15,
+      "address": 1264193,
+      "offset": 1264193
+    },
+    {
+      "index": 16,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 17,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 18,
+      "address": 1299941,
+      "offset": 1299941
+    },
+    {
+      "index": 19,
+      "address": 1190429,
+      "handler": "sub_122728",
+      "offset": 1190429
+    },
+    {
+      "index": 20,
+      "address": 1268901,
+      "offset": 1268901
+    },
+    {
+      "index": 21,
+      "address": 1276505,
+      "offset": 1276505
+    },
+    {
+      "index": 22,
+      "address": 1300345,
+      "offset": 1300345
+    },
+    {
+      "index": 23,
+      "address": 1276505,
+      "offset": 1276505
+    },
+    {
+      "index": 24,
+      "address": 1186229,
+      "offset": 1186229
+    },
+    {
+      "index": 25,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 26,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 27,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 28,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 29,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 30,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 31,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 32,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 33,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 34,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 35,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 36,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 37,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 38,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 39,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 40,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 41,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 42,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 43,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 44,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 45,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 46,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 47,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 48,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 49,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 50,
+      "address": 1190429,
+      "handler": "sub_122728",
+      "offset": 1190429
+    },
+    {
+      "index": 51,
+      "address": 1190429,
+      "handler": "sub_122728",
+      "offset": 1190429
+    },
+    {
+      "index": 52,
+      "address": 1232513,
+      "offset": 1232513
+    },
+    {
+      "index": 53,
+      "address": 1232165,
+      "handler": "msg_dispatch_n170",
+      "offset": 1232165
+    },
+    {
+      "index": 54,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 55,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 56,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 57,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 58,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 59,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 60,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 61,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 62,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 63,
+      "address": 0,
+      "offset": 0
+    }
+  ],
+  "hint": "First 256 bytes as 64 x 32-bit vectors. ARM Cortex-M convention: index 0 = stack top, index 1 = reset."
+}

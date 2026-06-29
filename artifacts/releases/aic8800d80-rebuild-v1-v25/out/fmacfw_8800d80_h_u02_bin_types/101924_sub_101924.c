@@ -1,0 +1,10 @@
+// sub_101924 @ 0x101924, size 18 bytes
+int  sub_101924(int a1, int a2, int a3)
+{
+  int result; // r0
+
+  if ( *(uint32_t *)off_101938 << 28 )
+    return sub_12E948(dword_101940, dword_10193C, a3);
+  return result;
+}
+

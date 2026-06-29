@@ -1,0 +1,352 @@
+{
+  "image": "fmacfw_8800d80_h_u02_bin",
+  "n_vectors": 64,
+  "stack_top": 1703936,
+  "reset": 1180073,
+  "reset_name": "sub_120130",
+  "entries": [
+    {
+      "index": 0,
+      "address": 1703936,
+      "offset": 0
+    },
+    {
+      "index": 1,
+      "address": 1180073,
+      "offset": 0
+    },
+    {
+      "index": 2,
+      "address": 1263113,
+      "handler": "sub_1345A8",
+      "offset": 1263113
+    },
+    {
+      "index": 3,
+      "address": 1266357,
+      "handler": "sub_135250",
+      "offset": 1266357
+    },
+    {
+      "index": 4,
+      "address": 1266365,
+      "handler": "sub_135250",
+      "offset": 1266365
+    },
+    {
+      "index": 5,
+      "address": 1266373,
+      "handler": "sub_135250",
+      "offset": 1266373
+    },
+    {
+      "index": 6,
+      "address": 1266381,
+      "handler": "sub_135250",
+      "offset": 1266381
+    },
+    {
+      "index": 7,
+      "address": 101253377,
+      "offset": 101253377
+    },
+    {
+      "index": 8,
+      "address": 1464223319,
+      "offset": 1464223319
+    },
+    {
+      "index": 9,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 10,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 11,
+      "address": 1264965,
+      "handler": "sub_134CC4",
+      "offset": 1264965
+    },
+    {
+      "index": 12,
+      "address": 1264965,
+      "handler": "sub_134CC4",
+      "offset": 1264965
+    },
+    {
+      "index": 13,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 14,
+      "address": 1264965,
+      "handler": "sub_134CC4",
+      "offset": 1264965
+    },
+    {
+      "index": 15,
+      "address": 1264965,
+      "handler": "sub_134CC4",
+      "offset": 1264965
+    },
+    {
+      "index": 16,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 17,
+      "address": 1262609,
+      "handler": "sub_134380",
+      "offset": 1262609
+    },
+    {
+      "index": 18,
+      "address": 1359537,
+      "offset": 1359537
+    },
+    {
+      "index": 19,
+      "address": 1275785,
+      "handler": "sub_137500",
+      "offset": 1275785
+    },
+    {
+      "index": 20,
+      "address": 1275877,
+      "handler": "sub_137500",
+      "offset": 1275877
+    },
+    {
+      "index": 21,
+      "address": 1305221,
+      "handler": "sub_13E9E0",
+      "offset": 1305221
+    },
+    {
+      "index": 22,
+      "address": 1360033,
+      "offset": 1360033
+    },
+    {
+      "index": 23,
+      "address": 1305221,
+      "handler": "sub_13E9E0",
+      "offset": 1305221
+    },
+    {
+      "index": 24,
+      "address": 1185929,
+      "handler": "sub_121844",
+      "offset": 1185929
+    },
+    {
+      "index": 25,
+      "address": 1185961,
+      "handler": "sub_121844",
+      "offset": 1185961
+    },
+    {
+      "index": 26,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 27,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 28,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 29,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 30,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 31,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 32,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 33,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 34,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 35,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 36,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 37,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 38,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 39,
+      "address": 1235713,
+      "handler": "sub_12DAE0",
+      "offset": 1235713
+    },
+    {
+      "index": 40,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 41,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 42,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 43,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 44,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 45,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 46,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 47,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 48,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 49,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 50,
+      "address": 1190673,
+      "handler": "sub_122AF4",
+      "offset": 1190673
+    },
+    {
+      "index": 51,
+      "address": 1190673,
+      "handler": "sub_122AF4",
+      "offset": 1190673
+    },
+    {
+      "index": 52,
+      "address": 1231265,
+      "handler": "message_dispatch_n_214",
+      "offset": 1231265
+    },
+    {
+      "index": 53,
+      "address": 1230917,
+      "handler": "msg_dispatch_n148",
+      "offset": 1230917
+    },
+    {
+      "index": 54,
+      "address": 1233157,
+      "handler": "irq_nesting_or_d104",
+      "offset": 1233157
+    },
+    {
+      "index": 55,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 56,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 57,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 58,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 59,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 60,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 61,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 62,
+      "address": 0,
+      "offset": 0
+    },
+    {
+      "index": 63,
+      "address": 0,
+      "offset": 0
+    }
+  ],
+  "hint": "First 256 bytes as 64 x 32-bit vectors. ARM Cortex-M convention: index 0 = stack top, index 1 = reset."
+}

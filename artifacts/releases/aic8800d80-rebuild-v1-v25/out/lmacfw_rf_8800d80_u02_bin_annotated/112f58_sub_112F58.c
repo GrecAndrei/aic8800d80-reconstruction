@@ -1,0 +1,10 @@
+// fwstruct annotate: 112f58_sub_112F58.c
+// sub_112F58 @ 0x112f58, size 14 bytes
+int __fastcall sub_112F58(unsigned int a1)
+{
+  if ( a1 > 7 )
+    return 0;
+  else
+    return *(_DWORD *)(dword_112F68 + 4 * a1);
+}
+

@@ -1,0 +1,30 @@
+// sub_12DE88 @ 0x12de88, size 64 bytes
+// Doc: log_free_dispatch_n2ee_deb2 [util]: Dispatch log free events (logging utility)
+// log_free_dispatch_n2ee_deb2 [util]: Dispatch log free events (logging utility)
+uint8_t * sub_12DE88(uint8_t *result, int a2)
+{
+  unsigned int v2; // r1
+  uint8_t *v3; // r2
+
+  v2 = (unsigned int)&result[a2];
+  if ( v2 <= (unsigned int)(result + 1) )
+    return nullptr;
+  while ( 1 )
+  {
+    v3 = &result[(unsigned __int8)result[1] + 2];
+    if ( *result == 32 )
+      break;
+    result += (unsigned __int8)result[1] + 2;
+    if ( v2 <= (unsigned int)(v3 + 1) )
+      return nullptr;
+  }
+  if ( v2 < (unsigned int)v3 )
+    return nullptr;
+  if ( result )
+  {
+    if ( result[1] != 1 )
+      return nullptr;
+  }
+  return result;
+}
+

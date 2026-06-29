@@ -1,0 +1,61 @@
+// sub_111A24 @ 0x111a24, size 162 bytes
+// Doc: rf_bus_setup_n28c [rf]: Configure RF bus control registers and setup pointers
+// rf_bus_setup_n28c [rf]: Configure RF bus control registers and setup pointers
+int  sub_111A24(int a1, int a2, unsigned int a3)
+{
+  int v3; // r4
+  int v4; // r12
+  int v5; // r3
+  int v6; // r0
+  int v7; // r0
+  unsigned int v8; // r7
+  int v9; // r4
+  char v10; // r6
+
+  if ( *(uint8_t *)off_111AC8 != 4 )
+    return 1;
+  v3 = a1 - 1;
+  if ( (unsigned __int8)(a1 - 1) > 5u )
+    return 2;
+  if ( a2 << 30 )
+  {
+    sub_10DA6C(rf_bus_setup_1ad8);
+    return 3;
+  }
+  else
+  {
+    v4 = dword_111ACC + 16 * v3;
+    if ( *(uint32_t *)v4 )
+    {
+      return 4;
+    }
+    else
+    {
+      v5 = 32 * a1 + 1075838976;
+      if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a1) & 0x8000) != 0 )
+      {
+        v6 = dword_111AD0;
+        *(uint32_t *)(dword_111ACC + 16 * v3) = a2;
+        v7 = *(uint32_t *)(v6 + 4 * v3);
+        v8 = dword_111AD4;
+        *(uint8_t *)(v4 + 8) = 1;
+        v9 = 32 * v3 + 1075838976;
+        v10 = *(uint8_t *)(v7 + 3) & 0x31;
+        if ( a3 >= v8 )
+          a3 = v8;
+        *(uint32_t *)(v4 + 4) = a3;
+        *(uint16_t *)v7 = a3;
+        *(uint32_t *)(v7 + 4) = a2;
+        *(uint8_t *)(v7 + 3) = v10 | 0xE;
+        *(uint32_t *)(v9 + 2868) = v7;
+        *(uint32_t *)(v5 + 2816) = *(uint32_t *)(v5 + 2816) & 0x7BFFFFFF | 0x80000000;
+        return 0;
+      }
+      else
+      {
+        return 5;
+      }
+    }
+  }
+}
+

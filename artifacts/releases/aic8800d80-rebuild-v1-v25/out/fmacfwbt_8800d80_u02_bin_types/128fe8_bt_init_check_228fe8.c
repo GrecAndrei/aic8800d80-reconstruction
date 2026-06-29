@@ -1,0 +1,61 @@
+// bt_init_check_228fe8 @ 0x128fe8, size 186 bytes
+// Doc: bt_init_check_228fe8 [bt]: Bluetooth init/state check loading config pointers
+// bt_init_check_228fe8 [bt]: Bluetooth init/state check loading config pointers
+void  bt_init_check_228fe8(int a1)
+{
+  uint8_t *v1; // r5
+  uint64_t v3; // r2
+  BOOL v4; // r0
+  uint32_t *v5; // r3
+  int v6; // r2
+  int v7; // r1
+  int v8; // r0
+
+  v1 = off_1290A8;
+  LODWORD(v3) = *((uint32_t *)off_1290AC + 126);
+  HIDWORD(v3) = *((uint32_t *)off_1290A8 + 1) & 0x20;
+  if ( **(uint8_t **)off_1290A4 == 1 )
+  {
+    if ( v3 )
+      v4 = 0;
+    else
+      v4 = state_flag_check() != 0;
+  }
+  else
+  {
+    v4 = v3 == 0;
+  }
+  if ( *(uint8_t *)(a1 + 149) )
+  {
+    if ( !**(uint8_t **)off_1290B0 || !*(uint8_t *)(a1 + 108) )
+    {
+LABEL_6:
+      v1[29] = 0;
+      *(uint32_t *)(a1 + 4) = 0;
+      return;
+    }
+LABEL_18:
+    v5 = off_1290BC;
+    v6 = *(uint32_t *)off_1290B8;
+    *((uint32_t *)v1 + 5) = a1;
+    v7 = *(unsigned __int16 *)(v6 + 54);
+    v8 = dword_1290C0;
+    v1[29] = 1;
+    timestamp_update_4f60(v8, v7 + v5[4]);
+    return;
+  }
+  if ( !**(uint8_t **)off_1290B0 || !*(uint8_t *)(a1 + 108) )
+    goto LABEL_6;
+  if ( !v4 || (*(uint32_t *)off_1290B4 & 0x2000000) == 0 && !v1[36] )
+    goto LABEL_18;
+  if ( v1[29] == 5 )
+  {
+    *(uint32_t *)(a1 + 4) &= ~2u;
+    v1[29] = 0;
+  }
+  if ( v1[28] )
+    sub_128F88();
+  else
+    v1[29] = 0;
+}
+

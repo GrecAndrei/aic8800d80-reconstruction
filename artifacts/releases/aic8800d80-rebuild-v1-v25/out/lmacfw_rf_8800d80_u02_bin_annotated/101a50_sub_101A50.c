@@ -1,0 +1,11 @@
+// fwstruct annotate: 101a50_sub_101A50.c
+// sub_101A50 @ 0x101a50, size 20 bytes
+unsigned int __fastcall sub_101A50(int a1)
+{
+  unsigned int result; // r0
+
+  result = (8 * a1) & 8 | *(_DWORD *)off_101A64 & 0xFFFFFFF7;
+  *(_DWORD *)off_101A64 = result;
+  return result;
+}
+

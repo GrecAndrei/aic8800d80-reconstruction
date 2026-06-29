@@ -1,0 +1,76 @@
+// fwstruct annotate: 136fec_sub_136FEC.c
+// sub_136FEC @ 0x136fec, size 202 bytes
+// Doc: sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
+// sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
+int __fastcall sub_136FEC(int a1, int a2, int a3, __int16 a4)
+{
+  int v4; // r2
+  _WORD *v5; // r4
+  int v7; // r1
+  int *v8; // r7
+  int v9; // r1
+  int v10; // r0
+  __int16 v11; // r1
+  int v12; // r3
+  int v13; // r0
+  int v14; // r1
+  __int16 **v15; // r3
+  __int16 *v16; // r3
+  char v18; // r7
+  int v19; // r2
+  __int16 v20; // r6
+  __int16 v21; // r1
+  __int16 *v22; // r3
+  int v23; // r0
+
+  v4 = dword_1370B8;
+  v5 = off_1370BC;
+  v7 = *(unsigned __int8 *)(a2 + 366);
+  *((_WORD *)off_1370BC + 1924) = a4;
+  v8 = (int *)(a2 + 352);
+  *(_DWORD *)(v4 + 1320 * v7 + 472) = 0;
+  v5[1925] = 1;
+  v9 = *(_DWORD *)(a2 + 356);
+  *((_DWORD *)v5 + 963) = *(_DWORD *)(a2 + 352);
+  v5[1928] = v9;
+  *(_DWORD *)v5 = a2;
+  *((_BYTE *)v5 + 3899) = 0;
+  v10 = rf_stream_start2_n_14(a2 + 352, 0);
+  if ( v10 && (v11 = *(unsigned __int8 *)(v10 + 57), v12 = v10, *(_BYTE *)(v10 + 57)) )
+  {
+    v18 = *(_BYTE *)(v10 + 58);
+    v19 = v10 + 2;
+    v13 = *(_DWORD *)(v10 + 2);
+    *((_DWORD *)v5 + 973) = v13;
+    v5[1948] = *(_WORD *)(v19 + 4);
+    v20 = ((1 << v18) - 1) << 8;
+    LOWORD(v19) = v5[1948] & ~v20;
+    v5[1948] = v19;
+    v21 = *(_WORD *)(v12 + 6) - (v11 << 8);
+    v22 = *(__int16 **)off_1370C0;
+    v5[1948] = v20 & v21 | v19;
+    if ( *v22 >= 0 )
+      goto LABEL_4;
+  }
+  else
+  {
+    v13 = *v8;
+    v14 = *(_DWORD *)(a2 + 356);
+    v15 = (__int16 **)off_1370C0;
+    *((_DWORD *)v5 + 973) = *v8;
+    v16 = *v15;
+    v5[1948] = v14;
+    if ( *v16 >= 0 )
+    {
+LABEL_4:
+      sub_138668(v13);
+      return 1;
+    }
+  }
+  if ( (*(_BYTE *)(a2 + 352) & 1) == 0 )
+    goto LABEL_4;
+  v23 = sub_12F46C(dword_1370C8, dword_1370C4, 178);
+  sub_138668(v23);
+  return 1;
+}
+

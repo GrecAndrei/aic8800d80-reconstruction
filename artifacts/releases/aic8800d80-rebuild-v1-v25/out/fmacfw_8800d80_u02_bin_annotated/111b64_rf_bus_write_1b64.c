@@ -1,0 +1,54 @@
+// fwstruct annotate: 111b64_rf_bus_write_1b64.c
+// rf_bus_write_1b64 @ 0x111b64, size 162 bytes
+// Doc: rf_bus_write_n14 [rf]: Write to RF bus register (n14 variant)
+// rf_bus_write_n14 [rf]: Write to RF bus register (n14 variant)
+int *__fastcall rf_bus_write_1b64(int a1, int a2, int a3)
+{
+  _DWORD *v3; // r6
+  int *v4; // r5
+  int v5; // r7
+  _DWORD *v6; // r4
+
+  if ( a1 )
+  {
+    v3 = (_DWORD *)(rf_bus_mark_n384_1c08 + 32 * (a1 - 1) + 8);
+    v4 = (int *)(rf_bus_mark_n384_1c08 + 32 * (a1 - 1));
+  }
+  else
+  {
+    v3 = (_DWORD *)rf_bus_write2_n_8;
+    v4 = (int *)rf_bus_mark_n394;
+  }
+  v5 = *v4;
+  if ( (*v4 & 0x80008000) != 0 && ((dword_111C0C & v5) != 0x20000 || a2 != 0x8000000 || a3) )
+  {
+    v6 = rf_bus_init_n_1a8;
+    *((_DWORD *)rf_bus_init_n_1a8 + 513) |= 0x200u;
+    while ( (v6[5] & 0x80) == 0 )
+      ;
+    *v4 |= a2 | 0x8008000;
+    if ( a3 )
+      *v4 &= ~a3;
+    if ( !a1 )
+      goto rf_bus_write2_n_66_1bb6;
+    if ( v5 < 0 )
+    {
+      *v3 = 2;
+      *v4 |= 0x40000000u;
+      while ( (*v3 & 2) == 0 )
+        ;
+      if ( (v5 & 0x8000) != 0 )
+        goto rf_bus_write2_n_66_1bb6;
+    }
+    else if ( (v5 & 0x8000) != 0 )
+    {
+rf_bus_write2_n_66_1bb6:
+      *((_DWORD *)rf_bus_init_n_1a8 + 513) |= 0x400u;
+      return sub_11196C(a1);
+    }
+    *v4 &= ~0x8000u;
+    goto rf_bus_write2_n_66_1bb6;
+  }
+  return sub_11196C(a1);
+}
+

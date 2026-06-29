@@ -1,0 +1,6 @@
+// sub_114210 @ 0x114210, size 8 bytes
+int  sub_114210(int a1)
+{
+  return host_reg_wait_set(0x1Bu, a1);
+}
+

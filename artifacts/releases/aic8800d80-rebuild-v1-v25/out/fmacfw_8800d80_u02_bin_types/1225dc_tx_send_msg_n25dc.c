@@ -1,0 +1,13 @@
+// tx_send_msg_n25dc @ 0x1225dc, size 30 bytes
+// Doc: tx_send_msg_n25dc [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
+// tx_send_msg_n25dc [tx]: Send TX/datapath message (id 0x59, param 0xd) via IPC
+int  tx_send_msg_n25dc(char a1, char a2)
+{
+  uint8_t *v4; // r0
+
+  v4 = (uint8_t *)sub_12C92C(89, 13, 0, 2);
+  *v4 = a1;
+  v4[1] = a2;
+  return sdio_buffer_prepare_n_4e8(v4);
+}
+

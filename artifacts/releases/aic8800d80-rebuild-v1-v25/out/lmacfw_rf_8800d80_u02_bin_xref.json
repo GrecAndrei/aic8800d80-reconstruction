@@ -1,0 +1,7695 @@
+{
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "n_clusters": 141,
+  "clusters": [
+    {
+      "cluster_id": "group_0",
+      "n_funcs": 9,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_lmac_dispatch_n5a8",
+            "rf_pm_check_n_e18",
+            "rf_state_get_n246",
+            "sub_10F814",
+            "sub_11E184",
+            "sub_1212D0",
+            "sub_121654"
+          ],
+          "writers": [
+            "sub_1006C0",
+            "sub_121BE0"
+          ]
+        },
+        {
+          "base": "result",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1006C0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v14",
+          "offset": 2,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10F814"
+          ]
+        },
+        {
+          "base": "v14",
+          "offset": 4,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10F814"
+          ]
+        },
+        {
+          "base": "v14",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10F814"
+          ]
+        },
+        {
+          "base": "v19",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1006C0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 64,
+          "size": 4,
+          "readers": [
+            "sub_1006C0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11E184"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11E184"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_1",
+      "n_funcs": 5,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00",
+            "sub_11AD88",
+            "sub_123394"
+          ],
+          "writers": [
+            "list_find_remove",
+            "sub_11E7AC"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11AD88"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 40,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_105F28",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "crypto_table_copy_165d00"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_10",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "dword_1119F4",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_setup_n14c"
+          ]
+        },
+        {
+          "base": "dword_111ACC",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 2816,
+          "size": 4,
+          "readers": [
+            "rf_bus_setup_n14c"
+          ],
+          "writers": [
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ],
+          "writers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 2868,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_setup_n14c",
+            "sub_111A24"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_100",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 366,
+          "size": 1,
+          "readers": [
+            "sub_11CAC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 2,
+          "size": 1,
+          "readers": [
+            "sub_11CAC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "sub_11CAC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_11CAC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CAC8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_101",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "sub_10FFF0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 6,
+          "size": 2,
+          "readers": [
+            "sub_10FFF0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 8,
+          "size": 2,
+          "readers": [
+            "sub_10FFF0"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_102",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v0",
+          "offset": 2,
+          "size": 1,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 352,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 356,
+          "size": 2,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 364,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 366,
+          "size": 1,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 368,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 369,
+          "size": 1,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 369,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 20,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v12",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_11CBC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 15,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 44,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 48,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 104,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 105,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 106,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 107,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 108,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 112,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 114,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 118,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 120,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 124,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 126,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 128,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 129,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11CBC8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_103",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_1238CC",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_12373C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_12373C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 65,
+          "size": 1,
+          "readers": [
+            "sub_12373C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_104",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_11B740"
+          ],
+          "writers": [
+            "sub_11B740"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11B740"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_105",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v16",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "sub_117B4C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v16",
+          "offset": 100,
+          "size": 4,
+          "readers": [
+            "sub_117B4C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v19",
+          "offset": 35,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v24",
+          "offset": 30,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v24",
+          "offset": 33,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v24",
+          "offset": 36,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v24",
+          "offset": 40,
+          "size": 2,
+          "readers": [
+            "sub_117B4C"
+          ],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v24",
+          "offset": 44,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 20,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 24,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 28,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 32,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 33,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 35,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 36,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 40,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "sub_117B4C"
+          ],
+          "writers": [
+            "sub_117B4C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 124,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117B4C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_106",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "sub_11B088"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "sub_11B088"
+          ],
+          "writers": [
+            "sub_11B088"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11B088"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11B088"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "sub_11B088"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_107",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_11C268",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 85,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_bus_reset2_c158"
+          ]
+        },
+        {
+          "base": "result",
+          "offset": 85,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 80,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": [
+            "rf_bus_reset2_c158"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 85,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 94,
+          "size": 4,
+          "readers": [
+            "rf_bus_reset2_c158"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_108",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 32,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 32,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 32,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 32,
+          "size": 1,
+          "readers": [
+            "sub_126DD8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_109",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11AB00"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11AB00"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_11",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11ADD0"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 24,
+          "size": 1,
+          "readers": [
+            "sub_11ADD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11ADD0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_110",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_1073BC"
+          ],
+          "writers": [
+            "sub_1073BC"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_111",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v13",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_11702C"
+          ],
+          "writers": [
+            "sub_11702C"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11702C"
+          ]
+        },
+        {
+          "base": "v25",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11702C"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11702C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 2,
+          "readers": [
+            "sub_11702C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11702C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11702C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_112",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 14,
+          "size": 4,
+          "readers": [
+            "ipc_msg_send_n_d58"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 24,
+          "size": 1,
+          "readers": [
+            "ipc_msg_send_n_d58"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 26,
+          "size": 1,
+          "readers": [
+            "ipc_msg_send_n_d58"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_113",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 96,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 100,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 104,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 108,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 112,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 116,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 120,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 132,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "v14",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v18",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v31",
+          "offset": 12,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_117590"
+          ],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 14,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        },
+        {
+          "base": "v41",
+          "offset": 32,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117590"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_114",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 14,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "start"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_115",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_116830",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_116834",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 15,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 44,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 48,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v12",
+          "offset": 88,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 92,
+          "size": 2,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 94,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 104,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 105,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 106,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 107,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 108,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 112,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 114,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 118,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 120,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 124,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 126,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_1166CC"
+          ]
+        },
+        {
+          "base": "v14",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v14",
+          "offset": 40,
+          "size": 2,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v22",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v22",
+          "offset": 40,
+          "size": 2,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 152,
+          "size": 1,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1166CC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_116",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v5",
+          "offset": 2099508,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_cmd_send_2918"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_cmd_send_2918"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 11,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_cmd_send_2918"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_117",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_chan_init_n4e8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_chan_init_n4e8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v14",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_chan_init_n4e8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v25",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_init_n4e8"
+          ]
+        },
+        {
+          "base": "v25",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_chan_init_n4e8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v26",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_init_n4e8"
+          ]
+        },
+        {
+          "base": "v27",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_init_n4e8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_chan_init_n4e8"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_init_n4e8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_118",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "sub_11DA78"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_11DA78"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 36,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11DA78"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_119",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v4",
+          "offset": 2,
+          "size": 2,
+          "readers": [
+            "sub_11D8F0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11D8F0"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_12",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 148,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "scan_channel_done_n_180"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "scan_channel_done_n_180"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "scan_channel_done_n_180"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 16,
+          "size": 2,
+          "readers": [
+            "scan_channel_done_n_180"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "scan_channel_done_n_180"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_120",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "sub_11BE28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 28,
+          "size": 1,
+          "readers": [
+            "sub_11BE28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11BE28"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11BE28"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_121",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 48,
+          "size": 2,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 65,
+          "size": 1,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 84,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": [
+            "sub_116858"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 30,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_116858"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 35,
+          "size": 1,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 35,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 33,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 145,
+          "size": 1,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": [
+            "sub_116858"
+          ]
+        },
+        {
+          "base": "v13",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v14",
+          "offset": 94,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v14",
+          "offset": 96,
+          "size": 1,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v32",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v32",
+          "offset": 94,
+          "size": 4,
+          "readers": [
+            "sub_116858"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_122",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v7",
+          "offset": 2,
+          "size": 1,
+          "readers": [
+            "mmio_reg_set_bits"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 1,
+          "size": 1,
+          "readers": [
+            "mmio_reg_set_bits"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_123",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "crypto_table_init"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "crypto_table_init"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_124",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 11,
+          "size": 4,
+          "readers": [
+            "sub_1112AC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_125",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_1160DC",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11601C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11601C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_126",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a3",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a3",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a3",
+          "offset": 40,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a6",
+          "offset": 2,
+          "size": 1,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a6",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a6",
+          "offset": 3,
+          "size": 4,
+          "readers": [
+            "rf_event_dispatch_n1a4"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_127",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_119158",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": [
+            "sub_119054"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 102,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_119054"
+          ]
+        },
+        {
+          "base": "v17",
+          "offset": 33,
+          "size": 1,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 56,
+          "size": 4,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 88,
+          "size": 4,
+          "readers": [
+            "sub_119054"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_128",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_115ACC",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1159C8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "sub_1159C8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1159C8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1159C8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_129",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_115314"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_13",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 367,
+          "size": 1,
+          "readers": [
+            "sub_11C9A4"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_130",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 30,
+          "size": 1,
+          "readers": [
+            "sub_11C7DC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11C7DC"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11C7DC"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 28,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11C7DC"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_131",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 20,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 32,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1152D8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_132",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 14,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_subcmd_dispatch_n5b60"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "rf_subcmd_dispatch_n5b60"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_subcmd_dispatch_n5b60"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 38,
+          "size": 2,
+          "readers": [
+            "rf_subcmd_dispatch_n5b60"
+          ],
+          "writers": [
+            "rf_subcmd_dispatch_n5b60"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 53,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_subcmd_dispatch_n5b60"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_133",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 32,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_or_setup_n32c"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 95,
+          "size": 4,
+          "readers": [
+            "rf_init_or_setup_n32c"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_134",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_12135C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_12135C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_135",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_12347C",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_event_check_n3cc"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 2,
+          "size": 1,
+          "readers": [
+            "rf_event_check_n3cc"
+          ],
+          "writers": [
+            "rf_event_check_n3cc"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 5,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_event_check_n3cc"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_136",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_1179C8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1179C8"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1179C8"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1179C8"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 48,
+          "size": 2,
+          "readers": [
+            "sub_1179C8"
+          ],
+          "writers": [
+            "sub_1179C8"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 84,
+          "size": 4,
+          "readers": [
+            "sub_1179C8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 152,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1179C8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_137",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 95,
+          "size": 1,
+          "readers": [
+            "sub_119170"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_138",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 80,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 80,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": [
+            "sub_11C01C"
+          ]
+        },
+        {
+          "base": "v3",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": [
+            "sub_11C01C"
+          ]
+        },
+        {
+          "base": "v3",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11C01C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_139",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_11CD50"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_14",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_mem_write_nf0"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_140",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "sub_11BF38"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "sub_11BF38"
+          ],
+          "writers": [
+            "sub_11BF38"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 95,
+          "size": 4,
+          "readers": [
+            "sub_11BF38"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_15",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": [
+            "sub_107150"
+          ]
+        },
+        {
+          "base": "dword_107200",
+          "offset": 392,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 396,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 400,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 404,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 408,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 412,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 416,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 420,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 424,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 428,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 432,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 436,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 440,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 444,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 448,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 452,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 456,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 460,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 464,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 468,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 472,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 476,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 480,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_107200",
+          "offset": 484,
+          "size": 4,
+          "readers": [
+            "sub_107150"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_16",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "sub_117D6C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 14,
+          "size": 4,
+          "readers": [
+            "sub_117D6C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 53,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117D6C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_17",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 360,
+          "size": 4,
+          "readers": [
+            "rf_pwr_tbl_init_n0c8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 364,
+          "size": 4,
+          "readers": [
+            "rf_pwr_tbl_init_n0c8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 364,
+          "size": 4,
+          "readers": [
+            "rf_pwr_tbl_init_n0c8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_18",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v10",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10CF48"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10CF48"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 6,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10CF48"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10CF48"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 10,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10CF48"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_19",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "sub_102BB0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v23",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_102BB0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_2",
+      "n_funcs": 3,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_116CDC",
+            "sub_116D98",
+            "sub_116E24"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_116CDC",
+            "sub_116D98",
+            "sub_116E24"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "sub_116CDC",
+            "sub_116D98",
+            "sub_116E24"
+          ],
+          "writers": [
+            "sub_116CDC",
+            "sub_116D98",
+            "sub_116E24"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_20",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v7",
+          "offset": 266,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_119420"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_21",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v10",
+          "offset": 32,
+          "size": 1,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 6,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 10,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 12,
+          "size": 1,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 13,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 14,
+          "size": 2,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 14,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 24,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 26,
+          "size": 1,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 6,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 10,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 13,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_alloc_init"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "rf_msg_alloc_init"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_22",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v11",
+          "offset": 72,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "lmac_table_lookup_n540"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 85,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "lmac_table_lookup_n540"
+          ]
+        },
+        {
+          "base": "v23",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "lmac_table_lookup_n540"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "lmac_table_lookup_n540"
+          ],
+          "writers": [
+            "lmac_table_lookup_n540"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_23",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_108D34"
+          ]
+        },
+        {
+          "base": "v19",
+          "offset": 2,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_108D34"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_24",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v5",
+          "offset": 6164,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_field_align_n_2a4"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_25",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_11C538",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "sub_11C38C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11C38C"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 25,
+          "size": 1,
+          "readers": [
+            "sub_11C38C"
+          ],
+          "writers": [
+            "sub_11C38C"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 72,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11C38C"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 85,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11C38C"
+          ]
+        },
+        {
+          "base": "v18",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11C38C"
+          ]
+        },
+        {
+          "base": "v19",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "sub_11C38C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11C38C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 28,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11C38C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_26",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v0",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_115018"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_115018"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 8,
+          "size": 2,
+          "readers": [
+            "sub_115018"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_115018"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_115018"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 6,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_115018"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_27",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_121490"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_28",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_107A70"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_29",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a4",
+          "offset": 104,
+          "size": 4,
+          "readers": [
+            "sub_105DCC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a4",
+          "offset": 132,
+          "size": 4,
+          "readers": [
+            "sub_105DCC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_3",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "v3",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "patch_table_apply_dbc",
+            "sub_115F78"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "patch_table_apply_dbc"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_30",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 25,
+          "size": 4,
+          "readers": [
+            "rf_dispatch_handler_n8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 29,
+          "size": 1,
+          "readers": [
+            "rf_dispatch_handler_n8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 30,
+          "size": 1,
+          "readers": [
+            "rf_dispatch_handler_n8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 33,
+          "size": 4,
+          "readers": [
+            "rf_dispatch_handler_n8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "rf_dispatch_handler_n8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 125,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_dispatch_handler_n8"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 126,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_dispatch_handler_n8"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_31",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_10FBD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_10FBD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_10FBD0"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_32",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 38,
+          "size": 2,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 14,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_115754"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 22,
+          "size": 1,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_115754"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_33",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_mark_118c"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v0",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_mark_118c"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_mark_118c"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_mark_118c"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_mark_118c"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_34",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 5,
+          "size": 4,
+          "readers": [
+            "sub_1198AC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 6,
+          "size": 4,
+          "readers": [
+            "sub_1198AC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_119974",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1198AC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 224,
+          "size": 1,
+          "readers": [
+            "sub_1198AC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_35",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 2,
+          "size": 2,
+          "readers": [
+            "rf_adc_capture_n_a98"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_36",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 32,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117AC8"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "sub_117AC8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_37",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v10",
+          "offset": 52,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1180B8"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 56,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1180B8"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 94,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1180B8"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 97,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1180B8"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "sub_1180B8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "sub_1180B8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 94,
+          "size": 4,
+          "readers": [
+            "sub_1180B8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_38",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v4",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_bus_reset2_n101"
+          ],
+          "writers": [
+            "rf_bus_reset2_n101"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_reset2_n101"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_39",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "sub_116328"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_116328"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "sub_116328"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_4",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "list_push_tail",
+            "list_remove_node"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_40",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v8",
+          "offset": 14,
+          "size": 4,
+          "readers": [
+            "sub_11E34C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_41",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 636,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1099BC"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 640,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1099BC"
+          ]
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_109BE0",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_1099BC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_42",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11AB18"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11AB18"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_11AB18"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_43",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 588,
+          "size": 4,
+          "readers": [
+            "sub_10CD6C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_44",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_bus_mark_ne8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_45",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a3",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "rf_rx_dc_calib"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a3",
+          "offset": 5,
+          "size": 4,
+          "readers": [
+            "rf_rx_dc_calib"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v79",
+          "offset": 1,
+          "size": 4,
+          "readers": [
+            "rf_rx_dc_calib"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_46",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 96,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1165B0"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 100,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1165B0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_47",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_bus_init_n3fa"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v16",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_init_n3fa"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "rf_bus_init_n3fa"
+          ],
+          "writers": [
+            "rf_bus_init_n3fa"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 28,
+          "size": 2,
+          "readers": [
+            "rf_bus_init_n3fa"
+          ],
+          "writers": [
+            "rf_bus_init_n3fa"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_bus_init_n3fa"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_48",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_state_reset_n_3a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 14,
+          "size": 2,
+          "readers": [
+            "rf_state_reset_n_3a4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 24,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_state_reset_n_3a4"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_state_reset_n_3a4"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_49",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v6",
+          "offset": 64,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_123F04"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_5",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 1,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 10,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 14,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 20,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 22,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_chan_config_set",
+            "sub_123AB4"
+          ]
+        },
+        {
+          "base": "dword_123AAC",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_chan_config_set"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_50",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a3",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_101C70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v17",
+          "offset": 11,
+          "size": 1,
+          "readers": [
+            "sub_101C70"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 8,
+          "size": 1,
+          "readers": [
+            "sub_101C70"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_51",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 52,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117DF4"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 56,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117DF4"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 94,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117DF4"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 97,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117DF4"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_52",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 80,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_cal_or_init_handler"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 85,
+          "size": 1,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_11AF6C",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v12",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 224,
+          "size": 4,
+          "readers": [
+            "rf_cal_or_init_handler"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_53",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 20,
+          "size": 1,
+          "readers": [
+            "sub_11954C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_11954C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 21,
+          "size": 1,
+          "readers": [
+            "sub_11954C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 21,
+          "size": 4,
+          "readers": [
+            "sub_11954C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11954C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_54",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup_handler"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "rf_table_lookup_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_table_lookup_handler"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_55",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 60,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_1216EC"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_56",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11BD44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 2,
+          "readers": [
+            "sub_11BD44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11BD44"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11BD44"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 12,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_11BD44"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 24,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11BD44"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_57",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 4,
+          "size": 1,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 5,
+          "size": 1,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 6,
+          "size": 2,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 8,
+          "size": 2,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 10,
+          "size": 2,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 12,
+          "size": 1,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 95,
+          "size": 1,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 102,
+          "size": 4,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v5",
+          "offset": 1,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 6,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_msg_handler_n0ec"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "rf_msg_handler_n0ec"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_58",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_11BF2C",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_chan_lookup"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 1,
+          "size": 4,
+          "readers": [
+            "rf_chan_lookup"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "rf_chan_lookup"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "rf_chan_lookup"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "rf_chan_lookup"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_59",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a3",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_107214"
+          ],
+          "writers": [
+            "sub_107214"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_6",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_cmd_dispatch_n388",
+            "sub_100948"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_cmd_dispatch_n388",
+            "sub_100948"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_60",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v18",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "sub_10D06C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v22",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v22",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 6,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 6,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 12,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 14,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_10D06C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_61",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a4",
+          "offset": 1,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_109738"
+          ]
+        },
+        {
+          "base": "a4",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_109738"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_62",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 16,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_11B9E0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_63",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v0",
+          "offset": 9,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_12F954"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 20,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_12F954"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_64",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "rf_chan_init_or_reset_n_324"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_65",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 7,
+          "size": 1,
+          "readers": [
+            "rf_level_compute"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_66",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11DAE0"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 6,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_11DAE0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_67",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "sub_119218"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 102,
+          "size": 4,
+          "readers": [
+            "sub_119218"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 108,
+          "size": 4,
+          "readers": [
+            "sub_119218"
+          ],
+          "writers": [
+            "sub_119218"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 112,
+          "size": 4,
+          "readers": [
+            "sub_119218"
+          ],
+          "writers": [
+            "sub_119218"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 116,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_119218"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 45,
+          "size": 1,
+          "readers": [
+            "sub_119218"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_68",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_119D70"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_119D70"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 24,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_119D70"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 26,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_119D70"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "sub_119D70"
+          ],
+          "writers": [
+            "sub_119D70"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_69",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_11BE10",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_indexed_lookup_n_88"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 1,
+          "readers": [
+            "rf_indexed_lookup_n_88"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 14,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_indexed_lookup_n_88"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 24,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_indexed_lookup_n_88"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_7",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "sub_106F74"
+          ],
+          "writers": [
+            "log_free_pool_dispatch2_n324",
+            "sub_106F74"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_70",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 12,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 14,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v43",
+          "offset": 2,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v43",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v49",
+          "offset": 3,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v49",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        },
+        {
+          "base": "v5",
+          "offset": 4,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "message_dispatch_n286"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_71",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v3",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_init_handler_1"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_72",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "sub_117E5C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 95,
+          "size": 1,
+          "readers": [
+            "sub_117E5C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v9",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 12,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 16,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 20,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 28,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 32,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 72,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 84,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 88,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 92,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 94,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 95,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 97,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 100,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 102,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 128,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        },
+        {
+          "base": "v9",
+          "offset": 132,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_117E5C"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_73",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 2,
+          "size": 2,
+          "readers": [
+            "sub_10A5B0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "sub_10A5B0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v31",
+          "offset": 2,
+          "size": 2,
+          "readers": [
+            "sub_10A5B0"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_74",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "check_param_eq1"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_75",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v15",
+          "offset": 1,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v15",
+          "offset": 2,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v18",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v18",
+          "offset": 8,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v18",
+          "offset": 12,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v18",
+          "offset": 14,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v21",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_bus_write_60fc"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 2,
+          "readers": [
+            "rf_bus_write_60fc"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 24,
+          "size": 4,
+          "readers": [
+            "rf_bus_write_60fc"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 40,
+          "size": 4,
+          "readers": [
+            "rf_bus_write_60fc"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_76",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_118980",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_118908"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_118908"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 96,
+          "size": 1,
+          "readers": [
+            "sub_118908"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 102,
+          "size": 4,
+          "readers": [
+            "sub_118908"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 116,
+          "size": 1,
+          "readers": [
+            "sub_118908"
+          ],
+          "writers": [
+            "sub_118908"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_77",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_table_lookup"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 44,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 48,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 48,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 52,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 64,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 80,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 128,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 129,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 130,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 131,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 132,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 132,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 133,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 134,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 135,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 136,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_table_lookup"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_78",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 24,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_cmd_dispatch_a84"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_79",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a3",
+          "offset": 104,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "crypto_gain_clamp"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_8",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 1,
+          "readers": [
+            "log_pool_alloc2_a18",
+            "sub_112B7C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "log_pool_alloc2_a18",
+            "sub_112B7C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_80",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v4",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "event_queue_push"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 6,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "event_queue_push"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "event_queue_push"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_81",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 2,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 112,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 120,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 124,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 132,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 140,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_105FD0"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_105FD0"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 164,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_105FD0"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_82",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1199CC"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 5,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1199CC"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_1199CC"
+          ]
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_1199CC"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_83",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 56,
+          "size": 4,
+          "readers": [
+            "rf_init_handler"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_115740",
+          "offset": 28,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_handler"
+          ]
+        },
+        {
+          "base": "v8",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_handler"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_84",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_119400"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 8,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_119400"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_85",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_105494"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 592,
+          "size": 4,
+          "readers": [
+            "sub_105494"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 624,
+          "size": 4,
+          "readers": [
+            "sub_105494"
+          ],
+          "writers": [
+            "sub_105494"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 628,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_105494"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 632,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_105494"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_86",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_init_agc_or_radio"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_init_agc_or_radio"
+          ],
+          "writers": [
+            "rf_init_agc_or_radio"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 12,
+          "size": 2,
+          "readers": [
+            "rf_init_agc_or_radio"
+          ],
+          "writers": [
+            "rf_init_agc_or_radio"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "rf_init_agc_or_radio"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v19",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_agc_or_radio"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_87",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": [
+            "rf_mem_read_n208"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 8,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": [
+            "rf_mem_read_n208"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 9,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 9,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 10,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 11,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 11,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 13,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 14,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 15,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 16,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 16,
+          "size": 4,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v13",
+          "offset": 6,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v148",
+          "offset": 12,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_mem_read_n208"
+          ]
+        },
+        {
+          "base": "v19",
+          "offset": 3,
+          "size": 1,
+          "readers": [
+            "rf_mem_read_n208"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_88",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 97,
+          "size": 1,
+          "readers": [
+            "sub_11DA3C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_89",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v2",
+          "offset": 28,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_load_globals"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 32,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_init_load_globals"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 52,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_init_load_globals"
+          ]
+        },
+        {
+          "base": "v2",
+          "offset": 53,
+          "size": 1,
+          "readers": [
+            "rf_init_load_globals"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_9",
+      "n_funcs": 2,
+      "fields": [
+        {
+          "base": "dword_1193D0",
+          "offset": 224,
+          "size": 1,
+          "readers": [
+            "sub_119330"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 121,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_119330"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 121,
+          "size": 4,
+          "readers": [
+            "sub_119330"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v10",
+          "offset": 140,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_119330"
+          ]
+        },
+        {
+          "base": "v10",
+          "offset": 144,
+          "size": 4,
+          "readers": [
+            "sub_119330"
+          ],
+          "writers": [
+            "sub_119330"
+          ]
+        },
+        {
+          "base": "v4",
+          "offset": 32,
+          "size": 4,
+          "readers": [
+            "sub_111618",
+            "sub_119330"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_90",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 52,
+          "size": 1,
+          "readers": [
+            "sub_116628"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "sub_116628"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_91",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11DAC8"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a2",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11DAC8"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_92",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a1",
+          "offset": 28,
+          "size": 4,
+          "readers": [
+            "rf_buf_setup_check"
+          ],
+          "writers": []
+        },
+        {
+          "base": "a1",
+          "offset": 38,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "rf_buf_setup_check"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 44,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_buf_setup_check"
+          ]
+        },
+        {
+          "base": "a1",
+          "offset": 48,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_buf_setup_check"
+          ]
+        },
+        {
+          "base": "v11",
+          "offset": 40,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_buf_setup_check"
+          ]
+        },
+        {
+          "base": "v3",
+          "offset": 64,
+          "size": 4,
+          "readers": [
+            "rf_buf_setup_check"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v3",
+          "offset": 80,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "rf_buf_setup_check"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_93",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_11C384",
+          "offset": 224,
+          "size": 1,
+          "readers": [
+            "rf_get_status_byte_n_a24"
+          ],
+          "writers": []
+        },
+        {
+          "base": "result",
+          "offset": 12,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "rf_get_status_byte_n_a24"
+          ]
+        },
+        {
+          "base": "result",
+          "offset": 25,
+          "size": 1,
+          "readers": [
+            "rf_get_status_byte_n_a24"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 72,
+          "size": 4,
+          "readers": [
+            "rf_get_status_byte_n_a24"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_94",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 48,
+          "size": 4,
+          "readers": [
+            "sub_11538C"
+          ],
+          "writers": [
+            "sub_11538C"
+          ]
+        },
+        {
+          "base": "v1",
+          "offset": 96,
+          "size": 4,
+          "readers": [
+            "sub_11538C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 100,
+          "size": 4,
+          "readers": [
+            "sub_11538C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v2",
+          "offset": 4,
+          "size": 1,
+          "readers": [
+            "sub_11538C"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v4",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11538C"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_95",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "a2",
+          "offset": 32,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10BF28"
+          ]
+        },
+        {
+          "base": "a2",
+          "offset": 36,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10BF28"
+          ]
+        },
+        {
+          "base": "dword_10C1A4",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_10BF28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "dword_10C1A4",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_10BF28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 2,
+          "size": 2,
+          "readers": [],
+          "writers": [
+            "sub_10BF28"
+          ]
+        },
+        {
+          "base": "v12",
+          "offset": 4,
+          "size": 4,
+          "readers": [],
+          "writers": [
+            "sub_10BF28"
+          ]
+        },
+        {
+          "base": "v36",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_10BF28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v36",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_10BF28"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v36",
+          "offset": 12,
+          "size": 4,
+          "readers": [
+            "sub_10BF28"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_96",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "dword_118D08",
+          "offset": 224,
+          "size": 1,
+          "readers": [
+            "sub_118C90"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 36,
+          "size": 4,
+          "readers": [
+            "sub_118C90"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 38,
+          "size": 4,
+          "readers": [
+            "sub_118C90"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v1",
+          "offset": 40,
+          "size": 4,
+          "readers": [
+            "sub_118C90"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_97",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v1",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "sub_117CB4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 35,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117CB4"
+          ]
+        },
+        {
+          "base": "v6",
+          "offset": 44,
+          "size": 4,
+          "readers": [
+            "sub_117CB4"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 35,
+          "size": 1,
+          "readers": [],
+          "writers": [
+            "sub_117CB4"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_98",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "result",
+          "offset": 20,
+          "size": 4,
+          "readers": [
+            "rf_mailbox_post_n44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v11",
+          "offset": 94,
+          "size": 1,
+          "readers": [
+            "rf_mailbox_post_n44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "rf_mailbox_post_n44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v6",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "rf_mailbox_post_n44"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v8",
+          "offset": 152,
+          "size": 4,
+          "readers": [
+            "rf_mailbox_post_n44"
+          ],
+          "writers": []
+        }
+      ]
+    },
+    {
+      "cluster_id": "group_99",
+      "n_funcs": 1,
+      "fields": [
+        {
+          "base": "v12",
+          "offset": 8,
+          "size": 4,
+          "readers": [
+            "sub_11DD10"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 4,
+          "size": 4,
+          "readers": [
+            "sub_11DD10"
+          ],
+          "writers": []
+        },
+        {
+          "base": "v7",
+          "offset": 6,
+          "size": 4,
+          "readers": [
+            "sub_11DD10"
+          ],
+          "writers": []
+        }
+      ]
+    }
+  ]
+}
