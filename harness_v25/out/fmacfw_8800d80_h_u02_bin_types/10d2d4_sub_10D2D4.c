@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D450;
+extern uint32_t dword_10D460;
+extern uint32_t dword_10D45C;
+extern uint32_t off_10D454;
+extern uint32_t off_10D458;
+extern uint32_t dword_40021000;
+extern uint32_t dword_10D464;
+extern uint32_t dword_10D468;
+
 // sub_10D2D4 @ 0x10d2d4, size 378 bytes
 int  sub_10D2D4(int a1, int a2, int a3)
 {
@@ -10,7 +31,7 @@ int  sub_10D2D4(int a1, int a2, int a3)
   int *v12; // r3
   int v13; // r3
 
-  if ( **(__int16 **)off_10D450 < 0 && a3 > 13 )
+  if ( **(int16_t **)off_10D450 < 0 && a3 > 13 )
     sub_12F32C(dword_10D460, dword_10D45C, 69);
   *(uint32_t *)(a2 + 32) = 0;
   if ( (__get_CPSR() & 1) == 0 )

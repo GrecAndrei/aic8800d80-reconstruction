@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_chan_table_init @ 0x1204c4, size 136 bytes
 // Doc: rf_chan_table_init [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
 // rf_chan_table_init [rf]: Initializes RF channel table at offset 0x1e0 with size 0x78
@@ -16,7 +28,7 @@ int  rf_chan_table_init(int result, int a2)
   *(uint8_t *)(v3 + 579) = 0;
   if ( v2 == v3 + 480 )
   {
-    v5 = *(unsigned __int8 *)(result + 579);
+    v5 = *(uint8_t *)(result + 579);
     *(uint32_t *)(result + 1200) = 0;
     v4 = result + 480;
     if ( v5
@@ -30,7 +42,7 @@ int  rf_chan_table_init(int result, int a2)
   }
   if ( *(uint32_t *)(result + 1204) == v4 )
   {
-    v6 = *(unsigned __int8 *)(result + 1059);
+    v6 = *(uint8_t *)(result + 1059);
     *(uint32_t *)(result + 1204) = 0;
     if ( v6 )
     {

@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110E88;
+extern uint32_t off_110E84;
+extern uint32_t off_110EB8;
+extern uint32_t off_110E9C;
+extern uint32_t dword_110E8C;
+extern uint32_t off_110E90;
+extern uint32_t dword_110E94;
+extern uint32_t off_110E98;
+extern uint32_t off_110EA0;
+extern uint32_t off_110EA4;
+extern uint32_t off_110EA8;
+extern uint32_t off_110EAC;
+extern uint32_t dword_110EB0;
+extern uint32_t off_110EB4;
+extern uint32_t off_110EBC;
+extern uint32_t dword_110EC0;
+extern uint32_t dword_110EC4;
+extern uint32_t dword_110EC8;
+extern uint32_t dword_110ECC;
+extern uint32_t off_110ED4;
+extern uint32_t off_110ED0;
+extern uint32_t dword_110ED8;
+
 // sub_110CE4 @ 0x110ce4, size 414 bytes
 int sub_110CE4()
 {

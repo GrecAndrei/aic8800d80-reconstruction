@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13AB60;
+extern uint32_t dword_13AB64;
+extern uint32_t off_13AB68;
+extern uint32_t off_13AB6C;
+
 // sub_13AAF4 @ 0x13aaf4, size 106 bytes
 // Doc: sub_123AAF4 [mac]: Process descriptor fields and prepare output buffers
 // sub_123AAF4 [mac]: Process descriptor fields and prepare output buffers
@@ -13,10 +30,10 @@ int  sub_13AAF4(int a1, int a2, int a3)
   feature_guard_check(
     32,
     dword_13AB60,
-    *(unsigned __int16 *)(a1 + 32),
-    *(unsigned __int16 *)(a1 + 30),
-    *(unsigned __int8 *)(a1 + 27));
-  v6 = *(unsigned __int16 *)(a1 + 30);
+    *(uint16_t *)(a1 + 32),
+    *(uint16_t *)(a1 + 30),
+    *(uint8_t *)(a1 + 27));
+  v6 = *(uint16_t *)(a1 + 30);
   v7 = v6 << 31;
   if ( (v6 & 1) != 0 || (counter_increment_n1f8(), (*(uint16_t *)(a1 + 30) & 1) != 0) )
     msg_parse(dword_13AB64, v7);

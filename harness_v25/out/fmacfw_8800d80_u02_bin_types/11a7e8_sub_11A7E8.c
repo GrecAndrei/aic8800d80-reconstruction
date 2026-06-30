@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11A82C;
+extern uint32_t off_11A834;
+extern uint32_t dword_11A830;
+
 // sub_11A7E8 @ 0x11a7e8, size 68 bytes
 // Doc: sub_121A7E8 [unknown]: Unknown stub function with invalid instruction
 // sub_121A7E8 [unknown]: Unknown stub function with invalid instruction
@@ -17,7 +33,7 @@ int  sub_11A7E8(int result)
   }
   v1 = (int *)off_11A834;
   v2 = dword_11A830 + 84 * result;
-  v3 = *(unsigned __int8 *)(v2 + 80);
+  v3 = *(uint8_t *)(v2 + 80);
   v4 = *(uint32_t *)off_11A834 + 1;
   *(uint32_t *)off_11A834 = v4;
   if ( !v3 && *(uint32_t *)(v2 + 44) )

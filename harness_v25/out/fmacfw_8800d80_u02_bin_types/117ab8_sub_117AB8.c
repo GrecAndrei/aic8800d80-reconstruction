@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117B98;
+extern uint32_t off_117B9C;
+extern uint32_t off_117BA0;
+extern uint32_t off_117BAC;
+extern uint32_t off_117BB0;
+extern uint32_t dword_117BB4;
+extern uint32_t off_117BB8;
+extern uint32_t dword_117BA4;
+extern uint32_t off_117BA8;
+
 // sub_117AB8 @ 0x117ab8, size 222 bytes
 // Doc: sub_1217AB8 [util]: Stack-heavy helper with prologue saving many registers
 // sub_1217AB8 [util]: Stack-heavy helper with prologue saving many registers
@@ -36,15 +58,15 @@ int sub_117AB8()
   v6 = v2;
   for ( i = 4; i != -1; --i )
   {
-    v8 = (unsigned __int8)i;
-    if ( !*((uint8_t *)v6 + 158) && ((v2[52] & 1) == 0 || *((unsigned __int8 *)v2 + 190) != (unsigned __int8)i) )
+    v8 = (uint8_t)i;
+    if ( !*((uint8_t *)v6 + 158) && ((v2[52] & 1) == 0 || *((uint8_t *)v2 + 190) != (uint8_t)i) )
     {
       if ( *((uint32_t *)v1 + 84) )
       {
-        sub_1162BC((unsigned __int8)i);
+        sub_1162BC((uint8_t)i);
         *(uint32_t *)(dword_117BA4 + 4 * i) = *v3 + *(uint32_t *)(v4 + 4 * i);
         *(uint32_t *)off_117BA8 = 1 << i;
-        v8 = (unsigned __int8)i;
+        v8 = (uint8_t)i;
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();

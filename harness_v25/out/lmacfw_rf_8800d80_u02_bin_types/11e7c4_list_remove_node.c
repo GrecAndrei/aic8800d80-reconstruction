@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E820;
+extern uint32_t dword_11E824;
+
 // list_remove_node @ 0x11e7c4, size 90 bytes
 // Doc: sdio_buffer_prepare_n_3a0 [mmio]: Prepares SDIO buffer descriptor (shift/align field extraction)
 // sdio_buffer_prepare_n_3a0 [mmio]: Prepares SDIO buffer descriptor (shift/align field extraction)
@@ -9,7 +24,7 @@ int  list_remove_node(int result, uint32_t *a2)
   uint32_t *v6; // r3
 
   v2 = result;
-  if ( **(__int16 **)off_11E820 < 0 && !result )
+  if ( **(int16_t **)off_11E820 < 0 && !result )
     result = rf_cmd_send_n264(sdio_buffer_prepare_n_38c, dword_11E824, 132);
   v4 = *(uint32_t **)v2;
   if ( *(uint32_t *)v2 )

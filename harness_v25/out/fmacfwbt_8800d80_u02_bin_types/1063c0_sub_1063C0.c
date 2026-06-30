@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_106448;
+extern uint32_t dword_10644C;
+extern uint32_t dword_106440;
+extern uint32_t dword_106444;
+
 // sub_1063C0 @ 0x1063c0, size 124 bytes
 // Doc: sub_12063C0 [util]: Init/setup wrapper calling address-table lookup and helper routines
 // sub_12063C0 [util]: Init/setup wrapper calling address-table lookup and helper routines
@@ -18,7 +35,7 @@ int  sub_1063C0(int a1, int a2, int a3)
   v8 = sub_143108(v6);
   v9 = *(uint32_t *)(v7 + 140);
   v10 = COERCE_FLOAT(rf_state_check_n3ea_d908(v8));
-  v11 = *(QWORD *)(a1 + 164);
+  v11 = *(uint64_t *)(a1 + 164);
   v12 = (int)(float)(v10 * 20.0);
   if ( SHIDWORD(v11) < v12 )
   {

@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1249E8;
+extern uint32_t off_124A00;
+extern uint32_t off_1249EC;
+extern uint32_t off_1249F0;
+extern uint32_t dword_124A0C;
+extern uint32_t off_1249F8;
+extern uint32_t off_1249F4;
+extern uint32_t off_1249FC;
+extern uint32_t dword_124A04;
+extern uint32_t dword_124A08;
+
 // rf_status_read_n_968 @ 0x124968, size 128 bytes
 // Doc: rf_status_read_n_968 [rf]: Read RF status register 0x40320038 and process bit field
 // rf_status_read_n_968 [rf]: Read RF status register 0x40320038 and process bit field

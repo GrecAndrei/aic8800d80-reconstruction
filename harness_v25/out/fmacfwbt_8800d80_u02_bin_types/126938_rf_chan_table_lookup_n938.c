@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1269E0;
+extern uint32_t off_1269E4;
+extern uint32_t dword_1269F0;
+extern uint32_t dword_1269EC;
+extern uint32_t off_1269E8;
+extern uint32_t off_1269F4;
+extern uint32_t off_1269FC;
+extern uint32_t off_1269F8;
+extern uint32_t dword_126A00;
+
 // rf_chan_table_lookup_n938 @ 0x126938, size 166 bytes
 // Doc: rf_chan_table_lookup_n938 [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
 // rf_chan_table_lookup_n938 [rf]: RF channel/table lookup: calls helper, loads base from 0x182c24, saves sb/r8/r7
@@ -21,7 +43,7 @@ int  rf_chan_table_lookup_n938(int a1, int a2, int a3)
 
   v6 = sub_12D4F8(dword_1269E0);
   v7 = (uint32_t *)v6;
-  if ( **(__int16 **)off_1269E4 < 0 && !v6 )
+  if ( **(int16_t **)off_1269E4 < 0 && !v6 )
     sub_12F694(dword_1269F0, dword_1269EC, 227);
   v8 = off_1269E8;
   v9 = (char *)off_1269E8 + 32;

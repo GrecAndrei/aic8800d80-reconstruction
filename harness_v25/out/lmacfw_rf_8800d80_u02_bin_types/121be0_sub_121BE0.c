@@ -1,17 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_121C68;
+
 // sub_121BE0 @ 0x121be0, size 134 bytes
 // Doc: rf_mem_write_n_432 [rf]: Write to RF register/memory (length-bounded)
 // rf_mem_write_n_432 [rf]: Write to RF register/memory (length-bounded)
-int  sub_121BE0(unsigned __int8 *a1, int a2)
+int  sub_121BE0(uint8_t *a1, int a2)
 {
   int v2; // r4
-  unsigned __int8 *v4; // r0
+  uint8_t *v4; // r0
   int v5; // r2
   int v6; // t1
   int v7; // r3
   int v8; // r5
   int v9; // r6
   int v10; // t1
-  unsigned __int8 *v12; // r2
+  uint8_t *v12; // r2
   int v13; // r3
   int v14; // t1
 

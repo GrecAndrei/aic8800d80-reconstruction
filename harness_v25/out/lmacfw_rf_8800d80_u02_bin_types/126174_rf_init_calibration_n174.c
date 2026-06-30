@@ -1,9 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12623C;
+extern uint32_t off_126240;
+extern uint32_t off_126254;
+extern uint32_t off_126244;
+extern uint32_t off_126248;
+extern uint32_t off_12624C;
+extern uint32_t off_126250;
+
 // rf_init_calibration_n174 @ 0x126174, size 200 bytes
 // Doc: rf_init_calibration_n174 [rf]: Performs RF initialization and calibration sequence
 // rf_init_calibration_n174 [rf]: Performs RF initialization and calibration sequence
 int rf_init_calibration_n174()
 {
-  QWORD *v0; // r5
+  uint64_t *v0; // r5
   uint32_t *v1; // r7
   int v2; // r1
   uint64_t v3; // r0
@@ -14,12 +34,12 @@ int rf_init_calibration_n174()
   char v9; // [sp+6h] [bp-46h] BYREF
   char v10; // [sp+7h] [bp-45h] BYREF
   int v11; // [sp+8h] [bp-44h] BYREF
-  unsigned __int16 v12; // [sp+Ch] [bp-40h]
+  uint16_t v12; // [sp+Ch] [bp-40h]
   int v13; // [sp+10h] [bp-3Ch] BYREF
-  __int16 v14; // [sp+14h] [bp-38h]
+  int16_t v14; // [sp+14h] [bp-38h]
   uint8_t v15[8]; // [sp+18h] [bp-34h] BYREF
   int v16; // [sp+20h] [bp-2Ch] BYREF
-  __int16 v17; // [sp+24h] [bp-28h]
+  int16_t v17; // [sp+24h] [bp-28h]
   uint8_t v18[18]; // [sp+28h] [bp-24h] BYREF
   uint8_t v19[18]; // [sp+3Ah] [bp-12h] BYREF
 

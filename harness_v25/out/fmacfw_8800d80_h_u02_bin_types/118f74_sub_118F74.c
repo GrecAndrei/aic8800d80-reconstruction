@@ -1,5 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_119118;
+extern uint32_t dword_11911C;
+extern uint32_t off_119100;
+extern uint32_t dword_119110;
+extern uint32_t dword_119114;
+extern uint32_t off_119104;
+extern uint32_t off_119120;
+extern uint32_t dword_119108;
+extern uint32_t dword_11910C;
+
 // sub_118F74 @ 0x118f74, size 394 bytes
-BOOL  sub_118F74(int a1, int a2, int a3, int a4, unsigned __int8 a5, unsigned __int8 a6, int a7, int a8)
+BOOL  sub_118F74(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8)
 {
   int v8; // r10
   int v9; // r8
@@ -11,9 +33,9 @@ BOOL  sub_118F74(int a1, int a2, int a3, int a4, unsigned __int8 a5, unsigned __
   int v18; // r0
   int v19; // r8
   int v20; // r9
-  unsigned __int8 *v21; // r2
+  uint8_t *v21; // r2
   int v22; // r1
-  __int16 v23; // lr
+  int16_t v23; // lr
   int v24; // r0
   unsigned int v25; // r7
   uint16_t *v26; // r8
@@ -24,7 +46,7 @@ BOOL  sub_118F74(int a1, int a2, int a3, int a4, unsigned __int8 a5, unsigned __
 
   v8 = dword_119118;
   v9 = dword_11911C;
-  v11 = *(unsigned __int8 *)(dword_119118 + 696 * a1 + 34);
+  v11 = *(uint8_t *)(dword_119118 + 696 * a1 + 34);
   v12 = *(uint32_t *)(dword_11911C + 1320 * v11 + 72);
   if ( a2 )
     v15 = 29;
@@ -32,15 +54,15 @@ BOOL  sub_118F74(int a1, int a2, int a3, int a4, unsigned __int8 a5, unsigned __
     v15 = 30;
   if ( v12 )
   {
-    v16 = *(unsigned __int8 *)(v12 + 4);
-    if ( **(__int16 **)off_119100 >= 0 || v16 != 2 )
+    v16 = *(uint8_t *)(v12 + 4);
+    if ( **(int16_t **)off_119100 >= 0 || v16 != 2 )
     {
-      v17 = (*(unsigned __int8 *)(dword_11911C + 1320 * v11 + 1224) | v16) != 0;
+      v17 = (*(uint8_t *)(dword_11911C + 1320 * v11 + 1224) | v16) != 0;
       goto LABEL_7;
     }
     goto LABEL_16;
   }
-  if ( **(__int16 **)off_119100 < 0 )
+  if ( **(int16_t **)off_119100 < 0 )
   {
 LABEL_16:
     v32 = v15;
@@ -58,7 +80,7 @@ LABEL_7:
   v20 = *(uint32_t *)(v18 + 72);
   v31 = (uint32_t *)v18;
   sub_12C3A8(v19, v18);
-  v21 = (unsigned __int8 *)off_119104;
+  v21 = (uint8_t *)off_119104;
   v22 = v31[18];
   v23 = *(uint16_t *)(v19 + 104);
   *(uint32_t *)(v20 + 60) = HIWORD(*(uint32_t *)(v20 + 60)) << 16;
@@ -88,7 +110,7 @@ LABEL_7:
     else
       v28 = 0;
   }
-  *(uint32_t *)(v22 + 132) = (a5 << 21) | (a4 << 13) | *(unsigned __int16 *)(v8 + 696 * a1 + 32) | v28;
+  *(uint32_t *)(v22 + 132) = (a5 << 21) | (a4 << 13) | *(uint16_t *)(v8 + 696 * a1 + 32) | v28;
   *(uint8_t *)(v22 + 136) = -40;
   if ( !a2 )
     *(uint8_t *)(v22 + 137) = *(uint8_t *)(dword_11910C + a6) << 6;

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10713C;
+extern uint32_t off_107140;
+extern uint32_t off_107144;
+extern uint32_t dword_107148;
+extern uint32_t dword_10714C;
+
 // log_free_pool_dispatch2_n324 @ 0x107068, size 212 bytes
 // Doc: log_free_pool_dispatch2_n324 [util]: Initializes log entry and dispatches to free-pool handler
 // log_free_pool_dispatch2_n324 [util]: Initializes log entry and dispatches to free-pool handler

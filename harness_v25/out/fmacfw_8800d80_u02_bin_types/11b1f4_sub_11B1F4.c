@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B238;
+extern uint32_t off_11B23C;
+
 // sub_11B1F4 @ 0x11b1f4, size 68 bytes
 // Doc: mmio_setup_n_202 [mmio]: Set up MMIO buffer with offset and store pointer table
 // mmio_setup_n_202 [mmio]: Set up MMIO buffer with offset and store pointer table
@@ -7,12 +22,12 @@ BOOL  sub_11B1F4(BOOL result)
   uint32_t *v2; // r2
   int v3; // r4
 
-  v1 = *(unsigned __int8 *)(result + 37);
+  v1 = *(uint8_t *)(result + 37);
   if ( *(uint8_t *)(result + 37) )
   {
     v3 = result;
     timestamp_update(off_11B238, *((uint32_t *)off_11B23C + 4) + 5000);
-    return sub_1190B4(*(unsigned __int8 *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
+    return sub_1190B4(*(uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
   {

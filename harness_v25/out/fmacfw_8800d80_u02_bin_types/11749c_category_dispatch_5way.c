@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117530;
+extern uint32_t dword_117518;
+extern uint32_t dword_11751C;
+extern uint32_t off_117520;
+extern uint32_t off_117524;
+extern uint32_t off_117528;
+extern uint32_t off_11752C;
+
 // category_dispatch_5way @ 0x11749c, size 124 bytes
 // Doc: category_dispatch_5way [util]: Dispatch routine selecting one of 5 categories on input code
 // category_dispatch_5way [util]: Dispatch routine selecting one of 5 categories on input code

@@ -1,15 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_127620 @ 0x127620, size 412 bytes
 int  sub_127620(uint64_t a1, unsigned int a2, unsigned int a3)
 {
   int v3; // r5
   unsigned int v4; // r12
-  bool v5; // zf
+  int v5; // zf
   int v6; // r4
   int v7; // r4
   int v8; // r6
   int v9; // r1
   int v10; // r3
-  bool v11; // zf
+  int v11; // zf
   int v12; // r3
   int v13; // r12
   unsigned int v14; // r5
@@ -22,8 +34,8 @@ int  sub_127620(uint64_t a1, unsigned int a2, unsigned int a3)
   int v21; // r4
   unsigned int v22; // off
   unsigned int v23; // lr
-  bool v24; // cc
-  bool v25; // cf
+  int v24; // cc
+  int v25; // cf
   int v26; // r4
   int v27; // r4
   int v28; // r4

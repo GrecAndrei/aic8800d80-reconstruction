@@ -1,7 +1,42 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1314C0;
+extern uint32_t off_1314C8;
+extern uint32_t off_1314C4;
+extern uint32_t off_1314F8;
+extern uint32_t off_1314D8;
+extern uint32_t off_1314D4;
+extern uint32_t off_1314EC;
+extern uint32_t off_1314F0;
+extern uint32_t off_1314DC;
+extern uint32_t off_1314E8;
+extern uint32_t off_1314E4;
+extern uint32_t dword_1314F4;
+extern uint32_t off_1314E0;
+extern uint32_t off_1314D0;
+extern uint32_t off_1314CC;
+extern uint32_t off_131500;
+extern uint32_t off_1314FC;
+extern uint32_t off_131504;
+extern uint32_t off_131508;
+extern uint32_t off_131510;
+extern uint32_t off_131514;
+extern uint32_t off_13150C;
+
 // sub_1312D8 @ 0x1312d8, size 486 bytes
 // Doc: sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
 // sub_12312D8 [tx]: Parse header bytes and dispatch via table lookup
-int  sub_1312D8(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
+int  sub_1312D8(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r1
   uint8_t *v8; // r3
@@ -51,7 +86,7 @@ int  sub_1312D8(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
     {
       v18 = off_1314D4;
       v19 = off_1314EC;
-      v20 = *((unsigned __int8 *)off_1314EC + 18);
+      v20 = *((uint8_t *)off_1314EC + 18);
       v21 = off_1314D8;
       *(uint32_t *)off_1314D4 |= 0x2000000u;
       *v21 = 4;
@@ -75,7 +110,7 @@ int  sub_1312D8(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
                 goto LABEL_21;
             }
             v24 = *((uint32_t *)off_1314E8 + 4);
-            v25 = *(unsigned __int16 *)(*(uint32_t *)off_1314E4 + 54);
+            v25 = *(uint16_t *)(*(uint32_t *)off_1314E4 + 54);
             v26 = dword_1314F4;
             *((uint32_t *)off_1314DC + 5) = v23;
             v22[29] = 4;
@@ -104,7 +139,7 @@ LABEL_21:
     if ( v14 && *(uint8_t *)(v14 + 108) )
     {
       v16 = *((uint32_t *)off_1314E8 + 4);
-      v17 = *(unsigned __int16 *)(*(uint32_t *)off_1314E4 + 54);
+      v17 = *(uint16_t *)(*(uint32_t *)off_1314E4 + 54);
       v13[5] = v14;
       *((uint8_t *)v13 + 29) = 4;
       timestamp_update((int)(v13 + 3), v17 + v16);

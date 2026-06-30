@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11F268;
+extern uint32_t dword_11F264;
+extern uint32_t off_11F26C;
+extern uint32_t dword_11F270;
+extern uint32_t dword_11F274;
+extern uint32_t dword_11F278;
+extern uint32_t dword_11F27C;
+extern uint32_t dword_11F280;
+
 // sub_11F16C @ 0x11f16c, size 248 bytes
 // Doc: sub_121F16C [rf]: Initialize RF subsystem state with global pointers
 // sub_121F16C [rf]: Initialize RF subsystem state with global pointers

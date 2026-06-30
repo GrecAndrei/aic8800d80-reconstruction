@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_125AAC;
+extern uint32_t off_125A98;
+extern uint32_t off_125AA0;
+extern uint32_t off_125AA4;
+extern uint32_t dword_125AA8;
+extern uint32_t dword_125AB0;
+extern uint32_t dword_125A9C;
+extern uint32_t dword_125AB4;
+extern uint32_t dword_125AB8;
+
 // sub_125970 @ 0x125970, size 294 bytes
 int  sub_125970(int a1, int a2)
 {
@@ -7,16 +29,16 @@ int  sub_125970(int a1, int a2)
   int v7; // r0
   uint8_t *v9; // r7
   int v10; // r0
-  unsigned __int16 *v11; // r2
+  uint16_t *v11; // r2
   int v12; // r3
   int v13; // r4
   uint8_t *v14; // r7
   int v15; // r0
-  unsigned __int16 *v16; // r2
+  uint16_t *v16; // r2
   int v17; // r3
   int v18; // r4
 
-  v4 = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0);
+  v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
   switch ( v4 )
   {
     case 0:
@@ -27,9 +49,9 @@ int  sub_125970(int a1, int a2)
       ++*(uint8_t *)off_125AA0;
       if ( a1 <= 2 )
         goto LABEL_28;
-      v10 = parse_int(*(unsigned __int8 **)(a2 + 8), nullptr, 0);
-      v11 = (unsigned __int16 *)off_125AA4;
-      v12 = *((unsigned __int8 *)off_125AA4 + 36);
+      v10 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+      v11 = (uint16_t *)off_125AA4;
+      v12 = *((uint8_t *)off_125AA4 + 36);
       if ( v10 < -7 )
         v10 = -7;
       if ( v10 >= 7 )
@@ -48,9 +70,9 @@ int  sub_125970(int a1, int a2)
       ++*(uint8_t *)off_125AA0;
       if ( a1 <= 2 )
         goto LABEL_28;
-      v15 = parse_int(*(unsigned __int8 **)(a2 + 8), nullptr, 0);
-      v16 = (unsigned __int16 *)off_125AA4;
-      v17 = *((unsigned __int8 *)off_125AA4 + 36);
+      v15 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
+      v16 = (uint16_t *)off_125AA4;
+      v17 = *((uint8_t *)off_125AA4 + 36);
       if ( v15 < -7 )
         v15 = -7;
       if ( v15 >= 7 )
@@ -67,7 +89,7 @@ int  sub_125970(int a1, int a2)
     case 3:
       if ( a1 > 2 )
       {
-        v5 = parse_int(*(unsigned __int8 **)(a2 + 8), nullptr, 0);
+        v5 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
         if ( v5 < -7 )
           v5 = -7;
         v6 = v5;

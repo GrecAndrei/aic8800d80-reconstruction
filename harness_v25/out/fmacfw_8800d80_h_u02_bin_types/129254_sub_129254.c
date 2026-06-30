@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_129384;
+extern uint32_t off_129358;
+extern uint32_t off_12935C;
+extern uint32_t off_129360;
+extern uint32_t off_129364;
+extern uint32_t off_129368;
+extern uint32_t off_129354;
+extern uint32_t dword_129370;
+extern uint32_t off_129374;
+extern uint32_t off_129378;
+extern uint32_t off_129380;
+extern uint32_t off_12937C;
+
 // sub_129254 @ 0x129254, size 254 bytes
 int sub_129254()
 {
@@ -7,7 +32,7 @@ int sub_129254()
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
-  unsigned __int8 **v6; // r6
+  uint8_t **v6; // r6
   int result; // r0
   uint8_t *v8; // r2
   int v9; // r3
@@ -21,9 +46,9 @@ int sub_129254()
   v1 = (int *)off_129358;
   v2 = off_12935C;
   v3 = off_129360;
-  v4 = *((unsigned __int16 *)off_12935C + 93);
+  v4 = *((uint16_t *)off_12935C + 93);
   v5 = (unsigned int *)off_129364;
-  v6 = (unsigned __int8 **)off_129368;
+  v6 = (uint8_t **)off_129368;
   *(uint32_t *)off_129354 |= 0x40000000u;
   *v3 |= 0x10000000u;
   *v0 &= 0xFFF0FFFF;
@@ -52,7 +77,7 @@ int sub_129254()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (unsigned __int8)*v8;
+    v9 = (uint8_t)*v8;
   }
   if ( v9 != 2 )
   {

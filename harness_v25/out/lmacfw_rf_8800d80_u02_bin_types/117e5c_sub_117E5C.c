@@ -1,13 +1,45 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_118064;
+extern uint32_t dword_11806C;
+extern uint32_t dword_118070;
+extern uint32_t dword_118078;
+extern uint32_t dword_118074;
+extern uint32_t dword_1180B0;
+extern uint32_t dword_1180B4;
+extern uint32_t off_118080;
+extern uint32_t off_11807C;
+extern uint32_t off_1180A0;
+extern uint32_t dword_1180A8;
+extern uint32_t dword_1180A4;
+extern uint32_t off_118084;
+extern uint32_t off_11809C;
+extern uint32_t dword_118088;
+extern uint32_t off_11808C;
+extern uint32_t dword_118090;
+extern uint32_t dword_118094;
+extern uint32_t off_118098;
+
 // sub_117E5C @ 0x117e5c, size 520 bytes
 int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
 {
-  unsigned __int8 *v4; // r5
+  uint8_t *v4; // r5
   int v8; // r7
   int v9; // r0
   int v10; // r4
   char v11; // r1
   int v12; // r3
-  unsigned __int8 v13; // r1
+  uint8_t v13; // r1
   int v14; // r2
   int v15; // r3
   uint32_t *v16; // r7
@@ -15,14 +47,14 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
   int v18; // r2
   int v19; // r3
   uint32_t *v20; // r3
-  bool v21; // zf
+  int v21; // zf
   int result; // r0
-  unsigned __int8 v23; // r2
-  unsigned __int8 v24; // r3
+  uint8_t v23; // r2
+  uint8_t v24; // r3
   int v25; // r3
   int v26; // r3
 
-  v4 = (unsigned __int8 *)off_118064;
+  v4 = (uint8_t *)off_118064;
   if ( !*(uint32_t *)off_118064 )
     return 1;
   if ( !*((uint32_t *)off_118064 + 2) )
@@ -52,7 +84,7 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
       sub_118DEC();
       v23 = v4[18];
     }
-    v14 = (unsigned __int8)(v23 + 1);
+    v14 = (uint8_t)(v23 + 1);
     v15 = v4[17] + v14;
     v4[18] = v14;
     if ( v15 > 1 )
@@ -76,7 +108,7 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
       *(uint32_t *)(v9 + 128) = dword_1180B4;
       v14 = v4[18];
       *(uint32_t *)(v9 + 32) = v9;
-      v25 = (unsigned __int8)(v24 + 1);
+      v25 = (uint8_t)(v24 + 1);
       v4[17] = v25;
       v15 = v25 + v14;
       *(uint32_t *)(v9 + 132) = v9;
@@ -99,7 +131,7 @@ LABEL_19:
   {
 LABEL_8:
     v16 = off_118080;
-    v17 = **(__int16 **)off_11807C;
+    v17 = **(int16_t **)off_11807C;
     v18 = *((uint32_t *)off_118080 + 1) | 0x100;
     *((uint32_t *)off_118080 + 1) = v18;
     if ( v17 < 0 && *(uint32_t *)off_1180A0 << 28 )

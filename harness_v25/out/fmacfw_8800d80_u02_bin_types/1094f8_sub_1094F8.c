@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1094F8 @ 0x1094f8, size 32 bytes
 int  sub_1094F8(int result, int a2, uint8_t *a3, char *a4, int *a5)
 {
@@ -141,7 +153,7 @@ LABEL_62:
   }
   else if ( result == 2 )
   {
-    v6 = *(QWORD *)a5;
+    v6 = *(uint64_t *)a5;
     if ( *a5 <= 0 )
     {
       if ( SHIDWORD(v6) <= 0 )
@@ -174,7 +186,7 @@ LABEL_62:
   }
   else
   {
-    v5 = (unsigned __int8)a4[1];
+    v5 = (uint8_t)a4[1];
     if ( v5 <= 0x10 )
     {
 LABEL_7:

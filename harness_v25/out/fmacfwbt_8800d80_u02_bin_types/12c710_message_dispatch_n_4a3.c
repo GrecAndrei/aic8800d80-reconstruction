@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C754;
+extern uint32_t dword_12C75C;
+
 // message_dispatch_n_4a3 @ 0x12c710, size 64 bytes
 // Doc: message_dispatch_n_47e [ipc]: Extract message ID bits and dispatch to handler
 // message_dispatch_n_47e [ipc]: Extract message ID bits and dispatch to handler
@@ -12,11 +27,11 @@ int  message_dispatch_n_4a3(int result, int a2)
     v3 = scan_chan_parse_n1bd4(
            (*(uint32_t *)(v2 + 20) >> 11) & 7,
            *(uint32_t *)(v2 + 20) & 0x7F,
-           (unsigned __int8 *)(*(uint32_t *)(result + 72) + 4));
+           (uint8_t *)(*(uint32_t *)(result + 72) + 4));
     result = v3 | (v3 << 8);
     *(uint32_t *)(v2 + 36) = result;
   }
-  else if ( **(__int16 **)off_12C754 < 0 )
+  else if ( **(int16_t **)off_12C754 < 0 )
   {
     return sub_12F694(dword_12C75C, message_dispatch_n_45c, 92);
   }

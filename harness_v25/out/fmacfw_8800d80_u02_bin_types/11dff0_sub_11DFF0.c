@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E058;
+extern uint32_t off_11E054;
+extern uint32_t off_11E05C;
+extern uint32_t off_11E078;
+extern uint32_t off_11E060;
+extern uint32_t off_11E068;
+extern uint32_t off_11E064;
+extern uint32_t off_11E07C;
+extern uint32_t off_11E06C;
+extern uint32_t off_11E070;
+extern uint32_t dword_11E074;
+
 // sub_11DFF0 @ 0x11dff0, size 100 bytes
 int sub_11DFF0()
 {
@@ -20,7 +44,7 @@ int sub_11DFF0()
   v1 = *(uint32_t *)off_11E054;
   v2 = off_11E05C;
   v3 = off_11E078;
-  v4 = *(QWORD *)*(uint32_t *)off_11E054;
+  v4 = *(uint64_t *)*(uint32_t *)off_11E054;
   v5 = off_11E060;
   *(uint32_t *)off_11E058 = v4;
   *v5 = v4;
@@ -29,7 +53,7 @@ int sub_11DFF0()
   v7 = *v0;
   *(uint32_t *)off_11E064 = *v0;
   *v6 = v7;
-  v8 = *(QWORD *)(v1 + 8);
+  v8 = *(uint64_t *)(v1 + 8);
   v9 = off_11E07C;
   v10 = off_11E06C;
   v0[1] = HIDWORD(v4) + v4;

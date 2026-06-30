@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1112DC;
+
 // sub_1112AC @ 0x1112ac, size 48 bytes
 // Doc: rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
 // rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
@@ -9,7 +23,7 @@ int * sub_1112AC(int a1)
   int ( *v5)(uint32_t, uint32_t, int); // r3
 
   v2 = dword_1112DC + 16 * (a1 - 1);
-  v3 = *(unsigned __int8 *)(v2 + 11);
+  v3 = *(uint8_t *)(v2 + 11);
   result = sub_100200((int *)v2, 0, 0x10u);
   if ( v3 )
   {

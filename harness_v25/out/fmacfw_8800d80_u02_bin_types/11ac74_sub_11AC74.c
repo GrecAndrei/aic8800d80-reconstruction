@@ -1,10 +1,32 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11AE24;
+extern uint32_t dword_11AE0C;
+extern uint32_t off_11AE10;
+extern uint32_t dword_11AE20;
+extern uint32_t dword_11AE1C;
+extern uint32_t off_11AE14;
+extern uint32_t dword_11AE28;
+extern uint32_t dword_11AE2C;
+extern uint32_t off_11AE18;
+
 // sub_11AC74 @ 0x11ac74, size 406 bytes
 // Doc: sub_121AC74 [unknown]: Multi-register dispatcher with branch on input code (cmp r0, 5)
 // sub_121AC74 [unknown]: Multi-register dispatcher with branch on input code (cmp r0, 5)
 int  sub_11AC74(int result)
 {
   uint32_t *v1; // r5
-  __int16 **v2; // r6
+  int16_t **v2; // r6
   uint32_t *v3; // r4
   int v4; // r3
   int v5; // r2
@@ -31,9 +53,9 @@ int  sub_11AC74(int result)
     result *= 21;
     v1 = (uint32_t *)(dword_11AE0C + 4 * result);
   }
-  v2 = (__int16 **)off_11AE10;
+  v2 = (int16_t **)off_11AE10;
   v3 = (uint32_t *)v1[3];
-  if ( **(__int16 **)off_11AE10 < 0 && !v3 )
+  if ( **(int16_t **)off_11AE10 < 0 && !v3 )
     result = sub_12F46C(dword_11AE20, dword_11AE1C, 3166);
   while ( 1 )
   {
@@ -52,7 +74,7 @@ int  sub_11AC74(int result)
   if ( v5 >= 0 )
   {
     v6 = v3[17];
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11AE14 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11AE14 + 82));
     v8 = v7[19];
 LABEL_10:
     v9 = v7[9];
@@ -61,7 +83,7 @@ LABEL_10:
   if ( (v4 & 0x380000) == 0x280000 )
   {
     v6 = v3[17];
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11AE14 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11AE14 + 82));
     v8 = v7[19];
   }
   else
@@ -69,7 +91,7 @@ LABEL_10:
     sub_12F46C(dword_11AE28, dword_11AE1C, 3182);
     v6 = v3[17];
     v5 = **v2;
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11AE14 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11AE14 + 82));
     v8 = v7[19];
     if ( v5 >= 0 )
       goto LABEL_10;

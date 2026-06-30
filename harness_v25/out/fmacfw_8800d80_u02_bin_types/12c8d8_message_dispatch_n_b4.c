@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C924;
+extern uint32_t dword_12C928;
+
 // message_dispatch_n_b4 @ 0x12c8d8, size 72 bytes
 // Doc: message_dispatch_n_7c [ipc]: Dispatch IPC message by indexing into message table
 // message_dispatch_n_7c [ipc]: Dispatch IPC message by indexing into message table

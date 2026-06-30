@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110620;
+extern uint32_t off_110624;
+extern uint32_t off_11061C;
+extern uint32_t off_11064C;
+extern uint32_t off_110650;
+extern uint32_t dword_110648;
+extern uint32_t dword_110644;
+extern uint32_t off_110628;
+extern uint32_t off_11062C;
+extern uint32_t off_110630;
+extern uint32_t off_110634;
+extern uint32_t dword_11063C;
+extern uint32_t dword_110640;
+extern uint32_t off_110638;
+
 // sub_1104FC @ 0x1104fc, size 286 bytes
 int  sub_1104FC(int a1, int a2)
 {
@@ -13,7 +40,7 @@ int  sub_1104FC(int a1, int a2)
   int *v13; // r3
   int v14; // r0
   int v15; // r1
-  __int16 v16; // r2
+  int16_t v16; // r2
   uint32_t *v17; // r1
   int v18; // r0
   int v19; // r2
@@ -21,9 +48,9 @@ int  sub_1104FC(int a1, int a2)
 
   v2 = off_110620;
   v3 = (int *)off_110624;
-  v21 = *(unsigned __int16 *)(*(uint32_t *)off_11061C + 48);
+  v21 = *(uint16_t *)(*(uint32_t *)off_11061C + 48);
   sub_1103C4(a2);
-  v6 = *(unsigned __int16 *)(a2 + 0xC);
+  v6 = *(uint16_t *)(a2 + 0xC);
 LABEL_2:
   v7 = off_11064C;
   v8 = (int *)off_110650;
@@ -36,7 +63,7 @@ LABEL_2:
     {
       sub_10DAE4(dword_110648, *v7);
 LABEL_23:
-      if ( *(unsigned __int16 *)(a2 + 0xC) >= (unsigned int)*(unsigned __int16 *)(*(uint32_t *)off_11061C + 50) )
+      if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11061C + 50) )
         return 1;
 LABEL_24:
       sub_12CFC4(32);
@@ -74,7 +101,7 @@ LABEL_24:
     }
     else
     {
-      if ( **(__int16 **)off_110630 < 0 && *(uint32_t *)off_110634 )
+      if ( **(int16_t **)off_110630 < 0 && *(uint32_t *)off_110634 )
       {
         sub_12F32C(dword_11063C, dword_110640, 400);
         v13 = (int *)off_11062C;
@@ -85,9 +112,9 @@ LABEL_24:
     v15 = *v3;
     v16 = *(uint16_t *)(a2 + 0xC);
     *(uint32_t *)(a2 + 4) = v11;
-    v6 = (unsigned __int16)(v16 + 1);
+    v6 = (uint16_t)(v16 + 1);
     *(uint16_t *)(a2 + 0xC) = v6;
-    *v3 = (unsigned __int16)(v15 + 1);
+    *v3 = (uint16_t)(v15 + 1);
     *(uint32_t *)off_110638 = 1;
     if ( v14 )
     {
@@ -99,7 +126,7 @@ LABEL_24:
         if ( *v17 )
         {
           __enable_irq();
-          v6 = *(unsigned __int16 *)(a2 + 0xC);
+          v6 = *(uint16_t *)(a2 + 0xC);
         }
       }
       goto LABEL_2;

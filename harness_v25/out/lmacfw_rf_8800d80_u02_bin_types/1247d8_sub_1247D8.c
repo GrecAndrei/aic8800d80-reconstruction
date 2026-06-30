@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124880;
+extern uint32_t off_124884;
+extern uint32_t off_12489C;
+extern uint32_t off_1248A0;
+extern uint32_t off_124888;
+extern uint32_t off_12488C;
+extern uint32_t off_124894;
+extern uint32_t off_124890;
+extern uint32_t dword_124898;
+
 // sub_1247D8 @ 0x1247d8, size 168 bytes
 // Doc: sub_12247D8 [unknown]: Branch on state value, push r3-r5/lr prologue
 // sub_12247D8 [unknown]: Branch on state value, push r3-r5/lr prologue
@@ -15,7 +37,7 @@ int  sub_1247D8(int a1, int a2)
   if ( a1 > 1 )
   {
     v2 = (int *)off_124880;
-    v3 = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0xAu);
+    v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
     v4 = off_124884;
     *v2 = v3;
     if ( *v4 == 1 )

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1134A8;
+extern uint32_t off_1134A0;
+extern uint32_t dword_1134B0;
+extern uint32_t off_1134A4;
+
 // rf_stream_start2_0 @ 0x1133f0, size 164 bytes
 // Doc: rf_cmd_process_n_f2 [rf]: Process RF command loading shared data pointers
 // rf_cmd_process_n_f2 [rf]: Process RF command loading shared data pointers
@@ -18,7 +35,7 @@ int  rf_stream_start2_0(int a1, unsigned int a2)
   v3 = rf_stream_start_498;
   if ( *(uint8_t *)rf_stream_start_498 )
   {
-    sub_10DC24(rf_stream_start2_nbc, dword_1134A8, *(unsigned __int8 *)rf_stream_start_498);
+    sub_10DC24(rf_stream_start2_nbc, dword_1134A8, *(uint8_t *)rf_stream_start_498);
     return -3;
   }
   else
@@ -47,7 +64,7 @@ int  rf_stream_start2_0(int a1, unsigned int a2)
       *(uint8_t *)off_1134A4 = 1;
       if ( *v2 )
       {
-        rf_bus_write_wrapper(nullptr, 1u);
+        rf_bus_write_wrapper(0, 1u);
         *v3 = 0;
         return -14;
       }

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_116EEC;
+extern uint32_t dword_116ED8;
+extern uint32_t off_116EDC;
+extern uint32_t dword_116EE8;
+extern uint32_t dword_116EE4;
+extern uint32_t off_116EF0;
+extern uint32_t off_116EE0;
+
 // sub_116DE0 @ 0x116de0, size 248 bytes
 int  sub_116DE0(int result, int a2, int a3)
 {
@@ -16,13 +36,13 @@ int  sub_116DE0(int result, int a2, int a3)
   else
     v6 = (int *)(dword_116ED8 + 84 * a3);
   v7 = *v6;
-  v8 = **(__int16 **)off_116EDC;
+  v8 = **(int16_t **)off_116EDC;
   if ( v8 < 0 && v7 == result )
     return sub_12F630(dword_116EE8, dword_116EE4, 1972, v8);
   if ( v7 )
   {
     v9 = off_116EF0;
-    v10 = *(unsigned __int8 *)(*(uint32_t *)off_116EF0 + 1);
+    v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
     if ( *(uint8_t *)(*(uint32_t *)off_116EF0 + 1) || !v6[2] )
       *(uint32_t *)(v7 + 4) = result;
     else
@@ -30,24 +50,24 @@ int  sub_116DE0(int result, int a2, int a3)
     if ( a3 == 5
       || !*((uint8_t *)off_116EE0 + 28 * a3 + 46)
       && ((v11 = *((uint32_t *)off_116EE0 + 52), result = v11 << 31, (v11 & 1) == 0)
-       || *((unsigned __int8 *)off_116EE0 + 190) != a3) )
+       || *((uint8_t *)off_116EE0 + 190) != a3) )
     {
       result = sub_1166FC(a3);
-      v10 = *(unsigned __int8 *)(*(uint32_t *)v9 + 1);
+      v10 = *(uint8_t *)(*(uint32_t *)v9 + 1);
     }
   }
   else if ( a3 != 5
          && ((v8 = (int)off_116EE0, v7 = 8 * a3, *((uint8_t *)off_116EE0 + 28 * a3 + 46))
-          || (result = *((unsigned __int8 *)off_116EE0 + 190), (*((uint32_t *)off_116EE0 + 52) & 1) != 0) && a3 == result) )
+          || (result = *((uint8_t *)off_116EE0 + 190), (*((uint32_t *)off_116EE0 + 52) & 1) != 0) && a3 == result) )
   {
     v12 = *(uint32_t *)off_116EF0;
     *((uint32_t *)off_116EE0 + 7 * a3 + 9) = v4;
-    v10 = *(unsigned __int8 *)(v12 + 1);
+    v10 = *(uint8_t *)(v12 + 1);
   }
   else
   {
     result = bt_chan_dispatch_n_6f0(v4, a3, v7, v8);
-    v10 = *(unsigned __int8 *)(*(uint32_t *)off_116EF0 + 1);
+    v10 = *(uint8_t *)(*(uint32_t *)off_116EF0 + 1);
   }
   if ( !v10 )
   {

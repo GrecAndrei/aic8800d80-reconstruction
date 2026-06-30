@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B9F0;
+extern uint32_t dword_12B9F4;
+extern uint32_t dword_12B9F8;
+extern uint32_t dword_12BA28;
+extern uint32_t off_12BA24;
+extern uint32_t dword_12B9E8;
+extern uint32_t dword_12B9EC;
+extern uint32_t dword_12BA20;
+extern uint32_t off_12BA04;
+extern uint32_t dword_12BA08;
+extern uint32_t dword_12B9E0;
+extern uint32_t dword_12B9E4;
+extern uint32_t off_12B9FC;
+extern uint32_t dword_12BA00;
+extern uint32_t off_12BA0C;
+extern uint32_t off_12BA10;
+extern uint32_t dword_12BA14;
+extern uint32_t off_12BA18;
+extern uint32_t off_12BA1C;
+
 // sub_12B7C8 @ 0x12b7c8, size 530 bytes
 // Doc: sub_122B7C8 [unknown]: unknown behavioral stub in fmac firmware bluetooth variant
 // sub_122B7C8 [unknown]: unknown behavioral stub in fmac firmware bluetooth variant
@@ -30,7 +62,7 @@ unsigned int  sub_12B7C8(unsigned int result)
   int v25; // r0
 
   v1 = off_12B9F0;
-  v2 = (unsigned __int8)*(uint32_t *)off_12B9F0;
+  v2 = (uint8_t)*(uint32_t *)off_12B9F0;
   if ( result != v2 )
   {
     v3 = dword_12B9F4;
@@ -61,7 +93,7 @@ unsigned int  sub_12B7C8(unsigned int result)
       *v1 = v4 & (sub_1430C8(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_12BA04;
-    *(uint32_t *)off_12B9FC = dword_12BA00 & ((v6 * (unsigned __int16)(*(uint32_t *)off_12B9FC >> 8) / v2) << 8)
+    *(uint32_t *)off_12B9FC = dword_12BA00 & ((v6 * (uint16_t)(*(uint32_t *)off_12B9FC >> 8) / v2) << 8)
                           | *(uint32_t *)off_12B9FC & 0xFF0000FF;
     *v12 = dword_12BA08 & ((v6 * ((*v12 >> 20) & 0x3FF) / v2) << 20) | *v12 & 0xC00FFFFF;
     *v12 = (v6 * (*v12 & 0x3FF) / v2) & 0x3FF | *v12 & 0xFFFFFC00;
@@ -82,12 +114,12 @@ unsigned int  sub_12B7C8(unsigned int result)
     v16 = dword_12BA00;
     v17 = dword_12BA14;
     v18 = (unsigned int *)off_12BA18;
-    *(uint32_t *)off_12BA10 = dword_12BA00 & ((v6 * (unsigned __int16)(*(uint32_t *)off_12BA10 >> 8) / v2) << 8)
+    *(uint32_t *)off_12BA10 = dword_12BA00 & ((v6 * (uint16_t)(*(uint32_t *)off_12BA10 >> 8) / v2) << 8)
                           | *(uint32_t *)off_12BA10 & dword_12BA14;
-    *v18 = v16 & ((v6 * (unsigned __int16)(*v18 >> 8) / v2) << 8) | v17 & *v18;
+    *v18 = v16 & ((v6 * (uint16_t)(*v18 >> 8) / v2) << 8) | v17 & *v18;
     v19 = (unsigned int *)off_12BA1C;
     v20 = dword_12BA08;
-    v15[2] = (unsigned __int16)v15[2] | (v6 << 19);
+    v15[2] = (uint16_t)v15[2] | (v6 << 19);
     *v19 = v20 & ((v6 * ((*v19 >> 20) & 0x3FF) / v2) << 20) | *v19 & 0xC00FFFFF;
     result = *v19 & 0x3FF;
     *v19 = (v6 * result / v2) & 0x3FF | *v19 & 0xFFFFFC00;

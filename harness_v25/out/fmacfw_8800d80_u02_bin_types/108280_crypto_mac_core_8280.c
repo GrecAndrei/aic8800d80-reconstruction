@@ -1,3 +1,110 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_108540;
+extern uint32_t off_108574;
+extern uint32_t off_108544;
+extern uint32_t off_10857C;
+extern uint32_t off_108548;
+extern uint32_t off_108580;
+extern uint32_t off_108584;
+extern uint32_t off_108578;
+extern uint32_t off_10854C;
+extern uint32_t off_108550;
+extern uint32_t off_108554;
+extern uint32_t off_108558;
+extern uint32_t off_10855C;
+extern uint32_t off_108560;
+extern uint32_t off_108564;
+extern uint32_t off_108568;
+extern uint32_t off_10856C;
+extern uint32_t off_108570;
+extern uint32_t dword_1088AC;
+extern uint32_t off_1088B0;
+extern uint32_t off_1088B4;
+extern uint32_t off_1088F4;
+extern uint32_t off_1088F8;
+extern uint32_t off_1088FC;
+extern uint32_t dword_1088B8;
+extern uint32_t dword_1088BC;
+extern uint32_t dword_1088C0;
+extern uint32_t dword_1088C4;
+extern uint32_t dword_108900;
+extern uint32_t dword_1088CC;
+extern uint32_t off_1088D0;
+extern uint32_t dword_1088C8;
+extern uint32_t dword_1088D4;
+extern uint32_t dword_1092B8;
+extern uint32_t dword_1088D8;
+extern uint32_t dword_1088DC;
+extern uint32_t dword_1088E0;
+extern uint32_t dword_1088E4;
+extern uint32_t dword_1088E8;
+extern uint32_t dword_1088EC;
+extern uint32_t dword_1092C0;
+extern uint32_t dword_1088F0;
+extern uint32_t dword_108BEC;
+extern uint32_t dword_108BF0;
+extern uint32_t dword_108BF4;
+extern uint32_t dword_108BF8;
+extern uint32_t dword_108BFC;
+extern uint32_t off_108C00;
+extern uint32_t off_108C04;
+extern uint32_t off_108C08;
+extern uint32_t dword_1092BC;
+extern uint32_t dword_108F7C;
+extern uint32_t dword_108F78;
+extern uint32_t dword_108F80;
+extern uint32_t dword_108F84;
+extern uint32_t dword_108F88;
+extern uint32_t off_108F90;
+extern uint32_t off_108F94;
+extern uint32_t off_108F8C;
+extern uint32_t dword_1092C4;
+extern uint32_t dword_108F98;
+extern uint32_t dword_108F9C;
+extern uint32_t dword_108FA0;
+extern uint32_t off_108FA4;
+extern uint32_t off_108FA8;
+extern uint32_t off_108FD0;
+extern uint32_t off_108FD4;
+extern uint32_t off_108FD8;
+extern uint32_t off_108FDC;
+extern uint32_t off_108FAC;
+extern uint32_t off_108FB0;
+extern uint32_t off_108FB4;
+extern uint32_t off_108FB8;
+extern uint32_t off_108FBC;
+extern uint32_t dword_108FC0;
+extern uint32_t off_108FC4;
+extern uint32_t off_108FC8;
+extern uint32_t off_108FCC;
+extern uint32_t off_1092AC;
+extern uint32_t off_1092B0;
+extern uint32_t off_1092B4;
+extern uint32_t dword_108C10;
+extern uint32_t dword_108C0C;
+extern uint32_t off_108C14;
+extern uint32_t dword_108C18;
+extern uint32_t dword_108C1C;
+extern uint32_t dword_108C20;
+extern uint32_t off_108C24;
+extern uint32_t dword_108C28;
+extern uint32_t dword_108C2C;
+extern uint32_t off_108C30;
+extern uint32_t dword_108C34;
+extern uint32_t off_108C38;
+extern uint32_t dword_108C3C;
+
 // crypto_mac_core_8280 @ 0x108280, size 4140 bytes
 // Doc: crypto_mac_core_8280 [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
 // crypto_mac_core_8280 [mac]: Core MAC/HW crypto processing using FPU and MMIO registers
@@ -8,7 +115,7 @@ uint32_t * crypto_mac_core_8280(
         unsigned int a4,
         unsigned int a5,
         int a6,
-        __int16 a7)
+        int16_t a7)
 {
   int *v7; // r4
   unsigned int *v8; // lr
@@ -82,7 +189,7 @@ uint32_t * crypto_mac_core_8280(
   signed int v77; // r4
   unsigned int *v78; // r1
   unsigned int *v79; // r3
-  bool v80; // cc
+  int v80; // cc
   int v81; // r1
   unsigned int *v82; // r1
   unsigned int *v83; // r0
@@ -253,14 +360,14 @@ uint32_t * crypto_mac_core_8280(
   *v14 |= 0x400000u;
   LOBYTE(a4) = 90;
   do
-    a4 = (unsigned __int8)(a4 - 1);
+    a4 = (uint8_t)(a4 - 1);
   while ( a4 );
   v17 = off_10854C;
   *(uint32_t *)off_10854C &= ~0x100000u;
   *(uint32_t *)v17 |= 0x200000u;
   LOBYTE(v17) = 60;
   do
-    v17 = (void *)(unsigned __int8)((uint8_t)v17 - 1);
+    v17 = (void *)(uint8_t)((uint8_t)v17 - 1);
   while ( v17 );
   v18 = off_108540;
   *(uint32_t *)off_10854C |= 0x100000u;
@@ -268,14 +375,14 @@ uint32_t * crypto_mac_core_8280(
   *(uint32_t *)v18 |= 0x10000u;
   LOBYTE(v18) = 90;
   do
-    v18 = (void *)(unsigned __int8)((uint8_t)v18 - 1);
+    v18 = (void *)(uint8_t)((uint8_t)v18 - 1);
   while ( v18 );
   v19 = off_108540;
   *(uint32_t *)off_108540 &= ~0x40000u;
   *(uint32_t *)v19 |= 0x80000u;
   LOBYTE(v19) = 60;
   do
-    v19 = (void *)(unsigned __int8)((uint8_t)v19 - 1);
+    v19 = (void *)(uint8_t)((uint8_t)v19 - 1);
   while ( v19 );
   v20 = off_108540;
   *(uint32_t *)off_108540 |= 0x40000u;
@@ -283,7 +390,7 @@ uint32_t * crypto_mac_core_8280(
   *v20 |= 0x4000u;
   LOBYTE(v21) = 90;
   do
-    v21 = (unsigned __int8)(v21 - 1);
+    v21 = (uint8_t)(v21 - 1);
   while ( v21 );
   v22 = off_108560;
   v23 = off_108564;
@@ -303,8 +410,8 @@ uint32_t * crypto_mac_core_8280(
   do
   {
     sub_10410C(v21, 0);
-    v26 = (unsigned __int8)(v21 + 1);
-    v21 = (unsigned __int8)(v21 + 2);
+    v26 = (uint8_t)(v21 + 1);
+    v21 = (uint8_t)(v21 + 2);
     sub_10410C(v26, 0);
   }
   while ( v21 != 32 );
@@ -396,7 +503,7 @@ uint32_t * crypto_mac_core_8280(
             v42 = (*v30 & 0x800) != 0 ? v40 - 4096 : *v30 & 0xFFF;
             if ( v41 <= 1024 && v42 <= 1024 )
               break;
-            v38 = (unsigned __int8)(v38 - 1);
+            v38 = (uint8_t)(v38 - 1);
             feature_guard_check(1, dword_1092B8);
           }
           v107 = v38;

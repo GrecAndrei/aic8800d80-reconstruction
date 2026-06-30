@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13AA18;
+extern uint32_t dword_13AA14;
+
 // patch_apply_n_4a2 @ 0x13a7a0, size 626 bytes
 // Doc: patch_apply_n_4a2 [patch]: apply firmware patch table entry
 // patch_apply_n_4a2 [patch]: apply firmware patch table entry
@@ -12,30 +27,30 @@ int  patch_apply_n_4a2(int a1, int a2)
   int v8; // lr
   int v10; // r2
   int v12; // r4
-  __int16 v13; // r3
+  int16_t v13; // r3
   int v14; // r1
   int v15; // r0
-  __int16 v16; // r1
+  int16_t v16; // r1
   int v17; // r0
   int v18; // r3
   int v19; // r12
   int v20; // r3
   int v21; // r3
   int v22; // r3
-  __int16 v24; // lr
-  __int16 v25; // r3
-  __int16 v26; // r3
+  int16_t v24; // lr
+  int16_t v25; // r3
+  int16_t v26; // r3
   int v27; // r6
   int v28; // r6
   int v29; // r0
-  __int16 v30; // r3
+  int16_t v30; // r3
   int v31; // [sp+4h] [bp-10h]
   int v32; // [sp+8h] [bp-Ch]
   int v33; // [sp+Ch] [bp-8h]
 
-  v2 = *(unsigned __int8 *)(a1 + 29);
+  v2 = *(uint8_t *)(a1 + 29);
   v3 = dword_13AA18;
-  v4 = *(unsigned __int8 *)(a1 + 28);
+  v4 = *(uint8_t *)(a1 + 28);
   v5 = dword_13AA14;
   v6 = 696 * v2;
   v7 = dword_13AA18 + 696 * v2;
@@ -43,7 +58,7 @@ int  patch_apply_n_4a2(int a1, int a2)
   v32 = *(uint32_t *)(v7 + 184);
   v10 = **(uint32_t **)(v7 + 188);
   v31 = *(uint32_t *)(v8 + 1200);
-  v12 = a2 - *(unsigned __int8 *)(a1 + 50);
+  v12 = a2 - *(uint8_t *)(a1 + 50);
   if ( *(uint8_t *)(v8 + 106) )
   {
     v13 = 0;
@@ -53,7 +68,7 @@ int  patch_apply_n_4a2(int a1, int a2)
     if ( (*(uint32_t *)(v7 + 4) & 0x20) == 0 )
     {
       v13 = 0;
-      v14 = *(unsigned __int8 *)(a1 + 27);
+      v14 = *(uint8_t *)(a1 + 27);
       if ( v14 == 255 )
         goto LABEL_4;
       goto LABEL_26;
@@ -64,11 +79,11 @@ int  patch_apply_n_4a2(int a1, int a2)
     *(uint32_t *)(a2 - 4) = v29;
     v13 = 0x8000;
   }
-  v14 = *(unsigned __int8 *)(a1 + 27);
+  v14 = *(uint8_t *)(a1 + 27);
   if ( v14 == 255 )
   {
 LABEL_4:
-    v15 = *(unsigned __int16 *)(a1 + 30);
+    v15 = *(uint16_t *)(a1 + 30);
     *(uint16_t *)v12 = v13 | 8;
     *(uint8_t *)(v12 + 22) = 0;
     *(uint8_t *)(v12 + 23) = 0;
@@ -85,7 +100,7 @@ LABEL_5:
     goto LABEL_32;
   }
 LABEL_26:
-  v15 = *(unsigned __int16 *)(a1 + 30);
+  v15 = *(uint16_t *)(a1 + 30);
   *(uint16_t *)(v12 + 22) = 16 * *(uint16_t *)(a1 + 32);
   *(uint8_t *)(v12 + 1) = 0;
   if ( (v15 & 0x200) != 0 )
@@ -184,11 +199,11 @@ LABEL_6:
   if ( v10
     && v31
     && ((*(uint32_t *)(v5 + 1320 * v4 + 1208) & 2) == 0
-     || *(unsigned __int16 *)(v3 + 696 * *(unsigned __int8 *)(a1 + 29) + 56) != (unsigned __int16)__rev16(*(unsigned __int16 *)(a1 + 24))) )
+     || *(uint16_t *)(v3 + 696 * *(uint8_t *)(a1 + 29) + 56) != (uint16_t)__rev16(*(uint16_t *)(a1 + 24))) )
   {
     if ( !v32
-      || (v22 = *(unsigned __int8 *)(v32 + 96), v22 == 4)
-      || (unsigned int)(v22 - 1) <= 1 && *(unsigned __int8 *)(v3 + 696 * v2 + 669) > 1u )
+      || (v22 = *(uint8_t *)(v32 + 96), v22 == 4)
+      || (unsigned int)(v22 - 1) <= 1 && *(uint8_t *)(v3 + 696 * v2 + 669) > 1u )
     {
       *(uint16_t *)v12 = v16 | 0x4000;
     }

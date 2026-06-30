@@ -1,9 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102B3C;
+
 // sub_102ADC @ 0x102adc, size 96 bytes
 int * sub_102ADC(int a1)
 {
   int v1; // r4
   int v2; // r1
-  bool v3; // zf
+  int v3; // zf
   int v4; // r2
   int v5; // r2
   int v6; // r3
@@ -33,7 +47,7 @@ int * sub_102ADC(int a1)
     v1 = 1;
   LOBYTE(v6) = 50;
   do
-    v6 = (unsigned __int8)(v6 - 1);
+    v6 = (uint8_t)(v6 - 1);
   while ( v6 );
   v9 = v5 & a1;
   result = (int *)off_102B3C;
@@ -42,7 +56,7 @@ int * sub_102ADC(int a1)
   LOBYTE(v9) = 50;
   *result = v8;
   do
-    v9 = (unsigned __int8)(v9 - 1);
+    v9 = (uint8_t)(v9 - 1);
   while ( v9 );
   *(uint32_t *)off_102B3C = v8 | v1;
   return result;

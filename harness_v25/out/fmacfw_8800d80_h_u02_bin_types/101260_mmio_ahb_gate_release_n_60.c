@@ -1,3 +1,63 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101478;
+extern uint32_t off_10147C;
+extern uint32_t off_101480;
+extern uint32_t off_101484;
+extern uint32_t off_101488;
+extern uint32_t off_10148C;
+extern uint32_t off_101490;
+extern uint32_t off_101494;
+extern uint32_t off_101688;
+extern uint32_t off_10168C;
+extern uint32_t dword_101690;
+extern uint32_t dword_101694;
+extern uint32_t off_101684;
+extern uint32_t dword_1016A0;
+extern uint32_t dword_1016A4;
+extern uint32_t dword_101698;
+extern uint32_t dword_10169C;
+extern uint32_t off_10149C;
+extern uint32_t off_1014A0;
+extern uint32_t dword_1014BC;
+extern uint32_t dword_1014C0;
+extern uint32_t off_101498;
+extern uint32_t dword_1014B4;
+extern uint32_t dword_1014B8;
+extern uint32_t dword_1014A4;
+extern uint32_t dword_1014A8;
+extern uint32_t off_1014AC;
+extern uint32_t off_1014B0;
+extern uint32_t dword_101630;
+extern uint32_t off_101634;
+extern uint32_t off_10162C;
+extern uint32_t off_101638;
+extern uint32_t off_10163C;
+extern uint32_t off_101644;
+extern uint32_t off_101640;
+extern uint32_t off_101648;
+extern uint32_t off_10164C;
+extern uint32_t off_101650;
+extern uint32_t qword_101678;
+extern uint32_t dword_101680;
+extern uint32_t qword_10166C;
+extern uint32_t dword_101674;
+extern uint32_t qword_101654;
+extern uint32_t dword_10165C;
+extern uint32_t off_101660;
+extern uint32_t off_101664;
+extern uint32_t off_101668;
+
 // mmio_ahb_gate_release_n_60 @ 0x101260, size 972 bytes
 uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
 {
@@ -183,8 +243,8 @@ uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
   }
   v20 = dword_101630;
   v21 = (unsigned int *)off_101634;
-  *(uint32_t *)off_10162C = *(uint32_t *)off_10162C & 0xFFFFFF00 | *(unsigned __int8 *)(dword_101630 + v17);
-  v22 = *(unsigned __int8 *)(v20 + v17 + 1);
+  *(uint32_t *)off_10162C = *(uint32_t *)off_10162C & 0xFFFFFF00 | *(uint8_t *)(dword_101630 + v17);
+  v22 = *(uint8_t *)(v20 + v17 + 1);
   v23 = off_101638;
   *v21 = *v21 & 0xFFFFFF00 | v22;
   if ( !v23[1] )
@@ -231,7 +291,7 @@ uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1)
     v31 = 2;
   }
   v32 = off_101660;
-  if ( *(unsigned __int8 *)off_101660 != v31 )
+  if ( *(uint8_t *)off_101660 != v31 )
     sub_102E9C(0);
   v33 = off_101664;
   *v32 = v31;

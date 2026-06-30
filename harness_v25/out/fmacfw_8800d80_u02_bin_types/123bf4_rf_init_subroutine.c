@@ -1,7 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123C78;
+extern uint32_t off_123C7C;
+extern uint32_t off_123C80;
+extern uint32_t dword_123C88;
+extern uint32_t dword_123C84;
+
 // rf_init_subroutine @ 0x123bf4, size 130 bytes
 // Doc: rf_init_subroutine [rf]: Call sub and branch on result == 3 (init/handshake check)
 // rf_init_subroutine [rf]: Call sub and branch on result == 3 (init/handshake check)
-int  rf_init_subroutine(int a1, unsigned __int8 *a2, int a3, int a4)
+int  rf_init_subroutine(int a1, uint8_t *a2, int a3, int a4)
 {
   int v7; // r2
   uint16_t *v8; // r5
@@ -26,7 +44,7 @@ LABEL_6:
   result = msg_get_value(a3);
   if ( !result )
   {
-    if ( **(__int16 **)off_123C7C < 0 )
+    if ( **(int16_t **)off_123C7C < 0 )
     {
       if ( *(uint32_t *)off_123C80 << 28 )
         sub_12F46C(dword_123C88, dword_123C84, 1522);

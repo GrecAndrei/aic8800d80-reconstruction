@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E0E8;
+extern uint32_t dword_10E0C8;
+extern uint32_t dword_10E0CC;
+extern uint32_t dword_10E0D0;
+extern uint32_t dword_10E0D4;
+extern uint32_t dword_10E0D8;
+extern uint32_t dword_10E0DC;
+extern uint32_t dword_10E0EC;
+extern uint32_t dword_10E0F0;
+extern uint32_t dword_10E0E0;
+extern uint32_t dword_10E0E4;
+extern uint32_t dword_10E0F4;
+
 // mmio_clock_gate_set_n040 @ 0x10e040, size 130 bytes
 // Doc: mmio_clock_gate_set_n040 [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4
 // mmio_clock_gate_set_n040 [mmio]: Set MMIO clock gate enable bit at 0x4010d000+4

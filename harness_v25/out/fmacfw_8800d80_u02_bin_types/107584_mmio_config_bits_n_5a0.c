@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107664;
+extern uint32_t off_107668;
+extern uint32_t off_10766C;
+extern uint32_t dword_107670;
+extern uint32_t dword_107674;
+
 // mmio_config_bits_n_5a0 @ 0x107584, size 222 bytes
 // Doc: mmio_config_bits_n_5a0 [mmio]: Configure MMIO register bit field using bic/orr mask pattern
 // mmio_config_bits_n_5a0 [mmio]: Configure MMIO register bit field using bic/orr mask pattern

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100634;
+extern uint32_t off_100638;
+extern uint32_t dword_100640;
+extern uint32_t dword_10063C;
+
 // sub_1005B0 @ 0x1005b0, size 132 bytes
 // Doc: sub_12005B0 [unknown]: Generic init helper calling paired setup routines
 // sub_12005B0 [unknown]: Generic init helper calling paired setup routines
@@ -51,7 +68,7 @@ int  sub_1005B0(int a1)
   }
   else if ( a1 )
   {
-    if ( **(__int16 **)off_100638 < 0 )
+    if ( **(int16_t **)off_100638 < 0 )
       sub_12F46C(dword_100640, dword_10063C, 434);
     return 0;
   }

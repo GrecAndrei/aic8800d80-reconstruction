@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110074;
+extern uint32_t off_110070;
+extern uint32_t dword_110078;
+
 // sub_10FFF0 @ 0x10fff0, size 122 bytes
 // Doc: log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
 // log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
@@ -6,8 +22,8 @@ int sub_10FFF0()
   void *v0; // r4
   int v1; // r3
   uint32_t *v2; // r0
-  __int16 v3; // r2
-  __int16 v4; // r1
+  int16_t v3; // r2
+  int16_t v4; // r1
   uint64_t v5; // kr00_8
   uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
@@ -21,7 +37,7 @@ int sub_10FFF0()
   v8[1] = *(uint16_t *)(v1 + 4);
   v8[5] = *(uint16_t *)(v1 + 6);
   v8[7] = *(uint16_t *)(v1 + 8);
-  v5 = *(QWORD *)(v1 + 20);
+  v5 = *(uint64_t *)(v1 + 20);
   *(uint32_t *)off_110074 = v5;
   v2[3] = dword_110078;
   v2[1] = HIDWORD(v5);

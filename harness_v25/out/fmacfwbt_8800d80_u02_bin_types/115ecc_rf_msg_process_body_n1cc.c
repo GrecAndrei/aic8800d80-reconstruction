@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115FF8;
+extern uint32_t off_115FFC;
+extern uint32_t dword_116000;
+extern uint32_t off_116008;
+extern uint32_t off_116004;
+extern uint32_t off_116010;
+extern uint32_t off_11600C;
+extern uint32_t off_116020;
+extern uint32_t off_116014;
+extern uint32_t off_116018;
+extern uint32_t off_116024;
+extern uint32_t off_116028;
+extern uint32_t off_116030;
+extern uint32_t off_11602C;
+extern uint32_t off_11601C;
+
 // rf_msg_process_body_n1cc @ 0x115ecc, size 300 bytes
 // Doc: rf_msg_process_body_n1cc [rf]: Processes body of RF message, updating sequence/length fields
 // rf_msg_process_body_n1cc [rf]: Processes body of RF message, updating sequence/length fields
@@ -8,11 +36,11 @@ uint8_t *rf_msg_process_body_n1cc()
   int v2; // r1
   uint32_t *v3; // r2
   uint32_t *v4; // r2
-  unsigned __int8 *v5; // r1
+  uint8_t *v5; // r1
   int v6; // r1
   uint32_t *v7; // r2
   uint32_t *v8; // r1
-  unsigned __int8 **v9; // r1
+  uint8_t **v9; // r1
   int v10; // r3
   uint8_t *result; // r0
   int v12; // r2
@@ -33,7 +61,7 @@ uint8_t *rf_msg_process_body_n1cc()
     while ( (*v3 & 4) == 0 )
       ;
     v4 = off_116004;
-    v5 = (unsigned __int8 *)off_116010;
+    v5 = (uint8_t *)off_116010;
     *(uint32_t *)off_11600C = 4;
     v6 = v5[189];
     *v4 |= 0x80000000;
@@ -49,7 +77,7 @@ uint8_t *rf_msg_process_body_n1cc()
   *(uint32_t *)off_116014 |= 0x111u;
   v1[1] = 1;
   *v8 = 32;
-  v9 = (unsigned __int8 **)off_116018;
+  v9 = (uint8_t **)off_116018;
   *v7 &= 0xFFFFFEEE;
   v10 = **v9;
   if ( v10 == 3 )

@@ -1,7 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_141674;
+extern uint32_t dword_141670;
+extern uint32_t dword_141684;
+extern uint32_t dword_14167C;
+extern uint32_t dword_141680;
+extern uint32_t dword_141678;
+
 // sub_14157C @ 0x14157c, size 244 bytes
 void sub_14157C()
 {
-  __int16 **v0; // r6
+  int16_t **v0; // r6
   int v1; // r3
   int v2; // r5
   unsigned int v3; // r3
@@ -12,12 +31,12 @@ void sub_14157C()
   unsigned int v8; // r3
   unsigned int v9; // r3
 
-  v0 = (__int16 **)off_141674;
+  v0 = (int16_t **)off_141674;
   v1 = 136 * *(uint32_t *)(dword_141670 + 6480);
   v2 = v1 + 6336 + dword_141670;
-  if ( **(__int16 **)off_141674 >= 0 )
+  if ( **(int16_t **)off_141674 >= 0 )
   {
-    v3 = *(unsigned __int8 *)(v1 + dword_141670 + 6339);
+    v3 = *(uint8_t *)(v1 + dword_141670 + 6339);
     if ( v3 > 1 )
     {
       if ( v3 != 2 )
@@ -31,7 +50,7 @@ LABEL_12:
   v7 = dword_141670 + v1;
   if ( *(uint8_t *)(dword_141670 + v1 + 6338) == 5 )
   {
-    v9 = *(unsigned __int8 *)(v7 + 6339);
+    v9 = *(uint8_t *)(v7 + 6339);
     if ( v9 <= 1 )
       goto LABEL_12;
     if ( v9 != 2 )
@@ -44,7 +63,7 @@ LABEL_18:
   else
   {
     sub_12F694(dword_141680, dword_14167C, 1714);
-    v8 = *(unsigned __int8 *)(v7 + 6339);
+    v8 = *(uint8_t *)(v7 + 6339);
     if ( v8 <= 1 )
       goto LABEL_12;
     if ( v8 != 2 )
@@ -61,7 +80,7 @@ LABEL_4:
   bt_xtal_init_check((uint32_t *)dword_141678);
   do
   {
-    while ( *(uint16_t *)(v4 + 4) != 1 || !sub_140C14((unsigned __int16 *)(v4 + 6), v4 + 28, v2) )
+    while ( *(uint16_t *)(v4 + 4) != 1 || !sub_140C14((uint16_t *)(v4 + 6), v4 + 28, v2) )
     {
       v4 += 528;
       if ( v4 == v5 )

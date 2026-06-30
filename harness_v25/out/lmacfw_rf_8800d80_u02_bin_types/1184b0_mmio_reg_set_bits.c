@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1185DC;
+extern uint32_t off_1185D8;
+extern uint32_t off_1185E0;
+extern uint32_t off_1185E4;
+extern uint32_t off_1185E8;
+extern uint32_t off_1185EC;
+extern uint32_t off_1185F0;
+extern uint32_t dword_1185F4;
+extern uint32_t off_118620;
+extern uint32_t off_1185F8;
+extern uint32_t off_1185FC;
+extern uint32_t dword_118600;
+extern uint32_t off_118608;
+extern uint32_t off_11860C;
+extern uint32_t off_118610;
+extern uint32_t off_118614;
+extern uint32_t off_118618;
+extern uint32_t off_118604;
+extern uint32_t off_11861C;
+
 // mmio_reg_set_bits @ 0x1184b0, size 294 bytes
 // Doc: mmio_reg_set_bits [mmio]: Set bits in MMIO control register group
 // mmio_reg_set_bits [mmio]: Set bits in MMIO control register group
@@ -14,7 +46,7 @@ uint32_t *mmio_reg_set_bits()
   int v8; // r4
   int v9; // r3
   char v10; // r2
-  bool v11; // zf
+  int v11; // zf
   int v12; // r2
   unsigned int v13; // r2
   uint32_t *v14; // r2
@@ -22,7 +54,7 @@ uint32_t *mmio_reg_set_bits()
   uint32_t *v16; // r5
   uint32_t *v17; // r4
   uint32_t *result; // r0
-  unsigned __int8 **v19; // r1
+  uint8_t **v19; // r1
   int v20; // r3
 
   v0 = (int *)off_1185DC;
@@ -67,7 +99,7 @@ uint32_t *mmio_reg_set_bits()
   v16 = off_11860C;
   v17 = off_118610;
   result = off_118614;
-  v19 = (unsigned __int8 **)off_118618;
+  v19 = (uint8_t **)off_118618;
   *(uint32_t *)off_118604 &= ~1u;
   *v15 = 0xFFFF;
   *v16 = -1;

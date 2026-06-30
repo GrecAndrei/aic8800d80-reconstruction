@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_119158;
+extern uint32_t dword_11915C;
+extern uint32_t off_119160;
+extern uint32_t off_119164;
+extern uint32_t off_119168;
+extern uint32_t off_11916C;
+
 // sub_119054 @ 0x119054, size 260 bytes
 int  sub_119054(int a1)
 {
@@ -19,18 +38,18 @@ int  sub_119054(int a1)
   int v17; // r1
   char *v18; // r4
   uint32_t *v19; // r5
-  unsigned __int8 v20; // r0
+  uint8_t v20; // r0
   uint32_t *v21; // r1
   uint32_t *v22; // r1
 
   v1 = dword_119158;
-  v2 = *(unsigned __int8 *)(dword_119158 + 152 * a1 + 32);
+  v2 = *(uint8_t *)(dword_119158 + 152 * a1 + 32);
   v4 = dword_119158 + 152 * a1;
-  v5 = dword_119158 + 8 * (19 * (__int16)a1 + 11);
+  v5 = dword_119158 + 8 * (19 * (int16_t)a1 + 11);
   v6 = 0;
   do
   {
-    v7 = (unsigned __int8)v6++;
+    v7 = (uint8_t)v6++;
     if ( *(uint32_t *)(v4 + 56) )
       rf_bus_write_60fc(v7, v5 - 32);
     v8 = *(uint32_t *)(v4 + 88);
@@ -63,7 +82,7 @@ int  sub_119054(int a1)
   *(int *)((char *)v15 + 0xFFFFFFF0) = 0;
   *(uint32_t *)&v12[-4] = 0;
   v16 = v15;
-  *v15 = ((unsigned __int8)(a1 + 16) << 16) | 0x40000000;
+  *v15 = ((uint8_t)(a1 + 16) << 16) | 0x40000000;
   while ( (*v15 & 0x40000000) != 0 )
     ;
   v17 = *(uint32_t *)(v1 + 152 * a1 + 44);

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1284A4;
+extern uint32_t dword_1284A8;
+extern uint32_t dword_1284BC;
+extern uint32_t dword_1284AC;
+extern uint32_t off_1284B0;
+extern uint32_t off_1284B8;
+extern uint32_t off_1284B4;
+
 // sub_128340 @ 0x128340, size 354 bytes
 int  sub_128340(int result)
 {
@@ -23,18 +43,18 @@ int  sub_128340(int result)
   int v20; // r2
 
   v1 = off_1284A4;
-  if ( *((unsigned __int8 *)off_1284A4 + 90) > 1u )
+  if ( *((uint8_t *)off_1284A4 + 90) > 1u )
   {
-    v2 = *(unsigned __int8 *)(result + 85);
+    v2 = *(uint8_t *)(result + 85);
     v3 = result;
     if ( (v2 & 0x10) != 0 )
     {
       v4 = dword_1284A8;
       while ( 1 )
       {
-        if ( *(unsigned __int8 *)(v4 + 24) != 255 )
+        if ( *(uint8_t *)(v4 + 24) != 255 )
         {
-          v5 = *(unsigned __int8 *)(v4 + 27);
+          v5 = *(uint8_t *)(v4 + 27);
           if ( v5 != 255 )
             break;
         }

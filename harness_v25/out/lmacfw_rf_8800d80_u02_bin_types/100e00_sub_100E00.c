@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10107C;
+extern uint32_t off_101080;
+extern uint32_t off_101084;
+extern uint32_t off_101088;
+extern uint32_t off_10108C;
+extern uint32_t off_101090;
+extern uint32_t off_101094;
+extern uint32_t off_101098;
+extern uint32_t dword_1010A4;
+extern uint32_t off_1010A8;
+extern uint32_t off_1010AC;
+extern uint32_t off_10109C;
+extern uint32_t dword_1010A0;
+extern uint32_t off_1010B0;
+extern uint32_t off_1010B4;
+extern uint32_t off_1010B8;
+extern uint32_t off_1010BC;
+extern uint32_t off_1010C0;
+extern uint32_t off_1010C4;
+extern uint32_t off_1010C8;
+extern uint32_t off_1010CC;
+extern uint32_t off_1010D0;
+
 // sub_100E00 @ 0x100e00, size 634 bytes
 int  sub_100E00(unsigned int a1, int a2)
 {
@@ -81,10 +116,10 @@ int  sub_100E00(unsigned int a1, int a2)
   v15 = *(uint8_t *)off_10109C & 0xC0;
   if ( v15 == 192 )
     v12 = dword_1010A0;
-  *(uint32_t *)off_1010A8 = *(uint32_t *)off_1010A8 & 0xFE01FFFF | (*(unsigned __int8 *)(v12 + v11) << 17);
+  *(uint32_t *)off_1010A8 = *(uint32_t *)off_1010A8 & 0xFE01FFFF | (*(uint8_t *)(v12 + v11) << 17);
   v16 = v11 + v12;
-  *v13 = *v13 & 0xFFFFFF00 | *(unsigned __int8 *)(v16 + 1);
-  v17 = *(unsigned __int8 *)(v16 + 2);
+  *v13 = *v13 & 0xFFFFFF00 | *(uint8_t *)(v16 + 1);
+  v17 = *(uint8_t *)(v16 + 2);
   v18 = (unsigned int *)off_1010B0;
   v19 = off_1010B4;
   *v14 = *v14 & 0xFFFFFF00 | v17;

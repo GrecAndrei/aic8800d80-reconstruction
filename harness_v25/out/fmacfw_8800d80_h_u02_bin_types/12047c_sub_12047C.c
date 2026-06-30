@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_120598;
+extern uint32_t off_12059C;
+extern uint32_t off_1205A0;
+extern uint32_t off_1205A4;
+extern uint32_t off_1205A8;
+extern uint32_t off_1205AC;
+extern uint32_t dword_1205B0;
+extern uint32_t off_1205DC;
+extern uint32_t off_1205B4;
+extern uint32_t off_1205B8;
+extern uint32_t dword_1205BC;
+extern uint32_t off_1205C4;
+extern uint32_t off_1205C8;
+extern uint32_t off_1205CC;
+extern uint32_t off_1205D0;
+extern uint32_t off_1205D4;
+extern uint32_t off_1205C0;
+extern uint32_t off_1205D8;
+
 // sub_12047C @ 0x12047c, size 284 bytes
 uint32_t *sub_12047C()
 {
@@ -12,7 +43,7 @@ uint32_t *sub_12047C()
   int v8; // r4
   int v9; // r3
   char v10; // r2
-  bool v11; // zf
+  int v11; // zf
   int v12; // r2
   unsigned int v13; // r2
   uint32_t *v14; // r2
@@ -20,7 +51,7 @@ uint32_t *sub_12047C()
   uint32_t *v16; // r5
   uint32_t *v17; // r4
   uint32_t *result; // r0
-  unsigned __int8 **v19; // r1
+  uint8_t **v19; // r1
   int v20; // r3
 
   v0 = (int *)off_120598;
@@ -64,7 +95,7 @@ uint32_t *sub_12047C()
   v16 = off_1205C8;
   v17 = off_1205CC;
   result = off_1205D0;
-  v19 = (unsigned __int8 **)off_1205D4;
+  v19 = (uint8_t **)off_1205D4;
   *(uint32_t *)off_1205C0 &= ~1u;
   *v15 = 0xFFFF;
   *v16 = -1;

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_109BF0;
+extern uint32_t dword_109BF4;
+extern uint32_t dword_109BFC;
+extern uint32_t dword_109C00;
+
 // float_compare_9988 @ 0x109988, size 610 bytes
 // Doc: float_compare_9988 [util]: Float32 pair compare and range helper
 // float_compare_9988 [util]: Float32 pair compare and range helper

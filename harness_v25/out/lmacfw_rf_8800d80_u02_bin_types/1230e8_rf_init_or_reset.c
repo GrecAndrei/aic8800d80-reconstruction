@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_123208;
+extern uint32_t dword_123210;
+extern uint32_t dword_123214;
+extern uint32_t dword_123218;
+extern uint32_t dword_12322C;
+extern uint32_t dword_12321C;
+extern uint32_t dword_12323C;
+extern uint32_t dword_123234;
+extern uint32_t dword_123230;
+extern uint32_t dword_123238;
+extern uint32_t dword_123220;
+extern uint32_t off_123224;
+extern uint32_t off_123228;
+extern uint32_t dword_12320C;
+
 // rf_init_or_reset @ 0x1230e8, size 288 bytes
 // Doc: rf_init_or_reset [rf]: RF subsystem initialization entry, sets up context and calls helper
 // rf_init_or_reset [rf]: RF subsystem initialization entry, sets up context and calls helper
@@ -91,7 +118,7 @@ int  rf_init_or_reset(unsigned int a1)
         }
         uart_puts((uint8_t *)dword_123220);
         v11 = off_123224;
-        v12 = *(unsigned __int8 *)off_123224;
+        v12 = *(uint8_t *)off_123224;
         if ( *(uint8_t *)off_123224 )
         {
           *((uint8_t *)off_123228 + 783) = -4;

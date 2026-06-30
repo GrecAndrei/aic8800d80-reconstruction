@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112F40;
+extern uint32_t dword_112F68;
+extern uint32_t off_112F54;
+extern uint32_t off_112F58;
+extern uint32_t off_112F5C;
+extern uint32_t dword_112F60;
+extern uint32_t dword_112F64;
+extern uint32_t dword_112F44;
+extern uint32_t dword_112F48;
+extern uint32_t dword_112F50;
+extern uint32_t dword_112F4C;
+extern uint32_t dword_112F6C;
+
 // sub_112CEC @ 0x112cec, size 594 bytes
 int sub_112CEC()
 {
@@ -122,7 +147,7 @@ LABEL_3:
             v35 = *(uint32_t *)(v9 - 16);
             v31 = (v5 & 1) == 0;
             if ( (v5 & 1) == 0 )
-              sub_111D44((int *)1, (unsigned __int8)v10);
+              sub_111D44((int *)1, (uint8_t)v10);
             LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
             v13 = *(int ( **)(int, int, BOOL))(dword_112F48 + 4 * v10 + 52);
             if ( v13 )
@@ -134,7 +159,7 @@ LABEL_3:
           LODWORD(v3) = sub_10DC24(dword_112F50);
         }
       }
-      if ( (unsigned __int8)v10 == 5 )
+      if ( (uint8_t)v10 == 5 )
         break;
 LABEL_14:
       ++v10;
@@ -176,7 +201,7 @@ LABEL_14:
         {
           if ( *(uint8_t *)(v15 - 8) )
           {
-            v34 = **(unsigned __int16 **)(v16 + 4 * i);
+            v34 = **(uint16_t **)(v16 + 4 * i);
             v32 = *(uint32_t *)(v15 - 12);
             v36 = *(uint32_t *)(v15 - 16);
             LODWORD(v3) = sub_100200((int *)(v15 - 16), 0, 0x10u);
@@ -186,7 +211,7 @@ LABEL_14:
           }
         }
       }
-      if ( (unsigned __int8)i == 5 )
+      if ( (uint8_t)i == 5 )
         break;
 LABEL_19:
       v15 += 16;

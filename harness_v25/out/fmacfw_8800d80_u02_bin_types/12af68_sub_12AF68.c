@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12AFF4;
+extern uint32_t off_12AFF8;
+extern uint32_t dword_12B004;
+extern uint32_t dword_12B000;
+extern uint32_t off_12AFFC;
+
 // sub_12AF68 @ 0x12af68, size 138 bytes
 // Doc: sub_122AF68 [util]: Calls helper(2), checks return against 3 (likely init/status poll)
 // sub_122AF68 [util]: Calls helper(2), checks return against 3 (likely init/status poll)
@@ -16,17 +34,17 @@ int sub_12AF68()
     value = msg_get_value(2);
     msg_parse(dword_12AFF4, value, v1);
   }
-  if ( **(__int16 **)off_12AFF8 < 0 && msg_get_value(2) != 3 )
+  if ( **(int16_t **)off_12AFF8 < 0 && msg_get_value(2) != 3 )
     sub_12F46C(dword_12B004, dword_12B000, 201);
   v2 = off_12AFFC;
   v3 = *(uint32_t *)off_12AFFC;
-  v4 = *(unsigned __int8 *)(*(uint32_t *)off_12AFFC + 367);
-  v5 = (unsigned __int8)(*((uint8_t *)off_12AFFC + 10) + 1);
+  v4 = *(uint8_t *)(*(uint32_t *)off_12AFFC + 367);
+  v5 = (uint8_t)(*((uint8_t *)off_12AFFC + 10) + 1);
   *((uint8_t *)off_12AFFC + 10) = v5;
   if ( v4 <= v5 || v2[11] )
   {
     sub_12CA38(v3 - 12);
-    v6 = *((unsigned __int16 *)v2 + 4);
+    v6 = *((uint16_t *)v2 + 4);
     if ( v2[11] )
     {
       ipc_msg_alloc_n0(0, v6);

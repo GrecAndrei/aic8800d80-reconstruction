@@ -1,13 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11326C;
+extern uint32_t dword_113284;
+extern uint32_t dword_113288;
+extern uint32_t dword_1132A0;
+
 // rf_msg_handler_3104 @ 0x113104, size 360 bytes
 // Doc: rf_cmd_queue_next_n_260 [rf]: Process next RF command from queue
 // rf_cmd_queue_next_n_260 [rf]: Process next RF command from queue
-int  rf_msg_handler_3104(unsigned __int8 *a1, unsigned int a2, int a3)
+int  rf_msg_handler_3104(uint8_t *a1, unsigned int a2, int a3)
 {
-  unsigned __int16 *v3; // r7
-  unsigned __int8 *v4; // r6
+  uint16_t *v3; // r7
+  uint8_t *v4; // r6
   uint8_t *v5; // r4
   char v6; // r2
-  unsigned __int8 *v7; // r4
+  uint8_t *v7; // r4
   int v9; // r8
   int v10; // r6
   uint8_t *v11; // r8
@@ -17,8 +34,8 @@ int  rf_msg_handler_3104(unsigned __int8 *a1, unsigned int a2, int a3)
   char *v15; // r3
   int v17; // r0
 
-  v3 = (unsigned __int16 *)off_11326C;
-  v4 = (unsigned __int8 *)rf_cmd_send_n260;
+  v3 = (uint16_t *)off_11326C;
+  v4 = (uint8_t *)rf_cmd_send_n260;
   v5 = ipc_doorbell_handler_n17b;
   ++*(uint16_t *)off_11326C;
   if ( a3 )
@@ -44,7 +61,7 @@ int  rf_msg_handler_3104(unsigned __int8 *a1, unsigned int a2, int a3)
     v9 = a1[2];
     v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(uint8_t *)patch_apply_n_2e )
-      a1 = (unsigned __int8 *)feature_guard_check(512, rf_cmd_send_n288);
+      a1 = (uint8_t *)feature_guard_check(512, rf_cmd_send_n288);
     if ( v9 == 1 )
     {
       if ( a2 == v10 || v10 + 1 == a2 )
@@ -59,7 +76,7 @@ int  rf_msg_handler_3104(unsigned __int8 *a1, unsigned int a2, int a3)
     else if ( v9 == 17 )
     {
       v11 = mm_chan_ctxt_unlink_cfm_handler;
-      if ( *((unsigned __int8 *)mm_chan_ctxt_unlink_cfm_handler + 2433) >= (unsigned int)*((unsigned __int8 *)mm_chan_ctxt_unlink_cfm_handler
+      if ( *((uint8_t *)mm_chan_ctxt_unlink_cfm_handler + 2433) >= (unsigned int)*((uint8_t *)mm_chan_ctxt_unlink_cfm_handler
                                                                                          + 2434) )
       {
         sub_10DC24(rf_stream_start2_n_14c);
@@ -71,11 +88,11 @@ int  rf_msg_handler_3104(unsigned __int8 *a1, unsigned int a2, int a3)
           rf_stream_kick(a1);
           v12 = v11[2433];
           v13 = rf_cmd_send_n270_3280;
-          v14 = (unsigned __int8)v11[2432]
+          v14 = (uint8_t)v11[2432]
               + 1
               - 40
               * ((unsigned int)(((unsigned int)rf_cmd_send_n26c
-                               * (unsigned uint64_t)((unsigned int)(unsigned __int8)v11[2432] + 1)) >> 32) >> 5);
+                               * (unsigned uint64_t)((unsigned int)(uint8_t)v11[2432] + 1)) >> 32) >> 5);
           v11[2432] = v14;
           v15 = &v11[20 * v14];
           *((uint32_t *)v15 + 409) = v7 + 4;

@@ -1,5 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_133E88;
+extern uint32_t off_133E8C;
+extern uint32_t off_133E90;
+extern uint32_t dword_133E94;
+
 // sub_133DEC @ 0x133dec, size 154 bytes
-int  sub_133DEC(int a1, unsigned __int16 *a2)
+int  sub_133DEC(int a1, uint16_t *a2)
 {
   int v3; // r6
   int *v4; // r4
@@ -10,7 +27,7 @@ int  sub_133DEC(int a1, unsigned __int16 *a2)
   int v10; // r3
   int v11; // r2
 
-  v3 = *((unsigned __int8 *)a2 + 2);
+  v3 = *((uint8_t *)a2 + 2);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -47,7 +64,7 @@ int  sub_133DEC(int a1, unsigned __int16 *a2)
       }
     }
     v5 = dword_133E94 + 1320 * v3;
-    v6 = *(unsigned __int8 *)(v5 + 106);
+    v6 = *(uint8_t *)(v5 + 106);
     if ( !*(uint8_t *)(v5 + 106) && *(uint8_t *)(v5 + 108) )
     {
       fmac_msg_alloc_and_send(v5, *a2, 1);

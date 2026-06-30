@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123AA8;
+extern uint32_t dword_123AAC;
+extern uint32_t off_123AB0;
+
 // rf_chan_config_set @ 0x123a20, size 136 bytes
 // Doc: rf_chan_config_set [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
 // rf_chan_config_set [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
@@ -6,26 +22,26 @@ int  rf_chan_config_set(int a1)
   int v2; // r1
   uint64_t v3; // r0
   uint16_t *v4; // r2
-  __int16 v5; // r3
-  __int16 v6; // r1
-  __int16 v7; // r5
+  int16_t v5; // r3
+  int16_t v6; // r1
+  int16_t v7; // r5
   int v8; // r0
   int v10; // [sp+0h] [bp-34h] BYREF
-  __int16 v11; // [sp+4h] [bp-30h]
+  int16_t v11; // [sp+4h] [bp-30h]
   int v12; // [sp+8h] [bp-2Ch] BYREF
-  __int16 v13; // [sp+Ch] [bp-28h]
+  int16_t v13; // [sp+Ch] [bp-28h]
   int v14; // [sp+10h] [bp-24h] BYREF
-  __int16 v15; // [sp+14h] [bp-20h]
+  int16_t v15; // [sp+14h] [bp-20h]
   int v16; // [sp+18h] [bp-1Ch] BYREF
-  __int16 v17; // [sp+1Ch] [bp-18h]
+  int16_t v17; // [sp+1Ch] [bp-18h]
   uint8_t v18[8]; // [sp+20h] [bp-14h] BYREF
   int v19; // [sp+28h] [bp-Ch] BYREF
-  __int16 v20; // [sp+2Ch] [bp-8h]
+  int16_t v20; // [sp+2Ch] [bp-8h]
 
   v2 = *((uint32_t *)off_123AA8 + 1);
   v10 = *(uint32_t *)off_123AA8;
   v11 = v2;
-  v3 = *((QWORD *)off_123AA8 + 1);
+  v3 = *((uint64_t *)off_123AA8 + 1);
   v13 = *((uint32_t *)off_123AA8 + 3);
   v12 = v3;
   HIDWORD(v3) = *(uint32_t *)(dword_123AAC + 4);

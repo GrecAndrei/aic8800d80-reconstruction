@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B73C;
+extern uint32_t off_12B758;
+extern uint32_t dword_12B764;
+extern uint32_t dword_12B760;
+extern uint32_t off_12B740;
+extern uint32_t off_12B748;
+extern uint32_t off_12B74C;
+extern uint32_t off_12B750;
+extern uint32_t off_12B754;
+extern uint32_t off_12B744;
+extern uint32_t off_12B75C;
+
 // sub_12B6C4 @ 0x12b6c4, size 120 bytes
 int sub_12B6C4()
 {
@@ -14,7 +38,7 @@ int sub_12B6C4()
   int *v10; // r3
   int v11; // r3
 
-  if ( **(__int16 **)off_12B73C < 0 && !(*(uint32_t *)off_12B758 << 28) )
+  if ( **(int16_t **)off_12B73C < 0 && !(*(uint32_t *)off_12B758 << 28) )
     return sub_12F2C8(dword_12B764, dword_12B760, 213, *(uint32_t *)off_12B758);
   if ( (__get_CPSR() & 1) == 0 )
   {

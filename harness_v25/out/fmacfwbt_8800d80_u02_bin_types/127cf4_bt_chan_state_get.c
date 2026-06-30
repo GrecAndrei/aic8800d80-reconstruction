@@ -1,14 +1,32 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_127D70;
+extern uint32_t off_127D6C;
+extern uint32_t dword_127D7C;
+extern uint32_t dword_127D78;
+extern uint32_t off_127D74;
+
 // bt_chan_state_get @ 0x127cf4, size 118 bytes
 // Doc: bt_chan_state_get [bt]: Reads current BT channel state index
 // bt_chan_state_get [bt]: Reads current BT channel state index
-int  bt_chan_state_get(__int16 *a1, int a2, char a3)
+int  bt_chan_state_get(int16_t *a1, int a2, char a3)
 {
   uint8_t *v3; // r4
-  __int16 v7; // r3
+  int16_t v7; // r3
   uint8_t *v8; // r2
 
   v3 = off_127D70;
-  if ( **(__int16 **)off_127D6C < 0 && *((unsigned __int8 *)off_127D70 + 108) != 255 )
+  if ( **(int16_t **)off_127D6C < 0 && *((uint8_t *)off_127D70 + 108) != 255 )
     sub_12F694(dword_127D7C, dword_127D78, 2838);
   v3[108] = 3;
   *((uint16_t *)v3 + 49) = 255;

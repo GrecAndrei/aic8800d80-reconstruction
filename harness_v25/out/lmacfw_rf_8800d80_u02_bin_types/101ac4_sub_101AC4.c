@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101C44;
+extern uint32_t off_101C48;
+extern uint32_t off_101C54;
+extern uint32_t off_101C50;
+extern uint32_t off_101C58;
+extern uint32_t off_101C6C;
+extern uint32_t off_101C5C;
+extern uint32_t dword_101C64;
+extern uint32_t dword_101C60;
+extern uint32_t off_101C4C;
+extern uint32_t off_101C68;
+
 // sub_101AC4 @ 0x101ac4, size 384 bytes
 int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
 {
@@ -9,16 +33,16 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
   char v8; // r5
   unsigned int v9; // r0
   int v10; // r0
-  unsigned __int8 v11; // r5
+  uint8_t v11; // r5
   int v12; // r3
   char v13; // r3
   char v14; // r5
 
-  result = *((unsigned __int8 *)off_101C44 + 36);
-  v4 = *((unsigned __int16 *)off_101C44 + 20);
+  result = *((uint8_t *)off_101C44 + 36);
+  v4 = *((uint16_t *)off_101C44 + 20);
   if ( *((uint8_t *)off_101C44 + 36) )
   {
-    result = *((unsigned __int8 *)off_101C48 + 197);
+    result = *((uint8_t *)off_101C48 + 197);
     if ( *((uint8_t *)off_101C48 + 197) )
     {
       if ( v4 <= 0x1666 )
@@ -47,7 +71,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
       v11 = *((uint8_t *)off_101C48 + 236);
       v12 = (char)(*((uint8_t *)off_101C54 + 1) + *((uint8_t *)off_101C50 + 11) + *(uint8_t *)(*(uint32_t *)off_101C58 + v10));
       if ( *((uint8_t *)off_101C48 + 396) )
-        result = (unsigned __int8)(*(uint8_t *)(*(uint32_t *)off_101C6C + v10) + v11);
+        result = (uint8_t)(*(uint8_t *)(*(uint32_t *)off_101C6C + v10) + v11);
       else
         result = v11;
       if ( (v12 & 1) != 0 )
@@ -56,7 +80,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
       *a3 = v13;
       *a2 = v13;
     }
-    else if ( **(__int16 **)off_101C5C < 0 )
+    else if ( **(int16_t **)off_101C5C < 0 )
     {
       return sub_1219C4(dword_101C64, dword_101C60, 6921);
     }
@@ -76,12 +100,12 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
     if ( *((uint8_t *)off_101C48 + 396) )
     {
       v14 = *(uint8_t *)(*(uint32_t *)off_101C68 + result);
-      v5 = (unsigned __int8)(v5 + v14);
+      v5 = (uint8_t)(v5 + v14);
       v8 = v14 + *((uint8_t *)off_101C48 + 210);
     }
     else
     {
-      v5 = (unsigned __int8)v5;
+      v5 = (uint8_t)v5;
       v8 = *((uint8_t *)off_101C48 + 210);
     }
     if ( ((*(uint8_t *)off_101C54 + *((uint8_t *)off_101C50 + 8) + *(uint8_t *)(*(uint32_t *)off_101C4C + result)) & 1) != 0 )
@@ -90,11 +114,11 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
       v9 = v6 + ((unsigned int)v6 >> 31);
     if ( (v7 & 1) != 0 )
       v7 = (char)v7 - 1;
-    result = (unsigned __int8)(v9 >> 1) + v5;
+    result = (uint8_t)(v9 >> 1) + v5;
     *a2 = result;
     *a3 = v7 / 2 + v8;
   }
-  else if ( **(__int16 **)off_101C5C < 0 )
+  else if ( **(int16_t **)off_101C5C < 0 )
   {
     return sub_1219C4(dword_101C64, dword_101C60, 6875);
   }

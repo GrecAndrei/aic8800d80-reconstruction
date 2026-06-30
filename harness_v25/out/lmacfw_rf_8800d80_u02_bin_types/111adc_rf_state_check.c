@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_111B20;
+
 // rf_state_check @ 0x111adc, size 66 bytes
 // Doc: rf_bus_setup_n30e [rf]: RF bus register setup for N30E
 // rf_bus_setup_n30e [rf]: RF bus register setup for N30E
@@ -8,12 +22,12 @@ int rf_state_check()
   int ( *v3)(uint32_t); // r3
 
   v0 = off_111B20;
-  v1 = *((unsigned __int16 *)off_111B20 + 7);
+  v1 = *((uint16_t *)off_111B20 + 7);
   *(uint16_t *)rf_bus_setup_n320 = v1;
   if ( v1 )
   {
     v3 = *((int ( **)(uint32_t))rf_bus_setup_n328 + 5);
-    if ( v3 && v3((unsigned __int8)v1) )
+    if ( v3 && v3((uint8_t)v1) )
     {
       *(uint8_t *)rf_bus_setup_n324 = 4;
       *v0 = 7;

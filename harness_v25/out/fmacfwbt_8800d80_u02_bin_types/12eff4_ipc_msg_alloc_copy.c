@@ -1,7 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12F038;
+
 // ipc_msg_alloc_copy @ 0x12eff4, size 68 bytes
 // Doc: ipc_msg_alloc_copy [ipc]: Allocate and copy IPC message buffer of size 0x424
 // ipc_msg_alloc_copy [ipc]: Allocate and copy IPC message buffer of size 0x424
-int  ipc_msg_alloc_copy(int a1, uint32_t *a2, __int16 a3, __int16 a4)
+int  ipc_msg_alloc_copy(int a1, uint32_t *a2, int16_t a3, int16_t a4)
 {
   uint32_t *v5; // r0
   int v6; // r1

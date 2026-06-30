@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1283C8;
+extern uint32_t dword_1283D0;
+extern uint32_t off_1283CC;
+
 // sub_12829C @ 0x12829c, size 300 bytes
 // Doc: sub_122829C [util]: helper utility in fmacfw
 // sub_122829C [util]: helper utility in fmacfw
@@ -17,8 +33,8 @@ int  sub_12829C(int result)
 
   v1 = off_1283C8;
   v2 = result;
-  v3 = *(unsigned __int8 *)(result + 85);
-  if ( *((unsigned __int8 *)off_1283C8 + 90) <= 1u )
+  v3 = *(uint8_t *)(result + 85);
+  if ( *((uint8_t *)off_1283C8 + 90) <= 1u )
   {
     result = v3 << 30;
     if ( (v3 & 2) != 0 )
@@ -73,12 +89,12 @@ LABEL_4:
           v8 = *(uint32_t *)(v2 + 80);
           if ( (v6 & 8) != 0 )
           {
-            v9 = *(unsigned __int8 *)(v2 + 106);
+            v9 = *(uint8_t *)(v2 + 106);
             *(uint8_t *)(v2 + 85) = v6 & 0xF7;
             if ( v9 )
             {
               if ( v9 == 2 )
-                v10 = *(unsigned __int16 *)(v2 + 222);
+                v10 = *(uint16_t *)(v2 + 222);
               else
                 v10 = 102400;
               if ( v9 == 2 )
@@ -86,7 +102,7 @@ LABEL_4:
             }
             else
             {
-              v10 = *(uint32_t *)(dword_1283D0 + 696 * *(unsigned __int8 *)(v2 + 116) + 8);
+              v10 = *(uint32_t *)(dword_1283D0 + 696 * *(uint8_t *)(v2 + 116) + 8);
             }
             v8 -= v10;
           }

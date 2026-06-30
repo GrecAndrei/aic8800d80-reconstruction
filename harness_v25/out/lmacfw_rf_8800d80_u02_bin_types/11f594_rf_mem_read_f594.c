@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11F73C;
+extern uint32_t dword_11F728;
+extern uint32_t dword_11F72C;
+extern uint32_t dword_11F738;
+extern uint32_t dword_11F740;
+extern uint32_t dword_11F744;
+extern uint32_t dword_11F730;
+
 // rf_mem_read_f594 @ 0x11f594, size 404 bytes
 // Doc: rf_mem_read_n72 [rf]: Bulk RF memory read across entry table
 // rf_mem_read_n72 [rf]: Bulk RF memory read across entry table
@@ -9,7 +29,7 @@ unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
   unsigned int v7; // r7
   int v8; // r8
   int v9; // r10
-  unsigned __int16 *v10; // r6
+  uint16_t *v10; // r6
   unsigned int v11; // r11
   int v12; // r1
   int v13; // r0
@@ -53,7 +73,7 @@ unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
         if ( v4 == 2 )
         {
           v22 += 4;
-          msg_parse(dword_11F738, (unsigned __int16)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
+          msg_parse(dword_11F738, (uint16_t)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -79,7 +99,7 @@ rf_mem_read_6b8:
       break;
     if ( a4 )
     {
-      v10 = (unsigned __int16 *)v6;
+      v10 = (uint16_t *)v6;
       goto rf_mem_read_n90;
     }
 rf_mem_read_nfa:
@@ -90,7 +110,7 @@ rf_mem_read_nfa:
   }
   v8 = dword_11F740;
   v9 = dword_11F744;
-  v10 = (unsigned __int16 *)v6;
+  v10 = (uint16_t *)v6;
   v11 = 0;
   do
   {
@@ -108,12 +128,12 @@ rf_mem_read_nfa:
     if ( v4 == 2 )
       v12 = *v10;
     else
-      v12 = *(unsigned __int8 *)v10;
+      v12 = *(uint8_t *)v10;
     if ( v4 == 2 )
       v13 = v9;
     v11 += v4;
     msg_parse(v13, v12);
-    v10 = (unsigned __int16 *)((char *)v10 + v4);
+    v10 = (uint16_t *)((char *)v10 + v4);
   }
   while ( v7 > v11 );
 rf_mem_read_0:
@@ -151,7 +171,7 @@ LABEL_26:
     v19 = 0;
     do
     {
-      v20 = *(unsigned __int8 *)(v6 + v19);
+      v20 = *(uint8_t *)(v6 + v19);
       if ( (unsigned int)(v20 - 31) > 0x5F )
         v20 = 46;
       ++v19;

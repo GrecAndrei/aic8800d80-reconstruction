@@ -1,3 +1,40 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116D80;
+extern uint32_t off_116DB8;
+extern uint32_t off_116D88;
+extern uint32_t off_116DA8;
+extern uint32_t dword_116DD4;
+extern uint32_t dword_116DC0;
+extern uint32_t off_116DAC;
+extern uint32_t dword_116DD0;
+extern uint32_t off_116DB0;
+extern uint32_t dword_116DCC;
+extern uint32_t off_116DB4;
+extern uint32_t dword_116DC8;
+extern uint32_t off_116DBC;
+extern uint32_t dword_116DC4;
+extern uint32_t off_116D84;
+extern uint32_t dword_116DD8;
+extern uint32_t dword_116DDC;
+extern uint32_t off_116D98;
+extern uint32_t dword_116D94;
+extern uint32_t off_116D90;
+extern uint32_t dword_116D8C;
+extern uint32_t off_116D9C;
+extern uint32_t off_116DA0;
+extern uint32_t off_116DA4;
+
 // bt_chan_dispatch_n_6f0 @ 0x116af4, size 652 bytes
 // Doc: bt_chan_dispatch_n_6f0 [bt]: Dispatch Bluetooth channel command by opcode
 // bt_chan_dispatch_n_6f0 [bt]: Dispatch Bluetooth channel command by opcode
@@ -27,7 +64,7 @@ int  bt_chan_dispatch_n_6f0(int a1, int a2, int a3, int a4)
         goto LABEL_12;
       while ( ((*(uint32_t *)off_116D80 >> 4) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 4) & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 4) & 3) != 2 )
       {
 LABEL_12:
         v16 = off_116D88;
@@ -42,7 +79,7 @@ LABEL_12:
         goto LABEL_14;
       while ( ((*(uint32_t *)off_116D80 >> 8) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 8) & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 8) & 3) != 2 )
       {
 LABEL_14:
         v17 = off_116D88;
@@ -57,7 +94,7 @@ LABEL_14:
         goto LABEL_16;
       while ( ((*(uint32_t *)off_116D80 >> 12) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 12) & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || ((*(uint32_t *)off_116D80 >> 12) & 3) != 2 )
       {
 LABEL_16:
         v18 = off_116D88;
@@ -72,7 +109,7 @@ LABEL_16:
         goto LABEL_18;
       while ( (HIWORD(*(uint32_t *)off_116D80) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116DB8 >= 0 || (HIWORD(*(uint32_t *)off_116D80) & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || (HIWORD(*(uint32_t *)off_116D80) & 3) != 2 )
       {
 LABEL_18:
         v19 = off_116D88;
@@ -83,7 +120,7 @@ LABEL_18:
       result = sub_12F630(dword_116DC8, dword_116DC0, 1883, a4);
       break;
     case 4:
-      if ( **(__int16 **)off_116DB8 >= 0 || (*(uint32_t *)off_116D80 & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || (*(uint32_t *)off_116D80 & 3) != 2 )
       {
         v20 = off_116D88;
         *(uint32_t *)off_116DBC = a1;
@@ -97,7 +134,7 @@ LABEL_18:
         goto LABEL_3;
       while ( (HIBYTE(*(uint32_t *)off_116D80) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116DB8 >= 0 || (HIBYTE(*(uint32_t *)off_116D80) & 3) != 2 )
+      if ( **(int16_t **)off_116DB8 >= 0 || (HIBYTE(*(uint32_t *)off_116D80) & 3) != 2 )
       {
 LABEL_3:
         v5 = off_116D88;
@@ -108,7 +145,7 @@ LABEL_3:
       result = sub_12F630(dword_116DD8, dword_116DC0, 1931, a4);
       break;
     default:
-      if ( **(__int16 **)off_116DB8 < 0 )
+      if ( **(int16_t **)off_116DB8 < 0 )
         sub_12F694(dword_116DDC, dword_116DC0, 1937);
 LABEL_4:
       v6 = (int *)off_116D98;

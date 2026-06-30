@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1008E4;
+extern uint32_t dword_1008E8;
+extern uint32_t off_1008F8;
+extern uint32_t dword_1008FC;
+extern uint32_t off_1008F4;
+extern uint32_t dword_100900;
+extern uint32_t dword_100908;
+extern uint32_t off_100904;
+extern uint32_t off_1008EC;
+extern uint32_t dword_1008F0;
+
 // sub_1007B4 @ 0x1007b4, size 302 bytes
 int  sub_1007B4(int a1, unsigned int a2, uint32_t *a3)
 {
@@ -11,14 +34,14 @@ int  sub_1007B4(int a1, unsigned int a2, uint32_t *a3)
   int v12; // r0
   int v13; // r3
   int v14; // t1
-  bool v15; // nf
+  int v15; // nf
   int v16; // r2
   char *v17; // r7
-  unsigned __int8 *v18; // r2
+  uint8_t *v18; // r2
   int i; // r0
   int v20; // t1
   int v21; // r3
-  bool v22; // zf
+  int v22; // zf
 
   if ( !a1 )
   {
@@ -44,16 +67,16 @@ LABEL_5:
         goto LABEL_6;
       }
     }
-    v10 = *(unsigned __int8 *)off_1008F8;
+    v10 = *(uint8_t *)off_1008F8;
     v11 = (char *)dword_1008FC;
     v12 = a1 + *(uint32_t *)off_1008F4;
     v13 = v4;
     do
     {
       v14 = *v11++;
-      v16 = (*(unsigned __int8 *)(v12 + 3 * v13) + v14 + v10) << 31;
-      v15 = ((*(unsigned __int8 *)(v12 + 3 * v13) + v14 + v10) & 1) != 0;
-      if ( ((*(unsigned __int8 *)(v12 + 3 * v13) + v14 + v10) & 1) != 0 )
+      v16 = (*(uint8_t *)(v12 + 3 * v13) + v14 + v10) << 31;
+      v15 = ((*(uint8_t *)(v12 + 3 * v13) + v14 + v10) & 1) != 0;
+      if ( ((*(uint8_t *)(v12 + 3 * v13) + v14 + v10) & 1) != 0 )
         v16 = 1 << v13;
       ++v13;
       if ( v15 )
@@ -99,11 +122,11 @@ LABEL_5:
   else
   {
     v17 = (char *)dword_100908;
-    v18 = (unsigned __int8 *)(*(uint32_t *)off_100904 + v8);
+    v18 = (uint8_t *)(*(uint32_t *)off_100904 + v8);
     for ( i = 0; i != 3; ++i )
     {
       v20 = *v17++;
-      v21 = *v18 + v20 + *((unsigned __int8 *)off_1008F8 + 1);
+      v21 = *v18 + v20 + *((uint8_t *)off_1008F8 + 1);
       v22 = (v21 & 1) == 0;
       if ( (v21 & 1) != 0 )
         v21 = 1 << i;

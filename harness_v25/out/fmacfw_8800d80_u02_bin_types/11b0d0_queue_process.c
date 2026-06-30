@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11B154;
+
 // queue_process @ 0x11b0d0, size 132 bytes
 // Doc: queue_process [util]: Process pending work queue entries
 // queue_process [util]: Process pending work queue entries
@@ -14,7 +28,7 @@ unsigned int * queue_process(unsigned int *result, unsigned int a2, int a3)
   {
     v4 = (v3 >> 7) & 3;
     if ( (a3 - 1)
-       * (*(unsigned __int16 *)(dword_11B154
+       * (*(uint16_t *)(dword_11B154
                               + 2 * (3 * ((*result >> 8) & 1) + 6 * (*result & 0x7F) + ((*result >> 9) & 3))) << ((*result & 0x80) != 0)) < a2 )
     {
       if ( (v3 & 0x1C000) != 0 )

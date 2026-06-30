@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_134FA4;
+extern uint32_t off_134F98;
+extern uint32_t off_134F9C;
+extern uint32_t dword_134FA0;
+
 // sub_134DEC @ 0x134dec, size 428 bytes
 uint32_t *sub_134DEC()
 {
@@ -26,7 +43,7 @@ uint32_t *sub_134DEC()
 
   v0 = dword_134FA4;
   v1 = *((uint32_t *)off_134F98 + 4);
-  v22 = *(unsigned __int8 *)(v1 + 61);
+  v22 = *(uint8_t *)(v1 + 61);
   v2 = (uint8_t *)rf_bus_setup_n3a8(5145, 5, 6, 2u);
   v3 = rf_bus_setup_n3a8(24, 0, 6, 8u);
   v4 = 1320 * v22;
@@ -44,8 +61,8 @@ uint32_t *sub_134DEC()
   *(uint8_t *)(v3 + 6) = *(uint8_t *)(v1 + 61);
   list_push_tail((int)v9 + 24, (uint32_t *)(v3 - 12));
   *(uint8_t *)(v5 + 5) = *(uint8_t *)(v0 + 1320 * v22 + 412);
-  v10 = sub_1329B0((unsigned __int8 *)(1320 * v22 + 424 + v0), 1);
-  v11 = *(unsigned __int8 *)(v5 + 5);
+  v10 = sub_1329B0((uint8_t *)(1320 * v22 + 424 + v0), 1);
+  v11 = *(uint8_t *)(v5 + 5);
   *(uint32_t *)v5 = v10;
   *(uint8_t *)(v5 + 4) = *(uint8_t *)(v1 + 61);
   if ( !v11 )

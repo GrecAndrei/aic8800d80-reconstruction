@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116314;
+extern uint32_t off_116318;
+extern uint32_t dword_116320;
+extern uint32_t dword_11631C;
+
 // sub_1162BC @ 0x1162bc, size 88 bytes
 // Doc: sub_12162BC [util]: Dispatch/route based on value comparison against 5
 // sub_12162BC [util]: Dispatch/route based on value comparison against 5
@@ -24,7 +41,7 @@ int  sub_1162BC(int result)
       *(uint32_t *)off_116314 = 32;
       break;
     default:
-      if ( **(__int16 **)off_116318 < 0 )
+      if ( **(int16_t **)off_116318 < 0 )
         result = sub_12F46C(dword_116320, dword_11631C, 944);
       break;
   }

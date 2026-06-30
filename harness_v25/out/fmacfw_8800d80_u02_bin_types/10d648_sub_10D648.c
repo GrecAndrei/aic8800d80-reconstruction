@@ -1,3 +1,32 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D734;
+extern uint32_t off_10D738;
+extern uint32_t off_10D760;
+extern uint32_t off_10D764;
+extern uint32_t dword_10D768;
+extern uint32_t off_10D740;
+extern uint32_t off_10D744;
+extern uint32_t off_10D748;
+extern uint32_t off_10D73C;
+extern uint32_t off_10D74C;
+extern uint32_t off_10D750;
+extern uint32_t off_10D770;
+extern uint32_t off_10D754;
+extern uint32_t off_10D758;
+extern uint32_t off_10D75C;
+extern uint32_t off_10D76C;
+
 // sub_10D648 @ 0x10d648, size 236 bytes
 void sub_10D648()
 {
@@ -65,9 +94,9 @@ void sub_10D648()
       {
 LABEL_5:
         v8 = v7 / v6;
-        v9 = (unsigned __int8)(v8 >> 4);
+        v9 = (uint8_t)(v8 >> 4);
         v10 = ((v8 >> 1) & 7) + 16 * ((v8 & 0xF) - ((v8 >> 1) & 7));
-        v11 = (unsigned __int8)(v8 >> 12);
+        v11 = (uint8_t)(v8 >> 12);
 LABEL_6:
         v12 = off_10D74C;
         v13 = off_10D740;

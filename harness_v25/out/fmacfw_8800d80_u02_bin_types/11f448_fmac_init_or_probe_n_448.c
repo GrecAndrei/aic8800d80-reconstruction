@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // fmac_init_or_probe_n_448 @ 0x11f448, size 172 bytes
 // Doc: fmac_init_or_probe_n_448 [mac]: Initializes FMAC context buffers at fixed offsets (0x248, 0x270)
 // fmac_init_or_probe_n_448 [mac]: Initializes FMAC context buffers at fixed offsets (0x248, 0x270)
@@ -22,7 +34,7 @@ int  fmac_init_or_probe_n_448(int a1, int a2, int a3)
     v9 = 0;
     while ( 1 )
     {
-      v10 = (unsigned __int8)v9;
+      v10 = (uint8_t)v9;
       if ( *(uint32_t *)(v7 + 8 * v9) )
       {
         v11 = rf_bus_mark_n100_d2d0(a2 + 8 * (v9 + 78));

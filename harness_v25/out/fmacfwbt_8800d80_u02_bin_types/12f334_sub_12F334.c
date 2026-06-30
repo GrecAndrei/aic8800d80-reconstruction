@@ -1,5 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12F3B4;
+extern uint32_t dword_12F3B8;
+extern uint32_t dword_12F3B0;
+extern uint32_t dword_12F3A8;
+extern uint32_t dword_12F3AC;
+
 // sub_12F334 @ 0x12f334, size 116 bytes
-int  sub_12F334(int a1, int *a2, __int16 a3, __int16 a4)
+int  sub_12F334(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r3
@@ -28,7 +46,7 @@ int  sub_12F334(int a1, int *a2, __int16 a3, __int16 a4)
       sub_12ECB0(dword_12F3A8);
       break;
   }
-  *v7 = (unsigned __int8)indirect_call_trampoline();
+  *v7 = (uint8_t)indirect_call_trampoline();
   sub_12ECB0(dword_12F3AC);
   sub_12CBB4((int)v7);
   return 0;

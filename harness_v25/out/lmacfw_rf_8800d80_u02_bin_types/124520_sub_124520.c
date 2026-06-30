@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12457C;
+extern uint32_t off_124580;
+extern uint32_t off_124584;
+extern uint32_t off_124588;
+extern uint32_t off_12458C;
+extern uint32_t off_124590;
+
 // sub_124520 @ 0x124520, size 90 bytes
 void sub_124520()
 {
@@ -10,11 +29,11 @@ void sub_124520()
   {
     v0 = off_124580;
     v1 = rf_table_lookup(0);
-    v2 = (unsigned __int16)(*v0 + 1);
+    v2 = (uint16_t)(*v0 + 1);
     *v0 = v2;
     if ( v2 == 1000 )
     {
-      if ( (unsigned int)*(unsigned __int8 *)off_124584 - 2 <= 1 )
+      if ( (unsigned int)*(uint8_t *)off_124584 - 2 <= 1 )
       {
         *v0 = 0;
         rf_init_n_dc(v1);

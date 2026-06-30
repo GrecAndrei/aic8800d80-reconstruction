@@ -1,11 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10C96C;
+extern uint32_t dword_10C970;
+extern uint32_t dword_10C974;
+extern uint32_t off_10C978;
+extern uint32_t off_10C97C;
+extern uint32_t off_10C980;
+
 // mac_state_branch_handler @ 0x10c8f8, size 114 bytes
 // Doc: mac_state_branch_handler [mac]: Handles MAC sub-state branch based on register field == 2
 // mac_state_branch_handler [mac]: Handles MAC sub-state branch based on register field == 2
 int *mac_state_branch_handler()
 {
   int v0; // r4
-  bool v1; // zf
-  unsigned __int8 v2; // r1
+  int v1; // zf
+  uint8_t v2; // r1
   int **v3; // r4
 
   v0 = *((uint32_t *)off_10C96C + 23);

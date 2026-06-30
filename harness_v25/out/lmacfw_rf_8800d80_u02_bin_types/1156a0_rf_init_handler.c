@@ -1,9 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_115744;
+extern uint32_t dword_115740;
+extern uint32_t off_11573C;
+extern uint32_t dword_11574C;
+extern uint32_t dword_115748;
+extern uint32_t off_115750;
+
 // rf_init_handler @ 0x1156a0, size 154 bytes
 // Doc: rf_init_handler [rf]: RF initialization handler
 // rf_init_handler [rf]: RF initialization handler
 int * rf_init_handler(int a1, int a2, int a3, int a4)
 {
-  bool v4; // zf
+  int v4; // zf
   int *v6; // r5
   int v7; // r2
   int v8; // r3
@@ -17,7 +36,7 @@ int * rf_init_handler(int a1, int a2, int a3, int a4)
     v6 = (int *)dword_115744;
   else
     v6 = (int *)dword_115740;
-  v7 = **(__int16 **)off_11573C;
+  v7 = **(int16_t **)off_11573C;
   if ( !v4 )
     v6 += a4;
   v8 = *v6;

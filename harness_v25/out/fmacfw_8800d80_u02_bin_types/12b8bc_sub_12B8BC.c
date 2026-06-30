@@ -1,3 +1,43 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12BAB4;
+extern uint32_t off_12BABC;
+extern uint32_t off_12BAB8;
+extern uint32_t dword_12BAC0;
+extern uint32_t off_12BAC4;
+extern uint32_t off_12BAC8;
+extern uint32_t off_12BACC;
+extern uint32_t dword_12BB18;
+extern uint32_t dword_12BB14;
+extern uint32_t off_12BAD0;
+extern uint32_t dword_12BAD8;
+extern uint32_t dword_12BAD4;
+extern uint32_t off_12BADC;
+extern uint32_t dword_12BAE0;
+extern uint32_t off_12BAE4;
+extern uint32_t off_12BAE8;
+extern uint32_t off_12BAF0;
+extern uint32_t off_12BAEC;
+extern uint32_t off_12BAF8;
+extern uint32_t off_12BAF4;
+extern uint32_t off_12BAFC;
+extern uint32_t off_12BB00;
+extern uint32_t off_12BB04;
+extern uint32_t off_12BB08;
+extern uint32_t off_12BB0C;
+extern uint32_t off_12BB1C;
+extern uint32_t off_12BB10;
+
 // sub_12B8BC @ 0x12b8bc, size 502 bytes
 int sub_12B8BC()
 {
@@ -5,7 +45,7 @@ int sub_12B8BC()
   unsigned int v1; // r0
   uint32_t *v2; // r3
   uint32_t *v3; // r2
-  __int16 **v4; // r1
+  int16_t **v4; // r1
   char *v5; // r0
   int *v6; // r3
   uint32_t *v7; // r1
@@ -26,12 +66,12 @@ int sub_12B8BC()
   uint32_t *v22; // r6
   int v23; // r0
   unsigned int *v24; // r5
-  unsigned __int8 v25; // [sp+6h] [bp-2h] BYREF
-  unsigned __int8 v26; // [sp+7h] [bp-1h] BYREF
+  uint8_t v25; // [sp+6h] [bp-2h] BYREF
+  uint8_t v26; // [sp+7h] [bp-1h] BYREF
 
   v0 = off_12BAB4;
   *(uint32_t *)off_12BAB4 = 1;
-  while ( (unsigned __int8)*v0 )
+  while ( (uint8_t)*v0 )
     ;
   v1 = sub_1006CC();
   sub_12B5A0(v1);
@@ -39,7 +79,7 @@ int sub_12B8BC()
   *(uint32_t *)off_12BAB8 = dword_12BAC0;
   v3 = off_12BAC4;
   *v2 = 0x80000000;
-  v4 = (__int16 **)off_12BAC8;
+  v4 = (int16_t **)off_12BAC8;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_12BACC < 0x2F000000u )
     sub_12F46C(dword_12BB18, dword_12BB14, 284);

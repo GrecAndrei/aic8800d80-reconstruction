@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115768;
+extern uint32_t off_115780;
+extern uint32_t off_115794;
+extern uint32_t dword_1157AC;
+extern uint32_t off_115788;
+extern uint32_t dword_11579C;
+extern uint32_t off_1157A0;
+
 // ipc_doorbell_handler_33b @ 0x115640, size 296 bytes
 // Doc: ipc_doorbell_handler_6aa [ipc]: IPC doorbell interrupt handler (variant 2d2)
 // ipc_doorbell_handler_6aa [ipc]: IPC doorbell interrupt handler (variant 2d2)
@@ -28,13 +48,13 @@ int ipc_doorbell_handler_33b()
   while ( (*v2 & 0x40000000) == 0 )
     ;
   v3 = ipc_doorbell_dispatch;
-  if ( *((uint8_t *)ipc_doorbell_dispatch + 189) && **(__int16 **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
+  if ( *((uint8_t *)ipc_doorbell_dispatch + 189) && **(int16_t **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
     sub_12F46C(ipc_doorbell_handler_n_1cc, dword_1157AC, 968);
   v4 = ipc_doorbell_handler_n_204;
   v5 = (uint8_t **)ipc_doorbell_handler_n_1f8;
   *(uint32_t *)ipc_doorbell_handler_n_204 &= ~0x40000000u;
   *v4 &= ~0x80000000;
-  v6 = (unsigned __int8)**v5;
+  v6 = (uint8_t)**v5;
   if ( v6 == 3 )
   {
     *(uint32_t *)ipc_doorbell_handler_n_1d4 &= ~1u;
@@ -49,7 +69,7 @@ int ipc_doorbell_handler_33b()
     *((uint32_t *)off_115768 + 14) &= ~0x10u;
   result = feature_guard_check(2, ipc_doorbell_handler_n_1f0);
   v8 = *(uint8_t **)ipc_doorbell_handler_n_1ec;
-  v9 = **(unsigned __int8 **)ipc_doorbell_handler_n_1ec;
+  v9 = **(uint8_t **)ipc_doorbell_handler_n_1ec;
   if ( v9 == 2 )
   {
     if ( **v5 == 3 )
@@ -60,8 +80,8 @@ sdio_buffer_prepare_n58:
   {
     if ( !v3[189] )
     {
-      *(uint32_t *)off_115794 = (unsigned __int8)(16 * *v1);
-      v9 = (unsigned __int8)*v8;
+      *(uint32_t *)off_115794 = (uint8_t)(16 * *v1);
+      v9 = (uint8_t)*v8;
     }
     if ( v9 == 1 )
     {

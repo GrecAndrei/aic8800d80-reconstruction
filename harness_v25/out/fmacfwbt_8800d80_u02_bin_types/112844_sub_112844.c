@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112A90;
+extern uint32_t off_112A94;
+extern uint32_t off_112A8C;
+extern uint32_t off_112A98;
+extern uint32_t dword_112A9C;
+extern uint32_t off_112AA0;
+extern uint32_t dword_112ABC;
+extern uint32_t off_112AB4;
+extern uint32_t dword_112AB8;
+extern uint32_t off_112AA4;
+extern uint32_t dword_112AA8;
+extern uint32_t dword_112AAC;
+extern uint32_t off_112AB0;
+
 // sub_112844 @ 0x112844, size 582 bytes
 // Doc: rf_bus_reset_ht80 [rf]: Resets and configures the RF bus for 80MHz channel bandwidth operation by setting control bits.
 // rf_bus_reset_ht80 [rf]: Resets and configures the RF bus for 80MHz channel bandwidth operation by setting control bits.

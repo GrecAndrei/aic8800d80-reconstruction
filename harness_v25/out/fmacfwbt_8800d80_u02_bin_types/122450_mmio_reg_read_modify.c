@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1224C8;
+extern uint32_t dword_1224CC;
+extern uint32_t dword_1224D0;
+extern uint32_t off_1224C4;
+extern uint32_t off_1224D4;
+extern uint32_t off_1224D8;
+extern uint32_t off_1224E0;
+extern uint32_t off_1224E4;
+extern uint32_t off_1224DC;
+extern uint32_t off_1224E8;
+extern uint32_t off_1224EC;
+extern uint32_t dword_1224F0;
+
 // mmio_reg_read_modify @ 0x122450, size 114 bytes
 // Doc: mmio_reg_read_modify [mmio]: Read-modify MMIO register at 0x40320204/0x40320210
 // mmio_reg_read_modify [mmio]: Read-modify MMIO register at 0x40320204/0x40320210
@@ -10,7 +35,7 @@ int  mmio_reg_read_modify(int a1)
   int *v5; // r0
   int *v6; // r1
   int v7; // t1
-  bool v8; // zf
+  int v8; // zf
   int v9; // r3
   uint8_t *v10; // r4
   uint32_t *v11; // r5

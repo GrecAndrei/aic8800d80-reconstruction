@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115648;
+extern uint32_t off_115680;
+extern uint32_t off_115650;
+extern uint32_t off_115670;
+extern uint32_t dword_115690;
+extern uint32_t dword_115684;
+extern uint32_t off_115678;
+extern uint32_t dword_115694;
+extern uint32_t off_115674;
+extern uint32_t dword_115698;
+extern uint32_t off_11567C;
+extern uint32_t dword_11569C;
+extern uint32_t off_11564C;
+extern uint32_t dword_11568C;
+extern uint32_t dword_115688;
+extern uint32_t off_115660;
+extern uint32_t dword_11565C;
+extern uint32_t off_115658;
+extern uint32_t dword_115654;
+extern uint32_t off_115664;
+extern uint32_t off_115668;
+extern uint32_t off_11566C;
+
 // sub_1153F4 @ 0x1153f4, size 594 bytes
 // Doc: sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
 // sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
@@ -26,7 +61,7 @@ int * sub_1153F4(int a1, int a2, int a3, int a4)
         goto LABEL_12;
       while ( ((*(uint32_t *)off_115648 >> 4) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
+      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 4) & 3) != 2 )
       {
 LABEL_12:
         v16 = off_115650;
@@ -41,7 +76,7 @@ LABEL_12:
         goto LABEL_16;
       while ( ((*(uint32_t *)off_115648 >> 8) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
+      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 8) & 3) != 2 )
       {
 LABEL_16:
         v18 = off_115650;
@@ -56,7 +91,7 @@ LABEL_16:
         goto LABEL_14;
       while ( ((*(uint32_t *)off_115648 >> 12) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
+      if ( **(int16_t **)off_115680 >= 0 || ((*(uint32_t *)off_115648 >> 12) & 3) != 2 )
       {
 LABEL_14:
         v17 = off_115650;
@@ -71,7 +106,7 @@ LABEL_14:
         goto LABEL_18;
       while ( (HIWORD(*(uint32_t *)off_115648) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_115680 >= 0 || (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
+      if ( **(int16_t **)off_115680 >= 0 || (HIWORD(*(uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_18:
         v19 = off_115650;
@@ -86,7 +121,7 @@ LABEL_18:
         goto LABEL_3;
       while ( (HIBYTE(*(uint32_t *)off_115648) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_115680 >= 0 || (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
+      if ( **(int16_t **)off_115680 >= 0 || (HIBYTE(*(uint32_t *)off_115648) & 3) != 2 )
       {
 LABEL_3:
         v5 = off_115650;
@@ -97,7 +132,7 @@ LABEL_3:
       result = (int *)sub_121960(dword_11568C, dword_115684, 1931, a4);
       break;
     default:
-      if ( **(__int16 **)off_115680 < 0 )
+      if ( **(int16_t **)off_115680 < 0 )
         rf_cmd_send_n264(dword_115688, dword_115684, 1937);
 LABEL_4:
       v6 = (int *)off_115660;

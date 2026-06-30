@@ -1,10 +1,47 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11F9C8;
+extern uint32_t off_11F9CC;
+extern uint32_t dword_11F9D0;
+extern uint32_t off_11F9D4;
+extern uint32_t off_11F9D8;
+extern uint32_t off_11F9DC;
+extern uint32_t off_11F9E0;
+extern uint32_t off_11F9E4;
+extern uint32_t dword_11F9E8;
+extern uint32_t off_11F9EC;
+extern uint32_t off_11F9F0;
+extern uint32_t off_11F9F4;
+extern uint32_t off_11F9F8;
+extern uint32_t dword_11FA1C;
+extern uint32_t off_11F9FC;
+extern uint32_t off_11FA00;
+extern uint32_t dword_11FA04;
+extern uint32_t off_11FA08;
+extern uint32_t off_11FA10;
+extern uint32_t off_11FA0C;
+extern uint32_t dword_11FA24;
+extern uint32_t dword_11FA20;
+extern uint32_t dword_11FA18;
+extern uint32_t off_11FA14;
+
 // sub_11F82C @ 0x11f82c, size 412 bytes
 // Doc: sub_121F82C [tx]: TX descriptor/buffer setup routine
 // sub_121F82C [tx]: TX descriptor/buffer setup routine
 int  sub_11F82C(int result)
 {
   int v1; // r4
-  bool *v2; // r2
+  int *v2; // r2
   unsigned int v3; // r1
   uint32_t *v4; // r3
   void *v5; // r2
@@ -37,8 +74,8 @@ int  sub_11F82C(int result)
     if ( (*(uint32_t *)off_11F9C8 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F9C8 << 6, *((uint8_t *)off_11F9CC + 36)) )
     {
       result = feature_guard_sdio(2, dword_11F9D0);
-      v2 = (bool *)off_11F9D4;
-      v3 = *((unsigned __int8 *)off_11F9D4 + 1);
+      v2 = (int *)off_11F9D4;
+      v3 = *((uint8_t *)off_11F9D4 + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
       *v2 = v3 > 1;
       if ( *((uint8_t *)off_11F9D8 + 190) )
@@ -49,7 +86,7 @@ int  sub_11F82C(int result)
           v4 = off_11F9E0;
           *(uint32_t *)off_11F9E0 &= ~1u;
           *v4 &= ~0x80u;
-          if ( *(unsigned __int8 *)(v1 + 128) > 9u )
+          if ( *(uint8_t *)(v1 + 128) > 9u )
           {
             v5 = off_11F9C8;
             v6 = off_11F9E4;
@@ -103,7 +140,7 @@ int  sub_11F82C(int result)
               }
             }
             v19 = off_11FA10;
-            v20 = **(__int16 **)off_11FA0C;
+            v20 = **(int16_t **)off_11FA0C;
             v21 = *((uint32_t *)off_11FA10 + 1) | 0x200;
             *((uint32_t *)off_11FA10 + 1) = v21;
             if ( v20 < 0 )
@@ -118,7 +155,7 @@ int  sub_11F82C(int result)
             v23 = dword_11FA18;
             *(uint32_t *)off_11FA14 = v21 | *v19;
             *v22 = 48;
-            return rf_table_lookup_n528(*(unsigned __int8 *)(v1 + 107), v23, v1);
+            return rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }

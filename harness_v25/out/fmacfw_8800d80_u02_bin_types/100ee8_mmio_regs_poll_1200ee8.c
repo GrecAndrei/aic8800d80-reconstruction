@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100F98;
+extern uint32_t off_100F9C;
+extern uint32_t off_100FA0;
+extern uint32_t off_100F94;
+extern uint32_t off_100FA4;
+
 // mmio_regs_poll_1200ee8 @ 0x100ee8, size 172 bytes
 // Doc: mmio_regs_poll_1200ee8 [mmio]: Poll MMIO registers and dispatch on byte flag
 // mmio_regs_poll_1200ee8 [mmio]: Poll MMIO registers and dispatch on byte flag
@@ -13,7 +31,7 @@ uint32_t *mmio_regs_poll_1200ee8()
   v1 = off_100F9C;
   v2 = *(uint32_t *)off_100F98;
   result = off_100FA0;
-  *(uint32_t *)off_100F9C = (*((unsigned __int8 *)off_100F94 + 1) << 10) & 0x1FC00 | *(uint32_t *)off_100F9C & 0xFFFE03FF;
+  *(uint32_t *)off_100F9C = (*((uint8_t *)off_100F94 + 1) << 10) & 0x1FC00 | *(uint32_t *)off_100F9C & 0xFFFE03FF;
   *v0 = *v0 & 0xFFFFFFE7 | 8;
   *v0 |= 7u;
   *v1 &= ~0x80000u;

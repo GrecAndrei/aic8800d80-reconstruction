@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_111960;
+extern uint32_t off_111968;
+
 // rf_bus_init_n_4a8 @ 0x111910, size 74 bytes
 // Doc: rf_bus_write_n_21c_1948 [rf]: Write to RF bus register with bitmask update
 // rf_bus_write_n_21c_1948 [rf]: Write to RF bus register with bitmask update

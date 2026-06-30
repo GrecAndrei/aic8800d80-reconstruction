@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112CA4;
+extern uint32_t off_112CA8;
+extern uint32_t dword_112CB8;
+extern uint32_t dword_112CB4;
+extern uint32_t off_112CAC;
+extern uint32_t dword_112CBC;
+extern uint32_t off_112CB0;
+
 // rf_stream_start_2c20 @ 0x112c20, size 130 bytes
 // Doc: sdio_buffer_prepare_n1dc [mmio]: Prepare SDIO transfer buffer alignment and descriptor
 // sdio_buffer_prepare_n1dc [mmio]: Prepare SDIO transfer buffer alignment and descriptor
@@ -17,7 +37,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
   v3 = off_112CA8;
   if ( *(uint8_t *)off_112CA8 )
   {
-    sub_10DA6C(dword_112CB8, dword_112CB4, *(unsigned __int8 *)off_112CA8);
+    sub_10DA6C(dword_112CB8, dword_112CB4, *(uint8_t *)off_112CA8);
     return -3;
   }
   else
@@ -37,7 +57,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
       *(uint8_t *)off_112CB0 = 1;
       if ( *v2 )
       {
-        rf_bus_setup_n_148(nullptr, 1u);
+        rf_bus_setup_n_148(0, 1u);
         *v3 = 0;
         return -14;
       }

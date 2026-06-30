@@ -1,3 +1,72 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110F94;
+extern uint32_t off_110F90;
+extern uint32_t dword_111130;
+extern uint32_t dword_11112C;
+extern uint32_t off_11113C;
+extern uint32_t off_111150;
+extern uint32_t dword_111154;
+extern uint32_t off_11115C;
+extern uint32_t dword_111178;
+extern uint32_t off_111158;
+extern uint32_t dword_111188;
+extern uint32_t off_111160;
+extern uint32_t off_111180;
+extern uint32_t dword_111184;
+extern uint32_t off_111164;
+extern uint32_t dword_11117C;
+extern uint32_t dword_111168;
+extern uint32_t dword_110F98;
+extern uint32_t off_110F9C;
+extern uint32_t off_110FA0;
+extern uint32_t off_110FA4;
+extern uint32_t dword_110FB0;
+extern uint32_t dword_111138;
+extern uint32_t off_111134;
+extern uint32_t dword_111144;
+extern uint32_t off_111140;
+extern uint32_t dword_11114C;
+extern uint32_t off_111148;
+extern uint32_t off_110FB4;
+extern uint32_t dword_111174;
+extern uint32_t off_110FBC;
+extern uint32_t dword_110FB8;
+extern uint32_t off_110FC4;
+extern uint32_t off_110FC0;
+extern uint32_t off_110FC8;
+extern uint32_t off_110FD0;
+extern uint32_t off_110FCC;
+extern uint32_t dword_110FD4;
+extern uint32_t dword_11116C;
+extern uint32_t off_111170;
+extern uint32_t off_111014;
+extern uint32_t off_11100C;
+extern uint32_t dword_111010;
+extern uint32_t dword_110FD8;
+extern uint32_t off_110FDC;
+extern uint32_t dword_110FF4;
+extern uint32_t off_111004;
+extern uint32_t off_111008;
+extern uint32_t dword_110FE0;
+extern uint32_t off_110FE4;
+extern uint32_t off_110FE8;
+extern uint32_t off_110FF8;
+extern uint32_t off_110FFC;
+extern uint32_t dword_111000;
+extern uint32_t dword_110FEC;
+extern uint32_t off_110FF0;
+
 // sub_110D00 @ 0x110d00, size 1068 bytes
 // Doc: rf_bus_reset2 [rf]: Reset the RF bus DMA chain (instance 2) by clearing descriptors, reprogramming the control word from RF register 0x1812, and re-arming the DMA engine at 0x40240018.
 // rf_bus_reset2 [rf]: Reset the RF bus DMA chain (instance 2) by clearing descriptors, reprogramming the control word from RF register 0x1812, and re-arming the DMA engine at 0x40240018.
@@ -55,7 +124,7 @@ int sub_110D00()
   int v49; // r3
 
   v0 = *(uint32_t *)off_110F94;
-  if ( **(__int16 **)off_110F90 < 0 && !v0 )
+  if ( **(int16_t **)off_110F90 < 0 && !v0 )
   {
     sub_1219F4(dword_111130, dword_11112C, 39);
     goto LABEL_10;
@@ -82,7 +151,7 @@ int sub_110D00()
       *(uint32_t *)off_111158 = 16;
       if ( *v42 )
       {
-        sub_11F74C(2, dword_111188, 16, (unsigned __int8)*v42);
+        sub_11F74C(2, dword_111188, 16, (uint8_t)*v42);
         *v42 = 0;
       }
       if ( *(uint8_t *)off_111160 )
@@ -161,19 +230,19 @@ LABEL_12:
   if ( (v0 & 0x400) != 0 )
   {
     v3 = off_110FB4;
-    v4 = *((unsigned __int8 *)off_110FB4 + 1621);
-    if ( v4 >= *((unsigned __int8 *)off_110FB4 + 1622) )
+    v4 = *((uint8_t *)off_110FB4 + 1621);
+    if ( v4 >= *((uint8_t *)off_110FB4 + 1622) )
     {
       sub_11F504(dword_111174, v4);
     }
     else
     {
       v5 = *(uint32_t *)off_110FBC;
-      v6 = *((unsigned __int8 *)off_110FB4 + 1620)
+      v6 = *((uint8_t *)off_110FB4 + 1620)
          + 1
          - 81
          * ((unsigned int)(((unsigned int)dword_110FB8
-                          * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_110FB4 + 1620) + 1)) >> 32) >> 6);
+                          * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_110FB4 + 1620) + 1)) >> 32) >> 6);
       v7 = (char *)off_110FB4 + 20 * v6;
       v8 = off_110FC4;
       *((uint32_t *)v7 + 1) = *(uint32_t *)off_110FC0;
@@ -206,16 +275,16 @@ LABEL_12:
   if ( (v0 & 0x100) != 0 )
   {
     v13 = off_110FB4;
-    v14 = *((unsigned __int8 *)off_110FB4 + 2433);
-    if ( v14 < *((unsigned __int8 *)off_110FB4 + 2434) )
+    v14 = *((uint8_t *)off_110FB4 + 2433);
+    if ( v14 < *((uint8_t *)off_110FB4 + 2434) )
     {
       v27 = *(uint32_t *)off_111014;
       v28 = *(uint32_t *)off_11100C;
-      v29 = *((unsigned __int8 *)off_110FB4 + 2432)
+      v29 = *((uint8_t *)off_110FB4 + 2432)
           + 1
           - 40
           * ((unsigned int)(((unsigned int)dword_111010
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_110FB4 + 2432) + 1)) >> 32) >> 5);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_110FB4 + 2432) + 1)) >> 32) >> 5);
       v30 = (char *)off_110FB4 + 20 * v29;
       *((uint8_t *)off_110FB4 + 2432) = v29;
       v30[1645] = BYTE1(v27) & 7;
@@ -236,14 +305,14 @@ LABEL_12:
   if ( (v0 & 0x1000) != 0 )
   {
     v16 = off_110FDC;
-    v17 = *((unsigned __int8 *)off_110FDC + 3074);
-    if ( v17 < *((unsigned __int8 *)off_110FDC + 3073) )
+    v17 = *((uint8_t *)off_110FDC + 3074);
+    if ( v17 < *((uint8_t *)off_110FDC + 3073) )
     {
-      v24 = *((unsigned __int8 *)off_110FDC + 3072)
+      v24 = *((uint8_t *)off_110FDC + 3072)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)dword_110FF4
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_110FDC + 3072) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_110FDC + 3072) + 1)) >> 32) >> 7);
       v25 = (char *)off_110FDC + 16 * v24;
       *((uint32_t *)v25 + 1) = *(uint32_t *)off_111004;
       v26 = off_111008;
@@ -265,14 +334,14 @@ LABEL_12:
   if ( (v0 & 0x800) != 0 )
   {
     v19 = off_110FDC;
-    v20 = *((unsigned __int8 *)off_110FDC + 6162);
-    if ( *((unsigned __int8 *)off_110FDC + 6161) > v20 )
+    v20 = *((uint8_t *)off_110FDC + 6162);
+    if ( *((uint8_t *)off_110FDC + 6161) > v20 )
     {
-      v22 = *((unsigned __int8 *)off_110FDC + 6160)
+      v22 = *((uint8_t *)off_110FDC + 6160)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)dword_110FF4
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_110FDC + 6160) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_110FDC + 6160) + 1)) >> 32) >> 7);
       v23 = off_110FF8;
       *((uint8_t *)off_110FDC + 6160) = v22;
       v19[4 * v22 + 773] = *v23;

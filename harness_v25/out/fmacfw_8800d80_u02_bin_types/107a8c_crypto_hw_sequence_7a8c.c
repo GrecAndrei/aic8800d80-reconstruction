@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107C2C;
+extern uint32_t off_107C30;
+extern uint32_t off_107C34;
+extern uint32_t dword_107C38;
+extern uint32_t off_107C44;
+extern uint32_t dword_107C3C;
+extern uint32_t dword_107C40;
+
 // crypto_hw_sequence_7a8c @ 0x107a8c, size 414 bytes
 // Doc: crypto_hw_sequence_7a8c [util]: Program hardware crypto sequence
 // crypto_hw_sequence_7a8c [util]: Program hardware crypto sequence
@@ -10,7 +30,7 @@ int  crypto_hw_sequence_7a8c(int a1)
   uint32_t *v5; // r11
   int v7; // r1
   int v8; // r3
-  bool v9; // cc
+  int v9; // cc
   int v10; // r2
   int v11; // r9
   int v12; // r1

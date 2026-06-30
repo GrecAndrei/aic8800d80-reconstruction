@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1160E0;
+extern uint32_t dword_1160DC;
+extern uint32_t off_1160D8;
+extern uint32_t off_1160E8;
+extern uint32_t dword_1160F0;
+extern uint32_t dword_1160EC;
+extern uint32_t off_1160E4;
+extern uint32_t off_1160F4;
+extern uint32_t off_1160F8;
+
 // sub_11601C @ 0x11601c, size 186 bytes
 int  sub_11601C(int a1)
 {
@@ -15,7 +37,7 @@ int  sub_11601C(int a1)
   v1 = dword_1160E0;
   v2 = *(uint32_t *)(dword_1160DC + 4 * a1);
   v4 = dword_1160E0 + 8 * a1;
-  if ( **(__int16 **)off_1160D8 < 0 && (v2 & *(uint32_t *)off_1160E8) == 0 )
+  if ( **(int16_t **)off_1160D8 < 0 && (v2 & *(uint32_t *)off_1160E8) == 0 )
     rf_cmd_send_n264(dword_1160F0, dword_1160EC, 612);
   result = sub_11E628(v2);
   v6 = *(uint32_t *)(v1 + 8 * a1);
@@ -49,7 +71,7 @@ int  sub_11601C(int a1)
             __enable_irq();
         }
       }
-      result = rf_cmd_dispatch_n_454((unsigned __int8)a1, v6, v10);
+      result = rf_cmd_dispatch_n_454((uint8_t)a1, v6, v10);
       v6 = *(uint32_t *)(v1 + 8 * a1);
     }
     while ( v6 );

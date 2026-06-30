@@ -1,9 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10EB10;
+extern uint32_t off_10EB04;
+extern uint32_t dword_10EB08;
+extern uint32_t dword_10EB14;
+extern uint32_t dword_10EB0C;
+
 // rf_reg_field_modify_n12a @ 0x10e9f4, size 272 bytes
 // Doc: rf_reg_field_modify_n12a [rf]: Modify RF register field via mask and value
 // rf_reg_field_modify_n12a [rf]: Modify RF register field via mask and value
 int  rf_reg_field_modify_n12a(int a1)
 {
-  __int16 *v1; // r9
+  int16_t *v1; // r9
   int v2; // r7
   int v3; // r5
   int v4; // r3
@@ -21,7 +39,7 @@ int  rf_reg_field_modify_n12a(int a1)
   int v17; // [sp+0h] [bp-Ch]
   int v18; // [sp+4h] [bp-8h]
 
-  v1 = (__int16 *)off_10EB10;
+  v1 = (int16_t *)off_10EB10;
   *(uint32_t *)off_10EB04 = (a1 << 26) & 0x1C000000 | *(uint32_t *)off_10EB04 & 0xE3FFFFFF;
   v2 = a1;
   v3 = mmio_set_reg_4010d000();

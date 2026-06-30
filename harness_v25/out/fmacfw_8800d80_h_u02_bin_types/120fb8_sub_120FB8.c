@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1211C0;
+extern uint32_t off_1211C4;
+extern uint32_t off_1211C8;
+extern uint32_t off_1211CC;
+extern uint32_t off_1211F0;
+extern uint32_t off_1211F8;
+extern uint32_t off_1211D0;
+extern uint32_t dword_1211E4;
+extern uint32_t off_1211D4;
+extern uint32_t off_1211D8;
+extern uint32_t off_1211E8;
+extern uint32_t dword_1211EC;
+extern uint32_t off_1211DC;
+extern uint32_t off_1211E0;
+extern uint32_t dword_1211F4;
+
 // sub_120FB8 @ 0x120fb8, size 520 bytes
 int sub_120FB8()
 {
@@ -21,8 +49,8 @@ int sub_120FB8()
   uint32_t *v17; // r4
   int v18; // r2
   unsigned int v19; // r3
-  bool v20; // zf
-  bool v21; // cc
+  int v20; // zf
+  int v21; // cc
   int v22; // r3
   int v23; // r1
   int v24; // r3
@@ -67,7 +95,7 @@ int sub_120FB8()
     {
       if ( *(uint8_t *)(v1 + 106) != 2 )
         goto LABEL_7;
-      v11 = (unsigned __int8)(*(uint8_t *)(v1 + 225) - 1);
+      v11 = (uint8_t)(*(uint8_t *)(v1 + 225) - 1);
       *(uint8_t *)(v1 + 225) = v11;
       if ( v11 )
         goto LABEL_7;
@@ -91,7 +119,7 @@ LABEL_7:
 LABEL_15:
     sub_1200F0(v1);
     v3 = sub_12A144(v1, *(uint32_t *)(v1 + 36) + 3048);
-    v4 = *(unsigned __int16 *)(v1 + 222);
+    v4 = *(uint16_t *)(v1 + 222);
     v14 = 32 * *v7;
     if ( v14 <= 0xBE7 )
       v14 += v4 << 10;
@@ -104,14 +132,14 @@ LABEL_15:
     }
     else
     {
-      if ( *((unsigned __int8 *)off_1211D4 + 90) > 1u )
+      if ( *((uint8_t *)off_1211D4 + 90) > 1u )
       {
         for ( i = *((int ***)off_1211D4 + 4); i; i = (int **)*i )
         {
-          v4 = *((unsigned __int8 *)i + 8);
-          if ( v4 == *(unsigned __int8 *)(v1 + 107) )
+          v4 = *((uint8_t *)i + 8);
+          if ( v4 == *(uint8_t *)(v1 + 107) )
           {
-            v30 = *(unsigned __int16 *)(v1 + 222);
+            v30 = *(uint16_t *)(v1 + 222);
             v31 = *(uint32_t *)(v1 + 36);
             v3 = (int)i[1];
             v32 = v31 + (v30 << 10);
@@ -120,7 +148,7 @@ LABEL_15:
             {
               i[1] = (int *)v15;
               v3 = v15;
-              v33 = *(unsigned __int16 *)(v1 + 222) << 10;
+              v33 = *(uint16_t *)(v1 + 222) << 10;
             }
             v4 = v31 + 2 * v33;
             if ( v4 == v3 )
@@ -128,13 +156,13 @@ LABEL_15:
           }
         }
       }
-      if ( *(uint8_t *)off_1211D8 && (v0[4] & 0xFFFF00) == 0x10000 && (unsigned __int16)*v9 > 0x14u )
+      if ( *(uint8_t *)off_1211D8 && (v0[4] & 0xFFFF00) == 0x10000 && (uint16_t)*v9 > 0x14u )
       {
         v18 = v8[4];
-        v19 = *(unsigned __int8 *)off_1211E8;
+        v19 = *(uint8_t *)off_1211E8;
         v20 = v19 == 2;
         v21 = v19 > 2;
-        v22 = (unsigned __int16)*v9;
+        v22 = (uint16_t)*v9;
         if ( v21 )
         {
           v3 = sub_124BFC(dword_1211EC, v18 + 500 * v22);
@@ -168,9 +196,9 @@ LABEL_26:
         if ( result != 1 )
         {
           if ( !*((uint8_t *)v17 + 14)
-            || (v24 = (unsigned __int8)(*((uint8_t *)v17 + 14) - 1), *((uint8_t *)v17 + 14) = v24, !v24) )
+            || (v24 = (uint8_t)(*((uint8_t *)v17 + 14) - 1), *((uint8_t *)v17 + 14) = v24, !v24) )
           {
-            v25 = *(unsigned __int16 *)(v10 + 222);
+            v25 = *(uint16_t *)(v10 + 222);
             v26 = v17[4];
             v27 = *((uint32_t *)off_1211F0 + 4);
             v28 = dword_1211F4;

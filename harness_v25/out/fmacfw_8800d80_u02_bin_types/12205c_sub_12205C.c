@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_122118;
+extern uint32_t off_122110;
+extern uint32_t off_122104;
+extern uint32_t dword_122120;
+extern uint32_t off_12211C;
+extern uint32_t off_122108;
+extern uint32_t off_12210C;
+extern uint32_t dword_122114;
+
 // sub_12205C @ 0x12205c, size 168 bytes
 // Doc: sub_1222060 [util]: Unknown utility helper at 0x1222060
 // sub_1222060 [util]: Unknown utility helper at 0x1222060
@@ -27,10 +48,10 @@ int  sub_12205C(int a1, int a2)
   }
   else
   {
-    v3 = (unsigned __int8)(*(uint8_t *)(a1 + 115) + 1);
+    v3 = (uint8_t)(*(uint8_t *)(a1 + 115) + 1);
     v4 = *(uint32_t *)off_122104;
     *(uint8_t *)(a1 + 115) = v3;
-    if ( *(unsigned __int8 *)(v4 + 1) == v3 )
+    if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
       feature_guard_check(1024, dword_122120);
@@ -38,7 +59,7 @@ int  sub_12205C(int a1, int a2)
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return sub_12B2B0(*(unsigned __int8 *)(a1 + 107), off_12211C, a1);
+      return sub_12B2B0(*(uint8_t *)(a1 + 107), off_12211C, a1);
     }
     else
     {

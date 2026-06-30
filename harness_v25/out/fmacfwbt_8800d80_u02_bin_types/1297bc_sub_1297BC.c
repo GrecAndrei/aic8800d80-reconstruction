@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_129A1C;
+extern uint32_t dword_129A24;
+extern uint32_t dword_129A20;
+
 // sub_1297BC @ 0x1297bc, size 606 bytes
 // Doc: sub_12297BC [unknown]: Initialize/setup a 0x60+ byte structure with default flags
 // sub_12297BC [unknown]: Initialize/setup a 0x60+ byte structure with default flags
@@ -20,7 +36,7 @@ int  sub_1297BC(int result)
   int v15; // r4
   int v16; // r6
   int v17; // r2
-  bool v18; // cf
+  int v18; // cf
   int v19; // r3
   int v20; // r1
   unsigned int v21; // r1
@@ -40,7 +56,7 @@ int  sub_1297BC(int result)
   do
   {
     if ( *(uint8_t *)(v4 + 16) == 2
-      && *(unsigned __int8 *)(v4 + 19) <= 1u
+      && *(uint8_t *)(v4 + 19) <= 1u
       && (!*(uint8_t *)(result + 135) || !*(uint8_t *)(v4 + 33) || *(uint8_t *)(v4 + 32) != 1) )
     {
       v7 = *(uint32_t *)(v4 + 12);
@@ -67,7 +83,7 @@ int  sub_1297BC(int result)
   {
     if ( *(uint8_t *)(v9 + 16) == 2 )
     {
-      v12 = *(unsigned __int8 *)(v9 + 19);
+      v12 = *(uint8_t *)(v9 + 19);
       if ( v12 > 1 && (!*(uint8_t *)(v2 + 135) || !*(uint8_t *)(v9 + 33) || *(uint8_t *)(v9 + 32) != 1) )
       {
         v13 = *(uint32_t *)(v9 + 28);
@@ -163,13 +179,13 @@ LABEL_19:
       }
       if ( v20 - v1 >= 0 )
       {
-        result = *(unsigned __int8 *)(v15 + 19);
+        result = *(uint8_t *)(v15 + 19);
         v23 = *(uint32_t *)(v15 + 12);
         v24 = *(uint32_t *)(v15 + 24) + v19;
       }
       else
       {
-        result = *(unsigned __int8 *)(v15 + 19) - 1;
+        result = *(uint8_t *)(v15 + 19) - 1;
         if ( !*(uint8_t *)(v15 + 19) )
           goto LABEL_28;
         v23 = *(uint32_t *)(v15 + 12);
@@ -229,7 +245,7 @@ LABEL_19:
           }
           goto LABEL_28;
         }
-        if ( **(__int16 **)off_129A1C < 0 )
+        if ( **(int16_t **)off_129A1C < 0 )
           result = sub_12F6C4(dword_129A24, dword_129A20, 347);
         v1 = v24;
         v10 = v23 + *(uint32_t *)(v15 + 28);

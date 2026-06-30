@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1244D0;
+extern uint32_t off_1244CC;
+extern uint32_t dword_1244D4;
+extern uint32_t off_1244EC;
+extern uint32_t off_1244E0;
+extern uint32_t off_1244DC;
+extern uint32_t off_1244D8;
+extern uint32_t off_1244E8;
+extern uint32_t off_1244E4;
+extern uint32_t dword_1244F4;
+extern uint32_t off_1244F0;
+
 // sub_1242F0 @ 0x1242f0, size 476 bytes
 int  sub_1242F0(unsigned int a1)
 {
@@ -13,19 +37,19 @@ int  sub_1242F0(unsigned int a1)
   char v11; // r0
   char v12; // r1
   uint8_t *v13; // r1
-  __int16 v14; // r3
-  __int16 v15; // r2
+  int16_t v14; // r3
+  int16_t v15; // r2
   uint8_t *v16; // r7
   char v17; // r0
-  __int16 *v18; // r8
+  int16_t *v18; // r8
   unsigned int v19; // r4
-  __int16 v20; // r3
+  int16_t v20; // r3
   uint8_t *v21; // r2
   char v22; // r1
   unsigned int v23; // r3
   char *v24; // r0
-  __int16 v25; // r2
-  bool v26; // cc
+  int16_t v25; // r2
+  int v26; // cc
   char v27; // r3
   int v28; // r0
   uint64_t v29; // [sp+0h] [bp-8h] BYREF
@@ -54,7 +78,7 @@ int  sub_1242F0(unsigned int a1)
     }
   }
   sub_1019EC(&v29, 0);
-  v4 = (unsigned __int8)v29;
+  v4 = (uint8_t)v29;
   if ( (uint8_t)v29 )
     v4 = 1;
   result = sub_116580(v4, v3);
@@ -71,7 +95,7 @@ int  sub_1242F0(unsigned int a1)
     if ( a1 == 128 )
     {
       sub_123AB4(v7 + 104);
-      v23 = *(unsigned __int8 *)off_1244EC;
+      v23 = *(uint8_t *)off_1244EC;
       v24 = (char *)off_1244E0;
       v25 = *(uint16_t *)off_1244DC;
       *(uint8_t *)(v7 + 128) = 0x80;
@@ -117,14 +141,14 @@ int  sub_1242F0(unsigned int a1)
     {
       if ( a1 == 1 )
       {
-        v18 = (__int16 *)off_1244DC;
+        v18 = (int16_t *)off_1244DC;
         v19 = *(uint32_t *)off_1244E8 - *(uint32_t *)off_1244E4;
         if ( v19 <= 0x4E1F )
         {
           v28 = dword_1244F4;
-          v19 = (1000 - *(unsigned __int16 *)off_1244DC)
+          v19 = (1000 - *(uint16_t *)off_1244DC)
               * ((*(uint32_t *)off_1244E4 - *(uint32_t *)off_1244F0)
-               / (unsigned int)*(unsigned __int16 *)off_1244DC)
+               / (unsigned int)*(uint16_t *)off_1244DC)
               + 20000;
           *(uint32_t *)off_1244E8 = *(uint32_t *)off_1244E4 + v19;
           sub_11F504(v28, v19);

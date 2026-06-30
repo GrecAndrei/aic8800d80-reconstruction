@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116154;
+extern uint32_t off_116158;
+extern uint32_t off_11616C;
+extern uint32_t off_116168;
+extern uint32_t dword_116170;
+extern uint32_t off_116178;
+extern uint32_t dword_116184;
+extern uint32_t dword_11617C;
+extern uint32_t off_116174;
+extern uint32_t off_11615C;
+extern uint32_t off_116160;
+extern uint32_t off_116164;
+extern uint32_t dword_116180;
+
 // sub_116034 @ 0x116034, size 288 bytes
 // Doc: sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
 // sub_1216034 [util]: Loads pointer from 0x182c60 and reads its first byte
@@ -7,7 +33,7 @@ void sub_116034()
   int v1; // r3
   uint8_t *v2; // r6
   int *v3; // r3
-  unsigned __int8 **v4; // r5
+  uint8_t **v4; // r5
   char v5; // r0
   int v6; // r1
   void *v7; // r2
@@ -19,7 +45,7 @@ void sub_116034()
   v0 = (uint8_t **)off_116154;
   if ( **(uint8_t **)off_116154 )
   {
-    v1 = **(unsigned __int8 **)off_116158;
+    v1 = **(uint8_t **)off_116158;
     if ( v1 != 1 )
       goto LABEL_3;
     goto LABEL_12;
@@ -30,7 +56,7 @@ void sub_116034()
   if ( !v3 )
   {
 LABEL_10:
-    v4 = (unsigned __int8 **)off_116158;
+    v4 = (uint8_t **)off_116158;
     if ( **(uint8_t **)off_116158 == 3 )
       goto LABEL_4;
     feature_guard_sdio(2, dword_116170);
@@ -63,7 +89,7 @@ LABEL_12:
 LABEL_4:
     if ( queue_check()
       && !*((uint32_t *)off_11615C + 126)
-      && (*(uint32_t *)off_116160 >> 25) & 1 | *((unsigned __int8 *)off_116164 + 36)
+      && (*(uint32_t *)off_116160 >> 25) & 1 | *((uint8_t *)off_116164 + 36)
       && !*((uint8_t *)off_116164 + 29)
       && tx_timeout_check() )
     {
@@ -75,7 +101,7 @@ LABEL_4:
         v11 = sub_12ECB0(dword_116180, v6, v7);
         sdio_wait_busy(v11);
       }
-      if ( (unsigned __int8)**v0 <= 1u )
+      if ( (uint8_t)**v0 <= 1u )
         rf_msg_process_body_n1cc();
     }
     return;

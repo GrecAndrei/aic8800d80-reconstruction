@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // ptr_compare_or_fetch @ 0x12d578, size 26 bytes
 // Doc: ptr_compare_or_fetch [util]: Compare pointer at r0 against r1 value
 // ptr_compare_or_fetch [util]: Compare pointer at r0 against r1 value
@@ -14,6 +26,6 @@ BOOL  ptr_compare_or_fetch(uint32_t **a1, uint32_t *a2)
     if ( a2 == v2 )
       return 1;
   }
-  return a2 == nullptr;
+  return a2 == 0;
 }
 

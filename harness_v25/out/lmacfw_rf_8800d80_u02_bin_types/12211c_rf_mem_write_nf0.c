@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_122188;
+extern uint32_t dword_12218C;
+
 // rf_mem_write_nf0 @ 0x12211c, size 108 bytes
 // Doc: rf_mem_write [mmio]: Write 32-bit value to RF memory-mapped register
 // rf_mem_write [mmio]: Write 32-bit value to RF memory-mapped register
@@ -10,12 +25,12 @@ int  rf_mem_write_nf0(int a1, int a2)
 
   if ( a1 <= 2 )
   {
-    v4 = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0x10u);
+    v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0x10u);
     msg_parse(dword_122188, v4);
     goto rf_cmd_dispatch_n240;
   }
-  v3 = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0);
-  v4 = parse_int(*(unsigned __int8 **)(a2 + 8), nullptr, 0x10u);
+  v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
+  v4 = parse_int(*(uint8_t **)(a2 + 8), 0, 0x10u);
   msg_parse(dword_122188, v4);
   if ( v3 == 1 )
 rf_cmd_dispatch_n240:

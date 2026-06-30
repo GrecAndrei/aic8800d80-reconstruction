@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1081E4;
+extern uint32_t dword_1081DC;
+extern uint32_t dword_1081E0;
+
 // crypto_channel_calc @ 0x108080, size 348 bytes
 // Doc: crypto_channel_calc [mac]: Calculate crypto channel parameters from context
 // crypto_channel_calc [mac]: Calculate crypto channel parameters from context
@@ -26,7 +42,7 @@ int  crypto_channel_calc(int a1, int *a2, uint32_t *a3)
   int v27; // r3
 
   v4 = a3[1] - 1;
-  v5 = *(QWORD *)(a1 + 36);
+  v5 = *(uint64_t *)(a1 + 36);
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
@@ -39,8 +55,8 @@ int  crypto_channel_calc(int a1, int *a2, uint32_t *a3)
 LABEL_8:
     HIDWORD(v15) = ((unsigned uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31);
     LODWORD(v15) = ((unsigned uint64_t)(dword_1081DC * (uint64_t)*a2) >> 32) - (*a2 >> 31);
-    v14 = *(QWORD *)(a1 + 20);
-    *(QWORD *)a2 = v15;
+    v14 = *(uint64_t *)(a1 + 20);
+    *(uint64_t *)a2 = v15;
     goto LABEL_9;
   }
   v9 = ((unsigned uint64_t)(dword_1081DC * (uint64_t)(int)v5) >> 32) - ((int)v5 >> 31);
@@ -80,11 +96,11 @@ LABEL_8:
     HIDWORD(v11) = 2 * (((unsigned uint64_t)(dword_1081DC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31));
     v12 = *(uint32_t *)(a1 + 20) + *(uint32_t *)(a1 + 28);
     v13 = *(uint32_t *)(a1 + 32) + *(uint32_t *)(a1 + 24);
-    *(QWORD *)a2 = v11;
+    *(uint64_t *)a2 = v11;
     v14 = __PAIR64__(v13 / 2, v12 / 2);
   }
 LABEL_9:
-  *((QWORD *)a2 + 1) = v14;
+  *((uint64_t *)a2 + 1) = v14;
   return feature_guard_check(1, dword_1081E0);
 }
 

@@ -1,3 +1,46 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_103264;
+extern uint32_t off_1032BC;
+extern uint32_t off_103268;
+extern uint32_t off_10326C;
+extern uint32_t off_103274;
+extern uint32_t off_103270;
+extern uint32_t off_1032D0;
+extern uint32_t off_1032D8;
+extern uint32_t off_103278;
+extern uint32_t off_1032D4;
+extern uint32_t off_10327C;
+extern uint32_t off_103280;
+extern uint32_t off_103284;
+extern uint32_t off_103288;
+extern uint32_t off_10328C;
+extern uint32_t off_103290;
+extern uint32_t off_103294;
+extern uint32_t off_103298;
+extern uint32_t off_10329C;
+extern uint32_t off_1032A0;
+extern uint32_t off_1032C4;
+extern uint32_t off_1032C8;
+extern uint32_t off_1032CC;
+extern uint32_t off_1032A4;
+extern uint32_t off_1032A8;
+extern uint32_t off_1032AC;
+extern uint32_t off_1032B0;
+extern uint32_t off_1032B8;
+extern uint32_t off_1032B4;
+extern uint32_t off_1032C0;
+
 // sub_10300C @ 0x10300c, size 600 bytes
 void sub_10300C()
 {
@@ -12,13 +55,13 @@ void sub_10300C()
   uint32_t *v8; // r3
   uint32_t *v9; // r6
   uint32_t *v10; // r1
-  unsigned __int8 *v11; // r0
+  uint8_t *v11; // r0
   uint32_t *v12; // r3
   int *v13; // r0
   unsigned int v14; // r3
   int v15; // r3
   unsigned int *v16; // r2
-  unsigned __int8 *v17; // r0
+  uint8_t *v17; // r0
   uint32_t *v18; // r1
   int v19; // r0
   unsigned int *v20; // r2
@@ -78,7 +121,7 @@ void sub_10300C()
     *v8 &= ~4u;
     v10 = off_103290;
     *v6 = *v6 & 0xFFFFF3FF | 0x800;
-    v11 = (unsigned __int8 *)off_103294;
+    v11 = (uint8_t *)off_103294;
     v7 -= 1999;
     *v9 &= 0xFFFF3FFF;
     v5 -= 2068;
@@ -117,7 +160,7 @@ void sub_10300C()
       *((uint8_t *)off_1032A4 + 1) = 0;
     }
     v16 = (unsigned int *)off_1032A8;
-    v17 = (unsigned __int8 *)off_1032AC;
+    v17 = (uint8_t *)off_1032AC;
     v18 = off_1032B0;
     *(uint32_t *)off_1032A8 = *(uint32_t *)off_1032A8 & 0x3FFFFFF | 0xA0000000;
     v19 = v17[362];

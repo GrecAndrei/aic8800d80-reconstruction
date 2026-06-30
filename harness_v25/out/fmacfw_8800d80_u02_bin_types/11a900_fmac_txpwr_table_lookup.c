@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11A93C;
+
 // fmac_txpwr_table_lookup @ 0x11a900, size 58 bytes
 // Doc: fmac_txpwr_table_lookup [mac]: Look up per-chain TX power entry from indexed calibration table
 // fmac_txpwr_table_lookup [mac]: Look up per-chain TX power entry from indexed calibration table

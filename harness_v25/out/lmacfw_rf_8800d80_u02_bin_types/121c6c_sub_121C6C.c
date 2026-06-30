@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_121C6C @ 0x121c6c, size 136 bytes
 // Doc: rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
 // rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
@@ -45,6 +57,6 @@ rf_cmd_dispatch_1ccc:
     if ( v7 == 1 )
       return a2;
   }
-  return nullptr;
+  return 0;
 }
 

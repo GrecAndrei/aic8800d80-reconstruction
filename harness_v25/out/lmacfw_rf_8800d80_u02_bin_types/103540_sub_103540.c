@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1035D0;
+extern uint32_t off_1035CC;
+extern uint32_t off_1035D4;
+extern uint32_t off_1035DC;
+extern uint32_t off_1035E0;
+extern uint32_t dword_1035E4;
+extern uint32_t off_1035D8;
+
 // sub_103540 @ 0x103540, size 138 bytes
 int  sub_103540(int a1, int a2, int a3, int a4, int a5)
 {
@@ -18,7 +38,7 @@ int  sub_103540(int a1, int a2, int a3, int a4, int a5)
   {
     LOWORD(v6) = 50;
     do
-      v6 = (unsigned __int16)(v6 - 1);
+      v6 = (uint16_t)(v6 - 1);
     while ( v6 );
   }
   v7 = off_1035D4;
@@ -29,7 +49,7 @@ int  sub_103540(int a1, int a2, int a3, int a4, int a5)
   {
     LOWORD(v9) = 50;
     do
-      v9 = (unsigned __int16)(v9 - 1);
+      v9 = (uint16_t)(v9 - 1);
     while ( v9 );
   }
   v10 = (int *)off_1035DC;

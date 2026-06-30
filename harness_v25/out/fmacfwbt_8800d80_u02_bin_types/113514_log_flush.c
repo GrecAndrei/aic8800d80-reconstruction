@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_113648;
+extern uint32_t dword_113664;
+extern uint32_t off_113640;
+
 // log_flush @ 0x113514, size 294 bytes
 // Doc: rf_stream_start_354e [rf]: Start RF data stream and check link state
 // rf_stream_start_354e [rf]: Start RF data stream and check link state
@@ -26,7 +42,7 @@ void log_flush()
       feature_guard_sdio(512, dword_113664);
       return;
     }
-    if ( *(unsigned __int8 *)rf_stream_start2_n3f8 >= (unsigned int)*(unsigned __int16 *)off_113648 )
+    if ( *(uint8_t *)rf_stream_start2_n3f8 >= (unsigned int)*(uint16_t *)off_113648 )
     {
       v13 = rf_stream_start2_650;
       *(uint8_t *)off_113640 = 1;
@@ -37,7 +53,7 @@ void log_flush()
   {
     if ( *(uint8_t *)off_113640 )
       return;
-    if ( *(unsigned __int8 *)rf_stream_start2_n3f8 >= (unsigned int)*(unsigned __int16 *)off_113648
+    if ( *(uint8_t *)rf_stream_start2_n3f8 >= (unsigned int)*(uint16_t *)off_113648
       && !*(uint8_t *)off_113640 )
     {
       *(uint8_t *)off_113640 = 1;

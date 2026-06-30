@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10DCB4;
+extern uint32_t dword_40504080;
+extern uint32_t off_10DCB8;
+extern uint32_t dword_10DCBC;
+extern uint32_t dword_10DCC4;
+extern uint32_t off_10DCC0;
+
 // sub_10DC04 @ 0x10dc04, size 174 bytes
 int  sub_10DC04(int result, int a2, int a3)
 {
@@ -7,7 +26,7 @@ int  sub_10DC04(int result, int a2, int a3)
   int v6; // r6
   uint32_t *v7; // r3
   uint8_t *v8; // r5
-  bool v9; // nf
+  int v9; // nf
 
   v3 = 1 << result;
   if ( result <= 7 )

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1146D8;
+extern uint32_t off_1146DC;
+extern uint32_t dword_1146E0;
+
 // rf_msg_handler_main_45f4 @ 0x1145f4, size 228 bytes
 // Doc: rf_msg_handler_main_45f4 [rf]: Top-level RF message handler dispatching on message id with stack-local context
 // rf_msg_handler_main_45f4 [rf]: Top-level RF message handler dispatching on message id with stack-local context
@@ -20,8 +36,8 @@ int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3)
     return -1;
   if ( (v9 & a1) == 0 )
     return 1;
-  v6 = (unsigned __int8)v9 & (unsigned __int8)a1 & 2;
-  if ( ((unsigned __int8)v9 & (unsigned __int8)a1 & 2) != 0 )
+  v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
+  if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
   {
     sub_1282E8(a2, v10, 6);
     v6 = 6;

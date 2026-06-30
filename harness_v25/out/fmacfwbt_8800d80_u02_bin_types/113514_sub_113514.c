@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11363C;
+extern uint32_t off_113648;
+extern uint32_t dword_113664;
+extern uint32_t off_113644;
+extern uint32_t dword_113650;
+extern uint32_t off_113640;
+extern uint32_t off_113654;
+extern uint32_t off_11366C;
+extern uint32_t off_113658;
+extern uint32_t dword_11365C;
+extern uint32_t dword_113660;
+extern uint32_t dword_113668;
+
 // sub_113514 @ 0x113514, size 294 bytes
 void sub_113514()
 {
@@ -24,7 +49,7 @@ void sub_113514()
       sub_12EEF8(512, dword_113664);
       return;
     }
-    if ( *(unsigned __int8 *)off_113644 >= (unsigned int)*(unsigned __int16 *)off_113648 )
+    if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 )
     {
       v13 = dword_113650;
       *(uint8_t *)off_113640 = 1;
@@ -35,7 +60,7 @@ void sub_113514()
   {
     if ( *(uint8_t *)off_113640 )
       return;
-    if ( *(unsigned __int8 *)off_113644 >= (unsigned int)*(unsigned __int16 *)off_113648 && !*(uint8_t *)off_113640 )
+    if ( *(uint8_t *)off_113644 >= (unsigned int)*(uint16_t *)off_113648 && !*(uint8_t *)off_113640 )
     {
       *(uint8_t *)off_113640 = 1;
       sub_12EEF8(512, dword_113650);

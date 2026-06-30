@@ -1,13 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_127EB0 @ 0x127eb0, size 94 bytes
 int  sub_127EB0(int result, int a2)
 {
   int v2; // r2
   unsigned int v3; // r3
-  bool v4; // zf
-  bool v5; // cf
-  bool v6; // zf
-  bool v7; // nf
-  bool v8; // cc
+  int v4; // zf
+  int v5; // cf
+  int v6; // zf
+  int v7; // nf
+  int v8; // cc
 
   v2 = 2 * result;
   v3 = 2 * a2;

@@ -1,5 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_142548;
+extern uint32_t dword_14254C;
+extern uint32_t dword_142550;
+
 // sub_142480 @ 0x142480, size 198 bytes
-int  sub_142480(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
+int  sub_142480(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v6; // r7
   int v8; // r11
@@ -10,7 +26,7 @@ int  sub_142480(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
   int v14; // r4
   int v15; // r10
   int v16; // r1
-  unsigned __int8 v17; // [sp+4h] [bp-8h]
+  uint8_t v17; // [sp+4h] [bp-8h]
   int v18; // [sp+4h] [bp-8h]
 
   if ( !*(uint8_t *)off_142548 )
@@ -23,13 +39,13 @@ int  sub_142480(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
   {
     v9 = dword_14254C;
     v17 = a2[2];
-    v10 = sub_1420F8(*(unsigned __int8 *)(dword_14254C + 1320 * v8 + 116), v8, v17);
+    v10 = sub_1420F8(*(uint8_t *)(dword_14254C + 1320 * v8 + 116), v8, v17);
     if ( v10 )
     {
       sub_1420D4(v10);
       v11 = v17;
 LABEL_6:
-      LOBYTE(v6) = sub_14207C(a2[3], *(unsigned __int8 *)(v9 + 1320 * v8 + 116), v11) == 0;
+      LOBYTE(v6) = sub_14207C(a2[3], *(uint8_t *)(v9 + 1320 * v8 + 116), v11) == 0;
       goto LABEL_8;
     }
 LABEL_7:
@@ -42,8 +58,8 @@ LABEL_7:
   do
   {
     if ( (*(uint16_t *)v14 & 1) != 0
-      && *(unsigned __int8 *)(v14 + 46) == *(unsigned __int8 *)(v16 + 116)
-      && *(unsigned __int8 *)(v14 + 47) == a2[3] )
+      && *(uint8_t *)(v14 + 46) == *(uint8_t *)(v16 + 116)
+      && *(uint8_t *)(v14 + 47) == a2[3] )
     {
       v18 = v16;
       v6 = 1;

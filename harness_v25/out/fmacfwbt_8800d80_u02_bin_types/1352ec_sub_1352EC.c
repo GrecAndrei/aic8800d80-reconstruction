@@ -1,19 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13537C;
+extern uint32_t dword_135380;
+
 // sub_1352EC @ 0x1352ec, size 142 bytes
 int  sub_1352EC(int a1, int a2)
 {
   int v2; // r5
   uint8_t *v3; // r7
   int result; // r0
-  __int16 v7; // r5
+  int16_t v7; // r5
 
   v2 = *(uint32_t *)(a1 + 72);
   v3 = off_13537C;
   feature_guard_sdio(
     256,
     dword_135380,
-    *((unsigned __int8 *)off_13537C + 34),
+    *((uint8_t *)off_13537C + 34),
     a2,
-    (unsigned __int8)*(uint16_t *)(v2 + 108));
+    (uint8_t)*(uint16_t *)(v2 + 108));
   if ( !v3[34] )
     return sub_135020(1);
   v7 = *(uint16_t *)(v2 + 108);

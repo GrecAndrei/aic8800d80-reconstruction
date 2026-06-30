@@ -1,5 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_124E2C;
+extern uint32_t off_124E18;
+extern uint32_t dword_124E30;
+extern uint32_t off_124E20;
+extern uint32_t off_124E1C;
+extern uint32_t dword_124E24;
+extern uint32_t off_124E28;
+
 // sub_124C70 @ 0x124c70, size 424 bytes
-int  sub_124C70(int a1, unsigned __int8 **a2)
+int  sub_124C70(int a1, uint8_t **a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r7
@@ -11,9 +31,9 @@ int  sub_124C70(int a1, unsigned __int8 **a2)
   int v11; // r0
   int result; // r0
   uint64_t v13; // [sp+4h] [bp-14h] BYREF
-  unsigned __int8 v14; // [sp+Ch] [bp-Ch] BYREF
-  unsigned __int8 v15; // [sp+Dh] [bp-Bh]
-  unsigned __int16 v16; // [sp+Eh] [bp-Ah]
+  uint8_t v14; // [sp+Ch] [bp-Ch] BYREF
+  uint8_t v15; // [sp+Dh] [bp-Bh]
+  uint16_t v16; // [sp+Eh] [bp-Ah]
   int v17; // [sp+10h] [bp-8h]
   char v18; // [sp+16h] [bp-2h]
 
@@ -23,11 +43,11 @@ int  sub_124C70(int a1, unsigned __int8 **a2)
     msg_parse(dword_124E2C);
     return -1;
   }
-  v4 = parse_int(a2[1], nullptr, 0xAu);
-  v5 = parse_int(a2[2], nullptr, 0xAu);
-  v6 = parse_int(a2[3], nullptr, 0xAu);
+  v4 = parse_int(a2[1], 0, 0xAu);
+  v5 = parse_int(a2[2], 0, 0xAu);
+  v6 = parse_int(a2[3], 0, 0xAu);
   if ( a1 > 3 )
-    v7 = parse_int(a2[4], nullptr, 0xAu);
+    v7 = parse_int(a2[4], 0, 0xAu);
   else
     v7 = 0;
   if ( v4 == 5 )
@@ -110,7 +130,7 @@ LABEL_16:
   *(uint8_t *)off_124E1C = v8;
   *v9 = v8;
   sub_102E84(v11, v10, v8);
-  msg_parse(dword_124E24, v16, (unsigned __int16)v17);
+  msg_parse(dword_124E24, v16, (uint16_t)v17);
   result = *(uint32_t *)off_124E28;
   if ( *(uint32_t *)off_124E28 )
   {

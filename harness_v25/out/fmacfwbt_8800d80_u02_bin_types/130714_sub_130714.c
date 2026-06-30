@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1307C4;
+extern uint32_t off_1307C8;
+extern uint32_t dword_1307CC;
+
 // sub_130714 @ 0x130714, size 174 bytes
 // Doc: sub_1230714 [util]: Loads signed byte from global and dispatches handler
 // sub_1230714 [util]: Loads signed byte from global and dispatches handler
@@ -11,7 +27,7 @@ void sub_130714()
   int v5; // r1
   char v6; // r3
   int v7; // r0
-  unsigned __int8 v8; // [sp+3h] [bp-Dh] BYREF
+  uint8_t v8; // [sp+3h] [bp-Dh] BYREF
   int v9; // [sp+4h] [bp-Ch] BYREF
   int v10; // [sp+8h] [bp-8h] BYREF
   int v11; // [sp+Ch] [bp-4h] BYREF

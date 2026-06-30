@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107350;
+extern uint32_t off_107354;
+extern uint32_t off_107358;
+extern uint32_t off_10735C;
+extern uint32_t off_107360;
+extern uint32_t off_107364;
+extern uint32_t off_107368;
+extern uint32_t off_10736C;
+
 // subsystem_init_n7224 @ 0x107224, size 298 bytes
 // Doc: subsystem_init_n7224 [mmio]: Initialize peripheral subsystem by clearing reset bits
 // subsystem_init_n7224 [mmio]: Initialize peripheral subsystem by clearing reset bits

@@ -1,5 +1,40 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1316DC;
+extern uint32_t off_1316E4;
+extern uint32_t off_1316E0;
+extern uint32_t off_131714;
+extern uint32_t off_1316F4;
+extern uint32_t off_1316F0;
+extern uint32_t off_131708;
+extern uint32_t off_13170C;
+extern uint32_t off_1316F8;
+extern uint32_t off_131704;
+extern uint32_t off_131700;
+extern uint32_t dword_131710;
+extern uint32_t off_1316FC;
+extern uint32_t off_1316EC;
+extern uint32_t off_1316E8;
+extern uint32_t off_13171C;
+extern uint32_t off_131718;
+extern uint32_t off_131720;
+extern uint32_t off_131724;
+extern uint32_t off_13172C;
+extern uint32_t off_131730;
+extern uint32_t off_131728;
+
 // sub_1314F4 @ 0x1314f4, size 486 bytes
-int  sub_1314F4(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
+int  sub_1314F4(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r1
   uint8_t *v8; // r3
@@ -49,7 +84,7 @@ int  sub_1314F4(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
     {
       v18 = off_1316F0;
       v19 = off_131708;
-      v20 = *((unsigned __int8 *)off_131708 + 18);
+      v20 = *((uint8_t *)off_131708 + 18);
       v21 = off_1316F4;
       *(uint32_t *)off_1316F0 |= 0x2000000u;
       *v21 = 4;
@@ -73,7 +108,7 @@ int  sub_1314F4(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
                 goto LABEL_21;
             }
             v24 = *((uint32_t *)off_131704 + 4);
-            v25 = *(unsigned __int16 *)(*(uint32_t *)off_131700 + 54);
+            v25 = *(uint16_t *)(*(uint32_t *)off_131700 + 54);
             v26 = dword_131710;
             *((uint32_t *)off_1316F8 + 5) = v23;
             v22[29] = 4;
@@ -102,7 +137,7 @@ LABEL_21:
     if ( v14 && *(uint8_t *)(v14 + 108) )
     {
       v16 = *((uint32_t *)off_131704 + 4);
-      v17 = *(unsigned __int16 *)(*(uint32_t *)off_131700 + 54);
+      v17 = *(uint16_t *)(*(uint32_t *)off_131700 + 54);
       v13[5] = v14;
       *((uint8_t *)v13 + 29) = 4;
       sub_124F60((int)(v13 + 3), v17 + v16);

@@ -1,7 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1370B8;
+extern uint32_t off_1370BC;
+extern uint32_t off_1370C0;
+extern uint32_t dword_1370C8;
+extern uint32_t dword_1370C4;
+
 // sub_136FEC @ 0x136fec, size 202 bytes
 // Doc: sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
 // sub_1236FEC [tx]: Computes indexed buffer/entry address using multiply-accumulate and stores descriptor field
-int  sub_136FEC(int a1, int a2, int a3, __int16 a4)
+int  sub_136FEC(int a1, int a2, int a3, int16_t a4)
 {
   int v4; // r2
   uint16_t *v5; // r4
@@ -9,22 +27,22 @@ int  sub_136FEC(int a1, int a2, int a3, __int16 a4)
   int *v8; // r7
   int v9; // r1
   int v10; // r0
-  __int16 v11; // r1
+  int16_t v11; // r1
   int v12; // r3
   int v13; // r0
   int v14; // r1
-  __int16 **v15; // r3
-  __int16 *v16; // r3
+  int16_t **v15; // r3
+  int16_t *v16; // r3
   char v18; // r7
   int v19; // r2
-  __int16 v20; // r6
-  __int16 v21; // r1
-  __int16 *v22; // r3
+  int16_t v20; // r6
+  int16_t v21; // r1
+  int16_t *v22; // r3
   int v23; // r0
 
   v4 = dword_1370B8;
   v5 = off_1370BC;
-  v7 = *(unsigned __int8 *)(a2 + 366);
+  v7 = *(uint8_t *)(a2 + 366);
   *((uint16_t *)off_1370BC + 1924) = a4;
   v8 = (int *)(a2 + 352);
   *(uint32_t *)(v4 + 1320 * v7 + 472) = 0;
@@ -35,7 +53,7 @@ int  sub_136FEC(int a1, int a2, int a3, __int16 a4)
   *(uint32_t *)v5 = a2;
   *((uint8_t *)v5 + 3899) = 0;
   v10 = rf_stream_start2_n_14(a2 + 352, 0);
-  if ( v10 && (v11 = *(unsigned __int8 *)(v10 + 57), v12 = v10, *(uint8_t *)(v10 + 57)) )
+  if ( v10 && (v11 = *(uint8_t *)(v10 + 57), v12 = v10, *(uint8_t *)(v10 + 57)) )
   {
     v18 = *(uint8_t *)(v10 + 58);
     v19 = v10 + 2;
@@ -46,7 +64,7 @@ int  sub_136FEC(int a1, int a2, int a3, __int16 a4)
     LOWORD(v19) = v5[1948] & ~v20;
     v5[1948] = v19;
     v21 = *(uint16_t *)(v12 + 6) - (v11 << 8);
-    v22 = *(__int16 **)off_1370C0;
+    v22 = *(int16_t **)off_1370C0;
     v5[1948] = v20 & v21 | v19;
     if ( *v22 >= 0 )
       goto LABEL_4;
@@ -55,7 +73,7 @@ int  sub_136FEC(int a1, int a2, int a3, __int16 a4)
   {
     v13 = *v8;
     v14 = *(uint32_t *)(a2 + 356);
-    v15 = (__int16 **)off_1370C0;
+    v15 = (int16_t **)off_1370C0;
     *((uint32_t *)v5 + 973) = *v8;
     v16 = *v15;
     v5[1948] = v14;

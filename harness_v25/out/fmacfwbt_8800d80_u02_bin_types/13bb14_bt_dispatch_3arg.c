@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13BB5C;
+extern uint32_t dword_13BB60;
+
 // bt_dispatch_3arg @ 0x13bb14, size 72 bytes
 // Doc: bt_dispatch_3arg [bt]: Dispatches handler with r0 pointer and loaded arg from struct
 // bt_dispatch_3arg [bt]: Dispatches handler with r0 pointer and loaded arg from struct
@@ -22,16 +37,16 @@ int  bt_dispatch_3arg(int **a1)
     v5 = v4[2];
     v6 = *((uint32_t *)off_13BB5C + 4) - (uint32_t)v5;
     if ( v6 > v3 )
-      result = *((unsigned __int8 *)v4 + 26);
+      result = *((uint8_t *)v4 + 26);
     v4 = (int **)*v4;
     if ( v6 > v3 )
       v3 = *((uint32_t *)off_13BB5C + 4) - (uint32_t)v5;
   }
   while ( v4 );
   v7 = dword_13BB60 + 32 * result;
-  if ( v3 <= *(unsigned __int16 *)(v7 + 14) << 10 || *(uint32_t *)(v7 + 4) )
-    return *((unsigned __int8 *)v1 + 26);
+  if ( v3 <= *(uint16_t *)(v7 + 14) << 10 || *(uint32_t *)(v7 + 4) )
+    return *((uint8_t *)v1 + 26);
   else
-    return (unsigned __int16)result;
+    return (uint16_t)result;
 }
 

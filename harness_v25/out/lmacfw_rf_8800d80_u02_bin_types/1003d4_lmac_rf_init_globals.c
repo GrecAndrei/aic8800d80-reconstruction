@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100498;
+extern uint32_t off_10049C;
+extern uint32_t off_1004A0;
+extern uint32_t off_100494;
+extern uint32_t off_1004A4;
+extern uint32_t off_1004A8;
+extern uint32_t off_1004AC;
+extern uint32_t off_1004B0;
+extern uint32_t off_1004B8;
+extern uint32_t off_1004B4;
+extern uint32_t off_1004BC;
+extern uint32_t dword_1004C0;
+extern uint32_t dword_1004C4;
+extern uint32_t off_1004C8;
+
 // lmac_rf_init_globals @ 0x1003d4, size 190 bytes
 // Doc: lmac_rf_init_globals [util]: Initializes lmac RF global pointer table at boot
 // lmac_rf_init_globals [util]: Initializes lmac RF global pointer table at boot
@@ -15,7 +42,7 @@ void __noreturn lmac_rf_init_globals()
   int v9; // r0
   int v10; // r0
   uint16_t *v11; // r2
-  unsigned __int8 *v12; // r6
+  uint8_t *v12; // r6
   int v13; // r0
   int v14; // r0
   int v15; // r0
@@ -50,7 +77,7 @@ void __noreturn lmac_rf_init_globals()
   v10 = sub_10F4B8(v9);
   rf_init_submodule_dispatch(v10);
   v11 = (uint16_t *)*v6;
-  v12 = (unsigned __int8 *)off_1004BC;
+  v12 = (uint8_t *)off_1004BC;
   v13 = dword_1004C0;
   *v11 |= 0x2000u;
   v14 = msg_parse(v13, *v12);
@@ -60,7 +87,7 @@ void __noreturn lmac_rf_init_globals()
     v19 = rf_level_apply_n274(v15);
     sub_127108(v19);
   }
-  v16 = msg_parse(dword_1004C4, (unsigned __int8)v0[76]);
+  v16 = msg_parse(dword_1004C4, (uint8_t)v0[76]);
   v17 = sub_10FFF0(v16);
   v18 = log_system_init_f6a4(v17);
   if ( *(uint8_t *)*v2 == 3 )

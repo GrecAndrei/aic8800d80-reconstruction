@@ -1,16 +1,37 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12059C;
+extern uint32_t dword_1205A4;
+extern uint32_t off_1205A0;
+extern uint32_t off_1205B0;
+extern uint32_t dword_1205B8;
+extern uint32_t dword_1205B4;
+extern uint32_t off_1205A8;
+extern uint32_t dword_1205AC;
+
 // sub_120548 @ 0x120548, size 82 bytes
 int sub_120548()
 {
   uint8_t *v0; // r4
   int v1; // r3
-  __int16 *v2; // r1
+  int16_t *v2; // r1
   int v3; // r1
   int result; // r0
 
   v0 = off_12059C;
   memset_thunk((int *)off_12059C, 0, 0x34u);
   v1 = dword_1205A4;
-  v2 = *(__int16 **)off_1205A0;
+  v2 = *(int16_t **)off_1205A0;
   *(uint32_t *)v0 = dword_1205A4;
   v0[31] = 1;
   *((uint16_t *)v0 + 9) = 0;

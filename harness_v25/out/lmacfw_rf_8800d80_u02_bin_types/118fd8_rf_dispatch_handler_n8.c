@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11904C;
+extern uint32_t dword_119050;
+
 // rf_dispatch_handler_n8 @ 0x118fd8, size 116 bytes
 // Doc: rf_dispatch_handler_n8 [rf]: RF handler dispatching to internal worker
 // rf_dispatch_handler_n8 [rf]: RF handler dispatching to internal worker
@@ -12,14 +27,14 @@ int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3)
   v6 = tx_buffer_acquire_or_alloc((int *)a1, a2);
   if ( v6 )
     return v6;
-  v8 = *(unsigned __int8 *)(a1 + 25);
-  v9 = dword_11904C + 152 * (unsigned __int8)*a2;
+  v8 = *(uint8_t *)(a1 + 25);
+  v9 = dword_11904C + 152 * (uint8_t)*a2;
   *(uint8_t *)(v9 + 125) = 0;
   *(uint16_t *)(v9 + 126) = 0;
-  *a3 = rf_table_lookup_n360((unsigned __int8)*a2, v8);
+  *a3 = rf_table_lookup_n360((uint8_t)*a2, v8);
   v10 = *(uint32_t *)(v9 + 44);
   if ( v10 )
-    rf_table_lookup_n360(*(unsigned __int8 *)(v10 + 33), *(unsigned __int8 *)(a1 + 25));
+    rf_table_lookup_n360(*(uint8_t *)(v10 + 33), *(uint8_t *)(a1 + 25));
   v11 = (uint8_t *)(dword_119050 + 224 * v8);
   if ( v11[94] )
     return v6;

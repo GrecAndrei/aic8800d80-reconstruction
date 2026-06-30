@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_139D6C;
+extern uint32_t dword_139D70;
+extern uint32_t dword_139D74;
+extern uint32_t dword_139D78;
+extern uint32_t dword_139D7C;
+extern uint32_t dword_139D80;
+extern uint32_t dword_139D84;
+extern uint32_t dword_139D8C;
+extern uint32_t dword_139D90;
+extern uint32_t off_139D88;
+
 // sub_139CF4 @ 0x139cf4, size 118 bytes
 int sub_139CF4()
 {

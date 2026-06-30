@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_111644;
+
 // sub_111618 @ 0x111618, size 42 bytes
 // Doc: rf_fault_dump_n254 [rf]: Dump RF fault context by copying 12 bytes from fault record to stack
 // rf_fault_dump_n254 [rf]: Dump RF fault context by copying 12 bytes from fault record to stack

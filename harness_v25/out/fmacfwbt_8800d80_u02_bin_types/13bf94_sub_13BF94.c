@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BFFC;
+extern uint32_t dword_13C00C;
+extern uint32_t dword_13C010;
+extern uint32_t dword_13C000;
+extern uint32_t dword_13C004;
+extern uint32_t dword_13C008;
+
 // sub_13BF94 @ 0x13bf94, size 104 bytes
 // Doc: sub_123BF94 [ipc]: Looks up table entry by 32-byte slot index, bounded to 16 entries
 // sub_123BF94 [ipc]: Looks up table entry by 32-byte slot index, bounded to 16 entries
@@ -12,7 +31,7 @@ int  sub_13BF94(unsigned int a1)
 
   v1 = dword_13BFFC;
   v2 = dword_13BFFC + 32 * a1;
-  v3 = *(unsigned __int8 *)(v2 + 16);
+  v3 = *(uint8_t *)(v2 + 16);
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {

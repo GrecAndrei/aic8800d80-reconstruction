@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_116830;
+extern uint32_t dword_116834;
+extern uint32_t off_116820;
+extern uint32_t dword_11682C;
+extern uint32_t dword_116828;
+extern uint32_t off_116824;
+
 // sub_1166CC @ 0x1166cc, size 340 bytes
 int  sub_1166CC(int a1, int a2, int a3)
 {
@@ -10,24 +29,24 @@ int  sub_1166CC(int a1, int a2, int a3)
   int v12; // r5
   int v13; // r3
   int v14; // r2
-  __int16 v15; // r1
+  int16_t v15; // r1
   int v16; // r0
-  __int16 v17; // r5
+  int16_t v17; // r5
   int v18; // r0
-  __int16 v19; // r5
+  int16_t v19; // r5
   char v20; // r2
   int v22; // r1
   int v23; // r0
-  __int16 v24; // r2
+  int16_t v24; // r2
   int v25; // r0
 
   v3 = dword_116830;
   v4 = dword_116834;
-  v6 = *(unsigned __int8 *)(dword_116830 + 152 * a1 + 32);
+  v6 = *(uint8_t *)(dword_116830 + 152 * a1 + 32);
   v8 = *(uint32_t *)(dword_116834 + 224 * v6 + 72);
   if ( !v8 )
   {
-    if ( **(__int16 **)off_116820 >= 0 )
+    if ( **(int16_t **)off_116820 >= 0 )
     {
 LABEL_9:
       v11 = rf_alloc_or_init(1, 24);
@@ -39,8 +58,8 @@ LABEL_8:
     rf_cmd_send_n264(dword_11682C, dword_116828, 520);
     goto LABEL_9;
   }
-  v10 = *(unsigned __int8 *)(v8 + 4);
-  if ( **(__int16 **)off_116820 < 0 && v10 == 2 )
+  v10 = *(uint8_t *)(v8 + 4);
+  if ( **(int16_t **)off_116820 < 0 && v10 == 2 )
     goto LABEL_8;
   v11 = rf_alloc_or_init(v10 != 0, 24);
   if ( !v11 )

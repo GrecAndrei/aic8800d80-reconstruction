@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1345B4;
+extern uint32_t off_1345B8;
+extern uint32_t off_1345BC;
+
 // sub_1344C0 @ 0x1344c0, size 242 bytes
 uint32_t * sub_1344C0(int a1, int a2)
 {
@@ -11,7 +27,7 @@ uint32_t * sub_1344C0(int a1, int a2)
   int v11; // r1
   int v12; // r2
   int v13; // r3
-  __int16 v15; // r3
+  int16_t v15; // r3
   int v16; // r5
   int v17; // r0
   int v18; // r3
@@ -65,8 +81,8 @@ LABEL_3:
       goto LABEL_3;
   }
   v21[0] = off_1345BC;
-  v16 = *((unsigned __int8 *)off_1345BC + 253);
-  v17 = *((unsigned __int8 *)off_1345BC + 252);
+  v16 = *((uint8_t *)off_1345BC + 253);
+  v17 = *((uint8_t *)off_1345BC + 252);
   v21[1] = (char *)off_1345BC + 84;
   *(uint8_t *)(v6 + 367) = a2;
   while ( 1 )
@@ -74,12 +90,12 @@ LABEL_3:
     if ( v17 )
     {
       v18 = v21[a2];
-      v19 = 6 * (__int16)v17 + v18;
+      v19 = 6 * (int16_t)v17 + v18;
       do
       {
         if ( (*(uint8_t *)(v18 + 3) & 2) == 0 )
         {
-          v20 = *(unsigned __int8 *)(v6 + 367);
+          v20 = *(uint8_t *)(v6 + 367);
           *(uint8_t *)(v6 + 367) = v20 + 1;
           v20 *= 3;
           *(uint32_t *)(v6 + 2 * v20) = *(uint32_t *)v18;

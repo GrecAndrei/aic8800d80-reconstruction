@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11AF70;
+extern uint32_t dword_11AF74;
+extern uint32_t dword_11AF6C;
+extern uint32_t dword_11AF68;
+
 // sub_11AE24 @ 0x11ae24, size 322 bytes
 int  sub_11AE24(int a1, int a2, int a3)
 {
@@ -41,7 +58,7 @@ LABEL_18:
     if ( *(uint8_t *)(a1 + 94) )
       v18 = 102400;
     else
-      v18 = *(uint32_t *)(dword_11AF6C + 152 * *(unsigned __int8 *)(a1 + 102) + 8);
+      v18 = *(uint32_t *)(dword_11AF6C + 152 * *(uint8_t *)(a1 + 102) + 8);
     ++v3;
     a2 += v18;
     if ( !v3 )
@@ -77,8 +94,8 @@ LABEL_5:
       v14 = *(uint32_t *)(v12 + 4);
       if ( v13 - v14 < 0 )
         break;
-      if ( *(uint32_t *)(v5 + 224 * *(unsigned __int8 *)(a1 + 84) + 72) != *(uint32_t *)(v5
-                                                                                   + 224 * *(unsigned __int8 *)(v12 + 8)
+      if ( *(uint32_t *)(v5 + 224 * *(uint8_t *)(a1 + 84) + 72) != *(uint32_t *)(v5
+                                                                                   + 224 * *(uint8_t *)(v12 + 8)
                                                                                    + 72) )
       {
         if ( sub_11AD88(v8, v12) )

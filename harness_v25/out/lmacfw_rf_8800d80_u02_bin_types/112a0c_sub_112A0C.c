@@ -1,13 +1,41 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112B40;
+extern uint32_t off_112B44;
+extern uint32_t off_112B48;
+extern uint32_t dword_112B58;
+extern uint32_t dword_112B5C;
+extern uint32_t dword_112B60;
+extern uint32_t off_112B4C;
+extern uint32_t dword_112B6C;
+extern uint32_t off_112B78;
+extern uint32_t dword_112B70;
+extern uint32_t dword_112B54;
+extern uint32_t dword_112B50;
+extern uint32_t dword_112B74;
+extern uint32_t dword_112B68;
+extern uint32_t off_112B64;
+
 // sub_112A0C @ 0x112a0c, size 308 bytes
 // Doc: rf_cmd_send_n16a [rf]: Enqueue and dispatch an N16A-type RF command to the upper MAC via IPC.
 // rf_cmd_send_n16a [rf]: Enqueue and dispatch an N16A-type RF command to the upper MAC via IPC.
-int  sub_112A0C(unsigned __int8 *a1, unsigned int a2, int a3)
+int  sub_112A0C(uint8_t *a1, unsigned int a2, int a3)
 {
-  unsigned __int16 *v3; // r7
-  unsigned __int8 *v4; // r6
+  uint16_t *v3; // r7
+  uint8_t *v4; // r6
   uint8_t *v5; // r4
   char v6; // r2
-  unsigned __int8 *v7; // r4
+  uint8_t *v7; // r4
   int v9; // r8
   int v10; // r3
   int v11; // r6
@@ -18,8 +46,8 @@ int  sub_112A0C(unsigned __int8 *a1, unsigned int a2, int a3)
   char *v16; // r3
   int v18; // r0
 
-  v3 = (unsigned __int16 *)off_112B40;
-  v4 = (unsigned __int8 *)off_112B44;
+  v3 = (uint16_t *)off_112B40;
+  v4 = (uint8_t *)off_112B44;
   v5 = off_112B48;
   ++*(uint16_t *)off_112B40;
   if ( a3 )
@@ -46,11 +74,11 @@ int  sub_112A0C(unsigned __int8 *a1, unsigned int a2, int a3)
     v10 = (a1[1] << 8) & 0xF00;
     v11 = *a1 | v10;
     if ( *(uint8_t *)off_112B4C )
-      a1 = (unsigned __int8 *)sub_11F74C(512, dword_112B6C, a2, v10);
+      a1 = (uint8_t *)sub_11F74C(512, dword_112B6C, a2, v10);
     if ( v9 == 17 )
     {
       v12 = off_112B78;
-      if ( *((unsigned __int8 *)off_112B78 + 2433) >= (unsigned int)*((unsigned __int8 *)off_112B78 + 2434) )
+      if ( *((uint8_t *)off_112B78 + 2433) >= (unsigned int)*((uint8_t *)off_112B78 + 2434) )
       {
         sub_10DA6C(dword_112B70);
       }
@@ -61,11 +89,11 @@ int  sub_112A0C(unsigned __int8 *a1, unsigned int a2, int a3)
           sub_113630(a1);
           v13 = v12[2433];
           v14 = dword_112B54;
-          v15 = (unsigned __int8)v12[2432]
+          v15 = (uint8_t)v12[2432]
               + 1
               - 40
               * ((unsigned int)(((unsigned int)dword_112B50
-                               * (unsigned uint64_t)((unsigned int)(unsigned __int8)v12[2432] + 1)) >> 32) >> 5);
+                               * (unsigned uint64_t)((unsigned int)(uint8_t)v12[2432] + 1)) >> 32) >> 5);
           v12[2432] = v15;
           v16 = &v12[20 * v15];
           *((uint32_t *)v16 + 409) = v7 + 4;

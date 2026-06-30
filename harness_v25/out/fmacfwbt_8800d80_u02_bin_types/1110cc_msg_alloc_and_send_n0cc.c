@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11114C;
+extern uint32_t dword_111144;
+extern uint32_t dword_111148;
+
 // msg_alloc_and_send_n0cc @ 0x1110cc, size 118 bytes
 // Doc: msg_alloc_and_send_n0cc [ipc]: Allocate message slot and forward to handler
 // msg_alloc_and_send_n0cc [ipc]: Allocate message slot and forward to handler
@@ -25,7 +41,7 @@ int  msg_alloc_and_send_n0cc(char a1, int a2, int a3)
     v10 = dword_111144;
     v8[1] = 0;
     *v8 = v7;
-    v8[2] = (unsigned __int16)(a3 + 4) | v10 & v9 | 0x80000000;
+    v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
     return log_queue_push((int)v8);
   }
   else

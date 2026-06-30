@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10099C;
+extern uint32_t dword_100998;
+extern uint32_t off_100994;
+extern uint32_t off_100988;
+extern uint32_t dword_10098C;
+extern uint32_t off_100984;
+extern uint32_t dword_100990;
+
 // sub_100898 @ 0x100898, size 234 bytes
 int  sub_100898(int a1, unsigned int a2, uint32_t *a3)
 {
@@ -7,18 +27,18 @@ int  sub_100898(int a1, unsigned int a2, uint32_t *a3)
   int v6; // r6
   int j; // r3
   int v8; // t1
-  bool v9; // nf
+  int v9; // nf
   int v10; // r0
   int result; // r0
   int v12; // r7
   int v13; // r5
   char *v14; // r6
   int v15; // r1
-  unsigned __int8 *v16; // r4
+  uint8_t *v16; // r4
   int i; // r5
   int v18; // t1
   int v19; // r3
-  bool v20; // zf
+  int v20; // zf
 
   if ( a1 )
   {
@@ -53,11 +73,11 @@ int  sub_100898(int a1, unsigned int a2, uint32_t *a3)
     v14 = (char *)dword_10099C;
     v15 = 0;
     result = dword_100998 + v13;
-    v16 = (unsigned __int8 *)(*(uint32_t *)off_100994 + v12);
+    v16 = (uint8_t *)(*(uint32_t *)off_100994 + v12);
     for ( i = 0; i != 3; ++i )
     {
       v18 = *v14++;
-      v19 = *v16 + v18 + *((unsigned __int8 *)off_100988 + 1);
+      v19 = *v16 + v18 + *((uint8_t *)off_100988 + 1);
       v20 = (v19 & 1) == 0;
       if ( (v19 & 1) != 0 )
         v19 = 1 << i;
@@ -77,15 +97,15 @@ int  sub_100898(int a1, unsigned int a2, uint32_t *a3)
         a1 = 1;
     }
     v3 = (char *)dword_10098C;
-    v4 = *(unsigned __int8 *)off_100988;
+    v4 = *(uint8_t *)off_100988;
     v5 = 0;
     v6 = *(uint32_t *)off_100984 + a1;
     for ( j = 0; j != 3; ++j )
     {
       v8 = *v3++;
-      v10 = (*(unsigned __int8 *)(v6 + 3 * j) + v8 + v4) << 31;
-      v9 = ((*(unsigned __int8 *)(v6 + 3 * j) + v8 + v4) & 1) != 0;
-      if ( ((*(unsigned __int8 *)(v6 + 3 * j) + v8 + v4) & 1) != 0 )
+      v10 = (*(uint8_t *)(v6 + 3 * j) + v8 + v4) << 31;
+      v9 = ((*(uint8_t *)(v6 + 3 * j) + v8 + v4) & 1) != 0;
+      if ( ((*(uint8_t *)(v6 + 3 * j) + v8 + v4) & 1) != 0 )
         v10 = 1 << j;
       if ( v9 )
         v5 |= v10;

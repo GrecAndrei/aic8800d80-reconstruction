@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114548;
+extern uint32_t off_11454C;
+extern uint32_t dword_114550;
+extern uint32_t dword_114554;
+
 // rf_param_setup_44 @ 0x11441c, size 300 bytes
 // Doc: rf_param_setup_44 [rf]: RF parameter setup routine using global state table at 0x180558
 // rf_param_setup_44 [rf]: RF parameter setup routine using global state table at 0x180558

@@ -1,8 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1282E8 @ 0x1282e8, size 308 bytes
 char * sub_1282E8(char *a1, char *a2, unsigned int a3)
 {
   char *v3; // r12
-  bool v4; // cf
+  int v4; // cf
   unsigned int i; // r2
   int *v6; // r1
   int v7; // t1
@@ -35,11 +47,11 @@ char * sub_1282E8(char *a1, char *a2, unsigned int a3)
   char v34; // t1
   int v36; // r3
   char v37; // t1
-  __int16 v38; // t1
+  int16_t v38; // t1
   char v39; // t1
 
   v3 = a1;
-  if ( (((unsigned __int8)a2 | (unsigned __int8)a1) & 3) == 0 )
+  if ( (((uint8_t)a2 | (uint8_t)a1) & 3) == 0 )
   {
 LABEL_2:
     v4 = a3 >= 0x40;
@@ -113,9 +125,9 @@ LABEL_2:
   }
   if ( a3 >= 8 )
   {
-    if ( (uint32_t)a2 << 30 && ((unsigned __int8)a1 & 3) != 0 )
+    if ( (uint32_t)a2 << 30 && ((uint8_t)a1 & 3) != 0 )
     {
-      v36 = 4 - ((unsigned __int8)a1 & 3);
+      v36 = 4 - ((uint8_t)a1 & 3);
       a3 -= v36;
       if ( v36 << 31 )
       {

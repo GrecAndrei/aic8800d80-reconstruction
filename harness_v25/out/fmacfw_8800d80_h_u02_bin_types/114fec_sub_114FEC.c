@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1151BC;
+extern uint32_t dword_1151C0;
+extern uint32_t off_1151C4;
+extern uint32_t dword_1151C8;
+extern uint32_t dword_1151CC;
+extern uint32_t dword_1151D0;
+extern uint32_t dword_1151FC;
+extern uint32_t dword_115200;
+extern uint32_t dword_1151F4;
+extern uint32_t dword_1151F8;
+extern uint32_t dword_1151F0;
+extern uint32_t dword_1151E8;
+extern uint32_t dword_1151D4;
+extern uint32_t dword_1151D8;
+extern uint32_t dword_1151EC;
+extern uint32_t dword_1151DC;
+extern uint32_t dword_1151E0;
+extern uint32_t dword_1151E4;
+extern uint32_t dword_115208;
+extern uint32_t dword_11520C;
+extern uint32_t dword_115210;
+extern uint32_t dword_115204;
+
 // sub_114FEC @ 0x114fec, size 464 bytes
 int sub_114FEC()
 {
@@ -47,7 +82,7 @@ int sub_114FEC()
   {
     sub_10DAE4(
       dword_1151FC,
-      (unsigned __int8)v6[10],
+      (uint8_t)v6[10],
       v7 & 1,
       (v7 >> 1) & 1,
       (v7 >> 3) & 1,

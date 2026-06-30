@@ -1,12 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_105670;
+extern uint32_t dword_105668;
+extern uint32_t dword_10566C;
+extern uint32_t dword_1059E4;
+extern uint32_t dword_105658;
+extern uint32_t dword_10565C;
+extern uint32_t dword_105924;
+extern uint32_t dword_10592C;
+extern uint32_t dword_105934;
+extern uint32_t dword_105930;
+extern uint32_t dword_105938;
+extern uint32_t dword_1059E0;
+extern uint32_t dword_1059DC;
+extern uint32_t dword_10593C;
+
 // sub_105388 @ 0x105388, size 1618 bytes
 int  sub_105388(
         int a1,
         int a2,
         float *a3,
         int a4,
-        unsigned __int8 a5,
+        uint8_t a5,
         char a6,
-        unsigned __int8 a7,
+        uint8_t a7,
         int a8,
         int a9)
 {
@@ -55,7 +82,7 @@ int  sub_105388(
   float v53; // s16
   uint64_t v54; // r0
   float v55; // s15
-  bool v56; // zf
+  int v56; // zf
   float v57; // r9
   float v58; // s16
   float *v59; // r5

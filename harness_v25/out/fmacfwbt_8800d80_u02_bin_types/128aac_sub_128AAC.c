@@ -1,7 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_128CF0;
+extern uint32_t dword_128CCC;
+extern uint32_t dword_128CC0;
+extern uint32_t dword_128CD8;
+extern uint32_t dword_128CD4;
+extern uint32_t dword_128CDC;
+extern uint32_t off_128CF4;
+extern uint32_t dword_128CE4;
+extern uint32_t dword_128CEC;
+extern uint32_t dword_128CE0;
+extern uint32_t dword_128CE8;
+extern uint32_t dword_128CC4;
+extern uint32_t dword_128CC8;
+extern uint32_t off_128CD0;
+
 // sub_128AAC @ 0x128aac, size 530 bytes
 int  sub_128AAC(int a1, int a2)
 {
-  __int16 **v2; // r10
+  int16_t **v2; // r10
   int v3; // r8
   int v4; // r7
   int v7; // r6
@@ -17,17 +44,17 @@ int  sub_128AAC(int a1, int a2)
   int result; // r0
   int v18; // r3
   char v19; // r0
-  __int16 *v20; // r3
+  int16_t *v20; // r3
   unsigned int v21; // r2
   int v22; // r3
   int v23; // r3
   int v24; // r1
 
-  v2 = (__int16 **)off_128CF0;
+  v2 = (int16_t **)off_128CF0;
   v3 = dword_128CCC;
   v4 = dword_128CC0;
   v7 = dword_128CCC + 28 * a2;
-  if ( **(__int16 **)off_128CF0 >= 0
+  if ( **(int16_t **)off_128CF0 >= 0
     || *(uint32_t *)(dword_128CC0 + 1320 * a1 + 72) && (sub_12F694(dword_128CD8, dword_128CD4, 3061), **v2 >= 0) )
   {
     v8 = 8 * a2;
@@ -35,13 +62,13 @@ int  sub_128AAC(int a1, int a2)
   else
   {
     v8 = 8 * a2;
-    if ( *(unsigned __int8 *)(v3 + 28 * a2 + 24) == 255 )
+    if ( *(uint8_t *)(v3 + 28 * a2 + 24) == 255 )
       sub_12F694(dword_128CDC, dword_128CD4, 3062);
   }
   v9 = v3 + 4 * (v8 - a2);
   v10 = off_128CF4;
   v11 = v4 + 1320 * a1;
-  v12 = (unsigned __int8)(*(uint8_t *)(v9 + 25) + 1);
+  v12 = (uint8_t)(*(uint8_t *)(v9 + 25) + 1);
   *(uint8_t *)(v9 + 25) = v12;
   *(uint32_t *)(v11 + 72) = v7;
   *(uint8_t *)(v11 + 85) = 0;
@@ -50,12 +77,12 @@ int  sub_128AAC(int a1, int a2)
     v19 = v10[90];
     *(uint8_t *)(v9 + 16) = 1;
     v20 = *v2;
-    v21 = (unsigned __int8)(v19 + 1);
+    v21 = (uint8_t)(v19 + 1);
     v10[90] = v21;
     if ( *v20 < 0 && v21 > 2 )
     {
       sub_12F694(dword_128CE4, dword_128CD4, 3082);
-      v21 = (unsigned __int8)v10[90];
+      v21 = (uint8_t)v10[90];
     }
     if ( v21 == 2 )
     {
@@ -91,9 +118,9 @@ int  sub_128AAC(int a1, int a2)
   }
   feature_guard_sdio(256, dword_128CC4);
   v13 = (uint8_t *)(v4 + 1320 * a1);
-  v14 = (unsigned __int8)v13[1224];
+  v14 = (uint8_t)v13[1224];
   v13[86] = -1;
-  if ( v14 && *(uint8_t *)(dword_128CC8 + 140 * (unsigned __int8)v13[1225] + 112) == 1 )
+  if ( v14 && *(uint8_t *)(dword_128CC8 + 140 * (uint8_t)v13[1225] + 112) == 1 )
   {
     v13[85] |= 0x10u;
   }
@@ -102,9 +129,9 @@ int  sub_128AAC(int a1, int a2)
     v15 = dword_128CCC;
     while ( 1 )
     {
-      if ( *(unsigned __int8 *)(v15 + 24) != 255 )
+      if ( *(uint8_t *)(v15 + 24) != 255 )
       {
-        v16 = *(unsigned __int8 *)(v15 + 27);
+        v16 = *(uint8_t *)(v15 + 27);
         if ( v16 != 255 )
           break;
       }
@@ -117,7 +144,7 @@ int  sub_128AAC(int a1, int a2)
   }
 LABEL_10:
   result = sub_12876C(v7);
-  v18 = *((unsigned __int8 *)off_128CD0 + 16);
+  v18 = *((uint8_t *)off_128CD0 + 16);
   if ( v18 != a1 && v18 != 255 )
     return fw_state_lookup_n_528(a2);
   return result;

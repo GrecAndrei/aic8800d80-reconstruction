@@ -1,7 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102E98;
+extern uint32_t dword_102EB4;
+extern uint32_t dword_102EA8;
+extern uint32_t dword_102E9C;
+extern uint32_t dword_102EA0;
+extern uint32_t off_102EA4;
+extern uint32_t qword_102EAC;
+
 // rf_level_apply_n_18c @ 0x102d7c, size 282 bytes
 // Doc: rf_level_apply_n_18c [rf]: Applies RF level setting via MMIO register
 // rf_level_apply_n_18c [rf]: Applies RF level setting via MMIO register
-int  rf_level_apply_n_18c(int a1, unsigned __int16 *a2)
+int  rf_level_apply_n_18c(int a1, uint16_t *a2)
 {
   unsigned int v4; // r11
   int v5; // r9
@@ -9,21 +29,21 @@ int  rf_level_apply_n_18c(int a1, unsigned __int16 *a2)
   int v7; // r10
   int *v8; // r6
   int v9; // r5
-  unsigned __int16 *v10; // r7
+  uint16_t *v10; // r7
   int v11; // r4
   int v12; // t1
   int v13; // r1
   int result; // r0
   int v15; // r4
-  __int16 v16; // r12
+  int16_t v16; // r12
   char *v17; // r7
   int v18; // r6
   char *v19; // r12
   int v20; // r3
-  unsigned __int16 *v21; // r1
+  uint16_t *v21; // r1
   int v22; // t1
   int v23; // [sp+8h] [bp-24h]
-  unsigned __int16 *v24; // [sp+Ch] [bp-20h]
+  uint16_t *v24; // [sp+Ch] [bp-20h]
   uint64_t v25; // [sp+14h] [bp-18h] BYREF
   int v26; // [sp+1Ch] [bp-10h]
 
@@ -38,7 +58,7 @@ int  rf_level_apply_n_18c(int a1, unsigned __int16 *a2)
   v7 = a1;
   while ( ((1 << v4) & v7) == 0 )
   {
-    if ( (unsigned __int16)v4 == 5 )
+    if ( (uint16_t)v4 == 5 )
       goto LABEL_10;
 LABEL_4:
     ++v4;
@@ -62,7 +82,7 @@ LABEL_4:
   if ( v4 <= 1 )
     goto LABEL_4;
   v23 = 1;
-  if ( (unsigned __int16)v4 != 5 )
+  if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
   result = sub_102D0C(0);
@@ -70,7 +90,7 @@ LABEL_10:
   if ( v23 )
   {
     v15 = *(uint32_t *)off_102EA4;
-    v25 = *(QWORD *)off_102EA4;
+    v25 = *(uint64_t *)off_102EA4;
     v26 = *((uint32_t *)off_102EA4 + 2);
     v16 = 3;
   }
@@ -83,7 +103,7 @@ LABEL_10:
   }
   v17 = (char *)&v25 + 4;
   v18 = dword_102EA8;
-  v19 = (char *)&v25 + 4 * (unsigned __int16)(v16 - 1) + 4;
+  v19 = (char *)&v25 + 4 * (uint16_t)(v16 - 1) + 4;
   while ( 1 )
   {
     v20 = v15;

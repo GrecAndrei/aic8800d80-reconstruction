@@ -1,7 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12ED98;
+extern uint32_t off_12EDA4;
+extern uint32_t off_12EDA0;
+extern uint32_t off_12EDA8;
+extern uint32_t dword_12ED9C;
+
 // sub_12ED20 @ 0x12ed20, size 118 bytes
 // Doc: rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
 // rf_param_set_n410 [rf]: Set RF parameter via register 0x410 write
-int  sub_12ED20(int a1, int a2, __int16 a3, __int16 a4)
+int  sub_12ED20(int a1, int a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r1
@@ -13,7 +31,7 @@ int  sub_12ED20(int a1, int a2, __int16 a3, __int16 a4)
   uint32_t *v13; // r3
 
   v5 = sub_12C92C(1040, a4, a3, 4u);
-  v6 = *(unsigned __int16 *)(a2 + 4);
+  v6 = *(uint16_t *)(a2 + 4);
   v7 = (uint32_t *)v5;
   if ( *((uint8_t *)off_12ED98 + 177) )
   {

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11CCF8;
+extern uint32_t dword_11CCFC;
+extern uint32_t off_11CD04;
+extern uint32_t off_11CD08;
+extern uint32_t dword_11CD00;
+
 // sub_11CBC8 @ 0x11cbc8, size 304 bytes
 // Doc: sub_121CBC8 [mmio]: Read PHY status fields from shared state
 // sub_121CBC8 [mmio]: Read PHY status fields from shared state
@@ -13,13 +31,13 @@ void sub_11CBC8()
   int v7; // r1
   uint16_t *v8; // lr
   int v9; // r3
-  __int16 v10; // r4
+  int16_t v10; // r4
   int *v11; // r9
   int v12; // r12
-  __int16 v13; // r10
+  int16_t v13; // r10
   int v14; // r0
   int v15; // r0
-  __int16 v16; // r10
+  int16_t v16; // r10
   int v17; // r0
   int v18; // r3
   char v19; // t1
@@ -29,13 +47,13 @@ void sub_11CBC8()
   int v23; // [sp+4h] [bp-8h]
 
   v0 = *(uint32_t *)off_11CCF8;
-  v22 = *((unsigned __int8 *)off_11CCF8 + 10);
+  v22 = *((uint8_t *)off_11CCF8 + 10);
   if ( *(uint8_t *)(*(uint32_t *)off_11CCF8 + 368) )
   {
-    v1 = dword_11CCFC + 224 * *(unsigned __int8 *)(*(uint32_t *)off_11CCF8 + 366) + 88;
+    v1 = dword_11CCFC + 224 * *(uint8_t *)(*(uint32_t *)off_11CCF8 + 366) + 88;
     v2 = (char *)(v0 + 253);
     v3 = 0;
-    v23 = 2 * *((unsigned __int8 *)off_11CCF8 + 10);
+    v23 = 2 * *((uint8_t *)off_11CCF8 + 10);
     do
     {
       if ( *(uint8_t *)(v0 + 2 * (v23 + v22) + 2) )
@@ -44,11 +62,11 @@ void sub_11CBC8()
       }
       else
       {
-        v4 = *(unsigned __int8 *)(v0 + 369);
+        v4 = *(uint8_t *)(v0 + 369);
         if ( *(uint8_t *)(v0 + 369) )
           v4 = 1;
       }
-      v5 = rf_alloc_or_init(v4, *(unsigned __int16 *)(v0 + 364) + (unsigned __int8)*(v2 - 1) + 26);
+      v5 = rf_alloc_or_init(v4, *(uint16_t *)(v0 + 364) + (uint8_t)*(v2 - 1) + 26);
       v6 = v2;
       v7 = v5;
       if ( !v5 )
@@ -77,7 +95,7 @@ void sub_11CBC8()
       v8[70] = v10;
       *(uint8_t *)(v9 + 128) = 0;
       *(uint8_t *)(v9 + 129) = *(v2 - 1);
-      v17 = (unsigned __int8)*(v2 - 1);
+      v17 = (uint8_t)*(v2 - 1);
       *(uint16_t *)(v9 + 126) = 16 * v10;
       if ( v17 )
       {
@@ -89,7 +107,7 @@ void sub_11CBC8()
         }
         while ( v6 != &v2[v17] );
       }
-      v20 = *(unsigned __int16 *)(v0 + 364);
+      v20 = *(uint16_t *)(v0 + 364);
       v21 = *(uint32_t *)(v12 + 28);
       *(uint32_t *)(v12 + 20) = dword_11CD00;
       *(uint32_t *)(v12 + 28) = v21 - v20;
@@ -101,7 +119,7 @@ void sub_11CBC8()
       ++v3;
       v2 += 33;
     }
-    while ( *(unsigned __int8 *)(v0 + 368) > v3 );
+    while ( *(uint8_t *)(v0 + 368) > v3 );
   }
 }
 

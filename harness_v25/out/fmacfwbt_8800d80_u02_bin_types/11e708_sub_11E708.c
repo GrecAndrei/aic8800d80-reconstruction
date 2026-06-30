@@ -1,23 +1,55 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E99C;
+extern uint32_t off_11E9AC;
+extern uint32_t off_11E9B0;
+extern uint32_t off_11E9D0;
+extern uint32_t dword_11E9D4;
+extern uint32_t dword_11E9B4;
+extern uint32_t off_11E9B8;
+extern uint32_t off_11E9BC;
+extern uint32_t dword_11E9C0;
+extern uint32_t off_11E9A4;
+extern uint32_t off_11E9C8;
+extern uint32_t off_11E9CC;
+extern uint32_t dword_11EA40;
+extern uint32_t dword_11E9A8;
+extern uint32_t off_11E9A0;
+extern uint32_t dword_11E9C4;
+extern uint32_t off_11EA34;
+extern uint32_t off_11EA38;
+extern uint32_t dword_11EA3C;
+
 // sub_11E708 @ 0x11e708, size 810 bytes
 // Doc: sub_121E708 [bt]: BT firmware message handler with extended stack frame
 // sub_121E708 [bt]: BT firmware message handler with extended stack frame
-int  sub_11E708(int a1, unsigned int a2, int a3, __int16 a4, int a5, int a6)
+int  sub_11E708(int a1, unsigned int a2, int a3, int16_t a4, int a5, int a6)
 {
   int v6; // r8
-  unsigned __int8 **v7; // r7
+  uint8_t **v7; // r7
   int v8; // r12
-  unsigned __int8 *v9; // r5
+  uint8_t *v9; // r5
   int v11; // r3
   int v14; // r3
   uint32_t *v15; // r0
   int v16; // r3
   int *v18; // r5
   int v19; // r8
-  unsigned __int8 v20; // r7
+  uint8_t v20; // r7
   uint16_t *v21; // r5
   int *v22; // r9
   int v23; // r10
-  bool v24; // cc
+  int v24; // cc
   int v25; // r0
   int v26; // r0
   int v27; // r1
@@ -53,9 +85,9 @@ int  sub_11E708(int a1, unsigned int a2, int a3, __int16 a4, int a5, int a6)
   int v57; // [sp+Eh] [bp-Eh] BYREF
   int v58[2]; // [sp+14h] [bp-8h] BYREF
 
-  v7 = (unsigned __int8 **)off_11E99C;
+  v7 = (uint8_t **)off_11E99C;
   v8 = *(uint32_t *)(a1 + 28);
-  v9 = *(unsigned __int8 **)off_11E99C;
+  v9 = *(uint8_t **)off_11E99C;
   v58[0] = v8;
   LOWORD(v57) = a4;
   v11 = *v9;
@@ -71,14 +103,14 @@ int  sub_11E708(int a1, unsigned int a2, int a3, __int16 a4, int a5, int a6)
     }
     v22 = (int *)off_11E9D0;
     v23 = dword_11E9D4;
-    v24 = (unsigned __int16)v21[4122] > 0x186u;
+    v24 = (uint16_t)v21[4122] > 0x186u;
     ++*(uint32_t *)off_11E9D0;
     v25 = dword_11E9B4;
     if ( v24 )
       v21[4122] = 0;
     v26 = sub_12D4F8(v25);
     v27 = *(uint32_t *)off_11E9B8;
-    v28 = (unsigned __int16)v21[4122];
+    v28 = (uint16_t)v21[4122];
     v6 = v26;
     v29 = *(uint32_t *)off_11E9B8 + 8 * v28;
     *(uint16_t *)(v6 + 12) = v28;
@@ -115,7 +147,7 @@ LABEL_25:
       if ( !*((uint8_t *)off_11E9BC + 2) )
         goto LABEL_6;
       v36 = *(uint32_t *)(v6 + 4);
-      *(uint32_t *)(v6 + 8) = *(unsigned __int16 *)off_11E9BC + 58;
+      *(uint32_t *)(v6 + 8) = *(uint16_t *)off_11E9BC + 58;
       *(uint8_t *)(v36 + 3) &= 0x3Fu;
       *(uint8_t *)(v6 + 14) = v35[3];
       *(uint32_t *)v6 = 0;
@@ -160,7 +192,7 @@ LABEL_5:
               v43[2] = (v48 << 24) & 0x7F000000 | v43[2] & 0x80FFFFFF;
               v18[1] = v48;
               sub_110F98(v43, a1 + 48, v47, 0x3Au, 0);
-              v49 = *((unsigned __int8 *)off_11E9C8 + 192);
+              v49 = *((uint8_t *)off_11E9C8 + 192);
               v18[3] += 58;
               if ( v49 )
                 sub_11E6B0(v46);

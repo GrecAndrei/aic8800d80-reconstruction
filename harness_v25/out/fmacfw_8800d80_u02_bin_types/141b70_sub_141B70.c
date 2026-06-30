@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_141C70;
+extern uint32_t dword_141C78;
+extern uint32_t dword_141C74;
+extern uint32_t off_141C7C;
+
 // sub_141B70 @ 0x141b70, size 256 bytes
 int  sub_141B70(int a1, int a2, int a3, int a4, char a5)
 {
@@ -9,24 +26,24 @@ int  sub_141B70(int a1, int a2, int a3, int a4, char a5)
   char v14; // r3
   char v15; // r3
   uint16_t *v16; // r12
-  __int16 v17; // r3
+  int16_t v17; // r3
   int v18; // r2
   int v19; // r6
-  __int16 v20; // r7
-  __int16 v21; // r3
-  __int16 v22; // r7
+  int16_t v20; // r7
+  int16_t v21; // r3
+  int16_t v22; // r7
 
   v6 = *(uint32_t *)(a2 + 72);
   if ( v6 )
   {
-    v10 = *(unsigned __int8 *)(v6 + 4);
-    if ( **(__int16 **)off_141C70 >= 0 || v10 != 2 )
+    v10 = *(uint8_t *)(v6 + 4);
+    if ( **(int16_t **)off_141C70 >= 0 || v10 != 2 )
     {
-      v11 = (v10 | *(unsigned __int8 *)(a2 + 1224)) != 0;
+      v11 = (v10 | *(uint8_t *)(a2 + 1224)) != 0;
       goto LABEL_4;
     }
   }
-  else if ( **(__int16 **)off_141C70 >= 0 )
+  else if ( **(int16_t **)off_141C70 >= 0 )
   {
     goto LABEL_16;
   }

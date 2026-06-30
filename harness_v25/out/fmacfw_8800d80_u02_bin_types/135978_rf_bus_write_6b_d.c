@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1359F0;
+extern uint32_t dword_1359FC;
+extern uint32_t dword_1359F8;
+extern uint32_t dword_1359F4;
+
 // rf_bus_write_6b_d @ 0x135978, size 120 bytes
 // Doc: rf_bus_write_6b_d [rf]: Write 6-byte value with tag 0xd to RF bus
 // rf_bus_write_6b_d [rf]: Write 6-byte value with tag 0xd to RF bus
@@ -5,15 +22,15 @@ int  rf_bus_write_6b_d(char a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int v6; // r0
-  __int16 **v7; // r3
-  __int16 *v8; // r3
+  int16_t **v7; // r3
+  int16_t *v8; // r3
   int v9; // r5
   int v10; // r3
   unsigned int v11; // r4
 
   v3 = a3;
-  v6 = sub_12C92C(6152, 13, 6, (unsigned __int16)(a3 + 4));
-  v7 = (__int16 **)off_1359F0;
+  v6 = sub_12C92C(6152, 13, 6, (uint16_t)(a3 + 4));
+  v7 = (int16_t **)off_1359F0;
   *(uint8_t *)v6 = a1;
   v8 = *v7;
   *(uint16_t *)(v6 + 2) = v3;
@@ -22,7 +39,7 @@ int  rf_bus_write_6b_d(char a1, int a2, unsigned int a3)
   {
     if ( v3 >= sub_12F654() - 4 )
       sub_12F46C(dword_1359FC, dword_1359F8, 1444);
-    v3 = *(unsigned __int16 *)(v9 + 2);
+    v3 = *(uint16_t *)(v9 + 2);
   }
   if ( v3 )
   {

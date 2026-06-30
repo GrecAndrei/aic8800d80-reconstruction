@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117C94;
+extern uint32_t dword_117C98;
+extern uint32_t dword_117C9C;
+extern uint32_t dword_117CA0;
+extern uint32_t dword_117CA4;
+extern uint32_t dword_117CA8;
+extern uint32_t off_117CAC;
+extern uint32_t off_117CB0;
+
 // sub_117B4C @ 0x117b4c, size 328 bytes
 int  sub_117B4C(int *a1, uint8_t *a2)
 {
@@ -22,12 +43,12 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   uint32_t *v22; // r1
   int v24; // r0
   char v25; // r1
-  __int16 v26; // lr
+  int16_t v26; // lr
   int v27; // r3
-  __int16 v28; // r12
+  int16_t v28; // r12
   int v29; // r12
 
-  v3 = *((unsigned __int8 *)a1 + 25);
+  v3 = *((uint8_t *)a1 + 25);
   v5 = sub_11E7AC(dword_117C94);
   if ( !v5 )
     return 1;
@@ -44,7 +65,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
     *(uint32_t *)(v24 + 44) = v6;
     v25 = *((uint8_t *)a1 + 30);
     v8 = (int *)((char *)a1 + 18);
-    v26 = *((unsigned __int8 *)a1 + 29);
+    v26 = *((uint8_t *)a1 + 29);
     *(uint32_t *)(v24 + 36) = *(int *)((char *)a1 + 18);
     *(uint16_t *)(v24 + 40) = *((uint16_t *)a1 + 11);
     v27 = (1 << v25) - 1;
@@ -68,7 +89,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   *(uint16_t *)(v6 + 40) = *((uint16_t *)v8 + 2);
   *(uint32_t *)(v6 + 4) = v10;
   *(uint32_t *)(v6 + 36) = v9;
-  v11 = *((unsigned __int8 *)a1 + 24);
+  v11 = *((uint8_t *)a1 + 24);
   v12 = dword_117C9C;
   v13 = dword_117CA0;
   if ( v11 < 0x10 )
@@ -78,7 +99,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   *(uint32_t *)(v6 + 16) = a1[2];
   *(uint32_t *)(v6 + 12) = a1[1];
   *(uint32_t *)(v6 + 24) = a1[3];
-  v14 = (unsigned __int8)(v12 * ((v6 - v7) >> 3));
+  v14 = (uint8_t)(v12 * ((v6 - v7) >> 3));
   *(uint8_t *)(v6 + 32) = *((uint8_t *)a1 + 25);
   *a2 = v14;
   v15 = dword_117CA4;
@@ -88,7 +109,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   if ( *(uint8_t *)(v16 + 94) )
     v17 = 102400;
   else
-    v17 = *(unsigned __int16 *)(v16 + 100) << 10;
+    v17 = *(uint16_t *)(v16 + 100) << 10;
   *(uint32_t *)(v6 + 8) = v17;
   if ( (__get_CPSR() & 1) == 0 )
   {

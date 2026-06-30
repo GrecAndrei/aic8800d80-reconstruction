@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12234C;
+extern uint32_t off_122344;
+extern uint32_t off_122338;
+extern uint32_t dword_122354;
+extern uint32_t dword_122350;
+extern uint32_t off_12233C;
+extern uint32_t off_122340;
+extern uint32_t dword_122348;
+
 // sub_122290 @ 0x122290, size 168 bytes
 // Doc: sub_1222294 [unknown]: Unknown behavioral function in fmacfwbt
 // sub_1222294 [unknown]: Unknown behavioral function in fmacfwbt
@@ -27,10 +48,10 @@ int  sub_122290(int a1, int a2)
   }
   else
   {
-    v3 = (unsigned __int8)(*(uint8_t *)(a1 + 115) + 1);
+    v3 = (uint8_t)(*(uint8_t *)(a1 + 115) + 1);
     v4 = *(uint32_t *)off_122338;
     *(uint8_t *)(a1 + 115) = v3;
-    if ( *(unsigned __int8 *)(v4 + 1) == v3 )
+    if ( *(uint8_t *)(v4 + 1) == v3 )
     {
       *(uint8_t *)(a1 + 115) = 0;
       feature_guard_sdio(1024, dword_122354);
@@ -38,7 +59,7 @@ int  sub_122290(int a1, int a2)
     }
     else if ( *(uint8_t *)(a1 + 108) )
     {
-      return rf_table_lookup_n528(*(unsigned __int8 *)(a1 + 107), dword_122350, a1);
+      return rf_table_lookup_n528(*(uint8_t *)(a1 + 107), dword_122350, a1);
     }
     else
     {

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_119ACC;
+extern uint32_t dword_119AD0;
+extern uint32_t dword_119AD8;
+extern uint32_t dword_119ADC;
+extern uint32_t dword_119AE0;
+extern uint32_t dword_119AE4;
+extern uint32_t dword_119AD4;
+
 // sub_1199CC @ 0x1199cc, size 254 bytes
 // Doc: sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
 // sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
@@ -15,7 +35,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
   int v14; // r3
   int v15; // r1
   int v16; // r0
-  unsigned __int8 *v17; // r5
+  uint8_t *v17; // r5
   int v18; // r1
   uint32_t *v19; // r5
   int v20; // r0
@@ -29,7 +49,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
   switch ( v5 )
   {
     case 0:
-      v8 = *((unsigned __int8 *)a2 + 4);
+      v8 = *((uint8_t *)a2 + 4);
       *((uint8_t *)off_119ACC + 373) = v8;
       v9 = dword_119AD0;
       *(uint8_t *)(v7 + 4) = v8;
@@ -37,8 +57,8 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       goto LABEL_3;
     case 1:
       v13 = off_119ACC;
-      v14 = *((unsigned __int8 *)a2 + 4);
-      v15 = *((unsigned __int8 *)off_119ACC + 363);
+      v14 = *((uint8_t *)a2 + 4);
+      v15 = *((uint8_t *)off_119ACC + 363);
       *((uint8_t *)off_119ACC + 363) = v14;
       v13[91] = a2[2];
       if ( v14 != v15 )
@@ -52,7 +72,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
         {
           rf_bus_write_n3d6_716c();
         }
-        v15 = *((unsigned __int8 *)v13 + 363);
+        v15 = *((uint8_t *)v13 + 363);
       }
       *(uint8_t *)(v7 + 4) = v15;
       msg_parse(dword_119AD8, v15);
@@ -60,7 +80,7 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       result = 0;
       break;
     case 2:
-      v17 = (unsigned __int8 *)off_119ACC;
+      v17 = (uint8_t *)off_119ACC;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_119ACC + 363);
       *(uint8_t *)(v6 + 5) = sub_126E54();
       msg_parse(dword_119ADC, v17[363]);

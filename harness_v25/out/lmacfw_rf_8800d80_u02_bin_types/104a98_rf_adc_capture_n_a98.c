@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_104B44;
+extern uint32_t off_104B58;
+extern uint32_t dword_104B48;
+extern uint32_t off_104B5C;
+extern uint32_t off_104B4C;
+extern uint32_t dword_104B50;
+extern uint32_t dword_104B54;
+
 // rf_adc_capture_n_a98 @ 0x104a98, size 172 bytes
 // Doc: rf_adc_capture_n_a98 [rf]: Capture RF ADC samples for crypto/calibration
 // rf_adc_capture_n_a98 [rf]: Capture RF ADC samples for crypto/calibration

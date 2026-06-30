@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CAC8;
+extern uint32_t off_12CACC;
+extern uint32_t off_12CAD8;
+extern uint32_t off_12CAD0;
+extern uint32_t dword_12CAD4;
+
 // sub_12CA20 @ 0x12ca20, size 166 bytes
 // Doc: ke_msg_dispatch [ke]: Dispatches the next pending message from the kernel environment queue, decrementing the pending count and processing the message header.
 // ke_msg_dispatch [ke]: Dispatches the next pending message from the kernel environment queue, decrementing the pending count and processing the message header.
@@ -76,7 +94,7 @@ int sub_12CA20()
           __enable_irq();
       }
     }
-    sub_12CC38(*(unsigned __int16 *)(v7 + 4), *(unsigned __int16 *)(v7 + 6), 255, v8);
+    sub_12CC38(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
     sub_12CDF0(v9);
   }
   if ( v13 )

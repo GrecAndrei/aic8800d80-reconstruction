@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13E270 @ 0x13e270, size 78 bytes
-unsigned __int16 * sub_13E270(unsigned __int16 *result)
+uint16_t * sub_13E270(uint16_t *result)
 {
   unsigned int v1; // r3
   int v2; // r1
@@ -10,7 +22,7 @@ unsigned __int16 * sub_13E270(unsigned __int16 *result)
   v1 = *result;
   if ( *result )
   {
-    v2 = *((unsigned __int8 *)result + 9);
+    v2 = *((uint8_t *)result + 9);
     v3 = result[1] << 16;
     *((uint8_t *)result + 8) = 0;
     v4 = v3 / v1;
@@ -28,7 +40,7 @@ unsigned __int16 * sub_13E270(unsigned __int16 *result)
   }
   else
   {
-    v5 = *((unsigned __int8 *)result + 8);
+    v5 = *((uint8_t *)result + 8);
     if ( v5 != 255 )
       *((uint8_t *)result + 8) = v5 + 1;
   }

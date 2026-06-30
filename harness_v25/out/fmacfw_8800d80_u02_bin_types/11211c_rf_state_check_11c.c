@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1121C0;
+extern uint32_t dword_1121D0;
+extern uint32_t dword_1121C4;
+extern uint32_t dword_1121C8;
+extern uint32_t dword_1121CC;
+
 // rf_state_check_11c @ 0x11211c, size 162 bytes
 // Doc: rf_bus_init_n3b8 [rf]: Initializes RF bus with masked control values and store halfword
 // rf_bus_init_n3b8 [rf]: Initializes RF bus with masked control values and store halfword
@@ -15,7 +33,7 @@ int  rf_state_check_11c(int a1, int a2, unsigned int a3)
   if ( *(uint8_t *)off_1121C0 != 4 )
     return 1;
   v3 = a1 - 1;
-  if ( (unsigned __int8)(a1 - 1) > 5u )
+  if ( (uint8_t)(a1 - 1) > 5u )
     return 2;
   if ( a2 << 30 )
   {

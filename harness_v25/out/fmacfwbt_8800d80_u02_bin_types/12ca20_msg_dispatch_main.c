@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CAC8;
+extern uint32_t off_12CACC;
+
 // msg_dispatch_main @ 0x12ca20, size 166 bytes
 // Doc: message_dispatch_n_15c [ipc]: Dispatch incoming IPC message by type field
 // message_dispatch_n_15c [ipc]: Dispatch incoming IPC message by type field
@@ -76,7 +91,7 @@ int msg_dispatch_main()
           __enable_irq();
       }
     }
-    message_dispatch_n84(*(unsigned __int16 *)(v7 + 4), *(unsigned __int16 *)(v7 + 6), 255, v8);
+    message_dispatch_n84(*(uint16_t *)(v7 + 4), *(uint16_t *)(v7 + 6), 255, v8);
     buffer_pool_get(v9);
   }
   if ( v13 )

@@ -1,7 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1361E8;
+extern uint32_t dword_1361EC;
+extern uint32_t dword_1361F0;
+extern uint32_t off_1361F4;
+extern uint32_t off_1361F8;
+
 // sub_136154 @ 0x136154, size 148 bytes
 // Doc: sub_1236154 [unknown]: Unknown behavioral stub at 0x1236154
 // sub_1236154 [unknown]: Unknown behavioral stub at 0x1236154
-int  sub_136154(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
+int  sub_136154(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v7; // r2
   int v8; // r3
@@ -11,7 +29,7 @@ int  sub_136154(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
   int v13; // r0
   int v14; // r0
   int v15; // r1
-  unsigned __int8 v16[5]; // [sp+7h] [bp-5h] BYREF
+  uint8_t v16[5]; // [sp+7h] [bp-5h] BYREF
 
   v7 = a2[9];
   v8 = *a2;

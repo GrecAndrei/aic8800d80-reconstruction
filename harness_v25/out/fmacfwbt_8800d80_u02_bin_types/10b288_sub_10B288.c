@@ -1,10 +1,93 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10B454;
+extern uint32_t dword_10B478;
+extern uint32_t off_10B458;
+extern uint32_t dword_10B490;
+extern uint32_t dword_10B47C;
+extern uint32_t dword_10B474;
+extern uint32_t dword_10B480;
+extern uint32_t off_10B45C;
+extern uint32_t dword_10B464;
+extern uint32_t dword_10B468;
+extern uint32_t dword_10B46C;
+extern uint32_t dword_10B768;
+extern uint32_t dword_10B79C;
+extern uint32_t off_10C14C;
+extern uint32_t dword_10C150;
+extern uint32_t dword_10C164;
+extern uint32_t dword_10C154;
+extern uint32_t dword_10B7A0;
+extern uint32_t dword_10C158;
+extern uint32_t off_10C15C;
+extern uint32_t dword_10B76C;
+extern uint32_t dword_10B770;
+extern uint32_t dword_10B774;
+extern uint32_t dword_10C160;
+extern uint32_t dword_10B778;
+extern uint32_t dword_10B77C;
+extern uint32_t dword_10B780;
+extern uint32_t dword_10B784;
+extern uint32_t dword_10B788;
+extern uint32_t dword_10B790;
+extern uint32_t off_10BDCC;
+extern uint32_t dword_10B794;
+extern uint32_t dword_10C13C;
+extern uint32_t dword_10BA0C;
+extern uint32_t dword_10BA04;
+extern uint32_t dword_10BA08;
+extern uint32_t off_10B798;
+extern uint32_t dword_10BA14;
+extern uint32_t dword_10C140;
+extern uint32_t dword_10C144;
+extern uint32_t dword_10BDD0;
+extern uint32_t dword_10C148;
+extern uint32_t dword_10BDD4;
+extern uint32_t dword_10BA18;
+extern uint32_t dword_10BA1C;
+extern uint32_t dword_10C130;
+extern uint32_t dword_10C134;
+extern uint32_t dword_10C128;
+extern uint32_t dword_10C12C;
+extern uint32_t dword_10BA20;
+extern uint32_t dword_10BA24;
+extern uint32_t dword_10BDB4;
+extern uint32_t dword_10BDB8;
+extern uint32_t dword_10BDAC;
+extern uint32_t dword_10BDB0;
+extern uint32_t dword_10BDA0;
+extern uint32_t dword_10BDA4;
+extern uint32_t dword_10BDC4;
+extern uint32_t off_10BDC8;
+extern uint32_t dword_10BDA8;
+extern uint32_t dword_10BDBC;
+extern uint32_t dword_10BD90;
+extern uint32_t dword_10BD94;
+extern uint32_t dword_10BD98;
+extern uint32_t dword_10BD9C;
+extern uint32_t dword_10C138;
+extern uint32_t dword_10BDC0;
+extern uint32_t dword_10B470;
+extern uint32_t dword_10B488;
+extern uint32_t dword_10B48C;
+
 // sub_10B288 @ 0x10b288, size 3884 bytes
 int  sub_10B288(
         uint32_t *a1,
         int a2,
         int a3,
         int a4,
-        unsigned __int16 *a5,
+        uint16_t *a5,
         int a6,
         int a7,
         int a8,
@@ -142,11 +225,11 @@ int  sub_10B288(
   float v139; // s17
   float v140; // s14
   uint8_t *v141; // r2
-  bool v142; // zf
-  __int16 v143; // r0
+  int v142; // zf
+  int16_t v143; // r0
   int v144; // r2
   int v145; // r3
-  __int16 *v146; // r6
+  int16_t *v146; // r6
   int v147; // t1
   int v148; // r3
   int *v149; // r6
@@ -183,7 +266,7 @@ int  sub_10B288(
   int v180; // [sp+44h] [bp-550h]
   int v181; // [sp+48h] [bp-54Ch]
   int *v182; // [sp+4Ch] [bp-548h]
-  unsigned __int16 *v183; // [sp+50h] [bp-544h]
+  uint16_t *v183; // [sp+50h] [bp-544h]
   uint8_t *v184; // [sp+54h] [bp-540h]
   int v185; // [sp+58h] [bp-53Ch]
   int v186; // [sp+5Ch] [bp-538h]
@@ -195,13 +278,13 @@ int  sub_10B288(
   int v193; // [sp+7Ch] [bp-518h]
   uint32_t *v195; // [sp+88h] [bp-50Ch]
   int v197; // [sp+94h] [bp-500h] BYREF
-  __int16 v198; // [sp+98h] [bp-4FCh]
+  int16_t v198; // [sp+98h] [bp-4FCh]
   uint32_t v199[6]; // [sp+9Ch] [bp-4F8h] BYREF
   int v200[48]; // [sp+B4h] [bp-4E0h] BYREF
   uint8_t v201[192]; // [sp+174h] [bp-420h] BYREF
   uint16_t v202[48]; // [sp+234h] [bp-360h] BYREF
   float v203; // [sp+294h] [bp-300h]
-  unsigned __int8 v204; // [sp+29Ch] [bp-2F8h]
+  uint8_t v204; // [sp+29Ch] [bp-2F8h]
   uint64_t v205; // [sp+2A0h] [bp-2F4h]
   int v206; // [sp+2A8h] [bp-2ECh]
   uint64_t v207; // [sp+2ACh] [bp-2E8h]
@@ -215,7 +298,7 @@ int  sub_10B288(
   char v215; // [sp+2E4h] [bp-2B0h] BYREF
   float v216; // [sp+308h] [bp-28Ch] BYREF
   int v217; // [sp+30Ch] [bp-288h] BYREF
-  __int16 v218; // [sp+310h] [bp-284h]
+  int16_t v218; // [sp+310h] [bp-284h]
   int v219; // [sp+580h] [bp-14h]
   int v220; // [sp+584h] [bp-10h]
 
@@ -284,7 +367,7 @@ LABEL_5:
   v195 = v25;
   while ( 2 )
   {
-    v30 = *((unsigned __int8 *)v183 + 4);
+    v30 = *((uint8_t *)v183 + 4);
     if ( v30 != 1 )
       goto LABEL_10;
     v60 = *v183;
@@ -304,7 +387,7 @@ LABEL_5:
     }
     v162 = sub_102984(v60);
     v163 = (int)off_10C14C;
-    v170 = (unsigned __int8)(v162 + 1);
+    v170 = (uint8_t)(v162 + 1);
     v61 = dword_10C150 + 384 * v162;
     if ( (*((uint8_t *)off_10C14C + 1) & 1) == 0 || (v163 = *(char *)off_10C14C, v163 >= 0) )
     {
@@ -321,13 +404,13 @@ LABEL_5:
         {
           v212 = 3;
           LOWORD(v217) = 2048;
-          sub_106450(v166, (int)v202, (__int16 *)&v217, 0, 1, 1, 1, v170);
+          sub_106450(v166, (int)v202, (int16_t *)&v217, 0, 1, 1, 1, v170);
         }
         else
         {
           v212 = 3;
           LOWORD(v217) = 2048;
-          sub_106450(v166, (int)v202, (__int16 *)&v217, 0, 1, v165, 1, v170);
+          sub_106450(v166, (int)v202, (int16_t *)&v217, 0, 1, v165, 1, v170);
           if ( v165 == 2 )
           {
             v189 = 1;
@@ -342,7 +425,7 @@ LABEL_5:
       }
     }
     v30 = *((uint8_t *)off_10C14C + 1) & 1;
-    v63 = (unsigned __int8)(v162 + 1);
+    v63 = (uint8_t)(v162 + 1);
     v62 = a2 + 1264 * v170;
     v172 = 3 * v170;
     v168 = 3 * v170;
@@ -652,7 +735,7 @@ LABEL_37:
           else
           {
             v105 = dword_10BA04;
-            *v182 = (unsigned __int8)v102;
+            *v182 = (uint8_t)v102;
             *v184 = 1;
             feature_guard_sdio(1, v105);
           }
@@ -733,18 +816,18 @@ LABEL_80:
         }
         while ( SHIDWORD(v205) >= v115 );
       }
-      sub_106450(v95, (int)v202, (__int16 *)&v197, 0, v189, v171, 0, v63);
+      sub_106450(v95, (int)v202, (int16_t *)&v197, 0, v189, v171, 0, v63);
       v118 = v207;
-      v119 = (__int16)v202[v208];
-      v120 = (__int16)v202[(uint32_t)v207 + 16];
-      v121 = (__int16)v202[HIDWORD(v207) + 32];
+      v119 = (int16_t)v202[v208];
+      v120 = (int16_t)v202[(uint32_t)v207 + 16];
+      v121 = (int16_t)v202[HIDWORD(v207) + 32];
       if ( (int)v207 <= SHIDWORD(v205) )
       {
         HIDWORD(v118) = &v202[v207 - 1];
         v149 = &v200[v207];
         do
         {
-          v150 = *(__int16 *)(HIDWORD(v118) + 2);
+          v150 = *(int16_t *)(HIDWORD(v118) + 2);
           HIDWORD(v118) += 2;
           sub_104FE0(v150, v119, (int)v202);
           v151 = HIDWORD(v205);
@@ -793,7 +876,7 @@ LABEL_80:
         v125 = &v200[v209];
         do
         {
-          v126 = (__int16)*(uint16_t *)HIDWORD(v118);
+          v126 = (int16_t)*(uint16_t *)HIDWORD(v118);
           HIDWORD(v118) += 2;
           feature_guard_sdio(1, v124);
           sub_104FE0(v126, v121, (int)v202);
@@ -857,14 +940,14 @@ LABEL_80:
             if ( v173 == v130 )
             {
               feature_guard_sdio(1, dword_10BDC4);
-              sub_104FE0(v204, *(unsigned __int8 *)off_10BDC8, (int)v202);
+              sub_104FE0(v204, *(uint8_t *)off_10BDC8, (int)v202);
               v129 = v203;
             }
           }
           else
           {
             feature_guard_sdio(1, dword_10BDA8);
-            sub_105088(v129, *(unsigned __int8 *)(v61 + 4 * v135), (int)v202);
+            sub_105088(v129, *(uint8_t *)(v61 + 4 * v135), (int)v202);
           }
           feature_guard_sdio(1, v128);
           *(uint8_t *)v138 = v204;
@@ -878,7 +961,7 @@ LABEL_108:
           break;
         }
         feature_guard_sdio(1, dword_10BDBC);
-        sub_106450(*v138, (int)v202, (__int16 *)&v197, 1, v189, 0, 0, 0);
+        sub_106450(*v138, (int)v202, (int16_t *)&v197, 1, v189, 0, 0, 0);
         sub_104FE0(v202[15], v119, (int)v202);
         v140 = v203;
         feature_guard_sdio(1, dword_10BDB8);

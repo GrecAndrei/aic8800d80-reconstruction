@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110BD8;
+extern uint32_t off_110BDC;
+extern uint32_t off_110BE0;
+extern uint32_t off_110BE4;
+extern uint32_t dword_110BE8;
+extern uint32_t off_110BEC;
+extern uint32_t off_110BF4;
+extern uint32_t off_110BF0;
+
 // rf_field_align_n_2a4 @ 0x110b64, size 116 bytes
 // Doc: rf_field_align_n_2a4 [rf]: RF register field alignment utility (variant 2a4)
 // rf_field_align_n_2a4 [rf]: RF register field alignment utility (variant 2a4)

@@ -1,15 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_12DD24 @ 0x12dd24, size 100 bytes
-unsigned __int8 * sub_12DD24(unsigned __int8 *result, int a2, bool *a3)
+uint8_t * sub_12DD24(uint8_t *result, int a2, int *a3)
 {
   unsigned int v3; // r1
   int v4; // r4
-  unsigned __int8 *v5; // r3
+  uint8_t *v5; // r3
   unsigned int v6; // r4
   int v7; // r3
 
   v3 = (unsigned int)&result[a2];
   if ( v3 <= (unsigned int)(result + 1) )
-    return nullptr;
+    return 0;
   while ( 1 )
   {
     v4 = result[1];
@@ -18,7 +30,7 @@ unsigned __int8 * sub_12DD24(unsigned __int8 *result, int a2, bool *a3)
       break;
     result += v4 + 2;
     if ( v3 <= (unsigned int)(v5 + 1) )
-      return nullptr;
+      return 0;
   }
   if ( v3 >= (unsigned int)v5 )
   {
@@ -32,7 +44,7 @@ unsigned __int8 * sub_12DD24(unsigned __int8 *result, int a2, bool *a3)
       if ( *result == 194 )
       {
         if ( v6 < (unsigned int)&result[v7] )
-          return nullptr;
+          return 0;
         if ( result )
           *a3 = result[1] == 3;
         return result;
@@ -40,6 +52,6 @@ unsigned __int8 * sub_12DD24(unsigned __int8 *result, int a2, bool *a3)
       result += v7;
     }
   }
-  return nullptr;
+  return 0;
 }
 

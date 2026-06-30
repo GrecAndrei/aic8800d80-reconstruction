@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11ABEC;
+extern uint32_t off_11ABF0;
+extern uint32_t off_11ABF4;
+extern uint32_t dword_11AC00;
+extern uint32_t off_11AC04;
+extern uint32_t dword_11AC0C;
+extern uint32_t dword_11AC08;
+extern uint32_t off_11ABF8;
+extern uint32_t dword_11ABFC;
+
 // sub_11AB18 @ 0x11ab18, size 212 bytes
 int  sub_11AB18(int a1, int a2)
 {
@@ -24,7 +46,7 @@ int  sub_11AB18(int a1, int a2)
   if ( a2 - v5[4] < 0 )
   {
     msg_parse(dword_11AC00, *(uint32_t *)(a1 + 4));
-    if ( **(__int16 **)off_11AC04 < 0 )
+    if ( **(int16_t **)off_11AC04 < 0 )
       rf_cmd_send_n264(dword_11AC0C, dword_11AC08, 131);
   }
   v6 = (int *)off_11ABF8;

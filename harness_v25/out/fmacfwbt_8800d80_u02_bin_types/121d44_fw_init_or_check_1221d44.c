@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121E2C;
+extern uint32_t dword_121E60;
+extern uint32_t dword_121E5C;
+extern uint32_t dword_121E30;
+extern uint32_t off_121E34;
+extern uint32_t off_121E64;
+extern uint32_t off_121E38;
+extern uint32_t off_121E3C;
+extern uint32_t dword_121E58;
+extern uint32_t off_121E44;
+extern uint32_t off_121E48;
+extern uint32_t off_121E40;
+extern uint32_t off_121E4C;
+extern uint32_t off_121E50;
+extern uint32_t off_121E54;
+
 // fw_init_or_check_1221d44 @ 0x121d44, size 230 bytes
 // Doc: fw_init_or_check_1221d44 [util]: Firmware init/version check via shared flag pointer
 // fw_init_or_check_1221d44 [util]: Firmware init/version check via shared flag pointer
@@ -18,7 +46,7 @@ int fw_init_or_check_1221d44()
   int v12; // r3
   int v13; // r2
 
-  if ( **(__int16 **)off_121E2C < 0 && msg_get_value(0) == 4 )
+  if ( **(int16_t **)off_121E2C < 0 && msg_get_value(0) == 4 )
     sub_12F694(dword_121E60, dword_121E5C, 1799);
   feature_guard_sdio(4, dword_121E30);
   if ( (__get_CPSR() & 1) == 0 )
@@ -49,7 +77,7 @@ int fw_init_or_check_1221d44()
     while ( (*v7 & *v6 & 4) == 0 )
       ;
   }
-  v9 = *((unsigned __int8 *)off_121E4C + 90);
+  v9 = *((uint8_t *)off_121E4C + 90);
   *(uint32_t *)off_121E50 = 4;
   if ( v9 )
     bitfield_pack_n_214();

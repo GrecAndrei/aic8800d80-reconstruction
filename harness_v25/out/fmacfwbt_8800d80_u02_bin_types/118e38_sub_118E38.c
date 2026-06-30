@@ -1,9 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_118EA0;
+extern uint32_t dword_118EA4;
+extern uint32_t dword_118EA8;
+
 // sub_118E38 @ 0x118e38, size 102 bytes
 // Doc: sub_1218E38 [util]: Initialize firmware subsystem state with constants
 // sub_1218E38 [util]: Initialize firmware subsystem state with constants
 int  sub_118E38(int a1, int a2)
 {
-  __int16 **v2; // r5
+  int16_t **v2; // r5
   int v3; // r7
   int v4; // r6
   int v6; // r0
@@ -12,7 +28,7 @@ int  sub_118E38(int a1, int a2)
   int v9; // r2
   int v10; // r0
 
-  v2 = (__int16 **)off_118EA0;
+  v2 = (int16_t **)off_118EA0;
   v3 = dword_118EA4;
   v4 = dword_118EA8;
 LABEL_2:

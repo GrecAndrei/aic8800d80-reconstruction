@@ -1,3 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1010BC;
+extern uint32_t off_1010C0;
+extern uint32_t off_1010C4;
+extern uint32_t off_1010C8;
+extern uint32_t off_1010CC;
+extern uint32_t off_1010D0;
+extern uint32_t off_1010D4;
+extern uint32_t off_1010D8;
+extern uint32_t off_1010DC;
+extern uint32_t dword_1010E0;
+extern uint32_t off_1010E4;
+extern uint32_t off_1010E8;
+extern uint32_t off_1010EC;
+extern uint32_t off_1010F0;
+extern uint32_t off_1010F4;
+extern uint32_t off_1010F8;
+extern uint32_t off_1010FC;
+extern uint32_t off_101100;
+extern uint32_t off_101104;
+extern uint32_t off_101108;
+
 // mmio_init_block_1200E54 @ 0x100e54, size 616 bytes
 // Doc: mmio_init_block_1200E54 [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
 // mmio_init_block_1200E54 [mmio]: Initialize MMIO block at 0x40344000 with bit OR 0x400 patch
@@ -77,11 +110,11 @@ int  mmio_init_block_1200E54(unsigned int a1, int a2)
   v12 = (unsigned int *)off_1010DC;
   v13 = dword_1010E0;
   v14 = (unsigned int *)off_1010E4;
-  *(uint32_t *)off_1010DC = *(uint32_t *)off_1010DC & 0xFE01FFFF | (*(unsigned __int8 *)(dword_1010E0 + v11) << 17);
+  *(uint32_t *)off_1010DC = *(uint32_t *)off_1010DC & 0xFE01FFFF | (*(uint8_t *)(dword_1010E0 + v11) << 17);
   v15 = v11 + v13;
   v16 = (unsigned int *)off_1010E8;
-  *v12 = *v12 & 0xFFFFFF00 | *(unsigned __int8 *)(v15 + 1);
-  v17 = *(unsigned __int8 *)(v15 + 2);
+  *v12 = *v12 & 0xFFFFFF00 | *(uint8_t *)(v15 + 1);
+  v17 = *(uint8_t *)(v15 + 2);
   v18 = off_1010EC;
   *v14 = *v14 & 0xFFFFFF00 | v17;
   v19 = (unsigned int *)off_1010C8;

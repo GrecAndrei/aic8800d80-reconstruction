@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_126CC4;
+extern uint32_t off_126CC0;
+extern uint32_t off_126CC8;
+extern uint32_t off_126CCC;
+extern uint32_t dword_126CD0;
+extern uint32_t off_126CD4;
+extern uint32_t dword_126CD8;
+
 // sub_126BC4 @ 0x126bc4, size 250 bytes
 int  sub_126BC4(int a1)
 {
@@ -19,7 +39,7 @@ int  sub_126BC4(int a1)
 
   v1 = off_126CC4;
   v2 = *((int **)off_126CC0 + 2);
-  v3 = *((unsigned __int8 *)off_126CC4 + 89);
+  v3 = *((uint8_t *)off_126CC4 + 89);
   nullsub_8(a1);
   v4 = v1[10];
   if ( !v4 )
@@ -43,8 +63,8 @@ int  sub_126BC4(int a1)
         {
           if ( *((uint8_t *)v2 + 108) )
           {
-            v11 = *((unsigned __int8 *)v2 + 116);
-            if ( v11 != 255 && (!*((uint8_t *)v2 + 1224) || *(uint8_t *)(v10 + 140 * *((unsigned __int8 *)v2 + 1225) + 133)) )
+            v11 = *((uint8_t *)v2 + 116);
+            if ( v11 != 255 && (!*((uint8_t *)v2 + 1224) || *(uint8_t *)(v10 + 140 * *((uint8_t *)v2 + 1225) + 133)) )
               break;
           }
         }
@@ -66,7 +86,7 @@ int  sub_126BC4(int a1)
 LABEL_16:
     LOBYTE(v3) = v7;
   }
-  v13 = *((unsigned __int8 *)v1 + 89);
+  v13 = *((uint8_t *)v1 + 89);
   v14 = v1[11];
   *((uint8_t *)v1 + 89) = v3;
   v15 = v7 - v13;

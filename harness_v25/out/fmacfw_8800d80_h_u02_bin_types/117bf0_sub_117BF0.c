@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117D6C;
+extern uint32_t off_117D98;
+extern uint32_t dword_117D70;
+extern uint32_t off_117D74;
+extern uint32_t dword_117D78;
+extern uint32_t off_117D7C;
+extern uint32_t off_117D80;
+extern uint32_t dword_117D84;
+extern uint32_t dword_117D88;
+extern uint32_t dword_117D90;
+extern uint32_t dword_117D94;
+extern uint32_t off_117D8C;
+
 // sub_117BF0 @ 0x117bf0, size 380 bytes
 void  sub_117BF0(int a1, uint32_t *a2)
 {
@@ -9,7 +34,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
   int v9; // r12
   int v10; // r7
   unsigned int v11; // r3
-  __int16 v12; // lr
+  int16_t v12; // lr
   int v13; // r2
   uint32_t *v14; // r1
   int v15; // r3
@@ -28,7 +53,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
   v2 = *(uint32_t *)(a1 + 84);
   if ( v2 < 0 )
   {
-    v3 = **(unsigned __int8 **)off_117D6C;
+    v3 = **(uint8_t **)off_117D6C;
     switch ( v3 )
     {
       case 2:
@@ -48,7 +73,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
             v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             v25 = v9;
             sub_143630(v6 + 4, &v25, 8);
-            v11 = *((unsigned __int16 *)v7 + 4122);
+            v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
               v13 = 0;
@@ -79,7 +104,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
               *(uint32_t *)off_117D7C = 1;
             }
             v17 = (int *)off_117D80;
-            v18 = *(unsigned __int16 *)(a1 + 32);
+            v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_117D84;
             ++*(uint32_t *)off_117D80;
             sub_12E948(v19, a1, v18);
@@ -112,7 +137,7 @@ void  sub_117BF0(int a1, uint32_t *a2)
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
         sub_111130(18, (int)&v25, 8);
-        sub_12E948(dword_117D84, a1, *(unsigned __int16 *)(a1 + 32));
+        sub_12E948(dword_117D84, a1, *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_117D8C = *a2 & 0xF;

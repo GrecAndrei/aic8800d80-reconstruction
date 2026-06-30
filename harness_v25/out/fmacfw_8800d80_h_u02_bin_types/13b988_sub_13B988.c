@@ -1,5 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BAD8;
+extern uint32_t off_13BADC;
+extern uint32_t off_13BAE0;
+extern uint32_t dword_13BAE4;
+
 // sub_13B988 @ 0x13b988, size 334 bytes
-int  sub_13B988(int a1, unsigned __int16 *a2, int a3)
+int  sub_13B988(int a1, uint16_t *a2, int a3)
 {
   int v4; // r4
   unsigned int v6; // r3
@@ -20,28 +37,28 @@ int  sub_13B988(int a1, unsigned __int16 *a2, int a3)
       if ( v12 < 0x9000 && a1 != 255 )
       {
         if ( (v12 & 0x800) != 0 )
-          return *(unsigned __int8 *)(696 * (unsigned __int8)a1 + 12 * v13 + dword_13BAD8 + 452);
+          return *(uint8_t *)(696 * (uint8_t)a1 + 12 * v13 + dword_13BAD8 + 452);
         else
-          return *(unsigned __int8 *)(696 * (unsigned __int8)a1 + 12 * v13 + dword_13BAD8 + 453);
+          return *(uint8_t *)(696 * (uint8_t)a1 + 12 * v13 + dword_13BAD8 + 453);
       }
     }
     else if ( !a3 )
     {
-      v7 = *(unsigned __int16 *)((char *)a2 + 3);
+      v7 = *(uint16_t *)((char *)a2 + 3);
       v8 = (v7 >> 2) & 0xF;
       if ( v8 <= 8 )
       {
-        v9 = (unsigned __int8)a1;
+        v9 = (uint8_t)a1;
         v10 = *((uint8_t *)a2 + 2);
-        if ( sub_121820((unsigned __int8)a1, (v7 >> 2) & 0xF) )
-          return *(unsigned __int8 *)(696 * v9 + 12 * v8 + dword_13BAD8 + 452);
+        if ( sub_121820((uint8_t)a1, (v7 >> 2) & 0xF) )
+          return *(uint8_t *)(696 * v9 + 12 * v8 + dword_13BAD8 + 452);
         if ( *((uint32_t *)off_13BADC + 4) - 500000 - *(uint32_t *)(696 * v9 + 12 * v8 + dword_13BAD8 + 448) >= 0 )
         {
           if ( *(uint8_t *)(dword_13BAD8 + 696 * a1 + 36) == 1 )
             goto LABEL_22;
           if ( *(uint32_t *)off_13BAE0 )
           {
-            v4 = *((unsigned __int8 *)sub_12D190((int)off_13BAE0) + 26);
+            v4 = *((uint8_t *)sub_12D190((int)off_13BAE0) + 26);
             if ( v4 != 33 )
               return v4;
           }
@@ -63,9 +80,9 @@ LABEL_22:
     }
     return 33;
   }
-  v6 = (*(unsigned __int16 *)((char *)a2 + 5) >> 2) & 0xF;
+  v6 = (*(uint16_t *)((char *)a2 + 5) >> 2) & 0xF;
   if ( v6 > 8 )
     return 33;
-  return *(unsigned __int8 *)(696 * (unsigned __int8)a1 + 12 * v6 + dword_13BAD8 + 453);
+  return *(uint8_t *)(696 * (uint8_t)a1 + 12 * v6 + dword_13BAD8 + 453);
 }
 

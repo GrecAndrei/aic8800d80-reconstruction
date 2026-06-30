@@ -1,5 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13162C;
+extern uint32_t off_131630;
+extern uint32_t dword_13163C;
+extern uint32_t dword_131638;
+extern uint32_t dword_131634;
+extern uint32_t dword_131640;
+
 // rx_mpdu_parse_header @ 0x131548, size 226 bytes
-int  rx_mpdu_parse_header(int a1, int *a2, __int16 a3, __int16 a4)
+int  rx_mpdu_parse_header(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v7; // r5
   int v8; // r4
@@ -7,9 +26,9 @@ int  rx_mpdu_parse_header(int a1, int *a2, __int16 a3, __int16 a4)
   int v10; // r4
   int v11; // r0
   int v12; // r1
-  unsigned __int8 *v14; // r7
+  uint8_t *v14; // r7
   int v15; // r0
-  __int16 v16; // r1
+  int16_t v16; // r1
   int v17; // r4
   int v18; // r1
   int v19; // r2
@@ -17,10 +36,10 @@ int  rx_mpdu_parse_header(int a1, int *a2, __int16 a3, __int16 a4)
   if ( sub_12CD48(5u) == 1 )
     return 2;
   v7 = sub_12C7EC(5138, a4, a3, 0xCu);
-  if ( **(__int16 **)off_13162C < 0 )
+  if ( **(int16_t **)off_13162C < 0 )
   {
-    v14 = (unsigned __int8 *)off_131630;
-    v8 = *((unsigned __int8 *)off_131630 + 16);
+    v14 = (uint8_t *)off_131630;
+    v8 = *((uint8_t *)off_131630 + 16);
     if ( v8 == 255 )
     {
       sub_12F32C(dword_13163C, dword_131638, 1092);
@@ -29,10 +48,10 @@ int  rx_mpdu_parse_header(int a1, int *a2, __int16 a3, __int16 a4)
   }
   else
   {
-    v8 = *((unsigned __int8 *)off_131630 + 16);
+    v8 = *((uint8_t *)off_131630 + 16);
   }
   if ( sub_101960() )
-    sub_101974(*((unsigned __int8 *)a2 + 11));
+    sub_101974(*((uint8_t *)a2 + 11));
   v9 = dword_131634 + 1320 * v8;
   v10 = *(uint32_t *)(v9 + 72);
   if ( v10 )

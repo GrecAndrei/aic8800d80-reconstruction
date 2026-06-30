@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_128698;
+extern uint32_t dword_1286AC;
+extern uint32_t dword_1286A8;
+extern uint32_t off_12869C;
+extern uint32_t dword_1286A0;
+extern uint32_t dword_1286A4;
+
 // bt_hci_cmd_dispatch @ 0x1285f8, size 160 bytes
 // Doc: bt_hci_cmd_dispatch [bt]: Dispatch HCI command from BT firmware host interface
 // bt_hci_cmd_dispatch [bt]: Dispatch HCI command from BT firmware host interface
@@ -8,18 +27,18 @@ int  bt_hci_cmd_dispatch(int result)
   uint8_t *v3; // r6
   int v4; // r8
   int v5; // r0
-  __int16 v6; // r5
-  __int16 v7; // r4
+  int16_t v6; // r5
+  int16_t v7; // r4
   int v8; // r2
 
   v1 = *(uint32_t *)(result + 72);
   v2 = result;
-  if ( **(__int16 **)off_128698 < 0 && !v1 )
+  if ( **(int16_t **)off_128698 < 0 && !v1 )
     result = sub_12F694(dword_1286AC, dword_1286A8, 3591);
   v3 = off_12869C;
-  if ( (*((uint8_t *)off_12869C + 88) & 0x20) == 0 && *((unsigned __int8 *)off_12869C + 90) > 1u )
+  if ( (*((uint8_t *)off_12869C + 88) & 0x20) == 0 && *((uint8_t *)off_12869C + 90) > 1u )
   {
-    v4 = *(unsigned __int8 *)(v2 + 116);
+    v4 = *(uint8_t *)(v2 + 116);
     v5 = rf_bus_setup_n3a8(70, *((uint8_t *)off_12869C + 88) & 0x20, *((uint8_t *)off_12869C + 88) & 0x20, 20);
     *(uint8_t *)v5 = 0;
     *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 107);

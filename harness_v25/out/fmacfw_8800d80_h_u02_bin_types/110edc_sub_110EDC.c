@@ -1,8 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110FCC;
+extern uint32_t off_110FF8;
+extern uint32_t off_110FD0;
+extern uint32_t off_110FE8;
+extern uint32_t off_110FEC;
+extern uint32_t dword_110FF0;
+extern uint32_t off_110FF4;
+extern uint32_t off_110FD4;
+extern uint32_t off_110FD8;
+extern uint32_t off_110FDC;
+extern uint32_t off_110FE0;
+extern uint32_t off_110FE4;
+
 // sub_110EDC @ 0x110edc, size 238 bytes
 int  sub_110EDC(int a1, int a2, int a3)
 {
   int *v6; // r9
-  unsigned __int8 *v7; // r3
+  uint8_t *v7; // r3
   int v8; // r5
   int result; // r0
   uint32_t *v10; // r4
@@ -12,7 +37,7 @@ int  sub_110EDC(int a1, int a2, int a3)
   int v14; // r3
   uint32_t *v15; // r2
   uint8_t *v16; // r4
-  unsigned __int8 *v17; // r5
+  uint8_t *v17; // r5
   int v18; // r3
   uint8_t *v19; // r10
   int v20; // r4
@@ -23,7 +48,7 @@ int  sub_110EDC(int a1, int a2, int a3)
     *(uint32_t *)off_110FCC = 1;
   }
   v6 = (int *)off_110FF8;
-  v7 = *(unsigned __int8 **)off_110FD0;
+  v7 = *(uint8_t **)off_110FD0;
   v8 = *(uint32_t *)off_110FF8 + 1;
   *(uint32_t *)off_110FF8 = v8;
   result = *v7;
@@ -33,7 +58,7 @@ int  sub_110EDC(int a1, int a2, int a3)
     if ( *(uint8_t *)off_110FE8 )
     {
       v19 = off_110FEC;
-      v20 = *((unsigned __int8 *)off_110FEC + 374);
+      v20 = *((uint8_t *)off_110FEC + 374);
       if ( v20 != 1 )
         goto LABEL_4;
       result = sub_124E3C(dword_110FF0);
@@ -46,7 +71,7 @@ int  sub_110EDC(int a1, int a2, int a3)
     }
     else
     {
-      v17 = (unsigned __int8 *)off_110FEC;
+      v17 = (uint8_t *)off_110FEC;
       if ( *((uint8_t *)off_110FEC + 369) )
         result = sub_10DBD4(1);
       else

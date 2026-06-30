@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_140B68;
+extern uint32_t dword_140B6C;
+extern uint32_t off_140B74;
+extern uint32_t dword_140B70;
+
 // sub_140AE4 @ 0x140ae4, size 130 bytes
 // Doc: sub_1240AE4 [util]: Check firmware state flag against value 3
 // sub_1240AE4 [util]: Check firmware state flag against value 3
@@ -11,12 +28,12 @@ int  sub_140AE4(int result, int a2)
   int v8; // r4
 
   v2 = dword_140B68;
-  v3 = *(unsigned __int8 *)(dword_140B68 + 6489);
-  if ( v3 <= 3 && *(unsigned __int8 *)(dword_140B68 + 6488) <= 0x1Fu )
+  v3 = *(uint8_t *)(dword_140B68 + 6489);
+  if ( v3 <= 3 && *(uint8_t *)(dword_140B68 + 6488) <= 0x1Fu )
   {
     v4 = result;
     v5 = *(uint32_t *)(dword_140B6C + 1320 * v3 + 72);
-    v7 = v5 ? *(unsigned __int8 *)(v5 + 4) : *((unsigned __int8 *)off_140B74 + 36);
+    v7 = v5 ? *(uint8_t *)(v5 + 4) : *((uint8_t *)off_140B74 + 36);
     result = sub_118C44(v7 != 0, 512);
     v8 = result;
     if ( result )

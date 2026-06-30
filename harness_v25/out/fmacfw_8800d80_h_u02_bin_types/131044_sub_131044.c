@@ -1,19 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_131044 @ 0x131044, size 170 bytes
-int  sub_131044(unsigned __int8 *a1, int a2, int a3)
+int  sub_131044(uint8_t *a1, int a2, int a3)
 {
-  unsigned __int8 *v4; // r0
+  uint8_t *v4; // r0
   unsigned int v5; // r6
-  unsigned __int8 *v6; // r4
+  uint8_t *v6; // r4
   int v7; // r3
   int v8; // r1
-  __int16 v9; // r3
+  int16_t v9; // r3
   int v10; // r2
-  unsigned __int8 *v11; // r3
-  unsigned __int8 *v12; // r1
-  __int16 v13; // r4
-  __int16 v14; // r0
-  __int16 v15; // r1
-  __int16 v16; // r3
+  uint8_t *v11; // r3
+  uint8_t *v12; // r1
+  int16_t v13; // r4
+  int16_t v14; // r0
+  int16_t v15; // r1
+  int16_t v16; // r3
   uint8_t v18[5]; // [sp+7h] [bp-5h] BYREF
 
   v4 = sub_12DD50(a1, a2, v18);
@@ -34,7 +46,7 @@ int  sub_131044(unsigned __int8 *a1, int a2, int a3)
     ++v7;
   }
   while ( v7 != a3 + 16 );
-  v8 = *(unsigned __int8 *)(a3 + 6);
+  v8 = *(uint8_t *)(a3 + 6);
   v9 = v4[22] | (v4[23] << 8);
   *(uint16_t *)(a3 + 18) = v4[20] | (v4[21] << 8);
   v10 = v8 >> 1;

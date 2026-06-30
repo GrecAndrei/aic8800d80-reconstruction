@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102C80;
+extern uint32_t off_102C84;
+extern uint32_t dword_102C88;
+extern uint32_t dword_102C8C;
+extern uint32_t dword_102C90;
+extern uint32_t dword_102C94;
+extern uint32_t dword_102C98;
+extern uint32_t off_102C9C;
+extern uint32_t off_102CA0;
+extern uint32_t off_102CA4;
+
 // irq_vector_init @ 0x102bfc, size 132 bytes
 // Doc: irq_vector_init [util]: Initialize NVIC interrupt vector table and enable interrupts
 // irq_vector_init [util]: Initialize NVIC interrupt vector table and enable interrupts
@@ -10,7 +33,7 @@ int irq_vector_init()
   int v4; // r4
   int v5; // r0
   int v6; // r1
-  unsigned __int8 *v7; // r2
+  uint8_t *v7; // r2
   int v8; // r2
   uint32_t *v9; // r2
   uint32_t *v10; // r3
@@ -32,7 +55,7 @@ int irq_vector_init()
   *(uint32_t *)(v0[2] + 88) = v4;
   *(uint32_t *)v1 = 64;
   v6 = v0[2];
-  v7 = (unsigned __int8 *)off_102C9C;
+  v7 = (uint8_t *)off_102C9C;
   *(uint32_t *)(v6 + 76) = v5;
   v8 = v7[413];
   v1[771] = -8;

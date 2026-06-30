@@ -1,8 +1,47 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10CEFC;
+extern uint32_t off_10CF04;
+extern uint32_t off_10CF08;
+extern uint32_t off_10CF00;
+extern uint32_t dword_10CFF4;
+extern uint32_t dword_10CFF0;
+extern uint32_t dword_10CFFC;
+extern uint32_t dword_10CFF8;
+extern uint32_t dword_10CF28;
+extern uint32_t off_10CF24;
+extern uint32_t dword_10CFD4;
+extern uint32_t off_10CF10;
+extern uint32_t off_10CFD8;
+extern uint32_t off_10CFDC;
+extern uint32_t dword_10CFE0;
+extern uint32_t dword_10CFE4;
+extern uint32_t dword_10CFE8;
+extern uint32_t off_10CF18;
+extern uint32_t off_10CF1C;
+extern uint32_t dword_10CF2C;
+extern uint32_t dword_10CF34;
+extern uint32_t dword_10CF30;
+extern uint32_t off_10CF14;
+extern uint32_t dword_10CF20;
+extern uint32_t off_10CF0C;
+extern uint32_t dword_10CFEC;
+
 // sub_10CC2C @ 0x10cc2c, size 936 bytes
-int  sub_10CC2C(unsigned __int16 *a1)
+int  sub_10CC2C(uint16_t *a1)
 {
-  unsigned __int8 **v1; // r7
-  unsigned __int8 *v2; // r2
+  uint8_t **v1; // r7
+  uint8_t *v2; // r2
   int v3; // r3
   int v5; // r6
   int v6; // r5
@@ -13,10 +52,10 @@ int  sub_10CC2C(unsigned __int16 *a1)
   uint32_t *v11; // r3
   int v12; // r0
   int v13; // r1
-  __int16 v14; // lr
+  int16_t v14; // lr
   uint8_t *v15; // r6
   unsigned int v16; // r2
-  __int16 v17; // r12
+  int16_t v17; // r12
   int v18; // r8
   int *v19; // r3
   int v20; // r10
@@ -31,10 +70,10 @@ int  sub_10CC2C(unsigned __int16 *a1)
   int *v29; // r0
   int v30; // r1
   int v31; // r2
-  unsigned __int16 v32; // r2
-  unsigned __int16 v34; // r1
-  unsigned __int16 v35; // r2
-  unsigned __int8 *v36; // r3
+  uint16_t v32; // r2
+  uint16_t v34; // r1
+  uint16_t v35; // r2
+  uint8_t *v36; // r3
   int *v37; // r6
   int v38; // r0
   int v39; // r3
@@ -51,9 +90,9 @@ int  sub_10CC2C(unsigned __int16 *a1)
   int v50; // r0
   int v51; // [sp+0h] [bp-8h]
 
-  v1 = (unsigned __int8 **)off_10CEFC;
-  v2 = *(unsigned __int8 **)off_10CEFC;
-  v3 = **(unsigned __int8 **)off_10CEFC;
+  v1 = (uint8_t **)off_10CEFC;
+  v2 = *(uint8_t **)off_10CEFC;
+  v3 = **(uint8_t **)off_10CEFC;
   if ( v3 != 3 )
   {
     v5 = 0;
@@ -64,7 +103,7 @@ int  sub_10CC2C(unsigned __int16 *a1)
     ;
   if ( !*(uint32_t *)(*(uint32_t *)off_10CF08 + 516) )
   {
-    v45 = **(__int16 **)off_10CF00;
+    v45 = **(int16_t **)off_10CF00;
     *(uint32_t *)off_10CF04 = 1;
     if ( v45 >= 0 )
     {
@@ -74,7 +113,7 @@ int  sub_10CC2C(unsigned __int16 *a1)
     goto LABEL_71;
   }
   v42 = sub_12D4F8(*(uint32_t *)off_10CF08 + 516);
-  v43 = **(__int16 **)off_10CF00;
+  v43 = **(int16_t **)off_10CF00;
   *v41 = 1;
   if ( v43 < 0 )
   {
@@ -199,7 +238,7 @@ LABEL_6:
   *(uint16_t *)(v5 + 6) = v8;
   if ( v8 )
   {
-    if ( **(__int16 **)off_10CF00 < 0 && v8 > 0x400 )
+    if ( **(int16_t **)off_10CF00 < 0 && v8 > 0x400 )
     {
       sub_12F694(dword_10CF34, dword_10CF30, 1671);
       v8 = a1[5];
@@ -215,8 +254,8 @@ LABEL_16:
       v12 = a1[5];
       if ( (v12 & 3) != 0 )
       {
-        v14 = (unsigned __int8)(4 - (v12 & 3));
-        v13 = (unsigned __int8)(4 - (v12 & 3));
+        v14 = (uint8_t)(4 - (v12 & 3));
+        v13 = (uint8_t)(4 - (v12 & 3));
       }
       else
       {
@@ -224,7 +263,7 @@ LABEL_16:
         v14 = 0;
       }
       v15 = off_10CF10;
-      v16 = *((unsigned __int16 *)off_10CF10 + 4122);
+      v16 = *((uint16_t *)off_10CF10 + 4122);
       if ( v16 > 0x186 )
       {
         v18 = 0;
@@ -309,7 +348,7 @@ LABEL_27:
   v32 = a1[5];
   v29[1] = 0;
   *v29 = v6;
-  v29[2] = (unsigned __int16)(v32 + 16) | 0x80000000;
+  v29[2] = (uint16_t)(v32 + 16) | 0x80000000;
   sub_110FB8();
   return sub_12CC60(a1);
 }

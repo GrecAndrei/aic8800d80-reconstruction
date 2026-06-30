@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12B5B4;
+extern uint32_t off_12B5B8;
+extern uint32_t dword_12B5B0;
+
 // rf_table_lookup_n528 @ 0x12b4d4, size 218 bytes
 // Doc: rf_table_lookup_n528 [rf]: Index into RF parameter table (0x528 stride) by entry id
 // rf_table_lookup_n528 [rf]: Index into RF parameter table (0x528 stride) by entry id
@@ -13,14 +29,14 @@ int  rf_table_lookup_n528(int a1, int a2, int a3)
   uint16_t *v13; // lr
   int v14; // r1
   uint64_t v15; // kr00_8
-  __int16 v16; // r5
+  int16_t v16; // r5
   int v17; // r9
   int v18; // r0
   int v19; // r9
 
   v3 = dword_12B5B4;
   v4 = dword_12B5B4 + 1320 * a1;
-  v6 = *(unsigned __int8 *)(v4 + 116);
+  v6 = *(uint8_t *)(v4 + 116);
   if ( *(uint8_t *)(v4 + 1224) )
   {
     result = sub_119084(1, 26);
@@ -30,7 +46,7 @@ int  rf_table_lookup_n528(int a1, int a2, int a3)
 LABEL_5:
       v13 = off_12B5B8;
       v14 = dword_12B5B0 + 696 * v6;
-      v15 = *(QWORD *)(result + 72);
+      v15 = *(uint64_t *)(result + 72);
       v16 = *((uint16_t *)off_12B5B8 + 254);
       *(uint32_t *)(v15 + 112) = *(uint32_t *)(v14 + 38);
       v17 = v3 + 1320 * a1;
@@ -63,7 +79,7 @@ LABEL_5:
   else
   {
     v9 = *(uint32_t *)(v4 + 72);
-    v10 = *(unsigned __int8 *)(v9 + 4);
+    v10 = *(uint8_t *)(v9 + 4);
     if ( *(uint8_t *)(v9 + 4) )
       v10 = 1;
     result = sub_119084(v10, 26);

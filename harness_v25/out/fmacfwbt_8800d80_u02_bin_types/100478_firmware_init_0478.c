@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100568;
+extern uint32_t off_100570;
+extern uint32_t off_100574;
+extern uint32_t off_100578;
+extern uint32_t off_10056C;
+extern uint32_t off_10057C;
+extern uint32_t off_100580;
+extern uint32_t off_100584;
+extern uint32_t off_10058C;
+extern uint32_t off_100588;
+extern uint32_t off_100594;
+extern uint32_t off_100590;
+extern uint32_t dword_10059C;
+extern uint32_t off_100598;
+extern uint32_t dword_1005A4;
+extern uint32_t off_1005A0;
+extern uint32_t dword_1005AC;
+extern uint32_t off_1005A8;
+
 // firmware_init_0478 @ 0x100478, size 240 bytes
 // Doc: firmware_init_0478 [util]: Initialize firmware globals and link module table pointers
 // firmware_init_0478 [util]: Initialize firmware globals and link module table pointers
@@ -58,7 +89,7 @@ void __noreturn firmware_init_0478()
     v20 = sub_130714(inited);
     sub_1307D0(v20);
   }
-  v14 = sub_12ECB0(dword_10059C, (unsigned __int8)v0[76], *(unsigned __int8 *)off_100598);
+  v14 = sub_12ECB0(dword_10059C, (uint8_t)v0[76], *(uint8_t *)off_100598);
   v15 = sub_10FF58(v14);
   v16 = log_system_init(v15);
   if ( v9[2] )

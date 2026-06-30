@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_136E94;
+
 // sub_136E40 @ 0x136e40, size 84 bytes
 // Doc: sub_1236E40 [mac]: FMAC behavioral routine indexed by mla with stride 0x2b8
 // sub_1236E40 [mac]: FMAC behavioral routine indexed by mla with stride 0x2b8
@@ -6,7 +20,7 @@ int  sub_136E40(int result, int a2)
   int v2; // r4
   char v3; // r1
   int v4; // r0
-  __int16 v5; // r1
+  int16_t v5; // r1
 
   if ( *(uint8_t *)(result + 106) == 2 )
   {

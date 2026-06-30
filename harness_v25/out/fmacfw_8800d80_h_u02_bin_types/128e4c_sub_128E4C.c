@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_129018;
+extern uint32_t dword_129014;
+extern uint32_t off_12901C;
+extern uint32_t off_129030;
+extern uint32_t off_12902C;
+extern uint32_t dword_129034;
+extern uint32_t off_129020;
+extern uint32_t off_129028;
+extern uint32_t off_129024;
+extern uint32_t off_129038;
+
 // sub_128E4C @ 0x128e4c, size 454 bytes
 unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
 {
@@ -23,11 +46,11 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
   int v23; // r0
   int v24; // r3
 
-  v3 = *(unsigned __int8 *)(a3 + 116);
+  v3 = *(uint8_t *)(a3 + 116);
   v4 = off_129018;
   v6 = *(uint32_t *)(a3 + 4);
-  v7 = *(unsigned __int8 *)off_129018;
-  v8 = *(unsigned __int16 *)(dword_129014 + 696 * v3 + 32);
+  v7 = *(uint8_t *)off_129018;
+  v8 = *(uint16_t *)(dword_129014 + 696 * v3 + 32);
   *(uint32_t *)(a3 + 4) = v6 & 0xFFFFFFFE;
   v9 = result;
   if ( v7 )
@@ -41,7 +64,7 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
       else
       {
         v10 = (uint8_t *)(result + 4);
-        if ( ((*(unsigned __int8 *)((*(unsigned __int8 *)(a3 + 117) >> 3) + result + 4) >> (*(uint8_t *)(a3 + 117) & 7))
+        if ( ((*(uint8_t *)((*(uint8_t *)(a3 + 117) >> 3) + result + 4) >> (*(uint8_t *)(a3 + 117) & 7))
             & 1) != 0 )
         {
           v16 = off_12901C;
@@ -51,7 +74,7 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
           if ( !*((uint8_t *)v4 + 29) )
           {
             v17 = *((uint32_t *)off_129030 + 4);
-            v18 = *(unsigned __int16 *)(*(uint32_t *)off_12902C + 56);
+            v18 = *(uint16_t *)(*(uint32_t *)off_12902C + 56);
             v19 = dword_129034;
             v4[5] = a3;
             *((uint8_t *)v4 + 29) = 5;
@@ -66,8 +89,8 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
       v11 = *v10 & 0xFE;
       result = v8 >> 3;
       if ( v11 <= v8 >> 3
-        && result <= *(unsigned __int8 *)(v9 + 1) - 4 + v11
-        && (result += v9, (*(unsigned __int8 *)(result - v11 + 5) & (1 << (v8 & 7))) != 0) )
+        && result <= *(uint8_t *)(v9 + 1) - 4 + v11
+        && (result += v9, (*(uint8_t *)(result - v11 + 5) & (1 << (v8 & 7))) != 0) )
       {
         if ( (*(uint32_t *)off_12901C & 0x200) != 0 )
           *(uint32_t *)off_12901C &= ~0x200u;
@@ -82,11 +105,11 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
           {
             v20 = off_129024;
             if ( *(uint8_t *)off_129024 && (sub_1227A8() != 1 || !*((uint32_t *)off_129038 + 126)) )
-              sub_118C84(*(unsigned __int8 *)(a3 + 116), 0, 0);
+              sub_118C84(*(uint8_t *)(a3 + 116), 0, 0);
             *v20 = 1;
           }
           v21 = off_129030;
-          v22 = *(unsigned __int16 *)(*(uint32_t *)off_12902C + 58);
+          v22 = *(uint16_t *)(*(uint32_t *)off_12902C + 58);
           v23 = dword_129034;
           *(uint32_t *)(a3 + 4) |= 4u;
           v24 = v21[4];
@@ -106,15 +129,15 @@ unsigned int  sub_128E4C(unsigned int result, int a2, int a3)
   else if ( result
          && (*(uint32_t *)off_129028 & 4) == 0
          && (v13 = *(uint8_t *)(result + 4) & 0xFE, v14 = v8 >> 3, v13 <= v8 >> 3)
-         && v14 <= *(unsigned __int8 *)(result + 1) - 4 + v13
-         && (*(unsigned __int8 *)(result + v14 - v13 + 5) & (1 << (v8 & 7))) != 0 )
+         && v14 <= *(uint8_t *)(result + 1) - 4 + v13
+         && (*(uint8_t *)(result + v14 - v13 + 5) & (1 << (v8 & 7))) != 0 )
   {
     v15 = off_129024;
     if ( *(uint8_t *)off_129024 )
     {
       result = sub_1227A8();
       if ( result != 1 || !*((uint32_t *)off_129038 + 126) )
-        result = sub_118C84(*(unsigned __int8 *)(a3 + 116), 0, 0);
+        result = sub_118C84(*(uint8_t *)(a3 + 116), 0, 0);
     }
     *v15 = 1;
   }

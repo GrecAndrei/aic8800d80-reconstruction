@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_135554;
+extern uint32_t dword_135558;
+extern uint32_t dword_135560;
+extern uint32_t dword_13555C;
+
 // sub_135384 @ 0x135384, size 462 bytes
 // Doc: sub_1235384 [scan]: Iterate indexed entries (0x528 stride) into lookup tables
 // sub_1235384 [scan]: Iterate indexed entries (0x528 stride) into lookup tables
@@ -7,17 +24,17 @@ uint32_t * sub_135384(int a1, char *a2)
   int v3; // r5
   int v4; // r6
   int v5; // r11
-  unsigned __int8 *v6; // r4
+  uint8_t *v6; // r4
   int v9; // r10
   int v10; // r0
   int v11; // r4
   int v12; // r5
   int v13; // r3
   int v14; // r2
-  __int16 v15; // r1
+  int16_t v15; // r1
   int v16; // t1
   int v17; // lr
-  __int16 v18; // r0
+  int16_t v18; // r0
   int v19; // r1
   int v20; // r10
   int v21; // r11
@@ -34,8 +51,8 @@ uint32_t * sub_135384(int a1, char *a2)
   v2 = off_135554;
   v3 = dword_135558;
   v4 = *((uint32_t *)off_135554 + 4);
-  v5 = *(unsigned __int8 *)(v4 + 61);
-  v6 = (unsigned __int8 *)(dword_135558 + 1320 * v5);
+  v5 = *(uint8_t *)(v4 + 61);
+  v6 = (uint8_t *)(dword_135558 + 1320 * v5);
   v9 = v6[116];
   feature_guard_sdio(256, dword_135560, dword_13555C);
   if ( !v6[1224] )
@@ -79,13 +96,13 @@ LABEL_5:
   *(uint8_t *)(v11 + 29) = *(uint8_t *)(v12 + 116);
   *(uint8_t *)(v11 + 51) = 0;
   *(uint8_t *)(v11 + 53) = 0;
-  v19 = *(unsigned __int8 *)(v4 + 59);
+  v19 = *(uint8_t *)(v4 + 59);
   v20 = v13 + 108;
   if ( v19 == 1 && a1 == 3 )
   {
     sub_13B13C(v11, v13 + 108, 24);
-    LOWORD(v19) = *(unsigned __int8 *)(v4 + 59);
-    v21 = *(unsigned __int8 *)(v11 + 51) + 24;
+    LOWORD(v19) = *(uint8_t *)(v4 + 59);
+    v21 = *(uint8_t *)(v11 + 51) + 24;
   }
   else
   {
@@ -94,10 +111,10 @@ LABEL_5:
   v22 = v21 + sub_130A20(v20 + v21, v19, a1, 0, a2);
   if ( *(uint8_t *)(v4 + 59) == 2 )
   {
-    v26 = *(unsigned __int16 *)(v4 + 54);
+    v26 = *(uint16_t *)(v4 + 54);
     if ( 512 - v22 < v26 )
     {
-      if ( *(__int16 *)*loc_135570 < 0 )
+      if ( *(int16_t *)*loc_135570 < 0 )
         sub_12F6C4(loc_135578, loc_135574, 1015);
     }
     else
@@ -113,13 +130,13 @@ LABEL_5:
           v29[v20 + v22 - v4] = v30;
         }
         while ( v27 != v28 );
-        v26 = *(unsigned __int16 *)(v4 + 54);
+        v26 = *(uint16_t *)(v4 + 54);
       }
       v22 += v26;
     }
   }
   v23 = *(uint32_t **)(v11 + 76);
-  v24 = *(unsigned __int8 *)(v11 + 53) + v22;
+  v24 = *(uint8_t *)(v11 + 53) + v22;
   v31 = *(uint32_t *)(*loc_135568 + 12);
   v23[8] = v23[7] - 1 + v24;
   v23[9] = v24 + 4;

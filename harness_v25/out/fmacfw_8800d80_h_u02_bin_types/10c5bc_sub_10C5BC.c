@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10C6AC;
+extern uint32_t off_10C6B0;
+extern uint32_t off_10C6B4;
+extern uint32_t off_10C6EC;
+extern uint32_t off_10C6B8;
+extern uint32_t dword_10C6BC;
+extern uint32_t dword_10C6C0;
+extern uint32_t off_10C6C4;
+extern uint32_t off_10C6C8;
+extern uint32_t off_10C6CC;
+extern uint32_t dword_10C6D0;
+extern uint32_t dword_10C6D4;
+extern uint32_t dword_10C6D8;
+extern uint32_t dword_10C6DC;
+extern uint32_t off_10C6E0;
+extern uint32_t off_10C6E4;
+extern uint32_t dword_10C6E8;
+
 // sub_10C5BC @ 0x10c5bc, size 238 bytes
 int sub_10C5BC()
 {

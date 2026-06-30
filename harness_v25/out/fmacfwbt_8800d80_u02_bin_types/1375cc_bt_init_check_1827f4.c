@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1376A0;
+extern uint32_t off_1376D0;
+extern uint32_t off_1376A4;
+extern uint32_t off_1376A8;
+extern uint32_t dword_1376B0;
+extern uint32_t dword_1376AC;
+extern uint32_t off_1376B8;
+extern uint32_t off_1376BC;
+extern uint32_t off_1376B4;
+extern uint32_t off_1376C4;
+extern uint32_t off_1376CC;
+extern uint32_t off_1376C8;
+extern uint32_t off_1376C0;
+
 // bt_init_check_1827f4 @ 0x1375cc, size 212 bytes
 // Doc: bt_init_check_1827f4 [bt]: Check BT init flag at 0x1827f4 and dispatch
 // bt_init_check_1827f4 [bt]: Check BT init flag at 0x1827f4 and dispatch
@@ -5,10 +31,10 @@ uint32_t * bt_init_check_1827f4(int a1)
 {
   uint16_t *v2; // r4
   uint8_t **v3; // r7
-  __int16 v4; // r0
+  int16_t v4; // r0
   uint8_t *v5; // r5
   int *v6; // r2
-  unsigned __int16 *v7; // r0
+  uint16_t *v7; // r0
   int v8; // r1
   int v9; // r0
   uint32_t *v11; // r3
@@ -26,11 +52,11 @@ uint32_t * bt_init_check_1827f4(int a1)
     8,
     dword_1376B0,
     dword_1376AC,
-    *(unsigned __int8 *)(*(uint32_t *)v2 + 366),
-    *((unsigned __int8 *)v2 + 3850),
+    *(uint8_t *)(*(uint32_t *)v2 + 366),
+    *((uint8_t *)v2 + 3850),
     a1);
   v6 = (int *)off_1376B8;
-  v7 = (unsigned __int16 *)off_1376BC;
+  v7 = (uint16_t *)off_1376BC;
   *(uint32_t *)off_1376B4 &= ~4u;
   v8 = *v7;
   v9 = *(uint32_t *)v2;

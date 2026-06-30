@@ -1,7 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116318;
+extern uint32_t dword_11631C;
+extern uint32_t off_1162F8;
+extern uint32_t off_116320;
+extern uint32_t off_1162FC;
+extern uint32_t dword_116300;
+extern uint32_t off_116304;
+extern uint32_t off_116308;
+extern uint32_t off_116324;
+extern uint32_t dword_11630C;
+extern uint32_t dword_116310;
+extern uint32_t dword_116314;
+extern uint32_t off_1162F4;
+
 // sub_1160FC @ 0x1160fc, size 502 bytes
 int  sub_1160FC(int a1, int a2)
 {
-  unsigned __int8 **v2; // r11
+  uint8_t **v2; // r11
   int v3; // r10
   int v6; // r1
   int v7; // r2
@@ -15,7 +41,7 @@ int  sub_1160FC(int a1, int a2)
   int v16; // r0
   int v17; // r12
   int v18; // r9
-  __int16 *v19; // lr
+  int16_t *v19; // lr
   unsigned int v20; // r1
   int v21; // r2
   int *v22; // r3
@@ -27,11 +53,11 @@ int  sub_1160FC(int a1, int a2)
   int v28; // r1
   int v29; // r3
   int v30; // r2
-  __int16 v31; // [sp+4h] [bp-10h]
+  int16_t v31; // [sp+4h] [bp-10h]
   int v32; // [sp+8h] [bp-Ch] BYREF
   int v33; // [sp+Ch] [bp-8h]
 
-  v2 = (unsigned __int8 **)off_116318;
+  v2 = (uint8_t **)off_116318;
   v3 = dword_11631C;
   while ( 1 )
   {
@@ -79,8 +105,8 @@ int  sub_1160FC(int a1, int a2)
               v32 = *v9 & 0xF;
               v33 = v17;
               sub_1282E8(v15 + 4, &v32, 8);
-              v19 = (__int16 *)off_116320;
-              v20 = *(unsigned __int16 *)off_116320;
+              v19 = (int16_t *)off_116320;
+              v20 = *(uint16_t *)off_116320;
               if ( v20 > 0x186 )
               {
                 v21 = 0;

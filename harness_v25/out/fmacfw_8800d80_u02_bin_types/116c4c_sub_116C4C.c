@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_116E34;
+extern uint32_t off_116E30;
+extern uint32_t dword_116E40;
+extern uint32_t dword_116E3C;
+extern uint32_t dword_116E38;
+extern uint32_t dword_116E4C;
+extern uint32_t dword_116E44;
+extern uint32_t dword_116E48;
+extern uint32_t off_116E28;
+extern uint32_t dword_116E2C;
+
 // sub_116C4C @ 0x116c4c, size 474 bytes
 // Doc: sub_1216C4C [ipc]: Processes message buffer context struct
 // sub_1216C4C [ipc]: Processes message buffer context struct
@@ -17,7 +40,7 @@ int  sub_116C4C(int a1, int a2, char a3)
   unsigned int v18; // r1
   int v19; // r2
   int v20; // r2
-  __int16 **v21; // r6
+  int16_t **v21; // r6
   int v22; // r5
   uint16_t *v23; // r3
   int v24; // r3
@@ -43,8 +66,8 @@ int  sub_116C4C(int a1, int a2, char a3)
     while ( v14 != v12 + 16 );
     if ( (*(uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
-      v16 = *(uint32_t *)(dword_116E34 + 696 * *(unsigned __int8 *)(a1 + 29) + 340);
-      if ( **(__int16 **)off_116E30 >= 0 || v16 )
+      v16 = *(uint32_t *)(dword_116E34 + 696 * *(uint8_t *)(a1 + 29) + 340);
+      if ( **(int16_t **)off_116E30 >= 0 || v16 )
       {
         v17 = v5;
       }
@@ -82,11 +105,11 @@ int  sub_116C4C(int a1, int a2, char a3)
   }
   *(uint8_t *)(v5 + 36) = a3;
   rf_phy_config_parse_n608(a1, a2);
-  if ( *(unsigned __int16 *)(a1 + 24) == 36488 )
+  if ( *(uint16_t *)(a1 + 24) == 36488 )
     msg_parse(dword_116E38, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
-  if ( v8 >= 0 || (v20 = *(unsigned __int16 *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
+  if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
     if ( msg_get_value(6) == 6 )
       goto LABEL_24;
@@ -98,9 +121,9 @@ LABEL_7:
   if ( msg_get_value(6) != 6 )
     goto LABEL_7;
 LABEL_24:
-  v21 = (__int16 **)off_116E30;
+  v21 = (int16_t **)off_116E30;
   v22 = *(uint32_t *)(a1 + 76);
-  if ( **(__int16 **)off_116E30 >= 0 )
+  if ( **(int16_t **)off_116E30 >= 0 )
   {
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )

@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114C50;
+extern uint32_t off_114C70;
+extern uint32_t off_114C54;
+extern uint32_t off_114C74;
+extern uint32_t off_114C78;
+extern uint32_t dword_114C80;
+extern uint32_t dword_114C7C;
+extern uint32_t off_114C8C;
+extern uint32_t off_114C6C;
+extern uint32_t off_114C58;
+extern uint32_t off_114C5C;
+extern uint32_t dword_114C60;
+extern uint32_t dword_114C90;
+extern uint32_t dword_114C64;
+extern uint32_t off_114C68;
+extern uint32_t off_114C84;
+extern uint32_t off_114C88;
+extern uint32_t off_114C94;
+
 // sub_114AF0 @ 0x114af0, size 350 bytes
 void sub_114AF0()
 {
@@ -32,7 +63,7 @@ void sub_114AF0()
         if ( !v8 )
           goto LABEL_35;
       }
-      if ( **(__int16 **)off_114C78 < 0 )
+      if ( **(int16_t **)off_114C78 < 0 )
         sub_12F694(dword_114C80, dword_114C7C, 209);
     }
     else
@@ -56,7 +87,7 @@ LABEL_8:
       {
         if ( *((uint8_t *)v2 + 4) )
         {
-          if ( **(__int16 **)off_114C78 < 0 )
+          if ( **(int16_t **)off_114C78 < 0 )
             sub_12F694(dword_114C80, dword_114C90, 316);
         }
         else
@@ -127,7 +158,7 @@ LABEL_16:
     if ( (v0 & 0x8000000) != 0 )
     {
       v12 = off_114C94;
-      v13 = *((unsigned __int8 *)off_114C94 + 15);
+      v13 = *((uint8_t *)off_114C94 + 15);
       *(uint32_t *)off_114C54 = 0x8000000;
       if ( v13 )
       {

@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D3C0;
+extern uint32_t off_11D3C4;
+extern uint32_t off_11D3BC;
+extern uint32_t off_11D3C8;
+extern uint32_t off_11D3CC;
+extern uint32_t off_11D3D0;
+extern uint32_t off_11D3D4;
+extern uint32_t dword_11D3D8;
+
 // message_dispatch_n2fe @ 0x11d348, size 116 bytes
 // Doc: message_dispatch_n2fe [ipc]: Dispatch incoming message by sign-extended header field
 // message_dispatch_n2fe [ipc]: Dispatch incoming message by sign-extended header field

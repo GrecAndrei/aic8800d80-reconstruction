@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D730;
+extern uint32_t off_11D734;
+extern uint32_t off_11D738;
+extern uint32_t dword_11D73C;
+extern uint32_t dword_11D744;
+extern uint32_t dword_11D748;
+extern uint32_t dword_11D74C;
+extern uint32_t dword_11D750;
+extern uint32_t dword_11D754;
+extern uint32_t dword_11D758;
+extern uint32_t dword_11D75C;
+extern uint32_t dword_11D760;
+extern uint32_t dword_11D764;
+extern uint32_t dword_11D768;
+extern uint32_t dword_11D76C;
+extern uint32_t dword_11D770;
+extern uint32_t dword_11D774;
+extern uint32_t dword_11D740;
+
 // sub_11D5E4 @ 0x11d5e4, size 330 bytes
 int sub_11D5E4()
 {
@@ -15,7 +46,7 @@ int sub_11D5E4()
     result = rf_check_status_b4();
   if ( (v0 & 8) != 0 )
     result = sub_11D470();
-  v2 = **(__int16 **)off_11D738;
+  v2 = **(int16_t **)off_11D738;
   if ( v2 < 0 )
   {
     if ( (v0 & 0x400000) != 0 )

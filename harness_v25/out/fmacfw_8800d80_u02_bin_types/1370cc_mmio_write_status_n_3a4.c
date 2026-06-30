@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_137120;
+
 // mmio_write_status_n_3a4 @ 0x1370cc, size 82 bytes
 // Doc: mmio_write_status_n_3a4 [mmio]: Write status/control value to MMIO offsets 0xf08/0xf0a
 // mmio_write_status_n_3a4 [mmio]: Write status/control value to MMIO offsets 0xf08/0xf0a
@@ -11,7 +25,7 @@ int  mmio_write_status_n_3a4(int a1, int a2, int a3, int a4)
   v4 = off_137120;
   *((uint16_t *)off_137120 + 1924) = a4;
   v4[1925] = 0;
-  v6 = *(QWORD *)(a2 + 352);
+  v6 = *(uint64_t *)(a2 + 352);
   *(uint32_t *)v4 = a2;
   *((uint32_t *)v4 + 963) = v6;
   v4[1928] = WORD2(v6);

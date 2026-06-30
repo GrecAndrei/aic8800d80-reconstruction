@@ -1,8 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1247A4 @ 0x1247a4, size 50 bytes
-int  sub_1247A4(unsigned __int8 **a1, unsigned __int8 *a2)
+int  sub_1247A4(uint8_t **a1, uint8_t *a2)
 {
-  unsigned __int8 *v2; // r3
-  unsigned __int8 *v3; // t1
+  uint8_t *v2; // r3
+  uint8_t *v3; // t1
 
   v2 = *a1;
   if ( !*a1 )

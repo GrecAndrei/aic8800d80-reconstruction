@@ -1,19 +1,42 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124B14;
+extern uint32_t off_124B18;
+extern uint32_t off_124B30;
+extern uint32_t off_124B34;
+extern uint32_t off_124B38;
+extern uint32_t dword_124B1C;
+extern uint32_t off_124B20;
+extern uint32_t off_124B2C;
+extern uint32_t off_124B24;
+extern uint32_t dword_124B28;
+
 // sub_124A24 @ 0x124a24, size 240 bytes
 // Doc: sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
 // sub_1224A24 [rf]: Copies RF parameter block fields into shared config struct
-int  sub_124A24(unsigned __int8 *a1)
+int  sub_124A24(uint8_t *a1)
 {
   uint8_t *v1; // r3
   int v2; // r4
   int v3; // r1
   int v5; // r0
-  unsigned __int8 v6; // r2
+  uint8_t v6; // r2
   int v7; // r1
   uint32_t *v8; // r10
   uint32_t *v9; // r9
   uint32_t *v10; // r8
   int v11; // r11
-  unsigned __int8 *v12; // r6
+  uint8_t *v12; // r6
   int v13; // r7
   int i; // r4
   int v15; // r3
@@ -51,11 +74,11 @@ int  sub_124A24(unsigned __int8 *a1)
     v16 = *((uint32_t *)v12 + 1);
     v12 += 4;
     v15 = v16;
-    v17 = (void *)(unsigned __int8)i;
+    v17 = (void *)(uint8_t)i;
     if ( v16 )
     {
       *(uint32_t *)(v11 + 4 * i) = v15;
-      v7 = *(unsigned __int8 *)(v13 + 108);
+      v7 = *(uint8_t *)(v13 + 108);
       *(uint32_t *)(*(uint32_t *)off_124B20 + 4 * i) = v15;
       if ( v7 )
       {
@@ -63,7 +86,7 @@ int  sub_124A24(unsigned __int8 *a1)
         {
           *v8 = v15;
         }
-        else if ( (unsigned __int8)i == 2 )
+        else if ( (uint8_t)i == 2 )
         {
           *v9 = v15;
         }

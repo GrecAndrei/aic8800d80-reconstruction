@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_135514;
+extern uint32_t dword_13551C;
+extern uint32_t off_135518;
+extern uint32_t dword_135524;
+extern uint32_t dword_135520;
+
 // sub_135458 @ 0x135458, size 186 bytes
 void  sub_135458(
         char *a1,
@@ -29,8 +47,8 @@ void  sub_135458(
 
   v14 = *((uint32_t *)off_135514 + 5);
   sub_12C5FC(6154, 6);
-  v15 = *(unsigned __int16 *)a1;
-  v16 = *((unsigned __int16 *)a1 + 7);
+  v15 = *(uint16_t *)a1;
+  v16 = *((uint16_t *)a1 + 7);
   if ( v15 <= 5 )
   {
     v25 = dword_13551C;
@@ -45,17 +63,17 @@ LABEL_9:
   }
   else
   {
-    v17 = *(unsigned __int16 *)(v14 + 14);
-    v18 = (unsigned __int16)(v15 - 6);
+    v17 = *(uint16_t *)(v14 + 14);
+    v18 = (uint16_t)(v15 - 6);
     v19 = a1 + 18;
     if ( v18 + v17 > 800 )
     {
-      if ( **(__int16 **)off_135518 < 0 )
+      if ( **(int16_t **)off_135518 < 0 )
       {
         sub_12F35C(dword_135524, dword_135520, 1236);
-        v17 = *(unsigned __int16 *)(v14 + 14);
+        v17 = *(uint16_t *)(v14 + 14);
       }
-      v18 = (unsigned __int16)(800 - v17);
+      v18 = (uint16_t)(800 - v17);
     }
     v20 = v14 + 20 + v17;
     if ( v18 )

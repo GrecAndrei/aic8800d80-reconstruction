@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11704C;
+extern uint32_t off_117050;
+extern uint32_t off_117054;
+extern uint32_t off_117058;
+extern uint32_t off_117060;
+extern uint32_t off_11705C;
+extern uint32_t off_117064;
+extern uint32_t off_117068;
+extern uint32_t dword_117070;
+extern uint32_t dword_11706C;
+
 // rf_set_bit_flag @ 0x116f34, size 278 bytes
 // Doc: rf_set_bit_flag [rf]: Set/clear bit flag based on arguments
 // rf_set_bit_flag [rf]: Set/clear bit flag based on arguments
@@ -88,7 +111,7 @@ int  rf_set_bit_flag(int result)
       *(uint32_t *)off_117064 = 0x200000;
       break;
     default:
-      if ( **(__int16 **)off_117068 < 0 )
+      if ( **(int16_t **)off_117068 < 0 )
         result = sub_12F46C(dword_117070, dword_11706C, 2338);
       break;
   }

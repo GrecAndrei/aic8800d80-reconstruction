@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110608;
+extern uint32_t off_11060C;
+extern uint32_t off_110634;
+extern uint32_t off_110638;
+extern uint32_t off_110610;
+extern uint32_t dword_11062C;
+extern uint32_t off_110628;
+extern uint32_t dword_110630;
+extern uint32_t off_110614;
+extern uint32_t dword_110624;
+extern uint32_t off_110618;
+extern uint32_t dword_110620;
+extern uint32_t dword_11061C;
+
 // log_queue_refill @ 0x110504, size 258 bytes
 // Doc: log_queue_refill [util]: Refill firmware log/trace queue descriptors from shared table
 // log_queue_refill [util]: Refill firmware log/trace queue descriptors from shared table
@@ -15,13 +41,13 @@ int  log_queue_refill(int result)
   int *v10; // r11
   int v11; // r1
   int v12; // r2
-  __int16 v13; // r3
+  int16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
 
   v1 = off_110608;
-  v2 = *(unsigned __int16 *)(result + 28);
+  v2 = *(uint16_t *)(result + 28);
   v3 = (int *)off_11060C;
   v4 = (int **)off_110634;
   v5 = off_110638;
@@ -34,7 +60,7 @@ LABEL_2:
     if ( !v8 )
     {
       result = sub_10DC24(dword_11062C, *(uint32_t *)off_110628);
-      if ( *(unsigned __int16 *)(v6 + 28) > 1u )
+      if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_nesting_or_d104(32);
     }
@@ -44,7 +70,7 @@ LABEL_2:
     {
       sub_10DC24(dword_110630);
       result = log_free_pool_b();
-      if ( *(unsigned __int16 *)(v6 + 28) > 1u )
+      if ( *(uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_nesting_or_d104(32);
     }
@@ -61,7 +87,7 @@ LABEL_2:
     *v1 = 1024;
     while ( (*v1 & 0x800) != 0 )
       ;
-    if ( (unsigned __int8)*v3 )
+    if ( (uint8_t)*v3 )
     {
       v16 = *(uint32_t *)(v6 + 20);
       if ( v16 )
@@ -76,7 +102,7 @@ LABEL_2:
     }
     else
     {
-      if ( **(__int16 **)off_110618 < 0 && *v4 )
+      if ( **(int16_t **)off_110618 < 0 && *v4 )
       {
         sub_12F46C(dword_110620, dword_11061C, 261);
         v11 = *v7;
@@ -86,10 +112,10 @@ LABEL_2:
     v12 = *v3;
     v13 = *(uint16_t *)(v6 + 28);
     *(uint32_t *)(v6 + 20) = v10;
-    v2 = (unsigned __int16)(v13 + 1);
+    v2 = (uint16_t)(v13 + 1);
     result = 1024;
     *(uint16_t *)(v6 + 28) = v2;
-    *v3 = (unsigned __int8)(v12 + 1);
+    *v3 = (uint8_t)(v12 + 1);
     *v5 = 1024;
     if ( v11 )
     {
@@ -101,7 +127,7 @@ LABEL_2:
         if ( v15 )
         {
           __enable_irq();
-          v2 = *(unsigned __int16 *)(v6 + 28);
+          v2 = *(uint16_t *)(v6 + 28);
         }
       }
       goto LABEL_2;

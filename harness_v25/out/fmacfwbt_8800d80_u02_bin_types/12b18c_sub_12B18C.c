@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12B218;
+extern uint32_t off_12B21C;
+extern uint32_t dword_12B228;
+extern uint32_t dword_12B224;
+extern uint32_t off_12B220;
+
 // sub_12B18C @ 0x12b18c, size 138 bytes
 int sub_12B18C()
 {
@@ -14,17 +32,17 @@ int sub_12B18C()
     v0 = sub_12D0B0(2);
     sub_12ECB0(dword_12B218, v0, v1);
   }
-  if ( **(__int16 **)off_12B21C < 0 && sub_12D0B0(2) != 3 )
+  if ( **(int16_t **)off_12B21C < 0 && sub_12D0B0(2) != 3 )
     sub_12F694(dword_12B228, dword_12B224, 201);
   v2 = off_12B220;
   v3 = *(uint32_t *)off_12B220;
-  v4 = *(unsigned __int8 *)(*(uint32_t *)off_12B220 + 367);
-  v5 = (unsigned __int8)(*((uint8_t *)off_12B220 + 10) + 1);
+  v4 = *(uint8_t *)(*(uint32_t *)off_12B220 + 367);
+  v5 = (uint8_t)(*((uint8_t *)off_12B220 + 10) + 1);
   *((uint8_t *)off_12B220 + 10) = v5;
   if ( v4 <= v5 || v2[11] )
   {
     sub_12CC60(v3 - 12);
-    v6 = *((unsigned __int16 *)v2 + 4);
+    v6 = *((uint16_t *)v2 + 4);
     if ( v2[11] )
     {
       sub_12B708(0, v6);
@@ -32,7 +50,7 @@ int sub_12B18C()
     }
     else
     {
-      sub_12CC38(2050, v6, 2, (unsigned __int8)v2[11]);
+      sub_12CC38(2050, v6, 2, (uint8_t)v2[11]);
     }
     sub_12CF5C(2);
     return 0;

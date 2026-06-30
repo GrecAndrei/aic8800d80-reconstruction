@@ -1,3 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10B214;
+extern uint32_t dword_10B21C;
+extern uint32_t dword_10B240;
+extern uint32_t dword_10B1F8;
+extern uint32_t off_10B1FC;
+extern uint32_t dword_10B218;
+extern uint32_t dword_10B220;
+extern uint32_t off_10B200;
+extern uint32_t dword_10B204;
+extern uint32_t dword_10B208;
+extern uint32_t dword_10B20C;
+extern uint32_t dword_10B230;
+extern uint32_t dword_10B2E8;
+extern uint32_t dword_10B234;
+extern uint32_t dword_10B238;
+extern uint32_t dword_10B2EC;
+extern uint32_t dword_10B23C;
+extern uint32_t dword_10B210;
+extern uint32_t dword_10B228;
+extern uint32_t dword_10B22C;
+
 // sub_10AED0 @ 0x10aed0, size 1046 bytes
 int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
 {
@@ -67,7 +100,7 @@ int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
   uint32_t *v67; // r0
   int v68; // r3
   int v69; // r0
-  bool v70; // cc
+  int v70; // cc
   int v71; // r3
   int v72; // r0
   int v73; // [sp+10h] [bp-1BCh]
@@ -79,7 +112,7 @@ int  sub_10AED0(unsigned int *a1, uint8_t *a2, int a3)
   int v81; // [sp+34h] [bp-198h]
   int v82; // [sp+38h] [bp-194h] BYREF
   int v83; // [sp+3Ch] [bp-190h]
-  __int16 v84; // [sp+40h] [bp-18Ch]
+  int16_t v84; // [sp+40h] [bp-18Ch]
   uint32_t v85[14]; // [sp+44h] [bp-188h] BYREF
   int v86; // [sp+7Ch] [bp-150h]
   uint8_t v87[128]; // [sp+88h] [bp-144h] BYREF
@@ -158,8 +191,8 @@ LABEL_5:
   v73 = v6 + 56;
   do
   {
-    v25 = *(unsigned __int8 *)(v6 + 5);
-    v26 = *(unsigned __int16 *)(v6 + 2);
+    v25 = *(uint8_t *)(v6 + 5);
+    v26 = *(uint16_t *)(v6 + 2);
     *v24 |= 0x400u;
     *v24 &= ~0x400u;
     if ( v25 == 1 )
@@ -172,18 +205,18 @@ LABEL_5:
         HIWORD(v82) = v26;
         LOWORD(v83) = v26;
         HIWORD(v83) = v26;
-        sub_102970((unsigned __int16 *)&v82, 0);
+        sub_102970((uint16_t *)&v82, 0);
         v72 = sub_102A5C(v26);
         v77 = dword_10B2E8 + 384 * v72;
-        v75 = &a1[316 * (unsigned __int8)(v72 + 1)];
-        v76 = &a2[(unsigned __int8)(v72 + 1)];
+        v75 = &a1[316 * (uint8_t)(v72 + 1)];
+        v76 = &a2[(uint8_t)(v72 + 1)];
       }
       else
       {
         LOWORD(v83) = v26;
         LOBYTE(v82) = 0;
         LOBYTE(v84) = 0;
-        sub_102970((unsigned __int16 *)&v82, 0);
+        sub_102970((uint16_t *)&v82, 0);
         v77 = dword_10B234;
         v76 = a2;
         v75 = a1;

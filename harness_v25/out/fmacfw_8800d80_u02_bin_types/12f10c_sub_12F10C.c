@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_12F10C @ 0x12f10c, size 116 bytes
-int  sub_12F10C(int a1, int *a2, __int16 a3, __int16 a4)
+int  sub_12F10C(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   int v6; // r3
@@ -28,7 +40,7 @@ int  sub_12F10C(int a1, int *a2, __int16 a3, __int16 a4)
       msg_parse(sub_12F180);
       break;
   }
-  *v7 = (unsigned __int8)sub_114840();
+  *v7 = (uint8_t)sub_114840();
   msg_parse(loc_12F184);
   sdio_buffer_prepare_n_4e8((int)v7);
   return 0;

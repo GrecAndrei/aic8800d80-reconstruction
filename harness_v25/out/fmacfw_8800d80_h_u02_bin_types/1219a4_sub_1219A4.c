@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121A8C;
+extern uint32_t dword_121AC0;
+extern uint32_t dword_121ABC;
+extern uint32_t dword_121A90;
+extern uint32_t off_121A94;
+extern uint32_t off_121AC4;
+extern uint32_t off_121A98;
+extern uint32_t off_121A9C;
+extern uint32_t dword_121AB8;
+extern uint32_t off_121AA4;
+extern uint32_t off_121AA8;
+extern uint32_t off_121AA0;
+extern uint32_t off_121AAC;
+extern uint32_t off_121AB0;
+extern uint32_t off_121AB4;
+
 // sub_1219A4 @ 0x1219a4, size 230 bytes
 int sub_1219A4()
 {
@@ -16,7 +44,7 @@ int sub_1219A4()
   int v12; // r3
   int v13; // r2
 
-  if ( **(__int16 **)off_121A8C < 0 && sub_12CD48(0) == 4 )
+  if ( **(int16_t **)off_121A8C < 0 && sub_12CD48(0) == 4 )
     sub_12F32C(dword_121AC0, dword_121ABC, 1799);
   sub_12EB90(4, dword_121A90);
   if ( (__get_CPSR() & 1) == 0 )
@@ -47,7 +75,7 @@ int sub_1219A4()
     while ( (*v7 & *v6 & 4) == 0 )
       ;
   }
-  v9 = *((unsigned __int8 *)off_121AAC + 90);
+  v9 = *((uint8_t *)off_121AAC + 90);
   *(uint32_t *)off_121AB0 = 4;
   if ( v9 )
     sub_1178E4();

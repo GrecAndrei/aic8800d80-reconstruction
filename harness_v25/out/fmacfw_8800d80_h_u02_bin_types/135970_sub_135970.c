@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_135970 @ 0x135970, size 76 bytes
 uint8_t * sub_135970(uint8_t *a1, int a2)
 {
@@ -13,20 +25,20 @@ uint8_t * sub_135970(uint8_t *a1, int a2)
   result = sub_12D854(a1, a2, v9);
   if ( result )
   {
-    if ( (unsigned __int8)v9[0] <= 0x1Du )
-      return nullptr;
-    v3 = (unsigned __int16)(4 * *((uint16_t *)result + 4));
-    v4 = (unsigned __int8)(v9[0] - 10 - 4 * result[8]);
+    if ( (uint8_t)v9[0] <= 0x1Du )
+      return 0;
+    v3 = (uint16_t)(4 * *((uint16_t *)result + 4));
+    v4 = (uint8_t)(v9[0] - 10 - 4 * result[8]);
     if ( v4 <= 0x15 )
-      return nullptr;
+      return 0;
     v5 = result + 10;
-    v6 = (unsigned __int16)(4 * *(uint16_t *)&v5[v3]);
-    v7 = (unsigned __int8)(v4 - 2 - 4 * v5[v3]);
+    v6 = (uint16_t)(4 * *(uint16_t *)&v5[v3]);
+    v7 = (uint8_t)(v4 - 2 - 4 * v5[v3]);
     v8 = &v5[v3];
     if ( v7 <= 0x13 )
-      return nullptr;
+      return 0;
     else
-      return (uint8_t *)*(unsigned __int16 *)&v8[v6 + 4];
+      return (uint8_t *)*(uint16_t *)&v8[v6 + 4];
   }
   return result;
 }

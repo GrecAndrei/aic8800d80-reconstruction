@@ -1,13 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13A6FC;
+extern uint32_t dword_13A700;
+
 // sub_13A654 @ 0x13a654, size 168 bytes
 int  sub_13A654(int a1)
 {
-  __int16 v1; // r2
+  int16_t v1; // r2
   int result; // r0
   int v4; // r1
   int v5; // r5
   int v6; // r3
   char v7; // r5
-  __int16 v8; // r7
+  int16_t v8; // r7
   int v9; // r1
   unsigned int v10; // r3
   char v11; // r5
@@ -15,13 +30,13 @@ int  sub_13A654(int a1)
   int v13; // [sp+4h] [bp-8h] BYREF
 
   v1 = *(uint16_t *)(a1 + 30);
-  result = *(unsigned __int8 *)(a1 + 29);
-  v4 = *(unsigned __int8 *)(a1 + 28);
+  result = *(uint8_t *)(a1 + 29);
+  v4 = *(uint8_t *)(a1 + 28);
   *(uint32_t *)(a1 + 36) = 0;
   *(uint32_t *)(a1 + 40) = 0;
   if ( (v1 & 1) == 0 )
   {
-    v5 = *(unsigned __int8 *)(a1 + 27);
+    v5 = *(uint8_t *)(a1 + 27);
     if ( v5 == 255 )
     {
       v7 = 24;
@@ -41,11 +56,11 @@ int  sub_13A654(int a1)
       v7 += 4;
     *(uint8_t *)(a1 + 50) = v7;
     result = sub_13A528(a1, &v13);
-    v10 = *(unsigned __int16 *)(a1 + 24);
+    v10 = *(uint16_t *)(a1 + 24);
     *(uint16_t *)(a1 + 48) = *(uint16_t *)(a1 + 4);
     v11 = v7 + result;
     *(uint8_t *)(a1 + 53) = v13;
-    if ( (unsigned __int16)__rev16(v10) <= 0x600u )
+    if ( (uint16_t)__rev16(v10) <= 0x600u )
     {
       v12 = 0;
     }

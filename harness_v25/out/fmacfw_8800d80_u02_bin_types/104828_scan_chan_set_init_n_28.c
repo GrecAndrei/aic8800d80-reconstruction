@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // scan_chan_set_init_n_28 @ 0x104828, size 466 bytes
 // Doc: scan_chan_set_init_n_28 [scan]: Initialize channel set with 0x500/0xa00 based on mode flag
 // scan_chan_set_init_n_28 [scan]: Initialize channel set with 0x500/0xa00 based on mode flag

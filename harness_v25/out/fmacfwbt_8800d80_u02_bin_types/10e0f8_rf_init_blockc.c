@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10E38C;
+extern uint32_t dword_10E390;
+extern uint32_t off_10E394;
+extern uint32_t off_10E388;
+extern uint32_t dword_10E398;
+extern uint32_t dword_10E370;
+extern uint32_t dword_10E374;
+extern uint32_t dword_10E378;
+extern uint32_t dword_10E37C;
+extern uint32_t dword_10E39C;
+extern uint32_t dword_10E3A0;
+extern uint32_t dword_10E380;
+extern uint32_t dword_10E384;
+extern uint32_t dword_10E3A4;
+extern uint32_t dword_10E3B0;
+extern uint32_t dword_10E3A8;
+extern uint32_t dword_10E3AC;
+
 // rf_init_blockc @ 0x10e0f8, size 628 bytes
 // Doc: rf_init_blockc [rf]: Initialize RF subsystem with base addresses and register setup
 // rf_init_blockc [rf]: Initialize RF subsystem with base addresses and register setup

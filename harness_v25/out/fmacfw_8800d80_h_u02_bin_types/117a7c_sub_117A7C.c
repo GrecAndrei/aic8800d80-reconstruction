@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117B7C;
+extern uint32_t dword_117B80;
+extern uint32_t dword_117B74;
+extern uint32_t dword_117B78;
+
 // sub_117A7C @ 0x117a7c, size 246 bytes
 uint64_t sub_117A7C()
 {
@@ -13,7 +30,7 @@ uint64_t sub_117A7C()
   int v9; // r0
   int v10; // r0
   int v11; // r0
-  __int16 v12; // r7
+  int16_t v12; // r7
   char *v13; // r0
   int i; // r6
   int v15; // r2
@@ -32,9 +49,9 @@ uint64_t sub_117A7C()
   v6 = 0;
   do
   {
-    v7 = (unsigned __int8)v6;
+    v7 = (uint8_t)v6;
     sub_12D100(v5);
-    sub_118800((unsigned __int8)v6++, v1, v5);
+    sub_118800((uint8_t)v6++, v1, v5);
     sub_118800(v7, v4, v5);
     v1 += 8;
     v5 += 8;
@@ -69,7 +86,7 @@ uint64_t sub_117A7C()
       do
         sub_13ADE4();
       while ( sub_12D190(v3) );
-      sub_11A6A8((unsigned __int8)i);
+      sub_11A6A8((uint8_t)i);
     }
     v3 += 8;
   }

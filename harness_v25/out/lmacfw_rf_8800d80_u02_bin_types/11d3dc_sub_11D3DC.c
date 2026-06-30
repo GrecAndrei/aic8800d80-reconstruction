@@ -1,19 +1,41 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D44C;
+extern uint32_t off_11D450;
+extern uint32_t off_11D454;
+extern uint32_t off_11D458;
+extern uint32_t dword_11D45C;
+extern uint32_t off_11D464;
+extern uint32_t dword_11D46C;
+extern uint32_t dword_11D468;
+extern uint32_t off_11D460;
+
 // sub_11D3DC @ 0x11d3dc, size 110 bytes
 unsigned int sub_11D3DC()
 {
   uint32_t *v0; // r2
   uint32_t *v1; // r0
-  __int16 **v2; // r5
+  int16_t **v2; // r5
   int *v3; // r4
   int v4; // r3
-  __int16 *v5; // r2
+  int16_t *v5; // r2
   unsigned int result; // r0
   uint32_t *v7; // r2
 
   v0 = off_11D44C;
   v1 = off_11D450;
   *(uint32_t *)off_11D44C &= ~1u;
-  v2 = (__int16 **)off_11D454;
+  v2 = (int16_t **)off_11D454;
   v3 = (int *)off_11D458;
   v4 = dword_11D45C;
   *v0 &= ~2u;

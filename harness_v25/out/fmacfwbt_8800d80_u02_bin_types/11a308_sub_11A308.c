@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11A4C8;
+extern uint32_t off_11A4C0;
+extern uint32_t dword_11A4C4;
+extern uint32_t off_11A4CC;
+
 // sub_11A308 @ 0x11a308, size 440 bytes
 // Doc: sub_121A308 [unknown]: Unknown behavioral stub at 0x121a308
 // sub_121A308 [unknown]: Unknown behavioral stub at 0x121a308
@@ -9,13 +26,13 @@ int  sub_11A308(int a1)
   int v4; // r6
   uint64_t v5; // kr00_8
   int v7; // r10
-  __int16 v8; // r3
+  int16_t v8; // r3
   uint8_t *v9; // r2
   int v11; // r4
   char v12; // r3
   int v13; // r0
   void *v14; // r11
-  __int16 v15; // r2
+  int16_t v15; // r2
   int v16; // r7
   unsigned int v17; // r0
   uint8_t *v18; // r3
@@ -26,7 +43,7 @@ int  sub_11A308(int a1)
   v2 = dword_11A4C8 + 84 * a1;
   v3 = *(uint32_t *)(v2 + 52);
   v4 = *(uint32_t *)(v2 + 44);
-  v5 = *(QWORD *)(v3 + 72);
+  v5 = *(uint64_t *)(v3 + 72);
   v7 = HIDWORD(v5) + 12;
   if ( *(uint8_t *)(v2 + 77) == 1 )
   {
@@ -48,8 +65,8 @@ int  sub_11A308(int a1)
           *(uint8_t *)(v19 + 36) = scan_chan_parse_n1bd4(
                                    (*(uint32_t *)(v19 + 20) >> 11) & 7,
                                    *(uint32_t *)(v19 + 20) & 0x7F,
-                                   (unsigned __int8 *)(*(uint32_t *)(dword_11A4C4
-                                                                 + 1320 * *(unsigned __int8 *)(v3 + 28)
+                                   (uint8_t *)(*(uint32_t *)(dword_11A4C4
+                                                                 + 1320 * *(uint8_t *)(v3 + 28)
                                                                  + 72)
                                                      + 4));
       }
@@ -80,14 +97,14 @@ int  sub_11A308(int a1)
       sub_1197FC(
         v4,
         *(uint16_t *)(v3 + 34),
-        *(unsigned __int8 *)(v4 + 12),
-        *(unsigned __int8 *)(v4 + 13),
+        *(uint8_t *)(v4 + 12),
+        *(uint8_t *)(v4 + 13),
         *(uint8_t *)(v20 + 78));
       *(uint32_t *)(HIDWORD(v5) + 20) = v4 + 84;
     }
     else
     {
-      *(uint32_t *)(v4 + 20) = *(unsigned __int8 *)(*(uint32_t *)v14 + 1);
+      *(uint32_t *)(v4 + 20) = *(uint8_t *)(*(uint32_t *)v14 + 1);
     }
     v15 = *(uint16_t *)(v4 + 8);
     *(uint32_t *)(HIDWORD(v5) + 68) = *(uint32_t *)(v3 + 36) | 0x100;
@@ -104,7 +121,7 @@ int  sub_11A308(int a1)
         *(uint8_t *)(v16 + 36) = scan_chan_parse_n1bd4(
                                  (v17 >> 11) & 7,
                                  v17 & 0x7F,
-                                 (unsigned __int8 *)(*(uint32_t *)(dword_11A4C4 + 1320 * *(unsigned __int8 *)(v3 + 28) + 72)
+                                 (uint8_t *)(*(uint32_t *)(dword_11A4C4 + 1320 * *(uint8_t *)(v3 + 28) + 72)
                                                    + 4));
       sub_116DE0(v4 + 16, v7, a1);
     }

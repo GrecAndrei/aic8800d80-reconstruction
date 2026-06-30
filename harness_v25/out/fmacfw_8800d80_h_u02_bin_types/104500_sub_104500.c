@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1046E8;
+extern uint32_t dword_1046EC;
+extern uint32_t dword_1046F0;
+extern uint32_t dword_1046F4;
+extern uint32_t dword_1046F8;
+extern uint32_t dword_1046FC;
+extern uint32_t dword_104700;
+extern uint32_t dword_104704;
+extern uint32_t dword_104708;
+extern uint32_t dword_10470C;
+
 // sub_104500 @ 0x104500, size 486 bytes
 int  sub_104500(int a1, int a2, uint32_t *a3)
 {
@@ -34,7 +57,7 @@ int  sub_104500(int a1, int a2, uint32_t *a3)
   int v33; // r0
 
   v3 = a3[sub_104274(a1, a2, a3)];
-  v4 = (unsigned __int16)v3 >> 4;
+  v4 = (uint16_t)v3 >> 4;
   if ( (v3 & 0x80000000) == 0 )
   {
     v5 = v3 >> 20;

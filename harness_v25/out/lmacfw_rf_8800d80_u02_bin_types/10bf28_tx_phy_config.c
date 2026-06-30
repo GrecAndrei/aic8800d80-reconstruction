@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10C178;
+extern uint32_t off_10C17C;
+extern uint32_t off_10C180;
+extern uint32_t off_10C184;
+extern uint32_t off_10C18C;
+extern uint32_t off_10C188;
+extern uint32_t dword_10C168;
+extern uint32_t dword_10C158;
+extern uint32_t dword_10C190;
+extern uint32_t dword_10C194;
+extern uint32_t off_10C1B0;
+extern uint32_t off_10C198;
+extern uint32_t dword_10C1A0;
+extern uint32_t dword_10C19C;
+extern uint32_t off_10C170;
+extern uint32_t off_10C174;
+extern uint32_t off_10C1A8;
+extern uint32_t dword_10C1A4;
+extern uint32_t dword_10C1AC;
+
 // tx_phy_config @ 0x10bf28, size 546 bytes
 // Doc: tx_phy_config [tx]: Configure TX PHY parameters from descriptor fields
 // tx_phy_config [tx]: Configure TX PHY parameters from descriptor fields
@@ -30,7 +62,7 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
   int v30; // r1
   int v31; // r2
   int v32; // r3
-  unsigned __int16 *v33; // r6
+  uint16_t *v33; // r6
   int v34; // r1
   int v35; // r2
   int v36; // r5
@@ -63,7 +95,7 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
   int v63; // [sp+5Ch] [bp-8h]
 
   v4 = *result;
-  v7 = (unsigned __int8)*result >> 6;
+  v7 = (uint8_t)*result >> 6;
   if ( !a3 )
   {
     if ( !a4 )
@@ -100,16 +132,16 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
       v16 *= 2;
     if ( (*(uint32_t *)off_10C184 & 0x80000) != 0 && (*(uint32_t *)off_10C184 & 0x40000) != 0 )
       v16 >>= 1;
-    v17 = *(unsigned __int8 *)off_10C18C * v16;
+    v17 = *(uint8_t *)off_10C18C * v16;
     *(uint32_t *)off_10C188 &= ~1u;
-    if ( (unsigned __int8)v4 >> 7 )
+    if ( (uint8_t)v4 >> 7 )
     {
-      v18 = *(QWORD *)&dword_10C168;
+      v18 = *(uint64_t *)&dword_10C168;
       v19 = dbl_10C160;
     }
     else
     {
-      v18 = *(QWORD *)&dword_10C158;
+      v18 = *(uint64_t *)&dword_10C158;
       v19 = dbl_10C150;
     }
     v20 = sub_12754C(v17);
@@ -129,7 +161,7 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
     *(uint32_t *)off_10C198 = v15;
   }
   crypto_hw_power_up(v10, v13, (int)v14, v15, v49);
-  v29 = sub_10A5B0((unsigned __int8)v4, a2, v9, (unsigned __int16)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  v29 = sub_10A5B0((uint8_t)v4, a2, v9, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
   result = (uint32_t *)sub_1035E8(v29, v30, v31, v32, v50);
   *(uint32_t *)off_10C17C = 1;
   if ( a4 )
@@ -141,7 +173,7 @@ LABEL_3:
     {
       if ( !v7 )
       {
-        v33 = (unsigned __int16 *)off_10C1A8;
+        v33 = (uint16_t *)off_10C1A8;
         v34 = *(uint32_t *)(dword_10C1A4 + 4);
         v35 = *(uint32_t *)(dword_10C1A4 + 8);
         v36 = dword_10C1A4 + 72;
@@ -149,14 +181,14 @@ LABEL_3:
         v53[1] = v34;
         v53[2] = v35;
         crypto_hw_power_up(v53[0], v34, v35, v8, v49);
-        v37 = *(QWORD *)v36;
+        v37 = *(uint64_t *)v36;
         v38 = *(uint32_t *)(v36 + 8);
         v39 = *(uint32_t *)(v36 + 12);
         v36 += 16;
         v54 = v37;
         v55 = v38;
         v56 = v39;
-        v40 = *(QWORD *)v36;
+        v40 = *(uint64_t *)v36;
         v41 = *(uint32_t *)(v36 + 8);
         v42 = *(uint32_t *)(v36 + 12);
         v36 += 16;

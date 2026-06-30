@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_129544 @ 0x129544, size 82 bytes
 int  sub_129544(int a1, int a2)
 {
@@ -12,14 +24,14 @@ int  sub_129544(int a1, int a2)
   *(uint8_t *)(v4 + 1) = a2;
   if ( *(uint8_t *)(v5 + 16) )
   {
-    v6 = *(unsigned __int8 *)(v5 + 20);
+    v6 = *(uint8_t *)(v5 + 20);
     *(uint8_t *)(v4 + 3) = v6;
     if ( v6 )
     {
       *(uint8_t *)(v4 + 2) = *(uint8_t *)(v5 + 32);
-      v7 = *(QWORD *)(v5 + 24);
+      v7 = *(uint64_t *)(v5 + 24);
       *(uint32_t *)(v4 + 12) = *(uint32_t *)(v5 + 36);
-      *(QWORD *)(v4 + 4) = v7;
+      *(uint64_t *)(v4 + 4) = v7;
     }
   }
   else

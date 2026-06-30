@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13C708;
+extern uint32_t dword_13C70C;
+
 // rf_msg_process_body_n37 @ 0x13c698, size 110 bytes
 // Doc: rf_msg_process_body_n37 [rf]: Process RF message body with offset 0x6c and zero check
 // rf_msg_process_body_n37 [rf]: Process RF message body with offset 0x6c and zero check
@@ -11,8 +26,8 @@ int  rf_msg_process_body_n37(int a1, int a2, int a3)
   int v8; // r2
   int v9; // r5
 
-  v3 = *(unsigned __int8 *)(a1 + 29);
-  v4 = *(unsigned __int8 *)(a1 + 28);
+  v3 = *(uint8_t *)(a1 + 29);
+  v4 = *(uint8_t *)(a1 + 28);
   if ( v3 == 255 )
     return 0;
   v5 = dword_13C708;

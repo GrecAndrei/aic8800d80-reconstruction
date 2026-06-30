@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CA04;
+extern uint32_t dword_12CA1C;
+extern uint32_t dword_12CA18;
+extern uint32_t dword_12CA0C;
+extern uint32_t dword_12CA08;
+
 // sub_12C964 @ 0x12c964, size 152 bytes
 // Doc: message_dispatch_n_1de [ipc]: Dispatch message and compare against timestamp at 0x40501000
 // message_dispatch_n_1de [ipc]: Dispatch message and compare against timestamp at 0x40501000
@@ -24,7 +42,7 @@ int  sub_12C964(int result, int a2)
   *(uint32_t *)message_dispatch_ca00 = v5;
   if ( v4 )
   {
-    if ( *(unsigned __int16 *)(v4 + 4) == result && *(unsigned __int16 *)(v4 + 6) == a2 )
+    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
       sub_12D4F8(v3 + 5);
       v8 = v3[5];
@@ -32,7 +50,7 @@ int  sub_12C964(int result, int a2)
       if ( v8 )
       {
         timestamp_update_4f60(v9, *(uint32_t *)(v8 + 8));
-        if ( **(__int16 **)message_dispatch_n_1a4_ca10 < 0
+        if ( **(int16_t **)message_dispatch_n_1a4_ca10 < 0
           && *(uint32_t *)(v8 + 8) - *((uint32_t *)message_dispatch_n_1a0_ca14 + 4) < 0 )
         {
           sub_12F694(dword_12CA1C, dword_12CA18, 232);

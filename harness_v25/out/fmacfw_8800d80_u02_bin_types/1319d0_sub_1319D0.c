@@ -1,5 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_131A5C;
+
 // sub_1319D0 @ 0x1319d0, size 138 bytes
-int  sub_1319D0(int a1, uint8_t *a2, unsigned int a3, __int16 a4)
+int  sub_1319D0(int a1, uint8_t *a2, unsigned int a3, int16_t a4)
 {
   uint32_t *v5; // r5
   int v6; // r7
@@ -18,7 +32,7 @@ int  sub_1319D0(int a1, uint8_t *a2, unsigned int a3, __int16 a4)
     v9 = v8 | v6;
   else
     v9 = v6 & ~v8;
-  v10 = *((unsigned __int8 *)off_131A5C + 375);
+  v10 = *((uint8_t *)off_131A5C + 375);
   *((uint32_t *)off_131A5C + 1) = v9;
   if ( !v10 )
     goto LABEL_7;

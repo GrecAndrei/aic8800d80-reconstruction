@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13E3A0 @ 0x13e3a0, size 242 bytes
 int  sub_13E3A0(int a1)
 {
@@ -8,7 +20,7 @@ int  sub_13E3A0(int a1)
   int v5; // r7
   int v6; // r3
   unsigned int v7; // r2
-  unsigned __int16 v8; // r0
+  uint16_t v8; // r0
   int v9; // r0
   int v10; // r3
   int v12; // r2
@@ -19,7 +31,7 @@ int  sub_13E3A0(int a1)
   v3 = a1;
   if ( (v1 & 0x10) != 0 )
   {
-    v4 = *(unsigned __int16 *)(a1 + 184);
+    v4 = *(uint16_t *)(a1 + 184);
     if ( !v4 )
     {
       *(uint16_t *)(v3 + 3070) = *(uint16_t *)(v3 + 190);
@@ -28,25 +40,25 @@ int  sub_13E3A0(int a1)
       *(uint16_t *)(v3 + 140) = 255;
       goto LABEL_10;
     }
-    v5 = *(unsigned __int16 *)(v3 + 190);
+    v5 = *(uint16_t *)(v3 + 190);
     v6 = 0;
     while ( 1 )
     {
-      v7 = (unsigned __int8)(v6 + 1);
-      if ( *(unsigned __int16 *)(v3 + 12 * v6 + 10) == v5 )
+      v7 = (uint8_t)(v6 + 1);
+      if ( *(uint16_t *)(v3 + 12 * v6 + 10) == v5 )
         break;
-      v6 = (unsigned __int8)(v6 + 1);
+      v6 = (uint8_t)(v6 + 1);
       if ( v7 >= v4 )
       {
         if ( v7 == v4 )
         {
           v8 = v4 - 1;
-          v13 = v3 + 12 * (unsigned __int8)v8;
+          v13 = v3 + 12 * (uint8_t)v8;
           *(uint16_t *)(v13 + 10) = v5;
           *(uint16_t *)(v13 + 8) = 0;
-          *(uint16_t *)(v3 + 136) = (unsigned __int8)v8;
-          *(uint16_t *)(v3 + 138) = (unsigned __int8)v8;
-          *(uint16_t *)(v3 + 140) = (unsigned __int8)v8;
+          *(uint16_t *)(v3 + 136) = (uint8_t)v8;
+          *(uint16_t *)(v3 + 138) = (uint8_t)v8;
+          *(uint16_t *)(v3 + 140) = (uint8_t)v8;
 LABEL_8:
           v9 = v3 + 12 + 12 * v8;
           v10 = v3;
@@ -73,10 +85,10 @@ LABEL_7:
     LOWORD(v7) = v6;
     goto LABEL_7;
   }
-  sub_13E130((unsigned __int16 *)(a1 + 12 * *(unsigned __int8 *)(a1 + 136) + 4));
+  sub_13E130((uint16_t *)(a1 + 12 * *(uint8_t *)(a1 + 136) + 4));
   if ( !*(uint16_t *)(v3 + 184) )
     return v2;
-  v12 = v3 + 12 + 12 * (unsigned __int16)(*(uint16_t *)(v3 + 184) - 1);
+  v12 = v3 + 12 + 12 * (uint16_t)(*(uint16_t *)(v3 + 184) - 1);
   do
   {
     *(uint16_t *)(v3 + 4) = 0;

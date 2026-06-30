@@ -1,9 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11F274;
+extern uint32_t dword_11F270;
+extern uint32_t dword_11F260;
+extern uint32_t dword_11F268;
+
 // sub_11F158 @ 0x11f158, size 258 bytes
-int  sub_11F158(int a1, unsigned __int8 a2)
+int  sub_11F158(int a1, uint8_t a2)
 {
   int v2; // r4
   int v3; // r8
-  unsigned __int8 *v4; // r7
+  uint8_t *v4; // r7
   int *v5; // r6
   int v7; // r9
   int *v8; // r0
@@ -18,9 +35,9 @@ int  sub_11F158(int a1, unsigned __int8 a2)
   int v17; // r1
   int v18; // r3
 
-  v2 = *(unsigned __int8 *)(a1 + 1);
+  v2 = *(uint8_t *)(a1 + 1);
   v3 = dword_11F274;
-  v4 = (unsigned __int8 *)(dword_11F274 + 696 * v2);
+  v4 = (uint8_t *)(dword_11F274 + 696 * v2);
   v4[162] = a2;
   v4[160] = *(uint8_t *)(a1 + 40);
   v4[161] = *(uint8_t *)a1;
@@ -42,27 +59,27 @@ int  sub_11F158(int a1, unsigned __int8 a2)
       *(uint32_t *)(v18 + 148) = *(uint32_t *)(a1 + 28);
       *(uint32_t *)(v18 + 152) = *(uint32_t *)(a1 + 32);
       *(uint32_t *)(v18 + 156) = *(uint32_t *)(a1 + 36);
-      *(QWORD *)(v18 + 136) = 0;
+      *(uint64_t *)(v18 + 136) = 0;
       break;
     case 4u:
-      v16 = *(unsigned __int8 *)(dword_11F270 + 1320 * v7 + 106);
+      v16 = *(uint8_t *)(dword_11F270 + 1320 * v7 + 106);
       v17 = v3 + 696 * v2;
-      *(QWORD *)(v17 + 136) = *(QWORD *)&dword_11F260;
+      *(uint64_t *)(v17 + 136) = *(uint64_t *)&dword_11F260;
       if ( v16 == 2 )
-        *(QWORD *)(v17 + 136) = *(QWORD *)&dword_11F268;
+        *(uint64_t *)(v17 + 136) = *(uint64_t *)&dword_11F268;
       break;
     default:
-      *(QWORD *)(v3 + 696 * v2 + 136) = 0;
+      *(uint64_t *)(v3 + 696 * v2 + 136) = 0;
       break;
   }
   v11 = v3 + 696 * v2;
-  v13 = *(QWORD *)(a1 + 8);
+  v13 = *(uint64_t *)(a1 + 8);
   result = *(uint32_t *)(a1 + 12);
   v14 = *(uint32_t *)(a1 + 16);
   *(uint8_t *)(v11 + 163) = 1;
   v15 = *(uint32_t *)(a1 + 20);
   *(uint32_t *)(v11 + 184) = v5;
-  *(QWORD *)(v11 + 164) = v13;
+  *(uint64_t *)(v11 + 164) = v13;
   *(uint32_t *)(v11 + 172) = v14;
   *(uint32_t *)(v11 + 176) = v15;
   *(uint8_t *)(v11 + 180) = *(uint8_t *)(a1 + 4);

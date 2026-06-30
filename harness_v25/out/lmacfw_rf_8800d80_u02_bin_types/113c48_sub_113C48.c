@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_113C48 @ 0x113c48, size 78 bytes
 int  sub_113C48(int *a1, unsigned int *a2)
 {
@@ -7,7 +19,7 @@ int  sub_113C48(int *a1, unsigned int *a2)
   unsigned int v7; // r3
   int v8; // r4
   int result; // r0
-  unsigned __int16 v10; // r0
+  uint16_t v10; // r0
 
   v4 = sub_113A44(8u);
   v5 = sub_113A44(9u);

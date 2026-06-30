@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_113C48;
+extern uint32_t dword_113C68;
+extern uint32_t off_113C54;
+extern uint32_t dword_113C6C;
+extern uint32_t off_113C4C;
+extern uint32_t dword_113C64;
+extern uint32_t dword_113C60;
+extern uint32_t dword_113C5C;
+extern uint32_t dword_113C50;
+extern uint32_t dword_113C58;
+
 // sub_113B08 @ 0x113b08, size 318 bytes
 int  sub_113B08(int a1)
 {
@@ -7,14 +30,14 @@ int  sub_113B08(int a1)
   unsigned int v5; // r6
   int v6; // r4
   int v7; // r1
-  __int16 v8; // r3
-  __int16 v9; // r2
+  int16_t v8; // r3
+  int16_t v9; // r2
   int v10; // r3
   unsigned int v11; // r3
   unsigned int v12; // r2
 
-  v1 = *(unsigned __int8 *)(a1 + 25);
-  v2 = *(unsigned __int8 *)(a1 + 24);
+  v1 = *(uint8_t *)(a1 + 25);
+  v2 = *(uint8_t *)(a1 + 24);
   if ( v1 <= 0x1F && !*(uint8_t *)(dword_113C48 + 696 * v1 + 37) )
   {
     sub_12E948(dword_113C68, 696, dword_113C48);
@@ -25,14 +48,14 @@ int  sub_113B08(int a1)
   {
     if ( *(uint8_t *)(dword_113C6C + 1320 * v2 + 108) )
     {
-      v5 = *(unsigned __int8 *)(a1 + 22);
-      if ( **(__int16 **)off_113C4C < 0 && v5 > 4 )
+      v5 = *(uint8_t *)(a1 + 22);
+      if ( **(int16_t **)off_113C4C < 0 && v5 > 4 )
         sub_12F32C(dword_113C64, dword_113C60, 926);
       v6 = sub_115EC8();
       if ( v6 )
         goto LABEL_7;
 LABEL_13:
-      sub_10DAE4(dword_113C5C, *(unsigned __int8 *)(dword_113C50 + v5));
+      sub_10DAE4(dword_113C5C, *(uint8_t *)(dword_113C50 + v5));
       while ( 1 )
         ;
     }
@@ -63,12 +86,12 @@ LABEL_7:
   *(uint16_t *)(v6 + 30) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
     return sub_12D108(v4 + 1320 * v2 + 1312);
-  v11 = *(unsigned __int8 *)(v6 + 29);
+  v11 = *(uint8_t *)(v6 + 29);
   if ( v11 <= 0x1F )
   {
-    v12 = *(unsigned __int8 *)(v6 + 27);
+    v12 = *(uint8_t *)(v6 + 27);
     if ( v12 <= 8 )
-      *(uint32_t *)(dword_113C58 + 4 * (9 * v11 + v12 + 2062)) += *(unsigned __int16 *)(v6 + 4);
+      *(uint32_t *)(dword_113C58 + 4 * (9 * v11 + v12 + 2062)) += *(uint16_t *)(v6 + 4);
   }
   return sub_12D108(v4 + 8 * (v5 + 165 * v2 + 154));
 }

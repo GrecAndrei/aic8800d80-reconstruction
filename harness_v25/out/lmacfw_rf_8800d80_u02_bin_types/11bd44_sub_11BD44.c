@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11BD7C;
+extern uint32_t dword_11BD84;
+extern uint32_t dword_11BD80;
+
 // sub_11BD44 @ 0x11bd44, size 54 bytes
 // Doc: sub_121BD44 [util]: LMAC RF helper: load constant and tail-call helper
 // sub_121BD44 [util]: LMAC RF helper: load constant and tail-call helper

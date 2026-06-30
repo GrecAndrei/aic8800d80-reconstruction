@@ -1,9 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10F764;
+extern uint32_t off_10F768;
+extern uint32_t off_10F780;
+extern uint32_t off_10F77C;
+extern uint32_t dword_10F770;
+extern uint32_t dword_10F76C;
+extern uint32_t dword_10F778;
+extern uint32_t dword_10F774;
+extern uint32_t off_10F784;
+extern uint32_t dword_10F798;
+extern uint32_t dword_10F78C;
+extern uint32_t dword_10F794;
+extern uint32_t dword_10F790;
+extern uint32_t dword_10F788;
+
 // log_system_init_f6a4 @ 0x10f6a4, size 192 bytes
 // Doc: log_system_init_f6a4 [util]: Initialize firmware logging subsystem
 // log_system_init_f6a4 [util]: Initialize firmware logging subsystem
 int log_system_init_f6a4()
 {
-  unsigned __int8 **v0; // r4
+  uint8_t **v0; // r4
   int v1; // r3
   uint32_t *v2; // r3
   int v3; // r2
@@ -26,8 +53,8 @@ int log_system_init_f6a4()
   int v20; // r0
   int v21; // r0
 
-  v0 = (unsigned __int8 **)off_10F764;
-  v1 = **(unsigned __int8 **)off_10F764;
+  v0 = (uint8_t **)off_10F764;
+  v1 = **(uint8_t **)off_10F764;
   switch ( v1 )
   {
     case 1:

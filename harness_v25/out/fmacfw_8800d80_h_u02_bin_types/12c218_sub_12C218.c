@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12C2CC;
+extern uint32_t off_12C2D0;
+extern uint32_t off_12C2D4;
+extern uint32_t dword_12C2E4;
+extern uint32_t off_12C2D8;
+extern uint32_t dword_12C2E0;
+extern uint32_t dword_12C2DC;
+extern uint32_t dword_40021000;
+
 // sub_12C218 @ 0x12c218, size 178 bytes
 int  sub_12C218(int a1)
 {
@@ -12,7 +33,7 @@ int  sub_12C218(int a1)
   void ( *v10)(uint32_t, int); // r3
   int v12; // r2
 
-  v1 = *(unsigned __int8 *)(dword_12C2CC + a1);
+  v1 = *(uint8_t *)(dword_12C2CC + a1);
   if ( a1 )
     sub_12D00C(0x40000000);
   else
@@ -31,10 +52,10 @@ int  sub_12C218(int a1)
   if ( *v3 && (v8 = *v3 - 1, v9 = *(uint32_t *)off_12C2D0, (*v3 = v8) == 0) && v9 )
   {
     __enable_irq();
-    if ( **(__int16 **)off_12C2D8 >= 0 )
+    if ( **(int16_t **)off_12C2D8 >= 0 )
       goto LABEL_8;
   }
-  else if ( **(__int16 **)off_12C2D8 >= 0 )
+  else if ( **(int16_t **)off_12C2D8 >= 0 )
   {
     goto LABEL_8;
   }

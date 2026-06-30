@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_fault_dump_n1d9 @ 0x114920, size 120 bytes
 // Doc: rf_fault_decode_nibble [rf]: Extracts high/low nibbles from shifted RF fault register word
 // rf_fault_decode_nibble [rf]: Extracts high/low nibbles from shifted RF fault register word
@@ -27,7 +39,7 @@ int  rf_fault_dump_n1d9(int a1, int a2)
   {
     v8 = v5 >> (8 * v6);
     v9 = v8;
-    v10 = (unsigned __int8)v8 >> 4;
+    v10 = (uint8_t)v8 >> 4;
     if ( (v8 & 0xF0) == 0 )
     {
       if ( !(uint8_t)v8 )
@@ -37,7 +49,7 @@ int  rf_fault_dump_n1d9(int a1, int a2)
         goto rf_fault_dump_n236;
       }
       v7 |= 1 << (4 * v6);
-      v10 = (unsigned __int8)v8;
+      v10 = (uint8_t)v8;
     }
     if ( (v10 & 1) != 0 )
       v11 = -1;

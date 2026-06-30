@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_112848;
+extern uint32_t dword_112858;
+extern uint32_t dword_112874;
+
 // sub_1125F4 @ 0x1125f4, size 594 bytes
 // Doc: rf_bus_mark_n_372 [rf]: Mark/latch RF bus transaction state
 // rf_bus_mark_n_372 [rf]: Mark/latch RF bus transaction state
@@ -125,7 +141,7 @@ rf_bus_reset_n334:
             v37 = *(uint32_t *)(v9 - 16);
             v33 = (v13 & 1) == 0;
             if ( (v13 & 1) == 0 )
-              sub_11164C((int *)1, (unsigned __int8)v10);
+              sub_11164C((int *)1, (uint8_t)v10);
             LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
             v14 = *(int ( **)(int, int, BOOL))(rf_cmd_send_n_c8 + 4 * v10 + 52);
             if ( v14 )
@@ -137,7 +153,7 @@ rf_bus_reset_n334:
           LODWORD(v3) = sub_10DA6C(dword_112858);
         }
       }
-      if ( (unsigned __int8)v10 == 5 )
+      if ( (uint8_t)v10 == 5 )
         break;
 rf_cmd_send_n_272:
       ++v10;
@@ -178,7 +194,7 @@ rf_cmd_send_n_272:
         {
           if ( *(uint8_t *)(v16 - 8) )
           {
-            v36 = **(unsigned __int16 **)(v17 + 4 * i);
+            v36 = **(uint16_t **)(v17 + 4 * i);
             v34 = *(uint32_t *)(v16 - 12);
             v38 = *(uint32_t *)(v16 - 16);
             LODWORD(v3) = sub_100200((int *)(v16 - 16), 0, 0x10u);
@@ -188,7 +204,7 @@ rf_cmd_send_n_272:
           }
         }
       }
-      if ( (unsigned __int8)i == 5 )
+      if ( (uint8_t)i == 5 )
         break;
 LABEL_19:
       v16 += 16;

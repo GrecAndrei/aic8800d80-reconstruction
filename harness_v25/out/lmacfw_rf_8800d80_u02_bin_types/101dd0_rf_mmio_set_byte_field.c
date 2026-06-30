@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101E10;
+extern uint32_t off_101E0C;
+
 // rf_mmio_set_byte_field @ 0x101dd0, size 58 bytes
 // Doc: rf_mmio_set_byte_field [rf]: Writes a byte field into RF MMIO register at 0x403200a0
 // rf_mmio_set_byte_field [rf]: Writes a byte field into RF MMIO register at 0x403200a0
@@ -8,7 +23,7 @@ int  rf_mmio_set_byte_field(int result)
   int v3; // r3
 
   v1 = off_101E10;
-  *(uint32_t *)off_101E0C = *(uint32_t *)off_101E0C & 0xFFFFFF | ((unsigned __int8)(result / 2) << 24);
+  *(uint32_t *)off_101E0C = *(uint32_t *)off_101E0C & 0xFFFFFF | ((uint8_t)(result / 2) << 24);
   v2 = *v1 & 0xFFFFF0FF;
   if ( (result & 1) != 0 )
   {

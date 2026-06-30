@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12BE64;
+extern uint32_t off_12BE68;
+extern uint32_t dword_12BE80;
+extern uint32_t dword_12BE7C;
+extern uint32_t off_12BE6C;
+extern uint32_t off_12BE90;
+extern uint32_t off_12BE94;
+extern uint32_t dword_12BE98;
+extern uint32_t off_12BE70;
+extern uint32_t off_12BE74;
+extern uint32_t off_12BE78;
+extern uint32_t dword_12BE84;
+extern uint32_t dword_12BE8C;
+extern uint32_t dword_12BEAC;
+extern uint32_t dword_12BEA8;
+extern uint32_t dword_12BEA4;
+extern uint32_t dword_12BEA0;
+extern uint32_t dword_12BE9C;
+extern uint32_t dword_12BE88;
+
 // sub_12BD4C @ 0x12bd4c, size 280 bytes
 int  sub_12BD4C(int a1, int a2)
 {
@@ -62,7 +94,7 @@ LABEL_4:
         *((uint8_t *)off_12BE70 + 6) = 1;
     }
   }
-  v7 = **(__int16 **)off_12BE78;
+  v7 = **(int16_t **)off_12BE78;
   if ( v7 < 0 )
   {
     if ( (v3 & 1) != 0 )

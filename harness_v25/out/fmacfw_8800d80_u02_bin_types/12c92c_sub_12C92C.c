@@ -1,14 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C980;
+extern uint32_t dword_12C988;
+extern uint32_t dword_12C984;
+
 // sub_12C92C @ 0x12c92c, size 82 bytes
 // Doc: message_dispatch_n_56 [ipc]: Dispatch incoming message via fmac control path
 // message_dispatch_n_56 [ipc]: Dispatch incoming message via fmac control path
-int  sub_12C92C(__int16 a1, __int16 a2, __int16 a3, unsigned int a4)
+int  sub_12C92C(int16_t a1, int16_t a2, int16_t a3, unsigned int a4)
 {
   int v8; // r0
   int v9; // r4
 
   v8 = message_dispatch_n158(a4 + 12);
   v9 = v8;
-  if ( **(__int16 **)off_12C980 < 0 && !v8 )
+  if ( **(int16_t **)off_12C980 < 0 && !v8 )
     sub_12F46C(dword_12C988, dword_12C984, 145);
   *(uint16_t *)(v9 + 4) = a1;
   *(uint16_t *)(v9 + 6) = a2;

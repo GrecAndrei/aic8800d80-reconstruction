@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_108F20;
+extern uint32_t off_108F24;
+extern uint32_t off_108F40;
+extern uint32_t off_108F28;
+extern uint32_t off_108F2C;
+extern uint32_t off_108F30;
+extern uint32_t off_108F38;
+extern uint32_t dword_108F44;
+extern uint32_t dword_108F48;
+extern uint32_t off_108F34;
+extern uint32_t off_108F3C;
+
 // sub_108D34 @ 0x108d34, size 492 bytes
 uint32_t * sub_108D34(int a1, int a2)
 {
@@ -63,7 +87,7 @@ uint32_t * sub_108D34(int a1, int a2)
       if ( ++i == 16 )
         goto LABEL_7;
     }
-    *v12 = *v12 & v9 | ((__int16)(v15 | (4 * i)) << 8);
+    *v12 = *v12 & v9 | ((int16_t)(v15 | (4 * i)) << 8);
     *v12 |= 0x20000u;
     *v12 |= 0x40000u;
     delay_us(1);

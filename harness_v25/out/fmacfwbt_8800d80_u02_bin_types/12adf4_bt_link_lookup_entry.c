@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12AEB0;
+extern uint32_t off_12AEB4;
+extern uint32_t off_12AEB8;
+
 // bt_link_lookup_entry @ 0x12adf4, size 188 bytes
 // Doc: bt_link_lookup_entry [bt]: Look up a BT link entry by index from the link table
 // bt_link_lookup_entry [bt]: Look up a BT link entry by index from the link table
@@ -11,14 +27,14 @@ int  bt_link_lookup_entry(int a1, int a2)
   uint32_t *v7; // r8
   int v8; // r3
   int v9; // r2
-  __int16 v10; // r4
+  int16_t v10; // r4
   int result; // r0
 
   v2 = dword_12AEB0;
   v3 = dword_12AEB0 + 140 * a1;
   v4 = *(uint8_t *)(v3 + 120);
   *(uint8_t *)(a2 + 9) = v4;
-  v5 = *(unsigned __int8 *)(v3 + 115);
+  v5 = *(uint8_t *)(v3 + 115);
   *(uint8_t *)(v3 + 120) = v4 + 1;
   if ( v5 )
     *(uint8_t *)(a2 + 10) = v5 | 0x80;
@@ -34,8 +50,8 @@ int  bt_link_lookup_entry(int a1, int a2)
     if ( *(uint8_t *)(v8 + 16) && (!*(uint8_t *)(v2 + 140 * a1 + 135) || !*(uint8_t *)(v8 + 33) || *(uint8_t *)(v8 + 32) != 1) )
     {
       *(uint8_t *)v9 = *(uint8_t *)(v8 + 20);
-      *(QWORD *)(v9 + 1) = *(QWORD *)(v8 + 24);
-      v10 = (unsigned __int8)(v10 + 1);
+      *(uint64_t *)(v9 + 1) = *(uint64_t *)(v8 + 24);
+      v10 = (uint8_t)(v10 + 1);
       *(uint32_t *)(v9 + 9) = *v6 - v7[4] + *(uint32_t *)(v8 + 36);
     }
     v9 += 13;

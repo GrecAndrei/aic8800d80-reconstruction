@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_114FE4;
+extern uint32_t dword_114FE8;
+extern uint32_t dword_114FEC;
+extern uint32_t dword_114FF0;
+extern uint32_t off_114FF4;
+extern uint32_t off_114FF8;
+extern uint32_t dword_114FFC;
+extern uint32_t off_115000;
+extern uint32_t off_115004;
+extern uint32_t off_115008;
+extern uint32_t off_115010;
+extern uint32_t off_11500C;
+extern uint32_t dword_115014;
+
 // sub_114F28 @ 0x114f28, size 184 bytes
 // Doc: patch_apply_n11c [patch]: Apply firmware patch to ROM code
 // patch_apply_n11c [patch]: Apply firmware patch to ROM code
@@ -48,7 +74,7 @@ void __noreturn sub_114F28()
     v10 = v8 + i;
     *(uint8_t *)(v10 + 768) = -1;
   }
-  if ( (unsigned __int16)*(uint32_t *)off_114FF8 == 49729 )
+  if ( (uint16_t)*(uint32_t *)off_114FF8 == 49729 )
     *(uint32_t *)off_115000 = 1;
   v11 = HIBYTE(*(uint32_t *)off_115004);
   *(uint8_t *)off_115008 = v11;

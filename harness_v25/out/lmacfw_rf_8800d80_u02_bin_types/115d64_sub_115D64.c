@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115DB0;
+extern uint32_t off_115DB4;
+extern uint32_t off_115DB8;
+
 // sub_115D64 @ 0x115d64, size 76 bytes
 // Doc: sub_1215D64 [util]: Helper routine with stack frame and shift op
 // sub_1215D64 [util]: Helper routine with stack frame and shift op
@@ -25,7 +41,7 @@ int sub_115D64()
   for ( i = 4; i != -1; --i )
   {
     v4 = *((uint32_t *)v2 + 28);
-    result = (unsigned __int8)i;
+    result = (uint8_t)i;
     v2 -= 28;
     if ( v4 )
       result = rf_event_handler_8a4(result);

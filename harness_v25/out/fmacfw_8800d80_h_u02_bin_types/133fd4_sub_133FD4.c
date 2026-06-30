@@ -1,5 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_134210;
+extern uint32_t dword_13421C;
+extern uint32_t dword_134218;
+extern uint32_t dword_134220;
+extern uint32_t dword_134224;
+extern uint32_t off_134214;
+
 // sub_133FD4 @ 0x133fd4, size 570 bytes
-int  sub_133FD4(int a1, unsigned __int8 *a2)
+int  sub_133FD4(int a1, uint8_t *a2)
 {
   int v3; // r5
   int v4; // r8
@@ -38,7 +57,7 @@ int  sub_133FD4(int a1, unsigned __int8 *a2)
   uint32_t *v37; // r3
   int v38; // r2
   uint8_t *v39; // r7
-  unsigned __int8 *v40; // r12
+  uint8_t *v40; // r12
   char *v41; // r10
   int v42; // r4
   char *v43; // r1
@@ -55,7 +74,7 @@ int  sub_133FD4(int a1, unsigned __int8 *a2)
   uint32_t v55[3]; // [sp+10h] [bp-1Ch] BYREF
   uint32_t v56[4]; // [sp+1Ch] [bp-10h] BYREF
 
-  if ( **(__int16 **)off_134210 < 0 && sub_12CD48(6u) != 3 )
+  if ( **(int16_t **)off_134210 < 0 && sub_12CD48(6u) != 3 )
     sub_12F32C(dword_13421C, dword_134218, 481);
   v3 = *a2;
   if ( *a2 )
@@ -69,7 +88,7 @@ int  sub_133FD4(int a1, unsigned __int8 *a2)
     v5 = dword_134224;
     v51 = a2[1];
     v6 = dword_134220 + 696 * v51;
-    v7 = *(unsigned __int8 *)(v6 + 34);
+    v7 = *(uint8_t *)(v6 + 34);
     v8 = (uint32_t *)(dword_134224 + 1320 * v7);
     v9 = v8[106];
     v10 = v8[107];
@@ -152,14 +171,14 @@ int  sub_133FD4(int a1, unsigned __int8 *a2)
     sub_134A90(v9);
     if ( *(uint8_t *)off_134214 )
     {
-      v38 = *(unsigned __int8 *)(v4 + 696 * v51 + 192);
+      v38 = *(uint8_t *)(v4 + 696 * v51 + 192);
       memset(v55, 0, sizeof(v55));
       memset(v56, 0, 12);
       if ( v38 )
       {
         v39 = v55;
-        v40 = (unsigned __int8 *)v56;
-        v53 = (unsigned __int8)(v38 - 1);
+        v40 = (uint8_t *)v56;
+        v53 = (uint8_t)(v38 - 1);
         v41 = (char *)v55 + v53 + 1;
         v42 = 696 * v51 + 192 + v4;
         v43 = (char *)v55;
@@ -170,7 +189,7 @@ int  sub_133FD4(int a1, unsigned __int8 *a2)
           {
             v46 = *(uint8_t *)++v42;
             v45 = v46;
-            v47 = (unsigned __int8)((v46 & 0x7F) - 2);
+            v47 = (uint8_t)((v46 & 0x7F) - 2);
             if ( v47 <= 9 && ((1 << v47) & 0x205) != 0 )
               break;
             *v43++ = v45;
@@ -186,11 +205,11 @@ LABEL_20:
         for ( i = (uint32_t *)((char *)v56 + 1); ; i = (uint32_t *)((char *)i + 1) )
         {
           v49 = *v40;
-          v40 = (unsigned __int8 *)i;
+          v40 = (uint8_t *)i;
           if ( v49 )
           {
             *(uint8_t *)(v4 + 696 * v51 + v3 + 193) = *v39;
-            v3 = (unsigned __int8)(v3 + 1);
+            v3 = (uint8_t)(v3 + 1);
           }
           ++v39;
           if ( i == (uint32_t *)((char *)v56 + v53 + 1) )

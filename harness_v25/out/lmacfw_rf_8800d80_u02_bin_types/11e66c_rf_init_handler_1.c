@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E6E0;
+extern uint32_t dword_11E6E4;
+extern uint32_t dword_11E6E8;
+
 // rf_init_handler_1 @ 0x11e66c, size 104 bytes
 // Doc: rf_init_handler [rf]: LMAC RF initialization/handler dispatching with global context load
 // rf_init_handler [rf]: LMAC RF initialization/handler dispatching with global context load
@@ -5,7 +21,7 @@ void rf_init_handler_1()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
-  __int16 **v2; // r8
+  int16_t **v2; // r8
   int v3; // r5
   void *v4; // r7
   int v5; // r10
@@ -17,7 +33,7 @@ void rf_init_handler_1()
   v1 = *(uint32_t *)sdio_buffer_prepare_split;
   if ( *(uint32_t *)sdio_buffer_prepare_split )
   {
-    v2 = (__int16 **)off_11E6E0;
+    v2 = (int16_t **)off_11E6E0;
     v3 = sdio_buffer_prepare_n_4dc;
     v4 = sdio_buffer_prepare_n_4d8;
     v5 = dword_11E6E4;

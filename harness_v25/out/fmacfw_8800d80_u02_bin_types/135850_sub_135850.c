@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13591C;
+extern uint32_t dword_135920;
+extern uint32_t off_135918;
+extern uint32_t dword_13592C;
+extern uint32_t dword_135928;
+extern uint32_t dword_135924;
+
 // sub_135850 @ 0x135850, size 200 bytes
 // Doc: sub_1235850 [scan]: Reads shared scan/state structure and dispatches action
 // sub_1235850 [scan]: Reads shared scan/state structure and dispatches action
@@ -20,8 +39,8 @@ int  sub_135850(unsigned int a1)
 
   v1 = *((uint32_t *)off_13591C + 4);
   v2 = dword_135920;
-  v3 = *(unsigned __int8 *)(v1 + 61);
-  if ( **(__int16 **)off_135918 < 0 && *(int *)(dword_135920 + 1320 * v3 + 472) >= 0 )
+  v3 = *(uint8_t *)(v1 + 61);
+  if ( **(int16_t **)off_135918 < 0 && *(int *)(dword_135920 + 1320 * v3 + 472) >= 0 )
     sub_12F46C(dword_13592C, dword_135928, 1398);
   v5 = (uint8_t *)sub_12C92C(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);

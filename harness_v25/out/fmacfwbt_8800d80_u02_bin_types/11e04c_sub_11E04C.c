@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E164;
+extern uint32_t off_11E178;
+extern uint32_t off_11E17C;
+extern uint32_t off_11E180;
+extern uint32_t off_11E168;
+extern uint32_t off_11E16C;
+extern uint32_t dword_11E174;
+extern uint32_t dword_11E170;
+
 // sub_11E04C @ 0x11e04c, size 278 bytes
 // Doc: sub_1217CC4 [util]: Iterative helper with 1000-iteration loop, likely polling
 // sub_1217CC4 [util]: Iterative helper with 1000-iteration loop, likely polling
@@ -9,7 +30,7 @@ int  sub_11E04C(int *a1, int a2, uint16_t *a3)
   int *v6; // r9
   uint16_t *v7; // r10
   int *v8; // r11
-  __int16 v9; // r8
+  int16_t v9; // r8
   int v10; // r4
   int v11; // r3
   int v12; // r12
@@ -19,8 +40,8 @@ int  sub_11E04C(int *a1, int a2, uint16_t *a3)
   int *v16; // r3
   int v17; // r3
   int v18; // r3
-  __int16 v19; // r0
-  __int16 v20; // r3
+  int16_t v19; // r0
+  int16_t v20; // r3
   int v21; // r2
   int *v22; // r3
   int v23; // r3
@@ -29,7 +50,7 @@ int  sub_11E04C(int *a1, int a2, uint16_t *a3)
 
   v3 = off_11E164;
   v4 = *a1;
-  v5 = (unsigned __int16)*a3;
+  v5 = (uint16_t)*a3;
   v6 = (int *)off_11E178;
   v7 = off_11E17C;
   v8 = (int *)off_11E180;
@@ -40,12 +61,12 @@ int  sub_11E04C(int *a1, int a2, uint16_t *a3)
   {
     v19 = *(uint16_t *)(v4 + 8);
     v20 = *(uint32_t *)(v4 + 12) + 1;
-    v21 = (unsigned __int16)(v20 - v19);
+    v21 = (uint16_t)(v20 - v19);
     if ( a2 + v5 >= v21 )
     {
       LOWORD(v10) = v19 - v20 + v5 + a2;
-      a2 = (unsigned __int16)(v21 - v5);
-      v10 = (unsigned __int16)v10;
+      a2 = (uint16_t)(v21 - v5);
+      v10 = (uint16_t)v10;
       v5 = 0;
     }
     else
@@ -57,7 +78,7 @@ int  sub_11E04C(int *a1, int a2, uint16_t *a3)
       __disable_irq();
       *(uint32_t *)off_11E168 = 1;
     }
-    v11 = (unsigned __int16)*v7;
+    v11 = (uint16_t)*v7;
     v12 = *v6;
     v25 = *v8;
     v13 = *v8 + 8 * v11;
@@ -97,7 +118,7 @@ LABEL_9:
       break;
 LABEL_10:
     v18 = *(uint32_t *)(v4 + 4);
-    if ( **(__int16 **)off_11E16C < 0 && !v18 )
+    if ( **(int16_t **)off_11E16C < 0 && !v18 )
     {
       sub_12F694(dword_11E174, dword_11E170, 615);
       v18 = 0;

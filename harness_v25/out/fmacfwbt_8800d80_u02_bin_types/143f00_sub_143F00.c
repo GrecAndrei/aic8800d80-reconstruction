@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_143F00 @ 0x143f00, size 220 bytes
 unsigned int  sub_143F00(unsigned int a1)
 {
@@ -8,80 +20,59 @@ unsigned int  sub_143F00(unsigned int a1)
 
   __pld((void *)a1);
   v1 = (uint64_t *)(a1 & 0xFFFFFFF8);
-  R12 = -1;
+  -1;
   v3 = a1 & 7;
   __pld((void *)((a1 & 0xFFFFFFF8) + 32));
   if ( (a1 & 7) != 0 )
   {
-    R2 = *v1;
+    *v1;
     v5 = -v3;
     __pld(v1 + 8);
     v15 = -1 << (8 * (v3 & 3));
-    LODWORD(R2) = R2 | ~v15;
+    LODWORD(0) = 0 | ~v15;
     if ( (v3 & 4) != 0 )
     {
-      HIDWORD(R2) |= ~v15;
-      LODWORD(R2) = -1;
+      HIDWORD(0) |= ~v15;
+      LODWORD(0) = -1;
     }
-    R4 = 0;
+    0;
     goto LABEL_4;
   }
-  R4 = 0;
+  0;
   v5 = -8;
   do
   {
-    R2 = *v1;
+    *v1;
     __pld(v1 + 8);
     v5 += 8;
 LABEL_4:
-    __asm
-    {
-      UADD8.W         R2, R2, R12
-      SEL.W           R2, R4, R12
-      UADD8.W         R3, R3, R12
-      SEL.W           R3, R2, R12
-    }
-    if ( HIDWORD(R2) )
+    
+    if ( HIDWORD(0) )
       break;
-    R2 = v1[1];
-    __asm { UADD8.W         R2, R2, R12 }
+    v1[1];
+    
     v5 += 8;
-    __asm
-    {
-      SEL.W           R2, R4, R12
-      UADD8.W         R3, R3, R12
-      SEL.W           R3, R2, R12
-    }
-    if ( HIDWORD(R2) )
+    
+    if ( HIDWORD(0) )
       break;
-    R2 = v1[2];
-    __asm { UADD8.W         R2, R2, R12 }
+    v1[2];
+    
     v5 += 8;
-    __asm
-    {
-      SEL.W           R2, R4, R12
-      UADD8.W         R3, R3, R12
-      SEL.W           R3, R2, R12
-    }
-    if ( HIDWORD(R2) )
+    
+    if ( HIDWORD(0) )
       break;
-    R2 = v1[3];
+    v1[3];
     v1 += 4;
-    __asm { UADD8.W         R2, R2, R12 }
+    
     v5 += 8;
-    __asm
-    {
-      SEL.W           R2, R4, R12
-      UADD8.W         R3, R3, R12
-      SEL.W           R3, R2, R12
-    }
+    
   }
-  while ( !HIDWORD(R2) );
-  if ( !(uint32_t)R2 )
+  while ( !HIDWORD(0) );
+  if ( !(uint32_t)0 )
   {
     v5 += 4;
-    LODWORD(R2) = HIDWORD(R2);
+    LODWORD(0) = HIDWORD(0);
   }
-  return v5 + (__clz(bswap32(R2)) >> 3);
+  return v5 + (__clz(bswap32(0)) >> 3);
 }
 

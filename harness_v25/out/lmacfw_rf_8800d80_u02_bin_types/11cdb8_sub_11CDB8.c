@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11CFE0;
+extern uint32_t dword_11CFE4;
+extern uint32_t dword_11CFE8;
+extern uint32_t dword_11D018;
+extern uint32_t off_11D014;
+extern uint32_t dword_11CFD8;
+extern uint32_t dword_11CFDC;
+extern uint32_t dword_11D010;
+extern uint32_t off_11CFF4;
+extern uint32_t dword_11CFF8;
+extern uint32_t dword_11CFD0;
+extern uint32_t dword_11CFD4;
+extern uint32_t off_11CFEC;
+extern uint32_t dword_11CFF0;
+extern uint32_t off_11CFFC;
+extern uint32_t off_11D000;
+extern uint32_t dword_11D004;
+extern uint32_t off_11D008;
+extern uint32_t off_11D00C;
+
 // sub_11CDB8 @ 0x11cdb8, size 530 bytes
 // Doc: sub_121CDB8 [util]: Check firmware ready flag from MMIO
 // sub_121CDB8 [util]: Check firmware ready flag from MMIO
@@ -30,7 +62,7 @@ unsigned int  sub_11CDB8(unsigned int result)
   int v25; // r0
 
   v1 = off_11CFE0;
-  v2 = (unsigned __int8)*(uint32_t *)off_11CFE0;
+  v2 = (uint8_t)*(uint32_t *)off_11CFE0;
   if ( result != v2 )
   {
     v3 = dword_11CFE4;
@@ -61,7 +93,7 @@ unsigned int  sub_11CDB8(unsigned int result)
       *v1 = v4 & (sub_127BA4(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_11CFF4;
-    *(uint32_t *)off_11CFEC = dword_11CFF0 & ((v6 * (unsigned __int16)(*(uint32_t *)off_11CFEC >> 8) / v2) << 8)
+    *(uint32_t *)off_11CFEC = dword_11CFF0 & ((v6 * (uint16_t)(*(uint32_t *)off_11CFEC >> 8) / v2) << 8)
                           | *(uint32_t *)off_11CFEC & 0xFF0000FF;
     *v12 = dword_11CFF8 & ((v6 * ((*v12 >> 20) & 0x3FF) / v2) << 20) | *v12 & 0xC00FFFFF;
     *v12 = (v6 * (*v12 & 0x3FF) / v2) & 0x3FF | *v12 & 0xFFFFFC00;
@@ -82,12 +114,12 @@ unsigned int  sub_11CDB8(unsigned int result)
     v16 = dword_11CFF0;
     v17 = dword_11D004;
     v18 = (unsigned int *)off_11D008;
-    *(uint32_t *)off_11D000 = dword_11CFF0 & ((v6 * (unsigned __int16)(*(uint32_t *)off_11D000 >> 8) / v2) << 8)
+    *(uint32_t *)off_11D000 = dword_11CFF0 & ((v6 * (uint16_t)(*(uint32_t *)off_11D000 >> 8) / v2) << 8)
                           | *(uint32_t *)off_11D000 & dword_11D004;
-    *v18 = v16 & ((v6 * (unsigned __int16)(*v18 >> 8) / v2) << 8) | v17 & *v18;
+    *v18 = v16 & ((v6 * (uint16_t)(*v18 >> 8) / v2) << 8) | v17 & *v18;
     v19 = (unsigned int *)off_11D00C;
     v20 = dword_11CFF8;
-    v15[2] = (unsigned __int16)v15[2] | (v6 << 19);
+    v15[2] = (uint16_t)v15[2] | (v6 << 19);
     *v19 = v20 & ((v6 * ((*v19 >> 20) & 0x3FF) / v2) << 20) | *v19 & 0xC00FFFFF;
     result = *v19 & 0x3FF;
     *v19 = (v6 * result / v2) & 0x3FF | *v19 & 0xFFFFFC00;

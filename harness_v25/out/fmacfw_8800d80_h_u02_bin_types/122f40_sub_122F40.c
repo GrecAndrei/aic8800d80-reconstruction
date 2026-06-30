@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_123004;
+extern uint32_t off_123008;
+extern uint32_t off_123010;
+extern uint32_t off_123018;
+extern uint32_t off_123014;
+extern uint32_t off_12300C;
+
 // sub_122F40 @ 0x122f40, size 196 bytes
 int  sub_122F40(int a1, int a2, int a3, int a4)
 {
@@ -13,8 +32,8 @@ int  sub_122F40(int a1, int a2, int a3, int a4)
   int v14; // [sp+0h] [bp-Ch]
   int v16; // [sp+4h] [bp-8h]
 
-  v4 = *(unsigned __int8 *)(a2 + 5);
-  v5 = *(unsigned __int8 *)(a2 + 6);
+  v4 = *(uint8_t *)(a2 + 5);
+  v5 = *(uint8_t *)(a2 + 6);
   v6 = dword_123004;
   v7 = *(uint32_t *)a2;
   *(uint32_t *)(dword_123004 + 4 * (v4 + 330 * v5 + 2)) = *(uint32_t *)a2;

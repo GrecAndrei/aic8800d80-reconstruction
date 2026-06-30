@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_113E6C;
+
 // sub_113DF8 @ 0x113df8, size 116 bytes
 int  sub_113DF8(int a1, int a2)
 {
@@ -25,7 +39,7 @@ int  sub_113DF8(int a1, int a2)
   {
     v8 = v5 >> (8 * v6);
     v9 = v8;
-    v10 = (unsigned __int8)v8 >> 4;
+    v10 = (uint8_t)v8 >> 4;
     if ( (v8 & 0xF0) == 0 )
     {
       if ( !(uint8_t)v8 )
@@ -35,7 +49,7 @@ int  sub_113DF8(int a1, int a2)
         goto LABEL_9;
       }
       v7 |= 1 << (4 * v6);
-      v10 = (unsigned __int8)v8;
+      v10 = (uint8_t)v8;
     }
     if ( (v10 & 1) != 0 )
       v11 = -1;

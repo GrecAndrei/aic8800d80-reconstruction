@@ -1,20 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_124C68;
+extern uint32_t off_124C58;
+extern uint32_t dword_124C6C;
+extern uint32_t off_124C5C;
+extern uint32_t off_124C60;
+extern uint32_t dword_124C64;
+
 // sub_124B04 @ 0x124b04, size 338 bytes
 int  sub_124B04(int a1, int a2)
 {
-  unsigned __int8 v3; // r0
+  uint8_t v3; // r0
   unsigned int v4; // r4
   int v5; // r3
   uint32_t *v6; // r1
   unsigned int v8; // r5
   uint64_t v9; // [sp+4h] [bp-18h] BYREF
   char v10; // [sp+Ch] [bp-10h] BYREF
-  unsigned __int8 v11; // [sp+Dh] [bp-Fh]
-  unsigned __int16 v12; // [sp+Eh] [bp-Eh]
-  unsigned __int16 v13; // [sp+10h] [bp-Ch]
-  __int16 v14; // [sp+12h] [bp-Ah]
+  uint8_t v11; // [sp+Dh] [bp-Fh]
+  uint16_t v12; // [sp+Eh] [bp-Eh]
+  uint16_t v13; // [sp+10h] [bp-Ch]
+  int16_t v14; // [sp+12h] [bp-Ah]
   char v15; // [sp+16h] [bp-6h]
 
-  v3 = sub_121E3C(*(unsigned __int8 **)(a2 + 4), nullptr, 0xAu);
+  v3 = sub_121E3C(*(uint8_t **)(a2 + 4), 0, 0xAu);
   if ( a1 <= 1 || (v4 = v3) == 0 )
   {
     sub_11F504(dword_124C68);

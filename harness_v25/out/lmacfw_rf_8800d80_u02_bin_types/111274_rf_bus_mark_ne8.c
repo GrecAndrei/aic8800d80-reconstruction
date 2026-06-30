@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_bus_mark_ne8 @ 0x111274, size 48 bytes
 // Doc: rf_bus_mark_n102 [rf]: Mark/flag RF bus slot for pending operation
 // rf_bus_mark_n102 [rf]: Mark/flag RF bus slot for pending operation
@@ -9,7 +21,7 @@ int * rf_bus_mark_ne8(int a1)
   int ( *v5)(uint32_t, uint32_t, int); // r3
 
   v2 = rf_bus_reset2_n_60 + 16 * (a1 - 1);
-  v3 = *(unsigned __int8 *)(v2 + 8);
+  v3 = *(uint8_t *)(v2 + 8);
   result = sub_100200((int *)v2, 0, 0x10u);
   if ( v3 )
   {

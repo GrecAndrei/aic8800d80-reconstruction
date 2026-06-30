@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114154;
+extern uint32_t dword_114160;
+extern uint32_t off_114158;
+extern uint32_t off_11415C;
+extern uint32_t dword_114164;
+
 // rf_stream_start2_n3f6 @ 0x114114, size 64 bytes
 // Doc: rf_msg_process_body_alt_12a [rf]: Alternate RF message body processor
 // rf_msg_process_body_alt_12a [rf]: Alternate RF message body processor

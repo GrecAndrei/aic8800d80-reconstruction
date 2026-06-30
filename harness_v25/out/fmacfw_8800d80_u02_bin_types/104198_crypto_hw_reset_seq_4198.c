@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_104270;
+extern uint32_t off_104274;
+extern uint32_t off_104278;
+extern uint32_t off_10427C;
+extern uint32_t off_104280;
+extern uint32_t off_104284;
+extern uint32_t off_104288;
+extern uint32_t off_10428C;
+extern uint32_t off_104290;
+extern uint32_t dword_104294;
+
 // crypto_hw_reset_seq_4198 @ 0x104198, size 214 bytes
 // Doc: crypto_hw_reset_seq_4198 [util]: Execute crypto hardware reset sequence
 // crypto_hw_reset_seq_4198 [util]: Execute crypto hardware reset sequence

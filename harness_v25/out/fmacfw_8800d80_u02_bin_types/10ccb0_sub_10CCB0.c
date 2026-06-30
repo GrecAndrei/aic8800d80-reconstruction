@@ -1,9 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10CD70;
+extern uint32_t dword_10CD88;
+extern uint32_t dword_10CD80;
+extern uint32_t dword_10CD90;
+extern uint32_t dword_10CD8C;
+extern uint32_t dword_10CD84;
+extern uint32_t off_10CD74;
+extern uint32_t off_10CD7C;
+extern uint32_t off_10CD78;
+
 // sub_10CCB0 @ 0x10ccb0, size 190 bytes
 int  sub_10CCB0(uint16_t *a1)
 {
-  __int16 **v2; // r7
+  int16_t **v2; // r7
   int v3; // r0
-  __int16 *v4; // r6
+  int16_t *v4; // r6
   int v5; // r4
   int v6; // r2
   unsigned int v7; // r7
@@ -12,10 +34,10 @@ int  sub_10CCB0(uint16_t *a1)
   int v10; // r1
   int v11; // t1
   uint32_t *v12; // r1
-  __int16 v13; // r3
+  int16_t v13; // r3
 
-  v2 = (__int16 **)off_10CD70;
-  v3 = message_dispatch_n158((unsigned __int16)a1[5] + 16);
+  v2 = (int16_t **)off_10CD70;
+  v3 = message_dispatch_n158((uint16_t)a1[5] + 16);
   v4 = *v2;
   v5 = v3;
   if ( **v2 < 0 && !v3 )
@@ -23,8 +45,8 @@ int  sub_10CCB0(uint16_t *a1)
     sub_12F46C(dword_10CD88, dword_10CD80, 1358);
     v4 = *v2;
   }
-  v6 = (unsigned __int16)a1[5];
-  v7 = (unsigned __int16)a1[3];
+  v6 = (uint16_t)a1[5];
+  v7 = (uint16_t)a1[3];
   *(uint16_t *)(v5 + 4) = a1[2];
   *(uint16_t *)(v5 + 8) = 13;
   *(uint16_t *)(v5 + 10) = v6;
@@ -58,7 +80,7 @@ int  sub_10CCB0(uint16_t *a1)
   if ( **(uint8_t **)off_10CD74 == 3 )
   {
     v12 = off_10CD7C;
-    v13 = *((unsigned __int8 *)off_10CD78 + 21);
+    v13 = *((uint8_t *)off_10CD78 + 21);
     *((uint8_t *)off_10CD78 + 21) = v13 + 1;
     a1[4] = v13;
     *v12 = 4;

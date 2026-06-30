@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115F30;
+extern uint32_t dword_115F2C;
+extern uint32_t dword_115F28;
+extern uint32_t dword_115F24;
+extern uint32_t off_115F34;
+extern uint32_t off_115F5C;
+extern uint32_t off_115F38;
+extern uint32_t off_115F60;
+extern uint32_t off_115F3C;
+extern uint32_t off_115F40;
+extern uint32_t off_115F64;
+extern uint32_t off_115F44;
+extern uint32_t off_115F48;
+extern uint32_t off_115F58;
+extern uint32_t off_115F4C;
+
 // main_loop @ 0x115d60, size 452 bytes
 // Doc: ipc_doorbell_init_handlers [ipc]: Initialize IPC doorbell handler table and route callbacks
 // ipc_doorbell_init_handlers [ipc]: Initialize IPC doorbell handler table and route callbacks
@@ -25,7 +53,7 @@ void __noreturn main_loop()
   {
     sub_10EF14();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10EED8(*(unsigned __int16 *)(*v0 + 8));
+      sub_10EED8(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_115F5C;
   if ( **(uint8_t **)off_115F5C == 2 )
@@ -34,7 +62,7 @@ void __noreturn main_loop()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = rf_msg_handler_n3b0(*(unsigned __int16 *)(*v0 + 4));
+  v3 = rf_msg_handler_n3b0(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
     patch_apply_n34e();
   __enable_irq();
@@ -112,13 +140,13 @@ ipc_doorbell_handler_n470:
       }
     }
   }
-  v14 = **(unsigned __int8 **)off_115F48;
+  v14 = **(uint8_t **)off_115F48;
   if ( v14 == 3 )
   {
     v3 = sub_1112F4();
     if ( v3 )
       goto LABEL_36;
-    v14 = **(unsigned __int8 **)off_115F48;
+    v14 = **(uint8_t **)off_115F48;
   }
   if ( v14 == 1 )
   {

@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BD6C;
+extern uint32_t dword_13BD70;
+extern uint32_t dword_13BD7C;
+extern uint32_t dword_13BD80;
+extern uint32_t dword_13BD74;
+extern uint32_t dword_13BD78;
+
 // bt_hci_cmd_alloc_send @ 0x13bcc4, size 168 bytes
 // Doc: bt_hci_cmd_alloc_send [bt]: Allocates and sends HCI command with opcode from r0
 // bt_hci_cmd_alloc_send [bt]: Allocates and sends HCI command with opcode from r0
@@ -5,7 +24,7 @@ uint32_t * bt_hci_cmd_alloc_send(unsigned int a1)
 {
   int v1; // r5
   int v3; // r1
-  unsigned __int8 *v4; // r3
+  uint8_t *v4; // r3
   int v5; // r2
   int v6; // r0
   int v7; // r3
@@ -16,7 +35,7 @@ uint32_t * bt_hci_cmd_alloc_send(unsigned int a1)
   sub_12C964(0x2000, v1);
   sub_12C964(8194, v1);
   v3 = dword_13BD6C;
-  v4 = (unsigned __int8 *)(dword_13BD6C + 32 * a1);
+  v4 = (uint8_t *)(dword_13BD6C + 32 * a1);
   v5 = v4[17];
   v6 = v4[16];
   v7 = v4[22];

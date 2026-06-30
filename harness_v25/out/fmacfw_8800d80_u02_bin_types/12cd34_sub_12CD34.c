@@ -1,9 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CE4C;
+extern uint32_t dword_12CE74;
+extern uint32_t dword_12CE68;
+extern uint32_t dword_12CE50;
+extern uint32_t dword_12CE7C;
+extern uint32_t dword_12CE80;
+extern uint32_t dword_12CE70;
+extern uint32_t dword_12CE6C;
+extern uint32_t dword_12CE54;
+extern uint32_t off_12CE60;
+extern uint32_t dword_12CE64;
+
 // sub_12CD34 @ 0x12cd34, size 278 bytes
 // Doc: message_dispatch_n4a2 [ipc]: Dispatch firmware message via handler table
 // message_dispatch_n4a2 [ipc]: Dispatch firmware message via handler table
 uint32_t * sub_12CD34(unsigned int a1, int a2)
 {
-  __int16 **v2; // r7
+  int16_t **v2; // r7
   unsigned int v5; // r9
   int v6; // r6
   uint16_t *v7; // r9
@@ -17,12 +41,12 @@ uint32_t * sub_12CD34(unsigned int a1, int a2)
   int v15; // r2
   int v16; // r6
 
-  v2 = (__int16 **)off_12CE4C;
+  v2 = (int16_t **)off_12CE4C;
   v5 = a1 >> 8;
-  v6 = (unsigned __int8)a1;
-  if ( **(__int16 **)off_12CE4C >= 0 )
+  v6 = (uint8_t)a1;
+  if ( **(int16_t **)off_12CE4C >= 0 )
     goto message_dispatch_n3c2;
-  if ( (unsigned __int8)a1 > 0xDu )
+  if ( (uint8_t)a1 > 0xDu )
   {
     sub_12F46C(dword_12CE74, dword_12CE68, 173);
     if ( **v2 >= 0 )
@@ -34,7 +58,7 @@ message_dispatch_n3c2:
     if ( v6 != 14 )
       sub_12F46C(dword_12CE7C, ipc_doorbell_handler_n3a, 183);
   }
-  else if ( (unsigned __int8)a1 != 13 )
+  else if ( (uint8_t)a1 != 13 )
   {
     goto message_dispatch_n440;
   }
@@ -43,7 +67,7 @@ message_dispatch_n3c2:
     goto message_dispatch_n3c2;
 message_dispatch_n440:
   v16 = dword_12CE50 + 16 * v6;
-  if ( *(unsigned __int16 *)(v16 + 14) > v5 )
+  if ( *(uint16_t *)(v16 + 14) > v5 )
   {
     v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
     if ( v7 )
@@ -57,7 +81,7 @@ message_dispatch_n458:
     sub_12F46C(dword_12CE6C, dword_12CE68, 180);
 message_dispatch_n3ce:
   result = (uint32_t *)msg_parse(dword_12CE54, a1, a2);
-  if ( (unsigned __int16)*v7 != a2 )
+  if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))message_dispatch_n4f9;
     v10 = message_dispatch_n4cc;

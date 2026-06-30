@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_120728;
+extern uint32_t off_120724;
+extern uint32_t dword_120720;
+
 // ipc_msg_alloc @ 0x12064c, size 210 bytes
 // Doc: ipc_msg_alloc [ipc]: Allocate IPC message buffer (id 0xd, size 0x58)
 // ipc_msg_alloc [ipc]: Allocate IPC message buffer (id 0xd, size 0x58)
@@ -13,7 +29,7 @@ int  ipc_msg_alloc(int a1)
   char v10[5]; // [sp+7h] [bp-5h] BYREF
 
   v2 = (uint8_t *)rf_bus_setup_n3a8(88, 13, 0, 3);
-  v3 = *(unsigned __int8 *)(a1 + 107);
+  v3 = *(uint8_t *)(a1 + 107);
   v10[0] = -1;
   sub_1287E0(v3);
   v4 = *(uint32_t *)(a1 + 1216);
@@ -27,7 +43,7 @@ int  ipc_msg_alloc(int a1)
   v2[1] = v5;
   v2[2] = v6;
   *v2 = *(uint8_t *)(a1 + 107);
-  v7 = *(unsigned __int8 *)(a1 + 106);
+  v7 = *(uint8_t *)(a1 + 106);
   if ( *(uint8_t *)(a1 + 106) )
   {
     if ( v7 == 2 )
@@ -44,7 +60,7 @@ int  ipc_msg_alloc(int a1)
   *(uint8_t *)(a1 + 146) = v7;
   if ( !v5 )
   {
-    v8 = *(unsigned __int8 *)(a1 + 116);
+    v8 = *(uint8_t *)(a1 + 116);
     sub_128AAC();
     timestamp_remove_058(a1 + 48);
     timestamp_update_4f60(a1 + 24, *((uint32_t *)off_120724 + 4) + *(uint32_t *)(dword_120720 + 696 * v8 + 8));

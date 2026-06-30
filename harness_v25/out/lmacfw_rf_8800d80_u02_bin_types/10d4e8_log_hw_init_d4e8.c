@@ -1,3 +1,32 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D5D4;
+extern uint32_t off_10D5D8;
+extern uint32_t off_10D600;
+extern uint32_t off_10D604;
+extern uint32_t dword_10D608;
+extern uint32_t off_10D5E0;
+extern uint32_t off_10D5E4;
+extern uint32_t off_10D5E8;
+extern uint32_t off_10D5DC;
+extern uint32_t off_10D5EC;
+extern uint32_t off_10D5F0;
+extern uint32_t off_10D610;
+extern uint32_t off_10D5F4;
+extern uint32_t off_10D5F8;
+extern uint32_t off_10D5FC;
+extern uint32_t off_10D60C;
+
 // log_hw_init_d4e8 @ 0x10d4e8, size 236 bytes
 // Doc: log_hw_init_d4e8 [util]: Initialize hardware logging subsystem
 // log_hw_init_d4e8 [util]: Initialize hardware logging subsystem
@@ -67,9 +96,9 @@ void log_hw_init_d4e8()
       {
 LABEL_5:
         v8 = v7 / v6;
-        v9 = (unsigned __int8)(v8 >> 4);
+        v9 = (uint8_t)(v8 >> 4);
         v10 = ((v8 >> 1) & 7) + 16 * ((v8 & 0xF) - ((v8 >> 1) & 7));
-        v11 = (unsigned __int8)(v8 >> 12);
+        v11 = (uint8_t)(v8 >> 12);
 LABEL_6:
         v12 = off_10D5EC;
         v13 = off_10D5E0;

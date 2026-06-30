@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B55C;
+extern uint32_t off_11B560;
+extern uint32_t off_11B564;
+extern uint32_t dword_11B570;
+extern uint32_t dword_11B574;
+extern uint32_t dword_11B56C;
+extern uint32_t dword_11B568;
+
 // sub_11B490 @ 0x11b490, size 204 bytes
 int  sub_11B490(int result, int a2, int a3, int a4)
 {
@@ -7,7 +27,7 @@ int  sub_11B490(int result, int a2, int a3, int a4)
   int v7; // r4
   int v8; // r6
   BOOL v9; // r3
-  __int16 **v10; // r7
+  int16_t **v10; // r7
 
   v4 = off_11B55C;
   if ( *((uint8_t *)off_11B55C + 160) )
@@ -38,11 +58,11 @@ int  sub_11B490(int result, int a2, int a3, int a4)
 LABEL_6:
           if ( v9 )
             goto LABEL_9;
-          v10 = (__int16 **)off_11B564;
+          v10 = (int16_t **)off_11B564;
           break;
         default:
-          v10 = (__int16 **)off_11B564;
-          if ( **(__int16 **)off_11B564 >= 0 )
+          v10 = (int16_t **)off_11B564;
+          if ( **(int16_t **)off_11B564 >= 0 )
             goto LABEL_9;
           sub_12F46C(dword_11B570, dword_11B574, 520);
           break;

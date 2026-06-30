@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114734;
+extern uint32_t off_11473C;
+extern uint32_t off_114744;
+
 // rf_msg_handler @ 0x1146f0, size 68 bytes
 // Doc: nvic_irq_disable_n_2a [util]: Write to NVIC ISER/ICER (0xE000E100) to disable an interrupt
 // nvic_irq_disable_n_2a [util]: Write to NVIC ISER/ICER (0xE000E100) to disable an interrupt

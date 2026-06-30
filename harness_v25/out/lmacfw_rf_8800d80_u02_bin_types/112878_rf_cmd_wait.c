@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_cmd_wait @ 0x112878, size 126 bytes
 // Doc: rf_stream_start [rf]: Start RF stream, init control byte and config word
 // rf_stream_start [rf]: Start RF stream, init control byte and config word
@@ -15,7 +27,7 @@ void rf_cmd_wait()
     *(uint32_t *)rf_cmd_send_dispatch = 1;
   }
   v0 = (int *)rf_cmd_send_n_1c;
-  v1 = *(unsigned __int8 *)rf_cmd_send_n_18;
+  v1 = *(uint8_t *)rf_cmd_send_n_18;
   v2 = *(uint32_t *)rf_cmd_send_n_1c + 1;
   *(uint32_t *)rf_cmd_send_n_1c = v2;
   if ( v1 )

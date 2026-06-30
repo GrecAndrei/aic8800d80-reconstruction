@@ -1,5 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_136DB8;
+
 // sub_136D5C @ 0x136d5c, size 90 bytes
-int  sub_136D5C(int a1, unsigned __int8 *a2, int a3, __int16 a4)
+int  sub_136D5C(int a1, uint8_t *a2, int a3, int16_t a4)
 {
   uint16_t *v4; // r4
   uint8_t *v6; // r0
@@ -24,7 +38,7 @@ int  sub_136D5C(int a1, unsigned __int8 *a2, int a3, __int16 a4)
   v4 = off_136DB8;
   v6 = (uint8_t *)sub_12C7EC(4102, a4, 4, 0x3Cu);
   v7 = v6;
-  if ( v4[2] && (v8 = *a2, (unsigned __int16)v4[2] > v8) )
+  if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
   {
     v10 = (int *)&v4[30 * v8 + 4];
     v11 = *v10;

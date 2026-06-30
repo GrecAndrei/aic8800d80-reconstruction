@@ -1,20 +1,64 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D66C;
+extern uint32_t dword_11D64C;
+extern uint32_t dword_11D648;
+extern uint32_t off_11D630;
+extern uint32_t off_11D634;
+extern uint32_t off_11D650;
+extern uint32_t dword_11D638;
+extern uint32_t dword_11D654;
+extern uint32_t dword_11D63C;
+extern uint32_t off_11D640;
+extern uint32_t dword_11D644;
+extern uint32_t off_11D658;
+extern uint32_t off_11D65C;
+extern uint32_t off_11D660;
+extern uint32_t off_11D670;
+extern uint32_t dword_11D7A4;
+extern uint32_t off_11D664;
+extern uint32_t off_11D668;
+extern uint32_t dword_11D788;
+extern uint32_t off_11D78C;
+extern uint32_t off_11D790;
+extern uint32_t off_11D794;
+extern uint32_t off_11D798;
+extern uint32_t off_11D7A0;
+extern uint32_t dword_11D7AC;
+extern uint32_t dword_11D7A8;
+extern uint32_t off_11D79C;
+extern uint32_t dword_11D620;
+extern uint32_t dword_11D624;
+extern uint32_t dword_11D628;
+extern uint32_t dword_11D62C;
+
 // fmac_frame_parse_or_rx_handler @ 0x11d320, size 1128 bytes
 // Doc: fmac_frame_parse_or_rx_handler [rx]: Parses a frame field at offset 0x30, multi-register handler
 // fmac_frame_parse_or_rx_handler [rx]: Parses a frame field at offset 0x30, multi-register handler
 BOOL  fmac_frame_parse_or_rx_handler(int a1)
 {
-  __int16 **v1; // r10
+  int16_t **v1; // r10
   int v2; // r8
   int v3; // r3
-  __int16 *v5; // r9
-  __int16 v6; // r11
+  int16_t *v5; // r9
+  int16_t v6; // r11
   unsigned int v7; // r6
   int v8; // r5
   int v10; // r2
   unsigned int v11; // r7
   int v12; // r3
   unsigned int v13; // r3
-  unsigned __int8 *v14; // r5
+  uint8_t *v14; // r5
   int v15; // r2
   int v16; // r3
   int v17; // r11
@@ -57,16 +101,16 @@ BOOL  fmac_frame_parse_or_rx_handler(int a1)
 
   if ( *(uint16_t *)(a1 + 48) )
   {
-    v1 = (__int16 **)off_11D66C;
+    v1 = (int16_t **)off_11D66C;
     v2 = *(uint32_t *)(a1 + 28);
-    v3 = **(__int16 **)off_11D66C;
+    v3 = **(int16_t **)off_11D66C;
     if ( v3 < 0 && !v2 )
     {
       v8 = 0;
       fmac_phy_op_handler(dword_11D64C, dword_11D648, 423, v3);
       return v8;
     }
-    v5 = *(__int16 **)(v2 + 8);
+    v5 = *(int16_t **)(v2 + 8);
     v6 = *v5;
     v7 = *(uint32_t *)(a1 + 84);
     if ( *((uint8_t *)off_11D630 + 408)
@@ -91,9 +135,9 @@ BOOL  fmac_frame_parse_or_rx_handler(int a1)
         }
       }
       v10 = dword_11D63C;
-      v11 = (unsigned __int8)((v7 >> 15) - 16);
+      v11 = (uint8_t)((v7 >> 15) - 16);
       v12 = dword_11D63C + 696 * v11;
-      v8 = *(unsigned __int8 *)(v12 + 37);
+      v8 = *(uint8_t *)(v12 + 37);
       if ( !*(uint8_t *)(v12 + 37) )
       {
         *(uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
@@ -102,7 +146,7 @@ BOOL  fmac_frame_parse_or_rx_handler(int a1)
       if ( v11 <= 0x23 )
         *(uint32_t *)(v12 + 664) = *((uint32_t *)off_11D640 + 4);
       v13 = v10 + 696 * v11;
-      if ( *(unsigned __int16 *)(v13 + 32) == 0xFFFF )
+      if ( *(uint16_t *)(v13 + 32) == 0xFFFF )
       {
         if ( (v6 & 0xFC) != 0x80 )
         {
@@ -110,14 +154,14 @@ BOOL  fmac_frame_parse_or_rx_handler(int a1)
           return 0;
         }
         v49 = *(uint32_t *)(v13 + 44);
-        *(uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(unsigned __int8 *)(v49 + 35) + 16) << 15);
+        *(uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(uint8_t *)(v49 + 35) + 16) << 15);
       }
       else
       {
         v49 = v10 + 696 * v11;
       }
-      v51 = *(unsigned __int8 *)(v49 + 34);
-      v14 = (unsigned __int8 *)(dword_11D644 + 1320 * v51);
+      v51 = *(uint8_t *)(v49 + 34);
+      v14 = (uint8_t *)(dword_11D644 + 1320 * v51);
       v52 = 1320 * v51;
       ipc_msgq_lookup_nc78(v5, v11, v14[107]);
       if ( !v14[108] )
@@ -145,7 +189,7 @@ BOOL  fmac_frame_parse_or_rx_handler(int a1)
         if ( (v6 & 4) != 0 )
         {
 LABEL_37:
-          v15 = *(unsigned __int8 *)(v16 + 1320 * v51 + 106);
+          v15 = *(uint8_t *)(v16 + 1320 * v51 + 106);
           if ( !*(uint8_t *)(v16 + 1320 * v51 + 106) )
           {
 LABEL_19:
@@ -155,7 +199,7 @@ LABEL_19:
             {
               v53 = 0;
               v40 = sub_1225FC(a1 + 20, v18, v49, &v53);
-              sub_128F8C(v53, *(unsigned __int16 *)(a1 + 48), v18);
+              sub_128F8C(v53, *(uint16_t *)(a1 + 48), v18);
               sub_120244(v18);
               if ( v40 )
                 sub_12A344(v18, v2, a1 + 20);
@@ -166,7 +210,7 @@ LABEL_19:
               v28 = off_11D658;
               if ( *((uint8_t *)off_11D658 + 29) == 7 )
               {
-                v8 = *((unsigned __int8 *)off_11D658 + 36);
+                v8 = *((uint8_t *)off_11D658 + 36);
                 if ( !*((uint8_t *)off_11D658 + 36) )
                 {
                   v29 = off_11D65C;
@@ -264,14 +308,14 @@ LABEL_19:
               rf_state_check_n_208(v5, v7);
               if ( *(uint8_t *)(dword_11D644 + 1320 * v51 + 1224) && v17 == 208 )
               {
-                sub_12A3F4(v18, *(uint32_t *)(v2 + 8), *(unsigned __int16 *)(a1 + 48), *(uint32_t *)(a1 + 52));
+                sub_12A3F4(v18, *(uint32_t *)(v2 + 8), *(uint16_t *)(a1 + 48), *(uint32_t *)(a1 + 52));
                 return v8;
               }
             }
             return 0;
           }
 LABEL_38:
-          if ( v15 == 2 && *(unsigned __int8 *)(v49 + 35) <= 0x23u )
+          if ( v15 == 2 && *(uint8_t *)(v49 + 35) <= 0x23u )
           {
             v19 = *(char *)(a1 + 65);
             sub_101AEC();
@@ -294,7 +338,7 @@ LABEL_38:
           return 0;
         }
 LABEL_36:
-        sub_12AE74(*(unsigned __int8 *)(v16 + 1320 * v51 + 107), v11, 1);
+        sub_12AE74(*(uint8_t *)(v16 + 1320 * v51 + 107), v11, 1);
         v16 = dword_11D644;
         v8 = 0;
         goto LABEL_37;

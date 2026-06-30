@@ -1,13 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E5B8;
+extern uint32_t off_11E5BC;
+extern uint32_t dword_11E5C0;
+extern uint32_t dword_11E5C4;
+extern uint32_t dword_11E5D4;
+extern uint32_t off_11E5C8;
+extern uint32_t dword_11E5DC;
+extern uint32_t dword_11E5D8;
+extern uint32_t dword_11E5D0;
+extern uint32_t off_11E5CC;
+
 // sub_11E4D8 @ 0x11e4d8, size 222 bytes
 int sub_11E4D8()
 {
   int *v0; // r5
   int v1; // r0
   int result; // r0
-  unsigned __int16 *v3; // r4
+  uint16_t *v3; // r4
   int v4; // r3
   int v5; // r2
-  int ( *v6)(uint32_t, unsigned __int16 *, uint32_t, uint32_t); // r6
+  int ( *v6)(uint32_t, uint16_t *, uint32_t, uint32_t); // r6
   int v7; // r2
   int v8; // r3
   int v9; // r3
@@ -22,7 +45,7 @@ int sub_11E4D8()
   v1 = dword_11E5C0;
   ++*(uint32_t *)off_11E5BC;
   result = sub_11E7AC(v1);
-  v3 = (unsigned __int16 *)result;
+  v3 = (uint16_t *)result;
   if ( *v0 )
   {
     v4 = *v0 - 1;
@@ -36,9 +59,9 @@ int sub_11E4D8()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, unsigned __int16 *, uint32_t, uint32_t))sub_11E3FC(
-                                                                           *(unsigned __int16 *)(result + 4),
-                                                                           *(unsigned __int16 *)(result + 6));
+    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))sub_11E3FC(
+                                                                           *(uint16_t *)(result + 4),
+                                                                           *(uint16_t *)(result + 6));
     msg_parse(dword_11E5C4, v3[2]);
     if ( v6 )
     {
@@ -52,7 +75,7 @@ int sub_11E4D8()
       }
       if ( result )
       {
-        if ( **(__int16 **)off_11E5C8 < 0 )
+        if ( **(int16_t **)off_11E5C8 < 0 )
           result = rf_cmd_send_n264(dword_11E5DC, dword_11E5D8, 360);
         goto LABEL_12;
       }

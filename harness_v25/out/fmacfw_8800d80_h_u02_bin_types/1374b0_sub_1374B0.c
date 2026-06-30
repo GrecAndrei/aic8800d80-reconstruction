@@ -1,5 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1374FC;
+
 // sub_1374B0 @ 0x1374b0, size 76 bytes
-int  sub_1374B0(unsigned __int16 *a1, int a2)
+int  sub_1374B0(uint16_t *a1, int a2)
 {
   int v2; // r3
   int v3; // r4
@@ -20,9 +34,9 @@ LABEL_3:
       if ( v2 == v3 )
         return 0;
     }
-    if ( *(unsigned __int16 *)(v2 + 2) != *a1 || *(unsigned __int16 *)(v2 + 4) != a1[1] )
+    if ( *(uint16_t *)(v2 + 2) != *a1 || *(uint16_t *)(v2 + 4) != a1[1] )
       goto LABEL_3;
-    if ( *(unsigned __int16 *)(v2 + 6) == a1[2] )
+    if ( *(uint16_t *)(v2 + 6) == a1[2] )
       return v2;
     v2 += 60;
   }

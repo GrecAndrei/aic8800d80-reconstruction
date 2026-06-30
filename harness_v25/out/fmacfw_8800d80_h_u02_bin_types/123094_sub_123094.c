@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123194;
+extern uint32_t dword_123198;
+extern uint32_t dword_1231A0;
+extern uint32_t dword_1231A4;
+extern uint32_t dword_1231A8;
+extern uint32_t dword_1231AC;
+extern uint32_t dword_12319C;
+
 // sub_123094 @ 0x123094, size 254 bytes
 int  sub_123094(int a1, int *a2, int a3, int a4)
 {
@@ -16,7 +36,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
   int v17; // r1
   int v18; // r2
   int v19; // r0
-  unsigned __int8 *v20; // r5
+  uint8_t *v20; // r5
   char v21; // r0
   int v22; // r1
   uint32_t *v23; // r5
@@ -31,7 +51,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
   switch ( v5 )
   {
     case 0:
-      v9 = *((unsigned __int8 *)a2 + 4);
+      v9 = *((uint8_t *)a2 + 4);
       *((uint8_t *)off_123194 + 373) = v9;
       v10 = dword_123198;
       *(uint8_t *)(v8 + 4) = v9;
@@ -39,8 +59,8 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       goto LABEL_3;
     case 1:
       v15 = off_123194;
-      v16 = *((unsigned __int8 *)a2 + 4);
-      v17 = *((unsigned __int8 *)off_123194 + 363);
+      v16 = *((uint8_t *)a2 + 4);
+      v17 = *((uint8_t *)off_123194 + 363);
       *((uint8_t *)off_123194 + 363) = v16;
       v18 = a2[2];
       v15[91] = v18;
@@ -55,7 +75,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
         {
           sub_1304D8();
         }
-        v17 = *((unsigned __int8 *)v15 + 363);
+        v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
       sub_12E948(dword_1231A0, v17, v18);
@@ -63,7 +83,7 @@ int  sub_123094(int a1, int *a2, int a3, int a4)
       result = 0;
       break;
     case 2:
-      v20 = (unsigned __int8 *)off_123194;
+      v20 = (uint8_t *)off_123194;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_123194 + 363);
       v21 = sub_130234();
       *(uint8_t *)(v8 + 5) = v21;

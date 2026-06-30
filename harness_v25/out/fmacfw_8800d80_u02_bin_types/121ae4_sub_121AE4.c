@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121BCC;
+extern uint32_t dword_121C00;
+extern uint32_t dword_121BFC;
+extern uint32_t dword_121BD0;
+extern uint32_t off_121BD4;
+extern uint32_t off_121C04;
+extern uint32_t off_121BD8;
+extern uint32_t off_121BDC;
+extern uint32_t dword_121BF8;
+extern uint32_t off_121BE4;
+extern uint32_t off_121BE8;
+extern uint32_t off_121BE0;
+extern uint32_t off_121BEC;
+extern uint32_t off_121BF0;
+extern uint32_t off_121BF4;
+
 // sub_121AE4 @ 0x121ae4, size 230 bytes
 // Doc: sub_1221AE4 [util]: Init/lookup routine reading global pointer and signed halfword state
 // sub_1221AE4 [util]: Init/lookup routine reading global pointer and signed halfword state
@@ -18,7 +46,7 @@ int sub_121AE4()
   int v12; // r3
   int v13; // r2
 
-  if ( **(__int16 **)off_121BCC < 0 && msg_get_value(0) == 4 )
+  if ( **(int16_t **)off_121BCC < 0 && msg_get_value(0) == 4 )
     sub_12F46C(dword_121C00, dword_121BFC, 1799);
   feature_guard_check(4, dword_121BD0);
   if ( (__get_CPSR() & 1) == 0 )
@@ -49,7 +77,7 @@ int sub_121AE4()
     while ( (*v7 & *v6 & 4) == 0 )
       ;
   }
-  v9 = *((unsigned __int8 *)off_121BEC + 90);
+  v9 = *((uint8_t *)off_121BEC + 90);
   *(uint32_t *)off_121BF0 = 4;
   if ( v9 )
     sub_117A24();

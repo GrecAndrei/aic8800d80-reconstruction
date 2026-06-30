@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117CBC;
+extern uint32_t dword_117CC0;
+extern uint32_t dword_117CB4;
+extern uint32_t dword_117CB8;
+
 // fw_init_umac_subsystem @ 0x117bbc, size 246 bytes
 // Doc: fw_init_umac_subsystem [util]: Initialize UMAC subsystem with 0x1f000 base
 // fw_init_umac_subsystem [util]: Initialize UMAC subsystem with 0x1f000 base
@@ -15,7 +32,7 @@ uint64_t fw_init_umac_subsystem()
   int inited; // r0
   int v10; // r0
   int v11; // r0
-  __int16 v12; // r7
+  int16_t v12; // r7
   char *v13; // r0
   int i; // r6
   int v15; // r2
@@ -34,9 +51,9 @@ uint64_t fw_init_umac_subsystem()
   v6 = 0;
   do
   {
-    v7 = (unsigned __int8)v6;
+    v7 = (uint8_t)v6;
     sub_12D240(v5);
-    sub_118940((unsigned __int8)v6++, v1, v5);
+    sub_118940((uint8_t)v6++, v1, v5);
     sub_118940(v7, v4, v5);
     v1 += 8;
     v5 += 8;
@@ -71,7 +88,7 @@ uint64_t fw_init_umac_subsystem()
       do
         sub_13AF24();
       while ( rf_bus_mark_n100_d2d0(v3) );
-      sub_11A7E8((unsigned __int8)i);
+      sub_11A7E8((uint8_t)i);
     }
     v3 += 8;
   }

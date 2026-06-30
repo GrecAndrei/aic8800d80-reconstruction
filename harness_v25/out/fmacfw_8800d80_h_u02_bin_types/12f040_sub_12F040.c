@@ -1,3 +1,61 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F21C;
+extern uint32_t off_12F2B8;
+extern uint32_t off_12F220;
+extern uint32_t off_12F224;
+extern uint32_t off_12F2BC;
+extern uint32_t off_12F2C0;
+extern uint32_t off_12F228;
+extern uint32_t dword_12F218;
+extern uint32_t off_12F214;
+extern uint32_t dword_12F230;
+extern uint32_t off_12F22C;
+extern uint32_t dword_12F234;
+extern uint32_t dword_12F238;
+extern uint32_t dword_12F23C;
+extern uint32_t dword_12F240;
+extern uint32_t dword_12F244;
+extern uint32_t dword_12F248;
+extern uint32_t dword_12F25C;
+extern uint32_t off_12F24C;
+extern uint32_t off_12F250;
+extern uint32_t off_12F254;
+extern uint32_t off_12F258;
+extern uint32_t off_12F2C4;
+extern uint32_t dword_12F260;
+extern uint32_t dword_12F264;
+extern uint32_t dword_12F268;
+extern uint32_t dword_12F26C;
+extern uint32_t dword_12F270;
+extern uint32_t off_12F2B0;
+extern uint32_t dword_12F2B4;
+extern uint32_t dword_12F274;
+extern uint32_t off_12F278;
+extern uint32_t dword_12F27C;
+extern uint32_t off_12F280;
+extern uint32_t dword_12F284;
+extern uint32_t dword_12F28C;
+extern uint32_t off_12F288;
+extern uint32_t dword_12F294;
+extern uint32_t off_12F290;
+extern uint32_t dword_12F29C;
+extern uint32_t off_12F298;
+extern uint32_t dword_12F2A4;
+extern uint32_t off_12F2A0;
+extern uint32_t dword_12F2AC;
+extern uint32_t off_12F2A8;
+
 // sub_12F040 @ 0x12f040, size 468 bytes
 int sub_12F040()
 {
@@ -15,7 +73,7 @@ int sub_12F040()
   int v11; // r6
   uint32_t *v12; // r5
   int v13; // r4
-  bool v15; // nf
+  int v15; // nf
   uint32_t **v16; // r3
 
   v0 = off_12F21C;
@@ -115,7 +173,7 @@ LABEL_6:
   {
     sub_12E948(v11, *v10, v7);
     sub_12E948(dword_12F284, *v12);
-    v13 = (unsigned __int8)(v13 - 1);
+    v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
   sub_12E948(dword_12F28C, *(uint32_t *)off_12F288);

@@ -1,7 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1327B4;
+extern uint32_t off_1327AC;
+extern uint32_t dword_1327B0;
+
 // sub_13267C @ 0x13267c, size 302 bytes
 BOOL  sub_13267C(int a1, int a2)
 {
-  unsigned __int8 *v2; // r8
+  uint8_t *v2; // r8
   unsigned int v3; // r6
   unsigned int v4; // r5
   int v7; // r3
@@ -16,9 +32,9 @@ BOOL  sub_13267C(int a1, int a2)
   unsigned int v17; // r2
   unsigned int v18; // r1
 
-  v2 = (unsigned __int8 *)off_1327B4;
-  v3 = *((unsigned __int8 *)off_1327B4 + 373);
-  v4 = *((unsigned __int8 *)off_1327B4 + 372);
+  v2 = (uint8_t *)off_1327B4;
+  v3 = *((uint8_t *)off_1327B4 + 373);
+  v4 = *((uint8_t *)off_1327B4 + 372);
   if ( (*(uint8_t *)off_1327AC & 8) == 0 )
   {
     sub_12ECB0(dword_1327B0);
@@ -27,7 +43,7 @@ BOOL  sub_13267C(int a1, int a2)
   v7 = *(uint32_t *)(a1 + 4);
   if ( (v7 & 0x20) != 0 )
   {
-    v8 = *(unsigned __int8 *)(a1 + 258);
+    v8 = *(uint8_t *)(a1 + 258);
     v9 = v8 >> 1;
     if ( (v8 & 0x10) != 0 )
     {
@@ -57,7 +73,7 @@ LABEL_9:
         if ( v3 >= v10 )
           v13 = v10;
         *(uint8_t *)(a1 + 308) = v13;
-        v14 = *(unsigned __int8 *)(a2 + 165);
+        v14 = *(uint8_t *)(a2 + 165);
         if ( v14 != 4 )
           goto LABEL_12;
         if ( v13 == 4 )
@@ -70,7 +86,7 @@ LABEL_31:
       }
       v10 = 3;
     }
-    v11 = (*(unsigned __int8 *)(a1 + 260) >> 3) & (*(unsigned __int8 *)(a1 + 265) >> 7);
+    v11 = (*(uint8_t *)(a1 + 260) >> 3) & (*(uint8_t *)(a1 + 265) >> 7);
     goto LABEL_7;
   }
   if ( (v7 & 4) != 0 )
@@ -102,7 +118,7 @@ LABEL_31:
     }
     goto LABEL_9;
   }
-  v12 = *(unsigned __int16 *)(a1 + 208);
+  v12 = *(uint16_t *)(a1 + 208);
   v18 = (v12 >> 8) & 3;
   if ( (v12 & 2) != 0 )
   {
@@ -110,7 +126,7 @@ LABEL_31:
     if ( v3 )
       v13 = 1;
     *(uint8_t *)(a1 + 308) = v13;
-    v14 = *(unsigned __int8 *)(a2 + 165);
+    v14 = *(uint8_t *)(a2 + 165);
     if ( v4 >= v18 )
       v4 = (v12 >> 8) & 3;
     if ( v14 != 4 )

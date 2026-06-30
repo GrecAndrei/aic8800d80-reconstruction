@@ -1,14 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_142F2C @ 0x142f2c, size 158 bytes
 unsigned int  sub_142F2C(unsigned int a1, int a2)
 {
   unsigned int v2; // r12
-  bool v3; // cf
-  bool v4; // cc
+  int v3; // cf
+  int v4; // cc
   int v5; // r3
   int v6; // r2
   unsigned int result; // r0
   unsigned int v8; // r2
-  bool v9; // zf
+  int v9; // zf
   unsigned int v10; // r0
 
   v3 = (unsigned int)(2 * a2) >= 0x70000000;

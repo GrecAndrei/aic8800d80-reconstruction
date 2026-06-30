@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114D28;
+extern uint32_t off_114D2C;
+extern uint32_t dword_114D30;
+
 // sub_114C30 @ 0x114c30, size 248 bytes
 // Doc: patch_230_apply_rf_init [rf]: Applies firmware patch #230 by reading a 5-dword patch descriptor from REG_2007_ff4c..0x2007ff5c and copying 4 bytes from stack buffer to destination via 0x143770.
 // patch_230_apply_rf_init [rf]: Applies firmware patch #230 by reading a 5-dword patch descriptor from REG_2007_ff4c..0x2007ff5c and copying 4 bytes from stack buffer to destination via 0x143770.

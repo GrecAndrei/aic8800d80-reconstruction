@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11558C;
+extern uint32_t off_1155A4;
+extern uint32_t dword_1155AC;
+extern uint32_t dword_115594;
+
 // sub_1154D8 @ 0x1154d8, size 180 bytes
 // Doc: sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
 // sdio_buffer_prepare_n_11c [util]: Initializes SDIO buffer descriptor chain
@@ -14,27 +31,27 @@ int sub_1154D8()
     result = feature_guard_check(2, patch_apply_n2e0);
     v2 = ipc_doorbell_handler_n_3dc;
     *v0 = 1;
-    if ( (unsigned __int16)*v2 )
+    if ( (uint16_t)*v2 )
     {
       switch ( *(uint8_t *)off_1155A4 )
       {
         case 1:
-          v3 = 700 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 700 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
         case 2:
-          v3 = 500 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 500 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
         case 3:
-          v3 = 300 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 300 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
         case 4:
-          v3 = 200 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 200 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
         case 5:
-          v3 = 100 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 100 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
         default:
-          v3 = 100 * (unsigned __int16)*(uint32_t *)ipc_doorbell_handler_n_3dc;
+          v3 = 100 * (uint16_t)*(uint32_t *)ipc_doorbell_handler_n_3dc;
           break;
       }
       return timestamp_update(dword_1155AC, *((uint32_t *)ipc_doorbell_handler_n_3d4 + 4) + v3);

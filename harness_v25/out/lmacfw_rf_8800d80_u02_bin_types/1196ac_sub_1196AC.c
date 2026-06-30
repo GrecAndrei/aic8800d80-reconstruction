@@ -1,8 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_119724;
+extern uint32_t dword_119728;
+
 // sub_1196AC @ 0x1196ac, size 120 bytes
 int  sub_1196AC(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r4
-  unsigned __int16 v5; // r3
+  uint16_t v5; // r3
   unsigned int v6; // r2
   int v7; // r0
   unsigned int v9; // [sp+0h] [bp-14h] BYREF

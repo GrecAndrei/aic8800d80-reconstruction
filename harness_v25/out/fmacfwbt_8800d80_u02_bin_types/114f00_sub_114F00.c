@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_114F00 @ 0x114f00, size 90 bytes
 // Doc: sub_1214F00 [unknown]: Unidentified function at 0x1214F00
 // sub_1214F00 [unknown]: Unidentified function at 0x1214F00
@@ -7,7 +19,7 @@ int  sub_114F00(uint32_t *a1, unsigned int *a2)
   unsigned int v5; // r0
   unsigned int v6; // r4
   int v7; // r4
-  unsigned __int16 v8; // r0
+  uint16_t v8; // r0
   unsigned int v9; // r3
   int result; // r0
 

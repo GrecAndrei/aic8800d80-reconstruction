@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F6EC;
+extern uint32_t dword_12F6F4;
+extern uint32_t dword_12F6F8;
+extern uint32_t off_12F6F0;
+
 // sub_12F65C @ 0x12f65c, size 144 bytes
 unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
 {
@@ -6,8 +23,8 @@ unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
   uint8_t *v8; // r9
   int v9; // r3
   int v10; // r8
-  unsigned __int8 *v11; // r4
-  unsigned __int8 *v12; // r6
+  uint8_t *v11; // r4
+  uint8_t *v12; // r6
   int v13; // t1
 
   v3 = a2 - 1;
@@ -28,8 +45,8 @@ unsigned int  sub_12F65C(unsigned int a1, int a2, int a3)
     if ( v3 > a1 )
     {
       v10 = dword_12F6F8;
-      v11 = (unsigned __int8 *)(a1 - 1);
-      v12 = (unsigned __int8 *)(a2 - 2);
+      v11 = (uint8_t *)(a1 - 1);
+      v12 = (uint8_t *)(a2 - 2);
       do
       {
         while ( 1 )

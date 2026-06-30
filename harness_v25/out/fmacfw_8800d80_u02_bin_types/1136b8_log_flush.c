@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1137E0;
+extern uint32_t off_1137E4;
+extern uint32_t off_1137FC;
+
 // log_flush @ 0x1136b8, size 294 bytes
 // Doc: rf_stream_start2_n314_3704 [rf]: RF stream start: loads callback table and invokes dispatch function
 // rf_stream_start2_n314_3704 [rf]: RF stream start: loads callback table and invokes dispatch function
@@ -26,7 +42,7 @@ void log_flush()
       feature_guard_check(512, rf_msg_process_body_n_440);
       return;
     }
-    if ( *(unsigned __int8 *)rf_stream_start2_n3f8_37e8 >= (unsigned int)*(unsigned __int16 *)rf_msg_process_body_n_45c )
+    if ( *(uint8_t *)rf_stream_start2_n3f8_37e8 >= (unsigned int)*(uint16_t *)rf_msg_process_body_n_45c )
     {
       v13 = rf_cmd_queue_next_n340;
       *(uint8_t *)off_1137E4 = 1;
@@ -37,7 +53,7 @@ void log_flush()
   {
     if ( *(uint8_t *)off_1137E4 )
       return;
-    if ( *(unsigned __int8 *)rf_stream_start2_n3f8_37e8 >= (unsigned int)*(unsigned __int16 *)rf_msg_process_body_n_45c
+    if ( *(uint8_t *)rf_stream_start2_n3f8_37e8 >= (unsigned int)*(uint16_t *)rf_msg_process_body_n_45c
       && !*(uint8_t *)off_1137E4 )
     {
       *(uint8_t *)off_1137E4 = 1;

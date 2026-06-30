@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1100A0;
+extern uint32_t dword_110094;
+extern uint32_t off_110098;
+extern uint32_t dword_11009C;
+
 // log_pool_init_b @ 0x11004c, size 72 bytes
 // Doc: log_pool_init_b [util]: Initialize log pool B using descriptors at 0x187e68/0x182ba0
 // log_pool_init_b [util]: Initialize log pool B using descriptors at 0x187e68/0x182ba0
@@ -23,11 +40,11 @@ int log_pool_init_b()
     {
       sub_10F9E8(v3, 0x63Cu);
       result = sub_12D108(v4);
-      v6 = *(unsigned __int16 *)(*(uint32_t *)v0 + 6);
+      v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (unsigned __int16)v5 );
+    while ( v6 > (uint16_t)v5 );
   }
   return result;
 }

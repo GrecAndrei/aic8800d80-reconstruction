@@ -1,11 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_14329C @ 0x14329c, size 140 bytes
 int  sub_14329C(uint64_t a1)
 {
-  bool v1; // zf
+  int v1; // zf
   unsigned int v2; // r12
   int v3; // r3
   signed int v4; // r2
-  bool v5; // cc
+  int v5; // cc
   int v6; // r2
   int v7; // r3
   int v8; // r12

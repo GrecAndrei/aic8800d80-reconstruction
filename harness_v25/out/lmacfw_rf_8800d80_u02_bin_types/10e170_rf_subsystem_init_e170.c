@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E1FC;
+extern uint32_t off_10E200;
+extern uint32_t dword_10E204;
+extern uint32_t dword_10E208;
+extern uint32_t dword_10E20C;
+extern uint32_t dword_10E210;
+
 // rf_subsystem_init_e170 @ 0x10e170, size 138 bytes
 // Doc: rf_subsystem_init_e170 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
 // rf_subsystem_init_e170 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000

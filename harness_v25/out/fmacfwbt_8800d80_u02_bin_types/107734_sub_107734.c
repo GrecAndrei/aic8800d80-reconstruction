@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107808;
+extern uint32_t off_10780C;
+extern uint32_t off_107810;
+extern uint32_t dword_107820;
+extern uint32_t dword_107814;
+extern uint32_t dword_107818;
+extern uint32_t off_10781C;
+
 // sub_107734 @ 0x107734, size 212 bytes
 int  sub_107734(int a1, uint32_t *a2, int a3)
 {
@@ -17,7 +37,7 @@ int  sub_107734(int a1, uint32_t *a2, int a3)
   v5 = (int *)off_107810;
   v6 = dword_107820;
   v7 = dword_107814;
-  v8 = *(QWORD *)(a1 + 8);
+  v8 = *(uint64_t *)(a1 + 8);
   sub_107370();
   *v3 &= ~1u;
   delay_us(20);

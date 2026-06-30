@@ -1,7 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B0C4;
+extern uint32_t dword_11B0B8;
+extern uint32_t off_11B0BC;
+extern uint32_t dword_11B0CC;
+extern uint32_t dword_11B0C8;
+extern uint32_t dword_11B0C0;
+extern uint32_t off_11B0B0;
+extern uint32_t off_11B0B4;
+
 // fm_rx_frame_handler @ 0x11ae30, size 638 bytes
 // Doc: fm_rx_frame_handler [rx]: Handle received frame in FMAC
 // fm_rx_frame_handler [rx]: Handle received frame in FMAC
-int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
+int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   uint32_t *v6; // r10
@@ -34,10 +55,10 @@ int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, unsi
   {
     if ( (*(uint16_t *)(a1 + 82) & 4) == 0 )
       return 0;
-    v16 = *(unsigned __int16 *)(a1 + 4);
+    v16 = *(uint16_t *)(a1 + 4);
     if ( !*(uint16_t *)(a1 + 4) || (*(uint16_t *)(a1 + 30) & 8) != 0 )
     {
-      if ( a3 >= (unsigned __int16)(((v6[9] + 3) & 0xFFFC) + 4) )
+      if ( a3 >= (uint16_t)(((v6[9] + 3) & 0xFFFC) + 4) )
         goto LABEL_32;
     }
     else
@@ -45,7 +66,7 @@ int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, unsi
       v26 = (uint16_t *)v6[7];
       if ( !v26 || (*v26 & 0x8000) != 0 )
       {
-        if ( a3 >= (unsigned __int16)(((v6[9] + 3) & 0xFFFC) + 4) )
+        if ( a3 >= (uint16_t)(((v6[9] + 3) & 0xFFFC) + 4) )
         {
           if ( !v26 )
             goto LABEL_32;
@@ -55,19 +76,19 @@ int  fm_rx_frame_handler(int a1, int *a2, unsigned int a3, unsigned int a4, unsi
       }
       else
       {
-        *v26 = ~((unsigned int)~((unsigned __int16)*v26 << 17) >> 17);
+        *v26 = ~((unsigned int)~((uint16_t)*v26 << 17) >> 17);
         v27 = *(uint8_t *)(a1 + 51) + 4;
         *(uint8_t *)(a1 + 50) += 4;
         *(uint8_t *)(a1 + 51) = v27;
         v28 = v6[9];
-        v29 = (unsigned __int16)(((v28 + 7) & 0xFFFC) + 4);
+        v29 = (uint16_t)(((v28 + 7) & 0xFFFC) + 4);
         v16 = v28 + 4;
         v30 = v6[8] + 4;
         v6[8] = v30;
         v6[9] = v16;
         if ( v29 <= a3 )
         {
-          v16 = *(unsigned __int16 *)(a1 + 4);
+          v16 = *(uint16_t *)(a1 + 4);
           if ( !*(uint16_t *)(a1 + 4) || (*(uint16_t *)(a1 + 30) & 8) != 0 )
             goto LABEL_32;
 LABEL_31:
@@ -82,7 +103,7 @@ LABEL_20:
             {
               v22 = rf_bus_mark_n100_d2d0(dword_11B0B8);
               v23 = v22;
-              if ( **(__int16 **)off_11B0BC < 0 && !v22 )
+              if ( **(int16_t **)off_11B0BC < 0 && !v22 )
                 sub_12F46C(dword_11B0CC, dword_11B0C8, 3646);
               *(uint8_t *)(v23 + 14) = 1;
               *(uint32_t *)(v23 + 40) = v6[9];
@@ -111,20 +132,20 @@ LABEL_20:
     return 0;
   v12 = *(uint32_t *)(a1 + 68);
   if ( (*(uint16_t *)(v12 + 8) & 3) != 3
-    || *(unsigned __int8 *)(*(uint32_t *)off_11B0B4 + 62) > (*(uint32_t *)off_11B0B0 & 0x3Fu) )
+    || *(uint8_t *)(*(uint32_t *)off_11B0B4 + 62) > (*(uint32_t *)off_11B0B0 & 0x3Fu) )
   {
     return 0;
   }
   if ( *(uint32_t *)(v12 + 40) > a3 )
     return sub_11A45C(a1, a2, a3, a4, a5);
-  sub_119448((__int16 *)a1);
+  sub_119448((int16_t *)a1);
   v13 = *(uint32_t *)(a1 + 36);
   v14 = **(uint32_t **)(v12 + 324);
   *a2 = v14;
   if ( v14 )
   {
     v15 = v13 & 0x200000;
-    v16 = *(unsigned __int16 *)(a1 + 4);
+    v16 = *(uint16_t *)(a1 + 4);
     v17 = off_11B0B0;
     v18 = off_11B0B4;
     v19 = v15;
@@ -134,7 +155,7 @@ LABEL_8:
       while ( (*(uint16_t *)(a1 + 30) & 8) == 0
            && *(uint16_t *)(v14 + 4)
            && (*(uint16_t *)(v14 + 30) & 8) == 0
-           && *(unsigned __int8 *)(*(uint32_t *)v18 + 62) <= (*v17 & 0x3Fu) )
+           && *(uint8_t *)(*(uint32_t *)v18 + 62) <= (*v17 & 0x3Fu) )
       {
         v20 = *(uint32_t *)(v14 + 36);
         if ( v19 )

@@ -1,10 +1,49 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D338;
+extern uint32_t off_10D340;
+extern uint32_t off_10D344;
+extern uint32_t off_10D33C;
+extern uint32_t dword_10D430;
+extern uint32_t dword_10D42C;
+extern uint32_t dword_10D438;
+extern uint32_t dword_10D434;
+extern uint32_t dword_10D364;
+extern uint32_t off_10D360;
+extern uint32_t dword_10D410;
+extern uint32_t off_10D34C;
+extern uint32_t off_10D414;
+extern uint32_t off_10D418;
+extern uint32_t dword_10D41C;
+extern uint32_t dword_10D420;
+extern uint32_t dword_10D424;
+extern uint32_t off_10D354;
+extern uint32_t off_10D358;
+extern uint32_t dword_10D368;
+extern uint32_t dword_10D370;
+extern uint32_t dword_10D36C;
+extern uint32_t off_10D350;
+extern uint32_t dword_10D35C;
+extern uint32_t off_10D348;
+extern uint32_t dword_10D428;
+
 // sub_10D06C @ 0x10d06c, size 932 bytes
 // Doc: sub_120D06C [unknown]: Dispatches handler based on byte tag compare against 3
 // sub_120D06C [unknown]: Dispatches handler based on byte tag compare against 3
-int  sub_10D06C(unsigned __int16 *a1)
+int  sub_10D06C(uint16_t *a1)
 {
-  unsigned __int8 **v1; // r7
-  unsigned __int8 *v2; // r2
+  uint8_t **v1; // r7
+  uint8_t *v2; // r2
   int v3; // r3
   int v5; // r6
   int v6; // r5
@@ -15,10 +54,10 @@ int  sub_10D06C(unsigned __int16 *a1)
   uint32_t *v11; // r3
   int v12; // r0
   int v13; // r1
-  __int16 v14; // lr
+  int16_t v14; // lr
   uint8_t *v15; // r6
   unsigned int v16; // r2
-  __int16 v17; // r12
+  int16_t v17; // r12
   int v18; // r8
   int *v19; // r3
   int v20; // r10
@@ -33,10 +72,10 @@ int  sub_10D06C(unsigned __int16 *a1)
   int *v29; // r0
   int v30; // r1
   int v31; // r2
-  unsigned __int16 v32; // r2
-  unsigned __int16 v34; // r1
-  unsigned __int16 v35; // r2
-  unsigned __int8 *v36; // r3
+  uint16_t v32; // r2
+  uint16_t v34; // r1
+  uint16_t v35; // r2
+  uint8_t *v36; // r3
   int *v37; // r6
   int v38; // r0
   int v39; // r3
@@ -53,9 +92,9 @@ int  sub_10D06C(unsigned __int16 *a1)
   int v50; // r0
   int v51; // [sp+0h] [bp-8h]
 
-  v1 = (unsigned __int8 **)off_10D338;
-  v2 = *(unsigned __int8 **)off_10D338;
-  v3 = **(unsigned __int8 **)off_10D338;
+  v1 = (uint8_t **)off_10D338;
+  v2 = *(uint8_t **)off_10D338;
+  v3 = **(uint8_t **)off_10D338;
   if ( v3 != 3 )
   {
     v5 = 0;
@@ -66,7 +105,7 @@ int  sub_10D06C(unsigned __int16 *a1)
     ;
   if ( !*(uint32_t *)(*(uint32_t *)off_10D344 + 516) )
   {
-    v45 = **(__int16 **)off_10D33C;
+    v45 = **(int16_t **)off_10D33C;
     *(uint32_t *)off_10D340 = 1;
     if ( v45 >= 0 )
     {
@@ -76,7 +115,7 @@ int  sub_10D06C(unsigned __int16 *a1)
     goto LABEL_71;
   }
   v42 = sub_11E7AC(*(uint32_t *)off_10D344 + 516);
-  v43 = **(__int16 **)off_10D33C;
+  v43 = **(int16_t **)off_10D33C;
   *v41 = 1;
   if ( v43 < 0 )
   {
@@ -201,7 +240,7 @@ LABEL_6:
   *(uint16_t *)(v5 + 6) = v8;
   if ( v8 )
   {
-    if ( **(__int16 **)off_10D33C < 0 && v8 > 0x80 )
+    if ( **(int16_t **)off_10D33C < 0 && v8 > 0x80 )
     {
       rf_cmd_send_n264(dword_10D370, dword_10D36C, 1671);
       v8 = a1[5];
@@ -217,8 +256,8 @@ LABEL_16:
       v12 = a1[5];
       if ( (v12 & 3) != 0 )
       {
-        v14 = (unsigned __int8)(4 - (v12 & 3));
-        v13 = (unsigned __int8)(4 - (v12 & 3));
+        v14 = (uint8_t)(4 - (v12 & 3));
+        v13 = (uint8_t)(4 - (v12 & 3));
       }
       else
       {
@@ -226,7 +265,7 @@ LABEL_16:
         v14 = 0;
       }
       v15 = off_10D34C;
-      v16 = *((unsigned __int16 *)off_10D34C + 4122);
+      v16 = *((uint16_t *)off_10D34C + 4122);
       if ( v16 > 0x186 )
       {
         v18 = 0;
@@ -311,7 +350,7 @@ LABEL_27:
   v32 = a1[5];
   v29[1] = 0;
   *v29 = v6;
-  v29[2] = (unsigned __int16)(v32 + 16) | 0x80000000;
+  v29[2] = (uint16_t)(v32 + 16) | 0x80000000;
   rf_field_align_n_2a4();
   return sub_11DEE8(a1);
 }

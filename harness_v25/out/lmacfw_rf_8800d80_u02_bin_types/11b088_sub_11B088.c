@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11B1A0;
+extern uint32_t off_11B198;
+extern uint32_t off_11B19C;
+
 // sub_11B088 @ 0x11b088, size 272 bytes
 int  sub_11B088(int a1, int a2, unsigned int a3)
 {
@@ -15,7 +31,7 @@ int  sub_11B088(int a1, int a2, unsigned int a3)
   int v16; // r0
   int v17; // r3
   char *v18; // r1
-  bool v19; // zf
+  int v19; // zf
   int v20; // r3
   char *v21; // r3
   int result; // r0
@@ -23,7 +39,7 @@ int  sub_11B088(int a1, int a2, unsigned int a3)
   v3 = dword_11B1A0;
   v4 = *((uint32_t *)off_11B198 + 4);
   v5 = *(uint32_t *)(a1 + 72);
-  v6 = *(unsigned __int8 *)(v4 + 8);
+  v6 = *(uint8_t *)(v4 + 8);
   v7 = *(uint32_t *)(v4 + 4) - 4000;
   v10 = v7 - a2 - sub_101A20();
   if ( *(uint32_t *)(v3 + 224 * v6 + 72) == v5 )
@@ -40,17 +56,17 @@ int  sub_11B088(int a1, int a2, unsigned int a3)
       rf_init_or_query();
       v16 = a2;
     }
-    v17 = *(unsigned __int8 *)(v5 + 24);
+    v17 = *(uint8_t *)(v5 + 24);
     v18 = (char *)off_11B19C;
     if ( v17 == 2 )
     {
-      if ( *((unsigned __int8 *)off_11B19C + 24) != 255 )
+      if ( *((uint8_t *)off_11B19C + 24) != 255 )
         goto LABEL_18;
       v20 = 1;
     }
     else
     {
-      if ( *((unsigned __int8 *)off_11B19C + 28 * v17 + 52) != 255 )
+      if ( *((uint8_t *)off_11B19C + 28 * v17 + 52) != 255 )
       {
         v18 = (char *)off_11B19C + 28 * v17 + 28;
 LABEL_18:
@@ -63,8 +79,8 @@ LABEL_18:
         v20 = 0;
     }
     v21 = (char *)off_11B19C + 28 * v20;
-    if ( (unsigned __int8)v21[24] == 255 )
-      v18 = nullptr;
+    if ( (uint8_t)v21[24] == 255 )
+      v18 = 0;
     else
       v18 = v21;
     goto LABEL_18;

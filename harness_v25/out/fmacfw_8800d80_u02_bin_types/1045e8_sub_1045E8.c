@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1045E8 @ 0x1045e8, size 48 bytes
 int  sub_1045E8(int a1, int a2, uint32_t *a3)
 {
@@ -7,7 +19,7 @@ int  sub_1045E8(int a1, int a2, uint32_t *a3)
 
   v3 = a3[rf_bus_reset_0(a1, a2, a3)];
   v4 = (unsigned int)v3 >> 20;
-  v5 = (unsigned __int16)v3 >> 4;
+  v5 = (uint16_t)v3 >> 4;
   if ( v3 < 0 )
     v4 -= 4096;
   if ( (((unsigned int)v3 >> 4) & 0x800) != 0 )

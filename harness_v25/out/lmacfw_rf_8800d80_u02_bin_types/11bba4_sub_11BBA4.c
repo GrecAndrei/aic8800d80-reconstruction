@@ -1,7 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11BD2C;
+extern uint32_t dword_11BD30;
+extern uint32_t off_11BD34;
+extern uint32_t dword_11BD38;
+extern uint32_t dword_11BD40;
+extern uint32_t off_11BD3C;
+
 // sub_11BBA4 @ 0x11bba4, size 392 bytes
 // Doc: sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
 // sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
-int  sub_11BBA4(unsigned __int8 *a1, int a2)
+int  sub_11BBA4(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -10,7 +29,7 @@ int  sub_11BBA4(unsigned __int8 *a1, int a2)
   char v8; // r3
   int v10; // r0
   uint8_t *v11; // r2
-  __int16 v12; // r2
+  int16_t v12; // r2
   unsigned int v13; // r2
   int v14; // r3
   uint8_t *v15; // r2
@@ -24,9 +43,9 @@ int  sub_11BBA4(unsigned __int8 *a1, int a2)
   {
     if ( v5 == 1 )
     {
-      if ( (unsigned __int8)v2[136] == 255 )
+      if ( (uint8_t)v2[136] == 255 )
         return 0;
-      v6 = (unsigned __int8)v2[128];
+      v6 = (uint8_t)v2[128];
       v7 = off_11BD34;
       if ( v6 > 3 )
       {
@@ -70,7 +89,7 @@ int  sub_11BBA4(unsigned __int8 *a1, int a2)
     }
     return 1;
   }
-  if ( (unsigned __int8)v2[136] == 255 && v2[128] != 4 )
+  if ( (uint8_t)v2[136] == 255 && v2[128] != 4 )
   {
     v2[136] = 4;
     v2[116] = a1[2];

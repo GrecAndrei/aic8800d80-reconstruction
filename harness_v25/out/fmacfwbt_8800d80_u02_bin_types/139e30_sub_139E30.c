@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_139F84;
+extern uint32_t dword_139F80;
+extern uint32_t off_139F8C;
+extern uint32_t dword_139F88;
+extern uint32_t dword_139F90;
+
 // sub_139E30 @ 0x139e30, size 336 bytes
 int  sub_139E30(char *a1, char a2, int a3)
 {
@@ -11,7 +29,7 @@ int  sub_139E30(char *a1, char a2, int a3)
   uint32_t *v13; // r1
   int v14; // r6
   unsigned int v15; // r3
-  unsigned __int16 v16; // [sp+6h] [bp-2h] BYREF
+  uint16_t v16; // [sp+6h] [bp-2h] BYREF
 
   if ( *a1 >= 0 )
     v4 = 24;
@@ -26,7 +44,7 @@ int  sub_139E30(char *a1, char a2, int a3)
   {
     v4 += 4;
   }
-  v6 = (unsigned __int8)(v4 + 6);
+  v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
   sub_14380C(&v16, &a1[v6], 2);
   v8 = a1[4] & 1;
@@ -41,21 +59,21 @@ int  sub_139E30(char *a1, char a2, int a3)
   {
     if ( v16 == 8 )
     {
-      v10 = (unsigned __int8)v7[11];
+      v10 = (uint8_t)v7[11];
       if ( v10 == 2 )
       {
-        sub_12ECB0(dword_139F84, (unsigned __int8)v7[10], 2, 8);
+        sub_12ECB0(dword_139F84, (uint8_t)v7[10], 2, 8);
         return v8;
       }
       if ( v10 == 17 )
       {
         v12 = &a1[4 * (v7[2] & 0xF) + 2 + v6];
-        if ( (unsigned __int8)*(v12 - 4) == 239
-          && (unsigned __int8)*(v12 - 3) == 255
-          && (unsigned __int8)*(v12 - 2) == 255
-          && (unsigned __int8)*(v12 - 1) == 250 )
+        if ( (uint8_t)*(v12 - 4) == 239
+          && (uint8_t)*(v12 - 3) == 255
+          && (uint8_t)*(v12 - 2) == 255
+          && (uint8_t)*(v12 - 1) == 250 )
         {
-          sub_12ECB0(dword_139F80, (unsigned __int8)v12[3] | ((unsigned __int8)v12[2] << 8));
+          sub_12ECB0(dword_139F80, (uint8_t)v12[3] | ((uint8_t)v12[2] << 8));
           return v8;
         }
       }
@@ -64,12 +82,12 @@ int  sub_139E30(char *a1, char a2, int a3)
   }
   if ( v7[8] == 58 )
   {
-    v11 = (unsigned __int8)v7[42];
+    v11 = (uint8_t)v7[42];
     if ( v11 == 134 )
     {
       v13 = off_139F8C;
       v14 = dword_139F88 + 696 * a3;
-      v15 = (unsigned __int8)v7[49] | ((unsigned __int8)v7[48] << 8);
+      v15 = (uint8_t)v7[49] | ((uint8_t)v7[48] << 8);
       *(uint16_t *)(v14 + 690) = _byteswap_ushort(*((uint16_t *)v7 + 24));
       if ( (int)(*(uint32_t *)(v14 + 692) - v13[4] + dword_139F90 * (v15 >> 1)) < 0 )
       {
@@ -78,8 +96,8 @@ int  sub_139E30(char *a1, char a2, int a3)
       }
       return 0;
     }
-    return v11 == 136 || v11 == 135 && ((unsigned __int8)v7[26] != 255 || v7[27] != 2);
+    return v11 == 136 || v11 == 135 && ((uint8_t)v7[26] != 255 || v7[27] != 2);
   }
-  return (unsigned __int8)(1 - v8);
+  return (uint8_t)(1 - v8);
 }
 

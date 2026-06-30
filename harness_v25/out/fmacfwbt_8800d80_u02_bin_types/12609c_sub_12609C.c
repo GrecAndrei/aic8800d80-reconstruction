@@ -1,12 +1,42 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1263B0;
+extern uint32_t off_1263C4;
+extern uint32_t dword_126640;
+extern uint32_t dword_12663C;
+extern uint32_t off_1263B4;
+extern uint32_t off_126648;
+extern uint32_t dword_126644;
+extern uint32_t dword_126660;
+extern uint32_t off_1263B8;
+extern uint32_t dword_12665C;
+extern uint32_t dword_126654;
+extern uint32_t dword_12664C;
+extern uint32_t off_1263C8;
+extern uint32_t off_126658;
+extern uint32_t dword_1263BC;
+extern uint32_t dword_126650;
+extern uint32_t off_1263C0;
+
 // sub_12609C @ 0x12609c, size 1438 bytes
 // Doc: sub_122609C [bt]: BT firmware initialization or configuration routine
 // sub_122609C [bt]: BT firmware initialization or configuration routine
 uint32_t * sub_12609C(uint32_t *result)
 {
-  __int16 **v1; // r9
+  int16_t **v1; // r9
   int v2; // r3
   int v3; // r2
-  bool v4; // zf
+  int v4; // zf
   int v5; // r2
   int v6; // r2
   int v7; // r3
@@ -16,7 +46,7 @@ uint32_t * sub_12609C(uint32_t *result)
   int v11; // r7
   int v12; // r3
   int v13; // r3
-  bool v14; // zf
+  int v14; // zf
   char *v15; // r4
   int v16; // r5
   uint64_t v17; // r0
@@ -89,19 +119,19 @@ uint32_t * sub_12609C(uint32_t *result)
   int vars8; // [sp+74h] [bp+8h]
 
   v71 = (int)result;
-  if ( *((unsigned __int8 *)off_1263B0 + 90) <= 1u )
+  if ( *((uint8_t *)off_1263B0 + 90) <= 1u )
     return result;
-  v1 = (__int16 **)off_1263C4;
-  if ( **(__int16 **)off_1263C4 < 0 )
+  v1 = (int16_t **)off_1263C4;
+  if ( **(int16_t **)off_1263C4 < 0 )
   {
-    v53 = *(unsigned __int8 *)(result[18] + 27);
-    if ( v53 != 255 && *((unsigned __int8 *)result + 107) != v53 )
+    v53 = *(uint8_t *)(result[18] + 27);
+    if ( v53 != 255 && *((uint8_t *)result + 107) != v53 )
       sub_12F694(dword_126640, dword_12663C, 691);
   }
   sub_126034(v71);
   v2 = *(uint32_t *)(v71 + 72);
   *(uint8_t *)(v2 + 27) = *(uint8_t *)(v71 + 107);
-  v3 = *(unsigned __int8 *)(v71 + 106);
+  v3 = *(uint8_t *)(v71 + 106);
   if ( *(uint8_t *)(v71 + 106) )
   {
     v4 = v3 == 2;
@@ -109,13 +139,13 @@ uint32_t * sub_12609C(uint32_t *result)
       v3 = v71;
     result = off_1263B4;
     if ( v4 )
-      v5 = *(unsigned __int16 *)(v3 + 222);
+      v5 = *(uint16_t *)(v3 + 222);
     else
       v5 = 102400;
     if ( v4 )
       v5 <<= 10;
     v74 = v5;
-    v6 = *(unsigned __int8 *)(v2 + 24);
+    v6 = *(uint8_t *)(v2 + 24);
     v7 = v6 + 1;
     if ( v6 != 2 )
     {
@@ -134,13 +164,13 @@ LABEL_12:
   else
   {
     result = off_126648;
-    v74 = *(uint32_t *)(dword_126644 + 696 * *(unsigned __int8 *)(v71 + 116) + 8);
-    v6 = *(unsigned __int8 *)(v2 + 24);
+    v74 = *(uint32_t *)(dword_126644 + 696 * *(uint8_t *)(v71 + 116) + 8);
+    v6 = *(uint8_t *)(v2 + 24);
     v7 = v6 + 1;
     if ( v6 != 2 )
       goto LABEL_12;
   }
-  if ( *((unsigned __int8 *)result + 24) == 255 )
+  if ( *((uint8_t *)result + 24) == 255 )
   {
     v7 = 1;
 LABEL_15:
@@ -169,12 +199,12 @@ LABEL_16:
       v12 = *(uint32_t *)(v9 + 72);
       if ( !v12 || v12 == *(uint32_t *)(v71 + 72) )
         goto LABEL_18;
-      v13 = *(unsigned __int8 *)(v9 + 106);
+      v13 = *(uint8_t *)(v9 + 106);
       if ( *(uint8_t *)(v9 + 106) )
       {
         v14 = v13 == 2;
         if ( v13 == 2 )
-          v13 = *(unsigned __int16 *)(v9 + 222);
+          v13 = *(uint16_t *)(v9 + 222);
         else
           v10 = 102400;
         if ( v14 )
@@ -182,7 +212,7 @@ LABEL_16:
       }
       else
       {
-        v10 = *(uint32_t *)(dword_126644 + 696 * *(unsigned __int8 *)(v9 + 116) + 8);
+        v10 = *(uint32_t *)(dword_126644 + 696 * *(uint8_t *)(v9 + 116) + 8);
       }
       if ( 2 * v74 <= v10 )
         v10 /= v10 / v74;
@@ -217,7 +247,7 @@ LABEL_59:
           *(v54 - 7) = result + 2500;
           v50 = 4 * v11;
         }
-        v51 = *(unsigned __int8 *)(v9 + 107);
+        v51 = *(uint8_t *)(v9 + 107);
         if ( v51 <= 0x1F )
           goto LABEL_62;
         result = (uint32_t *)sub_12F694(dword_126654, dword_12663C, 761);
@@ -252,7 +282,7 @@ LABEL_31:
       if ( *(uint32_t *)v15 == v10 )
       {
         v76 = *(uint32_t **)(v9 + 36);
-        v17 = *((QWORD *)v15 + 1);
+        v17 = *((uint64_t *)v15 + 1);
         v78 = *((uint32_t *)v15 + 2);
         v79 = HIDWORD(v17);
         v77 = (char *)(v76 + 2500);
@@ -307,7 +337,7 @@ LABEL_39:
         v31 = v74;
       v78 = v28[4] + 32 * *(uint32_t *)off_126658;
       v79 = v55 + 10000;
-      v56 = sub_125F18(v29, (unsigned int *)&v78, nullptr, v31);
+      v56 = sub_125F18(v29, (unsigned int *)&v78, 0, v31);
       v57 = v29[1];
       if ( (int)(*v29 - v78) >= 0 )
         v58 = v31 - v56;
@@ -317,7 +347,7 @@ LABEL_39:
       v75 = v58;
       if ( sub_10186C() + 4000 > v59 )
         v59 = sub_10186C() + 4000;
-      v60 = *((QWORD *)v29 - 1);
+      v60 = *((uint64_t *)v29 - 1);
       v61 = v59 - v75;
       v62 = v60 - 14000 - HIDWORD(v60) - sub_10186C() + v61;
       if ( !v69 )
@@ -356,7 +386,7 @@ LABEL_96:
     }
 LABEL_42:
     v32 = sub_10186C();
-    v33 = *(QWORD *)(v29 - 1);
+    v33 = *(uint64_t *)(v29 - 1);
     v34 = HIDWORD(v33) - 6000 - v32;
     v35 = sub_10186C();
     v36 = *(v29 - 2);
@@ -389,8 +419,8 @@ LABEL_42:
         v42 = *(v29 - 2);
         v78 = *(uint32_t *)(v39 + 36);
         v79 = v78 + 10000;
-        result = (uint32_t *)sub_125F18(v29, (unsigned int *)&v78, nullptr, v42);
-        if ( **v1 < 0 && *(unsigned __int8 *)(v39 + 86) != 255 )
+        result = (uint32_t *)sub_125F18(v29, (unsigned int *)&v78, 0, v42);
+        if ( **v1 < 0 && *(uint8_t *)(v39 + 86) != 255 )
           result = (uint32_t *)sub_12F694(dword_126650, dword_12663C, 876);
         v43 = v78;
         v44 = v29[1];

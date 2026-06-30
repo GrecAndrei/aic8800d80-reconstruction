@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10DE88;
+extern uint32_t off_10DE8C;
+extern uint32_t dword_10DE90;
+extern uint32_t dword_10DE94;
+extern uint32_t dword_10DE70;
+extern uint32_t dword_10DE78;
+extern uint32_t dword_10DE80;
+extern uint32_t dword_10DE84;
+
 // sub_10DDC8 @ 0x10ddc8, size 162 bytes
 int  sub_10DDC8(int result, int a2)
 {
@@ -25,8 +46,8 @@ int  sub_10DDC8(int result, int a2)
   v2[3] = v5 & v2[3] | 0x100230;
   if ( a2 > 0 )
   {
-    v6 = *(QWORD *)&dword_10DE70;
-    v7 = *(QWORD *)&dword_10DE78;
+    v6 = *(uint64_t *)&dword_10DE70;
+    v7 = *(uint64_t *)&dword_10DE78;
     v8 = (int *)result;
     v9 = (int *)(result + 4 * a2);
     do

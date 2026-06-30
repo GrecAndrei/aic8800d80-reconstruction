@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10C9F0;
+extern uint32_t off_10C9F8;
+extern uint32_t off_10CA10;
+extern uint32_t off_10C9F4;
+extern uint32_t off_10C9FC;
+extern uint32_t off_10CA00;
+extern uint32_t off_10CA04;
+extern uint32_t off_10CA08;
+extern uint32_t dword_10CA0C;
+
 // fmac_msg_alloc_wrapper @ 0x10c938, size 182 bytes
 // Doc: fmac_msg_alloc_wrapper [util]: Thin wrapper allocating/processing an fmac message
 // fmac_msg_alloc_wrapper [util]: Thin wrapper allocating/processing an fmac message

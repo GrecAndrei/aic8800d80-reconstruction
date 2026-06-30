@@ -1,7 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10A5AC;
+extern uint32_t dword_10A5A8;
+
 // sub_10A36C @ 0x10a36c, size 572 bytes
-int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
+int  sub_10A36C(int a1, unsigned int a2, uint8_t *a3, int *a4)
 {
-  unsigned __int8 *v6; // r6
+  uint8_t *v6; // r6
   uint8_t *v7; // r9
   int i; // r8
   int v9; // r2
@@ -39,7 +54,7 @@ int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
       v10 = 0;
       do
       {
-        if ( (unsigned __int8)i != (unsigned __int8)v9 )
+        if ( (uint8_t)i != (uint8_t)v9 )
         {
           if ( (uint8_t)v9 )
           {
@@ -51,7 +66,7 @@ int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
             v11 = 4 * v10;
             v30[v10] = 128.0;
           }
-          v10 = (unsigned __int8)(v10 + 1);
+          v10 = (uint8_t)(v10 + 1);
           *(float *)&var3C[v11 - 16] = (float)a4[v9];
         }
         ++v9;
@@ -71,7 +86,7 @@ int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
     v17 = 128;
     do
     {
-      v18 = *((unsigned __int8 *)v15 - 4);
+      v18 = *((uint8_t *)v15 - 4);
       if ( *((uint8_t *)v15 - 4) )
       {
         if ( (v18 & 8) != 0 )
@@ -87,7 +102,7 @@ int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
       {
         v17 = v16;
       }
-      v16 = (unsigned __int8)(v16 + 1);
+      v16 = (uint8_t)(v16 + 1);
       v15 += 4;
     }
     while ( v16 != 4 );
@@ -97,8 +112,8 @@ int  sub_10A36C(int a1, unsigned int a2, unsigned __int8 *a3, int *a4)
       {
 LABEL_21:
         v19 = &var3C[16 * v17 + 60];
-        v20 = (unsigned __int8)*(v19 - 64);
-        v21 = (unsigned __int8)*(v19 - 63);
+        v20 = (uint8_t)*(v19 - 64);
+        v21 = (uint8_t)*(v19 - 63);
         if ( !*(v19 - 64) )
           return v21;
         goto LABEL_22;
@@ -106,7 +121,7 @@ LABEL_21:
       v29 = 0;
       do
       {
-        v15 = (float *)*((unsigned __int8 *)v13 - 4);
+        v15 = (float *)*((uint8_t *)v13 - 4);
         if ( v15 == (float *)1 )
         {
           v15 = (float *)&var3C[16 * v17 + 60];
@@ -119,7 +134,7 @@ LABEL_21:
             v17 = v29;
           }
         }
-        v29 = (unsigned __int8)(v29 + 1);
+        v29 = (uint8_t)(v29 + 1);
         v13 += 4;
       }
       while ( v29 != 4 );

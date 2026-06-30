@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1074F8;
+extern uint32_t off_1074FC;
+extern uint32_t off_107500;
+extern uint32_t off_107504;
+extern uint32_t off_107508;
+extern uint32_t off_10750C;
+extern uint32_t off_107510;
+extern uint32_t off_107514;
+
 // mmio_init_regs_n3cc @ 0x1073cc, size 298 bytes
 // Doc: mmio_init_regs_n3cc [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks
 // mmio_init_regs_n3cc [mmio]: Initializes MMIO register fields by clearing and setting bits across memory-mapped blocks

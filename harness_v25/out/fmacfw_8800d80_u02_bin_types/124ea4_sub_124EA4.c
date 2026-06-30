@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124F60;
+extern uint32_t off_124F64;
+extern uint32_t off_124F78;
+extern uint32_t off_124F68;
+extern uint32_t off_124F6C;
+extern uint32_t dword_124F74;
+extern uint32_t dword_124F70;
+
 // sub_124EA4 @ 0x124ea4, size 186 bytes
 int sub_124EA4()
 {
@@ -67,7 +87,7 @@ int sub_124EA4()
       }
     }
     v11 = (void ( *)(uint32_t))v6[1];
-    if ( **(__int16 **)off_124F6C >= 0 || v11 )
+    if ( **(int16_t **)off_124F6C >= 0 || v11 )
     {
       v11(v6[2]);
     }

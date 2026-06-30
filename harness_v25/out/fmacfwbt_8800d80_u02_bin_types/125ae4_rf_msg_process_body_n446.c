@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_125BEC;
+extern uint32_t off_125BF0;
+extern uint32_t off_125BE8;
+extern uint32_t dword_125BFC;
+extern uint32_t dword_125BF8;
+extern uint32_t off_125BF4;
+extern uint32_t off_125C00;
+
 // rf_msg_process_body_n446 @ 0x125ae4, size 258 bytes
 // Doc: rf_msg_process_body_n446 [rf]: RF message body variant with ldrb dispatch table load
 // rf_msg_process_body_n446 [rf]: RF message body variant with ldrb dispatch table load
@@ -16,16 +36,16 @@ void rf_msg_process_body_n446()
 
   v0 = *((uint32_t *)off_125BEC + 2);
   v1 = off_125BF0;
-  if ( **(__int16 **)off_125BE8 < 0 && *((uint32_t *)off_125BF0 + 1) )
+  if ( **(int16_t **)off_125BE8 < 0 && *((uint32_t *)off_125BF0 + 1) )
   {
     sub_12F694(dword_125BFC, dword_125BF8, 1074);
-    v2 = (unsigned __int8)v1[9];
+    v2 = (uint8_t)v1[9];
     if ( v1[9] )
       goto LABEL_20;
   }
   else
   {
-    v2 = *((unsigned __int8 *)off_125BF0 + 9);
+    v2 = *((uint8_t *)off_125BF0 + 9);
     if ( *((uint8_t *)off_125BF0 + 9) )
     {
 LABEL_20:
@@ -46,7 +66,7 @@ LABEL_20:
       if ( *(uint8_t *)(v0 + 106) != 2
         || !*(uint8_t *)(v0 + 226)
         || !*(uint8_t *)(v0 + 108)
-        || *(unsigned __int8 *)(v0 + 225) != *(unsigned __int8 *)(v0 + 224) )
+        || *(uint8_t *)(v0 + 225) != *(uint8_t *)(v0 + 224) )
       {
         goto LABEL_6;
       }

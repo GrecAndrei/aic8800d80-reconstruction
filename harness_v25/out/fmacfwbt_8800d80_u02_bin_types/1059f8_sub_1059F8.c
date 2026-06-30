@@ -1,7 +1,60 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_105CF4;
+extern uint32_t off_105CC8;
+extern uint32_t off_105CCC;
+extern uint32_t off_105CDC;
+extern uint32_t off_105CD0;
+extern uint32_t off_105CE8;
+extern uint32_t off_105CD4;
+extern uint32_t off_105CD8;
+extern uint32_t off_106248;
+extern uint32_t off_106244;
+extern uint32_t dword_105CE0;
+extern uint32_t off_105CF8;
+extern uint32_t off_105CFC;
+extern uint32_t off_105D00;
+extern uint32_t off_105CE4;
+extern uint32_t off_105CEC;
+extern uint32_t off_105CF0;
+extern uint32_t off_105D04;
+extern uint32_t off_105D08;
+extern uint32_t off_10601C;
+extern uint32_t off_106020;
+extern uint32_t off_106024;
+extern uint32_t off_106028;
+extern uint32_t off_10602C;
+extern uint32_t dword_106030;
+extern uint32_t dword_106034;
+extern uint32_t off_106038;
+extern uint32_t off_106040;
+extern uint32_t dword_10603C;
+extern uint32_t off_106048;
+extern uint32_t dword_106044;
+extern uint32_t off_106050;
+extern uint32_t dword_10604C;
+extern uint32_t off_106054;
+extern uint32_t off_106058;
+extern uint32_t off_106060;
+extern uint32_t off_10605C;
+extern uint32_t off_106064;
+extern uint32_t off_106068;
+extern uint32_t off_106240;
+
 // sub_1059F8 @ 0x1059f8, size 2120 bytes
 // Doc: sub_12059F8 [mmio]: Complex MMIO register initialization sequence
 // sub_12059F8 [mmio]: Complex MMIO register initialization sequence
-unsigned int * sub_1059F8(int a1, int a2, int a3, unsigned int a4, unsigned __int8 a5, int a6)
+unsigned int * sub_1059F8(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6)
 {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
@@ -144,7 +197,7 @@ unsigned int * sub_1059F8(int a1, int a2, int a3, unsigned int a4, unsigned __in
   v67 = HIBYTE(v14) & 7;
   v69 = (v68 >> 21) & 1;
   v70 = (v15 >> 20) & 1;
-  v71 = (unsigned __int8)v16 >> 4;
+  v71 = (uint8_t)v16 >> 4;
   v73 = (v72 >> 7) & 1;
   v75 = (v74 >> 4) & 7;
   v77 = (v76 >> 10) & 1;
@@ -253,14 +306,14 @@ LABEL_3:
   *(uint32_t *)v34 |= 0x400000u;
   LOBYTE(v34) = 90;
   do
-    v34 = (void *)(unsigned __int8)((uint8_t)v34 - 1);
+    v34 = (void *)(uint8_t)((uint8_t)v34 - 1);
   while ( v34 );
   v35 = off_105CE4;
   *(uint32_t *)off_105CE4 &= ~0x100000u;
   *(uint32_t *)v35 |= 0x200000u;
   LOBYTE(v35) = 60;
   do
-    v35 = (void *)(unsigned __int8)((uint8_t)v35 - 1);
+    v35 = (void *)(uint8_t)((uint8_t)v35 - 1);
   while ( v35 );
   v36 = off_105CC8;
   *(uint32_t *)off_105CE4 |= 0x100000u;
@@ -268,14 +321,14 @@ LABEL_3:
   *(uint32_t *)v36 |= 0x10000u;
   LOBYTE(v36) = 90;
   do
-    v36 = (void *)(unsigned __int8)((uint8_t)v36 - 1);
+    v36 = (void *)(uint8_t)((uint8_t)v36 - 1);
   while ( v36 );
   v37 = off_10601C;
   *(uint32_t *)off_10601C &= ~0x40000u;
   *(uint32_t *)v37 |= 0x80000u;
   LOBYTE(v37) = 60;
   do
-    v37 = (void *)(unsigned __int8)((uint8_t)v37 - 1);
+    v37 = (void *)(uint8_t)((uint8_t)v37 - 1);
   while ( v37 );
   v38 = off_10601C;
   *(uint32_t *)off_10601C |= 0x40000u;
@@ -283,7 +336,7 @@ LABEL_3:
   *(uint32_t *)v38 |= 0x4000u;
   LOBYTE(v38) = 90;
   do
-    v38 = (void *)(unsigned __int8)((uint8_t)v38 - 1);
+    v38 = (void *)(uint8_t)((uint8_t)v38 - 1);
   while ( v38 );
   v39 = (char *)off_106020;
   v40 = off_106024;

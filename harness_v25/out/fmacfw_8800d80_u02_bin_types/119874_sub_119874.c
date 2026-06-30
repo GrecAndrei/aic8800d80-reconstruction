@@ -1,7 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1199BC;
+extern uint32_t off_1199C4;
+extern uint32_t off_1199C0;
+
 // sub_119874 @ 0x119874, size 326 bytes
 // Doc: sub_1219874 [unknown]: Unknown behavioral function in fmacfw
 // sub_1219874 [unknown]: Unknown behavioral function in fmacfw
-int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
+int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int *v5; // r4
   int v6; // r5
@@ -15,10 +31,10 @@ int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   unsigned int v15; // r7
   unsigned int v16; // r0
   unsigned int v17; // r3
-  __int16 v18; // r10
+  int16_t v18; // r10
   int *v19; // r8
   unsigned int v20; // r7
-  __int16 v21; // r12
+  int16_t v21; // r12
   int v22; // r10
   int v23; // r8
 
@@ -26,8 +42,8 @@ int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   if ( (*(uint16_t *)(*a2 + 82) & 1) == 0 )
     return 0;
   v6 = *(uint32_t *)(a1 + 68);
-  if ( *(unsigned __int8 *)(v6 + 12) != *((unsigned __int8 *)v5 + 29)
-    || *(unsigned __int8 *)(v6 + 13) != *((unsigned __int8 *)v5 + 27) )
+  if ( *(uint8_t *)(v6 + 12) != *((uint8_t *)v5 + 29)
+    || *(uint8_t *)(v6 + 13) != *((uint8_t *)v5 + 27) )
   {
     return 0;
   }
@@ -41,7 +57,7 @@ int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   }
   else
   {
-    *v10 = ~((unsigned int)~((unsigned __int16)*v10 << 17) >> 17);
+    *v10 = ~((unsigned int)~((uint16_t)*v10 << 17) >> 17);
     v12 = *((uint8_t *)v5 + 50) + 4;
     *((uint8_t *)v5 + 51) += 4;
     *((uint8_t *)v5 + 50) = v12;
@@ -49,15 +65,15 @@ int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
     *(uint32_t *)(v8 + 32) += 4;
     *(uint32_t *)(v8 + 36) = v13;
   }
-  v14 = (unsigned __int16)(((v13 + 3) & 0xFFFC) + 4);
+  v14 = (uint16_t)(((v13 + 3) & 0xFFFC) + 4);
   if ( a4 <= v14 )
   {
     v15 = 0;
   }
   else
   {
-    v15 = ((unsigned int)(unsigned __int16)(a4 - v14) + 3) >> 2;
-    v14 = (unsigned __int16)(v14 + 4 * v15);
+    v15 = ((unsigned int)(uint16_t)(a4 - v14) + 3) >> 2;
+    v14 = (uint16_t)(v14 + 4 * v15);
   }
   v16 = v14 + *(uint32_t *)(v6 + 40);
   if ( v16 > a3 )
@@ -83,7 +99,7 @@ int  sub_119874(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   *(uint16_t *)(v6 + 10) = v21;
   *a2 = v22;
   if ( !*(uint8_t *)(v23 + 1) )
-    *(uint32_t *)(v6 + 20) = *(unsigned __int8 *)(v23 + 1);
+    *(uint32_t *)(v6 + 20) = *(uint8_t *)(v23 + 1);
   if ( v10 )
     *(uint32_t *)(*(uint32_t *)(v8 + 32) - 3) = *((uint32_t *)off_1199C0 + 43);
   *(uint8_t *)(v8 + 1) = *(uint8_t *)(v11 + 1) + 1;

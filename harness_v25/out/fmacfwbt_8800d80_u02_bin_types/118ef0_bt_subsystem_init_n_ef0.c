@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_118FD8;
+extern uint32_t dword_118FDC;
+extern uint32_t dword_118FE0;
+extern uint32_t dword_118FF0;
+extern uint32_t dword_118FF4;
+extern uint32_t dword_118FD4;
+extern uint32_t off_118FE4;
+extern uint32_t off_118FE8;
+extern uint32_t dword_118FEC;
+
 // bt_subsystem_init_n_ef0 @ 0x118ef0, size 228 bytes
 // Doc: bt_subsystem_init_n_ef0 [bt]: Initialize Bluetooth subsystem tables and constants
 // bt_subsystem_init_n_ef0 [bt]: Initialize Bluetooth subsystem tables and constants

@@ -1,9 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13CE64;
+extern uint32_t dword_13CE70;
+extern uint32_t dword_13CE6C;
+extern uint32_t dword_13CE74;
+extern uint32_t dword_13CE68;
+
 // sub_13CBEC @ 0x13cbec, size 630 bytes
 uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
 {
   char *v9; // r6
   int v10; // r5
-  __int16 *v11; // r4
+  int16_t *v11; // r4
   signed int v12; // r5
   unsigned uint64_t v13; // kr00_8
   unsigned int v14; // r2
@@ -18,7 +36,7 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
   uint32_t *v23; // r8
   int v24; // r10
   int v25; // r6
-  __int16 *v26; // r2
+  int16_t *v26; // r2
   uint64_t *v27; // r3
   int v28; // t1
   signed int v29; // r3
@@ -42,14 +60,14 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
   uint64_t v47; // [sp+3Ch] [bp-D8h] BYREF
   int v48; // [sp+44h] [bp-D0h]
   int v49; // [sp+48h] [bp-CCh]
-  __int16 v50; // [sp+4Ch] [bp-C8h] BYREF
+  int16_t v50; // [sp+4Ch] [bp-C8h] BYREF
   uint8_t v51[18]; // [sp+4Eh] [bp-C6h] BYREF
-  QWORD v52[18]; // [sp+60h] [bp-B4h] BYREF
+  uint64_t v52[18]; // [sp+60h] [bp-B4h] BYREF
   char v53; // [sp+F0h] [bp-24h] BYREF
 
   if ( a3 <= 23 )
   {
-    if ( **(__int16 **)off_13CE64 < 0 )
+    if ( **(int16_t **)off_13CE64 < 0 )
       sub_12F49C(dword_13CE70, dword_13CE6C, 430);
     return 0;
   }
@@ -73,7 +91,7 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
     v39 = v10 + 18;
     v12 = v10 + 38;
   }
-  v13 = *(QWORD *)(a1 + 80);
+  v13 = *(uint64_t *)(a1 + 80);
   v14 = *(uint32_t *)(a1 + 92);
   v15 = *(uint32_t *)(a1 + 88);
   v52[0] = v13;
@@ -85,10 +103,10 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
   while ( 1 )
   {
     v21 = v13
-        ^ (*(unsigned __int8 *)(v17 + BYTE1(v14)) ^ v19
-         | (*(unsigned __int8 *)(v17 + (unsigned __int8)v14) << 24)
-         | (*(unsigned __int8 *)(v17 + HIBYTE(v14)) << 16)
-         | (*(unsigned __int8 *)(v17 + BYTE2(v14)) << 8));
+        ^ (*(uint8_t *)(v17 + BYTE1(v14)) ^ v19
+         | (*(uint8_t *)(v17 + (uint8_t)v14) << 24)
+         | (*(uint8_t *)(v17 + HIBYTE(v14)) << 16)
+         | (*(uint8_t *)(v17 + BYTE2(v14)) << 8));
     v15 ^= HIDWORD(v13) ^ v21;
     v14 ^= v15;
     *((uint32_t *)v18 + 6) = v15;
@@ -122,11 +140,11 @@ uint64_t  sub_13CBEC(int a1, uint16_t *a2, int a3, int a4, int a5)
           v36 = (uint64_t *)((char *)v36 + 1);
           if ( --v25 )
           {
-            v11 = (__int16 *)((char *)v11 + 1);
+            v11 = (int16_t *)((char *)v11 + 1);
           }
           else
           {
-            v11 = (__int16 *)v23[1];
+            v11 = (int16_t *)v23[1];
             v25 = v22[1];
             ++v23;
             ++v22;
@@ -168,12 +186,12 @@ LABEL_18:
         if ( !--v25 )
           break;
         ++v29;
-        v11 = (__int16 *)((char *)v11 + 1);
+        v11 = (int16_t *)((char *)v11 + 1);
         if ( v12 <= v29 )
           goto LABEL_22;
       }
       ++v29;
-      v11 = (__int16 *)v23[1];
+      v11 = (int16_t *)v23[1];
       v25 = v22[1];
       ++v23;
       ++v22;

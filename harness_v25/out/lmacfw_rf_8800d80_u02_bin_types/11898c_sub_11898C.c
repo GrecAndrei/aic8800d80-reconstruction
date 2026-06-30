@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_118A40;
+extern uint32_t off_118A44;
+extern uint32_t off_118A58;
+extern uint32_t off_118A5C;
+extern uint32_t off_118A48;
+extern uint32_t off_118A4C;
+extern uint32_t off_118A50;
+extern uint32_t off_118A54;
+
 // sub_11898C @ 0x11898c, size 180 bytes
 int  sub_11898C(int a1, int a2)
 {
@@ -6,14 +27,14 @@ int  sub_11898C(int a1, int a2)
   uint32_t *v4; // lr
   uint32_t *v5; // r12
   uint32_t *v6; // r7
-  unsigned __int16 *v7; // r2
+  uint16_t *v7; // r2
   uint32_t *v8; // r5
   int *v9; // r2
   int v10; // r4
   unsigned int v11; // r5
   uint32_t *v12; // r12
   uint32_t *v13; // r7
-  unsigned __int16 *v14; // r3
+  uint16_t *v14; // r3
   uint32_t *v15; // r2
 
   v2 = dword_118A40;
@@ -21,7 +42,7 @@ int  sub_11898C(int a1, int a2)
   v4 = off_118A58;
   v5 = off_118A5C;
   v6 = off_118A48;
-  v7 = (unsigned __int16 *)(dword_118A40 + 152 * a1);
+  v7 = (uint16_t *)(dword_118A40 + 152 * a1);
   *(uint32_t *)off_118A44 = v7[18] | (v7[19] << 16);
   v8 = off_118A4C;
   v3[1] = v7[20];
@@ -30,23 +51,23 @@ int  sub_11898C(int a1, int a2)
   *v5 = 0;
   *v8 = 0;
   *v6 = 0;
-  v10 = (unsigned __int8)(a1 + 16);
+  v10 = (uint8_t)(a1 + 16);
   *v9 = 0x20000000;
   while ( (*v9 & 0x20000000) != 0 )
     ;
   if ( (*v9 & 0x10000000) == 0 )
   {
     v11 = HIWORD(*v9);
-    if ( (unsigned __int8)BYTE2(*v9) != v10 )
+    if ( (uint8_t)BYTE2(*v9) != v10 )
     {
       v12 = off_118A54;
       v13 = off_118A50;
       *(uint32_t *)off_118A44 = -1;
       *v12 = -1;
-      *v9 = ((unsigned __int8)v11 << 16) | 0x40000000;
+      *v9 = ((uint8_t)v11 << 16) | 0x40000000;
       while ( (*v13 & 0x40000000) != 0 )
         ;
-      v14 = (unsigned __int16 *)(v2 + 152 * a1);
+      v14 = (uint16_t *)(v2 + 152 * a1);
       *(uint32_t *)off_118A44 = v14[18] | (v14[19] << 16);
       *(uint32_t *)off_118A54 = v14[20];
     }
@@ -55,6 +76,6 @@ int  sub_11898C(int a1, int a2)
   *(uint32_t *)off_118A50 = (16 * a2) | (v10 << 16) | 0x40000002;
   while ( (*v15 & 0x40000000) != 0 )
     ;
-  return (unsigned __int8)(a1 + 16);
+  return (uint8_t)(a1 + 16);
 }
 

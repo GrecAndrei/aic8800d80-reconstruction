@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10EB9C;
+extern uint32_t off_10EBA0;
+extern uint32_t dword_10EBA4;
+extern uint32_t dword_10EBA8;
+extern uint32_t off_10EBBC;
+extern uint32_t off_10EBAC;
+extern uint32_t off_10EBC0;
+extern uint32_t dword_10EBB0;
+extern uint32_t off_10EBB4;
+extern uint32_t dword_10EBB8;
+
 // sub_10EA9C @ 0x10ea9c, size 256 bytes
 int sub_10EA9C()
 {
@@ -17,7 +40,7 @@ int sub_10EA9C()
   unsigned int v13; // r5
   int result; // r0
   uint32_t v15[2]; // [sp+4h] [bp-Ch] BYREF
-  __int16 v16; // [sp+Ch] [bp-4h]
+  int16_t v16; // [sp+Ch] [bp-4h]
 
   v0 = (unsigned int *)off_10EB9C;
   v1 = off_10EBA0;
@@ -35,7 +58,7 @@ int sub_10EA9C()
   *v5 &= ~1u;
   v15[0] = v7;
   v15[1] = 2442;
-  sub_102898((unsigned __int16 *)v15, 0);
+  sub_102898((uint16_t *)v15, 0);
   v8 = (int *)off_10EBB4;
   v9 = dword_10EBB8;
   v0 += 593954;

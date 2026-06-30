@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1102B8;
+
 // sub_11027C @ 0x11027c, size 52 bytes
 // Doc: log_free_dispatch_n286 [util]: Free log entry then dispatch to logging sink
 // log_free_dispatch_n286 [util]: Free log entry then dispatch to logging sink
@@ -22,7 +36,7 @@ int sub_11027C()
       result = list_push_tail(v3);
       ++v4;
     }
-    while ( *(unsigned __int16 *)(*(uint32_t *)v0 + 4) > (unsigned int)(unsigned __int16)v4 );
+    while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }

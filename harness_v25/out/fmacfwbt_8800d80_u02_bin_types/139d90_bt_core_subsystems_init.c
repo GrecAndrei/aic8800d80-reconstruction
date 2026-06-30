@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_139E08;
+extern uint32_t dword_139E0C;
+extern uint32_t dword_139E10;
+extern uint32_t dword_139E14;
+extern uint32_t dword_139E18;
+extern uint32_t dword_139E1C;
+extern uint32_t dword_139E20;
+extern uint32_t dword_139E28;
+extern uint32_t dword_139E2C;
+extern uint32_t off_139E24;
+
 // bt_core_subsystems_init @ 0x139d90, size 118 bytes
 // Doc: bt_core_subsystems_init [bt]: Initialize BT core subsystem tables/structures
 // bt_core_subsystems_init [bt]: Initialize BT core subsystem tables/structures

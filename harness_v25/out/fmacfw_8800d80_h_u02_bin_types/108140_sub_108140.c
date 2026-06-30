@@ -1,5 +1,112 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_108400;
+extern uint32_t off_108434;
+extern uint32_t off_108404;
+extern uint32_t off_10843C;
+extern uint32_t off_108408;
+extern uint32_t off_108440;
+extern uint32_t off_108444;
+extern uint32_t off_108438;
+extern uint32_t off_10840C;
+extern uint32_t off_108410;
+extern uint32_t off_108414;
+extern uint32_t off_108418;
+extern uint32_t off_10841C;
+extern uint32_t off_108420;
+extern uint32_t off_108424;
+extern uint32_t off_108428;
+extern uint32_t off_10842C;
+extern uint32_t off_108430;
+extern uint32_t dword_10876C;
+extern uint32_t off_108770;
+extern uint32_t off_108774;
+extern uint32_t off_1087B4;
+extern uint32_t off_1087B8;
+extern uint32_t off_1087BC;
+extern uint32_t dword_108778;
+extern uint32_t dword_10877C;
+extern uint32_t dword_108780;
+extern uint32_t dword_108784;
+extern uint32_t dword_1087C0;
+extern uint32_t dword_10878C;
+extern uint32_t off_108790;
+extern uint32_t dword_108788;
+extern uint32_t dword_108794;
+extern uint32_t dword_109178;
+extern uint32_t dword_108798;
+extern uint32_t dword_10879C;
+extern uint32_t dword_1087A0;
+extern uint32_t dword_1087A4;
+extern uint32_t dword_1087A8;
+extern uint32_t dword_1087AC;
+extern uint32_t dword_109180;
+extern uint32_t dword_1087B0;
+extern uint32_t dword_108AAC;
+extern uint32_t dword_108AB0;
+extern uint32_t dword_108AB4;
+extern uint32_t dword_108AB8;
+extern uint32_t dword_108ABC;
+extern uint32_t off_108AC0;
+extern uint32_t off_108AC4;
+extern uint32_t off_108AC8;
+extern uint32_t dword_10917C;
+extern uint32_t dword_108E3C;
+extern uint32_t dword_108E38;
+extern uint32_t dword_108E40;
+extern uint32_t dword_108E44;
+extern uint32_t dword_108E48;
+extern uint32_t off_108E50;
+extern uint32_t off_108E54;
+extern uint32_t off_108E4C;
+extern uint32_t dword_109184;
+extern uint32_t dword_108E58;
+extern uint32_t dword_108E5C;
+extern uint32_t dword_108E60;
+extern uint32_t off_108E64;
+extern uint32_t off_108E68;
+extern uint32_t off_108E90;
+extern uint32_t off_108E94;
+extern uint32_t off_108E98;
+extern uint32_t off_108E9C;
+extern uint32_t off_108E6C;
+extern uint32_t off_108E70;
+extern uint32_t off_108E74;
+extern uint32_t off_108E78;
+extern uint32_t off_108E7C;
+extern uint32_t dword_108E80;
+extern uint32_t off_108E84;
+extern uint32_t off_108E88;
+extern uint32_t off_108E8C;
+extern uint32_t off_10916C;
+extern uint32_t off_109170;
+extern uint32_t off_109174;
+extern uint32_t dword_108AD0;
+extern uint32_t dword_108ACC;
+extern uint32_t off_108AD4;
+extern uint32_t dword_108AD8;
+extern uint32_t dword_108ADC;
+extern uint32_t dword_108AE0;
+extern uint32_t off_108AE4;
+extern uint32_t dword_108AE8;
+extern uint32_t dword_108AEC;
+extern uint32_t off_108AF0;
+extern uint32_t dword_108AF4;
+extern uint32_t off_108AF8;
+extern uint32_t dword_108AFC;
+
 // sub_108140 @ 0x108140, size 4140 bytes
-uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, __int16 a7)
+uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7)
 {
   int *v7; // r4
   unsigned int *v8; // lr
@@ -73,7 +180,7 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   signed int v77; // r4
   unsigned int *v78; // r1
   unsigned int *v79; // r3
-  bool v80; // cc
+  int v80; // cc
   int v81; // r1
   unsigned int *v82; // r1
   unsigned int *v83; // r0
@@ -244,14 +351,14 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *v14 |= 0x400000u;
   LOBYTE(a4) = 90;
   do
-    a4 = (unsigned __int8)(a4 - 1);
+    a4 = (uint8_t)(a4 - 1);
   while ( a4 );
   v17 = off_10840C;
   *(uint32_t *)off_10840C &= ~0x100000u;
   *(uint32_t *)v17 |= 0x200000u;
   LOBYTE(v17) = 60;
   do
-    v17 = (void *)(unsigned __int8)((uint8_t)v17 - 1);
+    v17 = (void *)(uint8_t)((uint8_t)v17 - 1);
   while ( v17 );
   v18 = off_108400;
   *(uint32_t *)off_10840C |= 0x100000u;
@@ -259,14 +366,14 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *(uint32_t *)v18 |= 0x10000u;
   LOBYTE(v18) = 90;
   do
-    v18 = (void *)(unsigned __int8)((uint8_t)v18 - 1);
+    v18 = (void *)(uint8_t)((uint8_t)v18 - 1);
   while ( v18 );
   v19 = off_108400;
   *(uint32_t *)off_108400 &= ~0x40000u;
   *(uint32_t *)v19 |= 0x80000u;
   LOBYTE(v19) = 60;
   do
-    v19 = (void *)(unsigned __int8)((uint8_t)v19 - 1);
+    v19 = (void *)(uint8_t)((uint8_t)v19 - 1);
   while ( v19 );
   v20 = off_108400;
   *(uint32_t *)off_108400 |= 0x40000u;
@@ -274,7 +381,7 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *v20 |= 0x4000u;
   LOBYTE(v21) = 90;
   do
-    v21 = (unsigned __int8)(v21 - 1);
+    v21 = (uint8_t)(v21 - 1);
   while ( v21 );
   v22 = off_108420;
   v23 = off_108424;
@@ -294,8 +401,8 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   do
   {
     sub_103FF4(v21, 0);
-    v26 = (unsigned __int8)(v21 + 1);
-    v21 = (unsigned __int8)(v21 + 2);
+    v26 = (uint8_t)(v21 + 1);
+    v21 = (uint8_t)(v21 + 2);
     sub_103FF4(v26, 0);
   }
   while ( v21 != 32 );
@@ -387,7 +494,7 @@ uint32_t * sub_108140(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
             v42 = (*v30 & 0x800) != 0 ? v40 - 4096 : *v30 & 0xFFF;
             if ( v41 <= 1024 && v42 <= 1024 )
               break;
-            v38 = (unsigned __int8)(v38 - 1);
+            v38 = (uint8_t)(v38 - 1);
             sub_12EB90(1, dword_109178);
           }
           v107 = v38;

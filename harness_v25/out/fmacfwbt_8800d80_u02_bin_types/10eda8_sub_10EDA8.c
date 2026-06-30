@@ -1,3 +1,48 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10EF58;
+extern uint32_t dword_10EF5C;
+extern uint32_t dword_10EF68;
+extern uint32_t dword_10EF64;
+extern uint32_t dword_10EF60;
+extern uint32_t dword_10EF6C;
+extern uint32_t dword_10EF70;
+extern uint32_t dword_10EF74;
+extern uint32_t dword_10EF78;
+extern uint32_t dword_10EF7C;
+extern uint32_t dword_10EF80;
+extern uint32_t dword_10EF84;
+extern uint32_t dword_10EF88;
+extern uint32_t dword_10EF8C;
+extern uint32_t dword_10EF90;
+extern uint32_t dword_10EF9C;
+extern uint32_t dword_10EF98;
+extern uint32_t dword_10EF94;
+extern uint32_t dword_10EFA0;
+extern uint32_t dword_10EFA4;
+extern uint32_t dword_10EFA8;
+extern uint32_t dword_10EFAC;
+extern uint32_t dword_10EFB0;
+extern uint32_t dword_10EFB4;
+extern uint32_t off_10EFB8;
+extern uint32_t dword_10EFC0;
+extern uint32_t dword_10EFBC;
+extern uint32_t dword_10EFC8;
+extern uint32_t dword_10EFC4;
+extern uint32_t dword_10EFCC;
+extern uint32_t off_10EFD0;
+extern uint32_t dword_10EFD4;
+
 // sub_10EDA8 @ 0x10eda8, size 430 bytes
 int sub_10EDA8()
 {

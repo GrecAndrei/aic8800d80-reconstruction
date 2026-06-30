@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BD58;
+extern uint32_t dword_13BD4C;
+extern uint32_t dword_13BD50;
+extern uint32_t dword_13BD54;
+
 // sub_13BCD4 @ 0x13bcd4, size 120 bytes
 int  sub_13BCD4(int result)
 {
@@ -18,9 +35,9 @@ int  sub_13BCD4(int result)
   v6 = dword_13BD58 + 24;
   for ( i = 0; i != 32; ++i )
   {
-    v8 = *(unsigned __int16 *)(v2 + 2);
+    v8 = *(uint16_t *)(v2 + 2);
     v2 += 2;
-    if ( v8 && *(unsigned __int8 *)(v3 + 16) == v4 )
+    if ( v8 && *(uint8_t *)(v3 + 16) == v4 )
     {
       if ( i > 15 )
       {
@@ -32,8 +49,8 @@ int  sub_13BCD4(int result)
         sub_12D1A8(v1, (uint32_t *)v3);
         sub_12D108(v5, (uint32_t *)v3);
       }
-      sub_12CBF4((unsigned __int16)((uint16_t)i << 8) | 8, 4);
-      result = sub_13BC64(v4, (unsigned __int16)i);
+      sub_12CBF4((uint16_t)((uint16_t)i << 8) | 8, 4);
+      result = sub_13BC64(v4, (uint16_t)i);
     }
     v3 += 32;
   }

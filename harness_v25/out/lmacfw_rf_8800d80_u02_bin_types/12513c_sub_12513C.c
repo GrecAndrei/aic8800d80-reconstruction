@@ -1,5 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_125290;
+extern uint32_t off_125288;
+extern uint32_t off_125284;
+extern uint32_t dword_12528C;
+extern uint32_t dword_125298;
+extern uint32_t dword_125294;
+
 // sub_12513C @ 0x12513c, size 328 bytes
-int  sub_12513C(int a1, unsigned __int8 **a2)
+int  sub_12513C(int a1, uint8_t **a2)
 {
   unsigned int v4; // r4
   unsigned int v5; // r5
@@ -22,16 +41,16 @@ int  sub_12513C(int a1, unsigned __int8 **a2)
   }
   else
   {
-    v4 = (unsigned __int16)parse_int(a2[1], nullptr, 0xAu);
+    v4 = (uint16_t)parse_int(a2[1], 0, 0xAu);
     if ( a1 == 3 )
     {
       v5 = v4;
-      v6 = parse_int(a2[2], nullptr, 0x10u);
+      v6 = parse_int(a2[2], 0, 0x10u);
     }
     else
     {
-      v5 = (unsigned __int16)parse_int(a2[2], nullptr, 0xAu);
-      v6 = parse_int(a2[3], nullptr, 0x10u);
+      v5 = (uint16_t)parse_int(a2[2], 0, 0xAu);
+      v6 = parse_int(a2[3], 0, 0x10u);
     }
     v7 = *(uint32_t *)off_125288 & 0x7F;
     if ( *((uint8_t *)off_125284 + 36) == 1 )
@@ -42,7 +61,7 @@ int  sub_12513C(int a1, unsigned __int8 **a2)
         v8 = *(uint32_t *)off_125288 & 0x78;
         if ( v8 )
         {
-          v8 = *((unsigned __int8 *)off_125284 + 36);
+          v8 = *((uint8_t *)off_125284 + 36);
         }
         else if ( v7 <= 2 )
         {
@@ -68,8 +87,8 @@ int  sub_12513C(int a1, unsigned __int8 **a2)
       v4 = v5;
       v5 = v9;
     }
-    v10 = (unsigned __int8)(v4 >> 5);
-    v11 = (unsigned __int8)(v5 >> 5);
+    v10 = (uint8_t)(v4 >> 5);
+    v11 = (uint8_t)(v5 >> 5);
     if ( v10 == v11 )
     {
       sub_12419C(v8, v10, v5 & 0x1F, (1 << (v4 - v5 + 1)) - 1, v6 & ((1 << (v4 - v5 + 1)) - 1));

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12B018;
+extern uint32_t off_12B01C;
+extern uint32_t dword_12B024;
+extern uint32_t off_12B020;
+
 // rf_chan_state_lookup @ 0x12af44, size 212 bytes
 // Doc: rf_chan_state_lookup [rf]: Look up RF channel state by index
 // rf_chan_state_lookup [rf]: Look up RF channel state by index
@@ -14,22 +31,22 @@ int  rf_chan_state_lookup(int a1)
   int v10; // r4
   unsigned int v11; // r2
   unsigned int v12; // r4
-  bool v13; // cc
+  int v13; // cc
   int v14; // r3
   int v15; // r1
 
   v1 = dword_12B018;
   v3 = *((uint32_t *)off_12B01C + 4);
-  sub_11C040((unsigned __int8 *)(dword_12B018 + 1320 * *(unsigned __int8 *)(a1 + 28)));
+  sub_11C040((uint8_t *)(dword_12B018 + 1320 * *(uint8_t *)(a1 + 28)));
   if ( *(uint8_t *)(a1 + 31) )
   {
     v4 = *(uint32_t *)(a1 + 16) > 2u;
-    v5 = *(unsigned __int8 *)(a1 + 28);
+    v5 = *(uint8_t *)(a1 + 28);
     if ( *(uint32_t *)(a1 + 20) > 2u )
       v4 |= 2u;
-    if ( (*(unsigned __int8 *)(a1 + 29) ^ v4) << 30 )
-      sub_12A6E8(*(unsigned __int8 *)(a1 + 28), v4);
-    v6 = *(unsigned __int8 *)(a1 + 28);
+    if ( (*(uint8_t *)(a1 + 29) ^ v4) << 30 )
+      sub_12A6E8(*(uint8_t *)(a1 + 28), v4);
+    v6 = *(uint8_t *)(a1 + 28);
     *(uint8_t *)(a1 + 29) = v4;
     v7 = *(int ***)(v1 + 1320 * v5 + 240);
     if ( v7 )
@@ -37,11 +54,11 @@ int  rf_chan_state_lookup(int a1)
       v8 = dword_12B024;
       do
       {
-        v9 = *((unsigned __int8 *)v7 + 35);
+        v9 = *((uint8_t *)v7 + 35);
         v7 = (int **)*v7;
         v10 = 3 * v9 + v8;
-        v11 = *(unsigned __int8 *)(v10 + 1);
-        v12 = *(unsigned __int8 *)(v10 + 2);
+        v11 = *(uint8_t *)(v10 + 1);
+        v12 = *(uint8_t *)(v10 + 2);
         v13 = v11 > 2;
         v14 = 3 * v9;
         if ( v11 > 2 )
@@ -60,7 +77,7 @@ int  rf_chan_state_lookup(int a1)
   }
   else
   {
-    v6 = *(unsigned __int8 *)(a1 + 28);
+    v6 = *(uint8_t *)(a1 + 28);
   }
   *(uint8_t *)(a1 + 31) = *((uint32_t *)off_12B020 + 10) == *(uint32_t *)(v1 + 1320 * v6 + 72);
   *(uint32_t *)(a1 + 16) = 0;

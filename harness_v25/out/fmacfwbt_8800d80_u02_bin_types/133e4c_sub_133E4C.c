@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_133FF0;
+extern uint32_t off_133FEC;
+extern uint32_t dword_134000;
+extern uint32_t dword_133FFC;
+extern uint32_t dword_134004;
+extern uint32_t off_133FF4;
+extern uint32_t off_133FF8;
+
 // sub_133E4C @ 0x133e4c, size 414 bytes
 int sub_133E4C()
 {
@@ -13,7 +33,7 @@ int sub_133E4C()
   int v10; // r3
   int v11; // r6
   int v12; // r0
-  __int16 v13; // r2
+  int16_t v13; // r2
   int v14; // r3
   int v15; // r10
   uint32_t *v16; // r1
@@ -24,9 +44,9 @@ int sub_133E4C()
 
   v0 = off_133FF0;
   v1 = *((uint32_t *)off_133FF0 + 4);
-  if ( **(__int16 **)off_133FEC < 0 && msg_get_value(6u) != 2 )
+  if ( **(int16_t **)off_133FEC < 0 && msg_get_value(6u) != 2 )
     sub_12F694(dword_134000, dword_133FFC, 344);
-  v2 = *(unsigned __int8 *)(v1 + 61);
+  v2 = *(uint8_t *)(v1 + 61);
   v3 = dword_134004;
   v4 = 1320 * v2;
   v5 = dword_134004 + 1320 * v2;
@@ -39,7 +59,7 @@ int sub_133E4C()
     else
     {
       v11 = rf_bus_setup_n3a8(10, 0, 6, 0x20u);
-      sub_128AAC(*(unsigned __int8 *)(v1 + 61), LOBYTE(v20[0]));
+      sub_128AAC(*(uint8_t *)(v1 + 61), LOBYTE(v20[0]));
       *(uint32_t *)v11 = 0;
       *(uint8_t *)(v11 + 25) = *(uint8_t *)(v1 + 61);
       v12 = *(uint32_t *)(v5 + 368);
@@ -63,7 +83,7 @@ int sub_133E4C()
         }
         else
         {
-          v16 = nullptr;
+          v16 = 0;
         }
         v17 = v14 & 8;
         if ( (v14 & 8) != 0 )
@@ -84,13 +104,13 @@ int sub_133E4C()
     }
     return 0;
   }
-  v6 = (unsigned __int8)v0[32];
+  v6 = (uint8_t)v0[32];
   if ( v0[32] )
   {
     sub_135020(1);
     return 0;
   }
-  v19 = (unsigned __int8)v0[32];
+  v19 = (uint8_t)v0[32];
   v20[0] = v6;
   sub_134690(&v19, v20);
   if ( *(uint8_t *)off_133FF4 != 1 && *((uint8_t *)off_133FF8 + 3) != 1 )
@@ -100,7 +120,7 @@ LABEL_7:
     sub_1347DC(v19, v20[0], 1);
     return 0;
   }
-  v8 = (unsigned __int8)(*((uint8_t *)off_133FF8 + 32) + 1);
+  v8 = (uint8_t)(*((uint8_t *)off_133FF8 + 32) + 1);
   *((uint8_t *)off_133FF8 + 32) = v8;
   if ( v8 > 1 )
     goto LABEL_7;

@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12C534;
+
 // sub_12C4E8 @ 0x12c4e8, size 64 bytes
 // Doc: message_dispatch_n_482 [ipc]: Dispatch incoming IPC/host message (variant n_482)
 // message_dispatch_n_482 [ipc]: Dispatch incoming IPC/host message (variant n_482)
@@ -12,11 +26,11 @@ int  sub_12C4E8(int result, int a2)
     v3 = sub_101D58(
            (*(uint32_t *)(v2 + 20) >> 11) & 7,
            *(uint32_t *)(v2 + 20) & 0x7F,
-           (unsigned __int8 *)(*(uint32_t *)(result + 72) + 4));
+           (uint8_t *)(*(uint32_t *)(result + 72) + 4));
     result = v3 | (v3 << 8);
     *(uint32_t *)(v2 + 36) = result;
   }
-  else if ( **(__int16 **)msg_dispatch_handler < 0 )
+  else if ( **(int16_t **)msg_dispatch_handler < 0 )
   {
     return sub_12F46C(dword_12C534, message_dispatch_n_45c, 92);
   }

@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1054C8;
+extern uint32_t dword_1054C0;
+extern uint32_t dword_1054C4;
+extern uint32_t dword_10583C;
+extern uint32_t dword_1054B0;
+extern uint32_t dword_1054B4;
+extern uint32_t dword_10577C;
+extern uint32_t dword_105784;
+extern uint32_t dword_10578C;
+extern uint32_t dword_105788;
+extern uint32_t dword_105790;
+extern uint32_t dword_105838;
+extern uint32_t dword_105834;
+extern uint32_t dword_105794;
+
 // scan_chan_meas_12051e0 @ 0x1051e0, size 1618 bytes
 // Doc: scan_chan_meas_12051e0 [scan]: Channel measurement/processing with VFP math and large stack frame
 // scan_chan_meas_12051e0 [scan]: Channel measurement/processing with VFP math and large stack frame
@@ -6,9 +33,9 @@ int  scan_chan_meas_12051e0(
         int a2,
         float *a3,
         int a4,
-        unsigned __int8 a5,
+        uint8_t a5,
         char a6,
-        unsigned __int8 a7,
+        uint8_t a7,
         int a8,
         int a9)
 {
@@ -57,7 +84,7 @@ int  scan_chan_meas_12051e0(
   float v53; // s16
   uint64_t v54; // r0
   float v55; // s15
-  bool v56; // zf
+  int v56; // zf
   float v57; // r9
   float v58; // s16
   float *v59; // r5

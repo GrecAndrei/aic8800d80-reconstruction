@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_124F1C;
+extern uint32_t off_124F08;
+extern uint32_t off_124F0C;
+extern uint32_t off_124F10;
+extern uint32_t off_124F14;
+extern uint32_t dword_124F18;
+
 // rf_param_select_n_e60 @ 0x124e60, size 166 bytes
 // Doc: rf_param_select_n_e60 [rf]: Select RF parameter by comparing value against 2 and allocating stack frame
 // rf_param_select_n_e60 [rf]: Select RF parameter by comparing value against 2 and allocating stack frame
@@ -5,7 +24,7 @@ int  rf_param_select_n_e60(int a1, int a2)
 {
   int *v3; // r5
   int v4; // r3
-  unsigned __int8 *v5; // r0
+  uint8_t *v5; // r0
   int v6; // r4
   int v7; // r0
   int v8; // r3
@@ -28,10 +47,10 @@ int  rf_param_select_n_e60(int a1, int a2)
   else
   {
     v3 = (int *)off_124F08;
-    v4 = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0xAu);
-    v5 = *(unsigned __int8 **)(a2 + 8);
+    v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
+    v5 = *(uint8_t **)(a2 + 8);
     v6 = v4;
-    v7 = parse_int(v5, nullptr, 0xAu);
+    v7 = parse_int(v5, 0, 0xAu);
     v8 = *(uint32_t *)off_124F0C;
     v9 = *v3;
     v10 = *(uint32_t *)off_124F10;

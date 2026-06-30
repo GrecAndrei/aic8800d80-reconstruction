@@ -1,8 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1359CC @ 0x1359cc, size 148 bytes
 // positive sp value has been detected, the output may be wrong!
 void  sub_1359CC(
         int a1,
-        __int16 a2,
+        int16_t a2,
         int *a3,
         int a4,
         int a5,
@@ -16,12 +28,12 @@ void  sub_1359CC(
   int v11; // r4
   int v12; // r5
   int v13; // r7
-  __int16 v14; // r8
+  int16_t v14; // r8
   char v15; // r9
   int v16; // r12
-  __int16 v17; // r1
+  int16_t v17; // r1
   int v18; // r0
-  __int16 v19; // r6
+  int16_t v19; // r6
   int v20; // r4
   int v21; // r4
   int v22; // r3
@@ -51,17 +63,17 @@ void  sub_1359CC(
   *(uint8_t *)(v13 + 53) = v15;
   sub_13C734(v13, 208, 8);
   sub_13B13C(v13, v21, 24);
-  v22 = *(unsigned __int8 *)(v13 + 51) + 24;
+  v22 = *(uint8_t *)(v13 + 51) + 24;
   v23 = v22 + v21;
   *(uint8_t *)(v22 + v21) = 8;
   *(uint8_t *)(v23 + 1) = 1;
   v24 = *(uint32_t *)(v13 + 76);
   *(uint16_t *)(v23 + 2) = v14;
-  HIDWORD(v25) = v22 + *(unsigned __int8 *)(v13 + 53) + 4;
+  HIDWORD(v25) = v22 + *(uint8_t *)(v13 + 53) + 4;
   LODWORD(v25) = *(uint32_t *)(v24 + 28) - 1 + HIDWORD(v25);
   HIDWORD(v25) += 4;
-  *(QWORD *)(v24 + 32) = v25;
+  *(uint64_t *)(v24 + 32) = v25;
   sub_1190B4(v13, 5);
-  __asm { POP.W           {R4-R9,PC} }
+  
 }
 

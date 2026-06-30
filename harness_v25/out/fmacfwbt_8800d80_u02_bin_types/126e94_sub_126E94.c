@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_126F10;
+extern uint32_t off_126F14;
+extern uint32_t off_126F18;
+extern uint32_t off_126F1C;
+extern uint32_t dword_126F24;
+extern uint32_t off_126F20;
+
 // sub_126E94 @ 0x126e94, size 124 bytes
 void sub_126E94()
 {
@@ -24,14 +43,14 @@ void sub_126E94()
         {
           if ( v2[2] )
             *v4 &= ~0x80000000;
-          if ( !*((uint8_t *)v0 + 1224) || *(uint8_t *)(v3 + 140 * *((unsigned __int8 *)v0 + 1225) + 133) )
+          if ( !*((uint8_t *)v0 + 1224) || *(uint8_t *)(v3 + 140 * *((uint8_t *)v0 + 1225) + 133) )
             break;
         }
         v0 = (int *)*v0;
         if ( !v0 )
           return;
       }
-      sub_1194CC(*((unsigned __int8 *)v0 + 116), 0, 0);
+      sub_1194CC(*((uint8_t *)v0 + 116), 0, 0);
       v0 = (int *)*v0;
     }
     while ( v0 );

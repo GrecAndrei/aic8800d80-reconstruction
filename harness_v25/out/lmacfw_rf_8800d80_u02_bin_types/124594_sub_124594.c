@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1245DC;
+extern uint32_t off_1245E0;
+extern uint32_t off_1245EC;
+extern uint32_t off_1245E4;
+extern uint32_t off_1245E8;
+
 // sub_124594 @ 0x124594, size 72 bytes
 // Doc: sub_1224594 [unknown]: Check shared init flag byte and branch on ready state
 // sub_1224594 [unknown]: Check shared init flag byte and branch on ready state
@@ -13,7 +31,7 @@ int sub_124594()
   {
     v0 = off_1245E0;
     result = rf_table_lookup(1u);
-    v2 = (unsigned __int16)(*v0 + 1);
+    v2 = (uint16_t)(*v0 + 1);
     *v0 = v2;
     if ( v2 == 1000 )
     {

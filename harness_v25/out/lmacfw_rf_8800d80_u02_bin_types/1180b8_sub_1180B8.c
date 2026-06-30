@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1182BC;
+extern uint32_t dword_118290;
+extern uint32_t off_118294;
+extern uint32_t off_1182C0;
+extern uint32_t off_1182C4;
+extern uint32_t off_1182B0;
+extern uint32_t dword_1182B8;
+extern uint32_t dword_1182B4;
+extern uint32_t off_1182AC;
+extern uint32_t off_118298;
+extern uint32_t off_11829C;
+extern uint32_t dword_1182A0;
+extern uint32_t dword_1182A4;
+extern uint32_t dword_1182A8;
+
 // sub_1180B8 @ 0x1180b8, size 470 bytes
 int  sub_1180B8(int a1)
 {
@@ -6,7 +33,7 @@ int  sub_1180B8(int a1)
   int v4; // r0
   int v5; // r3
   int v6; // r5
-  unsigned __int8 *v7; // r6
+  uint8_t *v7; // r6
   int v8; // r2
   int v9; // r3
   int v10; // r4
@@ -14,7 +41,7 @@ int  sub_1180B8(int a1)
   int v12; // r3
   int v13; // r1
   int v14; // r2
-  __int16 **v16; // r11
+  int16_t **v16; // r11
   uint32_t *v17; // r10
   int v18; // r1
   unsigned int v19; // r3
@@ -26,12 +53,12 @@ int  sub_1180B8(int a1)
   v2 = dword_1182BC;
   v3 = dword_1182BC + 224 * a1;
   v4 = list_remove_node(dword_118290, v3);
-  v5 = *(unsigned __int8 *)(v3 + 94);
+  v5 = *(uint8_t *)(v3 + 94);
   v6 = 224 * a1;
   if ( v5 == 2 )
   {
-    v7 = (unsigned __int8 *)off_118294;
-    v8 = (unsigned __int8)(*((uint8_t *)off_118294 + 18) - 1);
+    v7 = (uint8_t *)off_118294;
+    v8 = (uint8_t)(*((uint8_t *)off_118294 + 18) - 1);
     *((uint8_t *)off_118294 + 18) = v8;
     if ( v8 )
     {
@@ -51,27 +78,27 @@ LABEL_4:
   {
     if ( rf_chip_ready_check() )
       sub_101A50(0);
-    v7 = (unsigned __int8 *)off_118294;
-    v8 = *((unsigned __int8 *)off_118294 + 18);
-    v9 = *((unsigned __int8 *)off_118294 + 17) + v8;
+    v7 = (uint8_t *)off_118294;
+    v8 = *((uint8_t *)off_118294 + 18);
+    v9 = *((uint8_t *)off_118294 + 17) + v8;
     *((uint8_t *)off_118294 + 16) = -1;
     if ( v9 != 1 )
       goto LABEL_5;
     goto LABEL_12;
   }
-  v7 = (unsigned __int8 *)off_118294;
+  v7 = (uint8_t *)off_118294;
   if ( *(uint8_t *)(v3 + 94) )
     goto LABEL_4;
-  v8 = *((unsigned __int8 *)off_118294 + 18);
-  v22 = (unsigned __int8)(*((uint8_t *)off_118294 + 17) - 1);
+  v8 = *((uint8_t *)off_118294 + 18);
+  v22 = (uint8_t)(*((uint8_t *)off_118294 + 17) - 1);
   *((uint8_t *)off_118294 + 17) = v22;
   v9 = v22 + v8;
   if ( v9 != 1 )
     goto LABEL_5;
 LABEL_12:
-  v16 = (__int16 **)off_1182C0;
+  v16 = (int16_t **)off_1182C0;
   v17 = off_1182C4;
-  v18 = **(__int16 **)off_1182C0;
+  v18 = **(int16_t **)off_1182C0;
   v19 = *((uint32_t *)off_1182C4 + 1) & 0xFFFFFFEF;
   *((uint32_t *)off_1182C4 + 1) = v19;
   if ( v18 < 0 && *(uint32_t *)off_1182B0 << 28 )
@@ -113,7 +140,7 @@ LABEL_5:
 LABEL_7:
   timestamp_remove(v6 + 24 + v2);
   timestamp_remove(v6 + 48 + v2);
-  sub_11C7DC(*(unsigned __int8 *)(v2 + 224 * a1 + 95));
+  sub_11C7DC(*(uint8_t *)(v2 + 224 * a1 + 95));
   *(uint32_t *)off_11829C = 0;
   if ( v7[18] + v7[17] <= 1 )
     rf_status_check_n_1c0();
