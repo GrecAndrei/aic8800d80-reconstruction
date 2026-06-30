@@ -5,10 +5,7 @@
   "cluster_count": 422,
   "clusters": [
     {
-      "id": 0,
-      "group_id": 0,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -25,13 +22,14 @@
         1231972,
         1234168
       ],
-      "confidence": 6
+      "group_id": 0,
+      "id": 0,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "name": "bt_hci_cmd"
     },
     {
-      "id": 1,
-      "group_id": 1,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -48,13 +46,14 @@
         1241908,
         1243416
       ],
-      "confidence": 6
+      "group_id": 1,
+      "id": 1,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2",
+      "name": "mmio_clock_gate"
     },
     {
-      "id": 2,
-      "group_id": 2,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v1",
@@ -78,13 +77,13 @@
         1170732,
         1170916
       ],
-      "confidence": 9
+      "group_id": 2,
+      "id": 2,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 3,
-      "group_id": 3,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -103,13 +102,13 @@
         1221476,
         1221564
       ],
-      "confidence": 6
+      "group_id": 3,
+      "id": 3,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 4,
-      "group_id": 4,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -123,13 +122,13 @@
         1132588,
         1241236
       ],
-      "confidence": 3
+      "group_id": 4,
+      "id": 4,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 5,
-      "group_id": 5,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -143,13 +142,13 @@
         1186752,
         1199944
       ],
-      "confidence": 3
+      "group_id": 5,
+      "id": 5,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 6,
-      "group_id": 6,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -163,13 +162,13 @@
         1222476,
         1222680
       ],
-      "confidence": 3
+      "group_id": 6,
+      "id": 6,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 7,
-      "group_id": 7,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -187,13 +186,13 @@
         1270464,
         1271336
       ],
-      "confidence": 4
+      "group_id": 7,
+      "id": 7,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 8,
-      "group_id": 8,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -206,13 +205,13 @@
         1242992,
         1285520
       ],
-      "confidence": 2
+      "group_id": 8,
+      "id": 8,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 9,
-      "group_id": 9,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -225,13 +224,13 @@
         1243044,
         1289228
       ],
-      "confidence": 2
+      "group_id": 9,
+      "id": 9,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 10,
-      "group_id": 10,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -244,13 +243,13 @@
         1234032,
         1234192
       ],
-      "confidence": 2
+      "group_id": 10,
+      "id": 10,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 11,
-      "group_id": 11,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -263,13 +262,13 @@
         1146616,
         1173008
       ],
-      "confidence": 2
+      "group_id": 11,
+      "id": 11,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 12,
-      "group_id": 12,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -282,13 +281,13 @@
         1260128,
         1320276
       ],
-      "confidence": 2
+      "group_id": 12,
+      "id": 12,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 13,
-      "group_id": 13,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -306,13 +305,13 @@
         1121956,
         1122168
       ],
-      "confidence": 4
+      "group_id": 13,
+      "id": 13,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 14,
-      "group_id": 14,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -325,13 +324,13 @@
         1281464,
         1281564
       ],
-      "confidence": 2
+      "group_id": 14,
+      "id": 14,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 15,
-      "group_id": 15,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -344,13 +343,13 @@
         1078236,
         1078480
       ],
-      "confidence": 2
+      "group_id": 15,
+      "id": 15,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 16,
-      "group_id": 16,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -363,13 +362,13 @@
         1110952,
         1152244
       ],
-      "confidence": 2
+      "group_id": 16,
+      "id": 16,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 17,
-      "group_id": 17,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -387,13 +386,13 @@
         1165268,
         1199968
       ],
-      "confidence": 4
+      "group_id": 17,
+      "id": 17,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 18,
-      "group_id": 18,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -406,13 +405,13 @@
         1200736,
         1219112
       ],
-      "confidence": 2
+      "group_id": 18,
+      "id": 18,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 19,
-      "group_id": 19,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -430,13 +429,13 @@
         1112448,
         1126664
       ],
-      "confidence": 4
+      "group_id": 19,
+      "id": 19,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 20,
-      "group_id": 20,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -449,13 +448,13 @@
         1068824,
         1091584
       ],
-      "confidence": 2
+      "group_id": 20,
+      "id": 20,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 21,
-      "group_id": 21,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -473,13 +472,13 @@
         1265132,
         1268332
       ],
-      "confidence": 4
+      "group_id": 21,
+      "id": 21,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 22,
-      "group_id": 22,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -497,13 +496,13 @@
         1051100,
         1244928
       ],
-      "confidence": 4
+      "group_id": 22,
+      "id": 22,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 23,
-      "group_id": 23,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -521,13 +520,13 @@
         1139936,
         1206856
       ],
-      "confidence": 4
+      "group_id": 23,
+      "id": 23,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 24,
-      "group_id": 24,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -554,13 +553,13 @@
       "funcs": [
         1173256
       ],
-      "confidence": 4
+      "group_id": 24,
+      "id": 24,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 25,
-      "group_id": 25,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -587,13 +586,13 @@
       "funcs": [
         1150636
       ],
-      "confidence": 4
+      "group_id": 25,
+      "id": 25,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 26,
-      "group_id": 26,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "a1",
@@ -670,13 +669,13 @@
       "funcs": [
         1275716
       ],
-      "confidence": 14
+      "group_id": 26,
+      "id": 26,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 27,
-      "group_id": 27,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v2",
@@ -713,13 +712,13 @@
       "funcs": [
         1201384
       ],
-      "confidence": 6
+      "group_id": 27,
+      "id": 27,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 28,
-      "group_id": 28,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a3",
@@ -751,13 +750,13 @@
       "funcs": [
         1249396
       ],
-      "confidence": 5
+      "group_id": 28,
+      "id": 28,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 29,
-      "group_id": 29,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -794,13 +793,13 @@
       "funcs": [
         1162380
       ],
-      "confidence": 6
+      "group_id": 29,
+      "id": 29,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 30,
-      "group_id": 30,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -822,13 +821,13 @@
       "funcs": [
         1251492
       ],
-      "confidence": 3
+      "group_id": 30,
+      "id": 30,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 31,
-      "group_id": 31,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -845,13 +844,13 @@
       "funcs": [
         1318172
       ],
-      "confidence": 2
+      "group_id": 31,
+      "id": 31,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 32,
-      "group_id": 32,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v7",
@@ -913,13 +912,13 @@
       "funcs": [
         1251904
       ],
-      "confidence": 11
+      "group_id": 32,
+      "id": 32,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 33,
-      "group_id": 33,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v2",
@@ -951,13 +950,13 @@
       "funcs": [
         1213632
       ],
-      "confidence": 5
+      "group_id": 33,
+      "id": 33,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 34,
-      "group_id": 34,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -999,13 +998,13 @@
       "funcs": [
         1152676
       ],
-      "confidence": 7
+      "group_id": 34,
+      "id": 34,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 35,
-      "group_id": 35,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1022,13 +1021,13 @@
       "funcs": [
         1158464
       ],
-      "confidence": 2
+      "group_id": 35,
+      "id": 35,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 36,
-      "group_id": 36,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1040,13 +1039,13 @@
       "funcs": [
         1287420
       ],
-      "confidence": 1
+      "group_id": 36,
+      "id": 36,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 37,
-      "group_id": 37,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -1058,13 +1057,13 @@
       "funcs": [
         1294656
       ],
-      "confidence": 1
+      "group_id": 37,
+      "id": 37,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 38,
-      "group_id": 38,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1096,13 +1095,13 @@
       "funcs": [
         1215824
       ],
-      "confidence": 5
+      "group_id": 38,
+      "id": 38,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 39,
-      "group_id": 39,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -1114,13 +1113,13 @@
       "funcs": [
         1287312
       ],
-      "confidence": 1
+      "group_id": 39,
+      "id": 39,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 40,
-      "group_id": 40,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v8",
@@ -1172,13 +1171,13 @@
       "funcs": [
         1273496
       ],
-      "confidence": 9
+      "group_id": 40,
+      "id": 40,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 41,
-      "group_id": 41,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -1195,13 +1194,13 @@
       "funcs": [
         1251744
       ],
-      "confidence": 2
+      "group_id": 41,
+      "id": 41,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 42,
-      "group_id": 42,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1233,13 +1232,13 @@
       "funcs": [
         1188496
       ],
-      "confidence": 5
+      "group_id": 42,
+      "id": 42,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 43,
-      "group_id": 43,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1261,13 +1260,13 @@
       "funcs": [
         1211156
       ],
-      "confidence": 3
+      "group_id": 43,
+      "id": 43,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 44,
-      "group_id": 44,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -1279,13 +1278,13 @@
       "funcs": [
         1230208
       ],
-      "confidence": 1
+      "group_id": 44,
+      "id": 44,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 45,
-      "group_id": 45,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v8",
@@ -1347,13 +1346,13 @@
       "funcs": [
         1278944
       ],
-      "confidence": 11
+      "group_id": 45,
+      "id": 45,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 46,
-      "group_id": 46,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1375,13 +1374,13 @@
       "funcs": [
         1204156
       ],
-      "confidence": 3
+      "group_id": 46,
+      "id": 46,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 47,
-      "group_id": 47,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1413,13 +1412,13 @@
       "funcs": [
         1256224
       ],
-      "confidence": 5
+      "group_id": 47,
+      "id": 47,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 48,
-      "group_id": 48,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1496,13 +1495,13 @@
       "funcs": [
         1289284
       ],
-      "confidence": 14
+      "group_id": 48,
+      "id": 48,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 49,
-      "group_id": 49,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -1514,13 +1513,13 @@
       "funcs": [
         1177472
       ],
-      "confidence": 1
+      "group_id": 49,
+      "id": 49,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 50,
-      "group_id": 50,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -1532,13 +1531,13 @@
       "funcs": [
         1151880
       ],
-      "confidence": 1
+      "group_id": 50,
+      "id": 50,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 51,
-      "group_id": 51,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -1565,13 +1564,13 @@
       "funcs": [
         1295432
       ],
-      "confidence": 4
+      "group_id": 51,
+      "id": 51,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 52,
-      "group_id": 52,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -1583,13 +1582,13 @@
       "funcs": [
         1268628
       ],
-      "confidence": 1
+      "group_id": 52,
+      "id": 52,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 53,
-      "group_id": 53,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -1601,13 +1600,13 @@
       "funcs": [
         1241428
       ],
-      "confidence": 1
+      "group_id": 53,
+      "id": 53,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 54,
-      "group_id": 54,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -1634,13 +1633,13 @@
       "funcs": [
         1218408
       ],
-      "confidence": 4
+      "group_id": 54,
+      "id": 54,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 55,
-      "group_id": 55,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1667,13 +1666,13 @@
       "funcs": [
         1289104
       ],
-      "confidence": 4
+      "group_id": 55,
+      "id": 55,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 56,
-      "group_id": 56,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1695,13 +1694,13 @@
       "funcs": [
         1187768
       ],
-      "confidence": 3
+      "group_id": 56,
+      "id": 56,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 57,
-      "group_id": 57,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 32,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1868,13 +1867,13 @@
       "funcs": [
         1253716
       ],
-      "confidence": 32
+      "group_id": 57,
+      "id": 57,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 58,
-      "group_id": 58,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1891,13 +1890,13 @@
       "funcs": [
         1190896
       ],
-      "confidence": 2
+      "group_id": 58,
+      "id": 58,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 59,
-      "group_id": 59,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1914,13 +1913,13 @@
       "funcs": [
         1179376
       ],
-      "confidence": 2
+      "group_id": 59,
+      "id": 59,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 60,
-      "group_id": 60,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1942,13 +1941,13 @@
       "funcs": [
         1282280
       ],
-      "confidence": 3
+      "group_id": 60,
+      "id": 60,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 61,
-      "group_id": 61,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2020,13 +2019,13 @@
       "funcs": [
         1288096
       ],
-      "confidence": 13
+      "group_id": 61,
+      "id": 61,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 62,
-      "group_id": 62,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2053,13 +2052,13 @@
       "funcs": [
         1150968
       ],
-      "confidence": 4
+      "group_id": 62,
+      "id": 62,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 63,
-      "group_id": 63,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2071,13 +2070,13 @@
       "funcs": [
         1316700
       ],
-      "confidence": 1
+      "group_id": 63,
+      "id": 63,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 64,
-      "group_id": 64,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2089,13 +2088,13 @@
       "funcs": [
         1280716
       ],
-      "confidence": 1
+      "group_id": 64,
+      "id": 64,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 65,
-      "group_id": 65,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v2",
@@ -2127,13 +2126,13 @@
       "funcs": [
         1150704
       ],
-      "confidence": 5
+      "group_id": 65,
+      "id": 65,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 66,
-      "group_id": 66,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -2150,13 +2149,13 @@
       "funcs": [
         1296300
       ],
-      "confidence": 2
+      "group_id": 66,
+      "id": 66,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 67,
-      "group_id": 67,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -2173,13 +2172,13 @@
       "funcs": [
         1263248
       ],
-      "confidence": 2
+      "group_id": 67,
+      "id": 67,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 68,
-      "group_id": 68,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v7",
@@ -2226,13 +2225,13 @@
       "funcs": [
         1167544
       ],
-      "confidence": 8
+      "group_id": 68,
+      "id": 68,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 69,
-      "group_id": 69,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2249,13 +2248,13 @@
       "funcs": [
         1306968
       ],
-      "confidence": 2
+      "group_id": 69,
+      "id": 69,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 70,
-      "group_id": 70,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2272,13 +2271,13 @@
       "funcs": [
         1203304
       ],
-      "confidence": 2
+      "group_id": 70,
+      "id": 70,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 71,
-      "group_id": 71,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2335,13 +2334,13 @@
       "funcs": [
         1177040
       ],
-      "confidence": 10
+      "group_id": 71,
+      "id": 71,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 72,
-      "group_id": 72,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 20,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2448,13 +2447,13 @@
       "funcs": [
         1300272
       ],
-      "confidence": 20
+      "group_id": 72,
+      "id": 72,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 73,
-      "group_id": 73,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2491,13 +2490,13 @@
       "funcs": [
         1284940
       ],
-      "confidence": 6
+      "group_id": 73,
+      "id": 73,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 74,
-      "group_id": 74,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -2514,13 +2513,13 @@
       "funcs": [
         1165220
       ],
-      "confidence": 2
+      "group_id": 74,
+      "id": 74,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 75,
-      "group_id": 75,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2552,13 +2551,13 @@
       "funcs": [
         1307360
       ],
-      "confidence": 5
+      "group_id": 75,
+      "id": 75,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 76,
-      "group_id": 76,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2595,13 +2594,13 @@
       "funcs": [
         1268004
       ],
-      "confidence": 6
+      "group_id": 76,
+      "id": 76,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 77,
-      "group_id": 77,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -2613,13 +2612,13 @@
       "funcs": [
         1255540
       ],
-      "confidence": 1
+      "group_id": 77,
+      "id": 77,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 78,
-      "group_id": 78,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -2641,13 +2640,13 @@
       "funcs": [
         1166628
       ],
-      "confidence": 3
+      "group_id": 78,
+      "id": 78,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 79,
-      "group_id": 79,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2714,13 +2713,13 @@
       "funcs": [
         1202188
       ],
-      "confidence": 12
+      "group_id": 79,
+      "id": 79,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 80,
-      "group_id": 80,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -2732,13 +2731,13 @@
       "funcs": [
         1274320
       ],
-      "confidence": 1
+      "group_id": 80,
+      "id": 80,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 81,
-      "group_id": 81,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -2760,13 +2759,13 @@
       "funcs": [
         1212452
       ],
-      "confidence": 3
+      "group_id": 81,
+      "id": 81,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 82,
-      "group_id": 82,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "v8",
@@ -2823,13 +2822,13 @@
       "funcs": [
         1174084
       ],
-      "confidence": 10
+      "group_id": 82,
+      "id": 82,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 83,
-      "group_id": 83,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -2861,13 +2860,13 @@
       "funcs": [
         1190344
       ],
-      "confidence": 5
+      "group_id": 83,
+      "id": 83,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 84,
-      "group_id": 84,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v5",
@@ -2904,13 +2903,13 @@
       "funcs": [
         1212248
       ],
-      "confidence": 6
+      "group_id": 84,
+      "id": 84,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 85,
-      "group_id": 85,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "v1",
@@ -2977,13 +2976,13 @@
       "funcs": [
         1308720
       ],
-      "confidence": 12
+      "group_id": 85,
+      "id": 85,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 86,
-      "group_id": 86,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "v3",
@@ -3025,13 +3024,13 @@
       "funcs": [
         1271952
       ],
-      "confidence": 7
+      "group_id": 86,
+      "id": 86,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 87,
-      "group_id": 87,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3048,13 +3047,13 @@
       "funcs": [
         1102444
       ],
-      "confidence": 2
+      "group_id": 87,
+      "id": 87,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 88,
-      "group_id": 88,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3076,13 +3075,13 @@
       "funcs": [
         1164268
       ],
-      "confidence": 3
+      "group_id": 88,
+      "id": 88,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 89,
-      "group_id": 89,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3134,13 +3133,13 @@
       "funcs": [
         1156304
       ],
-      "confidence": 9
+      "group_id": 89,
+      "id": 89,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 90,
-      "group_id": 90,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3157,13 +3156,13 @@
       "funcs": [
         1266412
       ],
-      "confidence": 2
+      "group_id": 90,
+      "id": 90,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 91,
-      "group_id": 91,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3185,13 +3184,13 @@
       "funcs": [
         1283140
       ],
-      "confidence": 3
+      "group_id": 91,
+      "id": 91,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 92,
-      "group_id": 92,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3208,13 +3207,13 @@
       "funcs": [
         1143440
       ],
-      "confidence": 2
+      "group_id": 92,
+      "id": 92,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 93,
-      "group_id": 93,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3241,13 +3240,13 @@
       "funcs": [
         1247324
       ],
-      "confidence": 4
+      "group_id": 93,
+      "id": 93,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 94,
-      "group_id": 94,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -3269,13 +3268,13 @@
       "funcs": [
         1158528
       ],
-      "confidence": 3
+      "group_id": 94,
+      "id": 94,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 95,
-      "group_id": 95,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3292,13 +3291,13 @@
       "funcs": [
         1256120
       ],
-      "confidence": 2
+      "group_id": 95,
+      "id": 95,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 96,
-      "group_id": 96,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3315,13 +3314,13 @@
       "funcs": [
         1205860
       ],
-      "confidence": 2
+      "group_id": 96,
+      "id": 96,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 97,
-      "group_id": 97,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3338,13 +3337,13 @@
       "funcs": [
         1318768
       ],
-      "confidence": 2
+      "group_id": 97,
+      "id": 97,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 98,
-      "group_id": 98,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3371,13 +3370,13 @@
       "funcs": [
         1250148
       ],
-      "confidence": 4
+      "group_id": 98,
+      "id": 98,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 99,
-      "group_id": 99,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3399,13 +3398,13 @@
       "funcs": [
         1251360
       ],
-      "confidence": 3
+      "group_id": 99,
+      "id": 99,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 100,
-      "group_id": 100,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3417,13 +3416,13 @@
       "funcs": [
         1135848
       ],
-      "confidence": 1
+      "group_id": 100,
+      "id": 100,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 101,
-      "group_id": 101,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3455,13 +3454,13 @@
       "funcs": [
         1183496
       ],
-      "confidence": 5
+      "group_id": 101,
+      "id": 101,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 102,
-      "group_id": 102,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3488,13 +3487,13 @@
       "funcs": [
         1287620
       ],
-      "confidence": 4
+      "group_id": 102,
+      "id": 102,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 103,
-      "group_id": 103,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3531,13 +3530,13 @@
       "funcs": [
         1290620
       ],
-      "confidence": 6
+      "group_id": 103,
+      "id": 103,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 104,
-      "group_id": 104,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a4",
@@ -3554,13 +3553,13 @@
       "funcs": [
         1087880
       ],
-      "confidence": 2
+      "group_id": 104,
+      "id": 104,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 105,
-      "group_id": 105,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3577,13 +3576,13 @@
       "funcs": [
         1295516
       ],
-      "confidence": 2
+      "group_id": 105,
+      "id": 105,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 106,
-      "group_id": 106,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "v8",
@@ -3655,13 +3654,13 @@
       "funcs": [
         1226172
       ],
-      "confidence": 13
+      "group_id": 106,
+      "id": 106,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 107,
-      "group_id": 107,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3683,13 +3682,13 @@
       "funcs": [
         1270336
       ],
-      "confidence": 3
+      "group_id": 107,
+      "id": 107,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 108,
-      "group_id": 108,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -3701,13 +3700,13 @@
       "funcs": [
         1282988
       ],
-      "confidence": 1
+      "group_id": 108,
+      "id": 108,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 109,
-      "group_id": 109,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -3719,13 +3718,13 @@
       "funcs": [
         1208104
       ],
-      "confidence": 1
+      "group_id": 109,
+      "id": 109,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 110,
-      "group_id": 110,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3737,13 +3736,13 @@
       "funcs": [
         1099812
       ],
-      "confidence": 1
+      "group_id": 110,
+      "id": 110,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 111,
-      "group_id": 111,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3785,13 +3784,13 @@
       "funcs": [
         1250208
       ],
-      "confidence": 7
+      "group_id": 111,
+      "id": 111,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 112,
-      "group_id": 112,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3808,13 +3807,13 @@
       "funcs": [
         1230832
       ],
-      "confidence": 2
+      "group_id": 112,
+      "id": 112,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 113,
-      "group_id": 113,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a4",
@@ -3846,13 +3845,13 @@
       "funcs": [
         1274712
       ],
-      "confidence": 5
+      "group_id": 113,
+      "id": 113,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 114,
-      "group_id": 114,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -3864,13 +3863,13 @@
       "funcs": [
         1050776
       ],
-      "confidence": 1
+      "group_id": 114,
+      "id": 114,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 115,
-      "group_id": 115,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v5",
@@ -3892,13 +3891,13 @@
       "funcs": [
         1261576
       ],
-      "confidence": 3
+      "group_id": 115,
+      "id": 115,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 116,
-      "group_id": 116,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -3910,13 +3909,13 @@
       "funcs": [
         1181940
       ],
-      "confidence": 1
+      "group_id": 116,
+      "id": 116,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 117,
-      "group_id": 117,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3933,13 +3932,13 @@
       "funcs": [
         1293076
       ],
-      "confidence": 2
+      "group_id": 117,
+      "id": 117,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 118,
-      "group_id": 118,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3961,13 +3960,13 @@
       "funcs": [
         1216392
       ],
-      "confidence": 3
+      "group_id": 118,
+      "id": 118,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 119,
-      "group_id": 119,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3979,13 +3978,13 @@
       "funcs": [
         1069192
       ],
-      "confidence": 1
+      "group_id": 119,
+      "id": 119,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 120,
-      "group_id": 120,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v8",
@@ -4012,13 +4011,13 @@
       "funcs": [
         1186004
       ],
-      "confidence": 4
+      "group_id": 120,
+      "id": 120,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 121,
-      "group_id": 121,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4030,13 +4029,13 @@
       "funcs": [
         1147216
       ],
-      "confidence": 1
+      "group_id": 121,
+      "id": 121,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 122,
-      "group_id": 122,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4058,13 +4057,13 @@
       "funcs": [
         1272616
       ],
-      "confidence": 3
+      "group_id": 122,
+      "id": 122,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 123,
-      "group_id": 123,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -4081,13 +4080,13 @@
       "funcs": [
         1260184
       ],
-      "confidence": 2
+      "group_id": 123,
+      "id": 123,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 124,
-      "group_id": 124,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -4104,13 +4103,13 @@
       "funcs": [
         1215736
       ],
-      "confidence": 2
+      "group_id": 124,
+      "id": 124,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 125,
-      "group_id": 125,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -4127,13 +4126,13 @@
       "funcs": [
         1283064
       ],
-      "confidence": 2
+      "group_id": 125,
+      "id": 125,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 126,
-      "group_id": 126,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -4150,13 +4149,13 @@
       "funcs": [
         1162248
       ],
-      "confidence": 2
+      "group_id": 126,
+      "id": 126,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 127,
-      "group_id": 127,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4178,13 +4177,13 @@
       "funcs": [
         1319160
       ],
-      "confidence": 3
+      "group_id": 127,
+      "id": 127,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 128,
-      "group_id": 128,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -4201,13 +4200,13 @@
       "funcs": [
         1209072
       ],
-      "confidence": 2
+      "group_id": 128,
+      "id": 128,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 129,
-      "group_id": 129,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4219,13 +4218,13 @@
       "funcs": [
         1307980
       ],
-      "confidence": 1
+      "group_id": 129,
+      "id": 129,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 130,
-      "group_id": 130,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -4242,13 +4241,13 @@
       "funcs": [
         1280724
       ],
-      "confidence": 2
+      "group_id": 130,
+      "id": 130,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 131,
-      "group_id": 131,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "v3",
@@ -4325,13 +4324,13 @@
       "funcs": [
         1303932
       ],
-      "confidence": 14
+      "group_id": 131,
+      "id": 131,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 132,
-      "group_id": 132,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -4353,13 +4352,13 @@
       "funcs": [
         1318456
       ],
-      "confidence": 3
+      "group_id": 132,
+      "id": 132,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 133,
-      "group_id": 133,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4396,13 +4395,13 @@
       "funcs": [
         1290268
       ],
-      "confidence": 6
+      "group_id": 133,
+      "id": 133,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 134,
-      "group_id": 134,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a4",
@@ -4459,13 +4458,13 @@
       "funcs": [
         1182584
       ],
-      "confidence": 10
+      "group_id": 134,
+      "id": 134,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 135,
-      "group_id": 135,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4477,13 +4476,13 @@
       "funcs": [
         1225884
       ],
-      "confidence": 1
+      "group_id": 135,
+      "id": 135,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 136,
-      "group_id": 136,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4495,13 +4494,13 @@
       "funcs": [
         1230576
       ],
-      "confidence": 1
+      "group_id": 136,
+      "id": 136,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 137,
-      "group_id": 137,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -4528,13 +4527,13 @@
       "funcs": [
         1205912
       ],
-      "confidence": 4
+      "group_id": 137,
+      "id": 137,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 138,
-      "group_id": 138,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -4576,13 +4575,13 @@
       "funcs": [
         1273084
       ],
-      "confidence": 7
+      "group_id": 138,
+      "id": 138,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 139,
-      "group_id": 139,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 19,
       "fingerprint": [
         {
           "Base": "v6",
@@ -4684,13 +4683,13 @@
       "funcs": [
         1263324
       ],
-      "confidence": 19
+      "group_id": 139,
+      "id": 139,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 140,
-      "group_id": 140,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4717,13 +4716,13 @@
       "funcs": [
         1247776
       ],
-      "confidence": 4
+      "group_id": 140,
+      "id": 140,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 141,
-      "group_id": 141,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -4735,13 +4734,13 @@
       "funcs": [
         1228648
       ],
-      "confidence": 1
+      "group_id": 141,
+      "id": 141,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 142,
-      "group_id": 142,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4758,13 +4757,13 @@
       "funcs": [
         1299192
       ],
-      "confidence": 2
+      "group_id": 142,
+      "id": 142,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 143,
-      "group_id": 143,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4806,13 +4805,13 @@
       "funcs": [
         1206184
       ],
-      "confidence": 7
+      "group_id": 143,
+      "id": 143,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 144,
-      "group_id": 144,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -4829,13 +4828,13 @@
       "funcs": [
         1267584
       ],
-      "confidence": 2
+      "group_id": 144,
+      "id": 144,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 145,
-      "group_id": 145,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -4857,13 +4856,13 @@
       "funcs": [
         1160832
       ],
-      "confidence": 3
+      "group_id": 145,
+      "id": 145,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 146,
-      "group_id": 146,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4885,13 +4884,13 @@
       "funcs": [
         1216488
       ],
-      "confidence": 3
+      "group_id": 146,
+      "id": 146,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 147,
-      "group_id": 147,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4903,13 +4902,13 @@
       "funcs": [
         1319124
       ],
-      "confidence": 1
+      "group_id": 147,
+      "id": 147,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 148,
-      "group_id": 148,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -4926,13 +4925,13 @@
       "funcs": [
         1217580
       ],
-      "confidence": 2
+      "group_id": 148,
+      "id": 148,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 149,
-      "group_id": 149,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4949,13 +4948,13 @@
       "funcs": [
         1078712
       ],
-      "confidence": 2
+      "group_id": 149,
+      "id": 149,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 150,
-      "group_id": 150,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -4972,13 +4971,13 @@
       "funcs": [
         1193988
       ],
-      "confidence": 2
+      "group_id": 150,
+      "id": 150,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 151,
-      "group_id": 151,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -5000,13 +4999,13 @@
       "funcs": [
         1225940
       ],
-      "confidence": 3
+      "group_id": 151,
+      "id": 151,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 152,
-      "group_id": 152,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5033,13 +5032,13 @@
       "funcs": [
         1157888
       ],
-      "confidence": 4
+      "group_id": 152,
+      "id": 152,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 153,
-      "group_id": 153,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -5061,13 +5060,13 @@
       "funcs": [
         1113944
       ],
-      "confidence": 3
+      "group_id": 153,
+      "id": 153,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 154,
-      "group_id": 154,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5084,13 +5083,13 @@
       "funcs": [
         1269016
       ],
-      "confidence": 2
+      "group_id": 154,
+      "id": 154,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 155,
-      "group_id": 155,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -5102,13 +5101,13 @@
       "funcs": [
         1133296
       ],
-      "confidence": 1
+      "group_id": 155,
+      "id": 155,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 156,
-      "group_id": 156,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -5140,13 +5139,13 @@
       "funcs": [
         1218492
       ],
-      "confidence": 5
+      "group_id": 156,
+      "id": 156,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 157,
-      "group_id": 157,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -5158,13 +5157,13 @@
       "funcs": [
         1120256
       ],
-      "confidence": 1
+      "group_id": 157,
+      "id": 157,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 158,
-      "group_id": 158,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v8",
@@ -5186,13 +5185,13 @@
       "funcs": [
         1150520
       ],
-      "confidence": 3
+      "group_id": 158,
+      "id": 158,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 159,
-      "group_id": 159,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5224,13 +5223,13 @@
       "funcs": [
         1267072
       ],
-      "confidence": 5
+      "group_id": 159,
+      "id": 159,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 160,
-      "group_id": 160,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5252,13 +5251,13 @@
       "funcs": [
         1290556
       ],
-      "confidence": 3
+      "group_id": 160,
+      "id": 160,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 161,
-      "group_id": 161,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -5275,13 +5274,13 @@
       "funcs": [
         1120600
       ],
-      "confidence": 2
+      "group_id": 161,
+      "id": 161,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 162,
-      "group_id": 162,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5308,13 +5307,13 @@
       "funcs": [
         1224180
       ],
-      "confidence": 4
+      "group_id": 162,
+      "id": 162,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 163,
-      "group_id": 163,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5336,13 +5335,13 @@
       "funcs": [
         1165624
       ],
-      "confidence": 3
+      "group_id": 163,
+      "id": 163,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 164,
-      "group_id": 164,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -5359,13 +5358,13 @@
       "funcs": [
         1176744
       ],
-      "confidence": 2
+      "group_id": 164,
+      "id": 164,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 165,
-      "group_id": 165,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5382,13 +5381,13 @@
       "funcs": [
         1230688
       ],
-      "confidence": 2
+      "group_id": 165,
+      "id": 165,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 166,
-      "group_id": 166,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5400,13 +5399,13 @@
       "funcs": [
         1074112
       ],
-      "confidence": 1
+      "group_id": 166,
+      "id": 166,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 167,
-      "group_id": 167,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5423,13 +5422,13 @@
       "funcs": [
         1320560
       ],
-      "confidence": 2
+      "group_id": 167,
+      "id": 167,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 168,
-      "group_id": 168,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5446,13 +5445,13 @@
       "funcs": [
         1237448
       ],
-      "confidence": 2
+      "group_id": 168,
+      "id": 168,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 169,
-      "group_id": 169,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -5464,13 +5463,13 @@
       "funcs": [
         1233072
       ],
-      "confidence": 1
+      "group_id": 169,
+      "id": 169,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 170,
-      "group_id": 170,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 38,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5667,13 +5666,13 @@
       "funcs": [
         1252476
       ],
-      "confidence": 38
+      "group_id": 170,
+      "id": 170,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 171,
-      "group_id": 171,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5685,13 +5684,13 @@
       "funcs": [
         1142240
       ],
-      "confidence": 1
+      "group_id": 171,
+      "id": 171,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 172,
-      "group_id": 172,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5703,13 +5702,13 @@
       "funcs": [
         1160756
       ],
-      "confidence": 1
+      "group_id": 172,
+      "id": 172,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 173,
-      "group_id": 173,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v1",
@@ -5746,13 +5745,13 @@
       "funcs": [
         1175412
       ],
-      "confidence": 6
+      "group_id": 173,
+      "id": 173,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 174,
-      "group_id": 174,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5764,13 +5763,13 @@
       "funcs": [
         1265576
       ],
-      "confidence": 1
+      "group_id": 174,
+      "id": 174,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 175,
-      "group_id": 175,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5802,13 +5801,13 @@
       "funcs": [
         1100844
       ],
-      "confidence": 5
+      "group_id": 175,
+      "id": 175,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 176,
-      "group_id": 176,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5825,13 +5824,13 @@
       "funcs": [
         1093224
       ],
-      "confidence": 2
+      "group_id": 176,
+      "id": 176,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 177,
-      "group_id": 177,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -5848,13 +5847,13 @@
       "funcs": [
         1159348
       ],
-      "confidence": 2
+      "group_id": 177,
+      "id": 177,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 178,
-      "group_id": 178,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5866,13 +5865,13 @@
       "funcs": [
         1147140
       ],
-      "confidence": 1
+      "group_id": 178,
+      "id": 178,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 179,
-      "group_id": 179,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5909,13 +5908,13 @@
       "funcs": [
         1224516
       ],
-      "confidence": 6
+      "group_id": 179,
+      "id": 179,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 180,
-      "group_id": 180,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -5927,13 +5926,13 @@
       "funcs": [
         1195000
       ],
-      "confidence": 1
+      "group_id": 180,
+      "id": 180,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 181,
-      "group_id": 181,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -5950,13 +5949,13 @@
       "funcs": [
         1230608
       ],
-      "confidence": 2
+      "group_id": 181,
+      "id": 181,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 182,
-      "group_id": 182,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v8",
@@ -6003,13 +6002,13 @@
       "funcs": [
         1247452
       ],
-      "confidence": 8
+      "group_id": 182,
+      "id": 182,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 183,
-      "group_id": 183,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6041,13 +6040,13 @@
       "funcs": [
         1318508
       ],
-      "confidence": 5
+      "group_id": 183,
+      "id": 183,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 184,
-      "group_id": 184,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 16,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6134,13 +6133,13 @@
       "funcs": [
         1148284
       ],
-      "confidence": 16
+      "group_id": 184,
+      "id": 184,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 185,
-      "group_id": 185,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6187,13 +6186,13 @@
       "funcs": [
         1074256
       ],
-      "confidence": 8
+      "group_id": 185,
+      "id": 185,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 186,
-      "group_id": 186,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6230,13 +6229,13 @@
       "funcs": [
         1145568
       ],
-      "confidence": 6
+      "group_id": 186,
+      "id": 186,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 187,
-      "group_id": 187,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6248,13 +6247,13 @@
       "funcs": [
         1292784
       ],
-      "confidence": 1
+      "group_id": 187,
+      "id": 187,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 188,
-      "group_id": 188,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6306,13 +6305,13 @@
       "funcs": [
         1271428
       ],
-      "confidence": 9
+      "group_id": 188,
+      "id": 188,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 189,
-      "group_id": 189,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -6329,13 +6328,13 @@
       "funcs": [
         1267636
       ],
-      "confidence": 2
+      "group_id": 189,
+      "id": 189,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 190,
-      "group_id": 190,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -6352,13 +6351,13 @@
       "funcs": [
         1221232
       ],
-      "confidence": 2
+      "group_id": 190,
+      "id": 190,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 191,
-      "group_id": 191,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -6370,13 +6369,13 @@
       "funcs": [
         1222168
       ],
-      "confidence": 1
+      "group_id": 191,
+      "id": 191,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 192,
-      "group_id": 192,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v8",
@@ -6398,13 +6397,13 @@
       "funcs": [
         1192968
       ],
-      "confidence": 3
+      "group_id": 192,
+      "id": 192,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 193,
-      "group_id": 193,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a3",
@@ -6436,13 +6435,13 @@
       "funcs": [
         1250420
       ],
-      "confidence": 5
+      "group_id": 193,
+      "id": 193,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 194,
-      "group_id": 194,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v5",
@@ -6474,13 +6473,13 @@
       "funcs": [
         1261132
       ],
-      "confidence": 5
+      "group_id": 194,
+      "id": 194,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 195,
-      "group_id": 195,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a4",
@@ -6497,13 +6496,13 @@
       "funcs": [
         1073740
       ],
-      "confidence": 2
+      "group_id": 195,
+      "id": 195,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 196,
-      "group_id": 196,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6515,13 +6514,13 @@
       "funcs": [
         1139916
       ],
-      "confidence": 1
+      "group_id": 196,
+      "id": 196,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 197,
-      "group_id": 197,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -6533,13 +6532,13 @@
       "funcs": [
         1078908
       ],
-      "confidence": 1
+      "group_id": 197,
+      "id": 197,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 198,
-      "group_id": 198,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6556,13 +6555,13 @@
       "funcs": [
         1147248
       ],
-      "confidence": 2
+      "group_id": 198,
+      "id": 198,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 199,
-      "group_id": 199,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v8",
@@ -6589,13 +6588,13 @@
       "funcs": [
         1147788
       ],
-      "confidence": 4
+      "group_id": 199,
+      "id": 199,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 200,
-      "group_id": 200,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6622,13 +6621,13 @@
       "funcs": [
         1153256
       ],
-      "confidence": 4
+      "group_id": 200,
+      "id": 200,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 201,
-      "group_id": 201,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6650,13 +6649,13 @@
       "funcs": [
         1115284
       ],
-      "confidence": 3
+      "group_id": 201,
+      "id": 201,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 202,
-      "group_id": 202,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -6673,13 +6672,13 @@
       "funcs": [
         1190796
       ],
-      "confidence": 2
+      "group_id": 202,
+      "id": 202,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 203,
-      "group_id": 203,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6691,13 +6690,13 @@
       "funcs": [
         1121132
       ],
-      "confidence": 1
+      "group_id": 203,
+      "id": 203,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 204,
-      "group_id": 204,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v5",
@@ -6734,13 +6733,13 @@
       "funcs": [
         1157276
       ],
-      "confidence": 6
+      "group_id": 204,
+      "id": 204,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 205,
-      "group_id": 205,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6787,13 +6786,13 @@
       "funcs": [
         1156904
       ],
-      "confidence": 8
+      "group_id": 205,
+      "id": 205,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 206,
-      "group_id": 206,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6845,13 +6844,13 @@
       "funcs": [
         1140580
       ],
-      "confidence": 9
+      "group_id": 206,
+      "id": 206,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 207,
-      "group_id": 207,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6878,13 +6877,13 @@
       "funcs": [
         1220284
       ],
-      "confidence": 4
+      "group_id": 207,
+      "id": 207,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 208,
-      "group_id": 208,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6911,13 +6910,13 @@
       "funcs": [
         1171532
       ],
-      "confidence": 4
+      "group_id": 208,
+      "id": 208,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 209,
-      "group_id": 209,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6944,13 +6943,13 @@
       "funcs": [
         1203204
       ],
-      "confidence": 4
+      "group_id": 209,
+      "id": 209,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 210,
-      "group_id": 210,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6972,13 +6971,13 @@
       "funcs": [
         1214196
       ],
-      "confidence": 3
+      "group_id": 210,
+      "id": 210,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 211,
-      "group_id": 211,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -6995,13 +6994,13 @@
       "funcs": [
         1293700
       ],
-      "confidence": 2
+      "group_id": 211,
+      "id": 211,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 212,
-      "group_id": 212,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -7028,13 +7027,13 @@
       "funcs": [
         1293820
       ],
-      "confidence": 4
+      "group_id": 212,
+      "id": 212,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 213,
-      "group_id": 213,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7071,13 +7070,13 @@
       "funcs": [
         1139976
       ],
-      "confidence": 6
+      "group_id": 213,
+      "id": 213,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 214,
-      "group_id": 214,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7094,13 +7093,13 @@
       "funcs": [
         1305532
       ],
-      "confidence": 2
+      "group_id": 214,
+      "id": 214,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 215,
-      "group_id": 215,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7122,13 +7121,13 @@
       "funcs": [
         1114972
       ],
-      "confidence": 3
+      "group_id": 215,
+      "id": 215,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 216,
-      "group_id": 216,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -7145,13 +7144,13 @@
       "funcs": [
         1231204
       ],
-      "confidence": 2
+      "group_id": 216,
+      "id": 216,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 217,
-      "group_id": 217,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7173,13 +7172,13 @@
       "funcs": [
         1187640
       ],
-      "confidence": 3
+      "group_id": 217,
+      "id": 217,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 218,
-      "group_id": 218,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7221,13 +7220,13 @@
       "funcs": [
         1249128
       ],
-      "confidence": 7
+      "group_id": 218,
+      "id": 218,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 219,
-      "group_id": 219,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7254,13 +7253,13 @@
       "funcs": [
         1286136
       ],
-      "confidence": 4
+      "group_id": 219,
+      "id": 219,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 220,
-      "group_id": 220,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -7272,13 +7271,13 @@
       "funcs": [
         1249376
       ],
-      "confidence": 1
+      "group_id": 220,
+      "id": 220,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 221,
-      "group_id": 221,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7300,13 +7299,13 @@
       "funcs": [
         1259520
       ],
-      "confidence": 3
+      "group_id": 221,
+      "id": 221,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 222,
-      "group_id": 222,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7333,13 +7332,13 @@
       "funcs": [
         1299736
       ],
-      "confidence": 4
+      "group_id": 222,
+      "id": 222,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 223,
-      "group_id": 223,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -7356,13 +7355,13 @@
       "funcs": [
         1222536
       ],
-      "confidence": 2
+      "group_id": 223,
+      "id": 223,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 224,
-      "group_id": 224,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7374,13 +7373,13 @@
       "funcs": [
         1242044
       ],
-      "confidence": 1
+      "group_id": 224,
+      "id": 224,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 225,
-      "group_id": 225,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -7397,13 +7396,13 @@
       "funcs": [
         1231392
       ],
-      "confidence": 2
+      "group_id": 225,
+      "id": 225,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 226,
-      "group_id": 226,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7440,13 +7439,13 @@
       "funcs": [
         1169248
       ],
-      "confidence": 6
+      "group_id": 226,
+      "id": 226,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 227,
-      "group_id": 227,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7473,13 +7472,13 @@
       "funcs": [
         1220524
       ],
-      "confidence": 4
+      "group_id": 227,
+      "id": 227,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 228,
-      "group_id": 228,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7506,13 +7505,13 @@
       "funcs": [
         1316128
       ],
-      "confidence": 4
+      "group_id": 228,
+      "id": 228,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 229,
-      "group_id": 229,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7534,13 +7533,13 @@
       "funcs": [
         1311392
       ],
-      "confidence": 3
+      "group_id": 229,
+      "id": 229,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 230,
-      "group_id": 230,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7567,13 +7566,13 @@
       "funcs": [
         1274096
       ],
-      "confidence": 4
+      "group_id": 230,
+      "id": 230,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 231,
-      "group_id": 231,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -7585,13 +7584,13 @@
       "funcs": [
         1153160
       ],
-      "confidence": 1
+      "group_id": 231,
+      "id": 231,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 232,
-      "group_id": 232,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7643,13 +7642,13 @@
       "funcs": [
         1142516
       ],
-      "confidence": 9
+      "group_id": 232,
+      "id": 232,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 233,
-      "group_id": 233,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7666,13 +7665,13 @@
       "funcs": [
         1192628
       ],
-      "confidence": 2
+      "group_id": 233,
+      "id": 233,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 234,
-      "group_id": 234,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7689,13 +7688,13 @@
       "funcs": [
         1267844
       ],
-      "confidence": 2
+      "group_id": 234,
+      "id": 234,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 235,
-      "group_id": 235,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7717,13 +7716,13 @@
       "funcs": [
         1163328
       ],
-      "confidence": 3
+      "group_id": 235,
+      "id": 235,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 236,
-      "group_id": 236,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7760,13 +7759,13 @@
       "funcs": [
         1154228
       ],
-      "confidence": 6
+      "group_id": 236,
+      "id": 236,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 237,
-      "group_id": 237,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7823,13 +7822,13 @@
       "funcs": [
         1202588
       ],
-      "confidence": 10
+      "group_id": 237,
+      "id": 237,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 238,
-      "group_id": 238,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7846,13 +7845,13 @@
       "funcs": [
         1292068
       ],
-      "confidence": 2
+      "group_id": 238,
+      "id": 238,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 239,
-      "group_id": 239,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -7864,13 +7863,13 @@
       "funcs": [
         1151492
       ],
-      "confidence": 1
+      "group_id": 239,
+      "id": 239,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 240,
-      "group_id": 240,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -7887,13 +7886,13 @@
       "funcs": [
         1274592
       ],
-      "confidence": 2
+      "group_id": 240,
+      "id": 240,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 241,
-      "group_id": 241,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -7905,13 +7904,13 @@
       "funcs": [
         1233848
       ],
-      "confidence": 1
+      "group_id": 241,
+      "id": 241,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 242,
-      "group_id": 242,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7973,13 +7972,13 @@
       "funcs": [
         1264812
       ],
-      "confidence": 11
+      "group_id": 242,
+      "id": 242,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 243,
-      "group_id": 243,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -7996,13 +7995,13 @@
       "funcs": [
         1162776
       ],
-      "confidence": 2
+      "group_id": 243,
+      "id": 243,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 244,
-      "group_id": 244,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8019,13 +8018,13 @@
       "funcs": [
         1293888
       ],
-      "confidence": 2
+      "group_id": 244,
+      "id": 244,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 245,
-      "group_id": 245,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -8047,13 +8046,13 @@
       "funcs": [
         1216708
       ],
-      "confidence": 3
+      "group_id": 245,
+      "id": 245,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 246,
-      "group_id": 246,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8065,13 +8064,13 @@
       "funcs": [
         1293508
       ],
-      "confidence": 1
+      "group_id": 246,
+      "id": 246,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 247,
-      "group_id": 247,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -8083,13 +8082,13 @@
       "funcs": [
         1246796
       ],
-      "confidence": 1
+      "group_id": 247,
+      "id": 247,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 248,
-      "group_id": 248,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8101,13 +8100,13 @@
       "funcs": [
         1161128
       ],
-      "confidence": 1
+      "group_id": 248,
+      "id": 248,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 249,
-      "group_id": 249,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -8134,13 +8133,13 @@
       "funcs": [
         1250076
       ],
-      "confidence": 4
+      "group_id": 249,
+      "id": 249,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 250,
-      "group_id": 250,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8172,13 +8171,13 @@
       "funcs": [
         1294772
       ],
-      "confidence": 5
+      "group_id": 250,
+      "id": 250,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 251,
-      "group_id": 251,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8195,13 +8194,13 @@
       "funcs": [
         1296180
       ],
-      "confidence": 2
+      "group_id": 251,
+      "id": 251,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 252,
-      "group_id": 252,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -8228,13 +8227,13 @@
       "funcs": [
         1103456
       ],
-      "confidence": 4
+      "group_id": 252,
+      "id": 252,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 253,
-      "group_id": 253,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -8266,13 +8265,13 @@
       "funcs": [
         1178204
       ],
-      "confidence": 5
+      "group_id": 253,
+      "id": 253,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 254,
-      "group_id": 254,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8299,13 +8298,13 @@
       "funcs": [
         1272980
       ],
-      "confidence": 4
+      "group_id": 254,
+      "id": 254,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 255,
-      "group_id": 255,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v5",
@@ -8352,13 +8351,13 @@
       "funcs": [
         1213944
       ],
-      "confidence": 8
+      "group_id": 255,
+      "id": 255,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 256,
-      "group_id": 256,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8390,13 +8389,13 @@
       "funcs": [
         1071380
       ],
-      "confidence": 5
+      "group_id": 256,
+      "id": 256,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 257,
-      "group_id": 257,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8428,13 +8427,13 @@
       "funcs": [
         1201972
       ],
-      "confidence": 5
+      "group_id": 257,
+      "id": 257,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 258,
-      "group_id": 258,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -8446,13 +8445,13 @@
       "funcs": [
         1158264
       ],
-      "confidence": 1
+      "group_id": 258,
+      "id": 258,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 259,
-      "group_id": 259,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v5",
@@ -8479,13 +8478,13 @@
       "funcs": [
         1100552
       ],
-      "confidence": 4
+      "group_id": 259,
+      "id": 259,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 260,
-      "group_id": 260,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8547,13 +8546,13 @@
       "funcs": [
         1255036
       ],
-      "confidence": 11
+      "group_id": 260,
+      "id": 260,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 261,
-      "group_id": 261,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8595,13 +8594,13 @@
       "funcs": [
         1193252
       ],
-      "confidence": 7
+      "group_id": 261,
+      "id": 261,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 262,
-      "group_id": 262,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8618,13 +8617,13 @@
       "funcs": [
         1160680
       ],
-      "confidence": 2
+      "group_id": 262,
+      "id": 262,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 263,
-      "group_id": 263,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8636,13 +8635,13 @@
       "funcs": [
         1281704
       ],
-      "confidence": 1
+      "group_id": 263,
+      "id": 263,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 264,
-      "group_id": 264,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8659,13 +8658,13 @@
       "funcs": [
         1098168
       ],
-      "confidence": 2
+      "group_id": 264,
+      "id": 264,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 265,
-      "group_id": 265,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8697,13 +8696,13 @@
       "funcs": [
         1264156
       ],
-      "confidence": 5
+      "group_id": 265,
+      "id": 265,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 266,
-      "group_id": 266,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -8720,13 +8719,13 @@
       "funcs": [
         1224856
       ],
-      "confidence": 2
+      "group_id": 266,
+      "id": 266,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 267,
-      "group_id": 267,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -8738,13 +8737,13 @@
       "funcs": [
         1254056
       ],
-      "confidence": 1
+      "group_id": 267,
+      "id": 267,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 268,
-      "group_id": 268,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8761,13 +8760,13 @@
       "funcs": [
         1191292
       ],
-      "confidence": 2
+      "group_id": 268,
+      "id": 268,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 269,
-      "group_id": 269,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8784,13 +8783,13 @@
       "funcs": [
         1217784
       ],
-      "confidence": 2
+      "group_id": 269,
+      "id": 269,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 270,
-      "group_id": 270,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v4",
@@ -8837,13 +8836,13 @@
       "funcs": [
         1155848
       ],
-      "confidence": 8
+      "group_id": 270,
+      "id": 270,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 271,
-      "group_id": 271,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8855,13 +8854,13 @@
       "funcs": [
         1132432
       ],
-      "confidence": 1
+      "group_id": 271,
+      "id": 271,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 272,
-      "group_id": 272,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a3",
@@ -8913,13 +8912,13 @@
       "funcs": [
         1318876
       ],
-      "confidence": 9
+      "group_id": 272,
+      "id": 272,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 273,
-      "group_id": 273,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -8941,13 +8940,13 @@
       "funcs": [
         1116860
       ],
-      "confidence": 3
+      "group_id": 273,
+      "id": 273,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 274,
-      "group_id": 274,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9009,13 +9008,13 @@
       "funcs": [
         1313928
       ],
-      "confidence": 11
+      "group_id": 274,
+      "id": 274,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 275,
-      "group_id": 275,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9042,13 +9041,13 @@
       "funcs": [
         1275636
       ],
-      "confidence": 4
+      "group_id": 275,
+      "id": 275,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 276,
-      "group_id": 276,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9065,13 +9064,13 @@
       "funcs": [
         1139080
       ],
-      "confidence": 2
+      "group_id": 276,
+      "id": 276,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 277,
-      "group_id": 277,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -9083,13 +9082,13 @@
       "funcs": [
         1180868
       ],
-      "confidence": 1
+      "group_id": 277,
+      "id": 277,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 278,
-      "group_id": 278,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -9101,13 +9100,13 @@
       "funcs": [
         1207956
       ],
-      "confidence": 1
+      "group_id": 278,
+      "id": 278,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 279,
-      "group_id": 279,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9124,13 +9123,13 @@
       "funcs": [
         1175840
       ],
-      "confidence": 2
+      "group_id": 279,
+      "id": 279,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 280,
-      "group_id": 280,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9162,13 +9161,13 @@
       "funcs": [
         1304176
       ],
-      "confidence": 5
+      "group_id": 280,
+      "id": 280,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 281,
-      "group_id": 281,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -9200,13 +9199,13 @@
       "funcs": [
         1214132
       ],
-      "confidence": 5
+      "group_id": 281,
+      "id": 281,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 282,
-      "group_id": 282,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -9233,13 +9232,13 @@
       "funcs": [
         1172412
       ],
-      "confidence": 4
+      "group_id": 282,
+      "id": 282,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 283,
-      "group_id": 283,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 19,
       "fingerprint": [
         {
           "Base": "v6",
@@ -9341,13 +9340,13 @@
       "funcs": [
         1176196
       ],
-      "confidence": 19
+      "group_id": 283,
+      "id": 283,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 284,
-      "group_id": 284,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 25,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9479,13 +9478,13 @@
       "funcs": [
         1305868
       ],
-      "confidence": 25
+      "group_id": 284,
+      "id": 284,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 285,
-      "group_id": 285,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9542,13 +9541,13 @@
       "funcs": [
         1288732
       ],
-      "confidence": 10
+      "group_id": 285,
+      "id": 285,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 286,
-      "group_id": 286,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v8",
@@ -9560,13 +9559,13 @@
       "funcs": [
         1223928
       ],
-      "confidence": 1
+      "group_id": 286,
+      "id": 286,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 287,
-      "group_id": 287,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9633,13 +9632,13 @@
       "funcs": [
         1223172
       ],
-      "confidence": 12
+      "group_id": 287,
+      "id": 287,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 288,
-      "group_id": 288,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a3",
@@ -9681,13 +9680,13 @@
       "funcs": [
         1313812
       ],
-      "confidence": 7
+      "group_id": 288,
+      "id": 288,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 289,
-      "group_id": 289,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9709,13 +9708,13 @@
       "funcs": [
         1209760
       ],
-      "confidence": 3
+      "group_id": 289,
+      "id": 289,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 290,
-      "group_id": 290,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9762,13 +9761,13 @@
       "funcs": [
         1212768
       ],
-      "confidence": 8
+      "group_id": 290,
+      "id": 290,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 291,
-      "group_id": 291,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9815,13 +9814,13 @@
       "funcs": [
         1298196
       ],
-      "confidence": 8
+      "group_id": 291,
+      "id": 291,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 292,
-      "group_id": 292,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v7",
@@ -9883,13 +9882,13 @@
       "funcs": [
         1189936
       ],
-      "confidence": 11
+      "group_id": 292,
+      "id": 292,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 293,
-      "group_id": 293,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -9901,13 +9900,13 @@
       "funcs": [
         1175612
       ],
-      "confidence": 1
+      "group_id": 293,
+      "id": 293,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 294,
-      "group_id": 294,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "v7",
@@ -9949,13 +9948,13 @@
       "funcs": [
         1143988
       ],
-      "confidence": 7
+      "group_id": 294,
+      "id": 294,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 295,
-      "group_id": 295,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9967,13 +9966,13 @@
       "funcs": [
         1140148
       ],
-      "confidence": 1
+      "group_id": 295,
+      "id": 295,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 296,
-      "group_id": 296,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9990,13 +9989,13 @@
       "funcs": [
         1158184
       ],
-      "confidence": 2
+      "group_id": 296,
+      "id": 296,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 297,
-      "group_id": 297,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10008,13 +10007,13 @@
       "funcs": [
         1225380
       ],
-      "confidence": 1
+      "group_id": 297,
+      "id": 297,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 298,
-      "group_id": 298,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10046,13 +10045,13 @@
       "funcs": [
         1261748
       ],
-      "confidence": 5
+      "group_id": 298,
+      "id": 298,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 299,
-      "group_id": 299,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -10074,13 +10073,13 @@
       "funcs": [
         1273408
       ],
-      "confidence": 3
+      "group_id": 299,
+      "id": 299,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 300,
-      "group_id": 300,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10097,13 +10096,13 @@
       "funcs": [
         1088524
       ],
-      "confidence": 2
+      "group_id": 300,
+      "id": 300,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 301,
-      "group_id": 301,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10120,13 +10119,13 @@
       "funcs": [
         1125996
       ],
-      "confidence": 2
+      "group_id": 301,
+      "id": 301,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 302,
-      "group_id": 302,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -10143,13 +10142,13 @@
       "funcs": [
         1316488
       ],
-      "confidence": 2
+      "group_id": 302,
+      "id": 302,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 303,
-      "group_id": 303,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10171,13 +10170,13 @@
       "funcs": [
         1291776
       ],
-      "confidence": 3
+      "group_id": 303,
+      "id": 303,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 304,
-      "group_id": 304,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10199,13 +10198,13 @@
       "funcs": [
         1292808
       ],
-      "confidence": 3
+      "group_id": 304,
+      "id": 304,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 305,
-      "group_id": 305,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10222,13 +10221,13 @@
       "funcs": [
         1214432
       ],
-      "confidence": 2
+      "group_id": 305,
+      "id": 305,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 306,
-      "group_id": 306,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10300,13 +10299,13 @@
       "funcs": [
         1129124
       ],
-      "confidence": 13
+      "group_id": 306,
+      "id": 306,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 307,
-      "group_id": 307,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -10323,13 +10322,13 @@
       "funcs": [
         1241076
       ],
-      "confidence": 2
+      "group_id": 307,
+      "id": 307,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 308,
-      "group_id": 308,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -10341,13 +10340,13 @@
       "funcs": [
         1294228
       ],
-      "confidence": 1
+      "group_id": 308,
+      "id": 308,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 309,
-      "group_id": 309,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -10359,13 +10358,13 @@
       "funcs": [
         1210508
       ],
-      "confidence": 1
+      "group_id": 309,
+      "id": 309,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 310,
-      "group_id": 310,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10382,13 +10381,13 @@
       "funcs": [
         1318628
       ],
-      "confidence": 2
+      "group_id": 310,
+      "id": 310,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 311,
-      "group_id": 311,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10400,13 +10399,13 @@
       "funcs": [
         1290200
       ],
-      "confidence": 1
+      "group_id": 311,
+      "id": 311,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 312,
-      "group_id": 312,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10438,13 +10437,13 @@
       "funcs": [
         1262208
       ],
-      "confidence": 5
+      "group_id": 312,
+      "id": 312,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 313,
-      "group_id": 313,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10481,13 +10480,13 @@
       "funcs": [
         1249912
       ],
-      "confidence": 6
+      "group_id": 313,
+      "id": 313,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 314,
-      "group_id": 314,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10534,13 +10533,13 @@
       "funcs": [
         1299944
       ],
-      "confidence": 8
+      "group_id": 314,
+      "id": 314,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 315,
-      "group_id": 315,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10562,13 +10561,13 @@
       "funcs": [
         1278748
       ],
-      "confidence": 3
+      "group_id": 315,
+      "id": 315,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 316,
-      "group_id": 316,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10590,13 +10589,13 @@
       "funcs": [
         1290176
       ],
-      "confidence": 3
+      "group_id": 316,
+      "id": 316,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 317,
-      "group_id": 317,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10653,13 +10652,13 @@
       "funcs": [
         1159792
       ],
-      "confidence": 10
+      "group_id": 317,
+      "id": 317,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 318,
-      "group_id": 318,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -10671,13 +10670,13 @@
       "funcs": [
         1194740
       ],
-      "confidence": 1
+      "group_id": 318,
+      "id": 318,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 319,
-      "group_id": 319,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10714,13 +10713,13 @@
       "funcs": [
         1249072
       ],
-      "confidence": 6
+      "group_id": 319,
+      "id": 319,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 320,
-      "group_id": 320,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10737,13 +10736,13 @@
       "funcs": [
         1161656
       ],
-      "confidence": 2
+      "group_id": 320,
+      "id": 320,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 321,
-      "group_id": 321,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10770,13 +10769,13 @@
       "funcs": [
         1257268
       ],
-      "confidence": 4
+      "group_id": 321,
+      "id": 321,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 322,
-      "group_id": 322,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 15,
       "fingerprint": [
         {
           "Base": "v5",
@@ -10858,13 +10857,13 @@
       "funcs": [
         1265696
       ],
-      "confidence": 15
+      "group_id": 322,
+      "id": 322,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 323,
-      "group_id": 323,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -10881,13 +10880,13 @@
       "funcs": [
         1314400
       ],
-      "confidence": 2
+      "group_id": 323,
+      "id": 323,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 324,
-      "group_id": 324,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -10909,13 +10908,13 @@
       "funcs": [
         1213248
       ],
-      "confidence": 3
+      "group_id": 324,
+      "id": 324,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 325,
-      "group_id": 325,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10927,13 +10926,13 @@
       "funcs": [
         1079332
       ],
-      "confidence": 1
+      "group_id": 325,
+      "id": 325,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 326,
-      "group_id": 326,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10945,13 +10944,13 @@
       "funcs": [
         1177348
       ],
-      "confidence": 1
+      "group_id": 326,
+      "id": 326,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 327,
-      "group_id": 327,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -10963,13 +10962,13 @@
       "funcs": [
         1119968
       ],
-      "confidence": 1
+      "group_id": 327,
+      "id": 327,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 328,
-      "group_id": 328,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10996,13 +10995,13 @@
       "funcs": [
         1177644
       ],
-      "confidence": 4
+      "group_id": 328,
+      "id": 328,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 329,
-      "group_id": 329,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -11014,13 +11013,13 @@
       "funcs": [
         1191324
       ],
-      "confidence": 1
+      "group_id": 329,
+      "id": 329,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 330,
-      "group_id": 330,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11032,13 +11031,13 @@
       "funcs": [
         1151292
       ],
-      "confidence": 1
+      "group_id": 330,
+      "id": 330,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 331,
-      "group_id": 331,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -11060,13 +11059,13 @@
       "funcs": [
         1167060
       ],
-      "confidence": 3
+      "group_id": 331,
+      "id": 331,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 332,
-      "group_id": 332,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -11098,13 +11097,13 @@
       "funcs": [
         1266564
       ],
-      "confidence": 5
+      "group_id": 332,
+      "id": 332,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 333,
-      "group_id": 333,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -11116,13 +11115,13 @@
       "funcs": [
         1158384
       ],
-      "confidence": 1
+      "group_id": 333,
+      "id": 333,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 334,
-      "group_id": 334,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11184,13 +11183,13 @@
       "funcs": [
         1153020
       ],
-      "confidence": 11
+      "group_id": 334,
+      "id": 334,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 335,
-      "group_id": 335,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -11212,13 +11211,13 @@
       "funcs": [
         1280236
       ],
-      "confidence": 3
+      "group_id": 335,
+      "id": 335,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 336,
-      "group_id": 336,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11235,13 +11234,13 @@
       "funcs": [
         1297544
       ],
-      "confidence": 2
+      "group_id": 336,
+      "id": 336,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 337,
-      "group_id": 337,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a4",
@@ -11268,13 +11267,13 @@
       "funcs": [
         1249644
       ],
-      "confidence": 4
+      "group_id": 337,
+      "id": 337,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 338,
-      "group_id": 338,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -11286,13 +11285,13 @@
       "funcs": [
         1250380
       ],
-      "confidence": 1
+      "group_id": 338,
+      "id": 338,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 339,
-      "group_id": 339,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -11309,13 +11308,13 @@
       "funcs": [
         1222948
       ],
-      "confidence": 2
+      "group_id": 339,
+      "id": 339,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 340,
-      "group_id": 340,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -11332,13 +11331,13 @@
       "funcs": [
         1200920
       ],
-      "confidence": 2
+      "group_id": 340,
+      "id": 340,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 341,
-      "group_id": 341,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -11355,13 +11354,13 @@
       "funcs": [
         1264432
       ],
-      "confidence": 2
+      "group_id": 341,
+      "id": 341,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 342,
-      "group_id": 342,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a3",
@@ -11383,13 +11382,13 @@
       "funcs": [
         1217440
       ],
-      "confidence": 3
+      "group_id": 342,
+      "id": 342,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 343,
-      "group_id": 343,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v6",
@@ -11426,13 +11425,13 @@
       "funcs": [
         1262384
       ],
-      "confidence": 6
+      "group_id": 343,
+      "id": 343,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 344,
-      "group_id": 344,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11454,13 +11453,13 @@
       "funcs": [
         1259912
       ],
-      "confidence": 3
+      "group_id": 344,
+      "id": 344,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 345,
-      "group_id": 345,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -11492,13 +11491,13 @@
       "funcs": [
         1221800
       ],
-      "confidence": 5
+      "group_id": 345,
+      "id": 345,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 346,
-      "group_id": 346,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -11515,13 +11514,13 @@
       "funcs": [
         1211260
       ],
-      "confidence": 2
+      "group_id": 346,
+      "id": 346,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 347,
-      "group_id": 347,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11553,13 +11552,13 @@
       "funcs": [
         1134176
       ],
-      "confidence": 5
+      "group_id": 347,
+      "id": 347,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 348,
-      "group_id": 348,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11586,13 +11585,13 @@
       "funcs": [
         1165848
       ],
-      "confidence": 4
+      "group_id": 348,
+      "id": 348,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 349,
-      "group_id": 349,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11634,13 +11633,13 @@
       "funcs": [
         1145252
       ],
-      "confidence": 7
+      "group_id": 349,
+      "id": 349,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 350,
-      "group_id": 350,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11677,13 +11676,13 @@
       "funcs": [
         1139856
       ],
-      "confidence": 6
+      "group_id": 350,
+      "id": 350,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 351,
-      "group_id": 351,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v8",
@@ -11730,13 +11729,13 @@
       "funcs": [
         1153824
       ],
-      "confidence": 8
+      "group_id": 351,
+      "id": 351,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 352,
-      "group_id": 352,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11748,13 +11747,13 @@
       "funcs": [
         1165768
       ],
-      "confidence": 1
+      "group_id": 352,
+      "id": 352,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 353,
-      "group_id": 353,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11776,13 +11775,13 @@
       "funcs": [
         1272884
       ],
-      "confidence": 3
+      "group_id": 353,
+      "id": 353,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 354,
-      "group_id": 354,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11794,13 +11793,13 @@
       "funcs": [
         1294000
       ],
-      "confidence": 1
+      "group_id": 354,
+      "id": 354,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 355,
-      "group_id": 355,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 21,
       "fingerprint": [
         {
           "Base": "a2",
@@ -11912,13 +11911,13 @@
       "funcs": [
         1195712
       ],
-      "confidence": 21
+      "group_id": 355,
+      "id": 355,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 356,
-      "group_id": 356,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11955,13 +11954,13 @@
       "funcs": [
         1295152
       ],
-      "confidence": 6
+      "group_id": 356,
+      "id": 356,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 357,
-      "group_id": 357,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12028,13 +12027,13 @@
       "funcs": [
         1308268
       ],
-      "confidence": 12
+      "group_id": 357,
+      "id": 357,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 358,
-      "group_id": 358,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12051,13 +12050,13 @@
       "funcs": [
         1246484
       ],
-      "confidence": 2
+      "group_id": 358,
+      "id": 358,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 359,
-      "group_id": 359,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -12074,13 +12073,13 @@
       "funcs": [
         1203412
       ],
-      "confidence": 2
+      "group_id": 359,
+      "id": 359,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 360,
-      "group_id": 360,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12102,13 +12101,13 @@
       "funcs": [
         1249196
       ],
-      "confidence": 3
+      "group_id": 360,
+      "id": 360,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 361,
-      "group_id": 361,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12140,13 +12139,13 @@
       "funcs": [
         1317900
       ],
-      "confidence": 5
+      "group_id": 361,
+      "id": 361,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 362,
-      "group_id": 362,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12163,13 +12162,13 @@
       "funcs": [
         1151156
       ],
-      "confidence": 2
+      "group_id": 362,
+      "id": 362,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 363,
-      "group_id": 363,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12196,13 +12195,13 @@
       "funcs": [
         1172800
       ],
-      "confidence": 4
+      "group_id": 363,
+      "id": 363,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 364,
-      "group_id": 364,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 22,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12319,13 +12318,13 @@
       "funcs": [
         1308880
       ],
-      "confidence": 22
+      "group_id": 364,
+      "id": 364,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 365,
-      "group_id": 365,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12342,13 +12341,13 @@
       "funcs": [
         1147736
       ],
-      "confidence": 2
+      "group_id": 365,
+      "id": 365,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 366,
-      "group_id": 366,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12360,13 +12359,13 @@
       "funcs": [
         1155436
       ],
-      "confidence": 1
+      "group_id": 366,
+      "id": 366,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 367,
-      "group_id": 367,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12428,13 +12427,13 @@
       "funcs": [
         1208384
       ],
-      "confidence": 11
+      "group_id": 367,
+      "id": 367,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 368,
-      "group_id": 368,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -12461,13 +12460,13 @@
       "funcs": [
         1154568
       ],
-      "confidence": 4
+      "group_id": 368,
+      "id": 368,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 369,
-      "group_id": 369,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -12489,13 +12488,13 @@
       "funcs": [
         1298572
       ],
-      "confidence": 3
+      "group_id": 369,
+      "id": 369,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 370,
-      "group_id": 370,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 20,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12602,13 +12601,13 @@
       "funcs": [
         1257940
       ],
-      "confidence": 20
+      "group_id": 370,
+      "id": 370,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 371,
-      "group_id": 371,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v4",
@@ -12645,13 +12644,13 @@
       "funcs": [
         1319276
       ],
-      "confidence": 6
+      "group_id": 371,
+      "id": 371,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 372,
-      "group_id": 372,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12668,13 +12667,13 @@
       "funcs": [
         1211116
       ],
-      "confidence": 2
+      "group_id": 372,
+      "id": 372,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 373,
-      "group_id": 373,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12686,13 +12685,13 @@
       "funcs": [
         1256096
       ],
-      "confidence": 1
+      "group_id": 373,
+      "id": 373,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 374,
-      "group_id": 374,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "v4",
@@ -12769,13 +12768,13 @@
       "funcs": [
         1263876
       ],
-      "confidence": 14
+      "group_id": 374,
+      "id": 374,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 375,
-      "group_id": 375,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -12792,13 +12791,13 @@
       "funcs": [
         1319892
       ],
-      "confidence": 2
+      "group_id": 375,
+      "id": 375,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 376,
-      "group_id": 376,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -12810,13 +12809,13 @@
       "funcs": [
         1221300
       ],
-      "confidence": 1
+      "group_id": 376,
+      "id": 376,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 377,
-      "group_id": 377,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12858,13 +12857,13 @@
       "funcs": [
         1247836
       ],
-      "confidence": 7
+      "group_id": 377,
+      "id": 377,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 378,
-      "group_id": 378,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12906,13 +12905,13 @@
       "funcs": [
         1142924
       ],
-      "confidence": 7
+      "group_id": 378,
+      "id": 378,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 379,
-      "group_id": 379,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 15,
       "fingerprint": [
         {
           "Base": "v5",
@@ -12994,13 +12993,13 @@
       "funcs": [
         1312220
       ],
-      "confidence": 15
+      "group_id": 379,
+      "id": 379,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 380,
-      "group_id": 380,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13017,13 +13016,13 @@
       "funcs": [
         1204380
       ],
-      "confidence": 2
+      "group_id": 380,
+      "id": 380,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 381,
-      "group_id": 381,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13050,13 +13049,13 @@
       "funcs": [
         1224744
       ],
-      "confidence": 4
+      "group_id": 381,
+      "id": 381,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 382,
-      "group_id": 382,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13078,13 +13077,13 @@
       "funcs": [
         1175264
       ],
-      "confidence": 3
+      "group_id": 382,
+      "id": 382,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 383,
-      "group_id": 383,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13101,13 +13100,13 @@
       "funcs": [
         1249604
       ],
-      "confidence": 2
+      "group_id": 383,
+      "id": 383,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 384,
-      "group_id": 384,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13129,13 +13128,13 @@
       "funcs": [
         1292716
       ],
-      "confidence": 3
+      "group_id": 384,
+      "id": 384,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 385,
-      "group_id": 385,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -13147,13 +13146,13 @@
       "funcs": [
         1319036
       ],
-      "confidence": 1
+      "group_id": 385,
+      "id": 385,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 386,
-      "group_id": 386,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13165,13 +13164,13 @@
       "funcs": [
         1188424
       ],
-      "confidence": 1
+      "group_id": 386,
+      "id": 386,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 387,
-      "group_id": 387,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -13188,13 +13187,13 @@
       "funcs": [
         1214316
       ],
-      "confidence": 2
+      "group_id": 387,
+      "id": 387,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 388,
-      "group_id": 388,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -13211,13 +13210,13 @@
       "funcs": [
         1303148
       ],
-      "confidence": 2
+      "group_id": 388,
+      "id": 388,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 389,
-      "group_id": 389,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 16,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13304,13 +13303,13 @@
       "funcs": [
         1181260
       ],
-      "confidence": 16
+      "group_id": 389,
+      "id": 389,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 390,
-      "group_id": 390,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13347,13 +13346,13 @@
       "funcs": [
         1081048
       ],
-      "confidence": 6
+      "group_id": 390,
+      "id": 390,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 391,
-      "group_id": 391,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13375,13 +13374,13 @@
       "funcs": [
         1316220
       ],
-      "confidence": 3
+      "group_id": 391,
+      "id": 391,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 392,
-      "group_id": 392,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13398,13 +13397,13 @@
       "funcs": [
         1215148
       ],
-      "confidence": 2
+      "group_id": 392,
+      "id": 392,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 393,
-      "group_id": 393,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a4",
@@ -13456,13 +13455,13 @@
       "funcs": [
         1268172
       ],
-      "confidence": 9
+      "group_id": 393,
+      "id": 393,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 394,
-      "group_id": 394,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13474,13 +13473,13 @@
       "funcs": [
         1220492
       ],
-      "confidence": 1
+      "group_id": 394,
+      "id": 394,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 395,
-      "group_id": 395,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13502,13 +13501,13 @@
       "funcs": [
         1112888
       ],
-      "confidence": 3
+      "group_id": 395,
+      "id": 395,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 396,
-      "group_id": 396,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13520,13 +13519,13 @@
       "funcs": [
         1237464
       ],
-      "confidence": 1
+      "group_id": 396,
+      "id": 396,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 397,
-      "group_id": 397,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v8",
@@ -13538,13 +13537,13 @@
       "funcs": [
         1292084
       ],
-      "confidence": 1
+      "group_id": 397,
+      "id": 397,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 398,
-      "group_id": 398,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13601,13 +13600,13 @@
       "funcs": [
         1303492
       ],
-      "confidence": 10
+      "group_id": 398,
+      "id": 398,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 399,
-      "group_id": 399,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13624,13 +13623,13 @@
       "funcs": [
         1313664
       ],
-      "confidence": 2
+      "group_id": 399,
+      "id": 399,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 400,
-      "group_id": 400,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13642,13 +13641,13 @@
       "funcs": [
         1292992
       ],
-      "confidence": 1
+      "group_id": 400,
+      "id": 400,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 401,
-      "group_id": 401,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13675,13 +13674,13 @@
       "funcs": [
         1216944
       ],
-      "confidence": 4
+      "group_id": 401,
+      "id": 401,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 402,
-      "group_id": 402,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -13708,13 +13707,13 @@
       "funcs": [
         1272552
       ],
-      "confidence": 4
+      "group_id": 402,
+      "id": 402,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 403,
-      "group_id": 403,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13731,13 +13730,13 @@
       "funcs": [
         1257380
       ],
-      "confidence": 2
+      "group_id": 403,
+      "id": 403,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 404,
-      "group_id": 404,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13754,13 +13753,13 @@
       "funcs": [
         1312076
       ],
-      "confidence": 2
+      "group_id": 404,
+      "id": 404,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 405,
-      "group_id": 405,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13782,13 +13781,13 @@
       "funcs": [
         1318376
       ],
-      "confidence": 3
+      "group_id": 405,
+      "id": 405,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 406,
-      "group_id": 406,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13800,13 +13799,13 @@
       "funcs": [
         1208940
       ],
-      "confidence": 1
+      "group_id": 406,
+      "id": 406,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 407,
-      "group_id": 407,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13823,13 +13822,13 @@
       "funcs": [
         1221992
       ],
-      "confidence": 2
+      "group_id": 407,
+      "id": 407,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 408,
-      "group_id": 408,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13841,13 +13840,13 @@
       "funcs": [
         1120200
       ],
-      "confidence": 1
+      "group_id": 408,
+      "id": 408,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 409,
-      "group_id": 409,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -13864,13 +13863,13 @@
       "funcs": [
         1212616
       ],
-      "confidence": 2
+      "group_id": 409,
+      "id": 409,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 410,
-      "group_id": 410,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -13887,13 +13886,13 @@
       "funcs": [
         1204276
       ],
-      "confidence": 2
+      "group_id": 410,
+      "id": 410,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 411,
-      "group_id": 411,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v5",
@@ -13925,13 +13924,13 @@
       "funcs": [
         1280604
       ],
-      "confidence": 5
+      "group_id": 411,
+      "id": 411,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 412,
-      "group_id": 412,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13963,13 +13962,13 @@
       "funcs": [
         1316812
       ],
-      "confidence": 5
+      "group_id": 412,
+      "id": 412,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 413,
-      "group_id": 413,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13981,13 +13980,13 @@
       "funcs": [
         1226572
       ],
-      "confidence": 1
+      "group_id": 413,
+      "id": 413,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 414,
-      "group_id": 414,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -14004,13 +14003,13 @@
       "funcs": [
         1263580
       ],
-      "confidence": 2
+      "group_id": 414,
+      "id": 414,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 415,
-      "group_id": 415,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -14027,13 +14026,13 @@
       "funcs": [
         1209236
       ],
-      "confidence": 2
+      "group_id": 415,
+      "id": 415,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 416,
-      "group_id": 416,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -14050,13 +14049,13 @@
       "funcs": [
         1163252
       ],
-      "confidence": 2
+      "group_id": 416,
+      "id": 416,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 417,
-      "group_id": 417,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 15,
       "fingerprint": [
         {
           "Base": "a1",
@@ -14138,13 +14137,13 @@
       "funcs": [
         1287920
       ],
-      "confidence": 15
+      "group_id": 417,
+      "id": 417,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 418,
-      "group_id": 418,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -14166,13 +14165,13 @@
       "funcs": [
         1272256
       ],
-      "confidence": 3
+      "group_id": 418,
+      "id": 418,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 419,
-      "group_id": 419,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -14199,13 +14198,13 @@
       "funcs": [
         1261056
       ],
-      "confidence": 4
+      "group_id": 419,
+      "id": 419,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 420,
-      "group_id": 420,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -14217,13 +14216,13 @@
       "funcs": [
         1225672
       ],
-      "confidence": 1
+      "group_id": 420,
+      "id": 420,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 421,
-      "group_id": 421,
-      "image": "fmacfwbt_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -14235,7 +14234,10 @@
       "funcs": [
         1273940
       ],
-      "confidence": 1
+      "group_id": 421,
+      "id": 421,
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "primary_arg": "a2"
     }
   ],
   "func_map": {
