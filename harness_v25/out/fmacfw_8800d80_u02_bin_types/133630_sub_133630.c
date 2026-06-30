@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_133630 @ 0x133630, size 314 bytes
 uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
 {
@@ -36,9 +48,9 @@ uint32_t * sub_133630(uint32_t *result, int a2, unsigned int a3)
   v3 = (unsigned int *)(a2 & 0xFFFFFFFC);
   v4 = a2 & 3;
   v5 = *v3;
-  v6 = *((unsigned __int8 *)result + 12);
+  v6 = *((uint8_t *)result + 12);
   v7 = result[2];
-  v8 = (unsigned __int8)(4 - v4);
+  v8 = (uint8_t)(4 - v4);
   v9 = v3 + 1;
   v10 = v5 >> (8 * v4);
   v11 = v9;

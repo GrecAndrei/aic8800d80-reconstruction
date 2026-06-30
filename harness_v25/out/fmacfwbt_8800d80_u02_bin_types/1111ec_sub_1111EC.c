@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1116A8;
+extern uint32_t off_1116D4;
+extern uint32_t dword_1116D0;
+extern uint32_t dword_1116BC;
+extern uint32_t dword_111478;
+extern uint32_t off_11148C;
+extern uint32_t off_111688;
+extern uint32_t dword_111698;
+extern uint32_t off_111694;
+extern uint32_t dword_1116A0;
+extern uint32_t off_1114A4;
+extern uint32_t off_1114A8;
+extern uint32_t off_1116C4;
+extern uint32_t dword_111678;
+
 // sub_1111EC @ 0x1111ec, size 1160 bytes
 // Doc: rf_bus_mark_n_426 [rf]: Marks RF bus slot/entry with ownership and lookup metadata
 // rf_bus_mark_n_426 [rf]: Marks RF bus slot/entry with ownership and lookup metadata
@@ -62,7 +89,7 @@ int sub_1111EC()
   int v56; // r1
 
   v0 = *(uint32_t *)rf_bus_reset2;
-  if ( **(__int16 **)rf_bus_reset2_n_3e8 < 0 && !v0 )
+  if ( **(int16_t **)rf_bus_reset2_n_3e8 < 0 && !v0 )
   {
     sub_12F6C4(rf_bus_write_n_33c, rf_bus_write2_n_3f8, 39);
     goto rf_bus_mark_n_499_0;
@@ -175,8 +202,8 @@ rf_bus_mark_n_48d:
   if ( (v0 & 0x400) != 0 )
   {
     v7 = rf_bus_mark_n_24c;
-    v8 = *((unsigned __int8 *)rf_bus_mark_n_24c + 1621);
-    v9 = *((unsigned __int8 *)rf_bus_mark_n_24c + 1622);
+    v8 = *((uint8_t *)rf_bus_mark_n_24c + 1621);
+    v9 = *((uint8_t *)rf_bus_mark_n_24c + 1622);
     if ( v8 >= v9 )
     {
       sub_12ECB0(rf_bus_reset2_n_18f, v8, v9);
@@ -184,11 +211,11 @@ rf_bus_mark_n_48d:
     else
     {
       v10 = *(uint32_t *)rf_bus_reset2_n_3bc;
-      v11 = *((unsigned __int8 *)rf_bus_mark_n_24c + 1620)
+      v11 = *((uint8_t *)rf_bus_mark_n_24c + 1620)
           + 1
           - 81
           * ((unsigned int)(((unsigned int)rf_bus_mark_0
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_mark_n_24c + 1620) + 1)) >> 32) >> 6);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_mark_n_24c + 1620) + 1)) >> 32) >> 6);
       v12 = (char *)rf_bus_mark_n_24c + 20 * v11;
       v13 = off_1114A4;
       *((uint32_t *)v12 + 1) = *(uint32_t *)rf_bus_reset2_n_3b8;
@@ -222,17 +249,17 @@ rf_bus_mark_n_48d:
   if ( (v0 & 0x100) != 0 )
   {
     v18 = rf_bus_mark_n_24c;
-    v19 = *((unsigned __int8 *)rf_bus_mark_n_24c + 2433);
-    v20 = *((unsigned __int8 *)rf_bus_mark_n_24c + 2434);
+    v19 = *((uint8_t *)rf_bus_mark_n_24c + 2433);
+    v20 = *((uint8_t *)rf_bus_mark_n_24c + 2434);
     if ( v19 < v20 )
     {
       v38 = *(uint32_t *)rf_bus_reset2_167c;
       v39 = *(uint32_t *)rf_bus_write2_n_404;
-      v40 = *((unsigned __int8 *)rf_bus_mark_n_24c + 2432)
+      v40 = *((uint8_t *)rf_bus_mark_n_24c + 2432)
           + 1
           - 40
           * ((unsigned int)(((unsigned int)dword_111678
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_mark_n_24c + 2432) + 1)) >> 32) >> 5);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_mark_n_24c + 2432) + 1)) >> 32) >> 5);
       v41 = (char *)rf_bus_mark_n_24c + 20 * v40;
       *((uint8_t *)rf_bus_mark_n_24c + 2432) = v40;
       v41[1645] = BYTE1(v38) & 7;
@@ -255,7 +282,7 @@ rf_bus_mark_n_48d:
     if ( *(uint8_t *)rf_bus_reset2_n_39b )
     {
       v22 = rf_bus_write_14c0;
-      v23 = *((unsigned __int8 *)rf_bus_write_14c0 + 369);
+      v23 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v23 )
         irq_enable(1);
@@ -265,15 +292,15 @@ rf_bus_mark_n_48d:
         timestamp_remove_058(rf_bus_write_n_4fc);
     }
     v24 = rf_bus_write_4c8;
-    v25 = *((unsigned __int8 *)rf_bus_write_4c8 + 3074);
-    v26 = *((unsigned __int8 *)rf_bus_write_4c8 + 3073);
+    v25 = *((uint8_t *)rf_bus_write_4c8 + 3074);
+    v26 = *((uint8_t *)rf_bus_write_4c8 + 3073);
     if ( v25 < v26 )
     {
-      v35 = *((unsigned __int8 *)rf_bus_write_4c8 + 3072)
+      v35 = *((uint8_t *)rf_bus_write_4c8 + 3072)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)rf_bus_reset2_n_377
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_write_4c8 + 3072) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_4c8 + 3072) + 1)) >> 32) >> 7);
       v36 = (char *)rf_bus_write_4c8 + 16 * v35;
       *((uint32_t *)v36 + 1) = *(uint32_t *)rf_bus_mark_n_1f0;
       v37 = rf_bus_write_n_4cb;
@@ -297,7 +324,7 @@ rf_bus_mark_n_48d:
     if ( *(uint8_t *)rf_bus_reset2_n_39b )
     {
       v28 = rf_bus_write_14c0;
-      v29 = *((unsigned __int8 *)rf_bus_write_14c0 + 369);
+      v29 = *((uint8_t *)rf_bus_write_14c0 + 369);
       *(uint8_t *)rf_bus_reset2_n_39b = 0;
       if ( v29 )
         irq_enable(1);
@@ -307,14 +334,14 @@ rf_bus_mark_n_48d:
         timestamp_remove_058(rf_bus_write_n_4fc);
     }
     v30 = rf_bus_write_4c8;
-    v31 = *((unsigned __int8 *)rf_bus_write_4c8 + 6162);
-    if ( *((unsigned __int8 *)rf_bus_write_4c8 + 6161) > v31 )
+    v31 = *((uint8_t *)rf_bus_write_4c8 + 6162);
+    if ( *((uint8_t *)rf_bus_write_4c8 + 6161) > v31 )
     {
-      v33 = *((unsigned __int8 *)rf_bus_write_4c8 + 6160)
+      v33 = *((uint8_t *)rf_bus_write_4c8 + 6160)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)rf_bus_reset2_n_377
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_write_4c8 + 6160) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_4c8 + 6160) + 1)) >> 32) >> 7);
       v34 = rf_bus_reset2_n_374_14e4;
       *((uint8_t *)rf_bus_write_4c8 + 6160) = v33;
       v30[4 * v33 + 773] = *v34;

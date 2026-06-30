@@ -1,7 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1439B8 @ 0x1439b8, size 206 bytes
-unsigned __int8 * sub_1439B8(unsigned __int8 *result, unsigned __int8 a2)
+uint8_t * sub_1439B8(uint8_t *result, uint8_t a2)
 {
-  unsigned __int8 *v2; // r3
+  uint8_t *v2; // r3
   int v3; // r6
   int v4; // t1
   int v5; // r3
@@ -21,7 +33,7 @@ unsigned __int8 * sub_1439B8(unsigned __int8 *result, unsigned __int8 a2)
         v8 = *v2++;
         v7 = v8;
         if ( !v8 )
-          return nullptr;
+          return 0;
         if ( v7 == a2 )
           return result;
         result = v2;
@@ -52,12 +64,12 @@ LABEL_3:
           v6 = *++result;
           v5 = v6;
           if ( !v6 )
-            return (unsigned __int8 *)v5;
+            return (uint8_t *)v5;
         }
       }
       else
       {
-        return (unsigned __int8 *)v5;
+        return (uint8_t *)v5;
       }
     }
   }

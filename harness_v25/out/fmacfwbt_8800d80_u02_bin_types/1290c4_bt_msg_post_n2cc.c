@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12910C;
+extern uint32_t off_129110;
+extern uint32_t off_129114;
+extern uint32_t off_129118;
+
 // bt_msg_post_n2cc @ 0x1290c4, size 72 bytes
 // Doc: bt_msg_post_n2cc [bt]: BT mailbox message post via shared data structure at 0x190d1c
 // bt_msg_post_n2cc [bt]: BT mailbox message post via shared data structure at 0x190d1c
@@ -27,7 +44,7 @@ void bt_msg_post_n2cc()
         {
           if ( *(uint8_t *)(v3 + 108) )
           {
-            v5 = *(unsigned __int8 *)(v3 + 116);
+            v5 = *(uint8_t *)(v3 + 116);
             if ( v5 != 255 && !fmacfwbt_phy_chan_init(v5, (int)v4, v3) )
               ++v0[8];
           }

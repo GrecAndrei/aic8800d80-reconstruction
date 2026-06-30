@@ -38,12 +38,46 @@ type typesReport struct {
 
 var (
 	msvcTypeRe  = regexp.MustCompile(`\b__int64\b`)
+	int8Re      = regexp.MustCompile(`\b__int8\b`)
+	int16Re     = regexp.MustCompile(`\b__int16\b`)
+	int32Re     = regexp.MustCompile(`\b__int32\b`)
+	uint8Re     = regexp.MustCompile(`\bunsigned __int8\b`)
+	uint16Re    = regexp.MustCompile(`\bunsigned __int16\b`)
+	uint32Re    = regexp.MustCompile(`\bunsigned __int32\b`)
+	uint64Re    = regexp.MustCompile(`\bunsigned __int64\b`)
+	ptrSizeMulRe = regexp.MustCompile(`\bunsigned\s+__int(\d+)\b`)
 	dwordRe     = regexp.MustCompile(`\b_DWORD\b`)
 	byteRe      = regexp.MustCompile(`\b_BYTE\b`)
 	wordRe      = regexp.MustCompile(`\b_WORD\b`)
+	qwordRe     = regexp.MustCompile(`\b_QWORD\b`)
 	fastcallRe  = regexp.MustCompile(`__fastcall\b`)
 	msRegRe     = regexp.MustCompile(`\b_([A-Z][A-Z0-9]+)\b`) // _R0, _ZF, _CF, _VF
+	boolRe      = regexp.MustCompile(`\bbool\b`)
+	nullPtrRe   = regexp.MustCompile(`\bnullptr\b`)
+	asmRe       = regexp.MustCompile(`__asm\s*\{[^}]*\}`) // MSVC inline asm
+	asmLineRe   = regexp.MustCompile(`__asm\s*\{`)
+	stdintRe    = regexp.MustCompile(`#\s*include\s*<stdint\.h>`)
+	dataRefRe   = regexp.MustCompile(`\b(off_|dword_|byte_|word_|qword_|algn_|unk_)[0-9a-fA-F]+\b`)
 )
+
+func collectDataDecls(src string) string {
+	seen := map[string]bool{}
+	var decls []string
+	for _, m := range dataRefRe.FindAllString(src, -1) {
+		if seen[m] { continue }
+		seen[m] = true
+		decls = append(decls, fmt.Sprintf("extern uint32_t %s;", m))
+	}
+	if len(decls) == 0 { return "" }
+	return strings.Join(decls, "\n") + "\n\n"
+}
+
+func stdintIncluded(src string) bool {
+	if len(src) > 512 {
+		src = src[:512]
+	}
+	return stdintRe.MatchString(src)
+}
 
 func rewriteC(src string) (string, bool) {
 	out := src
@@ -56,8 +90,40 @@ func rewriteC(src string) (string, bool) {
 		out = msvcTypeRe.ReplaceAllString(out, "uint64_t")
 		changed = true
 	}
+	if uint64Re.MatchString(out) {
+		out = uint64Re.ReplaceAllString(out, "uint64_t")
+		changed = true
+	}
+	if uint32Re.MatchString(out) {
+		out = uint32Re.ReplaceAllString(out, "uint32_t")
+		changed = true
+	}
+	if uint16Re.MatchString(out) {
+		out = uint16Re.ReplaceAllString(out, "uint16_t")
+		changed = true
+	}
+	if uint8Re.MatchString(out) {
+		out = uint8Re.ReplaceAllString(out, "uint8_t")
+		changed = true
+	}
+	if int32Re.MatchString(out) {
+		out = int32Re.ReplaceAllString(out, "int32_t")
+		changed = true
+	}
+	if int16Re.MatchString(out) {
+		out = int16Re.ReplaceAllString(out, "int16_t")
+		changed = true
+	}
+	if int8Re.MatchString(out) {
+		out = int8Re.ReplaceAllString(out, "int8_t")
+		changed = true
+	}
 	if dwordRe.MatchString(out) {
 		out = dwordRe.ReplaceAllString(out, "uint32_t")
+		changed = true
+	}
+	if qwordRe.MatchString(out) {
+		out = qwordRe.ReplaceAllString(out, "uint64_t")
 		changed = true
 	}
 	if wordRe.MatchString(out) {
@@ -68,9 +134,74 @@ func rewriteC(src string) (string, bool) {
 		out = byteRe.ReplaceAllString(out, "uint8_t")
 		changed = true
 	}
-	if msRegRe.MatchString(out) {
-		out = msRegRe.ReplaceAllString(out, "$1")
+	if boolRe.MatchString(out) {
+		out = boolRe.ReplaceAllString(out, "int")
 		changed = true
+	}
+	if nullPtrRe.MatchString(out) {
+		out = nullPtrRe.ReplaceAllString(out, "0")
+		changed = true
+	}
+	// MSVC inline-asm (__asm { ... }) can't be parsed by GCC; strip the
+	// whole `__asm { ... }` block including any trailing `{`/`}` so the
+	// surrounding braces stay balanced.
+	for asmLineRe.MatchString(out) {
+		// Find matching close brace.
+		start := asmLineRe.FindStringIndex(out)
+		if start == nil { break }
+		i := start[1]
+		depth := 1
+		for i < len(out) && depth > 0 {
+			switch out[i] {
+			case '{':
+				depth++
+			case '}':
+				depth--
+			}
+			i++
+		}
+		// Replace the whole __asm block with empty (so the brackets balance).
+		block := out[start[0]:i]
+		out = out[:start[0]] + out[i:]
+		_ = block
+		changed = true
+	}
+	// Hex-Rays pseudo-register names: mirror v19 post_process substitutions.
+	//   _CF/_ZF/_NF/_OF (condition flags) -> 0/1/0/0
+	//   _R0 = X or _LR = X etc (register assignment) -> "" (drop the assignment)
+	//   bare _R0 / _LR / _SP / _PC -> 0
+	flagRe := regexp.MustCompile(`\b_(CF|ZF|NF|OF)\b`)
+	if flagRe.MatchString(out) {
+		out = regexp.MustCompile(`\b_CF\b`).ReplaceAllString(out, "0")
+		out = regexp.MustCompile(`\b_ZF\b`).ReplaceAllString(out, "1")
+		out = regexp.MustCompile(`\b_NF\b`).ReplaceAllString(out, "0")
+		out = regexp.MustCompile(`\b_OF\b`).ReplaceAllString(out, "0")
+		changed = true
+	}
+	regAssignRe := regexp.MustCompile(`\b_(R\d+|LR|SP|PC)\s*=\s*`)
+	if regAssignRe.MatchString(out) {
+		out = regAssignRe.ReplaceAllString(out, "")
+		changed = true
+	}
+	regReadRe := regexp.MustCompile(`\b_(R\d+|LR|SP|PC)\b`)
+	if regReadRe.MatchString(out) {
+		out = regReadRe.ReplaceAllString(out, "0")
+		changed = true
+	}
+	// Prepend stdint/stddef/stdarg/inttypes if not already included
+	// (rewriting to uintN_t requires these). Also forward-declare any
+	// off_/dword_/etc data references so each per-func .c stands alone.
+	if changed && !stdintIncluded(out) {
+		prelude := "#include <stdint.h>\n#include <stddef.h>\n#include <stdarg.h>\n#include <inttypes.h>\n\n"
+		// Hex-Rays macros: extract typed bytes/words/dwords from a value.
+		prelude += "#define LOBYTE(x) ((uint8_t)((x) & 0xFF))\n"
+		prelude += "#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))\n"
+		prelude += "#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))\n"
+		prelude += "#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))\n"
+		prelude += "#define LODWORD(x) ((uint32_t)(x))\n"
+		prelude += "#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))\n\n"
+		prelude += collectDataDecls(out)
+		out = prelude + out
 	}
 	return out, changed
 }

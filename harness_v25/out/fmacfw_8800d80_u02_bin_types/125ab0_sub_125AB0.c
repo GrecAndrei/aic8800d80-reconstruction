@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_125CA4;
+extern uint32_t off_125CA0;
+extern uint32_t off_125CD0;
+extern uint32_t dword_125CA8;
+extern uint32_t off_125CD4;
+extern uint32_t dword_125CC4;
+extern uint32_t dword_125CC0;
+extern uint32_t dword_125CBC;
+extern uint32_t dword_125CB8;
+extern uint32_t dword_125CAC;
+extern uint32_t off_125CC8;
+extern uint32_t dword_125CCC;
+extern uint32_t dword_125CB0;
+extern uint32_t dword_125CB4;
+
 // sub_125AB0 @ 0x125ab0, size 496 bytes
 int  sub_125AB0(int result)
 {
@@ -6,13 +33,13 @@ int  sub_125AB0(int result)
   int v3; // r6
   int v4; // r5
   int v5; // r9
-  unsigned __int8 *v6; // r4
+  uint8_t *v6; // r4
   int v7; // r7
   uint32_t *v8; // r10
   int v9; // r8
   int v10; // r5
   unsigned int v11; // r3
-  bool v12; // cc
+  int v12; // cc
   int v13; // r2
   int v14; // r2
   int v15; // r1
@@ -35,7 +62,7 @@ int  sub_125AB0(int result)
   v1 = (int *)off_125CA4;
   v2 = *((uint32_t *)off_125CA4 + 1);
   v3 = result;
-  if ( **(__int16 **)off_125CA0 >= 0 || v2 )
+  if ( **(int16_t **)off_125CA0 >= 0 || v2 )
   {
     v4 = v2 - 1;
     *((uint32_t *)off_125CA4 + 1) = v4;
@@ -44,7 +71,7 @@ int  sub_125AB0(int result)
 LABEL_20:
       v16 = off_125CD0;
       msg_dispatch_unk();
-      v17 = *(unsigned __int8 *)(v3 + 107) + 32;
+      v17 = *(uint8_t *)(v3 + 107) + 32;
       if ( *v16 )
       {
         v25 = (uint8_t *)sub_12C92C(74, 13, v4, 4);
@@ -78,12 +105,12 @@ LABEL_20:
           while ( *(uint32_t *)(v21 + 584) )
           {
             v23 = rf_bus_mark_n100_d2d0(v21 + 584);
-            sub_13ABA8(v23, (unsigned __int8)i, v24);
+            sub_13ABA8(v23, (uint8_t)i, v24);
           }
           if ( *(uint32_t *)(v21 + 624) )
           {
             v27 = rf_bus_mark_n100_d2d0(v5 + 8 * (87 * v17 + 78 + i));
-            sub_13ABA8(v27, (unsigned __int8)i, v28);
+            sub_13ABA8(v27, (uint8_t)i, v28);
             msg_parse(dword_125CC4, v29, v30);
             while ( 1 )
               ;
@@ -100,13 +127,13 @@ LABEL_20:
         do
         {
           v20 = rf_bus_mark_n100_d2d0(v19);
-          rf_parse_descriptor_n3f8((unsigned __int16 *)(v20 + 12));
+          rf_parse_descriptor_n3f8((uint16_t *)(v20 + 12));
         }
         while ( v1[3] );
       }
-      result = *(unsigned __int8 *)(v3 + 107);
+      result = *(uint8_t *)(v3 + 107);
       if ( *((uint8_t *)v1 + result + 20) && !v1[1] )
-        result = sub_12503C(result, *((unsigned __int8 *)v1 + result + 20));
+        result = sub_12503C(result, *((uint8_t *)v1 + result + 20));
       if ( *(uint8_t *)(v3 + 231) == 1 )
         result = sub_120314(v3);
       goto LABEL_4;
@@ -122,7 +149,7 @@ LABEL_20:
   }
   v5 = dword_125CA8;
 LABEL_4:
-  v6 = (unsigned __int8 *)dword_125CA8;
+  v6 = (uint8_t *)dword_125CA8;
   v7 = dword_125CAC;
   v8 = off_125CC8;
   v9 = dword_125CCC;
@@ -158,14 +185,14 @@ LABEL_4:
         }
       }
       v6 += 696;
-      if ( v6 == (unsigned __int8 *)v10 )
+      if ( v6 == (uint8_t *)v10 )
         return result;
     }
     v15 = v6[35];
     v6 += 696;
     result = msg_parse(dword_125CB4, v15, v14);
   }
-  while ( v6 != (unsigned __int8 *)v10 );
+  while ( v6 != (uint8_t *)v10 );
   return result;
 }
 

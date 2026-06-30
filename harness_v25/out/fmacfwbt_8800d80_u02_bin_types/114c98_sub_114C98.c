@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114DB8;
+extern uint32_t off_114D74;
+extern uint32_t off_114D98;
+extern uint32_t off_114DA8;
+extern uint32_t dword_114DAC;
+extern uint32_t off_114DA4;
+extern uint32_t off_114DB0;
+extern uint32_t dword_114DB4;
+extern uint32_t dword_114D7C;
+extern uint32_t off_114D78;
+extern uint32_t off_114D84;
+extern uint32_t off_114D80;
+extern uint32_t off_114D88;
+extern uint32_t off_114D8C;
+extern uint32_t off_114D94;
+extern uint32_t off_114D9C;
+extern uint32_t off_114D90;
+extern uint32_t off_114DA0;
+
 // sub_114C98 @ 0x114c98, size 218 bytes
 // Doc: sub_1214C98 [util]: stack-saving helper with argument byte fetch and null check
 // sub_1214C98 [util]: stack-saving helper with argument byte fetch and null check

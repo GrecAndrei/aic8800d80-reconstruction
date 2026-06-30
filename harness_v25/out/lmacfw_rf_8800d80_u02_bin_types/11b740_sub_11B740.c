@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B7F8;
+extern uint32_t off_11B800;
+extern uint32_t off_11B7FC;
+extern uint32_t dword_11B804;
+extern uint32_t off_11B808;
+
 // sub_11B740 @ 0x11b740, size 182 bytes
 int sub_11B740()
 {
@@ -17,7 +35,7 @@ int sub_11B740()
 
   v0 = off_11B7F8;
   v1 = *((uint32_t *)off_11B7F8 + 10);
-  v2 = *((unsigned __int8 *)off_11B7F8 + 89);
+  v2 = *((uint8_t *)off_11B7F8 + 89);
   if ( !v1 )
     return 0;
   v3 = *((int **)off_11B800 + 2);
@@ -33,12 +51,12 @@ int sub_11B740()
       {
         if ( v1 == v3[18] )
         {
-          v7 = *((unsigned __int8 *)v3 + 94);
+          v7 = *((uint8_t *)v3 + 94);
           if ( !*((uint8_t *)v3 + 94) )
           {
             if ( *((uint8_t *)v3 + 96) )
             {
-              v8 = *((unsigned __int8 *)v3 + 102);
+              v8 = *((uint8_t *)v3 + 102);
               if ( v8 != 255 )
                 break;
             }
@@ -62,7 +80,7 @@ int sub_11B740()
 LABEL_12:
     v4 = v2;
   }
-  v10 = *((unsigned __int8 *)v0 + 89);
+  v10 = *((uint8_t *)v0 + 89);
   v11 = v0[11];
   *((uint8_t *)v0 + 89) = v4;
   v12 = v2 - v10;

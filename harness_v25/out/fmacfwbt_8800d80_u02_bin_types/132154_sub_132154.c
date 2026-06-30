@@ -1,5 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13229C;
+extern uint32_t dword_1322A0;
+extern uint32_t dword_1322A4;
+
 // sub_132154 @ 0x132154, size 328 bytes
-int  sub_132154(int a1, int a2, __int16 a3, __int16 a4)
+int  sub_132154(int a1, int a2, int16_t a3, int16_t a4)
 {
   uint8_t *v4; // r4
   int v8; // r1
@@ -12,7 +28,7 @@ int  sub_132154(int a1, int a2, __int16 a3, __int16 a4)
   int v15; // r1
   int v16; // r2
   int v17; // r3
-  __int16 v18; // r1
+  int16_t v18; // r1
   int v19; // r2
   char v20; // r2
   uint32_t *v22; // r6
@@ -30,7 +46,7 @@ int  sub_132154(int a1, int a2, __int16 a3, __int16 a4)
   int v34; // r0
   int v35; // r3
   unsigned int v36; // r2
-  bool v37; // cc
+  int v37; // cc
   int v38; // r3
 
   v4 = off_13229C;
@@ -110,15 +126,15 @@ int  sub_132154(int a1, int a2, __int16 a3, __int16 a4)
   if ( (v4[374] & 1) != 0 )
   {
     v34 = chip_rev_get();
-    v35 = (unsigned __int8)v4[374] << 29;
+    v35 = (uint8_t)v4[374] << 29;
     v4[372] = (v34 + 1) >> 1;
     if ( v35 < 0 )
     {
-      v36 = (unsigned __int8)v4[373];
+      v36 = (uint8_t)v4[373];
       v37 = v36 > 2;
       if ( v36 > 2 )
-        v36 = (unsigned __int8)v4[73];
-      v38 = (unsigned __int8)v4[68] >> 2;
+        v36 = (uint8_t)v4[73];
+      v38 = (uint8_t)v4[68] >> 2;
       if ( v37 )
         v38 &= v36 >> 6;
       v4[116] = v38 & 1;
@@ -128,10 +144,10 @@ int  sub_132154(int a1, int a2, __int16 a3, __int16 a4)
   {
     v4[372] = 0;
   }
-  v17 = *(unsigned __int8 *)(a2 + 107);
+  v17 = *(uint8_t *)(a2 + 107);
   v18 = *(uint16_t *)(a2 + 100);
   v4[375] = v17;
-  v19 = *(unsigned __int8 *)(a2 + 109);
+  v19 = *(uint8_t *)(a2 + 109);
   *((uint16_t *)v4 + 22) = v18;
   if ( v19 )
     v20 = 2;

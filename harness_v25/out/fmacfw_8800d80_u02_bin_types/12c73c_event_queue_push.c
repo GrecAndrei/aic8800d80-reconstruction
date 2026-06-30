@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12C7F0;
+
 // event_queue_push @ 0x12c73c, size 152 bytes
 // Doc: message_dispatch_n_24a [ipc]: Dispatch message using sign-bit shift lookup
 // message_dispatch_n_24a [ipc]: Dispatch message using sign-bit shift lookup
@@ -24,7 +38,7 @@ int  event_queue_push(int result, int a2)
   *(uint32_t *)sdio_buffer_prepare_n1c6_c7d8 = v5;
   if ( v4 )
   {
-    if ( *(unsigned __int16 *)(v4 + 4) == result && *(unsigned __int16 *)(v4 + 6) == a2 )
+    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
       rf_bus_mark_n100_d2d0(v3 + 5);
       v8 = v3[5];
@@ -32,7 +46,7 @@ int  event_queue_push(int result, int a2)
       if ( v8 )
       {
         timestamp_update(v9, *(uint32_t *)(v8 + 8));
-        if ( **(__int16 **)message_dispatch_n_1a4 < 0
+        if ( **(int16_t **)message_dispatch_n_1a4 < 0
           && *(uint32_t *)(v8 + 8) - *((uint32_t *)message_dispatch_n_1a0 + 4) < 0 )
         {
           sub_12F46C(message_dispatch_n_198, dword_12C7F0, 232);

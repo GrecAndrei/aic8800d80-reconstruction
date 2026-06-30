@@ -1,14 +1,45 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C2B0;
+extern uint32_t off_11C2AC;
+extern uint32_t dword_11C2D8;
+extern uint32_t dword_11C2E0;
+extern uint32_t dword_11C2DC;
+extern uint32_t dword_11C2B4;
+extern uint32_t dword_11C2BC;
+extern uint32_t off_11C2B8;
+extern uint32_t off_11C2C4;
+extern uint32_t off_11C2C0;
+extern uint32_t off_11C2CC;
+extern uint32_t off_11C2C8;
+extern uint32_t dword_11C2EC;
+extern uint32_t off_11C2E4;
+extern uint32_t dword_11C2D0;
+extern uint32_t dword_11C2F0;
+extern uint32_t dword_11C2D4;
+extern uint32_t off_11C2E8;
+
 // rf_bus_reset_n_1d2 @ 0x11c07c, size 560 bytes
 // Doc: rf_bus_reset_n_1d2 [rf]: Resets RF bus, computes register offsets, calls helper
 // rf_bus_reset_n_1d2 [rf]: Resets RF bus, computes register offsets, calls helper
 int  rf_bus_reset_n_1d2(int result)
 {
   uint32_t *v1; // r2
-  __int16 *v2; // r1
+  int16_t *v2; // r1
   unsigned int v3; // r3
   int v4; // r5
   int v5; // r1
-  __int16 v6; // r0
+  int16_t v6; // r0
   int v7; // r1
   int v8; // r3
   int v9; // r4
@@ -18,18 +49,18 @@ int  rf_bus_reset_n_1d2(int result)
   int v13; // r8
   int v14; // r9
   int v15; // lr
-  bool v16; // nf
+  int v16; // nf
   int v17; // r0
   unsigned int v18; // r6
   int v19; // r12
   int v20; // r5
   unsigned int v21; // r4
-  __int16 v22; // r9
+  int16_t v22; // r9
   unsigned int *v23; // r10
   unsigned int v24; // r11
-  __int16 v25; // r8
+  int16_t v25; // r8
   int v26; // r1
-  __int16 v27; // r7
+  int16_t v27; // r7
   uint16_t *v28; // r3
   int v29; // r1
   int v30; // r0
@@ -37,18 +68,18 @@ int  rf_bus_reset_n_1d2(int result)
   int v32; // r11
   char v33; // r7
   unsigned int v34; // r4
-  __int16 v35; // [sp+0h] [bp-Ch]
-  __int16 v36; // [sp+4h] [bp-8h]
+  int16_t v35; // [sp+0h] [bp-Ch]
+  int16_t v36; // [sp+4h] [bp-8h]
 
   v1 = off_11C2B0;
-  v2 = *(__int16 **)off_11C2AC;
+  v2 = *(int16_t **)off_11C2AC;
   v3 = *(uint32_t *)(result + 84);
   v4 = *(uint32_t *)(result + 28);
   *((uint8_t *)off_11C2B0 + 200) = 0;
   v5 = *v2;
   if ( v5 < 0 )
   {
-    result = *(unsigned __int16 *)(result + 48);
+    result = *(uint16_t *)(result + 48);
     if ( (unsigned int)result <= 0x1C )
     {
       v29 = dword_11C2D8;
@@ -69,12 +100,12 @@ int  rf_bus_reset_n_1d2(int result)
     return fmac_phy_op_handler(v30, v29, v31, v3);
   }
   v7 = dword_11C2B4;
-  v8 = (unsigned __int8)(v3 - 16);
+  v8 = (uint8_t)(v3 - 16);
   v9 = dword_11C2B4 + 696 * v8;
-  result = *(unsigned __int8 *)(v9 + 37);
+  result = *(uint8_t *)(v9 + 37);
   if ( *(uint8_t *)(v9 + 37) )
   {
-    v10 = *(unsigned __int8 *)(v9 + 34);
+    v10 = *(uint8_t *)(v9 + 34);
     v1[45] = *(uint32_t *)(v9 + 38);
     v11 = dword_11C2BC;
     *((uint16_t *)off_11C2B8 + 2) = *(uint16_t *)(v9 + 42);
@@ -82,18 +113,18 @@ int  rf_bus_reset_n_1d2(int result)
     if ( result == v11 + 1320 * v10 )
     {
       result = *(uint32_t *)off_11C2C4 & 0x3F;
-      if ( *(unsigned __int8 *)(*(uint32_t *)off_11C2C0 + 62) + 3 < result )
+      if ( *(uint8_t *)(*(uint32_t *)off_11C2C0 + 62) + 3 < result )
       {
         v12 = *(uint32_t *)off_11C2CC;
         v13 = v1[42];
         v14 = *(uint32_t *)off_11C2C8 & 0xF;
         v15 = HIWORD(*(uint32_t *)off_11C2C8) & 3;
         v16 = (*(uint32_t *)off_11C2C8 & 0x80000) != 0;
-        v35 = (unsigned __int16)*(uint32_t *)off_11C2C8 >> 4;
+        v35 = (uint16_t)*(uint32_t *)off_11C2C8 >> 4;
         *((uint16_t *)v1 + 94) = v35;
         *((uint8_t *)v1 + 191) = v14;
         *((uint8_t *)v1 + 195) = v15;
-        v17 = (unsigned __int8)v12 >> 4;
+        v17 = (uint8_t)v12 >> 4;
         v18 = v12 & 7;
         if ( v16 )
         {
@@ -128,7 +159,7 @@ int  rf_bus_reset_n_1d2(int result)
           ;
         v21 = *(uint32_t *)off_11C2E4 & dword_11C2D0;
         if ( v18 > 2 )
-          v22 = *(unsigned __int16 *)(dword_11C2F0 + 2 * (3 * ((unsigned __int8)(v18 - 3) >> 1) + v32 + 6 * v17)) << ((v18 - 3) & 1);
+          v22 = *(uint16_t *)(dword_11C2F0 + 2 * (3 * ((uint8_t)(v18 - 3) >> 1) + v32 + 6 * v17)) << ((v18 - 3) & 1);
         else
           v22 = *(uint16_t *)(*(uint32_t *)(dword_11C2D4 + 4 * v18) + 2 * (3 * v17 + v32));
         v23 = (unsigned int *)off_11C2E8;
@@ -136,7 +167,7 @@ int  rf_bus_reset_n_1d2(int result)
           v21 = *(uint32_t *)(v13 + 12);
         v1[44] = v21;
         v24 = *v23;
-        v25 = *(unsigned __int8 *)(v13 + 28);
+        v25 = *(uint8_t *)(v13 + 28);
         v26 = v7 + 696 * v8;
         v27 = v36 | v17;
         result = *(uint32_t *)(v26 + 340);

@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123EAC;
+extern uint32_t off_123EB4;
+extern uint32_t off_123EB0;
+extern uint32_t off_123EB8;
+extern uint32_t off_123EC0;
+extern uint32_t off_123EBC;
+extern uint32_t off_123EC4;
+extern uint32_t off_123EC8;
+extern uint32_t dword_123ECC;
+extern uint32_t off_123EF8;
+extern uint32_t off_123F00;
+extern uint32_t dword_123ED8;
+extern uint32_t off_123EDC;
+extern uint32_t off_123EFC;
+extern uint32_t off_123EE4;
+extern uint32_t dword_123EF0;
+extern uint32_t dword_123EF4;
+extern uint32_t off_123EE8;
+extern uint32_t dword_123EEC;
+extern uint32_t dword_123ED0;
+extern uint32_t off_123ED4;
+extern uint32_t off_123EE0;
+
 // rf_sub_3bbc @ 0x123bbc, size 750 bytes
 // Doc: rf_sub_3bbc [rf]: Auxiliary RF helper routine
 // rf_sub_3bbc [rf]: Auxiliary RF helper routine
@@ -16,7 +51,7 @@ int rf_sub_3bbc()
   int v10; // r3
   uint32_t *v11; // r0
   int v12; // r2
-  unsigned __int8 *v13; // r3
+  uint8_t *v13; // r3
   unsigned int v15; // r3
   unsigned int v16; // r8
   unsigned int v17; // r10
@@ -46,8 +81,8 @@ int rf_sub_3bbc()
   if ( *(uint32_t *)off_123EAC <= 0x17u )
     *(uint32_t *)off_123EAC = 1000;
   get_cached_1828f8(&v38, 0);
-  v1 = (unsigned __int8)v38;
-  v2 = (unsigned __int8)v38;
+  v1 = (uint8_t)v38;
+  v2 = (uint8_t)v38;
   if ( (uint8_t)v38 )
     v2 = 1;
   v3 = rf_alloc_or_init(v2, *v0);
@@ -71,14 +106,14 @@ LABEL_8:
       v5[20] = v10 | v9;
       v5[13] = v12;
       rf_chan_config_set((int)(v11 + 26));
-      v13 = (unsigned __int8 *)off_123EC4;
+      v13 = (uint8_t *)off_123EC4;
       v4[11] = 0;
       v4[12] = 0;
       sub_1165B0((int)v4, *v13);
       return 0;
     }
     v15 = v8 & 0x7F;
-    v16 = *((unsigned __int16 *)off_123EC8 + 20);
+    v16 = *((uint16_t *)off_123EC8 + 20);
     v17 = (v8 >> 11) & 7;
     if ( v1 )
     {

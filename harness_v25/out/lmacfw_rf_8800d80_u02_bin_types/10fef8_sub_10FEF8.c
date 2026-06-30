@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10FFDC;
+extern uint32_t off_10FFD4;
+extern uint32_t dword_10FFEC;
+extern uint32_t dword_10FFE0;
+extern uint32_t off_10FFD8;
+extern uint32_t dword_10FFE8;
+extern uint32_t dword_10FFE4;
+
 // sub_10FEF8 @ 0x10fef8, size 218 bytes
 int  sub_10FEF8(uint32_t *a1)
 {
@@ -10,7 +30,7 @@ int  sub_10FEF8(uint32_t *a1)
   if ( !result )
   {
     result = sub_10DA6C(dword_10FFDC, a1);
-    v5 = **(unsigned __int8 **)off_10FFD4;
+    v5 = **(uint8_t **)off_10FFD4;
     if ( v5 != 1 )
     {
       if ( v5 == 2 )
@@ -22,14 +42,14 @@ LABEL_11:
           sub_10DA6C(dword_10FFEC, a1);
         return sub_10FBD0(dword_10FFE0, a1);
       }
-      if ( **(__int16 **)off_10FFD8 < 0 )
+      if ( **(int16_t **)off_10FFD8 < 0 )
         return rf_cmd_send_n264(dword_10FFE8, dword_10FFE4, 204);
       return result;
     }
     return sub_1103B0(a1);
   }
-  v3 = *((unsigned __int8 *)a1 - 4);
-  v4 = **(unsigned __int8 **)off_10FFD4;
+  v3 = *((uint8_t *)a1 - 4);
+  v4 = **(uint8_t **)off_10FFD4;
   if ( v4 == 1 )
   {
     if ( v3 == 3 )
@@ -44,7 +64,7 @@ LABEL_11:
   {
     if ( v4 == 3 )
     {
-      if ( **(__int16 **)off_10FFD8 >= 0 )
+      if ( **(int16_t **)off_10FFD8 >= 0 )
       {
         if ( v3 != 3 )
           return result;

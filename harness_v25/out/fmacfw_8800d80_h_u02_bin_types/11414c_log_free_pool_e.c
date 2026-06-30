@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114194;
+extern uint32_t off_114198;
+extern uint32_t off_11419C;
+extern uint32_t off_1141A0;
+
 // log_free_pool_e @ 0x11414c, size 72 bytes
 // Doc: log_free_pool_e [util]: Return buffer to log free pool variant E
 // log_free_pool_e [util]: Return buffer to log free pool variant E

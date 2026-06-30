@@ -1,9 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // message_dispatch_n158 @ 0x12cd0c, size 200 bytes
 // Doc: message_dispatch_n1a8 [ipc]: Dispatch message after null-check on header
 // message_dispatch_n1a8 [ipc]: Dispatch message after null-check on header
 int  message_dispatch_n158(int a1)
 {
-  __int16 **v1; // r7
+  int16_t **v1; // r7
   unsigned int v2; // r4
   unsigned int v3; // r6
   uint32_t *v4; // r3
@@ -16,10 +28,10 @@ int  message_dispatch_n158(int a1)
   int result; // r0
   int v12; // r2
 
-  v1 = (__int16 **)msg_dispatch_branch_24_6c;
+  v1 = (int16_t **)msg_dispatch_branch_24_6c;
   v2 = (a1 + 3) & 0xFFFFFFFC;
   v3 = v2 + 4;
-  if ( **(__int16 **)msg_dispatch_branch_24_6c < 0 && v3 <= 7 )
+  if ( **(int16_t **)msg_dispatch_branch_24_6c < 0 && v3 <= 7 )
     sub_12F694(rf_cmd_process_n_1a6, message_dispatch_n230, 132);
   v4 = *((uint32_t **)message_dispatch_n224 + 7);
   if ( (__get_CPSR() & 1) == 0 )
@@ -32,7 +44,7 @@ int  message_dispatch_n158(int a1)
   *(uint32_t *)message_dispatch_n22c_cde0 = v6;
   if ( v4 )
   {
-    v7 = nullptr;
+    v7 = 0;
     while ( 1 )
     {
       while ( 1 )
@@ -67,9 +79,9 @@ message_dispatch_n1bb:
     __und(0xFFu);
 LABEL_20:
   sub_12F694(message_dispatch_init_cde8, message_dispatch_n230, 160);
-  v9 = nullptr;
+  v9 = 0;
   v6 = *v5;
-  v7 = nullptr;
+  v7 = 0;
 LABEL_14:
   v10 = v7[1] - v3;
   v7[1] = v10;

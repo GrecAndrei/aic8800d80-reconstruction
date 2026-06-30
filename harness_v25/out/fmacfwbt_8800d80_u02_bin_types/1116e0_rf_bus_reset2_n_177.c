@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_bus_reset2_n_177 @ 0x1116e0, size 114 bytes
 // Doc: rf_bus_write_n_2dc [rf]: Writes value to RF bus register with offset 0x2dc
 // rf_bus_write_n_2dc [rf]: Writes value to RF bus register with offset 0x2dc
@@ -33,10 +45,10 @@ int rf_bus_reset2_n_177()
   v6 = (char *)rf_bus_mark_n88;
   v7 = rf_bus_write_n_260;
   v8 = *((uint32_t *)rf_bus_mark_n88 + 2);
-  v9 = *(QWORD *)rf_bus_mark_n88;
+  v9 = *(uint64_t *)rf_bus_mark_n88;
   *(uint8_t *)(*(uint32_t *)rf_bus_mark_n88 + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v9) + 3) |= 0xC0u;
-  v10 = *(QWORD *)(v6 + 12);
+  v10 = *(uint64_t *)(v6 + 12);
   *(uint8_t *)(v8 + 3) |= 0xC0u;
   *(uint8_t *)(v10 + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v10) + 3) |= 0xC0u;

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BA9C;
+extern uint32_t dword_13BAA0;
+extern uint32_t dword_13BAA4;
+
 // ipc_queues_init_n @ 0x13ba08, size 146 bytes
 // Doc: ipc_queues_init_n [ipc]: Initialize three IPC/queue structures at offsets 0/8/0x10
 // ipc_queues_init_n [ipc]: Initialize three IPC/queue structures at offsets 0/8/0x10

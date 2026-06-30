@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11B014;
+
 // sub_11AF90 @ 0x11af90, size 132 bytes
 unsigned int * sub_11AF90(unsigned int *result, unsigned int a2, int a3)
 {
@@ -12,7 +26,7 @@ unsigned int * sub_11AF90(unsigned int *result, unsigned int a2, int a3)
   {
     v4 = (v3 >> 7) & 3;
     if ( (a3 - 1)
-       * (*(unsigned __int16 *)(dword_11B014
+       * (*(uint16_t *)(dword_11B014
                               + 2 * (3 * ((*result >> 8) & 1) + 6 * (*result & 0x7F) + ((*result >> 9) & 3))) << ((*result & 0x80) != 0)) < a2 )
     {
       if ( (v3 & 0x1C000) != 0 )

@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114664;
+extern uint32_t dword_114670;
+extern uint32_t off_11466C;
+extern uint32_t dword_114674;
+extern uint32_t dword_114690;
+extern uint32_t dword_114694;
+extern uint32_t dword_114698;
+extern uint32_t dword_114678;
+extern uint32_t dword_11467C;
+extern uint32_t dword_114680;
+extern uint32_t dword_114684;
+extern uint32_t dword_114688;
+extern uint32_t dword_11468C;
+
 // rf_fault_dump @ 0x1145a4, size 190 bytes
 // Doc: rf_fault_dump [util]: Dumps RF fault context from global fault/info pointers for diagnostics
 // rf_fault_dump [util]: Dumps RF fault context from global fault/info pointers for diagnostics

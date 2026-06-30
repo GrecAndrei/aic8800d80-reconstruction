@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_113ECC;
+
 // sub_113E70 @ 0x113e70, size 92 bytes
 int  sub_113E70(int a1, char a2, uint8_t *a3)
 {
@@ -15,7 +29,7 @@ int  sub_113E70(int a1, char a2, uint8_t *a3)
   v11[1] = v5;
   v11[2] = v6;
   v7 = (unsigned int)sub_113A44(v11[a1]) >> (8 * a2);
-  v8 = (unsigned __int8)v7 >> 4;
+  v8 = (uint8_t)v7 >> 4;
   if ( (v7 & 0xF0) != 0 )
   {
     result = 0;
@@ -27,7 +41,7 @@ int  sub_113E70(int a1, char a2, uint8_t *a3)
       *a3 = 0;
       return 2;
     }
-    v8 = (unsigned __int8)v7;
+    v8 = (uint8_t)v7;
     result = 1;
   }
   if ( (v8 & 1) != 0 )

@@ -1,10 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // ipc_msg_send @ 0x131278, size 162 bytes
 // Doc: ipc_msg_send [ipc]: Send IPC message via dispatch helper
 // ipc_msg_send [ipc]: Send IPC message via dispatch helper
-unsigned __int8 * ipc_msg_send(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
+uint8_t * ipc_msg_send(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
-  unsigned __int8 *result; // r0
-  unsigned __int8 v7; // r2
+  uint8_t *result; // r0
+  uint8_t v7; // r2
   unsigned int v8; // r1
   unsigned int v9; // r5
   uint64_t v10; // r2
@@ -29,9 +41,9 @@ unsigned __int8 * ipc_msg_send(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
                           | (v9 >> 3) & 2;
       *(uint32_t *)a3 = v8 & 0xF | (16 * (v8 >> 8));
       *(uint32_t *)(a3 + 4) = v9 & 0xF | (16 * (v9 >> 8));
-      *(QWORD *)(a3 + 8) = v10;
+      *(uint64_t *)(a3 + 8) = v10;
     }
-    return (unsigned __int8 *)1;
+    return (uint8_t *)1;
   }
   else
   {

@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13245C;
+
 // sub_132418 @ 0x132418, size 66 bytes
 char * sub_132418(int a1, int a2)
 {
@@ -8,12 +22,12 @@ char * sub_132418(int a1, int a2)
 
   if ( a1 )
   {
-    result = (char *)*((unsigned __int8 *)off_13245C + 371);
+    result = (char *)*((uint8_t *)off_13245C + 371);
     v3 = (char *)off_13245C + 202;
   }
   else
   {
-    result = (char *)*((unsigned __int8 *)off_13245C + 370);
+    result = (char *)*((uint8_t *)off_13245C + 370);
     v3 = (char *)off_13245C + 118;
   }
   if ( result )
@@ -21,13 +35,13 @@ char * sub_132418(int a1, int a2)
     v4 = &v3[6 * (uint32_t)result];
     while ( 1 )
     {
-      v5 = *(unsigned __int16 *)v3;
+      v5 = *(uint16_t *)v3;
       result = v3;
       v3 += 6;
       if ( v5 == a2 )
         break;
       if ( v3 == v4 )
-        return nullptr;
+        return 0;
     }
   }
   return result;

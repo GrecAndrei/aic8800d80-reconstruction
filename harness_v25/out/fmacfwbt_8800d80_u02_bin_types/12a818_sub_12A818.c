@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12A920;
+
 // sub_12A818 @ 0x12a818, size 264 bytes
 // Doc: sub_122A818 [mac]: Indexed table lookup on 0x190d48 struct by id at offset 0x4c9
 // sub_122A818 [mac]: Indexed table lookup on 0x190d48 struct by id at offset 0x4c9
@@ -5,13 +19,13 @@ int  sub_12A818(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
 {
   int v7; // r6
   int v8; // r7
-  unsigned __int8 *v9; // r4
+  uint8_t *v9; // r4
   int v10; // r9
-  unsigned __int8 *v11; // r5
+  uint8_t *v11; // r5
   int v13; // r0
   int v14; // r10
   int v15; // lr
-  bool v16; // zf
+  int v16; // zf
   int v17; // r1
   char v18; // r11
   char v19; // r11
@@ -19,12 +33,12 @@ int  sub_12A818(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
   int v21; // r7
 
   v7 = dword_12A920;
-  v8 = *(unsigned __int8 *)(a1 + 1225);
-  v9 = (unsigned __int8 *)(dword_12A920 + 140 * v8);
+  v8 = *(uint8_t *)(a1 + 1225);
+  v9 = (uint8_t *)(dword_12A920 + 140 * v8);
   if ( v9[112] != 1 )
     return 255;
   v10 = v9[16];
-  v11 = (unsigned __int8 *)(dword_12A920 + 140 * v8);
+  v11 = (uint8_t *)(dword_12A920 + 140 * v8);
   if ( v9[16] )
   {
     if ( v9[64] )
@@ -59,7 +73,7 @@ int  sub_12A818(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a
   timestamp_update_4f60(v13, a7);
   v21 = 140 * v8;
   *(uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
-  sub_125EFC(*(unsigned __int8 *)(v21 + v7 + 113), 3);
+  sub_125EFC(*(uint8_t *)(v21 + v7 + 113), 3);
   sub_129768((int)v11, v10);
   sub_1297BC((int)v11);
   sub_129A28(v11);

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1242D4;
+extern uint32_t dword_1242E0;
+extern uint32_t dword_1242EC;
+extern uint32_t dword_1242DC;
+extern uint32_t dword_1242E8;
+extern uint32_t dword_1242D8;
+extern uint32_t off_1242E4;
+
 // check_param_eq1 @ 0x124244, size 144 bytes
 // Doc: check_param_eq1 [util]: Compare parameter against 1 and branch
 // check_param_eq1 [util]: Compare parameter against 1 and branch

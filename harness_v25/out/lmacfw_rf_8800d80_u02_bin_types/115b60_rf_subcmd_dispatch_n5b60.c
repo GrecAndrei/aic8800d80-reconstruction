@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_115C84;
+extern uint32_t off_115C74;
+extern uint32_t dword_115C80;
+extern uint32_t off_115C78;
+extern uint32_t off_115C7C;
+extern uint32_t dword_115C88;
+
 // rf_subcmd_dispatch_n5b60 @ 0x115b60, size 276 bytes
 // Doc: rf_register_access_helper [rf]: Helper wrapping RF register access (pushes r4-r6,lr)
 // rf_register_access_helper [rf]: Helper wrapping RF register access (pushes r4-r6,lr)
@@ -12,7 +31,7 @@ int  rf_subcmd_dispatch_n5b60(int a1, int a2)
   int v10; // r2
   int v11; // r2
   int v12; // r1
-  __int16 v13; // r3
+  int16_t v13; // r3
   int *v14; // r3
   int v15; // r3
   int v16; // r2
@@ -34,7 +53,7 @@ int  rf_subcmd_dispatch_n5b60(int a1, int a2)
   }
   if ( v4[142] )
   {
-    v20 = *(unsigned __int8 *)(a1 + 16);
+    v20 = *(uint8_t *)(a1 + 16);
     if ( v20 == 255 )
     {
       sub_116628(a1, 0);
@@ -45,7 +64,7 @@ int  rf_subcmd_dispatch_n5b60(int a1, int a2)
       v21 = dword_115C80;
       *(uint8_t *)(a1 + 14) = a2;
       *(uint8_t *)(a1 + 53) = 1;
-      list_push_tail(v21 + 152 * (__int16)v20 + 48);
+      list_push_tail(v21 + 152 * (int16_t)v20 + 48);
       return 1;
     }
   }

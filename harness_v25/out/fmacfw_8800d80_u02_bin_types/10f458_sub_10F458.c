@@ -1,7 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10F518;
+extern uint32_t off_10F51C;
+extern uint32_t off_10F534;
+extern uint32_t dword_10F530;
+extern uint32_t dword_10F524;
+extern uint32_t dword_10F520;
+extern uint32_t dword_10F52C;
+extern uint32_t dword_10F528;
+extern uint32_t off_10F538;
+extern uint32_t dword_10F54C;
+extern uint32_t dword_10F540;
+extern uint32_t dword_10F548;
+extern uint32_t dword_10F544;
+extern uint32_t dword_10F53C;
+
 // sub_10F458 @ 0x10f458, size 192 bytes
 int sub_10F458()
 {
-  unsigned __int8 **v0; // r4
+  uint8_t **v0; // r4
   int v1; // r3
   uint32_t *v2; // r3
   int v3; // r2
@@ -24,8 +51,8 @@ int sub_10F458()
   int v20; // r0
   int v21; // r0
 
-  v0 = (unsigned __int8 **)off_10F518;
-  v1 = **(unsigned __int8 **)off_10F518;
+  v0 = (uint8_t **)off_10F518;
+  v1 = **(uint8_t **)off_10F518;
   switch ( v1 )
   {
     case 1:

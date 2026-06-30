@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_119384;
+extern uint32_t dword_119370;
+extern uint32_t off_119374;
+extern uint32_t dword_119380;
+extern uint32_t dword_11937C;
+extern uint32_t off_119378;
+
 // fmacfwbt_phy_chan_init @ 0x119204, size 362 bytes
 // Doc: fmacfwbt_phy_chan_init [mac]: Initialize per-channel PHY state entry
 // fmacfwbt_phy_chan_init [mac]: Initialize per-channel PHY state entry
@@ -14,24 +33,24 @@ int  fmacfwbt_phy_chan_init(int a1, int a2, int a3)
   int v14; // r2
   int v15; // r0
   int v16; // t1
-  __int16 v17; // r12
-  __int16 v18; // lr
+  int16_t v17; // r12
+  int16_t v18; // lr
   int v19; // r5
-  __int16 v20; // r5
+  int16_t v20; // r5
   char v21; // r2
   int v23; // r1
   int v24; // r0
   int v25; // lr
   int v26; // r0
-  __int16 v27; // r2
+  int16_t v27; // r2
 
   v3 = dword_119384;
   v4 = dword_119370;
-  v6 = *(unsigned __int8 *)(dword_119384 + 696 * a1 + 34);
+  v6 = *(uint8_t *)(dword_119384 + 696 * a1 + 34);
   v8 = *(uint32_t *)(dword_119370 + 1320 * v6 + 72);
   if ( !v8 )
   {
-    if ( **(__int16 **)off_119374 >= 0 )
+    if ( **(int16_t **)off_119374 >= 0 )
     {
 LABEL_9:
       v11 = sub_119084(1, 24);
@@ -43,10 +62,10 @@ LABEL_8:
     sub_12F694(dword_119380, dword_11937C, 520);
     goto LABEL_9;
   }
-  v10 = *(unsigned __int8 *)(v8 + 4);
-  if ( **(__int16 **)off_119374 < 0 && v10 == 2 )
+  v10 = *(uint8_t *)(v8 + 4);
+  if ( **(int16_t **)off_119374 < 0 && v10 == 2 )
     goto LABEL_8;
-  v11 = sub_119084((*(unsigned __int8 *)(dword_119370 + 1320 * v6 + 1224) | v10) != 0, 24);
+  v11 = sub_119084((*(uint8_t *)(dword_119370 + 1320 * v6 + 1224) | v10) != 0, 24);
   if ( !v11 )
     return 1;
 LABEL_4:

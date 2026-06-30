@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C260;
+extern uint32_t dword_11C268;
+extern uint32_t off_11C264;
+
 // rf_bus_reset2_c158 @ 0x11c158, size 264 bytes
 // Doc: rf_bus_reset2_c158 [rf]: Tear down RF bus state and trigger secondary reset sequence
 // rf_bus_reset2_c158 [rf]: Tear down RF bus state and trigger secondary reset sequence
@@ -17,8 +33,8 @@ int  rf_bus_reset2_c158(int result)
 
   v1 = off_11C260;
   v2 = result;
-  v3 = *(unsigned __int8 *)(result + 85);
-  if ( *((unsigned __int8 *)off_11C260 + 90) <= 1u )
+  v3 = *(uint8_t *)(result + 85);
+  if ( *((uint8_t *)off_11C260 + 90) <= 1u )
   {
     if ( (v3 & 2) != 0 )
     {
@@ -29,7 +45,7 @@ int  rf_bus_reset2_c158(int result)
       if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
       {
         rf_mailbox_post_n44(*((uint32_t *)v1 + 20));
-        v3 = *(unsigned __int8 *)(v2 + 85);
+        v3 = *(uint8_t *)(v2 + 85);
       }
     }
     if ( (v3 & 4) != 0 )
@@ -75,12 +91,12 @@ int  rf_bus_reset2_c158(int result)
       v8 = *(uint32_t *)(v2 + 80);
       if ( (v6 & 8) != 0 )
       {
-        v9 = *(unsigned __int8 *)(v2 + 94);
+        v9 = *(uint8_t *)(v2 + 94);
         *(uint8_t *)(v2 + 85) = v6 & 0xF7;
         if ( v9 )
           v10 = 102400;
         else
-          v10 = *(uint32_t *)(dword_11C268 + 152 * *(unsigned __int8 *)(v2 + 102) + 8);
+          v10 = *(uint32_t *)(dword_11C268 + 152 * *(uint8_t *)(v2 + 102) + 8);
         v8 -= v10;
       }
       else

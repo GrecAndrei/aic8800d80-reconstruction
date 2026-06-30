@@ -1,7 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1198D8;
+extern uint32_t off_1198DC;
+extern uint32_t dword_1198E4;
+extern uint32_t dword_1198E0;
+
 // sub_119888 @ 0x119888, size 80 bytes
 // Doc: rf_chan_set_check [rf]: Validate and apply channel configuration bits
 // rf_chan_set_check [rf]: Validate and apply channel configuration bits
-__int16 * sub_119888(__int16 *result)
+int16_t * sub_119888(int16_t *result)
 {
   int v1; // r2
   int v2; // r1
@@ -13,7 +30,7 @@ __int16 * sub_119888(__int16 *result)
   {
     v2 = *((uint32_t *)off_1198D8 + 43);
     v3 = result;
-    result = *(__int16 **)off_1198DC;
+    result = *(int16_t **)off_1198DC;
     do
     {
       v4 = v3[9] & 0x380000;

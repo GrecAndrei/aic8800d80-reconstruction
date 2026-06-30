@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B2AC;
+extern uint32_t off_11B2A4;
+extern uint32_t dword_11B2A8;
+extern uint32_t dword_11B2B4;
+extern uint32_t dword_11B2C4;
+extern uint32_t dword_11B2B0;
+extern uint32_t off_11B2B8;
+extern uint32_t dword_11B2C0;
+extern uint32_t dword_11B2BC;
+
 // rf_mailbox_post_n44 @ 0x11b1a4, size 256 bytes
 // Doc: rf_mailbox_post_n44 [ipc]: Post message into RF mailbox peripheral
 // rf_mailbox_post_n44 [ipc]: Post message into RF mailbox peripheral
@@ -26,7 +48,7 @@ int  rf_mailbox_post_n44(int result)
       result = sub_101A20();
       v3 += 4000 + result;
     }
-    v4 = (unsigned __int8)v1[91];
+    v4 = (uint8_t)v1[91];
     v5 = v1[88];
     *((uint32_t *)v1 + 20) = v2;
     *((uint32_t *)v1 + 21) = v3;
@@ -51,10 +73,10 @@ int  rf_mailbox_post_n44(int result)
           result = v10 - sub_101A20();
           if ( result + v9 >= 0 )
             break;
-          v11 = v7 + 224 * *(unsigned __int8 *)(v6 + 8);
+          v11 = v7 + 224 * *(uint8_t *)(v6 + 8);
           v12 = 102400;
           if ( !*(uint8_t *)(v11 + 94) )
-            v12 = *(uint32_t *)(v8 + 152 * *(unsigned __int8 *)(v11 + 102) + 8);
+            v12 = *(uint32_t *)(v8 + 152 * *(uint8_t *)(v11 + 102) + 8);
           result = rf_cal_or_init_handler(v11, *(uint32_t *)(v6 + 4) + v12, 0);
           v6 = *((uint32_t *)v1 + 4);
         }
@@ -62,7 +84,7 @@ int  rf_mailbox_post_n44(int result)
       }
       if ( *((uint32_t *)v1 + 11) )
       {
-        if ( **(__int16 **)off_11B2B8 < 0 && (v1[88] & 0xC) == 0 )
+        if ( **(int16_t **)off_11B2B8 < 0 && (v1[88] & 0xC) == 0 )
           return rf_cmd_send_n264(dword_11B2C0, dword_11B2BC, 1698);
       }
       else

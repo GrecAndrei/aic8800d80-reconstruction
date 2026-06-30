@@ -1,10 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_136C28;
+
 // sub_136BD4 @ 0x136bd4, size 84 bytes
 int  sub_136BD4(int result, int a2)
 {
   int v2; // r4
   char v3; // r1
   int v4; // r0
-  __int16 v5; // r1
+  int16_t v5; // r1
 
   if ( *(uint8_t *)(result + 106) == 2 )
   {

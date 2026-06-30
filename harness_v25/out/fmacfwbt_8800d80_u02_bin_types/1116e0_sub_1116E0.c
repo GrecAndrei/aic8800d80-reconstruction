@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_111758;
+extern uint32_t off_11175C;
+extern uint32_t off_111760;
+extern uint32_t off_111754;
+extern uint32_t off_111764;
+extern uint32_t off_111768;
+
 // sub_1116E0 @ 0x1116e0, size 114 bytes
 int sub_1116E0()
 {
@@ -31,10 +50,10 @@ int sub_1116E0()
   v6 = (char *)off_111768;
   v7 = off_111760;
   v8 = *((uint32_t *)off_111768 + 2);
-  v9 = *(QWORD *)off_111768;
+  v9 = *(uint64_t *)off_111768;
   *(uint8_t *)(*(uint32_t *)off_111768 + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v9) + 3) |= 0xC0u;
-  v10 = *(QWORD *)(v6 + 12);
+  v10 = *(uint64_t *)(v6 + 12);
   *(uint8_t *)(v8 + 3) |= 0xC0u;
   *(uint8_t *)(v10 + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v10) + 3) |= 0xC0u;

@@ -1,3 +1,43 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12BCDC;
+extern uint32_t off_12BCE4;
+extern uint32_t off_12BCE0;
+extern uint32_t dword_12BCE8;
+extern uint32_t off_12BCEC;
+extern uint32_t off_12BCF0;
+extern uint32_t off_12BCF4;
+extern uint32_t dword_12BD40;
+extern uint32_t dword_12BD3C;
+extern uint32_t off_12BCF8;
+extern uint32_t dword_12BD00;
+extern uint32_t dword_12BCFC;
+extern uint32_t off_12BD04;
+extern uint32_t dword_12BD08;
+extern uint32_t off_12BD0C;
+extern uint32_t off_12BD10;
+extern uint32_t off_12BD18;
+extern uint32_t off_12BD14;
+extern uint32_t off_12BD20;
+extern uint32_t off_12BD1C;
+extern uint32_t off_12BD24;
+extern uint32_t off_12BD28;
+extern uint32_t off_12BD2C;
+extern uint32_t off_12BD30;
+extern uint32_t off_12BD34;
+extern uint32_t off_12BD44;
+extern uint32_t off_12BD38;
+
 // sub_12BAE4 @ 0x12bae4, size 502 bytes
 // Doc: sub_122BAE4 [bt]: Initialize BT mailbox control register to 1
 // sub_122BAE4 [bt]: Initialize BT mailbox control register to 1
@@ -7,7 +47,7 @@ int sub_12BAE4()
   unsigned int variant_cached; // r0
   uint32_t *v2; // r3
   uint32_t *v3; // r2
-  __int16 **v4; // r1
+  int16_t **v4; // r1
   char *v5; // r0
   int *v6; // r3
   uint32_t *v7; // r1
@@ -28,12 +68,12 @@ int sub_12BAE4()
   uint32_t *v22; // r6
   int v23; // r0
   unsigned int *v24; // r5
-  unsigned __int8 v25; // [sp+6h] [bp-2h] BYREF
-  unsigned __int8 v26; // [sp+7h] [bp-1h] BYREF
+  uint8_t v25; // [sp+6h] [bp-2h] BYREF
+  uint8_t v26; // [sp+7h] [bp-1h] BYREF
 
   v0 = off_12BCDC;
   *(uint32_t *)off_12BCDC = 1;
-  while ( (unsigned __int8)*v0 )
+  while ( (uint8_t)*v0 )
     ;
   variant_cached = get_variant_cached();
   sub_12B7C8(variant_cached);
@@ -41,7 +81,7 @@ int sub_12BAE4()
   *(uint32_t *)off_12BCE0 = dword_12BCE8;
   v3 = off_12BCEC;
   *v2 = 0x80000000;
-  v4 = (__int16 **)off_12BCF0;
+  v4 = (int16_t **)off_12BCF0;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_12BCF4 < 0x2F000000u )
     sub_12F694(dword_12BD40, dword_12BD3C, 284);

@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13C130;
+extern uint32_t dword_13C134;
+extern uint32_t dword_13C14C;
+extern uint32_t dword_13C13C;
+extern uint32_t dword_13C138;
+extern uint32_t dword_13C144;
+extern uint32_t dword_13C148;
+extern uint32_t dword_13C150;
+extern uint32_t off_13C140;
+
 // sub_13BFD8 @ 0x13bfd8, size 344 bytes
 unsigned int  sub_13BFD8(unsigned int result)
 {
@@ -14,15 +36,15 @@ unsigned int  sub_13BFD8(unsigned int result)
   int v11; // r9
   int v12; // r7
   int v13; // r9
-  __int16 v14; // r3
+  int16_t v14; // r3
   int ( *v15)(int, int); // r2
-  __int16 v16; // r1
+  int16_t v16; // r1
 
-  v1 = *(unsigned __int8 *)(result + 27);
+  v1 = *(uint8_t *)(result + 27);
   v2 = *((uint32_t *)off_13C130 + 4);
   if ( v1 != 255 )
   {
-    v3 = *(unsigned __int8 *)(result + 29);
+    v3 = *(uint8_t *)(result + 29);
     v4 = dword_13C134;
     v5 = dword_13C134 + 696 * v3;
     v6 = result;
@@ -30,7 +52,7 @@ unsigned int  sub_13BFD8(unsigned int result)
     if ( (*(uint32_t *)(v5 + 4) & 2) != 0 )
     {
       v7 = 696 * v3 + 12 * v1 + dword_13C134;
-      v8 = *(unsigned __int8 *)(v7 + 453);
+      v8 = *(uint8_t *)(v7 + 453);
       ++*(uint8_t *)(v7 + 455);
       if ( v8 == 33 )
       {
@@ -38,13 +60,13 @@ unsigned int  sub_13BFD8(unsigned int result)
         if ( result > dword_13C14C && v2 - 500000 - *(uint32_t *)(v7 + 448) >= 0 && *(uint8_t *)(v5 + 36) != 1 )
         {
           result = dword_13C13C;
-          v9 = *(unsigned __int8 *)(dword_13C138 + v1);
+          v9 = *(uint8_t *)(dword_13C138 + v1);
           if ( !*(uint32_t *)(dword_13C13C + 84 * v9)
             && !*(uint32_t *)(dword_13C144 + 8 * v9)
             && !*(uint32_t *)(v4 + 8 * (v9 + 87 * v3 + 78)) )
           {
             result = dword_13C148;
-            if ( !*(uint32_t *)(dword_13C148 + 8 * (165 * *(unsigned __int8 *)(v6 + 28) + v9 + 159)) )
+            if ( !*(uint32_t *)(dword_13C148 + 8 * (165 * *(uint8_t *)(v6 + 28) + v9 + 159)) )
               return sub_13BE74(v3, v1, *(uint16_t *)(v6 + 32));
           }
         }
@@ -60,7 +82,7 @@ unsigned int  sub_13BFD8(unsigned int result)
         {
           v13 = *(uint32_t *)(v11 + 28);
           v14 = *(uint16_t *)(v6 + 30);
-          result = *(unsigned __int16 *)(v13 + 4);
+          result = *(uint16_t *)(v13 + 4);
           *(uint16_t *)(v6 + 34) = result;
           if ( (v14 & 1) == 0 || (v14 & 3) == 3 )
           {

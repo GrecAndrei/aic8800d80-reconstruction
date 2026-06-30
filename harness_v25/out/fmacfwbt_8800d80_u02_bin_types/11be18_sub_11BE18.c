@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11BFD8;
+extern uint32_t off_11BFDC;
+extern uint32_t off_11BFE0;
+extern uint32_t off_11BFE8;
+extern uint32_t off_11BFE4;
+extern uint32_t off_11BFEC;
+extern uint32_t dword_11BFF0;
+
 // sub_11BE18 @ 0x11be18, size 446 bytes
 void sub_11BE18()
 {
@@ -12,7 +32,7 @@ void sub_11BE18()
   uint32_t *v8; // r2
   int v9; // r12
   int v10; // r8
-  __int16 v11; // r0
+  int16_t v11; // r0
   int v12; // r1
   int v13; // r0
   uint32_t *v14; // lr
@@ -28,7 +48,7 @@ void sub_11BE18()
   char *v24; // r2
   int v25; // r5
   int v26; // r6
-  __int16 v27; // r12
+  int16_t v27; // r12
   int v28; // r1
   int v29; // r0
   int v30; // r0
@@ -47,7 +67,7 @@ void sub_11BE18()
   }
   else
   {
-    v2 = *((unsigned __int8 *)off_11BFD8 + 200);
+    v2 = *((uint8_t *)off_11BFD8 + 200);
     if ( *((uint8_t *)off_11BFD8 + 200) )
     {
       if ( *((uint8_t *)off_11BFD8 + 191) == 4 )
@@ -60,17 +80,17 @@ void sub_11BE18()
         if ( *((uint8_t *)off_11BFDC + 1) )
         {
           v4 = *((uint32_t *)off_11BFD8 + 42);
-          v5 = *((unsigned __int8 *)off_11BFDC + 2);
+          v5 = *((uint8_t *)off_11BFDC + 2);
           v6 = *(uint8_t *)(v4 + 34);
           if ( ((v5 >> v6) & 1) != 0 )
           {
-            v7 = *(unsigned __int16 *)(v4 + 32);
+            v7 = *(uint16_t *)(v4 + 32);
             v8 = off_11BFE0;
             *((uint32_t *)off_11BFE0 + 303) = *((uint32_t *)off_11BFD8 + 45);
             v9 = v0[4];
             v10 = v8[300] & 0xFF00;
             v11 = ~((unsigned int)~(v7 << 18) >> 18);
-            LOBYTE(v7) = v5 & ~(unsigned __int8)(1 << v6);
+            LOBYTE(v7) = v5 & ~(uint8_t)(1 << v6);
             v12 = v0[46];
             *((uint16_t *)v8 + 605) = v11;
             *((uint16_t *)v8 + 608) = v12;

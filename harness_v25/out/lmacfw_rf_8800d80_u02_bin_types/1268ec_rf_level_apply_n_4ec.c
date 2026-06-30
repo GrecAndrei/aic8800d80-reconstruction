@@ -1,3 +1,37 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_126BC4;
+extern uint32_t off_126D3C;
+extern uint32_t off_126D40;
+extern uint32_t off_126D44;
+extern uint32_t dword_126D48;
+extern uint32_t dword_126D4C;
+extern uint32_t off_126D24;
+extern uint32_t off_126D30;
+extern uint32_t dword_126D58;
+extern uint32_t dword_126D5C;
+extern uint32_t off_126D2C;
+extern uint32_t dword_126D54;
+extern uint32_t off_126D28;
+extern uint32_t dword_126C0C;
+extern uint32_t dword_126D34;
+extern uint32_t dword_126D38;
+extern uint32_t dword_126C18;
+extern uint32_t off_126BE8;
+extern uint32_t dword_126C38;
+extern uint32_t dword_126BEC;
+extern uint32_t off_126C28;
+
 // rf_level_apply_n_4ec @ 0x1268ec, size 1078 bytes
 // Doc: rf_level_apply_n_42e [rf]: Apply TX/RF power level by programming level MMIO registers
 // rf_level_apply_n_42e [rf]: Apply TX/RF power level by programming level MMIO registers

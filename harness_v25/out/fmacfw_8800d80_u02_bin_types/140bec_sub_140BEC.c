@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_140D88;
+extern uint32_t dword_140D84;
+extern uint32_t dword_140D8C;
+extern uint32_t off_140D90;
+extern uint32_t dword_140D98;
+extern uint32_t dword_140D94;
+
 // sub_140BEC @ 0x140bec, size 408 bytes
 // Doc: sub_1240BEC [unknown]: Worker function with r4-r11/lr saved, takes r0,r1 args
 // sub_1240BEC [unknown]: Worker function with r4-r11/lr saved, takes r0,r1 args
@@ -35,7 +54,7 @@ int  sub_140BEC(int a1, int a2)
     }
     while ( v4 != v3 );
     LODWORD(v6) = sub_12BE40();
-    *(QWORD *)(a1 + 40) = v6;
+    *(uint64_t *)(a1 + 40) = v6;
     *(uint32_t *)(a1 + 96) = 0;
   }
   v7 = dword_140D8C;
@@ -47,7 +66,7 @@ LABEL_6:
     v10 = dword_140D8C + 6336;
     do
     {
-      while ( *(uint16_t *)(v9 + 4) != 1 || !sub_140B78((unsigned __int16 *)(v9 + 6), v9 + 28, a1) )
+      while ( *(uint16_t *)(v9 + 4) != 1 || !sub_140B78((uint16_t *)(v9 + 6), v9 + 28, a1) )
       {
         v9 += 528;
         if ( v9 == v10 )
@@ -62,12 +81,12 @@ LABEL_6:
     }
     while ( v9 != v10 );
 LABEL_12:
-    v12 = *(unsigned __int8 *)(a1 + 101);
+    v12 = *(uint8_t *)(a1 + 101);
     v13 = *(uint32_t *)(a1 + 96) + 1;
     *(uint32_t *)(a1 + 96) = v13;
     if ( v13 >= v12 )
     {
-      if ( **(__int16 **)off_140D90 < 0 && mmio_read_status() )
+      if ( **(int16_t **)off_140D90 < 0 && mmio_read_status() )
       {
         if ( *(uint32_t *)(a1 + 92) )
           sub_12F46C(dword_140D98, dword_140D94, 1585);
@@ -83,14 +102,14 @@ LABEL_12:
   v14 = *(uint32_t *)(a1 + 96);
   while ( 1 )
   {
-    v16 = sub_132244((char *)*(unsigned __int8 *)(a1 + 100), *(unsigned __int8 *)(v14 + a1 + 102));
+    v16 = sub_132244((char *)*(uint8_t *)(a1 + 100), *(uint8_t *)(v14 + a1 + 102));
     v17 = v16;
     if ( v16 )
     {
       if ( (v16[3] & 2) == 0 )
         break;
     }
-    v15 = *(unsigned __int8 *)(a1 + 101);
+    v15 = *(uint8_t *)(a1 + 101);
     v14 = *(uint32_t *)(a1 + 96) + 1;
     *(uint32_t *)(a1 + 96) = v14;
     if ( v14 >= v15 )
@@ -102,7 +121,7 @@ LABEL_12:
   if ( !*(uint8_t *)(a1 + 3) )
     *(uint8_t *)(v18 + 3) |= 1u;
   *(uint8_t *)(v18 + 367) = 1;
-  v19 = *(unsigned __int8 *)(a1 + 58);
+  v19 = *(uint8_t *)(a1 + 58);
   *(uint8_t *)(v18 + 252) = v19;
   sub_143770(v18 + 253, a1 + 59, v19);
   *(uint8_t *)(v18 + 368) = 1;
@@ -110,7 +129,7 @@ LABEL_12:
   *(uint16_t *)(v18 + 354) = *(uint16_t *)(a1 + 54);
   *(uint16_t *)(v18 + 356) = *(uint16_t *)(a1 + 56);
   *(uint8_t *)(v18 + 366) = *(uint8_t *)(v7 + 6489);
-  *(uint32_t *)(v18 + 372) = *(unsigned __int16 *)(a1 + 48) << 10;
+  *(uint32_t *)(v18 + 372) = *(uint16_t *)(a1 + 48) << 10;
   return sdio_buffer_prepare_n_4e8(v18);
 }
 

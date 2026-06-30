@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B4D0;
+extern uint32_t dword_12B4D4;
+extern uint32_t off_12B4DC;
+extern uint32_t off_12B4E0;
+extern uint32_t dword_12B4D8;
+
 // fmac_rx_buff_check @ 0x12b398, size 312 bytes
 // Doc: fmac_rx_buff_check [rx]: Check RX buffer descriptors/indices in fmac
 // fmac_rx_buff_check [rx]: Check RX buffer descriptors/indices in fmac
@@ -12,13 +30,13 @@ void fmac_rx_buff_check()
   int v6; // r1
   uint16_t *v7; // lr
   int v8; // r3
-  __int16 v9; // r4
+  int16_t v9; // r4
   int *v10; // r9
   int v11; // r12
-  __int16 v12; // r10
+  int16_t v12; // r10
   int v13; // r0
   int v14; // r0
-  __int16 v15; // r10
+  int16_t v15; // r10
   int v16; // r0
   int v17; // r3
   char v18; // t1
@@ -28,10 +46,10 @@ void fmac_rx_buff_check()
   int v22; // [sp+4h] [bp-8h]
 
   v0 = *(uint32_t *)off_12B4D0;
-  v22 = *((unsigned __int8 *)off_12B4D0 + 10);
+  v22 = *((uint8_t *)off_12B4D0 + 10);
   if ( *(uint8_t *)(*(uint32_t *)off_12B4D0 + 368) )
   {
-    v21 = dword_12B4D4 + 1320 * *(unsigned __int8 *)(*(uint32_t *)off_12B4D0 + 366);
+    v21 = dword_12B4D4 + 1320 * *(uint8_t *)(*(uint32_t *)off_12B4D0 + 366);
     v1 = (char *)(v0 + 253);
     v2 = 0;
     do
@@ -42,11 +60,11 @@ void fmac_rx_buff_check()
       }
       else
       {
-        v3 = *(unsigned __int8 *)(v0 + 369);
+        v3 = *(uint8_t *)(v0 + 369);
         if ( *(uint8_t *)(v0 + 369) )
           v3 = 1;
       }
-      v4 = sub_118C44(v3, *(unsigned __int16 *)(v0 + 364) + (unsigned __int8)*(v1 - 1) + 26);
+      v4 = sub_118C44(v3, *(uint16_t *)(v0 + 364) + (uint8_t)*(v1 - 1) + 26);
       v5 = v1;
       v6 = v4;
       if ( !v4 )
@@ -75,7 +93,7 @@ void fmac_rx_buff_check()
       v7[254] = v9;
       *(uint8_t *)(v8 + 132) = 0;
       *(uint8_t *)(v8 + 133) = *(v1 - 1);
-      v16 = (unsigned __int8)*(v1 - 1);
+      v16 = (uint8_t)*(v1 - 1);
       *(uint16_t *)(v8 + 130) = 16 * v9;
       if ( v16 )
       {
@@ -87,7 +105,7 @@ void fmac_rx_buff_check()
         }
         while ( v5 != &v1[v16] );
       }
-      v19 = *(unsigned __int16 *)(v0 + 364);
+      v19 = *(uint16_t *)(v0 + 364);
       v20 = *(uint32_t *)(v11 + 32);
       *(uint32_t *)(v11 + 24) = dword_12B4D8;
       *(uint32_t *)(v11 + 32) = v20 - v19;
@@ -99,7 +117,7 @@ void fmac_rx_buff_check()
       ++v2;
       v1 += 33;
     }
-    while ( *(unsigned __int8 *)(v0 + 368) > v2 );
+    while ( *(uint8_t *)(v0 + 368) > v2 );
   }
 }
 

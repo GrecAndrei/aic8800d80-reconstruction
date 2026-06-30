@@ -1,3 +1,76 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1114D8;
+extern uint32_t off_1114D4;
+extern uint32_t dword_1116E8;
+extern uint32_t dword_1116E4;
+extern uint32_t off_1116F4;
+extern uint32_t off_111708;
+extern uint32_t dword_11170C;
+extern uint32_t dword_111730;
+extern uint32_t off_111714;
+extern uint32_t off_111710;
+extern uint32_t dword_111740;
+extern uint32_t off_111718;
+extern uint32_t off_111738;
+extern uint32_t dword_11173C;
+extern uint32_t off_11171C;
+extern uint32_t dword_111734;
+extern uint32_t dword_111720;
+extern uint32_t dword_1114DC;
+extern uint32_t off_1114E0;
+extern uint32_t off_1114E4;
+extern uint32_t off_1114E8;
+extern uint32_t off_1114F0;
+extern uint32_t dword_1114F4;
+extern uint32_t dword_1116F0;
+extern uint32_t off_1116EC;
+extern uint32_t dword_1116FC;
+extern uint32_t off_1116F8;
+extern uint32_t dword_111704;
+extern uint32_t off_111700;
+extern uint32_t off_1114F8;
+extern uint32_t dword_11172C;
+extern uint32_t off_111500;
+extern uint32_t dword_1114FC;
+extern uint32_t off_111508;
+extern uint32_t off_111504;
+extern uint32_t off_11150C;
+extern uint32_t off_111514;
+extern uint32_t off_111510;
+extern uint32_t dword_111518;
+extern uint32_t dword_111724;
+extern uint32_t off_111728;
+extern uint32_t off_1116E0;
+extern uint32_t off_1116D8;
+extern uint32_t dword_1116DC;
+extern uint32_t dword_11151C;
+extern uint32_t off_111520;
+extern uint32_t off_111524;
+extern uint32_t dword_111528;
+extern uint32_t off_11152C;
+extern uint32_t dword_111544;
+extern uint32_t off_111554;
+extern uint32_t off_111558;
+extern uint32_t dword_111530;
+extern uint32_t off_111534;
+extern uint32_t off_111538;
+extern uint32_t off_111548;
+extern uint32_t off_11154C;
+extern uint32_t dword_111550;
+extern uint32_t dword_11153C;
+extern uint32_t off_111540;
+
 // sub_111250 @ 0x111250, size 1160 bytes
 int sub_111250()
 {
@@ -60,7 +133,7 @@ int sub_111250()
   int v56; // r1
 
   v0 = *(uint32_t *)off_1114D8;
-  if ( **(__int16 **)off_1114D4 < 0 && !v0 )
+  if ( **(int16_t **)off_1114D4 < 0 && !v0 )
   {
     sub_12F35C(dword_1116E8, dword_1116E4, 39);
     goto LABEL_10;
@@ -173,8 +246,8 @@ LABEL_12:
   if ( (v0 & 0x400) != 0 )
   {
     v7 = off_1114F8;
-    v8 = *((unsigned __int8 *)off_1114F8 + 1621);
-    v9 = *((unsigned __int8 *)off_1114F8 + 1622);
+    v8 = *((uint8_t *)off_1114F8 + 1621);
+    v9 = *((uint8_t *)off_1114F8 + 1622);
     if ( v8 >= v9 )
     {
       sub_12E948(dword_11172C, v8, v9);
@@ -182,11 +255,11 @@ LABEL_12:
     else
     {
       v10 = *(uint32_t *)off_111500;
-      v11 = *((unsigned __int8 *)off_1114F8 + 1620)
+      v11 = *((uint8_t *)off_1114F8 + 1620)
           + 1
           - 81
           * ((unsigned int)(((unsigned int)dword_1114FC
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_1114F8 + 1620) + 1)) >> 32) >> 6);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_1114F8 + 1620) + 1)) >> 32) >> 6);
       v12 = (char *)off_1114F8 + 20 * v11;
       v13 = off_111508;
       *((uint32_t *)v12 + 1) = *(uint32_t *)off_111504;
@@ -220,17 +293,17 @@ LABEL_12:
   if ( (v0 & 0x100) != 0 )
   {
     v18 = off_1114F8;
-    v19 = *((unsigned __int8 *)off_1114F8 + 2433);
-    v20 = *((unsigned __int8 *)off_1114F8 + 2434);
+    v19 = *((uint8_t *)off_1114F8 + 2433);
+    v20 = *((uint8_t *)off_1114F8 + 2434);
     if ( v19 < v20 )
     {
       v38 = *(uint32_t *)off_1116E0;
       v39 = *(uint32_t *)off_1116D8;
-      v40 = *((unsigned __int8 *)off_1114F8 + 2432)
+      v40 = *((uint8_t *)off_1114F8 + 2432)
           + 1
           - 40
           * ((unsigned int)(((unsigned int)dword_1116DC
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_1114F8 + 2432) + 1)) >> 32) >> 5);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_1114F8 + 2432) + 1)) >> 32) >> 5);
       v41 = (char *)off_1114F8 + 20 * v40;
       *((uint8_t *)off_1114F8 + 2432) = v40;
       v41[1645] = BYTE1(v38) & 7;
@@ -253,7 +326,7 @@ LABEL_12:
     if ( *(uint8_t *)off_111520 )
     {
       v22 = off_111524;
-      v23 = *((unsigned __int8 *)off_111524 + 369);
+      v23 = *((uint8_t *)off_111524 + 369);
       *(uint8_t *)off_111520 = 0;
       if ( v23 )
         sub_10DBC0(1);
@@ -263,15 +336,15 @@ LABEL_12:
         sub_124CF4(dword_111528);
     }
     v24 = off_11152C;
-    v25 = *((unsigned __int8 *)off_11152C + 3074);
-    v26 = *((unsigned __int8 *)off_11152C + 3073);
+    v25 = *((uint8_t *)off_11152C + 3074);
+    v26 = *((uint8_t *)off_11152C + 3073);
     if ( v25 < v26 )
     {
-      v35 = *((unsigned __int8 *)off_11152C + 3072)
+      v35 = *((uint8_t *)off_11152C + 3072)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)dword_111544
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_11152C + 3072) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_11152C + 3072) + 1)) >> 32) >> 7);
       v36 = (char *)off_11152C + 16 * v35;
       *((uint32_t *)v36 + 1) = *(uint32_t *)off_111554;
       v37 = off_111558;
@@ -295,7 +368,7 @@ LABEL_12:
     if ( *(uint8_t *)off_111520 )
     {
       v28 = off_111524;
-      v29 = *((unsigned __int8 *)off_111524 + 369);
+      v29 = *((uint8_t *)off_111524 + 369);
       *(uint8_t *)off_111520 = 0;
       if ( v29 )
         sub_10DBC0(1);
@@ -305,14 +378,14 @@ LABEL_12:
         sub_124CF4(dword_111528);
     }
     v30 = off_11152C;
-    v31 = *((unsigned __int8 *)off_11152C + 6162);
-    if ( *((unsigned __int8 *)off_11152C + 6161) > v31 )
+    v31 = *((uint8_t *)off_11152C + 6162);
+    if ( *((uint8_t *)off_11152C + 6161) > v31 )
     {
-      v33 = *((unsigned __int8 *)off_11152C + 6160)
+      v33 = *((uint8_t *)off_11152C + 6160)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)dword_111544
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)off_11152C + 6160) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)off_11152C + 6160) + 1)) >> 32) >> 7);
       v34 = off_111548;
       *((uint8_t *)off_11152C + 6160) = v33;
       v30[4 * v33 + 773] = *v34;

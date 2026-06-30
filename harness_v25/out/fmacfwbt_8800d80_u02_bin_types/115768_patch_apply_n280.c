@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11593C;
+extern uint32_t off_115940;
+extern uint32_t dword_11594C;
+extern uint32_t dword_115970;
+extern uint32_t dword_115974;
+extern uint32_t dword_115958;
+extern uint32_t dword_115988;
+extern uint32_t dword_11598C;
+extern uint32_t dword_115980;
+
 // patch_apply_n280 @ 0x115768, size 464 bytes
 // Doc: patch_apply_n292 [patch]: Apply patch entries from a descriptor table
 // patch_apply_n292 [patch]: Apply patch entries from a descriptor table
@@ -49,7 +71,7 @@ int patch_apply_n280()
   {
     log_printf(
       patch_apply_n490,
-      (unsigned __int8)v6[10],
+      (uint8_t)v6[10],
       v7 & 1,
       (v7 >> 1) & 1,
       (v7 >> 3) & 1,

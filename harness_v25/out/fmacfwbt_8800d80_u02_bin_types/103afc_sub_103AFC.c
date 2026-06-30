@@ -1,3 +1,54 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_103CEC;
+extern uint32_t dword_103CF0;
+extern uint32_t off_103CF4;
+extern uint32_t off_103CF8;
+extern uint32_t dword_103D20;
+extern uint32_t dword_103D24;
+extern uint32_t dword_103D18;
+extern uint32_t dword_103D1C;
+extern uint32_t dword_103D28;
+extern uint32_t dword_103D2C;
+extern uint32_t dword_103D30;
+extern uint32_t dword_103D34;
+extern uint32_t dword_103D38;
+extern uint32_t dword_103D3C;
+extern uint32_t dword_103D40;
+extern uint32_t dword_103D44;
+extern uint32_t dword_103D50;
+extern uint32_t dword_103D54;
+extern uint32_t dword_103D58;
+extern uint32_t dword_103D5C;
+extern uint32_t dword_103D60;
+extern uint32_t dword_103D64;
+extern uint32_t dword_103D68;
+extern uint32_t dword_103D6C;
+extern uint32_t dword_103D70;
+extern uint32_t dword_103D74;
+extern uint32_t off_103D08;
+extern uint32_t dword_103D0C;
+extern uint32_t dword_103D78;
+extern uint32_t dword_103D7C;
+extern uint32_t dword_103D80;
+extern uint32_t dword_103CFC;
+extern uint32_t dword_103D00;
+extern uint32_t dword_103D04;
+extern uint32_t dword_103D48;
+extern uint32_t dword_103D4C;
+extern uint32_t dword_103D10;
+extern uint32_t off_103D14;
+
 // sub_103AFC @ 0x103afc, size 496 bytes
 int  sub_103AFC(int a1)
 {

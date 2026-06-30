@@ -1,7 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F058;
+extern uint32_t dword_12F05C;
+
 // sub_12EFE0 @ 0x12efe0, size 120 bytes
 // Doc: sub_122EFE0 [ipc]: Host message send wrapper invoking message dispatch
 // sub_122EFE0 [ipc]: Host message send wrapper invoking message dispatch
-int  sub_12EFE0(int a1, int *a2, __int16 a3, __int16 a4)
+int  sub_12EFE0(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int *v5; // r0
   int *v6; // r5
@@ -12,10 +27,10 @@ int  sub_12EFE0(int a1, int *a2, __int16 a3, __int16 a4)
 
   v5 = (int *)sub_12C92C(1027, a4, a3, 8u);
   v6 = v5;
-  if ( (unsigned int)**(unsigned __int8 **)off_12F058 - 1 <= 1 )
+  if ( (unsigned int)**(uint8_t **)off_12F058 - 1 <= 1 )
   {
     v10 = a2[1];
-    *(QWORD *)v5 = *(QWORD *)a2;
+    *(uint64_t *)v5 = *(uint64_t *)a2;
   }
   else
   {

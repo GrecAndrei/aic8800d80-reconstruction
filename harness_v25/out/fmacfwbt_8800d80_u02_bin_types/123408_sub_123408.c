@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123508;
+extern uint32_t dword_12350C;
+extern uint32_t dword_123514;
+extern uint32_t dword_123518;
+extern uint32_t dword_12351C;
+extern uint32_t dword_123520;
+extern uint32_t dword_123510;
+
 // sub_123408 @ 0x123408, size 254 bytes
 // Doc: sub_1223408 [util]: Allocates 0x88-byte context, fills it from arguments and calls sub-function
 // sub_1223408 [util]: Allocates 0x88-byte context, fills it from arguments and calls sub-function
@@ -18,7 +38,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
   int v17; // r1
   int v18; // r2
   int v19; // r0
-  unsigned __int8 *v20; // r5
+  uint8_t *v20; // r5
   char n590; // r0
   int v22; // r1
   uint32_t *v23; // r5
@@ -33,7 +53,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
   switch ( v5 )
   {
     case 0:
-      v9 = *((unsigned __int8 *)a2 + 4);
+      v9 = *((uint8_t *)a2 + 4);
       *((uint8_t *)off_123508 + 373) = v9;
       v10 = dword_12350C;
       *(uint8_t *)(v8 + 4) = v9;
@@ -41,8 +61,8 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       goto LABEL_3;
     case 1:
       v15 = off_123508;
-      v16 = *((unsigned __int8 *)a2 + 4);
-      v17 = *((unsigned __int8 *)off_123508 + 363);
+      v16 = *((uint8_t *)a2 + 4);
+      v17 = *((uint8_t *)off_123508 + 363);
       *((uint8_t *)off_123508 + 363) = v16;
       v18 = a2[2];
       v15[91] = v18;
@@ -57,7 +77,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
         {
           bt_fmac_init_n_42e();
         }
-        v17 = *((unsigned __int8 *)v15 + 363);
+        v17 = *((uint8_t *)v15 + 363);
       }
       *(uint8_t *)(v8 + 4) = v17;
       sub_12ECB0(dword_123514, v17, v18);
@@ -65,7 +85,7 @@ int  sub_123408(int a1, int *a2, int a3, int a4)
       result = 0;
       break;
     case 2:
-      v20 = (unsigned __int8 *)off_123508;
+      v20 = (uint8_t *)off_123508;
       *(uint8_t *)(v6 + 4) = *((uint8_t *)off_123508 + 363);
       n590 = rf_temp_read_n590();
       *(uint8_t *)(v8 + 5) = n590;

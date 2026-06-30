@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_122D98;
+
 // sub_122D7C @ 0x122d7c, size 28 bytes
 // Doc: sub_1222D7C [util]: Copy 8-byte record (ptr+4 bytes+halfword) to global table
 // sub_1222D7C [util]: Copy 8-byte record (ptr+4 bytes+halfword) to global table

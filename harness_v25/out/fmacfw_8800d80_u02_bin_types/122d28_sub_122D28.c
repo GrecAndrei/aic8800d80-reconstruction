@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_122F00;
+extern uint32_t dword_122F18;
+extern uint32_t dword_122F2C;
+extern uint32_t dword_122F28;
+extern uint32_t dword_122F1C;
+extern uint32_t off_122F20;
+extern uint32_t dword_122F24;
+
 // sub_122D28 @ 0x122d28, size 472 bytes
 void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
 {
@@ -11,7 +31,7 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
   int v12; // r6
   void *v13; // r2
   int v14; // r0
-  __int16 v15; // [sp+Ah] [bp-92h] BYREF
+  int16_t v15; // [sp+Ah] [bp-92h] BYREF
   int v16; // [sp+Ch] [bp-90h]
   int v17; // [sp+10h] [bp-8Ch]
   int v18; // [sp+14h] [bp-88h] BYREF
@@ -22,47 +42,47 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
   {
     rf_cmd_wait_n_7e(&v15);
     rf_fault_dump_n14c((uint8_t *)&v15 + 1);
-    msg_parse(dword_122F18, (unsigned __int8)v15, HIBYTE(v15));
-    v6 = (unsigned __int8)v15;
+    msg_parse(dword_122F18, (uint8_t)v15, HIBYTE(v15));
+    v6 = (uint8_t)v15;
   }
   else
   {
     v18 = 0;
     if ( sub_114D34((int)&v18) )
     {
-      v6 = (unsigned __int8)v15;
+      v6 = (uint8_t)v15;
     }
     else
     {
-      v6 = (unsigned __int8)v18;
+      v6 = (uint8_t)v18;
       v5 = BYTE1(v18);
       v15 = v18;
     }
   }
   if ( !v6 && *((uint8_t *)a2 + 20) )
   {
-    msg_parse(dword_122F2C, *((unsigned __int8 *)a2 + 20), v5);
+    msg_parse(dword_122F2C, *((uint8_t *)a2 + 20), v5);
     LOBYTE(v15) = *((uint8_t *)a2 + 20);
   }
   v7 = HIBYTE(v15);
   if ( HIBYTE(v15) )
   {
-    v8 = (unsigned __int8)v15;
+    v8 = (uint8_t)v15;
     if ( !(uint8_t)v15 )
       goto LABEL_18;
   }
   else if ( *((uint8_t *)a2 + 21) )
   {
-    msg_parse(dword_122F28, *((unsigned __int8 *)a2 + 21), v5);
-    v8 = (unsigned __int8)v15;
-    v7 = *((unsigned __int8 *)a2 + 21);
+    msg_parse(dword_122F28, *((uint8_t *)a2 + 21), v5);
+    v8 = (uint8_t)v15;
+    v7 = *((uint8_t *)a2 + 21);
     HIBYTE(v15) = *((uint8_t *)a2 + 21);
     if ( !(uint8_t)v15 )
       goto LABEL_17;
   }
   else
   {
-    v8 = (unsigned __int8)v15;
+    v8 = (uint8_t)v15;
     if ( !(uint8_t)v15 )
       goto LABEL_10;
   }
@@ -72,7 +92,7 @@ void  __noreturn sub_122D28(int a1, int *a2, int a3, int a4)
     LOBYTE(v15) = 31;
   }
   rf_reg_write_masked(v8);
-  msg_parse(dword_122F1C, (unsigned __int8)v15, v10);
+  msg_parse(dword_122F1C, (uint8_t)v15, v10);
   v7 = HIBYTE(v15);
 LABEL_17:
   if ( !v7 )

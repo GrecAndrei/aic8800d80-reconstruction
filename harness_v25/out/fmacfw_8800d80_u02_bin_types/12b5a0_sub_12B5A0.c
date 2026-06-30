@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B7C8;
+extern uint32_t dword_12B7CC;
+extern uint32_t dword_12B7D0;
+extern uint32_t dword_12B800;
+extern uint32_t off_12B7FC;
+extern uint32_t dword_12B7C0;
+extern uint32_t off_12B7DC;
+extern uint32_t dword_12B7E0;
+extern uint32_t dword_12B7B8;
+extern uint32_t dword_12B7BC;
+extern uint32_t off_12B7D4;
+extern uint32_t dword_12B7D8;
+extern uint32_t off_12B7E4;
+extern uint32_t off_12B7E8;
+extern uint32_t dword_12B7EC;
+extern uint32_t off_12B7F0;
+extern uint32_t off_12B7F4;
+
 // sub_12B5A0 @ 0x12b5a0, size 530 bytes
 unsigned int  sub_12B5A0(unsigned int result)
 {
@@ -26,7 +56,7 @@ unsigned int  sub_12B5A0(unsigned int result)
   int v23; // r0
 
   v1 = off_12B7C8;
-  v2 = (unsigned __int8)*(uint32_t *)off_12B7C8;
+  v2 = (uint8_t)*(uint32_t *)off_12B7C8;
   if ( result != v2 )
   {
     v3 = dword_12B7CC;
@@ -55,7 +85,7 @@ unsigned int  sub_12B5A0(unsigned int result)
       *v1 = v4 & (sub_14302C(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_12B7DC;
-    *(uint32_t *)off_12B7D4 = dword_12B7D8 & ((v6 * (unsigned __int16)(*(uint32_t *)off_12B7D4 >> 8) / v2) << 8)
+    *(uint32_t *)off_12B7D4 = dword_12B7D8 & ((v6 * (uint16_t)(*(uint32_t *)off_12B7D4 >> 8) / v2) << 8)
                           | *(uint32_t *)off_12B7D4 & 0xFF0000FF;
     *v12 = dword_12B7E0 & ((v6 * ((*v12 >> 20) & 0x3FF) / v2) << 20) | *v12 & 0xC00FFFFF;
     *v12 = (v6 * (*v12 & 0x3FF) / v2) & 0x3FF | *v12 & 0xFFFFFC00;
@@ -76,12 +106,12 @@ unsigned int  sub_12B5A0(unsigned int result)
     v16 = dword_12B7D8;
     v17 = dword_12B7EC;
     v18 = (unsigned int *)off_12B7F0;
-    *(uint32_t *)off_12B7E8 = dword_12B7D8 & ((v6 * (unsigned __int16)(*(uint32_t *)off_12B7E8 >> 8) / v2) << 8)
+    *(uint32_t *)off_12B7E8 = dword_12B7D8 & ((v6 * (uint16_t)(*(uint32_t *)off_12B7E8 >> 8) / v2) << 8)
                           | *(uint32_t *)off_12B7E8 & dword_12B7EC;
-    *v18 = v16 & ((v6 * (unsigned __int16)(*v18 >> 8) / v2) << 8) | v17 & *v18;
+    *v18 = v16 & ((v6 * (uint16_t)(*v18 >> 8) / v2) << 8) | v17 & *v18;
     v19 = (unsigned int *)off_12B7F4;
     v20 = dword_12B7E0;
-    v15[2] = (unsigned __int16)v15[2] | (v6 << 19);
+    v15[2] = (uint16_t)v15[2] | (v6 << 19);
     *v19 = v20 & ((v6 * ((*v19 >> 20) & 0x3FF) / v2) << 20) | *v19 & 0xC00FFFFF;
     result = *v19 & 0x3FF;
     *v19 = (v6 * result / v2) & 0x3FF | *v19 & 0xFFFFFC00;

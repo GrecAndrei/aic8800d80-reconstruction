@@ -1,9 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CCAC;
+extern uint32_t dword_12CCB8;
+
 // sub_12CBC8 @ 0x12cbc8, size 226 bytes
 // Doc: message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
 // message_dispatch_n2fa [ipc]: Dispatches host messages to subsystem handlers
 uint32_t * sub_12CBC8(char *a1)
 {
-  __int16 **v1; // r9
+  int16_t **v1; // r9
   char *v2; // r4
   int v3; // r8
   char *v5; // r5
@@ -19,11 +34,11 @@ uint32_t * sub_12CBC8(char *a1)
   int v15; // r1
   uint64_t v16; // r2
 
-  v1 = (__int16 **)message_id_match_n338;
+  v1 = (int16_t **)message_id_match_n338;
   v2 = *((char **)off_12CCAC + 7);
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
-  if ( **(__int16 **)message_id_match_n338 < 0 && a1 <= v2 )
+  if ( **(int16_t **)message_id_match_n338 < 0 && a1 <= v2 )
     sub_12F46C(message_dispatch_ccbc, dword_12CCB8, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -85,7 +100,7 @@ LABEL_20:
     v15 = *((uint32_t *)v14 + 1);
     LODWORD(v16) = *(uint32_t *)v14;
     HIDWORD(v16) = v13 + v15;
-    *(QWORD *)v2 = v16;
+    *(uint64_t *)v2 = v16;
   }
 LABEL_13:
   if ( v8 )

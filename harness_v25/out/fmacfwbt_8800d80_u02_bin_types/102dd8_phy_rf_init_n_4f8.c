@@ -1,3 +1,42 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102FF0;
+extern uint32_t off_10303C;
+extern uint32_t off_102FF4;
+extern uint32_t off_102FF8;
+extern uint32_t off_103000;
+extern uint32_t off_102FFC;
+extern uint32_t off_103054;
+extern uint32_t off_103050;
+extern uint32_t off_103004;
+extern uint32_t off_103008;
+extern uint32_t off_10300C;
+extern uint32_t off_103010;
+extern uint32_t off_103014;
+extern uint32_t off_103018;
+extern uint32_t off_10301C;
+extern uint32_t off_103020;
+extern uint32_t off_103044;
+extern uint32_t off_103024;
+extern uint32_t off_103048;
+extern uint32_t off_10304C;
+extern uint32_t off_103028;
+extern uint32_t off_10302C;
+extern uint32_t off_103030;
+extern uint32_t off_103038;
+extern uint32_t off_103034;
+extern uint32_t off_103040;
+
 // phy_rf_init_n_4f8 @ 0x102dd8, size 534 bytes
 // Doc: phy_rf_init_n_4b4 [mac]: Initialize PHY/RF hardware registers with reset defaults
 // phy_rf_init_n_4b4 [mac]: Initialize PHY/RF hardware registers with reset defaults
@@ -10,12 +49,12 @@ int phy_rf_init_n_4f8()
   unsigned int *v4; // r0
   unsigned int *v5; // r5
   uint32_t *v6; // r3
-  unsigned __int8 *v7; // r6
+  uint8_t *v7; // r6
   uint32_t *v8; // r1
   uint32_t *v9; // r3
   uint32_t *v10; // r4
   unsigned int *v11; // r2
-  unsigned __int8 *v12; // r0
+  uint8_t *v12; // r0
   uint32_t *v13; // r1
   int result; // r0
   unsigned int *v15; // r2
@@ -50,7 +89,7 @@ int phy_rf_init_n_4f8()
     v4 = (unsigned int *)off_103008;
     v5 = (unsigned int *)off_10300C;
     v6 = off_103010;
-    v7 = (unsigned __int8 *)off_103014;
+    v7 = (uint8_t *)off_103014;
     *(uint32_t *)off_102FF8 = 1;
     *v3 = *v3 & 0xFF0FFFFF | 0xC00000;
     *v3 = *v3 & 0xFFFFFF0F | 0x60;
@@ -95,7 +134,7 @@ int phy_rf_init_n_4f8()
       *((uint8_t *)off_103024 + 1) = 0;
     }
     v11 = (unsigned int *)off_103028;
-    v12 = (unsigned __int8 *)off_10302C;
+    v12 = (uint8_t *)off_10302C;
     v13 = off_103030;
     *(uint32_t *)off_103028 = *(uint32_t *)off_103028 & 0x3FFFFFF | 0xA0000000;
     result = v12[362];

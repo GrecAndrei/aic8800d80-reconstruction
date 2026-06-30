@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_105480;
+extern uint32_t dword_105484;
+extern uint32_t dword_10548C;
+extern uint32_t dword_105490;
+extern uint32_t dword_105488;
+
 // crypto_key_schedule @ 0x1053c0, size 190 bytes
 // Doc: crypto_key_schedule [ke]: Initialize crypto key schedule / expand key material
 // crypto_key_schedule [ke]: Initialize crypto key schedule / expand key material

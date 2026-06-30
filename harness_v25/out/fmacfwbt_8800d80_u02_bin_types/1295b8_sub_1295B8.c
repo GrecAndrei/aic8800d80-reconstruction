@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1296E8;
+extern uint32_t off_1296BC;
+extern uint32_t off_1296C0;
+extern uint32_t off_1296C4;
+extern uint32_t off_1296C8;
+extern uint32_t off_1296CC;
+extern uint32_t off_1296B8;
+extern uint32_t dword_1296D4;
+extern uint32_t off_1296D8;
+extern uint32_t off_1296DC;
+extern uint32_t off_1296E4;
+extern uint32_t off_1296E0;
+
 // sub_1295B8 @ 0x1295b8, size 254 bytes
 // Doc: rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
 // rf_mbox_mailbox_send [mmio]: Send command via RF mailbox MMIO registers
@@ -9,7 +34,7 @@ int sub_1295B8()
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
-  unsigned __int8 **v6; // r6
+  uint8_t **v6; // r6
   int result; // r0
   uint8_t *v8; // r2
   int v9; // r3
@@ -23,9 +48,9 @@ int sub_1295B8()
   v1 = (int *)off_1296BC;
   v2 = off_1296C0;
   v3 = off_1296C4;
-  v4 = *((unsigned __int16 *)off_1296C0 + 93);
+  v4 = *((uint16_t *)off_1296C0 + 93);
   v5 = (unsigned int *)off_1296C8;
-  v6 = (unsigned __int8 **)off_1296CC;
+  v6 = (uint8_t **)off_1296CC;
   *(uint32_t *)off_1296B8 |= 0x40000000u;
   *v3 |= 0x10000000u;
   *v0 &= 0xFFF0FFFF;
@@ -54,7 +79,7 @@ int sub_1295B8()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (unsigned __int8)*v8;
+    v9 = (uint8_t)*v8;
   }
   if ( v9 != 2 )
   {

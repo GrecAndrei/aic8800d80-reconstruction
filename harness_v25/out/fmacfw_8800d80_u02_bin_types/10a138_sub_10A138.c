@@ -1,3 +1,48 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10A4B4;
+extern uint32_t dword_10A468;
+extern uint32_t dword_10A74C;
+extern uint32_t dword_10A750;
+extern uint32_t dword_10A754;
+extern uint32_t dword_10A470;
+extern uint32_t dword_10A474;
+extern uint32_t dword_10A478;
+extern uint32_t dword_10A47C;
+extern uint32_t dword_10A480;
+extern uint32_t dword_10A488;
+extern uint32_t dword_10A48C;
+extern uint32_t dword_10A490;
+extern uint32_t dword_10A49C;
+extern uint32_t dword_10A4A0;
+extern uint32_t dword_10A4A4;
+extern uint32_t dword_10A4A8;
+extern uint32_t dword_10A4AC;
+extern uint32_t dword_10A720;
+extern uint32_t dword_10A724;
+extern uint32_t dword_10A728;
+extern uint32_t dword_10A72C;
+extern uint32_t dword_10A730;
+extern uint32_t dword_10A734;
+extern uint32_t dword_10A460;
+extern uint32_t dword_10A464;
+extern uint32_t dword_10A75C;
+extern uint32_t dword_10A760;
+extern uint32_t dword_10A4B0;
+extern uint32_t dword_10A738;
+extern uint32_t dword_10A744;
+extern uint32_t off_10A748;
+
 // sub_10A138 @ 0x10a138, size 1512 bytes
 int  sub_10A138(
         uint32_t *a1,
@@ -31,7 +76,7 @@ int  sub_10A138(
   float v30; // s15
   uint64_t v31; // r0
   int v32; // r3
-  bool v33; // cc
+  int v33; // cc
   int v34; // r1
   int v35; // r2
   int v36; // r1
@@ -68,7 +113,7 @@ int  sub_10A138(
   {
     v19 = v45[1];
     ++v45;
-    v20 = (unsigned __int8)v17;
+    v20 = (uint8_t)v17;
     if ( !v19 )
     {
       feature_guard_check(1, dword_10A74C);

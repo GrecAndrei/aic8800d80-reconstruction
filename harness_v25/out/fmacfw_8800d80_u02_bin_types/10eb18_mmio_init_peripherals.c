@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10EC1C;
+extern uint32_t dword_10EC20;
+extern uint32_t dword_10EC24;
+extern uint32_t off_10EC28;
+extern uint32_t off_10EC40;
+extern uint32_t dword_10EC2C;
+extern uint32_t off_10EC30;
+extern uint32_t off_10EC3C;
+extern uint32_t off_10EC34;
+extern uint32_t dword_10EC38;
+
 // mmio_init_peripherals @ 0x10eb18, size 260 bytes
 // Doc: mmio_init_peripherals [mmio]: Initialize peripheral MMIO register base pointers
 // mmio_init_peripherals [mmio]: Initialize peripheral MMIO register base pointers
@@ -18,7 +41,7 @@ int  mmio_init_peripherals(unsigned int *a1)
   unsigned int v13; // r6
   int result; // r0
   uint32_t v16[2]; // [sp+Ch] [bp-Ch] BYREF
-  __int16 v17; // [sp+14h] [bp-4h]
+  int16_t v17; // [sp+14h] [bp-4h]
 
   v1 = off_10EC1C;
   v2 = dword_10EC20;
@@ -35,7 +58,7 @@ int  mmio_init_peripherals(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102A20((unsigned __int16 *)v16, 0);
+  sub_102A20((uint16_t *)v16, 0);
   v8 = (int *)off_10EC34;
   v9 = dword_10EC38;
   *v5 |= 0x80000000;

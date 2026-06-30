@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_114EA4;
+extern uint32_t dword_114EA8;
+extern uint32_t dword_114EAC;
+extern uint32_t dword_114EB0;
+extern uint32_t off_114EB4;
+extern uint32_t off_114EB8;
+extern uint32_t dword_114EBC;
+extern uint32_t off_114EC0;
+extern uint32_t off_114EC4;
+extern uint32_t off_114EC8;
+extern uint32_t off_114ED0;
+extern uint32_t off_114ECC;
+extern uint32_t dword_114ED4;
+extern uint32_t off_114ED8;
+extern uint32_t off_114EDC;
+
 // sub_114DE8 @ 0x114de8, size 184 bytes
 void __noreturn sub_114DE8()
 {
@@ -46,7 +74,7 @@ void __noreturn sub_114DE8()
     v10 = v8 + i;
     *(uint8_t *)(v10 + 768) = -1;
   }
-  if ( (unsigned __int16)*(uint32_t *)off_114EB8 == 49729 )
+  if ( (uint16_t)*(uint32_t *)off_114EB8 == 49729 )
     *(uint32_t *)off_114EC0 = 1;
   v11 = HIBYTE(*(uint32_t *)off_114EC4);
   *(uint8_t *)off_114EC8 = v11;

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_105F28;
+extern uint32_t dword_105F2C;
+extern uint32_t off_105F34;
+extern uint32_t off_105F30;
+extern uint32_t dword_105F38;
+
 // crypto_table_copy_165d00 @ 0x105e94, size 146 bytes
 // Doc: crypto_table_copy_165d00 [ke]: Copy crypto table from ROM to RAM
 // crypto_table_copy_165d00 [ke]: Copy crypto table from ROM to RAM

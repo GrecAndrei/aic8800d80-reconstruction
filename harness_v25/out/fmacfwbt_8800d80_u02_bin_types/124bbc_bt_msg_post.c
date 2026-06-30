@@ -1,7 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_124C44;
+extern uint32_t off_124C40;
+extern uint32_t off_124C48;
+extern uint32_t off_124C4C;
+extern uint32_t off_124C50;
+extern uint32_t dword_124C54;
+
 // bt_msg_post @ 0x124bbc, size 132 bytes
 // Doc: sub_1224BC2 [mmio]: Read/write MMIO control registers block
 // sub_1224BC2 [mmio]: Read/write MMIO control registers block
-int  bt_msg_post(unsigned __int16 *a1)
+int  bt_msg_post(uint16_t *a1)
 {
   int v1; // r3
   int *v2; // r2

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_123010;
+extern uint32_t dword_12301C;
+extern uint32_t dword_123018;
+extern uint32_t dword_123014;
+extern uint32_t dword_12300C;
+
 // rf_init_handler_0 @ 0x122fa4, size 104 bytes
 // Doc: rf_init_handler [rf]: RF initialization handler calling chip setup routine
 // rf_init_handler [rf]: RF initialization handler calling chip setup routine

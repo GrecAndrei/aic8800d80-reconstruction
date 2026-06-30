@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115E78;
+extern uint32_t off_115E88;
+extern uint32_t off_115E7C;
+extern uint32_t off_115E8C;
+extern uint32_t dword_115E90;
+extern uint32_t dword_115E80;
+extern uint32_t off_115E84;
+extern uint32_t off_115E94;
+
 // patch_table_apply_dbc @ 0x115dbc, size 186 bytes
 // Doc: patch_table_apply_dbc [patch]: Applies a sequence of register patches from table
 // patch_table_apply_dbc [patch]: Applies a sequence of register patches from table
@@ -37,7 +58,7 @@ int patch_table_apply_dbc()
   {
     if ( *((uint32_t *)v1 + 28) )
     {
-      rf_subcmd_dispatch((unsigned __int8)i);
+      rf_subcmd_dispatch((uint8_t)i);
       *(uint32_t *)(v4 + 4 * i) = *v2 + *(uint32_t *)(v3 + 4 * i);
       *v5 = 1 << i;
       if ( (__get_CPSR() & 1) == 0 )

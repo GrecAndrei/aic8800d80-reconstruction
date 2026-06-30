@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1238C0;
+extern uint32_t off_1238DC;
+extern uint32_t dword_1238C4;
+extern uint32_t off_1238C8;
+extern uint32_t dword_1238CC;
+extern uint32_t off_1238D0;
+extern uint32_t off_1238D8;
+extern uint32_t off_1238D4;
+
 // sub_12373C @ 0x12373c, size 386 bytes
 int sub_12373C()
 {
@@ -16,15 +37,15 @@ int sub_12373C()
   uint16_t *v12; // r3
   int v13; // r2
   int v14; // r6
-  unsigned __int8 *v15; // r0
+  uint8_t *v15; // r0
   int v16; // r2
   int v17; // [sp+0h] [bp-20h] BYREF
-  __int16 v18; // [sp+4h] [bp-1Ch]
+  int16_t v18; // [sp+4h] [bp-1Ch]
   int v19; // [sp+8h] [bp-18h] BYREF
-  __int16 v20; // [sp+Ch] [bp-14h]
-  unsigned __int16 v21; // [sp+10h] [bp-10h] BYREF
-  __int16 v22; // [sp+12h] [bp-Eh]
-  __int16 v23; // [sp+14h] [bp-Ch]
+  int16_t v20; // [sp+Ch] [bp-14h]
+  uint16_t v21; // [sp+10h] [bp-10h] BYREF
+  int16_t v22; // [sp+12h] [bp-Eh]
+  int16_t v23; // [sp+14h] [bp-Ch]
   uint16_t v24[4]; // [sp+18h] [bp-8h] BYREF
 
   v0 = (char *)off_1238C0;
@@ -57,24 +78,24 @@ int sub_12373C()
       sub_1282E8(&v21, &v17, 6);
       sub_1282E8(v24, &v19, 6);
       v12 = *(uint16_t **)(v7 + 8);
-      v13 = (unsigned __int16)v12[2];
+      v13 = (uint16_t)v12[2];
       if ( (*v12 & 0x80) != 0 )
         v14 = 13;
       else
         v14 = 12;
-      v15 = (unsigned __int8 *)&v12[v14];
-      if ( v24[0] == v13 && v24[1] == (unsigned __int16)v12[3] && v24[2] == (unsigned __int16)v12[4] )
+      v15 = (uint8_t *)&v12[v14];
+      if ( v24[0] == v13 && v24[1] == (uint16_t)v12[3] && v24[2] == (uint16_t)v12[4] )
       {
         v3 = v21;
-        if ( (unsigned __int16)v12[5] == v21 && v22 == v12[6] && v23 == v12[7] )
+        if ( (uint16_t)v12[5] == v21 && v22 == v12[6] && v23 == v12[7] )
         {
           if ( *(uint8_t *)off_1238C8 == 1 )
           {
-            v16 = *(unsigned __int8 *)off_1238D0;
+            v16 = *(uint8_t *)off_1238D0;
             switch ( v16 )
             {
               case 2:
-                if ( LOBYTE(v12[v14]) == 1 && v15[1] == *(unsigned __int8 *)off_1238D8 )
+                if ( LOBYTE(v12[v14]) == 1 && v15[1] == *(uint8_t *)off_1238D8 )
                   sub_123394((int)v15);
                 break;
               case 4:

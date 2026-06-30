@@ -1,3 +1,61 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1218B4;
+extern uint32_t off_121950;
+extern uint32_t off_1218B8;
+extern uint32_t off_1218BC;
+extern uint32_t off_121954;
+extern uint32_t off_121958;
+extern uint32_t off_1218C0;
+extern uint32_t dword_1218B0;
+extern uint32_t off_1218AC;
+extern uint32_t dword_1218C8;
+extern uint32_t off_1218C4;
+extern uint32_t dword_1218CC;
+extern uint32_t dword_1218D0;
+extern uint32_t dword_1218D4;
+extern uint32_t dword_1218D8;
+extern uint32_t dword_1218DC;
+extern uint32_t dword_1218E0;
+extern uint32_t dword_1218F4;
+extern uint32_t off_1218E4;
+extern uint32_t off_1218E8;
+extern uint32_t off_1218EC;
+extern uint32_t off_1218F0;
+extern uint32_t off_12195C;
+extern uint32_t dword_1218F8;
+extern uint32_t dword_1218FC;
+extern uint32_t dword_121900;
+extern uint32_t dword_121904;
+extern uint32_t dword_121908;
+extern uint32_t off_121948;
+extern uint32_t dword_12194C;
+extern uint32_t dword_12190C;
+extern uint32_t off_121910;
+extern uint32_t dword_121914;
+extern uint32_t off_121918;
+extern uint32_t dword_12191C;
+extern uint32_t dword_121924;
+extern uint32_t off_121920;
+extern uint32_t dword_12192C;
+extern uint32_t off_121928;
+extern uint32_t dword_121934;
+extern uint32_t off_121930;
+extern uint32_t dword_12193C;
+extern uint32_t off_121938;
+extern uint32_t dword_121944;
+extern uint32_t off_121940;
+
 // sub_1216EC @ 0x1216ec, size 448 bytes
 int sub_1216EC()
 {
@@ -15,7 +73,7 @@ int sub_1216EC()
   int v11; // r6
   uint32_t *v12; // r5
   int v13; // r4
-  bool v15; // nf
+  int v15; // nf
   uint32_t **v16; // r3
 
   v0 = off_1218B4;
@@ -115,7 +173,7 @@ LABEL_6:
   {
     msg_parse(v11, *v10, v7);
     msg_parse(dword_12191C, *v12);
-    v13 = (unsigned __int8)(v13 - 1);
+    v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
   msg_parse(dword_121924, *(uint32_t *)off_121920);

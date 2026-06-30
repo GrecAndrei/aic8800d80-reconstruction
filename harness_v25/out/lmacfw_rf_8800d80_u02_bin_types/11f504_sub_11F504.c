@@ -1,9 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11F584;
+extern uint32_t off_11F588;
+extern uint32_t dword_11F58C;
+extern uint32_t dword_11F590;
+
 // sub_11F504 @ 0x11f504, size 128 bytes
 int sub_11F504(int result, ...)
 {
   uint32_t *v1; // r6
-  unsigned __int8 *v2; // r4
-  __int16 **v3; // r8
+  uint8_t *v2; // r4
+  int16_t **v3; // r8
   int v4; // r10
   int v5; // r9
   unsigned int v6; // r5
@@ -17,8 +34,8 @@ int sub_11F504(int result, ...)
   v1 = off_11F584;
   if ( *((uint32_t *)off_11F584 + 1) )
   {
-    v2 = (unsigned __int8 *)result;
-    v3 = (__int16 **)off_11F588;
+    v2 = (uint8_t *)result;
+    v3 = (int16_t **)off_11F588;
     v4 = dword_11F58C;
     v5 = dword_11F590;
     do
@@ -31,7 +48,7 @@ int sub_11F504(int result, ...)
         break;
       if ( v6 > 0x89 )
       {
-        if ( **v3 < 0 && (unsigned __int8)(v6 + 102) > 5u )
+        if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
           result = sub_1219C4(v5, v4, 812);
         if ( v1[1] <= v6 - 154 )
           return result;
@@ -42,7 +59,7 @@ int sub_11F504(int result, ...)
       }
       result = (int)v2;
     }
-    while ( (unsigned __int8 *)(varg_r0 + 2) != v2 );
+    while ( (uint8_t *)(varg_r0 + 2) != v2 );
     return sub_10D6A8(result, (int)varg_r1);
   }
   return result;

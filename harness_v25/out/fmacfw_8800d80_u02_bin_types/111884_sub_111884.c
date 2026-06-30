@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1118FC;
+extern uint32_t off_111900;
+extern uint32_t off_111904;
+extern uint32_t off_1118F8;
+extern uint32_t off_111908;
+extern uint32_t off_11190C;
+
 // sub_111884 @ 0x111884, size 114 bytes
 // Doc: rf_bus_mark_owner_n62 [rf]: Mark RF bus n62 as owned: set request+grant bits (0xc0) in bus state and record owner id.
 // rf_bus_mark_owner_n62 [rf]: Mark RF bus n62 as owned: set request+grant bits (0xc0) in bus state and record owner id.
@@ -33,10 +52,10 @@ int sub_111884()
   v6 = (char *)off_11190C;
   v7 = off_111904;
   v8 = *((uint32_t *)off_11190C + 2);
-  v9 = *(QWORD *)off_11190C;
+  v9 = *(uint64_t *)off_11190C;
   *(uint8_t *)(*(uint32_t *)off_11190C + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v9) + 3) |= 0xC0u;
-  v10 = *(QWORD *)(v6 + 12);
+  v10 = *(uint64_t *)(v6 + 12);
   *(uint8_t *)(v8 + 3) |= 0xC0u;
   *(uint8_t *)(v10 + 3) |= 0xC0u;
   *(uint8_t *)(HIDWORD(v10) + 3) |= 0xC0u;

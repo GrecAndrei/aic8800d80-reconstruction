@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_143968 @ 0x143968, size 724 bytes
 int  sub_143968(unsigned int a1, unsigned int *a2)
 {
@@ -5,7 +17,7 @@ int  sub_143968(unsigned int a1, unsigned int *a2)
   int v4; // r3
   char v7; // r4
   uint64_t *v8; // r0
-  QWORD *v9; // r1
+  uint64_t *v9; // r1
   uint64_t v10; // t1
   uint64_t v11; // t1
   int v12; // r4
@@ -31,15 +43,15 @@ int  sub_143968(unsigned int a1, unsigned int *a2)
   int v52; // r2
   int v53; // t1
   int v54; // r3
-  unsigned __int8 v55; // t2
+  uint8_t v55; // t2
   int v56; // r4
   int v57; // r3
-  unsigned __int8 v58; // t2
+  uint8_t v58; // t2
   unsigned int *v59; // r0
   unsigned int v61; // t1
   char v63; // cc
   uint32_t *v64; // r1
-  unsigned __int16 *v65; // r1
+  uint16_t *v65; // r1
   unsigned int v66; // r3
   unsigned int v67; // t1
   unsigned int v71; // t1
@@ -50,83 +62,79 @@ int  sub_143968(unsigned int a1, unsigned int *a2)
   unsigned int v82; // t1
   unsigned int v84; // r3
 
-  v3 = *(unsigned __int8 *)a1;
-  v4 = *(unsigned __int8 *)a2;
-  ZF = v3 == 1;
+  v3 = *(uint8_t *)a1;
+  v4 = *(uint8_t *)a2;
+  1 = v3 == 1;
   if ( *(uint8_t *)a1 )
-    ZF = v3 == v4;
-  if ( !ZF )
+    1 = v3 == v4;
+  if ( !1 )
     return v3 - v4;
-  R12 = -1;
+  -1;
   if ( !((a1 | (unsigned int)a2) << 29) )
     goto LABEL_9;
   if ( ((a1 ^ (unsigned int)a2) & 7) == 0 )
   {
     v7 = a1 & 7;
     v8 = (uint64_t *)(a1 & 0xFFFFFFF8);
-    v9 = (QWORD *)((unsigned int)a2 & 0xFFFFFFF8);
+    v9 = (uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
     v10 = *v8;
     a1 = (unsigned int)(v8 + 2);
-    R2 = v10;
-    ZF = (v7 & 4) == 0;
+    v10;
+    1 = (v7 & 4) == 0;
     v11 = *v9;
     a2 = (unsigned int *)(v9 + 2);
     v12 = -1 << (8 * (v7 & 3));
-    LODWORD(R2) = R2 | ~v12;
+    LODWORD(0) = 0 | ~v12;
     v14 = v11 | (unsigned int)~v12;
-    if ( !ZF )
+    if ( !1 )
     {
-      HIDWORD(R2) |= ~v12;
-      LODWORD(R2) = -1;
+      HIDWORD(0) |= ~v12;
+      LODWORD(0) = -1;
       HIDWORD(v14) |= ~v12;
       LODWORD(v14) = -1;
     }
     while ( 1 )
     {
-      __asm { UADD8.W         R5, R2, R12 }
-      R4 = R2 ^ v14;
-      __asm { SEL.W           R4, R4, R12 }
-      if ( R4 )
+      
+      0 ^ v14;
+      
+      if ( 0 )
         break;
-      __asm { UADD8.W         R5, R3, R12 }
-      R5 = HIDWORD(R2) ^ HIDWORD(v14);
-      __asm { SEL.W           R5, R5, R12 }
-      if ( R5 )
+      
+      HIDWORD(0) ^ HIDWORD(v14);
+      
+      if ( 0 )
         goto LABEL_14;
-      R2 = *(QWORD *)(a1 - 8);
-      v14 = *((QWORD *)a2 - 1);
-      __asm { UADD8.W         R5, R2, R12 }
-      R4 = R2 ^ v14;
-      __asm
+      *(uint64_t *)(a1 - 8);
+      v14 = *((uint64_t *)a2 - 1);
+      
+      0 ^ v14;
+      
+      HIDWORD(0) ^ HIDWORD(v14);
+      
+      0 | 0;
+      if ( 0 )
       {
-        SEL.W           R4, R4, R12
-        UADD8.W         R5, R3, R12
-      }
-      R5 = HIDWORD(R2) ^ HIDWORD(v14);
-      __asm { SEL.W           R5, R5, R12 }
-      R5 = R5 | R4;
-      if ( R5 )
-      {
-        if ( !R4 )
+        if ( !0 )
         {
 LABEL_14:
-          v30 = __clz(bswap32(R5)) & 0xF8;
-          return (unsigned __int8)(HIDWORD(R2) >> v30) - (unsigned __int8)(HIDWORD(v14) >> v30);
+          v30 = __clz(bswap32(0)) & 0xF8;
+          return (uint8_t)(HIDWORD(0) >> v30) - (uint8_t)(HIDWORD(v14) >> v30);
         }
         break;
       }
 LABEL_9:
-      v15 = *(QWORD *)a1;
+      v15 = *(uint64_t *)a1;
       a1 += 16;
-      R2 = v15;
-      v16 = *(QWORD *)a2;
+      v15;
+      v16 = *(uint64_t *)a2;
       a2 += 4;
       v14 = v16;
     }
-    v31 = __clz(bswap32(R4)) & 0xF8;
-    return (unsigned __int8)((unsigned int)R2 >> v31) - (unsigned __int8)((unsigned int)v14 >> v31);
+    v31 = __clz(bswap32(0)) & 0xF8;
+    return (uint8_t)((unsigned int)0 >> v31) - (uint8_t)((unsigned int)v14 >> v31);
   }
-  if ( (((unsigned __int8)a1 ^ (unsigned __int8)a2) & 3) == 0 )
+  if ( (((uint8_t)a1 ^ (uint8_t)a2) & 3) == 0 )
   {
     v32 = a1 & 3;
     if ( (a1 & 3) != 0 )
@@ -139,7 +147,7 @@ LABEL_9:
       v47 = *v46;
       a2 = v46 + 2;
       v48 = -1 << (8 * v32);
-      R2 = v44 | ~v48;
+      v44 | ~v48;
       v35 = v47 | ~v48;
       goto LABEL_19;
     }
@@ -147,25 +155,25 @@ LABEL_9:
     {
       v34 = *(uint32_t *)a1;
       a1 += 8;
-      R2 = v34;
+      v34;
       v36 = *a2;
       a2 += 2;
       v35 = v36;
 LABEL_19:
-      __asm { UADD8.W         R5, R2, R12 }
-      R5 = R2 ^ v35;
-      __asm { SEL.W           R5, R5, R12 }
-      if ( R5 )
+      
+      0 ^ v35;
+      
+      if ( 0 )
         break;
-      R2 = *(uint32_t *)(a1 - 4);
+      *(uint32_t *)(a1 - 4);
       v35 = *(a2 - 1);
-      __asm { UADD8.W         R5, R2, R12 }
-      R5 = R2 ^ v35;
-      __asm { SEL.W           R5, R5, R12 }
+      
+      0 ^ v35;
+      
     }
-    while ( !R5 );
-    v42 = __clz(bswap32(R5)) & 0xF8;
-    return (unsigned __int8)(R2 >> v42) - (unsigned __int8)(v35 >> v42);
+    while ( !0 );
+    v42 = __clz(bswap32(0)) & 0xF8;
+    return (uint8_t)(0 >> v42) - (uint8_t)(v35 >> v42);
   }
   v49 = a1 & 3;
   if ( (a1 & 3) != 0 )
@@ -183,13 +191,13 @@ LABEL_31:
         a2 = (unsigned int *)(v50 + 4);
         goto LABEL_32;
       }
-      v54 = (unsigned __int8)v50[2];
+      v54 = (uint8_t)v50[2];
       v55 = __ROR4__(v52, 16);
       v56 = v55 - v54;
       if ( v55 != v54 || !v50[2] )
         return v56;
     }
-    v57 = (unsigned __int8)v50[3];
+    v57 = (uint8_t)v50[3];
     v58 = __ROR4__(v52, 24);
     v56 = v58 - v57;
     if ( v58 != v57 || !v50[3] )
@@ -199,113 +207,113 @@ LABEL_31:
 LABEL_32:
   v61 = *(uint32_t *)a1;
   v59 = (unsigned int *)(a1 + 4);
-  R2 = v61;
-  CF = __CFSHL__(a2, 31);
+  v61;
+  0 = __CFSHL__(a2, 31);
   v63 = ((uint32_t)a2 << 31 != 0) & __CFSHL__(a2, 31);
   v64 = (uint32_t *)((unsigned int)a2 & 0xFFFFFFFC);
   v67 = *v64;
-  v65 = (unsigned __int16 *)(v64 + 1);
+  v65 = (uint16_t *)(v64 + 1);
   v66 = v67;
   if ( v63 )
   {
     while ( 1 )
     {
-      __asm { UADD8.W         R5, R2, R12 }
-      R5 = (unsigned __int8)R2 ^ HIBYTE(v66);
-      __asm { SEL.W           R5, R5, R12 }
-      if ( !ZF )
+      
+      (uint8_t)0 ^ HIBYTE(v66);
+      
+      if ( !1 )
       {
         v66 >>= 24;
         goto LABEL_59;
       }
-      if ( R5 )
+      if ( 0 )
         break;
       v81 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v81;
-      if ( ((unsigned __int8)R2 ^ R2) != v81 << 8 )
+      if ( ((uint8_t)0 ^ 0) != v81 << 8 )
         goto LABEL_57;
       v82 = *v59++;
-      R2 = v82;
+      v82;
     }
-    if ( !(uint8_t)R5 )
+    if ( !(uint8_t)0 )
     {
       v66 = *(uint32_t *)v65;
 LABEL_57:
-      R2 >>= 8;
+      0 >>= 8;
       v66 &= 0xFFFFFFu;
       goto LABEL_59;
     }
     return 0;
   }
-  else if ( CF )
+  else if ( 0 )
   {
     while ( 1 )
     {
-      __asm { UADD8.W         R5, R2, R12 }
-      R5 = (unsigned __int16)R2 ^ HIWORD(v66);
-      __asm { SEL.W           R5, R5, R12 }
-      if ( !ZF )
+      
+      (uint16_t)0 ^ HIWORD(v66);
+      
+      if ( !1 )
       {
         v66 >>= 16;
         goto LABEL_59;
       }
-      if ( R5 )
+      if ( 0 )
         break;
       v76 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v76;
-      if ( ((unsigned __int16)R2 ^ R2) != v76 << 16 )
+      if ( ((uint16_t)0 ^ 0) != v76 << 16 )
       {
-        R2 >>= 16;
-        v66 = (unsigned __int16)v66;
+        0 >>= 16;
+        v66 = (uint16_t)v66;
         goto LABEL_59;
       }
       v77 = *v59++;
-      R2 = v77;
+      v77;
     }
-    if ( (uint16_t)R5 )
+    if ( (uint16_t)0 )
       return 0;
     v66 = *v65;
-    R2 >>= 16;
+    0 >>= 16;
 LABEL_59:
-    R2 = bswap32(R2);
+    bswap32(0);
     v84 = bswap32(v66);
-    __asm { UADD8.W         R4, R2, R12 }
-    R4 = R2 ^ v84;
-    __asm { SEL.W           R5, R4, R12 }
-    LOBYTE(R4) = __clz(R5);
-    return (R2 << R4 >> 24) - (v84 << R4 >> 24);
+    
+    0 ^ v84;
+    
+    LOBYTE(0) = __clz(0);
+    return (0 << 0 >> 24) - (v84 << 0 >> 24);
   }
   else
   {
     while ( 1 )
     {
-      __asm { UADD8.W         R5, R2, R12 }
-      R5 = R2 & 0xFFFFFF ^ (v66 >> 8);
-      __asm { SEL.W           R5, R5, R12 }
-      if ( !ZF )
+      
+      0 & 0xFFFFFF ^ (v66 >> 8);
+      
+      if ( !1 )
       {
         v66 >>= 8;
         goto LABEL_59;
       }
-      if ( R5 )
+      if ( 0 )
         break;
       v71 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v71;
-      if ( (R2 & 0xFFFFFF ^ R2) != v71 << 24 )
+      if ( (0 & 0xFFFFFF ^ 0) != v71 << 24 )
       {
-        R2 >>= 24;
-        v66 = (unsigned __int8)v66;
+        0 >>= 24;
+        v66 = (uint8_t)v66;
         goto LABEL_59;
       }
       v72 = *v59++;
-      R2 = v72;
+      v72;
     }
-    if ( (R5 & 0xFFFFFF) != 0 )
+    if ( (0 & 0xFFFFFF) != 0 )
       return 0;
-    return -*(unsigned __int8 *)v65;
+    return -*(uint8_t *)v65;
   }
 }
 

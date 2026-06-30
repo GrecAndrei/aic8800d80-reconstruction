@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12306C;
+extern uint32_t off_123070;
+extern uint32_t dword_12307C;
+extern uint32_t off_123074;
+extern uint32_t dword_123078;
+
 // sub_122FB0 @ 0x122fb0, size 186 bytes
 int  sub_122FB0(int a1, uint8_t *a2, int a3, int a4)
 {
@@ -34,7 +52,7 @@ int  sub_122FB0(int a1, uint8_t *a2, int a3, int a4)
   }
   else
   {
-    v13 = (unsigned __int8)a2[2];
+    v13 = (uint8_t)a2[2];
     v9 = off_123074;
     v10 = ((v13 ^ 0x40u) >> 6) & 1;
     *((uint8_t *)off_123074 + 188) = (v13 & 0x20) != 0;
@@ -46,7 +64,7 @@ int  sub_122FB0(int a1, uint8_t *a2, int a3, int a4)
   }
   else
   {
-    v11 = (unsigned __int8)v9[188];
+    v11 = (uint8_t)v9[188];
   }
   if ( *a2 )
   {

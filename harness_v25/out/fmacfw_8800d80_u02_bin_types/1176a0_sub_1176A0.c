@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11788C;
+extern uint32_t off_117888;
+extern uint32_t dword_1178C0;
+extern uint32_t off_117890;
+extern uint32_t dword_117894;
+extern uint32_t off_117898;
+extern uint32_t off_11789C;
+extern uint32_t dword_1178BC;
+extern uint32_t off_1178A0;
+extern uint32_t off_1178A4;
+extern uint32_t off_1178A8;
+extern uint32_t off_1178AC;
+extern uint32_t off_1178B0;
+extern uint32_t off_1178B4;
+extern uint32_t dword_1178B8;
+
 // sub_1176A0 @ 0x1176a0, size 488 bytes
 // Doc: sub_12176A0 [unknown]: Dispatch handler on r1 opcode (cases up to 5)
 // sub_12176A0 [unknown]: Dispatch handler on r1 opcode (cases up to 5)
@@ -9,7 +37,7 @@ int  sub_1176A0(int a1, int a2)
   int v7; // r11
   int v8; // r9
   int v10; // r3
-  __int16 v11; // r1
+  int16_t v11; // r1
   int v12; // r6
   int v13; // r3
   int *v14; // r6
@@ -22,7 +50,7 @@ int  sub_1176A0(int a1, int a2)
   int v21; // r2
   int v22; // r2
   int v23; // r1
-  __int16 v24; // r3
+  int16_t v24; // r3
   int *v25; // r3
   int v26; // r3
   int v27; // r2
@@ -35,21 +63,21 @@ int  sub_1176A0(int a1, int a2)
     v4 = (char *)dword_11788C;
   else
     v4 = (char *)off_117888 + 84 * a2;
-  v5 = *(unsigned __int8 *)(a1 + 28);
+  v5 = *(uint8_t *)(a1 + 28);
   v6 = dword_1178C0;
   v7 = *(uint32_t *)(a1 + 76);
   v8 = dword_1178C0 + 1320 * v5;
   if ( scan_chan_setup_n134(v8)
-    && ((v10 = *(unsigned __int8 *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
-     || *(unsigned __int8 *)(a1 + 29) > 0x23u
+    && ((v10 = *(uint8_t *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
+     || *(uint8_t *)(a1 + 29) > 0x23u
      || *(uint16_t *)(a1 + 4)
-     || (v11 = *(uint16_t *)(*(uint32_t *)(a1 + 72) + 108), (unsigned __int8)v11 != 192)
-     && (unsigned __int8)v11 != 176
+     || (v11 = *(uint16_t *)(*(uint32_t *)(a1 + 72) + 108), (uint8_t)v11 != 192)
+     && (uint8_t)v11 != 176
      && (v11 & 0xDF) != 0
      || (v12 = *((uint32_t *)off_117890 + 10)) == 0
-     || *(unsigned __int8 *)(v12 + 24) <= 2u
+     || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, msg_parse(dword_117894, v12 == v13, (unsigned __int8)v11), v12 == v31))
+     || (v31 = v13, msg_parse(dword_117894, v12 == v13, (uint8_t)v11), v12 == v31))
     && phy_chan_table_lookup(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
@@ -138,7 +166,7 @@ int  sub_1176A0(int a1, int a2)
     }
     return 1;
   }
-  else if ( *(unsigned __int8 *)(a1 + 29) == 255 )
+  else if ( *(uint8_t *)(a1 + 29) == 255 )
   {
     sub_118CFC(a1, 0);
     return 0;

@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1307D0;
+
 // fmac_dbg_marker_set @ 0x130798, size 56 bytes
 // Doc: fmac_dbg_marker_set [util]: Write debug marker bytes (0xbf, 0xc) to control word
 // fmac_dbg_marker_set [util]: Write debug marker bytes (0xbf, 0xc) to control word
@@ -5,9 +19,9 @@ int  fmac_dbg_marker_set(int a1)
 {
   uint32_t *v2; // r1
   uint16_t *v3; // r2
-  __int16 v4; // r6
-  __int16 v5; // r5
-  __int16 v6; // r4
+  int16_t v4; // r6
+  int16_t v5; // r5
+  int16_t v6; // r4
 
   v2 = off_1307D0;
   **(uint8_t **)a1 = -65;

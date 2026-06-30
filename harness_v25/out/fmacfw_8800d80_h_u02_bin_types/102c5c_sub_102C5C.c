@@ -1,8 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102CC8;
+
 // sub_102C5C @ 0x102c5c, size 106 bytes
 int  sub_102C5C(int result)
 {
   int v1; // r4
-  bool v2; // zf
+  int v2; // zf
   int v3; // r1
   int v4; // r2
   int v5; // r3
@@ -32,19 +46,19 @@ int  sub_102C5C(int result)
     v3 = 1;
   LOBYTE(v5) = -56;
   do
-    v5 = (unsigned __int8)(v5 - 1);
+    v5 = (uint8_t)(v5 - 1);
   while ( v5 );
   v6 = v4 & v1;
   *(uint32_t *)off_102CC8 = v6;
   LOBYTE(v7) = 50;
   do
-    v7 = (unsigned __int8)(v7 - 1);
+    v7 = (uint8_t)(v7 - 1);
   while ( v7 );
   v8 = v6 | result;
   *(uint32_t *)off_102CC8 = v8;
   LOBYTE(v9) = 50;
   do
-    v9 = (unsigned __int8)(v9 - 1);
+    v9 = (uint8_t)(v9 - 1);
   while ( v9 );
   *(uint32_t *)off_102CC8 = v8 | v3;
   return result;

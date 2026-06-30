@@ -1,3 +1,63 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_126BC4;
+extern uint32_t dword_126BC8;
+extern uint32_t off_126BD0;
+extern uint32_t off_126BD4;
+extern uint32_t off_126BD8;
+extern uint32_t off_126BCC;
+extern uint32_t off_126D3C;
+extern uint32_t off_126D40;
+extern uint32_t off_126D44;
+extern uint32_t dword_126D48;
+extern uint32_t dword_126D4C;
+extern uint32_t off_126D24;
+extern uint32_t off_126D30;
+extern uint32_t dword_126D58;
+extern uint32_t dword_126D5C;
+extern uint32_t off_126D2C;
+extern uint32_t dword_126D50;
+extern uint32_t dword_126D54;
+extern uint32_t off_126D28;
+extern uint32_t off_126C04;
+extern uint32_t dword_126C0C;
+extern uint32_t dword_126C08;
+extern uint32_t off_126C10;
+extern uint32_t off_126BDC;
+extern uint32_t dword_126D34;
+extern uint32_t dword_126D38;
+extern uint32_t dword_126C14;
+extern uint32_t dword_126C18;
+extern uint32_t off_126BE4;
+extern uint32_t off_126BE0;
+extern uint32_t off_126BE8;
+extern uint32_t dword_126C38;
+extern uint32_t dword_126C3C;
+extern uint32_t dword_126BEC;
+extern uint32_t dword_126BF0;
+extern uint32_t off_126BF4;
+extern uint32_t off_126C40;
+extern uint32_t off_126C1C;
+extern uint32_t dword_126C20;
+extern uint32_t off_126C24;
+extern uint32_t off_126C28;
+extern uint32_t off_126BFC;
+extern uint32_t off_126C2C;
+extern uint32_t dword_126C30;
+extern uint32_t dword_126BF8;
+extern uint32_t off_126C34;
+extern uint32_t off_126C00;
+
 // sub_1268EC @ 0x1268ec, size 1078 bytes
 unsigned int * sub_1268EC(int a1)
 {

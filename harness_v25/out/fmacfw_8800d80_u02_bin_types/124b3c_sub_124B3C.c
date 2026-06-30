@@ -1,7 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124BFC;
+extern uint32_t off_124C00;
+extern uint32_t off_124C04;
+extern uint32_t off_124C08;
+extern uint32_t off_124C0C;
+extern uint32_t dword_124C10;
+
 // sub_124B3C @ 0x124b3c, size 192 bytes
 // Doc: sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
 // sub_1224B3C [util]: Helper reading a byte from a global and indexing input pointer
-int  sub_124B3C(unsigned __int8 *a1)
+int  sub_124B3C(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -13,7 +32,7 @@ int  sub_124B3C(unsigned __int8 *a1)
   int v9; // r2
 
   v1 = *a1;
-  v3 = (unsigned __int8)*(uint32_t *)off_124BFC;
+  v3 = (uint8_t)*(uint32_t *)off_124BFC;
   if ( *a1 )
   {
     v4 = (unsigned int *)off_124C00;

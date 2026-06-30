@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10DE38;
+extern uint32_t off_10DE3C;
+extern uint32_t dword_10DE40;
+extern uint32_t dword_10DE44;
+extern uint32_t dword_10DE20;
+extern uint32_t dword_10DE24;
+extern uint32_t dword_10DE28;
+extern uint32_t dword_10DE2C;
+extern uint32_t dword_10DE30;
+extern uint32_t dword_10DE34;
+
 // sub_10DDA0 @ 0x10dda0, size 128 bytes
 int sub_10DDA0()
 {

@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_init_param_load @ 0x113d00, size 128 bytes
 // Doc: rf_init_param_load [rf]: Loads RF parameter via helper and extracts bit fields
 // rf_init_param_load [rf]: Loads RF parameter via helper and extracts bit fields
@@ -18,7 +30,7 @@ int  rf_init_param_load(int *a1, unsigned int *a2)
   {
     result = sub_113C48(a1, a2);
     if ( result <= 1 )
-      *a1 = *a1 & 0xFFFFFF00 | (unsigned __int8)(*a1 + 1);
+      *a1 = *a1 & 0xFFFFFF00 | (uint8_t)(*a1 + 1);
   }
   else
   {
@@ -33,7 +45,7 @@ int  rf_init_param_load(int *a1, unsigned int *a2)
     else
     {
       v10 = sub_113A44(0xCu);
-      v11 = (unsigned __int16)sub_113A44(0xDu);
+      v11 = (uint16_t)sub_113A44(0xDu);
       if ( v10 )
       {
         v5 = 1;

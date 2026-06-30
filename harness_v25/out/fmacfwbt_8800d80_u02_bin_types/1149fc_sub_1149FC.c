@@ -1,12 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114AD8;
+extern uint32_t off_114ADC;
+extern uint32_t off_114AE0;
+extern uint32_t dword_114AEC;
+extern uint32_t dword_114AE4;
+extern uint32_t dword_114AE8;
+
 // sub_1149FC @ 0x1149fc, size 218 bytes
-unsigned __int8 *sub_1149FC()
+uint8_t *sub_1149FC()
 {
   int *v0; // r4
-  unsigned __int8 *result; // r0
+  uint8_t *result; // r0
   int v2; // r2
   int v3; // r1
   int v4; // r3
-  unsigned __int8 *v5; // r5
+  uint8_t *v5; // r5
   int v6; // r0
   int v7; // r2
   int v8; // r0
@@ -26,14 +45,14 @@ unsigned __int8 *sub_1149FC()
     *(uint32_t *)off_114AD8 = 1;
   }
   v0 = (int *)off_114ADC;
-  result = (unsigned __int8 *)off_114AE0;
+  result = (uint8_t *)off_114AE0;
   v2 = *(uint32_t *)off_114ADC;
   v3 = *((uint32_t *)off_114AE0 + 4);
   v4 = *(uint32_t *)off_114ADC + 1;
   *(uint32_t *)off_114ADC = v4;
   if ( v3 )
   {
-    result = (unsigned __int8 *)sub_12D4F8(result + 16);
+    result = (uint8_t *)sub_12D4F8(result + 16);
     v5 = result;
     if ( *v0 )
     {
@@ -51,7 +70,7 @@ unsigned __int8 *sub_1149FC()
       v6 = sub_114790(result + 4);
       if ( v6 < 0 )
       {
-        return (unsigned __int8 *)sub_12ECB0(dword_114AEC, v5[4], v7);
+        return (uint8_t *)sub_12ECB0(dword_114AEC, v5[4], v7);
       }
       else
       {
@@ -79,12 +98,12 @@ unsigned __int8 *sub_1149FC()
                 __enable_irq();
             }
           }
-          return (unsigned __int8 *)irq_nesting_or(16);
+          return (uint8_t *)irq_nesting_or(16);
         }
         else
         {
           sub_114710();
-          return (unsigned __int8 *)patch_helper(0);
+          return (uint8_t *)patch_helper(0);
         }
       }
     }

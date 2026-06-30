@@ -1,10 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_134DDC;
+extern uint32_t off_134DE4;
+extern uint32_t dword_134DE0;
+extern uint32_t dword_134DE8;
+
 // bt_state_poll_n_cac @ 0x134cac, size 302 bytes
 // Doc: bt_state_poll_n_cac [bt]: Polls BT controller state by inspecting status bytes at fixed offsets
 // bt_state_poll_n_cac [bt]: Polls BT controller state by inspecting status bytes at fixed offsets
 int bt_state_poll_n_cac()
 {
   int v0; // r6
-  __int16 v1; // r7
+  int16_t v1; // r7
   int v2; // r8
   int v3; // r0
   int v4; // r0
@@ -12,7 +29,7 @@ int bt_state_poll_n_cac()
   int v6; // r5
   uint16_t *v7; // r1
   int v8; // r3
-  __int16 v9; // r2
+  int16_t v9; // r2
   int v10; // t1
   int v11; // r0
   int v12; // r3
@@ -26,14 +43,14 @@ int bt_state_poll_n_cac()
 
   v0 = *((uint32_t *)off_134DDC + 2);
   v1 = *((uint16_t *)off_134DDC + 6);
-  v2 = *(unsigned __int8 *)(v0 + 116);
+  v2 = *(uint8_t *)(v0 + 116);
   if ( *(uint8_t *)(v0 + 1224) )
   {
     v3 = 1;
   }
   else
   {
-    v3 = *(unsigned __int8 *)(v0 + 412);
+    v3 = *(uint8_t *)(v0 + 412);
     if ( *(uint8_t *)(v0 + 412) )
       v3 = 1;
   }
@@ -74,8 +91,8 @@ int bt_state_poll_n_cac()
   if ( v13 == 1 )
   {
     sub_13B13C(v5, v6 + 108, 24);
-    v19 = *(unsigned __int8 *)(v5 + 51) + 24;
-    v16 = sub_130A54((uint16_t *)(v14 + v19), v1) + v19 + *(unsigned __int8 *)(v5 + 53);
+    v19 = *(uint8_t *)(v5 + 51) + 24;
+    v16 = sub_130A54((uint16_t *)(v14 + v19), v1) + v19 + *(uint8_t *)(v5 + 53);
   }
   else
   {

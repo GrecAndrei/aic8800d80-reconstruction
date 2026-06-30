@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10C470;
+extern uint32_t off_10C474;
+extern uint32_t off_10C478;
+extern uint32_t off_10C47C;
+extern uint32_t off_10C484;
+extern uint32_t off_10C480;
+extern uint32_t dword_10C460;
+extern uint32_t dword_10C450;
+extern uint32_t dword_10C488;
+extern uint32_t dword_10C48C;
+extern uint32_t off_10C4A8;
+extern uint32_t off_10C490;
+extern uint32_t dword_10C494;
+extern uint32_t dword_10C498;
+extern uint32_t off_10C468;
+extern uint32_t off_10C46C;
+extern uint32_t off_10C4A0;
+extern uint32_t dword_10C49C;
+extern uint32_t dword_10C4A4;
+
 // sub_10C220 @ 0x10c220, size 546 bytes
 int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
 {
@@ -19,7 +51,7 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
   int v21; // r2
   int v22; // r0
   int v23; // r8
-  unsigned __int16 *v24; // r6
+  uint16_t *v24; // r6
   int v25; // r1
   int v26; // r2
   int v27; // r5
@@ -45,7 +77,7 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
   int v47; // [sp+5Ch] [bp-8h]
 
   v4 = *result;
-  v7 = (unsigned __int8)*result >> 6;
+  v7 = (uint8_t)*result >> 6;
   if ( !a3 )
   {
     if ( !a4 )
@@ -79,16 +111,16 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
       v11 *= 2;
     if ( (*(uint32_t *)off_10C47C & 0x80000) != 0 && (*(uint32_t *)off_10C47C & 0x40000) != 0 )
       v11 >>= 1;
-    v12 = *(unsigned __int8 *)off_10C484 * v11;
+    v12 = *(uint8_t *)off_10C484 * v11;
     *(uint32_t *)off_10C480 &= ~1u;
-    if ( (unsigned __int8)v4 >> 7 )
+    if ( (uint8_t)v4 >> 7 )
     {
-      v13 = *(QWORD *)&dword_10C460;
+      v13 = *(uint64_t *)&dword_10C460;
       v14 = dbl_10C458;
     }
     else
     {
-      v13 = *(QWORD *)&dword_10C450;
+      v13 = *(uint64_t *)&dword_10C450;
       v14 = dbl_10C448;
     }
     v15 = sub_142894(v12);
@@ -104,7 +136,7 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
     *(uint32_t *)off_10C490 = dword_10C494 & (sub_142EEC(v23) << 13) | *(uint32_t *)off_10C490 & dword_10C498;
   }
   sub_103A54();
-  sub_10A868((unsigned __int8)v4, a2, v8, (unsigned __int16)v4 >> 12, BYTE1(v4) & 0xF, 0);
+  sub_10A868((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
   result = (int *)sub_103AFC();
   *(uint32_t *)off_10C474 = 1;
   if ( a4 )
@@ -112,7 +144,7 @@ int * sub_10C220(int *result, unsigned int a2, int a3, int a4)
 LABEL_3:
     if ( ((*(uint32_t *)off_10C468 & 0x8000000) == 0 || (*(uint32_t *)off_10C46C & 0x400) != 0) && !v7 )
     {
-      v24 = (unsigned __int16 *)off_10C4A0;
+      v24 = (uint16_t *)off_10C4A0;
       v25 = *(uint32_t *)(dword_10C49C + 4);
       v26 = *(uint32_t *)(dword_10C49C + 8);
       v27 = dword_10C49C + 72;
@@ -120,14 +152,14 @@ LABEL_3:
       v37[1] = v25;
       v37[2] = v26;
       sub_103A54();
-      v28 = *(QWORD *)v27;
+      v28 = *(uint64_t *)v27;
       v29 = *(uint32_t *)(v27 + 8);
       v30 = *(uint32_t *)(v27 + 12);
       v27 += 16;
       v38 = v28;
       v39 = v29;
       v40 = v30;
-      v31 = *(QWORD *)v27;
+      v31 = *(uint64_t *)v27;
       v32 = *(uint32_t *)(v27 + 8);
       v33 = *(uint32_t *)(v27 + 12);
       v27 += 16;

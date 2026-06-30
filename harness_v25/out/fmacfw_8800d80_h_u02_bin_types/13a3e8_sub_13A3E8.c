@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13A500;
+extern uint32_t dword_13A504;
+extern uint32_t off_13A508;
+extern uint32_t dword_13A50C;
+extern uint32_t dword_13A510;
+
 // sub_13A3E8 @ 0x13a3e8, size 280 bytes
 int  sub_13A3E8(int a1, uint32_t *a2)
 {
@@ -13,10 +31,10 @@ int  sub_13A3E8(int a1, uint32_t *a2)
   int v12; // r0
 
   v3 = dword_13A500;
-  v4 = *(unsigned __int8 *)(a1 + 29);
+  v4 = *(uint8_t *)(a1 + 29);
   v5 = dword_13A500 + 696 * v4;
-  v6 = *(QWORD *)(v5 + 184);
-  v7 = dword_13A504 + 1320 * *(unsigned __int8 *)(a1 + 28);
+  v6 = *(uint64_t *)(v5 + 184);
+  v7 = dword_13A504 + 1320 * *(uint8_t *)(a1 + 28);
   v8 = *(uint32_t *)HIDWORD(v6);
   v9 = *(uint32_t *)(v7 + 1200);
   v10 = 0;
@@ -24,13 +42,13 @@ int  sub_13A3E8(int a1, uint32_t *a2)
   if ( !v8 || !v9 )
     return 0;
   if ( (*(uint32_t *)(v7 + 1208) & 2) != 0
-    && *(unsigned __int16 *)(v5 + 56) == (unsigned __int16)__rev16(*(unsigned __int16 *)(a1 + 24)) )
+    && *(uint16_t *)(v5 + 56) == (uint16_t)__rev16(*(uint16_t *)(a1 + 24)) )
   {
     return v10;
   }
   if ( !(uint32_t)v6
-    || (unsigned int)*(unsigned __int8 *)(v6 + 96) - 1 > 1
-    || *(unsigned __int8 *)(v3 + 696 * v4 + 669) > 1u )
+    || (unsigned int)*(uint8_t *)(v6 + 96) - 1 > 1
+    || *(uint8_t *)(v3 + 696 * v4 + 669) > 1u )
   {
     switch ( *(uint8_t *)(v8 + 96) )
     {
@@ -55,7 +73,7 @@ int  sub_13A3E8(int a1, uint32_t *a2)
         break;
       case 4:
         *a2 = 16;
-        if ( *(unsigned __int8 *)(v8 + 98) >= 0x10u )
+        if ( *(uint8_t *)(v8 + 98) >= 0x10u )
           v12 = 2;
         else
           v12 = 1;
@@ -71,7 +89,7 @@ int  sub_13A3E8(int a1, uint32_t *a2)
         v12 = 1;
         break;
       default:
-        if ( **(__int16 **)off_13A508 < 0 )
+        if ( **(int16_t **)off_13A508 < 0 )
           sub_12F32C(dword_13A50C, dword_13A510, 181);
         v10 = 0;
         v11 = 3;
@@ -80,7 +98,7 @@ int  sub_13A3E8(int a1, uint32_t *a2)
     }
     if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     {
-      *(QWORD *)(v8 + 72) += v12;
+      *(uint64_t *)(v8 + 72) += v12;
       sub_143630(a1 + 56, v8 + 72, 2 * v11);
     }
     return v10;

@@ -1,3 +1,32 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11636C;
+extern uint32_t dword_116368;
+extern uint32_t dword_116364;
+extern uint32_t dword_116360;
+extern uint32_t off_116370;
+extern uint32_t off_11639C;
+extern uint32_t off_116374;
+extern uint32_t off_1163A0;
+extern uint32_t off_116378;
+extern uint32_t off_11637C;
+extern uint32_t off_1163A4;
+extern uint32_t off_116380;
+extern uint32_t off_11638C;
+extern uint32_t off_116384;
+extern uint32_t off_116388;
+extern uint32_t off_116398;
+
 // sub_116188 @ 0x116188, size 472 bytes
 // Doc: sub_1216188 [patch]: Initialization routine loading multiple config pointers and calling setup
 // sub_1216188 [patch]: Initialization routine loading multiple config pointers and calling setup
@@ -25,7 +54,7 @@ void __noreturn sub_116188()
   {
     sub_10ED6C();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10ED30(*(unsigned __int16 *)(*v0 + 8));
+      sub_10ED30(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_11639C;
   if ( **(uint8_t **)off_11639C == 2 )
@@ -34,7 +63,7 @@ void __noreturn sub_116188()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = sub_114498(*(unsigned __int16 *)(*v0 + 4));
+  v3 = sub_114498(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
     mmio_clear_bit1_n_524();
   __enable_irq();
@@ -82,13 +111,13 @@ LABEL_39:
     }
     if ( **v1 == 1 && *(uint8_t *)off_116384 )
     {
-      v14 = **(unsigned __int8 **)off_116388;
+      v14 = **(uint8_t **)off_116388;
       if ( v14 == 3 )
       {
         v3 = state_flag_check();
         if ( !v3 )
         {
-          v14 = **(unsigned __int8 **)off_116388;
+          v14 = **(uint8_t **)off_116388;
           goto LABEL_32;
         }
       }

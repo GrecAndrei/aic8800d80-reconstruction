@@ -1,12 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_130260;
+extern uint32_t off_130264;
+extern uint32_t dword_130268;
+extern uint32_t dword_13026C;
+extern uint32_t dword_130280;
+extern uint32_t dword_130284;
+extern uint32_t dword_13027C;
+extern uint32_t dword_130270;
+extern uint32_t dword_130274;
+extern uint32_t dword_130278;
+
 // sub_130170 @ 0x130170, size 238 bytes
 // Doc: sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
 // sub_1230170_handler [unknown]: Pushes r4-r8,sb,lr; allocates 0x4c stack; handler stub
-unsigned __int8 *sub_130170()
+uint8_t *sub_130170()
 {
   int *v0; // r6
   int v1; // r0
-  unsigned __int8 *result; // r0
-  unsigned __int8 *v3; // r4
+  uint8_t *result; // r0
+  uint8_t *v3; // r4
   int v4; // r3
   int v5; // r2
   uint32_t *v6; // r7
@@ -28,7 +51,7 @@ unsigned __int8 *sub_130170()
   v0 = (int *)off_130264;
   v1 = dword_130268;
   ++*(uint32_t *)off_130264;
-  result = (unsigned __int8 *)rf_bus_mark_n100_d2d0(v1);
+  result = (uint8_t *)rf_bus_mark_n100_d2d0(v1);
   v3 = result;
   if ( *v0 )
   {
@@ -54,7 +77,7 @@ unsigned __int8 *sub_130170()
         v13 = sub_12F788(v15[0], v6, 7);
         if ( v13 )
         {
-          if ( *((__int16 *)v13 + 5) < v9 || *((__int16 *)v13 + 4) > v9 )
+          if ( *((int16_t *)v13 + 5) < v9 || *((int16_t *)v13 + 4) > v9 )
           {
             sub_10DC24(v7, *v13, v13[1]);
           }
@@ -83,7 +106,7 @@ unsigned __int8 *sub_130170()
       v10 = dword_130278;
       ++*v0;
       list_push_tail(v10, v3);
-      result = (unsigned __int8 *)rf_bus_mark_n100_d2d0(dword_130268);
+      result = (uint8_t *)rf_bus_mark_n100_d2d0(dword_130268);
       v3 = result;
       if ( *v0 )
       {

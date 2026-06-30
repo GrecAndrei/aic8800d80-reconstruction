@@ -1,9 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12CEEC;
+extern uint32_t off_12CED4;
+extern uint32_t dword_12CEE4;
+extern uint32_t dword_12CEE0;
+extern uint32_t off_12CEDC;
+
 // buffer_pool_get @ 0x12cdf0, size 226 bytes
 // Doc: message_dispatch_n246 [ipc]: Dispatch incoming message via shared queue
 // message_dispatch_n246 [ipc]: Dispatch incoming message via shared queue
 uint32_t * buffer_pool_get(char *a1)
 {
-  __int16 **v1; // r9
+  int16_t **v1; // r9
   char *v2; // r4
   int v3; // r8
   char *v5; // r5
@@ -19,11 +37,11 @@ uint32_t * buffer_pool_get(char *a1)
   int v15; // r1
   uint64_t v16; // r2
 
-  v1 = (__int16 **)off_12CEEC;
+  v1 = (int16_t **)off_12CEEC;
   v2 = *((char **)off_12CED4 + 7);
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
-  if ( **(__int16 **)off_12CEEC < 0 && a1 <= v2 )
+  if ( **(int16_t **)off_12CEEC < 0 && a1 <= v2 )
     sub_12F694(dword_12CEE4, dword_12CEE0, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -85,7 +103,7 @@ message_dispatch_n2ce:
     v15 = *((uint32_t *)v14 + 1);
     LODWORD(v16) = *(uint32_t *)v14;
     HIDWORD(v16) = v13 + v15;
-    *(QWORD *)v2 = v16;
+    *(uint64_t *)v2 = v16;
   }
 LABEL_13:
   if ( v8 )

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_111CFC;
+extern uint32_t dword_111D00;
+extern uint32_t off_111D08;
+extern uint32_t dword_111D0C;
+extern uint32_t off_111D04;
+
 // sub_111C1C @ 0x111c1c, size 224 bytes
 int  sub_111C1C(int a1, int a2, int a3)
 {

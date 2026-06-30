@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DCEC;
+extern uint32_t off_11DCF0;
+extern uint32_t off_11DCF4;
+extern uint32_t off_11DD00;
+extern uint32_t off_11DD04;
+extern uint32_t dword_11DD0C;
+extern uint32_t dword_11DD08;
+extern uint32_t dword_11DCFC;
+extern uint32_t dword_11DCF8;
+
 // event_queue_push @ 0x11dc54, size 152 bytes
 // Doc: event_queue_push [util]: Pushes an event onto the firmware event queue
 // event_queue_push [util]: Pushes an event onto the firmware event queue
@@ -24,7 +46,7 @@ int  event_queue_push(int result, int a2)
   *(uint32_t *)off_11DCF0 = v5;
   if ( v4 )
   {
-    if ( *(unsigned __int16 *)(v4 + 4) == result && *(unsigned __int16 *)(v4 + 6) == a2 )
+    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
       sub_11E7AC(v3 + 5);
       v8 = v3[5];
@@ -32,7 +54,7 @@ int  event_queue_push(int result, int a2)
       if ( v8 )
       {
         sub_11AB18(v9, *(uint32_t *)(v8 + 8));
-        if ( **(__int16 **)off_11DD00 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_11DD04 + 4) < 0 )
+        if ( **(int16_t **)off_11DD00 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_11DD04 + 4) < 0 )
           rf_cmd_send_n264(dword_11DD0C, dword_11DD08, 232);
       }
       else

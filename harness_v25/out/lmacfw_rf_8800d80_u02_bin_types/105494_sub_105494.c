@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_105570;
+extern uint32_t dword_105574;
+extern uint32_t dword_105564;
+extern uint32_t dword_10556C;
+extern uint32_t dword_105568;
+
 // sub_105494 @ 0x105494, size 206 bytes
 int  sub_105494(unsigned int a1, int a2, int a3, int a4)
 {
@@ -15,7 +33,7 @@ int  sub_105494(unsigned int a1, int a2, int a3, int a4)
   int v17; // r2
 
   v6 = 0;
-  *(QWORD *)(a2 + 628) = 0x40000000FLL;
+  *(uint64_t *)(a2 + 628) = 0x40000000FLL;
   *(uint32_t *)(a2 + 624) = 0;
   v7 = dword_105570;
   v8 = dword_105574;

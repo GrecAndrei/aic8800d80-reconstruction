@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1043D0;
+
 // rf_bus_reset_0 @ 0x10438c, size 66 bytes
 // Doc: rf_bus_reset [rf]: Resets RF bus state via shifted write
 // rf_bus_reset [rf]: Resets RF bus state via shifted write
@@ -7,7 +21,7 @@ int  rf_bus_reset_0(int a1, int a2, uint32_t *a3)
   int v4; // r4
   int result; // r0
 
-  v3 = (unsigned __int16)*(uint32_t *)off_1043D0;
+  v3 = (uint16_t)*(uint32_t *)off_1043D0;
   v4 = 0x3FFF;
   if ( v3 == 0x3FFF )
     a3 = (uint32_t *)*a3;
@@ -15,7 +29,7 @@ int  rf_bus_reset_0(int a1, int a2, uint32_t *a3)
     v4 = v3 + 1;
   if ( v3 != 0x3FFF )
     a3 = (uint32_t *)a3[v4];
-  if ( ((unsigned __int8)a3 & 1) != 0 )
+  if ( ((uint8_t)a3 & 1) != 0 )
   {
     if ( a2 )
       goto LABEL_8;

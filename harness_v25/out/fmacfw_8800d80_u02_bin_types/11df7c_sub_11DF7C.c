@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DFEC;
+extern uint32_t off_11DFE0;
+extern uint32_t dword_11DFE8;
+extern uint32_t dword_11DFE4;
+
 // sub_11DF7C @ 0x11df7c, size 98 bytes
 int  sub_11DF7C(int a1, int a2)
 {
@@ -6,7 +23,7 @@ int  sub_11DF7C(int a1, int a2)
   unsigned int v4; // r3
   uint32_t *v5; // r1
   int v6; // r2
-  bool v7; // cf
+  int v7; // cf
   unsigned int v8; // r2
 
   if ( !a2 )
@@ -36,9 +53,9 @@ LABEL_9:
   while ( 1 )
   {
     a2 = *(uint32_t *)(a2 + 4);
-    if ( **(__int16 **)off_11DFE0 < 0 && !a2 )
+    if ( **(int16_t **)off_11DFE0 < 0 && !a2 )
       return fmac_phy_op_handler(dword_11DFE8, dword_11DFE4, 1119, v2);
-    v2 = *(unsigned __int16 *)(a2 + 16) << 31;
+    v2 = *(uint16_t *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
   }

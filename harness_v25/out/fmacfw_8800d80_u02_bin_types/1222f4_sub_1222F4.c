@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_122588;
+extern uint32_t off_122598;
+extern uint32_t off_122594;
+extern uint32_t off_1225C0;
+extern uint32_t off_1225D4;
+extern uint32_t off_1225C4;
+extern uint32_t off_1225C8;
+extern uint32_t off_1225D8;
+extern uint32_t off_1225A0;
+extern uint32_t off_12259C;
+extern uint32_t off_1225A4;
+extern uint32_t off_1225B4;
+extern uint32_t off_1225A8;
+extern uint32_t dword_1225D0;
+extern uint32_t off_1225B0;
+extern uint32_t off_1225CC;
+extern uint32_t off_1225AC;
+extern uint32_t off_1225BC;
+extern uint32_t off_1225B8;
+
 // sub_1222F4 @ 0x1222f4, size 660 bytes
 // Doc: sub_12222F4 [unknown]: Main dispatcher loading signed byte from shared table
 // sub_12222F4 [unknown]: Main dispatcher loading signed byte from shared table
@@ -38,14 +70,14 @@ uint32_t * sub_1222F4(uint32_t *result, int a2)
   uint8_t *v34; // r0
   int v35; // r2
   unsigned int v37; // [sp+18h] [bp-Ch]
-  unsigned __int8 *v38; // [sp+18h] [bp-Ch]
+  uint8_t *v38; // [sp+18h] [bp-Ch]
 
   v2 = (float *)off_122588;
   v3 = *(char *)off_122588;
   if ( !*(uint8_t *)off_122588 )
     return result;
   v4 = (int)result;
-  v5 = *((unsigned __int8 *)off_122588 + 2);
+  v5 = *((uint8_t *)off_122588 + 2);
   v6 = *((char *)off_122588 + 1);
   v7 = *((float *)off_122588 + 1);
   result = (uint32_t *)msg_get_value(4);
@@ -60,7 +92,7 @@ uint32_t * sub_1222F4(uint32_t *result, int a2)
     if ( *((uint8_t *)off_122594 + 408) )
       goto LABEL_8;
 LABEL_27:
-    v29 = *(unsigned __int8 *)off_1225C0;
+    v29 = *(uint8_t *)off_1225C0;
     v30 = off_1225D4;
     result = off_1225C4;
     v31 = off_1225C8;
@@ -99,25 +131,25 @@ LABEL_8:
     v21 = v20 - v15;
   v37 = v21;
   v22 = *v16;
-  v23 = *(unsigned __int8 *)off_1225A4;
+  v23 = *(uint8_t *)off_1225A4;
   *v13 = v20;
-  v24 = (unsigned __int8)(v22 + 1);
+  v24 = (uint8_t)(v22 + 1);
   *v16 = v24;
   if ( v23 == v24 )
   {
     if ( *(uint8_t *)off_1225B4 == 1 && v19 <= 0x13 && v37 <= 9 )
     {
-      v38 = (unsigned __int8 *)off_1225A8;
+      v38 = (uint8_t *)off_1225A8;
       *(uint8_t *)off_1225A8 = 2;
     }
-    else if ( *((unsigned __int8 *)off_1225A4 + 3) <= v37 || v19 <= v37 * *((unsigned __int8 *)off_1225A4 + 2) )
+    else if ( *((uint8_t *)off_1225A4 + 3) <= v37 || v19 <= v37 * *((uint8_t *)off_1225A4 + 2) )
     {
-      v38 = (unsigned __int8 *)off_1225A8;
+      v38 = (uint8_t *)off_1225A8;
       *(uint8_t *)off_1225A8 = 0;
     }
     else
     {
-      v38 = (unsigned __int8 *)off_1225A8;
+      v38 = (uint8_t *)off_1225A8;
       *(uint8_t *)off_1225A8 = 1;
     }
     feature_guard_check(64, dword_1225D0);
@@ -130,7 +162,7 @@ LABEL_8:
     if ( v25 == 1 )
     {
       v34 = off_1225B0;
-      v35 = *(unsigned __int8 *)off_1225B0;
+      v35 = *(uint8_t *)off_1225B0;
       *(uint8_t *)off_1225CC = 0;
       if ( v35 != 255 )
         *v34 = v35 + 1;
@@ -138,7 +170,7 @@ LABEL_8:
     else if ( !v25 )
     {
       v32 = off_1225CC;
-      v33 = *(unsigned __int8 *)off_1225CC;
+      v33 = *(uint8_t *)off_1225CC;
       *(uint8_t *)off_1225B0 = 0;
       if ( v33 != 255 )
         *v32 = v33 + 1;
@@ -146,11 +178,11 @@ LABEL_8:
   }
   else
   {
-    v25 = *(unsigned __int8 *)off_1225A8;
+    v25 = *(uint8_t *)off_1225A8;
   }
   v26 = (unsigned int *)off_1225AC;
   *(uint32_t *)off_1225AC &= ~0x4000u;
-  *v26 = (unsigned __int16)*v26;
+  *v26 = (uint16_t)*v26;
   *v26 = *v26 & 0xFFFFFC00 | 0x44;
   *v26 |= 0x8000u;
   while ( (*v26 & 0x8000) != 0 )
@@ -165,14 +197,14 @@ LABEL_8:
   *v27 |= 0x8000u;
   if ( v25 == 2 )
     goto LABEL_22;
-  v28 = *((unsigned __int8 *)off_1225A4 + 1);
-  if ( *(unsigned __int8 *)off_1225B0 > v28 )
+  v28 = *((uint8_t *)off_1225A4 + 1);
+  if ( *(uint8_t *)off_1225B0 > v28 )
   {
     if ( *(uint8_t *)off_1225B4 != 1 )
       result = (uint32_t *)sub_12221C(v4);
     goto LABEL_22;
   }
-  if ( *(unsigned __int8 *)off_1225CC > v28 >> 1 && *(uint8_t *)off_1225B4 )
+  if ( *(uint8_t *)off_1225CC > v28 >> 1 && *(uint8_t *)off_1225B4 )
 LABEL_28:
     result = (uint32_t *)mmio_region_setup_n148(v4);
 LABEL_22:

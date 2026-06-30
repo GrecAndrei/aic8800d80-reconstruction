@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B488;
+extern uint32_t off_12B48C;
+extern uint32_t dword_12B490;
+extern uint32_t off_12B498;
+extern uint32_t dword_12B494;
+
 // sub_12B3C8 @ 0x12b3c8, size 192 bytes
 int sub_12B3C8()
 {
@@ -14,8 +32,8 @@ int sub_12B3C8()
 
   v0 = off_12B488;
   v1 = *(uint32_t *)off_12B488;
-  v2 = *(uint32_t *)off_12B488 + 6 * *((unsigned __int8 *)off_12B488 + 10);
-  v3 = 6 * *((unsigned __int8 *)off_12B488 + 10);
+  v2 = *(uint32_t *)off_12B488 + 6 * *((uint8_t *)off_12B488 + 10);
+  v3 = 6 * *((uint8_t *)off_12B488 + 10);
   v4 = *(uint8_t *)(v2 + 3);
   if ( (v4 & 5) != 0 )
   {
@@ -28,7 +46,7 @@ int sub_12B3C8()
   }
   else
   {
-    v5 = sub_12B338((unsigned __int16 *)(*(uint32_t *)off_12B488 + 6 * *((unsigned __int8 *)off_12B488 + 10)));
+    v5 = sub_12B338((uint16_t *)(*(uint32_t *)off_12B488 + 6 * *((uint8_t *)off_12B488 + 10)));
     if ( !v5 )
     {
       v5 = 30000;
@@ -38,15 +56,15 @@ int sub_12B3C8()
   if ( (v4 & 1) == 0 && *((uint8_t *)off_12B498 + 3850) == 1 )
     v5 += 170000;
 LABEL_4:
-  bt_chan_state_get((__int16 *)v2, v5, *(uint8_t *)(v1 + 366));
+  bt_chan_state_get((int16_t *)v2, v5, *(uint8_t *)(v1 + 366));
   v6 = v0[1];
   if ( v6 )
   {
-    v7 = *(unsigned __int8 *)(v2 + 2);
-    v8 = *(unsigned __int16 *)(v1 + v3);
+    v7 = *(uint8_t *)(v2 + 2);
+    v8 = *(uint16_t *)(v1 + v3);
     if ( *(uint8_t *)(v2 + 2) )
     {
-      if ( v7 == 1 && (v10 = v8 - 4992, (unsigned __int16)(v10 - 13) <= 0x370u) )
+      if ( v7 == 1 && (v10 = v8 - 4992, (uint16_t)(v10 - 13) <= 0x370u) )
         *(uint8_t *)(v6 + 2) = (unsigned int)(((unsigned int)dword_12B494 * (unsigned uint64_t)(unsigned int)(v10 - 8)) >> 32) >> 2;
       else
         *(uint8_t *)(v6 + 2) = 0;

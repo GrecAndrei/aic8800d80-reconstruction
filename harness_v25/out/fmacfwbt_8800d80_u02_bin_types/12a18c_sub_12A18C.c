@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12A25C;
+extern uint32_t dword_12A268;
+extern uint32_t off_12A26C;
+extern uint32_t dword_12A260;
+extern uint32_t dword_12A264;
+
 // sub_12A18C @ 0x12a18c, size 206 bytes
 int  sub_12A18C(int a1, int a2)
 {
@@ -17,7 +35,7 @@ int  sub_12A18C(int a1, int a2)
   int v18; // r1
 
   v2 = (char *)off_12A25C;
-  if ( *((unsigned __int8 *)off_12A25C + 113) == 255 )
+  if ( *((uint8_t *)off_12A25C + 113) == 255 )
   {
     v5 = 0;
     v10 = 0;
@@ -26,7 +44,7 @@ int  sub_12A18C(int a1, int a2)
   }
   else
   {
-    if ( *((unsigned __int8 *)off_12A25C + 253) != 255 )
+    if ( *((uint8_t *)off_12A25C + 253) != 255 )
       return 255;
     v5 = 1;
     v10 = 1;

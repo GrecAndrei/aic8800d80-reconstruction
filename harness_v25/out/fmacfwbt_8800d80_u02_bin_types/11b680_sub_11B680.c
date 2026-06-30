@@ -1,9 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B790;
+extern uint32_t dword_11B7A4;
+extern uint32_t off_11B798;
+extern uint32_t dword_11B7A0;
+extern uint32_t dword_11B79C;
+extern uint32_t off_11B794;
+
 // sub_11B680 @ 0x11b680, size 272 bytes
 // Doc: sub_121B680 [util]: Init/state check comparing a flag byte against 3
 // sub_121B680 [util]: Init/state check comparing a flag byte against 3
 int  sub_11B680(int *a1)
 {
-  unsigned __int16 *v1; // r6
+  uint16_t *v1; // r6
   int v2; // r3
   int v3; // r9
   int v5; // r4
@@ -17,10 +36,10 @@ int  sub_11B680(int *a1)
   int v13; // r11
   int v15; // r0
   int v16; // r4
-  __int16 v17; // r3
+  int16_t v17; // r3
 
-  v1 = (unsigned __int16 *)off_11B790;
-  if ( *((unsigned __int8 *)off_11B790 + 197) > 3u )
+  v1 = (uint16_t *)off_11B790;
+  if ( *((uint8_t *)off_11B790 + 197) > 3u )
     return 0;
   v2 = 3;
   v3 = dword_11B7A4;
@@ -28,7 +47,7 @@ int  sub_11B680(int *a1)
   while ( 1 )
   {
     v7 = v3 + 84 * v2;
-    v8 = *(unsigned __int8 *)(v7 + 26);
+    v8 = *(uint8_t *)(v7 + 26);
     *((uint8_t *)v1 + 190) = v5;
     if ( v8 == 1 )
       break;
@@ -41,7 +60,7 @@ int  sub_11B680(int *a1)
       {
 LABEL_13:
         v13 = (int)v9;
-        v9 = nullptr;
+        v9 = 0;
       }
       else
       {
@@ -56,7 +75,7 @@ LABEL_13:
             if ( *(int *)(*(uint32_t *)(*v9 + 76) + 72) >= 0 )
               goto LABEL_3;
           }
-          scan_chan_entry_alloc_n_54((int)v9, (unsigned __int8)v5);
+          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
           v9 = *(int **)(v10 + 12);
           if ( !v9 )
             goto LABEL_4;
@@ -72,9 +91,9 @@ LABEL_3:
       if ( v6 )
       {
         if ( v9 )
-          scan_chan_entry_alloc_n_54((int)v9, (unsigned __int8)v5);
+          scan_chan_entry_alloc_n_54((int)v9, (uint8_t)v5);
         v16 = *(uint32_t *)(v13 + 68);
-        if ( **(__int16 **)off_11B798 < 0 && !v16 )
+        if ( **(int16_t **)off_11B798 < 0 && !v16 )
           sub_12F694(dword_11B7A0, dword_11B79C, 1383);
         v17 = *(uint16_t *)(v16 + 8);
         *((uint32_t *)v1 + 51) = v16;
@@ -85,7 +104,7 @@ LABEL_3:
 LABEL_4:
     v5 = (char)(v5 - 1);
     v2 = v5;
-    if ( v5 < *((unsigned __int8 *)v1 + 197) )
+    if ( v5 < *((uint8_t *)v1 + 197) )
       return 0;
   }
   if ( !*(uint8_t *)(*(uint32_t *)off_11B794 + 1) )

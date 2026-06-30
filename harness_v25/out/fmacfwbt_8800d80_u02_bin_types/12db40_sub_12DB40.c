@@ -1,13 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_12DB40 @ 0x12db40, size 64 bytes
-unsigned __int8 * sub_12DB40(unsigned __int8 *result, int a2, uint8_t *a3)
+uint8_t * sub_12DB40(uint8_t *result, int a2, uint8_t *a3)
 {
   unsigned int v3; // r1
   int v4; // r5
-  unsigned __int8 *v5; // r6
+  uint8_t *v5; // r6
 
   v3 = (unsigned int)&result[a2];
   if ( v3 <= (unsigned int)(result + 1) )
-    return nullptr;
+    return 0;
   while ( 1 )
   {
     v4 = result[1];
@@ -16,14 +28,14 @@ unsigned __int8 * sub_12DB40(unsigned __int8 *result, int a2, uint8_t *a3)
       break;
     result += v4 + 2;
     if ( v3 <= (unsigned int)(v5 + 1) )
-      return nullptr;
+      return 0;
   }
   if ( v3 < (unsigned int)v5 )
-    return (unsigned __int8 *)*result;
+    return (uint8_t *)*result;
   if ( !result )
     return result;
   if ( (unsigned int)(v4 + 2) > 0x22 )
-    return (unsigned __int8 *)*result;
+    return (uint8_t *)*result;
   *a3 = v4;
   return result;
 }

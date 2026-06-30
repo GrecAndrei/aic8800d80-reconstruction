@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1148F8;
+
 // sub_11485C @ 0x11485c, size 156 bytes
 int  sub_11485C(int a1, int a2)
 {
@@ -9,7 +23,7 @@ int  sub_11485C(int a1, int a2)
   int v8; // r2
   int result; // r0
   unsigned int v10; // r4
-  bool v11; // zf
+  int v11; // zf
   int v12; // r3
   unsigned int v13; // r4
   unsigned int v14; // r5
@@ -33,8 +47,8 @@ int  sub_11485C(int a1, int a2)
   while ( 1 )
   {
     v12 = v6 >> (8 * (v8 & 3));
-    v14 = (unsigned __int8)v12;
-    v10 = (unsigned __int8)v12 >> 4;
+    v14 = (uint8_t)v12;
+    v10 = (uint8_t)v12 >> 4;
     if ( (v12 & 0xF0) == 0 )
     {
       v12 = 1 << (4 * v8);

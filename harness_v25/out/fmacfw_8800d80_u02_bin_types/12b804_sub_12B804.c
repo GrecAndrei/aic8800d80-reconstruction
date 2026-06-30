@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12B87C;
+extern uint32_t off_12B898;
+extern uint32_t dword_12B8A4;
+extern uint32_t dword_12B8A0;
+extern uint32_t off_12B880;
+extern uint32_t off_12B888;
+extern uint32_t off_12B88C;
+extern uint32_t off_12B890;
+extern uint32_t off_12B894;
+extern uint32_t off_12B884;
+extern uint32_t off_12B89C;
+
 // sub_12B804 @ 0x12b804, size 120 bytes
 // Doc: sub_122B804 [util]: Check global flag value and branch on sign
 // sub_122B804 [util]: Check global flag value and branch on sign
@@ -16,7 +40,7 @@ int sub_12B804()
   int *v10; // r3
   int v11; // r3
 
-  if ( **(__int16 **)off_12B87C < 0 && !(*(uint32_t *)off_12B898 << 28) )
+  if ( **(int16_t **)off_12B87C < 0 && !(*(uint32_t *)off_12B898 << 28) )
     return fmac_phy_op_handler(dword_12B8A4, dword_12B8A0, 213, *(uint32_t *)off_12B898);
   if ( (__get_CPSR() & 1) == 0 )
   {

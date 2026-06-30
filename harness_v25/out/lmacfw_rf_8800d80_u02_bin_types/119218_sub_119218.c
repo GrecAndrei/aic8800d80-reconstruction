@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_119300;
+extern uint32_t dword_119304;
+
 // sub_119218 @ 0x119218, size 232 bytes
 // Doc: sub_1219218 [mmio]: Read RF status words from MMIO 0x40501000 region
 // sub_1219218 [mmio]: Read RF status words from MMIO 0x40501000 region
@@ -21,7 +36,7 @@ BOOL  sub_119218(int a1, int a2, int a3, int *a4)
   int v23; // [sp+14h] [bp-8h]
   int v24; // [sp+14h] [bp-8h]
 
-  v5 = *(unsigned __int16 *)(a1 + 28);
+  v5 = *(uint16_t *)(a1 + 28);
   v6 = off_119300;
   v7 = *(uint32_t *)(*(uint32_t *)(a1 + 8) + 8);
   v8 = dword_119304;
@@ -30,31 +45,31 @@ BOOL  sub_119218(int a1, int a2, int a3, int *a4)
   v10 = *(uint32_t *)(a2 + 108);
   *(uint8_t *)(a2 + 116) = 0;
   v21 = v11;
-  if ( v8 - v6[4] + v10 < 0 && !rf_channel_set_n6838(*(unsigned __int8 *)(a2 + 102), 0, 0) )
+  if ( v8 - v6[4] + v10 < 0 && !rf_channel_set_n6838(*(uint8_t *)(a2 + 102), 0, 0) )
     *(uint32_t *)(a2 + 108) = v6[4];
   v23 = *(char *)(v9 + 45);
   chip_rev_id_get();
   rf_chan_param_set_n_1b8((uint8_t *)a2, v23);
   v13 = sub_11E8B4(v7 + 32, 4, 0);
   *a4 = 0;
-  if ( (unsigned __int16)(v5 - 36) > 1u )
+  if ( (uint16_t)(v5 - 36) > 1u )
   {
     v24 = v9;
     v14 = a4;
     v15 = (uint8_t *)(v7 + 36);
     v16 = a2;
-    v17 = (unsigned __int16)(v5 - 36);
+    v17 = (uint16_t)(v5 - 36);
     do
     {
-      v18 = (unsigned __int8)v15[1];
+      v18 = (uint8_t)v15[1];
       v19 = v15 + 2;
       if ( v18 + 1 >= (int)v17 )
         break;
       if ( *v15 == 5 )
         *v14 = (int)v15;
       else
-        v13 = sub_11E8B4(v19, (unsigned __int8)v15[1], v13);
-      v17 = (unsigned __int16)(v17 + -2 - v18);
+        v13 = sub_11E8B4(v19, (uint8_t)v15[1], v13);
+      v17 = (uint16_t)(v17 + -2 - v18);
       v15 = &v19[v18];
     }
     while ( v17 > 1 );

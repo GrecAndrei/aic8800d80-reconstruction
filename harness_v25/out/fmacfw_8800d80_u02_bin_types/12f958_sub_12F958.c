@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_12F958 @ 0x12f958, size 172 bytes
-int  sub_12F958(unsigned __int8 *a1, uint32_t *a2, unsigned int a3)
+int  sub_12F958(uint8_t *a1, uint32_t *a2, unsigned int a3)
 {
   int v3; // r5
   int v4; // r7
@@ -16,7 +28,7 @@ int  sub_12F958(unsigned __int8 *a1, uint32_t *a2, unsigned int a3)
     if ( (unsigned int)(v3 - 65) > 0x19 )
       v9 = a1[1];
     else
-      v9 = (unsigned __int8)(v3 + 32);
+      v9 = (uint8_t)(v3 + 32);
     if ( v9 == 120 && ((v10 = a1[2], (unsigned int)(v10 - 48) <= 9) || (v10 & 0xFFFFFFDF) - 65 <= 5) )
     {
       a1 += 2;
@@ -50,14 +62,14 @@ LABEL_6:
   for ( i = 0; ; i = v6 + i * a3 )
   {
     v6 = v3 - 48;
-    if ( (unsigned __int8)(v3 - 48) > 9u )
+    if ( (uint8_t)(v3 - 48) > 9u )
     {
       if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
         break;
       if ( (unsigned int)(v3 - 97) > 0x19 )
         v6 = v3 - 55;
       else
-        v6 = (unsigned __int8)(v3 - 32) - 55;
+        v6 = (uint8_t)(v3 - 32) - 55;
     }
     if ( a3 <= v6 )
       break;

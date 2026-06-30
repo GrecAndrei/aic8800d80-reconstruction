@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12157C;
+extern uint32_t off_121580;
+extern uint32_t off_121584;
+extern uint32_t off_121588;
+extern uint32_t off_12158C;
+extern uint32_t off_121590;
+extern uint32_t off_121594;
+extern uint32_t dword_121598;
+
 // sub_121430 @ 0x121430, size 332 bytes
 // Doc: sub_1221430 [unknown]: Unknown helper in fmacfwbt module
 // sub_1221430 [unknown]: Unknown helper in fmacfwbt module
@@ -55,7 +76,7 @@ int sub_121430()
       {
         if ( *(uint8_t *)(v0 + 106) != 2 )
           goto LABEL_7;
-        v9 = (unsigned __int8)(*(uint8_t *)(v0 + 225) - 1);
+        v9 = (uint8_t)(*(uint8_t *)(v0 + 225) - 1);
         *(uint8_t *)(v0 + 225) = v9;
         if ( v9 )
           goto LABEL_7;
@@ -66,7 +87,7 @@ int sub_121430()
 LABEL_15:
         mmio_reg_write_helper(v0);
         updated = sub_12A4A8(v0, *(uint32_t *)(v0 + 36) + 3048);
-        v3 = *(unsigned __int16 *)(v0 + 222);
+        v3 = *(uint16_t *)(v0 + 222);
         v12 = 32 * *v6;
         if ( v12 <= 0xBE7 )
           v12 += v3 << 10;
@@ -78,14 +99,14 @@ LABEL_15:
           updated = timestamp_update_4f60(v0 + 24, v13);
           goto LABEL_7;
         }
-        if ( *((unsigned __int8 *)off_121594 + 90) > 1u )
+        if ( *((uint8_t *)off_121594 + 90) > 1u )
         {
           for ( i = *((int ***)off_121594 + 4); i; i = (int **)*i )
           {
-            v3 = *((unsigned __int8 *)i + 8);
-            if ( v3 == *(unsigned __int8 *)(v0 + 107) )
+            v3 = *((uint8_t *)i + 8);
+            if ( v3 == *(uint8_t *)(v0 + 107) )
             {
-              v16 = *(unsigned __int16 *)(v0 + 222);
+              v16 = *(uint16_t *)(v0 + 222);
               v17 = *(uint32_t *)(v0 + 36);
               updated = (int)i[1];
               v18 = v17 + (v16 << 10);
@@ -94,7 +115,7 @@ LABEL_15:
               {
                 i[1] = (int *)v13;
                 updated = v13;
-                v19 = *(unsigned __int16 *)(v0 + 222) << 10;
+                v19 = *(uint16_t *)(v0 + 222) << 10;
               }
               v3 = v17 + 2 * v19;
               if ( v3 == updated )

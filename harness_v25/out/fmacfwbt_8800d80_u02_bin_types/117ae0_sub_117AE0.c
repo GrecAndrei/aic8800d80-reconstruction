@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117CCC;
+extern uint32_t off_117CC8;
+extern uint32_t dword_117D00;
+extern uint32_t off_117CD0;
+extern uint32_t dword_117CD4;
+extern uint32_t off_117CD8;
+extern uint32_t off_117CDC;
+extern uint32_t dword_117CFC;
+extern uint32_t off_117CE0;
+extern uint32_t off_117CE4;
+extern uint32_t off_117CE8;
+extern uint32_t off_117CEC;
+extern uint32_t off_117CF0;
+extern uint32_t off_117CF4;
+extern uint32_t dword_117CF8;
+
 // sub_117AE0 @ 0x117ae0, size 488 bytes
 int  sub_117AE0(int a1, int a2)
 {
@@ -7,7 +35,7 @@ int  sub_117AE0(int a1, int a2)
   int v7; // r11
   int v8; // r9
   int v10; // r3
-  __int16 v11; // r1
+  int16_t v11; // r1
   int v12; // r6
   int v13; // r3
   int *v14; // r6
@@ -20,7 +48,7 @@ int  sub_117AE0(int a1, int a2)
   int v21; // r2
   int v22; // r2
   int v23; // r1
-  __int16 v24; // r3
+  int16_t v24; // r3
   int *v25; // r3
   int v26; // r3
   int v27; // r2
@@ -33,21 +61,21 @@ int  sub_117AE0(int a1, int a2)
     v4 = (char *)dword_117CCC;
   else
     v4 = (char *)off_117CC8 + 84 * a2;
-  v5 = *(unsigned __int8 *)(a1 + 28);
+  v5 = *(uint8_t *)(a1 + 28);
   v6 = dword_117D00;
   v7 = *(uint32_t *)(a1 + 76);
   v8 = dword_117D00 + 1320 * v5;
   if ( sub_11733C(v8)
-    && ((v10 = *(unsigned __int8 *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
-     || *(unsigned __int8 *)(a1 + 29) > 0x23u
+    && ((v10 = *(uint8_t *)(a1 + 28), *(uint8_t *)(v6 + 1320 * v10 + 106))
+     || *(uint8_t *)(a1 + 29) > 0x23u
      || *(uint16_t *)(a1 + 4)
-     || (v11 = *(uint16_t *)(*(uint32_t *)(a1 + 72) + 108), (unsigned __int8)v11 != 192)
-     && (unsigned __int8)v11 != 176
+     || (v11 = *(uint16_t *)(*(uint32_t *)(a1 + 72) + 108), (uint8_t)v11 != 192)
+     && (uint8_t)v11 != 176
      && (v11 & 0xDF) != 0
      || (v12 = *((uint32_t *)off_117CD0 + 10)) == 0
-     || *(unsigned __int8 *)(v12 + 24) <= 2u
+     || *(uint8_t *)(v12 + 24) <= 2u
      || (v13 = *(uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, sub_12ECB0(dword_117CD4, v12 == v13, (unsigned __int8)v11), v12 == v31))
+     || (v31 = v13, sub_12ECB0(dword_117CD4, v12 == v13, (uint8_t)v11), v12 == v31))
     && sub_136C34(a1) )
   {
     *(uint32_t *)(v7 + 68) |= 0x100u;
@@ -136,7 +164,7 @@ int  sub_117AE0(int a1, int a2)
     }
     return 1;
   }
-  else if ( *(unsigned __int8 *)(a1 + 29) == 255 )
+  else if ( *(uint8_t *)(a1 + 29) == 255 )
   {
     sub_11913C(a1, 0);
     return 0;

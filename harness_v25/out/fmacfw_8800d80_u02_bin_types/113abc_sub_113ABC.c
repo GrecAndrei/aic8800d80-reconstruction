@@ -1,3 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_113BC4;
+extern uint32_t off_113BCC;
+extern uint32_t off_113BD0;
+extern uint32_t off_113BC8;
+extern uint32_t off_113BD4;
+extern uint32_t off_113BDC;
+extern uint32_t off_113BE0;
+extern uint32_t off_113BD8;
+extern uint32_t off_113BE4;
+extern uint32_t off_113BE8;
+extern uint32_t dword_113C1C;
+extern uint32_t dword_113C18;
+extern uint32_t off_113BEC;
+extern uint32_t dword_113BF4;
+extern uint32_t off_113BF8;
+extern uint32_t off_113BFC;
+extern uint32_t off_113BF0;
+extern uint32_t off_113C00;
+extern uint32_t off_113C04;
+extern uint32_t off_113C08;
+extern uint32_t off_113C0C;
+extern uint32_t off_113C10;
+extern uint32_t dword_113C14;
+
 // sub_113ABC @ 0x113abc, size 264 bytes
 int  sub_113ABC(int a1)
 {
@@ -19,7 +55,7 @@ int  sub_113ABC(int a1)
   uint8_t *v16; // r4
   int v17; // r1
   uint8_t *v18; // r5
-  bool v19; // cc
+  int v19; // cc
   char v20; // r0
   int v21; // r3
   void *v22; // r2
@@ -54,14 +90,14 @@ int  sub_113ABC(int a1)
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
   sub_100200(v6, 0, 0xCB8u);
-  if ( **(__int16 **)off_113BE8 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
+  if ( **(int16_t **)off_113BE8 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
     sub_12F46C(dword_113C1C, dword_113C18, 758);
   v10 = off_113BEC;
-  v11 = *((unsigned __int16 *)off_113BEC + 164);
-  v12 = *((unsigned __int16 *)off_113BEC + 154);
+  v11 = *((uint16_t *)off_113BEC + 164);
+  v12 = *((uint16_t *)off_113BEC + 154);
   v13 = dword_113BF4;
   v14 = off_113BF8;
-  *(uint32_t *)off_113BFC = *((unsigned __int16 *)off_113BEC + 153) - *(uint32_t *)off_113BF0 - 4;
+  *(uint32_t *)off_113BFC = *((uint16_t *)off_113BEC + 153) - *(uint32_t *)off_113BF0 - 4;
   v15 = (int *)off_113C00;
   v16 = off_113C04;
   v17 = v13 * v11;
@@ -74,7 +110,7 @@ int  sub_113ABC(int a1)
     v15 = (int *)off_113C0C;
   *v18 = v10[320];
   v20 = v10[321];
-  v21 = (unsigned __int8)v10[368];
+  v21 = (uint8_t)v10[368];
   *v16 = v20;
   if ( v19 )
     *v15 = v17;

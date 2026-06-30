@@ -1,3 +1,61 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F584;
+extern uint32_t off_12F620;
+extern uint32_t off_12F588;
+extern uint32_t off_12F58C;
+extern uint32_t off_12F624;
+extern uint32_t off_12F628;
+extern uint32_t off_12F590;
+extern uint32_t dword_12F580;
+extern uint32_t off_12F57C;
+extern uint32_t dword_12F598;
+extern uint32_t off_12F594;
+extern uint32_t dword_12F59C;
+extern uint32_t dword_12F5A0;
+extern uint32_t dword_12F5A4;
+extern uint32_t dword_12F5A8;
+extern uint32_t dword_12F5AC;
+extern uint32_t dword_12F5B0;
+extern uint32_t dword_12F5C4;
+extern uint32_t off_12F5B4;
+extern uint32_t off_12F5B8;
+extern uint32_t off_12F5BC;
+extern uint32_t off_12F5C0;
+extern uint32_t off_12F62C;
+extern uint32_t dword_12F5C8;
+extern uint32_t dword_12F5CC;
+extern uint32_t dword_12F5D0;
+extern uint32_t dword_12F5D4;
+extern uint32_t dword_12F5D8;
+extern uint32_t off_12F618;
+extern uint32_t dword_12F61C;
+extern uint32_t dword_12F5DC;
+extern uint32_t off_12F5E0;
+extern uint32_t dword_12F5E4;
+extern uint32_t off_12F5E8;
+extern uint32_t dword_12F5EC;
+extern uint32_t dword_12F5F4;
+extern uint32_t off_12F5F0;
+extern uint32_t dword_12F5FC;
+extern uint32_t off_12F5F8;
+extern uint32_t dword_12F604;
+extern uint32_t off_12F600;
+extern uint32_t dword_12F60C;
+extern uint32_t off_12F608;
+extern uint32_t dword_12F614;
+extern uint32_t off_12F610;
+
 // sub_12F3BC @ 0x12f3bc, size 448 bytes
 int sub_12F3BC()
 {
@@ -15,7 +73,7 @@ int sub_12F3BC()
   int v11; // r6
   uint32_t *v12; // r5
   int v13; // r4
-  bool v15; // nf
+  int v15; // nf
   uint32_t **v16; // r3
 
   v0 = off_12F584;
@@ -115,7 +173,7 @@ LABEL_6:
   {
     sub_12ECB0(v11, *v10, v7);
     sub_12ECB0(dword_12F5EC, *v12);
-    v13 = (unsigned __int8)(v13 - 1);
+    v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
   sub_12ECB0(dword_12F5F4, *(uint32_t *)off_12F5F0);

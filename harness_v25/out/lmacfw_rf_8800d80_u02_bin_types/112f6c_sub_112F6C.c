@@ -1,10 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_113098;
+extern uint32_t off_1130A4;
+extern uint32_t dword_1130C0;
+extern uint32_t off_1130A0;
+extern uint32_t off_1130A8;
+extern uint32_t dword_1130AC;
+extern uint32_t off_11309C;
+extern uint32_t off_1130B0;
+extern uint32_t off_1130C8;
+extern uint32_t off_1130B4;
+extern uint32_t dword_1130B8;
+extern uint32_t dword_1130BC;
+extern uint32_t dword_1130C4;
+
 // sub_112F6C @ 0x112f6c, size 298 bytes
 // Doc: sub_1212F6C [unknown]: Unknown behavioral stub
 // sub_1212F6C [unknown]: Unknown behavioral stub
 void  sub_112F6C(int a1, int a2, int a3, int a4)
 {
   uint8_t *v4; // r5
-  unsigned __int16 *v5; // r2
+  uint16_t *v5; // r2
   int v6; // r1
   int v7; // r0
   uint32_t *v8; // r4
@@ -18,7 +44,7 @@ void  sub_112F6C(int a1, int a2, int a3, int a4)
   unsigned int v16; // r1
   int v17; // r0
   int v18; // r0
-  unsigned __int16 *v19; // r3
+  uint16_t *v19; // r3
   int v20; // r1
 
   v4 = off_113098;
@@ -29,9 +55,9 @@ void  sub_112F6C(int a1, int a2, int a3, int a4)
       v6 = dword_1130C0;
       goto LABEL_6;
     }
-    if ( *(unsigned __int8 *)off_1130A0 >= (unsigned int)*(unsigned __int16 *)off_1130A4 )
+    if ( *(uint8_t *)off_1130A0 >= (unsigned int)*(uint16_t *)off_1130A4 )
     {
-      v19 = (unsigned __int16 *)off_1130A8;
+      v19 = (uint16_t *)off_1130A8;
       v20 = dword_1130AC;
       *(uint8_t *)off_11309C = 1;
       sub_11F74C(512, v20, *v19, v19);
@@ -41,9 +67,9 @@ void  sub_112F6C(int a1, int a2, int a3, int a4)
   {
     if ( *(uint8_t *)off_11309C )
       return;
-    if ( *(unsigned __int8 *)off_1130A0 >= (unsigned int)*(unsigned __int16 *)off_1130A4 && !*(uint8_t *)off_11309C )
+    if ( *(uint8_t *)off_1130A0 >= (unsigned int)*(uint16_t *)off_1130A4 && !*(uint8_t *)off_11309C )
     {
-      v5 = (unsigned __int16 *)off_1130A8;
+      v5 = (uint16_t *)off_1130A8;
       *(uint8_t *)off_11309C = 1;
       v6 = dword_1130AC;
       a3 = *v5;

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10DC3C;
+extern uint32_t off_10DC34;
+extern uint32_t dword_10DC38;
+
 // rf_agc_check_nbf4 @ 0x10dbf4, size 64 bytes
 // Doc: rf_agc_check_nbf4 [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
 // rf_agc_check_nbf4 [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560

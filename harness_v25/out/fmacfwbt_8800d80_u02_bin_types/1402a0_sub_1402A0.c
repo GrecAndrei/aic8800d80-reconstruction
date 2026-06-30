@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1403C0;
+extern uint32_t off_1403BC;
+extern uint32_t dword_1403CC;
+extern uint32_t dword_1403C8;
+extern uint32_t off_1403D0;
+extern uint32_t dword_1403C4;
+
 // sub_1402A0 @ 0x1402a0, size 284 bytes
 // Doc: sub_12402A0 [bt]: Unidentified helper in BT firmware image
 // sub_12402A0 [bt]: Unidentified helper in BT firmware image
@@ -11,15 +30,15 @@ int  sub_1402A0(int result)
   char v6; // r3
   uint32_t *v7; // r8
   int v8; // r1
-  __int16 v9; // r2
-  bool v10; // nf
+  int16_t v9; // r2
+  int v10; // nf
   unsigned int v11; // r6
   char v12; // r3
   char v13; // r3
   int v14; // r0
   char v15; // r3
 
-  v1 = *(unsigned __int8 *)(result + 29);
+  v1 = *(uint8_t *)(result + 29);
   v2 = result;
   if ( v1 > 0x1F )
   {
@@ -29,7 +48,7 @@ int  sub_1402A0(int result)
   {
     v3 = dword_1403C0;
     v4 = *(uint32_t *)(dword_1403C0 + 696 * v1 + 340);
-    if ( **(__int16 **)off_1403BC < 0 && !v4 )
+    if ( **(int16_t **)off_1403BC < 0 && !v4 )
       sub_12F694(dword_1403CC, dword_1403C8, 2758);
     v5 = *(uint8_t *)(v4 + 166);
     if ( (*(uint32_t *)(v2 + 36) & 0x200000) != 0 && (*(uint8_t *)(v4 + 166) & 4) != 0 )

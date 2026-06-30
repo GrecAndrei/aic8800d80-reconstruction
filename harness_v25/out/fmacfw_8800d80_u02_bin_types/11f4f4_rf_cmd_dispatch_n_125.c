@@ -1,10 +1,47 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11F690;
+extern uint32_t off_11F694;
+extern uint32_t dword_11F698;
+extern uint32_t off_11F69C;
+extern uint32_t off_11F6A0;
+extern uint32_t off_11F6A4;
+extern uint32_t off_11F6A8;
+extern uint32_t off_11F6AC;
+extern uint32_t dword_11F6B0;
+extern uint32_t off_11F6B4;
+extern uint32_t off_11F6B8;
+extern uint32_t off_11F6BC;
+extern uint32_t off_11F6C0;
+extern uint32_t dword_11F6E4;
+extern uint32_t off_11F6C4;
+extern uint32_t off_11F6C8;
+extern uint32_t dword_11F6CC;
+extern uint32_t off_11F6D0;
+extern uint32_t off_11F6D8;
+extern uint32_t off_11F6D4;
+extern uint32_t dword_11F6EC;
+extern uint32_t dword_11F6E8;
+extern uint32_t off_11F6E0;
+extern uint32_t off_11F6DC;
+
 // rf_cmd_dispatch_n_125 @ 0x11f4f4, size 412 bytes
 // Doc: rf_cmd_dispatch_n_125 [rf]: Dispatch RF command by shifted index
 // rf_cmd_dispatch_n_125 [rf]: Dispatch RF command by shifted index
 int  rf_cmd_dispatch_n_125(int result)
 {
   int v1; // r4
-  bool *v2; // r2
+  int *v2; // r2
   unsigned int v3; // r1
   uint32_t *v4; // r3
   void *v5; // r2
@@ -37,8 +74,8 @@ int  rf_cmd_dispatch_n_125(int result)
     if ( (*(uint32_t *)off_11F690 & 0x2000000) != 0 || (result = *(uint32_t *)off_11F690 << 6, *((uint8_t *)off_11F694 + 36)) )
     {
       result = feature_guard_check(2, dword_11F698);
-      v2 = (bool *)off_11F69C;
-      v3 = *((unsigned __int8 *)off_11F69C + 1);
+      v2 = (int *)off_11F69C;
+      v3 = *((uint8_t *)off_11F69C + 1);
       *(uint32_t *)(v1 + 4) &= ~1u;
       *v2 = v3 > 1;
       if ( *((uint8_t *)off_11F6A0 + 190) )
@@ -49,7 +86,7 @@ int  rf_cmd_dispatch_n_125(int result)
           v4 = off_11F6A8;
           *(uint32_t *)off_11F6A8 &= ~1u;
           *v4 &= ~0x80u;
-          if ( *(unsigned __int8 *)(v1 + 128) > 9u )
+          if ( *(uint8_t *)(v1 + 128) > 9u )
           {
             v5 = off_11F690;
             v6 = off_11F6AC;
@@ -103,7 +140,7 @@ int  rf_cmd_dispatch_n_125(int result)
               }
             }
             v19 = off_11F6D8;
-            v20 = **(__int16 **)off_11F6D4;
+            v20 = **(int16_t **)off_11F6D4;
             v21 = *((uint32_t *)off_11F6D8 + 1) | 0x200;
             *((uint32_t *)off_11F6D8 + 1) = v21;
             if ( v20 < 0 )
@@ -118,7 +155,7 @@ int  rf_cmd_dispatch_n_125(int result)
             v23 = off_11F6E0;
             *(uint32_t *)off_11F6DC = v21 | *v19;
             *v22 = 48;
-            return sub_12B2B0(*(unsigned __int8 *)(v1 + 107), v23, v1);
+            return sub_12B2B0(*(uint8_t *)(v1 + 107), v23, v1);
           }
         }
       }

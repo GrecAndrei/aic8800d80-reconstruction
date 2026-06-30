@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12672C;
+extern uint32_t off_126734;
+extern uint32_t off_126730;
+extern uint32_t off_12673C;
+extern uint32_t off_126758;
+extern uint32_t dword_126748;
+extern uint32_t off_126738;
+extern uint32_t off_126740;
+extern uint32_t off_126744;
+extern uint32_t off_12674C;
+extern uint32_t off_126750;
+extern uint32_t off_126754;
+extern uint32_t dword_12675C;
+extern uint32_t off_126760;
+
 // sub_126588 @ 0x126588, size 418 bytes
 int sub_126588()
 {
@@ -46,7 +73,7 @@ int sub_126588()
   int v43; // r0
   uint32_t *v44; // r3
 
-  v0 = *(unsigned __int8 *)off_12672C;
+  v0 = *(uint8_t *)off_12672C;
   v1 = off_126734;
   *(uint16_t *)off_126730 = 0;
   if ( v0 )
@@ -54,7 +81,7 @@ int sub_126588()
     if ( *v1 == 2 )
     {
       v27 = off_12673C;
-      v28 = *(unsigned __int16 *)off_12673C;
+      v28 = *(uint16_t *)off_12673C;
       if ( *(uint16_t *)off_12673C )
       {
         v29 = sub_12754C(*(uint32_t *)off_126758);
@@ -87,10 +114,10 @@ int sub_126588()
   {
     v2 = off_126738;
     v3 = (char *)off_12673C;
-    v4 = *(unsigned __int8 *)off_126738 - 1;
+    v4 = *(uint8_t *)off_126738 - 1;
     v5 = (char *)off_12673C + 8 * v4;
     v6 = 8 * v4;
-    v7 = (unsigned __int8)v5[2];
+    v7 = (uint8_t)v5[2];
     if ( v5[2] )
     {
       v40 = sub_12754C(*(uint32_t *)off_126758);
@@ -117,8 +144,8 @@ int sub_126588()
     v18 = &v3[v6];
     v18[4] = sub_127B54(v16, HIDWORD(v16));
     v19 = sub_127B54(v17, HIDWORD(v17));
-    v20 = (unsigned __int8)*v2;
-    v21 = *(unsigned __int8 *)off_126744;
+    v20 = (uint8_t)*v2;
+    v21 = *(uint8_t *)off_126744;
     v18[3] = v19;
     v22 = dword_126748;
     if ( v20 == v21 )

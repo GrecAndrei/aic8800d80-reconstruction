@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_127FBC @ 0x127fbc, size 702 bytes
 int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
 {
@@ -9,7 +21,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
   int v10; // r12
   unsigned int v11; // r3
   unsigned int v12; // r0
-  bool v13; // cf
+  int v13; // cf
   unsigned int v14; // r3
   int v15; // r0
   unsigned int v16; // r4
@@ -67,7 +79,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
         v41 = (a1 >> (32 - v30)) | HIDWORD(a3);
         v42 = v40 / HIWORD(v38);
         v43 = HIWORD(v41) | ((v40 % HIWORD(v38)) << 16);
-        v44 = v42 * (unsigned __int16)v38;
+        v44 = v42 * (uint16_t)v38;
         v45 = (uint32_t)a3 << v30;
         v46 = a1 << v30;
         if ( v44 > v43 )
@@ -86,8 +98,8 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
         }
         v47 = v43 - v44;
         v48 = v47 / v39;
-        v49 = (unsigned __int16)v41 | ((v47 % v39) << 16);
-        v50 = v47 / v39 * (unsigned __int16)v38;
+        v49 = (uint16_t)v41 | ((v47 % v39) << 16);
+        v50 = v47 / v39 * (uint16_t)v38;
         if ( v50 > v49 )
         {
           v13 = __CFADD__(v38, v49);
@@ -113,7 +125,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
         }
         if ( a4 )
         {
-          *a4 = ((__PAIR64__(v51, v46) - v53) >> 32 << (32 - (unsigned __int8)v30)) | ((v46 - (unsigned int)v53) >> v30);
+          *a4 = ((__PAIR64__(v51, v46) - v53) >> 32 << (32 - (uint8_t)v30)) | ((v46 - (unsigned int)v53) >> v30);
           a4[1] = (unsigned int)((__PAIR64__(v51, v46) - v53) >> 32) >> v30;
         }
       }
@@ -161,9 +173,9 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
         v21 = HIWORD(v7);
         v31 = a2 >> (32 - v8);
         v32 = (a1 >> (32 - v8)) | (a2 << v8);
-        v22 = (unsigned __int16)v7;
+        v22 = (uint16_t)v7;
         v33 = HIWORD(v32) | ((v31 % HIWORD(v7)) << 16);
-        v34 = v31 / HIWORD(v7) * (unsigned __int16)v7;
+        v34 = v31 / HIWORD(v7) * (uint16_t)v7;
         v5 <<= v8;
         if ( v34 > v33 )
         {
@@ -173,8 +185,8 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
             v33 += v7;
         }
         v35 = v33 - v34;
-        v36 = (unsigned __int16)v32 | ((v35 % v21) << 16);
-        v37 = v35 / v21 * (unsigned __int16)v7;
+        v36 = (uint16_t)v32 | ((v35 % v21) << 16);
+        v37 = v35 / v21 * (uint16_t)v7;
         if ( v37 > v36 )
         {
           v13 = __CFADD__(v7, v36);
@@ -188,7 +200,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
       {
         v20 = a2 - v7;
         v21 = HIWORD(v7);
-        v22 = (unsigned __int16)v7;
+        v22 = (uint16_t)v7;
       }
       v23 = v20 / v21;
       v24 = HIWORD(v5) | ((v20 % v21) << 16);
@@ -209,7 +221,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
       }
       v26 = v24 - v25;
       v27 = v26 / v21;
-      v28 = (unsigned __int16)v5 | ((v26 % v21) << 16);
+      v28 = (uint16_t)v5 | ((v26 % v21) << 16);
       v29 = v22 * (v26 / v21);
       if ( v29 > v28 )
       {
@@ -240,7 +252,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
       v9 = HIWORD(v7);
       v10 = v6 / HIWORD(v7);
       v11 = HIWORD(v5) | ((v6 % HIWORD(v7)) << 16);
-      v12 = v10 * (unsigned __int16)v7;
+      v12 = v10 * (uint16_t)v7;
       if ( v12 > v11 )
       {
         v13 = __CFADD__(v7, v11);
@@ -257,8 +269,8 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, uint64_t a3, unsigned int *a4)
       }
       v14 = v11 - v12;
       v15 = v14 / v9;
-      v16 = (unsigned __int16)v5 | ((v14 % v9) << 16);
-      v17 = v14 / v9 * (unsigned __int16)v7;
+      v16 = (uint16_t)v5 | ((v14 % v9) << 16);
+      v17 = v14 / v9 * (uint16_t)v7;
       if ( v17 > v16 )
       {
         v13 = __CFADD__(v7, v16);

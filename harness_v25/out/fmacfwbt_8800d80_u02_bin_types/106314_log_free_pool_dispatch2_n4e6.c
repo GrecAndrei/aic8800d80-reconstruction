@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1063A8;
+extern uint32_t dword_1063AC;
+extern uint32_t off_1063B4;
+extern uint32_t off_1063B0;
+extern uint32_t dword_1063B8;
+
 // log_free_pool_dispatch2_n4e6 @ 0x106314, size 146 bytes
 // Doc: log_free_pool_dispatch2_n4e6 [util]: Returns via pop and dispatches log/free-pool branch on slot byte
 // log_free_pool_dispatch2_n4e6 [util]: Returns via pop and dispatches log/free-pool branch on slot byte

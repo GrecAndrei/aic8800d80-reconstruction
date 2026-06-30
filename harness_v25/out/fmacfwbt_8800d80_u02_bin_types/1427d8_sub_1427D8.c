@@ -1,11 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1427D8 @ 0x1427d8, size 630 bytes
 int  sub_1427D8(uint64_t a1, uint64_t a2)
 {
   int v2; // r4
   int v3; // r5
-  bool v4; // zf
+  int v4; // zf
   int v5; // r4
-  bool v6; // vf
+  int v6; // vf
   char v7; // cc
   int v8; // r5
   uint64_t v9; // r2
@@ -13,24 +25,24 @@ int  sub_1427D8(uint64_t a1, uint64_t a2)
   char v11; // lr
   unsigned int v12; // r12
   uint64_t v13; // r0
-  bool v14; // nf
+  int v14; // nf
   char v15; // r5
   int v16; // r3
-  BOOL1 v17; // off
-  BOOL1 v18; // cf
+  _BOOL1 v17; // off
+  _BOOL1 v18; // cf
   int v19; // off
   int v20; // r4
-  bool v21; // zf
+  int v21; // zf
   unsigned int v22; // r3
   int v23; // r3
-  bool v24; // cc
+  int v24; // cc
   int v25; // r2
   unsigned int v26; // r12
   int v27; // r4
   int v28; // r4
   char v29; // r4
-  bool v30; // zf
-  bool v31; // zf
+  int v30; // zf
+  int v31; // zf
 
   v2 = 2 * HIDWORD(a1);
   v3 = 2 * HIDWORD(a2);

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1103A4;
+extern uint32_t off_1103A8;
+extern uint32_t dword_1103AC;
+
 // sub_110370 @ 0x110370, size 52 bytes
 // Doc: sub_1210370 [util]: Trampoline stub with shifted register setup
 // sub_1210370 [util]: Trampoline stub with shifted register setup

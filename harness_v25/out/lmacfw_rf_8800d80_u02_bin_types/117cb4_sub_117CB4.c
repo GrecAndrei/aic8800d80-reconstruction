@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117D54;
+extern uint32_t dword_117D5C;
+extern uint32_t dword_117D58;
+extern uint32_t off_117D60;
+extern uint32_t off_117D64;
+extern uint32_t dword_117D68;
+
 // sub_117CB4 @ 0x117cb4, size 160 bytes
 // Doc: sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
 // sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply

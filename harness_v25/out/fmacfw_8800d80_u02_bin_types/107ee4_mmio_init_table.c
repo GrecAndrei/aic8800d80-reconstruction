@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_107F50;
+extern uint32_t dword_107F4C;
+
 // mmio_init_table @ 0x107ee4, size 104 bytes
 // Doc: mmio_init_table [mmio]: Loads MMIO base addresses and validates/checks init structure pointer
 // mmio_init_table [mmio]: Loads MMIO base addresses and validates/checks init structure pointer

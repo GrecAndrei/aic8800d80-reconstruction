@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11537C;
+extern uint32_t off_115380;
+extern uint32_t dword_115388;
+extern uint32_t dword_115384;
+
 // rf_subcmd_dispatch @ 0x11532c, size 80 bytes
 // Doc: rf_subcmd_dispatch [rf]: Dispatch on subcommand (cmp r0, 5)
 // rf_subcmd_dispatch [rf]: Dispatch on subcommand (cmp r0, 5)
@@ -21,7 +38,7 @@ int  rf_subcmd_dispatch(int result)
       *(uint32_t *)off_11537C = 32;
       break;
     default:
-      if ( **(__int16 **)off_115380 < 0 )
+      if ( **(int16_t **)off_115380 < 0 )
         result = rf_cmd_send_n264(dword_115388, dword_115384, 944);
       break;
   }

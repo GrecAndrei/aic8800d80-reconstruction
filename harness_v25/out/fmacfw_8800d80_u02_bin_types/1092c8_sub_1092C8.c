@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10933C;
+extern uint32_t off_109340;
+
 // sub_1092C8 @ 0x1092c8, size 114 bytes
 uint32_t * sub_1092C8(uint32_t *result, unsigned int *a2)
 {
@@ -11,12 +26,12 @@ uint32_t * sub_1092C8(uint32_t *result, unsigned int *a2)
 
   LOWORD(v2) = 50;
   do
-    v2 = (unsigned __int16)(v2 - 1);
+    v2 = (uint16_t)(v2 - 1);
   while ( v2 );
   *(uint32_t *)off_10933C = 2;
   LOWORD(v3) = 50;
   do
-    v3 = (unsigned __int16)(v3 - 1);
+    v3 = (uint16_t)(v3 - 1);
   while ( v3 );
   if ( (*(uint32_t *)off_109340 & 1) == 0 )
   {
@@ -24,13 +39,13 @@ uint32_t * sub_1092C8(uint32_t *result, unsigned int *a2)
     {
       LOWORD(v4) = 50;
       do
-        v4 = (unsigned __int16)(v4 - 1);
+        v4 = (uint16_t)(v4 - 1);
       while ( v4 );
       if ( (*(uint32_t *)off_109340 & 1) != 0 )
       {
         LOWORD(v5) = 50;
         do
-          v5 = (unsigned __int16)(v5 - 1);
+          v5 = (uint16_t)(v5 - 1);
         while ( v5 );
         if ( (*(uint32_t *)off_109340 & 1) != 0 )
           break;
@@ -42,7 +57,7 @@ uint32_t * sub_1092C8(uint32_t *result, unsigned int *a2)
   if ( *(int *)off_109340 < 0 )
     v7 = ~((unsigned int)~(v7 << 17) >> 17);
   *result = v7;
-  v8 = (unsigned __int16)v6 >> 1;
+  v8 = (uint16_t)v6 >> 1;
   if ( (v6 & 0x8000) != 0 )
     v8 = ~(~(v8 << 17) >> 17);
   *a2 = v8;

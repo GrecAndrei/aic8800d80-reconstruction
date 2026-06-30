@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BE98;
+extern uint32_t dword_13BE8C;
+extern uint32_t dword_13BE90;
+extern uint32_t dword_13BE94;
+
 // sub_13BE14 @ 0x13be14, size 120 bytes
 // Doc: sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
 // sub_123BE14 [unknown]: Unknown behavioral helper, likely init/state helper
@@ -20,9 +37,9 @@ int  sub_13BE14(int result)
   v6 = dword_13BE98 + 24;
   for ( i = 0; i != 32; ++i )
   {
-    v8 = *(unsigned __int16 *)(v2 + 2);
+    v8 = *(uint16_t *)(v2 + 2);
     v2 += 2;
-    if ( v8 && *(unsigned __int8 *)(v3 + 16) == v4 )
+    if ( v8 && *(uint8_t *)(v3 + 16) == v4 )
     {
       if ( i > 15 )
       {
@@ -34,8 +51,8 @@ int  sub_13BE14(int result)
         sub_12D2E8(v1, (uint32_t *)v3);
         list_push_tail(v5, (uint32_t *)v3);
       }
-      sub_12CD34((unsigned __int16)((uint16_t)i << 8) | 8, 4);
-      result = tx_build_frame_header(v4, (unsigned __int16)i);
+      sub_12CD34((uint16_t)((uint16_t)i << 8) | 8, 4);
+      result = tx_build_frame_header(v4, (uint16_t)i);
     }
     v3 += 32;
   }

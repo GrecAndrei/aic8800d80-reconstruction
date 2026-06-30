@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123730;
+extern uint32_t off_123734;
+extern uint32_t off_123738;
+
 // rf_chan_band_parse @ 0x1236fc, size 52 bytes
 // Doc: rf_chan_band_parse [rf]: Parse channel/band byte fields from descriptor
 // rf_chan_band_parse [rf]: Parse channel/band byte fields from descriptor
@@ -9,7 +25,7 @@ uint8_t * rf_chan_band_parse(uint8_t *result)
 
   if ( *result == 2 )
   {
-    if ( *(unsigned __int8 *)off_123730 == (unsigned __int8)result[1] )
+    if ( *(uint8_t *)off_123730 == (uint8_t)result[1] )
     {
       v1 = off_123734;
       v2 = result[3];

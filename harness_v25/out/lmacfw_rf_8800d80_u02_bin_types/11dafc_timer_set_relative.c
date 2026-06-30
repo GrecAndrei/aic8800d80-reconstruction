@@ -1,9 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DC48;
+extern uint32_t dword_11DC34;
+extern uint32_t dword_11DC3C;
+extern uint32_t dword_11DC38;
+extern uint32_t dword_11DC40;
+extern uint32_t off_11DC1C;
+extern uint32_t off_11DC4C;
+extern uint32_t off_11DC50;
+extern uint32_t dword_11DC24;
+extern uint32_t dword_11DC20;
+extern uint32_t dword_11DC44;
+extern uint32_t dword_11DC2C;
+extern uint32_t off_11DC28;
+extern uint32_t dword_11DC30;
+
 // timer_set_relative @ 0x11dafc, size 288 bytes
 // Doc: timer_set_relative [util]: Schedule a relative timer with callback and argument
 // timer_set_relative [util]: Schedule a relative timer with callback and argument
 int  timer_set_relative(int a1, int a2, unsigned int a3)
 {
-  __int16 **v3; // r11
+  int16_t **v3; // r11
   int *v7; // r8
   uint32_t *v8; // r10
   int v9; // r6
@@ -16,8 +43,8 @@ int  timer_set_relative(int a1, int a2, unsigned int a3)
   int v16; // r2
   int v17; // r0
 
-  v3 = (__int16 **)off_11DC48;
-  if ( **(__int16 **)off_11DC48 < 0 )
+  v3 = (int16_t **)off_11DC48;
+  if ( **(int16_t **)off_11DC48 < 0 )
   {
     if ( a3 )
     {
@@ -39,7 +66,7 @@ int  timer_set_relative(int a1, int a2, unsigned int a3)
   v9 = *((uint32_t *)off_11DC50 + 5);
   ++*(uint32_t *)off_11DC4C;
   if ( v9 )
-    v9 = *(unsigned __int16 *)(v9 + 4) == a1 && *(unsigned __int16 *)(v9 + 6) == a2;
+    v9 = *(uint16_t *)(v9 + 4) == a1 && *(uint16_t *)(v9 + 6) == a2;
   v10 = list_find_remove(dword_11DC24, dword_11DC20, a2 | (a1 << 16));
   if ( !v10 )
   {

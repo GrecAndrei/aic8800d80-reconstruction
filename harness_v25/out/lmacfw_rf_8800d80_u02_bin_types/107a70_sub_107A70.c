@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_107BD4;
+extern uint32_t dword_107BCC;
+extern uint32_t dword_107BD0;
+
 // sub_107A70 @ 0x107a70, size 348 bytes
 int  sub_107A70(int a1, int *a2, uint32_t *a3)
 {
@@ -21,7 +37,7 @@ int  sub_107A70(int a1, int *a2, uint32_t *a3)
   int v24; // r7
 
   v4 = a3[1] - 1;
-  v5 = *(QWORD *)(a1 + 36);
+  v5 = *(uint64_t *)(a1 + 36);
   v6 = *(uint32_t *)(a1 + 12);
   if ( *(uint32_t *)a1 < v4 && v6 <= 49 )
   {
@@ -34,8 +50,8 @@ int  sub_107A70(int a1, int *a2, uint32_t *a3)
 LABEL_8:
     HIDWORD(v11) = ((unsigned uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31);
     LODWORD(v11) = ((unsigned uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31);
-    v14 = *(QWORD *)(a1 + 20);
-    *(QWORD *)a2 = v11;
+    v14 = *(uint64_t *)(a1 + 20);
+    *(uint64_t *)a2 = v11;
     goto LABEL_9;
   }
   v9 = ((unsigned uint64_t)(dword_107BCC * (uint64_t)(int)v5) >> 32) - ((int)v5 >> 31);
@@ -51,7 +67,7 @@ LABEL_8:
       v19 = dword_107BCC * (uint64_t)v16;
       HIDWORD(v11) = 2 * (((unsigned uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31));
       LODWORD(v11) = ((unsigned uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31);
-      *(QWORD *)a2 = v11;
+      *(uint64_t *)a2 = v11;
       v14 = __PAIR64__(v18 + HIDWORD(v19) - (v16 >> 31), v17);
       goto LABEL_9;
     }
@@ -66,7 +82,7 @@ LABEL_8:
     LODWORD(v11) = 2 * (((unsigned uint64_t)(dword_107BCC * (uint64_t)*a2) >> 32) - (*a2 >> 31));
     v24 = ((unsigned uint64_t)(dword_107BCC * (uint64_t)v21) >> 32) - (v21 >> 31);
     HIDWORD(v11) = ((unsigned uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31);
-    *(QWORD *)a2 = v11;
+    *(uint64_t *)a2 = v11;
     v14 = __PAIR64__(v22, v23 + v24);
   }
   else
@@ -75,11 +91,11 @@ LABEL_8:
     HIDWORD(v11) = 2 * (((unsigned uint64_t)(dword_107BCC * (uint64_t)a2[1]) >> 32) - (a2[1] >> 31));
     v12 = *(uint32_t *)(a1 + 20) + *(uint32_t *)(a1 + 28);
     v13 = *(uint32_t *)(a1 + 32) + *(uint32_t *)(a1 + 24);
-    *(QWORD *)a2 = v11;
+    *(uint64_t *)a2 = v11;
     v14 = __PAIR64__(v13 / 2, v12 / 2);
   }
 LABEL_9:
-  *((QWORD *)a2 + 1) = v14;
+  *((uint64_t *)a2 + 1) = v14;
   return sub_11F74C(1, dword_107BD0, v11, HIDWORD(v11));
 }
 

@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_132A3C @ 0x132a3c, size 64 bytes
 int  sub_132A3C(int a1, int a2)
 {
@@ -21,7 +33,7 @@ int  sub_132A3C(int a1, int a2)
       v4 = (a2 >> v2) & 3;
     v7 = v4 << v2;
     v2 += 2;
-    v3 = (unsigned __int16)(v5 | v7);
+    v3 = (uint16_t)(v5 | v7);
   }
   while ( v2 != 16 );
   return v3;

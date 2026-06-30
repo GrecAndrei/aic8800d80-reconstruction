@@ -1,9 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12D1F8;
+extern uint32_t off_12D204;
+extern uint32_t dword_12D1FC;
+extern uint32_t off_12D200;
+extern uint32_t dword_12D208;
+extern uint32_t dword_12D20C;
+
 // sub_12D190 @ 0x12d190, size 104 bytes
 void sub_12D190()
 {
   unsigned int *v0; // r6
   unsigned int v1; // r4
-  __int16 **v2; // r8
+  int16_t **v2; // r8
   int v3; // r5
   void *v4; // r7
   int v5; // r10
@@ -15,7 +34,7 @@ void sub_12D190()
   v1 = *(uint32_t *)off_12D1F8;
   if ( *(uint32_t *)off_12D1F8 )
   {
-    v2 = (__int16 **)off_12D204;
+    v2 = (int16_t **)off_12D204;
     v3 = dword_12D1FC;
     v4 = off_12D200;
     v5 = dword_12D208;

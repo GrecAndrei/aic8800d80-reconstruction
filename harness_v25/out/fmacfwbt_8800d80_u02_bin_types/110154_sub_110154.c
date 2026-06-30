@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11018C;
+extern uint32_t dword_110194;
+
 // sub_110154 @ 0x110154, size 54 bytes
 // Doc: log_free_dispatch_n31e [util]: Dispatch log buffer free and load next entry header
 // log_free_dispatch_n31e [util]: Dispatch log buffer free and load next entry header

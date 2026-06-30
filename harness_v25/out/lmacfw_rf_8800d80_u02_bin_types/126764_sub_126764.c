@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_126848;
+extern uint32_t dword_126868;
+extern uint32_t off_126858;
+extern uint32_t off_126854;
+extern uint32_t dword_12684C;
+extern uint32_t dword_126850;
+extern uint32_t off_12685C;
+extern uint32_t off_126860;
+extern uint32_t off_126864;
+
 // sub_126764 @ 0x126764, size 226 bytes
 uint32_t * sub_126764(int a1)
 {
@@ -15,12 +37,12 @@ uint32_t * sub_126764(int a1)
   uint32_t *v13; // r1
   uint32_t *v14; // r4
   uint32_t *v15; // r3
-  QWORD *v16; // r5
+  uint64_t *v16; // r5
   int v17; // r2
   uint32_t *v18; // r2
   uint32_t *v19; // r1
   uint32_t *v20; // r4
-  QWORD *v21; // r5
+  uint64_t *v21; // r5
   uint64_t v22; // [sp+8h] [bp-38h] BYREF
   int v23; // [sp+10h] [bp-30h]
   int v24; // [sp+14h] [bp-2Ch]
@@ -34,7 +56,7 @@ uint32_t * sub_126764(int a1)
   int v32; // [sp+34h] [bp-Ch]
   int v33; // [sp+38h] [bp-8h]
   int v34; // [sp+3Ch] [bp-4h]
-  QWORD vars0[2]; // [sp+40h] [bp+0h] BYREF
+  uint64_t vars0[2]; // [sp+40h] [bp+0h] BYREF
 
   v2 = *(uint32_t *)(dword_126848 + 4);
   v3 = *(uint32_t *)(dword_126848 + 8);

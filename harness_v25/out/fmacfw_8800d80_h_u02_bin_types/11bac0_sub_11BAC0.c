@@ -1,9 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11BC38;
+extern uint32_t dword_11BC40;
+extern uint32_t dword_11BC3C;
+extern uint32_t dword_11BC44;
+
 // sub_11BAC0 @ 0x11bac0, size 374 bytes
-unsigned __int8 * sub_11BAC0(unsigned __int8 *result)
+uint8_t * sub_11BAC0(uint8_t *result)
 {
   unsigned int v1; // r4
   int v2; // r5
-  unsigned __int8 *v3; // r1
+  uint8_t *v3; // r1
   int v4; // r6
   int v5; // r11
   char v6; // lr
@@ -39,9 +56,9 @@ unsigned __int8 * sub_11BAC0(unsigned __int8 *result)
         if ( (*(uint32_t *)(v2 + 4) & 0x20) != 0 )
         {
           sub_100200(v25, v1, 0x10u);
-          v3 = (unsigned __int8 *)dword_11BC40;
+          v3 = (uint8_t *)dword_11BC40;
           v23 = v1;
-          v4 = 36 * *(unsigned __int8 *)(v2 + 35) + 8244 + dword_11BC3C;
+          v4 = 36 * *(uint8_t *)(v2 + 35) + 8244 + dword_11BC3C;
           v5 = dword_11BC40 + 8;
           v6 = v1;
           v7 = v1;
@@ -57,26 +74,26 @@ unsigned __int8 * sub_11BAC0(unsigned __int8 *result)
               v12 = 8323072;
             if ( v10 )
             {
-              v13 = *(unsigned __int8 *)(dword_11BC44 + *v3);
+              v13 = *(uint8_t *)(dword_11BC44 + *v3);
               v14 = &v25[v13 + 4];
               v15 = *(v14 - 4) + v12;
               if ( v15 > v8 )
               {
                 v8 = *(v14 - 4) + v12;
-                v23 = *(unsigned __int8 *)(dword_11BC44 + *v3);
+                v23 = *(uint8_t *)(dword_11BC44 + *v3);
               }
-              v1 = (unsigned __int8)(v1 + 1);
+              v1 = (uint8_t)(v1 + 1);
               v9 += v12;
               *(v14 - 4) = v15;
               if ( ((v7 >> v13) & 1) == 0 )
               {
-                v7 = (unsigned __int8)(v7 | (1 << v13));
+                v7 = (uint8_t)(v7 | (1 << v13));
                 ++v6;
               }
             }
             ++v3;
           }
-          while ( (unsigned __int8 *)v5 != v3 );
+          while ( (uint8_t *)v5 != v3 );
           if ( v1 == 8 )
           {
             v16 = 3072;
@@ -84,15 +101,15 @@ unsigned __int8 * sub_11BAC0(unsigned __int8 *result)
           }
           else
           {
-            v16 = (unsigned __int8)(v1 - v6) << 10;
+            v16 = (uint8_t)(v1 - v6) << 10;
             v17 = v7 << 6;
           }
           if ( v9 > 0xFD0 )
           {
             if ( v9 <= 0xFD00 )
             {
-              v18 = (unsigned __int8)((unsigned __int16)(v9 + 255) >> 8);
-              v19 = (unsigned __int8)((unsigned __int16)(v8 + 255) >> 8);
+              v18 = (uint8_t)((uint16_t)(v9 + 255) >> 8);
+              v19 = (uint8_t)((uint16_t)(v8 + 255) >> 8);
               v20 = 0x4000;
             }
             else if ( v9 > 0x7E800 )
@@ -105,25 +122,25 @@ unsigned __int8 * sub_11BAC0(unsigned __int8 *result)
                 v22 = 8355839;
               else
                 v22 = v9 + 0x7FFF;
-              v18 = (unsigned __int8)(v22 >> 15);
-              v19 = (unsigned __int8)(v21 >> 15);
+              v18 = (uint8_t)(v22 >> 15);
+              v19 = (uint8_t)(v21 >> 15);
               v20 = 49152;
             }
             else
             {
-              v18 = (unsigned __int8)((v9 + 2047) >> 11);
-              v19 = (unsigned __int8)((v8 + 2047) >> 11);
+              v18 = (uint8_t)((v9 + 2047) >> 11);
+              v19 = (uint8_t)((v8 + 2047) >> 11);
               v20 = 0x8000;
             }
           }
           else
           {
-            v18 = (unsigned __int8)((v9 + 15) >> 4);
-            v19 = (unsigned __int8)((v8 + 15) >> 4);
+            v18 = (uint8_t)((v9 + 15) >> 4);
+            v19 = (uint8_t)((v8 + 15) >> 4);
             v20 = 0;
           }
           *(uint32_t *)(dword_11BC38 + 696 * v24 + 580) = (v18 << 24) | (v23 << 12) | v17 | v16 | v20 | (v19 << 16) | 0xF;
-          return (unsigned __int8 *)v24;
+          return (uint8_t *)v24;
         }
       }
     }

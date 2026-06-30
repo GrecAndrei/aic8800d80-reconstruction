@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13E090 @ 0x13e090, size 160 bytes
 int  sub_13E090(int result, int a2)
 {
@@ -15,7 +27,7 @@ int  sub_13E090(int result, int a2)
 
   if ( *(uint16_t *)(result + 184) )
   {
-    v2 = (unsigned __int16)(*(uint16_t *)(result + 184) - 1);
+    v2 = (uint16_t)(*(uint16_t *)(result + 184) - 1);
     v4 = result + 16;
     if ( v2 > 1 )
     {
@@ -36,23 +48,23 @@ int  sub_13E090(int result, int a2)
             HIDWORD(v10) = v11;
             if ( (unsigned int)v10 > v11 || !v10 && !*(uint8_t *)(v8 + 9) && *(uint8_t *)(v8 + 21) == 1 )
               break;
-            v6 = (unsigned __int16)++v5;
+            v6 = (uint16_t)++v5;
             v8 += 12;
-            if ( (unsigned __int16)v5 >= v2 )
+            if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
           sub_143764(v13, v8);
           sub_143764(v8, v8 + 12);
           result = sub_143764(v8 + 12, v13);
           ++v5;
-          v12 = *(QWORD *)(v7 - 1);
+          v12 = *(uint64_t *)(v7 - 1);
           v9 = v6;
-          v6 = (unsigned __int16)v5;
+          v6 = (uint16_t)v5;
           *(v7 - 1) = HIDWORD(v12);
           *v7 = v12;
           v8 += 12;
         }
-        while ( (unsigned __int16)v5 < v2 );
+        while ( (uint16_t)v5 < v2 );
 LABEL_10:
         if ( !v9 )
           break;

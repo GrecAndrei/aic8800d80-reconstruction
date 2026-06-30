@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11A298;
+extern uint32_t off_11A294;
+extern uint32_t dword_11A2A0;
+extern uint32_t dword_11A2B0;
+extern uint32_t dword_11A29C;
+extern uint32_t dword_11A2A4;
+extern uint32_t dword_11A2A8;
+extern uint32_t dword_11A2AC;
+
 // sub_11A18C @ 0x11a18c, size 264 bytes
 int *sub_11A18C()
 {
@@ -21,8 +42,8 @@ int *sub_11A18C()
   v0 = off_11A298;
   if ( *(uint32_t *)off_11A298 != *(uint32_t *)off_11A294 )
   {
-    v1 = *(QWORD *)((char *)off_11A294 + 4);
-    v2 = *(QWORD *)((char *)off_11A294 + 12);
+    v1 = *(uint64_t *)((char *)off_11A294 + 4);
+    v2 = *(uint64_t *)((char *)off_11A294 + 12);
     *(uint32_t *)off_11A298 = *(uint32_t *)off_11A294;
     v0[1] = v1;
     v0[2] = HIDWORD(v1);

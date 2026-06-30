@@ -1,11 +1,41 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121528;
+extern uint32_t off_121500;
+extern uint32_t dword_121520;
+extern uint32_t off_1214FC;
+extern uint32_t off_1214F0;
+extern uint32_t dword_121508;
+extern uint32_t dword_121504;
+extern uint32_t dword_1214F4;
+extern uint32_t dword_1214F8;
+extern uint32_t off_12150C;
+extern uint32_t off_121510;
+extern uint32_t off_121514;
+extern uint32_t off_121518;
+extern uint32_t off_121524;
+extern uint32_t dword_121530;
+extern uint32_t dword_12152C;
+extern uint32_t off_12151C;
+
 // sub_1212D8 @ 0x1212d8, size 534 bytes
-int  sub_1212D8(unsigned __int8 *a1)
+int  sub_1212D8(uint8_t *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
   int v4; // r6
   uint32_t *v5; // r2
-  unsigned __int16 *v6; // r7
+  uint16_t *v6; // r7
   uint32_t *v7; // r3
   uint8_t *v8; // r3
   uint32_t *v9; // r3
@@ -13,7 +43,7 @@ int  sub_1212D8(unsigned __int8 *a1)
   int v11; // r1
   uint32_t *v12; // r3
   uint32_t *v13; // r2
-  unsigned __int8 v15; // r6
+  uint8_t v15; // r6
   uint32_t *v16; // r2
   int v17; // r1
   uint32_t *v18; // r3
@@ -30,7 +60,7 @@ int  sub_1212D8(unsigned __int8 *a1)
     if ( a1[40] == 5 )
     {
       v23 = HIBYTE(*(uint32_t *)off_121528) - 3 + *a1 + 2 * v2;
-      v4 = (unsigned __int8)v23;
+      v4 = (uint8_t)v23;
       sub_11FEF8(a1, v23);
       return v4;
     }
@@ -39,19 +69,19 @@ int  sub_1212D8(unsigned __int8 *a1)
     v17 = dword_121520;
     *(uint32_t *)off_1214FC = -1;
     *v16 = -1;
-    v4 = (unsigned __int8)(v15 + 4 * v2);
+    v4 = (uint8_t)(v15 + 4 * v2);
     sub_12EB90(256, v17);
     sub_11FEF8(a1, v4);
   }
   else
   {
-    if ( **(__int16 **)off_1214F0 < 0 && v1 > 0x23 )
+    if ( **(int16_t **)off_1214F0 < 0 && v1 > 0x23 )
       sub_12F32C(dword_121508, dword_121504, 1424);
-    v4 = (unsigned __int8)(v1 + 16);
+    v4 = (uint8_t)(v1 + 16);
     sub_12EB90(256, dword_1214F4);
     sub_11F158((int)a1, v1 + 16);
     v5 = off_121500;
-    v6 = (unsigned __int16 *)(dword_1214F8 + 696 * v1);
+    v6 = (uint16_t *)(dword_1214F8 + 696 * v1);
     *(uint32_t *)off_1214FC = v6[19] | (v6[20] << 16);
     *v5 = v6[21];
   }
@@ -134,7 +164,7 @@ LABEL_20:
       v20[3] = *((uint32_t *)a1 + 9);
       break;
     default:
-      if ( **(__int16 **)off_1214F0 < 0 )
+      if ( **(int16_t **)off_1214F0 < 0 )
         sub_12F32C(dword_121530, dword_12152C, 159);
       v10 = 0;
       v11 = 4096;

@@ -1,7 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13181C;
+
 // sub_131764 @ 0x131764, size 182 bytes
 // Doc: sub_1231764 [bt]: BT frame parser pulling header bytes from buffer
 // sub_1231764 [bt]: BT frame parser pulling header bytes from buffer
-int  sub_131764(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
+int  sub_131764(int a1, uint8_t *a2, int16_t a3, int16_t a4)
 {
   int v5; // r5
   int v6; // r8
@@ -31,7 +45,7 @@ int  sub_131764(int a1, unsigned __int8 *a2, __int16 a3, __int16 a4)
   else
     v9 = *(uint8_t *)(dword_13181C + 696 * v5 + 53) & 0xFB;
   v10 = dword_13181C + 696 * v5;
-  v11 = *(unsigned __int8 *)(v10 + 310);
+  v11 = *(uint8_t *)(v10 + 310);
   *(uint8_t *)(v10 + 53) = v9;
   if ( v11 == 15 )
   {

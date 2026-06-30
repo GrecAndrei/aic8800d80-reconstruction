@@ -1,3 +1,61 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F35C;
+extern uint32_t off_12F3F8;
+extern uint32_t off_12F360;
+extern uint32_t off_12F364;
+extern uint32_t off_12F3FC;
+extern uint32_t off_12F400;
+extern uint32_t off_12F368;
+extern uint32_t dword_12F358;
+extern uint32_t off_12F354;
+extern uint32_t dword_12F370;
+extern uint32_t off_12F36C;
+extern uint32_t dword_12F374;
+extern uint32_t dword_12F378;
+extern uint32_t dword_12F37C;
+extern uint32_t dword_12F380;
+extern uint32_t dword_12F384;
+extern uint32_t dword_12F388;
+extern uint32_t dword_12F39C;
+extern uint32_t off_12F38C;
+extern uint32_t off_12F390;
+extern uint32_t off_12F394;
+extern uint32_t off_12F398;
+extern uint32_t off_12F404;
+extern uint32_t dword_12F3A0;
+extern uint32_t dword_12F3A4;
+extern uint32_t dword_12F3A8;
+extern uint32_t dword_12F3AC;
+extern uint32_t dword_12F3B0;
+extern uint32_t off_12F3F0;
+extern uint32_t dword_12F3F4;
+extern uint32_t dword_12F3B4;
+extern uint32_t off_12F3B8;
+extern uint32_t dword_12F3BC;
+extern uint32_t off_12F3C0;
+extern uint32_t dword_12F3C4;
+extern uint32_t dword_12F3CC;
+extern uint32_t off_12F3C8;
+extern uint32_t dword_12F3D4;
+extern uint32_t off_12F3D0;
+extern uint32_t dword_12F3DC;
+extern uint32_t off_12F3D8;
+extern uint32_t dword_12F3E4;
+extern uint32_t off_12F3E0;
+extern uint32_t dword_12F3EC;
+extern uint32_t off_12F3E8;
+
 // sub_12F180 @ 0x12f180, size 468 bytes
 // Doc: fmac_init_subsystems [mac]: Initializes FMAC subsystem registers and pointers
 // fmac_init_subsystems [mac]: Initializes FMAC subsystem registers and pointers
@@ -17,7 +75,7 @@ int sub_12F180()
   int v11; // r6
   uint32_t *v12; // r5
   int v13; // r4
-  bool v15; // nf
+  int v15; // nf
   uint32_t **v16; // r3
 
   v0 = off_12F35C;
@@ -117,7 +175,7 @@ LABEL_6:
   {
     msg_parse(v11, *v10, v7);
     msg_parse(dword_12F3C4, *v12);
-    v13 = (unsigned __int8)(v13 - 1);
+    v13 = (uint8_t)(v13 - 1);
   }
   while ( v13 );
   msg_parse(dword_12F3CC, *(uint32_t *)off_12F3C8);

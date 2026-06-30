@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115304;
+extern uint32_t dword_115308;
+extern uint32_t dword_11530C;
+extern uint32_t dword_115328;
+extern uint32_t dword_115314;
+extern uint32_t dword_115318;
+extern uint32_t dword_11531C;
+extern uint32_t dword_11534C;
+
 // sub_11512C @ 0x11512c, size 464 bytes
 // Doc: patch_apply_n384 [patch]: Decodes patch bitfield bits and dispatches patch install with config
 // patch_apply_n384 [patch]: Decodes patch bitfield bits and dispatches patch install with config
@@ -49,7 +70,7 @@ int sub_11512C()
   {
     sub_10DC24(
       patch_apply_n490,
-      (unsigned __int8)v6[10],
+      (uint8_t)v6[10],
       v7 & 1,
       (v7 >> 1) & 1,
       (v7 >> 3) & 1,

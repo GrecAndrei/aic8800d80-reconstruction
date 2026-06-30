@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_128E84;
+extern uint32_t off_128E88;
+extern uint32_t off_128E80;
+extern uint32_t off_128E8C;
+extern uint32_t off_128E98;
+extern uint32_t off_128E94;
+extern uint32_t dword_128E9C;
+extern uint32_t off_128E90;
+
 // rf_chan_state_check @ 0x128dc4, size 186 bytes
 // Doc: rf_chan_state_check [rf]: Check RF channel/state flags against expected value
 // rf_chan_state_check [rf]: Check RF channel/state flags against expected value
@@ -38,7 +59,7 @@ LABEL_18:
     v5 = off_128E98;
     v6 = *(uint32_t *)off_128E94;
     *((uint32_t *)v1 + 5) = a1;
-    v7 = *(unsigned __int16 *)(v6 + 54);
+    v7 = *(uint16_t *)(v6 + 54);
     v8 = dword_128E9C;
     v1[29] = 1;
     timestamp_update(v8, v7 + v5[4]);

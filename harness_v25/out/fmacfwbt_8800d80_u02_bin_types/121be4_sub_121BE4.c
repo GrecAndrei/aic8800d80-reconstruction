@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121CB8;
+extern uint32_t off_121CBC;
+extern uint32_t off_121CC0;
+extern uint32_t off_121CC4;
+extern uint32_t off_121CC8;
+extern uint32_t off_121CCC;
+extern uint32_t dword_121CD0;
+
 // sub_121BE4 @ 0x121be4, size 212 bytes
 // Doc: sub_1221BE4 [unknown]: checks flag byte against MMIO address 0x190390, branches on state
 // sub_1221BE4 [unknown]: checks flag byte against MMIO address 0x190390, branches on state
@@ -27,7 +47,7 @@ int  sub_121BE4(int a1)
   {
     if ( !a1 )
       return 0;
-    v2 = (unsigned __int16)*(uint32_t *)off_121CBC << 10;
+    v2 = (uint16_t)*(uint32_t *)off_121CBC << 10;
     *((uint8_t *)off_121CB8 + 48) = 1;
     v3 = abs32(a1);
     if ( a1 <= 0 )

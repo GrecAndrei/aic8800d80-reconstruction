@@ -1,3 +1,63 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12128C;
+extern uint32_t off_121214;
+extern uint32_t off_121290;
+extern uint32_t off_121218;
+extern uint32_t off_12121C;
+extern uint32_t off_121294;
+extern uint32_t off_121220;
+extern uint32_t off_121224;
+extern uint32_t dword_12124C;
+extern uint32_t off_121230;
+extern uint32_t off_12125C;
+extern uint32_t dword_121264;
+extern uint32_t dword_121260;
+extern uint32_t dword_121250;
+extern uint32_t off_121254;
+extern uint32_t dword_12126C;
+extern uint32_t off_121238;
+extern uint32_t dword_12123C;
+extern uint32_t dword_121288;
+extern uint32_t dword_121280;
+extern uint32_t off_121240;
+extern uint32_t off_121284;
+extern uint32_t dword_1213B4;
+extern uint32_t off_1213B0;
+extern uint32_t off_1213BC;
+extern uint32_t off_1213B8;
+extern uint32_t off_121248;
+extern uint32_t off_121244;
+extern uint32_t off_1213CC;
+extern uint32_t off_1213E8;
+extern uint32_t off_1213C0;
+extern uint32_t dword_1213DC;
+extern uint32_t off_1213D4;
+extern uint32_t off_1213D0;
+extern uint32_t dword_1213E4;
+extern uint32_t off_1213D8;
+extern uint32_t off_1213C4;
+extern uint32_t off_1213C8;
+extern uint32_t off_121228;
+extern uint32_t dword_12122C;
+extern uint32_t dword_121234;
+extern uint32_t dword_121278;
+extern uint32_t dword_121274;
+extern uint32_t dword_12127C;
+extern uint32_t dword_121270;
+extern uint32_t dword_121268;
+extern uint32_t dword_121258;
+
 // sub_120F08 @ 0x120f08, size 1192 bytes
 int sub_120F08()
 {
@@ -21,11 +81,11 @@ int sub_120F08()
   int v17; // r1
   int v18; // r3
   char v19; // r5
-  unsigned __int8 **v20; // r7
-  unsigned __int8 *v21; // r1
+  uint8_t **v20; // r7
+  uint8_t *v21; // r1
   uint32_t *v22; // r3
   int v23; // r3
-  __int16 **v24; // r1
+  int16_t **v24; // r1
   int v25; // r3
   int v26; // r2
   int v27; // r3
@@ -58,7 +118,7 @@ int sub_120F08()
   {
     v3 = off_121214;
     v4 = off_121290;
-    v5 = *((unsigned __int8 *)off_121214 + 30);
+    v5 = *((uint8_t *)off_121214 + 30);
 LABEL_3:
     v6 = off_121218;
     v7 = off_12121C;
@@ -72,7 +132,7 @@ LABEL_3:
         v9 = *(uint32_t *)off_121220;
         *(uint32_t *)off_121224 = 0x80000000;
         if ( *(uint32_t *)(v9 + 4) + *(uint32_t *)(v1 + 120) - v4[4] < 0
-          && !fmacfwbt_phy_chan_init(*(unsigned __int8 *)(v1 + 116), 0, 0) )
+          && !fmacfwbt_phy_chan_init(*(uint8_t *)(v1 + 116), 0, 0) )
         {
           *(uint32_t *)(v1 + 120) = v4[4];
         }
@@ -82,7 +142,7 @@ LABEL_3:
       if ( (v5 & 4) != 0 )
       {
         feature_guard_sdio(2, dword_12124C);
-        v24 = (__int16 **)off_121230;
+        v24 = (int16_t **)off_121230;
         v25 = *((uint32_t *)v3 + 1);
         *v6 &= ~4u;
         v26 = **v24;
@@ -95,7 +155,7 @@ LABEL_3:
         }
         v28 = dword_121250;
         *(uint32_t *)off_121254 = v27 | *(uint32_t *)v3;
-        rf_table_lookup_n528(*(unsigned __int8 *)(v1 + 107), v28, v1);
+        rf_table_lookup_n528(*(uint8_t *)(v1 + 107), v28, v1);
         v29 = *((uint8_t *)v3 + 30);
         *v7 &= 0xFC0FFFFF;
         v5 = v29 & 0xFB;
@@ -152,7 +212,7 @@ LABEL_20:
             *(uint32_t *)off_1213B0 = 1;
             feature_guard_sdio(2, v33);
             v34 = off_1213BC;
-            *(uint8_t *)off_1213B8 = *((unsigned __int8 *)off_1213B8 + 1) > 1u;
+            *(uint8_t *)off_1213B8 = *((uint8_t *)off_1213B8 + 1) > 1u;
             *v34 = 1;
           }
         }
@@ -160,7 +220,7 @@ LABEL_20:
         {
           *(uint8_t *)off_121240 = *((uint8_t *)off_121240 + 1);
         }
-        v20 = (unsigned __int8 **)off_121248;
+        v20 = (uint8_t **)off_121248;
         *(uint32_t *)off_121244 &= ~0x200u;
         *(uint32_t *)(v1 + 4) &= ~1u;
         result = timestamp_remove_058(v1 + 48);
@@ -234,7 +294,7 @@ LABEL_20:
         {
           result = timestamp_update_4f60(
                      v1 + 24,
-                     v4[4] + 32 * *(uint32_t *)off_1213C4 - *((unsigned __int16 *)off_1213C8 + 93));
+                     v4[4] + 32 * *(uint32_t *)off_1213C4 - *((uint16_t *)off_1213C8 + 93));
           v23 = **v20;
         }
         if ( v23 == 2 )
@@ -253,13 +313,13 @@ LABEL_20:
       v11 = HIWORD(*(uint32_t *)off_121228);
       if ( (v11 & 0x3F0) != 0 )
       {
-        v12 = (unsigned __int8)(v11 - 16);
+        v12 = (uint8_t)(v11 - 16);
         v13 = dword_12122C + 696 * v12;
         if ( *(uint8_t *)(v13 + 37) )
         {
           result = 1320;
-          v14 = dword_121234 + 1320 * *(unsigned __int8 *)(v13 + 34);
-          if ( **(__int16 **)off_121230 >= 0 || v1 == v14 )
+          v14 = dword_121234 + 1320 * *(uint8_t *)(v13 + 34);
+          if ( **(int16_t **)off_121230 >= 0 || v1 == v14 )
           {
             if ( (*v7 & 0x70000) == 0 )
               goto LABEL_43;
@@ -274,7 +334,7 @@ LABEL_43:
               v46[1] = (*(uint32_t *)off_121228 >> 30) & 1;
               feature_guard_sdio(2, dword_12127C);
               result = v46[0];
-              if ( *(QWORD *)v46 )
+              if ( *(uint64_t *)v46 )
               {
                 result = sub_1293A0(v46[0], v46[1], v14);
                 v30 = off_121228;
@@ -286,7 +346,7 @@ LABEL_43:
         }
         else
         {
-          result = sub_12ECB0(dword_121270, v12, *(unsigned __int8 *)(v13 + 37));
+          result = sub_12ECB0(dword_121270, v12, *(uint8_t *)(v13 + 37));
         }
       }
       else

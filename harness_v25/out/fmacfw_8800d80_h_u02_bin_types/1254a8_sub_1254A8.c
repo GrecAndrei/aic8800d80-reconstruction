@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1255E4;
+extern uint32_t dword_1255F0;
+extern uint32_t off_1255E8;
+extern uint32_t off_1255EC;
+
 // sub_1254A8 @ 0x1254a8, size 316 bytes
 int  sub_1254A8(int a1)
 {
@@ -7,7 +24,7 @@ int  sub_1254A8(int a1)
   int v5; // r6
   int v6; // r0
   int v7; // r1
-  __int16 v8; // r3
+  int16_t v8; // r3
   int v9; // r3
   int v10; // r9
   char v11; // r7
@@ -21,17 +38,17 @@ int  sub_1254A8(int a1)
   uint8_t *v19; // r0
 
   v1 = *(uint32_t *)(a1 + 192);
-  v2 = (uint8_t *)(dword_1255E4 + 8 * *(unsigned __int8 *)(a1 + 107));
+  v2 = (uint8_t *)(dword_1255E4 + 8 * *(uint8_t *)(a1 + 107));
   v4 = v2[4];
   v5 = a1 + 116;
   v6 = sub_124FB4(a1);
-  *(uint32_t *)(v1 + 36) = *(unsigned __int16 *)(v6 + 216) + *(unsigned __int16 *)(v6 + 218) + 4;
+  *(uint32_t *)(v1 + 36) = *(uint16_t *)(v6 + 216) + *(uint16_t *)(v6 + 218) + 4;
   if ( *(uint8_t *)(v6 + 1224) )
   {
-    v15 = sub_12AA40(*(unsigned __int8 *)(v6 + 1225));
+    v15 = sub_12AA40(*(uint8_t *)(v6 + 1225));
     if ( v15 )
     {
-      v16 = dword_1255F0 + 20 * *(unsigned __int8 *)(a1 + 107);
+      v16 = dword_1255F0 + 20 * *(uint8_t *)(a1 + 107);
       v17 = *(uint32_t *)(v16 + 8);
       *(uint32_t *)(v1 + 36) += v15;
       *(uint32_t *)(v16 + 12) = v15 + v17 - 1;
@@ -41,9 +58,9 @@ int  sub_1254A8(int a1)
   v8 = *((uint16_t *)off_1255E8 + 254) + 1;
   *((uint16_t *)off_1255E8 + 254) = v8;
   *(uint16_t *)(v7 + 22) = 16 * v8;
-  v9 = *(unsigned __int8 *)(a1 + 227);
+  v9 = *(uint8_t *)(a1 + 227);
   v2[2] = v9;
-  v10 = *(unsigned __int8 *)(a1 + 230);
+  v10 = *(uint8_t *)(a1 + 230);
   if ( v9 )
   {
     v10 &= 2u;
@@ -73,19 +90,19 @@ int  sub_1254A8(int a1)
     *(uint8_t *)(a1 + 227) = v2[3];
   }
   v2[4] = v11;
-  v12 = *(unsigned __int8 *)(a1 + 231);
+  v12 = *(uint8_t *)(a1 + 231);
   --*(uint8_t *)(a1 + 227);
   if ( v12 )
   {
-    v13 = *(unsigned __int8 *)(a1 + 232);
-    v14 = (unsigned __int8)(v12 - 1);
+    v13 = *(uint8_t *)(a1 + 232);
+    v14 = (uint8_t)(v12 - 1);
     *(uint8_t *)(a1 + 231) = v14;
     if ( v13 )
     {
       *(uint8_t *)(*(uint32_t *)(v1 + 28) + v13) = v14;
       if ( *(uint8_t *)(a1 + 233) )
-        *(uint8_t *)(*(uint32_t *)(v1 + 28) + *(unsigned __int8 *)(a1 + 233)) = *(uint8_t *)(a1 + 231);
-      v14 = *(unsigned __int8 *)(a1 + 231);
+        *(uint8_t *)(*(uint32_t *)(v1 + 28) + *(uint8_t *)(a1 + 233)) = *(uint8_t *)(a1 + 231);
+      v14 = *(uint8_t *)(a1 + 231);
     }
     if ( !v14
       || (v18 = *(uint8_t *)(a1 + 107),

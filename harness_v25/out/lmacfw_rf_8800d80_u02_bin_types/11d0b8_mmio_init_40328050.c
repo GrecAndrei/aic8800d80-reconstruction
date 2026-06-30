@@ -1,3 +1,43 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D2B0;
+extern uint32_t off_11D2B8;
+extern uint32_t off_11D2B4;
+extern uint32_t dword_11D2BC;
+extern uint32_t off_11D2C0;
+extern uint32_t off_11D2C4;
+extern uint32_t off_11D2C8;
+extern uint32_t dword_11D314;
+extern uint32_t dword_11D310;
+extern uint32_t off_11D2CC;
+extern uint32_t dword_11D2D4;
+extern uint32_t dword_11D2D0;
+extern uint32_t off_11D2D8;
+extern uint32_t dword_11D2DC;
+extern uint32_t off_11D2E0;
+extern uint32_t off_11D2E4;
+extern uint32_t off_11D2EC;
+extern uint32_t off_11D2E8;
+extern uint32_t off_11D2F4;
+extern uint32_t off_11D2F0;
+extern uint32_t off_11D2F8;
+extern uint32_t off_11D2FC;
+extern uint32_t off_11D300;
+extern uint32_t off_11D304;
+extern uint32_t off_11D308;
+extern uint32_t off_11D318;
+extern uint32_t off_11D30C;
+
 // mmio_init_40328050 @ 0x11d0b8, size 502 bytes
 // Doc: mmio_init_40328050 [mmio]: Initialize MMIO register block at 0x40328050 with value 1
 // mmio_init_40328050 [mmio]: Initialize MMIO register block at 0x40328050 with value 1
@@ -7,7 +47,7 @@ int mmio_init_40328050()
   unsigned int v1; // r0
   uint32_t *v2; // r3
   uint32_t *v3; // r2
-  __int16 **v4; // r1
+  int16_t **v4; // r1
   char *v5; // r0
   int *v6; // r3
   uint32_t *v7; // r1
@@ -28,12 +68,12 @@ int mmio_init_40328050()
   uint32_t *v22; // r6
   int v23; // r0
   unsigned int *v24; // r5
-  unsigned __int8 v25; // [sp+6h] [bp-2h] BYREF
-  unsigned __int8 v26; // [sp+7h] [bp-1h] BYREF
+  uint8_t v25; // [sp+6h] [bp-2h] BYREF
+  uint8_t v26; // [sp+7h] [bp-1h] BYREF
 
   v0 = off_11D2B0;
   *(uint32_t *)off_11D2B0 = 1;
-  while ( (unsigned __int8)*v0 )
+  while ( (uint8_t)*v0 )
     ;
   v1 = sub_1005E8();
   sub_11CDB8(v1);
@@ -41,7 +81,7 @@ int mmio_init_40328050()
   *(uint32_t *)off_11D2B4 = dword_11D2BC;
   v3 = off_11D2C0;
   *v2 = 0x80000000;
-  v4 = (__int16 **)off_11D2C4;
+  v4 = (int16_t **)off_11D2C4;
   *v3 &= ~0x800u;
   if ( **v4 < 0 && *(uint32_t *)off_11D2C8 < 0x13000000u )
     rf_cmd_send_n264(dword_11D314, dword_11D310, 284);

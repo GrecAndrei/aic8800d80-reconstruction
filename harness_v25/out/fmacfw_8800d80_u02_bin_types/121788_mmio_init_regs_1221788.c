@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121800;
+extern uint32_t off_121804;
+extern uint32_t off_121808;
+extern uint32_t off_12180C;
+extern uint32_t off_121810;
+extern uint32_t off_121814;
+extern uint32_t off_121818;
+extern uint32_t off_12181C;
+extern uint32_t dword_121820;
+extern uint32_t off_121828;
+extern uint32_t dword_121830;
+extern uint32_t dword_12182C;
+extern uint32_t off_121824;
+
 // mmio_init_regs_1221788 @ 0x121788, size 118 bytes
 // Doc: mmio_init_regs_1221788 [mmio]: Initialize MMIO register block pointers for hardware control
 // mmio_init_regs_1221788 [mmio]: Initialize MMIO register block pointers for hardware control
@@ -11,10 +37,10 @@ unsigned int  mmio_init_regs_1221788(int *a1)
   uint32_t *v6; // r5
   int v7; // r7
   int v8; // r0
-  __int16 **v9; // r0
+  int16_t **v9; // r0
   int *v10; // r4
   int v11; // r2
-  __int16 *v12; // r3
+  int16_t *v12; // r3
 
   v1 = off_121800;
   v2 = off_121804;
@@ -26,12 +52,12 @@ unsigned int  mmio_init_regs_1221788(int *a1)
   *v1 |= 1u;
   *v2 = 768;
   v7 = *a1;
-  v8 = *((unsigned __int16 *)a1 + 2);
+  v8 = *((uint16_t *)a1 + 2);
   *v5 = 0;
   *v6 = 0;
   *v3 = v7;
   *v4 = v8;
-  v9 = (__int16 **)off_121818;
+  v9 = (int16_t **)off_121818;
   v10 = (int *)off_12181C;
   v11 = dword_121820;
   *v1 &= 0xFFFFF8FF;

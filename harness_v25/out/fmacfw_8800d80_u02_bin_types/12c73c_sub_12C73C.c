@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C7D4;
+extern uint32_t off_12C7D8;
+extern uint32_t off_12C7DC;
+extern uint32_t off_12C7E8;
+extern uint32_t off_12C7EC;
+extern uint32_t dword_12C7F4;
+extern uint32_t dword_12C7F0;
+extern uint32_t dword_12C7E4;
+extern uint32_t dword_12C7E0;
+
 // sub_12C73C @ 0x12c73c, size 152 bytes
 int  sub_12C73C(int result, int a2)
 {
@@ -22,7 +44,7 @@ int  sub_12C73C(int result, int a2)
   *(uint32_t *)off_12C7D8 = v5;
   if ( v4 )
   {
-    if ( *(unsigned __int16 *)(v4 + 4) == result && *(unsigned __int16 *)(v4 + 6) == a2 )
+    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
       sub_12D2D0(v3 + 5);
       v8 = v3[5];
@@ -30,7 +52,7 @@ int  sub_12C73C(int result, int a2)
       if ( v8 )
       {
         sub_124D3C(v9, *(uint32_t *)(v8 + 8));
-        if ( **(__int16 **)off_12C7E8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C7EC + 4) < 0 )
+        if ( **(int16_t **)off_12C7E8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C7EC + 4) < 0 )
           sub_12F46C(dword_12C7F4, dword_12C7F0, 232);
       }
       else

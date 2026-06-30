@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11576C;
+extern uint32_t off_115768;
+extern uint32_t off_115774;
+extern uint32_t dword_115770;
+extern uint32_t off_115778;
+extern uint32_t off_11577C;
+extern uint32_t off_115780;
+extern uint32_t off_115794;
+extern uint32_t dword_1157B0;
+extern uint32_t dword_1157AC;
+extern uint32_t off_115784;
+extern uint32_t off_1157A8;
+extern uint32_t off_1157A4;
+extern uint32_t off_115788;
+extern uint32_t dword_11578C;
+extern uint32_t off_115790;
+extern uint32_t dword_115798;
+extern uint32_t dword_11579C;
+extern uint32_t off_1157A0;
+
 // sub_115640 @ 0x115640, size 296 bytes
 int sub_115640()
 {
@@ -26,13 +58,13 @@ int sub_115640()
   while ( (*v2 & 0x40000000) == 0 )
     ;
   v3 = off_11577C;
-  if ( *((uint8_t *)off_11577C + 189) && **(__int16 **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
+  if ( *((uint8_t *)off_11577C + 189) && **(int16_t **)off_115780 < 0 && *v1 != (*(uint32_t *)off_115794 & 0xF) )
     sub_12F46C(dword_1157B0, dword_1157AC, 968);
   v4 = off_115778;
   v5 = (uint8_t **)off_115784;
   *(uint32_t *)off_115778 &= ~0x40000000u;
   *v4 &= ~0x80000000;
-  v6 = (unsigned __int8)**v5;
+  v6 = (uint8_t)**v5;
   if ( v6 == 3 )
   {
     *(uint32_t *)off_1157A8 &= ~1u;
@@ -47,7 +79,7 @@ int sub_115640()
     *((uint32_t *)off_115768 + 14) &= ~0x10u;
   result = sub_12ECD0(2, dword_11578C);
   v8 = *(uint8_t **)off_115790;
-  v9 = **(unsigned __int8 **)off_115790;
+  v9 = **(uint8_t **)off_115790;
   if ( v9 == 2 )
   {
     if ( **v5 == 3 )
@@ -58,8 +90,8 @@ LABEL_22:
   {
     if ( !v3[189] )
     {
-      *(uint32_t *)off_115794 = (unsigned __int8)(16 * *v1);
-      v9 = (unsigned __int8)*v8;
+      *(uint32_t *)off_115794 = (uint8_t)(16 * *v1);
+      v9 = (uint8_t)*v8;
     }
     if ( v9 == 1 )
     {

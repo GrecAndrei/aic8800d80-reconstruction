@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_128114;
+extern uint32_t dword_128118;
+extern uint32_t dword_12810C;
+extern uint32_t dword_128110;
+
 // sub_127F3C @ 0x127f3c, size 464 bytes
 BOOL  sub_127F3C(int a1, int a2, int a3)
 {
@@ -29,7 +46,7 @@ BOOL  sub_127F3C(int a1, int a2, int a3)
     {
 LABEL_9:
       v13 = 0;
-      if ( (unsigned __int8)v3[90] > 1u )
+      if ( (uint8_t)v3[90] > 1u )
         goto LABEL_13;
 LABEL_10:
       *(uint8_t *)(a1 + 85) |= 2u;
@@ -39,8 +56,8 @@ LABEL_10:
     v11 = dword_128118;
     while ( v8 - a2 < 0 )
     {
-      v12 = *((unsigned __int8 *)v4 + 8);
-      if ( v12 == *(unsigned __int8 *)(a1 + 107) )
+      v12 = *((uint8_t *)v4 + 8);
+      if ( v12 == *(uint8_t *)(a1 + 107) )
       {
         sub_12EA88(v11, v12, v9);
         sub_12D2E8(v3 + 16, v4);
@@ -60,10 +77,10 @@ LABEL_10:
     v21 = *(uint32_t *)(a1 + 72);
   }
   v13 = 1;
-  if ( (unsigned __int8)v3[90] <= 1u )
+  if ( (uint8_t)v3[90] <= 1u )
     goto LABEL_10;
 LABEL_13:
-  if ( *(unsigned __int8 *)(a1 + 86) != 255 )
+  if ( *(uint8_t *)(a1 + 86) != 255 )
   {
     sub_127958(a1, a2);
     if ( v13 )
@@ -80,7 +97,7 @@ LABEL_13:
     goto LABEL_26;
   }
   v15 = dword_12810C;
-  v16 = *(unsigned __int8 *)(a1 + 1225);
+  v16 = *(uint8_t *)(a1 + 1225);
   if ( *(uint8_t *)(dword_12810C + 140 * v16 + 112) != 1 )
   {
     if ( v13 )
@@ -107,7 +124,7 @@ LABEL_19:
     if ( v13 )
       goto LABEL_31;
 LABEL_25:
-    if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_12810C + 140 * *(unsigned __int8 *)(a1 + 1225) + 112) != 1 )
+    if ( !*(uint8_t *)(a1 + 1224) || *(uint8_t *)(dword_12810C + 140 * *(uint8_t *)(a1 + 1225) + 112) != 1 )
     {
 LABEL_26:
       sub_12D2E8(dword_128110, a1 + 76);
@@ -132,12 +149,12 @@ LABEL_36:
   if ( !v13 )
     goto LABEL_25;
 LABEL_31:
-  v20 = *(unsigned __int8 *)(a1 + 1224);
+  v20 = *(uint8_t *)(a1 + 1224);
   *(uint8_t *)(a1 + 85) |= 4u;
   if ( v20 )
   {
     v15 = dword_12810C;
-    v16 = *(unsigned __int8 *)(a1 + 1225);
+    v16 = *(uint8_t *)(a1 + 1225);
     goto LABEL_19;
   }
   return v10 != v21;

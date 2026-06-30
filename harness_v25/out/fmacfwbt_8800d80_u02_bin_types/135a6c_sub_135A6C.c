@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_135B38;
+extern uint32_t dword_135B3C;
+extern uint32_t off_135B34;
+extern uint32_t dword_135B48;
+extern uint32_t dword_135B44;
+extern uint32_t dword_135B40;
+
 // sub_135A6C @ 0x135a6c, size 200 bytes
 // Doc: sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
 // sub_1235A6C [bt]: Bluetooth task entry: dispatch handler using table lookup
@@ -20,8 +39,8 @@ int  sub_135A6C(unsigned int a1)
 
   v1 = *((uint32_t *)off_135B38 + 4);
   v2 = dword_135B3C;
-  v3 = *(unsigned __int8 *)(v1 + 61);
-  if ( **(__int16 **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
+  v3 = *(uint8_t *)(v1 + 61);
+  if ( **(int16_t **)off_135B34 < 0 && *(int *)(dword_135B3C + 1320 * v3 + 472) >= 0 )
     sub_12F694(dword_135B48, dword_135B44, 1398);
   v5 = (uint8_t *)rf_bus_setup_n3a8(6150, 13, 6, 0x2Cu);
   *v5 = *(uint8_t *)(v1 + 61);

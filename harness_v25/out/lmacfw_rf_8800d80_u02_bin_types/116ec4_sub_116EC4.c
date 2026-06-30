@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116FFC;
+extern uint32_t off_117014;
+extern uint32_t dword_117020;
+extern uint32_t off_117000;
+extern uint32_t dword_117008;
+extern uint32_t off_11700C;
+extern uint32_t off_117010;
+extern uint32_t off_117018;
+extern uint32_t off_11701C;
+
 // sub_116EC4 @ 0x116ec4, size 312 bytes
 int  sub_116EC4(int a1, int a2, int a3, int a4)
 {
@@ -28,7 +50,7 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
       break;
     if ( !v7 )
     {
-      v9 = (unsigned __int8)v5[192];
+      v9 = (uint8_t)v5[192];
       if ( v5[192] )
       {
         v9 = *(uint32_t *)off_117000;
@@ -56,7 +78,7 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
     {
       a1 = sub_117590(v11);
     }
-    a4 = **(unsigned __int8 **)off_11700C;
+    a4 = **(uint8_t **)off_11700C;
     switch ( a4 )
     {
       case 2:

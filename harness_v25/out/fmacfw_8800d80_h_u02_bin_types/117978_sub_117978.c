@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117A58;
+extern uint32_t off_117A5C;
+extern uint32_t off_117A60;
+extern uint32_t off_117A6C;
+extern uint32_t off_117A70;
+extern uint32_t dword_117A74;
+extern uint32_t off_117A78;
+extern uint32_t dword_117A64;
+extern uint32_t off_117A68;
+
 // sub_117978 @ 0x117978, size 222 bytes
 int sub_117978()
 {
@@ -34,15 +56,15 @@ int sub_117978()
   v6 = v2;
   for ( i = 4; i != -1; --i )
   {
-    v8 = (unsigned __int8)i;
-    if ( !*((uint8_t *)v6 + 158) && ((v2[52] & 1) == 0 || *((unsigned __int8 *)v2 + 190) != (unsigned __int8)i) )
+    v8 = (uint8_t)i;
+    if ( !*((uint8_t *)v6 + 158) && ((v2[52] & 1) == 0 || *((uint8_t *)v2 + 190) != (uint8_t)i) )
     {
       if ( *((uint32_t *)v1 + 84) )
       {
-        sub_11617C((unsigned __int8)i);
+        sub_11617C((uint8_t)i);
         *(uint32_t *)(dword_117A64 + 4 * i) = *v3 + *(uint32_t *)(v4 + 4 * i);
         *(uint32_t *)off_117A68 = 1 << i;
-        v8 = (unsigned __int8)i;
+        v8 = (uint8_t)i;
         if ( (__get_CPSR() & 1) == 0 )
         {
           __disable_irq();

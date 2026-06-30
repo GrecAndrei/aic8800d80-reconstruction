@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_120A10;
+extern uint32_t off_120A14;
+extern uint32_t off_120A18;
+extern uint32_t off_120A1C;
+extern uint32_t off_120A20;
+extern uint32_t off_120A24;
+extern uint32_t dword_120A28;
+extern uint32_t off_120A54;
+extern uint32_t off_120A2C;
+extern uint32_t off_120A30;
+extern uint32_t dword_120A34;
+extern uint32_t off_120A3C;
+extern uint32_t off_120A40;
+extern uint32_t off_120A44;
+extern uint32_t off_120A48;
+extern uint32_t off_120A4C;
+extern uint32_t off_120A38;
+extern uint32_t off_120A50;
+
 // sub_1208F4 @ 0x1208f4, size 284 bytes
 // Doc: sub_12208F4 [rf]: Init RF register window at 0x403200f0 with helpers
 // sub_12208F4 [rf]: Init RF register window at 0x403200f0 with helpers
@@ -14,7 +45,7 @@ uint32_t *sub_1208F4()
   int v8; // r4
   int v9; // r3
   char v10; // r2
-  bool v11; // zf
+  int v11; // zf
   int v12; // r2
   unsigned int v13; // r2
   uint32_t *v14; // r2
@@ -22,7 +53,7 @@ uint32_t *sub_1208F4()
   uint32_t *v16; // r5
   uint32_t *v17; // r4
   uint32_t *result; // r0
-  unsigned __int8 **v19; // r1
+  uint8_t **v19; // r1
   int v20; // r3
 
   v0 = (int *)off_120A10;
@@ -66,7 +97,7 @@ uint32_t *sub_1208F4()
   v16 = off_120A40;
   v17 = off_120A44;
   result = off_120A48;
-  v19 = (unsigned __int8 **)off_120A4C;
+  v19 = (uint8_t **)off_120A4C;
   *(uint32_t *)off_120A38 &= ~1u;
   *v15 = 0xFFFF;
   *v16 = -1;

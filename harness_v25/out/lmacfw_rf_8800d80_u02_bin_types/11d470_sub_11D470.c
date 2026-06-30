@@ -1,3 +1,34 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11D59C;
+extern uint32_t off_11D5A0;
+extern uint32_t dword_11D5BC;
+extern uint32_t off_11D5A4;
+extern uint32_t off_11D5C0;
+extern uint32_t off_11D5C4;
+extern uint32_t dword_11D5C8;
+extern uint32_t off_11D5A8;
+extern uint32_t off_11D5AC;
+extern uint32_t off_11D5B0;
+extern uint32_t dword_11D5B4;
+extern uint32_t dword_11D5D0;
+extern uint32_t dword_11D5D4;
+extern uint32_t dword_11D5D8;
+extern uint32_t dword_11D5CC;
+extern uint32_t dword_11D5E0;
+extern uint32_t dword_11D5DC;
+extern uint32_t dword_11D5B8;
+
 // sub_11D470 @ 0x11d470, size 298 bytes
 // Doc: sub_121D470 [mmio]: Copies MMIO register value 0x40328084 to 0x40328088
 // sub_121D470 [mmio]: Copies MMIO register value 0x40328084 to 0x40328088
@@ -58,7 +89,7 @@ LABEL_9:
       *((uint8_t *)off_11D5A8 + 6) = 1;
   }
 LABEL_13:
-  v2 = **(__int16 **)off_11D5B0;
+  v2 = **(int16_t **)off_11D5B0;
   if ( v2 >= 0 )
     return result;
   if ( (v0 & 1) != 0 )

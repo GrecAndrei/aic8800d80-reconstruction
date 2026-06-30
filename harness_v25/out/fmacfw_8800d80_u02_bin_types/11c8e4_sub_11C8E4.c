@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11CA60;
+extern uint32_t off_11CA5C;
+extern uint32_t off_11CA64;
+extern uint32_t off_11CA68;
+extern uint32_t dword_11CA8C;
+extern uint32_t dword_11CA6C;
+extern uint32_t off_11CA90;
+extern uint32_t dword_11CA7C;
+extern uint32_t dword_11CA78;
+extern uint32_t off_11CA74;
+extern uint32_t off_11CA70;
+extern uint32_t off_11CA80;
+extern uint32_t off_11CA84;
+extern uint32_t off_11CA88;
+
 // sub_11C8E4 @ 0x11c8e4, size 376 bytes
 void sub_11C8E4()
 {
@@ -13,7 +40,7 @@ void sub_11C8E4()
   uint32_t *v9; // r1
   unsigned int v10; // r3
   uint32_t *v11; // r4
-  __int16 **v12; // r9
+  int16_t **v12; // r9
   int v13; // r5
   int v14; // r3
   int v15; // r2
@@ -21,7 +48,7 @@ void sub_11C8E4()
   uint32_t *v17; // r3
   int v18; // r2
   int v19; // r1
-  bool v20; // nf
+  int v20; // nf
   uint32_t *v21; // r1
   int v22; // r2
 
@@ -34,7 +61,7 @@ void sub_11C8E4()
   *(uint32_t *)off_11CA68 = 0x100000;
   if ( (v2 & 1) != 0 )
   {
-    v3 = *((unsigned __int8 *)v1 + 190);
+    v3 = *((uint8_t *)v1 + 190);
     v4 = dword_11CA8C;
     v5 = dword_11CA8C + 84 * v3;
     if ( *(uint8_t *)(v5 + 26) )
@@ -56,7 +83,7 @@ LABEL_5:
         if ( v22 == v11[17] )
           *(uint32_t *)(v5 + 20) = **(uint32_t **)(v22 + 324);
       }
-      v12 = (__int16 **)off_11CA90;
+      v12 = (int16_t **)off_11CA90;
       v13 = v4 + 84 * v3;
       while ( 1 )
       {
@@ -80,7 +107,7 @@ LABEL_5:
     {
       v8 = *(uint32_t *)(v7 + 36);
       if ( v8 )
-        sub_1166B4(v8, v3, *(unsigned __int8 *)(v7 + 46), v7);
+        sub_1166B4(v8, v3, *(uint8_t *)(v7 + 46), v7);
       v1[7 * v3 + 9] = 0;
     }
     v9 = off_11CA74;

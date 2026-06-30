@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DE98;
+extern uint32_t off_11DE9C;
+extern uint32_t off_11DEA8;
+extern uint32_t off_11DEAC;
+extern uint32_t off_11DEA0;
+extern uint32_t dword_11DEA4;
+
 // init_alloc_0x200000 @ 0x11dde4, size 180 bytes
 // Doc: init_alloc_0x200000 [util]: Allocate 0x200000-byte buffer and initialize related state
 // init_alloc_0x200000 [util]: Allocate 0x200000-byte buffer and initialize related state

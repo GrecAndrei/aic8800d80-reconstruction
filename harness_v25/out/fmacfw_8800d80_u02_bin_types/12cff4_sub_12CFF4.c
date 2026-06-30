@@ -1,13 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12D0D4;
+extern uint32_t off_12D0D8;
+extern uint32_t dword_12D0DC;
+extern uint32_t dword_12D0E0;
+extern uint32_t dword_12D0F0;
+extern uint32_t off_12D0E4;
+extern uint32_t dword_12D0F8;
+extern uint32_t dword_12D0F4;
+extern uint32_t dword_12D0EC;
+extern uint32_t off_12D0E8;
+
 // sub_12CFF4 @ 0x12cff4, size 222 bytes
 int sub_12CFF4()
 {
   int *v0; // r5
   int v1; // r0
   int result; // r0
-  unsigned __int16 *v3; // r4
+  uint16_t *v3; // r4
   int v4; // r3
   int v5; // r2
-  int ( *v6)(uint32_t, unsigned __int16 *, uint32_t, uint32_t); // r6
+  int ( *v6)(uint32_t, uint16_t *, uint32_t, uint32_t); // r6
   int v7; // r2
   int v8; // r3
   int v9; // r3
@@ -22,7 +45,7 @@ int sub_12CFF4()
   v1 = dword_12D0DC;
   ++*(uint32_t *)off_12D0D8;
   result = rf_bus_mark_n100_d2d0(v1);
-  v3 = (unsigned __int16 *)result;
+  v3 = (uint16_t *)result;
   if ( *v0 )
   {
     v4 = *v0 - 1;
@@ -36,9 +59,9 @@ int sub_12CFF4()
   }
   if ( result )
   {
-    v6 = (int ( *)(uint32_t, unsigned __int16 *, uint32_t, uint32_t))sub_12CF2C(
-                                                                           *(unsigned __int16 *)(result + 4),
-                                                                           *(unsigned __int16 *)(result + 6));
+    v6 = (int ( *)(uint32_t, uint16_t *, uint32_t, uint32_t))sub_12CF2C(
+                                                                           *(uint16_t *)(result + 4),
+                                                                           *(uint16_t *)(result + 6));
     msg_parse(dword_12D0E0, v3[2], v3[4]);
     if ( v6 )
     {
@@ -52,7 +75,7 @@ int sub_12CFF4()
       }
       if ( result )
       {
-        if ( **(__int16 **)off_12D0E4 < 0 )
+        if ( **(int16_t **)off_12D0E4 < 0 )
           result = sub_12F46C(dword_12D0F8, dword_12D0F4, 360);
         goto LABEL_12;
       }

@@ -1,9 +1,37 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E310;
+extern uint32_t dword_11E334;
+extern uint32_t dword_11E32C;
+extern uint32_t dword_11E314;
+extern uint32_t dword_11E33C;
+extern uint32_t dword_11E338;
+extern uint32_t dword_11E340;
+extern uint32_t dword_11E344;
+extern uint32_t dword_11E330;
+extern uint32_t dword_11E318;
+extern uint32_t dword_11E348;
+extern uint32_t dword_11E31C;
+extern uint32_t off_11E320;
+extern uint32_t off_11E324;
+extern uint32_t dword_11E328;
+
 // sub_11E1E4 @ 0x11e1e4, size 300 bytes
 // Doc: sub_121E1E4 [rf]: LMAC handler checking RF state flags
 // sub_121E1E4 [rf]: LMAC handler checking RF state flags
 uint32_t * sub_11E1E4(unsigned int a1, int a2)
 {
-  __int16 **v2; // r7
+  int16_t **v2; // r7
   unsigned int v5; // r9
   unsigned int v6; // r6
   uint16_t *v7; // r9
@@ -17,12 +45,12 @@ uint32_t * sub_11E1E4(unsigned int a1, int a2)
   int v15; // r2
   int v16; // r6
 
-  v2 = (__int16 **)off_11E310;
+  v2 = (int16_t **)off_11E310;
   v5 = a1 >> 8;
-  v6 = (unsigned __int8)a1;
-  if ( **(__int16 **)off_11E310 >= 0 )
+  v6 = (uint8_t)a1;
+  if ( **(int16_t **)off_11E310 >= 0 )
     goto LABEL_2;
-  if ( (unsigned __int8)a1 <= 4u )
+  if ( (uint8_t)a1 <= 4u )
     goto LABEL_15;
   rf_cmd_send_n264(dword_11E334, dword_11E32C, 173);
   if ( **v2 >= 0 )
@@ -37,7 +65,7 @@ LABEL_15:
     if ( (a1 & 0xFC) == 0 )
     {
       v16 = dword_11E314 + 16 * v6;
-      if ( *(unsigned __int16 *)(v16 + 14) > v5 )
+      if ( *(uint16_t *)(v16 + 14) > v5 )
         goto LABEL_17;
       goto LABEL_25;
     }
@@ -53,7 +81,7 @@ LABEL_23:
   if ( **v2 >= 0 )
     goto LABEL_2;
   v16 = dword_11E314 + 16 * v6;
-  if ( *(unsigned __int16 *)(v16 + 14) > v5 )
+  if ( *(uint16_t *)(v16 + 14) > v5 )
   {
 LABEL_17:
     v7 = (uint16_t *)(*(uint32_t *)(v16 + 8) + 2 * v5);
@@ -69,7 +97,7 @@ LABEL_18:
     rf_cmd_send_n264(dword_11E330, dword_11E32C, 180);
 LABEL_3:
   result = (uint32_t *)msg_parse(dword_11E318, a1);
-  if ( (unsigned __int16)*v7 != a2 )
+  if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(uint32_t *, int))dword_11E348;
     v10 = dword_11E31C;

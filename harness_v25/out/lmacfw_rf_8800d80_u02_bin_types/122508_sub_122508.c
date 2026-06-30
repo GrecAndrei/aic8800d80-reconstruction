@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1225B8;
+extern uint32_t dword_1225C0;
+extern uint32_t dword_1225BC;
+
 // sub_122508 @ 0x122508, size 174 bytes
 // Doc: rf_mem_write_n4de [rf]: Write to RF memory, allocates 0x200 byte stack frame for data
 // rf_mem_write_n4de [rf]: Write to RF memory, allocates 0x200 byte stack frame for data
@@ -15,7 +31,7 @@ int  sub_122508(int a1, int a2)
   float v13; // [sp+0h] [bp-200h] BYREF
   char v14; // [sp+4h] [bp-1FCh] BYREF
 
-  result = parse_int(*(unsigned __int8 **)(a2 + 4), nullptr, 0);
+  result = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
   v5 = result;
   if ( a1 == 2 )
   {
@@ -26,7 +42,7 @@ int  sub_122508(int a1, int a2)
     v6 = 64;
     goto LABEL_10;
   }
-  result = parse_int(*(unsigned __int8 **)(a2 + 8), nullptr, 0);
+  result = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
   v6 = result;
   v7 = result;
   if ( result >= 128 )

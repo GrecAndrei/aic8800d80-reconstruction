@@ -1,5 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_127D1C;
+extern uint32_t dword_127D20;
+extern uint32_t off_127D30;
+extern uint32_t dword_127D24;
+extern uint32_t dword_127D2C;
+extern uint32_t off_127D28;
+
 // sub_127B5C @ 0x127b5c, size 446 bytes
-int  sub_127B5C(unsigned __int8 *a1, int a2)
+int  sub_127B5C(uint8_t *a1, int a2)
 {
   uint8_t *v2; // r7
   int v5; // r5
@@ -10,7 +29,7 @@ int  sub_127B5C(unsigned __int8 *a1, int a2)
   char v11; // r3
   int v12; // r0
   uint8_t *v13; // r2
-  __int16 v14; // r1
+  int16_t v14; // r1
   unsigned int v15; // r1
   int v16; // r2
   int v17; // r0
@@ -23,9 +42,9 @@ int  sub_127B5C(unsigned __int8 *a1, int a2)
   {
     if ( v5 == 1 )
     {
-      if ( (unsigned __int8)v2[136] == 255 )
+      if ( (uint8_t)v2[136] == 255 )
         return 0;
-      v6 = (unsigned __int8)v2[128];
+      v6 = (uint8_t)v2[128];
       v7 = off_127D30;
       if ( v6 > 3 )
       {
@@ -69,7 +88,7 @@ int  sub_127B5C(unsigned __int8 *a1, int a2)
     }
     return 1;
   }
-  if ( (unsigned __int8)v2[136] != 255 || v2[128] == 4 || msg_get_value(4) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || msg_get_value(4) == 1 )
   {
     v10 = off_127D30;
     v11 = *((uint8_t *)off_127D30 + 88);

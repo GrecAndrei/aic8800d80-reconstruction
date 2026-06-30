@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100550;
+extern uint32_t off_100554;
+extern uint32_t dword_10055C;
+extern uint32_t dword_100558;
+
 // sub_1004CC @ 0x1004cc, size 132 bytes
 // Doc: sub_12004CC [mmio]: Initializes LMAC RF context from MMIO 0x40330000 via helper calls
 // sub_12004CC [mmio]: Initializes LMAC RF context from MMIO 0x40330000 via helper calls
@@ -51,7 +68,7 @@ int  sub_1004CC(int a1)
   }
   else if ( a1 )
   {
-    if ( **(__int16 **)off_100554 < 0 )
+    if ( **(int16_t **)off_100554 < 0 )
       rf_cmd_send_n264(dword_10055C, dword_100558, 434);
     return 0;
   }

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_134CA4;
+extern uint32_t dword_134CAC;
+extern uint32_t dword_134CA8;
+
 // sub_134C4C @ 0x134c4c, size 86 bytes
 int  sub_134C4C(int a1, int a2, int a3)
 {
@@ -11,9 +27,9 @@ int  sub_134C4C(int a1, int a2, int a3)
   sub_12EB90(
     256,
     dword_134CAC,
-    *(unsigned __int8 *)(a1 + 107),
+    *(uint8_t *)(a1 + 107),
     a2,
-    *(unsigned __int16 *)(dword_134CA8 + 696 * *(unsigned __int8 *)(a1 + 116) + 50),
+    *(uint16_t *)(dword_134CA8 + 696 * *(uint8_t *)(a1 + 116) + 50),
     a3);
   if ( *((uint8_t *)v3 + 4) )
     return sub_134950();

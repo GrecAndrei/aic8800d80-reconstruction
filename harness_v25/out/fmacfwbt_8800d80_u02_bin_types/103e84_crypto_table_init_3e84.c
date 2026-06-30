@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_103F4C;
+extern uint32_t dword_103F48;
+extern uint32_t dword_103F50;
+extern uint32_t dword_103F54;
+extern uint32_t dword_103F58;
+extern uint32_t dword_103F5C;
+extern uint32_t off_103F44;
+extern uint32_t dword_103F60;
+extern uint32_t off_103F40;
+
 // crypto_table_init_3e84 @ 0x103e84, size 186 bytes
 // Doc: crypto_table_init_3e84 [ke]: Initialize cryptographic algorithm lookup table
 // crypto_table_init_3e84 [ke]: Initialize cryptographic algorithm lookup table

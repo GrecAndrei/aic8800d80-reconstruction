@@ -1,11 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_132678;
+
 // sub_1337B4 @ 0x1337b4, size 22 bytes
-int  sub_1337B4(int result, int a2, int a3, unsigned __int8 *a4)
+int  sub_1337B4(int result, int a2, int a3, uint8_t *a4)
 {
   unsigned int v4; // r4
   unsigned int v5; // r2
   int v6; // r1
   unsigned int v7; // r2
-  __int16 v8; // r1
+  int16_t v8; // r1
   int v9; // r1
 
   if ( (unsigned int)(result - 1) > 2 )
@@ -15,12 +29,12 @@ int  sub_1337B4(int result, int a2, int a3, unsigned __int8 *a4)
   {
     if ( v4 == 1 )
     {
-      if ( (unsigned __int8)(a2 - 1) > 0xB0u )
+      if ( (uint8_t)(a2 - 1) > 0xB0u )
         v4 = 0;
       else
         v4 = 5 * a2 + 5000;
       *((uint16_t *)a4 + 2) = v4;
-      if ( (unsigned __int8)(a3 - 1) <= 0xB0u )
+      if ( (uint8_t)(a3 - 1) <= 0xB0u )
       {
         v5 = 5 * a3 + 5000;
 LABEL_15:
@@ -44,7 +58,7 @@ LABEL_19:
                 goto LABEL_22;
               goto LABEL_27;
             }
-            if ( *((unsigned __int8 *)off_132678 + 373) > 2u )
+            if ( *((uint8_t *)off_132678 + 373) > 2u )
             {
               *((uint16_t *)a4 + 2) = v5;
               a4[1] = 3;
@@ -113,9 +127,9 @@ LABEL_22:
     goto LABEL_26;
   }
 LABEL_28:
-  if ( *((unsigned __int8 *)off_132678 + 373) <= 2u )
+  if ( *((uint8_t *)off_132678 + 373) <= 2u )
   {
-    v7 = *((unsigned __int16 *)a4 + 1);
+    v7 = *((uint16_t *)a4 + 1);
     a4[1] = 2;
     if ( v7 <= v4 )
       v8 = v4 - 40;

@@ -1,5 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10AB10;
+extern uint32_t off_10AB14;
+extern uint32_t off_10AB18;
+extern uint32_t off_10AB1C;
+extern uint32_t off_10AB20;
+extern uint32_t off_10AB24;
+extern uint32_t off_10AB28;
+extern uint32_t off_10AB38;
+extern uint32_t off_10AB2C;
+extern uint32_t dword_10AB30;
+extern uint32_t dword_10AE4C;
+extern uint32_t dword_10AE50;
+extern uint32_t off_10AE54;
+extern uint32_t off_10AE58;
+extern uint32_t off_10AE5C;
+extern uint32_t off_10AE60;
+extern uint32_t dword_10AE64;
+
 // sub_10A800 @ 0x10a800, size 1610 bytes
-int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsigned __int8 a5, char a6)
+int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
 {
   unsigned int v8; // s17
   int v9; // r3
@@ -17,21 +47,21 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
   int v21; // r6
   int v22; // r5
   int v23; // r4
-  bool v24; // zf
+  int v24; // zf
   unsigned int v25; // r4
   int v26; // r1
   int v27; // r6
   unsigned int v28; // r7
-  __int16 v29; // r4
-  __int16 v30; // r0
+  int16_t v29; // r4
+  int16_t v30; // r0
   unsigned int v31; // r2
-  unsigned __int8 v32; // r1
+  uint8_t v32; // r1
   unsigned int i; // r3
   unsigned int v34; // r4
   uint32_t *v35; // r1
   unsigned int *v36; // r3
   unsigned int *v37; // r1
-  __int16 v38; // r3
+  int16_t v38; // r3
   uint32_t *v39; // r3
   int v40; // r1
   unsigned int *v42; // r3
@@ -46,8 +76,8 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
   int v54; // [sp+5Ch] [bp-788h] BYREF
   int v55; // [sp+60h] [bp-784h] BYREF
   int v56; // [sp+64h] [bp-780h] BYREF
-  __int16 v57[6]; // [sp+68h] [bp-77Ch] BYREF
-  __int16 v58[952]; // [sp+74h] [bp-770h] BYREF
+  int16_t v57[6]; // [sp+68h] [bp-77Ch] BYREF
+  int16_t v58[952]; // [sp+74h] [bp-770h] BYREF
 
   sub_12EEF8(0x2000, dword_10AB10);
   v8 = ((a1 >> 1) & 1) + 3;
@@ -108,7 +138,7 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
         v20 = a4;
         do
         {
-          *v16 = dword_10AB30 & (((__int16)v49 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
+          *v16 = dword_10AB30 & (((int16_t)v49 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
           *v16 |= 0x20000u;
           *v16 |= 0x40000u;
           sub_100644(1);
@@ -116,16 +146,16 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
           {
             if ( v45 )
             {
-              v21 = (__int16)v20;
+              v21 = (int16_t)v20;
             }
             else
             {
               sub_109350(v18, v20, &v52, (char *)&v58[6] + 3 * v20, (int *)&v58[8 * v20 + 54]);
-              v21 = (__int16)v20;
+              v21 = (int16_t)v20;
               sub_109350(v18, v20, &v53, (char *)&v58[30] + 3 * v20, (int *)&v58[8 * v20 + 182]);
             }
-            v22 = *((unsigned __int8 *)&v58[6] + 3 * v20 + v46);
-            v23 = *((unsigned __int8 *)&v58[30] + 3 * v20 + v46);
+            v22 = *((uint8_t *)&v58[6] + 3 * v20 + v46);
+            v23 = *((uint8_t *)&v58[30] + 3 * v20 + v46);
             *v19 = *v19 & 0xFE01FFFF | (v22 << 17);
             *v19 = *v19 & 0xFFFF00FF | (v22 << 8);
             sub_109120(&v55, (unsigned int *)&v56);
@@ -141,11 +171,11 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
             *v19 = *v19 & 0xFE01FFFF | 0x1000000;
             *v19 = *v19 & 0xFFFF00FF | 0x8000;
             sub_109120(&v55, (unsigned int *)&v56);
-            v21 = (__int16)v20;
+            v21 = (int16_t)v20;
           }
-          sub_109370((unsigned __int8)v45, v55, &v58[20 * v21 + 310]);
-          sub_109370((unsigned __int8)v45, v56, &v58[20 * v20 + 630]);
-          v20 = (unsigned __int8)(v20 + 1);
+          sub_109370((uint8_t)v45, v55, &v58[20 * v21 + 310]);
+          sub_109370((uint8_t)v45, v56, &v58[20 * v20 + 630]);
+          v20 = (uint8_t)(v20 + 1);
         }
         while ( a5 >= v20 );
       }
@@ -164,7 +194,7 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
             break;
           *(uint32_t *)&v58[2 * v27 + 54] = *(uint32_t *)&v58[20 * v25 + 310];
           *(uint32_t *)&v58[2 * v27 + 182] = *(uint32_t *)&v58[20 * v25 + 630];
-          v25 = (unsigned __int8)(v25 + 1);
+          v25 = (uint8_t)(v25 + 1);
           if ( a5 < v25 )
             goto LABEL_28;
         }
@@ -175,15 +205,15 @@ int  sub_10A800(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
         v44 = v26;
         *(uint32_t *)&v58[2 * v27 + 54] = sub_1093D4(v48, v26, (int *)&v58[20 * v25 + 310]);
         *(uint32_t *)&v58[2 * v27 + 182] = sub_1093D4(v48, v44, (int *)&v58[20 * v25 + 630]);
-        v25 = (unsigned __int8)(v25 + 1);
+        v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
     }
 LABEL_28:
     ++v46;
-    v18 = (unsigned __int8)++v43;
+    v18 = (uint8_t)++v43;
   }
-  while ( v8 > (unsigned __int8)v43 );
+  while ( v8 > (uint8_t)v43 );
   if ( a4 > a5 )
   {
     sub_1096D0((a1 >> 5) & 1, v57);
@@ -194,15 +224,15 @@ LABEL_28:
     v28 = a4;
     do
     {
-      v29 = sub_10A5BC(v8, v28, (unsigned __int8 *)&v58[6] + 3 * v28, (int *)&v58[8 * v28 + 54]);
-      v30 = sub_10A5BC(v8, v28, (unsigned __int8 *)&v58[30] + 3 * v28, (int *)&v58[8 * v28 + 182]);
+      v29 = sub_10A5BC(v8, v28, (uint8_t *)&v58[6] + 3 * v28, (int *)&v58[8 * v28 + 54]);
+      v30 = sub_10A5BC(v8, v28, (uint8_t *)&v58[30] + 3 * v28, (int *)&v58[8 * v28 + 182]);
       v31 = v28 - 10;
       if ( v28 > 9 )
         v57[v31] = v29;
       else
         v31 = a2;
       if ( v28 <= 9 )
-        *(uint16_t *)(v31 + 2 * (__int16)v28) = (unsigned __int8)v29 | (unsigned __int16)(v30 << 8);
+        *(uint16_t *)(v31 + 2 * (int16_t)v28) = (uint8_t)v29 | (uint16_t)(v30 << 8);
       v32 = v28 + 1;
       if ( v28 > 9 )
         v58[v31] = v30;
@@ -211,10 +241,10 @@ LABEL_28:
     while ( a5 >= (unsigned int)v32 );
     sub_1096D0((a1 >> 5) & 1, v57);
     sub_1096D0((a1 >> 5) & 1, v58);
-    for ( i = a4; ; i = (unsigned __int8)(i + 1) )
+    for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
-        *(uint16_t *)(a2 + 2 * (__int16)i) = LOBYTE(v57[i - 10]) | (unsigned __int16)(v58[i - 10] << 8);
+        *(uint16_t *)(a2 + 2 * (int16_t)i) = LOBYTE(v57[i - 10]) | (uint16_t)(v58[i - 10] << 8);
       if ( a5 == i )
         break;
     }
@@ -224,7 +254,7 @@ LABEL_28:
       sub_12EEF8(0x2000, dword_10AE4C);
       sub_12EEF8(0x2000, dword_10AE50);
       v24 = a5 == v34;
-      v34 = (unsigned __int8)(v34 + 1);
+      v34 = (uint8_t)(v34 + 1);
     }
     while ( !v24 );
   }
@@ -241,7 +271,7 @@ LABEL_28:
   {
     v37 = (unsigned int *)off_10AE5C;
     v38 = *(uint16_t *)(a2 + 2 * a4);
-    *(uint32_t *)off_10AE5C = *(uint32_t *)off_10AE5C & 0xFE01FFFF | ((unsigned __int8)v38 << 17);
+    *(uint32_t *)off_10AE5C = *(uint32_t *)off_10AE5C & 0xFE01FFFF | ((uint8_t)v38 << 17);
     *v37 = v38 & 0xFF00 | *v37 & 0xFFFF00FF;
   }
   else

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11F5AC;
+extern uint32_t dword_11F5C8;
+extern uint32_t dword_11F5B4;
+extern uint32_t off_11F5B8;
+extern uint32_t off_11F5BC;
+extern uint32_t dword_11F5C0;
+extern uint32_t off_11F5C4;
+
 // sub_11F4A8 @ 0x11f4a8, size 260 bytes
 // Doc: sub_121F4A8 [mac]: Processes indexed per-station context entry with size-scaled offsets
 // sub_121F4A8 [mac]: Processes indexed per-station context entry with size-scaled offsets
@@ -21,7 +41,7 @@ unsigned int  sub_11F4A8(int a1)
   v1 = dword_11F5AC;
   v2 = dword_11F5C8;
   v3 = dword_11F5AC + 696 * a1;
-  v4 = 1320 * *(unsigned __int8 *)(v3 + 34);
+  v4 = 1320 * *(uint8_t *)(v3 + 34);
   if ( *(uint8_t *)(dword_11F5C8 + v4 + 1224) )
     --*(uint8_t *)(dword_11F5C8 + v4 + 1226);
   feature_guard_sdio(256, dword_11F5B4);

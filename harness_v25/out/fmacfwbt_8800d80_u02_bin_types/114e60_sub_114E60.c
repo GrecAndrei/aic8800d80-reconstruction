@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114E40;
+extern uint32_t dword_114E48;
+extern uint32_t off_114E44;
+extern uint32_t off_114E4C;
+extern uint32_t off_114E50;
+extern uint32_t off_114E5C;
+extern uint32_t off_114E54;
+extern uint32_t off_114E58;
+
 // sub_114E60 @ 0x114e60, size 12 bytes
 int  sub_114E60(int a1, int a2)
 {
@@ -19,7 +40,7 @@ int  sub_114E60(int a1, int a2)
   v3 = v2 + 120;
   while ( 1 )
   {
-    v4 = *(unsigned __int8 *)(v2 + 16);
+    v4 = *(uint8_t *)(v2 + 16);
     if ( !*(uint8_t *)(v2 + 16) )
       break;
     v2 += 20;
@@ -57,7 +78,7 @@ int  sub_114E60(int a1, int a2)
   if ( *(uint8_t *)off_114E54 != 1 )
   {
     v9 = off_114E58;
-    v10 = *(unsigned __int8 *)off_114E58;
+    v10 = *(uint8_t *)off_114E58;
     *(uint8_t *)off_114E54 = 1;
     if ( v10 != 1 )
       *v9 = 1;

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107C64;
+extern uint32_t off_107C60;
+extern uint32_t dword_107C68;
+extern uint32_t off_107C6C;
+
 // rf_chan_param_get @ 0x107c28, size 56 bytes
 // Doc: rf_chan_param_get [rf]: Extract channel/bandwidth param via ubfx nibble from RF config regs
 // rf_chan_param_get [rf]: Extract channel/bandwidth param via ubfx nibble from RF config regs
@@ -5,13 +22,13 @@ int rf_chan_param_get()
 {
   unsigned int *v0; // r5
   int v1; // r6
-  unsigned __int16 v2; // r4
+  uint16_t v2; // r4
   int result; // r0
   uint32_t *v4; // r1
 
   v0 = (unsigned int *)off_107C64;
   v1 = *(uint32_t *)off_107C64;
-  v2 = (unsigned __int16)*(uint32_t *)off_107C60 >> 4;
+  v2 = (uint16_t)*(uint32_t *)off_107C60 >> 4;
   result = sub_11F74C(1, dword_107C68, v2, off_107C60);
   v4 = off_107C6C;
   *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;

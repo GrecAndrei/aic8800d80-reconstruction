@@ -1,11 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DF74;
+extern uint32_t off_11DF78;
+extern uint32_t off_11DF68;
+extern uint32_t dword_11DF70;
+extern uint32_t dword_11DF6C;
+
 // sub_11DE64 @ 0x11de64, size 258 bytes
 uint32_t * sub_11DE64(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
 {
-  unsigned __int8 **v5; // r9
+  uint8_t **v5; // r9
   uint32_t *v6; // r7
   int v7; // r5
   int v8; // r12
-  __int16 **v9; // r10
+  int16_t **v9; // r10
   uint32_t *v10; // r6
   uint32_t *result; // r0
   unsigned int v13; // r4
@@ -13,16 +31,16 @@ uint32_t * sub_11DE64(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
   uint32_t *v15; // r3
   uint32_t *v16; // r11
   int v17; // r4
-  __int16 v18; // r3
+  int16_t v18; // r3
   signed int v19; // r2
   uint32_t *v20; // r3
   uint16_t *v22; // [sp+Ch] [bp-8h]
 
-  v5 = (unsigned __int8 **)off_11DF74;
+  v5 = (uint8_t **)off_11DF74;
   v6 = (uint32_t *)*a1;
-  v7 = *(unsigned __int16 *)a4;
-  v8 = **(unsigned __int8 **)off_11DF74;
-  v9 = (__int16 **)off_11DF78;
+  v7 = *(uint16_t *)a4;
+  v8 = **(uint8_t **)off_11DF74;
+  v9 = (int16_t **)off_11DF78;
   v22 = a4;
   if ( a2 >= 0x640 )
     a2 = 1600;
@@ -31,18 +49,18 @@ uint32_t * sub_11DE64(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
   v10 = &v6[12 * a5 + 5];
   if ( v8 == 3 )
     *a4 = v10;
-  result = nullptr;
+  result = 0;
   while ( 1 )
   {
     v17 = v6[2];
     v18 = v6[3] + 1;
-    v19 = (unsigned __int16)(v18 - v17);
+    v19 = (uint16_t)(v18 - v17);
     v10[1] = a3;
     *v10 = v7 + v17;
     if ( (int)(a2 + v7) >= v19 )
     {
-      v13 = (unsigned __int16)(v17 - v18 + v7 + a2);
-      a2 = (unsigned __int16)(v19 - v7);
+      v13 = (uint16_t)(v17 - v18 + v7 + a2);
+      a2 = (uint16_t)(v19 - v7);
       v7 = 0;
     }
     else
@@ -67,7 +85,7 @@ uint32_t * sub_11DE64(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
     if ( **v9 < 0 && !v15 )
     {
       sub_12F46C(dword_11DF70, dword_11DF6C, 928);
-      v15 = nullptr;
+      v15 = 0;
       v8 = **v5;
     }
     if ( v8 == 3 )

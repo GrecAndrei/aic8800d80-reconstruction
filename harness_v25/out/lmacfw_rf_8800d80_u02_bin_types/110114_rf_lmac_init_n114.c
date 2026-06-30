@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110168;
+extern uint32_t dword_11015C;
+extern uint32_t off_110160;
+extern uint32_t dword_110164;
+
 // rf_lmac_init_n114 @ 0x110114, size 72 bytes
 // Doc: rf_lmac_init_n114 [rf]: Initialize LMAC RF subsystem state and dispatch handlers
 // rf_lmac_init_n114 [rf]: Initialize LMAC RF subsystem state and dispatch handlers
@@ -23,11 +40,11 @@ int rf_lmac_init_n114()
     {
       log_pool_alloc2_a18(v3, 0x6B8u);
       result = list_push_tail(v4);
-      v6 = *(unsigned __int16 *)(*(uint32_t *)v0 + 8);
+      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
     }
-    while ( v6 > (unsigned __int16)v5 );
+    while ( v6 > (uint16_t)v5 );
   }
   return result;
 }

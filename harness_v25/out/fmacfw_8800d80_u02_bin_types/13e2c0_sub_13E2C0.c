@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13E2C0 @ 0x13e2c0, size 104 bytes
-int  sub_13E2C0(unsigned __int8 *a1)
+int  sub_13E2C0(uint8_t *a1)
 {
   int result; // r0
   unsigned int v2; // r3
@@ -15,13 +27,13 @@ int  sub_13E2C0(unsigned __int8 *a1)
       if ( v2 > 3 )
         result = a1[177];
       else
-        result = (unsigned __int16)(v2 | (a1[182] << 10));
+        result = (uint16_t)(v2 | (a1[182] << 10));
       break;
     case 2u:
     case 3u:
       if ( !a1[177] )
         goto LABEL_15;
-      result = (unsigned __int16)(a1[169] << 11);
+      result = (uint16_t)(a1[169] << 11);
       break;
     case 4u:
       result = 0x2000;

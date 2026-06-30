@@ -1,7 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124ED4;
+extern uint32_t off_124ED8;
+extern uint32_t off_124EDC;
+extern uint32_t off_124EE0;
+extern uint32_t dword_124EE4;
+
 // extract_top_nibble_flag @ 0x124e48, size 140 bytes
 // Doc: extract_top_nibble_flag [util]: Read byte and extract high nibble as flag/selector
 // extract_top_nibble_flag [util]: Read byte and extract high nibble as flag/selector
-int  extract_top_nibble_flag(unsigned __int8 *a1, void *a2)
+int  extract_top_nibble_flag(uint8_t *a1, void *a2)
 {
   int v2; // r3
   unsigned int v3; // r2

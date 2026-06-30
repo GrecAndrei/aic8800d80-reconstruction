@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117AC8;
+extern uint32_t off_117AA4;
+extern uint32_t dword_117AA8;
+extern uint32_t off_117AAC;
+extern uint32_t off_117AB0;
+extern uint32_t off_117AB4;
+extern uint32_t dword_117AC0;
+extern uint32_t off_117AC4;
+extern uint32_t off_117AB8;
+extern uint32_t off_117ABC;
+
 // bt_msg_handler @ 0x1179a4, size 254 bytes
 // Doc: bt_msg_handler [bt]: Bluetooth message handler
 // bt_msg_handler [bt]: Bluetooth message handler
@@ -5,7 +28,7 @@ int  bt_msg_handler(int a1, int a2)
 {
   char *v4; // r7
   int v5; // r0
-  __int16 v6; // r1
+  int16_t v6; // r1
   uint32_t *v7; // r3
   int v8; // r3
   uint8_t *v9; // r2
@@ -22,7 +45,7 @@ int  bt_msg_handler(int a1, int a2)
   v5 = dword_117AA8;
   v6 = *(uint16_t *)(a1 + 30);
   v7 = *(uint32_t **)(a1 + 76);
-  v7[9] = *(unsigned __int8 *)(a1 + 51) + *(unsigned __int8 *)(a1 + 53) + *(unsigned __int16 *)(a1 + 4) + 4;
+  v7[9] = *(uint8_t *)(a1 + 51) + *(uint8_t *)(a1 + 53) + *(uint16_t *)(a1 + 4) + 4;
   v7[8] = 0;
   v7[13] = 0;
   v7[14] = 0;
@@ -42,7 +65,7 @@ int  bt_msg_handler(int a1, int a2)
   {
     v9 = *(uint8_t **)off_117AB0;
     *(uint32_t *)off_117AB4 = 0x80000000;
-    if ( *v9 == 3 && v8 == dword_117AC0 + 1320 * *(unsigned __int8 *)(a1 + 28) )
+    if ( *v9 == 3 && v8 == dword_117AC0 + 1320 * *(uint8_t *)(a1 + 28) )
       *(uint32_t *)(v8 + 120) = *((uint32_t *)off_117AC4 + 4);
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -54,7 +77,7 @@ int  bt_msg_handler(int a1, int a2)
   ++*(uint32_t *)off_117ABC;
   sub_11A4D0(a1, a2);
   list_push_tail(v4 + 12);
-  sub_12B098(*(unsigned __int8 *)(a1 + 28), *(unsigned __int8 *)(a1 + 29), 0);
+  sub_12B098(*(uint8_t *)(a1 + 28), *(uint8_t *)(a1 + 29), 0);
   if ( (*(uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((uint32_t *)off_117AA4 + 126);
   fw_state_flag_check(a1);

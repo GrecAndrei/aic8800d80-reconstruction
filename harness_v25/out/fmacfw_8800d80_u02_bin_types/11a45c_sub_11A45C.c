@@ -1,14 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11A6BC;
+extern uint32_t off_11A69C;
+extern uint32_t off_11A6A0;
+extern uint32_t off_11A6A8;
+extern uint32_t dword_11A6B4;
+extern uint32_t dword_11A6B8;
+extern uint32_t dword_11A6AC;
+extern uint32_t dword_11A6B0;
+extern uint32_t off_11A6A4;
+
 // sub_11A45C @ 0x11a45c, size 576 bytes
 // Doc: sub_121A45C [mac]: Initialize/handle MAC/phy control block (fmacfw)
 // sub_121A45C [mac]: Initialize/handle MAC/phy control block (fmacfw)
-int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
+int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r6
   int *v6; // r8
   int v7; // r4
   uint32_t *v8; // r0
   uint32_t *v10; // r7
-  __int16 *v11; // r8
+  int16_t *v11; // r8
   unsigned int v12; // r12
   unsigned int v13; // r0
   char v14; // r5
@@ -17,9 +39,9 @@ int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   unsigned int v17; // r1
   unsigned int v18; // r9
   int v19; // r11
-  __int16 v20; // r7
-  __int16 v21; // r1
-  __int16 v22; // r1
+  int16_t v20; // r7
+  int16_t v21; // r1
+  int16_t v22; // r1
   int v23; // r7
   int v24; // r9
   unsigned int v25; // r9
@@ -28,7 +50,7 @@ int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   int v28; // r1
   int *v29; // r1
   int v30; // r2
-  __int16 *v32; // r8
+  int16_t *v32; // r8
   int v33; // r3
   int v34; // [sp+4h] [bp-20h]
   int v35; // [sp+4h] [bp-20h]
@@ -47,7 +69,7 @@ int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   v38 = v5 + 16;
   v36 = *v6;
   v10 = *(uint32_t **)(v7 + 76);
-  v11 = *(__int16 **)off_11A6A0;
+  v11 = *(int16_t **)off_11A6A0;
   v12 = 0;
   *(uint16_t *)(v5 + 10) = 0;
   *(uint32_t *)(v5 + 40) = 0;
@@ -57,8 +79,8 @@ int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   while ( 1 )
   {
     v16 = *(uint32_t *)(v7 + 36);
-    v17 = (unsigned __int16)(((v10[9] + 3) & 0xFFFC) + 4);
-    v18 = (unsigned __int16)(v17 + 4 * ((v16 >> 9) & 0x3FF));
+    v17 = (uint16_t)(((v10[9] + 3) & 0xFFFC) + 4);
+    v18 = (uint16_t)(v17 + 4 * ((v16 >> 9) & 0x3FF));
     if ( v18 >= a4 )
     {
       v13 += v18;
@@ -69,13 +91,13 @@ int  sub_11A45C(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
     {
       if ( a4 <= v17 )
       {
-        v19 = (unsigned __int16)(((v10[9] + 3) & 0xFFFC) + 4);
+        v19 = (uint16_t)(((v10[9] + 3) & 0xFFFC) + 4);
         v12 = 0;
       }
       else
       {
-        v12 = ((unsigned int)(unsigned __int16)(a4 - v17) + 3) >> 2;
-        v19 = (unsigned __int16)(v17 + 4 * v12);
+        v12 = ((unsigned int)(uint16_t)(a4 - v17) + 3) >> 2;
+        v19 = (uint16_t)(v17 + 4 * v12);
       }
       v13 += v19;
       if ( v13 > a3 )
@@ -110,7 +132,7 @@ LABEL_26:
           v34 = v26;
           crypto_ke_ctx_init_n_38(v7, 1);
           v27 = *(uint32_t *)(v7 + 76);
-          v32 = *(__int16 **)off_11A6A0;
+          v32 = *(int16_t **)off_11A6A0;
           *(uint32_t *)(v7 + 68) = v5;
           v38 = v27 + 12;
           v26 = v34;
@@ -168,7 +190,7 @@ LABEL_15:
       sub_12F46C(dword_11A6B0, dword_11A6AC, 1113);
       __und(0xFFu);
     }
-    if ( *(unsigned __int8 *)(v36 + 62) > (*(uint32_t *)off_11A6A4 & 0x3Fu) )
+    if ( *(uint8_t *)(v36 + 62) > (*(uint32_t *)off_11A6A4 & 0x3Fu) )
     {
       v25 = v16;
       v26 = *(uint32_t *)v7;

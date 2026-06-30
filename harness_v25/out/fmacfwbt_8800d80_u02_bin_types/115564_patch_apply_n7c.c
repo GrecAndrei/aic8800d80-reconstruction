@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_115620;
+extern uint32_t dword_115624;
+extern uint32_t dword_115628;
+extern uint32_t dword_11562C;
+extern uint32_t off_115630;
+extern uint32_t off_115634;
+extern uint32_t dword_115638;
+extern uint32_t off_11563C;
+extern uint32_t off_115640;
+extern uint32_t off_115644;
+extern uint32_t off_11564C;
+extern uint32_t off_115648;
+extern uint32_t dword_115650;
+extern uint32_t off_115654;
+extern uint32_t off_115658;
+
 // patch_apply_n7c @ 0x115564, size 184 bytes
 // Doc: patch_apply_nc8 [patch]: Applies NC8 patch sequence by looping 0x56 iterations to write patch values to indexed offsets
 // patch_apply_nc8 [patch]: Applies NC8 patch sequence by looping 0x56 iterations to write patch values to indexed offsets
@@ -48,7 +76,7 @@ void __noreturn patch_apply_n7c()
     v10 = v8 + i;
     *(uint8_t *)(v10 + 768) = -1;
   }
-  if ( (unsigned __int16)*(uint32_t *)off_115634 == 49729 )
+  if ( (uint16_t)*(uint32_t *)off_115634 == 49729 )
     *(uint32_t *)off_11563C = 1;
   v11 = HIBYTE(*(uint32_t *)off_115640);
   *(uint8_t *)off_115644 = v11;

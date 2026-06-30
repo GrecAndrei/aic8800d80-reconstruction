@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_118C40;
+extern uint32_t dword_118C3C;
+extern uint32_t off_118C38;
+
 // sub_118BB8 @ 0x118bb8, size 126 bytes
 int  sub_118BB8(int a1, int a2, int a3)
 {
@@ -9,7 +25,7 @@ int  sub_118BB8(int a1, int a2, int a3)
   int v9; // r3
   int v10; // r2
 
-  v3 = *(QWORD *)(a1 + 72);
+  v3 = *(uint64_t *)(a1 + 72);
   *(uint32_t *)(HIDWORD(v3) + 32) = *(uint32_t *)(HIDWORD(v3) + 28) + a3 - 1;
   *(uint32_t *)(HIDWORD(v3) + 36) = a3 + 4;
   *(uint32_t *)(HIDWORD(v3) + 24) = 0;
@@ -29,7 +45,7 @@ int  sub_118BB8(int a1, int a2, int a3)
   result = sub_143770(v6, v5, 52);
   v8 = *(uint32_t *)off_118C38;
   if ( *(uint32_t *)(v3 + 64) & 0x7C | (*(uint32_t *)(v3 + 64) >> 11) & 6 )
-    v9 = (unsigned __int16)((unsigned __int16)*(uint32_t *)off_118C38 << 8) | (unsigned __int8)v8;
+    v9 = (uint16_t)((uint16_t)*(uint32_t *)off_118C38 << 8) | (uint8_t)v8;
   else
     v9 = *(uint32_t *)off_118C38 & 0xFF00 | BYTE1(v8);
   v10 = *(uint32_t *)(a1 + 72);

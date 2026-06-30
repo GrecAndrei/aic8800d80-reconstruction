@@ -1,3 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12761C;
+extern uint32_t off_127620;
+extern uint32_t off_127624;
+extern uint32_t off_127628;
+extern uint32_t off_12762C;
+extern uint32_t off_127630;
+extern uint32_t off_127634;
+extern uint32_t off_127638;
+extern uint32_t off_127664;
+extern uint32_t off_127648;
+extern uint32_t off_127644;
+extern uint32_t off_127650;
+extern uint32_t dword_127658;
+extern uint32_t dword_127654;
+extern uint32_t off_12764C;
+extern uint32_t dword_12765C;
+extern uint32_t dword_12763C;
+extern uint32_t off_127660;
+extern uint32_t off_127640;
+
 // sub_12737C @ 0x12737c, size 670 bytes
 // Doc: sub_122737C [unknown]: unknown FMAC routine at 0x122737c
 // sub_122737C [unknown]: unknown FMAC routine at 0x122737c
@@ -12,7 +44,7 @@ int  sub_12737C(int a1, int a2)
   int *v10; // r3
   int v11; // r3
   int v12; // r3
-  bool v13; // zf
+  int v13; // zf
   int v14; // r3
   char v15; // r8
   int v16; // r3
@@ -68,25 +100,25 @@ int  sub_12737C(int a1, int a2)
         __enable_irq();
     }
   }
-  *(uint32_t *)off_12762C = (4 * (unsigned __int8)v2[92]) & 4 | *(uint32_t *)off_12762C & 0xFFFFFFFB;
+  *(uint32_t *)off_12762C = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_12762C & 0xFFFFFFFB;
   if ( a2 )
     goto LABEL_6;
   result = sub_121AE4();
   if ( !*((uint8_t *)off_127630 + 408) )
     goto LABEL_6;
-  v12 = *(unsigned __int8 *)(a1 + 24);
+  v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
   {
 LABEL_7:
     v13 = v12 == 4;
-    v14 = (unsigned __int8)v2[88];
+    v14 = (uint8_t)v2[88];
     if ( v13 )
     {
       v2[88] = v14 & 0xFB;
       if ( *(uint16_t *)(a1 + 14) )
       {
         result = sub_125D98(a1);
-        v14 = (unsigned __int8)v2[88];
+        v14 = (uint8_t)v2[88];
       }
       else
       {
@@ -96,7 +128,7 @@ LABEL_7:
     goto LABEL_8;
   }
   v15 = *((uint8_t *)off_127634 + 3850);
-  if ( v15 || *((unsigned __int8 *)off_127638 + 10) + 1 != *(unsigned __int8 *)(*(uint32_t *)off_127638 + 367) )
+  if ( v15 || *((uint8_t *)off_127638 + 10) + 1 != *(uint8_t *)(*(uint32_t *)off_127638 + 367) )
     goto LABEL_23;
   v16 = *(uint32_t *)off_127634;
   if ( *(uint8_t *)(*(uint32_t *)off_127634 + 367) )
@@ -104,20 +136,20 @@ LABEL_7:
     v17 = 0;
     do
     {
-      v18 = *(unsigned __int8 *)(v16 + 2);
+      v18 = *(uint8_t *)(v16 + 2);
       ++v17;
       v16 += 6;
-      if ( v18 == *((unsigned __int8 *)off_127634 + 3851) + 1 )
+      if ( v18 == *((uint8_t *)off_127634 + 3851) + 1 )
         goto LABEL_23;
     }
-    while ( v17 != *(unsigned __int8 *)(*(uint32_t *)off_127634 + 367) );
+    while ( v17 != *(uint8_t *)(*(uint32_t *)off_127634 + 367) );
   }
   v30 = off_127664;
-  if ( *((unsigned __int16 *)off_127664 + 2) <= 1u && *((unsigned __int16 *)off_127664 + 3) <= 1u )
+  if ( *((uint16_t *)off_127664 + 2) <= 1u && *((uint16_t *)off_127664 + 3) <= 1u )
   {
 LABEL_50:
     v41 = off_127648;
-    v42 = **(__int16 **)off_127644;
+    v42 = **(int16_t **)off_127644;
     *((uint32_t *)off_127648 + 1) |= 0x100040u;
     if ( v42 < 0 && *(uint32_t *)off_127650 << 28 )
       sub_12F49C(dword_127658, dword_127654, 472);
@@ -140,19 +172,19 @@ LABEL_44:
   while ( 1 )
   {
     v34 = (char *)off_127634 + 60 * v32;
-    v35 = (unsigned __int8)(v32 + 1);
+    v35 = (uint8_t)(v32 + 1);
     v32 = v35;
-    if ( *(unsigned __int8 *)(*((uint32_t *)v34 + 13) + 2) != v31 || !v34[16] || v34[64] < -79 )
+    if ( *(uint8_t *)(*((uint32_t *)v34 + 13) + 2) != v31 || !v34[16] || v34[64] < -79 )
       goto LABEL_38;
     if ( v33 )
       break;
     v33 = 1;
 LABEL_38:
-    if ( v35 >= *((unsigned __int16 *)off_127634 + 2) )
+    if ( v35 >= *((uint16_t *)off_127634 + 2) )
       goto LABEL_44;
   }
   v36 = off_127648;
-  v37 = **(__int16 **)off_127644;
+  v37 = **(int16_t **)off_127644;
   *((uint32_t *)off_127648 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(uint32_t *)off_127650 << 28 )
     sub_12F49C(dword_127658, dword_127654, 472);
@@ -164,7 +196,7 @@ LABEL_48:
   v30[8] = v15;
   result = msg_parse(v40, v39, v38);
 LABEL_6:
-  v12 = *(unsigned __int8 *)(a1 + 24);
+  v12 = *(uint8_t *)(a1 + 24);
   if ( v12 != 3 )
     goto LABEL_7;
 LABEL_23:
@@ -184,7 +216,7 @@ LABEL_23:
   while ( 1 )
   {
     --v26;
-    if ( (unsigned __int8)*v25 )
+    if ( (uint8_t)*v25 )
       break;
     if ( !v26 )
       goto LABEL_26;
@@ -193,7 +225,7 @@ LABEL_23:
 LABEL_26:
   sdio_buffer_prepare_n_4e8(v21);
   v27 = off_127648;
-  v28 = **(__int16 **)off_127644;
+  v28 = **(int16_t **)off_127644;
   v29 = *((uint32_t *)off_127648 + 1) & 0xFFFFDDFF;
   *((uint32_t *)off_127648 + 1) = v29;
   if ( v28 < 0 && *(uint32_t *)off_127650 << 28 )
@@ -203,7 +235,7 @@ LABEL_26:
   }
   *(uint32_t *)off_12764C = v29 | *v27;
   result = sub_12CA10(142, 2, 255);
-  v14 = (unsigned __int8)v2[88];
+  v14 = (uint8_t)v2[88];
 LABEL_8:
   *(uint8_t *)(a1 + 24) = -1;
   v2[88] = v14 & 0xEF;

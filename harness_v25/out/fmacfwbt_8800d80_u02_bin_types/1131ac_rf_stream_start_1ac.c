@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_stream_start_1ac @ 0x1131ac, size 130 bytes
 // Doc: rf_cmd_send_3204 [rf]: Send RF command via bus and store result
 // rf_cmd_send_3204 [rf]: Send RF command via bus and store result
@@ -17,7 +29,7 @@ int  rf_stream_start_1ac(int a1, unsigned int a2)
   v3 = rf_msg_handler_n2d4;
   if ( *(uint8_t *)rf_msg_handler_n2d4 )
   {
-    log_printf(rf_cmd_send_n3d8, rf_msg_handler_n2e0, *(unsigned __int8 *)rf_msg_handler_n2d4);
+    log_printf(rf_cmd_send_n3d8, rf_msg_handler_n2e0, *(uint8_t *)rf_msg_handler_n2d4);
     return -3;
   }
   else
@@ -37,7 +49,7 @@ int  rf_stream_start_1ac(int a1, unsigned int a2)
       *(uint8_t *)rf_msg_handler_n2dc = 1;
       if ( *v2 )
       {
-        rf_bus_reset2_n3b8(nullptr, 1u);
+        rf_bus_reset2_n3b8(0, 1u);
         *v3 = 0;
         return -14;
       }

@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_117488;
+extern uint32_t off_11748C;
+extern uint32_t dword_117490;
+extern uint32_t off_1174AC;
+extern uint32_t off_117494;
+extern uint32_t off_117498;
+extern uint32_t off_1174B0;
+extern uint32_t off_1174B4;
+extern uint32_t off_11749C;
+extern uint32_t off_1174A0;
+extern uint32_t off_1174A4;
+extern uint32_t dword_1174A8;
+
 // sub_117410 @ 0x117410, size 118 bytes
 int sub_117410()
 {
@@ -44,7 +69,7 @@ int sub_117410()
   v1[3] = HIDWORD(v12);
   v1[1] = v12 + 56;
   LODWORD(v12) = HIDWORD(v12) + 668;
-  *((QWORD *)v1 + 2) = v12;
+  *((uint64_t *)v1 + 2) = v12;
   *(v4 - 48) = v11 & 0x80000 | 0x78025;
   return v12;
 }

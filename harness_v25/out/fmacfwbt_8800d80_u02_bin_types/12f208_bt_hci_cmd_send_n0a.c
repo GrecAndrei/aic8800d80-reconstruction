@@ -1,7 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F280;
+extern uint32_t dword_12F284;
+
 // bt_hci_cmd_send_n0a @ 0x12f208, size 120 bytes
 // Doc: rf_level_apply_n352_25e [rf]: Applies calibrated RF TX power level table
 // rf_level_apply_n352_25e [rf]: Applies calibrated RF TX power level table
-int  bt_hci_cmd_send_n0a(int a1, int *a2, __int16 a3, __int16 a4)
+int  bt_hci_cmd_send_n0a(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int *v5; // r0
   int *v6; // r5
@@ -12,10 +27,10 @@ int  bt_hci_cmd_send_n0a(int a1, int *a2, __int16 a3, __int16 a4)
 
   v5 = (int *)rf_bus_setup_n3a8(1027, a4, a3, 8u);
   v6 = v5;
-  if ( (unsigned int)**(unsigned __int8 **)off_12F280 - 1 <= 1 )
+  if ( (unsigned int)**(uint8_t **)off_12F280 - 1 <= 1 )
   {
     v10 = a2[1];
-    *(QWORD *)v5 = *(QWORD *)a2;
+    *(uint64_t *)v5 = *(uint64_t *)a2;
   }
   else
   {

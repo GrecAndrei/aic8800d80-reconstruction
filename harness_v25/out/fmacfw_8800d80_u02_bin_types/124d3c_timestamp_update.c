@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124E10;
+extern uint32_t off_124E14;
+extern uint32_t off_124E18;
+extern uint32_t dword_124E24;
+extern uint32_t off_124E28;
+extern uint32_t dword_124E30;
+extern uint32_t dword_124E2C;
+extern uint32_t off_124E1C;
+extern uint32_t dword_124E20;
+
 // timestamp_update @ 0x124d3c, size 212 bytes
 // Doc: timestamp_update [util]: Updates timestamp value with shifted high/low words
 // timestamp_update [util]: Updates timestamp value with shifted high/low words
@@ -26,7 +48,7 @@ int  timestamp_update(int a1, int a2)
   if ( a2 - v5[4] < 0 )
   {
     msg_parse(dword_124E24, *(uint32_t *)(a1 + 4), a2);
-    if ( **(__int16 **)off_124E28 < 0 )
+    if ( **(int16_t **)off_124E28 < 0 )
       sub_12F46C(dword_124E30, dword_124E2C, 131);
   }
   v6 = (int *)off_124E1C;

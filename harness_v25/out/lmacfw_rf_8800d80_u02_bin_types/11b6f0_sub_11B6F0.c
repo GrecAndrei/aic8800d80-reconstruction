@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B738;
+extern uint32_t off_11B73C;
+extern uint32_t off_11B734;
+
 // sub_11B6F0 @ 0x11b6f0, size 68 bytes
 int sub_11B6F0()
 {
@@ -16,9 +32,9 @@ int sub_11B6F0()
         return result;
     }
     result = rf_channel_set_n6838(
-               *((unsigned __int8 *)v0 + 102),
-               *((unsigned __int8 *)v0 + 94),
-               *((unsigned __int8 *)v0 + 94));
+               *((uint8_t *)v0 + 102),
+               *((uint8_t *)v0 + 94),
+               *((uint8_t *)v0 + 94));
   }
   return result;
 }

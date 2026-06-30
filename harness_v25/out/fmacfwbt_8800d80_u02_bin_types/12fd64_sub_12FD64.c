@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12FE4C;
+extern uint32_t dword_12FE50;
+extern uint32_t dword_12FE40;
+extern uint32_t dword_12FE44;
+extern uint32_t dword_12FE48;
+
 // sub_12FD64 @ 0x12fd64, size 220 bytes
 int  sub_12FD64(int a1, int a2)
 {
@@ -14,11 +32,11 @@ int  sub_12FD64(int a1, int a2)
   v4 = sub_12FC48(*(uint32_t *)a2);
   if ( v4 >= 0 )
   {
-    v5 = sub_12FB74(*(unsigned __int8 **)(a2 + 4), nullptr, 0x10u);
-    v6 = sub_12FB74(*(unsigned __int8 **)(a2 + 8), nullptr, 0x10u);
+    v5 = sub_12FB74(*(uint8_t **)(a2 + 4), 0, 0x10u);
+    v6 = sub_12FB74(*(uint8_t **)(a2 + 8), 0, 0x10u);
     if ( a1 > 3 )
     {
-      v13 = sub_12FB74(*(unsigned __int8 **)(a2 + 12), nullptr, 0);
+      v13 = sub_12FB74(*(uint8_t **)(a2 + 12), 0, 0);
       if ( !v13 )
         return 0;
       v7 = v13 - 1;
@@ -53,7 +71,7 @@ int  sub_12FD64(int a1, int a2)
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          sub_10DA7C(v8, v5, (unsigned __int8)v6);
+          sub_10DA7C(v8, v5, (uint8_t)v6);
           *(uint8_t *)v5 = v6;
           break;
       }

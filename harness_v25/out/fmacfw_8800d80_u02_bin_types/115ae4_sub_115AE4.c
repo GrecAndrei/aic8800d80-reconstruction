@@ -1,10 +1,47 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115CF8;
+extern uint32_t off_115CFC;
+extern uint32_t off_115D1C;
+extern uint32_t off_115D20;
+extern uint32_t dword_115D48;
+extern uint32_t off_115D24;
+extern uint32_t dword_115D4C;
+extern uint32_t off_115D28;
+extern uint32_t off_115D2C;
+extern uint32_t dword_115D54;
+extern uint32_t off_115D30;
+extern uint32_t off_115D08;
+extern uint32_t dword_115D38;
+extern uint32_t off_115D34;
+extern uint32_t off_115D3C;
+extern uint32_t off_115D14;
+extern uint32_t off_115D00;
+extern uint32_t off_115D04;
+extern uint32_t dword_115D18;
+extern uint32_t dword_115D5C;
+extern uint32_t dword_115D50;
+extern uint32_t off_115D0C;
+extern uint32_t off_115D10;
+extern uint32_t dword_115D58;
+
 // sub_115AE4 @ 0x115ae4, size 532 bytes
 // Doc: ipc_doorbell_handler [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
 // ipc_doorbell_handler [ipc]: IPC doorbell interrupt handler that processes incoming doorbell messages and dispatches IPC events.
 int  sub_115AE4(int result)
 {
   uint8_t **v1; // r5
-  unsigned __int8 **v2; // r6
+  uint8_t **v2; // r6
   int v3; // r3
   int *v4; // r3
   uint8_t *v5; // r4
@@ -18,7 +55,7 @@ int  sub_115AE4(int result)
 
   if ( *(uint8_t *)off_115CF8 && (*((uint32_t *)off_115CFC + 4) & 0xFFFF00) == 0x10000 )
   {
-    v6 = *(unsigned __int8 *)off_115D1C;
+    v6 = *(uint8_t *)off_115D1C;
     *(uint8_t *)off_115D20 = 0;
     if ( v6 )
       return sub_12ECD0(2, dword_115D48);
@@ -44,7 +81,7 @@ int  sub_115AE4(int result)
   v1 = (uint8_t **)off_115D00;
   if ( **(uint8_t **)off_115D00 )
   {
-    v2 = (unsigned __int8 **)off_115D04;
+    v2 = (uint8_t **)off_115D04;
     goto LABEL_6;
   }
   v4 = *((int **)off_115CFC + 2);
@@ -53,7 +90,7 @@ int  sub_115AE4(int result)
   if ( !v4 )
   {
 LABEL_38:
-    v2 = (unsigned __int8 **)off_115D04;
+    v2 = (uint8_t **)off_115D04;
     if ( **(uint8_t **)off_115D04 == 3 )
       goto LABEL_8;
     result = sub_12ECD0(2, dword_115D18);
@@ -89,7 +126,7 @@ LABEL_8:
     {
       if ( !*((uint32_t *)off_115D08 + 126) )
       {
-        if ( (*(uint32_t *)off_115D0C >> 25) & 1 | *((unsigned __int8 *)off_115D10 + 36) )
+        if ( (*(uint32_t *)off_115D0C >> 25) & 1 | *((uint8_t *)off_115D10 + 36) )
         {
           if ( !*((uint8_t *)off_115D10 + 29) )
           {
@@ -98,14 +135,14 @@ LABEL_8:
             {
               LOBYTE(result) = sub_10D304();
               v8 = off_115D20;
-              result = (unsigned __int8)result;
+              result = (uint8_t)result;
               *(uint8_t *)off_115D20 = result;
               if ( !(uint8_t)result )
               {
                 v12 = sub_12EA88(dword_115D58, v7, v8);
                 result = sub_12EA10(v12);
               }
-              if ( (unsigned __int8)**v1 <= 1u )
+              if ( (uint8_t)**v1 <= 1u )
                 return (int)sub_11597C();
             }
           }

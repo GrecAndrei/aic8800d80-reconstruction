@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_119200;
+extern uint32_t off_1191F0;
+extern uint32_t dword_1191F4;
+extern uint32_t off_1191F8;
+extern uint32_t dword_1191FC;
+
 // rx_buf_init_n168 @ 0x119168, size 134 bytes
 // Doc: rx_buf_init_n168 [rx]: Initialize RX buffer pools via allocator
 // rx_buf_init_n168 [rx]: Initialize RX buffer pools via allocator

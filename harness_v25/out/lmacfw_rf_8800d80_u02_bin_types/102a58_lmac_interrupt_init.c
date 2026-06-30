@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102AB8;
+extern uint32_t off_102ABC;
+extern uint32_t dword_102AC0;
+extern uint32_t dword_102AC4;
+extern uint32_t dword_102AC8;
+extern uint32_t dword_102ACC;
+extern uint32_t dword_102AD0;
+extern uint32_t dword_102AD4;
+extern uint32_t off_102AD8;
+
 // lmac_interrupt_init @ 0x102a58, size 96 bytes
 // Doc: lmac_interrupt_init [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
 // lmac_interrupt_init [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.

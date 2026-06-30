@@ -1,10 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13F448;
+extern uint32_t off_13F444;
+extern uint32_t dword_13F450;
+extern uint32_t dword_13F44C;
+
 // sub_13F2E0 @ 0x13f2e0, size 354 bytes
 int  sub_13F2E0(int a1, int a2)
 {
   int result; // r0
   unsigned int v4; // r11
   char v6; // r3
-  unsigned __int16 v7; // r6
+  uint16_t v7; // r6
   unsigned int v8; // lr
   int v9; // r10
   unsigned int v10; // r5
@@ -21,9 +38,9 @@ int  sub_13F2E0(int a1, int a2)
 
   result = dword_13F448;
   v4 = *(uint32_t *)(dword_13F448 + 696 * a1 + 340);
-  if ( **(__int16 **)off_13F444 < 0 && !v4 )
+  if ( **(int16_t **)off_13F444 < 0 && !v4 )
     result = sub_12F694(dword_13F450, dword_13F44C, 3356);
-  if ( *(unsigned __int8 *)(v4 + 182) == a2 )
+  if ( *(uint8_t *)(v4 + 182) == a2 )
     return result;
   *(uint8_t *)(v4 + 182) = a2;
   if ( !a2 )
@@ -44,7 +61,7 @@ int  sub_13F2E0(int a1, int a2)
     v9 = v7;
     v10 = v4 + 12 * v7;
     v11 = 2 * v7;
-    v12 = *(unsigned __int16 *)(v10 + 10);
+    v12 = *(uint16_t *)(v10 + 10);
     v13 = (v12 >> 11) & 6;
     if ( (v12 & 0x2000) == 0 )
       break;
@@ -71,7 +88,7 @@ LABEL_21:
 LABEL_10:
   if ( v14 > 3 || (v12 & 0x400) != 0 )
     goto LABEL_21;
-  v12 = (unsigned __int16)v12 | 0x400;
+  v12 = (uint16_t)v12 | 0x400;
   if ( v8 )
   {
     do
@@ -80,7 +97,7 @@ LABEL_10:
       v16 = 0;
       while ( 1 )
       {
-        v17 = *(unsigned __int16 *)(v15 + 10);
+        v17 = *(uint16_t *)(v15 + 10);
         ++v16;
         v15 += 12;
         if ( v17 == v12 )
@@ -89,7 +106,7 @@ LABEL_10:
           goto LABEL_21;
       }
       v12 = sub_13D730(v4);
-      v8 = *(unsigned __int16 *)(v4 + 184);
+      v8 = *(uint16_t *)(v4 + 184);
     }
     while ( *(uint16_t *)(v4 + 184) );
   }

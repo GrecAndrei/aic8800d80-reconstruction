@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12E0F8;
+extern uint32_t dword_12E0FC;
+
 // sub_12E080 @ 0x12e080, size 120 bytes
 // Doc: sdio_buffer_prepare_n_8a [mac]: SDIO buffer preparation routine
 // sdio_buffer_prepare_n_8a [mac]: SDIO buffer preparation routine

@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_132D84;
+extern uint32_t off_13245C;
+
 // clear_state_struct_n_a8a @ 0x132d18, size 106 bytes
 // Doc: clear_state_struct_n_a8a [util]: Clear/reset a 16-bit state structure fields
 // clear_state_struct_n_a8a [util]: Clear/reset a 16-bit state structure fields
@@ -7,11 +22,11 @@ int  clear_state_struct_n_a8a(int result, uint8_t *a2, int a3)
   unsigned int v4; // r2
   int v5; // r1
   unsigned int v6; // r2
-  __int16 v7; // r1
+  int16_t v7; // r1
   int v8; // r1
-  __int16 v9; // r4
-  __int16 v10; // r3
-  unsigned __int8 *v11; // r3
+  int16_t v9; // r4
+  int16_t v10; // r3
+  uint8_t *v11; // r3
   int v12; // r2
   int v13; // r1
 
@@ -34,25 +49,25 @@ int  clear_state_struct_n_a8a(int result, uint8_t *a2, int a3)
   }
   if ( a2 )
   {
-    if ( *((unsigned __int8 *)off_132D84 + 373) > 1u )
+    if ( *((uint8_t *)off_132D84 + 373) > 1u )
     {
       result = a2[2] & 3;
       if ( (unsigned int)(result - 1) <= 2 )
       {
-        v11 = (unsigned __int8 *)(a3 + 164);
-        v12 = (unsigned __int8)a2[4];
-        v13 = (unsigned __int8)a2[3];
+        v11 = (uint8_t *)(a3 + 164);
+        v12 = (uint8_t)a2[4];
+        v13 = (uint8_t)a2[3];
         v3 = *v11;
         if ( *v11 )
         {
           if ( v3 == 1 )
           {
-            if ( (unsigned __int8)(v13 - 1) > 0xB0u )
+            if ( (uint8_t)(v13 - 1) > 0xB0u )
               v3 = 0;
             else
               v3 = 5 * v13 + 5000;
             *((uint16_t *)v11 + 2) = v3;
-            if ( (unsigned __int8)(v12 - 1) <= 0xB0u )
+            if ( (uint8_t)(v12 - 1) <= 0xB0u )
             {
               v4 = 5 * v12 + 5000;
 LABEL_25:
@@ -76,7 +91,7 @@ LABEL_29:
                       goto LABEL_32;
                     goto LABEL_37;
                   }
-                  if ( *((unsigned __int8 *)off_13245C + 373) > 2u )
+                  if ( *((uint8_t *)off_13245C + 373) > 2u )
                   {
                     *((uint16_t *)v11 + 2) = v4;
                     v11[1] = 3;
@@ -145,9 +160,9 @@ LABEL_32:
           goto LABEL_36;
         }
 LABEL_38:
-        if ( *((unsigned __int8 *)off_13245C + 373) <= 2u )
+        if ( *((uint8_t *)off_13245C + 373) <= 2u )
         {
-          v6 = *((unsigned __int16 *)v11 + 1);
+          v6 = *((uint16_t *)v11 + 1);
           v11[1] = 2;
           if ( v6 <= v3 )
             v7 = v3 - 40;

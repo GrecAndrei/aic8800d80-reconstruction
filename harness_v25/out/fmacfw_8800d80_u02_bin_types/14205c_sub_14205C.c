@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_14209C;
+
 // sub_14205C @ 0x14205c, size 64 bytes
 int  sub_14205C(int a1, int a2, int a3)
 {
@@ -9,9 +23,9 @@ int  sub_14205C(int a1, int a2, int a3)
   do
   {
     if ( (*(uint16_t *)v4 & 1) != 0
-      && *(unsigned __int8 *)(v4 + 47) == a2
-      && *(unsigned __int8 *)(v4 + 46) == a1
-      && *(unsigned __int8 *)(v4 + 2) == a3 )
+      && *(uint8_t *)(v4 + 47) == a2
+      && *(uint8_t *)(v4 + 46) == a1
+      && *(uint8_t *)(v4 + 2) == a3 )
     {
       return dword_14209C + 72 * v3;
     }

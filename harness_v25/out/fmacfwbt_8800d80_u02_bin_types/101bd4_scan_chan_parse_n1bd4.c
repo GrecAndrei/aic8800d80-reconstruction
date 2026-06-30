@@ -1,11 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101D78;
+extern uint32_t off_101D7C;
+extern uint32_t dword_101D80;
+extern uint32_t off_101D84;
+extern uint32_t off_101D88;
+extern uint32_t off_101D8C;
+extern uint32_t off_101D90;
+extern uint32_t off_101D94;
+extern uint32_t dword_101DA0;
+extern uint32_t dword_101D9C;
+extern uint32_t dword_101D98;
+
 // scan_chan_parse_n1bd4 @ 0x101bd4, size 420 bytes
 // Doc: scan_chan_parse_n1bd4 [scan]: Parse scan channel descriptor from buffer
 // scan_chan_parse_n1bd4 [scan]: Parse scan channel descriptor from buffer
-int  scan_chan_parse_n1bd4(unsigned int a1, signed int a2, unsigned __int8 *a3)
+int  scan_chan_parse_n1bd4(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
-  bool v5; // cc
+  int v5; // cc
   char *v6; // r0
   int v7; // r2
   int v8; // r5
@@ -25,7 +49,7 @@ int  scan_chan_parse_n1bd4(unsigned int a1, signed int a2, unsigned __int8 *a3)
   int v23; // r3
 
   v3 = *a3;
-  v4 = *((unsigned __int16 *)a3 + 2);
+  v4 = *((uint16_t *)a3 + 2);
   if ( !*a3 )
   {
     if ( a1 <= 1 )
@@ -142,7 +166,7 @@ LABEL_18:
     }
     else
     {
-      if ( **(__int16 **)off_101D94 < 0 )
+      if ( **(int16_t **)off_101D94 < 0 )
         sub_12F6C4(dword_101DA0, dword_101D9C, 7022);
       sub_12ECB0(dword_101D98, v3, v4);
       v23 = 15;

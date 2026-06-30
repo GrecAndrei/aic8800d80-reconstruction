@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1267BC;
+extern uint32_t off_1267C0;
+extern uint32_t dword_1267CC;
+extern uint32_t dword_1267C8;
+extern uint32_t off_1267C4;
+extern uint32_t off_1267D0;
+extern uint32_t off_1267D8;
+extern uint32_t off_1267D4;
+extern uint32_t dword_1267DC;
+
 // sub_126714 @ 0x126714, size 166 bytes
 int  sub_126714(int a1, int a2, int a3)
 {
@@ -19,7 +41,7 @@ int  sub_126714(int a1, int a2, int a3)
 
   v6 = rf_bus_mark_n100_d2d0(dword_1267BC);
   v7 = (uint32_t *)v6;
-  if ( **(__int16 **)off_1267C0 < 0 && !v6 )
+  if ( **(int16_t **)off_1267C0 < 0 && !v6 )
     sub_12F46C(dword_1267CC, dword_1267C8, 227);
   v8 = off_1267C4;
   v9 = (char *)off_1267C4 + 32;

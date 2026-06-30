@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E1BC;
+extern uint32_t dword_11E1C4;
+extern uint32_t dword_11E1CC;
+extern uint32_t dword_11E1C8;
+extern uint32_t off_11E1C0;
+
 // sub_11E100 @ 0x11e100, size 188 bytes
 // Doc: sub_121E100 [unknown]: Small helper reading halfword from offset 0x30
 // sub_121E100 [unknown]: Small helper reading halfword from offset 0x30
@@ -10,7 +28,7 @@ int  sub_11E100(int a1)
   unsigned int v5; // r3
   uint32_t *v6; // r1
   int v7; // r2
-  bool v8; // cf
+  int v8; // cf
   unsigned int v9; // r2
   int v11; // r1
   int v12; // r0
@@ -21,7 +39,7 @@ int  sub_11E100(int a1)
   if ( *(uint16_t *)(a1 + 48) )
   {
     v1 = *(uint32_t *)(a1 + 28);
-    v2 = **(__int16 **)off_11E1BC;
+    v2 = **(int16_t **)off_11E1BC;
     if ( v2 < 0 && !v1 )
     {
       v11 = dword_11E1C4;
@@ -51,7 +69,7 @@ int  sub_11E100(int a1)
   }
   else
   {
-    if ( **(__int16 **)off_11E1BC < 0 )
+    if ( **(int16_t **)off_11E1BC < 0 )
     {
       v2 = *(uint32_t *)(a1 + 28);
       if ( v2 )

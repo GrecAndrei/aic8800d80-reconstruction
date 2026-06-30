@@ -1,7 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10A8C0;
+extern uint32_t off_10A8E4;
+extern uint32_t off_10A8B0;
+extern uint32_t off_10A8C4;
+extern uint32_t off_10A8C8;
+extern uint32_t off_10A8CC;
+extern uint32_t off_10A8D0;
+extern uint32_t off_10A8D4;
+extern uint32_t off_10A8D8;
+extern uint32_t off_10A8E8;
+extern uint32_t off_10A8DC;
+extern uint32_t dword_10A8E0;
+extern uint32_t dword_10ABFC;
+extern uint32_t dword_10AC00;
+extern uint32_t off_10AC04;
+extern uint32_t off_10AC08;
+extern uint32_t off_10AC0C;
+extern uint32_t off_10AC10;
+extern uint32_t dword_10AC14;
+
 // sub_10A5B0 @ 0x10a5b0, size 1610 bytes
 // Doc: sub_120A5B0 [rf]: RF register setup routine touching 0x40344xxx MMIO block with FP context
 // sub_120A5B0 [rf]: RF register setup routine touching 0x40344xxx MMIO block with FP context
-int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsigned __int8 a5, char a6)
+int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6)
 {
   unsigned int v8; // s17
   int v9; // r3
@@ -19,22 +51,22 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
   int v21; // r6
   int v22; // r5
   int v23; // r4
-  bool v24; // zf
+  int v24; // zf
   unsigned int v25; // r4
   int v26; // r1
   int v27; // r6
   unsigned int v28; // r7
-  __int16 v29; // r4
-  __int16 v30; // r0
+  int16_t v29; // r4
+  int16_t v30; // r0
   unsigned int v31; // r2
-  unsigned __int8 v32; // r1
+  uint8_t v32; // r1
   unsigned int i; // r3
   unsigned int v34; // r4
   unsigned int v35; // r9
   uint32_t *v36; // r1
   unsigned int *v37; // r3
   unsigned int *v38; // r1
-  __int16 v39; // r3
+  int16_t v39; // r3
   int *v40; // r3
   int v41; // r1
   int v42; // r2
@@ -50,8 +82,8 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
   int v56; // [sp+5Ch] [bp-788h] BYREF
   int v57; // [sp+60h] [bp-784h] BYREF
   int v58; // [sp+64h] [bp-780h] BYREF
-  __int16 v59[6]; // [sp+68h] [bp-77Ch] BYREF
-  __int16 v60[952]; // [sp+74h] [bp-770h] BYREF
+  int16_t v59[6]; // [sp+68h] [bp-77Ch] BYREF
+  int16_t v60[952]; // [sp+74h] [bp-770h] BYREF
 
   sub_11F74C(0x2000, dword_10A8C0, (*(uint32_t *)off_10A8E4 >> 3) & 7, *(uint32_t *)off_10A8B0);
   v8 = ((a1 >> 1) & 1) + 3;
@@ -112,7 +144,7 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
         v20 = a4;
         do
         {
-          *v16 = dword_10A8E0 & (((__int16)v51 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
+          *v16 = dword_10A8E0 & (((int16_t)v51 | (4 * v20) | 1) << 8) | *v16 & 0xFFFE00FF;
           *v16 |= 0x20000u;
           *v16 |= 0x40000u;
           delay_us(1);
@@ -120,16 +152,16 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
           {
             if ( v47 )
             {
-              v21 = (__int16)v20;
+              v21 = (int16_t)v20;
             }
             else
             {
               sub_109100(v18, v20, &v54, (char *)&v60[6] + 3 * v20, (int *)&v60[8 * v20 + 54]);
-              v21 = (__int16)v20;
+              v21 = (int16_t)v20;
               sub_109100(v18, v20, &v55, (char *)&v60[30] + 3 * v20, (int *)&v60[8 * v20 + 182]);
             }
-            v22 = *((unsigned __int8 *)&v60[6] + 3 * v20 + v48);
-            v23 = *((unsigned __int8 *)&v60[30] + 3 * v20 + v48);
+            v22 = *((uint8_t *)&v60[6] + 3 * v20 + v48);
+            v23 = *((uint8_t *)&v60[30] + 3 * v20 + v48);
             *v19 = *v19 & 0xFE01FFFF | (v22 << 17);
             *v19 = *v19 & 0xFFFF00FF | (v22 << 8);
             sub_108CB8(&v57, (unsigned int *)&v58);
@@ -145,11 +177,11 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
             *v19 = *v19 & 0xFE01FFFF | 0x1000000;
             *v19 = *v19 & 0xFFFF00FF | 0x8000;
             sub_108CB8(&v57, (unsigned int *)&v58);
-            v21 = (__int16)v20;
+            v21 = (int16_t)v20;
           }
-          sub_109120((unsigned __int8)v47, v57, &v60[20 * v21 + 310]);
-          sub_109120((unsigned __int8)v47, v58, &v60[20 * v20 + 630]);
-          v20 = (unsigned __int8)(v20 + 1);
+          sub_109120((uint8_t)v47, v57, &v60[20 * v21 + 310]);
+          sub_109120((uint8_t)v47, v58, &v60[20 * v20 + 630]);
+          v20 = (uint8_t)(v20 + 1);
         }
         while ( a5 >= v20 );
       }
@@ -168,7 +200,7 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
             break;
           *(uint32_t *)&v60[2 * v27 + 54] = *(uint32_t *)&v60[20 * v25 + 310];
           *(uint32_t *)&v60[2 * v27 + 182] = *(uint32_t *)&v60[20 * v25 + 630];
-          v25 = (unsigned __int8)(v25 + 1);
+          v25 = (uint8_t)(v25 + 1);
           if ( a5 < v25 )
             goto LABEL_28;
         }
@@ -179,15 +211,15 @@ int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsig
         v46 = v26;
         *(uint32_t *)&v60[2 * v27 + 54] = sub_109184(v50, v26, (int *)&v60[20 * v25 + 310]);
         *(uint32_t *)&v60[2 * v27 + 182] = sub_109184(v50, v46, (int *)&v60[20 * v25 + 630]);
-        v25 = (unsigned __int8)(v25 + 1);
+        v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
     }
 LABEL_28:
     ++v48;
-    v18 = (unsigned __int8)++v45;
+    v18 = (uint8_t)++v45;
   }
-  while ( v8 > (unsigned __int8)v45 );
+  while ( v8 > (uint8_t)v45 );
   if ( a4 > a5 )
   {
     sub_109480((a1 >> 5) & 1, v59);
@@ -198,15 +230,15 @@ LABEL_28:
     v28 = a4;
     do
     {
-      v29 = mac_aggr_setup(v8, v28, (unsigned __int8 *)&v60[6] + 3 * v28, (int *)&v60[8 * v28 + 54]);
-      v30 = mac_aggr_setup(v8, v28, (unsigned __int8 *)&v60[30] + 3 * v28, (int *)&v60[8 * v28 + 182]);
+      v29 = mac_aggr_setup(v8, v28, (uint8_t *)&v60[6] + 3 * v28, (int *)&v60[8 * v28 + 54]);
+      v30 = mac_aggr_setup(v8, v28, (uint8_t *)&v60[30] + 3 * v28, (int *)&v60[8 * v28 + 182]);
       v31 = v28 - 10;
       if ( v28 > 9 )
         v59[v31] = v29;
       else
         v31 = a2;
       if ( v28 <= 9 )
-        *(uint16_t *)(v31 + 2 * (__int16)v28) = (unsigned __int8)v29 | (unsigned __int16)(v30 << 8);
+        *(uint16_t *)(v31 + 2 * (int16_t)v28) = (uint8_t)v29 | (uint16_t)(v30 << 8);
       v32 = v28 + 1;
       if ( v28 > 9 )
         v60[v31] = v30;
@@ -215,21 +247,21 @@ LABEL_28:
     while ( a5 >= (unsigned int)v32 );
     sub_109480((a1 >> 5) & 1, v59);
     sub_109480((a1 >> 5) & 1, v60);
-    for ( i = a4; ; i = (unsigned __int8)(i + 1) )
+    for ( i = a4; ; i = (uint8_t)(i + 1) )
     {
       if ( i > 9 )
-        *(uint16_t *)(a2 + 2 * (__int16)i) = LOBYTE(v59[i - 10]) | (unsigned __int16)(v60[i - 10] << 8);
+        *(uint16_t *)(a2 + 2 * (int16_t)i) = LOBYTE(v59[i - 10]) | (uint16_t)(v60[i - 10] << 8);
       if ( a5 == i )
         break;
     }
     v34 = a4;
     do
     {
-      v35 = *(unsigned __int16 *)(a2 + 2 * v34);
-      sub_11F74C(0x2000, dword_10ABFC, v34, (unsigned __int8)v35);
+      v35 = *(uint16_t *)(a2 + 2 * v34);
+      sub_11F74C(0x2000, dword_10ABFC, v34, (uint8_t)v35);
       sub_11F74C(0x2000, dword_10AC00, v34, v35 >> 8);
       v24 = a5 == v34;
-      v34 = (unsigned __int8)(v34 + 1);
+      v34 = (uint8_t)(v34 + 1);
     }
     while ( !v24 );
   }
@@ -246,7 +278,7 @@ LABEL_28:
   {
     v38 = (unsigned int *)off_10AC0C;
     v39 = *(uint16_t *)(a2 + 2 * a4);
-    *(uint32_t *)off_10AC0C = *(uint32_t *)off_10AC0C & 0xFE01FFFF | ((unsigned __int8)v39 << 17);
+    *(uint32_t *)off_10AC0C = *(uint32_t *)off_10AC0C & 0xFE01FFFF | ((uint8_t)v39 << 17);
     *v38 = v39 & 0xFF00 | *v38 & 0xFFFF00FF;
   }
   else

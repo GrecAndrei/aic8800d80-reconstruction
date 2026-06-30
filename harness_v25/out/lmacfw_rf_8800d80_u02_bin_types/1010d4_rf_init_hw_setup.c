@@ -1,3 +1,114 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101378;
+extern uint32_t off_10137C;
+extern uint32_t off_101380;
+extern uint32_t off_101384;
+extern uint32_t off_101388;
+extern uint32_t off_10138C;
+extern uint32_t off_101390;
+extern uint32_t off_101394;
+extern uint32_t off_101398;
+extern uint32_t off_10139C;
+extern uint32_t off_1013A0;
+extern uint32_t off_1013A4;
+extern uint32_t off_1013A8;
+extern uint32_t off_1013AC;
+extern uint32_t off_101700;
+extern uint32_t dword_10173C;
+extern uint32_t off_101708;
+extern uint32_t off_101770;
+extern uint32_t dword_101740;
+extern uint32_t dword_101764;
+extern uint32_t dword_101768;
+extern uint32_t off_1017A0;
+extern uint32_t dword_1017B4;
+extern uint32_t off_1017A8;
+extern uint32_t off_1017BC;
+extern uint32_t dword_1017B8;
+extern uint32_t dword_1017A4;
+extern uint32_t dword_1017AC;
+extern uint32_t dword_101750;
+extern uint32_t dword_101754;
+extern uint32_t dword_101704;
+extern uint32_t dword_10170C;
+extern uint32_t dword_10175C;
+extern uint32_t dword_101758;
+extern uint32_t dword_10176C;
+extern uint32_t dword_1017B0;
+extern uint32_t dword_101760;
+extern uint32_t dword_1013D0;
+extern uint32_t off_1013B0;
+extern uint32_t off_1013DC;
+extern uint32_t dword_1013D4;
+extern uint32_t dword_1013D8;
+extern uint32_t off_1013B4;
+extern uint32_t dword_101744;
+extern uint32_t dword_101748;
+extern uint32_t dword_10174C;
+extern uint32_t dword_1013B8;
+extern uint32_t dword_1013BC;
+extern uint32_t dword_1013C0;
+extern uint32_t off_1013C4;
+extern uint32_t off_1013C8;
+extern uint32_t off_101674;
+extern uint32_t dword_1013CC;
+extern uint32_t dword_101738;
+extern uint32_t dword_101678;
+extern uint32_t off_101680;
+extern uint32_t off_10167C;
+extern uint32_t off_101684;
+extern uint32_t off_101688;
+extern uint32_t off_10168C;
+extern uint32_t off_101690;
+extern uint32_t off_101694;
+extern uint32_t off_101698;
+extern uint32_t off_10169C;
+extern uint32_t off_1016B4;
+extern uint32_t dword_101714;
+extern uint32_t dword_101718;
+extern uint32_t dword_101710;
+extern uint32_t dword_10171C;
+extern uint32_t dword_101720;
+extern uint32_t dword_101724;
+extern uint32_t dword_101728;
+extern uint32_t dword_10172C;
+extern uint32_t dword_101730;
+extern uint32_t dword_101734;
+extern uint32_t dword_1016DC;
+extern uint32_t dword_1016E0;
+extern uint32_t dword_1016D8;
+extern uint32_t dword_1016E4;
+extern uint32_t dword_1016E8;
+extern uint32_t dword_1016EC;
+extern uint32_t dword_1016F0;
+extern uint32_t dword_1016F4;
+extern uint32_t dword_1016F8;
+extern uint32_t dword_1016FC;
+extern uint32_t dword_1016A4;
+extern uint32_t dword_1016A8;
+extern uint32_t dword_1016A0;
+extern uint32_t dword_1016AC;
+extern uint32_t dword_1016B0;
+extern uint32_t dword_1016B8;
+extern uint32_t dword_1016BC;
+extern uint32_t dword_1016C0;
+extern uint32_t dword_1016C4;
+extern uint32_t dword_1016C8;
+extern uint32_t off_1016CC;
+extern uint32_t off_1016D0;
+extern uint32_t off_1016D4;
+
 // rf_init_hw_setup @ 0x1010d4, size 1740 bytes
 // Doc: rf_init_hw_setup [rf]: Initialize RF hardware and clear MMIO control bits
 // rf_init_hw_setup [rf]: Initialize RF hardware and clear MMIO control bits
@@ -46,7 +157,7 @@ unsigned int  rf_init_hw_setup(unsigned int a1)
   unsigned int v42; // r3
   uint32_t *v43; // r0
   unsigned int *v44; // r1
-  bool v45; // zf
+  int v45; // zf
   unsigned int *v46; // r2
   unsigned int v47; // r3
   unsigned int v48; // r3
@@ -135,7 +246,7 @@ unsigned int  rf_init_hw_setup(unsigned int a1)
   *v14 &= ~2u;
   v12[6] &= ~0x20000u;
   *v14 |= 0x20u;
-  v15 = (unsigned __int16)(a1 - 5000);
+  v15 = (uint16_t)(a1 - 5000);
   if ( v9 == 192 )
   {
     if ( v15 <= 0xFA )
@@ -294,7 +405,7 @@ LABEL_7:
   v27 = v23;
   do
   {
-    if ( v9 != 192 && (unsigned __int16)(a1 - 5000) > 0x140u )
+    if ( v9 != 192 && (uint16_t)(a1 - 5000) > 0x140u )
     {
       v28 = v27[1] & 0xFFFFFFFE;
       *v27 = *v27 & 0x1FFFFFFF | v26 | v25;
@@ -336,7 +447,7 @@ LABEL_7:
   {
     if ( a1 <= 0x1571 )
     {
-      v32 = *(unsigned __int8 *)off_101398;
+      v32 = *(uint8_t *)off_101398;
       v33 = v32 & 0xC0;
       v34 = a1 > 0x1486;
       if ( a1 <= 0x1486 )
@@ -350,7 +461,7 @@ LABEL_7:
     v35 = 4;
     v34 = 2;
   }
-  v32 = *(unsigned __int8 *)off_101674;
+  v32 = *(uint8_t *)off_101674;
   v33 = v32 & 0xC0;
   if ( v33 == 192 )
   {
@@ -373,8 +484,8 @@ LABEL_27:
   }
 LABEL_31:
   v38 = (unsigned int *)off_101680;
-  *(uint32_t *)off_10167C = *(uint32_t *)off_10167C & 0xFFFFFF00 | *(unsigned __int8 *)(v36 + v35);
-  v39 = *(unsigned __int8 *)(v36 + v35 + 1);
+  *(uint32_t *)off_10167C = *(uint32_t *)off_10167C & 0xFFFFFF00 | *(uint8_t *)(v36 + v35);
+  v39 = *(uint8_t *)(v36 + v35 + 1);
   v40 = off_101684;
   *v38 = *v38 & 0xFFFFFF00 | v39;
   if ( !v40[1] )
@@ -476,7 +587,7 @@ LABEL_31:
     v59 = 2;
   }
   v60 = off_1016CC;
-  if ( *(unsigned __int8 *)off_1016CC != v59 )
+  if ( *(uint8_t *)off_1016CC != v59 )
   {
     v61 = mmio_status_flag_read();
     rf_init_or_config_helper(v61);

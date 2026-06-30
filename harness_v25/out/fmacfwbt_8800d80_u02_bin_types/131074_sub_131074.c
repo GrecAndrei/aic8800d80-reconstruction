@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_131140;
+
 // sub_131074 @ 0x131074, size 202 bytes
 uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
 {
@@ -8,19 +22,19 @@ uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
   int v8; // r2
   int v9; // r3
   int v10; // r1
-  bool v11; // zf
+  int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
   result = sub_12DB80(a1, a2, v12);
   if ( result )
   {
-    v5 = *(unsigned __int8 *)(a3 + 164);
+    v5 = *(uint8_t *)(a3 + 164);
     if ( *(uint8_t *)(a3 + 164) )
     {
-      if ( v5 == 1 && (unsigned __int16)(*(uint16_t *)(a3 + 166) - 5005) <= 0x370u )
+      if ( v5 == 1 && (uint16_t)(*(uint16_t *)(a3 + 166) - 5005) <= 0x370u )
       {
-        v5 = (unsigned __int8)((unsigned int)(((unsigned int)dword_131140
-                                             * (unsigned uint64_t)((unsigned int)*(unsigned __int16 *)(a3 + 166) - 5000)) >> 32) >> 2);
+        v5 = (uint8_t)((unsigned int)(((unsigned int)dword_131140
+                                             * (unsigned uint64_t)((unsigned int)*(uint16_t *)(a3 + 166) - 5000)) >> 32) >> 2);
         v7 = 4;
       }
       else
@@ -31,7 +45,7 @@ uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
     }
     else
     {
-      v6 = *(unsigned __int16 *)(a3 + 166);
+      v6 = *(uint16_t *)(a3 + 166);
       if ( (unsigned int)(v6 - 2412) > 0x48 )
       {
         v7 = 1;
@@ -40,7 +54,7 @@ uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
       {
         v5 = v6 == 2484
            ? 14
-           : (unsigned __int8)((unsigned int)(((unsigned int)dword_131140 * (unsigned uint64_t)(unsigned int)(v6 - 2407)) >> 32) >> 2);
+           : (uint8_t)((unsigned int)(((unsigned int)dword_131140 * (unsigned uint64_t)(unsigned int)(v6 - 2407)) >> 32) >> 2);
         v7 = 1;
       }
     }
@@ -50,7 +64,7 @@ uint8_t * sub_131074(uint8_t *a1, int a2, int a3)
       v8 = 5;
       do
       {
-        v9 = (unsigned __int8)result[v8];
+        v9 = (uint8_t)result[v8];
         if ( result[v8 + 1] )
         {
           if ( v9 == v5 )
@@ -62,8 +76,8 @@ LABEL_7:
           v10 = 0;
           while ( 1 )
           {
-            v11 = v10 == (unsigned __int8)(result[v8 + 1] - 1);
-            v9 = (unsigned __int8)(v9 + v7);
+            v11 = v10 == (uint8_t)(result[v8 + 1] - 1);
+            v9 = (uint8_t)(v9 + v7);
             ++v10;
             if ( v11 )
               break;
@@ -71,7 +85,7 @@ LABEL_7:
               goto LABEL_7;
           }
         }
-        v8 = (unsigned __int8)(v8 + 3);
+        v8 = (uint8_t)(v8 + 3);
       }
       while ( v12[0] > v8 + 2 );
     }

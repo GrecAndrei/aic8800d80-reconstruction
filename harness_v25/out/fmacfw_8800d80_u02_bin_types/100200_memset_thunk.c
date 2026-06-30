@@ -1,7 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // memset_thunk @ 0x100200, size 160 bytes
 // Doc: memset_thunk [util]: Lightweight memset wrapper preserving r4-r7
 // memset_thunk [util]: Lightweight memset wrapper preserving r4-r7
-int * memset_thunk(int *result, unsigned __int8 a2, unsigned int a3)
+int * memset_thunk(int *result, uint8_t a2, unsigned int a3)
 {
   unsigned int v3; // r4
   int *v4; // r3

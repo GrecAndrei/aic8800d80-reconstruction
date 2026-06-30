@@ -1,3 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C044;
+extern uint32_t off_12C048;
+extern uint32_t dword_12C04C;
+extern uint32_t dword_12C050;
+extern uint32_t off_12C060;
+extern uint32_t off_12C064;
+extern uint32_t off_12C068;
+extern uint32_t off_12C054;
+extern uint32_t dword_12C06C;
+extern uint32_t dword_12C058;
+extern uint32_t dword_12C070;
+extern uint32_t dword_12C074;
+extern uint32_t dword_12C078;
+extern uint32_t dword_12C07C;
+extern uint32_t dword_12C080;
+extern uint32_t dword_12C084;
+extern uint32_t dword_12C088;
+extern uint32_t dword_12C08C;
+extern uint32_t dword_12C090;
+extern uint32_t dword_12C094;
+extern uint32_t dword_12C098;
+extern uint32_t dword_12C09C;
+extern uint32_t dword_12C05C;
+
 // sub_12BEB0 @ 0x12beb0, size 402 bytes
 int  sub_12BEB0(int result, int a2, int a3, int a4)
 {
@@ -25,7 +61,7 @@ int  sub_12BEB0(int result, int a2, int a3, int a4)
     result = sub_12CFC4(0x40000);
     *(uint32_t *)off_12C068 = v7;
   }
-  if ( **(__int16 **)off_12C054 < 0 )
+  if ( **(int16_t **)off_12C054 < 0 )
   {
     if ( (v5 & 0x400000) != 0 )
     {

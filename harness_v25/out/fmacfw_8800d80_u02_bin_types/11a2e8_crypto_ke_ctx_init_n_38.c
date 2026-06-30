@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11A450;
+extern uint32_t off_11A44C;
+extern uint32_t dword_11A458;
+extern uint32_t dword_11A454;
+
 // crypto_ke_ctx_init_n_38 @ 0x11a2e8, size 354 bytes
 // Doc: crypto_ke_ctx_init_n_38 [ke]: Initialize key exchange / crypto context (zero ctx, set 0x100 size)
 // crypto_ke_ctx_init_n_38 [ke]: Initialize key exchange / crypto context (zero ctx, set 0x100 size)
@@ -18,13 +35,13 @@ int  crypto_ke_ctx_init_n_38(int a1, int a2)
   uint16_t *v16; // r0
   char v17; // r3
   uint64_t v18; // kr08_8
-  __int16 v19; // r3
+  int16_t v19; // r3
   unsigned int v21; // r3
   int v22; // r0
   int v23; // r3
   unsigned int v24; // r3
 
-  v2 = *(QWORD *)(a1 + 72);
+  v2 = *(uint64_t *)(a1 + 72);
   *(uint32_t *)(a1 + 36) = 0;
   *(uint32_t *)(a1 + 68) = 0;
   *(uint32_t *)(HIDWORD(v2) + 20) = 0;
@@ -44,8 +61,8 @@ int  crypto_ke_ctx_init_n_38(int a1, int a2)
     while ( v7 != (int *)v6 );
     if ( (*(uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
-      v10 = *(uint32_t *)(dword_11A450 + 696 * *(unsigned __int8 *)(a1 + 29) + 340);
-      if ( **(__int16 **)off_11A44C >= 0 || v10 )
+      v10 = *(uint32_t *)(dword_11A450 + 696 * *(uint8_t *)(a1 + 29) + 340);
+      if ( **(int16_t **)off_11A44C >= 0 || v10 )
       {
         v11 = HIDWORD(v2);
       }
@@ -63,7 +80,7 @@ int  crypto_ke_ctx_init_n_38(int a1, int a2)
       *(uint32_t *)(v2 + 80) = v13;
       if ( v6 == 5 )
       {
-        v6 = *(unsigned __int8 *)(v10 + 165);
+        v6 = *(uint8_t *)(v10 + 165);
         v21 = v13 & 0xFFFCFFFF;
         if ( (v12 & 0x600) == 0x400 )
           v22 = 0x20000;
@@ -80,7 +97,7 @@ int  crypto_ke_ctx_init_n_38(int a1, int a2)
         *(uint32_t *)(v2 + 48) &= 0xFFFFFE7F;
       if ( a2 )
         goto LABEL_16;
-      v14 = *(unsigned __int16 *)(a1 + 30);
+      v14 = *(uint16_t *)(a1 + 30);
       v6 = v14 << 18;
       if ( (v14 & 0x2000) != 0 )
       {
@@ -97,7 +114,7 @@ int  crypto_ke_ctx_init_n_38(int a1, int a2)
 LABEL_16:
         *(uint8_t *)(v11 + 1) = 1;
         sub_11C588(a1, v6);
-        v18 = *(QWORD *)(v2 + 96);
+        v18 = *(uint64_t *)(v2 + 96);
         v19 = *(uint16_t *)(a1 + 82) | 6;
         *(uint32_t *)(HIDWORD(v2) + 44) = HIDWORD(v18);
         *(uint32_t *)(HIDWORD(v2) + 48) = v2 + 44;
@@ -111,7 +128,7 @@ LABEL_13:
     if ( !v15 )
     {
       v16 = *(uint16_t **)(HIDWORD(v2) + 28);
-      v6 = (unsigned __int16)*v16;
+      v6 = (uint16_t)*v16;
       if ( (*v16 & 0x8000) != 0 )
       {
         *v16 = v6 & 0x7FFF;

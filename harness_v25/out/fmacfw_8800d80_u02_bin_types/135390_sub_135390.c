@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_135534;
+extern uint32_t dword_135550;
+extern uint32_t dword_135540;
+extern uint32_t off_135544;
+extern uint32_t off_135554;
+extern uint32_t dword_13555C;
+extern uint32_t dword_135558;
+extern uint32_t off_135548;
+extern uint32_t dword_13554C;
+
 // sub_135390 @ 0x135390, size 418 bytes
 // positive sp value has been detected, the output may be wrong!
 void  sub_135390(
@@ -28,21 +50,21 @@ void  sub_135390(
   uint8_t *v23; // r7
   int v24; // r10
   int v25; // r5
-  __int16 v26; // r3
+  int16_t v26; // r3
   uint16_t *v27; // r2
   int v28; // r1
   int v29; // r11
   int v30; // t1
   int v31; // lr
-  __int16 v32; // r3
+  int16_t v32; // r3
   int v33; // r6
-  __int16 v34; // r12
+  int16_t v34; // r12
   uint16_t *v35; // r7
   int v36; // r3
   int v37; // r0
   uint32_t *v38; // r1
   int v39; // r2
-  bool v40; // cc
+  int v40; // cc
   int v41; // r2
   int v42; // r0
   int v43; // r3
@@ -67,7 +89,7 @@ void  sub_135390(
   }
   else
   {
-    v18 = *(unsigned __int8 *)(v13 + 412);
+    v18 = *(uint8_t *)(v13 + 412);
     if ( *(uint8_t *)(v13 + 412) )
       v18 = 1;
     v22 = sub_118C44(v18, 512);
@@ -79,7 +101,7 @@ LABEL_5:
       v24 = *((uint32_t *)off_135534 + 5);
       sub_12C4E8(v15 + 1320 * v14, v22);
       v25 = *(uint32_t *)(v22 + 72);
-      v26 = (unsigned __int8)v23[33];
+      v26 = (uint8_t)v23[33];
       if ( v23[33] )
       {
         v27 = (uint16_t *)dword_135550;
@@ -87,7 +109,7 @@ LABEL_5:
       }
       else
       {
-        v27 = nullptr;
+        v27 = 0;
       }
       v28 = dword_135540;
       *(uint16_t *)(v25 + 108) = v26;
@@ -110,7 +132,7 @@ LABEL_5:
       *(uint8_t *)(v25 + 111) = 0;
       LOWORD(v31) = 16 * v32;
       v35[254] = v32;
-      v36 = *(unsigned __int8 *)(v33 + 107);
+      v36 = *(uint8_t *)(v33 + 107);
       *(uint16_t *)(v25 + 130) = v31;
       v37 = sub_130840(v25 + 132, v52 + 248 + v15, v27, v36, v55, (uint16_t *)&v54 + 1, v16);
       *(uint8_t *)(v22 + 28) = *(uint8_t *)(v33 + 107);
@@ -122,7 +144,7 @@ LABEL_5:
       v38[9] = v37 + 28;
       if ( v40 )
       {
-        if ( **(__int16 **)off_135554 < 0 )
+        if ( **(int16_t **)off_135554 < 0 )
           sub_12F49C(dword_13555C, dword_135558, 1115);
         *(uint16_t *)(v24 + 14) = 0;
       }
@@ -152,10 +174,10 @@ LABEL_5:
       v45[34] = 1;
       timer_set_relative(6154, 6, v53);
       sub_12CD34(6u, 8);
-      __asm { POP.W           {R4-R11,PC} }
+      
     }
   }
   sub_134E04(1, v19, v20, v21, v46, v47, v48, v49, v50, v51, v54, v55[0], v55[1]);
-  __asm { POP.W           {R4-R11,PC} }
+  
 }
 

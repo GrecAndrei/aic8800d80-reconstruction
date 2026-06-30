@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_111F44;
+extern uint32_t dword_111F54;
+extern uint32_t dword_111F48;
+extern uint32_t dword_111F4C;
+extern uint32_t dword_111F50;
+
 // sub_111EA4 @ 0x111ea4, size 158 bytes
 int  sub_111EA4(int a1, int a2, unsigned int a3)
 {
@@ -13,7 +31,7 @@ int  sub_111EA4(int a1, int a2, unsigned int a3)
   if ( *(uint8_t *)off_111F44 != 4 )
     return 1;
   v3 = a1 - 1;
-  if ( (unsigned __int8)(a1 - 1) > 5u )
+  if ( (uint8_t)(a1 - 1) > 5u )
     return 2;
   if ( a2 << 30 )
   {

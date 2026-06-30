@@ -1,3 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11347C;
+extern uint32_t off_113484;
+extern uint32_t off_113488;
+extern uint32_t off_113480;
+extern uint32_t off_11348C;
+extern uint32_t off_113494;
+extern uint32_t off_113498;
+extern uint32_t off_113490;
+extern uint32_t off_11349C;
+extern uint32_t off_1134A0;
+extern uint32_t dword_1134D4;
+extern uint32_t dword_1134D0;
+extern uint32_t off_1134A4;
+extern uint32_t dword_1134AC;
+extern uint32_t off_1134B0;
+extern uint32_t off_1134B4;
+extern uint32_t off_1134A8;
+extern uint32_t off_1134B8;
+extern uint32_t off_1134BC;
+extern uint32_t off_1134C0;
+extern uint32_t off_1134C4;
+extern uint32_t dword_1134CC;
+extern uint32_t off_1134C8;
+
 // sub_113374 @ 0x113374, size 264 bytes
 int  sub_113374(int a1)
 {
@@ -19,7 +55,7 @@ int  sub_113374(int a1)
   uint8_t *v16; // r4
   int v17; // r1
   uint8_t *v18; // r5
-  bool v19; // cc
+  int v19; // cc
   char v20; // r0
   int v21; // r3
   int v22; // r0
@@ -52,14 +88,14 @@ int  sub_113374(int a1)
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
   sub_100200(v6, 0, 0xCB8u);
-  if ( **(__int16 **)off_1134A0 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
+  if ( **(int16_t **)off_1134A0 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
     rf_cmd_send_n264(dword_1134D4, dword_1134D0, 758);
   v10 = off_1134A4;
-  v11 = *((unsigned __int16 *)off_1134A4 + 164);
-  v12 = *((unsigned __int16 *)off_1134A4 + 154);
+  v11 = *((uint16_t *)off_1134A4 + 164);
+  v12 = *((uint16_t *)off_1134A4 + 154);
   v13 = dword_1134AC;
   v14 = off_1134B0;
-  *(uint32_t *)off_1134B4 = *((unsigned __int16 *)off_1134A4 + 153) - *(uint32_t *)off_1134A8 - 4;
+  *(uint32_t *)off_1134B4 = *((uint16_t *)off_1134A4 + 153) - *(uint32_t *)off_1134A8 - 4;
   v15 = (int *)off_1134B8;
   v16 = off_1134BC;
   v17 = v13 * v11;
@@ -72,7 +108,7 @@ int  sub_113374(int a1)
     v15 = (int *)off_1134C4;
   *v18 = v10[320];
   v20 = v10[321];
-  v21 = (unsigned __int8)v10[368];
+  v21 = (uint8_t)v10[368];
   *v16 = v20;
   if ( v19 )
     *v15 = v17;

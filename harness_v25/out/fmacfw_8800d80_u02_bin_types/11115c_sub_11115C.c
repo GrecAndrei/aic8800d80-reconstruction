@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11123C;
+extern uint32_t off_111240;
+extern uint32_t off_111244;
+extern uint32_t off_111260;
+extern uint32_t off_111264;
+extern uint32_t dword_111268;
+extern uint32_t off_11126C;
+extern uint32_t off_111248;
+extern uint32_t off_11124C;
+extern uint32_t dword_111250;
+extern uint32_t off_111254;
+extern uint32_t off_11125C;
+extern uint32_t off_111258;
+
 // sub_11115C @ 0x11115c, size 222 bytes
 int  sub_11115C(int a1)
 {
@@ -30,7 +56,7 @@ int  sub_11115C(int a1)
     v12 = off_111264;
     if ( *(uint8_t *)off_111260 )
     {
-      v14 = *((unsigned __int8 *)off_111264 + 374);
+      v14 = *((uint8_t *)off_111264 + 374);
       if ( v14 != 1 )
         goto LABEL_4;
       if ( rf_msg_handler_n22e(dword_111268) )
@@ -46,7 +72,7 @@ int  sub_11115C(int a1)
         sub_10DD14(1);
       else
         rf_mem_read_n47e(1);
-      v13 = (unsigned __int8)v12[374];
+      v13 = (uint8_t)v12[374];
       *v11 = 1;
       if ( v13 != 1 )
         goto LABEL_18;

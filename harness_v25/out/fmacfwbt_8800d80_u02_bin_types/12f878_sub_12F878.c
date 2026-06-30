@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F908;
+extern uint32_t dword_12F910;
+extern uint32_t dword_12F914;
+extern uint32_t off_12F90C;
+
 // sub_12F878 @ 0x12f878, size 144 bytes
 // Doc: sub_122F878 [unknown]: Unknown function in fmacfwbt firmware
 // sub_122F878 [unknown]: Unknown function in fmacfwbt firmware
@@ -8,8 +25,8 @@ unsigned int  sub_12F878(unsigned int a1, int a2, int a3)
   uint8_t *v8; // r9
   int v9; // r3
   int v10; // r8
-  unsigned __int8 *v11; // r4
-  unsigned __int8 *v12; // r6
+  uint8_t *v11; // r4
+  uint8_t *v12; // r6
   int v13; // t1
 
   v3 = a2 - 1;
@@ -30,8 +47,8 @@ unsigned int  sub_12F878(unsigned int a1, int a2, int a3)
     if ( v3 > a1 )
     {
       v10 = dword_12F914;
-      v11 = (unsigned __int8 *)(a1 - 1);
-      v12 = (unsigned __int8 *)(a2 - 2);
+      v11 = (uint8_t *)(a1 - 1);
+      v12 = (uint8_t *)(a2 - 2);
       do
       {
         while ( 1 )

@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_131118 @ 0x131118, size 88 bytes
-int  sub_131118(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
+int  sub_131118(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int result; // r0
   char v7; // r2
@@ -22,13 +34,13 @@ int  sub_131118(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
       *a4 = 1;
       *(uint8_t *)(a3 + 16) = v7;
       *(uint8_t *)(a3 + 17) = v7 & 0xF;
-      v8 = *(unsigned __int16 *)(result + 8);
-      v9 = *(unsigned __int16 *)(result + 11);
-      v10 = *(unsigned __int16 *)(result + 14);
-      *(uint32_t *)(a3 + 4) = *(unsigned __int8 *)(result + 4) | (*(unsigned __int16 *)(result + 5) << 8);
-      *(uint32_t *)a3 = *(unsigned __int8 *)(result + 7) | (v8 << 8);
-      *(uint32_t *)(a3 + 8) = *(unsigned __int8 *)(result + 10) | (v9 << 8);
-      v11 = *(unsigned __int8 *)(result + 13) | (v10 << 8);
+      v8 = *(uint16_t *)(result + 8);
+      v9 = *(uint16_t *)(result + 11);
+      v10 = *(uint16_t *)(result + 14);
+      *(uint32_t *)(a3 + 4) = *(uint8_t *)(result + 4) | (*(uint16_t *)(result + 5) << 8);
+      *(uint32_t *)a3 = *(uint8_t *)(result + 7) | (v8 << 8);
+      *(uint32_t *)(a3 + 8) = *(uint8_t *)(result + 10) | (v9 << 8);
+      v11 = *(uint8_t *)(result + 13) | (v10 << 8);
       result = 1;
       *(uint32_t *)(a3 + 12) = v11;
     }

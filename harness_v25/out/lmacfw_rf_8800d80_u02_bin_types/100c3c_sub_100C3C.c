@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100D04;
+extern uint32_t off_100D0C;
+extern uint32_t off_100D08;
+extern uint32_t off_100D00;
+extern uint32_t off_100D10;
+extern uint32_t off_100D14;
+
 // sub_100C3C @ 0x100c3c, size 194 bytes
 // Doc: sub_1200C3C [util]: Read linked state from globals and initialize context struct
 // sub_1200C3C [util]: Read linked state from globals and initialize context struct
@@ -16,7 +35,7 @@ int  sub_100C3C(int result)
   v1 = (int *)off_100D04;
   v2 = *(uint32_t *)off_100D04;
   v3 = off_100D0C;
-  *(uint32_t *)off_100D08 = (*(unsigned __int8 *)off_100D00 << 10) & 0x1FC00 | *(uint32_t *)off_100D08 & 0xFFFE03FF;
+  *(uint32_t *)off_100D08 = (*(uint8_t *)off_100D00 << 10) & 0x1FC00 | *(uint32_t *)off_100D08 & 0xFFFE03FF;
   v4 = (unsigned int *)off_100D04;
   *v1 |= 0x18u;
   v5 = *v1 & 0xFFFFFFF8;

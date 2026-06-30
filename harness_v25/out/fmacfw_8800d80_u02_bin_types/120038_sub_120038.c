@@ -1,5 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_120188;
+extern uint32_t dword_120180;
+
 // sub_120038 @ 0x120038, size 326 bytes
-uint64_t  sub_120038(unsigned __int8 *a1, char a2)
+uint64_t  sub_120038(uint8_t *a1, char a2)
 {
   int v3; // r6
   int v4; // r8
@@ -29,7 +44,7 @@ uint64_t  sub_120038(unsigned __int8 *a1, char a2)
   {
     case 0:
     case 3:
-      *(QWORD *)(1320 * v4 + 120 * v3 + v5 + 552) = sub_14397C(v9) & 0xFFFFFFLL;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = sub_14397C(v9) & 0xFFFFFFLL;
       break;
     case 1:
       v15 = 1320 * v4 + 120 * v3 + v5;
@@ -37,17 +52,17 @@ uint64_t  sub_120038(unsigned __int8 *a1, char a2)
       *(uint32_t *)(v15 + 564) = *((uint32_t *)a1 + 7);
       *(uint32_t *)(v15 + 568) = *((uint32_t *)a1 + 8);
       *(uint32_t *)(v15 + 572) = *((uint32_t *)a1 + 9);
-      *(QWORD *)(v15 + 552) = 0;
+      *(uint64_t *)(v15 + 552) = 0;
       break;
     case 4:
-      *(QWORD *)(1320 * v4 + 120 * v3 + v5 + 552) = *(QWORD *)&dword_120180;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(uint64_t *)&dword_120180;
       break;
     case 5:
       sub_143770(v7 + 560 + v5, a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:
-      *(QWORD *)(1320 * v4 + 120 * v3 + v5 + 552) = 0;
+      *(uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = 0;
       break;
   }
   v10 = 1320 * v4 + 120 * v3 + v5;
@@ -57,11 +72,11 @@ LABEL_3:
   else
     *(uint32_t *)(v11 + 1200) = v8;
   *(uint8_t *)(v10 + 579) = 1;
-  result = *((QWORD *)a1 + 1);
-  v13 = *((QWORD *)a1 + 2);
+  result = *((uint64_t *)a1 + 1);
+  v13 = *((uint64_t *)a1 + 2);
   v14 = v5 + 1320 * v4 + 120 * v3;
-  *(QWORD *)(v14 + 580) = result;
-  *(QWORD *)(v14 + 588) = v13;
+  *(uint64_t *)(v14 + 580) = result;
+  *(uint64_t *)(v14 + 588) = v13;
   *(uint8_t *)(v14 + 596) = a1[4];
   return result;
 }

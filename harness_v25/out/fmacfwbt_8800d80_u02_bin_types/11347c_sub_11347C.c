@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_11347C @ 0x11347c, size 106 bytes
 // Doc: rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
 // rf_stream_start2_n26e [rf]: RF stream start variant; tail-calls helper at 0x114e84
@@ -16,11 +28,11 @@ uint32_t * sub_11347C(int a1)
       if ( *((uint8_t *)rf_fault_dump_n_3ec + 370) && bt_ps_control(v3) )
       {
         v4 = sub_114E98();
-        v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (unsigned __int16)v4;
+        v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (uint16_t)v4;
         return v2;
       }
-      else if ( *(unsigned __int16 *)rf_stream_start2_n2b1 == 0xFFFF
-             || *((unsigned __int16 *)rf_stream_start2_n2b1 + 1) == 0xFFFF )
+      else if ( *(uint16_t *)rf_stream_start2_n2b1 == 0xFFFF
+             || *((uint16_t *)rf_stream_start2_n2b1 + 1) == 0xFFFF )
       {
         return rf_bus_write2_n1be;
       }
@@ -35,7 +47,7 @@ uint32_t * sub_11347C(int a1)
     case 15:
       return (uint32_t *)rf_stream_start2_n29c;
     default:
-      return nullptr;
+      return 0;
   }
   return result;
 }

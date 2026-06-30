@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1254E0;
+extern uint32_t off_1254DC;
+extern uint32_t dword_1254C8;
+extern uint32_t dword_1254CC;
+extern uint32_t off_1254E4;
+extern uint32_t dword_1254D0;
+extern uint32_t dword_1254D4;
+extern uint32_t dword_1254D8;
+
 // bt_hci_cmd_dispatch_2b8 @ 0x125318, size 432 bytes
 // Doc: bt_hci_cmd_dispatch_2b8 [bt]: BT HCI command dispatch indexed by slot*0x2b8
 // bt_hci_cmd_dispatch_2b8 [bt]: BT HCI command dispatch indexed by slot*0x2b8
@@ -8,15 +29,15 @@ int  bt_hci_cmd_dispatch_2b8(int result)
   int v3; // r3
   int v4; // r1
   int v5; // r2
-  unsigned __int8 *v6; // r3
+  uint8_t *v6; // r3
   int v7; // r4
   uint32_t *v8; // r11
   int v9; // r2
   unsigned int v10; // r5
-  bool v11; // cc
+  int v11; // cc
   int v12; // r6
-  unsigned __int8 *v13; // r5
-  unsigned __int8 *v14; // lr
+  uint8_t *v13; // r5
+  uint8_t *v14; // lr
   unsigned int v15; // r12
   int v16; // r6
   unsigned int v17; // lr
@@ -29,13 +50,13 @@ int  bt_hci_cmd_dispatch_2b8(int result)
   int v24; // r6
   int v25; // r12
   int v26; // r5
-  __int16 v27; // r8
+  int16_t v27; // r8
   int v28; // lr
   int v29; // [sp+0h] [bp-Ch]
   int v30; // [sp+4h] [bp-8h]
 
   v1 = dword_1254E0;
-  v2 = 696 * (*(unsigned __int8 *)(result + 107) + 32);
+  v2 = 696 * (*(uint8_t *)(result + 107) + 32);
   v3 = dword_1254E0 + v2;
   v4 = dword_1254E0 + 40 + v2;
   while ( !*(uint32_t *)(v3 + 584) )
@@ -49,7 +70,7 @@ int  bt_hci_cmd_dispatch_2b8(int result)
   }
   *(uint8_t *)off_1254DC = 1;
 LABEL_5:
-  v6 = (unsigned __int8 *)dword_1254C8;
+  v6 = (uint8_t *)dword_1254C8;
   v7 = dword_1254CC;
   v8 = off_1254E4;
   v9 = dword_1254C8 + 22272;
@@ -91,11 +112,11 @@ LABEL_5:
           }
         }
         v15 = *v6;
-        v29 = *(unsigned __int8 *)(result + 107);
+        v29 = *(uint8_t *)(result + 107);
         v16 = dword_1254D0 + 252 * v29;
         v17 = v15 >> 3;
         v18 = 1 << (v15 & 7);
-        v19 = *(unsigned __int8 *)((v15 >> 3) + v16);
+        v19 = *(uint8_t *)((v15 >> 3) + v16);
         v30 = v16 + (v15 >> 3);
         v20 = v29;
         if ( (v18 & v19) == 0 )
@@ -103,11 +124,11 @@ LABEL_5:
       }
 LABEL_6:
       v6 += 696;
-      if ( (unsigned __int8 *)v9 == v6 )
+      if ( (uint8_t *)v9 == v6 )
         return result;
     }
     *(uint8_t *)(v17 + v16) = v18 | v19;
-    v21 = *(unsigned __int8 *)(result + 228);
+    v21 = *(uint8_t *)(result + 228);
     ++*(uint16_t *)(result + 220);
     if ( v21 > v17 )
     {
@@ -117,7 +138,7 @@ LABEL_6:
       *(uint8_t *)(result + 228) = v17 & 0x1E;
       *(uint32_t *)(v22 + 28) = v16 + ((v15 >> 3) & 0x1E);
     }
-    v23 = *(unsigned __int8 *)(result + 229);
+    v23 = *(uint8_t *)(result + 229);
     v24 = 4 * v20;
     if ( v23 < v17 )
     {
@@ -136,7 +157,7 @@ LABEL_6:
     *(uint32_t *)(v28 + 12) = v25 + 4;
     *(uint32_t *)(v28 + 4) = v26 + 40 * v29 + 20;
   }
-  while ( (unsigned __int8 *)v9 != v6 );
+  while ( (uint8_t *)v9 != v6 );
   return result;
 }
 

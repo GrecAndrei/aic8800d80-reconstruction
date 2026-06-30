@@ -1,11 +1,41 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1218C8;
+extern uint32_t off_1218A0;
+extern uint32_t dword_1218C0;
+extern uint32_t off_12189C;
+extern uint32_t off_121890;
+extern uint32_t dword_1218A8;
+extern uint32_t dword_1218A4;
+extern uint32_t dword_121894;
+extern uint32_t dword_121898;
+extern uint32_t off_1218AC;
+extern uint32_t off_1218B0;
+extern uint32_t off_1218B4;
+extern uint32_t off_1218B8;
+extern uint32_t off_1218C4;
+extern uint32_t dword_1218D0;
+extern uint32_t dword_1218CC;
+extern uint32_t off_1218BC;
+
 // sub_121678 @ 0x121678, size 534 bytes
-int  sub_121678(unsigned __int8 *a1)
+int  sub_121678(uint8_t *a1)
 {
   unsigned int v1; // r7
   int v2; // r5
   int v4; // r6
   uint32_t *v5; // r2
-  unsigned __int16 *v6; // r7
+  uint16_t *v6; // r7
   uint32_t *v7; // r3
   uint8_t *v8; // r3
   uint32_t *v9; // r3
@@ -13,7 +43,7 @@ int  sub_121678(unsigned __int8 *a1)
   int v11; // r1
   uint32_t *v12; // r3
   uint32_t *v13; // r2
-  unsigned __int8 v15; // r6
+  uint8_t v15; // r6
   uint32_t *v16; // r2
   int v17; // r1
   uint32_t *v18; // r3
@@ -30,7 +60,7 @@ int  sub_121678(unsigned __int8 *a1)
     if ( a1[40] == 5 )
     {
       v23 = HIBYTE(*(uint32_t *)off_1218C8) - 3 + *a1 + 2 * v2;
-      v4 = (unsigned __int8)v23;
+      v4 = (uint8_t)v23;
       sub_120370(a1, v23);
       return v4;
     }
@@ -39,19 +69,19 @@ int  sub_121678(unsigned __int8 *a1)
     v17 = dword_1218C0;
     *(uint32_t *)off_12189C = -1;
     *v16 = -1;
-    v4 = (unsigned __int8)(v15 + 4 * v2);
+    v4 = (uint8_t)(v15 + 4 * v2);
     feature_guard_sdio(256, v17);
     sub_120370(a1, v4);
   }
   else
   {
-    if ( **(__int16 **)off_121890 < 0 && v1 > 0x23 )
+    if ( **(int16_t **)off_121890 < 0 && v1 > 0x23 )
       sub_12F694(dword_1218A8, dword_1218A4, 1424);
-    v4 = (unsigned __int8)(v1 + 16);
+    v4 = (uint8_t)(v1 + 16);
     feature_guard_sdio(256, dword_121894);
     bt_rf_param_set_n_5d0((int)a1, v1 + 16);
     v5 = off_1218A0;
-    v6 = (unsigned __int16 *)(dword_121898 + 696 * v1);
+    v6 = (uint16_t *)(dword_121898 + 696 * v1);
     *(uint32_t *)off_12189C = v6[19] | (v6[20] << 16);
     *v5 = v6[21];
   }
@@ -134,7 +164,7 @@ LABEL_20:
       v20[3] = *((uint32_t *)a1 + 9);
       break;
     default:
-      if ( **(__int16 **)off_121890 < 0 )
+      if ( **(int16_t **)off_121890 < 0 )
         sub_12F694(dword_1218D0, dword_1218CC, 159);
       v10 = 0;
       v11 = 4096;

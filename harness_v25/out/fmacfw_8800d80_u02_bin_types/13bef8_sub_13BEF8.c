@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13BF60;
+extern uint32_t dword_13BF70;
+extern uint32_t dword_13BF74;
+extern uint32_t dword_13BF64;
+extern uint32_t dword_13BF68;
+extern uint32_t dword_13BF6C;
+
 // sub_13BEF8 @ 0x13bef8, size 104 bytes
 // Doc: sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
 // sub_123BEF8 [util]: Indexed table lookup/handler dispatch using 32-byte stride entries
@@ -12,7 +31,7 @@ int  sub_13BEF8(unsigned int a1)
 
   v1 = dword_13BF60;
   v2 = dword_13BF60 + 32 * a1;
-  v3 = *(unsigned __int8 *)(v2 + 16);
+  v3 = *(uint8_t *)(v2 + 16);
   v5 = 32 * a1;
   if ( a1 <= 0xF )
   {

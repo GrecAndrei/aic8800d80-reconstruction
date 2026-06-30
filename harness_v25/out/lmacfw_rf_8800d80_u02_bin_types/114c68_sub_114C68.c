@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114E38;
+extern uint32_t dword_114E3C;
+extern uint32_t off_114E40;
+extern uint32_t dword_114E44;
+extern uint32_t dword_114E48;
+extern uint32_t dword_114E4C;
+extern uint32_t dword_114E78;
+extern uint32_t dword_114E7C;
+extern uint32_t dword_114E70;
+extern uint32_t dword_114E74;
+extern uint32_t dword_114E6C;
+extern uint32_t dword_114E64;
+extern uint32_t dword_114E50;
+extern uint32_t dword_114E54;
+extern uint32_t dword_114E68;
+extern uint32_t dword_114E58;
+extern uint32_t dword_114E5C;
+extern uint32_t dword_114E60;
+extern uint32_t dword_114E84;
+extern uint32_t dword_114E88;
+extern uint32_t dword_114E8C;
+extern uint32_t dword_114E80;
+
 // sub_114C68 @ 0x114c68, size 464 bytes
 int sub_114C68()
 {
@@ -47,7 +82,7 @@ int sub_114C68()
   {
     sub_10DA6C(
       dword_114E78,
-      (unsigned __int8)v6[10],
+      (uint8_t)v6[10],
       v7 & 1,
       (v7 >> 1) & 1,
       (v7 >> 3) & 1,

@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117EAC;
+extern uint32_t off_117ED8;
+extern uint32_t dword_117EB0;
+extern uint32_t off_117EB4;
+extern uint32_t dword_117EB8;
+extern uint32_t off_117EBC;
+extern uint32_t off_117EC0;
+extern uint32_t dword_117EC4;
+extern uint32_t dword_117EC8;
+extern uint32_t dword_117ED0;
+extern uint32_t dword_117ED4;
+extern uint32_t off_117ECC;
+
 // rf_status_check @ 0x117d30, size 380 bytes
 // Doc: rf_status_check [rf]: Check RF status flag from global state
 // rf_status_check [rf]: Check RF status flag from global state
@@ -11,7 +36,7 @@ void  rf_status_check(int a1, uint32_t *a2)
   int v9; // r12
   int v10; // r7
   unsigned int v11; // r3
-  __int16 v12; // lr
+  int16_t v12; // lr
   int v13; // r2
   uint32_t *v14; // r1
   int v15; // r3
@@ -30,7 +55,7 @@ void  rf_status_check(int a1, uint32_t *a2)
   v2 = *(uint32_t *)(a1 + 84);
   if ( v2 < 0 )
   {
-    v3 = **(unsigned __int8 **)off_117EAC;
+    v3 = **(uint8_t **)off_117EAC;
     switch ( v3 )
     {
       case 2:
@@ -50,7 +75,7 @@ void  rf_status_check(int a1, uint32_t *a2)
             v26 = *(uint32_t *)(a1 + 84) & 0x3FFFFFFF;
             v25 = v9;
             sub_143770(v6 + 4, &v25, 8);
-            v11 = *((unsigned __int16 *)v7 + 4122);
+            v11 = *((uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
               v13 = 0;
@@ -81,7 +106,7 @@ void  rf_status_check(int a1, uint32_t *a2)
               *(uint32_t *)off_117EBC = 1;
             }
             v17 = (int *)off_117EC0;
-            v18 = *(unsigned __int16 *)(a1 + 32);
+            v18 = *(uint16_t *)(a1 + 32);
             v19 = dword_117EC4;
             ++*(uint32_t *)off_117EC0;
             msg_parse(v19, a1, v18);
@@ -114,7 +139,7 @@ void  rf_status_check(int a1, uint32_t *a2)
         v26 = v2 & 0x3FFFFFFF;
         v25 = v24;
         log_enqueue(18, (int)&v25, 8);
-        msg_parse(dword_117EC4, a1, *(unsigned __int16 *)(a1 + 32));
+        msg_parse(dword_117EC4, a1, *(uint16_t *)(a1 + 32));
         break;
       case 3:
         **(uint32_t **)off_117ECC = *a2 & 0xF;

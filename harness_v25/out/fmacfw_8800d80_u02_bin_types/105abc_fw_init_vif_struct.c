@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_105B98;
+extern uint32_t dword_105B9C;
+extern uint32_t dword_105B8C;
+extern uint32_t dword_105B94;
+extern uint32_t dword_105B90;
+
 // fw_init_vif_struct @ 0x105abc, size 206 bytes
 // Doc: fw_init_vif_struct [mac]: Initialize VIF control struct at offset 0x274
 // fw_init_vif_struct [mac]: Initialize VIF control struct at offset 0x274
@@ -17,7 +35,7 @@ int  fw_init_vif_struct(unsigned int a1, int a2, int a3)
   int v16; // r1
 
   v5 = 0;
-  *(QWORD *)(a2 + 628) = 0x40000000FLL;
+  *(uint64_t *)(a2 + 628) = 0x40000000FLL;
   *(uint32_t *)(a2 + 624) = 0;
   v6 = dword_105B98;
   v7 = dword_105B9C;

@@ -1,3 +1,40 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116940;
+extern uint32_t off_116978;
+extern uint32_t off_116948;
+extern uint32_t off_116968;
+extern uint32_t dword_116994;
+extern uint32_t dword_116980;
+extern uint32_t off_11696C;
+extern uint32_t dword_116990;
+extern uint32_t off_116970;
+extern uint32_t dword_11698C;
+extern uint32_t off_116974;
+extern uint32_t dword_116988;
+extern uint32_t off_11697C;
+extern uint32_t dword_116984;
+extern uint32_t off_116944;
+extern uint32_t dword_116998;
+extern uint32_t dword_11699C;
+extern uint32_t off_116958;
+extern uint32_t dword_116954;
+extern uint32_t off_116950;
+extern uint32_t dword_11694C;
+extern uint32_t off_11695C;
+extern uint32_t off_116960;
+extern uint32_t off_116964;
+
 // sub_1166B4 @ 0x1166b4, size 652 bytes
 int  sub_1166B4(int a1, int a2, int a3, int a4)
 {
@@ -25,7 +62,7 @@ int  sub_1166B4(int a1, int a2, int a3, int a4)
         goto LABEL_12;
       while ( ((*(uint32_t *)off_116940 >> 4) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 4) & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 4) & 3) != 2 )
       {
 LABEL_12:
         v16 = off_116948;
@@ -40,7 +77,7 @@ LABEL_12:
         goto LABEL_14;
       while ( ((*(uint32_t *)off_116940 >> 8) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 8) & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 8) & 3) != 2 )
       {
 LABEL_14:
         v17 = off_116948;
@@ -55,7 +92,7 @@ LABEL_14:
         goto LABEL_16;
       while ( ((*(uint32_t *)off_116940 >> 12) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 12) & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || ((*(uint32_t *)off_116940 >> 12) & 3) != 2 )
       {
 LABEL_16:
         v18 = off_116948;
@@ -70,7 +107,7 @@ LABEL_16:
         goto LABEL_18;
       while ( (HIWORD(*(uint32_t *)off_116940) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116978 >= 0 || (HIWORD(*(uint32_t *)off_116940) & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || (HIWORD(*(uint32_t *)off_116940) & 3) != 2 )
       {
 LABEL_18:
         v19 = off_116948;
@@ -81,7 +118,7 @@ LABEL_18:
       result = sub_12F408(dword_116988, dword_116980, 1883, a4);
       break;
     case 4:
-      if ( **(__int16 **)off_116978 >= 0 || (*(uint32_t *)off_116940 & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || (*(uint32_t *)off_116940 & 3) != 2 )
       {
         v20 = off_116948;
         *(uint32_t *)off_11697C = a1;
@@ -95,7 +132,7 @@ LABEL_18:
         goto LABEL_3;
       while ( (HIBYTE(*(uint32_t *)off_116940) & 3) == 2 )
         ;
-      if ( **(__int16 **)off_116978 >= 0 || (HIBYTE(*(uint32_t *)off_116940) & 3) != 2 )
+      if ( **(int16_t **)off_116978 >= 0 || (HIBYTE(*(uint32_t *)off_116940) & 3) != 2 )
       {
 LABEL_3:
         v5 = off_116948;
@@ -106,7 +143,7 @@ LABEL_3:
       result = sub_12F408(dword_116998, dword_116980, 1931, a4);
       break;
     default:
-      if ( **(__int16 **)off_116978 < 0 )
+      if ( **(int16_t **)off_116978 < 0 )
         sub_12F46C(dword_11699C, dword_116980, 1937);
 LABEL_4:
       v6 = (int *)off_116958;

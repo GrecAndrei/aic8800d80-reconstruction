@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_136CF8;
+
 // sub_136C94 @ 0x136c94, size 100 bytes
 // Doc: bt_fmac_handler_n136 [bt]: BT FMAC handler checking flag bitmask against per-channel mask
 // bt_fmac_handler_n136 [bt]: BT FMAC handler checking flag bitmask against per-channel mask
@@ -8,8 +22,8 @@ int  sub_136C94(int result, int a2)
 
   if ( (*(uint16_t *)(result + 30) & 0x1000) != 0 )
   {
-    v3 = *(unsigned __int8 *)(a2 + 310);
-    if ( ((unsigned __int8)v3 & *(uint8_t *)(dword_136CF8 + *(unsigned __int8 *)(result + 27))) != 0 )
+    v3 = *(uint8_t *)(a2 + 310);
+    if ( ((uint8_t)v3 & *(uint8_t *)(dword_136CF8 + *(uint8_t *)(result + 27))) != 0 )
     {
       if ( (*(uint8_t *)(a2 + 53) & 8) == 0 )
       {

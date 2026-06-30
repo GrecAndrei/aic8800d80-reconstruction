@@ -1,10 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1292C0;
+extern uint32_t off_1292CC;
+extern uint32_t off_1292C8;
+extern uint32_t dword_1292D0;
+extern uint32_t off_1292C4;
+
 // rf_state_check_n_208 @ 0x129208, size 184 bytes
 // Doc: rf_state_check_n_208 [rf]: Check RF state flag from global at 0x190454
 // rf_state_check_n_208 [rf]: Check RF state flag from global at 0x190454
-void  rf_state_check_n_208(unsigned __int16 *a1, __int16 a2, int a3)
+void  rf_state_check_n_208(uint16_t *a1, int16_t a2, int a3)
 {
   uint8_t *v3; // r5
-  unsigned __int16 v4; // r6
+  uint16_t v4; // r6
   int v6; // r3
   int v7; // r1
   int v8; // r3
@@ -32,7 +50,7 @@ void  rf_state_check_n_208(unsigned __int16 *a1, __int16 a2, int a3)
         if ( !v3[29] )
         {
           v9 = *((uint32_t *)off_1292CC + 4);
-          v10 = *(unsigned __int16 *)(*(uint32_t *)off_1292C8 + 56);
+          v10 = *(uint16_t *)(*(uint32_t *)off_1292C8 + 56);
           *((uint32_t *)v3 + 5) = a3;
           v3[29] = 5;
           timestamp_update(dword_1292D0, v10 + v9);
@@ -46,7 +64,7 @@ void  rf_state_check_n_208(unsigned __int16 *a1, __int16 a2, int a3)
     else if ( (a2 & 0x200) == 0 )
     {
       v6 = *((uint32_t *)off_1292CC + 4);
-      v7 = *(unsigned __int16 *)(*(uint32_t *)off_1292C8 + 54);
+      v7 = *(uint16_t *)(*(uint32_t *)off_1292C8 + 54);
       *((uint32_t *)off_1292C0 + 5) = a3;
       v3[29] = 2;
       timestamp_update((int)(v3 + 12), v7 + v6);

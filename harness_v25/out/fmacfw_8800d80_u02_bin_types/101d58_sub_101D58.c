@@ -1,11 +1,35 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101EFC;
+extern uint32_t off_101F00;
+extern uint32_t dword_101F04;
+extern uint32_t off_101F08;
+extern uint32_t off_101F0C;
+extern uint32_t off_101F10;
+extern uint32_t off_101F14;
+extern uint32_t off_101F18;
+extern uint32_t dword_101F24;
+extern uint32_t dword_101F20;
+extern uint32_t dword_101F1C;
+
 // sub_101D58 @ 0x101d58, size 420 bytes
 // Doc: sub_1201D58 [util]: Helper function reading byte/halfword from struct
 // sub_1201D58 [util]: Helper function reading byte/halfword from struct
-int  sub_101D58(unsigned int a1, signed int a2, unsigned __int8 *a3)
+int  sub_101D58(unsigned int a1, signed int a2, uint8_t *a3)
 {
   int v3; // r6
   unsigned int v4; // r7
-  bool v5; // cc
+  int v5; // cc
   char *v6; // r0
   int v7; // r2
   int v8; // r5
@@ -25,7 +49,7 @@ int  sub_101D58(unsigned int a1, signed int a2, unsigned __int8 *a3)
   int v23; // r3
 
   v3 = *a3;
-  v4 = *((unsigned __int16 *)a3 + 2);
+  v4 = *((uint16_t *)a3 + 2);
   if ( !*a3 )
   {
     if ( a1 <= 1 )
@@ -142,7 +166,7 @@ LABEL_18:
     }
     else
     {
-      if ( **(__int16 **)off_101F18 < 0 )
+      if ( **(int16_t **)off_101F18 < 0 )
         sub_12F49C(dword_101F24, dword_101F20, 7022);
       msg_parse(dword_101F1C, v3, v4);
       v23 = 15;

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1267A0;
+extern uint32_t dword_12679C;
+extern uint32_t dword_1267A4;
+
 // sub_126698 @ 0x126698, size 258 bytes
 BOOL  sub_126698(int a1, int a2, int a3)
 {
@@ -23,9 +39,9 @@ BOOL  sub_126698(int a1, int a2, int a3)
     v16 = dword_1267A0;
     while ( 1 )
     {
-      if ( *(unsigned __int8 *)(v16 + 24) != 255 )
+      if ( *(uint8_t *)(v16 + 24) != 255 )
       {
-        v17 = *(unsigned __int8 *)(v16 + 27);
+        v17 = *(uint8_t *)(v16 + 27);
         if ( v17 != 255 )
           break;
       }
@@ -35,18 +51,18 @@ BOOL  sub_126698(int a1, int a2, int a3)
     }
     v6 = dword_12679C + 1320 * v17;
   }
-  if ( !a3 || *(unsigned __int8 *)(a3 + 10) == 255 )
+  if ( !a3 || *(uint8_t *)(a3 + 10) == 255 )
   {
     v14 = sub_10186C() + 14000;
   }
   else
   {
-    v7 = dword_12679C + 1320 * *(unsigned __int8 *)(a3 + 8);
+    v7 = dword_12679C + 1320 * *(uint8_t *)(a3 + 8);
     if ( *(uint8_t *)(v7 + 106) )
     {
       if ( *(uint8_t *)(v7 + 106) == 2 )
       {
-        v18 = *(unsigned __int16 *)(v7 + 222);
+        v18 = *(uint16_t *)(v7 + 222);
         v9 = v18 << 10;
         v8 = v18 << 9;
       }
@@ -58,12 +74,12 @@ BOOL  sub_126698(int a1, int a2, int a3)
     }
     else
     {
-      v9 = *(uint32_t *)(dword_1267A4 + 696 * *(unsigned __int8 *)(v7 + 116) + 8);
+      v9 = *(uint32_t *)(dword_1267A4 + 696 * *(uint8_t *)(v7 + 116) + 8);
       v8 = v9 >> 1;
     }
     v10 = *(uint32_t *)(a3 + 4);
     v11 = v10 + 10000 + sub_10186C();
-    v12 = sub_12A3BC(a1, *(unsigned __int8 *)(a3 + 11));
+    v12 = sub_12A3BC(a1, *(uint8_t *)(a3 + 11));
     v13 = v12 - a2;
     if ( v12 - a2 + v8 < 0 )
     {

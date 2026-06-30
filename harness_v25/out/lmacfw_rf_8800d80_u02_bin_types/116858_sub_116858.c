@@ -1,11 +1,54 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116B48;
+extern uint32_t dword_116B7C;
+extern uint32_t dword_116B78;
+extern uint32_t off_116B4C;
+extern uint32_t off_116B50;
+extern uint32_t off_116B80;
+extern uint32_t dword_116B54;
+extern uint32_t dword_116B84;
+extern uint32_t dword_116B58;
+extern uint32_t dword_116B5C;
+extern uint32_t off_116B60;
+extern uint32_t off_116B64;
+extern uint32_t off_116B8C;
+extern uint32_t off_116B68;
+extern uint32_t dword_116C3C;
+extern uint32_t off_116B6C;
+extern uint32_t off_116B70;
+extern uint32_t dword_116B74;
+extern uint32_t off_116C28;
+extern uint32_t off_116C2C;
+extern uint32_t off_116C30;
+extern uint32_t off_116C38;
+extern uint32_t dword_116C44;
+extern uint32_t dword_116C40;
+extern uint32_t off_116C34;
+extern uint32_t off_116B88;
+extern uint32_t dword_116B38;
+extern uint32_t dword_116B3C;
+extern uint32_t dword_116B40;
+extern uint32_t dword_116B44;
+
 // sub_116858 @ 0x116858, size 974 bytes
 int  sub_116858(int a1)
 {
-  __int16 **v1; // r7
+  int16_t **v1; // r7
   int v2; // r5
   int v3; // r1
-  __int16 *v5; // r0
-  __int16 v6; // r8
+  int16_t *v5; // r0
+  int16_t v6; // r8
   unsigned int v7; // r3
   int v9; // r6
   int v10; // r2
@@ -53,15 +96,15 @@ int  sub_116858(int a1)
 
   if ( *(uint16_t *)(a1 + 48) )
   {
-    v1 = (__int16 **)off_116B48;
+    v1 = (int16_t **)off_116B48;
     v2 = *(uint32_t *)(a1 + 28);
-    v3 = **(__int16 **)off_116B48;
+    v3 = **(int16_t **)off_116B48;
     if ( v3 < 0 && !v2 )
     {
       sub_121960(dword_116B7C, dword_116B78, 423, *(uint32_t *)off_116B48);
       return v2;
     }
-    v5 = *(__int16 **)(v2 + 8);
+    v5 = *(int16_t **)(v2 + 8);
     v6 = *v5;
     v7 = *(uint32_t *)(a1 + 84);
     if ( *((uint8_t *)off_116B4C + 408)
@@ -85,15 +128,15 @@ int  sub_116858(int a1)
           return v2;
         }
       }
-      v9 = (unsigned __int8)((v7 >> 15) - 16);
+      v9 = (uint8_t)((v7 >> 15) - 16);
       v10 = dword_116B58 + 152 * v9;
-      v2 = *(unsigned __int8 *)(v10 + 35);
+      v2 = *(uint8_t *)(v10 + 35);
       if ( !*(uint8_t *)(v10 + 35) )
       {
         *(uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
         return v2;
       }
-      if ( *(unsigned __int16 *)(v10 + 30) == 0xFFFF )
+      if ( *(uint16_t *)(v10 + 30) == 0xFFFF )
       {
         if ( (v6 & 0xFC) != 0x80 )
         {
@@ -101,18 +144,18 @@ int  sub_116858(int a1)
           return 0;
         }
         v11 = *(uint32_t *)(v10 + 44);
-        *(uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(unsigned __int8 *)(v11 + 33) + 16) << 15);
+        *(uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(uint8_t *)(v11 + 33) + 16) << 15);
       }
       else
       {
         v11 = dword_116B58 + 152 * v9;
       }
-      v12 = *(unsigned __int8 *)(v11 + 32);
+      v12 = *(uint8_t *)(v11 + 32);
       v13 = dword_116B5C;
       v14 = dword_116B5C + 224 * v12;
       if ( !*(uint8_t *)(v14 + 96) )
         return 0;
-      v15 = *(unsigned __int8 *)(v14 + 94);
+      v15 = *(uint8_t *)(v14 + 94);
       v16 = 224 * v12;
       if ( v15 )
       {
@@ -236,11 +279,11 @@ LABEL_17:
         {
 LABEL_43:
           v32 = v13 + 224 * v12;
-          v15 = *(unsigned __int8 *)(v32 + 94);
+          v15 = *(uint8_t *)(v32 + 94);
           if ( !*(uint8_t *)(v32 + 94) )
             goto LABEL_17;
 LABEL_44:
-          if ( v15 == 2 && *(unsigned __int8 *)(v11 + 33) <= 3u )
+          if ( v15 == 2 && *(uint8_t *)(v11 + 33) <= 3u )
           {
             v33 = *(char *)(a1 + 65);
             chip_rev_id_get();
@@ -260,7 +303,7 @@ LABEL_44:
           return 0;
         }
 LABEL_42:
-        sub_11C834(*(unsigned __int8 *)(v13 + 224 * v12 + 95), v9, 1);
+        sub_11C834(*(uint8_t *)(v13 + 224 * v12 + 95), v9, 1);
         v13 = dword_116B5C;
         goto LABEL_43;
       }

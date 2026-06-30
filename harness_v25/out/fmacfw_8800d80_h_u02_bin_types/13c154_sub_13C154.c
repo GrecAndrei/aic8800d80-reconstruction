@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13C25C;
+extern uint32_t dword_13C260;
+extern uint32_t off_13C264;
+extern uint32_t dword_13C268;
+
 // sub_13C154 @ 0x13c154, size 264 bytes
 int  sub_13C154(int a1, int a2, int a3)
 {
@@ -11,16 +28,16 @@ int  sub_13C154(int a1, int a2, int a3)
   int v14; // r2
   int v15; // r3
   int ( *v16)(int, int); // r2
-  unsigned __int8 v17; // r0
+  uint8_t v17; // r0
 
-  v4 = 696 * *(unsigned __int8 *)(a1 + 29);
+  v4 = 696 * *(uint8_t *)(a1 + 29);
   if ( (*(uint32_t *)(dword_13C25C + v4 + 4) & 2) == 0 )
     return 1;
-  v5 = v4 + 12 * *(unsigned __int8 *)(a1 + 27) + dword_13C25C;
+  v5 = v4 + 12 * *(uint8_t *)(a1 + 27) + dword_13C25C;
   --*(uint8_t *)(v5 + 455);
   if ( (*(uint16_t *)(a1 + 30) & 2) == 0 )
     return 1;
-  v8 = *(unsigned __int8 *)(v5 + 453);
+  v8 = *(uint8_t *)(v5 + 453);
   if ( v8 == 33 || sub_12CD48((v8 << 8) | 8) != 1 )
     return 1;
   v11 = dword_13C260 + 32 * v8;
@@ -33,12 +50,12 @@ int  sub_13C154(int a1, int a2, int a3)
     {
       if ( !a2 )
       {
-        v14 = *(unsigned __int16 *)(a1 + 64);
+        v14 = *(uint16_t *)(a1 + 64);
         if ( ((v14 - (*((uint32_t *)off_13C264 + 4) >> 10)) & 0x8000) == 0 )
           sub_12E948(dword_13C268, 0, ((unsigned int)(v14 - (*((uint32_t *)off_13C264 + 4) >> 10)) >> 15) & 1);
       }
     }
-    else if ( !a2 && ((*(unsigned __int16 *)(a1 + 64) - (*((uint32_t *)off_13C264 + 4) >> 10)) & 0x8000) == 0 )
+    else if ( !a2 && ((*(uint16_t *)(a1 + 64) - (*((uint32_t *)off_13C264 + 4) >> 10)) & 0x8000) == 0 )
     {
       i = 0;
       *(uint32_t *)(*(uint32_t *)(a1 + 76) + 4) |= 2u;
@@ -46,7 +63,7 @@ int  sub_13C154(int a1, int a2, int a3)
     }
   }
   *(uint8_t *)((*(int ( **)(int, int))v13)(v13, (*(uint16_t *)(a1 + 32) - *(uint16_t *)(v13 + 4)) & 0xFFF) + v13 + 6) = 2;
-  v15 = *(unsigned __int8 *)(v13 + 262) + v13;
+  v15 = *(uint8_t *)(v13 + 262) + v13;
   for ( i = 0; *(uint8_t *)(v15 + 6) == 2; i = (char)(i + 1) )
   {
     *(uint8_t *)(v15 + 6) = 0;

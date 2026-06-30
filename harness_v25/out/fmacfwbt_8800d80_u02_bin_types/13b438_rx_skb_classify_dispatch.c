@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13B5DC;
+extern uint32_t dword_13B5F8;
+extern uint32_t off_13B5E0;
+extern uint32_t off_13B5D8;
+extern uint32_t dword_13B5E8;
+extern uint32_t dword_13B5E4;
+extern uint32_t off_13B5EC;
+extern uint32_t dword_13B5F4;
+extern uint32_t dword_13B5F0;
+extern uint32_t dword_13B5FC;
+
 // rx_skb_classify_dispatch @ 0x13b438, size 414 bytes
 // Doc: rx_skb_classify_dispatch [rx]: Classifies received frame and dispatches by type
 // rx_skb_classify_dispatch [rx]: Classifies received frame and dispatches by type
@@ -6,9 +29,9 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
   char *v6; // r8
   char v7; // r10
   char v8; // r5
-  unsigned __int8 v9; // r6
+  uint8_t v9; // r6
   uint8_t *v10; // r0
-  unsigned __int16 v11; // r3
+  uint16_t v11; // r3
   char *v12; // r5
   int v13; // r0
   int v14; // r2
@@ -43,30 +66,30 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
           rf_bus_mark_n_3b7(a3, 1);
         }
       }
-      else if ( **(__int16 **)off_13B5D8 < 0 )
+      else if ( **(int16_t **)off_13B5D8 < 0 )
       {
         sub_12F6C4(dword_13B5E8, dword_13B5E4, 218);
       }
     }
     else
     {
-      v11 = *((unsigned __int8 *)off_13B5EC + 371);
+      v11 = *((uint8_t *)off_13B5EC + 371);
       if ( *((uint8_t *)off_13B5EC + 371) )
-        v11 = *(unsigned __int8 *)(dword_13B5F4
+        v11 = *(uint8_t *)(dword_13B5F4
                                  + 1320
-                                 * *(unsigned __int8 *)(dword_13B5F0 + 696 * *((unsigned __int8 *)off_13B5DC + 16) + 34)
+                                 * *(uint8_t *)(dword_13B5F0 + 696 * *((uint8_t *)off_13B5DC + 16) + 34)
                                  + 106) == 0;
       v12 = (char *)off_13B5DC + 32 * (a3 >> 8);
       if ( a2[2] )
       {
         rf_bus_write_n_25c(
-          (unsigned __int8)v12[16],
+          (uint8_t)v12[16],
           v12,
           1,
-          (unsigned __int8)v12[23],
+          (uint8_t)v12[23],
           v11
-        | (unsigned __int16)((4 * (unsigned __int8)v12[22])
-                           | (2 * (unsigned __int8)v12[18])
+        | (uint16_t)((4 * (uint8_t)v12[22])
+                           | (2 * (uint8_t)v12[18])
                            | (*((uint16_t *)v12 + 10) << 6)),
           37,
           0);
@@ -76,18 +99,18 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
       else
       {
         rf_bus_write_n_25c(
-          (unsigned __int8)v12[16],
+          (uint8_t)v12[16],
           v12,
           1,
-          (unsigned __int8)v12[23],
+          (uint8_t)v12[23],
           v11
-        | (unsigned __int16)((4 * (unsigned __int8)v12[22])
-                           | (2 * (unsigned __int8)v12[18])
+        | (uint16_t)((4 * (uint8_t)v12[22])
+                           | (2 * (uint8_t)v12[18])
                            | (*((uint16_t *)v12 + 10) << 6)),
-          (unsigned __int8)a2[2],
-          (unsigned __int8)a2[2]);
-        v13 = (unsigned __int8)*a2;
-        v14 = (unsigned __int8)a2[1];
+          (uint8_t)a2[2],
+          (uint8_t)a2[2]);
+        v13 = (uint8_t)*a2;
+        v14 = (uint8_t)a2[1];
         v15 = off_13B5E0;
         *(uint8_t *)(696 * v13 + 12 * v14 + dword_13B5F0 + 452) = BYTE1(a3);
         *((uint32_t *)v12 + 2) = v15[4];
@@ -97,7 +120,7 @@ int  rx_skb_classify_dispatch(int a1, char *a2, unsigned int a3)
     }
     return 0;
   }
-  if ( **(__int16 **)off_13B5D8 >= 0 )
+  if ( **(int16_t **)off_13B5D8 >= 0 )
     return 0;
   sub_12F6C4(dword_13B5E8, dword_13B5E4, 109);
   return 0;

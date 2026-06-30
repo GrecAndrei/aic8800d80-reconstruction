@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E814;
+extern uint32_t dword_10E818;
+extern uint32_t dword_10E81C;
+extern uint32_t off_10E810;
+extern uint32_t dword_10E7F8;
+extern uint32_t dword_10E7FC;
+extern uint32_t dword_10E800;
+extern uint32_t dword_10E804;
+extern uint32_t dword_10E820;
+extern uint32_t dword_10E824;
+extern uint32_t dword_10E808;
+extern uint32_t dword_10E80C;
+extern uint32_t dword_10E828;
+extern uint32_t dword_10E82C;
+extern uint32_t dword_10E830;
+extern uint32_t dword_10E834;
+extern uint32_t off_10E838;
+
 // rf_init_blockb_e560 @ 0x10e560, size 664 bytes
 // Doc: rf_init_blockb_e560 [rf]: RF subsystem initialization for block B, programming register bases and control fields
 // rf_init_blockb_e560 [rf]: RF subsystem initialization for block B, programming register bases and control fields

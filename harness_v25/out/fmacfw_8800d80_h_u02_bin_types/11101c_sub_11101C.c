@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1110FC;
+extern uint32_t off_111100;
+extern uint32_t off_111104;
+extern uint32_t off_111120;
+extern uint32_t off_111124;
+extern uint32_t dword_111128;
+extern uint32_t off_11112C;
+extern uint32_t off_111108;
+extern uint32_t off_11110C;
+extern uint32_t dword_111110;
+extern uint32_t off_111114;
+extern uint32_t off_11111C;
+extern uint32_t off_111118;
+
 // sub_11101C @ 0x11101c, size 222 bytes
 int  sub_11101C(int a1)
 {
@@ -30,7 +56,7 @@ int  sub_11101C(int a1)
     v12 = off_111124;
     if ( *(uint8_t *)off_111120 )
     {
-      v14 = *((unsigned __int8 *)off_111124 + 374);
+      v14 = *((uint8_t *)off_111124 + 374);
       if ( v14 != 1 )
         goto LABEL_4;
       if ( sub_124E3C(dword_111128) )
@@ -46,7 +72,7 @@ int  sub_11101C(int a1)
         sub_10DBD4(1);
       else
         sub_10DBC0(1);
-      v13 = (unsigned __int8)v12[374];
+      v13 = (uint8_t)v12[374];
       *v11 = 1;
       if ( v13 != 1 )
         goto LABEL_18;

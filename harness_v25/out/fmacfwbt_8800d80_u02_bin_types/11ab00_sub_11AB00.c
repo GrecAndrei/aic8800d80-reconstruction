@@ -1,5 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11AC20;
+extern uint32_t dword_11AC24;
+
 // sub_11AB00 @ 0x11ab00, size 288 bytes
-int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
+int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   int v6; // r6
@@ -7,8 +22,8 @@ int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   uint32_t *v12; // r3
   unsigned int v13; // r2
   unsigned int v14; // r1
-  __int16 v15; // r12
-  __int16 v16; // r2
+  int16_t v15; // r12
+  int16_t v16; // r2
   unsigned int v17; // r4
   int v18; // r4
   int v19; // r1
@@ -24,11 +39,11 @@ int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   if ( result )
   {
     v12 = v22;
-    v13 = (unsigned __int16)(((v22[9] + 3) & 0xFFFC) + 4);
+    v13 = (uint16_t)(((v22[9] + 3) & 0xFFFC) + 4);
     if ( a4 > v13 )
     {
-      v14 = ((unsigned int)(unsigned __int16)(a4 - v13) + 3) >> 2;
-      v13 = (unsigned __int16)(v13 + 4 * v14);
+      v14 = ((unsigned int)(uint16_t)(a4 - v13) + 3) >> 2;
+      v13 = (uint16_t)(v13 + 4 * v14);
     }
     else
     {
@@ -69,7 +84,7 @@ int  sub_11AB00(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
       }
       else
       {
-        sub_119888((__int16 *)v5);
+        sub_119888((int16_t *)v5);
         *a2 = **(uint32_t **)(v6 + 324);
         return 1;
       }

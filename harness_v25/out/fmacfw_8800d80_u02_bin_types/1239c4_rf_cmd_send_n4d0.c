@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_123A84;
+extern uint32_t dword_123A88;
+extern uint32_t off_123A8C;
+extern uint32_t dword_123A90;
+
 // rf_cmd_send_n4d0 @ 0x1239c4, size 192 bytes
 // Doc: rf_cmd_send_n4d0 [rf]: Sends an RF command, sets ready flag and patches command byte bits
 // rf_cmd_send_n4d0 [rf]: Sends an RF command, sets ready flag and patches command byte bits

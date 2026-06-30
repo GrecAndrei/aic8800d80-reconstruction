@@ -1,8 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11ACE4;
+extern uint32_t dword_11ACCC;
+extern uint32_t off_11ACD0;
+extern uint32_t dword_11ACE0;
+extern uint32_t dword_11ACDC;
+extern uint32_t off_11ACD4;
+extern uint32_t dword_11ACE8;
+extern uint32_t dword_11ACEC;
+extern uint32_t off_11ACD8;
+
 // sub_11AB34 @ 0x11ab34, size 406 bytes
 int  sub_11AB34(int result)
 {
   uint32_t *v1; // r5
-  __int16 **v2; // r6
+  int16_t **v2; // r6
   uint32_t *v3; // r4
   int v4; // r3
   int v5; // r2
@@ -29,9 +51,9 @@ int  sub_11AB34(int result)
     result *= 21;
     v1 = (uint32_t *)(dword_11ACCC + 4 * result);
   }
-  v2 = (__int16 **)off_11ACD0;
+  v2 = (int16_t **)off_11ACD0;
   v3 = (uint32_t *)v1[3];
-  if ( **(__int16 **)off_11ACD0 < 0 && !v3 )
+  if ( **(int16_t **)off_11ACD0 < 0 && !v3 )
     result = sub_12F32C(dword_11ACE0, dword_11ACDC, 3166);
   while ( 1 )
   {
@@ -50,7 +72,7 @@ int  sub_11AB34(int result)
   if ( v5 >= 0 )
   {
     v6 = v3[17];
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11ACD4 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11ACD4 + 82));
     v8 = v7[19];
 LABEL_10:
     v9 = v7[9];
@@ -59,7 +81,7 @@ LABEL_10:
   if ( (v4 & 0x380000) == 0x280000 )
   {
     v6 = v3[17];
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11ACD4 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11ACD4 + 82));
     v8 = v7[19];
   }
   else
@@ -67,7 +89,7 @@ LABEL_10:
     sub_12F32C(dword_11ACE8, dword_11ACDC, 3182);
     v6 = v3[17];
     v5 = **v2;
-    v7 = *(int **)(v6 + 4 * ((unsigned __int8)*(uint32_t *)off_11ACD4 + 82));
+    v7 = *(int **)(v6 + 4 * ((uint8_t)*(uint32_t *)off_11ACD4 + 82));
     v8 = v7[19];
     if ( v5 >= 0 )
       goto LABEL_10;

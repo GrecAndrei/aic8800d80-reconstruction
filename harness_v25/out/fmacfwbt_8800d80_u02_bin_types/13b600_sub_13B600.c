@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13B690;
+extern uint32_t dword_13B694;
+extern uint32_t off_13B698;
+
 // sub_13B600 @ 0x13b600, size 142 bytes
 int  sub_13B600(int a1, char *a2, unsigned int a3)
 {
@@ -5,7 +21,7 @@ int  sub_13B600(int a1, char *a2, unsigned int a3)
   int v6; // r6
   char v7; // r0
   char v8; // r8
-  unsigned __int8 v9; // r7
+  uint8_t v9; // r7
   char v10; // r6
   uint8_t *v11; // r0
 
@@ -27,7 +43,7 @@ int  sub_13B600(int a1, char *a2, unsigned int a3)
       v11[1] = v9;
       sub_12CBB4((int)v11);
     }
-    *(uint32_t *)(696 * (unsigned __int8)*a2 + 12 * (unsigned __int8)a2[1] + dword_13B694 + 448) = *((uint32_t *)off_13B698
+    *(uint32_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B694 + 448) = *((uint32_t *)off_13B698
                                                                                                  + 4);
     bt_hci_cmd_alloc_send(v5);
   }

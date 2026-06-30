@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1095B0;
+extern uint32_t dword_1095B4;
+
 // sub_1093D4 @ 0x1093d4, size 476 bytes
 int  sub_1093D4(unsigned int a1, int a2, int *a3)
 {
@@ -29,10 +44,10 @@ int  sub_1093D4(unsigned int a1, int a2, int *a3)
   uint8_t *v30; // r5
   int v31; // [sp+4h] [bp-10h]
   int v32; // [sp+8h] [bp-Ch] BYREF
-  __int16 v33; // [sp+Ch] [bp-8h]
+  int16_t v33; // [sp+Ch] [bp-8h]
   uint8_t v34[4]; // [sp+10h] [bp-4h] BYREF
 
-  v3 = (unsigned __int8)((a1 - 1) >> 1);
+  v3 = (uint8_t)((a1 - 1) >> 1);
   v31 = v3;
   v32 = -2139062144;
   v33 = -32640;
@@ -53,21 +68,21 @@ int  sub_1093D4(unsigned int a1, int a2, int *a3)
       *((uint8_t *)&v32 + 2 * v6) = v7 - 1;
     v34[2 * v6 - 7] = v7;
 LABEL_6:
-    v7 = (unsigned __int8)(v7 + 1);
+    v7 = (uint8_t)(v7 + 1);
     if ( a1 == v7 )
       goto LABEL_14;
 LABEL_7:
-    v4 = *((unsigned __int8 *)&v32 + 2 * v6);
+    v4 = *((uint8_t *)&v32 + 2 * v6);
   }
   if ( v4 == 128 )
     goto LABEL_6;
   v11 = a3[v4];
   if ( v11 > 14000 )
   {
-    v12 = *((unsigned __int8 *)&v32 + 2 * v6 + 1);
+    v12 = *((uint8_t *)&v32 + 2 * v6 + 1);
     goto LABEL_12;
   }
-  v12 = *((unsigned __int8 *)&v32 + 2 * v6 + 1);
+  v12 = *((uint8_t *)&v32 + 2 * v6 + 1);
   v22 = a3[v12];
   if ( v22 < dword_1095B0 || v11 < 1000 && v22 >= dword_1095B4 )
   {
@@ -85,8 +100,8 @@ LABEL_27:
     goto LABEL_6;
   }
 LABEL_13:
-  v7 = (unsigned __int8)(v7 + 1);
-  v6 = (unsigned __int8)(v6 + 1);
+  v7 = (uint8_t)(v7 + 1);
+  v6 = (uint8_t)(v6 + 1);
   if ( a1 != v7 )
     goto LABEL_7;
 LABEL_14:
@@ -94,11 +109,11 @@ LABEL_14:
   {
     v24 = &v34[2 * v6];
     v25 = 2 * v6;
-    v26 = (unsigned __int8)*(v24 - 8);
+    v26 = (uint8_t)*(v24 - 8);
     if ( v26 != 128 )
     {
       v27 = a3[v26];
-      v28 = (unsigned __int8)*(v24 - 7);
+      v28 = (uint8_t)*(v24 - 7);
       if ( v27 <= 14000 )
       {
         v29 = a3[v28];
@@ -113,35 +128,35 @@ LABEL_14:
       }
     }
   }
-  if ( (unsigned __int8)v32 != 128 )
+  if ( (uint8_t)v32 != 128 )
   {
-    v13 = (unsigned __int8)(BYTE1(v32) + 1 - v32);
+    v13 = (uint8_t)(BYTE1(v32) + 1 - v32);
     v14 = &v32;
     v15 = 1;
-    v16 = (unsigned __int16)((a3[(unsigned __int8)v32] - a3[BYTE1(v32)]) / (int)v13);
+    v16 = (uint16_t)((a3[(uint8_t)v32] - a3[BYTE1(v32)]) / (int)v13);
     v17 = 0;
     while ( 1 )
     {
-      v18 = *((unsigned __int8 *)v14 + 2);
+      v18 = *((uint8_t *)v14 + 2);
       if ( v18 == 128 )
         break;
-      v19 = *((unsigned __int8 *)v14 + 3);
-      v20 = (unsigned __int8)(v19 + 1 - v18);
+      v19 = *((uint8_t *)v14 + 3);
+      v20 = (uint8_t)(v19 + 1 - v18);
       if ( v20 > v13 )
       {
-        v16 = (unsigned __int16)((a3[v18] - a3[v19]) / v20);
-        v13 = (unsigned __int8)(v19 + 1 - v18);
-        v17 = (unsigned __int8)v15;
+        v16 = (uint16_t)((a3[v18] - a3[v19]) / v20);
+        v13 = (uint8_t)(v19 + 1 - v18);
+        v17 = (uint8_t)v15;
         v14 = (int *)((char *)v14 + 2);
         if ( v15 == 2 )
           break;
       }
       else
       {
-        if ( v20 == v13 && (unsigned __int16)((a3[v18] - a3[v19]) / v20) < v16 )
+        if ( v20 == v13 && (uint16_t)((a3[v18] - a3[v19]) / v20) < v16 )
         {
-          v16 = (unsigned __int16)((a3[v18] - a3[v19]) / v20);
-          v17 = (unsigned __int8)v15;
+          v16 = (uint16_t)((a3[v18] - a3[v19]) / v20);
+          v17 = (uint8_t)v15;
         }
         v14 = (int *)((char *)v14 + 2);
         if ( v15 == 2 )
@@ -149,8 +164,8 @@ LABEL_14:
       }
       v15 = 2;
     }
-    v31 = (unsigned __int8)(*((uint8_t *)&v32 + 2 * v17)
-                          + ((*((unsigned __int8 *)&v32 + 2 * v17 + 1) - *((unsigned __int8 *)&v32 + 2 * v17) + 1) >> 1));
+    v31 = (uint8_t)(*((uint8_t *)&v32 + 2 * v17)
+                          + ((*((uint8_t *)&v32 + 2 * v17 + 1) - *((uint8_t *)&v32 + 2 * v17) + 1) >> 1));
   }
   return a3[v31];
 }

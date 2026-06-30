@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1274A8;
+extern uint32_t off_1274A0;
+extern uint32_t dword_1274A4;
+extern uint32_t dword_1274BC;
+extern uint32_t dword_1274C0;
+extern uint32_t dword_1274AC;
+extern uint32_t off_1274B0;
+extern uint32_t dword_1274B8;
+extern uint32_t dword_1274B4;
+
 // rf_init_or_attach_n488 @ 0x127394, size 266 bytes
 // Doc: rf_init_or_attach_n488 [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
 // rf_init_or_attach_n488 [rf]: Initialize/attach RF subsystem reading MMIO regs at 0x40501000 and table 0x190c30
@@ -26,9 +48,9 @@ int  rf_init_or_attach_n488(int result)
       result = sub_10186C();
       HIDWORD(v2) += 4000 + result;
     }
-    v3 = (unsigned __int8)v1[91];
+    v3 = (uint8_t)v1[91];
     v4 = v1[88];
-    *((QWORD *)v1 + 10) = v2;
+    *((uint64_t *)v1 + 10) = v2;
     if ( v3 )
     {
       v1[88] = v4 | 0x40;
@@ -51,12 +73,12 @@ int  rf_init_or_attach_n488(int result)
           if ( result + v8 >= 0 )
             break;
           v11 = *(uint32_t *)(v5 + 4);
-          v12 = v6 + 1320 * *(unsigned __int8 *)(v5 + 8);
+          v12 = v6 + 1320 * *(uint8_t *)(v5 + 8);
           v9 = 102400;
           if ( *(uint8_t *)(v12 + 106) )
           {
             if ( *(uint8_t *)(v12 + 106) == 2 )
-              v9 = *(unsigned __int16 *)(v12 + 222) << 10;
+              v9 = *(uint16_t *)(v12 + 222) << 10;
             result = bt_rf_calibrate_or_setup(v12, v11 + v9, 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
@@ -64,7 +86,7 @@ int  rf_init_or_attach_n488(int result)
           }
           else
           {
-            result = bt_rf_calibrate_or_setup(v12, v11 + *(uint32_t *)(v7 + 696 * *(unsigned __int8 *)(v12 + 116) + 8), 0);
+            result = bt_rf_calibrate_or_setup(v12, v11 + *(uint32_t *)(v7 + 696 * *(uint8_t *)(v12 + 116) + 8), 0);
             v5 = *((uint32_t *)v1 + 4);
             if ( !v5 )
               break;
@@ -73,7 +95,7 @@ int  rf_init_or_attach_n488(int result)
       }
       if ( *((uint32_t *)v1 + 11) )
       {
-        if ( **(__int16 **)off_1274B0 < 0 && (v1[88] & 0xC) == 0 )
+        if ( **(int16_t **)off_1274B0 < 0 && (v1[88] & 0xC) == 0 )
           return sub_12F694(dword_1274B8, dword_1274B4, 1698);
       }
       else

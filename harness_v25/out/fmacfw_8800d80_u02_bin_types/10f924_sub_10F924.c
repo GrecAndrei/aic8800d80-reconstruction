@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10FB20;
+extern uint32_t off_10FB24;
+extern uint32_t dword_10FB10;
+extern uint32_t dword_10FB14;
+extern uint32_t dword_10FB18;
+extern uint32_t dword_10FB1C;
+
 // sub_10F924 @ 0x10f924, size 492 bytes
 unsigned int  sub_10F924(int *a1, int a2, unsigned int a3)
 {
@@ -50,9 +69,9 @@ unsigned int  sub_10F924(int *a1, int a2, unsigned int a3)
   v11 = a1;
   while ( 2 )
   {
-    result = *(unsigned __int16 *)(a2 + 4 * v10);
+    result = *(uint16_t *)(a2 + 4 * v10);
     v12 = 0;
-    v13 = *(unsigned __int16 *)(a2 + 4 * v10 + 2);
+    v13 = *(uint16_t *)(a2 + 4 * v10 + 2);
     v14 = v11[3] + 12 * v10;
     *(uint32_t *)v14 = 0;
     *(uint16_t *)(v14 + 4) = 0;
@@ -63,7 +82,7 @@ unsigned int  sub_10F924(int *a1, int a2, unsigned int a3)
     v27 = v13;
     *(uint16_t *)(v14 + 4) = result;
     v15 = (uint32_t *)(v28 + 4);
-    v16 = nullptr;
+    v16 = 0;
     v29 = v10;
     do
     {
@@ -133,8 +152,8 @@ LABEL_17:
       ++*(uint16_t *)v14;
       v15 = (uint32_t *)((char *)v15 + v26);
     }
-    while ( v27 > (unsigned __int16)v12 );
-    v21 = (unsigned __int16)(v27 - 1);
+    while ( v27 > (uint16_t)v12 );
+    v21 = (uint16_t)(v27 - 1);
     v22 = v28 + v21 * v26;
     result = v28 + v26 + v21 * v26;
     v28 = result;
@@ -152,8 +171,8 @@ LABEL_17:
       v28 = result + v24 - 4;
     }
 LABEL_6:
-    v10 = (unsigned __int8)++v25;
-    if ( *((unsigned __int8 *)v11 + 8) > (unsigned int)(unsigned __int8)v25 )
+    v10 = (uint8_t)++v25;
+    if ( *((uint8_t *)v11 + 8) > (unsigned int)(uint8_t)v25 )
       continue;
     return result;
   }

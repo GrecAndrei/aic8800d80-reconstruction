@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11966C;
+extern uint32_t dword_119684;
+extern uint32_t dword_119694;
+extern uint32_t dword_119690;
+extern uint32_t dword_119670;
+extern uint32_t dword_11968C;
+extern uint32_t off_119688;
+extern uint32_t off_119674;
+extern uint32_t off_119678;
+extern uint32_t dword_119680;
+extern uint32_t off_11967C;
+
 // sub_11954C @ 0x11954c, size 288 bytes
 // Doc: sub_121954C [rf]: Issue sub-call with opcode 0x6a via dispatch
 // sub_121954C [rf]: Issue sub-call with opcode 0x6a via dispatch
@@ -12,7 +36,7 @@ int  sub_11954C(int a1, int a2, int a3, int a4)
   int v12; // r1
   int v13; // r5
   int v14; // r0
-  __int16 v15; // [sp+2h] [bp-Ah] BYREF
+  int16_t v15; // [sp+2h] [bp-Ah] BYREF
   int v16; // [sp+4h] [bp-8h] BYREF
 
   v15 = 0;
@@ -21,22 +45,22 @@ int  sub_11954C(int a1, int a2, int a3, int a4)
   {
     sub_113B88(&v15);
     rf_cmd_query_status((uint8_t *)&v15 + 1);
-    msg_parse(dword_119684, (unsigned __int8)v15);
+    msg_parse(dword_119684, (uint8_t)v15);
     goto LABEL_16;
   }
   v16 = 0;
   if ( sub_114558((int)&v16) )
   {
 LABEL_16:
-    v6 = (unsigned __int8)v15;
+    v6 = (uint8_t)v15;
     goto LABEL_4;
   }
-  v6 = (unsigned __int8)v16;
+  v6 = (uint8_t)v16;
   v15 = v16;
 LABEL_4:
   if ( !v6 && *(uint8_t *)(a2 + 20) )
   {
-    msg_parse(dword_119694, *(unsigned __int8 *)(a2 + 20));
+    msg_parse(dword_119694, *(uint8_t *)(a2 + 20));
     LOBYTE(v15) = *(uint8_t *)(a2 + 20);
   }
   v7 = HIBYTE(v15);
@@ -44,16 +68,16 @@ LABEL_4:
   {
     if ( *(uint8_t *)(a2 + 21) )
     {
-      msg_parse(dword_119690, *(unsigned __int8 *)(a2 + 21));
-      v8 = (unsigned __int8)v15;
-      v7 = *(unsigned __int8 *)(a2 + 21);
+      msg_parse(dword_119690, *(uint8_t *)(a2 + 21));
+      v8 = (uint8_t)v15;
+      v7 = *(uint8_t *)(a2 + 21);
       HIBYTE(v15) = *(uint8_t *)(a2 + 21);
       if ( !(uint8_t)v15 )
         goto LABEL_13;
     }
     else
     {
-      v8 = (unsigned __int8)v15;
+      v8 = (uint8_t)v15;
       if ( !(uint8_t)v15 )
         goto LABEL_14;
     }
@@ -64,14 +88,14 @@ LABEL_10:
       LOBYTE(v15) = 31;
     }
     sub_10F170(v8);
-    msg_parse(dword_119670, (unsigned __int8)v15);
+    msg_parse(dword_119670, (uint8_t)v15);
     v7 = HIBYTE(v15);
 LABEL_13:
     if ( !v7 )
       goto LABEL_14;
     goto LABEL_18;
   }
-  v8 = (unsigned __int8)v15;
+  v8 = (uint8_t)v15;
   if ( (uint8_t)v15 )
     goto LABEL_10;
 LABEL_18:
@@ -94,7 +118,7 @@ LABEL_14:
   HIDWORD(v9) = *(uint32_t *)off_119678;
   v10 = dword_119680;
   *(uint32_t *)(v5 + 12) = *(uint32_t *)off_11967C;
-  *(QWORD *)(v5 + 4) = v9;
+  *(uint64_t *)(v5 + 4) = v9;
   *(uint32_t *)v5 = v10;
   sub_11DE50(v5);
   return 0;

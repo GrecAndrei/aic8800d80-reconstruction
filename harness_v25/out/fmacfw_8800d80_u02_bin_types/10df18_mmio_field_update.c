@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10DF40;
+extern uint32_t dword_10DF44;
+
 // mmio_field_update @ 0x10df18, size 40 bytes
 // Doc: mmio_field_update [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC
 // mmio_field_update [mmio]: Updates a 2-bit field in a memory-mapped register using OR/BIC

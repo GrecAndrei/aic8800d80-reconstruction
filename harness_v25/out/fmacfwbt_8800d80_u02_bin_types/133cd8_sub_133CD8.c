@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_133DE4;
+extern uint32_t dword_133DFC;
+extern uint32_t dword_133DF8;
+extern uint32_t off_133DE8;
+extern uint32_t off_133DEC;
+extern uint32_t dword_133DF0;
+extern uint32_t dword_133DF4;
+
 // sub_133CD8 @ 0x133cd8, size 266 bytes
 // Doc: sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
 // sub_1233CD8 [unknown]: Unknown helper in fmacfwbt image (reconstructed flow)
@@ -12,12 +32,12 @@ int sub_133CD8()
   int v7; // [sp+0h] [bp-Ch] BYREF
   int v8; // [sp+4h] [bp-8h] BYREF
 
-  if ( **(__int16 **)off_133DE4 < 0 && msg_get_value(6u) != 4 && msg_get_value(6u) != 10 )
+  if ( **(int16_t **)off_133DE4 < 0 && msg_get_value(6u) != 4 && msg_get_value(6u) != 10 )
     sub_12F694(dword_133DFC, dword_133DF8, 697);
   if ( msg_get_value(6u) == 10 )
   {
     v4 = off_133DE8;
-    v5 = *((unsigned __int8 *)off_133DE8 + 4);
+    v5 = *((uint8_t *)off_133DE8 + 4);
     *(uint32_t *)(*((uint32_t *)off_133DE8 + 2) + 472) = 0;
     if ( v5 )
     {
@@ -25,7 +45,7 @@ int sub_133CD8()
       v4[4] = 0;
     }
     sub_12CBB4(*(uint32_t *)v4 + 12);
-    v6 = (unsigned __int8)v4[33];
+    v6 = (uint8_t)v4[33];
     *(uint32_t *)v4 = 0;
     if ( v6 )
     {
@@ -43,7 +63,7 @@ int sub_133CD8()
   else
   {
     v0 = *((uint32_t *)off_133DE8 + 4);
-    v1 = *(unsigned __int8 *)(v0 + 59);
+    v1 = *(uint8_t *)(v0 + 59);
     if ( v1 == 2 )
     {
       if ( (*(uint32_t *)(v0 + 48) & 0x40) != 0 )

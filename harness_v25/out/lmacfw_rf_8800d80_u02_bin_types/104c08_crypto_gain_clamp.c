@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_104CB8;
+extern uint32_t dword_104CBC;
+extern uint32_t dword_104CB4;
+
 // crypto_gain_clamp @ 0x104c08, size 168 bytes
 // Doc: crypto_gain_clamp [util]: Computes scaled gain by dividing floating-point value by 20
 // crypto_gain_clamp [util]: Computes scaled gain by dividing floating-point value by 20
@@ -6,7 +22,7 @@ int  crypto_gain_clamp(float a1, int a2, int a3)
   float v6; // r0
   uint64_t v7; // r0
   uint64_t v8; // r0
-  __int16 v9; // r0
+  int16_t v9; // r0
   uint64_t v10; // kr00_8
   uint64_t v12; // kr08_8
 
@@ -22,7 +38,7 @@ int  crypto_gain_clamp(float a1, int a2, int a3)
     }
     else
     {
-      v12 = *(QWORD *)(a3 + 112);
+      v12 = *(uint64_t *)(a3 + 112);
       *(uint8_t *)(a3 + 104) = 32;
       if ( SHIDWORD(v12) < (int)v12 )
         msg_parse(dword_104CB8, HIDWORD(v12));
@@ -30,7 +46,7 @@ int  crypto_gain_clamp(float a1, int a2, int a3)
   }
   else
   {
-    v10 = *(QWORD *)(a3 + 112);
+    v10 = *(uint64_t *)(a3 + 112);
     *(uint8_t *)(a3 + 104) = -24;
     if ( SHIDWORD(v10) < (int)v10 )
       msg_parse(dword_104CBC, HIDWORD(v10));

@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // list_insert_sorted @ 0x11e840, size 70 bytes
 // Doc: sdio_buffer_prepare_n_336 [mmio]: SDIO buffer preparation stub
 // sdio_buffer_prepare_n_336 [mmio]: SDIO buffer preparation stub
@@ -11,7 +23,7 @@ int  list_insert_sorted(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_
   v4 = (uint32_t *)result;
   if ( *(uint32_t *)result )
   {
-    v7 = nullptr;
+    v7 = 0;
     for ( result = a3(a2, v3); !result; result = a3(a2, v3) )
     {
       v7 = v3;

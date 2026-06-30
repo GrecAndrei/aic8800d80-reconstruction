@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_109E98;
+extern uint32_t dword_109E9C;
+extern uint32_t dword_109EAC;
+extern uint32_t dword_109EA4;
+
 // sub_109C74 @ 0x109c74, size 546 bytes
 int  sub_109C74(int a1, int a2, int a3, int a4)
 {
@@ -95,7 +112,7 @@ int  sub_109C74(int a1, int a2, int a3, int a4)
     {
       while ( 1 )
       {
-        v24 = *((unsigned __int8 *)v21 + 1);
+        v24 = *((uint8_t *)v21 + 1);
         v21 = (uint32_t *)((char *)v21 + 1);
         if ( v24 != 1 )
           break;
@@ -144,7 +161,7 @@ LABEL_8:
   {
     while ( 1 )
     {
-      v43 = *((unsigned __int8 *)v40 + 1);
+      v43 = *((uint8_t *)v40 + 1);
       v40 = (uint32_t *)((char *)v40 + 1);
       if ( v43 != 1 )
         break;
@@ -166,7 +183,7 @@ LABEL_12:
   {
     while ( 1 )
     {
-      v51 = *((unsigned __int8 *)v36 + 1);
+      v51 = *((uint8_t *)v36 + 1);
       v36 = (uint32_t *)((char *)v36 + 1);
       if ( v51 != 1 )
         break;

@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11ED40;
+extern uint32_t off_11ED44;
+extern uint32_t off_11ED48;
+extern uint32_t off_11ED4C;
+extern uint32_t off_11ED50;
+extern uint32_t off_11ED54;
+
 // sub_11ECB8 @ 0x11ecb8, size 134 bytes
 // Doc: sub_121ECB8 [ipc]: Initializes shared buffer pointers and calls allocator
 // sub_121ECB8 [ipc]: Initializes shared buffer pointers and calls allocator
@@ -26,7 +45,7 @@ int sub_11ECB8()
     if ( v3 )
     {
       v9 = &_0[v2 + 6];
-      v2 = (unsigned __int8)(v2 + 1);
+      v2 = (uint8_t)(v2 + 1);
       *(v9 - 6) = v3;
       if ( v2 == 4 || (*v0 & 8) != 0 )
       {
@@ -44,7 +63,7 @@ int sub_11ECB8()
   }
   v4 = off_11ED4C;
   v5 = *(uint32_t *)off_11ED4C;
-  result = *(unsigned __int8 *)off_11ED50;
+  result = *(uint8_t *)off_11ED50;
   v7 = *(uint32_t *)off_11ED4C + 1;
   *(uint32_t *)off_11ED4C = v7;
   if ( result )

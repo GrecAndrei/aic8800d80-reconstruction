@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12715C;
+extern uint32_t off_127160;
+extern uint32_t off_127164;
+extern uint32_t off_127168;
+extern uint32_t dword_12716C;
+
 // sub_1270CC @ 0x1270cc, size 144 bytes
 // Doc: sub_12270CC [unknown]: Load pointer from table and access field at offset 0x2c
 // sub_12270CC [unknown]: Load pointer from table and access field at offset 0x2c

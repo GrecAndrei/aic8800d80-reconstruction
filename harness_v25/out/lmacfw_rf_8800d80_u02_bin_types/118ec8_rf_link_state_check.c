@@ -1,3 +1,30 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_118FA0;
+extern uint32_t dword_118FD0;
+extern uint32_t dword_118FCC;
+extern uint32_t dword_118FA4;
+extern uint32_t off_118FA8;
+extern uint32_t off_118FD4;
+extern uint32_t off_118FAC;
+extern uint32_t off_118FB0;
+extern uint32_t dword_118FC8;
+extern uint32_t off_118FB4;
+extern uint32_t off_118FB8;
+extern uint32_t off_118FBC;
+extern uint32_t off_118FC0;
+extern uint32_t off_118FC4;
+
 // rf_link_state_check @ 0x118ec8, size 214 bytes
 // Doc: rf_link_state_check [rf]: Checks current RF link state value against zero
 // rf_link_state_check [rf]: Checks current RF link state value against zero
@@ -20,7 +47,7 @@ int  rf_link_state_check(int a1, int a2, int a3)
   int v17; // r3
   int v18; // r2
 
-  v3 = **(__int16 **)off_118FA0;
+  v3 = **(int16_t **)off_118FA0;
   if ( v3 < 0 && sub_11E34C(0) == 4 )
     rf_cmd_send_n264(dword_118FD0, dword_118FCC, 1799);
   sub_11F74C(4, dword_118FA4, a3, v3);
@@ -54,7 +81,7 @@ int  rf_link_state_check(int a1, int a2, int a3)
       v13 = *(uint32_t *)off_118FB8;
     }
   }
-  v14 = *((unsigned __int8 *)off_118FBC + 90);
+  v14 = *((uint8_t *)off_118FBC + 90);
   *(uint32_t *)off_118FC0 = 4;
   if ( v14 )
     sub_115D64();

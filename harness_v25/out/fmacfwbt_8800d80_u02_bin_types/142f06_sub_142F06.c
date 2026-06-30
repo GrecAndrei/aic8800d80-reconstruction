@@ -1,12 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_142F06 @ 0x142f06, size 98 bytes
 int  sub_142F06(int result, int a2, int a3, unsigned int a4)
 {
-  bool v4; // cf
+  int v4; // cf
   int v5; // r4
   int v6; // r12
   int v7; // r5
-  bool v8; // zf
-  bool v9; // zf
+  int v8; // zf
+  int v9; // zf
 
   v7 = v6 & (a4 >> 20);
   v8 = v5 == v6;

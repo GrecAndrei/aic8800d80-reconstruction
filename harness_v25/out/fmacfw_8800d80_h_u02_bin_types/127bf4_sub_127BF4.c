@@ -1,5 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_127CB4;
+extern uint32_t off_127CB8;
+extern uint32_t dword_127CBC;
+
 // sub_127BF4 @ 0x127bf4, size 190 bytes
-int  sub_127BF4(unsigned __int8 *a1, uint8_t *a2)
+int  sub_127BF4(uint8_t *a1, uint8_t *a2)
 {
   int v2; // r6
   int v5; // r3
@@ -11,23 +27,23 @@ int  sub_127BF4(unsigned __int8 *a1, uint8_t *a2)
   unsigned int v12; // r2
   int v13; // r0
   uint32_t *v14; // r1
-  __int16 v15; // lr
+  int16_t v15; // lr
   int v16; // r2
 
   v2 = dword_127CB4;
   v5 = dword_127CB4;
   for ( i = 0; i != 3; ++i )
   {
-    if ( *(unsigned __int8 *)(v5 + 24) != 255
-      && *(unsigned __int8 *)(v5 + 4) == *a1
-      && *(unsigned __int16 *)(v5 + 6) == *((unsigned __int16 *)a1 + 1) )
+    if ( *(uint8_t *)(v5 + 24) != 255
+      && *(uint8_t *)(v5 + 4) == *a1
+      && *(uint16_t *)(v5 + 6) == *((uint16_t *)a1 + 1) )
     {
-      v11 = *(unsigned __int8 *)(v5 + 5);
+      v11 = *(uint8_t *)(v5 + 5);
       v12 = a1[1];
       if ( v11 == v12 )
       {
-        if ( *(unsigned __int16 *)(v5 + 8) == *((unsigned __int16 *)a1 + 2)
-          && *(unsigned __int16 *)(v5 + 10) == *((unsigned __int16 *)a1 + 3) )
+        if ( *(uint16_t *)(v5 + 8) == *((uint16_t *)a1 + 2)
+          && *(uint16_t *)(v5 + 10) == *((uint16_t *)a1 + 3) )
         {
           goto LABEL_16;
         }
@@ -44,7 +60,7 @@ int  sub_127BF4(unsigned __int8 *a1, uint8_t *a2)
           v16 = v14[10];
           *(uint16_t *)(v13 + 8) = v15;
           if ( v16 == v13 && *((uint8_t *)v14 + 90) == 1 )
-            sub_102970((unsigned __int16 *)(v2 + 28 * i + 4), 0);
+            sub_102970((uint16_t *)(v2 + 28 * i + 4), 0);
 LABEL_16:
           *a2 = i;
           return 0;

@@ -1,7 +1,81 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1062D8;
+extern uint32_t off_1062DC;
+extern uint32_t off_1062E0;
+extern uint32_t off_1062B0;
+extern uint32_t off_1062E4;
+extern uint32_t off_1062B4;
+extern uint32_t off_1062E8;
+extern uint32_t off_1062B8;
+extern uint32_t off_1062BC;
+extern uint32_t off_1062C0;
+extern uint32_t off_1062C4;
+extern uint32_t off_1062C8;
+extern uint32_t off_1062CC;
+extern uint32_t off_1062D0;
+extern uint32_t off_1062D4;
+extern uint32_t off_106470;
+extern uint32_t off_106474;
+extern uint32_t off_106478;
+extern uint32_t off_10647C;
+extern uint32_t off_106480;
+extern uint32_t off_106488;
+extern uint32_t off_106484;
+extern uint32_t off_106A60;
+extern uint32_t off_106BA4;
+extern uint32_t off_106BA8;
+extern uint32_t dword_106BB0;
+extern uint32_t dword_106BAC;
+extern uint32_t off_106A64;
+extern uint32_t dword_106A6C;
+extern uint32_t dword_106A68;
+extern uint32_t dword_106A70;
+extern uint32_t dword_106A74;
+extern uint32_t dword_106A78;
+extern uint32_t dword_106A7C;
+extern uint32_t dword_106A84;
+extern uint32_t off_106A80;
+extern uint32_t dword_106A8C;
+extern uint32_t off_106A88;
+extern uint32_t off_106A94;
+extern uint32_t dword_106A98;
+extern uint32_t dword_106B98;
+extern uint32_t off_106B94;
+extern uint32_t dword_106BA0;
+extern uint32_t off_106B9C;
+extern uint32_t dword_106A90;
+extern uint32_t off_10648C;
+extern uint32_t dword_106490;
+extern uint32_t off_1067B0;
+extern uint32_t off_1067B4;
+extern uint32_t off_1067D8;
+extern uint32_t off_1067DC;
+extern uint32_t off_1067D4;
+extern uint32_t off_1067B8;
+extern uint32_t off_1067BC;
+extern uint32_t off_1067E0;
+extern uint32_t off_1067C0;
+extern uint32_t off_1067C4;
+extern uint32_t off_1067C8;
+extern uint32_t off_1067CC;
+extern uint32_t off_1067D0;
+extern uint32_t off_1067E4;
+
 // sub_105FD0 @ 0x105fd0, size 3010 bytes
 // Doc: sub_1205FD0 [rf]: Initializes RF calibration/lookup tables from constant pool
 // sub_1205FD0 [rf]: Initializes RF calibration/lookup tables from constant pool
-int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, int a7, int a8)
+int  sub_105FD0(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8)
 {
   uint32_t *v8; // r9
   unsigned int *v9; // r8
@@ -27,7 +101,7 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
   uint32_t *v32; // r5
   uint32_t *v33; // r2
   uint32_t *v34; // r2
-  unsigned __int16 *v35; // r9
+  uint16_t *v35; // r9
   uint32_t *v36; // r8
   int v37; // r7
   int v38; // r3
@@ -222,7 +296,7 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
   v93 = HIBYTE(v92) & 7;
   v95 = (v94 >> 21) & 1;
   v97 = (v96 >> 20) & 1;
-  v99 = (unsigned __int8)v98 >> 4;
+  v99 = (uint8_t)v98 >> 4;
   v101 = (v100 >> 7) & 1;
   v103 = (v102 >> 4) & 7;
   v105 = (v104 >> 10) & 1;
@@ -253,14 +327,14 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
   *v15 |= 0x400000u;
   LOBYTE(a4) = 90;
   do
-    a4 = (unsigned __int8)(a4 - 1);
+    a4 = (uint8_t)(a4 - 1);
   while ( a4 );
   v24 = off_1062B8;
   *(uint32_t *)off_1062B8 &= ~0x100000u;
   *(uint32_t *)v24 |= 0x200000u;
   LOBYTE(v24) = 60;
   do
-    v24 = (void *)(unsigned __int8)((uint8_t)v24 - 1);
+    v24 = (void *)(uint8_t)((uint8_t)v24 - 1);
   while ( v24 );
   v25 = off_1062B0;
   *(uint32_t *)off_1062B8 |= 0x100000u;
@@ -268,14 +342,14 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
   *(uint32_t *)v25 |= 0x10000u;
   LOBYTE(v25) = 90;
   do
-    v25 = (void *)(unsigned __int8)((uint8_t)v25 - 1);
+    v25 = (void *)(uint8_t)((uint8_t)v25 - 1);
   while ( v25 );
   v26 = off_106470;
   *(uint32_t *)off_106470 &= ~0x40000u;
   *(uint32_t *)v26 |= 0x80000u;
   LOBYTE(v26) = 60;
   do
-    v26 = (void *)(unsigned __int8)((uint8_t)v26 - 1);
+    v26 = (void *)(uint8_t)((uint8_t)v26 - 1);
   while ( v26 );
   v27 = off_106470;
   *(uint32_t *)off_106470 |= 0x40000u;
@@ -283,7 +357,7 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
   *v27 |= 0x4000u;
   LOBYTE(v28) = 90;
   do
-    v28 = (unsigned __int8)(v28 - 1);
+    v28 = (uint8_t)(v28 - 1);
   while ( v28 );
   v29 = off_106474;
   v30 = off_106478;
@@ -385,13 +459,13 @@ int  sub_105FD0(unsigned int a1, int a2, __int16 *a3, int a4, int a5, int a6, in
           *v71 |= (v67 >> v151) & v157;
         }
         sub_102B40(1);
-        rf_adc_capture_n_a98((unsigned __int16)*a3, a2, v73, 0);
+        rf_adc_capture_n_a98((uint16_t)*a3, a2, v73, 0);
         sub_11F74C(1, dword_106A7C, *a3, v67);
         sub_11F74C(1, dword_106A84, (*(uint32_t *)off_106A80 >> 21) & 3, off_106A80);
         sub_11F74C(1, dword_106A8C, (*(uint32_t *)off_106A88 >> 15) & 0xF, off_106A88);
-        if ( *(__int16 *)(a2 + v74) > v72 )
+        if ( *(int16_t *)(a2 + v74) > v72 )
         {
-          v72 = *(__int16 *)(a2 + v74);
+          v72 = *(int16_t *)(a2 + v74);
           v160 = v67;
         }
         ++v67;
@@ -471,11 +545,11 @@ LABEL_53:
     crypto_table_copy_165d00(a2, 0);
     v77 = (v76 >> 8) & 0xF;
     sub_11F74C(1, dword_106A90, *v75, v77);
-    rf_adc_capture_n_a98((unsigned __int16)*a3, a2, v77, 0);
+    rf_adc_capture_n_a98((uint16_t)*a3, a2, v77, 0);
     goto LABEL_28;
   }
-  *(QWORD *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
-  v35 = (unsigned __int16 *)(a3 - 1);
+  *(uint64_t *)(a2 + 168) = 0xFFFFFFECFFFFFFFELL;
+  v35 = (uint16_t *)(a3 - 1);
   v36 = (uint32_t *)(a2 + 140);
   do
   {
@@ -508,7 +582,7 @@ LABEL_19:
     ++v35;
     rf_adc_capture_n_a98(v39, a2, v37, v20);
     v40 = v20;
-    v41 = *(unsigned __int16 *)(a2 + 2 * (v37 + 16 * v20++));
+    v41 = *(uint16_t *)(a2 + 2 * (v37 + 16 * v20++));
     sub_105F40((uint32_t *)a2, v41, v40);
   }
   while ( v20 != 3 );
@@ -531,7 +605,7 @@ LABEL_19:
           break;
         crypto_table_copy_165d00(a2, 2);
         sub_11F74C(1, v45, *v44, v42);
-        rf_adc_capture_n_a98((unsigned __int16)a3[2], a2, v42, 2);
+        rf_adc_capture_n_a98((uint16_t)a3[2], a2, v42, 2);
         if ( *(uint32_t *)(a2 + 124) <= v42 )
           break;
 LABEL_26:
@@ -544,13 +618,13 @@ LABEL_26:
       {
         crypto_table_copy_165d00(a2, 1);
         sub_11F74C(1, v45, *v44, v42);
-        rf_adc_capture_n_a98((unsigned __int16)a3[1], a2, v42, 1);
+        rf_adc_capture_n_a98((uint16_t)a3[1], a2, v42, 1);
         goto LABEL_26;
       }
 LABEL_23:
       crypto_table_copy_165d00(a2, 0);
       sub_11F74C(1, v45, *v44, v42);
-      rf_adc_capture_n_a98((unsigned __int16)*a3, a2, v42++, 0);
+      rf_adc_capture_n_a98((uint16_t)*a3, a2, v42++, 0);
     }
     while ( *(uint32_t *)(a2 + 112) >= v42 );
   }

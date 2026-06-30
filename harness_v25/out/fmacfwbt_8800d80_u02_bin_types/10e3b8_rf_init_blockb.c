@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E66C;
+extern uint32_t dword_10E670;
+extern uint32_t dword_10E674;
+extern uint32_t off_10E668;
+extern uint32_t dword_10E650;
+extern uint32_t dword_10E654;
+extern uint32_t dword_10E658;
+extern uint32_t dword_10E65C;
+extern uint32_t dword_10E678;
+extern uint32_t dword_10E67C;
+extern uint32_t dword_10E660;
+extern uint32_t dword_10E664;
+extern uint32_t dword_10E680;
+extern uint32_t dword_10E684;
+extern uint32_t dword_10E688;
+extern uint32_t dword_10E68C;
+extern uint32_t off_10E690;
+
 // rf_init_blockb @ 0x10e3b8, size 664 bytes
 // Doc: rf_init_blockb [rf]: Initialize RF block B subsystem
 // rf_init_blockb [rf]: Initialize RF block B subsystem

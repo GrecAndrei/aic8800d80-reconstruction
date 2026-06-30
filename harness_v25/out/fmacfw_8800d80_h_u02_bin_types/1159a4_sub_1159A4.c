@@ -1,8 +1,45 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115BB8;
+extern uint32_t off_115BBC;
+extern uint32_t off_115BDC;
+extern uint32_t off_115BE0;
+extern uint32_t dword_115C08;
+extern uint32_t off_115BE4;
+extern uint32_t dword_115C0C;
+extern uint32_t off_115BE8;
+extern uint32_t off_115BEC;
+extern uint32_t dword_115C14;
+extern uint32_t off_115BF0;
+extern uint32_t off_115BC8;
+extern uint32_t dword_115BF8;
+extern uint32_t off_115BF4;
+extern uint32_t off_115BFC;
+extern uint32_t off_115BD4;
+extern uint32_t off_115BC0;
+extern uint32_t off_115BC4;
+extern uint32_t dword_115BD8;
+extern uint32_t dword_115C1C;
+extern uint32_t dword_115C10;
+extern uint32_t off_115BCC;
+extern uint32_t off_115BD0;
+extern uint32_t dword_115C18;
+
 // sub_1159A4 @ 0x1159a4, size 532 bytes
 int  sub_1159A4(int result)
 {
   uint8_t **v1; // r5
-  unsigned __int8 **v2; // r6
+  uint8_t **v2; // r6
   int v3; // r3
   int *v4; // r3
   uint8_t *v5; // r4
@@ -16,7 +53,7 @@ int  sub_1159A4(int result)
 
   if ( *(uint8_t *)off_115BB8 && (*((uint32_t *)off_115BBC + 4) & 0xFFFF00) == 0x10000 )
   {
-    v6 = *(unsigned __int8 *)off_115BDC;
+    v6 = *(uint8_t *)off_115BDC;
     *(uint8_t *)off_115BE0 = 0;
     if ( v6 )
       return sub_12EB90(2, dword_115C08);
@@ -42,7 +79,7 @@ int  sub_1159A4(int result)
   v1 = (uint8_t **)off_115BC0;
   if ( **(uint8_t **)off_115BC0 )
   {
-    v2 = (unsigned __int8 **)off_115BC4;
+    v2 = (uint8_t **)off_115BC4;
     goto LABEL_6;
   }
   v4 = *((int **)off_115BBC + 2);
@@ -51,7 +88,7 @@ int  sub_1159A4(int result)
   if ( !v4 )
   {
 LABEL_38:
-    v2 = (unsigned __int8 **)off_115BC4;
+    v2 = (uint8_t **)off_115BC4;
     if ( **(uint8_t **)off_115BC4 == 3 )
       goto LABEL_8;
     result = sub_12EB90(2, dword_115BD8);
@@ -87,7 +124,7 @@ LABEL_8:
     {
       if ( !*((uint32_t *)off_115BC8 + 126) )
       {
-        if ( (*(uint32_t *)off_115BCC >> 25) & 1 | *((unsigned __int8 *)off_115BD0 + 36) )
+        if ( (*(uint32_t *)off_115BCC >> 25) & 1 | *((uint8_t *)off_115BD0 + 36) )
         {
           if ( !*((uint8_t *)off_115BD0 + 29) )
           {
@@ -96,14 +133,14 @@ LABEL_8:
             {
               LOBYTE(result) = sub_10D1C4();
               v8 = off_115BE0;
-              result = (unsigned __int8)result;
+              result = (uint8_t)result;
               *(uint8_t *)off_115BE0 = result;
               if ( !(uint8_t)result )
               {
                 v12 = sub_12E948(dword_115C18, v7, v8);
                 result = sub_12E8D0(v12);
               }
-              if ( (unsigned __int8)**v1 <= 1u )
+              if ( (uint8_t)**v1 <= 1u )
                 return (int)sub_11583C();
             }
           }

@@ -1,7 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_113460;
+extern uint32_t off_113464;
+extern uint32_t dword_113468;
+extern uint32_t dword_11346C;
+extern uint32_t off_113470;
+extern uint32_t dword_113474;
+extern uint32_t dword_113478;
+
 // sub_1133B4 @ 0x1133b4, size 172 bytes
 int  sub_1133B4(int a1, int a2, int a3)
 {
-  unsigned __int8 *v3; // r5
+  uint8_t *v3; // r5
   char v4; // r3
   uint8_t *v5; // r4
   int v6; // r3
@@ -12,7 +32,7 @@ int  sub_1133B4(int a1, int a2, int a3)
   int v11; // r3
   int v13; // r4
 
-  v3 = (unsigned __int8 *)off_113460;
+  v3 = (uint8_t *)off_113460;
   if ( a3 )
     v4 = 3;
   else
@@ -21,7 +41,7 @@ int  sub_1133B4(int a1, int a2, int a3)
   if ( *v3 == 2 )
   {
     v5 = off_113464;
-    v6 = *(unsigned __int8 *)off_113464;
+    v6 = *(uint8_t *)off_113464;
     *v3 = 0;
     if ( v6 )
     {
@@ -35,7 +55,7 @@ int  sub_1133B4(int a1, int a2, int a3)
           v10 = *(uint32_t *)(*(uint32_t *)(sub_12D4F8(v7) + 4) + 4);
           --*v5;
           sub_12D470(v9);
-          v11 = *(unsigned __int8 *)(v10 + 2) >> 4;
+          v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
           ++*(uint16_t *)off_113470;

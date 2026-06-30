@@ -1,7 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11A9A4;
+extern uint32_t off_11A9A8;
+extern uint32_t off_11A9AC;
+extern uint32_t off_11A9B0;
+extern uint32_t off_11A9B4;
+extern uint32_t dword_11A9B8;
+
 // rf_mmio_status_read @ 0x11a8e4, size 192 bytes
 // Doc: rf_mmio_status_read [mmio]: Reads byte status field and MMIO register value from 0x403200e4
 // rf_mmio_status_read [mmio]: Reads byte status field and MMIO register value from 0x403200e4
-int  rf_mmio_status_read(unsigned __int8 *a1)
+int  rf_mmio_status_read(uint8_t *a1)
 {
   int v1; // r1
   int v3; // r3
@@ -12,7 +31,7 @@ int  rf_mmio_status_read(unsigned __int8 *a1)
   unsigned int *v8; // r0
 
   v1 = *a1;
-  v3 = (unsigned __int8)*(uint32_t *)off_11A9A4;
+  v3 = (uint8_t)*(uint32_t *)off_11A9A4;
   if ( *a1 )
   {
     v4 = (unsigned int *)off_11A9A8;

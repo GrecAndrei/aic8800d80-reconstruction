@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E5FC;
+extern uint32_t dword_11E604;
+extern uint32_t dword_11E60C;
+extern uint32_t dword_11E608;
+extern uint32_t off_11E600;
+
 // sub_11E540 @ 0x11e540, size 188 bytes
 // Doc: sub_121E540 [bt]: BT mailbox handler reading header field then dispatching
 // sub_121E540 [bt]: BT mailbox handler reading header field then dispatching
@@ -10,7 +28,7 @@ int  sub_11E540(int a1)
   unsigned int v5; // r3
   uint32_t *v6; // r1
   int v7; // r2
-  bool v8; // cf
+  int v8; // cf
   unsigned int v9; // r2
   int v11; // r1
   int v12; // r0
@@ -21,7 +39,7 @@ int  sub_11E540(int a1)
   if ( *(uint16_t *)(a1 + 48) )
   {
     v1 = *(uint32_t *)(a1 + 28);
-    v2 = **(__int16 **)off_11E5FC;
+    v2 = **(int16_t **)off_11E5FC;
     if ( v2 < 0 && !v1 )
     {
       v11 = dword_11E604;
@@ -51,7 +69,7 @@ int  sub_11E540(int a1)
   }
   else
   {
-    if ( **(__int16 **)off_11E5FC < 0 )
+    if ( **(int16_t **)off_11E5FC < 0 )
     {
       v2 = *(uint32_t *)(a1 + 28);
       if ( v2 )

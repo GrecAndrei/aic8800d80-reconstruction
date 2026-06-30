@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12EC1C;
+extern uint32_t dword_12E6B8;
+extern uint32_t off_12EC28;
+extern uint32_t dword_12EC24;
+extern uint32_t dword_12EC20;
+extern uint32_t off_12E6BC;
+extern uint32_t dword_12EC30;
+extern uint32_t dword_14E9E8;
+extern uint32_t dword_12EC34;
+extern uint32_t dword_12EC2C;
+
 // sub_12E344 @ 0x12e344, size 2264 bytes
 // Doc: sdio_buffer_prepare_n3a [tx]: SDIO buffer prepare with shift/mask operations on length
 // sdio_buffer_prepare_n3a [tx]: SDIO buffer prepare with shift/mask operations on length
@@ -27,30 +50,30 @@ unsigned int  sub_12E344(int a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
   int v29; // r0
   char v30; // r0
   uint8_t *v31; // t1
-  unsigned __int8 *v32; // t1
+  uint8_t *v32; // t1
   int v33; // r2
   int v34; // lr
   int v35; // r3
-  unsigned __int8 *v36; // r12
+  uint8_t *v36; // r12
   char v37; // r1
   char v38; // r3
   int v39; // r1
   int v40; // r2
-  unsigned __int8 *v41; // r10
+  uint8_t *v41; // r10
   char *v42; // r2
   int v44; // t1
   char v45; // r9
-  unsigned __int8 *v46; // t1
+  uint8_t *v46; // t1
   int v47; // lr
   int v48; // r3
-  unsigned __int8 *v49; // r12
+  uint8_t *v49; // r12
   char v50; // r2
-  unsigned __int8 *v51; // r1
+  uint8_t *v51; // r1
   uint8_t *v52; // r3
   int v53; // t1
   char v54; // r2
   unsigned int v55; // r1
-  bool v56; // cc
+  int v56; // cc
   int v57; // r3
   int v58; // r2
   int v59; // r1
@@ -78,12 +101,12 @@ unsigned int  sub_12E344(int a1, int a2, unsigned int a3, uint8_t *a4, int *a5)
   uint8_t v85[4]; // [sp+50h] [bp-4h] BYREF
 
   v8 = (int)(a4 + 1);
-  v7 = (unsigned __int8)*a4;
+  v7 = (uint8_t)*a4;
   v83 = a2;
   v9 = (uint8_t *)a1;
   if ( !a1 )
   {
-    v10 = (unsigned __int8)*a4;
+    v10 = (uint8_t)*a4;
     if ( *a4 )
     {
       v83 = 0;
@@ -93,7 +116,7 @@ LABEL_3:
       v81 = 0;
       v11 = v83;
       v82 = 0;
-      v12 = nullptr;
+      v12 = 0;
       v13 = 0;
       while ( 2 )
       {
@@ -113,7 +136,7 @@ LABEL_3:
             v56 = __OFSUB__(v7 - 32, 88);
 LABEL_125:
             a2 = dword_12EC1C;
-            v13 = *(unsigned __int8 *)(dword_12EC1C + 8 * v13 + v57);
+            v13 = *(uint8_t *)(dword_12EC1C + 8 * v13 + v57);
             switch ( v13 )
             {
               case 0:
@@ -133,7 +156,7 @@ LABEL_125:
             a2 = 2;
             break;
           case '0':
-            v13 = *(unsigned __int8 *)(dword_12E6B8 + 8 * v13 + 3);
+            v13 = *(uint8_t *)(dword_12E6B8 + 8 * v13 + 3);
             switch ( v13 )
             {
               case 0:
@@ -175,7 +198,7 @@ LABEL_167:
           default:
             if ( (unsigned int)(v7 - 49) <= 8 )
             {
-              v13 = *(unsigned __int8 *)(dword_12E6B8 + 8 * v13 + 4);
+              v13 = *(uint8_t *)(dword_12E6B8 + 8 * v13 + 4);
               a2 = (int)jpt_12E614;
               switch ( v13 )
               {
@@ -194,7 +217,7 @@ LABEL_164:
                 default:
                   a2 = dword_12E6B8;
 LABEL_162:
-                  if ( **(__int16 **)off_12EC28 < 0 )
+                  if ( **(int16_t **)off_12EC28 < 0 )
                     a1 = sub_12F694(dword_12EC24, dword_12EC20, 594);
                   break;
               }
@@ -204,7 +227,7 @@ LABEL_162:
             break;
         }
         a1 = dword_12E6B8;
-        v13 = *(unsigned __int8 *)(dword_12E6B8 + 8 * v13 + a2);
+        v13 = *(uint8_t *)(dword_12E6B8 + 8 * v13 + a2);
         switch ( v13 )
         {
           case 0:
@@ -245,7 +268,7 @@ LABEL_162:
                 v13 = 2;
                 break;
               default:
-                if ( **(__int16 **)off_12E6BC < 0 )
+                if ( **(int16_t **)off_12E6BC < 0 )
                   a1 = sub_12F694(dword_12EC24, dword_12EC20, 283);
                 v13 = 2;
                 break;
@@ -292,7 +315,7 @@ LABEL_162:
             }
             else
             {
-              if ( **(__int16 **)off_12E6BC < 0 )
+              if ( **(int16_t **)off_12E6BC < 0 )
                 a1 = sub_12F694(dword_12EC24, dword_12EC20, 334);
               v13 = 6;
             }
@@ -302,7 +325,7 @@ LABEL_162:
             {
               case 'A':
               case 'a':
-                v32 = (unsigned __int8 *)*a5++;
+                v32 = (uint8_t *)*a5++;
                 v33 = v82;
                 v34 = dword_12EC30;
                 v36 = v32 + 1;
@@ -352,11 +375,11 @@ LABEL_107:
                 v42 = (char *)v84 + 3;
                 do
                 {
-                  ZF = ((unsigned __int8)v36 & 3) == 0;
+                  1 = ((uint8_t)v36 & 3) == 0;
                   v44 = *v36++;
                   *v42 = *(uint8_t *)(v34 + (v44 >> 4));
                   v42[1] = *(uint8_t *)(v34 + (v44 & 0xF));
-                  if ( ZF )
+                  if ( 1 )
                     v45 = 58;
                   else
                     v45 = 46;
@@ -367,7 +390,7 @@ LABEL_107:
                 goto LABEL_107;
               case 'M':
               case 'm':
-                v46 = (unsigned __int8 *)*a5++;
+                v46 = (uint8_t *)*a5++;
                 v47 = dword_12EC30;
                 v49 = v46 + 6;
                 v48 = *v46;
@@ -446,10 +469,10 @@ LABEL_107:
                       v74 = 4 * dword_14E9E8 - 4;
                       *(uint16_t *)((v59 << 18) + 4) = 4 * v59;
                       *(uint16_t *)(v10 + 2) = 4 * v59;
-                      *(uint32_t *)(2 * *(unsigned __int16 *)(v10 - 4)) = *(unsigned __int16 *)(v10 - 4);
+                      *(uint32_t *)(2 * *(uint16_t *)(v10 - 4)) = *(uint16_t *)(v10 - 4);
                       STACK[0x3F8] = v74;
                       MEMORY[0] = 0;
-                      __asm { LDC             p1, c0, [R9], {0x86} }
+                      
                       JUMPOUT(0x14E86E);
                     case 24:
 LABEL_173:
@@ -457,7 +480,7 @@ LABEL_173:
                       a1 = 0;
                       v84[12] = 32 * v58;
                       *(uint32_t *)v11 = 32 * v58;
-                      *((uint8_t *)v78 + v8) = (unsigned __int8)jpt_12E9FE;
+                      *((uint8_t *)v78 + v8) = (uint8_t)jpt_12E9FE;
                       *v78 = jpt_12E9FE;
                       v78[1] = v78;
 LABEL_174:
@@ -496,7 +519,7 @@ LABEL_143:
                 if ( v7 != 100 )
                 {
                   v18 = *a5++;
-                  v19 = (unsigned __int16)v18;
+                  v19 = (uint16_t)v18;
                   switch ( v7 )
                   {
                     case 'X':
@@ -549,7 +572,7 @@ LABEL_143:
                 }
 LABEL_144:
                 v69 = *a5++;
-                v19 = (__int16)v69;
+                v19 = (int16_t)v69;
 LABEL_77:
                 if ( (v19 & 0x80000000) != 0 )
                 {
@@ -618,7 +641,7 @@ LABEL_79:
                 v21 = v31;
                 if ( !v31 )
                   goto LABEL_96;
-                v22 = (unsigned __int8)*v21;
+                v22 = (uint8_t)*v21;
                 if ( !*v21 )
                 {
                   a1 = v80 & 0x40;
@@ -647,7 +670,7 @@ LABEL_96:
                     if ( !*++v64 )
                       goto LABEL_139;
                   }
-                  v67 = (unsigned __int8)*++v64;
+                  v67 = (uint8_t)*++v64;
                   --v63;
                   if ( v67 )
                   {
@@ -797,7 +820,7 @@ LABEL_66:
                 v10 = v23;
                 v13 = 7;
 LABEL_12:
-                v14 = *(unsigned __int8 *)v8++;
+                v14 = *(uint8_t *)v8++;
                 v7 = v14;
                 if ( !v14 )
                   goto LABEL_13;

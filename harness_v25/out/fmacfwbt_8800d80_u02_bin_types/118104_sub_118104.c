@@ -1,10 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_118148;
+extern uint32_t off_11814C;
+
 // sub_118104 @ 0x118104, size 66 bytes
 // Doc: sub_1218104 [util]: Memory/buffer offset utility: computes 4-byte aligned offsets using 0x3e8 stride
 // sub_1218104 [util]: Memory/buffer offset utility: computes 4-byte aligned offsets using 0x3e8 stride
 int  sub_118104(int a1)
 {
-  QWORD *v1; // r6
-  QWORD *v2; // r7
+  uint64_t *v1; // r6
+  uint64_t *v2; // r7
   int v3; // r2
   uint32_t *v4; // r4
   int result; // r0

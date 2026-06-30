@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_111828;
+extern uint32_t dword_111824;
+extern uint32_t dword_11184C;
+extern uint32_t dword_111874;
+extern uint32_t dword_11186C;
+extern uint32_t dword_11163C;
+extern uint32_t off_111644;
+extern uint32_t off_11164C;
+extern uint32_t off_111654;
+extern uint32_t off_111818;
+extern uint32_t off_111664;
+extern uint32_t off_111674;
+extern uint32_t off_11168C;
+
 // sub_111390 @ 0x111390, size 1160 bytes
 // Doc: rf_bus_reset2_n_39e [rf]: Performs RF bus register size/count check
 // rf_bus_reset2_n_39e [rf]: Performs RF bus register size/count check
@@ -62,7 +88,7 @@ int sub_111390()
   int v56; // r1
 
   v0 = *(uint32_t *)rf_bus_mark_618;
-  if ( **(__int16 **)rf_bus_mark_n_270 < 0 && !v0 )
+  if ( **(int16_t **)rf_bus_mark_n_270 < 0 && !v0 )
   {
     sub_12F49C(dword_111828, dword_111824, 39);
     goto rf_bus_write2_n_3a4;
@@ -175,8 +201,8 @@ rf_bus_mark_n_48d_13f6:
   if ( (v0 & 0x400) != 0 )
   {
     v7 = ipc_doorbell_handler_n_4ac;
-    v8 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 1621);
-    v9 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 1622);
+    v8 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1621);
+    v9 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1622);
     if ( v8 >= v9 )
     {
       msg_parse(dword_11186C, v8, v9);
@@ -184,11 +210,11 @@ rf_bus_mark_n_48d_13f6:
     else
     {
       v10 = *(uint32_t *)rf_bus_reset2_n_3bc;
-      v11 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 1620)
+      v11 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 1620)
           + 1
           - 81
           * ((unsigned int)(((unsigned int)dword_11163C
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 1620) + 1)) >> 32) >> 6);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)ipc_doorbell_handler_n_4ac + 1620) + 1)) >> 32) >> 6);
       v12 = (char *)ipc_doorbell_handler_n_4ac + 20 * v11;
       v13 = rf_bus_reset2_648;
       *((uint32_t *)v12 + 1) = *(uint32_t *)off_111644;
@@ -222,17 +248,17 @@ rf_bus_mark_n_48d_13f6:
   if ( (v0 & 0x100) != 0 )
   {
     v18 = ipc_doorbell_handler_n_4ac;
-    v19 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 2433);
-    v20 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 2434);
+    v19 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2433);
+    v20 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2434);
     if ( v19 < v20 )
     {
       v38 = *(uint32_t *)rf_bus_mark_n_64;
       v39 = *(uint32_t *)off_111818;
-      v40 = *((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 2432)
+      v40 = *((uint8_t *)ipc_doorbell_handler_n_4ac + 2432)
           + 1
           - 40
           * ((unsigned int)(((unsigned int)rf_bus_reset2_n_1e0
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)ipc_doorbell_handler_n_4ac + 2432) + 1)) >> 32) >> 5);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)ipc_doorbell_handler_n_4ac + 2432) + 1)) >> 32) >> 5);
       v41 = (char *)ipc_doorbell_handler_n_4ac + 20 * v40;
       *((uint8_t *)ipc_doorbell_handler_n_4ac + 2432) = v40;
       v41[1645] = BYTE1(v38) & 7;
@@ -255,7 +281,7 @@ rf_bus_mark_n_48d_13f6:
     if ( *(uint8_t *)rf_bus_mark_n_224 )
     {
       v22 = off_111664;
-      v23 = *((unsigned __int8 *)off_111664 + 369);
+      v23 = *((uint8_t *)off_111664 + 369);
       *(uint8_t *)rf_bus_mark_n_224 = 0;
       if ( v23 )
         rf_mem_read_n47e(1);
@@ -265,15 +291,15 @@ rf_bus_mark_n_48d_13f6:
         timestamp_remove(rf_bus_mark_n_21c);
     }
     v24 = rf_bus_write_n_4f7;
-    v25 = *((unsigned __int8 *)rf_bus_write_n_4f7 + 3074);
-    v26 = *((unsigned __int8 *)rf_bus_write_n_4f7 + 3073);
+    v25 = *((uint8_t *)rf_bus_write_n_4f7 + 3074);
+    v26 = *((uint8_t *)rf_bus_write_n_4f7 + 3073);
     if ( v25 < v26 )
     {
-      v35 = *((unsigned __int8 *)rf_bus_write_n_4f7 + 3072)
+      v35 = *((uint8_t *)rf_bus_write_n_4f7 + 3072)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)rf_bus_mark_n_1ff
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_write_n_4f7 + 3072) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_n_4f7 + 3072) + 1)) >> 32) >> 7);
       v36 = (char *)rf_bus_write_n_4f7 + 16 * v35;
       *((uint32_t *)v36 + 1) = *(uint32_t *)ipc_doorbell_handler_n376;
       v37 = rf_bus_write_n_4cc;
@@ -297,7 +323,7 @@ rf_bus_mark_n_48d_13f6:
     if ( *(uint8_t *)rf_bus_mark_n_224 )
     {
       v28 = off_111664;
-      v29 = *((unsigned __int8 *)off_111664 + 369);
+      v29 = *((uint8_t *)off_111664 + 369);
       *(uint8_t *)rf_bus_mark_n_224 = 0;
       if ( v29 )
         rf_mem_read_n47e(1);
@@ -307,14 +333,14 @@ rf_bus_mark_n_48d_13f6:
         timestamp_remove(rf_bus_mark_n_21c);
     }
     v30 = rf_bus_write_n_4f7;
-    v31 = *((unsigned __int8 *)rf_bus_write_n_4f7 + 6162);
-    if ( *((unsigned __int8 *)rf_bus_write_n_4f7 + 6161) > v31 )
+    v31 = *((uint8_t *)rf_bus_write_n_4f7 + 6162);
+    if ( *((uint8_t *)rf_bus_write_n_4f7 + 6161) > v31 )
     {
-      v33 = *((unsigned __int8 *)rf_bus_write_n_4f7 + 6160)
+      v33 = *((uint8_t *)rf_bus_write_n_4f7 + 6160)
           + 1
           - 192
           * ((unsigned int)(((unsigned int)rf_bus_mark_n_1ff
-                           * (unsigned uint64_t)((unsigned int)*((unsigned __int8 *)rf_bus_write_n_4f7 + 6160) + 1)) >> 32) >> 7);
+                           * (unsigned uint64_t)((unsigned int)*((uint8_t *)rf_bus_write_n_4f7 + 6160) + 1)) >> 32) >> 7);
       v34 = rf_bus_reset2_n_374_1688;
       *((uint8_t *)rf_bus_write_n_4f7 + 6160) = v33;
       v30[4 * v33 + 773] = *v34;

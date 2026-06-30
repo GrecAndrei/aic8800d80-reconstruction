@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_126934;
+extern uint32_t dword_126924;
+extern uint32_t dword_12692C;
+extern uint32_t dword_126930;
+extern uint32_t dword_126928;
+
 // sub_1267A8 @ 0x1267a8, size 378 bytes
 int  sub_1267A8(int a1, int a2, int a3)
 {
@@ -16,7 +34,7 @@ int  sub_1267A8(int a1, int a2, int a3)
   int v17; // r4
   unsigned int v18; // r4
   int v19; // r3
-  bool v20; // zf
+  int v20; // zf
   int v21; // r3
   int v22; // r4
   int v23; // [sp+4h] [bp-8h]
@@ -47,14 +65,14 @@ LABEL_18:
       goto LABEL_5;
     v11 = 0;
 LABEL_20:
-    if ( *(uint8_t *)(a1 + 1224) && *(uint8_t *)(dword_12692C + 140 * *(unsigned __int8 *)(a1 + 1225) + 112) == 1 )
+    if ( *(uint8_t *)(a1 + 1224) && *(uint8_t *)(dword_12692C + 140 * *(uint8_t *)(a1 + 1225) + 112) == 1 )
       sub_126698(a1, a2, v11);
-    v19 = *(unsigned __int8 *)(a1 + 106);
+    v19 = *(uint8_t *)(a1 + 106);
     if ( *(uint8_t *)(a1 + 106) )
     {
       v20 = v19 == 2;
       if ( v19 == 2 )
-        v21 = *(unsigned __int16 *)(a1 + 222);
+        v21 = *(uint16_t *)(a1 + 222);
       else
         v21 = 102400;
       if ( v20 )
@@ -62,7 +80,7 @@ LABEL_20:
     }
     else
     {
-      v21 = *(uint32_t *)(dword_126930 + 696 * *(unsigned __int8 *)(a1 + 116) + 8);
+      v21 = *(uint32_t *)(dword_126930 + 696 * *(uint8_t *)(a1 + 116) + 8);
     }
     a2 += v21;
     if ( !++v23 )
@@ -94,9 +112,9 @@ LABEL_5:
       v13 = *(uint32_t *)(v11 + 4);
       if ( v12 - v13 < 0 )
         break;
-      if ( *(uint32_t *)(v4 + 1320 * *(unsigned __int8 *)(a1 + 84) + 72) != *(uint32_t *)(v4
+      if ( *(uint32_t *)(v4 + 1320 * *(uint8_t *)(a1 + 84) + 72) != *(uint32_t *)(v4
                                                                                     + 1320
-                                                                                    * *(unsigned __int8 *)(v11 + 8)
+                                                                                    * *(uint8_t *)(v11 + 8)
                                                                                     + 72) )
       {
         if ( sub_125FEC(v7, v11) )

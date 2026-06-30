@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DBD4;
+extern uint32_t off_11DBF4;
+extern uint32_t dword_11DC00;
+extern uint32_t off_11DBD8;
+extern uint32_t off_11DBEC;
+extern uint32_t dword_11DBF0;
+extern uint32_t dword_11DBE0;
+extern uint32_t off_11DBE4;
+extern uint32_t off_11DBE8;
+extern uint32_t off_11DBF8;
+extern uint32_t off_11DBFC;
+
 // sub_11DA70 @ 0x11da70, size 356 bytes
 int  sub_11DA70(int inited)
 {
@@ -35,7 +59,7 @@ int  sub_11DA70(int inited)
       break;
     if ( !v4 )
     {
-      v6 = (unsigned __int8)v2[192];
+      v6 = (uint8_t)v2[192];
       if ( v2[192] )
       {
         v6 = *(uint32_t *)off_11DBD8;
@@ -73,7 +97,7 @@ int  sub_11DA70(int inited)
     }
     inited = fmac_obj_init_n_1eaa0(v13);
 LABEL_10:
-    v12 = **(unsigned __int8 **)off_11DBE4;
+    v12 = **(uint8_t **)off_11DBE4;
     switch ( v12 )
     {
       case 2:

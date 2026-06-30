@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_116430;
+extern uint32_t dword_11642C;
+extern uint32_t off_116434;
+extern uint32_t off_116438;
+extern uint32_t dword_11643C;
+extern uint32_t dword_116440;
+extern uint32_t off_116444;
+
 // ipc_msg_handler_init @ 0x1163a8, size 132 bytes
 // Doc: ipc_msg_handler_init [ipc]: IPC message handler init reading shared config
 // ipc_msg_handler_init [ipc]: IPC message handler init reading shared config
@@ -8,12 +28,12 @@ int ipc_msg_handler_init()
   int *v2; // r0
   void *v3; // r8
   int v4; // r7
-  unsigned __int16 v5; // r9
+  uint16_t v5; // r9
   int result; // r0
 
   v0 = (int **)off_116430;
   bt_xtal_init_check(dword_11642C);
-  if ( **(__int16 **)off_116434 < 0 )
+  if ( **(int16_t **)off_116434 < 0 )
   {
     v2 = *v0;
     v1 = off_116438;
@@ -30,7 +50,7 @@ int ipc_msg_handler_init()
   }
   v3 = off_116444;
   v4 = dword_11642C;
-  memset_thunk(v2, 0, 88 * *(unsigned __int16 *)(*(uint32_t *)off_116444 + 8) + 88);
+  memset_thunk(v2, 0, 88 * *(uint16_t *)(*(uint32_t *)off_116444 + 8) + 88);
   v5 = 0;
   do
   {
@@ -38,7 +58,7 @@ int ipc_msg_handler_init()
     result = list_push_tail(v4);
     ++v5;
   }
-  while ( *(unsigned __int16 *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
+  while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
   return result;
 }
 

@@ -1,13 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_139168 @ 0x139168, size 76 bytes
 int  sub_139168(int result, unsigned int a2)
 {
-  unsigned __int16 v2; // r2
+  uint16_t v2; // r2
   char v3; // r7
   char v4; // r4
   int v5; // r3
   int v6; // r3
   char v7; // r7
-  __int16 v8; // r1
+  int16_t v8; // r1
 
   if ( a2 )
   {

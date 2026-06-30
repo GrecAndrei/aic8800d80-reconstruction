@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13CB34;
+extern uint32_t dword_13CB3C;
+extern uint32_t dword_13CB38;
+
 // sub_13C870 @ 0x13c870, size 936 bytes
 int  sub_13C870(uint32_t *a1, uint32_t *a2)
 {
@@ -19,7 +35,7 @@ int  sub_13C870(uint32_t *a1, uint32_t *a2)
   int v19; // r7
   int v20; // r2
   int v21; // r1
-  unsigned __int8 v22; // r6^2
+  uint8_t v22; // r6^2
   int v23; // r5
   int v24; // r3
   int v25; // r1
@@ -69,69 +85,69 @@ int  sub_13C870(uint32_t *a1, uint32_t *a2)
   v53 = a1 + 36;
   do
   {
-    v49 = *(unsigned __int8 *)(v3 + BYTE1(v41));
-    v51 = *(unsigned __int8 *)(v3 + BYTE1(v46));
-    v11 = *(unsigned __int8 *)(v3 + BYTE2(v46));
-    v12 = *(unsigned __int8 *)(v3 + BYTE2(v45));
-    v13 = v11 ^ *(unsigned __int8 *)(v4 + (unsigned __int8)v44) ^ *(unsigned __int8 *)(dword_13CB38 + HIBYTE(v45)) ^ v49;
-    v14 = ((*(unsigned __int8 *)(v4 + HIBYTE(v45))
-          ^ *(unsigned __int8 *)(v3 + (unsigned __int8)v44)
+    v49 = *(uint8_t *)(v3 + BYTE1(v41));
+    v51 = *(uint8_t *)(v3 + BYTE1(v46));
+    v11 = *(uint8_t *)(v3 + BYTE2(v46));
+    v12 = *(uint8_t *)(v3 + BYTE2(v45));
+    v13 = v11 ^ *(uint8_t *)(v4 + (uint8_t)v44) ^ *(uint8_t *)(dword_13CB38 + HIBYTE(v45)) ^ v49;
+    v14 = ((*(uint8_t *)(v4 + HIBYTE(v45))
+          ^ *(uint8_t *)(v3 + (uint8_t)v44)
           ^ v49
-          ^ *(unsigned __int8 *)(dword_13CB38 + BYTE2(v46))) << 16)
-        | ((*(unsigned __int8 *)(dword_13CB38 + BYTE1(v41))
-          ^ *(unsigned __int8 *)(v3 + (unsigned __int8)v44)
-          ^ *(unsigned __int8 *)(v3 + HIBYTE(v45))
-          ^ *(unsigned __int8 *)(v4 + BYTE2(v46))) << 8)
+          ^ *(uint8_t *)(dword_13CB38 + BYTE2(v46))) << 16)
+        | ((*(uint8_t *)(dword_13CB38 + BYTE1(v41))
+          ^ *(uint8_t *)(v3 + (uint8_t)v44)
+          ^ *(uint8_t *)(v3 + HIBYTE(v45))
+          ^ *(uint8_t *)(v4 + BYTE2(v46))) << 8)
         | v11
-        ^ *(unsigned __int8 *)(v3 + HIBYTE(v45))
-        ^ *(unsigned __int8 *)(dword_13CB38 + (unsigned __int8)v44)
-        ^ *(unsigned __int8 *)(v4 + BYTE1(v41));
-    v15 = v12 ^ *(unsigned __int8 *)(dword_13CB38 + HIBYTE(v44)) ^ *(unsigned __int8 *)(v4 + (unsigned __int8)v41) ^ v51;
-    v16 = ((*(unsigned __int8 *)(dword_13CB38 + BYTE2(v45))
+        ^ *(uint8_t *)(v3 + HIBYTE(v45))
+        ^ *(uint8_t *)(dword_13CB38 + (uint8_t)v44)
+        ^ *(uint8_t *)(v4 + BYTE1(v41));
+    v15 = v12 ^ *(uint8_t *)(dword_13CB38 + HIBYTE(v44)) ^ *(uint8_t *)(v4 + (uint8_t)v41) ^ v51;
+    v16 = ((*(uint8_t *)(dword_13CB38 + BYTE2(v45))
           ^ v51
-          ^ *(unsigned __int8 *)(v3 + (unsigned __int8)v41)
-          ^ *(unsigned __int8 *)(v4 + HIBYTE(v44))) << 16)
-        | ((*(unsigned __int8 *)(v3 + HIBYTE(v44))
-          ^ *(unsigned __int8 *)(v3 + (unsigned __int8)v41)
-          ^ *(unsigned __int8 *)(dword_13CB38 + BYTE1(v46))
-          ^ *(unsigned __int8 *)(v4 + BYTE2(v45))) << 8)
+          ^ *(uint8_t *)(v3 + (uint8_t)v41)
+          ^ *(uint8_t *)(v4 + HIBYTE(v44))) << 16)
+        | ((*(uint8_t *)(v3 + HIBYTE(v44))
+          ^ *(uint8_t *)(v3 + (uint8_t)v41)
+          ^ *(uint8_t *)(dword_13CB38 + BYTE1(v46))
+          ^ *(uint8_t *)(v4 + BYTE2(v45))) << 8)
         | v12
-        ^ *(unsigned __int8 *)(v3 + HIBYTE(v44))
-        ^ *(unsigned __int8 *)(dword_13CB38 + (unsigned __int8)v41)
-        ^ *(unsigned __int8 *)(v4 + BYTE1(v46));
-    v17 = (unsigned __int8)v46;
+        ^ *(uint8_t *)(v3 + HIBYTE(v44))
+        ^ *(uint8_t *)(dword_13CB38 + (uint8_t)v41)
+        ^ *(uint8_t *)(v4 + BYTE1(v46));
+    v17 = (uint8_t)v46;
     v18 = HIBYTE(v46);
     v47 = v14 | (v13 << 24);
     *a2 = v47;
-    v19 = *(unsigned __int8 *)(v3 + BYTE1(v45));
+    v19 = *(uint8_t *)(v3 + BYTE1(v45));
     a2[1] = v16 | (v15 << 24);
-    v20 = *(unsigned __int8 *)(v3 + HIBYTE(v41));
-    v21 = *(unsigned __int8 *)(v3 + v17);
-    v52 = *(unsigned __int8 *)(dword_13CB38 + HIBYTE(v41));
+    v20 = *(uint8_t *)(v3 + HIBYTE(v41));
+    v21 = *(uint8_t *)(v3 + v17);
+    v52 = *(uint8_t *)(dword_13CB38 + HIBYTE(v41));
     v22 = BYTE2(v41);
-    v23 = *(unsigned __int8 *)(v3 + (unsigned __int8)v45);
-    v24 = *(unsigned __int8 *)(v4 + HIBYTE(v41)) ^ v21 ^ v19 ^ *(unsigned __int8 *)(dword_13CB38 + BYTE2(v44));
-    v42 = *(unsigned __int8 *)(v3 + BYTE1(v44));
+    v23 = *(uint8_t *)(v3 + (uint8_t)v45);
+    v24 = *(uint8_t *)(v4 + HIBYTE(v41)) ^ v21 ^ v19 ^ *(uint8_t *)(dword_13CB38 + BYTE2(v44));
+    v42 = *(uint8_t *)(v3 + BYTE1(v44));
     v25 = (v24 << 16)
-        | ((*(unsigned __int8 *)(dword_13CB38 + BYTE1(v45)) ^ v21 ^ v20 ^ *(unsigned __int8 *)(v4 + BYTE2(v44))) << 8)
+        | ((*(uint8_t *)(dword_13CB38 + BYTE1(v45)) ^ v21 ^ v20 ^ *(uint8_t *)(v4 + BYTE2(v44))) << 8)
         | v20
-        ^ *(unsigned __int8 *)(dword_13CB38 + v17)
-        ^ *(unsigned __int8 *)(v4 + BYTE1(v45))
-        ^ *(unsigned __int8 *)(v3 + BYTE2(v44))
-        | ((v19 ^ *(unsigned __int8 *)(v3 + BYTE2(v44)) ^ *(unsigned __int8 *)(v4 + v17) ^ v52) << 24);
-    v26 = ((*(unsigned __int8 *)(v4 + v18) ^ v23 ^ v42 ^ *(unsigned __int8 *)(dword_13CB38 + v22)) << 16)
-        | ((*(unsigned __int8 *)(dword_13CB38 + BYTE1(v44))
-          ^ *(unsigned __int8 *)(v3 + v18)
+        ^ *(uint8_t *)(dword_13CB38 + v17)
+        ^ *(uint8_t *)(v4 + BYTE1(v45))
+        ^ *(uint8_t *)(v3 + BYTE2(v44))
+        | ((v19 ^ *(uint8_t *)(v3 + BYTE2(v44)) ^ *(uint8_t *)(v4 + v17) ^ v52) << 24);
+    v26 = ((*(uint8_t *)(v4 + v18) ^ v23 ^ v42 ^ *(uint8_t *)(dword_13CB38 + v22)) << 16)
+        | ((*(uint8_t *)(dword_13CB38 + BYTE1(v44))
+          ^ *(uint8_t *)(v3 + v18)
           ^ v23
-          ^ *(unsigned __int8 *)(v4 + v22)) << 8)
-        | *(unsigned __int8 *)(v3 + v22)
-        ^ *(unsigned __int8 *)(v3 + v18)
-        ^ *(unsigned __int8 *)(dword_13CB38 + (unsigned __int8)v45)
-        ^ *(unsigned __int8 *)(v4 + BYTE1(v44))
+          ^ *(uint8_t *)(v4 + v22)) << 8)
+        | *(uint8_t *)(v3 + v22)
+        ^ *(uint8_t *)(v3 + v18)
+        ^ *(uint8_t *)(dword_13CB38 + (uint8_t)v45)
+        ^ *(uint8_t *)(v4 + BYTE1(v44))
         | ((v42
-          ^ *(unsigned __int8 *)(v3 + v22)
-          ^ *(unsigned __int8 *)(v4 + (unsigned __int8)v45)
-          ^ *(unsigned __int8 *)(dword_13CB38 + v18)) << 24);
+          ^ *(uint8_t *)(v3 + v22)
+          ^ *(uint8_t *)(v4 + (uint8_t)v45)
+          ^ *(uint8_t *)(dword_13CB38 + v18)) << 24);
     a2[2] = v25;
     a2[3] = v26;
     v27 = v47 ^ v50[4];
@@ -148,19 +164,19 @@ int  sub_13C870(uint32_t *a1, uint32_t *a2)
     v50 += 4;
   }
   while ( v53 != v50 );
-  v43 = *(unsigned __int8 *)(v3 + (unsigned __int8)v28) | (*(unsigned __int8 *)(v3 + HIBYTE(v27)) << 24);
-  v30 = *(unsigned __int8 *)(v3 + (unsigned __int8)v29) | (*(unsigned __int8 *)(v3 + HIBYTE(v28)) << 24);
-  v31 = *(unsigned __int8 *)(v3 + (unsigned __int8)v27)
-      | (*(unsigned __int8 *)(v3 + HIBYTE(v45)) << 24)
-      | (*(unsigned __int8 *)(v3 + BYTE1(v28)) << 8);
-  v32 = *(unsigned __int8 *)(v3 + BYTE1(v45));
-  v33 = *(unsigned __int8 *)(v3 + BYTE2(v27));
-  v34 = *(unsigned __int8 *)(v3 + BYTE2(v28));
-  v35 = *(unsigned __int8 *)(v3 + (unsigned __int8)v45)
-      | (*(unsigned __int8 *)(v3 + HIBYTE(v46)) << 24)
-      | (*(unsigned __int8 *)(v3 + BYTE1(v27)) << 8);
-  v36 = v31 | (*(unsigned __int8 *)(v3 + BYTE2(v46)) << 16);
-  v37 = v43 | (*(unsigned __int8 *)(v3 + BYTE1(v46)) << 8) | (*(unsigned __int8 *)(v3 + BYTE2(v45)) << 16);
+  v43 = *(uint8_t *)(v3 + (uint8_t)v28) | (*(uint8_t *)(v3 + HIBYTE(v27)) << 24);
+  v30 = *(uint8_t *)(v3 + (uint8_t)v29) | (*(uint8_t *)(v3 + HIBYTE(v28)) << 24);
+  v31 = *(uint8_t *)(v3 + (uint8_t)v27)
+      | (*(uint8_t *)(v3 + HIBYTE(v45)) << 24)
+      | (*(uint8_t *)(v3 + BYTE1(v28)) << 8);
+  v32 = *(uint8_t *)(v3 + BYTE1(v45));
+  v33 = *(uint8_t *)(v3 + BYTE2(v27));
+  v34 = *(uint8_t *)(v3 + BYTE2(v28));
+  v35 = *(uint8_t *)(v3 + (uint8_t)v45)
+      | (*(uint8_t *)(v3 + HIBYTE(v46)) << 24)
+      | (*(uint8_t *)(v3 + BYTE1(v27)) << 8);
+  v36 = v31 | (*(uint8_t *)(v3 + BYTE2(v46)) << 16);
+  v37 = v43 | (*(uint8_t *)(v3 + BYTE1(v46)) << 8) | (*(uint8_t *)(v3 + BYTE2(v45)) << 16);
   v38 = v30 | (v32 << 8) | (v33 << 16);
   v39 = v35 | (v34 << 16);
   *a2 = v36;

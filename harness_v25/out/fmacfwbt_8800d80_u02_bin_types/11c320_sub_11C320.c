@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C3D0;
+extern uint32_t dword_11C3D4;
+extern uint32_t dword_11C3D8;
+extern uint32_t dword_11C3DC;
+extern uint32_t dword_11C3E0;
+extern uint32_t dword_11C3E8;
+extern uint32_t off_11C3E4;
+
 // sub_11C320 @ 0x11c320, size 174 bytes
 // Doc: sub_121C320 [util]: Initialization/utility routine loading global state at 0x188bbc
 // sub_121C320 [util]: Initialization/utility routine loading global state at 0x188bbc

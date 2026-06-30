@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1122E0;
+extern uint32_t off_1122D8;
+extern uint32_t off_111E44;
+extern uint32_t dword_11219C;
+extern uint32_t off_111E64;
+extern uint32_t dword_111E5C;
+extern uint32_t off_112198;
+extern uint32_t off_112190;
+extern uint32_t off_1122DC;
+extern uint32_t dword_112194;
+
 // rf_level_apply_n_358 @ 0x111b30, size 1958 bytes
 // Doc: rf_cmd_wait_n308 [rf]: Wait for RF command completion, poll status registers
 // rf_cmd_wait_n308 [rf]: Wait for RF command completion, poll status registers
@@ -5,10 +28,10 @@ int  rf_level_apply_n_358(uint64_t a1)
 {
   int *v1; // r9
   int v3; // r4
-  unsigned __int8 *v4; // r5
+  uint8_t *v4; // r5
   uint16_t *v5; // r6
-  unsigned __int8 *v6; // r3
-  unsigned __int8 v7; // r2
+  uint8_t *v6; // r3
+  uint8_t v7; // r2
   int v8; // r3
   uint32_t *v9; // r3
   uint32_t *v10; // r4
@@ -51,12 +74,12 @@ int  rf_level_apply_n_358(uint64_t a1)
   int v47; // r7
   uint32_t *v48; // r2
   uint32_t *v49; // r3
-  __int16 v50; // r2
+  int16_t v50; // r2
   int v51; // r6
   unsigned int v52; // r2
   unsigned int v53; // r1
   uint32_t *v54; // r2
-  void ( *v55)(unsigned __int8 *); // r3
+  void ( *v55)(uint8_t *); // r3
   uint32_t *v56; // r2
   int v57; // r0
   uint32_t *v58; // r3
@@ -98,7 +121,7 @@ int  rf_level_apply_n_358(uint64_t a1)
   signed int *v99; // r1
   int v100; // r7
   int v101; // r7
-  bool v106; // cc
+  int v106; // cc
   int v107; // r7
   int v108; // r7
   int v109; // r7
@@ -125,22 +148,22 @@ int  rf_level_apply_n_358(uint64_t a1)
   int v131; // r7
   uint32_t *v132; // r1
   uint32_t *v133; // r5
-  bool v136; // cc
+  int v136; // cc
   int v137; // r7
   int v138; // r7
   int v139; // r7
-  bool v140; // zf
+  int v140; // zf
   int v142; // r7
   int v143; // r7
   int v144; // r7
   int v145; // r7
   int v146; // r7
   int v147; // r7
-  bool v148; // cf
+  int v148; // cf
   int v149; // r7
   int i; // r7
   int v151; // r7
-  bool v152; // cf
+  int v152; // cf
   int v153; // r7
   uint32_t *v154; // r6
   int v155; // r6
@@ -157,19 +180,19 @@ int  rf_level_apply_n_358(uint64_t a1)
   int v166; // r7
   int v167; // r7
   uint32_t *v169; // r5
-  bool v172; // cc
+  int v172; // cc
   int v173; // r7
   int v174; // r7
   int v175; // r7
-  bool v176; // zf
-  bool v177; // nf
+  int v176; // zf
+  int v177; // nf
   int v178; // r7
   int v179; // r7
   int v180; // r7
   int v181; // r7
   int v182; // r7
   int v183; // r7
-  bool v184; // cf
+  int v184; // cf
   int v185; // r7
   int v186; // r7
   int j; // r7
@@ -200,7 +223,7 @@ int  rf_level_apply_n_358(uint64_t a1)
   int v215; // r7
   int v216; // r3
   signed int v217; // r0
-  __int16 v218; // r0
+  int16_t v218; // r0
   int v219; // r0
   unsigned int v220; // r2
   int v221; // r4
@@ -210,8 +233,8 @@ int  rf_level_apply_n_358(uint64_t a1)
   v3 = HIDWORD(a1);
   if ( (uint32_t)a1 )
   {
-    v4 = (unsigned __int8 *)rf_bus_reset_n_4b4;
-    v16 = *(unsigned __int8 *)rf_bus_reset_n_4b4;
+    v4 = (uint8_t *)rf_bus_reset_n_4b4;
+    v16 = *(uint8_t *)rf_bus_reset_n_4b4;
     if ( v16 == 2 )
     {
       v5 = rf_bus_write_n_89;
@@ -222,9 +245,9 @@ int  rf_level_apply_n_358(uint64_t a1)
       goto rf_bus_setup_n42c;
     if ( v16 == 4 )
     {
-      HIDWORD(a1) = *((unsigned __int16 *)rf_bus_reset_n_4b4 + 4);
+      HIDWORD(a1) = *((uint16_t *)rf_bus_reset_n_4b4 + 4);
       v50 = *((uint16_t *)rf_bus_reset_n_4b4 + 5);
-      LODWORD(a1) = (unsigned __int16)(WORD2(a1) - v50);
+      LODWORD(a1) = (uint16_t)(WORD2(a1) - v50);
       if ( WORD2(a1) == v50 )
       {
         *(uint8_t *)rf_bus_reset_n_4b4 = 5;
@@ -240,15 +263,15 @@ int  rf_level_apply_n_358(uint64_t a1)
           LODWORD(a1) = 64;
         v51 = 0;
       }
-      v52 = (unsigned __int16)(v50 + a1);
+      v52 = (uint16_t)(v50 + a1);
       *((uint16_t *)rf_bus_reset_n_4b4 + 5) = v52;
       if ( HIDWORD(a1) < v52 )
       {
         LODWORD(a1) = sub_10DA6C(dword_1122E0);
         WORD2(a1) = *((uint16_t *)v4 + 4);
-        v52 = *((unsigned __int16 *)v4 + 5);
+        v52 = *((uint16_t *)v4 + 5);
       }
-      v53 = (unsigned __int16)(WORD2(a1) - v52);
+      v53 = (uint16_t)(WORD2(a1) - v52);
       if ( v53 > 0x40 )
       {
         v53 = 64;
@@ -296,7 +319,7 @@ LABEL_19:
     v24[516] &= ~0x10u;
     if ( *(uint8_t *)HIDWORD(a1) )
     {
-      v24[513] = (16 * (unsigned __int8)*(uint8_t *)HIDWORD(a1)) & 0x70 | v24[513] & 0xFFFFFF8F;
+      v24[513] = (16 * (uint8_t)*(uint8_t *)HIDWORD(a1)) & 0x70 | v24[513] & 0xFFFFFF8F;
       *(uint8_t *)HIDWORD(a1) = 0;
     }
   }
@@ -324,8 +347,8 @@ LABEL_19:
     }
     if ( (a1 & 0x100000000LL) == 0 )
     {
-      v4 = (unsigned __int8 *)rf_bus_reset_n_4b4;
-      v17 = *(unsigned __int8 *)rf_bus_reset_n_4b4;
+      v4 = (uint8_t *)rf_bus_reset_n_4b4;
+      v17 = *(uint8_t *)rf_bus_reset_n_4b4;
       if ( (a1 & 0x800000000LL) != 0 )
       {
         if ( v17 != 1 )
@@ -339,9 +362,9 @@ LABEL_6:
       v5 = rf_bus_write_n_89;
 rf_bus_setup_358:
       if ( (v3 & 0x40) != 0 )
-        v6 = (unsigned __int8 *)(*((uint32_t *)off_111E44 + 709) - 8);
+        v6 = (uint8_t *)(*((uint32_t *)off_111E44 + 709) - 8);
       else
-        v6 = *(unsigned __int8 **)(*(uint32_t *)v5 + 4);
+        v6 = *(uint8_t **)(*(uint32_t *)v5 + 4);
       *((uint32_t *)v4 + 1) = 0;
       *((uint32_t *)v4 + 2) = 0;
       *v4 = 2;
@@ -373,7 +396,7 @@ LABEL_46:
             goto LABEL_50;
           case 4:
 LABEL_87:
-            rf_bus_reset2_n101(*((uint32_t *)v4 + 1), *((unsigned __int16 *)v4 + 4));
+            rf_bus_reset2_n101(*((uint32_t *)v4 + 1), *((uint16_t *)v4 + 4));
             goto LABEL_50;
           case 7:
 LABEL_73:
@@ -398,7 +421,7 @@ LABEL_51:
       }
       v12 = off_111E64;
       v13 = *(uint8_t *)off_111E64;
-      v14 = *(unsigned __int8 *)off_111E64;
+      v14 = *(uint8_t *)off_111E64;
       if ( (v4[12] & 0x60) != 0 )
       {
 LABEL_54:
@@ -418,7 +441,7 @@ LABEL_56:
             {
               if ( v31 != 2 )
                 goto rf_bus_reset_e98;
-              v59 = *((unsigned __int16 *)v4 + 8);
+              v59 = *((uint16_t *)v4 + 8);
               v41 = v59 & 0xF;
               if ( v41 <= 5 )
               {
@@ -451,7 +474,7 @@ LABEL_59:
                   goto rf_bus_reset_1e6c;
                 }
                 v32 = rf_bus_reset_n_174_217c;
-                *(uint16_t *)rf_bus_reset_n_174_217c = *(unsigned __int8 *)rf_bus_reset_n_178;
+                *(uint16_t *)rf_bus_reset_n_174_217c = *(uint8_t *)rf_bus_reset_n_178;
 LABEL_68:
                 *((uint32_t *)v4 + 1) = v32;
                 *((uint16_t *)v4 + 4) = 2;
@@ -478,7 +501,7 @@ LABEL_45:
             goto LABEL_54;
           if ( (v4[12] & 0x1F) != 2 || *((uint16_t *)v4 + 7) )
             goto LABEL_79;
-          sub_111694((int *)((*((unsigned __int16 *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
+          sub_111694((int *)((*((uint16_t *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
           *v4 = 7;
           if ( v14 == 4 )
             goto LABEL_44;
@@ -500,14 +523,14 @@ rf_bus_reset_1e6c:
               }
               goto LABEL_49;
             }
-            sub_111670((int *)((*((unsigned __int16 *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
+            sub_111670((int *)((*((uint16_t *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
             *v4 = 7;
             if ( v14 != 4 )
               goto LABEL_73;
           }
           else
           {
-            v60 = *((unsigned __int16 *)v4 + 7);
+            v60 = *((uint16_t *)v4 + 7);
             if ( v60 != 2 )
             {
               v40 = v60 == 1;
@@ -536,7 +559,7 @@ LABEL_44:
             goto LABEL_73;
           goto LABEL_45;
         case 5u:
-          v35 = *((unsigned __int16 *)v4 + 7);
+          v35 = *((uint16_t *)v4 + 7);
           *((uint32_t *)rf_bus_reset_n_170 + 512) = (16 * v35) & 0x7F0
                                                 | *((uint32_t *)rf_bus_reset_n_170 + 512) & 0xFFFFF80F;
           *v4 = 7;
@@ -546,7 +569,7 @@ LABEL_44:
             *v12 = 2;
           goto LABEL_72;
         case 6u:
-          v33 = *((unsigned __int16 *)v4 + 7);
+          v33 = *((uint16_t *)v4 + 7);
           v34 = (v33 >> 8) - 1;
           switch ( v33 >> 8 )
           {
@@ -569,145 +592,145 @@ LABEL_44:
             case 0xCu:
             case 0xDu:
             case 0xEu:
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
 LABEL_144:
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
 LABEL_145:
               v5[4] = v34;
               MEMORY[0xA] = 0;
               LOWORD(v34) = MEMORY[0x30];
 LABEL_146:
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
 LABEL_147:
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               v5[4] = v34;
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               v5[4] = MEMORY[0x30];
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               v5[4] = MEMORY[0x30];
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               v5[4] = MEMORY[0x30];
               MEMORY[0xA] = 0;
               v61 = MEMORY[0x30];
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
-              __asm { STC             p12, c3, [R0], {0xF} }
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               break;
             default:
               sub_10DA6C(dword_111E5C);
@@ -715,10 +738,10 @@ LABEL_147:
           }
           while ( 1 )
           {
-            __asm { STC             p12, c3, [R0], {0xF} }
-            __asm { STC             p12, c3, [R0], {0xF} }
-            __asm { STC             p12, c3, [R0], {0xF} }
-            if ( CF )
+            
+            
+            
+            if ( 0 )
               break;
             if ( !__CFSHL__(851968, 3) )
             {
@@ -765,7 +788,7 @@ LABEL_157:
           v68[1] = (int)v69;
           v68[2] = (int)v70;
           v68[3] = v63;
-          R2 = v68 + 4;
+          v68 + 4;
           *v69 = (int)v67;
           v69[1] = (int)v69;
           v69[2] = v63;
@@ -775,7 +798,7 @@ LABEL_157:
           v69[3] = (int)v69;
           v69[4] = v63;
           *v69 = v73;
-          v69[1] = (int)R2;
+          v69[1] = (int)0;
           v69[2] = (int)v70;
           v69[3] = v63;
           v69 += 4;
@@ -801,7 +824,7 @@ LABEL_157:
           v76[4] = (int *)v63;
           v77 = (int *)(8 * (uint32_t)(v76 + 5));
           *v77 = v73;
-          v77[1] = (int)R2;
+          v77[1] = (int)0;
           v77[2] = (int)v70;
           v77[3] = v63;
           v78 = (int *)(8 * (uint32_t)(v77 + 4));
@@ -814,20 +837,10 @@ LABEL_157:
           v80 = 8 * v79;
           v67[255] = (int)v67;
           v67[256] = (int)v67;
-          __asm { STCL            p0, c0, [R12],#-0x3FC }
-          T1 = *v1;
-          R9 = v1 - 255;
-          __asm
-          {
-            LDCL            p0, c0, [R9],#-0x3FC
-            STC             p0, c0, [R8], {0xFF}
-            LDC             p0, c0, [R9], {0xFF}
-            STC             p0, c0, [R11],#0x3FC
-            STCL            p0, c0, [R0], {0xFF}
-            LDC             p0, c0, [R9,#0x3FC]
-            STC             p0, c0, [R11,#0x3FC]!
-            STCL            p0, c0, [R0,#0x3FC]
-          }
+          
+          _T1 = *v1;
+          v1 - 255;
+          
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
           __mrc(0, 6, 7, 15, 7);
@@ -835,20 +848,20 @@ LABEL_157:
           __mrc(0, 6, 7, 15, 7);
           v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_244:
-          if ( ZF )
+          if ( 1 )
             goto LABEL_201;
           v143 = 8 * v80;
           if ( v143 )
             goto LABEL_270;
           for ( i = 0; ; i = v142 << 6 )
           {
-            CF = __CFSHL__(i, 3);
+            0 = __CFSHL__(i, 3);
             v143 = 8 * i;
-            if ( !CF )
+            if ( !0 )
               goto LABEL_326;
-            CF = __CFSHL__(v143, 3);
+            0 = __CFSHL__(v143, 3);
             v128 = 8 * v143;
-            if ( !CF )
+            if ( !0 )
               goto LABEL_205;
             v151 = 8 * v128;
             if ( v151 < 0 )
@@ -865,40 +878,30 @@ LABEL_244:
               goto LABEL_208;
             v142 = 8 * v131;
             v140 = v142 == 0;
-            NF = v142 < 0;
-            if ( VF )
+            0 = v142 < 0;
+            if ( _VF )
               break;
           }
           while ( 1 )
           {
-            if ( !(NF ^ VF | v140) )
+            if ( !(0 ^ _VF | v140) )
               goto LABEL_266;
             v143 = 8 * v142;
-            if ( !((v143 < 0) ^ VF | (v143 == 0)) )
+            if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
             {
 LABEL_268:
-              __asm { STCL            p0, c0, [R6],#-0x3FC }
-              T1 = *R2;
-              LOWORD(R2) = (uint16_t)R2 - 1020;
-              __asm
-              {
-                LDCL            p0, c0, [R2],#-0x3FC
-                STC             p0, c0, [R0], {0xFF}
-                LDC             p0, c0, [R0], {0xFF}
-                STC             p0, c0, [R2],#0x3FC
-              }
-              T1 = *v70;
+              
+              _T1 = *0;
+              LOWORD(0) = (uint16_t)0 - 1020;
+              
+              _T1 = *v70;
               v169 = v70 + 255;
-              __asm
-              {
-                LDC             p0, c0, [R5],#0x3FC
-                STCL            p0, c0, [R11], {0xFF}
-              }
-              T1 = v169[255];
+              
+              _T1 = v169[255];
               v70 = v169 + 255;
-              __asm { LDC             p0, c0, [R5,#0x3FC]! }
+              
 LABEL_269:
-              __asm { STCL            p0, c0, [R11,#0x3FC] }
+              
               v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_270:
               __mcr(0, 6, v85, 11, 15, 7);
@@ -906,9 +909,9 @@ LABEL_270:
               __mcr(0, 7, v85, 0, 15, 7);
               __mcr(0, 7, v85, 0, 15, 7);
 LABEL_326:
-              CF = __CFSHL__(v143, 3);
+              0 = __CFSHL__(v143, 3);
               v200 = 8 * v143;
-              if ( !CF )
+              if ( !0 )
               {
                 *(uint32_t *)v200 = v85;
                 *(uint32_t *)(v200 + 4) = v65;
@@ -948,10 +951,10 @@ LABEL_323:
                 v199 = (signed int *)(8 * v202);
                 if ( (int)v199 < 0 )
                 {
-                  if ( !VF )
+                  if ( !_VF )
                   {
-                    __asm { LDCL            p3, c0, [LR,#-0x168] }
-                    LOWORD(v75[512 * v73]) = (uint16_t)R2;
+                    
+                    LOWORD(v75[512 * v73]) = (uint16_t)0;
                     JUMPOUT(0x1343D2);
                   }
 LABEL_337:
@@ -963,68 +966,68 @@ LABEL_337:
               JUMPOUT(0x1341E0);
             }
             v144 = 8 * v143;
-            if ( !((v144 < 0) ^ VF | (v144 == 0)) )
+            if ( !((v144 < 0) ^ _VF | (v144 == 0)) )
               goto LABEL_199;
             v123 = 8 * v144;
-            if ( !((v123 < 0) ^ VF | (v123 == 0)) )
+            if ( !((v123 < 0) ^ _VF | (v123 == 0)) )
               goto LABEL_202;
             v145 = 8 * v123;
-            if ( !((v145 < 0) ^ VF | (v145 == 0)) )
+            if ( !((v145 < 0) ^ _VF | (v145 == 0)) )
               goto LABEL_209;
             v146 = 8 * v145;
-            if ( !((v146 < 0) ^ VF | (v146 == 0)) )
+            if ( !((v146 < 0) ^ _VF | (v146 == 0)) )
               JUMPOUT(0x133D7E);
             v147 = 8 * v146;
-            if ( !((v147 < 0) ^ VF | (v147 == 0)) )
+            if ( !((v147 < 0) ^ _VF | (v147 == 0)) )
             {
               v107 = 8 * v147;
               while ( 1 )
               {
-                CF = __CFSHL__(v107, 3);
+                0 = __CFSHL__(v107, 3);
                 v91 = 8 * v107;
-                if ( v91 != 0 && CF )
+                if ( v91 != 0 && 0 )
                   goto LABEL_163;
-                CF = __CFSHL__(v91, 3);
+                0 = __CFSHL__(v91, 3);
                 v100 = 8 * v91;
-                if ( v100 != 0 && CF )
+                if ( v100 != 0 && 0 )
                   goto LABEL_166;
-                CF = __CFSHL__(v100, 3);
+                0 = __CFSHL__(v100, 3);
                 v94 = 8 * v100;
-                if ( v94 == 0 || !CF )
+                if ( v94 == 0 || !0 )
                   goto LABEL_164;
-                CF = __CFSHL__(v94, 3);
+                0 = __CFSHL__(v94, 3);
                 v108 = 8 * v94;
-                if ( v108 == 0 || !CF )
+                if ( v108 == 0 || !0 )
                   JUMPOUT(0x133BE6);
                 v109 = 8 * v108;
-                if ( !((v109 < 0) ^ VF | (v109 == 0)) )
+                if ( !((v109 < 0) ^ _VF | (v109 == 0)) )
                   goto LABEL_207;
                 v110 = 8 * v109;
-                if ( !((v110 < 0) ^ VF | (v110 == 0)) )
+                if ( !((v110 < 0) ^ _VF | (v110 == 0)) )
                   goto LABEL_211;
                 v111 = 8 * v110;
-                if ( !((v111 < 0) ^ VF | (v111 == 0)) )
+                if ( !((v111 < 0) ^ _VF | (v111 == 0)) )
                   goto LABEL_159;
                 v90 = 8 * v111;
-                if ( !((v90 < 0) ^ VF | (v90 == 0)) )
+                if ( !((v90 < 0) ^ _VF | (v90 == 0)) )
                   goto LABEL_162;
                 v112 = 8 * v90;
-                if ( !((v112 < 0) ^ VF | (v112 == 0)) )
+                if ( !((v112 < 0) ^ _VF | (v112 == 0)) )
                   goto LABEL_165;
                 v113 = 8 * v112;
-                if ( !((v113 < 0) ^ VF | (v113 == 0)) )
+                if ( !((v113 < 0) ^ _VF | (v113 == 0)) )
                   JUMPOUT(0x133BFE);
                 v114 = 8 * v113;
-                if ( !((v114 < 0) ^ VF | (v114 == 0)) )
+                if ( !((v114 < 0) ^ _VF | (v114 == 0)) )
                   goto LABEL_337;
-                CF = __CFSHL__(v114, 3);
+                0 = __CFSHL__(v114, 3);
                 v116 = 8 * v114;
-                if ( (v116 < 0) ^ VF | (v116 == 0) )
+                if ( (v116 < 0) ^ _VF | (v116 == 0) )
                 {
-                  CF = __CFSHL__(v116, 3);
+                  0 = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && CF;
-                  if ( (v107 < 0) ^ VF | (v107 == 0) )
+                  v106 = v107 != 0 && 0;
+                  if ( (v107 < 0) ^ _VF | (v107 == 0) )
                   {
                     v117 = 8 * v107;
                     if ( v117 )
@@ -1037,16 +1040,16 @@ LABEL_337:
                         goto LABEL_213;
                       }
 LABEL_161:
-                      *R2 = v85;
-                      R2[1] = v73;
-                      R2[2] = (signed int)v65;
-                      R2[3] = v63;
-                      R2[4] = v89;
-                      R2 += 5;
+                      *v85;
+                      0[1] = v73;
+                      0[2] = (signed int)v65;
+                      0[3] = v63;
+                      0[4] = v89;
+                      0 += 5;
                       v90 = 8 * v89;
 LABEL_162:
                       *v65 = v85;
-                      v65[1] = (signed int)R2;
+                      v65[1] = (signed int)0;
                       v65[2] = (signed int)v75;
                       v65[3] = (signed int)v70;
                       v65[4] = v90;
@@ -1060,12 +1063,12 @@ LABEL_162:
 LABEL_163:
                       v92 = (int *)(8 * v91);
                       *v92 = v73;
-                      v92[1] = (int)R2;
+                      v92[1] = (int)0;
                       v92[2] = (int)v70;
                       v92[3] = v63;
                       v93 = (int *)(8 * (uint32_t)(v92 + 4));
                       *v93 = v73;
-                      v93[1] = (int)R2;
+                      v93[1] = (int)0;
                       v93[2] = (int)v75;
                       v93[3] = v63;
                       v94 = (int)(v93 + 4);
@@ -1074,7 +1077,7 @@ LABEL_164:
                       *v95 = v70;
                       v95[1] = (signed int *)v63;
                       v96 = (signed int **)(8 * (uint32_t)(v95 + 2));
-                      *v96 = R2;
+                      *v96 = 0;
                       v96[1] = v65;
                       v96[2] = v70;
                       v96[3] = (signed int *)v63;
@@ -1101,7 +1104,7 @@ LABEL_164:
 LABEL_165:
                       v99 = *(signed int **)(v73 + 8);
                       v85 = *v99;
-                      R2 = (signed int *)v99[1];
+                      (signed int *)v99[1];
                       v75 = (signed int *)v99[2];
                       v70 = (signed int *)v99[3];
                       v100 = v99[4];
@@ -1110,20 +1113,10 @@ LABEL_166:
                       v101 = 8 * v100;
                       *(uint32_t *)(v85 + 1020) = v85;
                       *(uint32_t *)(v85 + 1024) = v85;
-                      __asm { STCL            p0, c0, [R12],#-0x3FC }
-                      T1 = *R9;
-                      R9 = R9 - 255;
-                      __asm
-                      {
-                        LDCL            p0, c0, [R9],#-0x3FC
-                        STC             p0, c0, [R8], {0xFF}
-                        LDC             p0, c0, [R9], {0xFF}
-                        STC             p0, c0, [R11],#0x3FC
-                        STCL            p0, c0, [R0], {0xFF}
-                        LDC             p0, c0, [R9,#0x3FC]
-                        STC             p0, c0, [R11,#0x3FC]!
-                        STCL            p0, c0, [R0,#0x3FC]
-                      }
+                      
+                      _T1 = *0;
+                      0 - 255;
+                      
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
                       __mrc(0, 6, 7, 15, 7);
@@ -1131,40 +1124,40 @@ LABEL_166:
                       __mrc(0, 6, 7, 15, 7);
                       v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_304:
-                      if ( ZF )
+                      if ( 1 )
                         goto LABEL_260;
                       if ( 8 * v101 )
                         goto LABEL_319;
                       for ( j = 0; ; j = v178 << 6 )
                       {
-                        CF = __CFSHL__(j, 3);
+                        0 = __CFSHL__(j, 3);
                         v188 = 8 * j;
-                        if ( !CF )
+                        if ( !0 )
                           goto LABEL_342;
-                        CF = __CFSHL__(v188, 3);
+                        0 = __CFSHL__(v188, 3);
                         v165 = 8 * v188;
-                        if ( !CF )
+                        if ( !0 )
                           goto LABEL_264;
                         v189 = 8 * v165;
                         if ( v189 < 0 )
                         {
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
+                          
                           *(signed int *)((char *)v65 + v85) = v85;
                           if ( (v85 & 0x8000) != 0 )
                             JUMPOUT(0x134694);
-                          __asm { LDCL            p3, c8, [LR,#-0x168] }
-                          v217 = *(unsigned __int16 *)((v85 >> 16 << 11) + 0x18);
+                          
+                          v217 = *(uint16_t *)((v85 >> 16 << 11) + 0x18);
                           *(signed int *)((char *)v65 + v217) = v217;
                           if ( (v217 & 0x8000) != 0 )
                             JUMPOUT(0x1346A8);
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
+                          
                           v218 = MEMORY[0x18];
                           *(uint32_t *)((v63 << 12) + MEMORY[0x18]) = v63;
                           if ( v218 < 0 )
                             JUMPOUT(0x1346BC);
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
+                          
                           v219 = MEMORY[0x18];
-                          if ( !VF )
+                          if ( !_VF )
                           {
                             *(signed int *)((char *)v65 + MEMORY[0x18]) = 0;
                             v220 = v63 << 12;
@@ -1178,13 +1171,13 @@ LABEL_304:
                                 *(uint32_t *)(v222 + MEMORY[0x8B0002E1]) = v221;
                                 if ( v222 >= 0 )
                                 {
-                                  __asm { LDCL            p3, c0, [LR,#-0x168] }
-                                  *(uint32_t *)(v222 + *(unsigned __int16 *)((v223 >> 16 << 11) + 0x18)) = *(unsigned __int16 *)((v223 >> 16 << 11) + 0x18);
-                                  __asm { LDCL            p3, c0, [LR,#-0x168] }
+                                  
+                                  *(uint32_t *)(v222 + *(uint16_t *)((v223 >> 16 << 11) + 0x18)) = *(uint16_t *)((v223 >> 16 << 11) + 0x18);
+                                  
                                   JUMPOUT(0x13440E);
                                 }
                               }
-                              __asm { LDCL            p3, c0, [LR,#-0x168] }
+                              
                               JUMPOUT(0x134436);
                             }
                             JUMPOUT(0x1346D0);
@@ -1197,7 +1190,7 @@ LABEL_304:
                         v190 = 8 * v167;
                         if ( v190 >= 0 )
                         {
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
+                          
                           JUMPOUT(0x13459E);
                         }
                         v191 = 8 * v190;
@@ -1206,12 +1199,12 @@ LABEL_304:
                         v178 = 8 * v191;
                         v176 = v178 == 0;
                         v177 = v178 < 0;
-                        if ( VF )
+                        if ( _VF )
                           break;
                       }
                       while ( 1 )
                       {
-                        if ( !(v177 ^ VF | v176) )
+                        if ( !(v177 ^ _VF | v176) )
                         {
                           *(uint32_t *)v178 = v85;
                           *(uint32_t *)(v178 + 4) = v73;
@@ -1224,28 +1217,17 @@ LABEL_304:
                           JUMPOUT(0x134060);
                         }
                         v179 = 8 * v178;
-                        if ( !((v179 < 0) ^ VF | (v179 == 0)) )
+                        if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
                         {
-                          __asm { STCL            p0, c0, [R6],#-0x3FC }
-                          T1 = *R2;
-                          LOWORD(R2) = (uint16_t)R2 - 1020;
-                          __asm
-                          {
-                            LDCL            p0, c0, [R2],#-0x3FC
-                            STC             p0, c0, [R0], {0xFF}
-                            LDC             p0, c0, [R0], {0xFF}
-                            STC             p0, c0, [R2],#0x3FC
-                          }
-                          T1 = *v70;
-                          R5 = v70 + 255;
-                          __asm
-                          {
-                            LDC             p0, c0, [R5],#0x3FC
-                            STCL            p0, c0, [R11], {0xFF}
-                            LDC             p0, c0, [R5,#0x3FC]!
-                          }
+                          
+                          _T1 = *0;
+                          LOWORD(0) = (uint16_t)0 - 1020;
+                          
+                          _T1 = *v70;
+                          v70 + 255;
+                          
 LABEL_318:
-                          __asm { STCL            p0, c0, [R11,#0x3FC] }
+                          
                           v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_319:
                           __mcr(0, 6, v85, 11, 15, 7);
@@ -1253,47 +1235,47 @@ LABEL_319:
                           __mcr(0, 7, v85, 0, 15, 7);
                           __mcr(0, 7, v85, 0, 15, 7);
 LABEL_342:
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
-                          *((uint16_t *)v75 + 14) = (uint16_t)R2;
+                          
+                          *((uint16_t *)v75 + 14) = (uint16_t)0;
                           JUMPOUT(0x13444A);
                         }
                         v180 = 8 * v179;
-                        if ( !((v180 < 0) ^ VF | (v180 == 0)) )
+                        if ( !((v180 < 0) ^ _VF | (v180 == 0)) )
                           goto LABEL_258;
                         v158 = 8 * v180;
-                        if ( !((v158 < 0) ^ VF | (v158 == 0)) )
+                        if ( !((v158 < 0) ^ _VF | (v158 == 0)) )
                           goto LABEL_261;
                         v181 = 8 * v158;
-                        if ( !((v181 < 0) ^ VF | (v181 == 0)) )
+                        if ( !((v181 < 0) ^ _VF | (v181 == 0)) )
                           goto LABEL_267;
                         v182 = 8 * v181;
-                        if ( !((v182 < 0) ^ VF | (v182 == 0)) )
+                        if ( !((v182 < 0) ^ _VF | (v182 == 0)) )
                           JUMPOUT(0x133EFE);
                         v183 = 8 * v182;
-                        if ( !((v183 < 0) ^ VF | (v183 == 0)) )
+                        if ( !((v183 < 0) ^ _VF | (v183 == 0)) )
                         {
                           v152 = __CFSHL__(v183, 3);
 LABEL_353:
                           if ( v152 )
                             JUMPOUT(0x13470A);
 LABEL_354:
-                          __asm { LDCL            p3, c0, [LR,#-0x168] }
+                          
                           JUMPOUT(0x134422);
                         }
                         v184 = __CFSHL__(v183, 3);
                         v185 = 8 * v183;
-                        if ( (v185 < 0) ^ VF | (v185 == 0) )
+                        if ( (v185 < 0) ^ _VF | (v185 == 0) )
                         {
-                          CF = __CFSHL__(v185, 3);
+                          0 = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && CF;
-                          if ( (v173 < 0) ^ VF | (v173 == 0) )
+                          v172 = v173 != 0 && 0;
+                          if ( (v173 < 0) ^ _VF | (v173 == 0) )
                           {
                             v186 = 8 * v173;
                             if ( !v186 )
                               goto LABEL_318;
                             v101 = 8 * v186;
-                            ZF = v101 == 0;
+                            1 = v101 == 0;
                             goto LABEL_304;
                           }
                         }
@@ -1302,7 +1284,7 @@ LABEL_354:
                           if ( v185 != 0 && v184 )
                           {
                             v154 = *(uint32_t **)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 12) + 12);
-                            R2 = (signed int *)v154[1];
+                            (signed int *)v154[1];
                             v75 = (signed int *)v154[2];
                             v63 = (signed int)(v154 + 5);
 LABEL_258:
@@ -1316,22 +1298,22 @@ LABEL_259:
                             v156 = v155 + 4;
                             v63 = *(uint32_t *)(v155 + 4);
                             v157 = 8 * *(uint32_t *)(v156 + 4);
-                            *R2 = v85;
-                            R2[1] = (signed int)R2;
-                            R2[2] = (signed int)v75;
-                            R2[3] = (signed int)v70;
-                            R2[4] = v157;
+                            *v85;
+                            0[1] = (signed int)0;
+                            0[2] = (signed int)v75;
+                            0[3] = (signed int)v70;
+                            0[4] = v157;
                             v157 *= 8;
-                            *R2 = v85;
-                            R2[1] = v73;
-                            R2[2] = (signed int)v65;
-                            R2[3] = v63;
-                            R2[4] = v157;
-                            R2 += 5;
+                            *v85;
+                            0[1] = v73;
+                            0[2] = (signed int)v65;
+                            0[3] = v63;
+                            0[4] = v157;
+                            0 += 5;
                             v101 = 8 * v157;
 LABEL_260:
                             *v65 = v85;
-                            v65[1] = (signed int)R2;
+                            v65[1] = (signed int)0;
                             v65[2] = (signed int)v75;
                             v65[3] = (signed int)v70;
                             v65[4] = v101;
@@ -1353,7 +1335,7 @@ LABEL_261:
 LABEL_262:
                             v161 = (int *)(8 * v160);
                             *v161 = v73;
-                            v161[1] = (int)R2;
+                            v161[1] = (int)0;
                             v161[2] = (int)v70;
                             v161[3] = v63;
                             v162 = (int *)(8 * (uint32_t)(v161 + 4));
@@ -1376,7 +1358,7 @@ LABEL_264:
                             v167 = 8 * v166;
 LABEL_265:
                             *(uint32_t *)v167 = v85;
-                            *(uint32_t *)(v167 + 4) = R2;
+                            *(uint32_t *)(v167 + 4) = 0;
                             *(uint32_t *)(v167 + 8) = v75;
                             *(uint32_t *)(v167 + 12) = v70;
                             *(uint32_t *)(v167 + 16) = v167;
@@ -1390,27 +1372,27 @@ LABEL_266:
 LABEL_267:
                             JUMPOUT(0x133EE0);
                           }
-                          CF = __CFSHL__(v185, 3);
+                          0 = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && CF;
+                          v172 = v173 != 0 && 0;
                         }
                         if ( v172 )
                           goto LABEL_259;
-                        CF = __CFSHL__(v173, 3);
+                        0 = __CFSHL__(v173, 3);
                         v160 = 8 * v173;
-                        if ( v160 != 0 && CF )
+                        if ( v160 != 0 && 0 )
                           goto LABEL_262;
-                        CF = __CFSHL__(v160, 3);
+                        0 = __CFSHL__(v160, 3);
                         v174 = 8 * v160;
-                        if ( v174 != 0 && CF )
+                        if ( v174 != 0 && 0 )
                           goto LABEL_267;
-                        CF = __CFSHL__(v174, 3);
+                        0 = __CFSHL__(v174, 3);
                         v163 = 8 * v174;
-                        if ( v163 == 0 || !CF )
+                        if ( v163 == 0 || !0 )
                           goto LABEL_263;
-                        CF = __CFSHL__(v163, 3);
+                        0 = __CFSHL__(v163, 3);
                         v175 = 8 * v163;
-                        if ( v175 == 0 || !CF )
+                        if ( v175 == 0 || !0 )
                         {
                           v143 = 8 * v175;
                           goto LABEL_268;
@@ -1520,11 +1502,11 @@ LABEL_334:
                 }
                 else
                 {
-                  if ( v116 != 0 && CF )
+                  if ( v116 != 0 && 0 )
                   {
                     v63 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 4) + 12) + 12);
 LABEL_159:
-                    R2 = *(signed int **)(v63 + 4);
+                    *(signed int **)(v63 + 4);
                     v75 = *(signed int **)(v63 + 8);
                     v63 += 20;
 LABEL_160:
@@ -1542,17 +1524,17 @@ LABEL_160:
                     *(uint32_t *)(v73 + 12) = v63;
                     *(uint32_t *)(v73 + 16) = v88;
                     v88 *= 8;
-                    *R2 = v85;
-                    R2[1] = (signed int)R2;
-                    R2[2] = (signed int)v75;
-                    R2[3] = (signed int)v70;
-                    R2[4] = v88;
+                    *v85;
+                    0[1] = (signed int)0;
+                    0[2] = (signed int)v75;
+                    0[3] = (signed int)v70;
+                    0[4] = v88;
                     v89 = 8 * v88;
                     goto LABEL_161;
                   }
-                  CF = __CFSHL__(v116, 3);
+                  0 = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && CF;
+                  v106 = v107 != 0 && 0;
                 }
                 if ( v106 )
                   goto LABEL_160;
@@ -1560,18 +1542,18 @@ LABEL_160:
             }
             v148 = __CFSHL__(v147, 3);
             v149 = 8 * v147;
-            if ( (v149 < 0) ^ VF | (v149 == 0) )
+            if ( (v149 < 0) ^ _VF | (v149 == 0) )
             {
-              CF = __CFSHL__(v149, 3);
+              0 = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && CF;
-              if ( (v137 < 0) ^ VF | (v137 == 0) )
+              v136 = v137 != 0 && 0;
+              if ( (v137 < 0) ^ _VF | (v137 == 0) )
               {
                 v143 = 8 * v137;
                 if ( !v143 )
                   goto LABEL_269;
                 v80 = 8 * v143;
-                ZF = v80 == 0;
+                1 = v80 == 0;
                 goto LABEL_244;
               }
             }
@@ -1602,12 +1584,12 @@ LABEL_200:
                 v120[2] = (signed int)v65;
                 v120[3] = (signed int)v70;
                 v120[4] = v122;
-                R2 = v120 + 5;
+                v120 + 5;
                 v80 = 8 * v122;
 LABEL_201:
-                *R2 = v63;
-                R2[1] = v80;
-                R2 += 2;
+                *v63;
+                0[1] = v80;
+                0 += 2;
                 v123 = 8 * v80;
 LABEL_202:
                 *v65 = v85;
@@ -1629,7 +1611,7 @@ LABEL_203:
                 v75 += 5;
                 v125 *= 8;
                 *(uint32_t *)v125 = v73;
-                *(uint32_t *)(v125 + 4) = R2;
+                *(uint32_t *)(v125 + 4) = 0;
                 *(uint32_t *)(v125 + 8) = v75;
                 *(uint32_t *)(v125 + 12) = v63;
                 v126 = v125 + 16;
@@ -1639,7 +1621,7 @@ LABEL_204:
                 v127[1] = (signed int *)v63;
                 v128 = 8 * (uint32_t)(v127 + 2);
 LABEL_205:
-                *(uint32_t *)v128 = R2;
+                *(uint32_t *)v128 = 0;
                 *(uint32_t *)(v128 + 4) = v65;
                 *(uint32_t *)(v128 + 8) = v70;
                 *(uint32_t *)(v128 + 12) = v63;
@@ -1671,60 +1653,43 @@ LABEL_209:
                 v65 = (signed int *)v132[6];
                 v70 = (signed int *)v132[7];
 LABEL_210:
-                __asm
-                {
-                  STCL            p0, c0, [R6],#-0x3FC
-                  LDCL            p0, c0, [R2],#-0x3FC
-                }
+                
 LABEL_211:
-                __asm
-                {
-                  STC             p0, c0, [R0], {0xFF}
-                  LDC             p0, c0, [R0], {0xFF}
-                  STC             p0, c0, [R2],#0x3FC
-                }
-                T1 = *v70;
+                
+                _T1 = *v70;
                 v133 = v70 + 255;
-                __asm
-                {
-                  LDC             p0, c0, [R5],#0x3FC
-                  STCL            p0, c0, [R11], {0xFF}
-                }
-                T1 = v133[255];
+                
+                _T1 = v133[255];
                 v70 = v133 + 255;
-                __asm
-                {
-                  LDC             p0, c0, [R5,#0x3FC]!
-                  STCL            p0, c0, [R11,#0x3FC]
-                }
+                
                 v85 = __mrc(0, 5, 5, 15, 7);
                 goto LABEL_212;
               }
-              CF = __CFSHL__(v149, 3);
+              0 = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && CF;
+              v136 = v137 != 0 && 0;
             }
             if ( v136 )
               goto LABEL_200;
-            CF = __CFSHL__(v137, 3);
+            0 = __CFSHL__(v137, 3);
             v124 = 8 * v137;
-            if ( v124 != 0 && CF )
+            if ( v124 != 0 && 0 )
               goto LABEL_203;
-            CF = __CFSHL__(v124, 3);
+            0 = __CFSHL__(v124, 3);
             v138 = 8 * v124;
-            if ( v138 != 0 && CF )
+            if ( v138 != 0 && 0 )
               goto LABEL_210;
-            CF = __CFSHL__(v138, 3);
+            0 = __CFSHL__(v138, 3);
             v126 = 8 * v138;
-            if ( v126 == 0 || !CF )
+            if ( v126 == 0 || !0 )
               goto LABEL_204;
-            CF = __CFSHL__(v126, 3);
+            0 = __CFSHL__(v126, 3);
             v139 = 8 * v126;
-            if ( v139 == 0 || !CF )
+            if ( v139 == 0 || !0 )
               JUMPOUT(0x133D66);
             v142 = 8 * v139;
             v140 = v142 == 0;
-            NF = v142 < 0;
+            0 = v142 < 0;
           }
         case 8u:
           *((uint32_t *)v4 + 1) = rf_bus_reset_n_164;
@@ -1746,7 +1711,7 @@ LABEL_211:
           goto LABEL_86;
         case 0xBu:
           v36 = (int ( *)(uint32_t, uint32_t))v10[6];
-          if ( !v36 || !v36(*((unsigned __int16 *)v4 + 8), *((unsigned __int16 *)v4 + 7)) )
+          if ( !v36 || !v36(*((uint16_t *)v4 + 8), *((uint16_t *)v4 + 7)) )
             goto LABEL_54;
           v37 = rf_bus_reset_n_168;
           *(uint16_t *)rf_bus_reset_n_16c = *((uint16_t *)v4 + 8);
@@ -1762,7 +1727,7 @@ LABEL_72:
     }
     if ( (a1 & 0x800000000LL) != 0 )
     {
-      v4 = (unsigned __int8 *)rf_bus_reset_n_4b4;
+      v4 = (uint8_t *)rf_bus_reset_n_4b4;
       if ( *(uint8_t *)rf_bus_reset_n_4b4 )
       {
         sub_11164C((int *)1, 0);
@@ -1772,28 +1737,28 @@ LABEL_72:
       goto LABEL_6;
     }
     v5 = rf_bus_write_n_89;
-    v4 = (unsigned __int8 *)rf_bus_reset_n_4b4;
+    v4 = (uint8_t *)rf_bus_reset_n_4b4;
     v21 = *(uint32_t **)rf_bus_write_n_89;
     if ( (*(uint8_t *)(*(uint32_t *)rf_bus_write_n_89 + 3) & 1) == 0 )
     {
-      v22 = *(unsigned __int8 *)rf_bus_reset_n_4b4;
+      v22 = *(uint8_t *)rf_bus_reset_n_4b4;
       switch ( v22 )
       {
         case 2:
           goto rf_bus_setup_358;
         case 3:
-          v43 = *((unsigned __int16 *)rf_bus_reset_n_4b4 + 5);
+          v43 = *((uint16_t *)rf_bus_reset_n_4b4 + 5);
           v44 = (int *)off_112190;
-          v45 = 64 - *(unsigned __int16 *)v21;
-          if ( v45 >= (unsigned __int16)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) )
+          v45 = 64 - *(uint16_t *)v21;
+          if ( v45 >= (uint16_t)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) )
             LOWORD(v45) = *((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43;
-          sub_1282E8(v43 + *((uint32_t *)rf_bus_reset_n_4b4 + 1), *(uint32_t *)off_112190, (unsigned __int16)v45);
-          v46 = *((unsigned __int16 *)v4 + 4);
-          v47 = (unsigned __int16)(v45 + *((uint16_t *)v4 + 5));
+          sub_1282E8(v43 + *((uint32_t *)rf_bus_reset_n_4b4 + 1), *(uint32_t *)off_112190, (uint16_t)v45);
+          v46 = *((uint16_t *)v4 + 4);
+          v47 = (uint16_t)(v45 + *((uint16_t *)v4 + 5));
           *((uint16_t *)v4 + 5) = v47;
           if ( v46 == v47 )
           {
-            v55 = *((void ( **)(unsigned __int8 *))off_1122DC + 4);
+            v55 = *((void ( **)(uint8_t *))off_1122DC + 4);
             if ( v55 )
               v55(v4);
             LODWORD(a1) = v3 << 26;
@@ -1833,7 +1798,7 @@ LABEL_72:
           v27[517] &= ~0x10u;
           v27[516] &= ~0x10u;
           HIDWORD(a1) = *v42;
-          *(QWORD *)v26 = a1;
+          *(uint64_t *)v26 = a1;
           goto LABEL_51;
         default:
           v23 = off_111E44;

@@ -1,5 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_118F48;
+extern uint32_t dword_118F38;
+extern uint32_t off_118F3C;
+extern uint32_t dword_118F44;
+extern uint32_t dword_118F40;
+
 // sub_118E08 @ 0x118e08, size 304 bytes
-int  sub_118E08(int a1, __int16 a2, int a3, int a4)
+int  sub_118E08(int a1, int16_t a2, int a3, int a4)
 {
   int v4; // r11
   int v5; // r4
@@ -12,18 +30,18 @@ int  sub_118E08(int a1, __int16 a2, int a3, int a4)
   int v16; // r4
   int v17; // r1
   int v18; // r12
-  __int16 v19; // lr
+  int16_t v19; // lr
   int v20; // r0
-  __int16 v21; // r2
+  int16_t v21; // r2
   char v22; // r3
 
   v4 = dword_118F48;
   v5 = dword_118F38;
-  v7 = *(unsigned __int8 *)(dword_118F48 + 696 * a1 + 34);
+  v7 = *(uint8_t *)(dword_118F48 + 696 * a1 + 34);
   v9 = *(uint32_t *)(dword_118F38 + 1320 * v7 + 72);
   if ( !v9 )
   {
-    if ( **(__int16 **)off_118F3C >= 0 )
+    if ( **(int16_t **)off_118F3C >= 0 )
     {
 LABEL_10:
       v13 = sub_118B04(1, 26);
@@ -35,10 +53,10 @@ LABEL_9:
     sub_12F32C(dword_118F44, dword_118F40, 520);
     goto LABEL_10;
   }
-  v12 = *(unsigned __int8 *)(v9 + 4);
-  if ( **(__int16 **)off_118F3C < 0 && v12 == 2 )
+  v12 = *(uint8_t *)(v9 + 4);
+  if ( **(int16_t **)off_118F3C < 0 && v12 == 2 )
     goto LABEL_9;
-  v13 = sub_118B04((*(unsigned __int8 *)(dword_118F38 + 1320 * v7 + 1224) | v12) != 0, 26);
+  v13 = sub_118B04((*(uint8_t *)(dword_118F38 + 1320 * v7 + 1224) | v12) != 0, 26);
   if ( !v13 )
     return 1;
 LABEL_4:
@@ -47,7 +65,7 @@ LABEL_4:
   v15 = v4 + 696 * a1;
   v16 = *(uint32_t *)(v13 + 72);
   v17 = *(uint32_t *)(v15 + 38);
-  v18 = *(unsigned __int8 *)(v14 + 106);
+  v18 = *(uint8_t *)(v14 + 106);
   v19 = *(uint16_t *)(v15 + 42);
   v20 = *(uint32_t *)(v14 + 100);
   v21 = *(uint16_t *)(v14 + 104);

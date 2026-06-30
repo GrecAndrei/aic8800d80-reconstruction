@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10DEF4;
+extern uint32_t dword_10DEF8;
+extern uint32_t off_10DEFC;
+extern uint32_t off_10DF04;
+extern uint32_t dword_10DF08;
+extern uint32_t off_10DF00;
+
 // irq_mask_init @ 0x10de94, size 94 bytes
 // Doc: irq_mask_init [util]: Initialize IRQ masks via enable/disable
 // irq_mask_init [util]: Initialize IRQ masks via enable/disable

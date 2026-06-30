@@ -1,3 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1294C4;
+extern uint32_t off_129498;
+extern uint32_t off_12949C;
+extern uint32_t off_1294A0;
+extern uint32_t off_1294A4;
+extern uint32_t off_1294A8;
+extern uint32_t off_129494;
+extern uint32_t dword_1294B0;
+extern uint32_t off_1294B4;
+extern uint32_t off_1294B8;
+extern uint32_t off_1294C0;
+extern uint32_t off_1294BC;
+
 // sub_129394 @ 0x129394, size 254 bytes
 // Doc: mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
 // mmio_reg_init_n_39c [mmio]: Initialize MMIO control registers at 0x4032xxxx with status read
@@ -9,7 +34,7 @@ int sub_129394()
   uint32_t *v3; // r4
   unsigned int v4; // r0
   unsigned int *v5; // r5
-  unsigned __int8 **v6; // r6
+  uint8_t **v6; // r6
   int result; // r0
   uint8_t *v8; // r2
   int v9; // r3
@@ -23,9 +48,9 @@ int sub_129394()
   v1 = (int *)off_129498;
   v2 = off_12949C;
   v3 = off_1294A0;
-  v4 = *((unsigned __int16 *)off_12949C + 93);
+  v4 = *((uint16_t *)off_12949C + 93);
   v5 = (unsigned int *)off_1294A4;
-  v6 = (unsigned __int8 **)off_1294A8;
+  v6 = (uint8_t **)off_1294A8;
   *(uint32_t *)off_129494 |= 0x40000000u;
   *v3 |= 0x10000000u;
   *v0 &= 0xFFF0FFFF;
@@ -54,7 +79,7 @@ int sub_129394()
     *v13 = 4;
     *v14 = 1;
     *v3 &= 0xFFFBFFFE;
-    v9 = (unsigned __int8)*v8;
+    v9 = (uint8_t)*v8;
   }
   if ( v9 != 2 )
   {

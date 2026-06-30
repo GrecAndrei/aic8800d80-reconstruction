@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110360;
+extern uint32_t off_110364;
+extern uint32_t dword_110368;
+extern uint32_t off_11036C;
+
 // sub_110320 @ 0x110320, size 62 bytes
 // Doc: sub_1210320 [rf]: Unidentified behavioral routine in lmacfw_rf firmware
 // sub_1210320 [rf]: Unidentified behavioral routine in lmacfw_rf firmware

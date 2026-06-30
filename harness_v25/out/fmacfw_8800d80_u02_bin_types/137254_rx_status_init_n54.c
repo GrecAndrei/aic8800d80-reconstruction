@@ -1,9 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rx_status_init_n54 @ 0x137254, size 628 bytes
 // Doc: rx_status_init_n54 [rx]: Initializes RX status block fields to zero
 // rx_status_init_n54 [rx]: Initializes RX status block fields to zero
 uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
 {
-  unsigned __int8 *v5; // r6
+  uint8_t *v5; // r6
   uint8_t *v7; // r0
   uint8_t *v8; // r4
   int v9; // r6
@@ -17,8 +29,8 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
   int v17; // r2
   unsigned int *v18; // r3
   int v19; // r2
-  unsigned __int8 *inited; // r0
-  unsigned __int8 *v21; // r4
+  uint8_t *inited; // r0
+  uint8_t *v21; // r4
   int v22; // r6
   unsigned int v23; // r0
   int v24; // r8
@@ -34,7 +46,7 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
   int v34; // r8
   int v35; // t1
   int v36; // r4
-  unsigned __int8 v37; // [sp+7h] [bp-1h] BYREF
+  uint8_t v37; // [sp+7h] [bp-1h] BYREF
 
   *(uint32_t *)(a4 + 48) = 0;
   *(uint32_t *)(a4 + 52) = 0;
@@ -52,10 +64,10 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
     result = (uint8_t *)sub_12E080(bswap32(*((uint32_t *)v7 + 1)));
     if ( result )
     {
-      result = (uint8_t *)((1 << (char)result) | *(unsigned __int16 *)(a4 + 52));
+      result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 52));
       *(uint16_t *)(a4 + 52) = (uint16_t)result;
     }
-    v10 = *((unsigned __int16 *)v8 + 4);
+    v10 = *((uint16_t *)v8 + 4);
     v11 = v9 - 8;
     for ( i = (unsigned int *)(v8 + 10); v10 && v11 > 3; --v10 )
     {
@@ -64,13 +76,13 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
       ++i;
       if ( result )
       {
-        result = (uint8_t *)((1 << (char)result) | *(unsigned __int16 *)(a4 + 54));
+        result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 54));
         *(uint16_t *)(a4 + 54) = (uint16_t)result;
       }
     }
     if ( v11 > 1 )
     {
-      v15 = *(unsigned __int16 *)i;
+      v15 = *(uint16_t *)i;
       v13 = (unsigned int *)((char *)i + 2);
       v14 = v15;
       v16 = v11 - 2;
@@ -102,7 +114,7 @@ uint8_t * rx_status_init_n54(uint8_t *result, int a2, char a3, int a4)
         v18 = (unsigned int *)((char *)v13 + 2);
         if ( v16 - 2 > 1 )
         {
-          v19 = *(unsigned __int16 *)v18;
+          v19 = *(uint16_t *)v18;
           v18 = &v13[4 * v19 + 1];
           v17 = v16 - 4 - 16 * v19;
         }
@@ -134,10 +146,10 @@ LABEL_28:
       result = (uint8_t *)sub_12E080(v23);
       if ( result )
       {
-        result = (uint8_t *)((1 << (char)result) | *(unsigned __int16 *)(a4 + 52));
+        result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 52));
         *(uint16_t *)(a4 + 52) = (uint16_t)result;
       }
-      v24 = *((unsigned __int16 *)v21 + 6);
+      v24 = *((uint16_t *)v21 + 6);
       v25 = v22 - 12;
       for ( j = (unsigned int *)(v21 + 14); v24 && v25 > 3; --v24 )
       {
@@ -146,14 +158,14 @@ LABEL_28:
         ++j;
         if ( result )
         {
-          result = (uint8_t *)((1 << (char)result) | *(unsigned __int16 *)(a4 + 54));
+          result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 54));
           *(uint16_t *)(a4 + 54) = (uint16_t)result;
         }
       }
       if ( v25 > 1 )
       {
         v27 = (unsigned int *)((char *)j + 2);
-        v28 = *(unsigned __int16 *)j;
+        v28 = *(uint16_t *)j;
         if ( *(uint16_t *)j )
         {
           if ( v25 > 5 )
@@ -183,7 +195,7 @@ LABEL_28:
         *(uint16_t *)(a4 + 52) = 1;
         return result;
       }
-      v30 = *((unsigned __int16 *)result + 2);
+      v30 = *((uint16_t *)result + 2);
       v31 = v37 - 4;
       v32 = (unsigned int *)(result + 6);
       if ( *((uint16_t *)result + 2) && v31 > 3 )
@@ -204,7 +216,7 @@ LABEL_28:
       }
       if ( v31 > 1 )
       {
-        v35 = *(unsigned __int16 *)v32;
+        v35 = *(uint16_t *)v32;
         v33 = (unsigned int *)((char *)v32 + 2);
         v34 = v35;
         v36 = v31 - 2;
@@ -219,7 +231,7 @@ LABEL_28:
             ++v33;
             if ( result )
             {
-              result = (uint8_t *)((1 << (char)result) | *(unsigned __int16 *)(a4 + 54));
+              result = (uint8_t *)((1 << (char)result) | *(uint16_t *)(a4 + 54));
               *(uint16_t *)(a4 + 54) = (uint16_t)result;
             }
             if ( !--v34 )

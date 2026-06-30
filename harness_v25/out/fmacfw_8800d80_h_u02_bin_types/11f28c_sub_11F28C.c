@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_11F28C @ 0x11f28c, size 122 bytes
 int  sub_11F28C(int a1, int a2, int a3)
 {
@@ -25,7 +37,7 @@ int  sub_11F28C(int a1, int a2, int a3)
       break;
     if ( !v10 )
       v10 = sub_12D190(v8);
-    v9 = *(unsigned __int8 *)(v10 + 27);
+    v9 = *(uint8_t *)(v10 + 27);
     *(uint8_t *)(v10 + 97) = 0;
     ++v4;
     sub_117560(v10, v9);

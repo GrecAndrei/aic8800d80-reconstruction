@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_110100 @ 0x110100, size 122 bytes
 // Doc: message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
 // message_dispatch_n72 [ipc]: Dispatches incoming IPC messages by type id (switch on msg id 0xd)
@@ -6,8 +18,8 @@ int sub_110100()
   void *v0; // r4
   int v1; // r3
   uint32_t *v2; // r0
-  __int16 v3; // r2
-  __int16 v4; // r1
+  int16_t v3; // r2
+  int16_t v4; // r1
   uint64_t v5; // kr00_8
   uint16_t v7[2]; // [sp+4h] [bp-14h] BYREF
   uint16_t v8[8]; // [sp+8h] [bp-10h] BYREF
@@ -21,7 +33,7 @@ int sub_110100()
   v8[1] = *(uint16_t *)(v1 + 4);
   v8[5] = *(uint16_t *)(v1 + 6);
   v8[7] = *(uint16_t *)(v1 + 8);
-  v5 = *(QWORD *)(v1 + 20);
+  v5 = *(uint64_t *)(v1 + 20);
   *(uint32_t *)log_free_dispatch_0184 = v5;
   v2[3] = log_free_dispatch_n180;
   v2[1] = HIDWORD(v5);

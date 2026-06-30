@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11889C;
+extern uint32_t dword_1188C0;
+extern uint32_t off_1188A0;
+extern uint32_t off_1188A4;
+extern uint32_t off_1188A8;
+extern uint32_t dword_1188BC;
+extern uint32_t dword_1188B8;
+extern uint32_t off_1188AC;
+extern uint32_t off_1188B0;
+extern uint32_t off_1188B4;
+
 // rf_event_dispatch_n1a4 @ 0x118674, size 550 bytes
 // Doc: rf_event_dispatch_n1a4 [rf]: Dispatch RF event processing from queued struct
 // rf_event_dispatch_n1a4 [rf]: Dispatch RF event processing from queued struct
@@ -11,7 +34,7 @@ int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6
   int v13; // r9
   int *v14; // r0
   uint32_t *v15; // r2
-  __int16 **v16; // r3
+  int16_t **v16; // r3
   int v17; // r8
   char *v18; // r1
   int *v19; // r0
@@ -19,7 +42,7 @@ int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6
   unsigned int v21; // r6
   int v22; // r8
   uint64_t v23; // kr08_8
-  bool v24; // cf
+  int v24; // cf
   int v25; // r4
   uint64_t v26; // r0
   uint32_t *v27; // r6
@@ -34,62 +57,62 @@ int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6
 
   v7 = *(uint32_t *)(a3 + 32);
   v35 = *(uint32_t *)(a3 + 36);
-  v8 = *(QWORD *)(a1 + 24);
-  v10 = *(unsigned __int16 *)(a1 + 32) << 10;
+  v8 = *(uint64_t *)(a1 + 24);
+  v10 = *(uint16_t *)(a1 + 32) << 10;
   if ( a6 )
   {
-    v11 = *(unsigned __int8 *)(a6 + 2);
+    v11 = *(uint8_t *)(a6 + 2);
     if ( !*(uint8_t *)(a6 + 2) )
-      v11 = *(unsigned __int8 *)(a6 + 3);
+      v11 = *(uint8_t *)(a6 + 3);
     v34 = v10 * v11;
-    if ( !(*(unsigned __int8 *)(a3 + 40) << 28) )
+    if ( !(*(uint8_t *)(a3 + 40) << 28) )
       goto LABEL_5;
 LABEL_24:
     v21 = 500;
     v22 = 0;
     goto LABEL_14;
   }
-  v34 = *(unsigned __int16 *)(a1 + 32) << 10;
-  if ( *(unsigned __int8 *)(a3 + 40) << 28 )
+  v34 = *(uint16_t *)(a1 + 32) << 10;
+  if ( *(uint8_t *)(a3 + 40) << 28 )
     goto LABEL_24;
 LABEL_5:
   v12 = (char *)off_11889C;
   v13 = dword_1188C0;
   v14 = (int *)off_1188A0;
-  *(uint32_t *)off_11889C = *(uint8_t *)(dword_1188C0 + (*(unsigned __int8 *)(a3 + 44) >> 4)) & 0x7F
+  *(uint32_t *)off_11889C = *(uint8_t *)(dword_1188C0 + (*(uint8_t *)(a3 + 44) >> 4)) & 0x7F
                         | *(uint32_t *)off_11889C & 0xFFFFFF80;
   v15 = v12 + 8;
-  *v14 = a2 | (*(unsigned __int8 *)(a3 + 40) >> 7 << 20);
+  *v14 = a2 | (*(uint8_t *)(a3 + 40) >> 7 << 20);
   *v15 = 0x80000000;
   __dsb(0xFu);
   while ( (*v15 & 0xC0000000) != 0x40000000 )
     ;
-  v16 = (__int16 **)off_1188A4;
-  if ( **(__int16 **)off_1188A4 >= 0 || (*v15 & 0x40000000) != 0 )
+  v16 = (int16_t **)off_1188A4;
+  if ( **(int16_t **)off_1188A4 >= 0 || (*v15 & 0x40000000) != 0 )
   {
-    v17 = (unsigned __int16)*(uint32_t *)off_1188A8;
+    v17 = (uint16_t)*(uint32_t *)off_1188A8;
   }
   else
   {
     sub_121960(dword_1188BC, dword_1188B8, 430, off_1188A4);
     v17 = 500;
-    v16 = (__int16 **)off_1188A4;
+    v16 = (int16_t **)off_1188A4;
   }
-  if ( !(*(unsigned __int8 *)(a3 + 40) << 28) )
+  if ( !(*(uint8_t *)(a3 + 40) << 28) )
   {
     v18 = (char *)off_11889C;
     v19 = (int *)off_1188A0;
-    *(uint32_t *)off_11889C = *(uint8_t *)(v13 + (*(unsigned __int8 *)(a3 + 44) >> 4)) & 0x7F
+    *(uint32_t *)off_11889C = *(uint8_t *)(v13 + (*(uint8_t *)(a3 + 44) >> 4)) & 0x7F
                           | *(uint32_t *)off_11889C & 0xFFFFFF80;
     v20 = v18 + 8;
-    *v19 = (*(unsigned __int8 *)(a3 + 40) >> 7 << 20) | 0x18;
+    *v19 = (*(uint8_t *)(a3 + 40) >> 7 << 20) | 0x18;
     *v20 = 0x80000000;
     __dsb(0xFu);
     while ( (*v20 & 0xC0000000) != 0x40000000 )
       ;
     if ( **v16 >= 0 || (*v20 & 0x40000000) != 0 )
     {
-      v21 = (unsigned __int16)*(uint32_t *)off_1188A8;
+      v21 = (uint16_t)*(uint32_t *)off_1188A8;
       v22 = v17 - v21;
       goto LABEL_14;
     }

@@ -1,3 +1,45 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11FEBC;
+extern uint32_t dword_11FEC0;
+extern uint32_t off_11FEC4;
+extern uint32_t off_11FF04;
+extern uint32_t dword_11FEE4;
+extern uint32_t off_11FEC8;
+extern uint32_t dword_11FEE8;
+extern uint32_t off_11FEEC;
+extern uint32_t dword_11FEF0;
+extern uint32_t off_12000C;
+extern uint32_t off_120014;
+extern uint32_t dword_120018;
+extern uint32_t off_120010;
+extern uint32_t off_120020;
+extern uint32_t dword_120028;
+extern uint32_t dword_120024;
+extern uint32_t off_12001C;
+extern uint32_t off_11FF08;
+extern uint32_t off_11FEF4;
+extern uint32_t off_11FEF8;
+extern uint32_t off_11FF00;
+extern uint32_t off_11FEFC;
+extern uint32_t off_120030;
+extern uint32_t off_12002C;
+extern uint32_t off_11FECC;
+extern uint32_t off_11FED0;
+extern uint32_t off_11FED4;
+extern uint32_t dword_11FED8;
+extern uint32_t dword_11FEE0;
+
 // sub_11FBB8 @ 0x11fbb8, size 1108 bytes
 int  sub_11FBB8(int a1)
 {
@@ -27,7 +69,7 @@ int  sub_11FBB8(int a1)
   int v26; // r0
   int v27; // r3
   int v28; // r2
-  __int16 **v29; // r10
+  int16_t **v29; // r10
   uint32_t *v30; // r7
   int v31; // r1
   int v32; // r9
@@ -53,7 +95,7 @@ int  sub_11FBB8(int a1)
   int v52; // [sp+Ch] [bp-18h]
   int v53; // [sp+10h] [bp-14h]
   int *v54; // [sp+14h] [bp-10h]
-  unsigned __int8 *v55; // [sp+1Ch] [bp-8h]
+  uint8_t *v55; // [sp+1Ch] [bp-8h]
 
   v2 = dword_11FEBC;
   v3 = (int *)(dword_11FEBC + 1320 * a1);
@@ -61,7 +103,7 @@ int  sub_11FBB8(int a1)
   sub_12D2E8(dword_11FEC0, v3);
   if ( *((int **)off_11FEC4 + 8) == v3 )
     *((uint32_t *)off_11FEC4 + 8) = 0;
-  v4 = *(unsigned __int8 *)(v2 + 1320 * a1 + 106);
+  v4 = *(uint8_t *)(v2 + 1320 * a1 + 106);
   if ( v4 == 2 )
   {
     v13 = (int *)off_11FF04;
@@ -69,18 +111,18 @@ int  sub_11FBB8(int a1)
     v14 = dword_11FEE4 + 696 * (a1 + 32);
     v15 = 0;
     v16 = dword_11FEE4 + 8 * (87 * (a1 + 32) + 78);
-    v55 = (unsigned __int8 *)off_11FEC8;
+    v55 = (uint8_t *)off_11FEC8;
     --*((uint8_t *)off_11FEC8 + 18);
     v51 = v16;
     *(uint8_t *)(v14 + 37) = 0;
-    v17 = v2 + 8 * (165 * (__int16)a1 + 159);
+    v17 = v2 + 8 * (165 * (int16_t)a1 + 159);
     v18 = 0;
     do
     {
       if ( *(uint32_t *)(v14 + 584) )
-        sub_118940((unsigned __int8)v18, v51 - 40, 0);
+        sub_118940((uint8_t)v18, v51 - 40, 0);
       if ( *(uint32_t *)(v14 + 624) )
-        sub_118940((unsigned __int8)v18, v51, 0);
+        sub_118940((uint8_t)v18, v51, 0);
       if ( v3[318] || v3[308] )
       {
         v19 = v17 - 40;
@@ -98,8 +140,8 @@ int  sub_11FBB8(int a1)
         *(uint32_t *)off_11FEEC = 1;
       }
       ++*v13;
-      sub_118940((unsigned __int8)v18, v17, 0);
-      sub_118940((unsigned __int8)v18, v19, 0);
+      sub_118940((uint8_t)v18, v17, 0);
+      sub_118940((uint8_t)v18, v19, 0);
       if ( *v13 )
       {
         v22 = *v13 - 1;
@@ -148,8 +190,8 @@ int  sub_11FBB8(int a1)
     {
       sub_1218B4(v26);
 LABEL_6:
-      v6 = (unsigned __int8)v5[18];
-      v7 = (unsigned __int8)v5[17] + v6;
+      v6 = (uint8_t)v5[18];
+      v7 = (uint8_t)v5[17] + v6;
       if ( v7 != 1 )
         goto LABEL_7;
       goto LABEL_40;
@@ -164,8 +206,8 @@ LABEL_6:
       v5 = off_11FEC8;
       if ( !*(uint8_t *)(v2 + 1320 * a1 + 106) )
       {
-        v6 = *((unsigned __int8 *)off_11FEC8 + 18);
-        v39 = (unsigned __int8)(*((uint8_t *)off_11FEC8 + 17) - 1);
+        v6 = *((uint8_t *)off_11FEC8 + 18);
+        v39 = (uint8_t)(*((uint8_t *)off_11FEC8 + 17) - 1);
         *((uint8_t *)off_11FEC8 + 17) = v39;
         v7 = v39 + v6;
         if ( v7 != 1 )
@@ -177,23 +219,23 @@ LABEL_6:
     if ( chip_info_is_fpga_or_emu() )
       mmio_bit_modify(0);
     v5 = off_12000C;
-    v40 = *((unsigned __int8 *)off_12000C + 16);
+    v40 = *((uint8_t *)off_12000C + 16);
     v41 = v2 + 1320 * v40;
     v42 = *(uint32_t *)(v41 + 72);
     *(uint32_t *)(v41 + 4) &= ~0x80u;
     if ( v42 )
       v40 = sub_1285BC();
-    v6 = (unsigned __int8)v5[18];
+    v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
       sub_121834(v40, v42);
-      v6 = (unsigned __int8)v5[18];
+      v6 = (uint8_t)v5[18];
     }
     else
     {
       v43 = (int *)off_120014;
       v44 = dword_120018;
-      v45 = **(__int16 **)off_120010;
+      v45 = **(int16_t **)off_120010;
       *(uint32_t *)off_120014 = dword_120018;
       if ( v45 < 0 )
       {
@@ -202,20 +244,20 @@ LABEL_6:
         {
           sub_12F49C(dword_120028, dword_120024, 472);
           v44 = *v43;
-          v6 = (unsigned __int8)v5[18];
+          v6 = (uint8_t)v5[18];
         }
       }
       *(uint32_t *)off_12001C = v44 | v43[1];
     }
-    v7 = (unsigned __int8)v5[17] + v6;
+    v7 = (uint8_t)v5[17] + v6;
     v5[16] = -1;
     if ( v7 != 1 )
       goto LABEL_7;
   }
 LABEL_40:
-  v29 = (__int16 **)off_11FF08;
+  v29 = (int16_t **)off_11FF08;
   v30 = off_11FEF4;
-  v31 = **(__int16 **)off_11FF08;
+  v31 = **(int16_t **)off_11FF08;
   v32 = *((uint32_t *)v5 + 2);
   v33 = *((uint32_t *)off_11FEF4 + 1) & 0xFFFFFFEF;
   *((uint32_t *)off_11FEF4 + 1) = v33;
@@ -224,7 +266,7 @@ LABEL_40:
     v34 = off_11FEF8;
     *(uint32_t *)off_11FF00 = v33 | *v30;
     v35 = off_11FEFC;
-    v36 = *(unsigned __int16 *)(v32 + 68);
+    v36 = *(uint16_t *)(v32 + 68);
     *v34 = *(uint32_t *)(v32 + 64);
     *v35 = v36;
     if ( v6 )
@@ -239,18 +281,18 @@ LABEL_42:
       goto LABEL_9;
     }
     sub_12F49C(dword_120028, dword_120024, 472);
-    v7 = (unsigned __int8)v5[17] + (unsigned __int8)v5[18];
+    v7 = (uint8_t)v5[17] + (uint8_t)v5[18];
     *(uint32_t *)off_12001C = *v30 | v30[1];
     goto LABEL_7;
   }
   sub_12F49C(dword_120028, dword_120024, 472);
-  v46 = (unsigned __int8)v5[18];
-  v47 = (unsigned __int8)v5[17];
+  v46 = (uint8_t)v5[18];
+  v47 = (uint8_t)v5[17];
   v48 = off_120030;
   *(uint32_t *)off_12001C = *v30 | v30[1];
   v7 = v47 + v46;
   v49 = off_12002C;
-  v50 = *(unsigned __int16 *)(v32 + 68);
+  v50 = *(uint16_t *)(v32 + 68);
   *v48 = *(uint32_t *)(v32 + 64);
   *v49 = v50;
   if ( v7 == 1 )
@@ -268,14 +310,14 @@ LABEL_9:
   v8 = v2 + 1320 * a1;
   if ( *(uint8_t *)(v8 + 1224) )
   {
-    sub_12A04C(*(unsigned __int8 *)(v8 + 1225), 1);
+    sub_12A04C(*(uint8_t *)(v8 + 1225), 1);
     --v5[19];
   }
-  fmac_table_lookup(*(unsigned __int8 *)(v2 + 1320 * a1 + 107));
+  fmac_table_lookup(*(uint8_t *)(v2 + 1320 * a1 + 107));
   if ( *((int **)off_11FED0 + 4) == v3 )
     *((uint32_t *)off_11FED0 + 4) = 0;
   *(uint32_t *)off_11FED4 = 0;
-  if ( (unsigned __int8)v5[18] + (unsigned __int8)v5[17] <= 1 )
+  if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
     sub_11F6F0();
   memset_thunk(v3, 0, 0x528u);
   v9 = v2 + 1320 * a1;

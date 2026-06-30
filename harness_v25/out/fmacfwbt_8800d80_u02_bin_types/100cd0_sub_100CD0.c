@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100D84;
+extern uint32_t off_100D88;
+extern uint32_t off_100D8C;
+extern uint32_t off_100D80;
+extern uint32_t off_100D90;
+
 // sub_100CD0 @ 0x100cd0, size 174 bytes
 int  sub_100CD0(int result)
 {
@@ -11,7 +29,7 @@ int  sub_100CD0(int result)
   v2 = off_100D88;
   v3 = *(uint32_t *)off_100D84;
   v4 = off_100D8C;
-  *(uint32_t *)off_100D88 = (*(unsigned __int8 *)off_100D80 << 10) & 0x1FC00 | *(uint32_t *)off_100D88 & 0xFFFE03FF;
+  *(uint32_t *)off_100D88 = (*(uint8_t *)off_100D80 << 10) & 0x1FC00 | *(uint32_t *)off_100D88 & 0xFFFE03FF;
   *v1 |= 0x18u;
   *v1 = *v1 & 0xFFFFFFF8 | 3;
   *v2 |= 0x80000u;

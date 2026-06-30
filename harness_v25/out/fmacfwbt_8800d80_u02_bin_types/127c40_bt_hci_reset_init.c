@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_127CD0;
+extern uint32_t off_127CCC;
+extern uint32_t dword_127CD4;
+extern uint32_t dword_127CD8;
+extern uint32_t off_127CF0;
+extern uint32_t dword_127CEC;
+
 // bt_hci_reset_init @ 0x127c40, size 140 bytes
 // Doc: bt_hci_reset_init [bt]: Initializes BT HCI control structures and buffers
 // bt_hci_reset_init [bt]: Initializes BT HCI control structures and buffers

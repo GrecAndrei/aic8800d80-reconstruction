@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1064B8;
+extern uint32_t dword_1064B4;
+extern uint32_t off_1064B0;
+
 // crypto_rate_ctrl @ 0x1063f4, size 188 bytes
 // Doc: crypto_rate_ctrl [ke]: Configures crypto/encryption rate control parameters
 // crypto_rate_ctrl [ke]: Configures crypto/encryption rate control parameters
@@ -10,12 +26,12 @@ int  crypto_rate_ctrl(int a1, int a2, int a3, int a4, int a5)
 
   if ( *(uint32_t *)(a4 + 132) <= a2 )
   {
-    rf_bus_write_n_3dc(*(float *)(a4 + 4 * a2 + 148), (unsigned __int8)a1, a4);
-    v9 = *(unsigned __int8 *)(a4 + 104);
+    rf_bus_write_n_3dc(*(float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    v9 = *(uint8_t *)(a4 + 104);
   }
   else
   {
-    v9 = (unsigned __int8)a1;
+    v9 = (uint8_t)a1;
   }
   v10 = v9 | a1 & 0xFFFFF000 | (a2 << 8);
   if ( a3 )

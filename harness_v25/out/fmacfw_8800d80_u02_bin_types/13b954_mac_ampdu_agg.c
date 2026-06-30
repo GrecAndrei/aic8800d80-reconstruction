@@ -1,7 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // mac_ampdu_agg @ 0x13b954, size 24 bytes
 // Doc: mac_ampdu_agg [mac]: MAC A-MPDU aggregation handler
 // mac_ampdu_agg [mac]: MAC A-MPDU aggregation handler
-int  mac_ampdu_agg(int a1, __int16 a2, char a3)
+int  mac_ampdu_agg(int a1, int16_t a2, char a3)
 {
   int result; // r0
 

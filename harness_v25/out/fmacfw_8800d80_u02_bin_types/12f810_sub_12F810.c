@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12F940;
+extern uint32_t off_12F944;
+extern uint32_t off_12F94C;
+extern uint32_t off_12F948;
+extern uint32_t dword_12F950;
+extern uint32_t dword_12F954;
+
 // sub_12F810 @ 0x12f810, size 304 bytes
 int  sub_12F810(unsigned int a1, uint8_t *a2, int a3)
 {
@@ -14,7 +33,7 @@ int  sub_12F810(unsigned int a1, uint8_t *a2, int a3)
   int *v14; // r8
   int v15; // r1
   unsigned int v16; // r0
-  unsigned __int8 *v17; // r0
+  uint8_t *v17; // r0
   int v18; // r2
   int v19; // r3
   unsigned int v20; // r1
@@ -77,7 +96,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (unsigned __int8 *)sub_12F65C(v16, v15, v8);
+            v17 = (uint8_t *)sub_12F65C(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;

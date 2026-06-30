@@ -1,5 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_11AA8C @ 0x11aa8c, size 114 bytes
-int  sub_11AA8C(int a1, unsigned __int16 *a2, int a3, void *a4)
+int  sub_11AA8C(int a1, uint16_t *a2, int a3, void *a4)
 {
   int v4; // r4
   void *v6; // r1
@@ -21,25 +33,25 @@ int  sub_11AA8C(int a1, unsigned __int16 *a2, int a3, void *a4)
       break;
     case 1:
       v10 = a3;
-      rf_state_copy_to_shm((unsigned __int8 *)a2 + 4);
+      rf_state_copy_to_shm((uint8_t *)a2 + 4);
       a3 = v10;
       v6 = a4;
       break;
     case 2:
       v11 = a3;
-      rf_mmio_status_read((unsigned __int8 *)a2 + 4);
+      rf_mmio_status_read((uint8_t *)a2 + 4);
       a3 = v11;
       v6 = a4;
       break;
     case 3:
       v12 = a3;
-      sub_11A9BC((unsigned __int8 *)a2 + 4, a4);
+      sub_11A9BC((uint8_t *)a2 + 4, a4);
       a3 = v12;
       v6 = a4;
       break;
     case 4:
       v9 = a3;
-      sub_11AA5C((unsigned __int8 *)a2 + 4);
+      sub_11AA5C((uint8_t *)a2 + 4);
       a3 = v9;
       v6 = a4;
       break;

@@ -1,3 +1,24 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D590;
+extern uint32_t dword_10D5A0;
+extern uint32_t dword_10D59C;
+extern uint32_t off_10D594;
+extern uint32_t off_10D598;
+extern uint32_t dword_40021000;
+extern uint32_t dword_10D5A4;
+extern uint32_t dword_10D5A8;
+
 // sub_10D414 @ 0x10d414, size 378 bytes
 // Doc: sub_120D414 [ipc]: Reads global state flag and dispatches by value
 // sub_120D414 [ipc]: Reads global state flag and dispatches by value
@@ -12,7 +33,7 @@ int  sub_10D414(int a1, int a2, int a3)
   int *v12; // r3
   int v13; // r3
 
-  if ( **(__int16 **)off_10D590 < 0 && a3 > 13 )
+  if ( **(int16_t **)off_10D590 < 0 && a3 > 13 )
     sub_12F46C(dword_10D5A0, dword_10D59C, 69);
   *(uint32_t *)(a2 + 32) = 0;
   if ( (__get_CPSR() & 1) == 0 )

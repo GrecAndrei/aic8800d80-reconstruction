@@ -1,3 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E6D4;
+extern uint32_t dword_10E6D8;
+extern uint32_t dword_10E6DC;
+extern uint32_t off_10E6D0;
+extern uint32_t dword_10E6B8;
+extern uint32_t dword_10E6BC;
+extern uint32_t dword_10E6C0;
+extern uint32_t dword_10E6C4;
+extern uint32_t dword_10E6E0;
+extern uint32_t dword_10E6E4;
+extern uint32_t dword_10E6C8;
+extern uint32_t dword_10E6CC;
+extern uint32_t dword_10E6E8;
+extern uint32_t dword_10E6EC;
+extern uint32_t dword_10E6F0;
+extern uint32_t dword_10E6F4;
+extern uint32_t off_10E6F8;
+
 // sub_10E420 @ 0x10e420, size 664 bytes
 int sub_10E420()
 {

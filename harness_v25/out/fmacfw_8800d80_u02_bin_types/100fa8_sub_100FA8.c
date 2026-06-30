@@ -1,3 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101210;
+extern uint32_t off_101214;
+extern uint32_t off_101218;
+extern uint32_t off_10121C;
+extern uint32_t off_101220;
+extern uint32_t off_101224;
+extern uint32_t off_101228;
+extern uint32_t off_10122C;
+extern uint32_t off_101230;
+extern uint32_t dword_101234;
+extern uint32_t off_101238;
+extern uint32_t off_10123C;
+extern uint32_t off_101240;
+extern uint32_t off_101244;
+extern uint32_t off_101248;
+extern uint32_t off_10124C;
+extern uint32_t off_101250;
+extern uint32_t off_101254;
+extern uint32_t off_101258;
+extern uint32_t off_10125C;
+
 // sub_100FA8 @ 0x100fa8, size 616 bytes
 int  sub_100FA8(unsigned int a1, int a2)
 {
@@ -75,11 +108,11 @@ int  sub_100FA8(unsigned int a1, int a2)
   v12 = (unsigned int *)off_101230;
   v13 = dword_101234;
   v14 = (unsigned int *)off_101238;
-  *(uint32_t *)off_101230 = *(uint32_t *)off_101230 & 0xFE01FFFF | (*(unsigned __int8 *)(dword_101234 + v11) << 17);
+  *(uint32_t *)off_101230 = *(uint32_t *)off_101230 & 0xFE01FFFF | (*(uint8_t *)(dword_101234 + v11) << 17);
   v15 = v11 + v13;
   v16 = (unsigned int *)off_10123C;
-  *v12 = *v12 & 0xFFFFFF00 | *(unsigned __int8 *)(v15 + 1);
-  v17 = *(unsigned __int8 *)(v15 + 2);
+  *v12 = *v12 & 0xFFFFFF00 | *(uint8_t *)(v15 + 1);
+  v17 = *(uint8_t *)(v15 + 2);
   v18 = off_101240;
   *v14 = *v14 & 0xFFFFFF00 | v17;
   v19 = (unsigned int *)off_10121C;

@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_10AF6C;
+extern uint32_t dword_10AF74;
+extern uint32_t dword_10AF98;
+extern uint32_t dword_10AF4C;
+extern uint32_t off_10AF50;
+extern uint32_t dword_10AF70;
+extern uint32_t dword_10AF78;
+extern uint32_t off_10AF54;
+extern uint32_t dword_10AF58;
+extern uint32_t dword_10AF5C;
+extern uint32_t dword_10AF60;
+extern uint32_t off_10AF64;
+extern uint32_t dword_10AF88;
+extern uint32_t dword_10B040;
+extern uint32_t dword_10AF8C;
+extern uint32_t dword_10AF90;
+extern uint32_t dword_10B044;
+extern uint32_t dword_10AF94;
+extern uint32_t dword_10AF68;
+extern uint32_t off_10AF7C;
+extern uint32_t dword_10AF80;
+extern uint32_t dword_10AF84;
+
 // rf_rx_dc_calib @ 0x10ac18, size 1062 bytes
 // Doc: rf_rx_dc_calib [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
 // rf_rx_dc_calib [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
@@ -75,7 +110,7 @@ int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
   uint32_t *v74; // r0
   int v75; // r3
   int v76; // r0
-  bool v77; // cc
+  int v77; // cc
   int v78; // r3
   int v79; // r0
   int v80; // [sp+10h] [bp-1BCh]
@@ -87,7 +122,7 @@ int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
   int v88; // [sp+34h] [bp-198h]
   int v89; // [sp+38h] [bp-194h] BYREF
   int v90; // [sp+3Ch] [bp-190h]
-  __int16 v91; // [sp+40h] [bp-18Ch]
+  int16_t v91; // [sp+40h] [bp-18Ch]
   uint32_t v92[14]; // [sp+44h] [bp-188h] BYREF
   int v93; // [sp+7Ch] [bp-150h]
   uint8_t v94[128]; // [sp+88h] [bp-144h] BYREF
@@ -169,8 +204,8 @@ LABEL_5:
   v80 = v26 + a3;
   do
   {
-    v28 = *(unsigned __int8 *)(a3 + 5);
-    v29 = *(unsigned __int16 *)(a3 + 2);
+    v28 = *(uint8_t *)(a3 + 5);
+    v29 = *(uint16_t *)(a3 + 2);
     *v27 |= 0x400u;
     v30 = *v27 & 0xFFFFFBFF;
     *v27 = v30;
@@ -184,11 +219,11 @@ LABEL_5:
         HIWORD(v89) = v29;
         LOWORD(v90) = v29;
         HIWORD(v90) = v29;
-        sub_102908((unsigned __int8 *)&v89, 0);
+        sub_102908((uint8_t *)&v89, 0);
         v79 = sub_102968(v29);
         v84 = dword_10B040 + 384 * v79;
-        v82 = &a1[316 * (unsigned __int8)(v79 + 1)];
-        v58 = (unsigned __int8)(v79 + 1);
+        v82 = &a1[316 * (uint8_t)(v79 + 1)];
+        v58 = (uint8_t)(v79 + 1);
         v83 = &a2[v58];
       }
       else
@@ -196,7 +231,7 @@ LABEL_5:
         LOWORD(v90) = v29;
         LOBYTE(v89) = 0;
         LOBYTE(v91) = 0;
-        sub_102908((unsigned __int8 *)&v89, 0);
+        sub_102908((uint8_t *)&v89, 0);
         v84 = dword_10AF8C;
         v83 = a2;
         v58 = 0;

@@ -1,9 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_142CFC @ 0x142cfc, size 360 bytes
 unsigned int  sub_142CFC(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   int v4; // r5
   unsigned int v5; // r12
-  bool v6; // zf
+  int v6; // zf
   int v7; // r4
   int v8; // r4
   int v9; // lr
@@ -12,7 +24,7 @@ unsigned int  sub_142CFC(unsigned int result, unsigned int a2, unsigned int a3, 
   unsigned int v12; // r5
   unsigned int v13; // r6
   unsigned int v14; // r1
-  bool v15; // cf
+  int v15; // cf
   unsigned int v16; // r4
   unsigned uint64_t v17; // kr00_8
   unsigned uint64_t v18; // r2
@@ -20,9 +32,9 @@ unsigned int  sub_142CFC(unsigned int result, unsigned int a2, unsigned int a3, 
   unsigned int v20; // r12
   unsigned uint64_t v21; // r2
   unsigned uint64_t v22; // r2
-  bool v23; // cc
+  int v23; // cc
   char v24; // cf
-  bool v25; // vf
+  int v25; // vf
   char v26; // cc
   int v27; // r4
 

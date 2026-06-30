@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13248C @ 0x13248c, size 40 bytes
 int  sub_13248C(int a1)
 {
@@ -15,7 +27,7 @@ int  sub_13248C(int a1)
     v1 -= 2;
     if ( v4 != 3 )
       break;
-    result = (unsigned __int8)(result - 1);
+    result = (uint8_t)(result - 1);
   }
   while ( v5 );
   return result;

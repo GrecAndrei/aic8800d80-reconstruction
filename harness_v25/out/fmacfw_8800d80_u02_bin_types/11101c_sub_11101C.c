@@ -1,8 +1,33 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11110C;
+extern uint32_t off_111138;
+extern uint32_t off_111110;
+extern uint32_t off_111128;
+extern uint32_t off_11112C;
+extern uint32_t dword_111130;
+extern uint32_t off_111134;
+extern uint32_t off_111114;
+extern uint32_t off_111118;
+extern uint32_t off_11111C;
+extern uint32_t off_111120;
+extern uint32_t off_111124;
+
 // sub_11101C @ 0x11101c, size 238 bytes
 int  sub_11101C(int a1, int a2, int a3)
 {
   int *v6; // r9
-  unsigned __int8 *v7; // r3
+  uint8_t *v7; // r3
   int v8; // r5
   int result; // r0
   uint32_t *v10; // r4
@@ -12,7 +37,7 @@ int  sub_11101C(int a1, int a2, int a3)
   int v14; // r3
   uint32_t *v15; // r2
   uint8_t *v16; // r4
-  unsigned __int8 *v17; // r5
+  uint8_t *v17; // r5
   int v18; // r3
   uint8_t *v19; // r10
   int v20; // r4
@@ -23,7 +48,7 @@ int  sub_11101C(int a1, int a2, int a3)
     *(uint32_t *)off_11110C = 1;
   }
   v6 = (int *)off_111138;
-  v7 = *(unsigned __int8 **)off_111110;
+  v7 = *(uint8_t **)off_111110;
   v8 = *(uint32_t *)off_111138 + 1;
   *(uint32_t *)off_111138 = v8;
   result = *v7;
@@ -33,7 +58,7 @@ int  sub_11101C(int a1, int a2, int a3)
     if ( *(uint8_t *)off_111128 )
     {
       v19 = off_11112C;
-      v20 = *((unsigned __int8 *)off_11112C + 374);
+      v20 = *((uint8_t *)off_11112C + 374);
       if ( v20 != 1 )
         goto LABEL_4;
       result = rf_msg_handler_n22e(dword_111130);
@@ -46,7 +71,7 @@ int  sub_11101C(int a1, int a2, int a3)
     }
     else
     {
-      v17 = (unsigned __int8 *)off_11112C;
+      v17 = (uint8_t *)off_11112C;
       if ( *((uint8_t *)off_11112C + 369) )
         result = sub_10DD14(1);
       else

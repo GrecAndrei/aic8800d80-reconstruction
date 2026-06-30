@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D1E0;
+extern uint32_t off_10D1E4;
+extern uint32_t dword_10D1EC;
+extern uint32_t off_10D1E8;
+extern uint32_t off_10D1F4;
+extern uint32_t dword_10D200;
+extern uint32_t off_10D1FC;
+
 // sdio_status_check @ 0x10d15c, size 130 bytes
 // Doc: sdio_status_check [mmio]: Check SDIO status register at 0x4050012c
 // sdio_status_check [mmio]: Check SDIO status register at 0x4050012c

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110C04;
+extern uint32_t off_110BFC;
+extern uint32_t off_110C00;
+
 // sub_110B20 @ 0x110b20, size 218 bytes
 int sub_110B20()
 {
@@ -8,7 +24,7 @@ int sub_110B20()
   int v4; // r3
   unsigned int v5; // r6
   int v6; // r11
-  unsigned __int16 v7; // r4
+  uint16_t v7; // r4
   int v8; // r5
   int v9; // r2
   int v10; // r0
@@ -31,7 +47,7 @@ int sub_110B20()
       break;
     while ( 1 )
     {
-      v5 = *(unsigned __int16 *)(v4 + 8);
+      v5 = *(uint16_t *)(v4 + 8);
       v6 = *(uint32_t *)(v4 + 4);
       if ( *(uint16_t *)(v4 + 8) )
       {
@@ -57,7 +73,7 @@ int sub_110B20()
           LOWORD(v8) = v8 + (*(uint8_t *)(v17 + 11) & 0x7F);
           sub_1101BC();
           v9 = v7;
-          v8 = (unsigned __int16)v8;
+          v8 = (uint16_t)v8;
         }
         while ( v7 < v5 );
       }

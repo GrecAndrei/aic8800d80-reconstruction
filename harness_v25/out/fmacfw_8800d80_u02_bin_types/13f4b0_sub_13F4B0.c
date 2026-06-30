@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13F5C0;
+extern uint32_t dword_13F5C4;
+extern uint32_t dword_13F5C8;
+extern uint32_t off_13F5CC;
+
 // sub_13F4B0 @ 0x13f4b0, size 272 bytes
 unsigned int  sub_13F4B0(int a1, int a2, int a3)
 {
@@ -17,10 +34,10 @@ unsigned int  sub_13F4B0(int a1, int a2, int a3)
 
   v3 = 3 * a2;
   v4 = a1 + 4 * v3;
-  v5 = *(unsigned __int16 *)(v4 + 8);
+  v5 = *(uint16_t *)(v4 + 8);
   if ( v5 <= 0x1998 )
     return 0;
-  v6 = *(unsigned __int16 *)(v4 + 10);
+  v6 = *(uint16_t *)(v4 + 10);
   v8 = 4 * v3;
   v9 = (v6 >> 11) & 7;
   if ( (v6 & 0x2000) != 0 )
@@ -28,7 +45,7 @@ unsigned int  sub_13F4B0(int a1, int a2, int a3)
     v10 = (v6 >> 11) & 6;
     v11 = v6 & 0xF;
     v12 = *(uint32_t *)(a1 + 148);
-    v13 = (unsigned __int8)v10;
+    v13 = (uint8_t)v10;
     if ( v10 )
       goto LABEL_4;
   }
@@ -60,30 +77,30 @@ LABEL_7:
   {
     if ( v5 <= 0x3332 )
     {
-      return (uint64_t)(*(unsigned __int8 *)off_13F5CC * (unsigned uint64_t)result) >> 7;
+      return (uint64_t)(*(uint8_t *)off_13F5CC * (unsigned uint64_t)result) >> 7;
     }
     else if ( v5 > 0x4CCB )
     {
       if ( v5 <= 0x6665 )
       {
-        return (uint64_t)(*((unsigned __int8 *)off_13F5CC + 2) * (unsigned uint64_t)result) >> 7;
+        return (uint64_t)(*((uint8_t *)off_13F5CC + 2) * (unsigned uint64_t)result) >> 7;
       }
       else if ( v5 >= 0x8000 )
       {
         if ( v5 > 0x9998 )
-          v16 = *((unsigned __int8 *)off_13F5CC + 5);
+          v16 = *((uint8_t *)off_13F5CC + 5);
         else
-          v16 = *((unsigned __int8 *)off_13F5CC + 4);
+          v16 = *((uint8_t *)off_13F5CC + 4);
         return (uint64_t)(v16 * (unsigned uint64_t)result) >> 7;
       }
       else
       {
-        return (uint64_t)(*((unsigned __int8 *)off_13F5CC + 3) * (unsigned uint64_t)result) >> 7;
+        return (uint64_t)(*((uint8_t *)off_13F5CC + 3) * (unsigned uint64_t)result) >> 7;
       }
     }
     else
     {
-      return (uint64_t)(*((unsigned __int8 *)off_13F5CC + 1) * (unsigned uint64_t)result) >> 7;
+      return (uint64_t)(*((uint8_t *)off_13F5CC + 1) * (unsigned uint64_t)result) >> 7;
     }
   }
   return result;

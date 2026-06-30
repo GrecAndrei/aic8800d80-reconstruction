@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_12C694;
+extern uint32_t off_12C698;
+extern uint32_t off_12C69C;
+extern uint32_t off_12C6A8;
+extern uint32_t off_12C6AC;
+extern uint32_t dword_12C6B4;
+extern uint32_t dword_12C6B0;
+extern uint32_t dword_12C6A4;
+extern uint32_t off_12C6A0;
+
 // sub_12C5FC @ 0x12c5fc, size 152 bytes
 int  sub_12C5FC(int result, int a2)
 {
@@ -22,7 +44,7 @@ int  sub_12C5FC(int result, int a2)
   *(uint32_t *)off_12C698 = v5;
   if ( v4 )
   {
-    if ( *(unsigned __int16 *)(v4 + 4) == result && *(unsigned __int16 *)(v4 + 6) == a2 )
+    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
     {
       sub_12D190(v3 + 5);
       v8 = v3[5];
@@ -30,7 +52,7 @@ int  sub_12C5FC(int result, int a2)
       if ( v8 )
       {
         sub_124BFC(v9, *(uint32_t *)(v8 + 8));
-        if ( **(__int16 **)off_12C6A8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C6AC + 4) < 0 )
+        if ( **(int16_t **)off_12C6A8 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_12C6AC + 4) < 0 )
           sub_12F32C(dword_12C6B4, dword_12C6B0, 232);
       }
       else

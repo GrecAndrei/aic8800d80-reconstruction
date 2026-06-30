@@ -1,3 +1,50 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10D92C;
+extern uint32_t off_10D930;
+extern uint32_t off_10D934;
+extern uint32_t off_10D938;
+extern uint32_t off_10D93C;
+extern uint32_t off_10D940;
+extern uint32_t off_10D944;
+extern uint32_t off_10D94C;
+extern uint32_t dword_10D948;
+extern uint32_t dword_10D950;
+extern uint32_t dword_10D97C;
+extern uint32_t dword_10D978;
+extern uint32_t dword_10D980;
+extern uint32_t off_10D984;
+extern uint32_t dword_10DA58;
+extern uint32_t off_10DA5C;
+extern uint32_t off_10DA74;
+extern uint32_t off_10DA78;
+extern uint32_t off_10DA60;
+extern uint32_t off_10DA64;
+extern uint32_t off_10DA68;
+extern uint32_t off_10D988;
+extern uint32_t dword_10D954;
+extern uint32_t dword_10D958;
+extern uint32_t off_10D98C;
+extern uint32_t dword_10D95C;
+extern uint32_t off_10D960;
+extern uint32_t dword_10DA6C;
+extern uint32_t off_10D964;
+extern uint32_t off_10D968;
+extern uint32_t off_10D96C;
+extern uint32_t off_10D970;
+extern uint32_t dword_10D974;
+extern uint32_t dword_10DA70;
+
 // sdio_transfer @ 0x10d660, size 1016 bytes
 // Doc: sdio_transfer [mac]: Perform SDIO data transfer to host
 // sdio_transfer [mac]: Perform SDIO data transfer to host
@@ -10,10 +57,10 @@ int  sdio_transfer(int a1, int a2)
   int v6; // r7
   int v7; // r5
   int v8; // r3
-  unsigned __int8 *v9; // r4
+  uint8_t *v9; // r4
   uint32_t *v10; // r1
   uint32_t *v11; // r0
-  unsigned __int8 *v12; // r5
+  uint8_t *v12; // r5
   int v13; // r2
   int v14; // t1
   int v16; // r3
@@ -34,7 +81,7 @@ int  sdio_transfer(int a1, int a2)
   int *v31; // r12
   int v32; // r1
   int v33; // t1
-  unsigned __int16 *v34; // r10
+  uint16_t *v34; // r10
   int v35; // r11
   int v36; // r0
   uint32_t *v37; // r2
@@ -47,7 +94,7 @@ int  sdio_transfer(int a1, int a2)
   int v44; // r3
   uint8_t *v45; // r1
   unsigned int v46; // r2
-  __int16 v47; // r0
+  int16_t v47; // r0
   uint32_t *v48; // r5
   int v49; // r2
   int *v50; // r5
@@ -76,7 +123,7 @@ int  sdio_transfer(int a1, int a2)
   int v73; // r0
   uint16_t *v74; // r2
   int v75; // r2
-  unsigned __int16 v76; // r5
+  uint16_t v76; // r5
   int v77; // r1
   uint32_t *v78; // r2
   int *v79; // r0
@@ -137,14 +184,14 @@ LABEL_5:
     while ( v9 != v12 );
     goto LABEL_13;
   }
-  v16 = **(unsigned __int8 **)off_10D944;
+  v16 = **(uint8_t **)off_10D944;
   if ( v16 == 1 )
   {
     if ( **(uint8_t **)off_10D94C != 3 )
     {
       if ( v7 >= 124 )
         LOWORD(v7) = 124;
-      msg_alloc_and_send_n0cc(19, v82, (unsigned __int16)v7);
+      msg_alloc_and_send_n0cc(19, v82, (uint16_t)v7);
     }
     goto LABEL_13;
   }
@@ -163,7 +210,7 @@ LABEL_19:
       while ( (*v19 & 0x80000) != 0 )
         ;
       *v20 = v21;
-      v22 = *(unsigned __int8 *)++v18;
+      v22 = *(uint8_t *)++v18;
       v21 = v22;
     }
     while ( v22 );
@@ -186,7 +233,7 @@ LABEL_19:
             while ( (*v61 & 0x80000) != 0 )
               ;
             *v62 = v63;
-            v64 = *(unsigned __int8 *)++v60;
+            v64 = *(uint8_t *)++v60;
             v63 = v64;
           }
           while ( v64 );
@@ -202,7 +249,7 @@ LABEL_19:
             while ( (*v56 & 0x80000) != 0 )
               ;
             *v57 = v58;
-            v59 = *(unsigned __int8 *)++v55;
+            v59 = *(uint8_t *)++v55;
             v58 = v59;
           }
           while ( v59 );
@@ -238,14 +285,14 @@ LABEL_13:
     while ( (*v66 & 0x80000) != 0 )
       ;
     *v67 = v68;
-    v69 = *(unsigned __int8 *)++v65;
+    v69 = *(uint8_t *)++v65;
     v68 = v69;
   }
   while ( v69 );
   v27 = off_10DA78;
   v70 = *(uint32_t *)off_10DA60;
   v81 = (int *)off_10DA64;
-  v71 = *(QWORD *)(v70 + 4);
+  v71 = *(uint64_t *)(v70 + 4);
   v72 = *(int ( **)(uint32_t))(HIDWORD(v71) + 16);
   *(uint8_t *)off_10DA78 = 1;
   v73 = v72(v71);
@@ -268,18 +315,18 @@ LABEL_37:
         while ( (*v30 & 0x80000) != 0 )
           ;
         *v31 = v32;
-        v33 = *(unsigned __int8 *)++v29;
+        v33 = *(uint8_t *)++v29;
         v32 = v33;
       }
       while ( v33 );
     }
-    v34 = (unsigned __int16 *)off_10D98C;
-    v35 = *(unsigned __int16 *)off_10D98C;
+    v34 = (uint16_t *)off_10D98C;
+    v35 = *(uint16_t *)off_10D98C;
     if ( v35 + v7 <= 1720 )
     {
       v81 = (int *)off_10DA64;
       sub_14380C(*(uint32_t *)off_10DA64 + v35, v82, v7);
-      v75 = (unsigned __int8)*v28;
+      v75 = (uint8_t)*v28;
       v41 = v81;
       v76 = v7 + *v34;
       v35 = v76;
@@ -298,7 +345,7 @@ LABEL_37:
         while ( (*v37 & 0x80000) != 0 )
           ;
         *v38 = v39;
-        v40 = *(unsigned __int8 *)++v36;
+        v40 = *(uint8_t *)++v36;
         v39 = v40;
       }
       while ( v40 );
@@ -331,7 +378,7 @@ LABEL_48:
     v45 = off_10D964;
     *(uint8_t *)(v43 + 3) = 0;
     *(uint8_t *)(v43 + v6 + 4) = 0;
-    v46 = *((unsigned __int16 *)v45 + 4122);
+    v46 = *((uint16_t *)v45 + 4122);
     if ( v46 > 0x186 )
     {
       LOWORD(v46) = 0;
@@ -387,7 +434,7 @@ LABEL_48:
     while ( (*v78 & 0x80000) != 0 )
       ;
     *v79 = v6;
-    v80 = *(unsigned __int8 *)++v77;
+    v80 = *(uint8_t *)++v77;
     v6 = v80;
   }
   while ( v80 );

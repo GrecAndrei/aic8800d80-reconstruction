@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B8BC;
+extern uint32_t off_11B8C0;
+extern uint32_t off_11B8C4;
+extern uint32_t dword_11B8CC;
+extern uint32_t off_11B8C8;
+
 // sub_11B7F8 @ 0x11b7f8, size 194 bytes
 // Doc: sub_121B7F8 [util]: Helper with saved regs r3-r7,lr; lsls shift on r3
 // sub_121B7F8 [util]: Helper with saved regs r3-r7,lr; lsls shift on r3
@@ -25,7 +43,7 @@ int  sub_11B7F8(int a1)
   v4 = off_11B8C0;
   v5 = (int *)off_11B8C4;
   v6 = (char *)off_11B8C0 + 28 * a1;
-  v7 = (unsigned __int8)v6[47];
+  v7 = (uint8_t)v6[47];
   v8 = *(uint32_t *)off_11B8C4 + 1;
   *(uint32_t *)off_11B8C4 = v8;
   if ( v7 )
@@ -35,7 +53,7 @@ int  sub_11B7F8(int a1)
     if ( v9 << 28 )
     {
       *(uint32_t *)(dword_11B8CC + 4 * a1) = v9;
-      sub_11B7A8((unsigned __int8)a1);
+      sub_11B7A8((uint8_t)a1);
     }
     else if ( !v6[46] )
     {
@@ -50,12 +68,12 @@ LABEL_17:
     *(uint32_t *)&v4[28 * a1 + 24] = 0;
     goto LABEL_9;
   }
-  v12 = (unsigned __int8)(v6[45] - 1);
+  v12 = (uint8_t)(v6[45] - 1);
   v6[45] = v12;
   if ( !v12 )
   {
     *(uint32_t *)(dword_11B8CC + 4 * a1) = *(uint32_t *)(*((uint32_t *)v4 + 4) + 4 * (a1 + 2));
-    result = sub_11B7A8((unsigned __int8)a1);
+    result = sub_11B7A8((uint8_t)a1);
     v8 = *v5;
     goto LABEL_17;
   }

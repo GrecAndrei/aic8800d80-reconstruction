@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_101F68;
+extern uint32_t off_101F64;
+
 // fmac_hw_setup @ 0x101f28, size 58 bytes
 // Doc: fmac_hw_setup [util]: FMAC hardware setup routine
 // fmac_hw_setup [util]: FMAC hardware setup routine
@@ -8,7 +23,7 @@ int  fmac_hw_setup(int result)
   int v3; // r3
 
   v1 = off_101F68;
-  *(uint32_t *)off_101F64 = *(uint32_t *)off_101F64 & 0xFFFFFF | ((unsigned __int8)(result / 2) << 24);
+  *(uint32_t *)off_101F64 = *(uint32_t *)off_101F64 & 0xFFFFFF | ((uint8_t)(result / 2) << 24);
   v2 = *v1 & 0xFFFFF0FF;
   if ( (result & 1) != 0 )
   {

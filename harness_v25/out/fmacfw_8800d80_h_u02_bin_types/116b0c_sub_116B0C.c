@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_116CF4;
+extern uint32_t off_116CF0;
+extern uint32_t dword_116D00;
+extern uint32_t dword_116CFC;
+extern uint32_t dword_116CF8;
+extern uint32_t dword_116D0C;
+extern uint32_t dword_116D04;
+extern uint32_t dword_116D08;
+extern uint32_t off_116CE8;
+extern uint32_t dword_116CEC;
+
 // sub_116B0C @ 0x116b0c, size 474 bytes
 int  sub_116B0C(int a1, int a2, char a3)
 {
@@ -15,7 +38,7 @@ int  sub_116B0C(int a1, int a2, char a3)
   unsigned int v18; // r1
   int v19; // r2
   int v20; // r2
-  __int16 **v21; // r6
+  int16_t **v21; // r6
   int v22; // r5
   uint16_t *v23; // r3
   int v24; // r3
@@ -41,8 +64,8 @@ int  sub_116B0C(int a1, int a2, char a3)
     while ( v14 != v12 + 16 );
     if ( (*(uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
-      v16 = *(uint32_t *)(dword_116CF4 + 696 * *(unsigned __int8 *)(a1 + 29) + 340);
-      if ( **(__int16 **)off_116CF0 >= 0 || v16 )
+      v16 = *(uint32_t *)(dword_116CF4 + 696 * *(uint8_t *)(a1 + 29) + 340);
+      if ( **(int16_t **)off_116CF0 >= 0 || v16 )
       {
         v17 = v5;
       }
@@ -80,11 +103,11 @@ int  sub_116B0C(int a1, int a2, char a3)
   }
   *(uint8_t *)(v5 + 36) = a3;
   sub_115F88(a1, a2);
-  if ( *(unsigned __int16 *)(a1 + 24) == 36488 )
+  if ( *(uint16_t *)(a1 + 24) == 36488 )
     sub_12E948(dword_116CF8, 36488, *(uint32_t *)(*(uint32_t *)(a1 + 76) + 36));
   v8 = *(uint32_t *)(a1 + 8);
   v9 = *(uint32_t *)(a1 + 72);
-  if ( v8 >= 0 || (v20 = *(unsigned __int16 *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
+  if ( v8 >= 0 || (v20 = *(uint16_t *)(a1 + 24), *(uint32_t *)(a1 + 84) = v8, v20 != 36488) )
   {
     if ( sub_12CD48(6) == 6 )
       goto LABEL_24;
@@ -96,9 +119,9 @@ LABEL_7:
   if ( sub_12CD48(6) != 6 )
     goto LABEL_7;
 LABEL_24:
-  v21 = (__int16 **)off_116CF0;
+  v21 = (int16_t **)off_116CF0;
   v22 = *(uint32_t *)(a1 + 76);
-  if ( **(__int16 **)off_116CF0 >= 0 )
+  if ( **(int16_t **)off_116CF0 >= 0 )
   {
     v23 = *(uint16_t **)(v22 + 28);
     if ( v23 )

@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_112DCC @ 0x112dcc, size 126 bytes
 // Doc: rf_stream_start2_n_41a [rf]: Start RF stream variant 2
 // rf_stream_start2_n_41a [rf]: Start RF stream variant 2
@@ -15,7 +27,7 @@ void sub_112DCC()
     *(uint32_t *)rf_cmd_send_n_20 = 1;
   }
   v0 = (int *)rf_stream_start2_e50;
-  v1 = *(unsigned __int8 *)rf_stream_start2_n_3f8;
+  v1 = *(uint8_t *)rf_stream_start2_n_3f8;
   v2 = *(uint32_t *)rf_stream_start2_e50 + 1;
   *(uint32_t *)rf_stream_start2_e50 = v2;
   if ( v1 )

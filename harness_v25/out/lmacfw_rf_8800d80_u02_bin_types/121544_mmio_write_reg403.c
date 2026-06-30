@@ -1,7 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1215A4;
+
 // mmio_write_reg403 @ 0x121544, size 96 bytes
 // Doc: mmio_write_reg403 [mmio]: calls helper with reg 0x403, value 8; MMIO write wrapper
 // mmio_write_reg403 [mmio]: calls helper with reg 0x403, value 8; MMIO write wrapper
-int  mmio_write_reg403(int a1, int *a2, __int16 a3, __int16 a4)
+int  mmio_write_reg403(int a1, int *a2, int16_t a3, int16_t a4)
 {
   int v5; // r0
   uint32_t *v6; // r2

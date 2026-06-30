@@ -1,5 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B504;
+extern uint32_t dword_11B4F8;
+extern uint32_t off_11B4FC;
+extern uint32_t dword_11B50C;
+extern uint32_t dword_11B508;
+extern uint32_t dword_11B500;
+extern uint32_t off_11B4F0;
+extern uint32_t off_11B4F4;
+
 // sub_11B270 @ 0x11b270, size 638 bytes
-int  sub_11B270(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __int8 a5)
+int  sub_11B270(int a1, int *a2, unsigned int a3, unsigned int a4, uint8_t a5)
 {
   int v5; // r7
   uint32_t *v6; // r10
@@ -32,10 +53,10 @@ int  sub_11B270(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
   {
     if ( (*(uint16_t *)(a1 + 82) & 4) == 0 )
       return 0;
-    v16 = *(unsigned __int16 *)(a1 + 4);
+    v16 = *(uint16_t *)(a1 + 4);
     if ( !*(uint16_t *)(a1 + 4) || (*(uint16_t *)(a1 + 30) & 8) != 0 )
     {
-      if ( a3 >= (unsigned __int16)(((v6[9] + 3) & 0xFFFC) + 4) )
+      if ( a3 >= (uint16_t)(((v6[9] + 3) & 0xFFFC) + 4) )
         goto LABEL_32;
     }
     else
@@ -43,7 +64,7 @@ int  sub_11B270(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
       v26 = (uint16_t *)v6[7];
       if ( !v26 || (*v26 & 0x8000) != 0 )
       {
-        if ( a3 >= (unsigned __int16)(((v6[9] + 3) & 0xFFFC) + 4) )
+        if ( a3 >= (uint16_t)(((v6[9] + 3) & 0xFFFC) + 4) )
         {
           if ( !v26 )
             goto LABEL_32;
@@ -53,19 +74,19 @@ int  sub_11B270(int a1, int *a2, unsigned int a3, unsigned int a4, unsigned __in
       }
       else
       {
-        *v26 = ~((unsigned int)~((unsigned __int16)*v26 << 17) >> 17);
+        *v26 = ~((unsigned int)~((uint16_t)*v26 << 17) >> 17);
         v27 = *(uint8_t *)(a1 + 51) + 4;
         *(uint8_t *)(a1 + 50) += 4;
         *(uint8_t *)(a1 + 51) = v27;
         v28 = v6[9];
-        v29 = (unsigned __int16)(((v28 + 7) & 0xFFFC) + 4);
+        v29 = (uint16_t)(((v28 + 7) & 0xFFFC) + 4);
         v16 = v28 + 4;
         v30 = v6[8] + 4;
         v6[8] = v30;
         v6[9] = v16;
         if ( v29 <= a3 )
         {
-          v16 = *(unsigned __int16 *)(a1 + 4);
+          v16 = *(uint16_t *)(a1 + 4);
           if ( !*(uint16_t *)(a1 + 4) || (*(uint16_t *)(a1 + 30) & 8) != 0 )
             goto LABEL_32;
 LABEL_31:
@@ -80,7 +101,7 @@ LABEL_20:
             {
               v22 = sub_12D4F8(dword_11B4F8);
               v23 = v22;
-              if ( **(__int16 **)off_11B4FC < 0 && !v22 )
+              if ( **(int16_t **)off_11B4FC < 0 && !v22 )
                 sub_12F694(dword_11B50C, dword_11B508, 3646);
               *(uint8_t *)(v23 + 14) = 1;
               *(uint32_t *)(v23 + 40) = v6[9];
@@ -109,20 +130,20 @@ LABEL_20:
     return 0;
   v12 = *(uint32_t *)(a1 + 68);
   if ( (*(uint16_t *)(v12 + 8) & 3) != 3
-    || *(unsigned __int8 *)(*(uint32_t *)off_11B4F4 + 62) > (*(uint32_t *)off_11B4F0 & 0x3Fu) )
+    || *(uint8_t *)(*(uint32_t *)off_11B4F4 + 62) > (*(uint32_t *)off_11B4F0 & 0x3Fu) )
   {
     return 0;
   }
   if ( *(uint32_t *)(v12 + 40) > a3 )
     return sub_11A89C(a1, a2, a3, a4, a5);
-  sub_119888((__int16 *)a1);
+  sub_119888((int16_t *)a1);
   v13 = *(uint32_t *)(a1 + 36);
   v14 = **(uint32_t **)(v12 + 324);
   *a2 = v14;
   if ( v14 )
   {
     v15 = v13 & 0x200000;
-    v16 = *(unsigned __int16 *)(a1 + 4);
+    v16 = *(uint16_t *)(a1 + 4);
     v17 = off_11B4F0;
     v18 = off_11B4F4;
     v19 = v15;
@@ -132,7 +153,7 @@ LABEL_8:
       while ( (*(uint16_t *)(a1 + 30) & 8) == 0
            && *(uint16_t *)(v14 + 4)
            && (*(uint16_t *)(v14 + 30) & 8) == 0
-           && *(unsigned __int8 *)(*(uint32_t *)v18 + 62) <= (*v17 & 0x3Fu) )
+           && *(uint8_t *)(*(uint32_t *)v18 + 62) <= (*v17 & 0x3Fu) )
       {
         v20 = *(uint32_t *)(v14 + 36);
         if ( v19 )

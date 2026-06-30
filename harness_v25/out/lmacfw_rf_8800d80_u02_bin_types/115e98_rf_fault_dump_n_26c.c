@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115F68;
+extern uint32_t dword_115F74;
+extern uint32_t off_115F6C;
+extern uint32_t dword_115F70;
+
 // rf_fault_dump_n_26c @ 0x115e98, size 208 bytes
 // Doc: rf_fault_dump_n_26c [rf]: RF fault/state dump handler (variant 26c)
 // rf_fault_dump_n_26c [rf]: RF fault/state dump handler (variant 26c)
@@ -11,7 +28,7 @@ uint32_t *rf_fault_dump_n_26c()
   int v5; // r9
   int *v6; // r6
   int v7; // r0
-  __int16 v8; // r4
+  int16_t v8; // r4
   int v9; // r2
   uint32_t *result; // r0
   uint32_t *v11; // r3
@@ -26,9 +43,9 @@ uint32_t *rf_fault_dump_n_26c()
   v4 = 0;
   do
   {
-    v5 = (unsigned __int8)v4;
+    v5 = (uint8_t)v4;
     sub_11E71C(v3);
-    rf_bus_write_60fc((unsigned __int8)v4++, v1, v3);
+    rf_bus_write_60fc((uint8_t)v4++, v1, v3);
     rf_bus_write_60fc(v5, v2, v3);
     v1 += 8;
     v3 += 2;

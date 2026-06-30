@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_1287DC @ 0x1287dc, size 186 bytes
 unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
 {
@@ -12,9 +24,9 @@ unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
   int v10; // r2
   int v11; // t1
   int v12; // t1
-  __int16 v13; // r2
-  __int16 v14; // t1
-  bool v15; // zf
+  int16_t v13; // r2
+  int16_t v14; // t1
+  int v15; // zf
   int v16; // t1
 
   v2 = (uint8_t *)result;
@@ -22,7 +34,7 @@ unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
   {
     do
     {
-      v16 = *(unsigned __int8 *)a2++;
+      v16 = *(uint8_t *)a2++;
       *v2++ = v16;
     }
     while ( v16 );
@@ -31,10 +43,10 @@ unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
   {
     if ( (a2 & 3) == 0 )
       goto LABEL_3;
-    if ( (a2 & 1) == 0 || (v12 = *(unsigned __int8 *)a2, ++a2, *(uint8_t *)result = v12, v2 = (uint8_t *)(result + 1), v12) )
+    if ( (a2 & 1) == 0 || (v12 = *(uint8_t *)a2, ++a2, *(uint8_t *)result = v12, v2 = (uint8_t *)(result + 1), v12) )
     {
       if ( (a2 & 2) == 0
-        || ((v14 = *(uint16_t *)a2, a2 += 2, v13 = v14, v15 = (unsigned __int8)v14 == 0, !(uint8_t)v14)
+        || ((v14 = *(uint16_t *)a2, a2 += 2, v13 = v14, v15 = (uint8_t)v14 == 0, !(uint8_t)v14)
           ? (uint8_t *)(*v2 = v13)
           : (*(uint16_t *)v2 = v13, v2 += 2),
             !v15 && (v13 & 0xFF00) != 0) )
@@ -79,7 +91,7 @@ LABEL_7:
         {
 LABEL_11:
           *v2++ = v4;
-          v15 = (unsigned __int8)v4 == 0;
+          v15 = (uint8_t)v4 == 0;
           v4 = __ROR4__(v4, 8);
         }
         while ( !v15 );

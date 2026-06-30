@@ -1,3 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_125B78;
+extern uint32_t dword_125B7C;
+extern uint32_t off_125BBC;
+extern uint32_t off_125BB8;
+extern uint32_t dword_125BD0;
+extern uint32_t off_125B80;
+extern uint32_t dword_125BCC;
+extern uint32_t off_125B90;
+extern uint32_t dword_125BC0;
+extern uint32_t dword_125BC8;
+extern uint32_t dword_125BC4;
+extern uint32_t off_125B84;
+extern uint32_t dword_125B8C;
+extern uint32_t dword_125B88;
+extern uint32_t dword_125B94;
+extern uint32_t off_125B9C;
+extern uint32_t dword_125BA0;
+extern uint32_t off_125B98;
+extern uint32_t dword_125BA4;
+extern uint32_t dword_125BA8;
+extern uint32_t dword_125BAC;
+extern uint32_t dword_125BB0;
+extern uint32_t dword_125BB4;
+
 // sub_125AD8 @ 0x125ad8, size 158 bytes
 // Doc: sub_1225AD8 [unknown]: Small helper function called from lmac context
 // sub_1225AD8 [unknown]: Small helper function called from lmac context

@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_100A98;
+extern uint32_t off_100A94;
+extern uint32_t dword_100A9C;
+extern uint32_t off_100AA0;
+extern uint32_t off_100AA4;
+
 // crypto_key_load_09dc @ 0x1009dc, size 184 bytes
 // Doc: crypto_key_load_09dc [ke]: Load crypto key into key engine MMIO at 0x40342200 region
 // crypto_key_load_09dc [ke]: Load crypto key into key engine MMIO at 0x40342200 region
@@ -61,7 +79,7 @@ int  crypto_key_load_09dc(int a1, int a2)
     sub_10410C((2 * i) & 0xFE, *(uint32_t *)(a2 + 8 * i));
     v17 = *(uint32_t *)(a2 + 4 + 8 * i);
     result = sub_10410C(v15, v17);
-    v15 = (unsigned __int8)(v15 + 2);
+    v15 = (uint8_t)(v15 + 2);
   }
   *(uint32_t *)off_100AA4 &= ~2u;
   return result;

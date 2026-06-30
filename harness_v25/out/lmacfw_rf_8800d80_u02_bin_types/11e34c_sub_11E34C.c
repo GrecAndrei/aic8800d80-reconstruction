@@ -1,7 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E3DC;
+extern uint32_t dword_11E3EC;
+extern uint32_t dword_11E3E4;
+extern uint32_t dword_11E3E0;
+extern uint32_t dword_11E3F4;
+extern uint32_t dword_11E3F0;
+extern uint32_t dword_11E3F8;
+extern uint32_t dword_11E3E8;
+
 // sub_11E34C @ 0x11e34c, size 142 bytes
 int  sub_11E34C(unsigned int a1)
 {
-  __int16 **v1; // r6
+  int16_t **v1; // r6
   unsigned int v2; // r7
   unsigned int v3; // r5
   int v4; // r4
@@ -9,13 +30,13 @@ int  sub_11E34C(unsigned int a1)
   char v7; // r4
   int v8; // r3
 
-  v1 = (__int16 **)off_11E3DC;
+  v1 = (int16_t **)off_11E3DC;
   v2 = a1 >> 8;
-  v3 = (unsigned __int8)a1;
-  if ( **(__int16 **)off_11E3DC >= 0 )
+  v3 = (uint8_t)a1;
+  if ( **(int16_t **)off_11E3DC >= 0 )
     goto LABEL_2;
   v7 = a1;
-  if ( (unsigned __int8)a1 <= 4u )
+  if ( (uint8_t)a1 <= 4u )
     goto LABEL_5;
   rf_cmd_send_n264(dword_11E3EC, dword_11E3E4, 210);
   if ( **v1 >= 0 )
@@ -23,7 +44,7 @@ int  sub_11E34C(unsigned int a1)
 LABEL_2:
     v4 = dword_11E3E0;
     v5 = 16 * v3;
-    return *(unsigned __int16 *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
+    return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
   }
   if ( v3 <= 5 )
   {
@@ -45,9 +66,9 @@ LABEL_6:
   v4 = dword_11E3E0;
   v8 = dword_11E3E0 + 16 * v3;
   v5 = 16 * v3;
-  if ( *(unsigned __int16 *)(v8 + 14) > v2 )
-    return *(unsigned __int16 *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
+  if ( *(uint16_t *)(v8 + 14) > v2 )
+    return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
   rf_cmd_send_n264(dword_11E3E8, dword_11E3E4, 212);
-  return *(unsigned __int16 *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
+  return *(uint16_t *)(*(uint32_t *)(v4 + v5 + 8) + 2 * v2);
 }
 

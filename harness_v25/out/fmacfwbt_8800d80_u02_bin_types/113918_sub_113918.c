@@ -1,3 +1,39 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_113A20;
+extern uint32_t off_113A28;
+extern uint32_t off_113A2C;
+extern uint32_t off_113A24;
+extern uint32_t off_113A30;
+extern uint32_t off_113A38;
+extern uint32_t off_113A3C;
+extern uint32_t off_113A34;
+extern uint32_t off_113A40;
+extern uint32_t off_113A44;
+extern uint32_t dword_113A78;
+extern uint32_t dword_113A74;
+extern uint32_t off_113A48;
+extern uint32_t dword_113A50;
+extern uint32_t off_113A54;
+extern uint32_t off_113A58;
+extern uint32_t off_113A4C;
+extern uint32_t off_113A5C;
+extern uint32_t off_113A60;
+extern uint32_t off_113A64;
+extern uint32_t off_113A68;
+extern uint32_t off_113A6C;
+extern uint32_t dword_113A70;
+
 // sub_113918 @ 0x113918, size 264 bytes
 int  sub_113918(int a1)
 {
@@ -19,7 +55,7 @@ int  sub_113918(int a1)
   uint8_t *v16; // r4
   int v17; // r1
   uint8_t *v18; // r5
-  bool v19; // cc
+  int v19; // cc
   char v20; // r0
   int v21; // r3
   void *v22; // r2
@@ -54,14 +90,14 @@ int  sub_113918(int a1)
   v8[4] = v6 + 12;
   *v9 = v6 + 14;
   memset_thunk(v6, 0, 0xCB8u);
-  if ( **(__int16 **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
+  if ( **(int16_t **)off_113A44 < 0 && *(uint32_t *)(*(uint32_t *)v1 + 24) <= 0xCB7u )
     sub_12F694(dword_113A78, dword_113A74, 758);
   v10 = off_113A48;
-  v11 = *((unsigned __int16 *)off_113A48 + 164);
-  v12 = *((unsigned __int16 *)off_113A48 + 154);
+  v11 = *((uint16_t *)off_113A48 + 164);
+  v12 = *((uint16_t *)off_113A48 + 154);
   v13 = dword_113A50;
   v14 = off_113A54;
-  *(uint32_t *)off_113A58 = *((unsigned __int16 *)off_113A48 + 153) - *(uint32_t *)off_113A4C - 4;
+  *(uint32_t *)off_113A58 = *((uint16_t *)off_113A48 + 153) - *(uint32_t *)off_113A4C - 4;
   v15 = (int *)off_113A5C;
   v16 = off_113A60;
   v17 = v13 * v11;
@@ -74,7 +110,7 @@ int  sub_113918(int a1)
     v15 = (int *)off_113A68;
   *v18 = v10[320];
   v20 = v10[321];
-  v21 = (unsigned __int8)v10[368];
+  v21 = (uint8_t)v10[368];
   *v16 = v20;
   if ( v19 )
     *v15 = v17;

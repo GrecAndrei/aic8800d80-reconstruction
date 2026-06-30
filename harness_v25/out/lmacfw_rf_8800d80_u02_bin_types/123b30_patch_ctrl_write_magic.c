@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_123BB4;
+extern uint32_t dword_123BB8;
+
 // patch_ctrl_write_magic @ 0x123b30, size 130 bytes
 // Doc: patch_ctrl_write_magic [patch]: Writes cafefade magic and control word to indexed register slot
 // patch_ctrl_write_magic [patch]: Writes cafefade magic and control word to indexed register slot

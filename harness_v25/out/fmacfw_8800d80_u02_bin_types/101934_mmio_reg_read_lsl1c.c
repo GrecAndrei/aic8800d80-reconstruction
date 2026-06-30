@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10194C;
+extern uint32_t off_101950;
+
 // mmio_reg_read_lsl1c @ 0x101934, size 24 bytes
 // Doc: mmio_reg_read_lsl1c [util]: Reads MMIO register and applies left-shift by 0x1c on value
 // mmio_reg_read_lsl1c [util]: Reads MMIO register and applies left-shift by 0x1c on value

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_102DDC;
+extern uint32_t dword_102DD4;
+extern uint32_t off_102DD8;
+
 // lmac_sub_init @ 0x102d4c, size 136 bytes
 // Doc: lmac_sub_init [util]: Initialize LMAC subsystem with parameter check
 // lmac_sub_init [util]: Initialize LMAC subsystem with parameter check
@@ -53,7 +69,7 @@ int  lmac_sub_init(int a1, int a2, unsigned int a3, int a4)
       v11 += v10;
       v13 += v8;
     }
-    while ( a3 > (unsigned __int8)v12 );
+    while ( a3 > (uint8_t)v12 );
   }
   result = sub_102B40(a1);
   *(uint32_t *)off_102DD8 = 1;

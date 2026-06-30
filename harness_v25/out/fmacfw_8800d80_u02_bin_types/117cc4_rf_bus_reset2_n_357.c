@@ -1,10 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_117D08;
+extern uint32_t off_117D0C;
+
 // rf_bus_reset2_n_357 @ 0x117cc4, size 66 bytes
 // Doc: rf_bus_reset2_n_357 [rf]: Resets RF bus and computes modulo-based index
 // rf_bus_reset2_n_357 [rf]: Resets RF bus and computes modulo-based index
 int  rf_bus_reset2_n_357(int a1)
 {
-  QWORD *v1; // r6
-  QWORD *v2; // r7
+  uint64_t *v1; // r6
+  uint64_t *v2; // r7
   int v3; // r2
   uint32_t *v4; // r4
   int result; // r0

@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1180FC;
+extern uint32_t dword_118100;
+extern uint32_t dword_1180F4;
+extern uint32_t dword_1180F8;
+
 // bt_scan_channel_parse @ 0x117ffc, size 246 bytes
 // Doc: bt_scan_channel_parse [bt]: Parses scan channel mask (0x1f000) and prepares scan state
 // bt_scan_channel_parse [bt]: Parses scan channel mask (0x1f000) and prepares scan state
@@ -15,7 +32,7 @@ uint64_t bt_scan_channel_parse()
   int v9; // r0
   int v10; // r0
   int v11; // r0
-  __int16 v12; // r7
+  int16_t v12; // r7
   char *v13; // r0
   int i; // r6
   int v15; // r2
@@ -34,9 +51,9 @@ uint64_t bt_scan_channel_parse()
   v6 = 0;
   do
   {
-    v7 = (unsigned __int8)v6;
+    v7 = (uint8_t)v6;
     bt_xtal_init_check(v5);
-    sub_118D80((unsigned __int8)v6++, v1, v5);
+    sub_118D80((uint8_t)v6++, v1, v5);
     sub_118D80(v7, v4, v5);
     v1 += 8;
     v5 += 8;
@@ -71,7 +88,7 @@ uint64_t bt_scan_channel_parse()
       do
         bt_fw_struct_reset_n_afc0();
       while ( sub_12D4F8(v3) );
-      sub_11AC28((unsigned __int8)i);
+      sub_11AC28((uint8_t)i);
     }
     v3 += 8;
   }

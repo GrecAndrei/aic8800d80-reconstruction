@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_11B020;
+extern uint32_t off_11B024;
+extern uint32_t dword_11B030;
+extern uint32_t dword_11B02C;
+extern uint32_t off_11B028;
+extern uint32_t off_11B034;
+extern uint32_t off_11B03C;
+extern uint32_t off_11B038;
+extern uint32_t dword_11B040;
+
 // rf_xosc_setup @ 0x11af78, size 166 bytes
 // Doc: rf_xosc_setup [rf]: Configure RF crystal oscillator parameters
 // rf_xosc_setup [rf]: Configure RF crystal oscillator parameters
@@ -21,7 +43,7 @@ int  rf_xosc_setup(int a1, int a2, int a3)
 
   v6 = sub_11E7AC(dword_11B020);
   v7 = (uint32_t *)v6;
-  if ( **(__int16 **)off_11B024 < 0 && !v6 )
+  if ( **(int16_t **)off_11B024 < 0 && !v6 )
     rf_cmd_send_n264(dword_11B030, dword_11B02C, 227);
   v8 = off_11B028;
   v9 = (char *)off_11B028 + 32;

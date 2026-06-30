@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11B88C;
+extern uint32_t off_11B890;
+extern uint32_t dword_11B894;
+
 // sub_11B70C @ 0x11b70c, size 382 bytes
 int  sub_11B70C(int a1)
 {
@@ -23,10 +39,10 @@ int  sub_11B70C(int a1)
   uint32_t *v22; // [sp+4h] [bp-4h] BYREF
 
   v1 = off_11B88C;
-  v2 = *((unsigned __int8 *)off_11B88C + 190);
-  v22 = nullptr;
+  v2 = *((uint8_t *)off_11B88C + 190);
+  v22 = 0;
   sub_116DF4(v2);
-  sub_11A7C0(*((unsigned __int8 *)v1 + 190));
+  sub_11A7C0(*((uint8_t *)v1 + 190));
   if ( !a1 )
     goto LABEL_24;
   v4 = *(uint32_t *)(a1 + 36);
@@ -49,7 +65,7 @@ int  sub_11B70C(int a1)
     }
     LODWORD(v9) = sub_11A800(a1, (int)&v22);
     v8 = v22;
-    HIDWORD(v9) = *(unsigned __int8 *)(*(uint32_t *)v5 + 1);
+    HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)v5 + 1);
     if ( v22 )
     {
       if ( !*(uint8_t *)(*(uint32_t *)v5 + 1) && (v22[14] & 0x200000) != 0 )
@@ -78,7 +94,7 @@ LABEL_25:
   if ( (*(uint16_t *)(a1 + 82) & 4) == 0 )
   {
 LABEL_24:
-    HIDWORD(v9) = *(unsigned __int8 *)(*(uint32_t *)off_11B890 + 1);
+    HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)off_11B890 + 1);
     goto LABEL_25;
   }
   v11 = *(uint32_t **)(a1 + 76);
@@ -92,7 +108,7 @@ LABEL_24:
   if ( v13 || (v14 = (uint16_t *)v11[7], (*v14 & 0x8000) == 0) )
   {
     v8 = v11 + 3;
-    HIDWORD(v9) = *(unsigned __int8 *)(*(uint32_t *)off_11B890 + 1);
+    HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)off_11B890 + 1);
   }
   else
   {
@@ -104,7 +120,7 @@ LABEL_24:
     v17 = v11[9];
     v11[8] -= 4;
     v11[9] = v17 - 4;
-    HIDWORD(v9) = *(unsigned __int8 *)(*(uint32_t *)v15 + 1);
+    HIDWORD(v9) = *(uint8_t *)(*(uint32_t *)v15 + 1);
     v8 = v11 + 3;
   }
 LABEL_21:
@@ -118,7 +134,7 @@ LABEL_11:
       {
         v20 = dword_11B894 + 84 * v2;
         HIDWORD(v9) = 1;
-        *(QWORD *)(v20 + 4) = v9;
+        *(uint64_t *)(v20 + 4) = v9;
         *(uint32_t *)v20 = v8;
       }
     }

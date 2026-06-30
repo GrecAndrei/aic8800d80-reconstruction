@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_136E64;
+extern uint32_t off_136E68;
+extern uint32_t dword_136E70;
+extern uint32_t dword_136E6C;
+
 // sub_136D6C @ 0x136d6c, size 246 bytes
 int  sub_136D6C(int a1, int a2)
 {
@@ -7,8 +24,8 @@ int  sub_136D6C(int a1, int a2)
   int v7; // r5
   int v8; // r6
   uint16_t *v9; // r2
-  __int16 v10; // r3
-  __int16 v11; // r1
+  int16_t v10; // r3
+  int16_t v11; // r1
   int v12; // r0
   int v13; // r0
   int v14; // r1
@@ -17,10 +34,10 @@ int  sub_136D6C(int a1, int a2)
   v2 = *(uint32_t *)(a1 + 72);
   if ( v2 )
   {
-    v5 = *(unsigned __int8 *)(v2 + 4);
-    if ( **(__int16 **)off_136E64 >= 0 || v5 != 2 )
+    v5 = *(uint8_t *)(v2 + 4);
+    if ( **(int16_t **)off_136E64 >= 0 || v5 != 2 )
     {
-      result = sub_118C44((v5 | *(unsigned __int8 *)(a1 + 1224)) != 0, 512);
+      result = sub_118C44((v5 | *(uint8_t *)(a1 + 1224)) != 0, 512);
       v7 = result;
       if ( !result )
         return result;
@@ -51,12 +68,12 @@ LABEL_4:
       v14 = *(uint32_t *)(v7 + 76);
       LODWORD(v15) = *(uint32_t *)(v14 + 28) + 23 + v13;
       HIDWORD(v15) = v13 + 28;
-      *(QWORD *)(v14 + 32) = v15;
+      *(uint64_t *)(v14 + 32) = v15;
       return rf_param_get_status(v7, 5);
     }
     goto LABEL_6;
   }
-  if ( **(__int16 **)off_136E64 < 0 )
+  if ( **(int16_t **)off_136E64 < 0 )
 LABEL_6:
     sub_12F46C(dword_136E70, dword_136E6C, 520);
   result = sub_118C44(1, 512);

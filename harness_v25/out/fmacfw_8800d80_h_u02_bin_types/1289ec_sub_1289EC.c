@@ -1,3 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_128A88;
+extern uint32_t dword_128A9C;
+extern uint32_t off_128A90;
+extern uint32_t off_128A8C;
+extern uint32_t off_128A94;
+extern uint32_t dword_128A98;
+
 // sub_1289EC @ 0x1289ec, size 154 bytes
 int  sub_1289EC(int a1, int a2, int a3)
 {
@@ -17,10 +36,10 @@ int  sub_1289EC(int a1, int a2, int a3)
   }
   else
   {
-    v4 = (unsigned __int8)(*(uint8_t *)(a1 + 115) + 1);
+    v4 = (uint8_t)(*(uint8_t *)(a1 + 115) + 1);
     v5 = *(uint32_t *)off_128A88;
     *(uint8_t *)(a1 + 115) = v4;
-    if ( *(unsigned __int8 *)(v5 + 1) == v4 )
+    if ( *(uint8_t *)(v5 + 1) == v4 )
     {
       v11 = dword_128A9C;
       *(uint8_t *)(a1 + 115) = 0;
@@ -30,16 +49,16 @@ int  sub_1289EC(int a1, int a2, int a3)
     }
     else
     {
-      v6 = *(unsigned __int8 *)(a1 + 108);
+      v6 = *(uint8_t *)(a1 + 108);
       if ( *(uint8_t *)(a1 + 108) )
       {
-        sub_118C84(*(unsigned __int8 *)(a1 + 116), a3, a1);
+        sub_118C84(*(uint8_t *)(a1 + 116), a3, a1);
         return 0;
       }
       else
       {
         v7 = off_128A90;
-        v8 = *((unsigned __int8 *)off_128A8C + 2);
+        v8 = *((uint8_t *)off_128A8C + 2);
         *((uint8_t *)off_128A90 + 28) = 1;
         if ( v8 )
           *(uint32_t *)off_128A94 &= ~0x80000000;

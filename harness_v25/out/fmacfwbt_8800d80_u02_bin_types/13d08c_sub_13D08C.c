@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_13D08C @ 0x13d08c, size 620 bytes
 int  sub_13D08C(int result, uint32_t *a2)
 {
@@ -9,7 +21,7 @@ int  sub_13D08C(int result, uint32_t *a2)
   unsigned int v7; // r4
   int v8; // r5
   unsigned int v9; // r3
-  __int16 v10; // lr
+  int16_t v10; // lr
   char v11; // lr
   int v12; // lr
   unsigned int v13; // r5
@@ -26,7 +38,7 @@ int  sub_13D08C(int result, uint32_t *a2)
   int v24; // r8
   int v25; // r2
   int v26; // r4
-  unsigned __int16 v27; // r12
+  uint16_t v27; // r12
   unsigned int v28; // r3
   unsigned int v29; // r12
   unsigned int v30; // r2
@@ -39,7 +51,7 @@ int  sub_13D08C(int result, uint32_t *a2)
   int v37; // r3
   unsigned int v38; // r6
 
-  v2 = *(unsigned __int16 *)(result + 184);
+  v2 = *(uint16_t *)(result + 184);
   if ( !*(uint16_t *)(result + 184) )
   {
     v10 = *(uint16_t *)(result + 184);
@@ -51,7 +63,7 @@ int  sub_13D08C(int result, uint32_t *a2)
   v5 = 0;
   while ( 1 )
   {
-    v6 = *(unsigned __int16 *)(v4 + 10);
+    v6 = *(uint16_t *)(v4 + 10);
     v7 = v6 >> 11;
     if ( (v6 & 0x2000) != 0 )
     {
@@ -68,12 +80,12 @@ int  sub_13D08C(int result, uint32_t *a2)
     }
     if ( !v8 && v9 <= 3 || !*(uint8_t *)(v4 + 13) )
       goto LABEL_11;
-    if ( *(unsigned __int16 *)(v4 + 8) > 0x1998u )
+    if ( *(uint16_t *)(v4 + 8) > 0x1998u )
       break;
     v5 = 1;
 LABEL_11:
     v4 += 12;
-    if ( result + 12 + 12 * (unsigned __int16)(v2 - 1) == v4 )
+    if ( result + 12 + 12 * (uint16_t)(v2 - 1) == v4 )
     {
       LOBYTE(v10) = 8 * v5;
       goto LABEL_13;
@@ -91,12 +103,12 @@ LABEL_13:
   }
   else
   {
-    v13 = (unsigned __int16)v3;
-    v12 = (unsigned __int16)v3;
+    v13 = (uint16_t)v3;
+    v12 = (uint16_t)v3;
     v14 = 2;
   }
   *(uint16_t *)(result + 136) = v13;
-  v15 = *(unsigned __int16 *)(result + 12 * v12 + 10);
+  v15 = *(uint16_t *)(result + 12 * v12 + 10);
   v16 = v15 >> 11;
   if ( (v15 & 0x2000) != 0 )
   {
@@ -121,7 +133,7 @@ LABEL_19:
       v19 = 0;
       do
       {
-        v22 = *(unsigned __int16 *)(result + 12 * v19 + 10);
+        v22 = *(uint16_t *)(result + 12 * v19 + 10);
         v23 = v22 >> 11;
         v24 = (v22 >> 11) & 6;
         if ( (v22 & 0x2000) != 0 )
@@ -137,7 +149,7 @@ LABEL_19:
         {
           v20 = v22 & 0x7F;
         }
-        v18 = (unsigned __int16)(v18 + 1);
+        v18 = (uint16_t)(v18 + 1);
         if ( !v24 )
         {
           v21 = 3 * v19;
@@ -162,7 +174,7 @@ LABEL_57:
     v25 = result + 12 * (v2 - v14);
     while ( 1 )
     {
-      v26 = *(unsigned __int8 *)(v25 + 14);
+      v26 = *(uint8_t *)(v25 + 14);
       v27 = v14 + 1;
       v25 -= 12;
       if ( v26 )
@@ -172,13 +184,13 @@ LABEL_57:
         goto LABEL_57;
     }
     LOWORD(v29) = v2 - v14;
-    v28 = (unsigned __int16)(v14 + 1);
-    v29 = (unsigned __int16)v29;
+    v28 = (uint16_t)(v14 + 1);
+    v29 = (uint16_t)v29;
     *(uint16_t *)(result + 138) = v29;
     if ( v2 <= v28 )
     {
 LABEL_56:
-      v30 = (unsigned __int16)v29;
+      v30 = (uint16_t)v29;
     }
     else
     {
@@ -187,7 +199,7 @@ LABEL_56:
       v32 = result + 12 * v30;
       while ( 1 )
       {
-        v33 = *(unsigned __int8 *)(v32 + 14);
+        v33 = *(uint8_t *)(v32 + 14);
         v32 -= 12;
         if ( v33 )
           break;
@@ -197,21 +209,21 @@ LABEL_56:
     }
   }
   v34 = a2[v30];
-  v35 = *(unsigned __int16 *)(result + 12 * v30 + 8);
+  v35 = *(uint16_t *)(result + 12 * v30 + 8);
   if ( v29 )
   {
     v36 = result;
     v37 = 0;
     while ( 1 )
     {
-      if ( !*(uint8_t *)(v36 + 14) || (unsigned __int16)v37 == v13 )
+      if ( !*(uint8_t *)(v36 + 14) || (uint16_t)v37 == v13 )
         goto LABEL_47;
-      v38 = *(unsigned __int16 *)(v36 + 8);
+      v38 = *(uint16_t *)(v36 + 8);
       if ( v38 > 0xF332 )
       {
         if ( a2[v37] >= v34 )
         {
-          v35 = *(unsigned __int16 *)(v36 + 8);
+          v35 = *(uint16_t *)(v36 + 8);
           v34 = a2[v37];
           LOWORD(v30) = v37;
         }
@@ -222,16 +234,16 @@ LABEL_56:
 LABEL_47:
         ++v37;
         v36 += 12;
-        if ( v29 <= (unsigned __int16)v37 )
+        if ( v29 <= (uint16_t)v37 )
           break;
       }
       else
       {
         v34 = a2[v37];
         LOWORD(v30) = v37++;
-        v35 = *(unsigned __int16 *)(v36 + 8);
+        v35 = *(uint16_t *)(v36 + 8);
         v36 += 12;
-        if ( v29 <= (unsigned __int16)v37 )
+        if ( v29 <= (uint16_t)v37 )
           break;
       }
     }

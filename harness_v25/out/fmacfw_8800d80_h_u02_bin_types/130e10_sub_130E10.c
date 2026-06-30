@@ -1,17 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_130E10 @ 0x130e10, size 266 bytes
-int  sub_130E10(unsigned __int8 *a1, int a2, uint8_t *a3, int a4)
+int  sub_130E10(uint8_t *a1, int a2, uint8_t *a3, int a4)
 {
   unsigned int v8; // r7
   unsigned int v9; // r0
   uint8_t *v10; // r8
   uint8_t *v11; // r9
-  unsigned __int8 *v12; // r0
+  uint8_t *v12; // r0
   int v13; // r5
   unsigned int v14; // r3
   unsigned int v15; // r2
-  __int16 v16; // r3
+  int16_t v16; // r3
   int v18; // r2
-  bool v19; // [sp+7h] [bp-1h] BYREF
+  int v19; // [sp+7h] [bp-1h] BYREF
 
   v8 = (unsigned int)sub_12D8F8(a1, a2);
   v9 = (unsigned int)sub_12D938(a1, a2);
@@ -32,15 +44,15 @@ int  sub_130E10(unsigned __int8 *a1, int a2, uint8_t *a3, int a4)
   }
   if ( v8 )
   {
-    v13 = *(unsigned __int8 *)(v8 + 4);
+    v13 = *(uint8_t *)(v8 + 4);
     *a3 = *(uint8_t *)(v8 + 2);
-    v14 = *(unsigned __int8 *)(v8 + 3);
+    v14 = *(uint8_t *)(v8 + 3);
   }
   else
   {
-    v13 = (unsigned __int8)v10[5];
+    v13 = (uint8_t)v10[5];
     *a3 = v10[2];
-    v14 = (unsigned __int8)v10[4];
+    v14 = (uint8_t)v10[4];
   }
   if ( !v13 )
     v13 = 2;
@@ -48,7 +60,7 @@ int  sub_130E10(unsigned __int8 *a1, int a2, uint8_t *a3, int a4)
   v15 = v14 - 1;
   if ( v14 > 0xE )
   {
-    if ( (unsigned __int8)v15 <= 0xB0u )
+    if ( (uint8_t)v15 <= 0xB0u )
     {
       v16 = 5 * v14 + 5000;
       goto LABEL_17;
@@ -72,7 +84,7 @@ LABEL_17:
   *(uint16_t *)(a4 + 6) = 0;
   if ( v11 )
   {
-    v18 = (unsigned __int8)v11[2];
+    v18 = (uint8_t)v11[2];
     if ( v18 == 1 )
     {
       *(uint16_t *)(a4 + 4) = v16 + 10;

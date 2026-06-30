@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C91C;
+extern uint32_t dword_11C920;
+
 // list_init_or_dequeue @ 0x11c8d0, size 74 bytes
 // Doc: list_init_or_dequeue [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals
 // list_init_or_dequeue [util]: Initialize/dequeue a list node using 0x188bbc and 0xfffff000 globals

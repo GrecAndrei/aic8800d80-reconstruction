@@ -1,10 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10E834;
+extern uint32_t off_10E838;
+extern uint32_t off_10E83C;
+extern uint32_t dword_10E840;
+extern uint32_t dword_10E844;
+extern uint32_t dword_10E848;
+
 // sub_10E694 @ 0x10e694, size 416 bytes
 int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r4
   unsigned int *v4; // r6
   unsigned int *v5; // r5
-  __int16 *v8; // r5
+  int16_t *v8; // r5
   int v9; // r10
   int v10; // r2
   unsigned int *v11; // r7
@@ -28,7 +47,7 @@ int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (__int16 *)off_10E83C;
+  v8 = (int16_t *)off_10E83C;
   v9 = sub_10DF08();
   sub_12ECB0(dword_10E840, a1, a2);
   v10 = *v8;
@@ -67,7 +86,7 @@ int  sub_10E694(unsigned int a1, unsigned int a2, unsigned int *a3)
     v15 = v9;
     v9 = sub_10DF08();
     sub_12ECB0(dword_10E844, v13, v3);
-    v16 = *(__int16 *)off_10E83C;
+    v16 = *(int16_t *)off_10E83C;
     v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )

@@ -1,3 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1045B4;
+extern uint32_t off_1045BC;
+extern uint32_t dword_1045C0;
+extern uint32_t off_1045B8;
+extern uint32_t dword_1045C4;
+extern uint32_t off_1045C8;
+extern uint32_t off_1045CC;
+extern uint32_t dword_1045D0;
+extern uint32_t dword_1045D4;
+extern uint32_t dword_1045D8;
+extern uint32_t dword_1045DC;
+extern uint32_t dword_1045E0;
+extern uint32_t off_1045E4;
+
 // crypto_calibrate @ 0x1044e0, size 212 bytes
 // Doc: crypto_calibrate [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block
 // crypto_calibrate [mac]: Calibrate crypto engine via MMIO writes to 0x403420xx block

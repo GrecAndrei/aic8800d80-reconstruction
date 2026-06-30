@@ -1,7 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11E174;
+extern uint32_t off_11E15C;
+extern uint32_t dword_11E16C;
+extern uint32_t dword_11E168;
+extern uint32_t off_11E160;
+extern uint32_t off_11E164;
+extern uint32_t dword_11E170;
+
 // sub_11E078 @ 0x11e078, size 226 bytes
 uint32_t * sub_11E078(char *a1)
 {
-  __int16 **v1; // r9
+  int16_t **v1; // r9
   char *v2; // r4
   int v3; // r8
   char *v5; // r5
@@ -17,11 +37,11 @@ uint32_t * sub_11E078(char *a1)
   int v15; // r1
   uint64_t v16; // r2
 
-  v1 = (__int16 **)off_11E174;
+  v1 = (int16_t **)off_11E174;
   v2 = *((char **)off_11E15C + 7);
   v3 = *((uint32_t *)a1 - 1);
   v5 = a1 - 4;
-  if ( **(__int16 **)off_11E174 < 0 && a1 <= v2 )
+  if ( **(int16_t **)off_11E174 < 0 && a1 <= v2 )
     rf_cmd_send_n264(dword_11E16C, dword_11E168, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -83,7 +103,7 @@ LABEL_20:
     v15 = *((uint32_t *)v14 + 1);
     LODWORD(v16) = *(uint32_t *)v14;
     HIDWORD(v16) = v13 + v15;
-    *(QWORD *)v2 = v16;
+    *(uint64_t *)v2 = v16;
   }
 LABEL_13:
   if ( v8 )

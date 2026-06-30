@@ -1,3 +1,15 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // rf_chan_param_set_n_1b8 @ 0x1191b8, size 94 bytes
 // Doc: rf_chan_param_set_n_1b8 [rf]: Store channel/band parameters into RF context byte fields
 // rf_chan_param_set_n_1b8 [rf]: Store channel/band parameters into RF context byte fields
@@ -13,7 +25,7 @@ int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2)
   v2 = (char)a1[118];
   result = (char)a1[117];
   v5 = a1[119];
-  v6 = (unsigned __int8)a1[120];
+  v6 = (uint8_t)a1[120];
   a1[117] = a2;
   if ( v2 )
   {

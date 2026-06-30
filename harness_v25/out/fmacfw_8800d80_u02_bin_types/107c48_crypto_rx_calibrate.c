@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_107DEC;
+extern uint32_t off_107DF0;
+extern uint32_t off_107DFC;
+extern uint32_t dword_107E00;
+extern uint32_t off_107DF4;
+extern uint32_t dword_107DF8;
+extern uint32_t dword_107E04;
+
 // crypto_rx_calibrate @ 0x107c48, size 418 bytes
 // Doc: crypto_rx_calibrate [rx]: Initialize crypto/RX calibration registers and MMIO setup
 // crypto_rx_calibrate [rx]: Initialize crypto/RX calibration registers and MMIO setup
@@ -14,7 +34,7 @@ int  crypto_rx_calibrate(int a1)
   int v10; // r3
   int v11; // r3
   int v12; // r6
-  bool v13; // cc
+  int v13; // cc
   uint32_t *v14; // r4
   int v15; // r3
   int v16; // r11

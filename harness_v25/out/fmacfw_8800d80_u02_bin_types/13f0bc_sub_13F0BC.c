@@ -1,19 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_13F164;
+extern uint32_t dword_13F168;
+extern uint32_t dword_13F170;
+extern uint32_t dword_13F16C;
+extern uint32_t dword_13F178;
+extern uint32_t dword_13F174;
+
 // sub_13F0BC @ 0x13f0bc, size 168 bytes
 int  sub_13F0BC(int a1)
 {
-  __int16 **v1; // r7
+  int16_t **v1; // r7
   int v2; // r6
-  __int16 *v3; // r8
+  int16_t *v3; // r8
   unsigned int v4; // r5
   unsigned int v6; // r0
   int v7; // r0
   uint32_t v9[10]; // [sp+0h] [bp-28h] BYREF
 
-  v1 = (__int16 **)off_13F164;
+  v1 = (int16_t **)off_13F164;
   v2 = dword_13F168;
-  v3 = *(__int16 **)off_13F164;
+  v3 = *(int16_t **)off_13F164;
   v4 = *(uint32_t *)(dword_13F168 + 696 * a1 + 340);
-  if ( **(__int16 **)off_13F164 < 0 && !v4 )
+  if ( **(int16_t **)off_13F164 < 0 && !v4 )
   {
     sub_12F46C(dword_13F170, dword_13F16C, 3297);
     v3 = *v1;
@@ -27,7 +46,7 @@ int  sub_13F0BC(int a1)
       sub_12F46C(dword_13F178, dword_13F16C, 3301);
       if ( **v1 >= 0 )
         goto LABEL_3;
-      v6 = *(unsigned __int16 *)(v4 + 184);
+      v6 = *(uint16_t *)(v4 + 184);
     }
     if ( v6 > 0xA )
       sub_12F46C(dword_13F174, dword_13F16C, 3302);

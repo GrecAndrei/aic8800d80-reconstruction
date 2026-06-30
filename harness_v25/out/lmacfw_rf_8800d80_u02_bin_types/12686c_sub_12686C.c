@@ -1,9 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1268D8;
+extern uint32_t dword_1268DC;
+extern uint32_t dword_1268E8;
+extern uint32_t dword_1268E0;
+extern uint32_t dword_1268E4;
+
 // sub_12686C @ 0x12686c, size 108 bytes
 // Doc: sub_122686C [rf]: Reads flag byte from global base, RF state poll
 // sub_122686C [rf]: Reads flag byte from global base, RF state poll
 int  sub_12686C(int result)
 {
-  unsigned __int16 *v1; // r7
+  uint16_t *v1; // r7
   int *v2; // r1
   int v3; // r12
   int v4; // r6
@@ -15,7 +33,7 @@ int  sub_12686C(int result)
   unsigned int v10; // r2
   int v11; // r2
 
-  v1 = (unsigned __int16 *)off_1268D8;
+  v1 = (uint16_t *)off_1268D8;
   if ( !*((uint8_t *)off_1268D8 + 36) )
   {
     v2 = (int *)dword_1268DC;

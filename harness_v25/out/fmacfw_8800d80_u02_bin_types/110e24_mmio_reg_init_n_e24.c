@@ -1,3 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110FC8;
+extern uint32_t off_110FC4;
+extern uint32_t off_110FF8;
+extern uint32_t off_110FDC;
+extern uint32_t dword_110FCC;
+extern uint32_t off_110FD0;
+extern uint32_t dword_110FD4;
+extern uint32_t off_110FD8;
+extern uint32_t off_110FE0;
+extern uint32_t off_110FE4;
+extern uint32_t off_110FE8;
+extern uint32_t off_110FEC;
+extern uint32_t dword_110FF0;
+extern uint32_t off_110FF4;
+extern uint32_t off_110FFC;
+extern uint32_t dword_111000;
+extern uint32_t dword_111004;
+extern uint32_t dword_111008;
+extern uint32_t dword_11100C;
+extern uint32_t off_111014;
+extern uint32_t off_111010;
+extern uint32_t dword_111018;
+
 // mmio_reg_init_n_e24 @ 0x110e24, size 414 bytes
 // Doc: mmio_reg_init_n_e24 [mmio]: Initializes MMIO control registers at 0x40240000 region
 // mmio_reg_init_n_e24 [mmio]: Initializes MMIO control registers at 0x40240000 region

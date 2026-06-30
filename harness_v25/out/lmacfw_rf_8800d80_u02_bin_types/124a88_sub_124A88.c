@@ -1,12 +1,28 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_124B00;
+extern uint32_t off_124AF8;
+extern uint32_t dword_124AFC;
+
 // sub_124A88 @ 0x124a88, size 110 bytes
 // Doc: sub_1224A88 [unknown]: Unknown helper, dispatches on 2-way state
 // sub_1224A88 [unknown]: Unknown helper, dispatches on 2-way state
-int  sub_124A88(int a1, unsigned __int8 **a2)
+int  sub_124A88(int a1, uint8_t **a2)
 {
   int *v3; // r6
   unsigned int v4; // r5
   int v5; // r3
-  unsigned __int8 *v6; // r0
+  uint8_t *v6; // r0
   int v7; // r4
   int v8; // r0
   int v9; // r2
@@ -21,11 +37,11 @@ int  sub_124A88(int a1, unsigned __int8 **a2)
   else
   {
     v3 = (int *)off_124AF8;
-    v4 = parse_int(a2[1], nullptr, 0xAu);
-    v5 = parse_int(a2[2], nullptr, 0xAu);
+    v4 = parse_int(a2[1], 0, 0xAu);
+    v5 = parse_int(a2[2], 0, 0xAu);
     v6 = a2[3];
     v7 = v5;
-    v8 = parse_int(v6, nullptr, 0xAu);
+    v8 = parse_int(v6, 0, 0xAu);
     v9 = v8;
     if ( *v3 )
     {

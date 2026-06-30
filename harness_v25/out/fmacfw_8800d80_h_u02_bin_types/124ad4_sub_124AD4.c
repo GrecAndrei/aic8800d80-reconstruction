@@ -1,5 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_124B60;
+extern uint32_t off_124B64;
+extern uint32_t off_124B68;
+extern uint32_t off_124B6C;
+extern uint32_t dword_124B70;
+
 // sub_124AD4 @ 0x124ad4, size 140 bytes
-int  sub_124AD4(unsigned __int8 *a1, void *a2)
+int  sub_124AD4(uint8_t *a1, void *a2)
 {
   int v2; // r3
   unsigned int v3; // r2

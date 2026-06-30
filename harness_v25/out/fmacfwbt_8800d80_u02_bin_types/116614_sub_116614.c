@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1166E8;
+extern uint32_t dword_1166F8;
+extern uint32_t dword_1166EC;
+extern uint32_t off_1166F0;
+extern uint32_t dword_1166F4;
+
 // sub_116614 @ 0x116614, size 210 bytes
 int sub_116614()
 {
@@ -34,10 +52,10 @@ int sub_116614()
     v0[7] = 0;
     v0[8] = 0;
     v0[2] = v5;
-    v0[9] = (unsigned __int16)(*v3 << 8) | (unsigned __int8)*(uint32_t *)v3;
-    v0[10] = (unsigned __int16)(*v3 << 8) | (unsigned __int8)*(uint32_t *)v3;
-    v0[11] = (unsigned __int16)(*v3 << 8) | (unsigned __int8)*(uint32_t *)v3;
-    v6 = (unsigned __int16)(*v3 << 8) | (unsigned __int8)*(uint32_t *)v3;
+    v0[9] = (uint16_t)(*v3 << 8) | (uint8_t)*(uint32_t *)v3;
+    v0[10] = (uint16_t)(*v3 << 8) | (uint8_t)*(uint32_t *)v3;
+    v0[11] = (uint16_t)(*v3 << 8) | (uint8_t)*(uint32_t *)v3;
+    v6 = (uint16_t)(*v3 << 8) | (uint8_t)*(uint32_t *)v3;
     v0[14] = 4128768;
     v0[12] = v6;
     v0[13] = 8704;
@@ -64,7 +82,7 @@ int sub_116614()
     v13 = *v10;
     v14 = *v10;
     v7[10] = 0;
-    v7[9] = (unsigned __int16)((uint16_t)v13 << 8) | (unsigned __int8)v14;
+    v7[9] = (uint16_t)((uint16_t)v13 << 8) | (uint8_t)v14;
     v7[11] = 0;
     v7[12] = 0;
     v7[13] = 0;

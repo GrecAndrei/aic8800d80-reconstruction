@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_126D5C;
+extern uint32_t off_126D58;
+extern uint32_t off_126D60;
+extern uint32_t off_126E90;
+
 // sub_126A48 @ 0x126a48, size 1096 bytes
 int  sub_126A48(int a1, int a2, unsigned int a3)
 {
@@ -32,13 +49,13 @@ int  sub_126A48(int a1, int a2, unsigned int a3)
   int v33; // r0
   unsigned int v34; // r3
   int v35; // r3
-  unsigned __int8 *v36; // r1
-  bool v37; // zf
+  uint8_t *v36; // r1
+  int v37; // zf
   int v38; // r3
-  unsigned __int8 *v39; // r6
+  uint8_t *v39; // r6
   int v40; // r6
   int v41; // r7
-  bool v42; // cf
+  int v42; // cf
   int v43; // r6
   int v44; // r8
   int v45; // r0
@@ -65,7 +82,7 @@ int  sub_126A48(int a1, int a2, unsigned int a3)
   v3 = dword_126D5C;
   v4 = *((uint32_t *)off_126D58 + 4);
   v5 = *(uint32_t *)(a1 + 72);
-  v6 = *(unsigned __int8 *)(v4 + 8);
+  v6 = *(uint8_t *)(v4 + 8);
   v7 = dword_126D5C + 1320 * v6;
   v52 = *(uint32_t *)(v4 + 4) - 4000;
   v53 = v52 - a2 - sub_10186C();
@@ -73,13 +90,13 @@ int  sub_126A48(int a1, int a2, unsigned int a3)
   {
     v57 = *(uint32_t *)(v4 + 4);
     v10 = sub_10186C();
-    v11 = *(unsigned __int8 *)(v5 + 27);
+    v11 = *(uint8_t *)(v5 + 27);
     v61 = v10;
     v12 = v57 - 4000;
     v58 = v57 - 4000 - v10;
     if ( v11 == 255 )
     {
-      v13 = *(unsigned __int8 *)(a1 + 86);
+      v13 = *(uint8_t *)(a1 + 86);
       v63 = v12;
       if ( v13 == 255 )
       {
@@ -170,14 +187,14 @@ LABEL_26:
     return result;
   v59 = *(uint32_t *)(v4 + 4);
   v21 = sub_10186C();
-  v62 = *(unsigned __int8 *)(v5 + 27);
+  v62 = *(uint8_t *)(v5 + 27);
   v22 = v59 - v21;
   v23 = v21;
   v24 = v55;
   v25 = v59 - v21 - 4000;
   if ( v62 == 255 )
   {
-    v33 = *(unsigned __int8 *)(a1 + 86);
+    v33 = *(uint8_t *)(a1 + 86);
     v56 = v22;
     if ( v33 == 255 )
     {
@@ -209,25 +226,25 @@ LABEL_51:
     if ( a2 != v28 )
     {
 LABEL_40:
-      v35 = *(unsigned __int8 *)(v5 + 24);
+      v35 = *(uint8_t *)(v5 + 24);
       if ( v35 == 2 )
       {
-        if ( (unsigned __int8)v29[24] == 255 )
+        if ( (uint8_t)v29[24] == 255 )
         {
           v38 = 1;
 LABEL_44:
-          v39 = (unsigned __int8 *)&v29[28 * v38];
+          v39 = (uint8_t *)&v29[28 * v38];
           if ( v39[24] == 255 )
-            v36 = nullptr;
+            v36 = 0;
           else
             v36 = v39;
           goto LABEL_47;
         }
-        v36 = (unsigned __int8 *)off_126E90;
+        v36 = (uint8_t *)off_126E90;
       }
       else
       {
-        v36 = (unsigned __int8 *)&v29[28 * v35 + 28];
+        v36 = (uint8_t *)&v29[28 * v35 + 28];
         if ( v36[24] == 255 )
         {
           v37 = v35 == 1;
@@ -280,11 +297,11 @@ LABEL_39:
       goto LABEL_39;
     }
     v29 = (char *)off_126E90;
-    v48 = *(unsigned __int8 *)(*(uint32_t *)(v3 + 1320 * v62 + 72) + 24);
+    v48 = *(uint8_t *)(*(uint32_t *)(v3 + 1320 * v62 + 72) + 24);
     v49 = v48 + 1;
     if ( v48 == 2 )
     {
-      if ( *((unsigned __int8 *)off_126E90 + 24) != 255 )
+      if ( *((uint8_t *)off_126E90 + 24) != 255 )
       {
         v49 = 0;
         goto LABEL_77;
@@ -293,15 +310,15 @@ LABEL_39:
     }
     else
     {
-      if ( *((unsigned __int8 *)off_126E90 + 28 * v49 + 24) != 255 )
+      if ( *((uint8_t *)off_126E90 + 28 * v49 + 24) != 255 )
         goto LABEL_77;
       v49 = v48 + 2;
       if ( v48 == 1 )
         v49 = 0;
     }
-    if ( *((unsigned __int8 *)off_126E90 + 28 * v49 + 24) == 255 )
+    if ( *((uint8_t *)off_126E90 + 28 * v49 + 24) == 255 )
     {
-      v50 = nullptr;
+      v50 = 0;
 LABEL_70:
       sub_126938(a2, (int)v50, 0);
       sub_126938(v47, *(uint32_t *)(v3 + 1320 * v62 + 72), 0);

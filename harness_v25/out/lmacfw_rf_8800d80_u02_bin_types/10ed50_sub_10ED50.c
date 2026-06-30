@@ -1,3 +1,26 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10EE54;
+extern uint32_t dword_10EE58;
+extern uint32_t dword_10EE5C;
+extern uint32_t off_10EE60;
+extern uint32_t off_10EE78;
+extern uint32_t dword_10EE64;
+extern uint32_t off_10EE68;
+extern uint32_t off_10EE74;
+extern uint32_t off_10EE6C;
+extern uint32_t dword_10EE70;
+
 // sub_10ED50 @ 0x10ed50, size 260 bytes
 // Doc: sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
 // sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
@@ -18,7 +41,7 @@ int  sub_10ED50(unsigned int *a1)
   unsigned int v13; // r6
   int result; // r0
   uint32_t v16[2]; // [sp+Ch] [bp-Ch] BYREF
-  __int16 v17; // [sp+14h] [bp-4h]
+  int16_t v17; // [sp+14h] [bp-4h]
 
   v1 = off_10EE54;
   v2 = dword_10EE58;
@@ -35,7 +58,7 @@ int  sub_10ED50(unsigned int *a1)
   *v4 &= ~1u;
   v16[0] = v6;
   v16[1] = 5610;
-  sub_102908((unsigned __int8 *)v16, 0);
+  sub_102908((uint8_t *)v16, 0);
   v8 = (int *)off_10EE6C;
   v9 = dword_10EE70;
   *v5 |= 0x80000000;

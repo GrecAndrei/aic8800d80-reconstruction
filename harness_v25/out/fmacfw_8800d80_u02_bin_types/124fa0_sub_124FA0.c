@@ -1,3 +1,21 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_125030;
+extern uint32_t dword_125028;
+extern uint32_t dword_125034;
+extern uint32_t off_125038;
+extern uint32_t dword_12502C;
+
 // sub_124FA0 @ 0x124fa0, size 134 bytes
 int  sub_124FA0(uint8_t *a1, int a2, int a3)
 {
@@ -13,7 +31,7 @@ int  sub_124FA0(uint8_t *a1, int a2, int a3)
   if ( (a2 & 0x800000) != 0 )
   {
     result = msg_parse(dword_125030, dword_125028, a3);
-    v9 = (unsigned __int8)a1[35];
+    v9 = (uint8_t)a1[35];
     a1[668] = 0;
     if ( v9 <= 0x23 )
     {
@@ -26,10 +44,10 @@ int  sub_124FA0(uint8_t *a1, int a2, int a3)
     v4 = a1[668];
     v5 = dword_125028;
     v6 = dword_12502C;
-    v7 = (unsigned __int8)(v4 + 1);
+    v7 = (uint8_t)(v4 + 1);
     a1[668] = v7;
     result = msg_parse(v6, v5, v7);
-    if ( (unsigned __int8)a1[668] > 9u )
+    if ( (uint8_t)a1[668] > 9u )
     {
       v10 = (uint8_t *)sub_12C92C(125, 13, 0, 8);
       *v10 = a1[35];

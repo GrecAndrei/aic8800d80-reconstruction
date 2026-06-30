@@ -1,7 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
 // sub_130A20 @ 0x130a20, size 52 bytes
 // Doc: sub_1230A20 [util]: Store packed halfword values into buffer
 // sub_1230A20 [util]: Store packed halfword values into buffer
-int  sub_130A20(int a1, __int16 a2, __int16 a3, __int16 a4, char *a5)
+int  sub_130A20(int a1, int16_t a2, int16_t a3, int16_t a4, char *a5)
 {
   char *v5; // r2
   uint8_t *v6; // r3

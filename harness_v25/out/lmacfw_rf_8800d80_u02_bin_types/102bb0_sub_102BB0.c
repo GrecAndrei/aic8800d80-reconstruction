@@ -1,5 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_102D18;
+extern uint32_t dword_102D48;
+extern uint32_t dword_102D40;
+extern uint32_t dword_102D1C;
+extern uint32_t dword_102D20;
+extern uint32_t off_102D24;
+extern uint32_t off_102D28;
+extern uint32_t off_102D44;
+extern uint32_t off_102D2C;
+extern uint32_t dword_102D34;
+extern uint32_t dword_102D30;
+extern uint32_t dword_102D38;
+extern uint32_t dword_102D3C;
+
 // sub_102BB0 @ 0x102bb0, size 358 bytes
-int  sub_102BB0(int a1, unsigned __int16 *a2)
+int  sub_102BB0(int a1, uint16_t *a2)
 {
   unsigned int v2; // r7
   unsigned int v4; // r11
@@ -20,7 +46,7 @@ int  sub_102BB0(int a1, unsigned __int16 *a2)
   char *v19; // r7
   int v20; // r4
   int v21; // t1
-  unsigned __int16 *v22; // r1
+  uint16_t *v22; // r1
   int v23; // r3
   int v24; // r5
   int v25; // r1
@@ -39,8 +65,8 @@ int  sub_102BB0(int a1, unsigned __int16 *a2)
   v27 = 0;
   while ( ((1 << v4) & a1) == 0 )
   {
-    v7 = (unsigned __int16)v4;
-    if ( (unsigned __int16)v4 == 5 )
+    v7 = (uint16_t)v4;
+    if ( (uint16_t)v4 == 5 )
       goto LABEL_10;
 LABEL_4:
     ++v4;
@@ -51,22 +77,22 @@ LABEL_4:
   do
   {
     v10 = *v8;
-    sub_11F74C(0x2000, v5, v4, v9, (unsigned __int16)(*v8 >> 11));
-    v11 = *(unsigned __int16 *)(v2 + 2);
+    sub_11F74C(0x2000, v5, v4, v9, (uint16_t)(*v8 >> 11));
+    v11 = *(uint16_t *)(v2 + 2);
     v2 += 2;
     v12 = dword_102D20;
     v13 = v10 & v6 | (v11 << 11);
     *v8 = v13;
     v8 += 8;
     v14 = v9++;
-    sub_11F74C(0x2000, v12, v4, v14, (unsigned __int16)(v13 >> 11));
+    sub_11F74C(0x2000, v12, v4, v14, (uint16_t)(v13 >> 11));
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
     goto LABEL_4;
-  v7 = (unsigned __int16)v4;
+  v7 = (uint16_t)v4;
   v27 = 1;
-  if ( (unsigned __int16)v4 != 5 )
+  if ( (uint16_t)v4 != 5 )
     goto LABEL_4;
 LABEL_10:
   result = sub_102B40(0);
@@ -106,7 +132,7 @@ LABEL_10:
   }
   if ( v2 < v7 )
   {
-    v17 = (char *)&v29 + 4 * v2 + 4 * (unsigned __int16)(v7 - 1 - v2) + 4;
+    v17 = (char *)&v29 + 4 * v2 + 4 * (uint16_t)(v7 - 1 - v2) + 4;
     v18 = dword_102D40;
     v19 = (char *)&v29 + 4 * v2;
     do

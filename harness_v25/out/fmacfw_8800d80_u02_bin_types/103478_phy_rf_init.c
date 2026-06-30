@@ -1,3 +1,55 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1035E0;
+extern uint32_t off_1035DC;
+extern uint32_t off_1035E4;
+extern uint32_t off_1035E8;
+extern uint32_t dword_1035EC;
+extern uint32_t off_1035F0;
+extern uint32_t off_103600;
+extern uint32_t off_103B38;
+extern uint32_t off_103B34;
+extern uint32_t off_1035F4;
+extern uint32_t off_1035F8;
+extern uint32_t off_103B48;
+extern uint32_t off_103B4C;
+extern uint32_t off_1035FC;
+extern uint32_t off_103914;
+extern uint32_t off_103918;
+extern uint32_t off_10391C;
+extern uint32_t off_103920;
+extern uint32_t off_103924;
+extern uint32_t off_103928;
+extern uint32_t dword_10397C;
+extern uint32_t dword_103980;
+extern uint32_t off_103B3C;
+extern uint32_t off_103B64;
+extern uint32_t dword_103B68;
+extern uint32_t dword_103B60;
+extern uint32_t dword_103B58;
+extern uint32_t dword_103B5C;
+extern uint32_t off_103B50;
+extern uint32_t dword_103B54;
+extern uint32_t dword_10392C;
+extern uint32_t dword_103B40;
+extern uint32_t off_103B44;
+extern uint32_t dword_103934;
+extern uint32_t off_103938;
+extern uint32_t off_103930;
+extern uint32_t dword_10393C;
+extern uint32_t off_103940;
+extern uint32_t off_103944;
+
 // phy_rf_init @ 0x103478, size 1722 bytes
 // Doc: phy_rf_init [rf]: Initialize PHY/RF subsystem hardware
 // phy_rf_init [rf]: Initialize PHY/RF subsystem hardware
@@ -40,8 +92,8 @@ void __noreturn phy_rf_init()
   int v34; // r0
   int v35; // r9
   unsigned uint64_t v36; // kr00_8
-  bool v37; // zf
-  unsigned __int8 v38; // r2
+  int v37; // zf
+  uint8_t v38; // r2
   int v39; // r3
   unsigned int v40; // r1
   int v41; // r2
@@ -49,7 +101,7 @@ void __noreturn phy_rf_init()
   int v43; // r3
   int *v44; // r4
   int j; // r4
-  unsigned __int8 v46; // r2
+  uint8_t v46; // r2
   int *v47; // r2
   int v48; // r3
   int v49; // r1
@@ -72,7 +124,7 @@ void __noreturn phy_rf_init()
   int v66; // r2
   int v67; // r11
   uint32_t *v68; // r6
-  unsigned __int8 *v69; // r4
+  uint8_t *v69; // r4
   char *v70; // r7
   int n; // r5
   int v72; // t1
@@ -91,7 +143,7 @@ void __noreturn phy_rf_init()
   uint8_t *v85; // [sp+4h] [bp-30h]
   uint8_t v86[4]; // [sp+Ch] [bp-28h] BYREF
   uint32_t v87[3]; // [sp+10h] [bp-24h] BYREF
-  unsigned __int8 v88[24]; // [sp+1Ch] [bp-18h] BYREF
+  uint8_t v88[24]; // [sp+1Ch] [bp-18h] BYREF
 
   v0 = off_1035E0;
   *((uint32_t *)off_1035DC + 64) = 8;
@@ -122,7 +174,7 @@ void __noreturn phy_rf_init()
   *(uint32_t *)off_1035E4 = *(uint32_t *)off_1035E4 & 0x3EF | 0x10 | *(uint32_t *)off_1035E4 & dword_1035EC;
   v6[21] = v6[21] & 0x3EF | 0x10 | v6[21] & v7;
   v8[22] &= 0xFFFFFFC1;
-  v10 = *((unsigned __int8 *)v9 + 177);
+  v10 = *((uint8_t *)v9 + 177);
   v8[22] |= 0x26u;
   if ( v10 && (v6[12] & 0x40) == 0 && (v6[12] & 4) != 0 )
   {
@@ -156,7 +208,7 @@ LABEL_13:
     v11 = off_1035E4;
     **(uint8_t **)off_1035F8 = 2;
     v12 = off_1035DC;
-    v13 = (unsigned __int8)v0[2];
+    v13 = (uint8_t)v0[2];
     v11[20] |= 0x40000u;
     v12[7] &= ~0x100u;
     v11[9] = v11[9] & 0xFFFFFF00 | 0x60;

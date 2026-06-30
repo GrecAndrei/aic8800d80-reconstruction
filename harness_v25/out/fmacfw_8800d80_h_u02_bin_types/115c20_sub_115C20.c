@@ -1,3 +1,31 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_115DF0;
+extern uint32_t dword_115DEC;
+extern uint32_t dword_115DE8;
+extern uint32_t dword_115DE4;
+extern uint32_t off_115DF4;
+extern uint32_t off_115E1C;
+extern uint32_t off_115DF8;
+extern uint32_t off_115E20;
+extern uint32_t off_115DFC;
+extern uint32_t off_115E00;
+extern uint32_t off_115E24;
+extern uint32_t off_115E04;
+extern uint32_t off_115E08;
+extern uint32_t off_115E18;
+extern uint32_t off_115E0C;
+
 // sub_115C20 @ 0x115c20, size 452 bytes
 void __noreturn sub_115C20()
 {
@@ -23,7 +51,7 @@ void __noreturn sub_115C20()
   {
     sub_10EDD4();
     if ( *(uint16_t *)(*v0 + 8) )
-      sub_10ED98(*(unsigned __int16 *)(*v0 + 8));
+      sub_10ED98(*(uint16_t *)(*v0 + 8));
   }
   v1 = (uint8_t **)off_115E1C;
   if ( **(uint8_t **)off_115E1C == 2 )
@@ -32,7 +60,7 @@ void __noreturn sub_115C20()
     *(uint8_t *)(v2 + 6) = 2;
     *(uint8_t *)(v2 + 3) = 1;
   }
-  v3 = sub_1144FC(*(unsigned __int16 *)(*v0 + 4));
+  v3 = sub_1144FC(*(uint16_t *)(*v0 + 4));
   if ( !*(uint8_t *)(*v0 + 3) )
     sub_114588();
   __enable_irq();
@@ -110,13 +138,13 @@ LABEL_15:
       }
     }
   }
-  v14 = **(unsigned __int8 **)off_115E08;
+  v14 = **(uint8_t **)off_115E08;
   if ( v14 == 3 )
   {
     v3 = sub_1111B4();
     if ( v3 )
       goto LABEL_36;
-    v14 = **(unsigned __int8 **)off_115E08;
+    v14 = **(uint8_t **)off_115E08;
   }
   if ( v14 == 1 )
   {

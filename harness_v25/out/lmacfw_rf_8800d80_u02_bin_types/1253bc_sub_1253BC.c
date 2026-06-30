@@ -1,5 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_1256C8;
+extern uint32_t dword_1256DC;
+extern uint32_t dword_1256B0;
+extern uint32_t dword_1256B4;
+extern uint32_t dword_1256A8;
+extern uint32_t dword_1256B8;
+extern uint32_t dword_1256D8;
+extern uint32_t dword_1256AC;
+extern uint32_t dword_1256C0;
+extern uint32_t dword_1256A0;
+extern uint32_t dword_1256A4;
+extern uint32_t dword_1256CC;
+extern uint32_t dword_125698;
+extern uint32_t dword_12569C;
+extern uint32_t dword_1256BC;
+extern uint32_t dword_1256C4;
+extern uint32_t dword_1256D0;
+extern uint32_t dword_1256D4;
+
 // sub_1253BC @ 0x1253bc, size 730 bytes
-int  sub_1253BC(int a1, unsigned __int8 **a2)
+int  sub_1253BC(int a1, uint8_t **a2)
 {
   int v4; // r0
   int v5; // r7
@@ -7,19 +38,19 @@ int  sub_1253BC(int a1, unsigned __int8 **a2)
   int v7; // r7
   int v8; // r9
   int v9; // r8
-  unsigned __int8 **v10; // r4
+  uint8_t **v10; // r4
   int v11; // r10
   int m; // r5
-  unsigned __int8 *v13; // t1
+  uint8_t *v13; // t1
   char v14; // r0
   int v15; // r6
   int v16; // r11
   int v17; // r0
   int v18; // r9
-  unsigned __int8 **v19; // r4
+  uint8_t **v19; // r4
   int v20; // r8
   unsigned int k; // r6
-  unsigned __int8 *v22; // t1
+  uint8_t *v22; // t1
   int v23; // r5
   int v24; // r9
   int v25; // r11
@@ -49,7 +80,7 @@ int  sub_1253BC(int a1, unsigned __int8 **a2)
   int v50; // r0
   char v51; // r0
 
-  v4 = parse_int(a2[1], nullptr, 0);
+  v4 = parse_int(a2[1], 0, 0);
   v5 = v4;
   switch ( v4 )
   {
@@ -116,7 +147,7 @@ LABEL_48:
     case 1:
       if ( a1 > 4 )
       {
-        v17 = parse_int(a2[2], nullptr, 0);
+        v17 = parse_int(a2[2], 0, 0);
         v7 = v17;
         if ( v17 > 2 )
         {
@@ -133,7 +164,7 @@ LABEL_48:
           {
             v22 = v19[1];
             ++v19;
-            v23 = (char)parse_int(v22, nullptr, 0);
+            v23 = (char)parse_int(v22, 0, 0);
             if ( v23 >= 32 )
               v23 = 32;
             *(uint8_t *)++v20 = v23;
@@ -152,7 +183,7 @@ LABEL_48:
           }
           goto LABEL_63;
         }
-        v50 = parse_int(a2[3], nullptr, 0);
+        v50 = parse_int(a2[3], 0, 0);
         v43 = v50;
         if ( v7 == 1 )
           v44 = v50 <= 9;
@@ -160,7 +191,7 @@ LABEL_48:
           v44 = v50 <= 11;
         if ( v44 )
         {
-          v51 = parse_int(a2[4], nullptr, 0);
+          v51 = parse_int(a2[4], 0, 0);
           v46 = dword_1256C8;
           v47 = v51;
           v48 = dword_1256CC;
@@ -172,7 +203,7 @@ LABEL_48:
     case 2:
       if ( a1 > 4 )
       {
-        v6 = parse_int(a2[2], nullptr, 0);
+        v6 = parse_int(a2[2], 0, 0);
         v7 = v6;
         if ( v6 > 2 )
         {
@@ -192,7 +223,7 @@ LABEL_48:
               break;
             v13 = v10[1];
             ++v10;
-            v14 = parse_int(v13, nullptr, 0);
+            v14 = parse_int(v13, 0, 0);
             v15 = v14;
             v16 = v14;
             if ( v14 >= 32 )
@@ -209,7 +240,7 @@ LABEL_63:
           uart_puts((uint8_t *)dword_1256B4);
           return 0;
         }
-        v42 = parse_int(a2[3], nullptr, 0);
+        v42 = parse_int(a2[3], 0, 0);
         v43 = v42;
         if ( v7 == 1 )
           v44 = v42 <= 9;
@@ -217,7 +248,7 @@ LABEL_63:
           v44 = v42 <= 11;
         if ( v44 )
         {
-          v45 = parse_int(a2[4], nullptr, 0);
+          v45 = parse_int(a2[4], 0, 0);
           v46 = dword_1256B8;
           v47 = v45;
           v48 = dword_1256BC;

@@ -1,3 +1,18 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_135020;
+extern uint32_t dword_135024;
+
 // sub_134F90 @ 0x134f90, size 142 bytes
 void  sub_134F90(
         int a1,
@@ -18,14 +33,14 @@ void  sub_134F90(
   uint8_t *v14; // r7
   int v17; // r1
   int v18; // r2
-  __int16 v19; // r5
+  int16_t v19; // r5
 
   v13 = *(uint32_t *)(a1 + 72);
   v14 = off_135020;
-  sub_12EB90(256, dword_135024, *((unsigned __int8 *)off_135020 + 34), a2, (unsigned __int8)*(uint16_t *)(v13 + 108));
+  sub_12EB90(256, dword_135024, *((uint8_t *)off_135020 + 34), a2, (uint8_t)*(uint16_t *)(v13 + 108));
   if ( !v14[34] )
   {
-    sub_134CC4(1, v17, v18, (unsigned __int8)v14[34], a5, a6, a7, a8, a9, a10, a11, a12, a13);
+    sub_134CC4(1, v17, v18, (uint8_t)v14[34], a5, a6, a7, a8, a9, a10, a11, a12, a13);
     return;
   }
   v19 = *(uint16_t *)(v13 + 108);

@@ -1,3 +1,23 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_128C84;
+extern uint32_t off_128C8C;
+extern uint32_t off_128C88;
+extern uint32_t off_128C90;
+extern uint32_t off_128C98;
+extern uint32_t off_128C94;
+extern uint32_t dword_128C9C;
+
 // sub_128C38 @ 0x128c38, size 76 bytes
 int  sub_128C38(int a1, int a2)
 {
@@ -12,14 +32,14 @@ int  sub_128C38(int a1, int a2)
   if ( result )
   {
     v4 = off_128C8C;
-    v5 = *((unsigned __int8 *)off_128C88 + 2);
+    v5 = *((uint8_t *)off_128C88 + 2);
     *((uint8_t *)off_128C8C + 28) = 1;
     if ( v5 )
       *(uint32_t *)off_128C90 &= ~0x80000000;
     if ( v4[8] )
       --v4[8];
     v6 = *((uint32_t *)off_128C98 + 4);
-    v7 = *(unsigned __int16 *)(*(uint32_t *)off_128C94 + 54);
+    v7 = *(uint16_t *)(*(uint32_t *)off_128C94 + 54);
     v8 = dword_128C9C;
     *((uint32_t *)v4 + 5) = a1;
     v4[29] = 4;

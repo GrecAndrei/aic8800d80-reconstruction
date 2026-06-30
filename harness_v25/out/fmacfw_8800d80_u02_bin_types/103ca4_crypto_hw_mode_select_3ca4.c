@@ -1,3 +1,54 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_103E94;
+extern uint32_t dword_103E98;
+extern uint32_t off_103E9C;
+extern uint32_t off_103EA0;
+extern uint32_t dword_103EC8;
+extern uint32_t dword_103ECC;
+extern uint32_t dword_103EC0;
+extern uint32_t dword_103EC4;
+extern uint32_t dword_103ED0;
+extern uint32_t dword_103ED4;
+extern uint32_t dword_103ED8;
+extern uint32_t dword_103EDC;
+extern uint32_t dword_103EE0;
+extern uint32_t dword_103EE4;
+extern uint32_t dword_103EE8;
+extern uint32_t dword_103EEC;
+extern uint32_t dword_103EF8;
+extern uint32_t dword_103EFC;
+extern uint32_t dword_103F00;
+extern uint32_t dword_103F04;
+extern uint32_t dword_103F08;
+extern uint32_t dword_103F0C;
+extern uint32_t dword_103F10;
+extern uint32_t dword_103F14;
+extern uint32_t dword_103F18;
+extern uint32_t dword_103F1C;
+extern uint32_t off_103EB0;
+extern uint32_t dword_103EB4;
+extern uint32_t dword_103F20;
+extern uint32_t dword_103F24;
+extern uint32_t dword_103F28;
+extern uint32_t dword_103EA4;
+extern uint32_t dword_103EA8;
+extern uint32_t dword_103EAC;
+extern uint32_t dword_103EF0;
+extern uint32_t dword_103EF4;
+extern uint32_t dword_103EB8;
+extern uint32_t off_103EBC;
+
 // crypto_hw_mode_select_3ca4 @ 0x103ca4, size 496 bytes
 // Doc: crypto_hw_mode_select_3ca4 [mac]: Selects crypto hardware mode by writing config word to register
 // crypto_hw_mode_select_3ca4 [mac]: Selects crypto hardware mode by writing config word to register

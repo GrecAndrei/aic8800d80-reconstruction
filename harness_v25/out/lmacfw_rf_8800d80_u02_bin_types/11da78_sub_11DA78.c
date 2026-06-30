@@ -1,3 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11DAB8;
+extern uint32_t off_11DABC;
+extern uint32_t dword_11DAC4;
+extern uint32_t dword_11DAC0;
+
 // sub_11DA78 @ 0x11da78, size 64 bytes
 int  sub_11DA78(int result, int a2)
 {
@@ -11,7 +28,7 @@ int  sub_11DA78(int result, int a2)
     result = v3 | (v3 << 8);
     *(uint32_t *)(v2 + 36) = result;
   }
-  else if ( **(__int16 **)off_11DABC < 0 )
+  else if ( **(int16_t **)off_11DABC < 0 )
   {
     return rf_cmd_send_n264(dword_11DAC4, dword_11DAC0, 92);
   }

@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C014;
+extern uint32_t dword_11C018;
+extern uint32_t dword_11C010;
+
 // unknown_helper_2 @ 0x11bf38, size 216 bytes
 // Doc: unknown_helper_2 [unknown]: unknown helper, low-confidence guess
 // unknown_helper_2 [unknown]: unknown helper, low-confidence guess
@@ -27,8 +43,8 @@ BOOL  unknown_helper_2(int a1, int a2)
     v9 = dword_11C018;
     while ( v5 - a2 < 0 )
     {
-      v10 = *((unsigned __int8 *)v3 + 8);
-      if ( v10 == *(unsigned __int8 *)(a1 + 95) )
+      v10 = *((uint8_t *)v3 + 8);
+      if ( v10 == *(uint8_t *)(a1 + 95) )
       {
         msg_parse(v9, v10);
         list_remove_node(v2 + 16, v3);
@@ -48,7 +64,7 @@ BOOL  unknown_helper_2(int a1, int a2)
         goto LABEL_8;
     }
 LABEL_11:
-    if ( (unsigned __int8)v2[90] > 1u )
+    if ( (uint8_t)v2[90] > 1u )
     {
       *(uint8_t *)(a1 + 85) |= 4u;
       return v6 != v7;
@@ -56,7 +72,7 @@ LABEL_11:
     goto LABEL_14;
   }
 LABEL_8:
-  if ( (unsigned __int8)v2[90] > 1u )
+  if ( (uint8_t)v2[90] > 1u )
   {
     list_remove_node(dword_11C010, a1 + 76);
     *(uint8_t *)(a1 + 85) = *(uint8_t *)(a1 + 85) & 0xFC | 2;

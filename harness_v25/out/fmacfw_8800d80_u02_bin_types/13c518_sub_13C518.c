@@ -1,7 +1,22 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_13C690;
+extern uint32_t dword_13C694;
+
 // sub_13C518 @ 0x13c518, size 374 bytes
 // Doc: sub_123C518 [unknown]: Parses indexed record header and dispatches by sub-byte tag
 // sub_123C518 [unknown]: Parses indexed record header and dispatches by sub-byte tag
-unsigned int  sub_13C518(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
+unsigned int  sub_13C518(uint8_t *a1, int a2, int a3, uint8_t *a4)
 {
   int v4; // r6
   int v5; // r11
@@ -21,13 +36,13 @@ unsigned int  sub_13C518(unsigned __int8 *a1, int a2, int a3, uint8_t *a4)
   int v23; // r10
   int v24; // r0
   int v25; // r1
-  bool v26; // zf
+  int v26; // zf
   int v27; // r11
   uint64_t v28; // [sp+8h] [bp-Ch]
 
   v4 = a1[8];
-  v5 = *(unsigned __int16 *)a1;
-  v6 = *(unsigned __int8 *)(v4 + a2);
+  v5 = *(uint16_t *)a1;
+  v6 = *(uint8_t *)(v4 + a2);
   if ( !sub_13C484(v5, v6) )
     return 0;
   v11 = a1[9];
@@ -61,17 +76,17 @@ LABEL_9:
     {
       if ( v4 + 19 >= v10 )
         goto LABEL_9;
-      v15 = sub_12DBA0((uint8_t *)(v4 + a2 + 2), (unsigned __int16)(v10 - 2 - v4));
+      v15 = sub_12DBA0((uint8_t *)(v4 + a2 + 2), (uint16_t)(v10 - 2 - v4));
       if ( !v15 )
         goto LABEL_9;
-      v16 = *((unsigned __int16 *)v15 + 1);
+      v16 = *((uint16_t *)v15 + 1);
       if ( (unsigned int)(v16 - 4) > 1 )
         goto LABEL_9;
       v17 = 1320 * v12 + 120 * v16 + dword_13C690;
       if ( !*(uint8_t *)(v17 + 579) )
         goto LABEL_9;
       v28 = *((uint32_t *)v15 + 1) & 0xFFFFFFLL;
-      if ( *(QWORD *)(v17 + 480) >= (unsigned uint64_t)(*((uint32_t *)v15 + 1) & 0xFFFFFF) )
+      if ( *(uint64_t *)(v17 + 480) >= (unsigned uint64_t)(*((uint32_t *)v15 + 1) & 0xFFFFFF) )
         goto LABEL_9;
       v18 = v15;
       v19 = v15 + 18;
@@ -79,7 +94,7 @@ LABEL_9:
       v20 = v18 + 10;
       v22 = v21;
       v23 = *((uint32_t *)v20 + 1);
-      *(QWORD *)(v17 + 480) = v28;
+      *(uint64_t *)(v17 + 480) = v28;
       do
         *v20++ = 0;
       while ( v20 != v19 );

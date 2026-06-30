@@ -1,20 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_132814;
+extern uint32_t dword_132818;
+extern uint32_t dword_13281C;
+
 // task_entry_n794 @ 0x132794, size 128 bytes
 // Doc: task_entry_n794 [util]: critical task entry; saves context and checks first byte of arg
 // task_entry_n794 [util]: critical task entry; saves context and checks first byte of arg
-int  task_entry_n794(unsigned __int8 *a1, int a2)
+int  task_entry_n794(uint8_t *a1, int a2)
 {
   int v2; // r11
-  __int16 **v3; // r8
+  int16_t **v3; // r8
   int v4; // r10
   int v5; // r9
-  unsigned __int8 *v8; // r4
+  uint8_t *v8; // r4
   int v9; // r7
   int v10; // r0
 
   v2 = *a1;
   if ( *a1 )
   {
-    v3 = (__int16 **)off_132814;
+    v3 = (int16_t **)off_132814;
     v4 = dword_132818;
     v5 = dword_13281C;
     v8 = a1;
@@ -39,7 +55,7 @@ LABEL_6:
       goto LABEL_6;
     }
 LABEL_11:
-    v9 = (unsigned __int16)(v9 | (1 << v10));
+    v9 = (uint16_t)(v9 | (1 << v10));
     goto LABEL_6;
   }
   return *a1;

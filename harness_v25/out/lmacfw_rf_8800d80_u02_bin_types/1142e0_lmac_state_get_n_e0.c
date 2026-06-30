@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11430C;
+extern uint32_t off_114310;
+extern uint32_t off_114314;
+
 // lmac_state_get_n_e0 @ 0x1142e0, size 42 bytes
 // Doc: lmac_state_get_n_e0 [util]: Get LMAC state value from global pointer
 // lmac_state_get_n_e0 [util]: Get LMAC state value from global pointer

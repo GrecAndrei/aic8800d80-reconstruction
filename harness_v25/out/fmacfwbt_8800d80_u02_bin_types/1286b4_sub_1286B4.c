@@ -1,3 +1,17 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1286F0;
+
 // sub_1286B4 @ 0x1286b4, size 58 bytes
 BOOL  sub_1286B4(int a1)
 {
@@ -6,12 +20,12 @@ BOOL  sub_1286B4(int a1)
 
   v1 = *((uint32_t *)off_1286F0 + 10);
   if ( v1
-    && (v2 = *(uint32_t *)(a1 + 72), *(unsigned __int16 *)(v1 + 4) == *(unsigned __int16 *)(v2 + 4))
-    && *(unsigned __int8 *)(v1 + 13) == *(unsigned __int8 *)(v2 + 13)
-    && *(unsigned __int16 *)(v1 + 6) == *(unsigned __int16 *)(v2 + 6)
-    && *(unsigned __int16 *)(v1 + 8) == *(unsigned __int16 *)(v2 + 8) )
+    && (v2 = *(uint32_t *)(a1 + 72), *(uint16_t *)(v1 + 4) == *(uint16_t *)(v2 + 4))
+    && *(uint8_t *)(v1 + 13) == *(uint8_t *)(v2 + 13)
+    && *(uint16_t *)(v1 + 6) == *(uint16_t *)(v2 + 6)
+    && *(uint16_t *)(v1 + 8) == *(uint16_t *)(v2 + 8) )
   {
-    return *(unsigned __int16 *)(v1 + 10) == *(unsigned __int16 *)(v2 + 10);
+    return *(uint16_t *)(v1 + 10) == *(uint16_t *)(v2 + 10);
   }
   else
   {

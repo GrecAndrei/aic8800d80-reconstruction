@@ -1,15 +1,36 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_11C784;
+extern uint32_t dword_11C7A0;
+extern uint32_t off_11C788;
+extern uint32_t dword_11C790;
+extern uint32_t off_11C78C;
+extern uint32_t dword_11C79C;
+extern uint32_t dword_11C798;
+extern uint32_t off_11C794;
+
 // sub_11C498 @ 0x11c498, size 748 bytes
 int  sub_11C498(int a1, int a2)
 {
-  unsigned __int8 *v2; // r5
+  uint8_t *v2; // r5
   int v3; // r11
   uint32_t *v4; // r7
   int v5; // r6
   int v7; // r10
   int v8; // r0
   int v9; // r9
-  __int16 v10; // r3
-  __int16 v11; // r3
+  int16_t v10; // r3
+  int16_t v11; // r3
   void *v12; // r1
   int v13; // r2
   int v14; // r3
@@ -39,10 +60,10 @@ int  sub_11C498(int a1, int a2)
   int v38; // [sp+0h] [bp-Ch]
   int *v39; // [sp+4h] [bp-8h]
 
-  v2 = (unsigned __int8 *)off_11C784;
+  v2 = (uint8_t *)off_11C784;
   v3 = *(uint32_t *)(a1 + 68);
   v4 = *(uint32_t **)(a1 + 76);
-  v5 = *((unsigned __int8 *)off_11C784 + 190);
+  v5 = *((uint8_t *)off_11C784 + 190);
   v7 = a2;
   if ( (a2 & 0x800000) != 0 )
   {
@@ -110,7 +131,7 @@ LABEL_31:
   {
 LABEL_22:
     v15 = dword_11C7A0;
-    sub_12D190(84 * (__int16)v5 + 28 + dword_11C7A0);
+    sub_12D190(84 * (int16_t)v5 + 28 + dword_11C7A0);
     sub_11A190(v3);
     *(uint32_t *)(a1 + 68) = 0;
   }
@@ -149,8 +170,8 @@ LABEL_12:
         while ( v26 + 16 != v27 );
         if ( (*(uint16_t *)(a1 + 30) & 0x2000) != 0 )
         {
-          v38 = *(uint32_t *)(dword_11C790 + 696 * *(unsigned __int8 *)(a1 + 29) + 340);
-          if ( **(__int16 **)off_11C78C < 0 && !*(uint32_t *)(dword_11C790 + 696 * *(unsigned __int8 *)(a1 + 29) + 340) )
+          v38 = *(uint32_t *)(dword_11C790 + 696 * *(uint8_t *)(a1 + 29) + 340);
+          if ( **(int16_t **)off_11C78C < 0 && !*(uint32_t *)(dword_11C790 + 696 * *(uint8_t *)(a1 + 29) + 340) )
           {
             v39 = v26;
             sub_12F32C(dword_11C79C, dword_11C798, 475);
@@ -187,7 +208,7 @@ LABEL_12:
       sub_11C448((unsigned int *)a1);
     }
     v22 = *(uint32_t *)&v2[28 * v5 + 36];
-    v23 = *(QWORD *)(v20 + 96);
+    v23 = *(uint64_t *)(v20 + 96);
     v4[16] = v23;
     v4[18] = (v18 + 1) << 8;
     v4[11] = HIDWORD(v23);

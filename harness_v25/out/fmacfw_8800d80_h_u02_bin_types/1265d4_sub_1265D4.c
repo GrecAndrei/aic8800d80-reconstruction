@@ -1,3 +1,25 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_12667C;
+extern uint32_t off_126680;
+extern uint32_t dword_12668C;
+extern uint32_t dword_126688;
+extern uint32_t off_126684;
+extern uint32_t off_126690;
+extern uint32_t off_126698;
+extern uint32_t off_126694;
+extern uint32_t dword_12669C;
+
 // sub_1265D4 @ 0x1265d4, size 166 bytes
 int  sub_1265D4(int a1, int a2, int a3)
 {
@@ -19,7 +41,7 @@ int  sub_1265D4(int a1, int a2, int a3)
 
   v6 = sub_12D190(dword_12667C);
   v7 = (uint32_t *)v6;
-  if ( **(__int16 **)off_126680 < 0 && !v6 )
+  if ( **(int16_t **)off_126680 < 0 && !v6 )
     sub_12F32C(dword_12668C, dword_126688, 227);
   v8 = off_126684;
   v9 = (char *)off_126684 + 32;

@@ -1,3 +1,27 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_122F10;
+extern uint32_t dword_122F14;
+extern uint32_t dword_122F20;
+extern uint32_t dword_122F24;
+extern uint32_t off_122F18;
+extern uint32_t dword_122F38;
+extern uint32_t dword_122F2C;
+extern uint32_t dword_122F34;
+extern uint32_t dword_122F1C;
+extern uint32_t dword_122F30;
+extern uint32_t dword_122F28;
+
 // sub_122DB8 @ 0x122db8, size 344 bytes
 // Doc: sub_1222DB8 [rf]: Initializes LMAC RF control structure with zeroed params
 // sub_1222DB8 [rf]: Initializes LMAC RF control structure with zeroed params
@@ -19,7 +43,7 @@ int  sub_122DB8(int a1, unsigned int a2)
   int v18; // r2
   unsigned int v19; // r1
   unsigned int v20; // r1
-  __int16 v21; // [sp+Ah] [bp-6h] BYREF
+  int16_t v21; // [sp+Ah] [bp-6h] BYREF
   int v22; // [sp+Ch] [bp-4h] BYREF
 
   v21 = 0;
@@ -32,10 +56,10 @@ int  sub_122DB8(int a1, unsigned int a2)
     {
       v6 = sub_113B88(&v21);
       status = rf_cmd_query_status((uint8_t *)&v21 + 1);
-      msg_parse(dword_122F14, (unsigned __int8)v21, v6, HIBYTE(v21), status);
+      msg_parse(dword_122F14, (uint8_t)v21, v6, HIBYTE(v21), status);
       v8 = status << 24;
       v9 = v6 << 16;
-      return (unsigned __int8)v21 | (HIBYTE(v21) << 8) | v8 | v9;
+      return (uint8_t)v21 | (HIBYTE(v21) << 8) | v8 | v9;
     }
   }
   else
@@ -56,12 +80,12 @@ int  sub_122DB8(int a1, unsigned int a2)
         v9 = 983040;
         v8 = 251658240;
       }
-      return (unsigned __int8)v21 | (HIBYTE(v21) << 8) | v8 | v9;
+      return (uint8_t)v21 | (HIBYTE(v21) << 8) | v8 | v9;
     }
   }
   if ( a1 == 1 )
   {
-    v13 = *((unsigned __int8 *)off_122F18 + 4);
+    v13 = *((uint8_t *)off_122F18 + 4);
     if ( a2 >= 0x1F )
       a2 = 31;
     if ( a2 == v13 )
@@ -103,7 +127,7 @@ int  sub_122DB8(int a1, unsigned int a2)
       a2 = 63;
     if ( v3 )
     {
-      v18 = rf_reg_check((unsigned __int8)a2);
+      v18 = rf_reg_check((uint8_t)a2);
       if ( v18 < 0 )
       {
         msg_parse(dword_122F38);

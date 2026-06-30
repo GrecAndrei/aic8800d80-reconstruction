@@ -1,3 +1,19 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10EE74;
+extern uint32_t off_10EE78;
+extern uint32_t off_10EE7C;
+
 // sub_10EE2C @ 0x10ee2c, size 70 bytes
 // Doc: rf_reg_write_increment [rf]: RF register write core incrementing sequence counter
 // rf_reg_write_increment [rf]: RF register write core incrementing sequence counter

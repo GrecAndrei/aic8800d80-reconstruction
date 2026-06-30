@@ -1,5 +1,20 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_122BE8;
+extern uint32_t dword_122BEC;
+
 // sub_122B8C @ 0x122b8c, size 90 bytes
-int  sub_122B8C(int a1, unsigned __int8 *a2, int a3, int a4)
+int  sub_122B8C(int a1, uint8_t *a2, int a3, int a4)
 {
   int v5; // r0
   int v6; // r3
@@ -9,11 +24,11 @@ int  sub_122B8C(int a1, unsigned __int8 *a2, int a3, int a4)
 
   v5 = sub_12CB54(118, a4, a3, 12);
   v6 = dword_122BE8 + 696 * *a2;
-  v7 = *(unsigned __int8 *)(v6 + 34);
+  v7 = *(uint8_t *)(v6 + 34);
   if ( v7 == 255 )
     goto LABEL_4;
   v8 = dword_122BEC + 1320 * v7;
-  v9 = *(unsigned __int8 *)(v8 + 106);
+  v9 = *(uint8_t *)(v8 + 106);
   *(uint32_t *)v5 = *(uint32_t *)(*(uint32_t *)(v6 + 336) + 20);
   *(uint32_t *)(v5 + 4) = 0;
   if ( !v9 )
