@@ -5,10 +5,7 @@
   "cluster_count": 415,
   "clusters": [
     {
-      "id": 0,
-      "group_id": 0,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -25,13 +22,14 @@
         1231420,
         1233616
       ],
-      "confidence": 6
+      "group_id": 0,
+      "id": 0,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1",
+      "name": "bt_hci_cmd"
     },
     {
-      "id": 1,
-      "group_id": 1,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -48,13 +46,13 @@
         1241356,
         1242876
       ],
-      "confidence": 6
+      "group_id": 1,
+      "id": 1,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 2,
-      "group_id": 2,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -68,13 +66,13 @@
         1186144,
         1199396
       ],
-      "confidence": 3
+      "group_id": 2,
+      "id": 2,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 3,
-      "group_id": 3,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v1",
@@ -98,13 +96,13 @@
         1169644,
         1169828
       ],
-      "confidence": 9
+      "group_id": 3,
+      "id": 3,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 4,
-      "group_id": 4,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -123,13 +121,13 @@
         1220928,
         1221016
       ],
-      "confidence": 6
+      "group_id": 4,
+      "id": 4,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 5,
-      "group_id": 5,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -143,13 +141,13 @@
         1221928,
         1222132
       ],
-      "confidence": 3
+      "group_id": 5,
+      "id": 5,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 6,
-      "group_id": 6,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -162,13 +160,13 @@
         1200188,
         1218564
       ],
-      "confidence": 2
+      "group_id": 6,
+      "id": 6,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 7,
-      "group_id": 7,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -186,13 +184,13 @@
         1164180,
         1199420
       ],
-      "confidence": 4
+      "group_id": 7,
+      "id": 7,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 8,
-      "group_id": 8,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -205,13 +203,13 @@
         1242504,
         1289072
       ],
-      "confidence": 2
+      "group_id": 8,
+      "id": 8,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 9,
-      "group_id": 9,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -224,13 +222,13 @@
         1065004,
         1240684
       ],
-      "confidence": 2
+      "group_id": 9,
+      "id": 9,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 10,
-      "group_id": 10,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -243,13 +241,13 @@
         1242452,
         1285364
       ],
-      "confidence": 2
+      "group_id": 10,
+      "id": 10,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 11,
-      "group_id": 11,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -262,13 +260,13 @@
         1111376,
         1151156
       ],
-      "confidence": 2
+      "group_id": 11,
+      "id": 11,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 12,
-      "group_id": 12,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -281,13 +279,13 @@
         1145528,
         1171920
       ],
-      "confidence": 2
+      "group_id": 12,
+      "id": 12,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 13,
-      "group_id": 13,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -300,13 +298,13 @@
         1233480,
         1233640
       ],
-      "confidence": 2
+      "group_id": 13,
+      "id": 13,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 14,
-      "group_id": 14,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -324,13 +322,13 @@
         1122376,
         1122588
       ],
-      "confidence": 4
+      "group_id": 14,
+      "id": 14,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 15,
-      "group_id": 15,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -348,13 +346,13 @@
         1051100,
         1244388
       ],
-      "confidence": 4
+      "group_id": 15,
+      "id": 15,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 16,
-      "group_id": 16,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -367,13 +365,13 @@
         1281204,
         1281304
       ],
-      "confidence": 2
+      "group_id": 16,
+      "id": 16,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 17,
-      "group_id": 17,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -391,13 +389,13 @@
         1138848,
         1206308
       ],
-      "confidence": 4
+      "group_id": 17,
+      "id": 17,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 18,
-      "group_id": 18,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -415,13 +413,13 @@
         1264592,
         1267792
       ],
-      "confidence": 4
+      "group_id": 18,
+      "id": 18,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 19,
-      "group_id": 19,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -434,13 +432,13 @@
         1069248,
         1092008
       ],
-      "confidence": 2
+      "group_id": 19,
+      "id": 19,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 20,
-      "group_id": 20,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -458,13 +456,13 @@
         1269924,
         1270812
       ],
-      "confidence": 4
+      "group_id": 20,
+      "id": 20,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 21,
-      "group_id": 21,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -477,13 +475,13 @@
         1259588,
         1320120
       ],
-      "confidence": 2
+      "group_id": 21,
+      "id": 21,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 22,
-      "group_id": 22,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -501,13 +499,13 @@
         1112872,
         1127084
       ],
-      "confidence": 4
+      "group_id": 22,
+      "id": 22,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 23,
-      "group_id": 23,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -520,13 +518,13 @@
         1078660,
         1078904
       ],
-      "confidence": 2
+      "group_id": 23,
+      "id": 23,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 24,
-      "group_id": 24,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -543,13 +541,13 @@
       "funcs": [
         1213768
       ],
-      "confidence": 2
+      "group_id": 24,
+      "id": 24,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 25,
-      "group_id": 25,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -561,13 +559,13 @@
       "funcs": [
         1146128
       ],
-      "confidence": 1
+      "group_id": 25,
+      "id": 25,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 26,
-      "group_id": 26,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -594,13 +592,13 @@
       "funcs": [
         1205364
       ],
-      "confidence": 4
+      "group_id": 26,
+      "id": 26,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 27,
-      "group_id": 27,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -627,13 +625,13 @@
       "funcs": [
         1272268
       ],
-      "confidence": 4
+      "group_id": 27,
+      "id": 27,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 28,
-      "group_id": 28,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -650,13 +648,13 @@
       "funcs": [
         1146160
       ],
-      "confidence": 2
+      "group_id": 28,
+      "id": 28,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 29,
-      "group_id": 29,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -673,13 +671,13 @@
       "funcs": [
         1190232
       ],
-      "confidence": 2
+      "group_id": 29,
+      "id": 29,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 30,
-      "group_id": 30,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -711,13 +709,13 @@
       "funcs": [
         1182672
       ],
-      "confidence": 5
+      "group_id": 30,
+      "id": 30,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 31,
-      "group_id": 31,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -734,13 +732,13 @@
       "funcs": [
         1220684
       ],
-      "confidence": 2
+      "group_id": 31,
+      "id": 31,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 32,
-      "group_id": 32,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v2",
@@ -802,13 +800,13 @@
       "funcs": [
         1207836
       ],
-      "confidence": 11
+      "group_id": 32,
+      "id": 32,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 33,
-      "group_id": 33,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -830,13 +828,13 @@
       "funcs": [
         1159744
       ],
-      "confidence": 3
+      "group_id": 33,
+      "id": 33,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 34,
-      "group_id": 34,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -848,13 +846,13 @@
       "funcs": [
         1246256
       ],
-      "confidence": 1
+      "group_id": 34,
+      "id": 34,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 35,
-      "group_id": 35,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -901,13 +899,13 @@
       "funcs": [
         1298040
       ],
-      "confidence": 8
+      "group_id": 35,
+      "id": 35,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 36,
-      "group_id": 36,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -934,13 +932,13 @@
       "funcs": [
         1176820
       ],
-      "confidence": 4
+      "group_id": 36,
+      "id": 36,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 37,
-      "group_id": 37,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -962,13 +960,13 @@
       "funcs": [
         1187032
       ],
-      "confidence": 3
+      "group_id": 37,
+      "id": 37,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 38,
-      "group_id": 38,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -985,13 +983,13 @@
       "funcs": [
         1217032
       ],
-      "confidence": 2
+      "group_id": 38,
+      "id": 38,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 39,
-      "group_id": 39,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 15,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1073,13 +1071,13 @@
       "funcs": [
         1287764
       ],
-      "confidence": 15
+      "group_id": 39,
+      "id": 39,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 40,
-      "group_id": 40,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v6",
@@ -1141,13 +1139,13 @@
       "funcs": [
         1264272
       ],
-      "confidence": 11
+      "group_id": 40,
+      "id": 40,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 41,
-      "group_id": 41,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -1164,13 +1162,13 @@
       "funcs": [
         1256840
       ],
-      "confidence": 2
+      "group_id": 41,
+      "id": 41,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 42,
-      "group_id": 42,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -1187,13 +1185,13 @@
       "funcs": [
         1280464
       ],
-      "confidence": 2
+      "group_id": 42,
+      "id": 42,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 43,
-      "group_id": 43,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1215,13 +1213,13 @@
       "funcs": [
         1163180
       ],
-      "confidence": 3
+      "group_id": 43,
+      "id": 43,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 44,
-      "group_id": 44,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -1233,13 +1231,13 @@
       "funcs": [
         1248836
       ],
-      "confidence": 1
+      "group_id": 44,
+      "id": 44,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 45,
-      "group_id": 45,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -1261,13 +1259,13 @@
       "funcs": [
         1114368
       ],
-      "confidence": 3
+      "group_id": 45,
+      "id": 45,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 46,
-      "group_id": 46,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -1279,13 +1277,13 @@
       "funcs": [
         1150404
       ],
-      "confidence": 1
+      "group_id": 46,
+      "id": 46,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 47,
-      "group_id": 47,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1322,13 +1320,13 @@
       "funcs": [
         1290464
       ],
-      "confidence": 6
+      "group_id": 47,
+      "id": 47,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 48,
-      "group_id": 48,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -1345,13 +1343,13 @@
       "funcs": [
         1230652
       ],
-      "confidence": 2
+      "group_id": 48,
+      "id": 48,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 49,
-      "group_id": 49,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1368,13 +1366,13 @@
       "funcs": [
         1259644
       ],
-      "confidence": 2
+      "group_id": 49,
+      "id": 49,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 50,
-      "group_id": 50,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1391,13 +1389,13 @@
       "funcs": [
         1217236
       ],
-      "confidence": 2
+      "group_id": 50,
+      "id": 50,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 51,
-      "group_id": 51,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -1414,13 +1412,13 @@
       "funcs": [
         1190332
       ],
-      "confidence": 2
+      "group_id": 51,
+      "id": 51,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 52,
-      "group_id": 52,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1432,13 +1430,13 @@
       "funcs": [
         1230024
       ],
-      "confidence": 1
+      "group_id": 52,
+      "id": 52,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 53,
-      "group_id": 53,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 19,
       "fingerprint": [
         {
           "Base": "v6",
@@ -1540,13 +1538,13 @@
       "funcs": [
         1175304
       ],
-      "confidence": 19
+      "group_id": 53,
+      "id": 53,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 54,
-      "group_id": 54,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1568,13 +1566,13 @@
       "funcs": [
         1215940
       ],
-      "confidence": 3
+      "group_id": 54,
+      "id": 54,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 55,
-      "group_id": 55,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -1586,13 +1584,13 @@
       "funcs": [
         1209960
       ],
-      "confidence": 1
+      "group_id": 55,
+      "id": 55,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 56,
-      "group_id": 56,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1604,13 +1602,13 @@
       "funcs": [
         1307824
       ],
-      "confidence": 1
+      "group_id": 56,
+      "id": 56,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 57,
-      "group_id": 57,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -1642,13 +1640,13 @@
       "funcs": [
         1177380
       ],
-      "confidence": 5
+      "group_id": 57,
+      "id": 57,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 58,
-      "group_id": 58,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1665,13 +1663,13 @@
       "funcs": [
         1157096
       ],
-      "confidence": 2
+      "group_id": 58,
+      "id": 58,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 59,
-      "group_id": 59,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -1688,13 +1686,13 @@
       "funcs": [
         1293544
       ],
-      "confidence": 2
+      "group_id": 59,
+      "id": 59,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 60,
-      "group_id": 60,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v7",
@@ -1756,13 +1754,13 @@
       "funcs": [
         1251364
       ],
-      "confidence": 11
+      "group_id": 60,
+      "id": 60,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 61,
-      "group_id": 61,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 20,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1869,13 +1867,13 @@
       "funcs": [
         1257400
       ],
-      "confidence": 20
+      "group_id": 61,
+      "id": 61,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 62,
-      "group_id": 62,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -1897,13 +1895,13 @@
       "funcs": [
         1113312
       ],
-      "confidence": 3
+      "group_id": 62,
+      "id": 62,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 63,
-      "group_id": 63,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 38,
       "fingerprint": [
         {
           "Base": "a2",
@@ -2100,13 +2098,13 @@
       "funcs": [
         1251936
       ],
-      "confidence": 38
+      "group_id": 63,
+      "id": 63,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 64,
-      "group_id": 64,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2118,13 +2116,13 @@
       "funcs": [
         1121552
       ],
-      "confidence": 1
+      "group_id": 64,
+      "id": 64,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 65,
-      "group_id": 65,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2191,13 +2189,13 @@
       "funcs": [
         1222624
       ],
-      "confidence": 12
+      "group_id": 65,
+      "id": 65,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 66,
-      "group_id": 66,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2274,13 +2272,13 @@
       "funcs": [
         1263336
       ],
-      "confidence": 14
+      "group_id": 66,
+      "id": 66,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 67,
-      "group_id": 67,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2307,13 +2305,13 @@
       "funcs": [
         1164760
       ],
-      "confidence": 4
+      "group_id": 67,
+      "id": 67,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 68,
-      "group_id": 68,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v8",
@@ -2360,13 +2358,13 @@
       "funcs": [
         1246912
       ],
-      "confidence": 8
+      "group_id": 68,
+      "id": 68,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 69,
-      "group_id": 69,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -2388,13 +2386,13 @@
       "funcs": [
         1162240
       ],
-      "confidence": 3
+      "group_id": 69,
+      "id": 69,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 70,
-      "group_id": 70,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -2406,13 +2404,13 @@
       "funcs": [
         1174524
       ],
-      "confidence": 1
+      "group_id": 70,
+      "id": 70,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 71,
-      "group_id": 71,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2434,13 +2432,13 @@
       "funcs": [
         1319004
       ],
-      "confidence": 3
+      "group_id": 71,
+      "id": 71,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 72,
-      "group_id": 72,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2457,13 +2455,13 @@
       "funcs": [
         1318472
       ],
-      "confidence": 2
+      "group_id": 72,
+      "id": 72,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 73,
-      "group_id": 73,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 16,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2550,13 +2548,13 @@
       "funcs": [
         1147196
       ],
-      "confidence": 16
+      "group_id": 73,
+      "id": 73,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 74,
-      "group_id": 74,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -2573,13 +2571,13 @@
       "funcs": [
         1249064
       ],
-      "confidence": 2
+      "group_id": 74,
+      "id": 74,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 75,
-      "group_id": 75,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v5",
@@ -2616,13 +2614,13 @@
       "funcs": [
         1156188
       ],
-      "confidence": 6
+      "group_id": 75,
+      "id": 75,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 76,
-      "group_id": 76,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2654,13 +2652,13 @@
       "funcs": [
         1217944
       ],
-      "confidence": 5
+      "group_id": 76,
+      "id": 76,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 77,
-      "group_id": 77,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a4",
@@ -2677,13 +2675,13 @@
       "funcs": [
         1074164
       ],
-      "confidence": 2
+      "group_id": 77,
+      "id": 77,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 78,
-      "group_id": 78,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -2710,13 +2708,13 @@
       "funcs": [
         1275376
       ],
-      "confidence": 4
+      "group_id": 78,
+      "id": 78,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 79,
-      "group_id": 79,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -2733,13 +2731,13 @@
       "funcs": [
         1306812
       ],
-      "confidence": 2
+      "group_id": 79,
+      "id": 79,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 80,
-      "group_id": 80,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -2756,13 +2754,13 @@
       "funcs": [
         1192064
       ],
-      "confidence": 2
+      "group_id": 80,
+      "id": 80,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 81,
-      "group_id": 81,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -2779,13 +2777,13 @@
       "funcs": [
         1313508
       ],
-      "confidence": 2
+      "group_id": 81,
+      "id": 81,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 82,
-      "group_id": 82,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -2802,13 +2800,13 @@
       "funcs": [
         1193424
       ],
-      "confidence": 2
+      "group_id": 82,
+      "id": 82,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 83,
-      "group_id": 83,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2820,13 +2818,13 @@
       "funcs": [
         1225336
       ],
-      "confidence": 1
+      "group_id": 83,
+      "id": 83,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 84,
-      "group_id": 84,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2863,13 +2861,13 @@
       "funcs": [
         1290112
       ],
-      "confidence": 6
+      "group_id": 84,
+      "id": 84,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 85,
-      "group_id": 85,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -2931,13 +2929,13 @@
       "funcs": [
         1151932
       ],
-      "confidence": 11
+      "group_id": 85,
+      "id": 85,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 86,
-      "group_id": 86,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -2964,13 +2962,13 @@
       "funcs": [
         1273836
       ],
-      "confidence": 4
+      "group_id": 86,
+      "id": 86,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 87,
-      "group_id": 87,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v8",
@@ -3017,13 +3015,13 @@
       "funcs": [
         1152736
       ],
-      "confidence": 8
+      "group_id": 87,
+      "id": 87,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 88,
-      "group_id": 88,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3055,13 +3053,13 @@
       "funcs": [
         1187932
       ],
-      "confidence": 5
+      "group_id": 88,
+      "id": 88,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 89,
-      "group_id": 89,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -3078,13 +3076,13 @@
       "funcs": [
         1245944
       ],
-      "confidence": 2
+      "group_id": 89,
+      "id": 89,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 90,
-      "group_id": 90,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -3096,13 +3094,13 @@
       "funcs": [
         1134252
       ],
-      "confidence": 1
+      "group_id": 90,
+      "id": 90,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 91,
-      "group_id": 91,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -3119,13 +3117,13 @@
       "funcs": [
         1296144
       ],
-      "confidence": 2
+      "group_id": 91,
+      "id": 91,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 92,
-      "group_id": 92,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3137,13 +3135,13 @@
       "funcs": [
         1236912
       ],
-      "confidence": 1
+      "group_id": 92,
+      "id": 92,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 93,
-      "group_id": 93,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3155,13 +3153,13 @@
       "funcs": [
         1281444
       ],
-      "confidence": 1
+      "group_id": 93,
+      "id": 93,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 94,
-      "group_id": 94,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -3178,13 +3176,13 @@
       "funcs": [
         1208524
       ],
-      "confidence": 2
+      "group_id": 94,
+      "id": 94,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 95,
-      "group_id": 95,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3231,13 +3229,13 @@
       "funcs": [
         1074680
       ],
-      "confidence": 8
+      "group_id": 95,
+      "id": 95,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 96,
-      "group_id": 96,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3254,13 +3252,13 @@
       "funcs": [
         1311920
       ],
-      "confidence": 2
+      "group_id": 96,
+      "id": 96,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 97,
-      "group_id": 97,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -3272,13 +3270,13 @@
       "funcs": [
         1050776
       ],
-      "confidence": 1
+      "group_id": 97,
+      "id": 97,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 98,
-      "group_id": 98,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3320,13 +3318,13 @@
       "funcs": [
         1249668
       ],
-      "confidence": 7
+      "group_id": 98,
+      "id": 98,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 99,
-      "group_id": 99,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3358,13 +3356,13 @@
       "funcs": [
         1215276
       ],
-      "confidence": 5
+      "group_id": 99,
+      "id": 99,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 100,
-      "group_id": 100,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3391,13 +3389,13 @@
       "funcs": [
         1216396
       ],
-      "confidence": 4
+      "group_id": 100,
+      "id": 100,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 101,
-      "group_id": 101,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3414,13 +3412,13 @@
       "funcs": [
         1212068
       ],
-      "confidence": 2
+      "group_id": 101,
+      "id": 101,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 102,
-      "group_id": 102,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3442,13 +3440,13 @@
       "funcs": [
         1272584
       ],
-      "confidence": 3
+      "group_id": 102,
+      "id": 102,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 103,
-      "group_id": 103,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3460,13 +3458,13 @@
       "funcs": [
         1224832
       ],
-      "confidence": 1
+      "group_id": 103,
+      "id": 103,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 104,
-      "group_id": 104,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3488,13 +3486,13 @@
       "funcs": [
         1209212
       ],
-      "confidence": 3
+      "group_id": 104,
+      "id": 104,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 105,
-      "group_id": 105,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3571,13 +3569,13 @@
       "funcs": [
         1275456
       ],
-      "confidence": 14
+      "group_id": 105,
+      "id": 105,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 106,
-      "group_id": 106,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3619,13 +3617,13 @@
       "funcs": [
         1192688
       ],
-      "confidence": 7
+      "group_id": 106,
+      "id": 106,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 107,
-      "group_id": 107,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3637,13 +3635,13 @@
       "funcs": [
         1157176
       ],
-      "confidence": 1
+      "group_id": 107,
+      "id": 107,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 108,
-      "group_id": 108,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -3665,13 +3663,13 @@
       "funcs": [
         1164536
       ],
-      "confidence": 3
+      "group_id": 108,
+      "id": 108,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 109,
-      "group_id": 109,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3708,13 +3706,13 @@
       "funcs": [
         1144480
       ],
-      "confidence": 6
+      "group_id": 109,
+      "id": 109,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 110,
-      "group_id": 110,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -3726,13 +3724,13 @@
       "funcs": [
         1294500
       ],
-      "confidence": 1
+      "group_id": 110,
+      "id": 110,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 111,
-      "group_id": 111,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v5",
@@ -3744,13 +3742,13 @@
       "funcs": [
         1240876
       ],
-      "confidence": 1
+      "group_id": 111,
+      "id": 111,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 112,
-      "group_id": 112,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -3782,13 +3780,13 @@
       "funcs": [
         1221252
       ],
-      "confidence": 5
+      "group_id": 112,
+      "id": 112,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 113,
-      "group_id": 113,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v5",
@@ -3820,13 +3818,13 @@
       "funcs": [
         1280344
       ],
-      "confidence": 5
+      "group_id": 113,
+      "id": 113,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 114,
-      "group_id": 114,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3848,13 +3846,13 @@
       "funcs": [
         1250820
       ],
-      "confidence": 3
+      "group_id": 114,
+      "id": 114,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 115,
-      "group_id": 115,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -3876,13 +3874,13 @@
       "funcs": [
         1250952
       ],
-      "confidence": 3
+      "group_id": 115,
+      "id": 115,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 116,
-      "group_id": 116,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a3",
@@ -3899,13 +3897,13 @@
       "funcs": [
         1221444
       ],
-      "confidence": 2
+      "group_id": 116,
+      "id": 116,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 117,
-      "group_id": 117,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -3927,13 +3925,13 @@
       "funcs": [
         1269796
       ],
-      "confidence": 3
+      "group_id": 117,
+      "id": 117,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 118,
-      "group_id": 118,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3945,13 +3943,13 @@
       "funcs": [
         1139060
       ],
-      "confidence": 1
+      "group_id": 118,
+      "id": 118,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 119,
-      "group_id": 119,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -3978,13 +3976,13 @@
       "funcs": [
         1288948
       ],
-      "confidence": 4
+      "group_id": 119,
+      "id": 119,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 120,
-      "group_id": 120,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4006,13 +4004,13 @@
       "funcs": [
         1316064
       ],
-      "confidence": 3
+      "group_id": 120,
+      "id": 120,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 121,
-      "group_id": 121,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -4029,13 +4027,13 @@
       "funcs": [
         1203832
       ],
-      "confidence": 2
+      "group_id": 121,
+      "id": 121,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 122,
-      "group_id": 122,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -4047,13 +4045,13 @@
       "funcs": [
         1190760
       ],
-      "confidence": 1
+      "group_id": 122,
+      "id": 122,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 123,
-      "group_id": 123,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4100,13 +4098,13 @@
       "funcs": [
         1154760
       ],
-      "confidence": 8
+      "group_id": 123,
+      "id": 123,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 124,
-      "group_id": 124,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a3",
@@ -4158,13 +4156,13 @@
       "funcs": [
         1318720
       ],
-      "confidence": 9
+      "group_id": 124,
+      "id": 124,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 125,
-      "group_id": 125,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -4181,13 +4179,13 @@
       "funcs": [
         1142352
       ],
-      "confidence": 2
+      "group_id": 125,
+      "id": 125,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 126,
-      "group_id": 126,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4199,13 +4197,13 @@
       "funcs": [
         1150792
       ],
-      "confidence": 1
+      "group_id": 126,
+      "id": 126,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 127,
-      "group_id": 127,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4227,13 +4225,13 @@
       "funcs": [
         1213648
       ],
-      "confidence": 3
+      "group_id": 127,
+      "id": 127,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 128,
-      "group_id": 128,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -4250,13 +4248,13 @@
       "funcs": [
         1203728
       ],
-      "confidence": 2
+      "group_id": 128,
+      "id": 128,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 129,
-      "group_id": 129,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4278,13 +4276,13 @@
       "funcs": [
         1225392
       ],
-      "confidence": 3
+      "group_id": 129,
+      "id": 129,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 130,
-      "group_id": 130,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -4296,13 +4294,13 @@
       "funcs": [
         1059836
       ],
-      "confidence": 1
+      "group_id": 130,
+      "id": 130,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 131,
-      "group_id": 131,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4359,13 +4357,13 @@
       "funcs": [
         1158704
       ],
-      "confidence": 10
+      "group_id": 131,
+      "id": 131,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 132,
-      "group_id": 132,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 20,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4472,13 +4470,13 @@
       "funcs": [
         1300116
       ],
-      "confidence": 20
+      "group_id": 132,
+      "id": 132,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 133,
-      "group_id": 133,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4510,13 +4508,13 @@
       "funcs": [
         1255684
       ],
-      "confidence": 5
+      "group_id": 133,
+      "id": 133,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 134,
-      "group_id": 134,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -4538,13 +4536,13 @@
       "funcs": [
         1215844
       ],
-      "confidence": 3
+      "group_id": 134,
+      "id": 134,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 135,
-      "group_id": 135,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4556,13 +4554,13 @@
       "funcs": [
         1265036
       ],
-      "confidence": 1
+      "group_id": 135,
+      "id": 135,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 136,
-      "group_id": 136,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4589,13 +4587,13 @@
       "funcs": [
         1171712
       ],
-      "confidence": 4
+      "group_id": 136,
+      "id": 136,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 137,
-      "group_id": 137,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "v7",
@@ -4637,13 +4635,13 @@
       "funcs": [
         1142900
       ],
-      "confidence": 7
+      "group_id": 137,
+      "id": 137,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 138,
-      "group_id": 138,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -4665,13 +4663,13 @@
       "funcs": [
         1212700
       ],
-      "confidence": 3
+      "group_id": 138,
+      "id": 138,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 139,
-      "group_id": 139,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -4698,13 +4696,13 @@
       "funcs": [
         1156800
       ],
-      "confidence": 4
+      "group_id": 139,
+      "id": 139,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 140,
-      "group_id": 140,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4776,13 +4774,13 @@
       "funcs": [
         1287940
       ],
-      "confidence": 13
+      "group_id": 140,
+      "id": 140,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 141,
-      "group_id": 141,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -4799,13 +4797,13 @@
       "funcs": [
         1214600
       ],
-      "confidence": 2
+      "group_id": 141,
+      "id": 141,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 142,
-      "group_id": 142,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4842,13 +4840,13 @@
       "funcs": [
         1081472
       ],
-      "confidence": 6
+      "group_id": 142,
+      "id": 142,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 143,
-      "group_id": 143,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v6",
@@ -4885,13 +4883,13 @@
       "funcs": [
         1153140
       ],
-      "confidence": 6
+      "group_id": 143,
+      "id": 143,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 144,
-      "group_id": 144,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -4918,13 +4916,13 @@
       "funcs": [
         1295276
       ],
-      "confidence": 4
+      "group_id": 144,
+      "id": 144,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 145,
-      "group_id": 145,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -4936,13 +4934,13 @@
       "funcs": [
         1120676
       ],
-      "confidence": 1
+      "group_id": 145,
+      "id": 145,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 146,
-      "group_id": 146,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -4964,13 +4962,13 @@
       "funcs": [
         1282880
       ],
-      "confidence": 3
+      "group_id": 146,
+      "id": 146,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 147,
-      "group_id": 147,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -4982,13 +4980,13 @@
       "funcs": [
         1208392
       ],
-      "confidence": 1
+      "group_id": 147,
+      "id": 147,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 148,
-      "group_id": 148,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5045,13 +5043,13 @@
       "funcs": [
         1303336
       ],
-      "confidence": 10
+      "group_id": 148,
+      "id": 148,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 149,
-      "group_id": 149,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5073,13 +5071,13 @@
       "funcs": [
         1282020
       ],
-      "confidence": 3
+      "group_id": 149,
+      "id": 149,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 150,
-      "group_id": 150,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -5096,13 +5094,13 @@
       "funcs": [
         1319736
       ],
-      "confidence": 2
+      "group_id": 150,
+      "id": 150,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 151,
-      "group_id": 151,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5119,13 +5117,13 @@
       "funcs": [
         1318612
       ],
-      "confidence": 2
+      "group_id": 151,
+      "id": 151,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 152,
-      "group_id": 152,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -5142,13 +5140,13 @@
       "funcs": [
         1292920
       ],
-      "confidence": 2
+      "group_id": 152,
+      "id": 152,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 153,
-      "group_id": 153,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5170,13 +5168,13 @@
       "funcs": [
         1290020
       ],
-      "confidence": 3
+      "group_id": 153,
+      "id": 153,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 154,
-      "group_id": 154,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -5188,13 +5186,13 @@
       "funcs": [
         1069616
       ],
-      "confidence": 1
+      "group_id": 154,
+      "id": 154,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 155,
-      "group_id": 155,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v8",
@@ -5206,13 +5204,13 @@
       "funcs": [
         1223380
       ],
-      "confidence": 1
+      "group_id": 155,
+      "id": 155,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 156,
-      "group_id": 156,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5224,13 +5222,13 @@
       "funcs": [
         1233296
       ],
-      "confidence": 1
+      "group_id": 156,
+      "id": 156,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 157,
-      "group_id": 157,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 22,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5347,13 +5345,13 @@
       "funcs": [
         1308724
       ],
-      "confidence": 22
+      "group_id": 157,
+      "id": 157,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 158,
-      "group_id": 158,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a4",
@@ -5410,13 +5408,13 @@
       "funcs": [
         1181760
       ],
-      "confidence": 10
+      "group_id": 158,
+      "id": 158,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 159,
-      "group_id": 159,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -5443,13 +5441,13 @@
       "funcs": [
         1217860
       ],
-      "confidence": 4
+      "group_id": 159,
+      "id": 159,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 160,
-      "group_id": 160,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -5466,13 +5464,13 @@
       "funcs": [
         1150068
       ],
-      "confidence": 2
+      "group_id": 160,
+      "id": 160,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 161,
-      "group_id": 161,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -5489,13 +5487,13 @@
       "funcs": [
         1178552
       ],
-      "confidence": 2
+      "group_id": 161,
+      "id": 161,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 162,
-      "group_id": 162,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5507,13 +5505,13 @@
       "funcs": [
         1220752
       ],
-      "confidence": 1
+      "group_id": 162,
+      "id": 162,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 163,
-      "group_id": 163,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5530,13 +5528,13 @@
       "funcs": [
         1251204
       ],
-      "confidence": 2
+      "group_id": 163,
+      "id": 163,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 164,
-      "group_id": 164,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5558,13 +5556,13 @@
       "funcs": [
         1174176
       ],
-      "confidence": 3
+      "group_id": 164,
+      "id": 164,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 165,
-      "group_id": 165,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -5581,13 +5579,13 @@
       "funcs": [
         1230136
       ],
-      "confidence": 2
+      "group_id": 165,
+      "id": 165,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 166,
-      "group_id": 166,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v5",
@@ -5619,13 +5617,13 @@
       "funcs": [
         1260592
       ],
-      "confidence": 5
+      "group_id": 166,
+      "id": 166,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 167,
-      "group_id": 167,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5647,13 +5645,13 @@
       "funcs": [
         1279976
       ],
-      "confidence": 3
+      "group_id": 167,
+      "id": 167,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 168,
-      "group_id": 168,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5670,13 +5668,13 @@
       "funcs": [
         1088948
       ],
-      "confidence": 2
+      "group_id": 168,
+      "id": 168,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 169,
-      "group_id": 169,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -5693,13 +5691,13 @@
       "funcs": [
         1161160
       ],
-      "confidence": 2
+      "group_id": 169,
+      "id": 169,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 170,
-      "group_id": 170,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -5731,13 +5729,13 @@
       "funcs": [
         1071804
       ],
-      "confidence": 5
+      "group_id": 170,
+      "id": 170,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 171,
-      "group_id": 171,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v8",
@@ -5784,13 +5782,13 @@
       "funcs": [
         1267464
       ],
-      "confidence": 8
+      "group_id": 171,
+      "id": 171,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 172,
-      "group_id": 172,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5807,13 +5805,13 @@
       "funcs": [
         1318016
       ],
-      "confidence": 2
+      "group_id": 172,
+      "id": 172,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 173,
-      "group_id": 173,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 19,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5915,13 +5913,13 @@
       "funcs": [
         1262784
       ],
-      "confidence": 19
+      "group_id": 173,
+      "id": 173,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 174,
-      "group_id": 174,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -5938,13 +5936,13 @@
       "funcs": [
         1268476
       ],
-      "confidence": 2
+      "group_id": 174,
+      "id": 174,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 175,
-      "group_id": 175,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5971,13 +5969,13 @@
       "funcs": [
         1246784
       ],
-      "confidence": 4
+      "group_id": 175,
+      "id": 175,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 176,
-      "group_id": 176,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -5994,13 +5992,13 @@
       "funcs": [
         1210568
       ],
-      "confidence": 2
+      "group_id": 176,
+      "id": 176,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 177,
-      "group_id": 177,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6012,13 +6010,13 @@
       "funcs": [
         1074536
       ],
-      "confidence": 1
+      "group_id": 177,
+      "id": 177,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 178,
-      "group_id": 178,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -6035,13 +6033,13 @@
       "funcs": [
         1202864
       ],
-      "confidence": 2
+      "group_id": 178,
+      "id": 178,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 179,
-      "group_id": 179,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6063,13 +6061,13 @@
       "funcs": [
         1203608
       ],
-      "confidence": 3
+      "group_id": 179,
+      "id": 179,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 180,
-      "group_id": 180,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -6086,13 +6084,13 @@
       "funcs": [
         1175852
       ],
-      "confidence": 2
+      "group_id": 180,
+      "id": 180,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 181,
-      "group_id": 181,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6134,13 +6132,13 @@
       "funcs": [
         1141836
       ],
-      "confidence": 7
+      "group_id": 181,
+      "id": 181,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 182,
-      "group_id": 182,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v8",
@@ -6152,13 +6150,13 @@
       "funcs": [
         1291928
       ],
-      "confidence": 1
+      "group_id": 182,
+      "id": 182,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 183,
-      "group_id": 183,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6175,13 +6173,13 @@
       "funcs": [
         1161688
       ],
-      "confidence": 2
+      "group_id": 183,
+      "id": 183,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 184,
-      "group_id": 184,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v6",
@@ -6218,13 +6216,13 @@
       "funcs": [
         1261844
       ],
-      "confidence": 6
+      "group_id": 184,
+      "id": 184,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 185,
-      "group_id": 185,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -6236,13 +6234,13 @@
       "funcs": [
         1160040
       ],
-      "confidence": 1
+      "group_id": 185,
+      "id": 185,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 186,
-      "group_id": 186,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v3",
@@ -6264,13 +6262,13 @@
       "funcs": [
         1216160
       ],
-      "confidence": 3
+      "group_id": 186,
+      "id": 186,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 187,
-      "group_id": 187,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v7",
@@ -6292,13 +6290,13 @@
       "funcs": [
         1165540
       ],
-      "confidence": 3
+      "group_id": 187,
+      "id": 187,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 188,
-      "group_id": 188,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -6315,13 +6313,13 @@
       "funcs": [
         1208688
       ],
-      "confidence": 2
+      "group_id": 188,
+      "id": 188,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 189,
-      "group_id": 189,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -6338,13 +6336,13 @@
       "funcs": [
         1293732
       ],
-      "confidence": 2
+      "group_id": 189,
+      "id": 189,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 190,
-      "group_id": 190,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6376,13 +6374,13 @@
       "funcs": [
         1263616
       ],
-      "confidence": 5
+      "group_id": 190,
+      "id": 190,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 191,
-      "group_id": 191,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6404,13 +6402,13 @@
       "funcs": [
         1115708
       ],
-      "confidence": 3
+      "group_id": 191,
+      "id": 191,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 192,
-      "group_id": 192,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -6427,13 +6425,13 @@
       "funcs": [
         1205312
       ],
-      "confidence": 2
+      "group_id": 192,
+      "id": 192,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 193,
-      "group_id": 193,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6450,13 +6448,13 @@
       "funcs": [
         1265872
       ],
-      "confidence": 2
+      "group_id": 193,
+      "id": 193,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 194,
-      "group_id": 194,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6473,13 +6471,13 @@
       "funcs": [
         1230280
       ],
-      "confidence": 2
+      "group_id": 194,
+      "id": 194,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 195,
-      "group_id": 195,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a3",
@@ -6511,13 +6509,13 @@
       "funcs": [
         1249880
       ],
-      "confidence": 5
+      "group_id": 195,
+      "id": 195,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 196,
-      "group_id": 196,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -6529,13 +6527,13 @@
       "funcs": [
         1152072
       ],
-      "confidence": 1
+      "group_id": 196,
+      "id": 196,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 197,
-      "group_id": 197,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6567,13 +6565,13 @@
       "funcs": [
         1316656
       ],
-      "confidence": 5
+      "group_id": 197,
+      "id": 197,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 198,
-      "group_id": 198,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6615,13 +6613,13 @@
       "funcs": [
         1247296
       ],
-      "confidence": 7
+      "group_id": 198,
+      "id": 198,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 199,
-      "group_id": 199,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v8",
@@ -6648,13 +6646,13 @@
       "funcs": [
         1185396
       ],
-      "confidence": 4
+      "group_id": 199,
+      "id": 199,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 200,
-      "group_id": 200,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -6671,13 +6669,13 @@
       "funcs": [
         1200372
       ],
-      "confidence": 2
+      "group_id": 200,
+      "id": 200,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 201,
-      "group_id": 201,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6689,13 +6687,13 @@
       "funcs": [
         1176524
       ],
-      "confidence": 1
+      "group_id": 201,
+      "id": 201,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 202,
-      "group_id": 202,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a2",
@@ -6732,13 +6730,13 @@
       "funcs": [
         1248532
       ],
-      "confidence": 6
+      "group_id": 202,
+      "id": 202,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 203,
-      "group_id": 203,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -6750,13 +6748,13 @@
       "funcs": [
         1318880
       ],
-      "confidence": 1
+      "group_id": 203,
+      "id": 203,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 204,
-      "group_id": 204,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6778,13 +6776,13 @@
       "funcs": [
         1298416
       ],
-      "confidence": 3
+      "group_id": 204,
+      "id": 204,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 205,
-      "group_id": 205,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -6831,13 +6829,13 @@
       "funcs": [
         1212220
       ],
-      "confidence": 8
+      "group_id": 205,
+      "id": 205,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 206,
-      "group_id": 206,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -6854,13 +6852,13 @@
       "funcs": [
         1121020
       ],
-      "confidence": 2
+      "group_id": 206,
+      "id": 206,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 207,
-      "group_id": 207,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v7",
@@ -6887,13 +6885,13 @@
       "funcs": [
         1153480
       ],
-      "confidence": 4
+      "group_id": 207,
+      "id": 207,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 208,
-      "group_id": 208,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -6905,13 +6903,13 @@
       "funcs": [
         1228096
       ],
-      "confidence": 1
+      "group_id": 208,
+      "id": 208,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 209,
-      "group_id": 209,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 32,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7078,13 +7076,13 @@
       "funcs": [
         1253176
       ],
-      "confidence": 32
+      "group_id": 209,
+      "id": 209,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 210,
-      "group_id": 210,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7131,13 +7129,13 @@
       "funcs": [
         1299788
       ],
-      "confidence": 8
+      "group_id": 210,
+      "id": 210,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 211,
-      "group_id": 211,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7154,13 +7152,13 @@
       "funcs": [
         1215188
       ],
-      "confidence": 2
+      "group_id": 211,
+      "id": 211,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 212,
-      "group_id": 212,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -7172,13 +7170,13 @@
       "funcs": [
         1146052
       ],
-      "confidence": 1
+      "group_id": 212,
+      "id": 212,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 213,
-      "group_id": 213,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7205,13 +7203,13 @@
       "funcs": [
         1287464
       ],
-      "confidence": 4
+      "group_id": 213,
+      "id": 213,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 214,
-      "group_id": 214,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 16,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7298,13 +7296,13 @@
       "funcs": [
         1180436
       ],
-      "confidence": 16
+      "group_id": 214,
+      "id": 214,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 215,
-      "group_id": 215,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7321,13 +7319,13 @@
       "funcs": [
         1236896
       ],
-      "confidence": 2
+      "group_id": 215,
+      "id": 215,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 216,
-      "group_id": 216,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7344,13 +7342,13 @@
       "funcs": [
         1282804
       ],
-      "confidence": 2
+      "group_id": 216,
+      "id": 216,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 217,
-      "group_id": 217,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7382,13 +7380,13 @@
       "funcs": [
         1304020
       ],
-      "confidence": 5
+      "group_id": 217,
+      "id": 217,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 218,
-      "group_id": 218,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7410,13 +7408,13 @@
       "funcs": [
         1292560
       ],
-      "confidence": 3
+      "group_id": 218,
+      "id": 218,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 219,
-      "group_id": 219,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7458,13 +7456,13 @@
       "funcs": [
         1144164
       ],
-      "confidence": 7
+      "group_id": 219,
+      "id": 219,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 220,
-      "group_id": 220,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7476,13 +7474,13 @@
       "funcs": [
         1164680
       ],
-      "confidence": 1
+      "group_id": 220,
+      "id": 220,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 221,
-      "group_id": 221,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7504,13 +7502,13 @@
       "funcs": [
         1258980
       ],
-      "confidence": 3
+      "group_id": 221,
+      "id": 221,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 222,
-      "group_id": 222,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -7522,13 +7520,13 @@
       "funcs": [
         1282728
       ],
-      "confidence": 1
+      "group_id": 222,
+      "id": 222,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 223,
-      "group_id": 223,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7540,13 +7538,13 @@
       "funcs": [
         1230256
       ],
-      "confidence": 1
+      "group_id": 223,
+      "id": 223,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 224,
-      "group_id": 224,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -7558,13 +7556,13 @@
       "funcs": [
         1292836
       ],
-      "confidence": 1
+      "group_id": 224,
+      "id": 224,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 225,
-      "group_id": 225,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7591,13 +7589,13 @@
       "funcs": [
         1202656
       ],
-      "confidence": 4
+      "group_id": 225,
+      "id": 225,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 226,
-      "group_id": 226,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7624,13 +7622,13 @@
       "funcs": [
         1171324
       ],
-      "confidence": 4
+      "group_id": 226,
+      "id": 226,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 227,
-      "group_id": 227,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -7642,13 +7640,13 @@
       "funcs": [
         1232520
       ],
-      "confidence": 1
+      "group_id": 227,
+      "id": 227,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 228,
-      "group_id": 228,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7705,13 +7703,13 @@
       "funcs": [
         1288576
       ],
-      "confidence": 10
+      "group_id": 228,
+      "id": 228,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 229,
-      "group_id": 229,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -7728,13 +7726,13 @@
       "funcs": [
         1263040
       ],
-      "confidence": 2
+      "group_id": 229,
+      "id": 229,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 230,
-      "group_id": 230,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7751,13 +7749,13 @@
       "funcs": [
         1146648
       ],
-      "confidence": 2
+      "group_id": 230,
+      "id": 230,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 231,
-      "group_id": 231,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7799,13 +7797,13 @@
       "funcs": [
         1205636
       ],
-      "confidence": 7
+      "group_id": 231,
+      "id": 231,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 232,
-      "group_id": 232,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -7822,13 +7820,13 @@
       "funcs": [
         1291912
       ],
-      "confidence": 2
+      "group_id": 232,
+      "id": 232,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 233,
-      "group_id": 233,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -7855,13 +7853,13 @@
       "funcs": [
         1249608
       ],
-      "confidence": 4
+      "group_id": 233,
+      "id": 233,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 234,
-      "group_id": 234,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a4",
@@ -7873,13 +7871,13 @@
       "funcs": [
         1195148
       ],
-      "confidence": 1
+      "group_id": 234,
+      "id": 234,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 235,
-      "group_id": 235,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -7911,13 +7909,13 @@
       "funcs": [
         1189780
       ],
-      "confidence": 5
+      "group_id": 235,
+      "id": 235,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 236,
-      "group_id": 236,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v5",
@@ -7964,13 +7962,13 @@
       "funcs": [
         1213396
       ],
-      "confidence": 8
+      "group_id": 236,
+      "id": 236,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 237,
-      "group_id": 237,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8007,13 +8005,13 @@
       "funcs": [
         1161292
       ],
-      "confidence": 6
+      "group_id": 237,
+      "id": 237,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 238,
-      "group_id": 238,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a4",
@@ -8045,13 +8043,13 @@
       "funcs": [
         1274452
       ],
-      "confidence": 5
+      "group_id": 238,
+      "id": 238,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 239,
-      "group_id": 239,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -8078,13 +8076,13 @@
       "funcs": [
         1293664
       ],
-      "confidence": 4
+      "group_id": 239,
+      "id": 239,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 240,
-      "group_id": 240,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8101,13 +8099,13 @@
       "funcs": [
         1296024
       ],
-      "confidence": 2
+      "group_id": 240,
+      "id": 240,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 241,
-      "group_id": 241,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a4",
@@ -8124,13 +8122,13 @@
       "funcs": [
         1088304
       ],
-      "confidence": 2
+      "group_id": 241,
+      "id": 241,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 242,
-      "group_id": 242,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -8142,13 +8140,13 @@
       "funcs": [
         1176648
       ],
-      "confidence": 1
+      "group_id": 242,
+      "id": 242,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 243,
-      "group_id": 243,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -8175,13 +8173,13 @@
       "funcs": [
         1224196
       ],
-      "confidence": 4
+      "group_id": 243,
+      "id": 243,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 244,
-      "group_id": 244,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -8193,13 +8191,13 @@
       "funcs": [
         1253516
       ],
-      "confidence": 1
+      "group_id": 244,
+      "id": 244,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 245,
-      "group_id": 245,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8251,13 +8249,13 @@
       "funcs": [
         1141428
       ],
-      "confidence": 9
+      "group_id": 245,
+      "id": 245,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 246,
-      "group_id": 246,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -8274,13 +8272,13 @@
       "funcs": [
         1164132
       ],
-      "confidence": 2
+      "group_id": 246,
+      "id": 246,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 247,
-      "group_id": 247,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8337,13 +8335,13 @@
       "funcs": [
         1176216
       ],
-      "confidence": 10
+      "group_id": 247,
+      "id": 247,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 248,
-      "group_id": 248,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8355,13 +8353,13 @@
       "funcs": [
         1292628
       ],
-      "confidence": 1
+      "group_id": 248,
+      "id": 248,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 249,
-      "group_id": 249,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 15,
       "fingerprint": [
         {
           "Base": "v5",
@@ -8443,13 +8441,13 @@
       "funcs": [
         1312064
       ],
-      "confidence": 15
+      "group_id": 249,
+      "id": 249,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 250,
-      "group_id": 250,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v4",
@@ -8486,13 +8484,13 @@
       "funcs": [
         1319120
       ],
-      "confidence": 6
+      "group_id": 250,
+      "id": 250,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 251,
-      "group_id": 251,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8509,13 +8507,13 @@
       "funcs": [
         1159592
       ],
-      "confidence": 2
+      "group_id": 251,
+      "id": 251,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 252,
-      "group_id": 252,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a4",
@@ -8542,13 +8540,13 @@
       "funcs": [
         1249104
       ],
-      "confidence": 4
+      "group_id": 252,
+      "id": 252,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a4"
     },
     {
-      "id": 253,
-      "group_id": 253,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8560,13 +8558,13 @@
       "funcs": [
         1226024
       ],
-      "confidence": 1
+      "group_id": 253,
+      "id": 253,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 254,
-      "group_id": 254,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -8588,13 +8586,13 @@
       "funcs": [
         1187204
       ],
-      "confidence": 3
+      "group_id": 254,
+      "id": 254,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 255,
-      "group_id": 255,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v1",
@@ -8611,13 +8609,13 @@
       "funcs": [
         1263892
       ],
-      "confidence": 2
+      "group_id": 255,
+      "id": 255,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 256,
-      "group_id": 256,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8644,13 +8642,13 @@
       "funcs": [
         1299580
       ],
-      "confidence": 4
+      "group_id": 256,
+      "id": 256,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 257,
-      "group_id": 257,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v8",
@@ -8702,13 +8700,13 @@
       "funcs": [
         1273196
       ],
-      "confidence": 9
+      "group_id": 257,
+      "id": 257,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 258,
-      "group_id": 258,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8730,13 +8728,13 @@
       "funcs": [
         1290400
       ],
-      "confidence": 3
+      "group_id": 258,
+      "id": 258,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 259,
-      "group_id": 259,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v7",
@@ -8798,13 +8796,13 @@
       "funcs": [
         1189372
       ],
-      "confidence": 11
+      "group_id": 259,
+      "id": 259,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 260,
-      "group_id": 260,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -8816,13 +8814,13 @@
       "funcs": [
         1287156
       ],
-      "confidence": 1
+      "group_id": 260,
+      "id": 260,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 261,
-      "group_id": 261,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -8839,13 +8837,13 @@
       "funcs": [
         1297388
       ],
-      "confidence": 2
+      "group_id": 261,
+      "id": 261,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 262,
-      "group_id": 262,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -8862,13 +8860,13 @@
       "funcs": [
         1138016
       ],
-      "confidence": 2
+      "group_id": 262,
+      "id": 262,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 263,
-      "group_id": 263,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "v1",
@@ -8935,13 +8933,13 @@
       "funcs": [
         1308564
       ],
-      "confidence": 12
+      "group_id": 263,
+      "id": 263,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 264,
-      "group_id": 264,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -8958,13 +8956,13 @@
       "funcs": [
         1221988
       ],
-      "confidence": 2
+      "group_id": 264,
+      "id": 264,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 265,
-      "group_id": 265,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -8981,13 +8979,13 @@
       "funcs": [
         1230840
       ],
-      "confidence": 2
+      "group_id": 265,
+      "id": 265,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 266,
-      "group_id": 266,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v4",
@@ -9019,13 +9017,13 @@
       "funcs": [
         1307204
       ],
-      "confidence": 5
+      "group_id": 266,
+      "id": 266,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 267,
-      "group_id": 267,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -9037,13 +9035,13 @@
       "funcs": [
         1120388
       ],
-      "confidence": 1
+      "group_id": 267,
+      "id": 267,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 268,
-      "group_id": 268,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -9065,13 +9063,13 @@
       "funcs": [
         1211904
       ],
-      "confidence": 3
+      "group_id": 268,
+      "id": 268,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 269,
-      "group_id": 269,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9088,13 +9086,13 @@
       "funcs": [
         1230056
       ],
-      "confidence": 2
+      "group_id": 269,
+      "id": 269,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 270,
-      "group_id": 270,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9126,13 +9124,13 @@
       "funcs": [
         1201424
       ],
-      "confidence": 5
+      "group_id": 270,
+      "id": 270,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 271,
-      "group_id": 271,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "v3",
@@ -9174,13 +9172,13 @@
       "funcs": [
         1271604
       ],
-      "confidence": 7
+      "group_id": 271,
+      "id": 271,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 272,
-      "group_id": 272,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "v8",
@@ -9252,13 +9250,13 @@
       "funcs": [
         1225624
       ],
-      "confidence": 13
+      "group_id": 272,
+      "id": 272,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 273,
-      "group_id": 273,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v1",
@@ -9285,13 +9283,13 @@
       "funcs": [
         1272204
       ],
-      "confidence": 4
+      "group_id": 273,
+      "id": 273,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 274,
-      "group_id": 274,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9348,13 +9346,13 @@
       "funcs": [
         1202040
       ],
-      "confidence": 10
+      "group_id": 274,
+      "id": 274,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 275,
-      "group_id": 275,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "v3",
@@ -9431,13 +9429,13 @@
       "funcs": [
         1303776
       ],
-      "confidence": 14
+      "group_id": 275,
+      "id": 275,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 276,
-      "group_id": 276,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -9459,13 +9457,13 @@
       "funcs": [
         1115396
       ],
-      "confidence": 3
+      "group_id": 276,
+      "id": 276,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 277,
-      "group_id": 277,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9492,13 +9490,13 @@
       "funcs": [
         1172168
       ],
-      "confidence": 4
+      "group_id": 277,
+      "id": 277,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 278,
-      "group_id": 278,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -9510,13 +9508,13 @@
       "funcs": [
         1273680
       ],
-      "confidence": 1
+      "group_id": 278,
+      "id": 278,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 279,
-      "group_id": 279,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -9533,13 +9531,13 @@
       "funcs": [
         1102868
       ],
-      "confidence": 2
+      "group_id": 279,
+      "id": 279,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 280,
-      "group_id": 280,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -9551,13 +9549,13 @@
       "funcs": [
         1255000
       ],
-      "confidence": 1
+      "group_id": 280,
+      "id": 280,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 281,
-      "group_id": 281,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9569,13 +9567,13 @@
       "funcs": [
         1280456
       ],
-      "confidence": 1
+      "group_id": 281,
+      "id": 281,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 282,
-      "group_id": 282,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v7",
@@ -9587,13 +9585,13 @@
       "funcs": [
         1194436
       ],
-      "confidence": 1
+      "group_id": 282,
+      "id": 282,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 283,
-      "group_id": 283,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9630,13 +9628,13 @@
       "funcs": [
         1284784
       ],
-      "confidence": 6
+      "group_id": 283,
+      "id": 283,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 284,
-      "group_id": 284,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -9648,13 +9646,13 @@
       "funcs": [
         1079332
       ],
-      "confidence": 1
+      "group_id": 284,
+      "id": 284,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 285,
-      "group_id": 285,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9681,13 +9679,13 @@
       "funcs": [
         1285980
       ],
-      "confidence": 4
+      "group_id": 285,
+      "id": 285,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 286,
-      "group_id": 286,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -9704,13 +9702,13 @@
       "funcs": [
         1093648
       ],
-      "confidence": 2
+      "group_id": 286,
+      "id": 286,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 287,
-      "group_id": 287,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9727,13 +9725,13 @@
       "funcs": [
         1157376
       ],
-      "confidence": 2
+      "group_id": 287,
+      "id": 287,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 288,
-      "group_id": 288,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 10,
       "fingerprint": [
         {
           "Base": "v8",
@@ -9790,13 +9788,13 @@
       "funcs": [
         1172996
       ],
-      "confidence": 10
+      "group_id": 288,
+      "id": 288,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 289,
-      "group_id": 289,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v4",
@@ -9818,13 +9816,13 @@
       "funcs": [
         1117280
       ],
-      "confidence": 3
+      "group_id": 289,
+      "id": 289,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 290,
-      "group_id": 290,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9841,13 +9839,13 @@
       "funcs": [
         1262708
       ],
-      "confidence": 2
+      "group_id": 290,
+      "id": 290,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 291,
-      "group_id": 291,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9869,13 +9867,13 @@
       "funcs": [
         1311236
       ],
-      "confidence": 3
+      "group_id": 291,
+      "id": 291,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 292,
-      "group_id": 292,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -9902,13 +9900,13 @@
       "funcs": [
         1103880
       ],
-      "confidence": 4
+      "group_id": 292,
+      "id": 292,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 293,
-      "group_id": 293,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -9925,13 +9923,13 @@
       "funcs": [
         1224308
       ],
-      "confidence": 2
+      "group_id": 293,
+      "id": 293,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 294,
-      "group_id": 294,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -9948,13 +9946,13 @@
       "funcs": [
         1160568
       ],
-      "confidence": 2
+      "group_id": 294,
+      "id": 294,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 295,
-      "group_id": 295,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 14,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10031,13 +10029,13 @@
       "funcs": [
         1289128
       ],
-      "confidence": 14
+      "group_id": 295,
+      "id": 295,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 296,
-      "group_id": 296,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10064,13 +10062,13 @@
       "funcs": [
         1247236
       ],
-      "confidence": 4
+      "group_id": 296,
+      "id": 296,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 297,
-      "group_id": 297,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -10082,13 +10080,13 @@
       "funcs": [
         1207556
       ],
-      "confidence": 1
+      "group_id": 297,
+      "id": 297,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 298,
-      "group_id": 298,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10100,13 +10098,13 @@
       "funcs": [
         1290044
       ],
-      "confidence": 1
+      "group_id": 298,
+      "id": 298,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 299,
-      "group_id": 299,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10128,13 +10126,13 @@
       "funcs": [
         1292652
       ],
-      "confidence": 3
+      "group_id": 299,
+      "id": 299,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 300,
-      "group_id": 300,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10151,13 +10149,13 @@
       "funcs": [
         1299036
       ],
-      "confidence": 2
+      "group_id": 300,
+      "id": 300,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 301,
-      "group_id": 301,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10189,13 +10187,13 @@
       "funcs": [
         1248856
       ],
-      "confidence": 5
+      "group_id": 301,
+      "id": 301,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 302,
-      "group_id": 302,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10222,13 +10220,13 @@
       "funcs": [
         1219736
       ],
-      "confidence": 4
+      "group_id": 302,
+      "id": 302,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 303,
-      "group_id": 303,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10250,13 +10248,13 @@
       "funcs": [
         1248656
       ],
-      "confidence": 3
+      "group_id": 303,
+      "id": 303,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 304,
-      "group_id": 304,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v5",
@@ -10283,13 +10281,13 @@
       "funcs": [
         1100976
       ],
-      "confidence": 4
+      "group_id": 304,
+      "id": 304,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 305,
-      "group_id": 305,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -10301,13 +10299,13 @@
       "funcs": [
         1150204
       ],
-      "confidence": 1
+      "group_id": 305,
+      "id": 305,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 306,
-      "group_id": 306,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -10334,13 +10332,13 @@
       "funcs": [
         1260516
       ],
-      "confidence": 4
+      "group_id": 306,
+      "id": 306,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 307,
-      "group_id": 307,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -10352,13 +10350,13 @@
       "funcs": [
         1120620
       ],
-      "confidence": 1
+      "group_id": 307,
+      "id": 307,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 308,
-      "group_id": 308,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10370,13 +10368,13 @@
       "funcs": [
         1187860
       ],
-      "confidence": 1
+      "group_id": 308,
+      "id": 308,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 309,
-      "group_id": 309,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -10388,13 +10386,13 @@
       "funcs": [
         1274060
       ],
-      "confidence": 1
+      "group_id": 309,
+      "id": 309,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 310,
-      "group_id": 310,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10416,13 +10414,13 @@
       "funcs": [
         1271908
       ],
-      "confidence": 3
+      "group_id": 310,
+      "id": 310,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 311,
-      "group_id": 311,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10434,13 +10432,13 @@
       "funcs": [
         1249840
       ],
-      "confidence": 1
+      "group_id": 311,
+      "id": 311,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 312,
-      "group_id": 312,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v8",
@@ -10462,13 +10460,13 @@
       "funcs": [
         1149432
       ],
-      "confidence": 3
+      "group_id": 312,
+      "id": 312,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 313,
-      "group_id": 313,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10490,13 +10488,13 @@
       "funcs": [
         1318220
       ],
-      "confidence": 3
+      "group_id": 313,
+      "id": 313,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 314,
-      "group_id": 314,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10513,13 +10511,13 @@
       "funcs": [
         1190728
       ],
-      "confidence": 2
+      "group_id": 314,
+      "id": 314,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 315,
-      "group_id": 315,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10551,13 +10549,13 @@
       "funcs": [
         1101268
       ],
-      "confidence": 5
+      "group_id": 315,
+      "id": 315,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 316,
-      "group_id": 316,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v5",
@@ -10579,13 +10577,13 @@
       "funcs": [
         1261036
       ],
-      "confidence": 3
+      "group_id": 316,
+      "id": 316,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 317,
-      "group_id": 317,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10612,13 +10610,13 @@
       "funcs": [
         1152168
       ],
-      "confidence": 4
+      "group_id": 317,
+      "id": 317,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 318,
-      "group_id": 318,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10645,13 +10643,13 @@
       "funcs": [
         1249536
       ],
-      "confidence": 4
+      "group_id": 318,
+      "id": 318,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 319,
-      "group_id": 319,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -10683,13 +10681,13 @@
       "funcs": [
         1261668
       ],
-      "confidence": 5
+      "group_id": 319,
+      "id": 319,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 320,
-      "group_id": 320,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10701,13 +10699,13 @@
       "funcs": [
         1048832
       ],
-      "confidence": 1
+      "group_id": 320,
+      "id": 320,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 321,
-      "group_id": 321,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10724,13 +10722,13 @@
       "funcs": [
         1202756
       ],
-      "confidence": 2
+      "group_id": 321,
+      "id": 321,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 322,
-      "group_id": 322,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a3",
@@ -10752,13 +10750,13 @@
       "funcs": [
         1216892
       ],
-      "confidence": 3
+      "group_id": 322,
+      "id": 322,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 323,
-      "group_id": 323,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10795,13 +10793,13 @@
       "funcs": [
         1294996
       ],
-      "confidence": 6
+      "group_id": 323,
+      "id": 323,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 324,
-      "group_id": 324,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10813,13 +10811,13 @@
       "funcs": [
         1316544
       ],
-      "confidence": 1
+      "group_id": 324,
+      "id": 324,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 325,
-      "group_id": 325,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10831,13 +10829,13 @@
       "funcs": [
         1293352
       ],
-      "confidence": 1
+      "group_id": 325,
+      "id": 325,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 326,
-      "group_id": 326,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10854,13 +10852,13 @@
       "funcs": [
         1079136
       ],
-      "confidence": 2
+      "group_id": 326,
+      "id": 326,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 327,
-      "group_id": 327,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -10872,13 +10870,13 @@
       "funcs": [
         1207408
       ],
-      "confidence": 1
+      "group_id": 327,
+      "id": 327,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 328,
-      "group_id": 328,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -10895,13 +10893,13 @@
       "funcs": [
         1255580
       ],
-      "confidence": 2
+      "group_id": 328,
+      "id": 328,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 329,
-      "group_id": 329,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v7",
@@ -10918,13 +10916,13 @@
       "funcs": [
         1222400
       ],
-      "confidence": 2
+      "group_id": 329,
+      "id": 329,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 330,
-      "group_id": 330,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 13,
       "fingerprint": [
         {
           "Base": "v6",
@@ -10996,13 +10994,13 @@
       "funcs": [
         1129544
       ],
-      "confidence": 13
+      "group_id": 330,
+      "id": 330,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 331,
-      "group_id": 331,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11069,13 +11067,13 @@
       "funcs": [
         1308112
       ],
-      "confidence": 12
+      "group_id": 331,
+      "id": 331,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 332,
-      "group_id": 332,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v1",
@@ -11112,13 +11110,13 @@
       "funcs": [
         1174324
       ],
-      "confidence": 6
+      "group_id": 332,
+      "id": 332,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 333,
-      "group_id": 333,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11155,13 +11153,13 @@
       "funcs": [
         1138888
       ],
-      "confidence": 6
+      "group_id": 333,
+      "id": 333,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 334,
-      "group_id": 334,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -11178,13 +11176,13 @@
       "funcs": [
         1158260
       ],
-      "confidence": 2
+      "group_id": 334,
+      "id": 334,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 335,
-      "group_id": 335,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -11196,13 +11194,13 @@
       "funcs": [
         1159668
       ],
-      "confidence": 1
+      "group_id": 335,
+      "id": 335,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 336,
-      "group_id": 336,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11229,13 +11227,13 @@
       "funcs": [
         1149880
       ],
-      "confidence": 4
+      "group_id": 336,
+      "id": 336,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 337,
-      "group_id": 337,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11247,13 +11245,13 @@
       "funcs": [
         1287264
       ],
-      "confidence": 1
+      "group_id": 337,
+      "id": 337,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 338,
-      "group_id": 338,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v1",
@@ -11305,13 +11303,13 @@
       "funcs": [
         1183992
       ],
-      "confidence": 9
+      "group_id": 338,
+      "id": 338,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 339,
-      "group_id": 339,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a2",
@@ -11333,13 +11331,13 @@
       "funcs": [
         1318300
       ],
-      "confidence": 3
+      "group_id": 339,
+      "id": 339,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 340,
-      "group_id": 340,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11356,13 +11354,13 @@
       "funcs": [
         1174948
       ],
-      "confidence": 2
+      "group_id": 340,
+      "id": 340,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 341,
-      "group_id": 341,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -11379,13 +11377,13 @@
       "funcs": [
         1302992
       ],
-      "confidence": 2
+      "group_id": 341,
+      "id": 341,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 342,
-      "group_id": 342,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -11402,13 +11400,13 @@
       "funcs": [
         1126416
       ],
-      "confidence": 2
+      "group_id": 342,
+      "id": 342,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 343,
-      "group_id": 343,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11470,13 +11468,13 @@
       "funcs": [
         1313772
       ],
-      "confidence": 11
+      "group_id": 343,
+      "id": 343,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 344,
-      "group_id": 344,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v8",
@@ -11498,13 +11496,13 @@
       "funcs": [
         1192404
       ],
-      "confidence": 3
+      "group_id": 344,
+      "id": 344,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 345,
-      "group_id": 345,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 12,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11571,13 +11569,13 @@
       "funcs": [
         1201640
       ],
-      "confidence": 12
+      "group_id": 345,
+      "id": 345,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 346,
-      "group_id": 346,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -11589,13 +11587,13 @@
       "funcs": [
         1141152
       ],
-      "confidence": 1
+      "group_id": 346,
+      "id": 346,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 347,
-      "group_id": 347,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11622,13 +11620,13 @@
       "funcs": [
         1315972
       ],
-      "confidence": 4
+      "group_id": 347,
+      "id": 347,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 348,
-      "group_id": 348,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v8",
@@ -11645,13 +11643,13 @@
       "funcs": [
         1240524
       ],
-      "confidence": 2
+      "group_id": 348,
+      "id": 348,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 349,
-      "group_id": 349,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v1",
@@ -11683,13 +11681,13 @@
       "funcs": [
         1213584
       ],
-      "confidence": 5
+      "group_id": 349,
+      "id": 349,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 350,
-      "group_id": 350,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -11721,13 +11719,13 @@
       "funcs": [
         1317744
       ],
-      "confidence": 5
+      "group_id": 350,
+      "id": 350,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 351,
-      "group_id": 351,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -11739,13 +11737,13 @@
       "funcs": [
         1229656
       ],
-      "confidence": 1
+      "group_id": 351,
+      "id": 351,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 352,
-      "group_id": 352,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 25,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11877,13 +11875,13 @@
       "funcs": [
         1305712
       ],
-      "confidence": 25
+      "group_id": 352,
+      "id": 352,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 353,
-      "group_id": 353,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -11895,13 +11893,13 @@
       "funcs": [
         1225124
       ],
-      "confidence": 1
+      "group_id": 353,
+      "id": 353,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 354,
-      "group_id": 354,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v2",
@@ -11933,13 +11931,13 @@
       "funcs": [
         1213084
       ],
-      "confidence": 5
+      "group_id": 354,
+      "id": 354,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 355,
-      "group_id": 355,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -11951,13 +11949,13 @@
       "funcs": [
         1255556
       ],
-      "confidence": 1
+      "group_id": 355,
+      "id": 355,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 356,
-      "group_id": 356,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12019,13 +12017,13 @@
       "funcs": [
         1254496
       ],
-      "confidence": 11
+      "group_id": 356,
+      "id": 356,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 357,
-      "group_id": 357,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -12047,13 +12045,13 @@
       "funcs": [
         1291620
       ],
-      "confidence": 3
+      "group_id": 357,
+      "id": 357,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 358,
-      "group_id": 358,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12075,13 +12073,13 @@
       "funcs": [
         1210608
       ],
-      "confidence": 3
+      "group_id": 358,
+      "id": 358,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 359,
-      "group_id": 359,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12118,13 +12116,13 @@
       "funcs": [
         1223968
       ],
-      "confidence": 6
+      "group_id": 359,
+      "id": 359,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 360,
-      "group_id": 360,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12136,13 +12134,13 @@
       "funcs": [
         1154348
       ],
-      "confidence": 1
+      "group_id": 360,
+      "id": 360,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 361,
-      "group_id": 361,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12159,13 +12157,13 @@
       "funcs": [
         1098592
       ],
-      "confidence": 2
+      "group_id": 361,
+      "id": 361,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 362,
-      "group_id": 362,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "v4",
@@ -12217,13 +12215,13 @@
       "funcs": [
         1139492
       ],
-      "confidence": 9
+      "group_id": 362,
+      "id": 362,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 363,
-      "group_id": 363,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12245,13 +12243,13 @@
       "funcs": [
         1259372
       ],
-      "confidence": 3
+      "group_id": 363,
+      "id": 363,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 364,
-      "group_id": 364,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12298,13 +12296,13 @@
       "funcs": [
         1155816
       ],
-      "confidence": 8
+      "group_id": 364,
+      "id": 364,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 365,
-      "group_id": 365,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12331,13 +12329,13 @@
       "funcs": [
         1223632
       ],
-      "confidence": 4
+      "group_id": 365,
+      "id": 365,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 366,
-      "group_id": 366,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v1",
@@ -12349,13 +12347,13 @@
       "funcs": [
         1100236
       ],
-      "confidence": 1
+      "group_id": 366,
+      "id": 366,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 367,
-      "group_id": 367,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12367,13 +12365,13 @@
       "funcs": [
         1219944
       ],
-      "confidence": 1
+      "group_id": 367,
+      "id": 367,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 368,
-      "group_id": 368,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12385,13 +12383,13 @@
       "funcs": [
         1294072
       ],
-      "confidence": 1
+      "group_id": 368,
+      "id": 368,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 369,
-      "group_id": 369,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -12408,13 +12406,13 @@
       "funcs": [
         1314244
       ],
-      "confidence": 2
+      "group_id": 369,
+      "id": 369,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 370,
-      "group_id": 370,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12436,13 +12434,13 @@
       "funcs": [
         1273108
       ],
-      "confidence": 3
+      "group_id": 370,
+      "id": 370,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 371,
-      "group_id": 371,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12494,13 +12492,13 @@
       "funcs": [
         1270904
       ],
-      "confidence": 9
+      "group_id": 371,
+      "id": 371,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 372,
-      "group_id": 372,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12542,13 +12540,13 @@
       "funcs": [
         1151588
       ],
-      "confidence": 7
+      "group_id": 372,
+      "id": 372,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 373,
-      "group_id": 373,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12565,13 +12563,13 @@
       "funcs": [
         1320404
       ],
-      "confidence": 2
+      "group_id": 373,
+      "id": 373,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 374,
-      "group_id": 374,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v5",
@@ -12608,13 +12606,13 @@
       "funcs": [
         1211700
       ],
-      "confidence": 6
+      "group_id": 374,
+      "id": 374,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 375,
-      "group_id": 375,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -12631,13 +12629,13 @@
       "funcs": [
         1210712
       ],
-      "confidence": 2
+      "group_id": 375,
+      "id": 375,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 376,
-      "group_id": 376,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12649,13 +12647,13 @@
       "funcs": [
         1079756
       ],
-      "confidence": 1
+      "group_id": 376,
+      "id": 376,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 377,
-      "group_id": 377,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12672,13 +12670,13 @@
       "funcs": [
         1305376
       ],
-      "confidence": 2
+      "group_id": 377,
+      "id": 377,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 378,
-      "group_id": 378,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12705,13 +12703,13 @@
       "funcs": [
         1272680
       ],
-      "confidence": 4
+      "group_id": 378,
+      "id": 378,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 379,
-      "group_id": 379,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12723,13 +12721,13 @@
       "funcs": [
         1241472
       ],
-      "confidence": 1
+      "group_id": 379,
+      "id": 379,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 380,
-      "group_id": 380,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 9,
       "fingerprint": [
         {
           "Base": "a1",
@@ -12781,13 +12779,13 @@
       "funcs": [
         1155216
       ],
-      "confidence": 9
+      "group_id": 380,
+      "id": 380,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 381,
-      "group_id": 381,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 11,
       "fingerprint": [
         {
           "Base": "v8",
@@ -12849,13 +12847,13 @@
       "funcs": [
         1278684
       ],
-      "confidence": 11
+      "group_id": 381,
+      "id": 381,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 382,
-      "group_id": 382,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v1",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v1",
@@ -12877,13 +12875,13 @@
       "funcs": [
         1278488
       ],
-      "confidence": 3
+      "group_id": 382,
+      "id": 382,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v1"
     },
     {
-      "id": 383,
-      "group_id": 383,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a3",
@@ -12910,13 +12908,13 @@
       "funcs": [
         1256728
       ],
-      "confidence": 4
+      "group_id": 383,
+      "id": 383,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 384,
-      "group_id": 384,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a2",
@@ -12948,13 +12946,13 @@
       "funcs": [
         1261208
       ],
-      "confidence": 5
+      "group_id": 384,
+      "id": 384,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 385,
-      "group_id": 385,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v2",
@@ -12976,13 +12974,13 @@
       "funcs": [
         1157440
       ],
-      "confidence": 3
+      "group_id": 385,
+      "id": 385,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 386,
-      "group_id": 386,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13009,13 +13007,13 @@
       "funcs": [
         1149548
       ],
-      "confidence": 4
+      "group_id": 386,
+      "id": 386,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 387,
-      "group_id": 387,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13047,13 +13045,13 @@
       "funcs": [
         1149616
       ],
-      "confidence": 5
+      "group_id": 387,
+      "id": 387,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 388,
-      "group_id": 388,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v3",
@@ -13070,13 +13068,13 @@
       "funcs": [
         1267044
       ],
-      "confidence": 2
+      "group_id": 388,
+      "id": 388,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 389,
-      "group_id": 389,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13093,13 +13091,13 @@
       "funcs": [
         1295360
       ],
-      "confidence": 2
+      "group_id": 389,
+      "id": 389,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 390,
-      "group_id": 390,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13131,13 +13129,13 @@
       "funcs": [
         1318352
       ],
-      "confidence": 5
+      "group_id": 390,
+      "id": 390,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 391,
-      "group_id": 391,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13149,13 +13147,13 @@
       "funcs": [
         1268088
       ],
-      "confidence": 1
+      "group_id": 391,
+      "id": 391,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 392,
-      "group_id": 392,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13182,13 +13180,13 @@
       "funcs": [
         1170444
       ],
-      "confidence": 4
+      "group_id": 392,
+      "id": 392,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 393,
-      "group_id": 393,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13205,13 +13203,13 @@
       "funcs": [
         1213884
       ],
-      "confidence": 2
+      "group_id": 393,
+      "id": 393,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 394,
-      "group_id": 394,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v3",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v3",
@@ -13223,13 +13221,13 @@
       "funcs": [
         1157296
       ],
-      "confidence": 1
+      "group_id": 394,
+      "id": 394,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v3"
     },
     {
-      "id": 395,
-      "group_id": 395,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13266,13 +13264,13 @@
       "funcs": [
         1168160
       ],
-      "confidence": 6
+      "group_id": 395,
+      "id": 395,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 396,
-      "group_id": 396,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13314,13 +13312,13 @@
       "funcs": [
         1248588
       ],
-      "confidence": 7
+      "group_id": 396,
+      "id": 396,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 397,
-      "group_id": 397,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13332,13 +13330,13 @@
       "funcs": [
         1194176
       ],
-      "confidence": 1
+      "group_id": 397,
+      "id": 397,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 398,
-      "group_id": 398,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 3,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13360,13 +13358,13 @@
       "funcs": [
         1165972
       ],
-      "confidence": 3
+      "group_id": 398,
+      "id": 398,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 399,
-      "group_id": 399,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13403,13 +13401,13 @@
       "funcs": [
         1249372
       ],
-      "confidence": 6
+      "group_id": 399,
+      "id": 399,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 400,
-      "group_id": 400,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v5",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v5",
@@ -13426,13 +13424,13 @@
       "funcs": [
         1274332
       ],
-      "confidence": 2
+      "group_id": 400,
+      "id": 400,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v5"
     },
     {
-      "id": 401,
-      "group_id": 401,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v8",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v8",
@@ -13459,13 +13457,13 @@
       "funcs": [
         1146700
       ],
-      "confidence": 4
+      "group_id": 401,
+      "id": 401,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v8"
     },
     {
-      "id": 402,
-      "group_id": 402,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a2",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a2",
@@ -13507,13 +13505,13 @@
       "funcs": [
         1272784
       ],
-      "confidence": 7
+      "group_id": 402,
+      "id": 402,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a2"
     },
     {
-      "id": 403,
-      "group_id": 403,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 6,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13550,13 +13548,13 @@
       "funcs": [
         1138768
       ],
-      "confidence": 6
+      "group_id": 403,
+      "id": 403,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 404,
-      "group_id": 404,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a3",
+      "confidence": 7,
       "fingerprint": [
         {
           "Base": "a3",
@@ -13598,13 +13596,13 @@
       "funcs": [
         1313656
       ],
-      "confidence": 7
+      "group_id": 404,
+      "id": 404,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a3"
     },
     {
-      "id": 405,
-      "group_id": 405,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 5,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13636,13 +13634,13 @@
       "funcs": [
         1294616
       ],
-      "confidence": 5
+      "group_id": 405,
+      "id": 405,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 406,
-      "group_id": 406,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13654,13 +13652,13 @@
       "funcs": [
         1221620
       ],
-      "confidence": 1
+      "group_id": 406,
+      "id": 406,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     },
     {
-      "id": 407,
-      "group_id": 407,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13672,13 +13670,13 @@
       "funcs": [
         1138828
       ],
-      "confidence": 1
+      "group_id": 407,
+      "id": 407,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 408,
-      "group_id": 408,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v7",
+      "confidence": 8,
       "fingerprint": [
         {
           "Base": "v7",
@@ -13725,13 +13723,13 @@
       "funcs": [
         1166456
       ],
-      "confidence": 8
+      "group_id": 408,
+      "id": 408,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v7"
     },
     {
-      "id": 409,
-      "group_id": 409,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13743,13 +13741,13 @@
       "funcs": [
         1293844
       ],
-      "confidence": 1
+      "group_id": 409,
+      "id": 409,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 410,
-      "group_id": 410,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13766,13 +13764,13 @@
       "funcs": [
         1162164
       ],
-      "confidence": 2
+      "group_id": 410,
+      "id": 410,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 411,
-      "group_id": 411,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v4",
+      "confidence": 2,
       "fingerprint": [
         {
           "Base": "v4",
@@ -13789,13 +13787,13 @@
       "funcs": [
         1316332
       ],
-      "confidence": 2
+      "group_id": 411,
+      "id": 411,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v4"
     },
     {
-      "id": 412,
-      "group_id": 412,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "a1",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "a1",
@@ -13807,13 +13805,13 @@
       "funcs": [
         1318968
       ],
-      "confidence": 1
+      "group_id": 412,
+      "id": 412,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "a1"
     },
     {
-      "id": 413,
-      "group_id": 413,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v2",
+      "confidence": 1,
       "fingerprint": [
         {
           "Base": "v2",
@@ -13825,13 +13823,13 @@
       "funcs": [
         1181116
       ],
-      "confidence": 1
+      "group_id": 413,
+      "id": 413,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v2"
     },
     {
-      "id": 414,
-      "group_id": 414,
-      "image": "fmacfw_8800d80_u02_bin",
-      "primary_arg": "v6",
+      "confidence": 4,
       "fingerprint": [
         {
           "Base": "v6",
@@ -13858,7 +13856,10 @@
       "funcs": [
         1219976
       ],
-      "confidence": 4
+      "group_id": 414,
+      "id": 414,
+      "image": "fmacfw_8800d80_u02_bin",
+      "primary_arg": "v6"
     }
   ],
   "func_map": {
