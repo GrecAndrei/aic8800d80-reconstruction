@@ -132,10 +132,14 @@ func runNames(args []string) error {
 	}
 	wg.Wait()
 
-	// Aggregate proposals
+	// Aggregate proposals AND update clusters.json in place so the
+	// `name` field on each cluster is populated. This is what
+	// fwstruct report reads to count "llm_named_structs".
 	allProposals := []map[string]any{}
 	perImage := map[string][]map[string]any{}
+	namedCount := 0
 	for i, r := range results {
+		rep := clusterReports[r.image]
 		if r.err != nil {
 			allProposals = append(allProposals, map[string]any{
 				"image": r.image, "group": r.group, "error": r.err.Error(),
@@ -151,6 +155,25 @@ func runNames(args []string) error {
 		}
 		allProposals = append(allProposals, entry)
 		perImage[r.image] = append(perImage[r.image], entry)
+		// Update the in-memory cluster's Name field so downstream
+		// readers (report) see it without needing a side file.
+		if r.proposal.StructName != "" && rep != nil {
+			for _, c := range rep.Clusters {
+				if c.GroupID == r.group {
+					c.Name = r.proposal.StructName
+					namedCount++
+					break
+				}
+			}
+		}
+	}
+	// Re-write each <img>_clusters.json with the LLM-assigned name
+	// field populated, and a per-image named proposal list.
+	for img, rep := range clusterReports {
+		p := filepath.Join(cf.Out, img+"_clusters.json")
+		if err := fileio.WriteJSON(p, rep); err != nil {
+			fmt.Fprintf(os.Stderr, "  rewrite %s: %v\n", p, err)
+		}
 	}
 	if err := fileio.WriteJSON(filepath.Join(cf.Out, "proposals.json"), allProposals); err != nil {
 		return err
@@ -160,7 +183,7 @@ func runNames(args []string) error {
 			return err
 		}
 	}
-	cf.VPrintf("  done: %d proposals", len(allProposals))
+	cf.VPrintf("  done: %d proposals, %d clusters named", len(allProposals), namedCount)
 	return nil
 }
 

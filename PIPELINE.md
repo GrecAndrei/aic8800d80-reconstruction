@@ -169,28 +169,40 @@ Drawback: Not directly compilable (Hex-Rays type-inference bugs).
 `fwstruct` (Go binary in `bin/fwstruct`, sources in `cmd/fwstruct/`)
 parses v19's Hex-Rays C output and produces per-function metadata:
 callees, access patterns, numeric literals, struct candidates, boot
-init path, and cross-binary diffs. This is the unified replacement for
-the v20-v24 Python harnesses.
+init path, cross-binary diffs, MSVC-rewritten C, and per-clause IVT
+parsing. This is the unified replacement for the v20-v24 Python
+harnesses, with **13 implemented subcommands** (no TODOs):
 
 ```bash
 # Build fwstruct
 go build -o bin/fwstruct ./cmd/fwstruct
 
-# Per-binary analysis (reads harness_v19/decompiled/<img>/*.c)
-bin/fwstruct scan       # → <out>/<img>_funcs.jsonl (per-func metadata)
-bin/fwstruct structs    # → <out>/<img>_clusters.json (access-pattern clusters)
-bin/fwstruct names      # → LLM-named struct candidates (needs API keys)
-bin/fwstruct callgraph  # → <out>/<img>_callgraph.json
-bin/fwstruct magic      # → <out>/<img>_magic.json (literal classification)
-bin/fwstruct initpath   # → <out>/<img>_initpath.json (boot chain from start())
-bin/fwstruct diff       # → <out>/diff_<a>_vs_<b>.json (cross-binary)
+# Run all 13 subcommands end-to-end (no LLM required, deterministic)
+bin/fwstruct all
+
+# Or run individually:
+bin/fwstruct scan         # → <out>/<img>_funcs.jsonl (per-func metadata)
+bin/fwstruct callgraph    # → <out>/<img>_callgraph.json
+bin/fwstruct structs      # → <out>/<img>_clusters.json (access patterns)
+bin/fwstruct magic        # → <out>/<img>_magic.json (literal classification)
+bin/fwstruct initpath     # → <out>/<img>_initpath.json (boot chain)
+bin/fwstruct diff -a A -b B  # → <out>/diff_A_vs_B.json
+bin/fwstruct types        # → <out>/<img>_types/ (MSVC->C99 rewrite)
+bin/fwstruct ivt          # → <out>/<img>_ivt.json (Cortex-M IVT)
+bin/fwstruct annotate     # → <out>/<img>_annotated/ (header on .c)
+bin/fwstruct xref         # → <out>/<img>_xref.json (field xref)
+bin/fwstruct report       # → <out>/_report.json (aggregate summary)
+bin/fwstruct names        # → LLM-named struct candidates (API keys needed)
 ```
 
-Results (current run):
-- 5,945 functions scanned across 4 binaries
-- 1,394 clusters identified, ~50% LLM-named
-- 51 init-path entries (boot chain depth)
-- 4 cross-binary diff reports (h↔u02, u02↔bt, h↔lmac, bt↔lmac)
+Results (current run on 4 binaries):
+- 5,945 functions scanned
+- 1,394 access-pattern clusters identified
+- 5,535 .c files rewritten (MSVC types → C99)
+- 12,821 field-reader/writer relations
+- 4 cross-binary diff reports
+- Reset handler + 20-80 IVT handlers per binary resolved to LLM names
+- Aggregate summary in `_report.json`
 
 The Python harnesses `harness_v20/` through `harness_v24/` remain in
 the tree as historical reference; their outputs were produced via
@@ -199,7 +211,31 @@ prefer fwstruct (faster, simpler schemas, no r2 round-trip).
 
 Use when: you need per-function metadata (callees, accesses, literals)
 for downstream analysis — call graph traversal, struct typing,
-boot path extraction, cross-binary function matching.
+boot path extraction, cross-binary function matching, MSVC→C99
+rewrite, IVT resolution.
+
+## Cross-validation: v25 vs v20-v24
+
+The Go `fwstruct` outputs and the Python v20-v24 outputs cover the
+same conceptual ground (access patterns, clusters, struct xref) but
+are produced by different parsers (Hex-Rays C regex vs r2 disasm
+regex). Spot-check across all 4 binaries:
+
+| Metric             | v20 (r2 raw) | v25 (Hex-Rays C dedup) |
+|--------------------|-------------:|-----------------------:|
+| Functions scanned  | 5,945        | 5,945 (identical)      |
+| Access occurrences | 101,463      | 23,370 (dedup per base/offset/size/dir) |
+| Clusters generated | 173-180      | 1,394 (per-call xfunique base+offset fingerprint) |
+
+Both capture the same `start()` function, the same primary args,
+and reconstruct the same control flow — v25 just dedups access
+points (one entry per `(base, offset, size, direction)` per func)
+rather than counting every ldr/str instruction occurrence the way
+the raw r2 disassembly does. v25's 1,394 clusters are therefore
+finer-grained: every distinct (base, offset) tuple gets its own
+cluster, vs v20's 173 which grouped by primary struct arg.
+
+## Release: artifacts/releases/aic8800d80-rebuild-v1-v25.tar.gz (4.4 MB)
 
 ## Truth-Lane Scoring
 

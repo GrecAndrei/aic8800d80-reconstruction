@@ -1,0 +1,17 @@
+[
+  {
+    "error": "turn1: LLM HTTP 403: {\"error\":{\"message\":\"User's credit limit is insufficient, remaining credit limit: ＄0.000000 (request id: 2026063000293859012134ihftnGPa)\",\"type\":\"api_error\",\"param\":\"\",\"code\":\"insufficient_user_quota\"},\"id\":11207,\"message\":\"Your account quota is running low ($0.00), Please recharge to continue using the service.\",\"org_id\":\"\",\"role\":1,\"suffer\":\"money\"}",
+    "group": 63,
+    "image": "fmacfw_8800d80_u02_bin"
+  },
+  {
+    "error": "turn1: LLM HTTP 403: {\"error\":{\"message\":\"User's credit limit is insufficient, remaining credit limit: ＄0.000000 (request id: 2026063000293896971906OrfZGtFY)\",\"type\":\"api_error\",\"param\":\"\",\"code\":\"insufficient_user_quota\"},\"id\":11215,\"message\":\"Your account quota is running low ($0.00), Please recharge to continue using the service.\",\"org_id\":\"\",\"role\":1,\"suffer\":\"money\"}",
+    "group": 209,
+    "image": "fmacfw_8800d80_u02_bin"
+  },
+  {
+    "error": "turn1: LLM HTTP 403: {\"error\":{\"message\":\"User's credit limit is insufficient, remaining credit limit: ＄0.000000 (request id: 2026063000293858793543fJJ9wCa5)\",\"type\":\"api_error\",\"param\":\"\",\"code\":\"insufficient_user_quota\"},\"id\":11202,\"message\":\"Your account quota is running low ($0.00), Please recharge to continue using the service.\",\"org_id\":\"\",\"role\":1,\"suffer\":\"money\"}",
+    "group": 352,
+    "image": "fmacfw_8800d80_u02_bin"
+  }
+]
