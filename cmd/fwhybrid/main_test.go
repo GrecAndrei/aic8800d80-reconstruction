@@ -170,3 +170,29 @@ func TestEmitSourcePreservesGapsAndCandidateRawBytes(t *testing.T) {
 		t.Fatalf("candidate raw bytes missing:\n%s", src)
 	}
 }
+
+func TestFirstByteDiff(t *testing.T) {
+	if got := firstByteDiff([]byte{1, 2, 3}, []byte{1, 9, 3}); got != "0x000001" {
+		t.Fatalf("first diff=%q", got)
+	}
+	if got := firstByteDiff([]byte{1, 2}, []byte{1, 2, 3}); got != "size_delta:+1" {
+		t.Fatalf("size diff=%q", got)
+	}
+	if got := firstByteDiff([]byte{1, 2}, []byte{1, 2}); got != "" {
+		t.Fatalf("identical diff=%q", got)
+	}
+}
+
+func TestRewriteAbsoluteExterns(t *testing.T) {
+	src := "extern uint32_t off_1006D4;\nextern uint32_t dword_10D7AC;\nint f(void) { return *(uint32_t *)off_1006D4 + dword_10D7AC; }\n"
+	got := rewriteAbsoluteExterns(src)
+	if !strings.Contains(got, "#define off_1006D4 ((uint32_t)0x001006d4u)") {
+		t.Fatalf("off rewrite missing:\n%s", got)
+	}
+	if !strings.Contains(got, "#define dword_10D7AC ((uint32_t)0x0010d7acu)") {
+		t.Fatalf("dword rewrite missing:\n%s", got)
+	}
+	if strings.Contains(got, "extern uint32_t off_1006D4") {
+		t.Fatalf("extern remained:\n%s", got)
+	}
+}
