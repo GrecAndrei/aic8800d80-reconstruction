@@ -21,6 +21,7 @@ bin/fwhybrid build   # compiles hybrid.c to ARM relocatable objects
 bin/fwhybrid link    # links hybrid.o at 0x100 and emits hybrid.bin
 bin/fwhybrid package # wraps linked code with the original 0x100-byte header
 bin/fwhybrid diff    # compares packaged firmware against original bytes
+bin/fwhybrid cverify # compiles c_candidate functions and compares bytes
 bin/fwhybrid verify  # hashes ledger byte ranges against raw firmware
 bin/fwhybrid queue   # ranks syntax-clean C promotion candidates
 bin/fwhybrid promote # marks top queue entries as c_candidate
@@ -67,6 +68,9 @@ harness_v26/
 │   ├── c_candidates.jsonl   # ranked C promotion queue
 │   ├── summary.json         # queue run metadata
 │   └── promote.json         # last promotion run metadata
+├── cverify/
+│   ├── results.jsonl        # per-candidate C compile/byte comparison
+│   └── summary.json         # C verification run metadata
 └── report.json              # aggregate v26 state
 ```
 
@@ -88,6 +92,13 @@ or promote next."
 queued entries. It does not mark anything `c_verified` and does not replace
 firmware bytes in the packaged image; that requires a later equivalence gate.
 
+`cverify` is that first equivalence gate. It compiles each `c_candidate` in an
+isolated ARM scratch object, rewrites absolute firmware externs into constants,
+links the object, extracts the candidate symbol bytes, and compares those bytes
+against the original firmware range. By default it only reports. Passing
+`--update-ledger` may mark exact matches as `c_verified`; non-exact candidates
+remain metadata only.
+
 ## Current v26 baseline
 
 The byte-faithful rebuild path emits top-level assembler blocks, not C naked
@@ -99,3 +110,7 @@ packaged `hybrid_firmware.bin` files as `byte_identical` to their matching
 `inputs/firmware/*.bin` files. This proves the v26 packaging baseline is
 structurally exact. It does not prove any C candidate is semantically
 equivalent yet; `c_verified` remains the required gate for real C replacement.
+
+The current `bin/fwhybrid cverify` run attempts 10 promoted candidates. All 10
+compile/link/extract cleanly, but none are byte-exact under the current C
+model. The generated evidence is in `harness_v26/cverify/`.

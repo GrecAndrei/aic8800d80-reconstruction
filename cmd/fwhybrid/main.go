@@ -190,6 +190,26 @@ type imageDiffReport struct {
 	Notes                []string    `json:"notes,omitempty"`
 }
 
+type cVerifyRecord struct {
+	SchemaVersion   string `json:"schema_version"`
+	GeneratedAt     string `json:"generated_at"`
+	Image           string `json:"image"`
+	Address         string `json:"address"`
+	Name            string `json:"name"`
+	Status          string `json:"status"`
+	CSource         string `json:"c_source"`
+	OriginalSize    int    `json:"original_size"`
+	CompiledSize    int    `json:"compiled_size"`
+	TextSize        int    `json:"text_size"`
+	SymbolSize      int    `json:"symbol_size"`
+	FirstDifference string `json:"first_difference,omitempty"`
+	OriginalSHA256  string `json:"original_sha256,omitempty"`
+	CompiledSHA256  string `json:"compiled_sha256,omitempty"`
+	OriginalHex     string `json:"original_hex,omitempty"`
+	CompiledHex     string `json:"compiled_hex,omitempty"`
+	Error           string `json:"error,omitempty"`
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		usage()
@@ -209,6 +229,8 @@ func main() {
 		err = runPackage(os.Args[2:])
 	case "diff":
 		err = runDiff(os.Args[2:])
+	case "cverify":
+		err = runCVerify(os.Args[2:])
 	case "verify":
 		err = runVerify(os.Args[2:])
 	case "queue":
@@ -248,6 +270,7 @@ Commands:
   link     link hybrid.o at 0x100 and objcopy flat binaries
   package  wrap linked code with original firmware header
   diff     compare packaged firmware against original firmware bytes
+  cverify  compile and byte-compare c_candidate functions
   verify   verify ledger/source bytes against raw firmware
   queue    rank low-risk C promotion candidates
   promote  mark top queued functions as c_candidate
@@ -752,6 +775,322 @@ func compareFirmware(image string, original, rebuilt []byte, recs []ledgerRecord
 		RangesSample:         ranges,
 		Notes:                notes,
 	}
+}
+
+func runCVerify(args []string) error {
+	fs := flag.NewFlagSet("cverify", flag.ContinueOnError)
+	var cf commonFlags
+	var compiler string
+	var limit int
+	var updateLedger bool
+	cf.register(fs)
+	fs.StringVar(&compiler, "cc", "", "ARM C compiler override")
+	fs.IntVar(&limit, "limit", 0, "maximum c_candidate rows to verify; 0 means all")
+	fs.BoolVar(&updateLedger, "update-ledger", false, "mark exact matches as c_verified in the ledger")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if err := cf.resolve(); err != nil {
+		return err
+	}
+	rows, err := loadLedger(cf.Out)
+	if err != nil {
+		return err
+	}
+	if compiler == "" {
+		compiler = findTool("arm-none-eabi-gcc", "arm-linux-gnueabihf-gcc")
+	}
+	objcopy := findTool("arm-none-eabi-objcopy", "arm-linux-gnueabihf-objcopy")
+	if compiler == "" || objcopy == "" {
+		return errors.New("cverify requires arm-none-eabi-gcc and arm-none-eabi-objcopy on PATH")
+	}
+	scratch := filepath.Join(cf.Out, "out", "cverify")
+	if err := os.MkdirAll(scratch, 0o755); err != nil {
+		return err
+	}
+	now := time.Now().UTC().Format(time.RFC3339)
+	var reports []cVerifyRecord
+	verified := map[string]bool{}
+	attempted := 0
+	for _, rec := range rows {
+		if rec.Mode != "c_candidate" {
+			continue
+		}
+		if limit > 0 && attempted >= limit {
+			break
+		}
+		attempted++
+		raw, err := loadFirmware(cf.Root, rec.Image)
+		if err != nil {
+			return err
+		}
+		orig, err := rawBytesFor(rec, raw)
+		if err != nil {
+			return err
+		}
+		rep := verifyCandidateC(cf, compiler, objcopy, scratch, rec, orig, now)
+		reports = append(reports, rep)
+		if rep.Status == "byte_exact" {
+			verified[rec.Image+"|"+rec.Address] = true
+		}
+	}
+	if updateLedger && len(verified) > 0 {
+		for i := range rows {
+			key := rows[i].Image + "|" + rows[i].Address
+			if !verified[key] {
+				continue
+			}
+			rows[i].Mode = "c_verified"
+			rows[i].VerifyStatus = "c_byte_exact"
+			rows[i].CompileStatus = "c_byte_exact"
+			rows[i].Reasons = appendUnique(rows[i].Reasons, "cverify_byte_exact")
+		}
+		if err := fileio.WriteJSONL(filepath.Join(cf.Out, "ledger", "functions.jsonl"), rows); err != nil {
+			return err
+		}
+	}
+	outDir := filepath.Join(cf.Out, "cverify")
+	if err := fileio.WriteJSONL(filepath.Join(outDir, "results.jsonl"), reports); err != nil {
+		return err
+	}
+	exact := 0
+	for _, rep := range reports {
+		if rep.Status == "byte_exact" {
+			exact++
+		}
+	}
+	summary := map[string]any{
+		"schema_version":          schemaVersion,
+		"generated_at":            now,
+		"compiler":                compiler,
+		"objcopy":                 objcopy,
+		"attempted":               len(reports),
+		"byte_exact":              exact,
+		"failed":                  len(reports) - exact,
+		"updated_ledger":          updateLedger && len(verified) > 0,
+		"update_ledger_requested": updateLedger,
+	}
+	if err := fileio.WriteJSON(filepath.Join(outDir, "summary.json"), summary); err != nil {
+		return err
+	}
+	fmt.Printf("cverify: attempted=%d byte_exact=%d failed=%d\n", len(reports), exact, len(reports)-exact)
+	return nil
+}
+
+func verifyCandidateC(cf commonFlags, compiler, objcopy, scratch string, rec ledgerRecord, original []byte, now string) cVerifyRecord {
+	rep := cVerifyRecord{
+		SchemaVersion: schemaVersion,
+		GeneratedAt:   now,
+		Image:         rec.Image,
+		Address:       rec.Address,
+		Name:          rec.Name,
+		Status:        "fails",
+		CSource:       rec.CSource,
+		OriginalSize:  len(original),
+		OriginalHex:   hex.EncodeToString(original[:minInt(len(original), 32)]),
+	}
+	origSum := sha256.Sum256(original)
+	rep.OriginalSHA256 = hex.EncodeToString(origSum[:])
+	if rec.CSource == "" {
+		rep.Error = "missing c_source"
+		return rep
+	}
+	addr, err := parseAddr(rec.Address)
+	if err != nil {
+		rep.Error = err.Error()
+		return rep
+	}
+	symbol := safeSymbol(rec.Name, addr)
+	workBase := fmt.Sprintf("%s_%06x_%s", rec.Image, addr, symbol)
+	srcPath := filepath.Join(scratch, workBase+".c")
+	objPath := filepath.Join(scratch, workBase+".o")
+	elfPath := filepath.Join(scratch, workBase+".elf")
+	binPath := filepath.Join(scratch, workBase+".bin")
+	sectionPath := filepath.Join(scratch, workBase+".text.bin")
+	src, err := cVerifySource(rec, symbol)
+	if err != nil {
+		rep.Error = err.Error()
+		return rep
+	}
+	if err := fileio.WriteBytes(srcPath, []byte(src)); err != nil {
+		rep.Error = err.Error()
+		return rep
+	}
+	cmd := exec.Command(compiler, "-c", "-Os", "-mthumb", "-mcpu=cortex-r5",
+		"-ffreestanding", "-fno-builtin", "-nostdlib", srcPath, "-o", objPath)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		rep.Status = "compile_fails"
+		rep.Error = strings.TrimSpace(string(out))
+		return rep
+	}
+	ld := findTool("arm-none-eabi-ld", "arm-linux-gnueabihf-ld")
+	if ld == "" {
+		rep.Status = "link_fails"
+		rep.Error = "no ARM ld found on PATH"
+		return rep
+	}
+	scriptPath := filepath.Join(scratch, workBase+".ld")
+	if err := fileio.WriteBytes(scriptPath, []byte(cVerifyLinkerScript(collectAbsoluteSymbols([]ledgerRecord{rec})))); err != nil {
+		rep.Error = err.Error()
+		return rep
+	}
+	cmd = exec.Command(ld, "-T", scriptPath, "-nostdlib", "-o", elfPath, objPath)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		rep.Status = "link_fails"
+		rep.Error = strings.TrimSpace(string(out))
+		return rep
+	}
+	cmd = exec.Command(objcopy, "-O", "binary", elfPath, binPath)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		rep.Status = "objcopy_fails"
+		rep.Error = strings.TrimSpace(string(out))
+		return rep
+	}
+	cmd = exec.Command(objcopy, "--dump-section", ".text="+sectionPath, elfPath)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		rep.Status = "objcopy_fails"
+		rep.Error = strings.TrimSpace(string(out))
+		return rep
+	}
+	compiled, err := os.ReadFile(sectionPath)
+	if err != nil {
+		rep.Error = err.Error()
+		return rep
+	}
+	rep.TextSize = len(compiled)
+	symAddr, symSize := symbolInfo(elfPath, symbol)
+	rep.SymbolSize = symSize
+	if symSize <= 0 || symAddr < 0 || symAddr+symSize > len(compiled) {
+		rep.Status = "symbol_missing"
+		rep.Error = fmt.Sprintf("symbol %s size=%d addr=%d text_size=%d", symbol, symSize, symAddr, len(compiled))
+		return rep
+	}
+	symbolBytes := compiled[symAddr : symAddr+symSize]
+	rep.CompiledSize = len(symbolBytes)
+	rep.CompiledHex = hex.EncodeToString(symbolBytes[:minInt(len(symbolBytes), 32)])
+	compSum := sha256.Sum256(symbolBytes)
+	rep.CompiledSHA256 = hex.EncodeToString(compSum[:])
+	if string(symbolBytes) == string(original) {
+		rep.Status = "byte_exact"
+		return rep
+	}
+	rep.Status = "differs"
+	rep.FirstDifference = firstByteDiff(original, symbolBytes)
+	return rep
+}
+
+func cVerifySource(rec ledgerRecord, symbol string) (string, error) {
+	src, err := cBodyForHybrid(rec, symbol)
+	if err != nil {
+		return "", err
+	}
+	var b strings.Builder
+	b.WriteString("#include <stdint.h>\n")
+	b.WriteString("#define BYTE1(x) ((uint8_t)(((uint32_t)(x) >> 8) & 0xFFu))\n")
+	b.WriteString("#define BYTE2(x) ((uint8_t)(((uint32_t)(x) >> 16) & 0xFFu))\n")
+	b.WriteString("#define BYTE3(x) ((uint8_t)(((uint32_t)(x) >> 24) & 0xFFu))\n")
+	b.WriteString("#define __noreturn\n")
+	b.WriteString("#define _VF 0\n")
+	b.WriteString("#define _CF 0\n")
+	b.WriteString(rewriteAbsoluteExterns(src))
+	return b.String(), nil
+}
+
+func rewriteAbsoluteExterns(src string) string {
+	re := regexp.MustCompile(`(?m)^extern\s+uint32_t\s+((?:off|dword|byte|word|qword|algn|unk)_[0-9A-Fa-f]+);\s*$`)
+	return re.ReplaceAllStringFunc(src, func(line string) string {
+		m := re.FindStringSubmatch(line)
+		if len(m) != 2 {
+			return line
+		}
+		name := m[1]
+		parts := strings.Split(name, "_")
+		if len(parts) < 2 {
+			return line
+		}
+		addr, err := strconv.ParseUint(parts[len(parts)-1], 16, 32)
+		if err != nil {
+			return line
+		}
+		return fmt.Sprintf("#define %s ((uint32_t)0x%08xu)", name, uint32(addr))
+	})
+}
+
+func cVerifyLinkerScript(symbols map[string]uint32) string {
+	var b strings.Builder
+	var names []string
+	for name := range symbols {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		b.WriteString(fmt.Sprintf("PROVIDE(%s = 0x%08x);\n", name, symbols[name]))
+	}
+	b.WriteString(`SECTIONS
+{
+  . = 0;
+  .text : ALIGN(2)
+  {
+    *(.text*)
+    *(.rodata*)
+  }
+  /DISCARD/ :
+  {
+    *(.comment)
+    *(.ARM.attributes)
+    *(.note*)
+  }
+}
+`)
+	return b.String()
+}
+
+func symbolInfo(elfPath, symbol string) (int, int) {
+	nm := findTool("arm-none-eabi-nm", "arm-linux-gnueabihf-nm")
+	if nm == "" {
+		return 0, 0
+	}
+	out, err := exec.Command(nm, "-S", "--size-sort", elfPath).Output()
+	if err != nil {
+		return 0, 0
+	}
+	for _, line := range strings.Split(string(out), "\n") {
+		fields := strings.Fields(line)
+		if len(fields) < 4 || fields[len(fields)-1] != symbol {
+			continue
+		}
+		addr, err := strconv.ParseUint(fields[0], 16, 32)
+		if err != nil {
+			return 0, 0
+		}
+		size, err := strconv.ParseUint(fields[1], 16, 32)
+		if err == nil {
+			return int(addr), int(size)
+		}
+	}
+	return 0, 0
+}
+
+func firstByteDiff(a, b []byte) string {
+	limit := minInt(len(a), len(b))
+	for i := 0; i < limit; i++ {
+		if a[i] != b[i] {
+			return fmt.Sprintf("0x%06x", i)
+		}
+	}
+	if len(a) != len(b) {
+		return fmt.Sprintf("size_delta:%+d", len(b)-len(a))
+	}
+	return ""
+}
+
+func appendUnique(in []string, v string) []string {
+	for _, cur := range in {
+		if cur == v {
+			return in
+		}
+	}
+	return append(in, v)
 }
 
 func findDiffRanges(original, rebuilt []byte, sampleLimit int) []diffRange {
