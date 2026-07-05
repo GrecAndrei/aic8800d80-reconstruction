@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "generated_at": "2026-07-05T10:25:03Z",
+  "generated_at": "2026-07-05T10:34:55Z",
   "input_index": "",
   "total": 4675,
   "images": [
@@ -8,82 +8,96 @@
       "image": "fmacfw_8800d80_h_u02_bin",
       "total": 1272,
       "by_mode": {
-        "asm_exact": 1272
+        "asm_exact": 1245,
+        "c_candidate": 25,
+        "c_verified": 2
       },
       "by_compile_status": {
-        "not_attempted": 1272
+        "c_byte_exact": 2,
+        "not_attempted": 1245,
+        "syntax_ok": 25
       },
       "by_verify_status": {
-        "byte_exact": 1272
+        "byte_exact": 1270,
+        "c_byte_exact": 2
       },
       "total_bytes": 245022,
       "blocked": 0,
-      "asm_exact": 1272,
-      "c_candidate": 0,
-      "c_verified": 0,
+      "asm_exact": 1245,
+      "c_candidate": 25,
+      "c_verified": 2,
       "source_bytes": 245022
     },
     {
       "image": "fmacfw_8800d80_u02_bin",
       "total": 1273,
       "by_mode": {
-        "asm_exact": 1269,
-        "c_candidate": 4
+        "asm_exact": 1209,
+        "c_candidate": 60,
+        "c_verified": 4
       },
       "by_compile_status": {
-        "not_attempted": 1269,
-        "syntax_ok": 4
+        "c_byte_exact": 4,
+        "not_attempted": 1209,
+        "syntax_ok": 60
       },
       "by_verify_status": {
-        "byte_exact": 1273
+        "byte_exact": 1269,
+        "c_byte_exact": 4
       },
       "total_bytes": 245312,
       "blocked": 0,
-      "asm_exact": 1269,
-      "c_candidate": 4,
-      "c_verified": 0,
+      "asm_exact": 1209,
+      "c_candidate": 60,
+      "c_verified": 4,
       "source_bytes": 245312
     },
     {
       "image": "fmacfwbt_8800d80_u02_bin",
       "total": 1274,
       "by_mode": {
-        "asm_exact": 1270,
-        "c_candidate": 4
+        "asm_exact": 1214,
+        "c_candidate": 56,
+        "c_verified": 4
       },
       "by_compile_status": {
-        "not_attempted": 1270,
-        "syntax_ok": 4
+        "c_byte_exact": 4,
+        "not_attempted": 1214,
+        "syntax_ok": 56
       },
       "by_verify_status": {
-        "byte_exact": 1274
+        "byte_exact": 1270,
+        "c_byte_exact": 4
       },
       "total_bytes": 245984,
       "blocked": 0,
-      "asm_exact": 1270,
-      "c_candidate": 4,
-      "c_verified": 0,
+      "asm_exact": 1214,
+      "c_candidate": 56,
+      "c_verified": 4,
       "source_bytes": 245984
     },
     {
       "image": "lmacfw_rf_8800d80_u02_bin",
       "total": 856,
       "by_mode": {
-        "asm_exact": 854,
-        "c_candidate": 2
+        "asm_exact": 807,
+        "c_candidate": 48,
+        "c_verified": 1
       },
       "by_compile_status": {
-        "not_attempted": 854,
-        "syntax_ok": 2
+        "c_byte_exact": 1,
+        "not_attempted": 807,
+        "syntax_ok": 48
       },
       "by_verify_status": {
-        "byte_exact": 856
+        "byte_exact": 855,
+        "c_byte_exact": 1
       },
       "total_bytes": 145900,
       "blocked": 0,
-      "asm_exact": 854,
-      "c_candidate": 2,
-      "c_verified": 0,
+      "asm_exact": 807,
+      "c_candidate": 48,
+      "c_verified": 1,
       "source_bytes": 145900
     }
   ]

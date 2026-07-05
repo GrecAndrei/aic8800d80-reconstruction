@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_101A98 ((uint32_t)0x00101a98u)
+#define off_101A98 ((uint32_t)0x40330000u)
 // chip_revision_get @ 0x101a88, size 14 bytes
 // Doc: chip_revision_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
 // chip_revision_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)

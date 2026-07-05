@@ -17,8 +17,8 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_10D7AC ((uint32_t)0x0010d7acu)
-#define off_10D7B0 ((uint32_t)0x0010d7b0u)
+#define off_10D7AC ((uint32_t)0x40032020u)
+#define off_10D7B0 ((uint32_t)0x40032000u)
 // uart_putc @ 0x10d79c, size 14 bytes
 // Doc: uart_putc [util]: Write one character to UART data register
 // uart_putc [util]: Write one character to UART data register

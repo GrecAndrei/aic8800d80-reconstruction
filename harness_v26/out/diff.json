@@ -5,11 +5,11 @@
   "different_bytes": 0,
   "different_images": 0,
   "equal_bytes": 1278594,
-  "generated_at": "2026-07-05T10:25:03Z",
+  "generated_at": "2026-07-05T10:34:55Z",
   "images": {
     "fmacfw_8800d80_h_u02_bin": {
       "schema_version": "0.1.0",
-      "generated_at": "2026-07-05T10:25:03Z",
+      "generated_at": "2026-07-05T10:34:55Z",
       "image": "fmacfw_8800d80_h_u02_bin",
       "status": "byte_identical",
       "original_size": 341260,
@@ -27,7 +27,7 @@
     },
     "fmacfw_8800d80_u02_bin": {
       "schema_version": "0.1.0",
-      "generated_at": "2026-07-05T10:25:03Z",
+      "generated_at": "2026-07-05T10:34:55Z",
       "image": "fmacfw_8800d80_u02_bin",
       "status": "byte_identical",
       "original_size": 341212,
@@ -45,7 +45,7 @@
     },
     "fmacfwbt_8800d80_u02_bin": {
       "schema_version": "0.1.0",
-      "generated_at": "2026-07-05T10:25:03Z",
+      "generated_at": "2026-07-05T10:34:55Z",
       "image": "fmacfwbt_8800d80_u02_bin",
       "status": "byte_identical",
       "original_size": 341512,
@@ -63,7 +63,7 @@
     },
     "lmacfw_rf_8800d80_u02_bin": {
       "schema_version": "0.1.0",
-      "generated_at": "2026-07-05T10:25:03Z",
+      "generated_at": "2026-07-05T10:34:55Z",
       "image": "lmacfw_rf_8800d80_u02_bin",
       "status": "byte_identical",
       "original_size": 254610,

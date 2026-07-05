@@ -185,11 +185,20 @@ func TestFirstByteDiff(t *testing.T) {
 
 func TestRewriteAbsoluteExterns(t *testing.T) {
 	src := "extern uint32_t off_1006D4;\nextern uint32_t dword_10D7AC;\nint f(void) { return *(uint32_t *)off_1006D4 + dword_10D7AC; }\n"
-	got := rewriteAbsoluteExterns(src)
-	if !strings.Contains(got, "#define off_1006D4 ((uint32_t)0x001006d4u)") {
+	raw := make([]byte, 0x110000)
+	raw[0x6d4] = 0x98
+	raw[0x6d5] = 0x21
+	raw[0x6d6] = 0x18
+	raw[0x6d7] = 0x00
+	raw[0xd7ac] = 0x20
+	raw[0xd7ad] = 0x20
+	raw[0xd7ae] = 0x03
+	raw[0xd7af] = 0x40
+	got := rewriteAbsoluteExterns(src, raw)
+	if !strings.Contains(got, "#define off_1006D4 ((uint32_t)0x00182198u)") {
 		t.Fatalf("off rewrite missing:\n%s", got)
 	}
-	if !strings.Contains(got, "#define dword_10D7AC ((uint32_t)0x0010d7acu)") {
+	if !strings.Contains(got, "#define dword_10D7AC ((uint32_t)0x40032020u)") {
 		t.Fatalf("dword rewrite missing:\n%s", got)
 	}
 	if strings.Contains(got, "extern uint32_t off_1006D4") {

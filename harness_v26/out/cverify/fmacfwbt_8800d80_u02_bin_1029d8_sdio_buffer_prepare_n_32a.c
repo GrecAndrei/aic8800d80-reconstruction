@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_1029F4 ((uint32_t)0x001029f4u)
+#define off_1029F4 ((uint32_t)0x40330000u)
 // sdio_buffer_prepare_n_32a @ 0x1029d8, size 26 bytes
 // Doc: sdio_buffer_prepare_n_32a [util]: Validate/prepare SDIO buffer length against limit
 // sdio_buffer_prepare_n_32a [util]: Validate/prepare SDIO buffer length against limit

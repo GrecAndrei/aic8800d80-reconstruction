@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_12EA4C ((uint32_t)0x0012ea4cu)
+#define off_12EA4C ((uint32_t)0x0018274cu)
 // fmacfw_version_get @ 0x12ea44, size 6 bytes
 // Doc: fmacfw_version_get [util]: Return pointer to firmware version string
 // fmacfw_version_get [util]: Return pointer to firmware version string
