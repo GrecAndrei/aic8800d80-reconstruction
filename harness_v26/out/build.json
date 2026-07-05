@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "generated_at": "2026-07-05T10:25:02Z",
+  "generated_at": "2026-07-05T10:34:54Z",
   "compiler": "/usr/bin/arm-none-eabi-gcc",
   "objcopy": "/usr/bin/arm-none-eabi-objcopy",
   "images": {

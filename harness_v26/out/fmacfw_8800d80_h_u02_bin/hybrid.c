@@ -1613,7 +1613,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1006CC @ 0x1006cc size=6 mode=asm_exact verify=byte_exact */
+/* sub_1006CC @ 0x1006cc size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1006CC\n"
@@ -6731,7 +6732,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101950 @ 0x101950 size=10 mode=asm_exact verify=byte_exact */
+/* sub_101950 @ 0x101950 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101950\n"
@@ -6839,7 +6841,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10198C @ 0x10198c size=10 mode=asm_exact verify=byte_exact */
+/* sub_10198C @ 0x10198c size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10198C\n"
@@ -6871,7 +6874,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10199C @ 0x10199c size=10 mode=asm_exact verify=byte_exact */
+/* sub_10199C @ 0x10199c size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10199C\n"
@@ -6903,7 +6907,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1019AC @ 0x1019ac size=10 mode=asm_exact verify=byte_exact */
+/* sub_1019AC @ 0x1019ac size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1019AC\n"
@@ -7059,7 +7064,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101A18 @ 0x101a18 size=14 mode=asm_exact verify=byte_exact */
+/* sub_101A18 @ 0x101a18 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101A18\n"
@@ -7095,7 +7101,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101A2C @ 0x101a2c size=14 mode=asm_exact verify=byte_exact */
+/* sub_101A2C @ 0x101a2c size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101A2C\n"
@@ -7131,7 +7138,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101A40 @ 0x101a40 size=14 mode=asm_exact verify=byte_exact */
+/* sub_101A40 @ 0x101a40 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101A40\n"
@@ -54055,7 +54063,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10CB48 @ 0x10cb48 size=8 mode=asm_exact verify=byte_exact */
+/* sub_10CB48 @ 0x10cb48 size=8 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10CB48\n"
@@ -54083,7 +54092,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10CB54 @ 0x10cb54 size=10 mode=asm_exact verify=byte_exact */
+/* sub_10CB54 @ 0x10cb54 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10CB54\n"
@@ -54115,7 +54125,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10CB64 @ 0x10cb64 size=8 mode=asm_exact verify=byte_exact */
+/* sub_10CB64 @ 0x10cb64 size=8 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10CB64\n"
@@ -55619,7 +55630,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10D0E4 @ 0x10d0e4 size=10 mode=asm_exact verify=byte_exact */
+/* sub_10D0E4 @ 0x10d0e4 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10D0E4\n"
@@ -55651,7 +55663,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10D0F4 @ 0x10d0f4 size=10 mode=asm_exact verify=byte_exact */
+/* sub_10D0F4 @ 0x10d0f4 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10D0F4\n"
@@ -57351,7 +57364,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10D6B8 @ 0x10d6b8 size=10 mode=asm_exact verify=byte_exact */
+/* sub_10D6B8 @ 0x10d6b8 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10D6B8\n"
@@ -80617,7 +80631,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_112B5C @ 0x112b5c size=6 mode=asm_exact verify=byte_exact */
+/* sub_112B5C @ 0x112b5c size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_112B5C\n"
@@ -87941,7 +87956,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_114578 @ 0x114578 size=10 mode=asm_exact verify=byte_exact */
+/* sub_114578 @ 0x114578 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_114578\n"
@@ -87973,7 +87989,8 @@ __asm__(
     ".previous\n"
 );
 
-/* rf_emit_setup_word @ 0x114588 size=14 mode=asm_exact verify=byte_exact */
+/* rf_emit_setup_word @ 0x114588 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global rf_emit_setup_word\n"
@@ -88009,7 +88026,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_11459C @ 0x11459c size=14 mode=asm_exact verify=byte_exact */
+/* sub_11459C @ 0x11459c size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_11459C\n"
@@ -101375,7 +101393,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_11754C @ 0x11754c size=14 mode=asm_exact verify=byte_exact */
+/* sub_11754C @ 0x11754c size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_11754C\n"
@@ -109343,7 +109362,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_11926C @ 0x11926c size=10 mode=asm_exact verify=byte_exact */
+/* sub_11926C @ 0x11926c size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_11926C\n"
@@ -122237,7 +122257,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_11C210 @ 0x11c210 size=12 mode=asm_exact verify=byte_exact */
+/* sub_11C210 @ 0x11c210 size=12 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_11C210\n"
@@ -203697,7 +203718,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12E8EC @ 0x12e8ec size=6 mode=asm_exact verify=byte_exact */
+/* sub_12E8EC @ 0x12e8ec size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12E8EC\n"
@@ -203725,7 +203747,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12E8F8 @ 0x12e8f8 size=6 mode=asm_exact verify=byte_exact */
+/* sub_12E8F8 @ 0x12e8f8 size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12E8F8\n"
@@ -203753,7 +203776,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12E904 @ 0x12e904 size=6 mode=asm_exact verify=byte_exact */
+/* sub_12E904 @ 0x12e904 size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12E904\n"
@@ -203781,7 +203805,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12E910 @ 0x12e910 size=6 mode=asm_exact verify=byte_exact */
+/* sub_12E910 @ 0x12e910 size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12E910\n"
@@ -212491,7 +212516,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1306F8 @ 0x1306f8 size=6 mode=asm_exact verify=byte_exact */
+/* sub_1306F8 @ 0x1306f8 size=6 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1306F8\n"
@@ -295061,7 +295087,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1435C8 @ 0x1435c8 size=8 mode=asm_exact verify=byte_exact */
+/* sub_1435C8 @ 0x1435c8 size=8 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1435C8\n"

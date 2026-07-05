@@ -37,7 +37,9 @@ bin/fwhybrid all
 - `asm_exact`: default. Emits original raw firmware bytes as top-level asm.
 - `c_candidate`: tracked as a promotion candidate, but still emitted as raw
   bytes until an equivalence gate can prove the C replacement.
-- `c_verified`: reserved for future C replacements with equivalence evidence.
+- `c_verified`: C source has byte-exact compile evidence. v26 still emits the
+  original bytes in the packaged image until layout-safe C substitution is
+  implemented.
 - `blocked`: no valid byte range or source for the function.
 
 The first v26 milestone is an all-`asm_exact` ledger/source baseline. Later
@@ -93,10 +95,11 @@ queued entries. It does not mark anything `c_verified` and does not replace
 firmware bytes in the packaged image; that requires a later equivalence gate.
 
 `cverify` is that first equivalence gate. It compiles each `c_candidate` in an
-isolated ARM scratch object, rewrites absolute firmware externs into constants,
-links the object, extracts the candidate symbol bytes, and compares those bytes
-against the original firmware range. By default it only reports. Passing
-`--update-ledger` may mark exact matches as `c_verified`; non-exact candidates
+isolated ARM scratch object, rewrites absolute firmware externs into the
+32-bit values stored in the corresponding firmware literal slots, links the
+object, extracts the candidate symbol bytes, and compares those bytes against
+the original firmware range. By default it only reports. Passing
+`--update-ledger` marks exact matches as `c_verified`; non-exact candidates
 remain metadata only.
 
 ## Current v26 baseline
@@ -111,6 +114,6 @@ packaged `hybrid_firmware.bin` files as `byte_identical` to their matching
 structurally exact. It does not prove any C candidate is semantically
 equivalent yet; `c_verified` remains the required gate for real C replacement.
 
-The current `bin/fwhybrid cverify` run attempts 10 promoted candidates. All 10
-compile/link/extract cleanly, but none are byte-exact under the current C
-model. The generated evidence is in `harness_v26/cverify/`.
+The current `bin/fwhybrid cverify --update-ledger` run attempts 200 promoted
+candidates and marks 11 as `c_verified`. The generated evidence is in
+`harness_v26/cverify/`.

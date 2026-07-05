@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_1006D4 ((uint32_t)0x001006d4u)
+#define off_1006D4 ((uint32_t)0x00182198u)
 // get_variant_cached @ 0x1006cc, size 6 bytes
 // Doc: get_variant_cached [util]: Return cached silicon variant byte from global table at offset 1
 // get_variant_cached [util]: Return cached silicon variant byte from global table at offset 1

@@ -1,11 +1,11 @@
 {
-  "attempted": 10,
-  "byte_exact": 0,
+  "attempted": 200,
+  "byte_exact": 11,
   "compiler": "/usr/bin/arm-none-eabi-gcc",
-  "failed": 10,
-  "generated_at": "2026-07-05T10:25:01Z",
+  "failed": 189,
+  "generated_at": "2026-07-05T10:34:47Z",
   "objcopy": "/usr/bin/arm-none-eabi-objcopy",
   "schema_version": "0.1.0",
-  "update_ledger_requested": false,
-  "updated_ledger": false
+  "update_ledger_requested": true,
+  "updated_ledger": true
 }

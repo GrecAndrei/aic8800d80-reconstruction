@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_101884 ((uint32_t)0x00101884u)
+#define off_101884 ((uint32_t)0x40330000u)
 // chip_feature_check @ 0x101878, size 10 bytes
 // Doc: chip_feature_check [util]: Reads chip revision register and extracts a feature flag bit
 // chip_feature_check [util]: Reads chip revision register and extracts a feature flag bit

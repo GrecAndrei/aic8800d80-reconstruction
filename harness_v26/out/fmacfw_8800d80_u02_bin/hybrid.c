@@ -1429,7 +1429,8 @@ __asm__(
     ".previous\n"
 );
 
-/* delay_us_0644 @ 0x100644 size=40 mode=asm_exact verify=byte_exact */
+/* delay_us_0644 @ 0x100644 size=40 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global delay_us_0644\n"
@@ -1489,7 +1490,8 @@ __asm__(
     ".previous\n"
 );
 
-/* variant_update_cache @ 0x100670 size=18 mode=asm_exact verify=byte_exact */
+/* variant_update_cache @ 0x100670 size=18 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global variant_update_cache\n"
@@ -1746,7 +1748,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_init_patch_n_730 @ 0x100730 size=46 mode=asm_exact verify=byte_exact */
+/* mmio_init_patch_n_730 @ 0x100730 size=46 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_init_patch_n_730\n"
@@ -1822,7 +1825,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fw_init_entry @ 0x10076c size=42 mode=asm_exact verify=byte_exact */
+/* fw_init_entry @ 0x10076c size=42 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fw_init_entry\n"
@@ -6598,7 +6602,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_reg_read_lsl1c @ 0x101934 size=24 mode=asm_exact verify=byte_exact */
+/* mmio_reg_read_lsl1c @ 0x101934 size=24 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_reg_read_lsl1c\n"
@@ -6750,7 +6755,8 @@ __asm__(
     ".previous\n"
 );
 
-/* get_cached_1828f8 @ 0x10199c size=40 mode=asm_exact verify=byte_exact */
+/* get_cached_1828f8 @ 0x10199c size=40 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global get_cached_1828f8\n"
@@ -6904,7 +6910,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1019FC @ 0x1019fc size=10 mode=asm_exact verify=byte_exact */
+/* sub_1019FC @ 0x1019fc size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1019FC\n"
@@ -6972,7 +6979,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_bit_modify @ 0x101a20 size=20 mode=asm_exact verify=byte_exact */
+/* mmio_bit_modify @ 0x101a20 size=20 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_bit_modify\n"
@@ -7012,7 +7020,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_flag_get_bit1a @ 0x101a38 size=10 mode=asm_exact verify=byte_exact */
+/* mmio_flag_get_bit1a @ 0x101a38 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_flag_get_bit1a\n"
@@ -7044,7 +7053,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101A48 @ 0x101a48 size=10 mode=asm_exact verify=byte_exact */
+/* sub_101A48 @ 0x101a48 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101A48\n"
@@ -7076,7 +7086,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_101A58 @ 0x101a58 size=10 mode=asm_exact verify=byte_exact */
+/* sub_101A58 @ 0x101a58 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_101A58\n"
@@ -7108,7 +7119,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_copy_4words @ 0x101a68 size=28 mode=asm_exact verify=byte_exact */
+/* mmio_copy_4words @ 0x101a68 size=28 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_copy_4words\n"
@@ -7232,7 +7244,8 @@ __asm__(
     ".previous\n"
 );
 
-/* hw_chip_rev_get @ 0x101ac4 size=14 mode=asm_exact verify=byte_exact */
+/* hw_chip_rev_get @ 0x101ac4 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global hw_chip_rev_get\n"
@@ -8436,7 +8449,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fmac_hw_setup @ 0x101f28 size=58 mode=asm_exact verify=byte_exact */
+/* fmac_hw_setup @ 0x101f28 size=58 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fmac_hw_setup\n"
@@ -11692,7 +11706,8 @@ __asm__(
     ".previous\n"
 );
 
-/* rf_chan_mask_get @ 0x102b60 size=26 mode=asm_exact verify=byte_exact */
+/* rf_chan_mask_get @ 0x102b60 size=26 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global rf_chan_mask_get\n"
@@ -13812,7 +13827,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_read_backoff_window @ 0x1032e8 size=14 mode=asm_exact verify=byte_exact */
+/* mmio_read_backoff_window @ 0x1032e8 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_read_backoff_window\n"
@@ -54376,7 +54392,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10CC88 @ 0x10cc88 size=8 mode=asm_exact verify=byte_exact */
+/* sub_10CC88 @ 0x10cc88 size=8 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10CC88\n"
@@ -54404,7 +54421,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_radio_unlock_0x100 @ 0x10cc94 size=10 mode=asm_exact verify=byte_exact */
+/* mmio_radio_unlock_0x100 @ 0x10cc94 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_radio_unlock_0x100\n"
@@ -54436,7 +54454,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10CCA4 @ 0x10cca4 size=8 mode=asm_exact verify=byte_exact */
+/* sub_10CCA4 @ 0x10cca4 size=8 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10CCA4\n"
@@ -55784,7 +55803,8 @@ __asm__(
     ".previous\n"
 );
 
-/* log_hw_regs_init @ 0x10d1a8 size=70 mode=asm_exact verify=byte_exact */
+/* log_hw_regs_init @ 0x10d1a8 size=70 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global log_hw_regs_init\n"
@@ -55940,7 +55960,8 @@ __asm__(
     ".previous\n"
 );
 
-/* hw_reg_set_40035000 @ 0x10d224 size=10 mode=asm_exact verify=byte_exact */
+/* hw_reg_set_40035000 @ 0x10d224 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global hw_reg_set_40035000\n"
@@ -55972,7 +55993,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mac_tx_completion_n234 @ 0x10d234 size=10 mode=asm_exact verify=byte_exact */
+/* mac_tx_completion_n234 @ 0x10d234 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mac_tx_completion_n234\n"
@@ -57096,7 +57118,8 @@ __asm__(
     ".previous\n"
 );
 
-/* irq23_enable_d628 @ 0x10d628 size=20 mode=asm_exact verify=byte_exact */
+/* irq23_enable_d628 @ 0x10d628 size=20 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global irq23_enable_d628\n"
@@ -57460,7 +57483,8 @@ __asm__(
     ".previous\n"
 );
 
-/* log_hw_init_if_d774 @ 0x10d774 size=12 mode=asm_exact verify=byte_exact */
+/* log_hw_init_if_d774 @ 0x10d774 size=12 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global log_hw_init_if_d774\n"
@@ -57573,7 +57597,8 @@ __asm__(
     ".previous\n"
 );
 
-/* uart_puts @ 0x10d7b4 size=34 mode=asm_exact verify=byte_exact */
+/* uart_puts @ 0x10d7b4 size=34 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global uart_puts\n"
@@ -57633,7 +57658,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_read_byte_uart @ 0x10d7e0 size=16 mode=asm_exact verify=byte_exact */
+/* mmio_read_byte_uart @ 0x10d7e0 size=16 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_read_byte_uart\n"
@@ -57673,7 +57699,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_10D7F8 @ 0x10d7f8 size=10 mode=asm_exact verify=byte_exact */
+/* sub_10D7F8 @ 0x10d7f8 size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_10D7F8\n"
@@ -58991,7 +59018,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_bit_clear_n0e0 @ 0x10dcd4 size=18 mode=asm_exact verify=byte_exact */
+/* mmio_bit_clear_n0e0 @ 0x10dcd4 size=18 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_bit_clear_n0e0\n"
@@ -59067,7 +59095,8 @@ __asm__(
     ".previous\n"
 );
 
-/* rf_mem_read_n47e @ 0x10dd00 size=16 mode=asm_exact verify=byte_exact */
+/* rf_mem_read_n47e @ 0x10dd00 size=16 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global rf_mem_read_n47e\n"
@@ -65369,7 +65398,8 @@ __asm__(
     ".previous\n"
 );
 
-/* log_free_wrapper_f370 @ 0x10f370 size=12 mode=asm_exact verify=byte_exact */
+/* log_free_wrapper_f370 @ 0x10f370 size=12 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global log_free_wrapper_f370\n"
@@ -65391,7 +65421,8 @@ __asm__(
     ".previous\n"
 );
 
-/* log_pool_default_config @ 0x10f37c size=48 mode=asm_exact verify=byte_exact */
+/* log_pool_default_config @ 0x10f37c size=48 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global log_pool_default_config\n"
@@ -73497,7 +73528,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_11113C @ 0x11113c size=28 mode=asm_exact verify=byte_exact */
+/* sub_11113C @ 0x11113c size=28 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_11113C\n"
@@ -76975,7 +77007,8 @@ __asm__(
     ".previous\n"
 );
 
-/* rf_bus_write_wrapper @ 0x111db4 size=4 mode=asm_exact verify=byte_exact */
+/* rf_bus_write_wrapper @ 0x111db4 size=4 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global rf_bus_write_wrapper\n"
@@ -101327,7 +101360,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fmac_event_init_n_3b2 @ 0x117534 size=48 mode=asm_exact verify=byte_exact */
+/* fmac_event_init_n_3b2 @ 0x117534 size=48 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fmac_event_init_n_3b2\n"
@@ -109666,7 +109700,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1193AC @ 0x1193ac size=10 mode=asm_exact verify=byte_exact */
+/* sub_1193AC @ 0x1193ac size=10 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1193AC\n"
@@ -122560,7 +122595,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_set_bit7_40320324 @ 0x11c350 size=12 mode=asm_exact verify=byte_exact */
+/* mmio_set_bit7_40320324 @ 0x11c350 size=12 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_set_bit7_40320324\n"
@@ -123028,7 +123064,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mac_addr_write2 @ 0x11c4e4 size=16 mode=asm_exact verify=byte_exact */
+/* mac_addr_write2 @ 0x11c4e4 size=16 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mac_addr_write2\n"
@@ -128052,7 +128089,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fw_state_check @ 0x11d7d4 size=30 mode=asm_exact verify=byte_exact */
+/* fw_state_check @ 0x11d7d4 size=30 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fw_state_check\n"
@@ -130458,7 +130496,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_reg_bit_modify @ 0x11e080 size=44 mode=asm_exact verify=byte_exact */
+/* mmio_reg_bit_modify @ 0x11e080 size=44 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_reg_bit_modify\n"
@@ -150866,7 +150905,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_122B18 @ 0x122b18 size=14 mode=asm_exact verify=byte_exact */
+/* sub_122B18 @ 0x122b18 size=14 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_122B18\n"
@@ -189880,7 +189920,8 @@ __asm__(
     ".previous\n"
 );
 
-/* mmio_set_reset_vector_n_b8 @ 0x12b8a8 size=16 mode=asm_exact verify=byte_exact */
+/* mmio_set_reset_vector_n_b8 @ 0x12b8a8 size=16 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global mmio_set_reset_vector_n_b8\n"
@@ -194398,7 +194439,8 @@ __asm__(
     ".previous\n"
 );
 
-/* message_dispatch_c8b4 @ 0x12c8b4 size=32 mode=asm_exact verify=byte_exact */
+/* message_dispatch_c8b4 @ 0x12c8b4 size=32 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global message_dispatch_c8b4\n"
@@ -197180,7 +197222,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12D240 @ 0x12d240 size=8 mode=asm_exact verify=byte_exact */
+/* sub_12D240 @ 0x12d240 size=8 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12D240\n"
@@ -197570,7 +197613,8 @@ __asm__(
     ".previous\n"
 );
 
-/* list_count @ 0x12d36c size=20 mode=asm_exact verify=byte_exact */
+/* list_count @ 0x12d36c size=20 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global list_count\n"
@@ -197818,7 +197862,8 @@ __asm__(
     ".previous\n"
 );
 
-/* buf_ptr_deref_n_430 @ 0x12d430 size=48 mode=asm_exact verify=byte_exact */
+/* buf_ptr_deref_n_430 @ 0x12d430 size=48 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global buf_ptr_deref_n_430\n"
@@ -200886,7 +200931,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sdio_buffer_prepare_n_28c @ 0x12de90 size=40 mode=asm_exact verify=byte_exact */
+/* sdio_buffer_prepare_n_28c @ 0x12de90 size=40 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sdio_buffer_prepare_n_28c\n"
@@ -203986,7 +204032,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sdio_wait_busy_clear @ 0x12ea10 size=24 mode=asm_exact verify=byte_exact */
+/* sdio_wait_busy_clear @ 0x12ea10 size=24 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sdio_wait_busy_clear\n"
@@ -204030,7 +204077,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12EA2C @ 0x12ea2c size=6 mode=asm_exact verify=byte_exact */
+/* sub_12EA2C @ 0x12ea2c size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12EA2C\n"
@@ -204058,7 +204106,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12EA38 @ 0x12ea38 size=6 mode=asm_exact verify=byte_exact */
+/* sub_12EA38 @ 0x12ea38 size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12EA38\n"
@@ -204115,7 +204164,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_12EA50 @ 0x12ea50 size=6 mode=asm_exact verify=byte_exact */
+/* sub_12EA50 @ 0x12ea50 size=6 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_12EA50\n"
@@ -207325,7 +207375,8 @@ __asm__(
     ".previous\n"
 );
 
-/* j_state_check @ 0x12f52c size=4 mode=asm_exact verify=byte_exact */
+/* j_state_check @ 0x12f52c size=4 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global j_state_check\n"
@@ -208769,7 +208820,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fmacfw_init_or_dispatch_n_04 @ 0x12fa04 size=32 mode=asm_exact verify=byte_exact */
+/* fmacfw_init_or_dispatch_n_04 @ 0x12fa04 size=32 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fmacfw_init_or_dispatch_n_04\n"
@@ -208825,7 +208877,8 @@ __asm__(
     ".previous\n"
 );
 
-/* parse_width_suffix @ 0x12fa2c size=50 mode=asm_exact verify=byte_exact */
+/* parse_width_suffix @ 0x12fa2c size=50 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global parse_width_suffix\n"
@@ -212623,7 +212676,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fmac_dbg_marker_set @ 0x130798 size=56 mode=asm_exact verify=byte_exact */
+/* fmac_dbg_marker_set @ 0x130798 size=56 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fmac_dbg_marker_set\n"
@@ -212699,7 +212753,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_1307D4 @ 0x1307d4 size=46 mode=asm_exact verify=byte_exact */
+/* sub_1307D4 @ 0x1307d4 size=46 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_1307D4\n"
@@ -212825,7 +212880,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_130838 @ 0x130838 size=6 mode=asm_exact verify=byte_exact */
+/* sub_130838 @ 0x130838 size=6 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_130838\n"
@@ -221061,7 +221117,8 @@ __asm__(
     ".previous\n"
 );
 
-/* fmac_unknown_handler @ 0x1325f4 size=26 mode=asm_exact verify=byte_exact */
+/* fmac_unknown_handler @ 0x1325f4 size=26 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global fmac_unknown_handler\n"
@@ -223069,7 +223126,8 @@ __asm__(
     ".previous\n"
 );
 
-/* stub_push_r4 @ 0x132d04 size=18 mode=asm_exact verify=byte_exact */
+/* stub_push_r4 @ 0x132d04 size=18 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global stub_push_r4\n"
@@ -274735,7 +274793,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_13EB0C @ 0x13eb0c size=20 mode=asm_exact verify=byte_exact */
+/* sub_13EB0C @ 0x13eb0c size=20 mode=c_candidate verify=byte_exact */
+/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_13EB0C\n"
@@ -295395,7 +295454,8 @@ __asm__(
     ".previous\n"
 );
 
-/* sub_143708 @ 0x143708 size=8 mode=asm_exact verify=byte_exact */
+/* sub_143708 @ 0x143708 size=8 mode=c_verified verify=c_byte_exact */
+/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */
 __asm__(
     ".section .text.v26,\"ax\",%progbits\n"
     ".global sub_143708\n"

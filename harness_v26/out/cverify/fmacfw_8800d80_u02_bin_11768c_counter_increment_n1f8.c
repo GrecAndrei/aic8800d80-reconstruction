@@ -17,7 +17,7 @@
 #define LODWORD(x) ((uint32_t)(x))
 #define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
 
-#define off_11769C ((uint32_t)0x0011769cu)
+#define off_11769C ((uint32_t)0x0018808cu)
 // counter_increment_n1f8 @ 0x11768c, size 14 bytes
 // Doc: counter_increment_n1f8 [util]: Increment 32-bit counter at offset 0x1f8
 // counter_increment_n1f8 [util]: Increment 32-bit counter at offset 0x1f8

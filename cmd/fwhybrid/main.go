@@ -785,7 +785,7 @@ func runCVerify(args []string) error {
 	var updateLedger bool
 	cf.register(fs)
 	fs.StringVar(&compiler, "cc", "", "ARM C compiler override")
-	fs.IntVar(&limit, "limit", 0, "maximum c_candidate rows to verify; 0 means all")
+	fs.IntVar(&limit, "limit", 0, "maximum candidate/verified rows to verify; 0 means all")
 	fs.BoolVar(&updateLedger, "update-ledger", false, "mark exact matches as c_verified in the ledger")
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -813,7 +813,7 @@ func runCVerify(args []string) error {
 	verified := map[string]bool{}
 	attempted := 0
 	for _, rec := range rows {
-		if rec.Mode != "c_candidate" {
+		if rec.Mode != "c_candidate" && rec.Mode != "c_verified" {
 			continue
 		}
 		if limit > 0 && attempted >= limit {
@@ -828,7 +828,7 @@ func runCVerify(args []string) error {
 		if err != nil {
 			return err
 		}
-		rep := verifyCandidateC(cf, compiler, objcopy, scratch, rec, orig, now)
+		rep := verifyCandidateC(cf, compiler, objcopy, scratch, rec, raw, orig, now)
 		reports = append(reports, rep)
 		if rep.Status == "byte_exact" {
 			verified[rec.Image+"|"+rec.Address] = true
@@ -877,7 +877,7 @@ func runCVerify(args []string) error {
 	return nil
 }
 
-func verifyCandidateC(cf commonFlags, compiler, objcopy, scratch string, rec ledgerRecord, original []byte, now string) cVerifyRecord {
+func verifyCandidateC(cf commonFlags, compiler, objcopy, scratch string, rec ledgerRecord, raw []byte, original []byte, now string) cVerifyRecord {
 	rep := cVerifyRecord{
 		SchemaVersion: schemaVersion,
 		GeneratedAt:   now,
@@ -907,7 +907,7 @@ func verifyCandidateC(cf commonFlags, compiler, objcopy, scratch string, rec led
 	elfPath := filepath.Join(scratch, workBase+".elf")
 	binPath := filepath.Join(scratch, workBase+".bin")
 	sectionPath := filepath.Join(scratch, workBase+".text.bin")
-	src, err := cVerifySource(rec, symbol)
+	src, err := cVerifySource(rec, symbol, raw)
 	if err != nil {
 		rep.Error = err.Error()
 		return rep
@@ -979,7 +979,7 @@ func verifyCandidateC(cf commonFlags, compiler, objcopy, scratch string, rec led
 	return rep
 }
 
-func cVerifySource(rec ledgerRecord, symbol string) (string, error) {
+func cVerifySource(rec ledgerRecord, symbol string, raw []byte) (string, error) {
 	src, err := cBodyForHybrid(rec, symbol)
 	if err != nil {
 		return "", err
@@ -992,11 +992,11 @@ func cVerifySource(rec ledgerRecord, symbol string) (string, error) {
 	b.WriteString("#define __noreturn\n")
 	b.WriteString("#define _VF 0\n")
 	b.WriteString("#define _CF 0\n")
-	b.WriteString(rewriteAbsoluteExterns(src))
+	b.WriteString(rewriteAbsoluteExterns(src, raw))
 	return b.String(), nil
 }
 
-func rewriteAbsoluteExterns(src string) string {
+func rewriteAbsoluteExterns(src string, raw []byte) string {
 	re := regexp.MustCompile(`(?m)^extern\s+uint32_t\s+((?:off|dword|byte|word|qword|algn|unk)_[0-9A-Fa-f]+);\s*$`)
 	return re.ReplaceAllStringFunc(src, func(line string) string {
 		m := re.FindStringSubmatch(line)
@@ -1012,7 +1012,14 @@ func rewriteAbsoluteExterns(src string) string {
 		if err != nil {
 			return line
 		}
-		return fmt.Sprintf("#define %s ((uint32_t)0x%08xu)", name, uint32(addr))
+		value := uint32(addr)
+		if addr >= uint64(chipBase) {
+			off := int(uint32(addr) - chipBase)
+			if off >= 0 && off+4 <= len(raw) {
+				value = uint32(raw[off]) | uint32(raw[off+1])<<8 | uint32(raw[off+2])<<16 | uint32(raw[off+3])<<24
+			}
+		}
+		return fmt.Sprintf("#define %s ((uint32_t)0x%08xu)", name, value)
 	})
 }
 
@@ -1889,22 +1896,15 @@ func emitSource(image string, recs []ledgerRecord, raw []byte) (string, error) {
 			b.WriteString(fmt.Sprintf("void %s(void) { __builtin_trap(); }\n\n", sym))
 			continue
 		}
-		if rec.Mode == "c_verified" {
-			src, err := cBodyForHybrid(rec, sym)
-			if err != nil {
-				return "", err
-			}
-			b.WriteString(src)
-			b.WriteString("\n\n")
-			cursor = maxInt(cursor, start+rec.Size)
-			continue
-		}
 		body, err := rawBytesFor(rec, raw)
 		if err != nil {
 			return "", err
 		}
 		if rec.Mode == "c_candidate" {
 			b.WriteString("/* c_candidate is tracked in the ledger; raw bytes stay packaged until equivalence verification. */\n")
+		}
+		if rec.Mode == "c_verified" {
+			b.WriteString("/* c_verified has byte-equivalent C evidence; raw bytes stay packaged until layout-safe C substitution. */\n")
 		}
 		emitTopLevelBytes(&b, sym, body, fmt.Sprintf("fn_%06x", addr), true)
 		cursor = maxInt(cursor, start+len(body))
