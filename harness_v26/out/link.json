@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-07-05T10:16:12Z",
+  "images": {
+    "fmacfw_8800d80_h_u02_bin": "linked",
+    "fmacfw_8800d80_u02_bin": "linked",
+    "fmacfwbt_8800d80_u02_bin": "linked",
+    "lmacfw_rf_8800d80_u02_bin": "linked"
+  },
+  "ld": "/usr/bin/arm-none-eabi-ld",
+  "objcopy": "/usr/bin/arm-none-eabi-objcopy",
+  "schema_version": "0.1.0"
+}

@@ -1,0 +1,7 @@
+{
+  "candidates": 200,
+  "generated_at": "2026-07-05T10:11:10Z",
+  "limit": 200,
+  "output": "/home/alex/Downloads/aic8800d80/harness_v26/queue/c_candidates.jsonl",
+  "schema_version": "0.1.0"
+}

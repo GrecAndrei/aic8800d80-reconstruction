@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-05T10:16:12Z",
+  "image": "fmacfwbt_8800d80_u02_bin",
+  "status": "byte_identical",
+  "original_size": 341512,
+  "rebuilt_size": 341512,
+  "compared_size": 341512,
+  "equal_bytes": 341512,
+  "different_bytes": 0,
+  "size_delta_bytes": 0,
+  "header_equal": true,
+  "header_diff_bytes": 0,
+  "promoted_c_diff_bytes": 0,
+  "non_promoted_diff_bytes": 0,
+  "range_count": 0,
+  "ranges_sample": []
+}

@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-07-05T10:16:12Z",
+  "images": {
+    "fmacfw_8800d80_h_u02_bin": {
+      "code_size": 341004,
+      "output": "/home/alex/Downloads/aic8800d80/harness_v26/out/fmacfw_8800d80_h_u02_bin/hybrid_firmware.bin",
+      "packaged_size": 341260,
+      "raw_size": 341260,
+      "status": "packaged"
+    },
+    "fmacfw_8800d80_u02_bin": {
+      "code_size": 340956,
+      "output": "/home/alex/Downloads/aic8800d80/harness_v26/out/fmacfw_8800d80_u02_bin/hybrid_firmware.bin",
+      "packaged_size": 341212,
+      "raw_size": 341212,
+      "status": "packaged"
+    },
+    "fmacfwbt_8800d80_u02_bin": {
+      "code_size": 341256,
+      "output": "/home/alex/Downloads/aic8800d80/harness_v26/out/fmacfwbt_8800d80_u02_bin/hybrid_firmware.bin",
+      "packaged_size": 341512,
+      "raw_size": 341512,
+      "status": "packaged"
+    },
+    "lmacfw_rf_8800d80_u02_bin": {
+      "code_size": 254354,
+      "output": "/home/alex/Downloads/aic8800d80/harness_v26/out/lmacfw_rf_8800d80_u02_bin/hybrid_firmware.bin",
+      "packaged_size": 254610,
+      "raw_size": 254610,
+      "status": "packaged"
+    }
+  },
+  "schema_version": "0.1.0"
+}
