@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-05T10:10:57Z",
+  "input_index": "/home/alex/Downloads/aic8800d80/harness_v25/out/function_index.json",
+  "total": 4675,
+  "images": [
+    {
+      "image": "fmacfw_8800d80_h_u02_bin",
+      "total": 1272,
+      "by_mode": {
+        "asm_exact": 1272
+      },
+      "by_compile_status": {
+        "not_attempted": 1272
+      },
+      "by_verify_status": {
+        "not_attempted": 1272
+      },
+      "total_bytes": 245022,
+      "blocked": 0,
+      "asm_exact": 1272,
+      "c_candidate": 0,
+      "c_verified": 0,
+      "source_bytes": 245022
+    },
+    {
+      "image": "fmacfw_8800d80_u02_bin",
+      "total": 1273,
+      "by_mode": {
+        "asm_exact": 1273
+      },
+      "by_compile_status": {
+        "not_attempted": 1273
+      },
+      "by_verify_status": {
+        "not_attempted": 1273
+      },
+      "total_bytes": 245312,
+      "blocked": 0,
+      "asm_exact": 1273,
+      "c_candidate": 0,
+      "c_verified": 0,
+      "source_bytes": 245312
+    },
+    {
+      "image": "fmacfwbt_8800d80_u02_bin",
+      "total": 1274,
+      "by_mode": {
+        "asm_exact": 1274
+      },
+      "by_compile_status": {
+        "not_attempted": 1274
+      },
+      "by_verify_status": {
+        "not_attempted": 1274
+      },
+      "total_bytes": 245984,
+      "blocked": 0,
+      "asm_exact": 1274,
+      "c_candidate": 0,
+      "c_verified": 0,
+      "source_bytes": 245984
+    },
+    {
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "total": 856,
+      "by_mode": {
+        "asm_exact": 856
+      },
+      "by_compile_status": {
+        "not_attempted": 856
+      },
+      "by_verify_status": {
+        "not_attempted": 856
+      },
+      "total_bytes": 145900,
+      "blocked": 0,
+      "asm_exact": 856,
+      "c_candidate": 0,
+      "c_verified": 0,
+      "source_bytes": 145900
+    }
+  ]
+}

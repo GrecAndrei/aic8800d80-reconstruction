@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-05T10:16:12Z",
+  "image": "lmacfw_rf_8800d80_u02_bin",
+  "status": "byte_identical",
+  "original_size": 254610,
+  "rebuilt_size": 254610,
+  "compared_size": 254610,
+  "equal_bytes": 254610,
+  "different_bytes": 0,
+  "size_delta_bytes": 0,
+  "header_equal": true,
+  "header_diff_bytes": 0,
+  "promoted_c_diff_bytes": 0,
+  "non_promoted_diff_bytes": 0,
+  "range_count": 0,
+  "ranges_sample": []
+}

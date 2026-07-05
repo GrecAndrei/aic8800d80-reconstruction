@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-07-05T10:16:11Z",
+  "results": {
+    "fmacfw_8800d80_h_u02_bin": "syntax_ok",
+    "fmacfw_8800d80_u02_bin": "syntax_ok",
+    "fmacfwbt_8800d80_u02_bin": "syntax_ok",
+    "lmacfw_rf_8800d80_u02_bin": "syntax_ok"
+  },
+  "schema_version": "0.1.0"
+}
