@@ -9,19 +9,19 @@
   "removed": 1249,
   "identical_list": [
     {
-      "address": "0x101a2c",
-      "name_a": "sub_101A2C",
-      "name_b": "sub_101A2C",
-      "n_lines_a": 6,
-      "n_lines_b": 6,
-      "same_code": true
-    },
-    {
       "address": "0x100200",
       "name_a": "memset_thunk",
       "name_b": "memset_thunk",
       "n_lines_a": 82,
       "n_lines_b": 82,
+      "same_code": true
+    },
+    {
+      "address": "0x101a2c",
+      "name_a": "sub_101A2C",
+      "name_b": "sub_101A2C",
+      "n_lines_a": 6,
+      "n_lines_b": 6,
       "same_code": true
     }
   ],
@@ -36,7 +36,7 @@
     },
     {
       "address": "0x1002a0",
-      "name_a": "sub_1002A0",
+      "name_a": "fw_config_apply",
       "name_b": "sub_1002A0",
       "n_lines_a": 146,
       "n_lines_b": 87,
@@ -116,7 +116,7 @@
     },
     {
       "address": "0x11414c",
-      "name_a": "sub_11414C",
+      "name_a": "log_free_pool_e",
       "name_b": "sub_11414C",
       "n_lines_a": 35,
       "n_lines_b": 6,
@@ -140,7 +140,7 @@
     },
     {
       "address": "0x11485c",
-      "name_a": "sub_11485C",
+      "name_a": "rf_fault_dump_n114",
       "name_b": "sub_11485C",
       "n_lines_a": 66,
       "n_lines_b": 6,
@@ -5198,7 +5198,7 @@
   "removed_list": [
     {
       "address": "0x100478",
-      "name_a": "sub_100478",
+      "name_a": "firmware_init",
       "n_lines_a": 79,
       "same_code": false
     },
@@ -5210,7 +5210,7 @@
     },
     {
       "address": "0x100644",
-      "name_a": "sub_100644",
+      "name_a": "delay_us_0644",
       "n_lines_a": 17,
       "same_code": false
     },
@@ -5222,25 +5222,25 @@
     },
     {
       "address": "0x1006cc",
-      "name_a": "sub_1006CC",
+      "name_a": "get_variant_cached",
       "n_lines_a": 6,
       "same_code": false
     },
     {
       "address": "0x1006d8",
-      "name_a": "sub_1006D8",
+      "name_a": "panic_loop_06d8",
       "n_lines_a": 14,
       "same_code": false
     },
     {
       "address": "0x100730",
-      "name_a": "sub_100730",
+      "name_a": "mmio_init_patch_n_730",
       "n_lines_a": 14,
       "same_code": false
     },
     {
       "address": "0x10076c",
-      "name_a": "sub_10076C",
+      "name_a": "fw_init_entry",
       "n_lines_a": 14,
       "same_code": false
     },
@@ -5264,13 +5264,13 @@
     },
     {
       "address": "0x1009dc",
-      "name_a": "sub_1009DC",
+      "name_a": "crypto_key_load_09dc",
       "n_lines_a": 67,
       "same_code": false
     },
     {
       "address": "0x100aa8",
-      "name_a": "sub_100AA8",
+      "name_a": "mmio_set_clock_gate_bit",
       "n_lines_a": 31,
       "same_code": false
     },
@@ -5288,19 +5288,19 @@
     },
     {
       "address": "0x100be0",
-      "name_a": "sub_100BE0",
+      "name_a": "rf_cmd_queue_next_n_d4",
       "n_lines_a": 6,
       "same_code": false
     },
     {
       "address": "0x100e24",
-      "name_a": "sub_100E24",
+      "name_a": "message_dispatch_n244",
       "n_lines_a": 32,
       "same_code": false
     },
     {
       "address": "0x100ee8",
-      "name_a": "sub_100EE8",
+      "name_a": "mmio_regs_poll_1200ee8",
       "n_lines_a": 32,
       "same_code": false
     },
@@ -5348,7 +5348,7 @@
     },
     {
       "address": "0x101924",
-      "name_a": "sub_101924",
+      "name_a": "debug_if_check_40320038",
       "n_lines_a": 10,
       "same_code": false
     },
@@ -5390,7 +5390,7 @@
     },
     {
       "address": "0x10199c",
-      "name_a": "sub_10199C",
+      "name_a": "get_cached_1828f8",
       "n_lines_a": 6,
       "same_code": false
     },
@@ -5492,7 +5492,7 @@
     },
     {
       "address": "0x102ad0",
-      "name_a": "sub_102AD0",
+      "name_a": "log_sub_102AD0",
       "n_lines_a": 19,
       "same_code": false
     },
@@ -6050,7 +6050,7 @@
     },
     {
       "address": "0x10cc94",
-      "name_a": "sub_10CC94",
+      "name_a": "mmio_radio_unlock_0x100",
       "n_lines_a": 316,
       "same_code": false
     },
@@ -6092,7 +6092,7 @@
     },
     {
       "address": "0x10d2c4",
-      "name_a": "sub_10D2C4",
+      "name_a": "clear_sdio_state",
       "n_lines_a": 6,
       "same_code": false
     },
@@ -6164,7 +6164,7 @@
     },
     {
       "address": "0x10dae4",
-      "name_a": "sub_10DAE4",
+      "name_a": "log_sub_10DAE4",
       "n_lines_a": 9,
       "same_code": false
     },
@@ -6194,13 +6194,13 @@
     },
     {
       "address": "0x10dbc0",
-      "name_a": "sub_10DBC0",
+      "name_a": "log_sub_10DBC0",
       "n_lines_a": 10,
       "same_code": false
     },
     {
       "address": "0x10dbd4",
-      "name_a": "sub_10DBD4",
+      "name_a": "log_sub_10DBD4",
       "n_lines_a": 10,
       "same_code": false
     },
@@ -6260,7 +6260,7 @@
     },
     {
       "address": "0x10df08",
-      "name_a": "sub_10DF08",
+      "name_a": "rf_sub_10DF08",
       "n_lines_a": 20,
       "same_code": false
     },
@@ -6380,7 +6380,7 @@
     },
     {
       "address": "0x10f058",
-      "name_a": "sub_10F058",
+      "name_a": "log_system_init",
       "n_lines_a": 24,
       "same_code": false
     },
@@ -6440,7 +6440,7 @@
     },
     {
       "address": "0x10f9e8",
-      "name_a": "sub_10F9E8",
+      "name_a": "log_sub_10F9E8",
       "n_lines_a": 181,
       "same_code": false
     },
@@ -6452,7 +6452,7 @@
     },
     {
       "address": "0x10fdf4",
-      "name_a": "sub_10FDF4",
+      "name_a": "log_sub_10FDF4",
       "n_lines_a": 10,
       "same_code": false
     },
@@ -6464,7 +6464,7 @@
     },
     {
       "address": "0x10fe7c",
-      "name_a": "sub_10FE7C",
+      "name_a": "log_alloc",
       "n_lines_a": 20,
       "same_code": false
     },
@@ -6482,13 +6482,13 @@
     },
     {
       "address": "0x11004c",
-      "name_a": "sub_11004C",
+      "name_a": "log_pool_init_b",
       "n_lines_a": 32,
       "same_code": false
     },
     {
       "address": "0x1100a4",
-      "name_a": "sub_1100A4",
+      "name_a": "log_pool_init_queue",
       "n_lines_a": 27,
       "same_code": false
     },
@@ -6524,7 +6524,7 @@
     },
     {
       "address": "0x1102a0",
-      "name_a": "sub_1102A0",
+      "name_a": "log_pool_alloc_b",
       "n_lines_a": 34,
       "same_code": false
     },
@@ -6536,7 +6536,7 @@
     },
     {
       "address": "0x110340",
-      "name_a": "sub_110340",
+      "name_a": "log_sub_110340",
       "n_lines_a": 32,
       "same_code": false
     },
@@ -6584,7 +6584,7 @@
     },
     {
       "address": "0x110edc",
-      "name_a": "sub_110EDC",
+      "name_a": "log_queue_push2",
       "n_lines_a": 97,
       "same_code": false
     },
@@ -6830,7 +6830,7 @@
     },
     {
       "address": "0x113578",
-      "name_a": "sub_113578",
+      "name_a": "log_sub_113578",
       "n_lines_a": 101,
       "same_code": false
     },
@@ -6842,7 +6842,7 @@
     },
     {
       "address": "0x1137c4",
-      "name_a": "sub_1137C4",
+      "name_a": "log_free_pool_f",
       "n_lines_a": 52,
       "same_code": false
     },
@@ -7148,7 +7148,7 @@
     },
     {
       "address": "0x114c30",
-      "name_a": "sub_114C30",
+      "name_a": "rf_fault_dump_n4e8",
       "n_lines_a": 6,
       "same_code": false
     },
@@ -7394,7 +7394,7 @@
     },
     {
       "address": "0x116f34",
-      "name_a": "sub_116F34",
+      "name_a": "rf_set_bit_flag",
       "n_lines_a": 307,
       "same_code": false
     },
@@ -7880,7 +7880,7 @@
     },
     {
       "address": "0x11c350",
-      "name_a": "sub_11C350",
+      "name_a": "mmio_set_bit7_40320324",
       "n_lines_a": 35,
       "same_code": false
     },
@@ -8780,7 +8780,7 @@
     },
     {
       "address": "0x124bfc",
-      "name_a": "sub_124BFC",
+      "name_a": "log_sub_124BFC",
       "n_lines_a": 73,
       "same_code": false
     },
@@ -8798,7 +8798,7 @@
     },
     {
       "address": "0x124e3c",
-      "name_a": "sub_124E3C",
+      "name_a": "log_sub_124E3C",
       "n_lines_a": 23,
       "same_code": false
     },
@@ -9050,7 +9050,7 @@
     },
     {
       "address": "0x127a1c",
-      "name_a": "sub_127A1C",
+      "name_a": "init_data_table_n1c",
       "n_lines_a": 126,
       "same_code": false
     },
@@ -9704,7 +9704,7 @@
     },
     {
       "address": "0x12c5fc",
-      "name_a": "sub_12C5FC",
+      "name_a": "log_sub_12C5FC",
       "n_lines_a": 68,
       "same_code": false
     },
@@ -9764,7 +9764,7 @@
     },
     {
       "address": "0x12c954",
-      "name_a": "sub_12C954",
+      "name_a": "rx_queue_head_init",
       "n_lines_a": 38,
       "same_code": false
     },
@@ -9794,7 +9794,7 @@
     },
     {
       "address": "0x12cd48",
-      "name_a": "sub_12CD48",
+      "name_a": "log_tick",
       "n_lines_a": 45,
       "same_code": false
     },
@@ -9854,13 +9854,13 @@
     },
     {
       "address": "0x12d100",
-      "name_a": "sub_12D100",
+      "name_a": "log_sub_12D100",
       "n_lines_a": 8,
       "same_code": false
     },
     {
       "address": "0x12d108",
-      "name_a": "sub_12D108",
+      "name_a": "log_sub_12D108",
       "n_lines_a": 17,
       "same_code": false
     },
@@ -9872,7 +9872,7 @@
     },
     {
       "address": "0x12d190",
-      "name_a": "sub_12D190",
+      "name_a": "fmac_init_or_handler",
       "n_lines_a": 17,
       "same_code": false
     },
@@ -9944,7 +9944,7 @@
     },
     {
       "address": "0x12d5a0",
-      "name_a": "sub_12D5A0",
+      "name_a": "fp_convert_uint",
       "n_lines_a": 13,
       "same_code": false
     },
@@ -10226,7 +10226,7 @@
     },
     {
       "address": "0x12e948",
-      "name_a": "sub_12E948",
+      "name_a": "msg_parse",
       "n_lines_a": 50,
       "same_code": false
     },
@@ -10238,7 +10238,7 @@
     },
     {
       "address": "0x12eb90",
-      "name_a": "sub_12EB90",
+      "name_a": "log_sub_12EB90",
       "n_lines_a": 11,
       "same_code": false
     },
@@ -10292,7 +10292,7 @@
     },
     {
       "address": "0x12ee6c",
-      "name_a": "sub_12EE6C",
+      "name_a": "mmio_reg_write_n6c",
       "n_lines_a": 9,
       "same_code": false
     },
@@ -10310,19 +10310,19 @@
     },
     {
       "address": "0x12ef88",
-      "name_a": "sub_12EF88",
+      "name_a": "rf_sub_12EF88",
       "n_lines_a": 13,
       "same_code": false
     },
     {
       "address": "0x12ef94",
-      "name_a": "sub_12EF94",
+      "name_a": "rf_timer_abort2",
       "n_lines_a": 8,
       "same_code": false
     },
     {
       "address": "0x12efb0",
-      "name_a": "sub_12EFB0",
+      "name_a": "fw_config_copy",
       "n_lines_a": 8,
       "same_code": false
     },
@@ -10346,7 +10346,7 @@
     },
     {
       "address": "0x12f32c",
-      "name_a": "sub_12F32C",
+      "name_a": "log_sub_12F32C",
       "n_lines_a": 15,
       "same_code": false
     },
@@ -10544,7 +10544,7 @@
     },
     {
       "address": "0x130184",
-      "name_a": "sub_130184",
+      "name_a": "rf_sub_130184",
       "n_lines_a": 24,
       "same_code": false
     },
@@ -10574,7 +10574,7 @@
     },
     {
       "address": "0x1302f0",
-      "name_a": "sub_1302F0",
+      "name_a": "rf_sub_1302F0",
       "n_lines_a": 29,
       "same_code": false
     },

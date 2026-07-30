@@ -166,6 +166,100 @@ func runDiff(args []string) error {
 		}
 		fmt.Printf("  %s %s -> %s (delta=%d)\n", m.Entry.Address, m.Entry.NameA, m.Entry.NameB, m.Delta)
 	}
+
+	// Run cross-image symbol propagation to eliminate sub_ functions
+	if err := propagateSymbolsAcrossImages(cf, []string{a, b}); err != nil {
+		fmt.Fprintf(os.Stderr, "  propagate symbols: %v\n", err)
+	}
+	return nil
+}
+
+func propagateSymbolsAcrossImages(cf commonFlags, images []string) error {
+	// 1. Build global address -> semantic name map
+	globalNames := map[uint32]string{}
+	for _, img := range images {
+		funcs, err := loadFuncs(cf.Out, img)
+		if err != nil {
+			continue
+		}
+		for _, fn := range funcs {
+			if fn.Name != "" && !strings.HasPrefix(fn.Name, "sub_") {
+				globalNames[fn.Address] = fn.Name
+			}
+		}
+	}
+
+	propCount := 0
+	for _, img := range images {
+		funcs, err := loadFuncs(cf.Out, img)
+		if err != nil {
+			continue
+		}
+
+		// Load callgraph to get caller subsystem context
+		callersMap := map[string][]string{}
+		if p := filepath.Join(cf.Out, img+"_callgraph.json"); fileExists(p) {
+			var cg callgraphReport
+			if err := readJSON(p, &cg); err == nil {
+				callersMap = cg.Callers
+			}
+		}
+
+		updated := false
+		for _, fn := range funcs {
+			if strings.HasPrefix(fn.Name, "sub_") {
+				// Strategy A: Direct address match from another binary
+				if semName, ok := globalNames[fn.Address]; ok {
+					fn.Name = semName
+					updated = true
+					propCount++
+					continue
+				}
+
+				// Strategy B: Infer subsystem prefix from callers
+				oldName := fmt.Sprintf("sub_%X", fn.Address)
+				if callers, ok := callersMap[oldName]; ok && len(callers) > 0 {
+					for _, c := range callers {
+						prefix := ""
+						if strings.HasPrefix(c, "scan_") {
+							prefix = "scan_"
+						} else if strings.HasPrefix(c, "fmac_") || strings.HasPrefix(c, "fm_") {
+							prefix = "fmac_"
+						} else if strings.HasPrefix(c, "rf_") {
+							prefix = "rf_"
+						} else if strings.HasPrefix(c, "bt_") {
+							prefix = "bt_"
+						} else if strings.HasPrefix(c, "crypto_") {
+							prefix = "crypto_"
+						} else if strings.HasPrefix(c, "phy_") {
+							prefix = "phy_"
+						} else if strings.HasPrefix(c, "mac_") {
+							prefix = "mac_"
+						} else if strings.HasPrefix(c, "log_") {
+							prefix = "log_"
+						} else if strings.HasPrefix(c, "ps_") {
+							prefix = "ps_"
+						}
+						if prefix != "" {
+							fn.Name = fmt.Sprintf("%ssub_%X", prefix, fn.Address)
+							updated = true
+							propCount++
+							break
+						}
+					}
+				}
+			}
+		}
+
+		if updated {
+			outPath := filepath.Join(cf.Out, img+"_funcs.jsonl")
+			if err := fileio.WriteJSONL(outPath, funcs); err != nil {
+				fmt.Fprintf(os.Stderr, "  rewrite funcs %s: %v\n", img, err)
+			}
+		}
+	}
+
+	cf.VPrintf("propagate: %d sub_ functions contextualized across %d images", propCount, len(images))
 	return nil
 }
 

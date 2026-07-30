@@ -295,7 +295,7 @@
     {
       "index": 53,
       "address": 1230917,
-      "handler": "message_dispatch_n_370_c844",
+      "handler": "msg_dispatch_n148",
       "offset": 1230917
     },
     {

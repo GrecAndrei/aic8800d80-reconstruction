@@ -111,6 +111,103 @@
       "id": 3,
       "group_id": 3,
       "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ae1204ace4b6a2e4_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ae1204ace4b6a2e4",
+      "funcs": [
+        1050952,
+        1188556
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 4,
+      "group_id": 4,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_1e0091ad357bab48_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1e0091ad357bab48",
+      "funcs": [
+        1120592,
+        1120804
+      ],
+      "fields": {
+        "field_0x3": 3,
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x3": 1,
+        "field_0x4": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 5,
+      "group_id": 5,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_47f042a577f4c5e7_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "47f042a577f4c5e7",
+      "funcs": [
+        1112600,
+        1125244
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 6,
+      "group_id": 6,
+      "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_38f2c0478a1d160e_t",
       "primary_arg": "a1",
       "fingerprint": [
@@ -197,183 +294,8 @@
       "confidence": 20
     },
     {
-      "id": 4,
-      "group_id": 4,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1e0091ad357bab48_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1e0091ad357bab48",
-      "funcs": [
-        1120592,
-        1120804
-      ],
-      "fields": {
-        "field_0x3": 3,
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x3": 1,
-        "field_0x4": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 5,
-      "group_id": 5,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ae1204ace4b6a2e4_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ae1204ace4b6a2e4",
-      "funcs": [
-        1050952,
-        1188556
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 6,
-      "group_id": 6,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_577e87c2877917ee_t",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "577e87c2877917ee",
-      "funcs": [
-        1138108,
-        1138552
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 2
-    },
-    {
       "id": 7,
       "group_id": 7,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5dd2b94aede8e2b0_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 32,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5dd2b94aede8e2b0",
-      "funcs": [
-        1119768,
-        1151792
-      ],
-      "fields": {
-        "field_0x20": 32
-      },
-      "field_sizes": {
-        "field_0x20": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 8,
-      "group_id": 8,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d3bec76ef8c6e5b6_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 44,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "d3bec76ef8c6e5b6",
-      "funcs": [
-        1077108,
-        1077352
-      ],
-      "fields": {
-        "field_0x2c": 44
-      },
-      "field_sizes": {
-        "field_0x2c": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 9,
-      "group_id": 9,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_47f042a577f4c5e7_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "47f042a577f4c5e7",
-      "funcs": [
-        1112600,
-        1125244
-      ],
-      "fields": {
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x8": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 10,
-      "group_id": 10,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_4def596b8bf5b753_t",
       "primary_arg": "v2",
@@ -398,547 +320,99 @@
       "confidence": 2
     },
     {
-      "id": 11,
-      "group_id": 11,
+      "id": 8,
+      "group_id": 8,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f87c91cd66a0e061_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 36,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "f87c91cd66a0e061",
-      "funcs": [
-        1170040
-      ],
-      "fields": {
-        "field_0x14": 20,
-        "field_0x24": 36
-      },
-      "field_sizes": {
-        "field_0x14": 4,
-        "field_0x24": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 12,
-      "group_id": 12,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c1f2edc4666a62e5_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 2
-        },
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c1f2edc4666a62e5",
-      "funcs": [
-        1090992
-      ],
-      "fields": {
-        "field_0x2": 2
-      },
-      "field_sizes": {
-        "field_0x2": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 13,
-      "group_id": 13,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ba4db59ecb412afe_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ba4db59ecb412afe",
-      "funcs": [
-        1157888
-      ],
-      "fields": {
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0xc": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 14,
-      "group_id": 14,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_02b937d5e3575137_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 20,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "02b937d5e3575137",
-      "funcs": [
-        1154416
-      ],
-      "fields": {
-        "field_0x14": 20
-      },
-      "field_sizes": {
-        "field_0x14": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 15,
-      "group_id": 15,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7c3a14e4950f39dc_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 592,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 624,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 628,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 632,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7c3a14e4950f39dc",
-      "funcs": [
-        1070228
-      ],
-      "fields": {
-        "field_0x250": 592,
-        "field_0x270": 624,
-        "field_0x274": 628,
-        "field_0x278": 632,
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x250": 4,
-        "field_0x270": 4,
-        "field_0x274": 4,
-        "field_0x278": 4,
-        "field_0x4": 4
-      },
-      "confidence": 5
-    },
-    {
-      "id": 16,
-      "group_id": 16,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_22ec57d70888b96b_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 72,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "22ec57d70888b96b",
-      "funcs": [
-        1164068
-      ],
-      "fields": {
-        "field_0x48": 72
-      },
-      "field_sizes": {
-        "field_0x48": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 17,
-      "group_id": 17,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b80613e79cb9d5c_t",
+      "name": "struct_shape_5dd2b94aede8e2b0_t",
       "primary_arg": "v4",
       "fingerprint": [
         {
           "Base": "v4",
-          "Offset": 56,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 88,
+          "Offset": 32,
           "Size": 4
         }
       ],
-      "fp_hash": "7b80613e79cb9d5c",
+      "fp_hash": "5dd2b94aede8e2b0",
       "funcs": [
-        1151060
+        1119768,
+        1151792
       ],
       "fields": {
-        "field_0x38": 56,
-        "field_0x58": 88
+        "field_0x20": 32
       },
       "field_sizes": {
-        "field_0x38": 4,
-        "field_0x58": 4
+        "field_0x20": 4
       },
       "confidence": 2
     },
     {
-      "id": 18,
-      "group_id": 18,
+      "id": 9,
+      "group_id": 9,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_0f3a9e2bf7ccbd87_t",
+      "name": "struct_shape_d3bec76ef8c6e5b6_t",
       "primary_arg": "a1",
       "fingerprint": [
         {
           "Base": "a1",
-          "Offset": 97,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "0f3a9e2bf7ccbd87",
-      "funcs": [
-        1169980
-      ],
-      "fields": {
-        "field_0x61": 97
-      },
-      "field_sizes": {
-        "field_0x61": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 19,
-      "group_id": 19,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_9858a6d1e63adaed_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 60,
+          "Offset": 44,
           "Size": 4
         }
       ],
-      "fp_hash": "9858a6d1e63adaed",
+      "fp_hash": "d3bec76ef8c6e5b6",
       "funcs": [
-        1185516
+        1077108,
+        1077352
       ],
       "fields": {
-        "field_0x3c": 60
+        "field_0x2c": 44
       },
       "field_sizes": {
-        "field_0x3c": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 20,
-      "group_id": 20,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5f8d98c95d890899_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5f8d98c95d890899",
-      "funcs": [
-        1146220
-      ],
-      "fields": {
-        "field_0x30": 48
-      },
-      "field_sizes": {
-        "field_0x30": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 21,
-      "group_id": 21,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6d3091d7dec7574a_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 48,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 96,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 100,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "6d3091d7dec7574a",
-      "funcs": [
-        1135500
-      ],
-      "fields": {
-        "field_0x30": 48,
-        "field_0x60": 96,
-        "field_0x64": 100
-      },
-      "field_sizes": {
-        "field_0x30": 4,
-        "field_0x60": 4,
-        "field_0x64": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 22,
-      "group_id": 22,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_94d9183d978b5770_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 3,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "94d9183d978b5770",
-      "funcs": [
-        1166672
-      ],
-      "fields": {
-        "field_0x3": 3
-      },
-      "field_sizes": {
-        "field_0x3": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 23,
-      "group_id": 23,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_26101caaaab44b04_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 80,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 85,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 94,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "26101caaaab44b04",
-      "funcs": [
-        1163608
-      ],
-      "fields": {
-        "field_0x50": 80,
-        "field_0x55": 85,
-        "field_0x5e": 94
-      },
-      "field_sizes": {
-        "field_0x50": 4,
-        "field_0x55": 4,
-        "field_0x5e": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 24,
-      "group_id": 24,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1fbd3e90349dfea9_t",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 64,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1fbd3e90349dfea9",
-      "funcs": [
-        1195780
-      ],
-      "fields": {
-        "field_0x40": 64
-      },
-      "field_sizes": {
-        "field_0x40": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 25,
-      "group_id": 25,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a277abf5f806975d_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 36,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 80,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a277abf5f806975d",
-      "funcs": [
-        1163292
-      ],
-      "fields": {
-        "field_0x24": 36,
-        "field_0x50": 80
-      },
-      "field_sizes": {
-        "field_0x24": 4,
-        "field_0x50": 4
+        "field_0x2c": 4
       },
       "confidence": 2
     },
     {
-      "id": 26,
-      "group_id": 26,
+      "id": 10,
+      "group_id": 10,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_98a0511e6845f572_t",
-      "primary_arg": "v2",
+      "name": "struct_shape_577e87c2877917ee_t",
+      "primary_arg": "v3",
       "fingerprint": [
         {
-          "Base": "v2",
+          "Base": "v3",
           "Offset": 4,
-          "Size": 2
+          "Size": 4
         }
       ],
-      "fp_hash": "98a0511e6845f572",
+      "fp_hash": "577e87c2877917ee",
       "funcs": [
-        1137096
+        1138108,
+        1138552
       ],
       "fields": {
         "field_0x4": 4
       },
       "field_sizes": {
-        "field_0x4": 2
+        "field_0x4": 4
       },
-      "confidence": 1
+      "confidence": 2
     },
     {
-      "id": 27,
-      "group_id": 27,
+      "id": 11,
+      "group_id": 11,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_unknown_helper_t",
-      "primary_arg": "a1",
+      "name": "struct_shape_a2b80567eae5185d_t",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 95,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7ee99fb9ee45593b",
-      "funcs": [
-        1163064
-      ],
-      "fields": {
-        "field_0x48": 72,
-        "field_0x55": 85,
-        "field_0x5f": 95
-      },
-      "field_sizes": {
-        "field_0x48": 4,
-        "field_0x55": 1,
-        "field_0x5f": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 28,
-      "group_id": 28,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e2eb643af7bf3cd7_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
+          "Base": "v1",
           "Offset": 16,
           "Size": 1
         }
       ],
-      "fp_hash": "e2eb643af7bf3cd7",
+      "fp_hash": "a2b80567eae5185d",
       "funcs": [
-        1161696
+        1161024
       ],
       "fields": {
         "field_0x10": 16
@@ -949,99 +423,10 @@
       "confidence": 1
     },
     {
-      "id": 29,
-      "group_id": 29,
+      "id": 12,
+      "group_id": 12,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a622a52e753ecd09_t",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a622a52e753ecd09",
-      "funcs": [
-        1184912
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 30,
-      "group_id": 30,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_9522ba571bbbb575_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 2,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 5,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "9522ba571bbbb575",
-      "funcs": [
-        1192908
-      ],
-      "fields": {
-        "field_0x2": 2,
-        "field_0x5": 5
-      },
-      "field_sizes": {
-        "field_0x2": 1,
-        "field_0x5": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 31,
-      "group_id": 31,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_b10137c031c212bd_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "b10137c031c212bd",
-      "funcs": [
-        1157912
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0xc": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 32,
-      "group_id": 32,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e444b4c1b93fe6f4_t",
+      "name": "struct_shape_a9da358ceb7904fe_t",
       "primary_arg": "v2",
       "fingerprint": [
         {
@@ -1051,515 +436,262 @@
         },
         {
           "Base": "v2",
-          "Offset": 24,
+          "Offset": 32,
           "Size": 1
         }
       ],
-      "fp_hash": "e444b4c1b93fe6f4",
+      "fp_hash": "a9da358ceb7904fe",
       "funcs": [
-        1158608
+        1207768
       ],
       "fields": {
         "field_0x10": 16,
-        "field_0x18": 24
+        "field_0x20": 32
       },
       "field_sizes": {
         "field_0x10": 1,
-        "field_0x18": 1
+        "field_0x20": 1
       },
       "confidence": 2
     },
     {
-      "id": 33,
-      "group_id": 33,
+      "id": 13,
+      "group_id": 13,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a0414dffebd7e511_t",
-      "primary_arg": "v4",
+      "name": "struct_shape_308af5cb21157398_t",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "v4",
-          "Offset": 2,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "a0414dffebd7e511",
-      "funcs": [
-        1169648
-      ],
-      "fields": {
-        "field_0x2": 2
-      },
-      "field_sizes": {
-        "field_0x2": 2
-      },
-      "confidence": 1
-    },
-    {
-      "id": 34,
-      "group_id": 34,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_46d8a43be1476f36_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 8,
+          "Base": "v1",
+          "Offset": 588,
           "Size": 4
         }
       ],
-      "fp_hash": "46d8a43be1476f36",
+      "fp_hash": "308af5cb21157398",
       "funcs": [
-        1118836
+        1101164
       ],
       "fields": {
-        "field_0x8": 8
+        "field_0x24c": 588
       },
       "field_sizes": {
-        "field_0x8": 4
+        "field_0x24c": 4
       },
       "confidence": 1
     },
     {
-      "id": 35,
-      "group_id": 35,
+      "id": 14,
+      "group_id": 14,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_866cce8693c82405_t",
-      "primary_arg": "v8",
+      "name": "struct_shape_98f74dac57ee12d0_t",
+      "primary_arg": "v5",
       "fingerprint": [
         {
-          "Base": "v8",
-          "Offset": 14,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "866cce8693c82405",
-      "funcs": [
-        1172300
-      ],
-      "fields": {
-        "field_0xe": 14
-      },
-      "field_sizes": {
-        "field_0xe": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 36,
-      "group_id": 36,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d9451a761b0e5b77_t",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 152,
+          "Base": "v5",
+          "Offset": 1,
           "Size": 1
-        }
-      ],
-      "fp_hash": "d9451a761b0e5b77",
-      "funcs": [
-        1140428
-      ],
-      "fields": {
-        "field_0x98": 152
-      },
-      "field_sizes": {
-        "field_0x98": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 37,
-      "group_id": 37,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3a92092eb62ac16b_t",
-      "primary_arg": "v6",
-      "fingerprint": [
+        },
         {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 2,
           "Size": 1
         },
         {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 3,
           "Size": 1
         },
         {
-          "Base": "v6",
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v5",
           "Offset": 6,
           "Size": 2
         },
         {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 8,
           "Size": 2
         },
         {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 12,
           "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 16,
+          "Size": 1
         }
       ],
-      "fp_hash": "3a92092eb62ac16b",
+      "fp_hash": "98f74dac57ee12d0",
       "funcs": [
-        1101932
+        1163884
       ],
       "fields": {
+        "field_0x1": 1,
+        "field_0x10": 16,
         "field_0x2": 2,
         "field_0x3": 3,
+        "field_0x4": 4,
         "field_0x6": 6,
         "field_0x8": 8,
         "field_0xc": 12
       },
       "field_sizes": {
+        "field_0x1": 1,
+        "field_0x10": 1,
         "field_0x2": 1,
         "field_0x3": 1,
+        "field_0x4": 2,
         "field_0x6": 2,
         "field_0x8": 2,
         "field_0xc": 4
       },
-      "confidence": 5
+      "confidence": 8
     },
     {
-      "id": 38,
-      "group_id": 38,
+      "id": 15,
+      "group_id": 15,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5ef98d1300729b72_t",
-      "primary_arg": "v3",
+      "name": "struct_shape_3624d98ee7ad4438_t",
+      "primary_arg": "v8",
       "fingerprint": [
         {
-          "Base": "v3",
-          "Offset": 8,
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v8",
+          "Offset": 24,
           "Size": 4
         }
       ],
-      "fp_hash": "5ef98d1300729b72",
+      "fp_hash": "3624d98ee7ad4438",
       "funcs": [
-        1173100
+        1139496
       ],
       "fields": {
-        "field_0x8": 8
+        "field_0x18": 24,
+        "field_0x4": 4
       },
       "field_sizes": {
-        "field_0x8": 4
+        "field_0x18": 4,
+        "field_0x4": 4
       },
-      "confidence": 1
+      "confidence": 3
     },
     {
-      "id": 39,
-      "group_id": 39,
+      "id": 16,
+      "group_id": 16,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_731fc059f9ee4c06_t",
+      "name": "struct_shape_70ff902047ce18e9_t",
       "primary_arg": "v1",
       "fingerprint": [
         {
           "Base": "v1",
           "Offset": 4,
-          "Size": 2
+          "Size": 4
         },
         {
           "Base": "v1",
-          "Offset": 6,
-          "Size": 2
+          "Offset": 12,
+          "Size": 4
         },
         {
           "Base": "v1",
-          "Offset": 8,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "731fc059f9ee4c06",
-      "funcs": [
-        1114096
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x6": 6,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x4": 2,
-        "field_0x6": 2,
-        "field_0x8": 2
-      },
-      "confidence": 3
-    },
-    {
-      "id": 40,
-      "group_id": 40,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_989d79c8f6841867_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 4,
+          "Offset": 16,
           "Size": 1
         },
         {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "989d79c8f6841867",
-      "funcs": [
-        1153484
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 41,
-      "group_id": 41,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_27d2ad114e4fa19d_t",
-      "primary_arg": "v7",
-      "fingerprint": [
+          "Base": "v1",
+          "Offset": 48,
+          "Size": 2
+        },
         {
-          "Base": "v7",
-          "Offset": 4,
+          "Base": "v1",
+          "Offset": 84,
           "Size": 4
         },
         {
-          "Base": "v7",
-          "Offset": 6,
-          "Size": 4
+          "Base": "v1",
+          "Offset": 152,
+          "Size": 1
         }
       ],
-      "fp_hash": "27d2ad114e4fa19d",
+      "fp_hash": "70ff902047ce18e9",
       "funcs": [
-        1170704
+        1145288
       ],
       "fields": {
+        "field_0x10": 16,
+        "field_0x30": 48,
         "field_0x4": 4,
-        "field_0x6": 6
+        "field_0x54": 84,
+        "field_0x98": 152,
+        "field_0xc": 12
       },
       "field_sizes": {
+        "field_0x10": 1,
+        "field_0x30": 2,
         "field_0x4": 4,
-        "field_0x6": 4
+        "field_0x54": 4,
+        "field_0x98": 1,
+        "field_0xc": 4
       },
-      "confidence": 2
+      "confidence": 6
     },
     {
-      "id": 42,
-      "group_id": 42,
+      "id": 17,
+      "group_id": 17,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c84856e619d9b096_t",
+      "name": "struct_shape_952b120834e8d02b_t",
       "primary_arg": "a1",
       "fingerprint": [
         {
           "Base": "a1",
-          "Offset": 360,
+          "Offset": 4,
           "Size": 4
         },
         {
           "Base": "a1",
-          "Offset": 364,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c84856e619d9b096",
-      "funcs": [
-        1166212
-      ],
-      "fields": {
-        "field_0x168": 360,
-        "field_0x16c": 364
-      },
-      "field_sizes": {
-        "field_0x168": 4,
-        "field_0x16c": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 43,
-      "group_id": 43,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8a036e7e8c8f34e7_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "8a036e7e8c8f34e7",
-      "funcs": [
-        1084724
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 2
-      },
-      "confidence": 1
-    },
-    {
-      "id": 44,
-      "group_id": 44,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4085fec68f5a7844_t",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
           "Offset": 16,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 32,
           "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
         }
       ],
-      "fp_hash": "4085fec68f5a7844",
+      "fp_hash": "952b120834e8d02b",
       "funcs": [
-        1135320
+        1145172
       ],
       "fields": {
         "field_0x10": 16,
-        "field_0x14": 20,
-        "field_0x20": 32,
+        "field_0x1c": 28,
         "field_0x4": 4
       },
       "field_sizes": {
-        "field_0x10": 4,
-        "field_0x14": 4,
-        "field_0x20": 1,
+        "field_0x10": 1,
+        "field_0x1c": 4,
         "field_0x4": 4
       },
-      "confidence": 4
+      "confidence": 3
     },
     {
-      "id": 45,
-      "group_id": 45,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4a771e920e9db4cd_t",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 2,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 5,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "4a771e920e9db4cd",
-      "funcs": [
-        1092632
-      ],
-      "fields": {
-        "field_0x2": 2,
-        "field_0x5": 5
-      },
-      "field_sizes": {
-        "field_0x2": 4,
-        "field_0x5": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 46,
-      "group_id": 46,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_322e89de501157cd_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 112,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 120,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 124,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 132,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 140,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 152,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 164,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "322e89de501157cd",
-      "funcs": [
-        1073104
-      ],
-      "fields": {
-        "field_0x2": 2,
-        "field_0x70": 112,
-        "field_0x78": 120,
-        "field_0x7c": 124,
-        "field_0x84": 132,
-        "field_0x8c": 140,
-        "field_0x98": 152,
-        "field_0xa4": 164
-      },
-      "field_sizes": {
-        "field_0x2": 4,
-        "field_0x70": 4,
-        "field_0x78": 4,
-        "field_0x7c": 4,
-        "field_0x84": 4,
-        "field_0x8c": 4,
-        "field_0x98": 4,
-        "field_0xa4": 4
-      },
-      "confidence": 8
-    },
-    {
-      "id": 47,
-      "group_id": 47,
+      "id": 18,
+      "group_id": 18,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_59bac8b9771d05f0_t",
       "primary_arg": "a2",
@@ -1666,672 +798,316 @@
       "confidence": 14
     },
     {
-      "id": 48,
-      "group_id": 48,
+      "id": 19,
+      "group_id": 19,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_da0e2545c0b045da_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 2,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "da0e2545c0b045da",
-      "funcs": [
-        1148080
-      ],
-      "fields": {
-        "field_0x2": 2
-      },
-      "field_sizes": {
-        "field_0x2": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 49,
-      "group_id": 49,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b2936a4a1a2d468_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 2,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "7b2936a4a1a2d468",
-      "funcs": [
-        1067672
-      ],
-      "fields": {
-        "field_0x2": 2
-      },
-      "field_sizes": {
-        "field_0x2": 2
-      },
-      "confidence": 1
-    },
-    {
-      "id": 50,
-      "group_id": 50,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_193136455a54ea90_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "193136455a54ea90",
-      "funcs": [
-        1140264
-      ],
-      "fields": {
-        "field_0x30": 48
-      },
-      "field_sizes": {
-        "field_0x30": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 51,
-      "group_id": 51,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a9da358ceb7904fe_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 32,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "a9da358ceb7904fe",
-      "funcs": [
-        1207768
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x20": 32
-      },
-      "field_sizes": {
-        "field_0x10": 1,
-        "field_0x20": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 52,
-      "group_id": 52,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_42eec7356608c879_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "42eec7356608c879",
-      "funcs": [
-        1188124
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 53,
-      "group_id": 53,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_53ea5f8e93d46b2e_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 6,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 10,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 12,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 13,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 14,
-          "Size": 2
-        },
-        {
-          "Base": "v2",
-          "Offset": 14,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 24,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 24,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 26,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "53ea5f8e93d46b2e",
-      "funcs": [
-        1161228
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x18": 24,
-        "field_0x1a": 26,
-        "field_0x4": 4,
-        "field_0x6": 6,
-        "field_0x8": 8,
-        "field_0xa": 10,
-        "field_0xc": 12,
-        "field_0xd": 13,
-        "field_0xe": 14
-      },
-      "field_sizes": {
-        "field_0x10": 1,
-        "field_0x18": 4,
-        "field_0x1a": 1,
-        "field_0x4": 4,
-        "field_0x6": 4,
-        "field_0x8": 4,
-        "field_0xa": 4,
-        "field_0xc": 1,
-        "field_0xd": 4,
-        "field_0xe": 4
-      },
-      "confidence": 12
-    },
-    {
-      "id": 54,
-      "group_id": 54,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e2a1725c24ebc590_t",
+      "name": "struct_shape_dcd56cf427c87065_t",
       "primary_arg": "v1",
       "fingerprint": [
         {
           "Base": "v1",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "e2a1725c24ebc590",
-      "funcs": [
-        1138716
-      ],
-      "fields": {
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x8": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 55,
-      "group_id": 55,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5982f24b8f374757_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
+          "Offset": 3,
+          "Size": 1
         },
         {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 2
-        },
-        {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5982f24b8f374757",
-      "funcs": [
-        1142828
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 4,
-        "field_0xc": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 56,
-      "group_id": 56,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5a48f826a86a86bc_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 266,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5a48f826a86a86bc",
-      "funcs": [
-        1152032
-      ],
-      "fields": {
-        "field_0x10a": 266
-      },
-      "field_sizes": {
-        "field_0x10a": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 57,
-      "group_id": 57,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a791fe25f77459d1_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
+          "Base": "v1",
           "Offset": 6,
-          "Size": 4
+          "Size": 1
         }
       ],
-      "fp_hash": "a791fe25f77459d1",
+      "fp_hash": "dcd56cf427c87065",
       "funcs": [
-        1170516
+        1134616
       ],
       "fields": {
-        "field_0x4": 4,
+        "field_0x3": 3,
         "field_0x6": 6
       },
       "field_sizes": {
-        "field_0x4": 4,
-        "field_0x6": 4
+        "field_0x3": 1,
+        "field_0x6": 1
       },
       "confidence": 2
     },
     {
-      "id": 58,
-      "group_id": 58,
+      "id": 20,
+      "group_id": 20,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5d51b974e1ed30b4_t",
+      "name": "struct_shape_8b69a534290e32c7_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "8b69a534290e32c7",
+      "funcs": [
+        1159304
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 21,
+      "group_id": 21,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c64a916477296c91_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 38,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "c64a916477296c91",
+      "funcs": [
+        1136468
+      ],
+      "fields": {
+        "field_0x20": 32,
+        "field_0x26": 38
+      },
+      "field_sizes": {
+        "field_0x20": 4,
+        "field_0x26": 2
+      },
+      "confidence": 2
+    },
+    {
+      "id": 22,
+      "group_id": 22,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_a622a52e753ecd09_t",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "a622a52e753ecd09",
+      "funcs": [
+        1184912
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 23,
+      "group_id": 23,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_3a92092eb62ac16b_t",
       "primary_arg": "v6",
       "fingerprint": [
         {
           "Base": "v6",
-          "Offset": 85,
+          "Offset": 2,
           "Size": 1
-        }
-      ],
-      "fp_hash": "5d51b974e1ed30b4",
-      "funcs": [
-        1164608
-      ],
-      "fields": {
-        "field_0x55": 85
-      },
-      "field_sizes": {
-        "field_0x55": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 59,
-      "group_id": 59,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_285e0f9d5adb78a1_t",
-      "primary_arg": "a1",
-      "fingerprint": [
+        },
         {
-          "Base": "a1",
-          "Offset": 4,
+          "Base": "v6",
+          "Offset": 3,
+          "Size": 1
+        },
+        {
+          "Base": "v6",
+          "Offset": 6,
           "Size": 2
-        }
-      ],
-      "fp_hash": "285e0f9d5adb78a1",
-      "funcs": [
-        1146460
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 2
-      },
-      "confidence": 1
-    },
-    {
-      "id": 60,
-      "group_id": 60,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f670ad470489e3d9_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 36,
-          "Size": 4
         },
         {
-          "Base": "v1",
-          "Offset": 38,
-          "Size": 4
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 2
         },
         {
-          "Base": "v1",
-          "Offset": 40,
+          "Base": "v6",
+          "Offset": 12,
           "Size": 4
         }
       ],
-      "fp_hash": "f670ad470489e3d9",
+      "fp_hash": "3a92092eb62ac16b",
       "funcs": [
-        1150096
+        1101932
       ],
       "fields": {
-        "field_0x24": 36,
-        "field_0x26": 38,
-        "field_0x28": 40
+        "field_0x2": 2,
+        "field_0x3": 3,
+        "field_0x6": 6,
+        "field_0x8": 8,
+        "field_0xc": 12
       },
       "field_sizes": {
-        "field_0x24": 4,
-        "field_0x26": 4,
-        "field_0x28": 4
+        "field_0x2": 1,
+        "field_0x3": 1,
+        "field_0x6": 2,
+        "field_0x8": 2,
+        "field_0xc": 4
       },
-      "confidence": 3
+      "confidence": 5
     },
     {
-      "id": 61,
-      "group_id": 61,
+      "id": 24,
+      "group_id": 24,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7e5e6534533d0ae6_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 20,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7e5e6534533d0ae6",
-      "funcs": [
-        1243476
-      ],
-      "fields": {
-        "field_0x14": 20
-      },
-      "field_sizes": {
-        "field_0x14": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 62,
-      "group_id": 62,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5dddf4f405933bcb_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 56,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "5dddf4f405933bcb",
-      "funcs": [
-        1136288
-      ],
-      "fields": {
-        "field_0x38": 56
-      },
-      "field_sizes": {
-        "field_0x38": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 63,
-      "group_id": 63,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ecb940657e48d407_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 102,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 108,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 112,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 116,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "ecb940657e48d407",
-      "funcs": [
-        1151512
-      ],
-      "fields": {
-        "field_0x66": 102,
-        "field_0x6c": 108,
-        "field_0x70": 112,
-        "field_0x74": 116
-      },
-      "field_sizes": {
-        "field_0x66": 4,
-        "field_0x6c": 4,
-        "field_0x70": 4,
-        "field_0x74": 1
-      },
-      "confidence": 4
-    },
-    {
-      "id": 64,
-      "group_id": 64,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1dea9ed6c2a0bce2_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1dea9ed6c2a0bce2",
-      "funcs": [
-        1135380
-      ],
-      "fields": {
-        "field_0x1c": 28
-      },
-      "field_sizes": {
-        "field_0x1c": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 65,
-      "group_id": 65,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f97e01fef11b47f8_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 80,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 85,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 94,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "f97e01fef11b47f8",
-      "funcs": [
-        1158692
-      ],
-      "fields": {
-        "field_0x48": 72,
-        "field_0x50": 80,
-        "field_0x55": 85,
-        "field_0x5e": 94
-      },
-      "field_sizes": {
-        "field_0x48": 4,
-        "field_0x50": 4,
-        "field_0x55": 1,
-        "field_0x5e": 1
-      },
-      "confidence": 4
-    },
-    {
-      "id": 66,
-      "group_id": 66,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f9c6379d3e24b2f9_t",
+      "name": "struct_shape_11b1333002455250_t",
       "primary_arg": "a3",
       "fingerprint": [
         {
           "Base": "a3",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 36,
-          "Size": 4
-        },
-        {
-          "Base": "a3",
-          "Offset": 40,
-          "Size": 4
+          "Offset": 104,
+          "Size": 1
         }
       ],
-      "fp_hash": "f9c6379d3e24b2f9",
+      "fp_hash": "11b1333002455250",
       "funcs": [
-        1148532
+        1068040
       ],
       "fields": {
-        "field_0x20": 32,
-        "field_0x24": 36,
-        "field_0x28": 40
+        "field_0x68": 104
       },
       "field_sizes": {
-        "field_0x20": 4,
-        "field_0x24": 4,
-        "field_0x28": 4
+        "field_0x68": 1
       },
-      "confidence": 3
+      "confidence": 1
     },
     {
-      "id": 67,
-      "group_id": 67,
+      "id": 25,
+      "group_id": 25,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c8c386800c339d62_t",
-      "primary_arg": "a3",
+      "name": "struct_shape_ef87382bfa64f577_t",
+      "primary_arg": "v8",
       "fingerprint": [
         {
-          "Base": "a3",
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v8",
           "Offset": 8,
           "Size": 4
         }
       ],
-      "fp_hash": "c8c386800c339d62",
+      "fp_hash": "ef87382bfa64f577",
       "funcs": [
-        1077780
+        1184604
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 26,
+      "group_id": 26,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7831ef8ca2b3f0b1_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "7831ef8ca2b3f0b1",
+      "funcs": [
+        1152000
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 2
+      },
+      "confidence": 2
+    },
+    {
+      "id": 27,
+      "group_id": 27,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_03634ba794a6432f_t",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v3",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "03634ba794a6432f",
+      "funcs": [
+        1164172
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x1c": 4,
+        "field_0x4": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 28,
+      "group_id": 28,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_166a6958e173a83a_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "166a6958e173a83a",
+      "funcs": [
+        1078204
       ],
       "fields": {
         "field_0x8": 8
@@ -2342,33 +1118,233 @@
       "confidence": 1
     },
     {
-      "id": 68,
-      "group_id": 68,
+      "id": 29,
+      "group_id": 29,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4465f9198320e57b_t",
-      "primary_arg": "v1",
+      "name": "struct_shape_dae7a229559994db_t",
+      "primary_arg": "a2",
       "fingerprint": [
         {
-          "Base": "v1",
-          "Offset": 7,
+          "Base": "a2",
+          "Offset": 636,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 640,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "dae7a229559994db",
+      "funcs": [
+        1087932
+      ],
+      "fields": {
+        "field_0x27c": 636,
+        "field_0x280": 640
+      },
+      "field_sizes": {
+        "field_0x27c": 4,
+        "field_0x280": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 30,
+      "group_id": 30,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_9522ba571bbbb575_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 2,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 5,
           "Size": 1
         }
       ],
-      "fp_hash": "4465f9198320e57b",
+      "fp_hash": "9522ba571bbbb575",
       "funcs": [
-        1208080
+        1192908
       ],
       "fields": {
-        "field_0x7": 7
+        "field_0x2": 2,
+        "field_0x5": 5
       },
       "field_sizes": {
-        "field_0x7": 1
+        "field_0x2": 1,
+        "field_0x5": 1
+      },
+      "confidence": 2
+    },
+    {
+      "id": 31,
+      "group_id": 31,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_55b89a6f37e6e4c8_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 20,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 21,
+          "Size": 1
+        },
+        {
+          "Base": "a2",
+          "Offset": 21,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "55b89a6f37e6e4c8",
+      "funcs": [
+        1152332
+      ],
+      "fields": {
+        "field_0x14": 20,
+        "field_0x15": 21
+      },
+      "field_sizes": {
+        "field_0x14": 4,
+        "field_0x15": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 32,
+      "group_id": 32,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_0f3a9e2bf7ccbd87_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 97,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "0f3a9e2bf7ccbd87",
+      "funcs": [
+        1169980
+      ],
+      "fields": {
+        "field_0x61": 97
+      },
+      "field_sizes": {
+        "field_0x61": 1
       },
       "confidence": 1
     },
     {
-      "id": 69,
-      "group_id": 69,
+      "id": 33,
+      "group_id": 33,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7b95c7643aea318b_t",
+      "primary_arg": "a4",
+      "fingerprint": [
+        {
+          "Base": "a4",
+          "Offset": 104,
+          "Size": 4
+        },
+        {
+          "Base": "a4",
+          "Offset": 132,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7b95c7643aea318b",
+      "funcs": [
+        1072588
+      ],
+      "fields": {
+        "field_0x68": 104,
+        "field_0x84": 132
+      },
+      "field_sizes": {
+        "field_0x68": 4,
+        "field_0x84": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 34,
+      "group_id": 34,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_d9451a761b0e5b77_t",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 152,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "d9451a761b0e5b77",
+      "funcs": [
+        1140428
+      ],
+      "fields": {
+        "field_0x98": 152
+      },
+      "field_sizes": {
+        "field_0x98": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 35,
+      "group_id": 35,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_349bb25ffc1cb828_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 2
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "349bb25ffc1cb828",
+      "funcs": [
+        1115436
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0xc": 12
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0xc": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 36,
+      "group_id": 36,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_ff9eb3115205ae79_t",
       "primary_arg": "v4",
@@ -2413,249 +1389,47 @@
       "confidence": 4
     },
     {
-      "id": 70,
-      "group_id": 70,
+      "id": 37,
+      "group_id": 37,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3624d98ee7ad4438_t",
-      "primary_arg": "v8",
+      "name": "struct_shape_7e5e6534533d0ae6_t",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v8",
-          "Offset": 24,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "3624d98ee7ad4438",
-      "funcs": [
-        1139496
-      ],
-      "fields": {
-        "field_0x18": 24,
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x18": 4,
-        "field_0x4": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 71,
-      "group_id": 71,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_bf706901a513e4dd_t",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 28,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "bf706901a513e4dd",
-      "funcs": [
-        1165276
-      ],
-      "fields": {
-        "field_0x1c": 28,
-        "field_0x4": 4,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x1c": 1,
-        "field_0x4": 4,
-        "field_0x8": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 72,
-      "group_id": 72,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_3473d82ffc7f9d38_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 367,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "3473d82ffc7f9d38",
-      "funcs": [
-        1165732
-      ],
-      "fields": {
-        "field_0x16f": 367
-      },
-      "field_sizes": {
-        "field_0x16f": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 73,
-      "group_id": 73,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_55b89a6f37e6e4c8_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 20,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
+          "Base": "v1",
           "Offset": 20,
           "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 21,
-          "Size": 1
-        },
-        {
-          "Base": "a2",
-          "Offset": 21,
-          "Size": 4
         }
       ],
-      "fp_hash": "55b89a6f37e6e4c8",
+      "fp_hash": "7e5e6534533d0ae6",
       "funcs": [
-        1152332
+        1243476
       ],
       "fields": {
-        "field_0x14": 20,
-        "field_0x15": 21
+        "field_0x14": 20
       },
       "field_sizes": {
-        "field_0x14": 4,
-        "field_0x15": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 74,
-      "group_id": 74,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fbdbe47bea5f1f9d_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 16,
-          "Size": 2
-        },
-        {
-          "Base": "a2",
-          "Offset": 16,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "fbdbe47bea5f1f9d",
-      "funcs": [
-        1143708
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x4": 4,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x10": 4,
-        "field_0x4": 4,
-        "field_0xc": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 75,
-      "group_id": 75,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_da41885616d9f320_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 11,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "da41885616d9f320",
-      "funcs": [
-        1118892
-      ],
-      "fields": {
-        "field_0xb": 11
-      },
-      "field_sizes": {
-        "field_0xb": 4
+        "field_0x14": 4
       },
       "confidence": 1
     },
     {
-      "id": 76,
-      "group_id": 76,
+      "id": 38,
+      "group_id": 38,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_beb54edbc2808da2_t",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "beb54edbc2808da2",
-      "funcs": [
-        1196612
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 77,
-      "group_id": 77,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2a0d4bd02e91b1c0_t",
+      "name": "struct_shape_887974ed550c1c05_t",
       "primary_arg": "a1",
       "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 14,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 16,
+          "Size": 4
+        },
         {
           "Base": "a1",
           "Offset": 28,
@@ -2668,104 +1442,205 @@
         },
         {
           "Base": "a1",
-          "Offset": 44,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 4
+          "Offset": 53,
+          "Size": 1
         }
       ],
-      "fp_hash": "2a0d4bd02e91b1c0",
+      "fp_hash": "887974ed550c1c05",
       "funcs": [
-        1139908
+        1137504
       ],
       "fields": {
+        "field_0x10": 16,
         "field_0x1c": 28,
         "field_0x26": 38,
-        "field_0x2c": 44,
-        "field_0x30": 48
+        "field_0x35": 53,
+        "field_0xe": 14
       },
       "field_sizes": {
+        "field_0x10": 4,
         "field_0x1c": 4,
         "field_0x26": 2,
-        "field_0x2c": 4,
-        "field_0x30": 4
+        "field_0x35": 1,
+        "field_0xe": 1
       },
-      "confidence": 4
+      "confidence": 5
     },
     {
-      "id": 78,
-      "group_id": 78,
+      "id": 39,
+      "group_id": 39,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_0fa67755ba3d2969_t",
+      "name": "struct_shape_4085fec68f5a7844_t",
       "primary_arg": "v5",
       "fingerprint": [
         {
           "Base": "v5",
-          "Offset": 6164,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "0fa67755ba3d2969",
-      "funcs": [
-        1117028
-      ],
-      "fields": {
-        "field_0x1814": 6164
-      },
-      "field_sizes": {
-        "field_0x1814": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 79,
-      "group_id": 79,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4c2761b26d9968ff_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 3,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "4c2761b26d9968ff",
-      "funcs": [
-        1118604
-      ],
-      "fields": {
-        "field_0x3": 3
-      },
-      "field_sizes": {
-        "field_0x3": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 80,
-      "group_id": 80,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fe34963d565524c4_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
           "Offset": 4,
           "Size": 4
         },
         {
+          "Base": "v5",
+          "Offset": 16,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 32,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4085fec68f5a7844",
+      "funcs": [
+        1135320
+      ],
+      "fields": {
+        "field_0x10": 16,
+        "field_0x14": 20,
+        "field_0x20": 32,
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x10": 4,
+        "field_0x14": 4,
+        "field_0x20": 1,
+        "field_0x4": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 40,
+      "group_id": 40,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_f428326965d542a0_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 14,
+          "Size": 2
+        },
+        {
+          "Base": "v4",
+          "Offset": 24,
+          "Size": 1
+        },
+        {
+          "Base": "v4",
+          "Offset": 24,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f428326965d542a0",
+      "funcs": [
+        1160100
+      ],
+      "fields": {
+        "field_0x18": 24,
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0x18": 4,
+        "field_0xe": 2
+      },
+      "confidence": 3
+    },
+    {
+      "id": 41,
+      "group_id": 41,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_4a771e920e9db4cd_t",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 2,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 5,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "4a771e920e9db4cd",
+      "funcs": [
+        1092632
+      ],
+      "fields": {
+        "field_0x2": 2,
+        "field_0x5": 5
+      },
+      "field_sizes": {
+        "field_0x2": 4,
+        "field_0x5": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 42,
+      "group_id": 42,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_unknown_helper_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
           "Base": "a1",
+          "Offset": 72,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 95,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7ee99fb9ee45593b",
+      "funcs": [
+        1163064
+      ],
+      "fields": {
+        "field_0x48": 72,
+        "field_0x55": 85,
+        "field_0x5f": 95
+      },
+      "field_sizes": {
+        "field_0x48": 4,
+        "field_0x55": 1,
+        "field_0x5f": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 43,
+      "group_id": 43,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_27d2ad114e4fa19d_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v7",
           "Offset": 6,
           "Size": 4
         }
       ],
-      "fp_hash": "fe34963d565524c4",
+      "fp_hash": "27d2ad114e4fa19d",
       "funcs": [
-        1170144
+        1170704
       ],
       "fields": {
         "field_0x4": 4,
@@ -2778,8 +1653,8 @@
       "confidence": 2
     },
     {
-      "id": 81,
-      "group_id": 81,
+      "id": 44,
+      "group_id": 44,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_68fb6a36900213a1_t",
       "primary_arg": "a1",
@@ -2873,283 +1748,72 @@
       "confidence": 11
     },
     {
-      "id": 82,
-      "group_id": 82,
+      "id": 45,
+      "group_id": 45,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ffd6d6f3fd28eedc_t",
-      "primary_arg": "v6",
+      "name": "struct_shape_c5b283e3fc0dc5df_t",
+      "primary_arg": "v5",
       "fingerprint": [
         {
-          "Base": "v6",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 28,
-          "Size": 2
-        },
-        {
-          "Base": "v6",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ffd6d6f3fd28eedc",
-      "funcs": [
-        1115124
-      ],
-      "fields": {
-        "field_0x14": 20,
-        "field_0x1c": 28
-      },
-      "field_sizes": {
-        "field_0x14": 4,
-        "field_0x1c": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 83,
-      "group_id": 83,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7831ef8ca2b3f0b1_t",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
+          "Base": "v5",
           "Offset": 8,
-          "Size": 2
+          "Size": 4
         }
       ],
-      "fp_hash": "7831ef8ca2b3f0b1",
+      "fp_hash": "c5b283e3fc0dc5df",
       "funcs": [
-        1152000
+        1160424
       ],
       "fields": {
-        "field_0x4": 4,
         "field_0x8": 8
       },
       "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 2
-      },
-      "confidence": 2
-    },
-    {
-      "id": 84,
-      "group_id": 84,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a2b80567eae5185d_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 16,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "a2b80567eae5185d",
-      "funcs": [
-        1161024
-      ],
-      "fields": {
-        "field_0x10": 16
-      },
-      "field_sizes": {
-        "field_0x10": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 85,
-      "group_id": 85,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_887974ed550c1c05_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 14,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 16,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 38,
-          "Size": 2
-        },
-        {
-          "Base": "a1",
-          "Offset": 53,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "887974ed550c1c05",
-      "funcs": [
-        1137504
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x1c": 28,
-        "field_0x26": 38,
-        "field_0x35": 53,
-        "field_0xe": 14
-      },
-      "field_sizes": {
-        "field_0x10": 4,
-        "field_0x1c": 4,
-        "field_0x26": 2,
-        "field_0x35": 1,
-        "field_0xe": 1
-      },
-      "confidence": 5
-    },
-    {
-      "id": 86,
-      "group_id": 86,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dcd56cf427c87065_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v1",
-          "Offset": 6,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "dcd56cf427c87065",
-      "funcs": [
-        1134616
-      ],
-      "fields": {
-        "field_0x3": 3,
-        "field_0x6": 6
-      },
-      "field_sizes": {
-        "field_0x3": 1,
-        "field_0x6": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 87,
-      "group_id": 87,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_13e44f03037cbbdb_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 2,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "13e44f03037cbbdb",
-      "funcs": [
-        1059760
-      ],
-      "fields": {
-        "field_0x2": 2
-      },
-      "field_sizes": {
-        "field_0x2": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 88,
-      "group_id": 88,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dca9fcc8f9d3947e_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dca9fcc8f9d3947e",
-      "funcs": [
-        1113040
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 4,
-        "field_0xc": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 89,
-      "group_id": 89,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8b69a534290e32c7_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "8b69a534290e32c7",
-      "funcs": [
-        1159304
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x4": 4,
         "field_0x8": 4
       },
-      "confidence": 2
+      "confidence": 1
     },
     {
-      "id": 90,
-      "group_id": 90,
+      "id": 46,
+      "group_id": 46,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_cf00cd48a7f934b6_t",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v8",
+          "Offset": 24,
+          "Size": 4
+        },
+        {
+          "Base": "v8",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "cf00cd48a7f934b6",
+      "funcs": [
+        1138940
+      ],
+      "fields": {
+        "field_0x18": 24,
+        "field_0x28": 40,
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x18": 4,
+        "field_0x28": 4,
+        "field_0x4": 2
+      },
+      "confidence": 3
+    },
+    {
+      "id": 47,
+      "group_id": 47,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_409f10655144dcf3_t",
       "primary_arg": "a1",
@@ -3173,326 +1837,104 @@
       "confidence": 1
     },
     {
-      "id": 91,
-      "group_id": 91,
+      "id": 48,
+      "group_id": 48,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_6ef1f87e4a007900_t",
-      "primary_arg": "v1",
+      "name": "struct_shape_ecb940657e48d407_t",
+      "primary_arg": "a2",
       "fingerprint": [
         {
-          "Base": "v1",
-          "Offset": 52,
+          "Base": "a2",
+          "Offset": 102,
           "Size": 4
         },
         {
-          "Base": "v1",
-          "Offset": 56,
+          "Base": "a2",
+          "Offset": 108,
           "Size": 4
         },
         {
-          "Base": "v1",
-          "Offset": 94,
-          "Size": 1
+          "Base": "a2",
+          "Offset": 112,
+          "Size": 4
         },
         {
-          "Base": "v1",
-          "Offset": 97,
+          "Base": "a2",
+          "Offset": 116,
           "Size": 1
         }
       ],
-      "fp_hash": "6ef1f87e4a007900",
+      "fp_hash": "ecb940657e48d407",
       "funcs": [
-        1146356
+        1151512
       ],
       "fields": {
-        "field_0x34": 52,
-        "field_0x38": 56,
-        "field_0x5e": 94,
-        "field_0x61": 97
+        "field_0x66": 102,
+        "field_0x6c": 108,
+        "field_0x70": 112,
+        "field_0x74": 116
       },
       "field_sizes": {
-        "field_0x34": 4,
-        "field_0x38": 4,
-        "field_0x5e": 1,
-        "field_0x61": 1
+        "field_0x66": 4,
+        "field_0x6c": 4,
+        "field_0x70": 4,
+        "field_0x74": 1
       },
       "confidence": 4
     },
     {
-      "id": 92,
-      "group_id": 92,
+      "id": 49,
+      "group_id": 49,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_11b1333002455250_t",
-      "primary_arg": "a3",
+      "name": "struct_shape_98a0511e6845f572_t",
+      "primary_arg": "v2",
       "fingerprint": [
         {
-          "Base": "a3",
-          "Offset": 104,
-          "Size": 1
+          "Base": "v2",
+          "Offset": 4,
+          "Size": 2
         }
       ],
-      "fp_hash": "11b1333002455250",
+      "fp_hash": "98a0511e6845f572",
       "funcs": [
-        1068040
+        1137096
       ],
       "fields": {
-        "field_0x68": 104
+        "field_0x4": 4
       },
       "field_sizes": {
-        "field_0x68": 1
+        "field_0x4": 2
       },
       "confidence": 1
     },
     {
-      "id": 93,
-      "group_id": 93,
+      "id": 50,
+      "group_id": 50,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_fddbd8a3b87c202c_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 32,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "fddbd8a3b87c202c",
-      "funcs": [
-        1145544
-      ],
-      "fields": {
-        "field_0x20": 32,
-        "field_0x30": 48
-      },
-      "field_sizes": {
-        "field_0x20": 1,
-        "field_0x30": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 94,
-      "group_id": 94,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2cbcc6886180d383_t",
+      "name": "struct_shape_a0414dffebd7e511_t",
       "primary_arg": "v4",
       "fingerprint": [
         {
           "Base": "v4",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "v4",
-          "Offset": 65,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "2cbcc6886180d383",
-      "funcs": [
-        1193788
-      ],
-      "fields": {
-        "field_0x1c": 28,
-        "field_0x41": 65
-      },
-      "field_sizes": {
-        "field_0x1c": 4,
-        "field_0x41": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 95,
-      "group_id": 95,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c3b53ddd7be363b0_t",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 94,
-          "Size": 1
-        },
-        {
-          "Base": "v3",
-          "Offset": 94,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c3b53ddd7be363b0",
-      "funcs": [
-        1147064
-      ],
-      "fields": {
-        "field_0x5e": 94
-      },
-      "field_sizes": {
-        "field_0x5e": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 96,
-      "group_id": 96,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ef87382bfa64f577_t",
-      "primary_arg": "v8",
-      "fingerprint": [
-        {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v8",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "ef87382bfa64f577",
-      "funcs": [
-        1184604
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 97,
-      "group_id": 97,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a985326216d2eaf8_t",
-      "primary_arg": "v1",
-      "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 32,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a985326216d2eaf8",
-      "funcs": [
-        1147592
-      ],
-      "fields": {
-        "field_0x20": 32
-      },
-      "field_sizes": {
-        "field_0x20": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 98,
-      "group_id": 98,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_e6d7646e0b18348a_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v7",
-          "Offset": 8,
+          "Offset": 2,
           "Size": 2
         }
       ],
-      "fp_hash": "e6d7646e0b18348a",
+      "fp_hash": "a0414dffebd7e511",
       "funcs": [
-        1162792
+        1169648
       ],
       "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8
+        "field_0x2": 2
       },
       "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 2
-      },
-      "confidence": 2
-    },
-    {
-      "id": 99,
-      "group_id": 99,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7d39c50d21c3175f_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 25,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 29,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 30,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "7d39c50d21c3175f",
-      "funcs": [
-        1150936
-      ],
-      "fields": {
-        "field_0x19": 25,
-        "field_0x1d": 29,
-        "field_0x1e": 30
-      },
-      "field_sizes": {
-        "field_0x19": 4,
-        "field_0x1d": 1,
-        "field_0x1e": 1
-      },
-      "confidence": 3
-    },
-    {
-      "id": 100,
-      "group_id": 100,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dcf6c447ba1b79c4_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 72,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dcf6c447ba1b79c4",
-      "funcs": [
-        1147684
-      ],
-      "fields": {
-        "field_0x48": 72
-      },
-      "field_sizes": {
-        "field_0x48": 4
+        "field_0x2": 2
       },
       "confidence": 1
     },
     {
-      "id": 101,
-      "group_id": 101,
+      "id": 51,
+      "group_id": 51,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_6b63a8ae556506f8_t",
       "primary_arg": "v5",
@@ -3537,506 +1979,8 @@
       "confidence": 4
     },
     {
-      "id": 102,
-      "group_id": 102,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ccf0e6af23073e20_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 95,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "ccf0e6af23073e20",
-      "funcs": [
-        1151344
-      ],
-      "fields": {
-        "field_0x5f": 95
-      },
-      "field_sizes": {
-        "field_0x5f": 1
-      },
-      "confidence": 1
-    },
-    {
-      "id": 103,
-      "group_id": 103,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_98f74dac57ee12d0_t",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 1,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 2,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 3,
-          "Size": 1
-        },
-        {
-          "Base": "v5",
-          "Offset": 4,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 6,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 2
-        },
-        {
-          "Base": "v5",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "v5",
-          "Offset": 16,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "98f74dac57ee12d0",
-      "funcs": [
-        1163884
-      ],
-      "fields": {
-        "field_0x1": 1,
-        "field_0x10": 16,
-        "field_0x2": 2,
-        "field_0x3": 3,
-        "field_0x4": 4,
-        "field_0x6": 6,
-        "field_0x8": 8,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x1": 1,
-        "field_0x10": 1,
-        "field_0x2": 1,
-        "field_0x3": 1,
-        "field_0x4": 2,
-        "field_0x6": 2,
-        "field_0x8": 2,
-        "field_0xc": 4
-      },
-      "confidence": 8
-    },
-    {
-      "id": 104,
-      "group_id": 104,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_1fde98a9a9b51dd8_t",
-      "primary_arg": "v6",
-      "fingerprint": [
-        {
-          "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "1fde98a9a9b51dd8",
-      "funcs": [
-        1159588
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0x8": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 105,
-      "group_id": 105,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_a194d4361fd8b82d_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 48,
-          "Size": 2
-        },
-        {
-          "Base": "a1",
-          "Offset": 65,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 84,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "a194d4361fd8b82d",
-      "funcs": [
-        1140824
-      ],
-      "fields": {
-        "field_0x1c": 28,
-        "field_0x30": 48,
-        "field_0x41": 65,
-        "field_0x54": 84
-      },
-      "field_sizes": {
-        "field_0x1c": 4,
-        "field_0x30": 2,
-        "field_0x41": 1,
-        "field_0x54": 4
-      },
-      "confidence": 4
-    },
-    {
-      "id": 106,
-      "group_id": 106,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_b4fc684f1d3e8d6a_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "b4fc684f1d3e8d6a",
-      "funcs": [
-        1170120
-      ],
-      "fields": {
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x8": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 107,
-      "group_id": 107,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_349bb25ffc1cb828_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 2
-        },
-        {
-          "Base": "a2",
-          "Offset": 12,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "349bb25ffc1cb828",
-      "funcs": [
-        1115436
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0xc": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 108,
-      "group_id": 108,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c5b283e3fc0dc5df_t",
-      "primary_arg": "v5",
-      "fingerprint": [
-        {
-          "Base": "v5",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c5b283e3fc0dc5df",
-      "funcs": [
-        1160424
-      ],
-      "fields": {
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x8": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 109,
-      "group_id": 109,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_62f550d8f0fe0a62_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 5,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 6,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "62f550d8f0fe0a62",
-      "funcs": [
-        1153196
-      ],
-      "fields": {
-        "field_0x5": 5,
-        "field_0x6": 6
-      },
-      "field_sizes": {
-        "field_0x5": 4,
-        "field_0x6": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 110,
-      "group_id": 110,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c6fae80132b57a32_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 96,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 100,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "c6fae80132b57a32",
-      "funcs": [
-        1140144
-      ],
-      "fields": {
-        "field_0x60": 96,
-        "field_0x64": 100
-      },
-      "field_sizes": {
-        "field_0x60": 4,
-        "field_0x64": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 111,
-      "group_id": 111,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_c64a916477296c91_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 38,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "c64a916477296c91",
-      "funcs": [
-        1136468
-      ],
-      "fields": {
-        "field_0x20": 32,
-        "field_0x26": 38
-      },
-      "field_sizes": {
-        "field_0x20": 4,
-        "field_0x26": 2
-      },
-      "confidence": 2
-    },
-    {
-      "id": 112,
-      "group_id": 112,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_d3b9b2fca1ffd7e5_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 16,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 20,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 24,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 32,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "d3b9b2fca1ffd7e5",
-      "funcs": [
-        1079920
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x14": 20,
-        "field_0x18": 24,
-        "field_0x1c": 28,
-        "field_0x20": 32,
-        "field_0xc": 12
-      },
-      "field_sizes": {
-        "field_0x10": 4,
-        "field_0x14": 4,
-        "field_0x18": 4,
-        "field_0x1c": 4,
-        "field_0x20": 4,
-        "field_0xc": 4
-      },
-      "confidence": 6
-    },
-    {
-      "id": 113,
-      "group_id": 113,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_507cdcd951aec6fd_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 102,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 116,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "507cdcd951aec6fd",
-      "funcs": [
-        1149192
-      ],
-      "fields": {
-        "field_0x66": 102,
-        "field_0x74": 116
-      },
-      "field_sizes": {
-        "field_0x66": 4,
-        "field_0x74": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 114,
-      "group_id": 114,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7dd1ba7268cad807_t",
-      "primary_arg": "v2",
-      "fingerprint": [
-        {
-          "Base": "v2",
-          "Offset": 28,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "v2",
-          "Offset": 52,
-          "Size": 1
-        },
-        {
-          "Base": "v2",
-          "Offset": 53,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "7dd1ba7268cad807",
-      "funcs": [
-        1139612
-      ],
-      "fields": {
-        "field_0x1c": 28,
-        "field_0x20": 32,
-        "field_0x34": 52,
-        "field_0x35": 53
-      },
-      "field_sizes": {
-        "field_0x1c": 4,
-        "field_0x20": 4,
-        "field_0x34": 1,
-        "field_0x35": 1
-      },
-      "confidence": 4
-    },
-    {
-      "id": 115,
-      "group_id": 115,
+      "id": 52,
+      "group_id": 52,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_0575200298914114_t",
       "primary_arg": "a1",
@@ -4067,8 +2011,528 @@
       "confidence": 2
     },
     {
-      "id": 116,
-      "group_id": 116,
+      "id": 53,
+      "group_id": 53,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_2182e65d2e9f910f_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 16,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "2182e65d2e9f910f",
+      "funcs": [
+        1162944
+      ],
+      "fields": {
+        "field_0x10": 16
+      },
+      "field_sizes": {
+        "field_0x10": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 54,
+      "group_id": 54,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_9858a6d1e63adaed_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 60,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "9858a6d1e63adaed",
+      "funcs": [
+        1185516
+      ],
+      "fields": {
+        "field_0x3c": 60
+      },
+      "field_sizes": {
+        "field_0x3c": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 55,
+      "group_id": 55,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_731fc059f9ee4c06_t",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 4,
+          "Size": 2
+        },
+        {
+          "Base": "v1",
+          "Offset": 6,
+          "Size": 2
+        },
+        {
+          "Base": "v1",
+          "Offset": 8,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "731fc059f9ee4c06",
+      "funcs": [
+        1114096
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x6": 6,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 2,
+        "field_0x6": 2,
+        "field_0x8": 2
+      },
+      "confidence": 3
+    },
+    {
+      "id": 56,
+      "group_id": 56,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_94d9183d978b5770_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 3,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "94d9183d978b5770",
+      "funcs": [
+        1166672
+      ],
+      "fields": {
+        "field_0x3": 3
+      },
+      "field_sizes": {
+        "field_0x3": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 57,
+      "group_id": 57,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7b80613e79cb9d5c_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 56,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 88,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7b80613e79cb9d5c",
+      "funcs": [
+        1151060
+      ],
+      "fields": {
+        "field_0x38": 56,
+        "field_0x58": 88
+      },
+      "field_sizes": {
+        "field_0x38": 4,
+        "field_0x58": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 58,
+      "group_id": 58,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_dcf6c447ba1b79c4_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 72,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "dcf6c447ba1b79c4",
+      "funcs": [
+        1147684
+      ],
+      "fields": {
+        "field_0x48": 72
+      },
+      "field_sizes": {
+        "field_0x48": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 59,
+      "group_id": 59,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_989d79c8f6841867_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "989d79c8f6841867",
+      "funcs": [
+        1153484
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 60,
+      "group_id": 60,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_02b937d5e3575137_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 20,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "02b937d5e3575137",
+      "funcs": [
+        1154416
+      ],
+      "fields": {
+        "field_0x14": 20
+      },
+      "field_sizes": {
+        "field_0x14": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 61,
+      "group_id": 61,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ebe081d5a6602816_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 14,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "ebe081d5a6602816",
+      "funcs": [
+        1048832
+      ],
+      "fields": {
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0xe": 2
+      },
+      "confidence": 1
+    },
+    {
+      "id": 62,
+      "group_id": 62,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7d39c50d21c3175f_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 25,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 29,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 30,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "7d39c50d21c3175f",
+      "funcs": [
+        1150936
+      ],
+      "fields": {
+        "field_0x19": 25,
+        "field_0x1d": 29,
+        "field_0x1e": 30
+      },
+      "field_sizes": {
+        "field_0x19": 4,
+        "field_0x1d": 1,
+        "field_0x1e": 1
+      },
+      "confidence": 3
+    },
+    {
+      "id": 63,
+      "group_id": 63,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5a48f826a86a86bc_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 266,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5a48f826a86a86bc",
+      "funcs": [
+        1152032
+      ],
+      "fields": {
+        "field_0x10a": 266
+      },
+      "field_sizes": {
+        "field_0x10a": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 64,
+      "group_id": 64,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_193136455a54ea90_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "193136455a54ea90",
+      "funcs": [
+        1140264
+      ],
+      "fields": {
+        "field_0x30": 48
+      },
+      "field_sizes": {
+        "field_0x30": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 65,
+      "group_id": 65,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_b4fc684f1d3e8d6a_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "b4fc684f1d3e8d6a",
+      "funcs": [
+        1170120
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 66,
+      "group_id": 66,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_322e89de501157cd_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 112,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 120,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 124,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 132,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 140,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 152,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 164,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "322e89de501157cd",
+      "funcs": [
+        1073104
+      ],
+      "fields": {
+        "field_0x2": 2,
+        "field_0x70": 112,
+        "field_0x78": 120,
+        "field_0x7c": 124,
+        "field_0x84": 132,
+        "field_0x8c": 140,
+        "field_0x98": 152,
+        "field_0xa4": 164
+      },
+      "field_sizes": {
+        "field_0x2": 4,
+        "field_0x70": 4,
+        "field_0x78": 4,
+        "field_0x7c": 4,
+        "field_0x84": 4,
+        "field_0x8c": 4,
+        "field_0x98": 4,
+        "field_0xa4": 4
+      },
+      "confidence": 8
+    },
+    {
+      "id": 67,
+      "group_id": 67,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_fe34963d565524c4_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 6,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "fe34963d565524c4",
+      "funcs": [
+        1170144
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x6": 6
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x6": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 68,
+      "group_id": 68,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_26101caaaab44b04_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 80,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 85,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 94,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "26101caaaab44b04",
+      "funcs": [
+        1163608
+      ],
+      "fields": {
+        "field_0x50": 80,
+        "field_0x55": 85,
+        "field_0x5e": 94
+      },
+      "field_sizes": {
+        "field_0x50": 4,
+        "field_0x55": 4,
+        "field_0x5e": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 69,
+      "group_id": 69,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_f6c9bed73e894202_t",
       "primary_arg": "v6",
@@ -4099,235 +2563,33 @@
       "confidence": 2
     },
     {
-      "id": 117,
-      "group_id": 117,
+      "id": 70,
+      "group_id": 70,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_03634ba794a6432f_t",
-      "primary_arg": "v3",
-      "fingerprint": [
-        {
-          "Base": "v3",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v3",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "03634ba794a6432f",
-      "funcs": [
-        1164172
-      ],
-      "fields": {
-        "field_0x1c": 28,
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x1c": 4,
-        "field_0x4": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 118,
-      "group_id": 118,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4e0bc7e5657bf826_t",
-      "primary_arg": "a3",
-      "fingerprint": [
-        {
-          "Base": "a3",
-          "Offset": 4,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "4e0bc7e5657bf826",
-      "funcs": [
-        1055856
-      ],
-      "fields": {
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x4": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 119,
-      "group_id": 119,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_dae7a229559994db_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 636,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 640,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "dae7a229559994db",
-      "funcs": [
-        1087932
-      ],
-      "fields": {
-        "field_0x27c": 636,
-        "field_0x280": 640
-      },
-      "field_sizes": {
-        "field_0x27c": 4,
-        "field_0x280": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 120,
-      "group_id": 120,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_5f913cb8bc708d42_t",
+      "name": "struct_shape_1fbd3e90349dfea9_t",
       "primary_arg": "v6",
       "fingerprint": [
         {
           "Base": "v6",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v6",
-          "Offset": 11,
-          "Size": 1
-        }
-      ],
-      "fp_hash": "5f913cb8bc708d42",
-      "funcs": [
-        1124632
-      ],
-      "fields": {
-        "field_0x4": 4,
-        "field_0xb": 11
-      },
-      "field_sizes": {
-        "field_0x4": 4,
-        "field_0xb": 1
-      },
-      "confidence": 2
-    },
-    {
-      "id": 121,
-      "group_id": 121,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_f428326965d542a0_t",
-      "primary_arg": "v4",
-      "fingerprint": [
-        {
-          "Base": "v4",
-          "Offset": 14,
-          "Size": 2
-        },
-        {
-          "Base": "v4",
-          "Offset": 24,
-          "Size": 1
-        },
-        {
-          "Base": "v4",
-          "Offset": 24,
+          "Offset": 64,
           "Size": 4
         }
       ],
-      "fp_hash": "f428326965d542a0",
+      "fp_hash": "1fbd3e90349dfea9",
       "funcs": [
-        1160100
+        1195780
       ],
       "fields": {
-        "field_0x18": 24,
-        "field_0xe": 14
+        "field_0x40": 64
       },
       "field_sizes": {
-        "field_0x18": 4,
-        "field_0xe": 2
+        "field_0x40": 4
       },
-      "confidence": 3
+      "confidence": 1
     },
     {
-      "id": 122,
-      "group_id": 122,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_952b120834e8d02b_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 28,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "952b120834e8d02b",
-      "funcs": [
-        1145172
-      ],
-      "fields": {
-        "field_0x10": 16,
-        "field_0x1c": 28,
-        "field_0x4": 4
-      },
-      "field_sizes": {
-        "field_0x10": 1,
-        "field_0x1c": 4,
-        "field_0x4": 4
-      },
-      "confidence": 3
-    },
-    {
-      "id": 123,
-      "group_id": 123,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_2182e65d2e9f910f_t",
-      "primary_arg": "v7",
-      "fingerprint": [
-        {
-          "Base": "v7",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 16,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "2182e65d2e9f910f",
-      "funcs": [
-        1162944
-      ],
-      "fields": {
-        "field_0x10": 16
-      },
-      "field_sizes": {
-        "field_0x10": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 124,
-      "group_id": 124,
+      "id": 71,
+      "group_id": 71,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_6abdb09095ee30fa_t",
       "primary_arg": "v5",
@@ -4351,207 +2613,72 @@
       "confidence": 1
     },
     {
-      "id": 125,
-      "group_id": 125,
+      "id": 72,
+      "group_id": 72,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_308af5cb21157398_t",
-      "primary_arg": "v1",
+      "name": "struct_shape_5f8d98c95d890899_t",
+      "primary_arg": "a2",
       "fingerprint": [
         {
-          "Base": "v1",
-          "Offset": 588,
+          "Base": "a2",
+          "Offset": 48,
           "Size": 4
         }
       ],
-      "fp_hash": "308af5cb21157398",
+      "fp_hash": "5f8d98c95d890899",
       "funcs": [
-        1101164
+        1146220
       ],
       "fields": {
-        "field_0x24c": 588
+        "field_0x30": 48
       },
       "field_sizes": {
-        "field_0x24c": 4
+        "field_0x30": 4
       },
       "confidence": 1
     },
     {
-      "id": 126,
-      "group_id": 126,
+      "id": 73,
+      "group_id": 73,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_70ff902047ce18e9_t",
+      "name": "struct_shape_6d3091d7dec7574a_t",
       "primary_arg": "v1",
       "fingerprint": [
-        {
-          "Base": "v1",
-          "Offset": 4,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 12,
-          "Size": 4
-        },
-        {
-          "Base": "v1",
-          "Offset": 16,
-          "Size": 1
-        },
         {
           "Base": "v1",
           "Offset": 48,
-          "Size": 2
-        },
-        {
-          "Base": "v1",
-          "Offset": 84,
           "Size": 4
         },
         {
           "Base": "v1",
-          "Offset": 152,
-          "Size": 1
+          "Offset": 96,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 100,
+          "Size": 4
         }
       ],
-      "fp_hash": "70ff902047ce18e9",
+      "fp_hash": "6d3091d7dec7574a",
       "funcs": [
-        1145288
+        1135500
       ],
       "fields": {
-        "field_0x10": 16,
         "field_0x30": 48,
-        "field_0x4": 4,
-        "field_0x54": 84,
-        "field_0x98": 152,
-        "field_0xc": 12
+        "field_0x60": 96,
+        "field_0x64": 100
       },
       "field_sizes": {
-        "field_0x10": 1,
-        "field_0x30": 2,
-        "field_0x4": 4,
-        "field_0x54": 4,
-        "field_0x98": 1,
-        "field_0xc": 4
+        "field_0x30": 4,
+        "field_0x60": 4,
+        "field_0x64": 4
       },
-      "confidence": 6
+      "confidence": 3
     },
     {
-      "id": 127,
-      "group_id": 127,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_tx_phy_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 32,
-          "Size": 4
-        },
-        {
-          "Base": "a2",
-          "Offset": 36,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7f59549c632c7357",
-      "funcs": [
-        1097512
-      ],
-      "fields": {
-        "field_0x20": 32,
-        "field_0x24": 36
-      },
-      "field_sizes": {
-        "field_0x20": 4,
-        "field_0x24": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 128,
-      "group_id": 128,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_166a6958e173a83a_t",
-      "primary_arg": "a2",
-      "fingerprint": [
-        {
-          "Base": "a2",
-          "Offset": 8,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "166a6958e173a83a",
-      "funcs": [
-        1078204
-      ],
-      "fields": {
-        "field_0x8": 8
-      },
-      "field_sizes": {
-        "field_0x8": 4
-      },
-      "confidence": 1
-    },
-    {
-      "id": 129,
-      "group_id": 129,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ebe081d5a6602816_t",
-      "primary_arg": "a1",
-      "fingerprint": [
-        {
-          "Base": "a1",
-          "Offset": 14,
-          "Size": 2
-        }
-      ],
-      "fp_hash": "ebe081d5a6602816",
-      "funcs": [
-        1048832
-      ],
-      "fields": {
-        "field_0xe": 14
-      },
-      "field_sizes": {
-        "field_0xe": 2
-      },
-      "confidence": 1
-    },
-    {
-      "id": 130,
-      "group_id": 130,
-      "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_7b95c7643aea318b_t",
-      "primary_arg": "a4",
-      "fingerprint": [
-        {
-          "Base": "a4",
-          "Offset": 104,
-          "Size": 4
-        },
-        {
-          "Base": "a4",
-          "Offset": 132,
-          "Size": 4
-        }
-      ],
-      "fp_hash": "7b95c7643aea318b",
-      "funcs": [
-        1072588
-      ],
-      "fields": {
-        "field_0x68": 104,
-        "field_0x84": 132
-      },
-      "field_sizes": {
-        "field_0x68": 4,
-        "field_0x84": 4
-      },
-      "confidence": 2
-    },
-    {
-      "id": 131,
-      "group_id": 131,
+      "id": 74,
+      "group_id": 74,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_3f0db2d6c78fbdeb_t",
       "primary_arg": "v6",
@@ -4575,47 +2702,251 @@
       "confidence": 1
     },
     {
-      "id": 132,
-      "group_id": 132,
+      "id": 75,
+      "group_id": 75,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_cf00cd48a7f934b6_t",
-      "primary_arg": "v8",
+      "name": "struct_shape_e2eb643af7bf3cd7_t",
+      "primary_arg": "v2",
       "fingerprint": [
         {
-          "Base": "v8",
-          "Offset": 4,
-          "Size": 2
-        },
+          "Base": "v2",
+          "Offset": 16,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "e2eb643af7bf3cd7",
+      "funcs": [
+        1161696
+      ],
+      "fields": {
+        "field_0x10": 16
+      },
+      "field_sizes": {
+        "field_0x10": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 76,
+      "group_id": 76,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_4465f9198320e57b_t",
+      "primary_arg": "v1",
+      "fingerprint": [
         {
-          "Base": "v8",
-          "Offset": 24,
+          "Base": "v1",
+          "Offset": 7,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4465f9198320e57b",
+      "funcs": [
+        1208080
+      ],
+      "fields": {
+        "field_0x7": 7
+      },
+      "field_sizes": {
+        "field_0x7": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 77,
+      "group_id": 77,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_dca9fcc8f9d3947e_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
           "Size": 4
         },
         {
-          "Base": "v8",
-          "Offset": 40,
+          "Base": "a1",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 12,
           "Size": 4
         }
       ],
-      "fp_hash": "cf00cd48a7f934b6",
+      "fp_hash": "dca9fcc8f9d3947e",
       "funcs": [
-        1138940
+        1113040
       ],
       "fields": {
-        "field_0x18": 24,
-        "field_0x28": 40,
-        "field_0x4": 4
+        "field_0x4": 4,
+        "field_0x8": 8,
+        "field_0xc": 12
       },
       "field_sizes": {
-        "field_0x18": 4,
-        "field_0x28": 4,
-        "field_0x4": 2
+        "field_0x4": 4,
+        "field_0x8": 4,
+        "field_0xc": 4
       },
       "confidence": 3
     },
     {
-      "id": 133,
-      "group_id": 133,
+      "id": 78,
+      "group_id": 78,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_6ef1f87e4a007900_t",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 52,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 56,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 94,
+          "Size": 1
+        },
+        {
+          "Base": "v1",
+          "Offset": 97,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "6ef1f87e4a007900",
+      "funcs": [
+        1146356
+      ],
+      "fields": {
+        "field_0x34": 52,
+        "field_0x38": 56,
+        "field_0x5e": 94,
+        "field_0x61": 97
+      },
+      "field_sizes": {
+        "field_0x34": 4,
+        "field_0x38": 4,
+        "field_0x5e": 1,
+        "field_0x61": 1
+      },
+      "confidence": 4
+    },
+    {
+      "id": 79,
+      "group_id": 79,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c6fae80132b57a32_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 96,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 100,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c6fae80132b57a32",
+      "funcs": [
+        1140144
+      ],
+      "fields": {
+        "field_0x60": 96,
+        "field_0x64": 100
+      },
+      "field_sizes": {
+        "field_0x60": 4,
+        "field_0x64": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 80,
+      "group_id": 80,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5982f24b8f374757_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 2
+        },
+        {
+          "Base": "v4",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5982f24b8f374757",
+      "funcs": [
+        1142828
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8,
+        "field_0xc": 12
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 4,
+        "field_0xc": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 81,
+      "group_id": 81,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_a277abf5f806975d_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 80,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "a277abf5f806975d",
+      "funcs": [
+        1163292
+      ],
+      "fields": {
+        "field_0x24": 36,
+        "field_0x50": 80
+      },
+      "field_sizes": {
+        "field_0x24": 4,
+        "field_0x50": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 82,
+      "group_id": 82,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_tx_buffer_acquire_or_t",
       "primary_arg": "v6",
@@ -4730,8 +3061,572 @@
       "confidence": 14
     },
     {
-      "id": 134,
-      "group_id": 134,
+      "id": 83,
+      "group_id": 83,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_866cce8693c82405_t",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 14,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "866cce8693c82405",
+      "funcs": [
+        1172300
+      ],
+      "fields": {
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0xe": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 84,
+      "group_id": 84,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_42eec7356608c879_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "42eec7356608c879",
+      "funcs": [
+        1188124
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 85,
+      "group_id": 85,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_2a0d4bd02e91b1c0_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 38,
+          "Size": 2
+        },
+        {
+          "Base": "a1",
+          "Offset": 44,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "2a0d4bd02e91b1c0",
+      "funcs": [
+        1139908
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x26": 38,
+        "field_0x2c": 44,
+        "field_0x30": 48
+      },
+      "field_sizes": {
+        "field_0x1c": 4,
+        "field_0x26": 2,
+        "field_0x2c": 4,
+        "field_0x30": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 86,
+      "group_id": 86,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7b2936a4a1a2d468_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "7b2936a4a1a2d468",
+      "funcs": [
+        1067672
+      ],
+      "fields": {
+        "field_0x2": 2
+      },
+      "field_sizes": {
+        "field_0x2": 2
+      },
+      "confidence": 1
+    },
+    {
+      "id": 87,
+      "group_id": 87,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_a791fe25f77459d1_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 6,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "a791fe25f77459d1",
+      "funcs": [
+        1170516
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x6": 6
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x6": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 88,
+      "group_id": 88,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_fddbd8a3b87c202c_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 32,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "fddbd8a3b87c202c",
+      "funcs": [
+        1145544
+      ],
+      "fields": {
+        "field_0x20": 32,
+        "field_0x30": 48
+      },
+      "field_sizes": {
+        "field_0x20": 1,
+        "field_0x30": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 89,
+      "group_id": 89,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_2cbcc6886180d383_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "v4",
+          "Offset": 65,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "2cbcc6886180d383",
+      "funcs": [
+        1193788
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x41": 65
+      },
+      "field_sizes": {
+        "field_0x1c": 4,
+        "field_0x41": 1
+      },
+      "confidence": 2
+    },
+    {
+      "id": 90,
+      "group_id": 90,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_4c2761b26d9968ff_t",
+      "primary_arg": "v4",
+      "fingerprint": [
+        {
+          "Base": "v4",
+          "Offset": 3,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4c2761b26d9968ff",
+      "funcs": [
+        1118604
+      ],
+      "fields": {
+        "field_0x3": 3
+      },
+      "field_sizes": {
+        "field_0x3": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 91,
+      "group_id": 91,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_da0e2545c0b045da_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 2,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "da0e2545c0b045da",
+      "funcs": [
+        1148080
+      ],
+      "fields": {
+        "field_0x2": 2
+      },
+      "field_sizes": {
+        "field_0x2": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 92,
+      "group_id": 92,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5d51b974e1ed30b4_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 85,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "5d51b974e1ed30b4",
+      "funcs": [
+        1164608
+      ],
+      "fields": {
+        "field_0x55": 85
+      },
+      "field_sizes": {
+        "field_0x55": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 93,
+      "group_id": 93,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c1f2edc4666a62e5_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 2
+        },
+        {
+          "Base": "a2",
+          "Offset": 2,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c1f2edc4666a62e5",
+      "funcs": [
+        1090992
+      ],
+      "fields": {
+        "field_0x2": 2
+      },
+      "field_sizes": {
+        "field_0x2": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 94,
+      "group_id": 94,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_3473d82ffc7f9d38_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 367,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "3473d82ffc7f9d38",
+      "funcs": [
+        1165732
+      ],
+      "fields": {
+        "field_0x16f": 367
+      },
+      "field_sizes": {
+        "field_0x16f": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 95,
+      "group_id": 95,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_0fa67755ba3d2969_t",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 6164,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "0fa67755ba3d2969",
+      "funcs": [
+        1117028
+      ],
+      "fields": {
+        "field_0x1814": 6164
+      },
+      "field_sizes": {
+        "field_0x1814": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 96,
+      "group_id": 96,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ba4db59ecb412afe_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ba4db59ecb412afe",
+      "funcs": [
+        1157888
+      ],
+      "fields": {
+        "field_0xc": 12
+      },
+      "field_sizes": {
+        "field_0xc": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 97,
+      "group_id": 97,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_22ec57d70888b96b_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 72,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "22ec57d70888b96b",
+      "funcs": [
+        1164068
+      ],
+      "fields": {
+        "field_0x48": 72
+      },
+      "field_sizes": {
+        "field_0x48": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 98,
+      "group_id": 98,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7dd1ba7268cad807_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 52,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 53,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "7dd1ba7268cad807",
+      "funcs": [
+        1139612
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x20": 32,
+        "field_0x34": 52,
+        "field_0x35": 53
+      },
+      "field_sizes": {
+        "field_0x1c": 4,
+        "field_0x20": 4,
+        "field_0x34": 1,
+        "field_0x35": 1
+      },
+      "confidence": 4
+    },
+    {
+      "id": 99,
+      "group_id": 99,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_46d8a43be1476f36_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "46d8a43be1476f36",
+      "funcs": [
+        1118836
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 100,
+      "group_id": 100,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_8cfbc74f5dad038c_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 14,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 24,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 26,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "8cfbc74f5dad038c",
+      "funcs": [
+        1158488
+      ],
+      "fields": {
+        "field_0x18": 24,
+        "field_0x1a": 26,
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0x18": 1,
+        "field_0x1a": 1,
+        "field_0xe": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 101,
+      "group_id": 101,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_f87c91cd66a0e061_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 36,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f87c91cd66a0e061",
+      "funcs": [
+        1170040
+      ],
+      "fields": {
+        "field_0x14": 20,
+        "field_0x24": 36
+      },
+      "field_sizes": {
+        "field_0x14": 4,
+        "field_0x24": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 102,
+      "group_id": 102,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_7153ecccc64f1408_t",
       "primary_arg": "v2",
@@ -4776,8 +3671,952 @@
       "confidence": 4
     },
     {
-      "id": 135,
-      "group_id": 135,
+      "id": 103,
+      "group_id": 103,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_7c3a14e4950f39dc_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 592,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 624,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 628,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 632,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7c3a14e4950f39dc",
+      "funcs": [
+        1070228
+      ],
+      "fields": {
+        "field_0x250": 592,
+        "field_0x270": 624,
+        "field_0x274": 628,
+        "field_0x278": 632,
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x250": 4,
+        "field_0x270": 4,
+        "field_0x274": 4,
+        "field_0x278": 4,
+        "field_0x4": 4
+      },
+      "confidence": 5
+    },
+    {
+      "id": 104,
+      "group_id": 104,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c8c386800c339d62_t",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c8c386800c339d62",
+      "funcs": [
+        1077780
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 105,
+      "group_id": 105,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5dddf4f405933bcb_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 56,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5dddf4f405933bcb",
+      "funcs": [
+        1136288
+      ],
+      "fields": {
+        "field_0x38": 56
+      },
+      "field_sizes": {
+        "field_0x38": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 106,
+      "group_id": 106,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5f913cb8bc708d42_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 11,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "5f913cb8bc708d42",
+      "funcs": [
+        1124632
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0xb": 11
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0xb": 1
+      },
+      "confidence": 2
+    },
+    {
+      "id": 107,
+      "group_id": 107,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_4e8265f279dbdf36_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 14,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 24,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "4e8265f279dbdf36",
+      "funcs": [
+        1162632
+      ],
+      "fields": {
+        "field_0x18": 24,
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0x18": 1,
+        "field_0xe": 2
+      },
+      "confidence": 2
+    },
+    {
+      "id": 108,
+      "group_id": 108,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_8a036e7e8c8f34e7_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "8a036e7e8c8f34e7",
+      "funcs": [
+        1084724
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 2
+      },
+      "confidence": 1
+    },
+    {
+      "id": 109,
+      "group_id": 109,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_5ef98d1300729b72_t",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "5ef98d1300729b72",
+      "funcs": [
+        1173100
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 110,
+      "group_id": 110,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_f97e01fef11b47f8_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 72,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 80,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 85,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 94,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "f97e01fef11b47f8",
+      "funcs": [
+        1158692
+      ],
+      "fields": {
+        "field_0x48": 72,
+        "field_0x50": 80,
+        "field_0x55": 85,
+        "field_0x5e": 94
+      },
+      "field_sizes": {
+        "field_0x48": 4,
+        "field_0x50": 4,
+        "field_0x55": 1,
+        "field_0x5e": 1
+      },
+      "confidence": 4
+    },
+    {
+      "id": 111,
+      "group_id": 111,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c3b53ddd7be363b0_t",
+      "primary_arg": "v3",
+      "fingerprint": [
+        {
+          "Base": "v3",
+          "Offset": 94,
+          "Size": 1
+        },
+        {
+          "Base": "v3",
+          "Offset": 94,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c3b53ddd7be363b0",
+      "funcs": [
+        1147064
+      ],
+      "fields": {
+        "field_0x5e": 94
+      },
+      "field_sizes": {
+        "field_0x5e": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 112,
+      "group_id": 112,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_1fde98a9a9b51dd8_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1fde98a9a9b51dd8",
+      "funcs": [
+        1159588
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0x8": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 113,
+      "group_id": 113,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_e444b4c1b93fe6f4_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 24,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "e444b4c1b93fe6f4",
+      "funcs": [
+        1158608
+      ],
+      "fields": {
+        "field_0x10": 16,
+        "field_0x18": 24
+      },
+      "field_sizes": {
+        "field_0x10": 1,
+        "field_0x18": 1
+      },
+      "confidence": 2
+    },
+    {
+      "id": 114,
+      "group_id": 114,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ccf0e6af23073e20_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 95,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "ccf0e6af23073e20",
+      "funcs": [
+        1151344
+      ],
+      "fields": {
+        "field_0x5f": 95
+      },
+      "field_sizes": {
+        "field_0x5f": 1
+      },
+      "confidence": 1
+    },
+    {
+      "id": 115,
+      "group_id": 115,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_bf706901a513e4dd_t",
+      "primary_arg": "v5",
+      "fingerprint": [
+        {
+          "Base": "v5",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v5",
+          "Offset": 28,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "bf706901a513e4dd",
+      "funcs": [
+        1165276
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x4": 4,
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x1c": 1,
+        "field_0x4": 4,
+        "field_0x8": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 116,
+      "group_id": 116,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_507cdcd951aec6fd_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 102,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 116,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "507cdcd951aec6fd",
+      "funcs": [
+        1149192
+      ],
+      "fields": {
+        "field_0x66": 102,
+        "field_0x74": 116
+      },
+      "field_sizes": {
+        "field_0x66": 4,
+        "field_0x74": 1
+      },
+      "confidence": 2
+    },
+    {
+      "id": 117,
+      "group_id": 117,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_53ea5f8e93d46b2e_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 6,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 8,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 10,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 12,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 13,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 14,
+          "Size": 2
+        },
+        {
+          "Base": "v2",
+          "Offset": 14,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 24,
+          "Size": 1
+        },
+        {
+          "Base": "v2",
+          "Offset": 24,
+          "Size": 4
+        },
+        {
+          "Base": "v2",
+          "Offset": 26,
+          "Size": 1
+        }
+      ],
+      "fp_hash": "53ea5f8e93d46b2e",
+      "funcs": [
+        1161228
+      ],
+      "fields": {
+        "field_0x10": 16,
+        "field_0x18": 24,
+        "field_0x1a": 26,
+        "field_0x4": 4,
+        "field_0x6": 6,
+        "field_0x8": 8,
+        "field_0xa": 10,
+        "field_0xc": 12,
+        "field_0xd": 13,
+        "field_0xe": 14
+      },
+      "field_sizes": {
+        "field_0x10": 1,
+        "field_0x18": 4,
+        "field_0x1a": 1,
+        "field_0x4": 4,
+        "field_0x6": 4,
+        "field_0x8": 4,
+        "field_0xa": 4,
+        "field_0xc": 1,
+        "field_0xd": 4,
+        "field_0xe": 4
+      },
+      "confidence": 12
+    },
+    {
+      "id": 118,
+      "group_id": 118,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_62f550d8f0fe0a62_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 5,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 6,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "62f550d8f0fe0a62",
+      "funcs": [
+        1153196
+      ],
+      "fields": {
+        "field_0x5": 5,
+        "field_0x6": 6
+      },
+      "field_sizes": {
+        "field_0x5": 4,
+        "field_0x6": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 119,
+      "group_id": 119,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_e2a1725c24ebc590_t",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 8,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "e2a1725c24ebc590",
+      "funcs": [
+        1138716
+      ],
+      "fields": {
+        "field_0x8": 8
+      },
+      "field_sizes": {
+        "field_0x8": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 120,
+      "group_id": 120,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_4e0bc7e5657bf826_t",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "4e0bc7e5657bf826",
+      "funcs": [
+        1055856
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 121,
+      "group_id": 121,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_285e0f9d5adb78a1_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 2
+        }
+      ],
+      "fp_hash": "285e0f9d5adb78a1",
+      "funcs": [
+        1146460
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 2
+      },
+      "confidence": 1
+    },
+    {
+      "id": 122,
+      "group_id": 122,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ff416ab5f1b70016_t",
+      "primary_arg": "v7",
+      "fingerprint": [
+        {
+          "Base": "v7",
+          "Offset": 15,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 16,
+          "Size": 1
+        },
+        {
+          "Base": "v7",
+          "Offset": 44,
+          "Size": 4
+        },
+        {
+          "Base": "v7",
+          "Offset": 48,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ff416ab5f1b70016",
+      "funcs": [
+        1166280
+      ],
+      "fields": {
+        "field_0x10": 16,
+        "field_0x2c": 44,
+        "field_0x30": 48,
+        "field_0xf": 15
+      },
+      "field_sizes": {
+        "field_0x10": 1,
+        "field_0x2c": 4,
+        "field_0x30": 4,
+        "field_0xf": 1
+      },
+      "confidence": 4
+    },
+    {
+      "id": 123,
+      "group_id": 123,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_b10137c031c212bd_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 12,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "b10137c031c212bd",
+      "funcs": [
+        1157912
+      ],
+      "fields": {
+        "field_0x4": 4,
+        "field_0xc": 12
+      },
+      "field_sizes": {
+        "field_0x4": 4,
+        "field_0xc": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 124,
+      "group_id": 124,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_da41885616d9f320_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 11,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "da41885616d9f320",
+      "funcs": [
+        1118892
+      ],
+      "fields": {
+        "field_0xb": 11
+      },
+      "field_sizes": {
+        "field_0xb": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 125,
+      "group_id": 125,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_ffd6d6f3fd28eedc_t",
+      "primary_arg": "v6",
+      "fingerprint": [
+        {
+          "Base": "v6",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "v6",
+          "Offset": 28,
+          "Size": 2
+        },
+        {
+          "Base": "v6",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "ffd6d6f3fd28eedc",
+      "funcs": [
+        1115124
+      ],
+      "fields": {
+        "field_0x14": 20,
+        "field_0x1c": 28
+      },
+      "field_sizes": {
+        "field_0x14": 4,
+        "field_0x1c": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 126,
+      "group_id": 126,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_c84856e619d9b096_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 360,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 364,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "c84856e619d9b096",
+      "funcs": [
+        1166212
+      ],
+      "fields": {
+        "field_0x168": 360,
+        "field_0x16c": 364
+      },
+      "field_sizes": {
+        "field_0x168": 4,
+        "field_0x16c": 4
+      },
+      "confidence": 2
+    },
+    {
+      "id": 127,
+      "group_id": 127,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_13e44f03037cbbdb_t",
+      "primary_arg": "v2",
+      "fingerprint": [
+        {
+          "Base": "v2",
+          "Offset": 2,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "13e44f03037cbbdb",
+      "funcs": [
+        1059760
+      ],
+      "fields": {
+        "field_0x2": 2
+      },
+      "field_sizes": {
+        "field_0x2": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 128,
+      "group_id": 128,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_beb54edbc2808da2_t",
+      "primary_arg": "v8",
+      "fingerprint": [
+        {
+          "Base": "v8",
+          "Offset": 4,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "beb54edbc2808da2",
+      "funcs": [
+        1196612
+      ],
+      "fields": {
+        "field_0x4": 4
+      },
+      "field_sizes": {
+        "field_0x4": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 129,
+      "group_id": 129,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_f9c6379d3e24b2f9_t",
+      "primary_arg": "a3",
+      "fingerprint": [
+        {
+          "Base": "a3",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "a3",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f9c6379d3e24b2f9",
+      "funcs": [
+        1148532
+      ],
+      "fields": {
+        "field_0x20": 32,
+        "field_0x24": 36,
+        "field_0x28": 40
+      },
+      "field_sizes": {
+        "field_0x20": 4,
+        "field_0x24": 4,
+        "field_0x28": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 130,
+      "group_id": 130,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_1dea9ed6c2a0bce2_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "1dea9ed6c2a0bce2",
+      "funcs": [
+        1135380
+      ],
+      "fields": {
+        "field_0x1c": 28
+      },
+      "field_sizes": {
+        "field_0x1c": 4
+      },
+      "confidence": 1
+    },
+    {
+      "id": 131,
+      "group_id": 131,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_341bba67bc55c6c8_t",
       "primary_arg": "a4",
@@ -4808,47 +4647,33 @@
       "confidence": 2
     },
     {
-      "id": 136,
-      "group_id": 136,
+      "id": 132,
+      "group_id": 132,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_8cfbc74f5dad038c_t",
-      "primary_arg": "a1",
+      "name": "struct_shape_a985326216d2eaf8_t",
+      "primary_arg": "v1",
       "fingerprint": [
         {
-          "Base": "a1",
-          "Offset": 14,
+          "Base": "v1",
+          "Offset": 32,
           "Size": 4
-        },
-        {
-          "Base": "a1",
-          "Offset": 24,
-          "Size": 1
-        },
-        {
-          "Base": "a1",
-          "Offset": 26,
-          "Size": 1
         }
       ],
-      "fp_hash": "8cfbc74f5dad038c",
+      "fp_hash": "a985326216d2eaf8",
       "funcs": [
-        1158488
+        1147592
       ],
       "fields": {
-        "field_0x18": 24,
-        "field_0x1a": 26,
-        "field_0xe": 14
+        "field_0x20": 32
       },
       "field_sizes": {
-        "field_0x18": 1,
-        "field_0x1a": 1,
-        "field_0xe": 4
+        "field_0x20": 4
       },
-      "confidence": 3
+      "confidence": 1
     },
     {
-      "id": 137,
-      "group_id": 137,
+      "id": 133,
+      "group_id": 133,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_e40dc22b933af723_t",
       "primary_arg": "v4",
@@ -4879,8 +4704,137 @@
       "confidence": 2
     },
     {
-      "id": 138,
-      "group_id": 138,
+      "id": 134,
+      "group_id": 134,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_fbdbe47bea5f1f9d_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 4,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 12,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 16,
+          "Size": 2
+        },
+        {
+          "Base": "a2",
+          "Offset": 16,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "fbdbe47bea5f1f9d",
+      "funcs": [
+        1143708
+      ],
+      "fields": {
+        "field_0x10": 16,
+        "field_0x4": 4,
+        "field_0xc": 12
+      },
+      "field_sizes": {
+        "field_0x10": 4,
+        "field_0x4": 4,
+        "field_0xc": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 135,
+      "group_id": 135,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_f670ad470489e3d9_t",
+      "primary_arg": "v1",
+      "fingerprint": [
+        {
+          "Base": "v1",
+          "Offset": 36,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 38,
+          "Size": 4
+        },
+        {
+          "Base": "v1",
+          "Offset": 40,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "f670ad470489e3d9",
+      "funcs": [
+        1150096
+      ],
+      "fields": {
+        "field_0x24": 36,
+        "field_0x26": 38,
+        "field_0x28": 40
+      },
+      "field_sizes": {
+        "field_0x24": 4,
+        "field_0x26": 4,
+        "field_0x28": 4
+      },
+      "confidence": 3
+    },
+    {
+      "id": 136,
+      "group_id": 136,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_shape_a194d4361fd8b82d_t",
+      "primary_arg": "a1",
+      "fingerprint": [
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 48,
+          "Size": 2
+        },
+        {
+          "Base": "a1",
+          "Offset": 65,
+          "Size": 1
+        },
+        {
+          "Base": "a1",
+          "Offset": 84,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "a194d4361fd8b82d",
+      "funcs": [
+        1140824
+      ],
+      "fields": {
+        "field_0x1c": 28,
+        "field_0x30": 48,
+        "field_0x41": 65,
+        "field_0x54": 84
+      },
+      "field_sizes": {
+        "field_0x1c": 4,
+        "field_0x30": 2,
+        "field_0x41": 1,
+        "field_0x54": 4
+      },
+      "confidence": 4
+    },
+    {
+      "id": 137,
+      "group_id": 137,
       "image": "lmacfw_rf_8800d80_u02_bin",
       "name": "struct_shape_770945b285444a85_t",
       "primary_arg": "v7",
@@ -4993,247 +4947,293 @@
       "confidence": 14
     },
     {
-      "id": 139,
-      "group_id": 139,
+      "id": 138,
+      "group_id": 138,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_ff416ab5f1b70016_t",
-      "primary_arg": "v7",
+      "name": "struct_shape_d3b9b2fca1ffd7e5_t",
+      "primary_arg": "a1",
       "fingerprint": [
         {
-          "Base": "v7",
-          "Offset": 15,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 16,
-          "Size": 1
-        },
-        {
-          "Base": "v7",
-          "Offset": 44,
+          "Base": "a1",
+          "Offset": 12,
           "Size": 4
         },
         {
-          "Base": "v7",
-          "Offset": 48,
+          "Base": "a1",
+          "Offset": 16,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 20,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 24,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 28,
+          "Size": 4
+        },
+        {
+          "Base": "a1",
+          "Offset": 32,
           "Size": 4
         }
       ],
-      "fp_hash": "ff416ab5f1b70016",
+      "fp_hash": "d3b9b2fca1ffd7e5",
       "funcs": [
-        1166280
+        1079920
       ],
       "fields": {
         "field_0x10": 16,
-        "field_0x2c": 44,
-        "field_0x30": 48,
-        "field_0xf": 15
+        "field_0x14": 20,
+        "field_0x18": 24,
+        "field_0x1c": 28,
+        "field_0x20": 32,
+        "field_0xc": 12
       },
       "field_sizes": {
-        "field_0x10": 1,
-        "field_0x2c": 4,
-        "field_0x30": 4,
-        "field_0xf": 1
+        "field_0x10": 4,
+        "field_0x14": 4,
+        "field_0x18": 4,
+        "field_0x1c": 4,
+        "field_0x20": 4,
+        "field_0xc": 4
       },
-      "confidence": 4
+      "confidence": 6
+    },
+    {
+      "id": 139,
+      "group_id": 139,
+      "image": "lmacfw_rf_8800d80_u02_bin",
+      "name": "struct_tx_phy_t",
+      "primary_arg": "a2",
+      "fingerprint": [
+        {
+          "Base": "a2",
+          "Offset": 32,
+          "Size": 4
+        },
+        {
+          "Base": "a2",
+          "Offset": 36,
+          "Size": 4
+        }
+      ],
+      "fp_hash": "7f59549c632c7357",
+      "funcs": [
+        1097512
+      ],
+      "fields": {
+        "field_0x20": 32,
+        "field_0x24": 36
+      },
+      "field_sizes": {
+        "field_0x20": 4,
+        "field_0x24": 4
+      },
+      "confidence": 2
     },
     {
       "id": 140,
       "group_id": 140,
       "image": "lmacfw_rf_8800d80_u02_bin",
-      "name": "struct_shape_4e8265f279dbdf36_t",
-      "primary_arg": "v6",
+      "name": "struct_shape_e6d7646e0b18348a_t",
+      "primary_arg": "v7",
       "fingerprint": [
         {
-          "Base": "v6",
-          "Offset": 14,
-          "Size": 2
+          "Base": "v7",
+          "Offset": 4,
+          "Size": 4
         },
         {
-          "Base": "v6",
-          "Offset": 24,
-          "Size": 1
+          "Base": "v7",
+          "Offset": 8,
+          "Size": 2
         }
       ],
-      "fp_hash": "4e8265f279dbdf36",
+      "fp_hash": "e6d7646e0b18348a",
       "funcs": [
-        1162632
+        1162792
       ],
       "fields": {
-        "field_0x18": 24,
-        "field_0xe": 14
+        "field_0x4": 4,
+        "field_0x8": 8
       },
       "field_sizes": {
-        "field_0x18": 1,
-        "field_0xe": 2
+        "field_0x4": 4,
+        "field_0x8": 2
       },
       "confidence": 2
     }
   ],
   "func_map": {
-    "100100": 129,
+    "100100": 61,
     "1006c0": 0,
-    "100948": 5,
-    "101c70": 118,
-    "102bb0": 87,
-    "103a00": 131,
-    "104a98": 49,
-    "104c08": 92,
-    "105494": 15,
-    "105dcc": 130,
+    "100948": 3,
+    "101c70": 120,
+    "102bb0": 127,
+    "103a00": 74,
+    "104a98": 86,
+    "104c08": 24,
+    "105494": 103,
+    "105dcc": 33,
     "105e94": 1,
-    "105fd0": 46,
-    "106f74": 8,
-    "107068": 8,
-    "107150": 115,
-    "107214": 67,
-    "1073bc": 128,
-    "107a70": 112,
-    "108d34": 43,
-    "109738": 135,
-    "1099bc": 119,
-    "10a5b0": 12,
-    "10ac18": 45,
-    "10bf28": 127,
-    "10cd6c": 125,
-    "10cf48": 101,
-    "10d06c": 37,
-    "10d6a8": 134,
+    "105fd0": 66,
+    "106f74": 9,
+    "107068": 9,
+    "107150": 52,
+    "107214": 104,
+    "1073bc": 28,
+    "107a70": 138,
+    "108d34": 108,
+    "109738": 131,
+    "1099bc": 29,
+    "10a5b0": 93,
+    "10ac18": 41,
+    "10bf28": 139,
+    "10cd6c": 13,
+    "10cf48": 51,
+    "10d06c": 23,
+    "10d6a8": 102,
     "10f814": 0,
-    "10fa18": 9,
-    "10fbd0": 88,
-    "10fff0": 39,
-    "1103f4": 82,
-    "11052c": 107,
-    "110b64": 78,
-    "11118c": 79,
-    "111274": 34,
-    "1112ac": 75,
-    "111404": 137,
-    "111618": 7,
+    "10fa18": 5,
+    "10fbd0": 77,
+    "10fff0": 55,
+    "1103f4": 125,
+    "11052c": 35,
+    "110b64": 95,
+    "11118c": 90,
+    "111274": 99,
+    "1112ac": 124,
+    "111404": 133,
+    "111618": 8,
     "111950": 4,
     "111a24": 4,
-    "112918": 120,
-    "112b7c": 9,
-    "115018": 86,
-    "1152d8": 44,
-    "115314": 64,
-    "11538c": 21,
-    "1156a0": 62,
-    "115754": 111,
-    "1159c8": 26,
-    "115b60": 85,
-    "115dbc": 6,
-    "115f78": 6,
-    "11601c": 54,
-    "1160fc": 132,
-    "116328": 70,
-    "11639c": 114,
-    "1164c4": 77,
-    "1165b0": 110,
-    "116628": 50,
-    "1166cc": 36,
-    "116858": 105,
+    "112918": 106,
+    "112b7c": 5,
+    "115018": 19,
+    "1152d8": 39,
+    "115314": 130,
+    "11538c": 73,
+    "1156a0": 105,
+    "115754": 21,
+    "1159c8": 49,
+    "115b60": 38,
+    "115dbc": 10,
+    "115f78": 10,
+    "11601c": 119,
+    "1160fc": 46,
+    "116328": 15,
+    "11639c": 98,
+    "1164c4": 85,
+    "1165b0": 79,
+    "116628": 64,
+    "1166cc": 34,
+    "116858": 136,
     "116cdc": 2,
     "116d98": 2,
     "116e24": 2,
-    "11702c": 55,
-    "11739c": 74,
-    "117590": 81,
-    "117954": 122,
-    "1179c8": 126,
-    "117ac8": 93,
-    "117b4c": 133,
-    "117cb4": 116,
-    "117d6c": 20,
-    "117df4": 91,
-    "117e5c": 59,
-    "1180b8": 95,
-    "1182c8": 97,
-    "118324": 100,
-    "1184b0": 48,
-    "118674": 66,
-    "118908": 113,
-    "118c90": 60,
-    "118fd8": 99,
-    "119054": 17,
-    "119170": 102,
-    "119218": 63,
-    "119330": 7,
-    "119400": 83,
-    "119420": 56,
-    "11954c": 73,
-    "1198ac": 109,
-    "1199cc": 40,
-    "119d70": 14,
-    "11ab00": 13,
-    "11ab18": 31,
-    "11ad58": 136,
+    "11702c": 80,
+    "11739c": 134,
+    "117590": 44,
+    "117954": 17,
+    "1179c8": 16,
+    "117ac8": 88,
+    "117b4c": 82,
+    "117cb4": 69,
+    "117d6c": 72,
+    "117df4": 78,
+    "117e5c": 121,
+    "1180b8": 111,
+    "1182c8": 132,
+    "118324": 58,
+    "1184b0": 91,
+    "118674": 129,
+    "118908": 116,
+    "118c90": 135,
+    "118fd8": 62,
+    "119054": 57,
+    "119170": 114,
+    "119218": 48,
+    "119330": 8,
+    "119400": 26,
+    "119420": 63,
+    "11954c": 31,
+    "1198ac": 118,
+    "1199cc": 59,
+    "119d70": 60,
+    "11ab00": 96,
+    "11ab18": 123,
+    "11ad58": 100,
     "11ad88": 1,
-    "11add0": 32,
-    "11ae24": 65,
-    "11b088": 89,
-    "11b1a4": 104,
-    "11b3a4": 121,
-    "11b4e8": 108,
-    "11b740": 84,
-    "11b80c": 53,
-    "11b9e0": 28,
-    "11bd44": 69,
-    "11bd88": 140,
-    "11be28": 98,
-    "11bec0": 123,
-    "11bf38": 27,
-    "11c01c": 25,
-    "11c158": 23,
-    "11c26c": 103,
-    "11c324": 16,
-    "11c38c": 117,
-    "11c540": 58,
-    "11c7dc": 71,
-    "11c9a4": 72,
-    "11cac8": 124,
-    "11cb84": 42,
-    "11cbc8": 139,
-    "11cd50": 22,
-    "11d8f0": 33,
-    "11da3c": 18,
-    "11da78": 11,
-    "11dac8": 106,
-    "11dae0": 80,
-    "11dc54": 57,
-    "11dd10": 41,
+    "11add0": 113,
+    "11ae24": 110,
+    "11b088": 20,
+    "11b1a4": 112,
+    "11b3a4": 40,
+    "11b4e8": 45,
+    "11b740": 11,
+    "11b80c": 117,
+    "11b9e0": 75,
+    "11bd44": 36,
+    "11bd88": 107,
+    "11be28": 140,
+    "11bec0": 53,
+    "11bf38": 42,
+    "11c01c": 81,
+    "11c158": 68,
+    "11c26c": 14,
+    "11c324": 97,
+    "11c38c": 27,
+    "11c540": 92,
+    "11c7dc": 115,
+    "11c9a4": 94,
+    "11cac8": 71,
+    "11cb84": 126,
+    "11cbc8": 122,
+    "11cd50": 56,
+    "11d8f0": 50,
+    "11da3c": 32,
+    "11da78": 101,
+    "11dac8": 65,
+    "11dae0": 67,
+    "11dc54": 87,
+    "11dd10": 43,
     "11deec": 1,
     "11e184": 0,
-    "11e34c": 35,
-    "11e66c": 38,
-    "11e724": 10,
+    "11e34c": 83,
+    "11e66c": 109,
+    "11e724": 7,
     "11e7ac": 1,
-    "11e7c4": 10,
-    "11f79c": 47,
+    "11e7c4": 7,
+    "11f79c": 18,
     "1212d0": 0,
-    "12135c": 96,
-    "121490": 29,
+    "12135c": 25,
+    "121490": 22,
     "121654": 0,
-    "1216ec": 19,
-    "121a84": 90,
+    "1216ec": 54,
+    "121a84": 47,
     "121be0": 0,
-    "12211c": 52,
-    "1222cc": 5,
+    "12211c": 84,
+    "1222cc": 3,
     "123394": 1,
     "1233cc": 30,
-    "12373c": 94,
-    "123a20": 3,
-    "123ab4": 3,
-    "123f04": 24,
-    "124244": 76,
-    "1242f0": 138,
+    "12373c": 89,
+    "123a20": 6,
+    "123ab4": 6,
+    "123f04": 70,
+    "124244": 128,
+    "1242f0": 137,
     "1246f0": 0,
     "125e18": 0,
     "125f58": 0,
-    "126dd8": 51,
-    "126f10": 68,
-    "12f954": 61
+    "126dd8": 12,
+    "126f10": 76,
+    "12f954": 37
   }
 }
