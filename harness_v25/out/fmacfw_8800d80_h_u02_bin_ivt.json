@@ -108,6 +108,7 @@
     {
       "index": 18,
       "address": 1359537,
+      "handler": "irq_handler_2",
       "offset": 1359537
     },
     {
@@ -131,6 +132,7 @@
     {
       "index": 22,
       "address": 1360033,
+      "handler": "irq_handler_6",
       "offset": 1360033
     },
     {
@@ -293,7 +295,7 @@
     {
       "index": 53,
       "address": 1230917,
-      "handler": "msg_dispatch_n148",
+      "handler": "message_dispatch_n_370_c844",
       "offset": 1230917
     },
     {

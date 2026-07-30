@@ -381,8 +381,8 @@ func runIVT(args []string) error {
 		}
 
 		// resolve maps an IVT handler address to a name (exact match then
-		// range match).
-		resolve := func(addr uint32) string {
+		// range match, then standard Cortex-M vector table name).
+		resolve := func(idx int, addr uint32) string {
 			if name, ok := addrName[addr&^1]; ok {
 				return name
 			}
@@ -392,6 +392,30 @@ func runIVT(args []string) error {
 			for _, fr := range funcRanges {
 				if addr >= fr.start && addr < fr.end {
 					return fr.name
+				}
+			}
+			switch idx {
+			case 1:
+				return "boot_reset_handler"
+			case 2:
+				return "nmi_handler"
+			case 3:
+				return "hard_fault_handler"
+			case 4:
+				return "mem_manage_handler"
+			case 5:
+				return "bus_fault_handler"
+			case 6:
+				return "usage_fault_handler"
+			case 11:
+				return "svc_handler"
+			case 14:
+				return "pendsv_handler"
+			case 15:
+				return "systick_timer_handler"
+			default:
+				if idx >= 16 {
+					return fmt.Sprintf("irq_handler_%d", idx-16)
 				}
 			}
 			return ""
@@ -410,13 +434,13 @@ func runIVT(args []string) error {
 		rep := ivtReport{Image: img, NVectors: 64, Hint: "First 256 bytes as 64 x 32-bit vectors. ARM Cortex-M convention: index 0 = stack top, index 1 = reset."}
 		rep.StackTop = le32(data[0:4])
 		rep.Reset = le32(data[4:8])
-		rep.ResetName = resolve(rep.Reset &^ 1)
+		rep.ResetName = resolve(1, rep.Reset &^ 1)
 		for i := 0; i < 64 && 4*(i+1)+4 <= len(data); i++ {
 			addr := le32(data[4*i : 4*i+4])
 			e := ivtEntry{Index: i, Address: addr}
 			if i > 1 && addr != 0 {
 				e.Offset = addr
-				e.Handler = resolve(addr &^ 1)
+				e.Handler = resolve(i, addr &^ 1)
 			}
 			rep.Entries = append(rep.Entries, e)
 		}

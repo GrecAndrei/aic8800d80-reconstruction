@@ -18,6 +18,7 @@
     {
       "index": 2,
       "address": 1263013,
+      "handler": "nmi_handler",
       "offset": 1263013
     },
     {
@@ -107,6 +108,7 @@
     {
       "index": 18,
       "address": 1360409,
+      "handler": "irq_handler_2",
       "offset": 1360409
     },
     {
@@ -130,6 +132,7 @@
     {
       "index": 22,
       "address": 1360905,
+      "handler": "irq_handler_6",
       "offset": 1360905
     },
     {
@@ -285,7 +288,7 @@
     {
       "index": 52,
       "address": 1231161,
-      "handler": "message_dispatch_n_27c",
+      "handler": "message_dispatch_n_54",
       "offset": 1231161
     },
     {

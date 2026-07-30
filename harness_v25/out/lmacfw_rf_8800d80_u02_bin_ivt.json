@@ -18,26 +18,31 @@
     {
       "index": 2,
       "address": 1259853,
+      "handler": "nmi_handler",
       "offset": 1259853
     },
     {
       "index": 3,
       "address": 1265457,
+      "handler": "hard_fault_handler",
       "offset": 1265457
     },
     {
       "index": 4,
       "address": 1265465,
+      "handler": "mem_manage_handler",
       "offset": 1265465
     },
     {
       "index": 5,
       "address": 1265473,
+      "handler": "bus_fault_handler",
       "offset": 1265473
     },
     {
       "index": 6,
       "address": 1265481,
+      "handler": "usage_fault_handler",
       "offset": 1265481
     },
     {
@@ -63,6 +68,7 @@
     {
       "index": 11,
       "address": 1264193,
+      "handler": "svc_handler",
       "offset": 1264193
     },
     {
@@ -78,11 +84,13 @@
     {
       "index": 14,
       "address": 1264193,
+      "handler": "pendsv_handler",
       "offset": 1264193
     },
     {
       "index": 15,
       "address": 1264193,
+      "handler": "systick_timer_handler",
       "offset": 1264193
     },
     {
@@ -98,6 +106,7 @@
     {
       "index": 18,
       "address": 1299941,
+      "handler": "irq_handler_2",
       "offset": 1299941
     },
     {
@@ -109,26 +118,31 @@
     {
       "index": 20,
       "address": 1268901,
+      "handler": "irq_handler_4",
       "offset": 1268901
     },
     {
       "index": 21,
       "address": 1276505,
+      "handler": "irq_handler_5",
       "offset": 1276505
     },
     {
       "index": 22,
       "address": 1300345,
+      "handler": "irq_handler_6",
       "offset": 1300345
     },
     {
       "index": 23,
       "address": 1276505,
+      "handler": "irq_handler_7",
       "offset": 1276505
     },
     {
       "index": 24,
       "address": 1186229,
+      "handler": "irq_handler_8",
       "offset": 1186229
     },
     {
@@ -271,6 +285,7 @@
     {
       "index": 52,
       "address": 1232513,
+      "handler": "irq_handler_36",
       "offset": 1232513
     },
     {
