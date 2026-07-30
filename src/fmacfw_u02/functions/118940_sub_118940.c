@@ -1,0 +1,70 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_1189EC;
+extern uint32_t dword_1189F0;
+extern uint32_t dword_1189F4;
+
+// sub_118940 @ 0x118940, size 172 bytes
+// Doc: sub_1218940 [util]: Helper with 3 args loading pointers from a 3-entry table (0x182b60/0x167bc0/0x167b74)
+// sub_1218940 [util]: Helper with 3 args loading pointers from a 3-entry table (0x182b60/0x167bc0/0x167b74)
+int  sub_118940(int a1, int a2, int a3)
+{
+  int16_t **v3; // r8
+  int v4; // r10
+  int v5; // r9
+  int v9; // r4
+  int v10; // r1
+
+  v3 = (int16_t **)off_1189EC;
+  v4 = dword_1189F0;
+  v5 = dword_1189F4;
+  while ( 1 )
+  {
+    v9 = rf_bus_mark_n100_d2d0(a2);
+    if ( !v9 )
+      break;
+    while ( 1 )
+    {
+      v10 = *(uint32_t *)(v9 + 76);
+      if ( *(uint32_t *)(v9 + 68) )
+      {
+        *(uint32_t *)(v10 + 4) = 2080374784;
+      }
+      else if ( *(int *)(v10 + 4) >= 0 )
+      {
+        *(uint32_t *)(v10 + 4) = 0x40000000;
+      }
+      if ( *(uint16_t *)(v9 + 4) )
+        break;
+      sub_118CE0(v9);
+      v9 = rf_bus_mark_n100_d2d0(a2);
+      if ( !v9 )
+        return sub_118D28();
+    }
+    *(uint32_t *)(v10 + 4) |= 0x800000u;
+    rf_status_check(v9, (uint32_t *)(v10 + 4));
+    sub_11608C(v9);
+    if ( sub_13AF80(v9, 1) )
+    {
+      if ( **v3 < 0 && !a3 )
+        sub_12F46C(v5, v4, 1105);
+      list_push_tail(a3);
+    }
+    else
+    {
+      rf_msg_forward_n_1f4(a1, v9);
+    }
+  }
+  return sub_118D28();
+}
+

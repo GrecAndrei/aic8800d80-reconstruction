@@ -1,0 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_114AE4;
+extern uint32_t off_114AE8;
+extern uint32_t off_114AEC;
+
+// sub_114AB8 @ 0x114ab8, size 42 bytes
+void sub_114AB8()
+{
+  int *v0; // r4
+
+  v0 = (int *)off_114AE4;
+  if ( !*(uint32_t *)off_114AE4 )
+    *v0 = sub_114A78();
+  if ( !*(uint32_t *)off_114AE8 )
+    *(uint32_t *)off_114AE8 = *v0 + 67092480;
+  *(uint32_t *)off_114AEC = 1;
+}
+

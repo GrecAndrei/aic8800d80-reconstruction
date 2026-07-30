@@ -1,0 +1,113 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_125BEC;
+extern uint32_t off_125BF0;
+extern uint32_t off_125BE8;
+extern uint32_t dword_125BFC;
+extern uint32_t dword_125BF8;
+extern uint32_t off_125BF4;
+extern uint32_t off_125C00;
+
+// sub_125AE4 @ 0x125ae4, size 258 bytes
+void sub_125AE4()
+{
+  int v0; // r4
+  uint8_t *v1; // r6
+  int v2; // r5
+  uint32_t *v3; // r2
+  int v4; // r7
+  uint8_t *v5; // r8
+  char v6; // r9
+  int v7; // r10
+  int v8; // r0
+  int v9; // r3
+
+  v0 = *((uint32_t *)off_125BEC + 2);
+  v1 = off_125BF0;
+  if ( **(int16_t **)off_125BE8 < 0 && *((uint32_t *)off_125BF0 + 1) )
+  {
+    sub_12F694(dword_125BFC, dword_125BF8, 1074);
+    v2 = (uint8_t)v1[9];
+    if ( v1[9] )
+      goto LABEL_20;
+  }
+  else
+  {
+    v2 = *((uint8_t *)off_125BF0 + 9);
+    if ( *((uint8_t *)off_125BF0 + 9) )
+    {
+LABEL_20:
+      v1[8] = 1;
+      return;
+    }
+  }
+  v3 = off_125BF4;
+  v1[8] = v2;
+  v4 = 32 * *v3;
+  if ( v0 )
+  {
+    v5 = off_125C00;
+    v6 = v2;
+    v7 = 1;
+    while ( 1 )
+    {
+      if ( *(uint8_t *)(v0 + 106) != 2
+        || !*(uint8_t *)(v0 + 226)
+        || !*(uint8_t *)(v0 + 108)
+        || *(uint8_t *)(v0 + 225) != *(uint8_t *)(v0 + 224) )
+      {
+        goto LABEL_6;
+      }
+      if ( sub_12580C(v0) )
+        ++*v5;
+      if ( v7 && (unsigned int)(v4 - 50) > 0xBB6 )
+      {
+        sub_1286B4(v0);
+LABEL_16:
+        *v5 = v6;
+        v0 = *(uint32_t *)v0;
+        v7 = 0;
+        v2 = 1;
+        if ( !v0 )
+          return;
+      }
+      else
+      {
+        if ( v2 )
+          goto LABEL_16;
+        v7 = sub_1286B4(v0);
+        if ( v7 )
+        {
+          *(uint8_t *)(v0 + 144) = *(uint8_t *)(v0 + 107);
+          *(uint8_t *)(v0 + 145) = -1;
+          v8 = sub_1190B4(v0 + 116, 4);
+          v9 = *((uint32_t *)v1 + 1);
+          if ( v8 )
+            *((uint32_t *)v1 + 1) = ++v9;
+          if ( v9 == 1 )
+            sub_121E68();
+          v7 = 0;
+        }
+        else
+        {
+          *v5 = 0;
+        }
+LABEL_6:
+        v0 = *(uint32_t *)v0;
+        if ( !v0 )
+          return;
+      }
+    }
+  }
+}
+

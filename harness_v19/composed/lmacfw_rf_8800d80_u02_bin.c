@@ -1243,13 +1243,13 @@ int  start(int a1, int a2, unsigned int a3)
     || v6 >= 0 )
   {
     (*((uint32_t *)0x1001f8));
-    (void)0
+    (void)0;
     return (*((uint32_t *)0x1001fc))();
   }
   else
   {
     v5 & 0xFFFFFFF;
-    (void)0
+    (void)0;
     return ((int (*)(void))(v6 & 0xFFFFFFF))();
   }
 }
@@ -27570,145 +27570,145 @@ LABEL_44:
             case 0xCu:
             case 0xDu:
             case 0xEu:
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
 LABEL_144:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
 LABEL_145:
               v5[4] = v34;
               (*((volatile uint32_t *)0xA)) = 0;
               v34 = ((unsigned)(v34) & 0xFFFF0000U) | (((unsigned)((*((volatile uint32_t *)0x30))) & 0xFFFFU) << 0);
 LABEL_146:
-              (void)0
+              (void)0;
 LABEL_147:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = v34;
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
               (*((volatile uint32_t *)0xA)) = 0;
               v61 = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               break;
             default:
               sub_10DA6C((*((uint32_t *)0x111e5c)));
@@ -27716,9 +27716,9 @@ LABEL_147:
           }
           while ( 1 )
           {
-            (void)0
-            (void)0
-            (void)0
+            (void)0;
+            (void)0;
+            (void)0;
             if ( 0 )
               break;
             if ( !__CFSHL__(851968, 3) )
@@ -27815,10 +27815,10 @@ LABEL_157:
           v80 = 8 * v79;
           v67[255] = (int)v67;
           v67[256] = (int)v67;
-          (void)0
+          (void)0;
           _T1 = *v1;
           v1 - 255;
-          (void)0
+          (void)0;
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
           __mrc(0, 6, 7, 15, 7);
@@ -27868,18 +27868,18 @@ LABEL_244:
             if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
             {
 LABEL_268:
-              (void)0
+              (void)0;
               _T1 = *0;
               LOWORD(0) = (uint16_t)0 - 1020;
-              (void)0
+              (void)0;
               _T1 = *v70;
               v169 = v70 + 255;
-              (void)0
+              (void)0;
               _T1 = v169[255];
               v70 = v169 + 255;
-              (void)0
+              (void)0;
 LABEL_269:
-              (void)0
+              (void)0;
               v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_270:
               __mcr(0, 6, v85, 11, 15, 7);
@@ -27931,7 +27931,7 @@ LABEL_323:
                 {
                   if ( !_VF )
                   {
-                    (void)0
+                    (void)0;
                     LOWORD(v75[512 * v73]) = (uint16_t)0;
                     JUMPOUT(0x1343D2);
                   }
@@ -28091,10 +28091,10 @@ LABEL_166:
                       v101 = 8 * v100;
                       *(uint32_t *)(v85 + 1020) = v85;
                       *(uint32_t *)(v85 + 1024) = v85;
-                      (void)0
+                      (void)0;
                       _T1 = *0;
                       0 - 255;
-                      (void)0
+                      (void)0;
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
                       __mrc(0, 6, 7, 15, 7);
@@ -28119,21 +28119,21 @@ LABEL_304:
                         v189 = 8 * v165;
                         if ( v189 < 0 )
                         {
-                          (void)0
+                          (void)0;
                           *(signed int *)((char *)v65 + v85) = v85;
                           if ( (v85 & 0x8000) != 0 )
                             JUMPOUT(0x134694);
-                          (void)0
+                          (void)0;
                           v217 = *(unsigned short *)((v85 >> 16 << 11) + 0x18);
                           *(signed int *)((char *)v65 + v217) = v217;
                           if ( (v217 & 0x8000) != 0 )
                             JUMPOUT(0x1346A8);
-                          (void)0
+                          (void)0;
                           v218 = (*((volatile uint32_t *)0x18));
                           *(uint32_t *)((v63 << 12) + (*((volatile uint32_t *)0x18))) = v63;
                           if ( v218 < 0 )
                             JUMPOUT(0x1346BC);
-                          (void)0
+                          (void)0;
                           v219 = (*((volatile uint32_t *)0x18));
                           if ( !_VF )
                           {
@@ -28149,13 +28149,13 @@ LABEL_304:
                                 *(uint32_t *)(v222 + (*((volatile uint32_t *)0x8B0002E1))) = v221;
                                 if ( v222 >= 0 )
                                 {
-                                  (void)0
+                                  (void)0;
                                   *(uint32_t *)(v222 + *(unsigned short *)((v223 >> 16 << 11) + 0x18)) = *(unsigned short *)((v223 >> 16 << 11) + 0x18);
-                                  (void)0
+                                  (void)0;
                                   JUMPOUT(0x13440E);
                                 }
                               }
-                              (void)0
+                              (void)0;
                               JUMPOUT(0x134436);
                             }
                             JUMPOUT(0x1346D0);
@@ -28168,7 +28168,7 @@ LABEL_304:
                         v190 = 8 * v167;
                         if ( v190 >= 0 )
                         {
-                          (void)0
+                          (void)0;
                           JUMPOUT(0x13459E);
                         }
                         v191 = 8 * v190;
@@ -28197,15 +28197,15 @@ LABEL_304:
                         v179 = 8 * v178;
                         if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
                         {
-                          (void)0
+                          (void)0;
                           _T1 = *0;
                           LOWORD(0) = (uint16_t)0 - 1020;
-                          (void)0
+                          (void)0;
                           _T1 = *v70;
                           v70 + 255;
-                          (void)0
+                          (void)0;
 LABEL_318:
-                          (void)0
+                          (void)0;
                           v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_319:
                           __mcr(0, 6, v85, 11, 15, 7);
@@ -28213,7 +28213,7 @@ LABEL_319:
                           __mcr(0, 7, v85, 0, 15, 7);
                           __mcr(0, 7, v85, 0, 15, 7);
 LABEL_342:
-                          (void)0
+                          (void)0;
                           *((uint16_t *)v75 + 14) = (uint16_t)0;
                           JUMPOUT(0x13444A);
                         }
@@ -28237,7 +28237,7 @@ LABEL_353:
                           if ( v152 )
                             JUMPOUT(0x13470A);
 LABEL_354:
-                          (void)0
+                          (void)0;
                           JUMPOUT(0x134422);
                         }
                         v184 = __CFSHL__(v183, 3);
@@ -28631,15 +28631,15 @@ LABEL_209:
                 v65 = (signed int *)v132[6];
                 v70 = (signed int *)v132[7];
 LABEL_210:
-                (void)0
+                (void)0;
 LABEL_211:
-                (void)0
+                (void)0;
                 _T1 = *v70;
                 v133 = v70 + 255;
-                (void)0
+                (void)0;
                 _T1 = v133[255];
                 v70 = v133 + 255;
-                (void)0
+                (void)0;
                 v85 = __mrc(0, 5, 5, 15, 7);
                 goto LABEL_212;
               }
@@ -29367,145 +29367,145 @@ LABEL_44:
             case 0xCu:
             case 0xDu:
             case 0xEu:
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
 LABEL_144:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
 LABEL_145:
               v5[4] = v34;
               (*((volatile uint32_t *)0xA)) = 0;
               v34 = ((unsigned)(v34) & 0xFFFF0000U) | (((unsigned)((*((volatile uint32_t *)0x30))) & 0xFFFFU) << 0);
 LABEL_146:
-              (void)0
+              (void)0;
 LABEL_147:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = v34;
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               v5[4] = (*((volatile uint32_t *)0x30));
               (*((volatile uint32_t *)0xA)) = 0;
               v61 = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
+              (void)0;
               break;
             default:
               sub_10DA6C((*((uint32_t *)0x111e5c)));
@@ -29513,9 +29513,9 @@ LABEL_147:
           }
           while ( 1 )
           {
-            (void)0
-            (void)0
-            (void)0
+            (void)0;
+            (void)0;
+            (void)0;
             if ( 0 )
               break;
             if ( !__CFSHL__(851968, 3) )
@@ -29612,10 +29612,10 @@ LABEL_157:
           v80 = 8 * v79;
           v67[255] = (int)v67;
           v67[256] = (int)v67;
-          (void)0
+          (void)0;
           _T1 = *v1;
           v1 - 255;
-          (void)0
+          (void)0;
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
           __mrc(0, 6, 7, 15, 7);
@@ -29665,18 +29665,18 @@ LABEL_244:
             if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
             {
 LABEL_268:
-              (void)0
+              (void)0;
               _T1 = *0;
               LOWORD(0) = (uint16_t)0 - 1020;
-              (void)0
+              (void)0;
               _T1 = *v70;
               v169 = v70 + 255;
-              (void)0
+              (void)0;
               _T1 = v169[255];
               v70 = v169 + 255;
-              (void)0
+              (void)0;
 LABEL_269:
-              (void)0
+              (void)0;
               v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_270:
               __mcr(0, 6, v85, 11, 15, 7);
@@ -29728,7 +29728,7 @@ LABEL_323:
                 {
                   if ( !_VF )
                   {
-                    (void)0
+                    (void)0;
                     LOWORD(v75[512 * v73]) = (uint16_t)0;
                     JUMPOUT(0x1343D2);
                   }
@@ -29888,10 +29888,10 @@ LABEL_166:
                       v101 = 8 * v100;
                       *(uint32_t *)(v85 + 1020) = v85;
                       *(uint32_t *)(v85 + 1024) = v85;
-                      (void)0
+                      (void)0;
                       _T1 = *0;
                       0 - 255;
-                      (void)0
+                      (void)0;
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
                       __mrc(0, 6, 7, 15, 7);
@@ -29916,21 +29916,21 @@ LABEL_304:
                         v189 = 8 * v165;
                         if ( v189 < 0 )
                         {
-                          (void)0
+                          (void)0;
                           *(signed int *)((char *)v65 + v85) = v85;
                           if ( (v85 & 0x8000) != 0 )
                             JUMPOUT(0x134694);
-                          (void)0
+                          (void)0;
                           v217 = *(unsigned short *)((v85 >> 16 << 11) + 0x18);
                           *(signed int *)((char *)v65 + v217) = v217;
                           if ( (v217 & 0x8000) != 0 )
                             JUMPOUT(0x1346A8);
-                          (void)0
+                          (void)0;
                           v218 = (*((volatile uint32_t *)0x18));
                           *(uint32_t *)((v63 << 12) + (*((volatile uint32_t *)0x18))) = v63;
                           if ( v218 < 0 )
                             JUMPOUT(0x1346BC);
-                          (void)0
+                          (void)0;
                           v219 = (*((volatile uint32_t *)0x18));
                           if ( !_VF )
                           {
@@ -29946,13 +29946,13 @@ LABEL_304:
                                 *(uint32_t *)(v222 + (*((volatile uint32_t *)0x8B0002E1))) = v221;
                                 if ( v222 >= 0 )
                                 {
-                                  (void)0
+                                  (void)0;
                                   *(uint32_t *)(v222 + *(unsigned short *)((v223 >> 16 << 11) + 0x18)) = *(unsigned short *)((v223 >> 16 << 11) + 0x18);
-                                  (void)0
+                                  (void)0;
                                   JUMPOUT(0x13440E);
                                 }
                               }
-                              (void)0
+                              (void)0;
                               JUMPOUT(0x134436);
                             }
                             JUMPOUT(0x1346D0);
@@ -29965,7 +29965,7 @@ LABEL_304:
                         v190 = 8 * v167;
                         if ( v190 >= 0 )
                         {
-                          (void)0
+                          (void)0;
                           JUMPOUT(0x13459E);
                         }
                         v191 = 8 * v190;
@@ -29994,15 +29994,15 @@ LABEL_304:
                         v179 = 8 * v178;
                         if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
                         {
-                          (void)0
+                          (void)0;
                           _T1 = *0;
                           LOWORD(0) = (uint16_t)0 - 1020;
-                          (void)0
+                          (void)0;
                           _T1 = *v70;
                           v70 + 255;
-                          (void)0
+                          (void)0;
 LABEL_318:
-                          (void)0
+                          (void)0;
                           v85 = __mrc(0, 5, 5, 15, 7);
 LABEL_319:
                           __mcr(0, 6, v85, 11, 15, 7);
@@ -30010,7 +30010,7 @@ LABEL_319:
                           __mcr(0, 7, v85, 0, 15, 7);
                           __mcr(0, 7, v85, 0, 15, 7);
 LABEL_342:
-                          (void)0
+                          (void)0;
                           *((uint16_t *)v75 + 14) = (uint16_t)0;
                           JUMPOUT(0x13444A);
                         }
@@ -30034,7 +30034,7 @@ LABEL_353:
                           if ( v152 )
                             JUMPOUT(0x13470A);
 LABEL_354:
-                          (void)0
+                          (void)0;
                           JUMPOUT(0x134422);
                         }
                         v184 = __CFSHL__(v183, 3);
@@ -30428,15 +30428,15 @@ LABEL_209:
                 v65 = (signed int *)v132[6];
                 v70 = (signed int *)v132[7];
 LABEL_210:
-                (void)0
+                (void)0;
 LABEL_211:
-                (void)0
+                (void)0;
                 _T1 = *v70;
                 v133 = v70 + 255;
-                (void)0
+                (void)0;
                 _T1 = v133[255];
                 v70 = v133 + 255;
-                (void)0
+                (void)0;
                 v85 = __mrc(0, 5, 5, 15, 7);
                 goto LABEL_212;
               }
@@ -67530,14 +67530,14 @@ int  sub_1277FC(int result, unsigned int a2, int a3, unsigned int a4, int a5, in
       a2 = a4;
     }
     if ( !v14 && (v9 != v10 || !(result | (a2 << 12))) && (v12 != v10 || !(a3 | (a4 << 12))) )
-      (void)0
-    (void)0
+      (void)0;
+    (void)0;
   }
   v13 = (result | (2 * a2)) == 0;
   if ( result | (2 * a2) )
     v13 = (a3 | (2 * a4)) == 0;
   if ( v13 )
-    (void)0
+    (void)0;
   if ( v9 )
     goto LABEL_27;
   while ( 1 )
@@ -69051,23 +69051,23 @@ int  sub_128508(unsigned int a1, unsigned int *a2)
     }
     while ( 1 )
     {
-      (void)0
+      (void)0;
       0 ^ v14;
-      (void)0
+      (void)0;
       if ( 0 )
         break;
-      (void)0
+      (void)0;
       HIDWORD(0) ^ HIDWORD(v14);
-      (void)0
+      (void)0;
       if ( 0 )
         goto LABEL_14;
       *(uint64_t *)(a1 - 8);
       v14 = *((uint64_t *)a2 - 1);
-      (void)0
+      (void)0;
       0 ^ v14;
-      (void)0
+      (void)0;
       HIDWORD(0) ^ HIDWORD(v14);
-      (void)0
+      (void)0;
       0 | 0;
       if ( 0 )
       {
@@ -69116,16 +69116,16 @@ LABEL_9:
       a2 += 2;
       v35 = v36;
 LABEL_19:
-      (void)0
+      (void)0;
       0 ^ v35;
-      (void)0
+      (void)0;
       if ( 0 )
         break;
       *(uint32_t *)(a1 - 4);
       v35 = *(a2 - 1);
-      (void)0
+      (void)0;
       0 ^ v35;
-      (void)0
+      (void)0;
     }
     while ( !0 );
     v42 = __clz(bswap32(0)) & 0xF8;
@@ -69174,9 +69174,9 @@ LABEL_32:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       (unsigned char)0 ^ HIBYTE(v66);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 24;
@@ -69206,9 +69206,9 @@ LABEL_57:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       (unsigned short)0 ^ HIWORD(v66);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 16;
@@ -69235,9 +69235,9 @@ LABEL_57:
 LABEL_59:
     bswap32(0);
     v84 = bswap32(v66);
-    (void)0
+    (void)0;
     0 ^ v84;
-    (void)0
+    (void)0;
     LOBYTE(0) = __clz(0);
     return (0 << 0 >> 24) - (v84 << 0 >> 24);
   }
@@ -69245,9 +69245,9 @@ LABEL_59:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       0 & 0xFFFFFF ^ (v66 >> 8);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 8;
@@ -69403,26 +69403,26 @@ unsigned int  sub_1288C0(unsigned int a1)
     __pld(v1 + 8);
     v5 += 8;
 LABEL_4:
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[1];
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[2];
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[3];
     v1 += 4;
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
   }
   while ( !HIDWORD(0) );
   if ( !(uint32_t)0 )

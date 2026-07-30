@@ -1,0 +1,253 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_127840;
+extern uint32_t off_127844;
+extern uint32_t off_127848;
+extern uint32_t off_12784C;
+extern uint32_t off_127850;
+extern uint32_t off_127854;
+extern uint32_t off_127858;
+extern uint32_t off_12785C;
+extern uint32_t off_127888;
+extern uint32_t off_12786C;
+extern uint32_t off_127868;
+extern uint32_t off_127874;
+extern uint32_t dword_12787C;
+extern uint32_t dword_127878;
+extern uint32_t off_127870;
+extern uint32_t dword_127880;
+extern uint32_t dword_127860;
+extern uint32_t off_127884;
+extern uint32_t off_127864;
+
+// sub_1275A0 @ 0x1275a0, size 670 bytes
+int  sub_1275A0(int a1, int a2)
+{
+  uint8_t *v2; // r4
+  uint32_t *v5; // r2
+  uint32_t *v6; // r7
+  int v7; // r1
+  int result; // r0
+  unsigned int v9; // r3
+  int *v10; // r3
+  int v11; // r3
+  int v12; // r3
+  int v13; // zf
+  int v14; // r3
+  char v15; // r8
+  int v16; // r3
+  int v17; // r2
+  int v18; // r1
+  uint16_t *v19; // r8
+  uint16_t *v20; // r0
+  uint16_t *v21; // r7
+  int v22; // r0
+  int v23; // r2
+  unsigned int *v24; // r12
+  uint32_t *v25; // r1
+  char v26; // r3
+  uint32_t *v27; // r7
+  int v28; // r2
+  unsigned int v29; // r3
+  int v30; // r3
+  uint8_t *v31; // r9
+  int v32; // r7
+  unsigned int v33; // r3
+  int v34; // lr
+  char *v35; // r2
+  unsigned int v36; // r10
+  uint32_t *v37; // r7
+  int v38; // r2
+  void *v39; // r2
+  int v40; // r1
+  int v41; // r0
+  uint32_t *v42; // r7
+  int v43; // r2
+
+  v2 = off_127840;
+  *((uint32_t *)off_127840 + 10) = 0;
+  if ( (__get_CPSR() & 1) == 0 )
+  {
+    __disable_irq();
+    *(uint32_t *)off_127844 = 1;
+  }
+  v5 = off_127848;
+  v6 = off_12784C;
+  v7 = *(uint32_t *)off_127848;
+  result = *(uint32_t *)off_127848 + 1;
+  v9 = *((uint32_t *)off_12784C + 1) & 0xFFFFFFFD;
+  *(uint32_t *)off_127848 = result;
+  v6[1] = v9;
+  if ( result )
+  {
+    v10 = (int *)off_127844;
+    *v5 = v7;
+    v11 = *v10;
+    if ( !v7 )
+    {
+      if ( v11 )
+        __enable_irq();
+    }
+  }
+  *(uint32_t *)off_127850 = (4 * (uint8_t)v2[92]) & 4 | *(uint32_t *)off_127850 & 0xFFFFFFFB;
+  if ( a2 )
+    goto LABEL_6;
+  result = fw_init_or_check_1221d44();
+  if ( !*((uint8_t *)off_127854 + 408) )
+    goto LABEL_6;
+  v12 = *(uint8_t *)(a1 + 24);
+  if ( v12 != 3 )
+  {
+LABEL_7:
+    v13 = v12 == 4;
+    v14 = (uint8_t)v2[88];
+    if ( v13 )
+    {
+      v2[88] = v14 & 0xFB;
+      if ( *(uint16_t *)(a1 + 14) )
+      {
+        result = phy_init_or_register_n_e(a1);
+        v14 = (uint8_t)v2[88];
+      }
+      else
+      {
+        v14 &= 0xDBu;
+      }
+    }
+    goto LABEL_8;
+  }
+  v15 = *((uint8_t *)off_127858 + 3850);
+  if ( v15 || *((uint8_t *)off_12785C + 10) + 1 != *(uint8_t *)(*(uint32_t *)off_12785C + 367) )
+    goto LABEL_23;
+  v16 = *(uint32_t *)off_127858;
+  if ( *(uint8_t *)(*(uint32_t *)off_127858 + 367) )
+  {
+    v17 = 0;
+    do
+    {
+      v18 = *(uint8_t *)(v16 + 2);
+      ++v17;
+      v16 += 6;
+      if ( v18 == *((uint8_t *)off_127858 + 3851) + 1 )
+        goto LABEL_23;
+    }
+    while ( v17 != *(uint8_t *)(*(uint32_t *)off_127858 + 367) );
+  }
+  v31 = off_127888;
+  if ( *((uint16_t *)off_127888 + 2) <= 1u && *((uint16_t *)off_127888 + 3) <= 1u )
+  {
+LABEL_50:
+    v42 = off_12786C;
+    v43 = **(int16_t **)off_127868;
+    *((uint32_t *)off_12786C + 1) |= 0x100040u;
+    if ( v43 < 0 && *(uint32_t *)off_127874 << 28 )
+      sub_12F6C4(dword_12787C, dword_127878, 472);
+    v39 = off_127870;
+    v40 = 1;
+    *(uint32_t *)off_127870 = *v42 | v42[1];
+    v15 = 1;
+    goto LABEL_48;
+  }
+  v32 = 0;
+  while ( !*((uint16_t *)off_127858 + 2) )
+  {
+LABEL_44:
+    if ( v32 )
+      goto LABEL_50;
+    v32 = 1;
+  }
+  v33 = 0;
+  v34 = 0;
+  while ( 1 )
+  {
+    v35 = (char *)off_127858 + 60 * v33;
+    v36 = (uint8_t)(v33 + 1);
+    v33 = v36;
+    if ( *(uint8_t *)(*((uint32_t *)v35 + 13) + 2) != v32 || !v35[16] || v35[64] < -79 )
+      goto LABEL_38;
+    if ( v34 )
+      break;
+    v34 = 1;
+LABEL_38:
+    if ( v36 >= *((uint16_t *)off_127858 + 2) )
+      goto LABEL_44;
+  }
+  v37 = off_12786C;
+  v38 = **(int16_t **)off_127868;
+  *((uint32_t *)off_12786C + 1) &= 0xFFEFFFBF;
+  if ( v38 < 0 && *(uint32_t *)off_127874 << 28 )
+    sub_12F6C4(dword_12787C, dword_127878, 472);
+  v39 = off_127870;
+  *(uint32_t *)off_127870 = *v37 | v37[1];
+  v40 = 0;
+LABEL_48:
+  v41 = dword_127880;
+  v31[8] = v15;
+  result = sub_12ECB0(v41, v40, v39);
+LABEL_6:
+  v12 = *(uint8_t *)(a1 + 24);
+  if ( v12 != 3 )
+    goto LABEL_7;
+LABEL_23:
+  v2[88] &= ~8u;
+  v19 = (uint16_t *)phy_chan_idx_calc();
+  v20 = (uint16_t *)rf_bus_setup_n3a8(79, 13, 0, 12);
+  *v20 = *v19;
+  v21 = v20;
+  v22 = sub_12B74C(v19);
+  v23 = dword_127860;
+  v24 = (unsigned int *)off_127884;
+  v25 = off_127864;
+  *((uint32_t *)v21 + 1) = (unsigned int)(((unsigned int)dword_127860 * (unsigned uint64_t)(unsigned int)v22) >> 32) >> 6;
+  *((uint32_t *)v21 + 2) = (unsigned int)(((unsigned int)v23 * (unsigned uint64_t)*v24) >> 32) >> 6;
+  *((uint8_t *)v21 + 2) = 0;
+  v26 = 10;
+  while ( 1 )
+  {
+    --v26;
+    if ( (uint8_t)*v25 )
+      break;
+    if ( !v26 )
+      goto LABEL_26;
+  }
+  *((uint8_t *)v21 + 2) = *v25;
+LABEL_26:
+  sub_12CBB4(v21);
+  v27 = off_12786C;
+  v28 = **(int16_t **)off_127868;
+  v29 = *((uint32_t *)off_12786C + 1) & 0xFFFFDDFF;
+  *((uint32_t *)off_12786C + 1) = v29;
+  if ( v28 < 0 && *(uint32_t *)off_127874 << 28 )
+  {
+    sub_12F6C4(dword_12787C, dword_127878, 472);
+    v29 = v27[1];
+  }
+  v30 = v29 | *v27;
+  *(uint32_t *)off_127870 = v30;
+  result = message_dispatch_n84(142, 2, 255, v30);
+  v14 = (uint8_t)v2[88];
+LABEL_8:
+  *(uint8_t *)(a1 + 24) = -1;
+  v2[88] = v14 & 0xEF;
+  if ( !(v14 << 30) )
+  {
+    if ( a2 )
+      return result;
+    return sub_121CD4();
+  }
+  result = sub_127568();
+  if ( !a2 )
+    return sub_121CD4();
+  return result;
+}
+

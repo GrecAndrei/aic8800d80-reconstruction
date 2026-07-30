@@ -1,0 +1,29 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+// sub_103FBC @ 0x103fbc, size 48 bytes
+int  sub_103FBC(int a1, int a2, uint32_t *a3)
+{
+  int v3; // r2
+  unsigned int v4; // r0
+  int v5; // r3
+
+  v3 = a3[sub_103D60(a1, a2, a3)];
+  v4 = (unsigned int)v3 >> 20;
+  v5 = (uint16_t)v3 >> 4;
+  if ( v3 < 0 )
+    v4 -= 4096;
+  if ( (((unsigned int)v3 >> 4) & 0x800) != 0 )
+    v5 -= 4096;
+  return v5 * v5 + v4 * v4;
+}
+

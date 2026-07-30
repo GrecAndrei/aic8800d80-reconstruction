@@ -1,0 +1,38 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+// sub_112E6C @ 0x112e6c, size 100 bytes
+// Doc: rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
+// rf_stream_start2_n_3da [rf]: Start RF streaming after pre-check, gate by mode byte
+int  sub_112E6C(int a1, uint16_t *a2)
+{
+  int v4; // r2
+  int v5; // r3
+  int v6; // r2
+
+  sub_112DCC();
+  if ( *(uint8_t *)rf_stream_start2_n_37b != 4 )
+    return 1;
+  v4 = a1 - 1;
+  if ( (uint8_t)(a1 - 1) > 5u )
+    return 2;
+  if ( (*((uint32_t *)&REG_4020_0900 + 8 * a1) & 0x8000) == 0 )
+    return 5;
+  v5 = 32 * v4 + 0x40000000;
+  v6 = rf_stream_start2_alt + 16 * v4;
+  *(uint32_t *)(v6 + 4) = *a2;
+  *(uint8_t *)(v6 + 11) = 1;
+  *(uint32_t *)(v5 + 2099508) = a2;
+  *((uint32_t *)&REG_4020_0900 + 8 * a1) |= 0x84000000;
+  return 0;
+}
+

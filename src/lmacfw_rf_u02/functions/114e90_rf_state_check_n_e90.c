@@ -1,0 +1,40 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_114EC4;
+extern uint32_t off_114EC8;
+
+// rf_state_check_n_e90 @ 0x114e90, size 50 bytes
+// Doc: rf_state_check_n_e90 [util]: Check RF state byte against expected value 2
+// rf_state_check_n_e90 [util]: Check RF state byte against expected value 2
+void __noreturn rf_state_check_n_e90()
+{
+  int v0; // r0
+  int v1; // r0
+  int v2; // r0
+
+  sub_10DA6C(dword_114EC4);
+  if ( *(uint8_t *)(*(uint32_t *)off_114EC8 + 6) == 2 )
+  {
+    v2 = rf_mode_check();
+    rf_state_check_n2ae(v2);
+  }
+  while ( 1 )
+  {
+    while ( !mmio_reg_bit0_read() )
+      ;
+    v0 = sub_10D680();
+    v1 = rf_init_or_reset(v0);
+    sub_123240(v1);
+  }
+}
+

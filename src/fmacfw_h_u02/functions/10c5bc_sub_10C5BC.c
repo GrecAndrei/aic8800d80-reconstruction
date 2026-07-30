@@ -1,0 +1,89 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_10C6AC;
+extern uint32_t off_10C6B0;
+extern uint32_t off_10C6B4;
+extern uint32_t off_10C6EC;
+extern uint32_t off_10C6B8;
+extern uint32_t dword_10C6BC;
+extern uint32_t dword_10C6C0;
+extern uint32_t off_10C6C4;
+extern uint32_t off_10C6C8;
+extern uint32_t off_10C6CC;
+extern uint32_t dword_10C6D0;
+extern uint32_t dword_10C6D4;
+extern uint32_t dword_10C6D8;
+extern uint32_t dword_10C6DC;
+extern uint32_t off_10C6E0;
+extern uint32_t off_10C6E4;
+extern uint32_t dword_10C6E8;
+
+// sub_10C5BC @ 0x10c5bc, size 238 bytes
+int sub_10C5BC()
+{
+  int *v0; // r2
+  int *v1; // r0
+  int *v2; // r1
+  uint32_t *v3; // r12
+  uint32_t *v4; // r4
+  int v5; // r3
+  uint32_t *v6; // r7
+  uint32_t *v7; // r6
+  uint32_t *v8; // r5
+  int v9; // r3
+  int v10; // r3
+  uint32_t *v11; // r3
+
+  v0 = (int *)off_10C6AC;
+  v1 = (int *)off_10C6B0;
+  v2 = (int *)off_10C6B4;
+  v3 = off_10C6EC;
+  *(uint32_t *)off_10C6AC |= 0x3F000000u;
+  v4 = off_10C6B8;
+  v5 = dword_10C6BC;
+  *(uint32_t *)off_10C6B8 = dword_10C6BC;
+  *v1 = v5 + 1578562697;
+  *v2 = dword_10C6C0;
+  v6 = off_10C6C4;
+  v7 = off_10C6C8;
+  v8 = off_10C6CC;
+  *v3 = 2423;
+  *v6 = dword_10C6D0;
+  *v7 = 37890;
+  v4 += 131075;
+  v9 = dword_10C6D4;
+  *v8 = dword_10C6D4;
+  v2 += 717332;
+  v1 += 717334;
+  v0 += 131615;
+  *v4 = dword_10C6D8;
+  *v2 = v9;
+  *v1 = v9;
+  *v0 = v9;
+  v6[717338] = 2100;
+  v10 = dword_10C6DC;
+  v7[749881] = dword_10C6DC;
+  v2 += 32546;
+  v10 += 875888655;
+  *v2 = v10;
+  v0 += 32602;
+  *(uint32_t *)off_10C6E0 = v10 - 943588895;
+  v1[32584] = 909522486;
+  *v0 = 65280;
+  v11 = off_10C6E4;
+  v4[33032] = dword_10C6E8;
+  v2[42] = 21333;
+  *v11 = (char *)v0 + 1441354102;
+  return 21333;
+}
+

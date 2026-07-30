@@ -76782,7 +76782,7 @@ LABEL_107:
                       *(uint32_t *)(2 * *(unsigned short *)(v10 - 4)) = *(unsigned short *)(v10 - 4);
                       STACK[0x3F8] = v74;
                       MEMORY[0] = 0;
-                      (void)0
+                      (void)0;
                       JUMPOUT(0x14E86E);
                     case 24:
 LABEL_173:
@@ -88177,7 +88177,7 @@ int  sub_135924(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, 
     || *(uint8_t *)(a1 + 13)
     || (v17 = sub_119084(*(unsigned char *)(a1 + 6) != 0, 512), (v18 = v17) == 0) )
   {
-    (void)0
+    (void)0;
   }
   v19 = *(uint16_t *)(a1 + 4);
   v22 = ((unsigned)(v22) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(a1 + 6)) & 0xFFU) << 0);
@@ -88255,7 +88255,7 @@ void  sub_1359CC(
   HIDWORD(v25) += 4;
   *(uint64_t *)(v24 + 32) = v25;
   sub_1190B4(v13, 5);
-  (void)0
+  (void)0;
 }
 
 
@@ -106521,14 +106521,14 @@ int  sub_142D20(int result, unsigned int a2, int a3, unsigned int a4, int a5, in
       a2 = a4;
     }
     if ( !v14 && (v9 != v10 || !(result | (a2 << 12))) && (v12 != v10 || !(a3 | (a4 << 12))) )
-      (void)0
-    (void)0
+      (void)0;
+    (void)0;
   }
   v13 = (result | (2 * a2)) == 0;
   if ( result | (2 * a2) )
     v13 = (a3 | (2 * a4)) == 0;
   if ( v13 )
-    (void)0
+    (void)0;
   if ( v9 )
     goto LABEL_27;
   while ( 1 )
@@ -108155,23 +108155,23 @@ int  sub_143B48(unsigned int a1, unsigned int *a2)
     }
     while ( 1 )
     {
-      (void)0
+      (void)0;
       0 ^ v14;
-      (void)0
+      (void)0;
       if ( 0 )
         break;
-      (void)0
+      (void)0;
       HIDWORD(0) ^ HIDWORD(v14);
-      (void)0
+      (void)0;
       if ( 0 )
         goto LABEL_14;
       *(uint64_t *)(a1 - 8);
       v14 = *((uint64_t *)a2 - 1);
-      (void)0
+      (void)0;
       0 ^ v14;
-      (void)0
+      (void)0;
       HIDWORD(0) ^ HIDWORD(v14);
-      (void)0
+      (void)0;
       0 | 0;
       if ( 0 )
       {
@@ -108220,16 +108220,16 @@ LABEL_9:
       a2 += 2;
       v35 = v36;
 LABEL_19:
-      (void)0
+      (void)0;
       0 ^ v35;
-      (void)0
+      (void)0;
       if ( 0 )
         break;
       *(uint32_t *)(a1 - 4);
       v35 = *(a2 - 1);
-      (void)0
+      (void)0;
       0 ^ v35;
-      (void)0
+      (void)0;
     }
     while ( !0 );
     v42 = __clz(bswap32(0)) & 0xF8;
@@ -108278,9 +108278,9 @@ LABEL_32:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       (unsigned char)0 ^ HIBYTE(v66);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 24;
@@ -108310,9 +108310,9 @@ LABEL_57:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       (unsigned short)0 ^ HIWORD(v66);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 16;
@@ -108339,9 +108339,9 @@ LABEL_57:
 LABEL_59:
     bswap32(0);
     v84 = bswap32(v66);
-    (void)0
+    (void)0;
     0 ^ v84;
-    (void)0
+    (void)0;
     LOBYTE(0) = __clz(0);
     return (0 << 0 >> 24) - (v84 << 0 >> 24);
   }
@@ -108349,9 +108349,9 @@ LABEL_59:
   {
     while ( 1 )
     {
-      (void)0
+      (void)0;
       0 & 0xFFFFFF ^ (v66 >> 8);
-      (void)0
+      (void)0;
       if ( !1 )
       {
         v66 >>= 8;
@@ -108507,26 +108507,26 @@ unsigned int  sub_143F00(unsigned int a1)
     __pld(v1 + 8);
     v5 += 8;
 LABEL_4:
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[1];
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[2];
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
     if ( HIDWORD(0) )
       break;
     v1[3];
     v1 += 4;
-    (void)0
+    (void)0;
     v5 += 8;
-    (void)0
+    (void)0;
   }
   while ( !HIDWORD(0) );
   if ( !(uint32_t)0 )

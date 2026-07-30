@@ -1,0 +1,58 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_121B5C;
+extern uint32_t dword_121B78;
+extern uint32_t dword_121B74;
+extern uint32_t off_121B60;
+extern uint32_t off_121B64;
+extern uint32_t off_121B68;
+extern uint32_t off_121B6C;
+extern uint32_t off_121B70;
+
+// sub_121AC8 @ 0x121ac8, size 148 bytes
+int sub_121AC8()
+{
+  int *v1; // r4
+  int v2; // r3
+  int v3; // r2
+
+  if ( **(int16_t **)off_121B5C < 0 && (sub_12CD48(0) == 3 || !sub_12CD48(0)) )
+    sub_12F32C(dword_121B78, dword_121B74, 1862);
+  if ( sub_12CD48(0) == 2 )
+  {
+    *(uint32_t *)off_121B60 = 48;
+    if ( (__get_CPSR() & 1) == 0 )
+    {
+      __disable_irq();
+      *(uint32_t *)off_121B64 = 1;
+    }
+    v1 = (int *)off_121B68;
+    ++*(uint32_t *)off_121B68;
+    sub_12D00C(0x2000000);
+    if ( (*(uint32_t *)off_121B6C & 4) != 0 )
+      *(uint32_t *)off_121B70 = 4;
+    if ( *v1 )
+    {
+      v2 = *v1 - 1;
+      v3 = *(uint32_t *)off_121B64;
+      *v1 = v2;
+      if ( !v2 )
+      {
+        if ( v3 )
+          __enable_irq();
+      }
+    }
+  }
+  return sub_12CBF4(0);
+}
+

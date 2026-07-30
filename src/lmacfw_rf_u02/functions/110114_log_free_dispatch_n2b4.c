@@ -1,0 +1,49 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t off_110168;
+extern uint32_t dword_11015C;
+extern uint32_t off_110160;
+extern uint32_t dword_110164;
+
+// log_free_dispatch_n2b4 @ 0x110114, size 72 bytes
+int log_free_dispatch_n2b4()
+{
+  void *v0; // r8
+  int result; // r0
+  uint32_t *v2; // r5
+  int v3; // r7
+  int v4; // r6
+  int v5; // r4
+  unsigned int v6; // r1
+
+  v0 = off_110168;
+  result = sub_11E71C(dword_11015C);
+  if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
+  {
+    v2 = off_110160;
+    v3 = dword_110164;
+    v4 = dword_11015C;
+    v5 = 0;
+    do
+    {
+      sub_10FA18(v3, 0x6B8u);
+      result = sub_11E724(v4);
+      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
+      ++v5;
+      ++*v2;
+    }
+    while ( v6 > (uint16_t)v5 );
+  }
+  return result;
+}
+

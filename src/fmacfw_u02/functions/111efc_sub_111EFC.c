@@ -1,0 +1,103 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+#define LOBYTE(x) ((uint8_t)((x) & 0xFF))
+#define HIBYTE(x) ((uint8_t)(((x) >> 8) & 0xFF))
+#define LOWORD(x) ((uint16_t)((x) & 0xFFFF))
+#define HIWORD(x) ((uint16_t)(((x) >> 16) & 0xFFFF))
+#define LODWORD(x) ((uint32_t)(x))
+#define HIDWORD(x) ((uint32_t)(((uint64_t)(x) >> 32)))
+
+extern uint32_t dword_112040;
+extern uint32_t off_112038;
+
+// sub_111EFC @ 0x111efc, size 316 bytes
+// Doc: rf_bus_write_f88 [rf]: Writes a value to the RF control bus
+// rf_bus_write_f88 [rf]: Writes a value to the RF control bus
+int * sub_111EFC(int *result, unsigned int a2, int a3, unsigned int a4)
+{
+  unsigned int v4; // r6
+  unsigned int v7; // r11
+  int v8; // r7
+  int v9; // r10
+  int v10; // r9
+  int v11; // r2
+  uint16_t *v12; // r4
+  int v13; // r1
+  uint32_t *v14; // r2
+  int v15; // r5
+  int v16; // r6
+  uint32_t *v17; // r2
+  unsigned int v18; // r3
+  int v19; // cf
+
+  v4 = a2 - 1;
+  if ( (uint8_t)(a2 - 1) <= 4u )
+  {
+    v7 = a4;
+    if ( result )
+    {
+      if ( (a3 & 0xFD) == 1 )
+      {
+        if ( a4 > 0x320 )
+        {
+          v9 = 400;
+          LOWORD(v8) = 400;
+          v10 = 26214400;
+        }
+        else
+        {
+          v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
+          v9 = v8;
+          v10 = (uint16_t)v8 << 16;
+        }
+        if ( a4 > 0x400 )
+        {
+          v18 = -1025;
+          v19 = v7 - 1025 >= 0x400;
+          if ( v7 - 1025 < 0x400 )
+            v7 >>= 1;
+          else
+            v18 = ((unsigned int)dword_112040 * (unsigned uint64_t)v7) >> 32;
+          if ( v19 )
+            LOWORD(v7) = v18 >> 1;
+        }
+      }
+      else
+      {
+        v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
+        v9 = v8;
+        v10 = (uint16_t)v8 << 16;
+      }
+      if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
+        result = sub_111D44(result, a2);
+      v11 = (a3 << 18) & 0xC0000;
+      v12 = off_112038;
+      v13 = *(uint16_t *)off_112038;
+      *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
+      if ( v13 + v9 > 2048 )
+      {
+        result = (int *)sub_10DC24(rf_bus_write2_0, v13, v9, 2048);
+        v13 = (uint16_t)*v12;
+      }
+      v14 = rf_bus_setup_203c;
+      *((uint32_t *)rf_bus_setup_203c + v4 + 65) = v13 | v10;
+      v15 = (1 << a2) | v14[519];
+      *v12 = v8 + v13;
+      v14[519] = v15;
+    }
+    else
+    {
+      v16 = 32 * a2 + 1075838976;
+      if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
+        result = sub_111D44(0, a2);
+      v17 = rf_bus_setup_203c;
+      *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
+      v17[519] |= 0x10000 << a2;
+    }
+  }
+  return result;
+}
+

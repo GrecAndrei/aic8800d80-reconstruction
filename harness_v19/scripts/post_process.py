@@ -56,7 +56,7 @@ def strip_asm(text):
             elif s[j] == '}': depth -= 1
             j += 1
         result.append(s[i:m.start()])
-        result.append('(void)0')
+        result.append('(void)0;')
         i = j
     text = ''.join(result)
     text = re.sub(r'__asm\s+volatile\s*\([^)]*\)', '(void)0', text, flags=re.S)
