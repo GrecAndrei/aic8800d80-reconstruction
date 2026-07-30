@@ -6,18 +6,8 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include <inttypes.h>
-
-/* ARM intrinsics stubs */
-static inline unsigned int __get_CPSR(void) { return 0; }
-static inline void __disable_irq(void) {}
-static inline void __enable_irq(void) {}
-static inline void __dsb(void) {}
-static inline void __isb(void) {}
-static inline void __dmb(void) {}
-static inline void __nop(void) {}
-static inline void __wfi(void) {}
-static inline void __wfe(void) {}
-static inline void __sev(void) {}
+#include "aic8800d80_types.h"
+#include "aic8800d80_structs.h"
 
 /* Forward declarations */
 extern char * sub_1282E8(char *a1, char *a2, unsigned int a3);
@@ -1242,13 +1232,13 @@ int  start(int a1, int a2, unsigned int a3)
     || (v5 = *((uint32_t *)(*((uint32_t *)0x1001f4)) + 92), v6 = *((uint32_t *)(*((uint32_t *)0x1001f4)) + 93), v5 >= 0)
     || v6 >= 0 )
   {
-    (*((uint32_t *)0x1001f8));
+    _R0 = (*((uint32_t *)0x1001f8));
     (void)0;
     return (*((uint32_t *)0x1001fc))();
   }
   else
   {
-    v5 & 0xFFFFFFF;
+    _R2 = v5 & 0xFFFFFFF;
     (void)0;
     return ((int (*)(void))(v6 & 0xFFFFFFF))();
   }
@@ -27719,7 +27709,7 @@ LABEL_147:
             (void)0;
             (void)0;
             (void)0;
-            if ( 0 )
+            if ( _CF )
               break;
             if ( !__CFSHL__(851968, 3) )
             {
@@ -27766,7 +27756,7 @@ LABEL_157:
           v68[1] = (int)v69;
           v68[2] = (int)v70;
           v68[3] = v63;
-          v68 + 4;
+          _R2 = v68 + 4;
           *v69 = (int)v67;
           v69[1] = (int)v69;
           v69[2] = v63;
@@ -27776,7 +27766,7 @@ LABEL_157:
           v69[3] = (int)v69;
           v69[4] = v63;
           *v69 = v73;
-          v69[1] = (int)0;
+          v69[1] = (int)_R2;
           v69[2] = (int)v70;
           v69[3] = v63;
           v69 += 4;
@@ -27802,7 +27792,7 @@ LABEL_157:
           v76[4] = (int *)v63;
           v77 = (int *)(8 * (uint32_t)(v76 + 5));
           *v77 = v73;
-          v77[1] = (int)0;
+          v77[1] = (int)_R2;
           v77[2] = (int)v70;
           v77[3] = v63;
           v78 = (int *)(8 * (uint32_t)(v77 + 4));
@@ -27817,7 +27807,7 @@ LABEL_157:
           v67[256] = (int)v67;
           (void)0;
           _T1 = *v1;
-          v1 - 255;
+          _R9 = v1 - 255;
           (void)0;
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
@@ -27826,20 +27816,20 @@ LABEL_157:
           __mrc(0, 6, 7, 15, 7);
           v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_244:
-          if ( 1 )
+          if ( _ZF )
             goto LABEL_201;
           v143 = 8 * v80;
           if ( v143 )
             goto LABEL_270;
           for ( i = 0; ; i = v142 << 6 )
           {
-            0 = __CFSHL__(i, 3);
+            _CF = __CFSHL__(i, 3);
             v143 = 8 * i;
-            if ( !0 )
+            if ( !_CF )
               goto LABEL_326;
-            0 = __CFSHL__(v143, 3);
+            _CF = __CFSHL__(v143, 3);
             v128 = 8 * v143;
-            if ( !0 )
+            if ( !_CF )
               goto LABEL_205;
             v151 = 8 * v128;
             if ( v151 < 0 )
@@ -27856,21 +27846,21 @@ LABEL_244:
               goto LABEL_208;
             v142 = 8 * v131;
             v140 = v142 == 0;
-            0 = v142 < 0;
+            _NF = v142 < 0;
             if ( _VF )
               break;
           }
           while ( 1 )
           {
-            if ( !(0 ^ _VF | v140) )
+            if ( !(_NF ^ _VF | v140) )
               goto LABEL_266;
             v143 = 8 * v142;
             if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
             {
 LABEL_268:
               (void)0;
-              _T1 = *0;
-              LOWORD(0) = (uint16_t)0 - 1020;
+              _T1 = *_R2;
+              _R2 = ((unsigned)(_R2) & 0xFFFF0000U) | (((unsigned)((uint16_t)_R2 - 1020) & 0xFFFFU) << 0);
               (void)0;
               _T1 = *v70;
               v169 = v70 + 255;
@@ -27887,9 +27877,9 @@ LABEL_270:
               __mcr(0, 7, v85, 0, 15, 7);
               __mcr(0, 7, v85, 0, 15, 7);
 LABEL_326:
-              0 = __CFSHL__(v143, 3);
+              _CF = __CFSHL__(v143, 3);
               v200 = 8 * v143;
-              if ( !0 )
+              if ( !_CF )
               {
                 *(uint32_t *)v200 = v85;
                 *(uint32_t *)(v200 + 4) = v65;
@@ -27932,7 +27922,7 @@ LABEL_323:
                   if ( !_VF )
                   {
                     (void)0;
-                    LOWORD(v75[512 * v73]) = (uint16_t)0;
+                    LOWORD(v75[512 * v73]) = (uint16_t)_R2;
                     JUMPOUT(0x1343D2);
                   }
 LABEL_337:
@@ -27961,21 +27951,21 @@ LABEL_337:
               v107 = 8 * v147;
               while ( 1 )
               {
-                0 = __CFSHL__(v107, 3);
+                _CF = __CFSHL__(v107, 3);
                 v91 = 8 * v107;
-                if ( v91 != 0 && 0 )
+                if ( v91 != 0 && _CF )
                   goto LABEL_163;
-                0 = __CFSHL__(v91, 3);
+                _CF = __CFSHL__(v91, 3);
                 v100 = 8 * v91;
-                if ( v100 != 0 && 0 )
+                if ( v100 != 0 && _CF )
                   goto LABEL_166;
-                0 = __CFSHL__(v100, 3);
+                _CF = __CFSHL__(v100, 3);
                 v94 = 8 * v100;
-                if ( v94 == 0 || !0 )
+                if ( v94 == 0 || !_CF )
                   goto LABEL_164;
-                0 = __CFSHL__(v94, 3);
+                _CF = __CFSHL__(v94, 3);
                 v108 = 8 * v94;
-                if ( v108 == 0 || !0 )
+                if ( v108 == 0 || !_CF )
                   JUMPOUT(0x133BE6);
                 v109 = 8 * v108;
                 if ( !((v109 < 0) ^ _VF | (v109 == 0)) )
@@ -27998,13 +27988,13 @@ LABEL_337:
                 v114 = 8 * v113;
                 if ( !((v114 < 0) ^ _VF | (v114 == 0)) )
                   goto LABEL_337;
-                0 = __CFSHL__(v114, 3);
+                _CF = __CFSHL__(v114, 3);
                 v116 = 8 * v114;
                 if ( (v116 < 0) ^ _VF | (v116 == 0) )
                 {
-                  0 = __CFSHL__(v116, 3);
+                  _CF = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
+                  v106 = v107 != 0 && _CF;
                   if ( (v107 < 0) ^ _VF | (v107 == 0) )
                   {
                     v117 = 8 * v107;
@@ -28018,16 +28008,16 @@ LABEL_337:
                         goto LABEL_213;
                       }
 LABEL_161:
-                      *v85;
-                      0[1] = (uint32_t)(uintptr_t)v73;
-                      0[2] = (signed int)v65;
-                      0[3] = v63;
-                      0[4] = (uint32_t)(uintptr_t)v89;
-                      0 += 5;
+                      *_R2 = v85;
+                      _R2[1] = (uint32_t)(uintptr_t)v73;
+                      _R2[2] = (signed int)v65;
+                      _R2[3] = v63;
+                      _R2[4] = (uint32_t)(uintptr_t)v89;
+                      _R2 += 5;
                       v90 = 8 * v89;
 LABEL_162:
                       *v65 = v85;
-                      v65[1] = (signed int)0;
+                      v65[1] = (signed int)_R2;
                       v65[2] = (signed int)v75;
                       v65[3] = (signed int)v70;
                       v65[4] = (uint32_t)(uintptr_t)v90;
@@ -28041,12 +28031,12 @@ LABEL_162:
 LABEL_163:
                       v92 = (int *)(8 * v91);
                       *v92 = v73;
-                      v92[1] = (int)0;
+                      v92[1] = (int)_R2;
                       v92[2] = (int)v70;
                       v92[3] = v63;
                       v93 = (int *)(8 * (uint32_t)(v92 + 4));
                       *v93 = v73;
-                      v93[1] = (int)0;
+                      v93[1] = (int)_R2;
                       v93[2] = (int)v75;
                       v93[3] = v63;
                       v94 = (int)(v93 + 4);
@@ -28055,7 +28045,7 @@ LABEL_164:
                       *v95 = v70;
                       v95[1] = (signed int *)v63;
                       v96 = (signed int **)(8 * (uint32_t)(v95 + 2));
-                      *v96 = 0;
+                      *v96 = _R2;
                       v96[1] = (uint32_t)(uintptr_t)v65;
                       v96[2] = (uint32_t)(uintptr_t)v70;
                       v96[3] = (signed int *)v63;
@@ -28082,7 +28072,7 @@ LABEL_164:
 LABEL_165:
                       v99 = *(signed int **)(v73 + 8);
                       v85 = *v99;
-                      (signed int *)v99[1];
+                      _R2 = (signed int *)v99[1];
                       v75 = (signed int *)v99[2];
                       v70 = (signed int *)v99[3];
                       v100 = v99[4];
@@ -28092,8 +28082,8 @@ LABEL_166:
                       *(uint32_t *)(v85 + 1020) = v85;
                       *(uint32_t *)(v85 + 1024) = v85;
                       (void)0;
-                      _T1 = *0;
-                      0 - 255;
+                      _T1 = *_R9;
+                      _R9 = _R9 - 255;
                       (void)0;
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
@@ -28102,19 +28092,19 @@ LABEL_166:
                       __mrc(0, 6, 7, 15, 7);
                       v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_304:
-                      if ( 1 )
+                      if ( _ZF )
                         goto LABEL_260;
                       if ( 8 * v101 )
                         goto LABEL_319;
                       for ( j = 0; ; j = v178 << 6 )
                       {
-                        0 = __CFSHL__(j, 3);
+                        _CF = __CFSHL__(j, 3);
                         v188 = 8 * j;
-                        if ( !0 )
+                        if ( !_CF )
                           goto LABEL_342;
-                        0 = __CFSHL__(v188, 3);
+                        _CF = __CFSHL__(v188, 3);
                         v165 = 8 * v188;
-                        if ( !0 )
+                        if ( !_CF )
                           goto LABEL_264;
                         v189 = 8 * v165;
                         if ( v189 < 0 )
@@ -28198,11 +28188,11 @@ LABEL_304:
                         if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
                         {
                           (void)0;
-                          _T1 = *0;
-                          LOWORD(0) = (uint16_t)0 - 1020;
+                          _T1 = *_R2;
+                          _R2 = ((unsigned)(_R2) & 0xFFFF0000U) | (((unsigned)((uint16_t)_R2 - 1020) & 0xFFFFU) << 0);
                           (void)0;
                           _T1 = *v70;
-                          v70 + 255;
+                          _R5 = v70 + 255;
                           (void)0;
 LABEL_318:
                           (void)0;
@@ -28214,7 +28204,7 @@ LABEL_319:
                           __mcr(0, 7, v85, 0, 15, 7);
 LABEL_342:
                           (void)0;
-                          *((uint16_t *)v75 + 14) = (uint16_t)0;
+                          *((uint16_t *)v75 + 14) = (uint16_t)_R2;
                           JUMPOUT(0x13444A);
                         }
                         v180 = 8 * v179;
@@ -28244,16 +28234,16 @@ LABEL_354:
                         v185 = 8 * v183;
                         if ( (v185 < 0) ^ _VF | (v185 == 0) )
                         {
-                          0 = __CFSHL__(v185, 3);
+                          _CF = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
+                          v172 = v173 != 0 && _CF;
                           if ( (v173 < 0) ^ _VF | (v173 == 0) )
                           {
                             v186 = 8 * v173;
                             if ( !v186 )
                               goto LABEL_318;
                             v101 = 8 * v186;
-                            1 = v101 == 0;
+                            _ZF = v101 == 0;
                             goto LABEL_304;
                           }
                         }
@@ -28262,7 +28252,7 @@ LABEL_354:
                           if ( v185 != 0 && v184 )
                           {
                             v154 = *(uint32_t **)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 12) + 12);
-                            (signed int *)v154[1];
+                            _R2 = (signed int *)v154[1];
                             v75 = (signed int *)v154[2];
                             v63 = (signed int)(v154 + 5);
 LABEL_258:
@@ -28276,22 +28266,22 @@ LABEL_259:
                             v156 = v155 + 4;
                             v63 = *(uint32_t *)(v155 + 4);
                             v157 = 8 * *(uint32_t *)(v156 + 4);
-                            *v85;
-                            0[1] = (signed int)0;
-                            0[2] = (signed int)v75;
-                            0[3] = (signed int)v70;
-                            0[4] = (uint32_t)(uintptr_t)v157;
+                            *_R2 = v85;
+                            _R2[1] = (signed int)_R2;
+                            _R2[2] = (signed int)v75;
+                            _R2[3] = (signed int)v70;
+                            _R2[4] = (uint32_t)(uintptr_t)v157;
                             v157 *= 8;
-                            *v85;
-                            0[1] = (uint32_t)(uintptr_t)v73;
-                            0[2] = (signed int)v65;
-                            0[3] = v63;
-                            0[4] = (uint32_t)(uintptr_t)v157;
-                            0 += 5;
+                            *_R2 = v85;
+                            _R2[1] = (uint32_t)(uintptr_t)v73;
+                            _R2[2] = (signed int)v65;
+                            _R2[3] = v63;
+                            _R2[4] = (uint32_t)(uintptr_t)v157;
+                            _R2 += 5;
                             v101 = 8 * v157;
 LABEL_260:
                             *v65 = v85;
-                            v65[1] = (signed int)0;
+                            v65[1] = (signed int)_R2;
                             v65[2] = (signed int)v75;
                             v65[3] = (signed int)v70;
                             v65[4] = (uint32_t)(uintptr_t)v101;
@@ -28313,7 +28303,7 @@ LABEL_261:
 LABEL_262:
                             v161 = (int *)(8 * v160);
                             *v161 = v73;
-                            v161[1] = (int)0;
+                            v161[1] = (int)_R2;
                             v161[2] = (int)v70;
                             v161[3] = v63;
                             v162 = (int *)(8 * (uint32_t)(v161 + 4));
@@ -28336,7 +28326,7 @@ LABEL_264:
                             v167 = 8 * v166;
 LABEL_265:
                             *(uint32_t *)v167 = v85;
-                            *(uint32_t *)(v167 + 4) = 0;
+                            *(uint32_t *)(v167 + 4) = _R2;
                             *(uint32_t *)(v167 + 8) = v75;
                             *(uint32_t *)(v167 + 12) = v70;
                             *(uint32_t *)(v167 + 16) = v167;
@@ -28350,27 +28340,27 @@ LABEL_266:
 LABEL_267:
                             JUMPOUT(0x133EE0);
                           }
-                          0 = __CFSHL__(v185, 3);
+                          _CF = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
+                          v172 = v173 != 0 && _CF;
                         }
                         if ( v172 )
                           goto LABEL_259;
-                        0 = __CFSHL__(v173, 3);
+                        _CF = __CFSHL__(v173, 3);
                         v160 = 8 * v173;
-                        if ( v160 != 0 && 0 )
+                        if ( v160 != 0 && _CF )
                           goto LABEL_262;
-                        0 = __CFSHL__(v160, 3);
+                        _CF = __CFSHL__(v160, 3);
                         v174 = 8 * v160;
-                        if ( v174 != 0 && 0 )
+                        if ( v174 != 0 && _CF )
                           goto LABEL_267;
-                        0 = __CFSHL__(v174, 3);
+                        _CF = __CFSHL__(v174, 3);
                         v163 = 8 * v174;
-                        if ( v163 == 0 || !0 )
+                        if ( v163 == 0 || !_CF )
                           goto LABEL_263;
-                        0 = __CFSHL__(v163, 3);
+                        _CF = __CFSHL__(v163, 3);
                         v175 = 8 * v163;
-                        if ( v175 == 0 || !0 )
+                        if ( v175 == 0 || !_CF )
                         {
                           v143 = 8 * v175;
                           goto LABEL_268;
@@ -28480,11 +28470,11 @@ LABEL_334:
                 }
                 else
                 {
-                  if ( v116 != 0 && 0 )
+                  if ( v116 != 0 && _CF )
                   {
                     v63 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 4) + 12) + 12);
 LABEL_159:
-                    *(signed int **)(v63 + 4);
+                    _R2 = *(signed int **)(v63 + 4);
                     v75 = *(signed int **)(v63 + 8);
                     v63 += 20;
 LABEL_160:
@@ -28502,17 +28492,17 @@ LABEL_160:
                     *(uint32_t *)(v73 + 12) = v63;
                     *(uint32_t *)(v73 + 16) = v88;
                     v88 *= 8;
-                    *v85;
-                    0[1] = (signed int)0;
-                    0[2] = (signed int)v75;
-                    0[3] = (signed int)v70;
-                    0[4] = (uint32_t)(uintptr_t)v88;
+                    *_R2 = v85;
+                    _R2[1] = (signed int)_R2;
+                    _R2[2] = (signed int)v75;
+                    _R2[3] = (signed int)v70;
+                    _R2[4] = (uint32_t)(uintptr_t)v88;
                     v89 = 8 * v88;
                     goto LABEL_161;
                   }
-                  0 = __CFSHL__(v116, 3);
+                  _CF = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
+                  v106 = v107 != 0 && _CF;
                 }
                 if ( v106 )
                   goto LABEL_160;
@@ -28522,16 +28512,16 @@ LABEL_160:
             v149 = 8 * v147;
             if ( (v149 < 0) ^ _VF | (v149 == 0) )
             {
-              0 = __CFSHL__(v149, 3);
+              _CF = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
+              v136 = v137 != 0 && _CF;
               if ( (v137 < 0) ^ _VF | (v137 == 0) )
               {
                 v143 = 8 * v137;
                 if ( !v143 )
                   goto LABEL_269;
                 v80 = 8 * v143;
-                1 = v80 == 0;
+                _ZF = v80 == 0;
                 goto LABEL_244;
               }
             }
@@ -28562,12 +28552,12 @@ LABEL_200:
                 v120[2] = (signed int)v65;
                 v120[3] = (signed int)v70;
                 v120[4] = (uint32_t)(uintptr_t)v122;
-                v120 + 5;
+                _R2 = v120 + 5;
                 v80 = 8 * v122;
 LABEL_201:
-                *v63;
-                0[1] = (uint32_t)(uintptr_t)v80;
-                0 += 2;
+                *_R2 = v63;
+                _R2[1] = (uint32_t)(uintptr_t)v80;
+                _R2 += 2;
                 v123 = 8 * v80;
 LABEL_202:
                 *v65 = v85;
@@ -28589,7 +28579,7 @@ LABEL_203:
                 v75 += 5;
                 v125 *= 8;
                 *(uint32_t *)v125 = v73;
-                *(uint32_t *)(v125 + 4) = 0;
+                *(uint32_t *)(v125 + 4) = _R2;
                 *(uint32_t *)(v125 + 8) = v75;
                 *(uint32_t *)(v125 + 12) = v63;
                 v126 = v125 + 16;
@@ -28599,7 +28589,7 @@ LABEL_204:
                 v127[1] = (signed int *)v63;
                 v128 = 8 * (uint32_t)(v127 + 2);
 LABEL_205:
-                *(uint32_t *)v128 = 0;
+                *(uint32_t *)v128 = _R2;
                 *(uint32_t *)(v128 + 4) = v65;
                 *(uint32_t *)(v128 + 8) = v70;
                 *(uint32_t *)(v128 + 12) = v63;
@@ -28643,31 +28633,31 @@ LABEL_211:
                 v85 = __mrc(0, 5, 5, 15, 7);
                 goto LABEL_212;
               }
-              0 = __CFSHL__(v149, 3);
+              _CF = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
+              v136 = v137 != 0 && _CF;
             }
             if ( v136 )
               goto LABEL_200;
-            0 = __CFSHL__(v137, 3);
+            _CF = __CFSHL__(v137, 3);
             v124 = 8 * v137;
-            if ( v124 != 0 && 0 )
+            if ( v124 != 0 && _CF )
               goto LABEL_203;
-            0 = __CFSHL__(v124, 3);
+            _CF = __CFSHL__(v124, 3);
             v138 = 8 * v124;
-            if ( v138 != 0 && 0 )
+            if ( v138 != 0 && _CF )
               goto LABEL_210;
-            0 = __CFSHL__(v138, 3);
+            _CF = __CFSHL__(v138, 3);
             v126 = 8 * v138;
-            if ( v126 == 0 || !0 )
+            if ( v126 == 0 || !_CF )
               goto LABEL_204;
-            0 = __CFSHL__(v126, 3);
+            _CF = __CFSHL__(v126, 3);
             v139 = 8 * v126;
-            if ( v139 == 0 || !0 )
+            if ( v139 == 0 || !_CF )
               JUMPOUT(0x133D66);
             v142 = 8 * v139;
             v140 = v142 == 0;
-            0 = v142 < 0;
+            _NF = v142 < 0;
           }
         case 8u:
           *((uint32_t *)v4 + 1) = rf_bus_reset_n_164;
@@ -29516,7 +29506,7 @@ LABEL_147:
             (void)0;
             (void)0;
             (void)0;
-            if ( 0 )
+            if ( _CF )
               break;
             if ( !__CFSHL__(851968, 3) )
             {
@@ -29563,7 +29553,7 @@ LABEL_157:
           v68[1] = (int)v69;
           v68[2] = (int)v70;
           v68[3] = v63;
-          v68 + 4;
+          _R2 = v68 + 4;
           *v69 = (int)v67;
           v69[1] = (int)v69;
           v69[2] = v63;
@@ -29573,7 +29563,7 @@ LABEL_157:
           v69[3] = (int)v69;
           v69[4] = v63;
           *v69 = v73;
-          v69[1] = (int)0;
+          v69[1] = (int)_R2;
           v69[2] = (int)v70;
           v69[3] = v63;
           v69 += 4;
@@ -29599,7 +29589,7 @@ LABEL_157:
           v76[4] = (int *)v63;
           v77 = (int *)(8 * (uint32_t)(v76 + 5));
           *v77 = v73;
-          v77[1] = (int)0;
+          v77[1] = (int)_R2;
           v77[2] = (int)v70;
           v77[3] = v63;
           v78 = (int *)(8 * (uint32_t)(v77 + 4));
@@ -29614,7 +29604,7 @@ LABEL_157:
           v67[256] = (int)v67;
           (void)0;
           _T1 = *v1;
-          v1 - 255;
+          _R9 = v1 - 255;
           (void)0;
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
@@ -29623,20 +29613,20 @@ LABEL_157:
           __mrc(0, 6, 7, 15, 7);
           v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_244:
-          if ( 1 )
+          if ( _ZF )
             goto LABEL_201;
           v143 = 8 * v80;
           if ( v143 )
             goto LABEL_270;
           for ( i = 0; ; i = v142 << 6 )
           {
-            0 = __CFSHL__(i, 3);
+            _CF = __CFSHL__(i, 3);
             v143 = 8 * i;
-            if ( !0 )
+            if ( !_CF )
               goto LABEL_326;
-            0 = __CFSHL__(v143, 3);
+            _CF = __CFSHL__(v143, 3);
             v128 = 8 * v143;
-            if ( !0 )
+            if ( !_CF )
               goto LABEL_205;
             v151 = 8 * v128;
             if ( v151 < 0 )
@@ -29653,21 +29643,21 @@ LABEL_244:
               goto LABEL_208;
             v142 = 8 * v131;
             v140 = v142 == 0;
-            0 = v142 < 0;
+            _NF = v142 < 0;
             if ( _VF )
               break;
           }
           while ( 1 )
           {
-            if ( !(0 ^ _VF | v140) )
+            if ( !(_NF ^ _VF | v140) )
               goto LABEL_266;
             v143 = 8 * v142;
             if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
             {
 LABEL_268:
               (void)0;
-              _T1 = *0;
-              LOWORD(0) = (uint16_t)0 - 1020;
+              _T1 = *_R2;
+              _R2 = ((unsigned)(_R2) & 0xFFFF0000U) | (((unsigned)((uint16_t)_R2 - 1020) & 0xFFFFU) << 0);
               (void)0;
               _T1 = *v70;
               v169 = v70 + 255;
@@ -29684,9 +29674,9 @@ LABEL_270:
               __mcr(0, 7, v85, 0, 15, 7);
               __mcr(0, 7, v85, 0, 15, 7);
 LABEL_326:
-              0 = __CFSHL__(v143, 3);
+              _CF = __CFSHL__(v143, 3);
               v200 = 8 * v143;
-              if ( !0 )
+              if ( !_CF )
               {
                 *(uint32_t *)v200 = v85;
                 *(uint32_t *)(v200 + 4) = v65;
@@ -29729,7 +29719,7 @@ LABEL_323:
                   if ( !_VF )
                   {
                     (void)0;
-                    LOWORD(v75[512 * v73]) = (uint16_t)0;
+                    LOWORD(v75[512 * v73]) = (uint16_t)_R2;
                     JUMPOUT(0x1343D2);
                   }
 LABEL_337:
@@ -29758,21 +29748,21 @@ LABEL_337:
               v107 = 8 * v147;
               while ( 1 )
               {
-                0 = __CFSHL__(v107, 3);
+                _CF = __CFSHL__(v107, 3);
                 v91 = 8 * v107;
-                if ( v91 != 0 && 0 )
+                if ( v91 != 0 && _CF )
                   goto LABEL_163;
-                0 = __CFSHL__(v91, 3);
+                _CF = __CFSHL__(v91, 3);
                 v100 = 8 * v91;
-                if ( v100 != 0 && 0 )
+                if ( v100 != 0 && _CF )
                   goto LABEL_166;
-                0 = __CFSHL__(v100, 3);
+                _CF = __CFSHL__(v100, 3);
                 v94 = 8 * v100;
-                if ( v94 == 0 || !0 )
+                if ( v94 == 0 || !_CF )
                   goto LABEL_164;
-                0 = __CFSHL__(v94, 3);
+                _CF = __CFSHL__(v94, 3);
                 v108 = 8 * v94;
-                if ( v108 == 0 || !0 )
+                if ( v108 == 0 || !_CF )
                   JUMPOUT(0x133BE6);
                 v109 = 8 * v108;
                 if ( !((v109 < 0) ^ _VF | (v109 == 0)) )
@@ -29795,13 +29785,13 @@ LABEL_337:
                 v114 = 8 * v113;
                 if ( !((v114 < 0) ^ _VF | (v114 == 0)) )
                   goto LABEL_337;
-                0 = __CFSHL__(v114, 3);
+                _CF = __CFSHL__(v114, 3);
                 v116 = 8 * v114;
                 if ( (v116 < 0) ^ _VF | (v116 == 0) )
                 {
-                  0 = __CFSHL__(v116, 3);
+                  _CF = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
+                  v106 = v107 != 0 && _CF;
                   if ( (v107 < 0) ^ _VF | (v107 == 0) )
                   {
                     v117 = 8 * v107;
@@ -29815,16 +29805,16 @@ LABEL_337:
                         goto LABEL_213;
                       }
 LABEL_161:
-                      *v85;
-                      0[1] = (uint32_t)(uintptr_t)v73;
-                      0[2] = (signed int)v65;
-                      0[3] = v63;
-                      0[4] = (uint32_t)(uintptr_t)v89;
-                      0 += 5;
+                      *_R2 = v85;
+                      _R2[1] = (uint32_t)(uintptr_t)v73;
+                      _R2[2] = (signed int)v65;
+                      _R2[3] = v63;
+                      _R2[4] = (uint32_t)(uintptr_t)v89;
+                      _R2 += 5;
                       v90 = 8 * v89;
 LABEL_162:
                       *v65 = v85;
-                      v65[1] = (signed int)0;
+                      v65[1] = (signed int)_R2;
                       v65[2] = (signed int)v75;
                       v65[3] = (signed int)v70;
                       v65[4] = (uint32_t)(uintptr_t)v90;
@@ -29838,12 +29828,12 @@ LABEL_162:
 LABEL_163:
                       v92 = (int *)(8 * v91);
                       *v92 = v73;
-                      v92[1] = (int)0;
+                      v92[1] = (int)_R2;
                       v92[2] = (int)v70;
                       v92[3] = v63;
                       v93 = (int *)(8 * (uint32_t)(v92 + 4));
                       *v93 = v73;
-                      v93[1] = (int)0;
+                      v93[1] = (int)_R2;
                       v93[2] = (int)v75;
                       v93[3] = v63;
                       v94 = (int)(v93 + 4);
@@ -29852,7 +29842,7 @@ LABEL_164:
                       *v95 = v70;
                       v95[1] = (signed int *)v63;
                       v96 = (signed int **)(8 * (uint32_t)(v95 + 2));
-                      *v96 = 0;
+                      *v96 = _R2;
                       v96[1] = (uint32_t)(uintptr_t)v65;
                       v96[2] = (uint32_t)(uintptr_t)v70;
                       v96[3] = (signed int *)v63;
@@ -29879,7 +29869,7 @@ LABEL_164:
 LABEL_165:
                       v99 = *(signed int **)(v73 + 8);
                       v85 = *v99;
-                      (signed int *)v99[1];
+                      _R2 = (signed int *)v99[1];
                       v75 = (signed int *)v99[2];
                       v70 = (signed int *)v99[3];
                       v100 = v99[4];
@@ -29889,8 +29879,8 @@ LABEL_166:
                       *(uint32_t *)(v85 + 1020) = v85;
                       *(uint32_t *)(v85 + 1024) = v85;
                       (void)0;
-                      _T1 = *0;
-                      0 - 255;
+                      _T1 = *_R9;
+                      _R9 = _R9 - 255;
                       (void)0;
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
@@ -29899,19 +29889,19 @@ LABEL_166:
                       __mrc(0, 6, 7, 15, 7);
                       v85 = __mrc(0, 6, 7, 15, 7);
 LABEL_304:
-                      if ( 1 )
+                      if ( _ZF )
                         goto LABEL_260;
                       if ( 8 * v101 )
                         goto LABEL_319;
                       for ( j = 0; ; j = v178 << 6 )
                       {
-                        0 = __CFSHL__(j, 3);
+                        _CF = __CFSHL__(j, 3);
                         v188 = 8 * j;
-                        if ( !0 )
+                        if ( !_CF )
                           goto LABEL_342;
-                        0 = __CFSHL__(v188, 3);
+                        _CF = __CFSHL__(v188, 3);
                         v165 = 8 * v188;
-                        if ( !0 )
+                        if ( !_CF )
                           goto LABEL_264;
                         v189 = 8 * v165;
                         if ( v189 < 0 )
@@ -29995,11 +29985,11 @@ LABEL_304:
                         if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
                         {
                           (void)0;
-                          _T1 = *0;
-                          LOWORD(0) = (uint16_t)0 - 1020;
+                          _T1 = *_R2;
+                          _R2 = ((unsigned)(_R2) & 0xFFFF0000U) | (((unsigned)((uint16_t)_R2 - 1020) & 0xFFFFU) << 0);
                           (void)0;
                           _T1 = *v70;
-                          v70 + 255;
+                          _R5 = v70 + 255;
                           (void)0;
 LABEL_318:
                           (void)0;
@@ -30011,7 +30001,7 @@ LABEL_319:
                           __mcr(0, 7, v85, 0, 15, 7);
 LABEL_342:
                           (void)0;
-                          *((uint16_t *)v75 + 14) = (uint16_t)0;
+                          *((uint16_t *)v75 + 14) = (uint16_t)_R2;
                           JUMPOUT(0x13444A);
                         }
                         v180 = 8 * v179;
@@ -30041,16 +30031,16 @@ LABEL_354:
                         v185 = 8 * v183;
                         if ( (v185 < 0) ^ _VF | (v185 == 0) )
                         {
-                          0 = __CFSHL__(v185, 3);
+                          _CF = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
+                          v172 = v173 != 0 && _CF;
                           if ( (v173 < 0) ^ _VF | (v173 == 0) )
                           {
                             v186 = 8 * v173;
                             if ( !v186 )
                               goto LABEL_318;
                             v101 = 8 * v186;
-                            1 = v101 == 0;
+                            _ZF = v101 == 0;
                             goto LABEL_304;
                           }
                         }
@@ -30059,7 +30049,7 @@ LABEL_354:
                           if ( v185 != 0 && v184 )
                           {
                             v154 = *(uint32_t **)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 12) + 12);
-                            (signed int *)v154[1];
+                            _R2 = (signed int *)v154[1];
                             v75 = (signed int *)v154[2];
                             v63 = (signed int)(v154 + 5);
 LABEL_258:
@@ -30073,22 +30063,22 @@ LABEL_259:
                             v156 = v155 + 4;
                             v63 = *(uint32_t *)(v155 + 4);
                             v157 = 8 * *(uint32_t *)(v156 + 4);
-                            *v85;
-                            0[1] = (signed int)0;
-                            0[2] = (signed int)v75;
-                            0[3] = (signed int)v70;
-                            0[4] = (uint32_t)(uintptr_t)v157;
+                            *_R2 = v85;
+                            _R2[1] = (signed int)_R2;
+                            _R2[2] = (signed int)v75;
+                            _R2[3] = (signed int)v70;
+                            _R2[4] = (uint32_t)(uintptr_t)v157;
                             v157 *= 8;
-                            *v85;
-                            0[1] = (uint32_t)(uintptr_t)v73;
-                            0[2] = (signed int)v65;
-                            0[3] = v63;
-                            0[4] = (uint32_t)(uintptr_t)v157;
-                            0 += 5;
+                            *_R2 = v85;
+                            _R2[1] = (uint32_t)(uintptr_t)v73;
+                            _R2[2] = (signed int)v65;
+                            _R2[3] = v63;
+                            _R2[4] = (uint32_t)(uintptr_t)v157;
+                            _R2 += 5;
                             v101 = 8 * v157;
 LABEL_260:
                             *v65 = v85;
-                            v65[1] = (signed int)0;
+                            v65[1] = (signed int)_R2;
                             v65[2] = (signed int)v75;
                             v65[3] = (signed int)v70;
                             v65[4] = (uint32_t)(uintptr_t)v101;
@@ -30110,7 +30100,7 @@ LABEL_261:
 LABEL_262:
                             v161 = (int *)(8 * v160);
                             *v161 = v73;
-                            v161[1] = (int)0;
+                            v161[1] = (int)_R2;
                             v161[2] = (int)v70;
                             v161[3] = v63;
                             v162 = (int *)(8 * (uint32_t)(v161 + 4));
@@ -30133,7 +30123,7 @@ LABEL_264:
                             v167 = 8 * v166;
 LABEL_265:
                             *(uint32_t *)v167 = v85;
-                            *(uint32_t *)(v167 + 4) = 0;
+                            *(uint32_t *)(v167 + 4) = _R2;
                             *(uint32_t *)(v167 + 8) = v75;
                             *(uint32_t *)(v167 + 12) = v70;
                             *(uint32_t *)(v167 + 16) = v167;
@@ -30147,27 +30137,27 @@ LABEL_266:
 LABEL_267:
                             JUMPOUT(0x133EE0);
                           }
-                          0 = __CFSHL__(v185, 3);
+                          _CF = __CFSHL__(v185, 3);
                           v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
+                          v172 = v173 != 0 && _CF;
                         }
                         if ( v172 )
                           goto LABEL_259;
-                        0 = __CFSHL__(v173, 3);
+                        _CF = __CFSHL__(v173, 3);
                         v160 = 8 * v173;
-                        if ( v160 != 0 && 0 )
+                        if ( v160 != 0 && _CF )
                           goto LABEL_262;
-                        0 = __CFSHL__(v160, 3);
+                        _CF = __CFSHL__(v160, 3);
                         v174 = 8 * v160;
-                        if ( v174 != 0 && 0 )
+                        if ( v174 != 0 && _CF )
                           goto LABEL_267;
-                        0 = __CFSHL__(v174, 3);
+                        _CF = __CFSHL__(v174, 3);
                         v163 = 8 * v174;
-                        if ( v163 == 0 || !0 )
+                        if ( v163 == 0 || !_CF )
                           goto LABEL_263;
-                        0 = __CFSHL__(v163, 3);
+                        _CF = __CFSHL__(v163, 3);
                         v175 = 8 * v163;
-                        if ( v175 == 0 || !0 )
+                        if ( v175 == 0 || !_CF )
                         {
                           v143 = 8 * v175;
                           goto LABEL_268;
@@ -30277,11 +30267,11 @@ LABEL_334:
                 }
                 else
                 {
-                  if ( v116 != 0 && 0 )
+                  if ( v116 != 0 && _CF )
                   {
                     v63 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 4) + 12) + 12);
 LABEL_159:
-                    *(signed int **)(v63 + 4);
+                    _R2 = *(signed int **)(v63 + 4);
                     v75 = *(signed int **)(v63 + 8);
                     v63 += 20;
 LABEL_160:
@@ -30299,17 +30289,17 @@ LABEL_160:
                     *(uint32_t *)(v73 + 12) = v63;
                     *(uint32_t *)(v73 + 16) = v88;
                     v88 *= 8;
-                    *v85;
-                    0[1] = (signed int)0;
-                    0[2] = (signed int)v75;
-                    0[3] = (signed int)v70;
-                    0[4] = (uint32_t)(uintptr_t)v88;
+                    *_R2 = v85;
+                    _R2[1] = (signed int)_R2;
+                    _R2[2] = (signed int)v75;
+                    _R2[3] = (signed int)v70;
+                    _R2[4] = (uint32_t)(uintptr_t)v88;
                     v89 = 8 * v88;
                     goto LABEL_161;
                   }
-                  0 = __CFSHL__(v116, 3);
+                  _CF = __CFSHL__(v116, 3);
                   v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
+                  v106 = v107 != 0 && _CF;
                 }
                 if ( v106 )
                   goto LABEL_160;
@@ -30319,16 +30309,16 @@ LABEL_160:
             v149 = 8 * v147;
             if ( (v149 < 0) ^ _VF | (v149 == 0) )
             {
-              0 = __CFSHL__(v149, 3);
+              _CF = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
+              v136 = v137 != 0 && _CF;
               if ( (v137 < 0) ^ _VF | (v137 == 0) )
               {
                 v143 = 8 * v137;
                 if ( !v143 )
                   goto LABEL_269;
                 v80 = 8 * v143;
-                1 = v80 == 0;
+                _ZF = v80 == 0;
                 goto LABEL_244;
               }
             }
@@ -30359,12 +30349,12 @@ LABEL_200:
                 v120[2] = (signed int)v65;
                 v120[3] = (signed int)v70;
                 v120[4] = (uint32_t)(uintptr_t)v122;
-                v120 + 5;
+                _R2 = v120 + 5;
                 v80 = 8 * v122;
 LABEL_201:
-                *v63;
-                0[1] = (uint32_t)(uintptr_t)v80;
-                0 += 2;
+                *_R2 = v63;
+                _R2[1] = (uint32_t)(uintptr_t)v80;
+                _R2 += 2;
                 v123 = 8 * v80;
 LABEL_202:
                 *v65 = v85;
@@ -30386,7 +30376,7 @@ LABEL_203:
                 v75 += 5;
                 v125 *= 8;
                 *(uint32_t *)v125 = v73;
-                *(uint32_t *)(v125 + 4) = 0;
+                *(uint32_t *)(v125 + 4) = _R2;
                 *(uint32_t *)(v125 + 8) = v75;
                 *(uint32_t *)(v125 + 12) = v63;
                 v126 = v125 + 16;
@@ -30396,7 +30386,7 @@ LABEL_204:
                 v127[1] = (signed int *)v63;
                 v128 = 8 * (uint32_t)(v127 + 2);
 LABEL_205:
-                *(uint32_t *)v128 = 0;
+                *(uint32_t *)v128 = _R2;
                 *(uint32_t *)(v128 + 4) = v65;
                 *(uint32_t *)(v128 + 8) = v70;
                 *(uint32_t *)(v128 + 12) = v63;
@@ -30440,31 +30430,31 @@ LABEL_211:
                 v85 = __mrc(0, 5, 5, 15, 7);
                 goto LABEL_212;
               }
-              0 = __CFSHL__(v149, 3);
+              _CF = __CFSHL__(v149, 3);
               v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
+              v136 = v137 != 0 && _CF;
             }
             if ( v136 )
               goto LABEL_200;
-            0 = __CFSHL__(v137, 3);
+            _CF = __CFSHL__(v137, 3);
             v124 = 8 * v137;
-            if ( v124 != 0 && 0 )
+            if ( v124 != 0 && _CF )
               goto LABEL_203;
-            0 = __CFSHL__(v124, 3);
+            _CF = __CFSHL__(v124, 3);
             v138 = 8 * v124;
-            if ( v138 != 0 && 0 )
+            if ( v138 != 0 && _CF )
               goto LABEL_210;
-            0 = __CFSHL__(v138, 3);
+            _CF = __CFSHL__(v138, 3);
             v126 = 8 * v138;
-            if ( v126 == 0 || !0 )
+            if ( v126 == 0 || !_CF )
               goto LABEL_204;
-            0 = __CFSHL__(v126, 3);
+            _CF = __CFSHL__(v126, 3);
             v139 = 8 * v126;
-            if ( v139 == 0 || !0 )
+            if ( v139 == 0 || !_CF )
               JUMPOUT(0x133D66);
             v142 = 8 * v139;
             v140 = v142 == 0;
-            0 = v142 < 0;
+            _NF = v142 < 0;
           }
         case 8u:
           *((uint32_t *)v4 + 1) = (*((uint32_t *)0x11218c));
@@ -69020,12 +69010,12 @@ int  sub_128508(unsigned int a1, unsigned int *a2)
 
   v3 = *(unsigned char *)a1;
   v4 = *(unsigned char *)a2;
-  1 = v3 == 1;
+  _ZF = v3 == 1;
   if ( *(uint8_t *)a1 )
-    1 = v3 == v4;
-  if ( !1 )
+    _ZF = v3 == v4;
+  if ( !_ZF )
     return v3 - v4;
-  -1;
+  _R12 = -1;
   if ( !((a1 | (unsigned int)a2) << 29) )
     goto LABEL_9;
   if ( ((a1 ^ (unsigned int)a2) & 7) == 0 )
@@ -69035,60 +69025,60 @@ int  sub_128508(unsigned int a1, unsigned int *a2)
     v9 = (uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
     v10 = *v8;
     a1 = (unsigned int)(v8 + 2);
-    v10;
-    1 = (v7 & 4) == 0;
+    _R2 = v10;
+    _ZF = (v7 & 4) == 0;
     v11 = *v9;
     a2 = (unsigned int *)(v9 + 2);
     v12 = -1 << (8 * (v7 & 3));
-    LODWORD(0) = 0 | ~v12;
+    _R2 = (uint32_t)(_R2 | ~v12);
     v14 = v11 | (unsigned int)~v12;
-    if ( !1 )
+    if ( !_ZF )
     {
-      HIDWORD(0) |= ~v12;
-      LODWORD(0) = -1;
+      HIDWORD(_R2) |= ~v12;
+      _R2 = (uint32_t)(-1);
       HIDWORD(v14) |= ~v12;
       v14 = (v14 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
     }
     while ( 1 )
     {
       (void)0;
-      0 ^ v14;
+      _R4 = _R2 ^ v14;
       (void)0;
-      if ( 0 )
+      if ( _R4 )
         break;
       (void)0;
-      HIDWORD(0) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
       (void)0;
-      if ( 0 )
+      if ( _R5 )
         goto LABEL_14;
-      *(uint64_t *)(a1 - 8);
+      _R2 = *(uint64_t *)(a1 - 8);
       v14 = *((uint64_t *)a2 - 1);
       (void)0;
-      0 ^ v14;
+      _R4 = _R2 ^ v14;
       (void)0;
-      HIDWORD(0) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
       (void)0;
-      0 | 0;
-      if ( 0 )
+      _R5 = _R5 | _R4;
+      if ( _R5 )
       {
-        if ( !0 )
+        if ( !_R4 )
         {
 LABEL_14:
-          v30 = __clz(bswap32(0)) & 0xF8;
-          return (unsigned char)(HIDWORD(0) >> v30) - (unsigned char)(HIDWORD(v14) >> v30);
+          v30 = __clz(bswap32(_R5)) & 0xF8;
+          return (unsigned char)(HIDWORD(_R2) >> v30) - (unsigned char)(HIDWORD(v14) >> v30);
         }
         break;
       }
 LABEL_9:
       v15 = *(uint64_t *)a1;
       a1 += 16;
-      v15;
+      _R2 = v15;
       v16 = *(uint64_t *)a2;
       a2 += 4;
       v14 = v16;
     }
-    v31 = __clz(bswap32(0)) & 0xF8;
-    return (unsigned char)((unsigned int)0 >> v31) - (unsigned char)((unsigned int)v14 >> v31);
+    v31 = __clz(bswap32(_R4)) & 0xF8;
+    return (unsigned char)((unsigned int)_R2 >> v31) - (unsigned char)((unsigned int)v14 >> v31);
   }
   if ( (((unsigned char)a1 ^ (unsigned char)a2) & 3) == 0 )
   {
@@ -69103,7 +69093,7 @@ LABEL_9:
       v47 = *v46;
       a2 = v46 + 2;
       v48 = -1 << (8 * v32);
-      v44 | ~v48;
+      _R2 = v44 | ~v48;
       v35 = v47 | ~v48;
       goto LABEL_19;
     }
@@ -69111,25 +69101,25 @@ LABEL_9:
     {
       v34 = *(uint32_t *)a1;
       a1 += 8;
-      v34;
+      _R2 = v34;
       v36 = *a2;
       a2 += 2;
       v35 = v36;
 LABEL_19:
       (void)0;
-      0 ^ v35;
+      _R5 = _R2 ^ v35;
       (void)0;
-      if ( 0 )
+      if ( _R5 )
         break;
-      *(uint32_t *)(a1 - 4);
+      _R2 = *(uint32_t *)(a1 - 4);
       v35 = *(a2 - 1);
       (void)0;
-      0 ^ v35;
+      _R5 = _R2 ^ v35;
       (void)0;
     }
-    while ( !0 );
-    v42 = __clz(bswap32(0)) & 0xF8;
-    return (unsigned char)(0 >> v42) - (unsigned char)(v35 >> v42);
+    while ( !_R5 );
+    v42 = __clz(bswap32(_R5)) & 0xF8;
+    return (unsigned char)(_R2 >> v42) - (unsigned char)(v35 >> v42);
   }
   v49 = a1 & 3;
   if ( (a1 & 3) != 0 )
@@ -69163,8 +69153,8 @@ LABEL_31:
 LABEL_32:
   v61 = *(uint32_t *)a1;
   v59 = (unsigned int *)(a1 + 4);
-  v61;
-  0 = __CFSHL__(a2, 31);
+  _R2 = v61;
+  _CF = __CFSHL__(a2, 31);
   v63 = ((uint32_t)a2 << 31 != 0) & __CFSHL__(a2, 31);
   v64 = (uint32_t *)((unsigned int)a2 & 0xFFFFFFFC);
   v67 = *v64;
@@ -69175,99 +69165,99 @@ LABEL_32:
     while ( 1 )
     {
       (void)0;
-      (unsigned char)0 ^ HIBYTE(v66);
+      _R5 = (unsigned char)_R2 ^ HIBYTE(v66);
       (void)0;
-      if ( !1 )
+      if ( !_ZF )
       {
         v66 >>= 24;
         goto LABEL_59;
       }
-      if ( 0 )
+      if ( _R5 )
         break;
       v81 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v81;
-      if ( ((unsigned char)0 ^ 0) != v81 << 8 )
+      if ( ((unsigned char)_R2 ^ _R2) != v81 << 8 )
         goto LABEL_57;
       v82 = *v59++;
-      v82;
+      _R2 = v82;
     }
-    if ( !(uint8_t)0 )
+    if ( !(uint8_t)_R5 )
     {
       v66 = *(uint32_t *)v65;
 LABEL_57:
-      0 >>= 8;
+      _R2 >>= 8;
       v66 &= 0xFFFFFFu;
       goto LABEL_59;
     }
     return 0;
   }
-  else if ( 0 )
+  else if ( _CF )
   {
     while ( 1 )
     {
       (void)0;
-      (unsigned short)0 ^ HIWORD(v66);
+      _R5 = (unsigned short)_R2 ^ HIWORD(v66);
       (void)0;
-      if ( !1 )
+      if ( !_ZF )
       {
         v66 >>= 16;
         goto LABEL_59;
       }
-      if ( 0 )
+      if ( _R5 )
         break;
       v76 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v76;
-      if ( ((unsigned short)0 ^ 0) != v76 << 16 )
+      if ( ((unsigned short)_R2 ^ _R2) != v76 << 16 )
       {
-        0 >>= 16;
+        _R2 >>= 16;
         v66 = (unsigned short)v66;
         goto LABEL_59;
       }
       v77 = *v59++;
-      v77;
+      _R2 = v77;
     }
-    if ( (uint16_t)0 )
+    if ( (uint16_t)_R5 )
       return 0;
     v66 = *v65;
-    0 >>= 16;
+    _R2 >>= 16;
 LABEL_59:
-    bswap32(0);
+    _R2 = bswap32(_R2);
     v84 = bswap32(v66);
     (void)0;
-    0 ^ v84;
+    _R4 = _R2 ^ v84;
     (void)0;
-    LOBYTE(0) = __clz(0);
-    return (0 << 0 >> 24) - (v84 << 0 >> 24);
+    _R4 = ((unsigned)(_R4) & 0xFFFFFF00U) | (((unsigned)(__clz(_R5)) & 0xFFU) << 0);
+    return (_R2 << _R4 >> 24) - (v84 << _R4 >> 24);
   }
   else
   {
     while ( 1 )
     {
       (void)0;
-      0 & 0xFFFFFF ^ (v66 >> 8);
+      _R5 = _R2 & 0xFFFFFF ^ (v66 >> 8);
       (void)0;
-      if ( !1 )
+      if ( !_ZF )
       {
         v66 >>= 8;
         goto LABEL_59;
       }
-      if ( 0 )
+      if ( _R5 )
         break;
       v71 = *(uint32_t *)v65;
       v65 += 2;
       v66 = v71;
-      if ( (0 & 0xFFFFFF ^ 0) != v71 << 24 )
+      if ( (_R2 & 0xFFFFFF ^ _R2) != v71 << 24 )
       {
-        0 >>= 24;
+        _R2 >>= 24;
         v66 = (unsigned char)v66;
         goto LABEL_59;
       }
       v72 = *v59++;
-      v72;
+      _R2 = v72;
     }
-    if ( (0 & 0xFFFFFF) != 0 )
+    if ( (_R5 & 0xFFFFFF) != 0 )
       return 0;
     return -*(unsigned char *)v65;
   }
@@ -69377,60 +69367,60 @@ unsigned int  sub_1288C0(unsigned int a1)
 
   __pld((void *)a1);
   v1 = (long long *)(a1 & 0xFFFFFFF8);
-  -1;
+  _R12 = -1;
   v3 = a1 & 7;
   __pld((void *)((a1 & 0xFFFFFFF8) + 32));
   if ( (a1 & 7) != 0 )
   {
-    *v1;
+    _R2 = *v1;
     v5 = -v3;
     __pld(v1 + 8);
     v15 = -1 << (8 * (v3 & 3));
-    LODWORD(0) = 0 | ~v15;
+    _R2 = (uint32_t)(_R2 | ~v15);
     if ( (v3 & 4) != 0 )
     {
-      HIDWORD(0) |= ~v15;
-      LODWORD(0) = -1;
+      HIDWORD(_R2) |= ~v15;
+      _R2 = (uint32_t)(-1);
     }
-    0;
+    _R4 = 0;
     goto LABEL_4;
   }
-  0;
+  _R4 = 0;
   v5 = -8;
   do
   {
-    *v1;
+    _R2 = *v1;
     __pld(v1 + 8);
     v5 += 8;
 LABEL_4:
     (void)0;
-    if ( HIDWORD(0) )
+    if ( HIDWORD(_R2) )
       break;
-    v1[1];
+    _R2 = v1[1];
     (void)0;
     v5 += 8;
     (void)0;
-    if ( HIDWORD(0) )
+    if ( HIDWORD(_R2) )
       break;
-    v1[2];
+    _R2 = v1[2];
     (void)0;
     v5 += 8;
     (void)0;
-    if ( HIDWORD(0) )
+    if ( HIDWORD(_R2) )
       break;
-    v1[3];
+    _R2 = v1[3];
     v1 += 4;
     (void)0;
     v5 += 8;
     (void)0;
   }
-  while ( !HIDWORD(0) );
-  if ( !(uint32_t)0 )
+  while ( !HIDWORD(_R2) );
+  if ( !(uint32_t)_R2 )
   {
     v5 += 4;
-    LODWORD(0) = HIDWORD(0);
+    _R2 = (uint32_t)(HIDWORD(_R2));
   }
-  return v5 + (__clz(bswap32(0)) >> 3);
+  return v5 + (__clz(bswap32(_R2)) >> 3);
 }
 
 

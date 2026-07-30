@@ -74,12 +74,10 @@ drive_upload*.log
 # (they're the canonical releases of each pipeline stage). Don't ignore them.
 # Per-harness gitignores only apply to truly ephemeral state (logs, idb).
 
-# v25 (in-flight callgraph analysis, no source yet)
-harness_v25/out/
-
-
-# v25 fwstruct pipeline outputs (regen'd)
-harness_v25/out/
-harness_v25/annotated/
-harness_v25/types_fixed/
-harness_v25/ivt/
+# v25 unified structure analysis (fwstruct): outputs ARE canonical, tracked.
+# Re-generated with `bin/fwstruct scan structs callgraph magic initpath diff`
+# or by reading from v19/decompiled/. Don't gitignore.
+# Core dumps & scratch
+*.core
+scratch/
+tmp/

@@ -55,10 +55,10 @@ var hexLitRe = regexp.MustCompile(`\b0x([0-9a-fA-F]+)\b`)
 var intLitRe = regexp.MustCompile(`\b(\d+)[uUlL]*\b`)
 
 // loadRe matches loads: result = *(int *)(v5 + 0x8)  or  v3 = *(_DWORD *)v4
-var loadRe = regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char|unsigned\s+\w+)\s*\*\s*\)\s*(?:\(\s*([a-zA-Z_][a-zA-Z0-9_]*\s*\+\s*(?:0x[0-9a-fA-F]+|\d+))\s*\)|([a-zA-Z_][a-zA-Z0-9_]*))`)
+var loadRe = regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char|unsigned\s+\w+)\s*\*?\s*\)\s*(?:\(\s*([^)]+?)\s*\))?`)
 
 // storeRe matches stores: *(_DWORD *)(v5 + 0x8) = 1  or  *v4 = result
-var storeRe = regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char|unsigned\s+\w+)\s*\*\s*\)\s*(?:\(\s*([a-zA-Z_][a-zA-Z0-9_]*\s*\+\s*(?:0x[0-9a-fA-F]+|\d+))\s*\)|([a-zA-Z_][a-zA-Z0-9_]*))\s*=`)
+var storeRe = regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char|unsigned\s+\w+)\s*\*?\s*\)\s*(?:\(\s*([^)]+?)\s*\))?\s*=`)
 
 // baseOffsetRe extracts the (base, offset) from a pointer expression like v5 + 0x8
 var baseOffsetRe = regexp.MustCompile(`([a-zA-Z_][a-zA-Z0-9_]*)\s*\+\s*(0x[0-9a-fA-F]+|\d+)`)
@@ -136,7 +136,6 @@ func ParseFile(image, path string) (*Func, error) {
 		// Stores: a store appears when the deref is on the LHS of " = "
 		// Hex-Rays output: "result = *(_DWORD *)v3" (load) vs "*(_DWORD *)v3 = 0x1234" (store)
 		// We can disambiguate by checking if there's an " = " after the matched expr.
-		seenAccesses := map[string]bool{}
 		for _, ml := range loadRe.FindAllString(code, -1) {
 			idx := strings.Index(code, ml)
 			rest := code[idx+len(ml):]
@@ -151,8 +150,6 @@ func ParseFile(image, path string) (*Func, error) {
 
 		// Stores
 		for _, ms := range storeRe.FindAllString(code, -1) {
-			if seenAccesses[ms] { continue }
-			seenAccesses[ms] = true
 			a := parseAccess(ms, "store")
 			if a != nil {
 				fn.Accesses = append(fn.Accesses, *a)
@@ -205,8 +202,7 @@ func parseAccess(expr, dir string) *Access {
 	default:
 		a.Size = 4
 	}
-	// Extract (base, offset) from either "v3 + 0x4" or direct "v3"
-	// baseOffsetRe finds (base, offset) in expressions like "v3 + 0x4"
+	// Extract (base, offset)
 	if m := baseOffsetRe.FindStringSubmatch(expr); m != nil {
 		a.Base = m[1]
 		if off, err := strconv.ParseInt(m[2], 0, 32); err == nil {
@@ -215,7 +211,7 @@ func parseAccess(expr, dir string) *Access {
 	} else {
 		// Pure base like *v4
 		// Pattern: *(_DWORD *)v4
-		if m := regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char)\s*\*\s*\)\s*([a-zA-Z_]\w*)`).FindStringSubmatch(expr); m != nil {
+		if m := regexp.MustCompile(`\*\s*\(\s*(?:_DWORD|_WORD|_BYTE|int|short|char)\s*\*\s*\)\s*(\w+)`).FindStringSubmatch(expr); m != nil {
 			a.Base = m[1]
 			a.Offset = 0
 		} else {

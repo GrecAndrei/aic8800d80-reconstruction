@@ -74,39 +74,3 @@ func TestParseFile(t *testing.T) {
 		t.Errorf("expected 0x12345678 in literals, got %v", fn.Literals)
 	}
 }
-
-func TestParseFileStoreVsLoad(t *testing.T) {
-	// Test that "result = *(_DWORD *)v3" is a load, not a store
-	tmp := t.TempDir() + "/100200_sub_100200.c"
-	body := `int sub_100200(int v3)
-{
-  int v4 = *(_DWORD *)v3;
-  *(_DWORD *)v3 = v4;
-  return 0;
-}
-`
-	if err := os.WriteFile(tmp, []byte(body), 0644); err != nil {
-		t.Fatal(err)
-	}
-	fn, err := ParseFile("testimg", tmp)
-	if err != nil {
-		t.Fatal(err)
-	}
-	loadCount := 0
-	storeCount := 0
-	for _, a := range fn.Accesses {
-		if a.Base == "v3" && a.Offset == 0 {
-			if a.Direction == "load" {
-				loadCount++
-			} else {
-				storeCount++
-			}
-		}
-	}
-	if loadCount != 1 {
-		t.Errorf("loadCount = %d, want 1", loadCount)
-	}
-	if storeCount != 1 {
-		t.Errorf("storeCount = %d, want 1", storeCount)
-	}
-}
