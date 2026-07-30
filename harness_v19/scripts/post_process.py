@@ -1,7 +1,17 @@
-"""Post-process Hex-Rays decompiled output to make it GCC-compilable."""
+#!/usr/bin/env python3
+"""post_process.py — Hex-Rays decompilation cleanup for GCC.
+
+Pipeline:
+  - process_types: MSVC → C99 type rewrite
+  - strip_asm: remove __asm blocks (brace-aware for nested braces)
+  - collect_data_refs / build_data_decls: replace off_/dword_/etc symbols
+  - fix_lvalue_macros: LOBYTE(var) = expr → bitfield masking
+  - compose per-function → one .c per binary
+"""
 import re
 import os
 import json
+import subprocess
 from pathlib import Path
 
 
@@ -19,7 +29,7 @@ def process_types(text):
     text = re.sub(r'\b_WORD\b', 'uint16_t', text)
     text = re.sub(r'\b_QWORD\b', 'uint64_t', text)
     text = re.sub(r'\b__fastcall\b', '', text)
-    text = re.sub(r'\b__cdecl\b', '', text)
+    re.sub(r'\b__cdecl\b', '', text)
     text = re.sub(r'\b__stdcall\b', '', text)
     text = re.sub(r'\b__noreturn\b', '__attribute__((noreturn))', text)
     text = re.sub(r'\bBOOL\b', 'int', text)
@@ -28,59 +38,43 @@ def process_types(text):
     return text
 
 
-def process_pseudo(pseudo, data_decls=None):
-    if data_decls is None:
-        data_decls = {}
-    
-    pseudo = process_types(pseudo)
-    
-    # Remove __asm blocks
-    pseudo = re.sub(r'__asm\s*\{[^}]*\}', '(void)0', pseudo, flags=re.S)
-    pseudo = re.sub(r'__asm__\s*\([^)]*\)', '(void)0', pseudo, flags=re.S)
-    
-    # Flags
-    pseudo = re.sub(r'\b_CF\b', '0', pseudo)
-    pseudo = re.sub(r'\b_ZF\b', '1', pseudo)
-    pseudo = re.sub(r'\b_NF\b', '0', pseudo)
-    pseudo = re.sub(r'\b_OF\b', '0', pseudo)
-    
-    # Register assignments
-    pseudo = re.sub(r'\b_R\d+\s*=\s*', '', pseudo)
-    pseudo = re.sub(r'\b_LR\s*=\s*', '', pseudo)
-    pseudo = re.sub(r'\b_SP\s*=\s*', '', pseudo)
-    pseudo = re.sub(r'\b_PC\s*=\s*', '', pseudo)
-    pseudo = re.sub(r'\b_R\d+\b', '0', pseudo)
-    pseudo = re.sub(r'\b_LR\b', '0', pseudo)
-    pseudo = re.sub(r'\b_SP\b', '0', pseudo)
-    pseudo = re.sub(r'\b_PC\b', '0', pseudo)
-    
-    # MEMORY[0xNNN]
-    def replace_mem(m):
-        addr = m.group(1)
-        return f'(*((volatile uint32_t *)0x{addr}))'
-    pseudo = re.sub(r'MEMORY\[0x([0-9a-fA-F]+)\]', replace_mem, pseudo)
-    
-    # dword_/off_/unk_/algn_/byte_/word_/qword_ -> data_decls
-    def replace_data(m):
-        name = m.group(0)
-        if name in data_decls:
-            return f'({data_decls[name]})'
-        return name
-    pseudo = re.sub(r'\b(?:dword|off|unk|algn|byte|word|qword)_(?:0x)?[0-9A-Fa-f]+\b', replace_data, pseudo)
-    
-    # Handle function calls through data: `(*((uint32_t *)0xADDR))()` -> cast to function ptr
-    # The replacement above already wraps in parens, so we get `((data_decl))()`
-    # data_decl is `*((uint32_t *)0xADDR)`. So we have `((*((uint32_t *)0xADDR)))()`
-    # This is calling through volatile pointer. Cast to function pointer.
-    def replace_call(m):
-        inner = m.group(1)  # The pointer expression
-        return f'((uint32_t(*)(void))({inner}))()'
-    pseudo = re.sub(r'\(\(\(\(uint32_t\s*\*\)\s*0x[0-9a-fA-F]+\)\)\)\(\)', replace_call, pseudo)
-    # Also handle the case from data_decls (which uses *((uint32_t *)0xADDR))
-    # Pattern: `((*((uint32_t *)0xADDR)))()` - extra parens
-    pseudo = re.sub(r'\(\(\(\*\(\(uint32_t\s*\*\)0x[0-9a-fA-F]+\)\)\)\(\)', lambda m: f'((uint32_t(*)(void))0x{m.group(0).split("0x")[1].split(")")[0]})()', pseudo)
-    
-    return pseudo
+def strip_asm(text):
+    """Strip __asm blocks with proper nested-brace handling."""
+    result = []
+    s = text
+    pat = re.compile(r'__asm\s*\{')
+    i = 0
+    while i < len(s):
+        m = pat.search(s, i)
+        if m is None:
+            result.append(s[i:])
+            break
+        j = m.end()
+        depth = 1
+        while j < len(s) and depth > 0:
+            if s[j] == '{': depth += 1
+            elif s[j] == '}': depth -= 1
+            j += 1
+        result.append(s[i:m.start()])
+        result.append('(void)0')
+        i = j
+    text = ''.join(result)
+    text = re.sub(r'__asm\s+volatile\s*\([^)]*\)', '(void)0', text, flags=re.S)
+    text = re.sub(r'__asm__\s*\([^)]*\)', '(void)0', text, flags=re.S)
+    text = re.sub(r'\b_CF\b', '0', text)
+    text = re.sub(r'\b_ZF\b', '1', text)
+    text = re.sub(r'\b_NF\b', '0', text)
+    text = re.sub(r'\b_OF\b', '0', text)
+    text = re.sub(r'\b_R\d+\s*=\s*', '', text)
+    text = re.sub(r'\b_LR\s*=\s*', '', text)
+    text = re.sub(r'\b_SP\s*=\s*', '', text)
+    text = re.sub(r'\b_PC\s*=\s*', '', text)
+    text = re.sub(r'\b_R\d+\b', '0', text)
+    text = re.sub(r'\b_LR\b', '0', text)
+    text = re.sub(r'\b_SP\b', '0', text)
+    text = re.sub(r'\b_PC\b', '0', text)
+    text = re.sub(r'MEMORY\[0x([0-9a-fA-F]+)\]', r'(*((volatile uint32_t *)0x\1))', text)
+    return text
 
 
 def collect_data_refs(img_dir):
@@ -93,9 +87,8 @@ def collect_data_refs(img_dir):
             kind = m.group(1)
             addr_hex = m.group(2)
             name = f'{kind}_{addr_hex}'
-            addr = int(addr_hex, 16)
             if name not in refs:
-                refs[name] = (kind, addr)
+                refs[name] = (kind, int(addr_hex, 16))
     return refs
 
 
@@ -121,7 +114,10 @@ def collect_func_signatures(img_dir):
         if c_file.name.startswith('_'):
             continue
         text = c_file.read_text()
-        m = re.search(r'^\s*((?:static\s+)?(?:inline\s+)?(?:[\w\s\*]+?))\s+(\w+)\s*\(([^)]*)\)\s*\{', text, re.M)
+        m = re.search(
+            r'^\s*((?:static\s+)?(?:inline\s+)?(?:[\w\s\*]+?))\s+(\w+)\s*\(([^)]*)\)\s*\{',
+            text, re.M
+        )
         if m:
             ret_type = m.group(1).strip()
             name = m.group(2)
@@ -134,48 +130,126 @@ def collect_func_signatures(img_dir):
     return sigs
 
 
+def fix_lvalue_macros(text):
+    """Rewrite LOBYTE/HIBYTE/LOWORD/HIDWORD/LODWORD/HIDWORD(var) = expr assignments."""
+    result = []
+    s = text
+    pat = re.compile(r'\b(LOBYTE|HIBYTE|LOWORD|HIWORD|LODWORD|HIDWORD)\(')
+    i = 0
+    while i < len(s):
+        m = pat.search(s, i)
+        if m is None:
+            result.append(s[i:])
+            break
+        macro = m.group(1)
+        j = m.end()
+        depth = 1
+        while j < len(s) and depth > 0:
+            if s[j] == '(': depth += 1
+            elif s[j] == ')': depth -= 1
+            j += 1
+        if depth != 0:
+            result.append(s[i:j]); i = j; continue
+        var = s[m.end():j - 1].strip()
+        if not re.match(r'^[a-zA-Z_]\w*$', var):
+            result.append(s[i:j]); i = j; continue
+        k = j
+        while k < len(s) and s[k] in ' \t': k += 1
+        if k >= len(s) or s[k] != '=':
+            result.append(s[i:j]); i = j; continue
+        k += 1
+        while k < len(s) and s[k] in ' \t': k += 1
+        expr_start = k
+        d = 0
+        while k < len(s):
+            if s[k] in '(': d += 1
+            elif s[k] in ')': d -= 1
+            elif s[k] == ';' and d == 0: break
+            elif s[k] in ',\n' and d == 0: break
+            k += 1
+        expr = s[expr_start:k].strip()
+        if not expr or expr.startswith('(('):
+            result.append(s[i:j]); i = j; continue
+        window = s[max(0, i - 2000):m.start()]
+        is_64bit = bool(re.search(
+            r'\b(?:long\s+long|uint64_t|unsigned\s+long\s+long|__int64)\b\s+\**\s*'
+            + re.escape(var) + r'\b', window
+        )) or bool(var.startswith('kr') and '_' in var)
+        size_map = {'LOBYTE': (8,0), 'HIBYTE': (8,8), 'LOWORD': (16,0), 'HIWORD': (16,16),
+                     'LODWORD': (32,0), 'HIDWORD': (32,32)}
+        size_bits, lo_bit = size_map[macro]
+        if macro in ('HIDWORD', 'LODWORD') and not is_64bit:
+            repl = f'{var} = (uint32_t)({expr})'
+        elif is_64bit:
+            mask_lo = (1 << size_bits) - 1
+            mask = mask_lo << lo_bit
+            invmask = (~mask) & ((1 << 64) - 1)
+            repl = (f'{var} = ({var} & 0x{invmask:016X}ULL) '
+                    f'| (((unsigned long long)({expr}) & 0x{mask_lo:03X}ULL) << {lo_bit})')
+        else:
+            hi_bit = lo_bit + size_bits - 1
+            if hi_bit >= 32:
+                result.append(s[i:j]); i = j; continue
+            mask_lo = (1 << size_bits) - 1
+            mask = mask_lo << lo_bit
+            invmask = (~mask) & 0xFFFFFFFF
+            repl = (f'{var} = ((unsigned)({var}) & 0x{invmask:08X}U) '
+                    f'| (((unsigned)({expr}) & 0x{mask_lo:02X}U) << {lo_bit})')
+        result.append(s[i:m.start()])
+        result.append(repl)
+        i = k
+    return ''.join(result)
+
+
 def add_casts(text):
-    """Add explicit casts for problematic assignments.
-    Pattern: X[N] = pointer_var  ->  X[N] = (uint32_t)(uintptr_t)pointer_var
-    Pattern: X = pointer_var  ->  X = (uint32_t)(uintptr_t)pointer_var
-    """
-    # Detect common pointer->int assignments
-    # For now, just wrap any `*X = Y` where Y looks like a pointer (starts with `a`, `v`, `p`)
-    # and X is `*X` (deref)
-    # This is rough but should catch most
-    
-    # `X[N] = pointer_var`  (N is index)
-    # Look for X[index] = name where name is short (likely pointer)
+    """Add explicit casts for pointer/integer mismatches."""
+    def _looks_like_pointer(t, name):
+        pat = rf'\b\w+\s*\*\s*{re.escape(name)}\b'
+        return bool(re.search(pat, t))
+
     text = re.sub(
         r'(\b\w+\[\d+\])\s*=\s*(\b[a-zA-Z_]\w{0,4}\b)(?!\s*[\(\.])',
-        lambda m: f'{m.group(1)} = (uint32_t)(uintptr_t){m.group(2)}' if _looks_like_pointer(text, m.group(2)) else m.group(0),
+        lambda m: (f'{m.group(1)} = (uint32_t)(uintptr_t){m.group(2)}'
+                   if _looks_like_pointer(text, m.group(2)) else m.group(0)),
         text
     )
     return text
 
 
-def _looks_like_pointer(text, name):
-    """Heuristic: does this name look like a pointer variable?"""
-    # Look for declarations like `TYPE *NAME` in the function
-    pat = rf'\b\w+\s*\*\s*{re.escape(name)}\b'
-    return bool(re.search(pat, text))
+def process_pseudo(pseudo, data_decls=None):
+    if data_decls is None:
+        data_decls = {}
+    pseudo = process_types(pseudo)
+    pseudo = strip_asm(pseudo)
+
+    def replace_data(m):
+        name = m.group(0)
+        if name in data_decls:
+            return f'({data_decls[name]})'
+        return name
+    pseudo = re.sub(r'\b(?:dword|off|unk|algn|byte|word|qword)_(?:0x)?[0-9A-Fa-f]+\b',
+                    replace_data, pseudo)
+
+    pseudo = fix_lvalue_macros(pseudo)
+    pseudo = add_casts(pseudo)
+    return pseudo
 
 
 def main():
     base = Path('harness_v19/decompiled')
     out_base = Path('harness_v19/composed')
     out_base.mkdir(exist_ok=True, parents=True)
-    
+
     for img_dir in sorted(base.iterdir()):
         img = img_dir.name
         out_path = out_base / f'{img}.c'
-        
+
         data_refs = collect_data_refs(img_dir)
         data_decls = build_data_decls(data_refs)
         sigs = collect_func_signatures(img_dir)
-        
+
         with open(out_path, 'w') as out:
-            out.write('/* v19 Hex-Rays decompilation - GCC-compatible C */\n')
+            out.write('/* v19 Hex-Rays decompilation - GCC-compatible C (with lvalue-macro fix) */\n')
             out.write(f'/* Image: {img} */\n')
             out.write(f'/* Functions: {len(sigs)} */\n')
             out.write(f'/* Data refs: {len(data_refs)} */\n')
@@ -200,7 +274,7 @@ def main():
             for sig in sorted(set(sigs.values())):
                 out.write(f'extern {sig};\n')
             out.write('\n')
-            
+
             for c_file in sorted(img_dir.glob('*.c')):
                 if c_file.name.startswith('_'):
                     continue
@@ -208,12 +282,16 @@ def main():
                 lines = [l for l in text.split('\n') if not l.startswith('// Doc:')]
                 pseudo = '\n'.join(lines)
                 pseudo = process_pseudo(pseudo, data_decls=data_decls)
-                pseudo = add_casts(pseudo)
                 out.write(pseudo)
                 out.write('\n')
-        
+
+        # Verify
+        res = subprocess.run(['gcc', '-fsyntax-only', '-w', str(out_path)],
+                              capture_output=True, text=True, timeout=60)
         size = out_path.stat().st_size
-        print(f"  {img}: {out_path} ({size//1024} KB)")
+        nerr = res.stderr.count('error:')
+        bal = out_path.read_text().count('{') - out_path.read_text().count('}')
+        print(f"  {img}: {out_path} ({size//1024} KB), {nerr} errors, brace_balance={bal}")
 
 
 if __name__ == '__main__':

@@ -48,7 +48,7 @@ static inline void __wfi(void) { __asm volatile("WFI"); }
 static inline void __wfe(void) { __asm volatile("WFE"); }
 static inline void __sev(void) { __asm volatile("SEV"); }
 
-/* v19 Hex-Rays decompilation - GCC-compatible C (with lvalue-macro fix) */
+/* v19 Hex-Rays decompilation - GCC-compatible C */
 /* Image: lmacfw_rf_8800d80_u02_bin */
 /* Functions: 1138 */
 /* Data refs: 4226 */
@@ -60,14 +60,14 @@ static inline void __sev(void) { __asm volatile("SEV"); }
 /* ARM intrinsics stubs */
 
 /* Forward declarations */
-extern char * sub_1282E8(char *a1, char *a2, unsigned int a3);
-extern float  rf_event_check_n3cc(unsigned char *a1);
-extern float  sdio_buffer_prepare_n_e8(float a1);
-extern float  sub_11E964(unsigned int a1);
-extern float  sub_11EAA0(unsigned int a1);
-extern float  sub_11EAC8(int a1);
-extern float  sub_11EACC(float a1);
-extern float  sub_1233CC(unsigned char *a1);
+extern char * sub_1282E8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern float  rf_event_check_n3cc(uint32_t a1);
+extern float  sdio_buffer_prepare_n_e8(uint32_t a1);
+extern float  sub_11E964(uint32_t a1);
+extern float  sub_11EAA0(uint32_t a1);
+extern float  sub_11EAC8(uint32_t a1);
+extern float  sub_11EACC(uint32_t a1);
+extern float  sub_1233CC(uint32_t a1);
 extern float mmio_init_n_0b8(void);
 extern float rf_hw_init_n008(void);
 extern float rf_lmac_misc_n_df54(void);
@@ -77,710 +77,654 @@ extern float sub_10E008(void);
 extern float sub_10E0B8(void);
 extern float sub_10E170(void);
 extern float sub_10E21C(void);
-extern int  bitmask_pow2_set(int result);
-extern int  buf_alloc_0x68_init(int a1, int a2, int a3, int a4);
-extern int  crypto_gain_clamp(float a1, int a2, int a3);
-extern int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5);
-extern int  crypto_key_schedule(unsigned int a1, uint32_t *a2);
-extern int  crypto_table_copy_165d00(int a1, int a2);
-extern int  crypto_table_init(int a1, int a2, int a3);
-extern int  delay_us(int a1);
-extern int  event_queue_push(int result, int a2);
-extern int  ftoi32_trunc_sat(int a1, float a2, int *a3, int a4, int a5);
-extern int  fw_signature_check(unsigned short *a1);
-extern int  fw_state_check_n960(int a1);
-extern int  fw_sub_1213824_load_struct_call(int a1);
-extern int  host_reg_wait_set(unsigned int a1, int a2);
-extern int  hw_event_flag(int a1);
-extern int  ipc_doorbell_handler_n_21a(int a1, uint32_t *a2);
-extern int  ipc_msg_handler(int a1, unsigned char **a2);
-extern int  ipc_msg_post_check(int a1, int a2, int a3, int a4);
-extern int  ipc_msg_send_n_d58(int a1);
-extern int  irq_disable(char a1);
-extern int  irq_enable(char a1);
-extern int  irq_mask_test(char a1);
-extern int  irq_nesting_or(int a1);
-extern int  irq_prio_set2(char a1);
-extern int  irq_prio_set_db48(int result);
-extern int  list_push_tail(int result, uint32_t *a2);
-extern int  list_remove_node(int result, uint32_t *a2);
-extern int  lmac_rf_behavioral_handler(int a1,
-        int a2,
-        float *a3,
-        int a4,
-        unsigned char a5,
-        char a6,
-        unsigned char a7,
-        int a8,
-        int a9);
-extern int  lmac_sub_init(int a1, int a2, unsigned int a3, int a4);
-extern int  lmac_table_lookup_n540(int a1);
-extern int  log_free_pool_dispatch2_n324(int a1, int a2);
-extern int  log_ptr_in_range(unsigned int a1);
-extern int  mac_aggr_setup(int a1, unsigned int a2, unsigned char *a3, int *a4);
-extern int  message_dispatch_n286(int a1, int a2);
-extern int  mmio_clear_bit(char a1);
-extern int  mmio_clock_setup(unsigned int a1, int a2);
-extern int  mmio_field_set_l2h2(int a1);
-extern int  mmio_flag_check_40500000(int a1, int a2, int a3);
-extern int  mmio_set_bit_120090C(int a1, unsigned int a2);
-extern int  mmio_write_40320150(int a1);
-extern int  mmio_write_reg403(int a1, int *a2, short a3, short a4);
-extern int  parse_int(unsigned char *a1, uint32_t *a2, unsigned int a3);
-extern int  patch_ctrl_write_magic(uint32_t *a1, int a2, int a3);
-extern int  rf_adc_capture_n_a98(int a1, int a2, int a3, int a4);
-extern int  rf_agc_check_nbf4(int a1);
-extern int  rf_alloc_or_init(int a1, int a2);
-extern int  rf_buf_setup_check(int a1, int a2, int a3);
-extern int  rf_bus_handler_16c(uint8_t *a1);
-extern int  rf_bus_init_n3fa(int result);
-extern int  rf_bus_mark_ne0(int a1, int a2);
-extern int  rf_bus_reset2_c158(int result);
-extern int  rf_bus_reset2_n101(int result, int a2);
-extern int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3);
-extern int  rf_bus_write_60fc(int a1, int a2);
-extern int  rf_bus_write_n144(int result);
-extern int  rf_bus_write_n274(uint32_t *a1, int a2);
-extern int  rf_cal_or_init_handler(int a1, int a2, int a3);
-extern int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6);
-extern int  rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3);
-extern int  rf_chan_config_set(int a1);
-extern int  rf_chan_configure(int a1, int a2, unsigned int a3);
-extern int  rf_chan_init_n4e8(int a1);
-extern int  rf_chan_init_or_reset_n_324(int a1);
-extern int  rf_chan_init_or_set_n54(int a1, int a2);
-extern int  rf_chan_lookup(int result, int a2);
-extern int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2);
-extern int  rf_chan_set_calib_af4(int a1, uint8_t *a2, int a3, int a4);
-extern int  rf_chan_set_check_52b8(int a1, unsigned char **a2);
-extern int  rf_chan_set_mask(int a1, int a2);
-extern int  rf_chan_setup_init(char a1, int a2, int a3);
-extern int  rf_chan_table_lookup(int a1);
-extern int  rf_channel_set_n6838(int a1, int a2, int a3);
-extern int  rf_check_bit(char a1);
-extern int  rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3);
-extern int  rf_cmd_dispatch_n388(int a1, int a2);
-extern int  rf_cmd_dispatch_n_34(int a1);
-extern int  rf_cmd_dispatch_n_454(unsigned int a1);
-extern int  rf_cmd_dispatch_n_4e8(unsigned short *a1);
-extern int  rf_cmd_query_status(uint8_t *a1);
-extern int  rf_cmd_send_2918(int a1, unsigned short *a2);
-extern int  rf_cmd_send_n264(int a1, int a2, int a3);
-extern int  rf_cmd_send_nf4(unsigned char *a1, unsigned int a2, int a3);
-extern int  rf_cmd_wait_n_7e(int a1);
-extern int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3);
-extern int  rf_emit_setup_word(int a1);
-extern int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6);
-extern int  rf_event_handler_8a4(int result);
-extern int  rf_fault_dump_n_b2(int a1);
-extern int  rf_feature_check(unsigned int a1, unsigned int a2);
-extern int  rf_field_align_n_2a4(int result);
-extern int  rf_get_status_byte_n_a24(int result);
-extern int  rf_init_agc_or_radio(int a1, int a2);
-extern int  rf_init_channel_n6(int a1);
-extern int  rf_init_enable_n3bc(int a1, int a2);
-extern int  rf_init_load_globals(int a1);
-extern int  rf_init_msg_send(int a1, int a2, int a3, int a4);
-extern int  rf_init_n_d80(unsigned int a1, int a2);
-extern int  rf_init_or_config_helper(int a1);
-extern int  rf_init_or_config_n_318(int a1, int a2, unsigned int a3);
-extern int  rf_init_or_reset(unsigned int a1);
-extern int  rf_init_or_setup_n32c(int result);
-extern int  rf_init_param_load(int *a1, unsigned int *a2);
-extern int  rf_init_register_40a(int a1, int a2, short a3, short a4);
-extern int  rf_init_setup_n3ac(int a1, int a2, int a3);
-extern int  rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4);
-extern int  rf_level_apply_6d60(int a1);
-extern int  rf_level_apply_n200(char a1);
-extern int  rf_level_apply_n_358(long long a1);
-extern int  rf_level_compute(int a1);
-extern int  rf_link_state_check(int a1, int a2, int a3);
-extern int  rf_lmac_dispatch_n5a8(int a1, int a2);
-extern int  rf_lmac_init_or_setup(int a1, uint32_t *a2, short a3, short a4);
-extern int  rf_mailbox_post_n44(int result);
-extern int  rf_mem_read_n208(int a1, int a2, short a3, short a4);
-extern int  rf_mem_read_n_ec(int result);
-extern int  rf_mem_write_n16c(int a1, int a2);
-extern int  rf_mem_write_nf0(int a1, int a2);
-extern int  rf_mmio_set_byte_field(int result);
-extern int  rf_mmio_status_read(unsigned char *a1);
-extern int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3);
-extern int  rf_msg_handler_n0ec(int result);
-extern int  rf_param_load_byte(int a1, unsigned char *a2, int a3, int a4);
-extern int  rf_param_parse_n_5c(int a1, unsigned char *a2, int a3, int a4);
-extern int  rf_param_select_n_e60(int a1, int a2);
-extern int  rf_param_set_op2(int a1);
-extern int  rf_param_setup_44(int a1, int a2, unsigned int a3);
-extern int  rf_phy_process_handler(int *a1, int a2, int a3, int a4, long long *a5);
-extern int  rf_pll_config_patch_n_8c(int a1);
-extern int  rf_pm_check_n_e18(int a1, int a2);
-extern int  rf_pwr_tbl_init_n0c8(int a1);
-extern int  rf_reg_bit_set(char a1);
-extern int  rf_reg_check(int a1);
-extern int  rf_reg_probe_id(unsigned short *a1);
-extern int  rf_reg_write_setup_n4820(int a1);
-extern int  rf_reg_write_wait(int a1, int a2, int a3);
-extern int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3);
-extern int  rf_send_cmd_0x72(int a1, int a2, int a3, int a4);
-extern int  rf_setup_dispatch(short a1, short a2, short a3, unsigned int a4);
-extern int  rf_setup_param_n5ac(int a1);
-extern int  rf_state_check_n2ae(int a1);
-extern int  rf_state_copy_to_shm(unsigned char *a1);
-extern int  rf_state_get_n246(int a1, int a2);
-extern int  rf_state_load(unsigned char **a1, unsigned char *a2);
-extern int  rf_state_reset_n_3a4(int result, int a2, int a3);
-extern int  rf_status_check_bit(int a1, int a2, int a3);
-extern int  rf_status_poll(unsigned int a1, int a2);
-extern int  rf_stream_start2_cc0(int a1, unsigned int a2);
-extern int  rf_stream_start_2c20(int a1, unsigned int a2);
-extern int  rf_sub_1209D40(int *a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11);
-extern int  rf_subcmd_dispatch(int result);
-extern int  rf_subcmd_dispatch_n5b60(int a1, int a2);
-extern int  rf_table_lookup(unsigned int a1);
-extern int  rf_table_lookup_handler(int a1);
-extern int  rf_table_lookup_n360(int a1, int a2);
-extern int  rf_xo_pll_init(int a1, int a2, int a3, int a4);
-extern int  rf_xosc_setup(int a1, int a2, int a3);
-extern int  scan_channel_done_n_180(int a1, int a2);
-extern int  sdio_buffer_prepare_2(int a1);
-extern int  start(int a1, int a2, unsigned int a3);
-extern int  sub_1004CC(int a1);
-extern int  sub_100560(int a1);
-extern int  sub_10058C(int a1);
-extern int  sub_1006C0(int result, int a2, int a3, unsigned int a4);
-extern int  sub_1007B4(int a1, unsigned int a2, uint32_t *a3);
-extern int  sub_10090C(int a1, unsigned int a2);
-extern int  sub_100948(int a1, int a2);
-extern int  sub_100C3C(int result);
-extern int  sub_100E00(unsigned int a1, int a2);
-extern int  sub_1019B4(int result, int a2, int a3);
-extern int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3);
-extern int  sub_101C70(unsigned int a1, signed int a2, int a3);
-extern int  sub_101DD0(int result);
-extern int  sub_102908(unsigned char *a1, int a2);
-extern int  sub_102968(unsigned int a1);
-extern int  sub_102B40(int result);
-extern int  sub_102BB0(int a1, unsigned short *a2);
-extern int  sub_102D4C(int a1, int a2, unsigned int a3, int a4);
-extern int  sub_102E04(int a1);
-extern int  sub_102E48(int a1);
-extern int  sub_102E84(int a1, int a2, int a3);
-extern int  sub_103540(int a1, int a2, int a3, int a4, int a5);
-extern int  sub_1035E8(int a1, int a2, int a3, int a4, int a5);
-extern int  sub_103678(int a1);
-extern int  sub_103A00(int a1, int a2, int a3);
-extern int  sub_103D60(int a1, int a2, uint32_t *a3);
-extern int  sub_103FBC(int a1, int a2, uint32_t *a3);
-extern int  sub_103FF0(int a1, int a2, uint32_t *a3);
-extern int  sub_104200(int a1, int a2, uint32_t *a3);
-extern int  sub_1043D8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6);
-extern int  sub_1047B8(int *a1, int a2, int a3, int a4, long long *a5);
-extern int  sub_104A98(int a1, int a2, int a3, int a4);
-extern int  sub_104B60(int a1, int a2, int a3);
-extern int  sub_104C08(float a1, int a2, int a3);
-extern int  sub_104CC0(int a1, float a2, int *a3, int a4, int a5);
-extern int  sub_104D60(int a1,
-        int a2,
-        float *a3,
-        int a4,
-        unsigned char a5,
-        char a6,
-        unsigned char a7,
-        int a8,
-        int a9);
-extern int  sub_1053C0(unsigned int a1, uint32_t *a2);
-extern int  sub_105494(unsigned int a1, int a2, int a3, int a4);
-extern int  sub_105DCC(int a1, int a2, int a3, int a4, int a5);
-extern int  sub_105E94(int a1, int a2);
-extern int  sub_105F40(uint32_t *a1, int a2, int a3);
-extern int  sub_105FD0(unsigned int a1, int a2, short *a3, int a4, int a5, int a6, int a7, int a8);
-extern int  sub_106F74(int a1, int a2);
-extern int  sub_107068(int a1, int a2);
-extern int  sub_107150(int a1);
-extern int  sub_107214(unsigned int a1, uint32_t *a2, int a3, int a4);
-extern int  sub_1072CC(int a1, uint32_t *a2, int a3);
-extern int  sub_1073BC(unsigned int *a1, int a2);
-extern int  sub_10747C(int a1);
-extern int  sub_107638(int a1);
-extern int  sub_107944(int a1, uint32_t *a2);
-extern int  sub_107A70(int a1, int *a2, uint32_t *a3);
-extern int  sub_109100(int result, int a2, uint8_t *a3, char *a4, int *a5);
-extern int  sub_109120(long long a1, int a2, uint32_t *a3);
-extern int  sub_109184(unsigned int a1, int a2, int *a3);
-extern int  sub_109368(float *a1, float *a2);
-extern int  sub_109480(int a1, short *a2);
-extern int  sub_109738(unsigned int a1, float *a2, float *a3, int a4);
-extern int  sub_1099BC(int a1, int a2, int a3, int a4);
-extern int  sub_109D40(int *a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11);
-extern int  sub_10A36C(int a1, unsigned int a2, unsigned char *a3, int *a4);
-extern int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsigned char a5, char a6);
-extern int  sub_10AC18(unsigned int *a1, uint8_t *a2, int a3);
-extern int  sub_10B048(int *a1,
-        int a2,
-        int a3,
-        int a4,
-        unsigned short *a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11);
-extern int  sub_10CD6C(char a1);
-extern int  sub_10CF48(uint16_t *a1);
-extern int  sub_10D06C(unsigned short *a1);
-extern int  sub_10D63C(int result);
-extern int  sub_10D6A8(int a1, int a2);
-extern int  sub_10DA88(int result);
-extern int  sub_10DAD8(char a1);
-extern int  sub_10DAF0(char a1);
-extern int  sub_10DB04(char a1);
-extern int  sub_10DB18(char a1);
-extern int  sub_10DB30(char a1);
-extern int  sub_10DB48(int result);
-extern int  sub_10DB78(char a1);
-extern int  sub_10DB90(char a1);
-extern int  sub_10DBA4(char a1);
-extern int  sub_10DBB8(char a1);
-extern int  sub_10DBD0(char a1);
-extern int  sub_10DBF4(int a1);
-extern int  sub_10DDC8(int result, int a2);
-extern int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3);
-extern int  sub_10EC2C(int a1);
-extern int  sub_10ED50(unsigned int *a1);
-extern int  sub_10EFBC(int a1, int a2);
-extern int  sub_10F010(int a1, int a2, int a3);
-extern int  sub_10F064(int a1, int a2, int a3, int a4);
-extern int  sub_10F0B8(int a1);
-extern int  sub_10F110(int a1);
-extern int  sub_10F170(int a1);
-extern int  sub_10F188(int a1);
-extern int  sub_10F5BC(int a1, int a2);
-extern int  sub_10FBD0(int a1, uint32_t *a2);
-extern int  sub_10FE24(unsigned int a1);
-extern int  sub_10FE5C(int a1, int a2, int a3);
-extern int  sub_10FEF8(uint32_t *a1);
-extern int  sub_1103F4(int result);
-extern int  sub_11052C(int a1, int a2);
-extern int  sub_110690(int a1);
-extern int  sub_110AB8(int a1, int a2, int a3);
-extern int  sub_110B64(int result);
-extern int  sub_110BF8(char a1, int a2, int a3);
-extern int  sub_110C7C(int a1);
-extern int  sub_111404(int result, int a2);
-extern int  sub_111524(int a1, int a2, int a3);
-extern int  sub_111618(int a1, int a2);
-extern int  sub_1116C0(uint32_t *a1, int a2);
-extern int  sub_111950(int a1, int a2, unsigned int a3);
-extern int  sub_111A04(int a1);
-extern int  sub_111A24(int a1, int a2, unsigned int a3);
-extern int  sub_111B30(long long a1);
-extern int  sub_112918(int a1, unsigned short *a2);
-extern int  sub_112A0C(unsigned char *a1, unsigned int a2, int a3);
-extern int  sub_112B7C(int a1);
-extern int  sub_112C20(int a1, unsigned int a2);
-extern int  sub_112CC0(int a1, unsigned int a2);
-extern int  sub_112D84(int a1, int a2);
-extern int  sub_112E28(int f594, int a2, int a3);
-extern int  sub_112F58(unsigned int a1);
-extern int  sub_113374(int a1);
-extern int  sub_1134D8(int a1);
-extern int  sub_113694(int a1, int a2);
-extern int  sub_1136F4(int a1, int a2, int a3, int a4);
-extern int  sub_113810(int a1, int a2, int a3, int a4);
-extern int  sub_113854(int a1);
-extern int  sub_113A44(unsigned int a1);
-extern int  sub_113AD0(unsigned int a1, int a2);
-extern int  sub_113B80(int a1);
-extern int  sub_113B88(uint8_t *a1);
-extern int  sub_113BB0(int a1);
-extern int  sub_113BE8(uint8_t *a1);
-extern int  sub_113C14(int a1);
-extern int  sub_113C48(int *a1, unsigned int *a2);
-extern int  sub_113C98(unsigned int a1, int a2);
-extern int  sub_113D00(int *a1, unsigned int *a2);
-extern int  sub_113D80(unsigned int a1, int a2);
-extern int  sub_113DF8(int a1, int a2);
-extern int  sub_113E70(int a1, char a2, uint8_t *a3);
-extern int  sub_113ED0(int a1, char a2, int a3);
-extern int  sub_113F3C(int a1, int a2);
-extern int  sub_113FD8(int a1, int a2, uint8_t *a3);
-extern int  sub_114044(int a1, int a2, int a3);
-extern int  sub_1140B8(int *a1);
-extern int  sub_1140F0(int a1);
-extern int  sub_11416C(uint8_t *a1);
-extern int  sub_114194(int a1);
-extern int  sub_114210(int a1);
-extern int  sub_114318(int a1, int a2, unsigned int a3);
-extern int  sub_11441C(int a1, int a2, unsigned int a3);
-extern int  sub_114558(int a1);
-extern int  sub_114564(int a1);
-extern int  sub_114570(int a1);
-extern int  sub_11457C(int a1);
-extern int  sub_114588(int a1);
-extern int  sub_114594(int a1);
-extern int  sub_1145A0(int a1);
-extern int  sub_1145AC(int a1);
-extern int  sub_1145B8(int a1);
-extern int  sub_1145C4(int a1);
-extern int  sub_1145D0(int a1);
-extern int  sub_1145DC(int a1);
-extern int  sub_1145E8(int a1);
-extern int  sub_1145F4(int a1, int a2, unsigned int a3);
-extern int  sub_1146E4(int a1, int a2, unsigned int a3);
-extern int  sub_114820(int a1);
-extern int  sub_11482C(int a1);
-extern int  sub_114838(int a1);
-extern int  sub_114844(int a1);
-extern int  sub_114850(int a1);
-extern int  sub_11485C(int a1);
-extern int  sub_114874(int a1);
-extern int  sub_114880(int a1);
-extern int  sub_11488C(int a1);
-extern int  sub_114898(int a1, int a2, unsigned int a3);
-extern int  sub_114904(int a1, int a2, unsigned int a3);
-extern int  sub_1149A4(int a1);
-extern int  sub_1149B0(int a1);
-extern int  sub_1149FC(int a1);
-extern int  sub_11532C(int result);
-extern int  sub_11538C(int result);
-extern int  sub_1158A4(int result);
-extern int  sub_1159C8(int result);
-extern int  sub_115AD0(int a1);
-extern int  sub_115B60(int a1, int a2);
-extern int  sub_115F78(int a1);
-extern int  sub_115FF0(int a1, int a2, int a3);
-extern int  sub_11601C(int a1);
-extern int  sub_1160FC(int a1, int a2, int a3);
-extern int  sub_116328(int a1, int a2, int a3);
-extern int  sub_11639C(int a1);
-extern int  sub_1164C4(int a1, int a2, int a3);
-extern int  sub_116580(int a1, int a2);
-extern int  sub_1165B0(int a1, int a2);
-extern int  sub_116628(int result, int a2);
-extern int  sub_1166CC(int a1, int a2, int a3);
-extern int  sub_116838(int a1, int a2, int a3);
-extern int  sub_116858(int a1);
-extern int  sub_116EC4(int a1, int a2, int a3, int a4);
-extern int  sub_11702C(int *a1, int a2, uint16_t *a3);
-extern int  sub_11739C(int a1, int a2);
-extern int  sub_1174EC(int result);
-extern int  sub_117538(int a1);
-extern int  sub_117590(int a1, int a2, int a3);
-extern int  sub_117954(int a1);
-extern int  sub_1179C8(int result);
-extern int  sub_117B4C(int *a1, uint8_t *a2);
-extern int  sub_117CB4(int a1);
-extern int  sub_117D6C(int a1, int a2, int a3);
-extern int  sub_117DB4(int result);
-extern int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4);
-extern int  sub_1180B8(int a1);
-extern int  sub_1182C8(int result);
-extern int  sub_118310(int a1);
-extern int  sub_118324(int a1);
-extern int  sub_118374(uint8_t *a1);
-extern int  sub_118674(int a1, int a2, int a3, uint32_t *a4, int a5, int a6);
-extern int  sub_118908(int result);
-extern int  sub_11898C(int a1, int a2);
-extern int  sub_118A60(char *a1);
-extern int  sub_118EC8(int a1, int a2, int a3);
-extern int  sub_118FD8(int a1, uint8_t *a2, uint8_t *a3);
-extern int  sub_119054(int a1);
-extern int  sub_119170(int a1);
-extern int  sub_119190(int result, int a2, int a3);
-extern int  sub_1191B8(uint8_t *a1, int a2);
-extern int  sub_119218(int a1, int a2, int a3, int *a4);
-extern int  sub_11930C(int a1, int a2, int a3, int a4);
-extern int  sub_119330(int a1, int *a2, int a3, int a4);
-extern int  sub_1193E0(int a1, int a2, int a3, int a4);
-extern int  sub_1193F0(int a1, int a2, int a3, int a4);
-extern int  sub_119400(int a1, uint32_t *a2, int a3, int a4);
-extern int  sub_119420(int a1, int *a2, int a3, int a4);
-extern int  sub_119478(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_1194F4(int a1, int a2, int a3, int a4);
-extern int  sub_119504(int a1, int a2, int a3, int a4);
-extern int  sub_119514(int a1, int a2, int a3, int a4);
-extern int  sub_119524(int a1, int a2, int a3, int a4);
-extern int  sub_11954C(int a1, int a2, int a3, int a4);
-extern int  sub_119698(int a1, int a2, int a3, int a4);
-extern int  sub_1196AC(int a1, int a2, int a3, int a4);
-extern int  sub_11972C(int a1, int a2, int a3, int a4);
-extern int  sub_1197A4(int a1, int a2, int a3, int a4);
-extern int  sub_1197DC(int a1, uint8_t *a2, int a3, int a4);
-extern int  sub_1198AC(int a1, int a2, int a3, int a4);
-extern int  sub_11998C(int a1, int a2, int a3, int a4);
-extern int  sub_1199CC(int a1, int *a2, int a3, int a4);
-extern int  sub_119AF4(int a1, uint8_t *a2, int a3, int a4);
-extern int  sub_119B2C(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119B4C(int a1, int a2, int a3, int a4);
-extern int  sub_119B5C(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119B90(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119BB0(int a1, int a2, int a3, int a4);
-extern int  sub_119BD8(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119BF8(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119C4C(int a1, char *a2, int a3, int a4);
-extern int  sub_119D18(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_119D58(int a1, int a2, int a3, int a4);
-extern int  sub_119D70(int a1, int a2, int a3, int a4);
-extern int  sub_119F9C(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_11A034(int a1, unsigned char *a2, int a3, int a4);
-extern int  sub_11A72C(unsigned short *a1);
-extern int  sub_11A7C8(unsigned char *a1);
-extern int  sub_11A8E4(unsigned char *a1);
-extern int  sub_11A9BC(unsigned char *a1, void *a2);
-extern int  sub_11AA8C(int a1, unsigned short *a2, int a3, void *a4);
-extern int  sub_11AB18(int a1, int a2);
-extern int  sub_11AC10(int a1);
-extern int  sub_11AD58(int a1);
-extern int  sub_11AD88(int a1, int a2);
-extern int  sub_11ADD0(int result);
-extern int  sub_11AE24(int a1, int a2, int a3);
-extern int  sub_11AF78(int a1, int a2, int a3);
-extern int  sub_11B088(int a1, int a2, unsigned int a3);
-extern int  sub_11B1A4(int result);
-extern int  sub_11B3A4(int result, int a2, int a3);
-extern int  sub_11B4E8(int a1);
-extern int  sub_11BA18(int result);
-extern int  sub_11BA4C(int a1, int a2, int a3);
-extern int  sub_11BB18(short *a1, int a2, char a3);
-extern int  sub_11BBA4(unsigned char *a1, int a2);
-extern int  sub_11BD44(int a1, uint8_t *a2);
-extern int  sub_11BE28(unsigned char *a1);
-extern int  sub_11BEC0(int result, int a2);
-extern int  sub_11BF38(int a1, int a2);
-extern int  sub_11C01C(int result);
-extern int  sub_11C158(int result);
-extern int  sub_11C26C(int result);
-extern int  sub_11C324(int result);
-extern int  sub_11C38C(int a1, int a2);
-extern int  sub_11C540(int a1);
-extern int  sub_11C834(int a1, int a2, int a3);
-extern int  sub_11C850(int a1, int a2, int a3, int a4);
-extern int  sub_11C9A4(int a1, int a2, int a3, int a4);
-extern int  sub_11CA38(unsigned short *a1);
-extern int  sub_11CB84(int a1);
-extern int  sub_11CD0C(char a1, int a2);
-extern int  sub_11CD50(int a1);
-extern int  sub_11D8F0(int a1);
-extern int  sub_11D9F8(char a1);
-extern int  sub_11DA3C(int a1, uint8_t *a2, uint8_t *a3);
-extern int  sub_11DA5C(int result, int a2);
-extern int  sub_11DA78(int result, int a2);
-extern int  sub_11DAC8(int a1, int a2);
-extern int  sub_11DAE0(int a1, unsigned int a2);
-extern int  sub_11DAFC(int a1, int a2, unsigned int a3);
-extern int  sub_11DC54(int result, int a2);
-extern int  sub_11DDCC(int a1, int a2);
-extern int  sub_11DDF0(short a1, short a2, short a3, unsigned int a4);
-extern int  sub_11DE50(int a1);
-extern int  sub_11DED8(short a1, short a2, short a3);
-extern int  sub_11DEE8(int a1);
-extern int  sub_11DF94(int a1);
-extern int  sub_11E184(int a1, int *a2, int a3);
-extern int  sub_11E34C(unsigned int a1);
-extern int  sub_11E3FC(int a1, unsigned int a2);
-extern int  sub_11E5E0(int a1);
-extern int  sub_11E628(int a1);
-extern int  sub_11E724(int result);
-extern int  sub_11E76C(int result, uint32_t *a2);
-extern int  sub_11E7C4(int result, uint32_t *a2);
-extern int  sub_11E82C(uint32_t **a1, int a2);
-extern int  sub_11E8E0(int a1);
-extern int  sub_11F4A8(int result);
-extern int  sub_11F4B4(int result);
-extern int  sub_11F4D8(unsigned int a1, unsigned int a2);
-extern int  sub_11F74C(int result, int a2, int a3, int a4);
-extern int  sub_11F79C(int a1, int a2, short a3, short a4);
-extern int  sub_1212D0(int a1, int a2, short a3, short a4);
-extern int  sub_12135C(int a1, uint32_t *a2, short a3, short a4);
-extern int  sub_1213A4(int a1, uint32_t *a2, short a3, short a4);
-extern int  sub_1213FC(int a1, int a2, short a3, short a4);
-extern int  sub_12141C(int a1, int *a2, short a3, short a4);
-extern int  sub_121490(int a1, int *a2, short a3, short a4);
-extern int  sub_1214DC(int a1, uint32_t *a2, short a3, short a4);
-extern int  sub_121510(int a1, uint32_t *a2, short a3, short a4);
-extern int  sub_121544(int a1, int *a2, short a3, short a4);
-extern int  sub_121654(int a1, int *a2, short a3, short a4);
-extern int  sub_121960(int a1, int a2, int a3, int a4);
-extern int  sub_1219C4(int a1, int a2, int a3);
-extern int  sub_1219F4(int a1, int a2, int a3);
-extern int  sub_121A5C(unsigned short *a1);
-extern int  sub_121AF0(unsigned int a1);
-extern int  sub_121BE0(unsigned char *a1, int a2);
-extern int  sub_121CF4(unsigned int a1, uint8_t *a2, int a3);
-extern int  sub_121E3C(unsigned char *a1, uint32_t *a2, unsigned int a3);
-extern int  sub_121F10(int a1);
-extern int  sub_121F44(int a1, int a2);
-extern int  sub_12202C(int a1, int a2);
-extern int  sub_12211C(int a1, int a2);
-extern int  sub_122198(int a1, int a2);
-extern int  sub_1222CC(int a1, int a2);
-extern int  sub_12248C(int a1, int a2);
-extern int  sub_122508(int a1, int a2);
-extern int  sub_1225C4(int a1, int a2);
-extern int  sub_1225F4(int a1, int a2);
-extern int  sub_12266C(int a1);
-extern int  sub_122688(int result, int a2);
-extern int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4);
-extern int  sub_122C94(int a1, int a2, int a3);
-extern int  sub_122DB8(int a1, unsigned int a2);
-extern int  sub_122F3C(int a1, int a2);
-extern int  sub_123020(void);
-extern int  sub_1230E8(unsigned int a1);
-extern int  sub_123394(int a1);
-extern int  sub_123A20(int a1);
-extern int  sub_123AB4(int a1);
-extern int  sub_123B30(uint32_t *a1, int a2, int a3);
-extern int  sub_123F04(int a1, int a2, short a3, short a4);
-extern int  sub_123F4C(unsigned int a1);
-extern int  sub_123F64(int result);
-extern int  sub_123F78(int result);
-extern int  sub_123F8C(int result);
-extern int  sub_123FA0(int result);
-extern int  sub_123FB4(int result);
-extern int  sub_123FC8(int result);
-extern int  sub_123FDC(int result);
-extern int  sub_123FF0(unsigned int a1, int a2, int a3);
-extern int  sub_12407C(int a1);
-extern int  sub_124094(int a1);
-extern int  sub_1240AC(int a1);
-extern int  sub_124150(int a1);
-extern int  sub_124178(int a1);
-extern int  sub_12419C(int a1, int a2, int a3, int a4, int a5);
-extern int  sub_1242F0(unsigned int a1);
-extern int  sub_1246F0(int a1, int a2, int a3);
-extern int  sub_1247A4(unsigned char **a1, unsigned char *a2);
-extern int  sub_1247D8(int a1, int a2);
-extern int  sub_124A10(int a1, int a2);
-extern int  sub_124A50(int a1, int a2);
-extern int  sub_124A88(int a1, unsigned char **a2);
-extern int  sub_124B04(int a1, int a2);
-extern int  sub_124C70(int a1, unsigned char **a2);
-extern int  sub_124E34(int a1, int a2);
-extern int  sub_124E60(int a1, int a2);
-extern int  sub_124F20(int a1, int a2);
-extern int  sub_124F40(int a1, int a2);
-extern int  sub_124F60(int a1, int a2);
-extern int  sub_124F9C(int a1, int a2);
-extern int  sub_124FD0(int a1, int a2);
-extern int  sub_125004(int a1, int a2);
-extern int  sub_125038(int a1, int a2);
-extern int  sub_12506C(int a1, int a2);
-extern int  sub_1250A0(int a1, int a2);
-extern int  sub_1250D4(int a1, int a2);
-extern int  sub_125108(int a1, int a2);
-extern int  sub_12513C(int a1, unsigned char **a2);
-extern int  sub_1252B8(int a1, unsigned char **a2);
-extern int  sub_12537C(int a1, int a2);
-extern int  sub_1253BC(int a1, unsigned char **a2);
-extern int  sub_1256E0(int a1, unsigned char **a2);
-extern int  sub_125970(int a1, int a2);
-extern int  sub_125ABC(int a1, int a2);
-extern int  sub_125BFC(int a1, unsigned char **a2);
-extern int  sub_125D18(int a1, int a2);
-extern int  sub_125D44(int a1, int a2);
-extern int  sub_125E0C(unsigned char **a1);
-extern int  sub_125E18(int a1, int a2);
-extern int  sub_125EF0(int a1, int a2, int a3);
-extern int  sub_125F58(int a1, int a2);
-extern int  sub_125FFC(int a1, int a2, int a3);
-extern int  sub_126064(int a1, unsigned char **a2);
-extern int  sub_126258(int a1, int a2, char a3);
-extern int  sub_12646C(char a1);
-extern int  sub_1264DC(int a1);
-extern int  sub_12686C(int result);
-extern int  sub_126D60(int a1);
-extern int  sub_126DD8(int a1);
-extern int  sub_126F10(int a1);
-extern int  sub_126FD8(char a1);
-extern int  sub_127228(int a1);
-extern int  sub_1272B4(long long a1, long long a2, int a3, int a4);
-extern int  sub_12752C(int result);
-extern int  sub_12754C(int result);
-extern int  sub_127570(int a1);
-extern int  sub_1275B4(long long a1);
-extern int  sub_127620(long long a1, unsigned int a2, unsigned int a3, int a4);
-extern int  sub_1277FC(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8);
-extern int  sub_1279E2(int result, int a2, int a3, unsigned int a4);
-extern int  sub_127A54(unsigned int a1, unsigned int a2, unsigned int a3, int a4);
-extern int  sub_127AD0(int a1, int a2, int a3, int a4);
-extern int  sub_127AF0(unsigned int a1, unsigned int a2, unsigned int a3, int a4);
-extern int  sub_127B04(unsigned int a1, unsigned int a2, unsigned int a3, int a4, int a5, int a6, int a7);
-extern int  sub_127B18(unsigned int a1, unsigned int a2, unsigned int a3, int a4);
-extern int  sub_127B2C(int a1, int a2, int a3, int a4);
-extern int  sub_127B40(int a1, int a2, int a3, int a4);
-extern int  sub_127C90(int result, int a2);
-extern int  sub_127E14(long long a1);
-extern int  sub_127EB0(int result, int a2);
-extern int  sub_127F64(int a1, int a2);
-extern int  sub_127F78(int a1, int a2);
-extern int  sub_127F8C(long long a1, int a2, int a3);
-extern int  sub_127FBC(unsigned int a1, unsigned int a2, long long a3, unsigned int *a4);
-extern int  sub_128280(int result);
-extern int  sub_128288(unsigned int a1, unsigned int a2, unsigned int a3);
-extern int  sub_128508(unsigned int a1, unsigned int *a2);
-extern int  sub_12899C(unsigned char *a1, unsigned char *a2, int a3);
-extern int  timer_set_relative(int a1, int a2, unsigned int a3);
-extern int  timestamp_remove(int a1);
-extern int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2);
-extern int  uart_putc(int result);
-extern int  unknown_helper_2(int a1, int a2);
-extern int * divmod64_compute(int *a1);
-extern int * memset_thunk(int *result, unsigned char a2, unsigned int a3);
-extern int * rf_bus_mark_ne8(int a1);
-extern int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4);
-extern int * rf_bus_setup_n_148(int *result, unsigned int a2);
-extern int * rf_bus_write_1(int a1, int a2, int a3);
-extern int * rf_indexed_lookup_n_88(int a1);
-extern int * rf_init_handler(int a1, int a2, int a3, int a4);
-extern int * sub_102ADC(int a1);
-extern int * sub_10397C(int a1);
-extern int * sub_1078D4(int *a1);
-extern int * sub_109BF8(int a1,
-        int *a2,
-        int a3,
-        int a4,
-        int a5,
-        unsigned char a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11);
-extern int * sub_111274(int a1);
-extern int * sub_1112AC(int a1);
-extern int * sub_11146C(int a1, int a2, int a3);
-extern int * sub_11164C(int *result, unsigned int a2);
-extern int * sub_111670(int *result, unsigned int a2);
-extern int * sub_111694(int *result, unsigned int a2);
-extern int * sub_1116BC(int *result, unsigned int a2);
-extern int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4);
-extern int * sub_1153F4(int a1, int a2, int a3, int a4);
-extern int * sub_1156A0(int a1, int a2, int a3, int a4);
-extern int * sub_115754(int a1, int a2, int a3, int a4);
-extern int * sub_117AC8(int a1);
-extern int * sub_11BD88(int a1);
-extern int * sub_11C7DC(int a1);
+extern int  bitmask_pow2_set(uint32_t a1);
+extern int  buf_alloc_0x68_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  crypto_gain_clamp(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  crypto_hw_power_up(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  crypto_key_schedule(uint32_t a1, uint32_t a2);
+extern int  crypto_table_copy_165d00(uint32_t a1, uint32_t a2);
+extern int  crypto_table_init(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  delay_us(uint32_t a1);
+extern int  event_queue_push(uint32_t a1, uint32_t a2);
+extern int  ftoi32_trunc_sat(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  fw_signature_check(uint32_t a1);
+extern int  fw_state_check_n960(uint32_t a1);
+extern int  host_reg_wait_set(uint32_t a1, uint32_t a2);
+extern int  hw_event_flag(uint32_t a1);
+extern int  ipc_doorbell_handler_n_21a(uint32_t a1, uint32_t a2);
+extern int  ipc_msg_handler(uint32_t a1, uint32_t a2);
+extern int  ipc_msg_post_check(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  ipc_msg_send_n_d58(uint32_t a1);
+extern int  irq_disable(uint32_t a1);
+extern int  irq_enable(uint32_t a1);
+extern int  irq_mask_test(uint32_t a1);
+extern int  irq_nesting_or(uint32_t a1);
+extern int  irq_prio_set2(uint32_t a1);
+extern int  irq_prio_set_db48(uint32_t a1);
+extern int  list_push_tail(uint32_t a1, uint32_t a2);
+extern int  list_remove_node(uint32_t a1, uint32_t a2);
+extern int  lmac_rf_behavioral_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9);
+extern int  lmac_sub_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  lmac_table_lookup_n540(uint32_t a1);
+extern int  log_free_pool_dispatch2_n324(uint32_t a1, uint32_t a2);
+extern int  log_ptr_in_range(uint32_t a1);
+extern int  mac_aggr_setup(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  message_dispatch_n286(uint32_t a1, uint32_t a2);
+extern int  mmio_clear_bit(uint32_t a1);
+extern int  mmio_clock_setup(uint32_t a1, uint32_t a2);
+extern int  mmio_field_set_l2h2(uint32_t a1);
+extern int  mmio_flag_check_40500000(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  mmio_set_bit_120090C(uint32_t a1, uint32_t a2);
+extern int  mmio_write_40320150(uint32_t a1);
+extern int  mmio_write_reg403(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  parse_int(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  patch_ctrl_write_magic(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_adc_capture_n_a98(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_agc_check_nbf4(uint32_t a1);
+extern int  rf_alloc_or_init(uint32_t a1, uint32_t a2);
+extern int  rf_buf_setup_check(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_bus_handler_16c(uint32_t a1);
+extern int  rf_bus_init_n3fa(uint32_t a1);
+extern int  rf_bus_mark_ne0(uint32_t a1, uint32_t a2);
+extern int  rf_bus_reset2_c158(uint32_t a1);
+extern int  rf_bus_reset2_n101(uint32_t a1, uint32_t a2);
+extern int  rf_bus_setup_n14c(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_bus_write_60fc(uint32_t a1, uint32_t a2);
+extern int  rf_bus_write_n144(uint32_t a1);
+extern int  rf_bus_write_n274(uint32_t a1, uint32_t a2);
+extern int  rf_cal_or_init_handler(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_calib_setup_n3d8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern int  rf_calibration_init(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_chan_config_set(uint32_t a1);
+extern int  rf_chan_configure(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_chan_init_n4e8(uint32_t a1);
+extern int  rf_chan_init_or_reset_n_324(uint32_t a1);
+extern int  rf_chan_init_or_set_n54(uint32_t a1, uint32_t a2);
+extern int  rf_chan_lookup(uint32_t a1, uint32_t a2);
+extern int  rf_chan_param_set_n_1b8(uint32_t a1, uint32_t a2);
+extern int  rf_chan_set_calib_af4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_chan_set_check_52b8(uint32_t a1, uint32_t a2);
+extern int  rf_chan_set_mask(uint32_t a1, uint32_t a2);
+extern int  rf_chan_setup_init(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_chan_table_lookup(uint32_t a1);
+extern int  rf_channel_set_n6838(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_check_bit(uint32_t a1);
+extern int  rf_cmd_dispatch_1cf4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_cmd_dispatch_n388(uint32_t a1, uint32_t a2);
+extern int  rf_cmd_dispatch_n_34(uint32_t a1);
+extern int  rf_cmd_dispatch_n_454(uint32_t a1);
+extern int  rf_cmd_dispatch_n_4e8(uint32_t a1);
+extern int  rf_cmd_query_status(uint32_t a1);
+extern int  rf_cmd_send_2918(uint32_t a1, uint32_t a2);
+extern int  rf_cmd_send_n264(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_cmd_send_nf4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_dispatch_handler_n8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_emit_setup_word(uint32_t a1);
+extern int  rf_event_dispatch_n1a4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern int  rf_event_handler_8a4(uint32_t a1);
+extern int  rf_fault_dump_n_b2(uint32_t a1);
+extern int  rf_feature_check(uint32_t a1, uint32_t a2);
+extern int  rf_field_align_n_2a4(uint32_t a1);
+extern int  rf_get_status_byte_n_a24(uint32_t a1);
+extern int  rf_init_agc_or_radio(uint32_t a1, uint32_t a2);
+extern int  rf_init_channel_n6(uint32_t a1);
+extern int  rf_init_enable_n3bc(uint32_t a1, uint32_t a2);
+extern int  rf_init_load_globals(uint32_t a1);
+extern int  rf_init_msg_send(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_init_n_d80(uint32_t a1, uint32_t a2);
+extern int  rf_init_or_config_helper(uint32_t a1);
+extern int  rf_init_or_config_n_318(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_init_or_reset(uint32_t a1);
+extern int  rf_init_or_setup_n32c(uint32_t a1);
+extern int  rf_init_param_load(uint32_t a1, uint32_t a2);
+extern int  rf_init_register_40a(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_init_setup_n3ac(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_iq_dc_calib_n7c(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_level_apply_6d60(uint32_t a1);
+extern int  rf_level_apply_n200(uint32_t a1);
+extern int  rf_level_apply_n_358(uint32_t a1);
+extern int  rf_level_compute(uint32_t a1);
+extern int  rf_link_state_check(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_lmac_dispatch_n5a8(uint32_t a1, uint32_t a2);
+extern int  rf_lmac_init_or_setup(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_mailbox_post_n44(uint32_t a1);
+extern int  rf_mem_read_n208(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_mem_read_n_ec(uint32_t a1);
+extern int  rf_mem_write_n16c(uint32_t a1, uint32_t a2);
+extern int  rf_mem_write_nf0(uint32_t a1, uint32_t a2);
+extern int  rf_mmio_set_byte_field(uint32_t a1);
+extern int  rf_mmio_status_read(uint32_t a1);
+extern int  rf_msg_handler_main_45f4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_msg_handler_n0ec(uint32_t a1);
+extern int  rf_param_load_byte(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_param_parse_n_5c(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_param_select_n_e60(uint32_t a1, uint32_t a2);
+extern int  rf_param_set_op2(uint32_t a1);
+extern int  rf_param_setup_44(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_phy_process_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  rf_pll_config_patch_n_8c(uint32_t a1);
+extern int  rf_pm_check_n_e18(uint32_t a1, uint32_t a2);
+extern int  rf_pwr_tbl_init_n0c8(uint32_t a1);
+extern int  rf_reg_bit_set(uint32_t a1);
+extern int  rf_reg_check(uint32_t a1);
+extern int  rf_reg_probe_id(uint32_t a1);
+extern int  rf_reg_write_setup_n4820(uint32_t a1);
+extern int  rf_reg_write_wait(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_rx_dc_calib(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_send_cmd_0x72(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_setup_dispatch(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_setup_param_n5ac(uint32_t a1);
+extern int  rf_state_check_n2ae(uint32_t a1);
+extern int  rf_state_copy_to_shm(uint32_t a1);
+extern int  rf_state_get_n246(uint32_t a1, uint32_t a2);
+extern int  rf_state_load(uint32_t a1, uint32_t a2);
+extern int  rf_state_reset_n_3a4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_status_check_bit(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  rf_status_poll(uint32_t a1, uint32_t a2);
+extern int  rf_stream_start2_cc0(uint32_t a1, uint32_t a2);
+extern int  rf_stream_start_2c20(uint32_t a1, uint32_t a2);
+extern int  rf_sub_1209D40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11);
+extern int  rf_subcmd_dispatch(uint32_t a1);
+extern int  rf_subcmd_dispatch_n5b60(uint32_t a1, uint32_t a2);
+extern int  rf_table_lookup(uint32_t a1);
+extern int  rf_table_lookup_handler(uint32_t a1);
+extern int  rf_table_lookup_n360(uint32_t a1, uint32_t a2);
+extern int  rf_xo_pll_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  rf_xosc_setup(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  scan_channel_done_n_180(uint32_t a1, uint32_t a2);
+extern int  sdio_buffer_prepare_2(uint32_t a1);
+extern int  start(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1004CC(uint32_t a1);
+extern int  sub_100560(uint32_t a1);
+extern int  sub_10058C(uint32_t a1);
+extern int  sub_1006C0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1007B4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_10090C(uint32_t a1, uint32_t a2);
+extern int  sub_100948(uint32_t a1, uint32_t a2);
+extern int  sub_100C3C(uint32_t a1);
+extern int  sub_100E00(uint32_t a1, uint32_t a2);
+extern int  sub_1019B4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_101AC4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_101C70(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_101DD0(uint32_t a1);
+extern int  sub_102908(uint32_t a1, uint32_t a2);
+extern int  sub_102968(uint32_t a1);
+extern int  sub_102B40(uint32_t a1);
+extern int  sub_102BB0(uint32_t a1, uint32_t a2);
+extern int  sub_102D4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_102E04(uint32_t a1);
+extern int  sub_102E48(uint32_t a1);
+extern int  sub_102E84(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_103540(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_1035E8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_103678(uint32_t a1);
+extern int  sub_103A00(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_103D60(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_103FBC(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_103FF0(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_104200(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1043D8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern int  sub_1047B8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_104A98(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_104B60(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_104C08(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_104CC0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_104D60(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9);
+extern int  sub_1053C0(uint32_t a1, uint32_t a2);
+extern int  sub_105494(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_105DCC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_105E94(uint32_t a1, uint32_t a2);
+extern int  sub_105F40(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_105FD0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8);
+extern int  sub_106F74(uint32_t a1, uint32_t a2);
+extern int  sub_107068(uint32_t a1, uint32_t a2);
+extern int  sub_107150(uint32_t a1);
+extern int  sub_107214(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1072CC(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1073BC(uint32_t a1, uint32_t a2);
+extern int  sub_10747C(uint32_t a1);
+extern int  sub_107638(uint32_t a1);
+extern int  sub_107944(uint32_t a1, uint32_t a2);
+extern int  sub_107A70(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_109100(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_109120(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_109184(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_109368(uint32_t a1, uint32_t a2);
+extern int  sub_109480(uint32_t a1, uint32_t a2);
+extern int  sub_109738(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1099BC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_109D40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11);
+extern int  sub_10A36C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_10A5B0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern int  sub_10AC18(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_10B048(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11);
+extern int  sub_10CD6C(uint32_t a1);
+extern int  sub_10CF48(uint32_t a1);
+extern int  sub_10D06C(uint32_t a1);
+extern int  sub_10D63C(uint32_t a1);
+extern int  sub_10D6A8(uint32_t a1, uint32_t a2);
+extern int  sub_10DA88(uint32_t a1);
+extern int  sub_10DAD8(uint32_t a1);
+extern int  sub_10DAF0(uint32_t a1);
+extern int  sub_10DB04(uint32_t a1);
+extern int  sub_10DB18(uint32_t a1);
+extern int  sub_10DB30(uint32_t a1);
+extern int  sub_10DB48(uint32_t a1);
+extern int  sub_10DB78(uint32_t a1);
+extern int  sub_10DB90(uint32_t a1);
+extern int  sub_10DBA4(uint32_t a1);
+extern int  sub_10DBB8(uint32_t a1);
+extern int  sub_10DBD0(uint32_t a1);
+extern int  sub_10DBF4(uint32_t a1);
+extern int  sub_10DDC8(uint32_t a1, uint32_t a2);
+extern int  sub_10EA74(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_10EC2C(uint32_t a1);
+extern int  sub_10ED50(uint32_t a1);
+extern int  sub_10EFBC(uint32_t a1, uint32_t a2);
+extern int  sub_10F010(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_10F064(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_10F0B8(uint32_t a1);
+extern int  sub_10F110(uint32_t a1);
+extern int  sub_10F170(uint32_t a1);
+extern int  sub_10F188(uint32_t a1);
+extern int  sub_10F5BC(uint32_t a1, uint32_t a2);
+extern int  sub_10FBD0(uint32_t a1, uint32_t a2);
+extern int  sub_10FE24(uint32_t a1);
+extern int  sub_10FE5C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_10FEF8(uint32_t a1);
+extern int  sub_1103F4(uint32_t a1);
+extern int  sub_11052C(uint32_t a1, uint32_t a2);
+extern int  sub_110690(uint32_t a1);
+extern int  sub_110AB8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_110B64(uint32_t a1);
+extern int  sub_110BF8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_110C7C(uint32_t a1);
+extern int  sub_111404(uint32_t a1, uint32_t a2);
+extern int  sub_111524(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_111618(uint32_t a1, uint32_t a2);
+extern int  sub_1116C0(uint32_t a1, uint32_t a2);
+extern int  sub_111950(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_111A04(uint32_t a1);
+extern int  sub_111A24(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_111B30(uint32_t a1);
+extern int  sub_112918(uint32_t a1, uint32_t a2);
+extern int  sub_112A0C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_112B7C(uint32_t a1);
+extern int  sub_112C20(uint32_t a1, uint32_t a2);
+extern int  sub_112CC0(uint32_t a1, uint32_t a2);
+extern int  sub_112D84(uint32_t a1, uint32_t a2);
+extern int  sub_112E28(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_112F58(uint32_t a1);
+extern int  sub_113374(uint32_t a1);
+extern int  sub_1134D8(uint32_t a1);
+extern int  sub_113694(uint32_t a1, uint32_t a2);
+extern int  sub_1136F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_113810(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_113824(uint32_t a1);
+extern int  sub_113854(uint32_t a1);
+extern int  sub_113A44(uint32_t a1);
+extern int  sub_113AD0(uint32_t a1, uint32_t a2);
+extern int  sub_113B80(uint32_t a1);
+extern int  sub_113B88(uint32_t a1);
+extern int  sub_113BB0(uint32_t a1);
+extern int  sub_113BE8(uint32_t a1);
+extern int  sub_113C14(uint32_t a1);
+extern int  sub_113C48(uint32_t a1, uint32_t a2);
+extern int  sub_113C98(uint32_t a1, uint32_t a2);
+extern int  sub_113D00(uint32_t a1, uint32_t a2);
+extern int  sub_113D80(uint32_t a1, uint32_t a2);
+extern int  sub_113DF8(uint32_t a1, uint32_t a2);
+extern int  sub_113E70(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_113ED0(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_113F3C(uint32_t a1, uint32_t a2);
+extern int  sub_113FD8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_114044(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1140B8(uint32_t a1);
+extern int  sub_1140F0(uint32_t a1);
+extern int  sub_11416C(uint32_t a1);
+extern int  sub_114194(uint32_t a1);
+extern int  sub_114210(uint32_t a1);
+extern int  sub_114318(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11441C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_114558(uint32_t a1);
+extern int  sub_114564(uint32_t a1);
+extern int  sub_114570(uint32_t a1);
+extern int  sub_11457C(uint32_t a1);
+extern int  sub_114588(uint32_t a1);
+extern int  sub_114594(uint32_t a1);
+extern int  sub_1145A0(uint32_t a1);
+extern int  sub_1145AC(uint32_t a1);
+extern int  sub_1145B8(uint32_t a1);
+extern int  sub_1145C4(uint32_t a1);
+extern int  sub_1145D0(uint32_t a1);
+extern int  sub_1145DC(uint32_t a1);
+extern int  sub_1145E8(uint32_t a1);
+extern int  sub_1145F4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1146E4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_114820(uint32_t a1);
+extern int  sub_11482C(uint32_t a1);
+extern int  sub_114838(uint32_t a1);
+extern int  sub_114844(uint32_t a1);
+extern int  sub_114850(uint32_t a1);
+extern int  sub_11485C(uint32_t a1);
+extern int  sub_114868(uint32_t a1);
+extern int  sub_114874(uint32_t a1);
+extern int  sub_114880(uint32_t a1);
+extern int  sub_11488C(uint32_t a1);
+extern int  sub_114898(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_114904(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1149A4(uint32_t a1);
+extern int  sub_1149B0(uint32_t a1);
+extern int  sub_1149FC(uint32_t a1);
+extern int  sub_11532C(uint32_t a1);
+extern int  sub_11538C(uint32_t a1);
+extern int  sub_1158A4(uint32_t a1);
+extern int  sub_1159C8(uint32_t a1);
+extern int  sub_115AD0(uint32_t a1);
+extern int  sub_115B60(uint32_t a1, uint32_t a2);
+extern int  sub_115F78(uint32_t a1);
+extern int  sub_115FF0(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11601C(uint32_t a1);
+extern int  sub_1160FC(uint32_t a1, uint32_t a2);
+extern int  sub_116328(uint32_t a1, uint32_t a2);
+extern int  sub_11639C(uint32_t a1);
+extern int  sub_1164C4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_116580(uint32_t a1, uint32_t a2);
+extern int  sub_1165B0(uint32_t a1, uint32_t a2);
+extern int  sub_116628(uint32_t a1, uint32_t a2);
+extern int  sub_1166CC(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_116838(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_116858(uint32_t a1);
+extern int  sub_116EC4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11702C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11739C(uint32_t a1, uint32_t a2);
+extern int  sub_1174EC(uint32_t a1);
+extern int  sub_117538(uint32_t a1);
+extern int  sub_117590(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_117954(uint32_t a1);
+extern int  sub_1179C8(uint32_t a1);
+extern int  sub_117B4C(uint32_t a1, uint32_t a2);
+extern int  sub_117CB4(uint32_t a1);
+extern int  sub_117D6C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_117DB4(uint32_t a1);
+extern int  sub_117E5C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1180B8(uint32_t a1);
+extern int  sub_1182C8(uint32_t a1);
+extern int  sub_118310(uint32_t a1);
+extern int  sub_118324(uint32_t a1);
+extern int  sub_118374(uint32_t a1);
+extern int  sub_118674(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern int  sub_118908(uint32_t a1);
+extern int  sub_11898C(uint32_t a1, uint32_t a2);
+extern int  sub_118A60(uint32_t a1);
+extern int  sub_118EC8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_118FD8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_119054(uint32_t a1);
+extern int  sub_119170(uint32_t a1);
+extern int  sub_119190(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1191B8(uint32_t a1, uint32_t a2);
+extern int  sub_119218(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11930C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119330(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1193E0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1193F0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119400(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119420(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119478(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1194F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119504(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119514(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119524(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11954C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119698(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1196AC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11972C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1197A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1197DC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1198AC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11998C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1199CC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119AF4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119B2C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119B4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119B5C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119B90(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119BB0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119BD8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119BF8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119C4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119D18(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119D58(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119D70(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_119F9C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11A034(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11A72C(uint32_t a1);
+extern int  sub_11A7C8(uint32_t a1);
+extern int  sub_11A8E4(uint32_t a1);
+extern int  sub_11A9BC(uint32_t a1, uint32_t a2);
+extern int  sub_11AA8C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11AB18(uint32_t a1, uint32_t a2);
+extern int  sub_11AC10(uint32_t a1);
+extern int  sub_11AD58(uint32_t a1);
+extern int  sub_11AD88(uint32_t a1, uint32_t a2);
+extern int  sub_11ADD0(uint32_t a1);
+extern int  sub_11AE24(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11AF78(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11B088(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11B1A4(uint32_t a1);
+extern int  sub_11B3A4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11B4E8(uint32_t a1);
+extern int  sub_11BA18(uint32_t a1);
+extern int  sub_11BA4C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11BB18(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11BBA4(uint32_t a1, uint32_t a2);
+extern int  sub_11BD44(uint32_t a1, uint32_t a2);
+extern int  sub_11BE28(uint32_t a1);
+extern int  sub_11BEC0(uint32_t a1, uint32_t a2);
+extern int  sub_11BF38(uint32_t a1, uint32_t a2);
+extern int  sub_11C01C(uint32_t a1);
+extern int  sub_11C158(uint32_t a1);
+extern int  sub_11C26C(uint32_t a1);
+extern int  sub_11C324(uint32_t a1);
+extern int  sub_11C38C(uint32_t a1, uint32_t a2);
+extern int  sub_11C540(uint32_t a1);
+extern int  sub_11C834(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11C850(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11C9A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11CA38(uint32_t a1);
+extern int  sub_11CB84(uint32_t a1);
+extern int  sub_11CD0C(uint32_t a1, uint32_t a2);
+extern int  sub_11CD50(uint32_t a1);
+extern int  sub_11D8F0(uint32_t a1);
+extern int  sub_11D9F8(uint32_t a1);
+extern int  sub_11DA3C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11DA5C(uint32_t a1, uint32_t a2);
+extern int  sub_11DA78(uint32_t a1, uint32_t a2);
+extern int  sub_11DAC8(uint32_t a1, uint32_t a2);
+extern int  sub_11DAE0(uint32_t a1, uint32_t a2);
+extern int  sub_11DAFC(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11DC54(uint32_t a1, uint32_t a2);
+extern int  sub_11DDCC(uint32_t a1, uint32_t a2);
+extern int  sub_11DDF0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11DE50(uint32_t a1);
+extern int  sub_11DED8(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11DEE8(uint32_t a1);
+extern int  sub_11DF94(uint32_t a1);
+extern int  sub_11E184(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_11E34C(uint32_t a1);
+extern int  sub_11E3FC(uint32_t a1, uint32_t a2);
+extern int  sub_11E5E0(uint32_t a1);
+extern int  sub_11E628(uint32_t a1);
+extern int  sub_11E724(uint32_t a1, uint32_t a2);
+extern int  sub_11E76C(uint32_t a1, uint32_t a2);
+extern int  sub_11E7C4(uint32_t a1, uint32_t a2);
+extern int  sub_11E82C(uint32_t a1);
+extern int  sub_11E8E0(uint32_t a1);
+extern int  sub_11F4A8(uint32_t a1);
+extern int  sub_11F4B4(uint32_t a1);
+extern int  sub_11F4D8(uint32_t a1, uint32_t a2);
+extern int  sub_11F74C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_11F79C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1212D0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_12135C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1213A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1213FC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_12141C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_121490(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1214DC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_121510(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_121544(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_121654(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_121960(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1219C4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1219F4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_121A5C(uint32_t a1);
+extern int  sub_121AF0(uint32_t a1);
+extern int  sub_121BE0(uint32_t a1, uint32_t a2);
+extern int  sub_121CF4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_121E3C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_121F10(uint32_t a1);
+extern int  sub_121F44(uint32_t a1, uint32_t a2);
+extern int  sub_12202C(uint32_t a1, uint32_t a2);
+extern int  sub_12211C(uint32_t a1, uint32_t a2);
+extern int  sub_122198(uint32_t a1, uint32_t a2);
+extern int  sub_1222CC(uint32_t a1, uint32_t a2);
+extern int  sub_12248C(uint32_t a1, uint32_t a2);
+extern int  sub_122508(uint32_t a1, uint32_t a2);
+extern int  sub_1225C4(uint32_t a1, uint32_t a2);
+extern int  sub_1225F4(uint32_t a1, uint32_t a2);
+extern int  sub_12266C(uint32_t a1);
+extern int  sub_122688(uint32_t a1, uint32_t a2);
+extern int  sub_122728(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_122C94(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_122DB8(uint32_t a1, uint32_t a2);
+extern int  sub_122F3C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_123020(uint32_t a1);
+extern int  sub_1230E8(uint32_t a1);
+extern int  sub_123394(uint32_t a1);
+extern int  sub_123A20(uint32_t a1);
+extern int  sub_123AB4(uint32_t a1);
+extern int  sub_123B30(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_123F04(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_123F4C(uint32_t a1);
+extern int  sub_123F64(uint32_t a1);
+extern int  sub_123F78(uint32_t a1);
+extern int  sub_123F8C(uint32_t a1);
+extern int  sub_123FA0(uint32_t a1);
+extern int  sub_123FB4(uint32_t a1);
+extern int  sub_123FC8(uint32_t a1);
+extern int  sub_123FDC(uint32_t a1);
+extern int  sub_123FF0(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_12407C(uint32_t a1);
+extern int  sub_124094(uint32_t a1);
+extern int  sub_1240AC(uint32_t a1);
+extern int  sub_124150(uint32_t a1);
+extern int  sub_124178(uint32_t a1);
+extern int  sub_12419C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern int  sub_1242F0(uint32_t a1);
+extern int  sub_1246F0(uint32_t a1, uint32_t a2);
+extern int  sub_1247A4(uint32_t a1, uint32_t a2);
+extern int  sub_1247D8(uint32_t a1, uint32_t a2);
+extern int  sub_124A10(uint32_t a1, uint32_t a2);
+extern int  sub_124A50(uint32_t a1, uint32_t a2);
+extern int  sub_124A88(uint32_t a1, uint32_t a2);
+extern int  sub_124B04(uint32_t a1, uint32_t a2);
+extern int  sub_124C70(uint32_t a1, uint32_t a2);
+extern int  sub_124E34(uint32_t a1, uint32_t a2);
+extern int  sub_124E60(uint32_t a1, uint32_t a2);
+extern int  sub_124F20(uint32_t a1, uint32_t a2);
+extern int  sub_124F40(uint32_t a1, uint32_t a2);
+extern int  sub_124F60(uint32_t a1, uint32_t a2);
+extern int  sub_124F9C(uint32_t a1, uint32_t a2);
+extern int  sub_124FD0(uint32_t a1, uint32_t a2);
+extern int  sub_125004(uint32_t a1, uint32_t a2);
+extern int  sub_125038(uint32_t a1, uint32_t a2);
+extern int  sub_12506C(uint32_t a1, uint32_t a2);
+extern int  sub_1250A0(uint32_t a1, uint32_t a2);
+extern int  sub_1250D4(uint32_t a1, uint32_t a2);
+extern int  sub_125108(uint32_t a1, uint32_t a2);
+extern int  sub_12513C(uint32_t a1, uint32_t a2);
+extern int  sub_1252B8(uint32_t a1, uint32_t a2);
+extern int  sub_12537C(uint32_t a1, uint32_t a2);
+extern int  sub_1253BC(uint32_t a1, uint32_t a2);
+extern int  sub_1256E0(uint32_t a1, uint32_t a2);
+extern int  sub_125970(uint32_t a1, uint32_t a2);
+extern int  sub_125ABC(uint32_t a1, uint32_t a2);
+extern int  sub_125BFC(uint32_t a1, uint32_t a2);
+extern int  sub_125D18(uint32_t a1, uint32_t a2);
+extern int  sub_125D44(uint32_t a1, uint32_t a2);
+extern int  sub_125E0C(uint32_t a1, uint32_t a2);
+extern int  sub_125E18(uint32_t a1, uint32_t a2);
+extern int  sub_125EF0(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_125F58(uint32_t a1, uint32_t a2);
+extern int  sub_125FFC(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_126064(uint32_t a1, uint32_t a2);
+extern int  sub_126258(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_12646C(uint32_t a1);
+extern int  sub_1264DC(uint32_t a1);
+extern int  sub_12686C(uint32_t a1);
+extern int  sub_126D60(uint32_t a1);
+extern int  sub_126DD8(uint32_t a1);
+extern int  sub_126F10(uint32_t a1);
+extern int  sub_126FD8(uint32_t a1);
+extern int  sub_127228(uint32_t a1);
+extern int  sub_1272B4(uint32_t a1, uint32_t a2);
+extern int  sub_12752C(uint32_t a1);
+extern int  sub_12754C(uint32_t a1);
+extern int  sub_127570(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_1275B4(uint32_t a1);
+extern int  sub_127620(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_1277FC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8);
+extern int  sub_1279E2(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127A54(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127AD0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127AF0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127B04(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127B18(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127B2C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127B40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127C90(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_127E14(uint32_t a1);
+extern int  sub_127EB0(uint32_t a1, uint32_t a2);
+extern int  sub_127F64(uint32_t a1, uint32_t a2);
+extern int  sub_127F78(uint32_t a1, uint32_t a2);
+extern int  sub_127F8C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_127FBC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int  sub_128280(uint32_t a1);
+extern int  sub_128288(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  sub_128508(uint32_t a1, uint32_t a2);
+extern int  sub_12899C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  timer_set_relative(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int  timestamp_remove(uint32_t a1);
+extern int  tx_buffer_acquire_or_alloc(uint32_t a1, uint32_t a2);
+extern int  uart_putc(uint32_t a1);
+extern int  unknown_helper_2(uint32_t a1, uint32_t a2);
+extern int * divmod64_compute(uint32_t a1);
+extern int * rf_bus_mark_ne8(uint32_t a1);
+extern int * rf_bus_setup_1804(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * rf_bus_setup_n_148(uint32_t a1, uint32_t a2);
+extern int * rf_bus_write_1(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int * rf_indexed_lookup_n_88(uint32_t a1);
+extern int * rf_init_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * sub_100200(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int * sub_102ADC(uint32_t a1);
+extern int * sub_10397C(uint32_t a1);
+extern int * sub_1078D4(uint32_t a1);
+extern int * sub_109BF8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11);
+extern int * sub_111274(uint32_t a1);
+extern int * sub_1112AC(uint32_t a1);
+extern int * sub_11146C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern int * sub_11164C(uint32_t a1, uint32_t a2);
+extern int * sub_111670(uint32_t a1, uint32_t a2);
+extern int * sub_111694(uint32_t a1, uint32_t a2);
+extern int * sub_1116BC(uint32_t a1, uint32_t a2);
+extern int * sub_111804(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * sub_1153F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * sub_1156A0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * sub_115754(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern int * sub_117AC8(uint32_t a1);
+extern int * sub_11BD88(uint32_t a1);
+extern int * sub_11C7DC(uint32_t a1);
 extern int accum_update_addr_pair(void);
 extern int chip_rev_id_get(void);
 extern int chip_revision_get(void);
@@ -795,7 +739,6 @@ extern int lmac_interrupt_init(void);
 extern int lmac_rf_handler_1102d0(void);
 extern int lmac_rf_init_5cbuf(void);
 extern int lmac_rf_unk_1a9c(void);
-extern int log_free_dispatch_n2b4(void);
 extern int log_free_dispatch_n2f2(void);
 extern int log_free_pool_dispatch2_n4ac(void);
 extern int log_free_pool_e(void);
@@ -811,7 +754,7 @@ extern int mmio_read_field_n_bd8(void);
 extern int mmio_reg_bit0_read(void);
 extern int mmio_status_flag_read(void);
 extern int mmio_syscfg_init_n4(void);
-extern int msg_parse(int result, ...);
+extern int msg_parse(uint32_t a1, uint32_t a2);
 extern int patch_apply_n422(void);
 extern int patch_table_apply_dbc(void);
 extern int phy_flag_check_or_set(void);
@@ -911,14 +854,14 @@ extern int sub_10D44C(void);
 extern int sub_10D474(void);
 extern int sub_10D680(void);
 extern int sub_10D698(void);
-extern int sub_10DA6C(int a1, ..., int a3);
+extern int sub_10DA6C(uint32_t a1, uint32_t a2);
 extern int sub_10DC40(void);
 extern int sub_10DC78(void);
 extern int sub_10DCB0(void);
 extern int sub_10DCE8(void);
-extern int sub_10DD20(int a1);
+extern int sub_10DD20(void);
 extern int sub_10DE98(void);
-extern int sub_10DEF0(int a1);
+extern int sub_10DEF0(void);
 extern int sub_10E2E8(void);
 extern int sub_10E420(void);
 extern int sub_10E4D8(void);
@@ -926,7 +869,7 @@ extern int sub_10E798(void);
 extern int sub_10EE7C(void);
 extern int sub_10EFA4(void);
 extern int sub_10EFAC(void);
-extern int sub_10EFB4(int a1, int a2, int a3);
+extern int sub_10EFB4(void);
 extern int sub_10F14C(void);
 extern int sub_10F15C(void);
 extern int sub_10F1E0(void);
@@ -935,32 +878,33 @@ extern int sub_10F50C(void);
 extern int sub_10F5C8(void);
 extern int sub_10F6A4(void);
 extern int sub_10F7FC(void);
-extern int sub_10FFF0(int a1);
+extern int sub_10FFF0(void);
 extern int sub_11007C(void);
 extern int sub_1100D4(void);
-extern int sub_11016C(int a1);
+extern int sub_110114(void);
+extern int sub_11016C(void);
 extern int sub_1101AC(void);
 extern int sub_1101EC(void);
 extern int sub_110280(void);
 extern int sub_1102D0(void);
 extern int sub_110320(void);
 extern int sub_110370(void);
-extern int sub_1103B0(int a1);
+extern int sub_1103B0(void);
 extern int sub_110684(void);
 extern int sub_1108C0(void);
 extern int sub_110D00(void);
 extern int sub_11118C(void);
-extern int sub_111218(int a1);
+extern int sub_111218(void);
 extern int sub_111304(void);
 extern int sub_111ADC(void);
 extern int sub_1122F0(void);
-extern int sub_1125A4(int a1);
+extern int sub_1125A4(void);
 extern int sub_1125F4(void);
 extern int sub_1129CC(void);
-extern int sub_1130CC(int a1);
+extern int sub_1130CC(void);
 extern int sub_113280(void);
 extern int sub_1132C0(void);
-extern int sub_113300(int a1);
+extern int sub_113300(void);
 extern int sub_113344(void);
 extern int sub_113358(void);
 extern int sub_113640(void);
@@ -968,10 +912,10 @@ extern int sub_113760(void);
 extern int sub_1137B8(void);
 extern int sub_1138F4(void);
 extern int sub_113B40(void);
-extern int sub_113B78(int a1);
+extern int sub_113B78(void);
 extern int sub_11413C(void);
 extern int sub_1141EC(void);
-extern int sub_114208(int a1);
+extern int sub_114208(void);
 extern int sub_114218(void);
 extern int sub_114258(void);
 extern int sub_114298(void);
@@ -986,8 +930,8 @@ extern int sub_115820(void);
 extern int sub_115890(void);
 extern int sub_115D64(void);
 extern int sub_115DBC(void);
-extern int sub_115FBC(int a1);
-extern int sub_11660C(int a1, int a2, int a3);
+extern int sub_115FBC(void);
+extern int sub_11660C(void);
 extern int sub_11683C(void);
 extern int sub_116C48(void);
 extern int sub_116C6C(void);
@@ -1011,7 +955,7 @@ extern int sub_118E58(void);
 extern int sub_119308(void);
 extern int sub_119AE8(void);
 extern int sub_11A728(void);
-extern int sub_11AB0C(int a1);
+extern int sub_11AB0C(void);
 extern int sub_11AC80(void);
 extern int sub_11B044(void);
 extern int sub_11B2C8(void);
@@ -1023,14 +967,14 @@ extern int sub_11B9E0(void);
 extern int sub_11BA64(void);
 extern int sub_11C88C(void);
 extern int sub_11C92C(void);
-extern int sub_11CA94(int a1);
+extern int sub_11CA94(void);
 extern int sub_11CAC8(void);
 extern int sub_11CD3C(void);
 extern int sub_11CD68(void);
 extern int sub_11D0B8(void);
 extern int sub_11D470(void);
 extern int sub_11D5E4(void);
-extern int sub_11D8D4(int a1);
+extern int sub_11D8D4(void);
 extern int sub_11D9C0(void);
 extern int sub_11D9DC(void);
 extern int sub_11DD10(void);
@@ -1039,19 +983,19 @@ extern int sub_11E620(void);
 extern int sub_11E6EC(void);
 extern int sub_11F4C0(void);
 extern int sub_11F4CC(void);
-extern int sub_11F504(int result, ...);
+extern int sub_11F504(uint32_t a1, uint32_t a2);
 extern int sub_11F774(void);
 extern int sub_1215A8(void);
-extern int sub_1216EC(int a1, int a2, int a3);
-extern int sub_121A44(int a1);
+extern int sub_1216EC(void);
+extern int sub_121A44(void);
 extern int sub_121A58(void);
-extern int sub_121A60(int a1);
+extern int sub_121A60(void);
 extern int sub_121A68(void);
 extern int sub_121A80(void);
 extern int sub_121AE8(void);
 extern int sub_121EE8(void);
 extern int sub_122244(void);
-extern int sub_123068(int a1);
+extern int sub_123068(void);
 extern int sub_12373C(void);
 extern int sub_123BBC(void);
 extern int sub_1244F8(void);
@@ -1074,90 +1018,90 @@ extern int sub_126588(void);
 extern int sub_126E50(void);
 extern int sub_126E54(void);
 extern int sub_126E80(void);
-extern int sub_127108(int a1);
+extern int sub_127108(void);
 extern int sub_12716C(void);
 extern int sub_127F28(void);
 extern int sub_127F3C(void);
 extern int sub_127F50(void);
 extern int sub_12F954(void);
 extern int timer_init(void);
-extern long long  math_round(long long a1);
-extern long long  sub_1152D8(int a1);
-extern long long  sub_127194(long long a1);
-extern long long  sub_1272B0(int a1, int a2, int a3, int a4);
+extern long long  math_round(uint32_t a1);
+extern long long  sub_1152D8(uint32_t a1);
+extern long long  sub_127194(uint32_t a1);
+extern long long  sub_1272B0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
 extern long long sub_10F5FC(void);
-extern uint32_t * log_pool_alloc2_a18(int a1, unsigned int a2);
-extern uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2);
-extern uint32_t * sub_1019D4(uint32_t *result, uint32_t *a2);
-extern uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, short a7);
-extern uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2);
-extern uint32_t * sub_108D34(int a1, int a2);
-extern uint32_t * sub_10BF28(uint32_t *result, unsigned int a2, int a3, int a4);
-extern uint32_t * sub_10FA18(int a1, unsigned int a2);
-extern uint32_t * sub_10FEAC(char a1);
-extern uint32_t * sub_110B44(uint32_t *result, int a2, int a3, unsigned short a4, int a5);
-extern uint32_t * sub_112EF4(int a1);
-extern uint32_t * sub_115314(int a1);
-extern uint32_t * sub_117164(uint32_t *a1, int a2, uint16_t *a3);
-extern uint32_t * sub_117284(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5);
-extern uint32_t * sub_11E078(char *a1);
-extern uint32_t * sub_11E1E4(unsigned int a1, int a2);
-extern uint32_t * sub_11E71C(uint32_t *result);
-extern uint32_t * sub_11E7AC(int a1);
-extern uint32_t * sub_11E888(uint32_t *result, uint32_t *a2, uint32_t *a3);
-extern uint32_t * sub_121C6C(int a1, uint32_t *a2, int a3);
-extern uint32_t * sub_126764(int a1);
-extern uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4);
-extern uint64_t * get_cached_1828f8(uint64_t *result, int a2);
-extern uint64_t * sub_1019EC(uint64_t *result, int a2);
-extern uint8_t * rf_chan_band_parse(uint8_t *result);
-extern uint8_t * rf_cmd_send_n_3ac(int a1, int a2);
-extern uint8_t * sub_1029A8(uint8_t *result, uint8_t *a2);
-extern uint8_t * sub_10D654(uint8_t *result);
-extern uint8_t * sub_11256C(int a1, int a2);
-extern uint8_t * sub_1125B0(int a1, int a2);
-extern uint8_t * sub_11EB74(uint8_t *result, int a2);
-extern uint8_t * sub_1236FC(uint8_t *result);
-extern uint8_t * uart_puts(uint8_t *result);
-extern unsigned char * parse_subframe_header(unsigned char *result);
-extern unsigned char * sub_11AA5C(unsigned char *result);
-extern unsigned char * sub_123490(unsigned char *result);
-extern unsigned char * sub_12841C(unsigned char *result, unsigned char a2);
-extern unsigned int  check_param_eq1(unsigned int result, unsigned int a2, int a3);
-extern unsigned int  rf_init_handler_0(int a1, int a2);
-extern unsigned int  rf_init_hw_setup(unsigned int a1);
-extern unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4);
-extern unsigned int  rf_power_enable_32dc(unsigned int result);
-extern unsigned int  rf_state_check_nec(int *a1);
-extern unsigned int  sub_1010D4(unsigned int a1);
-extern unsigned int  sub_101A50(int a1);
-extern unsigned int  sub_1029DC(unsigned char a1);
-extern unsigned int  sub_1032DC(unsigned int result);
-extern unsigned int  sub_103AE0(int a1, int a2);
-extern unsigned int  sub_10F814(int *a1, int a2, unsigned int a3);
-extern unsigned int  sub_113B5C(int a1);
-extern unsigned int  sub_1174B8(int a1);
-extern unsigned int  sub_118C90(unsigned int result);
-extern unsigned int  sub_118D40(int *a1);
-extern unsigned int  sub_11AB00(int a1, int a2);
-extern unsigned int  sub_11CDB8(unsigned int result);
-extern unsigned int  sub_11E8B4(unsigned char *a1, int a2, unsigned int a3);
-extern unsigned int  sub_11EB48(unsigned char *a1, int a2, unsigned int a3);
-extern unsigned int  sub_11F594(unsigned int result, int a2, int a3, int a4);
-extern unsigned int  sub_121B40(unsigned int a1, int a2, int a3);
-extern unsigned int  sub_122FA4(int a1, int a2);
-extern unsigned int  sub_124244(unsigned int result, unsigned int a2, int a3);
-extern unsigned int  sub_125AD8(unsigned int result);
-extern unsigned int  sub_127874(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4);
-extern unsigned int  sub_127AE0(unsigned int a1, unsigned int a2, unsigned int a3, int a4);
-extern unsigned int  sub_127B54(unsigned int a1, int a2);
-extern unsigned int  sub_127BA4(unsigned int a1, int a2);
-extern unsigned int  sub_127BE4(unsigned int a1, int a2);
-extern unsigned int  sub_1287DC(unsigned int result, unsigned int a2);
-extern unsigned int  sub_1288C0(unsigned int a1);
-extern unsigned int * rf_level_apply_n_4ec(int a1);
-extern unsigned int * sub_105578(int a1, int a2, unsigned int a3, unsigned int a4, unsigned char a5, int a6);
-extern unsigned int * sub_1268EC(int a1);
+extern uint32_t * log_pool_alloc2_a18(uint32_t a1, uint32_t a2);
+extern uint32_t * read_mac_dual_addr(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_1019D4(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_107C70(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7);
+extern uint32_t * sub_108CB8(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_108D34(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_10BF28(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern uint32_t * sub_10FA18(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_10FEAC(uint32_t a1);
+extern uint32_t * sub_110B44(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern uint32_t * sub_112EF4(uint32_t a1);
+extern uint32_t * sub_115314(uint32_t a1);
+extern uint32_t * sub_117164(uint32_t a1, uint32_t a2, uint32_t a3);
+extern uint32_t * sub_117284(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5);
+extern uint32_t * sub_11E078(uint32_t a1);
+extern uint32_t * sub_11E1E4(uint32_t a1, uint32_t a2);
+extern uint32_t * sub_11E71C(uint32_t a1);
+extern uint32_t * sub_11E7AC(uint32_t a1);
+extern uint32_t * sub_11E888(uint32_t a1, uint32_t a2, uint32_t a3);
+extern uint32_t * sub_121C6C(uint32_t a1, uint32_t a2, uint32_t a3);
+extern uint32_t * sub_126764(uint32_t a1);
+extern uint32_t * tx_phy_config(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern uint64_t * get_cached_1828f8(uint32_t a1, uint32_t a2);
+extern uint64_t * sub_1019EC(uint32_t a1, uint32_t a2);
+extern uint8_t * rf_chan_band_parse(uint32_t a1);
+extern uint8_t * rf_cmd_send_n_3ac(uint32_t a1, uint32_t a2);
+extern uint8_t * sub_1029A8(uint32_t a1, uint32_t a2);
+extern uint8_t * sub_10D654(uint32_t a1);
+extern uint8_t * sub_11256C(uint32_t a1, uint32_t a2);
+extern uint8_t * sub_1125B0(uint32_t a1, uint32_t a2);
+extern uint8_t * sub_11EB74(uint32_t a1, uint32_t a2);
+extern uint8_t * sub_1236FC(uint32_t a1);
+extern uint8_t * uart_puts(uint32_t a1);
+extern unsigned char * parse_subframe_header(uint32_t a1);
+extern unsigned char * sub_11AA5C(uint32_t a1);
+extern unsigned char * sub_123490(uint32_t a1);
+extern unsigned char * sub_12841C(uint32_t a1, uint32_t a2);
+extern unsigned int  check_param_eq1(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  rf_init_handler_0(uint32_t a1, uint32_t a2);
+extern unsigned int  rf_init_hw_setup(uint32_t a1);
+extern unsigned int  rf_mem_read_f594(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern unsigned int  rf_power_enable_32dc(uint32_t a1);
+extern unsigned int  rf_state_check_nec(uint32_t a1);
+extern unsigned int  sub_1010D4(uint32_t a1);
+extern unsigned int  sub_101A50(uint32_t a1);
+extern unsigned int  sub_1029DC(uint32_t a1);
+extern unsigned int  sub_1032DC(uint32_t a1);
+extern unsigned int  sub_103AE0(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_10F814(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  sub_113B5C(uint32_t a1);
+extern unsigned int  sub_1174B8(uint32_t a1);
+extern unsigned int  sub_118C90(uint32_t a1);
+extern unsigned int  sub_118D40(uint32_t a1);
+extern unsigned int  sub_11AB00(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_11CDB8(uint32_t a1);
+extern unsigned int  sub_11E8B4(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  sub_11EB48(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  sub_11F594(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern unsigned int  sub_121B40(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  sub_122FA4(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_124244(uint32_t a1, uint32_t a2, uint32_t a3);
+extern unsigned int  sub_125AD8(uint32_t a1);
+extern unsigned int  sub_127874(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern unsigned int  sub_127AE0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern unsigned int  sub_127B54(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_127BA4(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_127BE4(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_1287DC(uint32_t a1, uint32_t a2);
+extern unsigned int  sub_1288C0(uint32_t a1);
+extern unsigned int * rf_level_apply_n_4ec(uint32_t a1);
+extern unsigned int * sub_105578(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6);
+extern unsigned int * sub_1268EC(uint32_t a1);
 extern unsigned int patch_apply_slot_36(void);
 extern unsigned int rf_gpio_clear_bit_n_e20(void);
 extern unsigned int rf_level_apply_n1b8(void);
@@ -1178,21 +1122,21 @@ extern unsigned int sub_11D3DC(void);
 extern unsigned int sub_1238E0(void);
 extern unsigned int sub_126DA4(void);
 extern unsigned int sub_126F90(void);
-extern unsigned long long  sub_127F10(int a1, int a2);
+extern unsigned long long  sub_127F10(uint32_t a1, uint32_t a2);
 extern void  __attribute__((noreturn)) lmac_init_frame_n_1b4(int a1, int a2);
 extern void  __attribute__((noreturn)) sub_101E18(int a1, int a2, int a3, int a4);
 extern void  __attribute__((noreturn)) sub_10C1B4(int a1, int a2);
 extern void  __attribute__((noreturn)) sub_10C1EC(int a1, int a2);
 extern void  __attribute__((noreturn)) sub_114ECC(int a1);
 extern void  __attribute__((noreturn)) sub_119E3C(int a1, int a2, int a3);
-extern void  rf_cmd_dispatch_a84(int a1);
-extern void  rf_init_check_flags(int a1, int a2);
-extern void  sub_112F6C(int a1, int a2, int a3, int a4);
-extern void  sub_113630(int a1);
-extern void  sub_1150A8(int a1, int a2);
-extern void  sub_118340(int a1, int a2);
-extern void  sub_11D778(int a1, int a2);
-extern void  sub_121A84(int a1);
+extern void  rf_cmd_dispatch_a84(uint32_t a1);
+extern void  rf_init_check_flags(uint32_t a1, uint32_t a2);
+extern void  sub_112F6C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4);
+extern void  sub_113630(uint32_t a1, uint32_t a2, uint32_t a3);
+extern void  sub_1150A8(uint32_t a1, uint32_t a2);
+extern void  sub_118340(uint32_t a1, uint32_t a2);
+extern void  sub_11D778(uint32_t a1, uint32_t a2);
+extern void  sub_121A84(uint32_t a1);
 extern void __attribute__((noreturn)) fw_state_check_n_c0(void);
 extern void __attribute__((noreturn)) lmac_rf_init_globals(void);
 extern void __attribute__((noreturn)) panic_loop(void);
@@ -1256,8 +1200,7 @@ extern void sub_130DF4(void);
 extern void sub_130E00(void);
 
 // start @ 0x100100, size 236 bytes
-int  start(int a1, int a2, unsigned int a3)
-{
+int  start(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r6
   int *v4; // r5
   int v5; // r2
@@ -1295,9 +1238,8 @@ int  start(int a1, int a2, unsigned int a3)
 }
 
 
-// memset_thunk @ 0x100200, size 160 bytes
-int * memset_thunk(int *result, unsigned char a2, unsigned int a3)
-{
+// sub_100200 @ 0x100200, size 160 bytes
+int * sub_100200(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v3; // r4
   int *v4; // r3
   int v6; // r5
@@ -1380,8 +1322,7 @@ LABEL_16:
 
 // rf_init_setup_n_2a0 @ 0x1002a0, size 234 bytes
 // rf_init_setup_n_2a0 [rf]: Initialize RF subsystem loading config constants
-int rf_init_setup_n_2a0()
-{
+int rf_init_setup_n_2a0() {
   unsigned char **v0; // r5
   int v1; // r0
   unsigned int v2; // r7
@@ -1420,7 +1361,7 @@ int rf_init_setup_n_2a0()
   *v6 = v3;
   v6[2] = v4;
   v6[3] = HIDWORD(v4);
-  sub_10DA6C(v9, v2, v7);
+  sub_10DA6C(v9, v2);
   if ( **v8 < 0 && v7 >= v2 )
     rf_cmd_send_n264((*((uint32_t *)0x1003d0)), (*((uint32_t *)0x1003c8)), 120);
   v10 = *(uint32_t **)(*((uint32_t *)0x1003a8));
@@ -1442,7 +1383,7 @@ int rf_init_setup_n_2a0()
     v14 += v16;
   }
   v17 = (*((uint32_t *)0x1003b4));
-  result = sub_10DA6C((*((uint32_t *)0x1003b8)), (*((uint32_t *)0x1003ac)), (*((uint32_t *)0x1003b4)));
+  result = sub_10DA6C((*((uint32_t *)0x1003b8)), (*((uint32_t *)0x1003ac)));
   if ( **v8 < 0 && v14 >= v17 )
     result = rf_cmd_send_n264((*((uint32_t *)0x1003cc)), (*((uint32_t *)0x1003c8)), 156);
   v19 = *v0;
@@ -1461,15 +1402,14 @@ int rf_init_setup_n_2a0()
   if ( v21 )
   {
     if ( (*((uint32_t *)0x1003c0)) > v21 )
-      return sub_10DA6C((*((uint32_t *)0x1003c4)), (*((uint32_t *)0x1003c0)), v21);
+      return sub_10DA6C((*((uint32_t *)0x1003c4)), (*((uint32_t *)0x1003c0)));
   }
   return result;
 }
 
 
 // sub_1002A0 @ 0x1002a0, size 234 bytes
-int sub_1002A0()
-{
+int sub_1002A0() {
   unsigned char **v0; // r5
   int v1; // r0
   unsigned int v2; // r7
@@ -1508,7 +1448,7 @@ int sub_1002A0()
   *v6 = v3;
   v6[2] = v4;
   v6[3] = HIDWORD(v4);
-  sub_10DA6C(v9, v2, v7);
+  sub_10DA6C(v9, v2);
   if ( **v8 < 0 && v7 >= v2 )
     sub_1219C4((*((uint32_t *)0x1003d0)), (*((uint32_t *)0x1003c8)), 120);
   v10 = *(uint32_t **)(*((uint32_t *)0x1003a8));
@@ -1530,7 +1470,7 @@ int sub_1002A0()
     v14 += v16;
   }
   v17 = (*((uint32_t *)0x1003b4));
-  result = sub_10DA6C((*((uint32_t *)0x1003b8)), (*((uint32_t *)0x1003ac)), (*((uint32_t *)0x1003b4)));
+  result = sub_10DA6C((*((uint32_t *)0x1003b8)), (*((uint32_t *)0x1003ac)));
   if ( **v8 < 0 && v14 >= v17 )
     result = sub_1219C4((*((uint32_t *)0x1003cc)), (*((uint32_t *)0x1003c8)), 156);
   v19 = *v0;
@@ -1549,7 +1489,7 @@ int sub_1002A0()
   if ( v21 )
   {
     if ( (*((uint32_t *)0x1003c0)) > v21 )
-      return sub_10DA6C((*((uint32_t *)0x1003c4)), (*((uint32_t *)0x1003c0)), v21);
+      return sub_10DA6C((*((uint32_t *)0x1003c4)), (*((uint32_t *)0x1003c0)));
   }
   return result;
 }
@@ -1602,23 +1542,23 @@ void __attribute__((noreturn)) lmac_rf_init_globals()
     v8[20] |= 1u;
     v8[20] &= ~2u;
   }
-  v9 = sub_123068(inited);
+  v9 = sub_123068();
   v10 = sub_10F4B8(v9);
-  rf_init_submodule_dispatch(v10);
+  rf_init_submodule_dispatch();
   v11 = (uint16_t *)*v6;
   v12 = (unsigned char *)(*((uint32_t *)0x1004bc));
   v13 = (*((uint32_t *)0x1004c0));
   *v11 |= 0x2000u;
   v14 = msg_parse(v13, *v12);
-  v15 = rf_init_calibration_n174(v14);
+  v15 = rf_init_calibration_n174();
   if ( v0[363] )
   {
-    v19 = rf_level_apply_n274(v15);
-    sub_127108(v19);
+    v19 = rf_level_apply_n274();
+    sub_127108();
   }
   v16 = msg_parse((*((uint32_t *)0x1004c4)), (unsigned char)v0[76]);
-  v17 = sub_10FFF0(v16);
-  v18 = log_system_init_f6a4(v17);
+  v17 = sub_10FFF0();
+  v18 = log_system_init_f6a4();
   if ( *(uint8_t *)*v2 == 3 )
     *(uint32_t *)(*((uint32_t *)0x1004c8)) = 1;
   sub_115018(v18);
@@ -1671,23 +1611,23 @@ void __attribute__((noreturn)) sub_1003D4()
     v8[20] |= 1u;
     v8[20] &= ~2u;
   }
-  v9 = sub_123068(v7);
+  v9 = sub_123068();
   v10 = sub_10F4B8(v9);
-  sub_115000(v10);
+  sub_115000();
   v11 = (uint16_t *)*v6;
   v12 = (unsigned char *)(*((uint32_t *)0x1004bc));
   v13 = (*((uint32_t *)0x1004c0));
   *v11 |= 0x2000u;
   v14 = sub_11F504(v13, *v12);
-  v15 = sub_126174(v14);
+  v15 = sub_126174();
   if ( v0[363] )
   {
-    v19 = sub_12704C(v15);
-    sub_127108(v19);
+    v19 = sub_12704C();
+    sub_127108();
   }
   v16 = sub_11F504((*((uint32_t *)0x1004c4)), (unsigned char)v0[76]);
-  v17 = sub_10FFF0(v16);
-  v18 = sub_10F6A4(v17);
+  v17 = sub_10FFF0();
+  v18 = sub_10F6A4();
   if ( *(uint8_t *)*v2 == 3 )
     *(uint32_t *)(*((uint32_t *)0x1004c8)) = 1;
   sub_115018(v18);
@@ -1696,8 +1636,7 @@ void __attribute__((noreturn)) sub_1003D4()
 
 // sub_1004CC @ 0x1004cc, size 132 bytes
 // sub_12004CC [mmio]: Initializes LMAC RF context from MMIO 0x40330000 via helper calls
-int  sub_1004CC(int a1)
-{
+int  sub_1004CC(uint32_t a1) {
   unsigned int v2; // r6
   unsigned int v3; // r5
   int v4; // r7
@@ -1767,8 +1706,7 @@ int  sub_1004CC(int a1)
 
 // delay_us @ 0x100560, size 40 bytes
 // delay_us [util]: Microsecond delay loop using 0x40501000 timer base
-int  delay_us(int a1)
-{
+int  delay_us(uint32_t a1) {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]
 
@@ -1785,8 +1723,7 @@ int  delay_us(int a1)
 
 
 // sub_100560 @ 0x100560, size 40 bytes
-int  sub_100560(int a1)
-{
+int  sub_100560(uint32_t a1) {
   int result; // r0
   int v3; // [sp+4h] [bp-8h]
 
@@ -1803,8 +1740,7 @@ int  sub_100560(int a1)
 
 
 // sub_10058C @ 0x10058c, size 18 bytes
-int  sub_10058C(int a1)
-{
+int  sub_10058C(uint32_t a1) {
   int result; // r0
 
   result = sub_1004CC(a1);
@@ -1816,8 +1752,7 @@ int  sub_10058C(int a1)
 
 // hw_config_init @ 0x1005a4, size 50 bytes
 // hw_config_init [rf]: Initialize RF hardware config (peripheral base, RF params)
-int hw_config_init()
-{
+int hw_config_init() {
   int *v0; // r4
   int v1; // r5
   int result; // r0
@@ -1836,8 +1771,7 @@ int hw_config_init()
 
 
 // sub_1005A4 @ 0x1005a4, size 50 bytes
-int sub_1005A4()
-{
+int sub_1005A4() {
   int *v0; // r4
   int v1; // r5
   int result; // r0
@@ -1856,8 +1790,7 @@ int sub_1005A4()
 
 
 // sub_1005E8 @ 0x1005e8, size 6 bytes
-int sub_1005E8()
-{
+int sub_1005E8() {
   return *((unsigned char *)(*((uint32_t *)0x1005f0)) + 1);
 }
 
@@ -1924,8 +1857,8 @@ uint32_t *sub_10064C()
 }
 
 
-// hw_config_init @ 0x100688, size 42 bytes
-uint32_t *hw_config_init()
+// sub_100688 @ 0x100688, size 42 bytes
+uint32_t *sub_100688()
 {
   uint32_t *result; // r0
   unsigned int *v1; // r2
@@ -1941,8 +1874,7 @@ uint32_t *hw_config_init()
 
 // sub_1006C0 @ 0x1006c0, size 238 bytes
 // sub_12006C0 [unknown]: Complex helper: parses input/output buffer pointers with stack frame
-int  sub_1006C0(int result, int a2, int a3, unsigned int a4)
-{
+int  sub_1006C0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r8
   unsigned int v5; // r12
   unsigned int v6; // r11
@@ -2035,8 +1967,7 @@ LABEL_17:
 
 
 // sub_1007B4 @ 0x1007b4, size 302 bytes
-int  sub_1007B4(int a1, unsigned int a2, uint32_t *a3)
-{
+int  sub_1007B4(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v4; // r4
   int v5; // r6
   uint8_t *v6; // r7
@@ -2162,8 +2093,7 @@ LABEL_6:
 
 // mmio_set_bit_120090C @ 0x10090c, size 52 bytes
 // mmio_set_bit_120090C [mmio]: Set MMIO bit in control register
-int  mmio_set_bit_120090C(int a1, unsigned int a2)
-{
+int  mmio_set_bit_120090C(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r5
   int v3; // r0
   unsigned int v4; // r4
@@ -2181,8 +2111,7 @@ int  mmio_set_bit_120090C(int a1, unsigned int a2)
 
 
 // sub_10090C @ 0x10090c, size 52 bytes
-int  sub_10090C(int a1, unsigned int a2)
-{
+int  sub_10090C(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r5
   int v3; // r0
   unsigned int v4; // r4
@@ -2200,8 +2129,7 @@ int  sub_10090C(int a1, unsigned int a2)
 
 
 // sub_100948 @ 0x100948, size 184 bytes
-int  sub_100948(int a1, int a2)
-{
+int  sub_100948(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r3
   int v3; // r7
   unsigned int *v5; // r8
@@ -2268,8 +2196,7 @@ int  sub_100948(int a1, int a2)
 
 
 // sub_100A14 @ 0x100a14, size 90 bytes
-int sub_100A14()
-{
+int sub_100A14() {
   uint32_t *v0; // r2
   int *v1; // r3
   int v2; // r4
@@ -2316,8 +2243,7 @@ void __attribute__((noreturn)) sub_100A80()
 
 // sub_100C3C @ 0x100c3c, size 194 bytes
 // sub_1200C3C [util]: Read linked state from globals and initialize context struct
-int  sub_100C3C(int result)
-{
+int  sub_100C3C(uint32_t a1) {
   int *v1; // r2
   unsigned int v2; // r1
   uint8_t *v3; // r6
@@ -2360,8 +2286,7 @@ int  sub_100C3C(int result)
 
 
 // sub_100D18 @ 0x100d18, size 208 bytes
-unsigned int sub_100D18()
-{
+unsigned int sub_100D18() {
   unsigned int *v0; // r2
   unsigned int v1; // r1
   uint8_t *v2; // r5
@@ -2412,8 +2337,7 @@ unsigned int sub_100D18()
 
 // mmio_clock_setup @ 0x100e00, size 634 bytes
 // mmio_clock_setup [mmio]: Configures MMIO clock/power registers at 0x403440xx
-int  mmio_clock_setup(unsigned int a1, int a2)
-{
+int  mmio_clock_setup(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
   uint32_t *v4; // r5
@@ -2553,8 +2477,7 @@ int  mmio_clock_setup(unsigned int a1, int a2)
 
 
 // sub_100E00 @ 0x100e00, size 634 bytes
-int  sub_100E00(unsigned int a1, int a2)
-{
+int  sub_100E00(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r3
   uint32_t *v3; // r2
   uint32_t *v4; // r5
@@ -2695,8 +2618,7 @@ int  sub_100E00(unsigned int a1, int a2)
 
 // rf_init_hw_setup @ 0x1010d4, size 1740 bytes
 // rf_init_hw_setup [rf]: Initialize RF hardware and clear MMIO control bits
-unsigned int  rf_init_hw_setup(unsigned int a1)
-{
+unsigned int  rf_init_hw_setup(uint32_t a1) {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
   uint32_t *v3; // r3
@@ -3193,8 +3115,7 @@ LABEL_31:
 
 
 // sub_1010D4 @ 0x1010d4, size 1740 bytes
-unsigned int  sub_1010D4(unsigned int a1)
-{
+unsigned int  sub_1010D4(uint32_t a1) {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
   uint32_t *v3; // r3
@@ -3717,8 +3638,7 @@ void __attribute__((noreturn)) sub_1017C0()
 
 // sub_1019B4 @ 0x1019b4, size 24 bytes
 // sub_12019B4 [mmio]: Read MMIO status/control registers at 0x403410a8
-int  sub_1019B4(int result, int a2, int a3)
-{
+int  sub_1019B4(uint32_t a1, uint32_t a2, uint32_t a3) {
   if ( (*(uint32_t *)(*((uint32_t *)0x1019cc)) & 8) != 0 )
   {
     result = sub_117A7C(result, a2, a3, *(uint32_t *)(*((uint32_t *)0x1019cc)) << 28);
@@ -3730,8 +3650,7 @@ int  sub_1019B4(int result, int a2, int a3)
 
 // read_mac_dual_addr @ 0x1019d4, size 14 bytes
 // read_mac_dual_addr [mmio]: Read two 32-bit words from 0x40330000 and 0x4033003c into output pointers
-uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2)
-{
+uint32_t * read_mac_dual_addr(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r3
 
   v2 = (*((uint32_t *)0x1019e8));
@@ -3742,8 +3661,7 @@ uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2)
 
 
 // sub_1019D4 @ 0x1019d4, size 14 bytes
-uint32_t * sub_1019D4(uint32_t *result, uint32_t *a2)
-{
+uint32_t * sub_1019D4(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r3
 
   v2 = (*((uint32_t *)0x1019e8));
@@ -3755,8 +3673,7 @@ uint32_t * sub_1019D4(uint32_t *result, uint32_t *a2)
 
 // get_cached_1828f8 @ 0x1019ec, size 40 bytes
 // get_cached_1828f8 [util]: Retrieve cached pointer/value from table
-uint64_t * get_cached_1828f8(uint64_t *result, int a2)
-{
+uint64_t * get_cached_1828f8(uint32_t a1, uint32_t a2) {
   uint64_t *v2; // r4
 
   v2 = result;
@@ -3774,8 +3691,7 @@ uint64_t * get_cached_1828f8(uint64_t *result, int a2)
 
 
 // sub_1019EC @ 0x1019ec, size 40 bytes
-uint64_t * sub_1019EC(uint64_t *result, int a2)
-{
+uint64_t * sub_1019EC(uint32_t a1, uint32_t a2) {
   uint64_t *v2; // r4
 
   v2 = result;
@@ -3793,44 +3709,38 @@ uint64_t * sub_1019EC(uint64_t *result, int a2)
 
 
 // sub_101A20 @ 0x101a20, size 6 bytes
-int sub_101A20()
-{
+int sub_101A20() {
   return 1000;
 }
 
 
 // sub_101A28 @ 0x101a28, size 4 bytes
-int sub_101A28()
-{
+int sub_101A28() {
   return 1;
 }
 
 
 // sub_101A2C @ 0x101a2c, size 10 bytes
-int sub_101A2C()
-{
+int sub_101A2C() {
   return (*(uint32_t *)(*((uint32_t *)0x101a38)) >> 21) & 1;
 }
 
 
 // rf_chip_ready_check @ 0x101a3c, size 14 bytes
 // rf_chip_ready_check [rf]: Check RF chip ready flag at 0x40341424, return 1 if > 1
-int rf_chip_ready_check()
-{
+int rf_chip_ready_check() {
   return *(uint32_t *)(*((uint32_t *)0x101a4c)) > 1u;
 }
 
 
 // sub_101A3C @ 0x101a3c, size 14 bytes
-int sub_101A3C()
-{
+int sub_101A3C() {
   return *(uint32_t *)(*((uint32_t *)0x101a4c)) > 1u;
 }
 
 
 // sub_101A50 @ 0x101a50, size 20 bytes
-unsigned int  sub_101A50(int a1)
-{
+unsigned int  sub_101A50(uint32_t a1) {
   unsigned int result; // r0
 
   result = (8 * a1) & 8 | *(uint32_t *)(*((uint32_t *)0x101a64)) & 0xFFFFFFF7;
@@ -3841,83 +3751,72 @@ unsigned int  sub_101A50(int a1)
 
 // phy_get_link_status @ 0x101a68, size 10 bytes
 // phy_get_link_status [mac]: Read PHY status bit 28 from 0x40330000 register
-int phy_get_link_status()
-{
+int phy_get_link_status() {
   return (*(uint32_t *)(*((uint32_t *)0x101a74)) >> 28) & 1;
 }
 
 
 // sub_101A68 @ 0x101a68, size 10 bytes
-int sub_101A68()
-{
+int sub_101A68() {
   return (*(uint32_t *)(*((uint32_t *)0x101a74)) >> 28) & 1;
 }
 
 
 // mmio_get_bit_30 @ 0x101a78, size 10 bytes
 // mmio_get_bit_30 [mmio]: Reads MMIO register 0x40330000 and returns bit 30
-int mmio_get_bit_30()
-{
+int mmio_get_bit_30() {
   return (*(uint32_t *)(*((uint32_t *)0x101a84)) >> 30) & 1;
 }
 
 
 // sub_101A78 @ 0x101a78, size 10 bytes
-int sub_101A78()
-{
+int sub_101A78() {
   return (*(uint32_t *)(*((uint32_t *)0x101a84)) >> 30) & 1;
 }
 
 
 // chip_revision_get @ 0x101a88, size 14 bytes
 // chip_revision_get [util]: Reads chip revision field (bits 8-11) from ID register and returns (val-1)
-int chip_revision_get()
-{
+int chip_revision_get() {
   return (unsigned char)((BYTE1(*(uint32_t *)(*((uint32_t *)0x101a98))) & 0xF) - 1);
 }
 
 
 // sub_101A88 @ 0x101a88, size 14 bytes
-int sub_101A88()
-{
+int sub_101A88() {
   return (unsigned char)((BYTE1(*(uint32_t *)(*((uint32_t *)0x101a98))) & 0xF) - 1);
 }
 
 
 // lmac_rf_unk_1a9c @ 0x101a9c, size 14 bytes
 // lmac_rf_unk_1a9c [rf]: unknown lmac RF helper
-int lmac_rf_unk_1a9c()
-{
+int lmac_rf_unk_1a9c() {
   return (unsigned char)(((unsigned char)*(uint32_t *)(*((uint32_t *)0x101aac)) >> 4) - 1);
 }
 
 
 // sub_101A9C @ 0x101a9c, size 14 bytes
-int sub_101A9C()
-{
+int sub_101A9C() {
   return (unsigned char)(((unsigned char)*(uint32_t *)(*((uint32_t *)0x101aac)) >> 4) - 1);
 }
 
 
 // chip_rev_id_get @ 0x101ab0, size 14 bytes
 // chip_rev_id_get [util]: Read chip revision register and extract (val & 0xf) - 1
-int chip_rev_id_get()
-{
+int chip_rev_id_get() {
   return (unsigned char)((*(uint8_t *)(*((uint32_t *)0x101ac0)) & 0xF) - 1);
 }
 
 
 // sub_101AB0 @ 0x101ab0, size 14 bytes
-int sub_101AB0()
-{
+int sub_101AB0() {
   return (unsigned char)((*(uint8_t *)(*((uint32_t *)0x101ac0)) & 0xF) - 1);
 }
 
 
 // rf_calibration_init @ 0x101ac4, size 384 bytes
 // rf_calibration_init [rf]: Initialize RF calibration parameters
-int  rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3)
-{
+int  rf_calibration_init(uint32_t a1, uint32_t a2, uint32_t a3) {
   int result; // r0
   unsigned int v4; // r3
   int v5; // r7
@@ -3987,7 +3886,7 @@ int  rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3)
       else
         result = 1;
     }
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(*((uint8_t *)(*((uint32_t *)0x101c48)) + 198)) & 0xFFU) << 0);
+    LOBYTE(v5) = *((uint8_t *)(*((uint32_t *)0x101c48)) + 198);
     v6 = *(uint8_t *)(*((uint32_t *)0x101c54)) + *((uint8_t *)(*((uint32_t *)0x101c50)) + 8) + *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x101c4c)) + result);
     v7 = (char)(*((uint8_t *)(*((uint32_t *)0x101c50)) + 10) + *(uint8_t *)(*((uint32_t *)0x101c54)) + *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x101c4c)) + result + 6));
     if ( *((uint8_t *)(*((uint32_t *)0x101c48)) + 396) )
@@ -4020,8 +3919,7 @@ int  rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3)
 
 
 // sub_101AC4 @ 0x101ac4, size 384 bytes
-int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
-{
+int  sub_101AC4(uint32_t a1, uint32_t a2, uint32_t a3) {
   int result; // r0
   unsigned int v4; // r3
   int v5; // r7
@@ -4091,7 +3989,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
       else
         result = 1;
     }
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(*((uint8_t *)(*((uint32_t *)0x101c48)) + 198)) & 0xFFU) << 0);
+    LOBYTE(v5) = *((uint8_t *)(*((uint32_t *)0x101c48)) + 198);
     v6 = *(uint8_t *)(*((uint32_t *)0x101c54)) + *((uint8_t *)(*((uint32_t *)0x101c50)) + 8) + *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x101c4c)) + result);
     v7 = (char)(*((uint8_t *)(*((uint32_t *)0x101c50)) + 10) + *(uint8_t *)(*((uint32_t *)0x101c54)) + *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x101c4c)) + result + 6));
     if ( *((uint8_t *)(*((uint32_t *)0x101c48)) + 396) )
@@ -4124,8 +4022,7 @@ int  sub_101AC4(int a1, uint8_t *a2, uint8_t *a3)
 
 
 // sub_101C70 @ 0x101c70, size 324 bytes
-int  sub_101C70(unsigned int a1, signed int a2, int a3)
-{
+int  sub_101C70(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v3; // r4
   char *v4; // r2
   char v5; // r2
@@ -4257,8 +4154,7 @@ LABEL_19:
 
 // rf_mmio_set_byte_field @ 0x101dd0, size 58 bytes
 // rf_mmio_set_byte_field [rf]: Writes a byte field into RF MMIO register at 0x403200a0
-int  rf_mmio_set_byte_field(int result)
-{
+int  rf_mmio_set_byte_field(uint32_t a1) {
   uint32_t *v1; // r2
   unsigned int v2; // r3
   int v3; // r3
@@ -4283,8 +4179,7 @@ int  rf_mmio_set_byte_field(int result)
 
 
 // sub_101DD0 @ 0x101dd0, size 58 bytes
-int  sub_101DD0(int result)
-{
+int  sub_101DD0(uint32_t a1) {
   uint32_t *v1; // r2
   unsigned int v2; // r3
   int v3; // r3
@@ -4336,8 +4231,7 @@ void __attribute__((noreturn)) sub_1028B8()
 
 
 // sub_102908 @ 0x102908, size 52 bytes
-int  sub_102908(unsigned char *a1, int a2)
-{
+int  sub_102908(uint32_t a1, uint32_t a2) {
   if ( !a2 )
     sub_101E18(*a1, *((unsigned short *)a1 + 1), *((unsigned short *)a1 + 2), a1[1]);
   return msg_parse((*((uint32_t *)0x102940)), (*((uint32_t *)0x102944)));
@@ -4345,8 +4239,7 @@ int  sub_102908(unsigned char *a1, int a2)
 
 
 // sub_102948 @ 0x102948, size 24 bytes
-int sub_102948()
-{
+int sub_102948() {
   int result; // r0
 
   result = mmio_set_bit_120090C(*((unsigned char *)(*((uint32_t *)0x102960)) + 36), *((unsigned short *)(*((uint32_t *)0x102960)) + 20));
@@ -4356,8 +4249,7 @@ int sub_102948()
 
 
 // sub_102968 @ 0x102968, size 62 bytes
-int  sub_102968(unsigned int a1)
-{
+int  sub_102968(uint32_t a1) {
   if ( a1 > 0x1666 )
     return 5;
   if ( a1 > 0x1616 )
@@ -4371,8 +4263,7 @@ int  sub_102968(unsigned int a1)
 
 
 // sub_1029A8 @ 0x1029a8, size 16 bytes
-uint8_t * sub_1029A8(uint8_t *result, uint8_t *a2)
-{
+uint8_t * sub_1029A8(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r3
 
   v2 = (*((uint32_t *)0x1029b8));
@@ -4383,15 +4274,13 @@ uint8_t * sub_1029A8(uint8_t *result, uint8_t *a2)
 
 
 // sub_1029BC @ 0x1029bc, size 26 bytes
-int sub_1029BC()
-{
+int sub_1029BC() {
   return (unsigned char)((1 << ((unsigned char)*(uint32_t *)(*((uint32_t *)0x1029d8)) >> 4)) - 1);
 }
 
 
 // sub_1029DC @ 0x1029dc, size 56 bytes
-unsigned int  sub_1029DC(unsigned char a1)
-{
+unsigned int  sub_1029DC(uint32_t a1) {
   unsigned int *v1; // r1
   unsigned int *v2; // r2
   unsigned char v3; // r0
@@ -4411,8 +4300,7 @@ unsigned int  sub_1029DC(unsigned char a1)
 
 // rf_handler_unkn @ 0x102a1c, size 38 bytes
 // rf_handler_unkn [rf]: Unidentified RF helper routine
-int rf_handler_unkn()
-{
+int rf_handler_unkn() {
   int result; // r0
 
   result = msg_parse((*((uint32_t *)0x102a48)), (*((uint32_t *)0x102a44)));
@@ -4423,8 +4311,7 @@ int rf_handler_unkn()
 
 
 // sub_102A1C @ 0x102a1c, size 38 bytes
-int sub_102A1C()
-{
+int sub_102A1C() {
   int result; // r0
 
   result = sub_11F504((*((uint32_t *)0x102a48)), (*((uint32_t *)0x102a44)));
@@ -4436,8 +4323,7 @@ int sub_102A1C()
 
 // lmac_interrupt_init @ 0x102a58, size 96 bytes
 // lmac_interrupt_init [mac]: Install LMAC interrupt/exception handlers into the vector table and enable their NVIC lines.
-int lmac_interrupt_init()
-{
+int lmac_interrupt_init() {
   uint32_t *v0; // r2
   uint8_t *v1; // r3
   int v3; // r4
@@ -4478,8 +4364,7 @@ int lmac_interrupt_init()
 
 
 // sub_102A58 @ 0x102a58, size 96 bytes
-int sub_102A58()
-{
+int sub_102A58() {
   uint32_t *v0; // r2
   uint8_t *v1; // r3
   int v3; // r4
@@ -4520,8 +4405,7 @@ int sub_102A58()
 
 
 // sub_102ADC @ 0x102adc, size 96 bytes
-int * sub_102ADC(int a1)
-{
+int * sub_102ADC(uint32_t a1) {
   int v1; // r4
   int v2; // r1
   uint8_t v3; // zf
@@ -4552,7 +4436,7 @@ int * sub_102ADC(int a1)
     v2 = 4;
   if ( !v3 )
     v1 = 1;
-  v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(50) & 0xFFU) << 0);
+  LOBYTE(v6) = 50;
   do
     v6 = (unsigned char)(v6 - 1);
   while ( v6 );
@@ -4560,7 +4444,7 @@ int * sub_102ADC(int a1)
   result = (int *)(*((uint32_t *)0x102b3c));
   v8 = v9 | v2;
   *(uint32_t *)(*((uint32_t *)0x102b3c)) = v9;
-  v9 = ((unsigned)(v9) & 0xFFFFFF00U) | (((unsigned)(50) & 0xFFU) << 0);
+  LOBYTE(v9) = 50;
   *result = v8;
   do
     v9 = (unsigned char)(v9 - 1);
@@ -4571,8 +4455,7 @@ int * sub_102ADC(int a1)
 
 
 // sub_102B40 @ 0x102b40, size 106 bytes
-int  sub_102B40(int result)
-{
+int  sub_102B40(uint32_t a1) {
   int v1; // r4
   uint8_t v2; // zf
   int v3; // r1
@@ -4602,19 +4485,19 @@ int  sub_102B40(int result)
     v1 = -2;
   if ( !v2 )
     v3 = 1;
-  v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(-56) & 0xFFU) << 0);
+  LOBYTE(v5) = -56;
   do
     v5 = (unsigned char)(v5 - 1);
   while ( v5 );
   v6 = v4 & v1;
   *(uint32_t *)(*((uint32_t *)0x102bac)) = v6;
-  v7 = ((unsigned)(v7) & 0xFFFFFF00U) | (((unsigned)(50) & 0xFFU) << 0);
+  LOBYTE(v7) = 50;
   do
     v7 = (unsigned char)(v7 - 1);
   while ( v7 );
   v8 = v6 | result;
   *(uint32_t *)(*((uint32_t *)0x102bac)) = v8;
-  v9 = ((unsigned)(v9) & 0xFFFFFF00U) | (((unsigned)(50) & 0xFFU) << 0);
+  LOBYTE(v9) = 50;
   do
     v9 = (unsigned char)(v9 - 1);
   while ( v9 );
@@ -4624,8 +4507,7 @@ int  sub_102B40(int result)
 
 
 // sub_102BB0 @ 0x102bb0, size 358 bytes
-int  sub_102BB0(int a1, unsigned short *a2)
-{
+int  sub_102BB0(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r7
   unsigned int v4; // r11
   int v5; // r9
@@ -4676,7 +4558,7 @@ LABEL_4:
   do
   {
     v10 = *v8;
-    sub_11F74C(0x2000, v5, v4, v9, (unsigned short)(*v8 >> 11));
+    sub_11F74C(0x2000, v5, v4, v9);
     v11 = *(unsigned short *)(v2 + 2);
     v2 += 2;
     v12 = (*((uint32_t *)0x102d20));
@@ -4684,7 +4566,7 @@ LABEL_4:
     *v8 = v13;
     v8 += 8;
     v14 = v9++;
-    sub_11F74C(0x2000, v12, v4, v14, (unsigned short)(v13 >> 11));
+    sub_11F74C(0x2000, v12, v4, v14);
   }
   while ( v9 != 16 );
   if ( v4 <= 1 )
@@ -4762,8 +4644,7 @@ LABEL_10:
 
 // lmac_sub_init @ 0x102d4c, size 136 bytes
 // lmac_sub_init [util]: Initialize LMAC subsystem with parameter check
-int  lmac_sub_init(int a1, int a2, unsigned int a3, int a4)
-{
+int  lmac_sub_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v6; // r6
   int v7; // r4
   int v8; // r10
@@ -4823,8 +4704,7 @@ int  lmac_sub_init(int a1, int a2, unsigned int a3, int a4)
 
 
 // sub_102D4C @ 0x102d4c, size 136 bytes
-int  sub_102D4C(int a1, int a2, unsigned int a3, int a4)
-{
+int  sub_102D4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v6; // r6
   int v7; // r4
   int v8; // r10
@@ -4885,8 +4765,7 @@ int  sub_102D4C(int a1, int a2, unsigned int a3, int a4)
 
 // mmio_status_flag_read @ 0x102de0, size 26 bytes
 // mmio_status_flag_read [mmio]: Read status flag bit from MMIO 0x40344018
-int mmio_status_flag_read()
-{
+int mmio_status_flag_read() {
   int result; // r0
 
   result = (*(uint32_t *)(*((uint32_t *)0x102dfc)) >> 27) & 1;
@@ -4897,8 +4776,7 @@ int mmio_status_flag_read()
 
 
 // sub_102DE0 @ 0x102de0, size 26 bytes
-int sub_102DE0()
-{
+int sub_102DE0() {
   int result; // r0
 
   result = (*(uint32_t *)(*((uint32_t *)0x102dfc)) >> 27) & 1;
@@ -4910,8 +4788,7 @@ int sub_102DE0()
 
 // rf_init_or_config_helper @ 0x102e04, size 60 bytes
 // rf_init_or_config_helper [rf]: RF firmware initialization/config helper saving r4-r6,lr
-int  rf_init_or_config_helper(int a1)
-{
+int  rf_init_or_config_helper(uint32_t a1) {
   long long v1; // kr00_8
   int v2; // r4
 
@@ -4932,8 +4809,7 @@ int  rf_init_or_config_helper(int a1)
 
 
 // sub_102E04 @ 0x102e04, size 60 bytes
-int  sub_102E04(int a1)
-{
+int  sub_102E04(uint32_t a1) {
   long long v1; // kr00_8
   int v2; // r4
 
@@ -4954,8 +4830,7 @@ int  sub_102E04(int a1)
 
 
 // sub_102E48 @ 0x102e48, size 50 bytes
-int  sub_102E48(int a1)
-{
+int  sub_102E48(uint32_t a1) {
   int *v1; // r2
   int v2; // r3
 
@@ -4977,8 +4852,7 @@ int  sub_102E48(int a1)
 
 
 // sub_102E84 @ 0x102e84, size 334 bytes
-int  sub_102E84(int a1, int a2, int a3)
-{
+int  sub_102E84(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r3
   uint32_t *v4; // r5
   unsigned int *v5; // r4
@@ -5112,8 +4986,7 @@ LABEL_7:
 
 
 // sub_10300C @ 0x10300c, size 600 bytes
-void sub_10300C()
-{
+void sub_10300C() {
   uint8_t *v0; // r3
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -5250,8 +5123,7 @@ void sub_10300C()
 
 // rf_power_enable_32dc @ 0x1032dc, size 78 bytes
 // rf_power_enable_32dc [rf]: Enable RF power via control byte
-unsigned int  rf_power_enable_32dc(unsigned int result)
-{
+unsigned int  rf_power_enable_32dc(uint32_t a1) {
   if ( result )
   {
     if ( *((uint8_t *)(*((uint32_t *)0x10332c)) + 362) )
@@ -5269,8 +5141,7 @@ unsigned int  rf_power_enable_32dc(unsigned int result)
 
 
 // sub_1032DC @ 0x1032dc, size 78 bytes
-unsigned int  sub_1032DC(unsigned int result)
-{
+unsigned int  sub_1032DC(uint32_t a1) {
   if ( result )
   {
     if ( *((uint8_t *)(*((uint32_t *)0x10332c)) + 362) )
@@ -5418,8 +5289,7 @@ void __attribute__((noreturn)) sub_1033C4()
 
 // crypto_hw_power_up @ 0x103540, size 138 bytes
 // crypto_hw_power_up [ke]: Power up crypto hardware by setting control bits
-int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
-{
+int  crypto_hw_power_up(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   uint32_t *v5; // r2
   int v6; // r3
   uint32_t *v7; // r3
@@ -5435,7 +5305,7 @@ int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
   *(uint32_t *)(*((uint32_t *)0x1035cc)) |= 1u;
   while ( (*v5 & 0x10) == 0 )
   {
-    v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v6) = 50;
     do
       v6 = (unsigned short)(v6 - 1);
     while ( v6 );
@@ -5446,7 +5316,7 @@ int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
   *v7 |= 0x100000u;
   while ( (*v8 & 8) == 0 )
   {
-    v9 = ((unsigned)(v9) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v9) = 50;
     do
       v9 = (unsigned short)(v9 - 1);
     while ( v9 );
@@ -5460,13 +5330,12 @@ int  crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5)
   *v10 = v13;
   v14 = *v11 | 0x524;
   *v11 = v14;
-  return sub_11F74C(0x2000, v12, v13, v14, a5);
+  return sub_11F74C(0x2000, v12, v13, v14);
 }
 
 
 // sub_103540 @ 0x103540, size 138 bytes
-int  sub_103540(int a1, int a2, int a3, int a4, int a5)
-{
+int  sub_103540(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   uint32_t *v5; // r2
   int v6; // r3
   uint32_t *v7; // r3
@@ -5482,7 +5351,7 @@ int  sub_103540(int a1, int a2, int a3, int a4, int a5)
   *(uint32_t *)(*((uint32_t *)0x1035cc)) |= 1u;
   while ( (*v5 & 0x10) == 0 )
   {
-    v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v6) = 50;
     do
       v6 = (unsigned short)(v6 - 1);
     while ( v6 );
@@ -5493,7 +5362,7 @@ int  sub_103540(int a1, int a2, int a3, int a4, int a5)
   *v7 |= 0x100000u;
   while ( (*v8 & 8) == 0 )
   {
-    v9 = ((unsigned)(v9) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v9) = 50;
     do
       v9 = (unsigned short)(v9 - 1);
     while ( v9 );
@@ -5507,13 +5376,12 @@ int  sub_103540(int a1, int a2, int a3, int a4, int a5)
   *v10 = v13;
   v14 = *v11 | 0x524;
   *v11 = v14;
-  return sub_11F74C(0x2000, v12, v13, v14, a5);
+  return sub_11F74C(0x2000, v12, v13, v14);
 }
 
 
 // sub_1035E8 @ 0x1035e8, size 66 bytes
-int  sub_1035E8(int a1, int a2, int a3, int a4, int a5)
-{
+int  sub_1035E8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   uint32_t *v5; // r0
   uint32_t *v6; // r1
   uint32_t *v7; // r2
@@ -5528,13 +5396,12 @@ int  sub_1035E8(int a1, int a2, int a3, int a4, int a5)
   *v6 &= ~0x1000000u;
   *v7 &= 0xFFE7FFFF;
   delay_us(10);
-  return sub_11F74C(0x2000, (*((uint32_t *)0x10363c)), v8, v9, a5);
+  return sub_11F74C(0x2000, (*((uint32_t *)0x10363c)), v8, v9);
 }
 
 
 // sub_103640 @ 0x103640, size 50 bytes
-int sub_103640()
-{
+int sub_103640() {
   uint32_t *v0; // r4
   int result; // r0
 
@@ -5550,8 +5417,7 @@ int sub_103640()
 
 
 // sub_103678 @ 0x103678, size 496 bytes
-int  sub_103678(int a1)
-{
+int  sub_103678(uint32_t a1) {
   unsigned int *v1; // r2
   int *v2; // r4
   unsigned int v3; // r1
@@ -5764,8 +5630,7 @@ LABEL_22:
 
 // rf_pll_init_n900 @ 0x103900, size 86 bytes
 // rf_pll_init_n900 [rf]: Initialize RF PLL/clock registers at 0x40342004/0x40342228
-int rf_pll_init_n900()
-{
+int rf_pll_init_n900() {
   int *v0; // r4
   int v1; // r0
   int v2; // r1
@@ -5794,8 +5659,7 @@ int rf_pll_init_n900()
 
 
 // sub_103900 @ 0x103900, size 86 bytes
-int sub_103900()
-{
+int sub_103900() {
   int *v0; // r4
   int v1; // r0
   int v2; // r1
@@ -5824,8 +5688,7 @@ int sub_103900()
 
 
 // sub_10397C @ 0x10397c, size 118 bytes
-int * sub_10397C(int a1)
-{
+int * sub_10397C(uint32_t a1) {
   unsigned int *v1; // r3
   int v2; // r5
   int v3; // r7
@@ -5878,8 +5741,7 @@ int * sub_10397C(int a1)
 
 // crypto_table_init @ 0x103a00, size 186 bytes
 // crypto_table_init [ke]: Initialize crypto/cipher key table entries
-int  crypto_table_init(int a1, int a2, int a3)
-{
+int  crypto_table_init(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r1
   int v4; // r2
   unsigned int *v5; // r3
@@ -5957,8 +5819,7 @@ int  crypto_table_init(int a1, int a2, int a3)
 
 
 // sub_103A00 @ 0x103a00, size 186 bytes
-int  sub_103A00(int a1, int a2, int a3)
-{
+int  sub_103A00(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r1
   int v4; // r2
   unsigned int *v5; // r3
@@ -6037,8 +5898,7 @@ int  sub_103A00(int a1, int a2, int a3)
 
 // sub_103AE0 @ 0x103ae0, size 126 bytes
 // rf_msg_handler_n_3d2 [rf]: Handles RF control messages by bitmask
-unsigned int  sub_103AE0(int a1, int a2)
-{
+unsigned int  sub_103AE0(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r2
   unsigned int *v3; // r3
   int v4; // r4
@@ -6209,8 +6069,7 @@ unsigned int *sub_103C6C()
 
 
 // sub_103D60 @ 0x103d60, size 66 bytes
-int  sub_103D60(int a1, int a2, uint32_t *a3)
-{
+int  sub_103D60(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int v4; // r4
   int result; // r0
@@ -6243,8 +6102,7 @@ LABEL_9:
 
 
 // sub_103DA8 @ 0x103da8, size 258 bytes
-int sub_103DA8()
-{
+int sub_103DA8() {
   int v0; // r1
   int v1; // r2
   int *v2; // r4
@@ -6302,7 +6160,7 @@ int sub_103DA8()
     v13 = *v2;
     v14 = (unsigned int)*v2 >> 20;
     if ( *v2 < 0 )
-      v14 = ((unsigned)(v14) & 0xFFFF0000U) | (((unsigned)(v14 - 4096) & 0xFFFFU) << 0);
+      LOWORD(v14) = v14 - 4096;
     v15 = (unsigned short)v13 >> 4;
     result = v13 >> 4 << 20;
     v17 = (short)(v14 - v9 / 0x2000);
@@ -6320,8 +6178,7 @@ int sub_103DA8()
 
 // crypto_calibrate @ 0x103eb4, size 212 bytes
 // rf_init_hw_regs [patch]: Initialize RF hardware MMIO registers at boot
-int crypto_calibrate()
-{
+int crypto_calibrate() {
   int *v0; // r1
   uint32_t *v1; // r3
   int v2; // r0
@@ -6374,8 +6231,7 @@ int crypto_calibrate()
 
 
 // sub_103EB4 @ 0x103eb4, size 212 bytes
-int sub_103EB4()
-{
+int sub_103EB4() {
   int *v0; // r1
   uint32_t *v1; // r3
   int v2; // r0
@@ -6428,8 +6284,7 @@ int sub_103EB4()
 
 
 // sub_103FBC @ 0x103fbc, size 48 bytes
-int  sub_103FBC(int a1, int a2, uint32_t *a3)
-{
+int  sub_103FBC(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r2
   unsigned int v4; // r0
   int v5; // r3
@@ -6446,8 +6301,7 @@ int  sub_103FBC(int a1, int a2, uint32_t *a3)
 
 
 // sub_103FF0 @ 0x103ff0, size 486 bytes
-int  sub_103FF0(int a1, int a2, uint32_t *a3)
-{
+int  sub_103FF0(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v3; // r3
   int v4; // r5
   int v5; // r0
@@ -6518,54 +6372,53 @@ LABEL_4:
   {
 LABEL_5:
     v10 = (float)v8 / (float)v9;
-    v11 = sub_127570(LODWORD(v10));
-    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x1041d8)), (*((uint32_t *)0x1041dc)));
-    v13 = sub_127570((float)(v10 - 1.0) * v10);
-    v14 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x1041e0)), (*((uint32_t *)0x1041e4)));
-    v15 = sub_1272B4(v14, HIDWORD(v14), (*((uint32_t *)0x1041e8)), (*((uint32_t *)0x1041ec)));
-    v16 = sub_127620(v13, HIDWORD(v13), v15, HIDWORD(v15));
+    v11 = sub_127570(LODWORD(v10), 0, 0, 0);
+    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x1041d8)));
+    v13 = sub_127570((float)(v10 - 1.0) * v10, 0, 0, 0);
+    v14 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x1041e0)));
+    v15 = sub_1272B4(v14, HIDWORD(v14));
+    v16 = sub_127620(v13, HIDWORD(v13), v15);
     v17 = sub_1272B0(v12, HIDWORD(v12), v16, HIDWORD(v16));
-    v18 = sub_127BE4(v17);
-    v19 = sub_127570(v18);
+    v18 = sub_127BE4(v17, 0);
+    v19 = sub_127570(v18, 0, 0, 0);
     v20 = sub_1272B0((*((uint32_t *)0x1041f0)), (*((uint32_t *)0x1041f4)), v19, HIDWORD(v19));
-    result = sub_127BE4(v20);
+    result = sub_127BE4(v20, 0);
     if ( v7 != 1 )
       goto LABEL_16;
     goto LABEL_12;
   }
 LABEL_11:
   v24 = (float)v9 / (float)v8;
-  v25 = sub_127570(LODWORD(v24));
-  v26 = sub_127620(v25, HIDWORD(v25), (*((uint32_t *)0x1041d8)), (*((uint32_t *)0x1041dc)));
-  v27 = sub_127570((float)(v24 - 1.0) * v24);
-  v28 = sub_127620(v25, HIDWORD(v25), (*((uint32_t *)0x1041e0)), (*((uint32_t *)0x1041e4)));
-  v29 = sub_1272B4(v28, HIDWORD(v28), (*((uint32_t *)0x1041e8)), (*((uint32_t *)0x1041ec)));
-  v30 = sub_127620(v27, HIDWORD(v27), v29, HIDWORD(v29));
+  v25 = sub_127570(LODWORD(v24), 0, 0, 0);
+  v26 = sub_127620(v25, HIDWORD(v25), (*((uint32_t *)0x1041d8)));
+  v27 = sub_127570((float)(v24 - 1.0) * v24, 0, 0, 0);
+  v28 = sub_127620(v25, HIDWORD(v25), (*((uint32_t *)0x1041e0)));
+  v29 = sub_1272B4(v28, HIDWORD(v28));
+  v30 = sub_127620(v27, HIDWORD(v27), v29);
   v31 = sub_1272B0(v26, HIDWORD(v26), v30, HIDWORD(v30));
-  result = sub_127BE4(v31);
+  result = sub_127BE4(v31, 0);
   if ( v7 != 1 )
   {
 LABEL_16:
     if ( v6 == 1 )
       return result ^ 0x80000000;
-    v22 = sub_127570(result);
+    v22 = sub_127570(result, 0, 0, 0);
     v23 = sub_1272B0(v22, HIDWORD(v22), (*((uint32_t *)0x1041f8)), (*((uint32_t *)0x1041fc)));
-    return sub_127BE4(v23);
+    return sub_127BE4(v23, 0);
   }
 LABEL_12:
   if ( v6 != 1 )
   {
-    v32 = sub_127570(result ^ 0x80000000);
-    v33 = sub_1272B4(v32, HIDWORD(v32), (*((uint32_t *)0x1041f8)), (*((uint32_t *)0x1041fc)));
-    return sub_127BE4(v33);
+    v32 = sub_127570(result ^ 0x80000000, 0, 0, 0);
+    v33 = sub_1272B4(v32, HIDWORD(v32));
+    return sub_127BE4(v33, 0);
   }
   return result;
 }
 
 
 // sub_104200 @ 0x104200, size 466 bytes
-int  sub_104200(int a1, int a2, uint32_t *a3)
-{
+int  sub_104200(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int v6; // r10
   int v7; // r6
@@ -6720,8 +6573,7 @@ LABEL_32:
 
 // rf_calib_setup_n3d8 @ 0x1043d8, size 978 bytes
 // rf_calib_setup_n3d8 [rf]: RF calibration init with FPU context and table setup
-int  rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
-{
+int  rf_calib_setup_n3d8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   int *v7; // r6
   int v11; // r0
   int v12; // r1
@@ -6977,8 +6829,7 @@ LABEL_43:
 
 
 // sub_1043D8 @ 0x1043d8, size 978 bytes
-int  sub_1043D8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6)
-{
+int  sub_1043D8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   int *v7; // r6
   int v11; // r0
   int v12; // r1
@@ -7235,8 +7086,7 @@ LABEL_43:
 
 // rf_phy_process_handler @ 0x1047b8, size 710 bytes
 // rf_phy_process_handler [rf]: RF PHY processing routine with VFP context save and dispatch
-int  rf_phy_process_handler(int *a1, int a2, int a3, int a4, long long *a5)
-{
+int  rf_phy_process_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   int v6; // r0
   int v8; // r0
   float v9; // r0
@@ -7292,34 +7142,34 @@ int  rf_phy_process_handler(int *a1, int a2, int a3, int a4, long long *a5)
 
   v6 = sub_127B54(a3, a4);
   v8 = msg_parse((*((uint32_t *)0x104a80)), v6);
-  v9 = sub_10DD20(v8);
+  v9 = sub_10DD20();
   v10 = a1;
   msg_parse((*((uint32_t *)0x104a88)), (int)(float)(v9 * flt_104A84));
   v11 = a5[2];
-  v12 = sub_127620(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, (*((uint32_t *)0x104a8c)));
+  v12 = sub_127620(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0);
   sub_127B54(v12, HIDWORD(v12));
   v13 = a5[1];
-  v14 = sub_127620(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, (*((uint32_t *)0x104a8c)));
+  v14 = sub_127620(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0);
   sub_127B54(v14, HIDWORD(v14));
   v15 = *a5;
-  v16 = sub_127620(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, (*((uint32_t *)0x104a8c)));
+  v16 = sub_127620(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0);
   v17 = sub_127B54(v16, HIDWORD(v16));
   v18 = a5[5];
   v58 = a5[4];
   v57 = a5[3];
   msg_parse((*((uint32_t *)0x104a90)), v17);
-  v19 = sub_127620(v18, HIDWORD(v18), 0, (*((uint32_t *)0x104a8c)));
+  v19 = sub_127620(v18, HIDWORD(v18), 0);
   sub_127B54(v19, HIDWORD(v19));
-  v20 = sub_127620(v58, HIDWORD(v58), 0, (*((uint32_t *)0x104a8c)));
+  v20 = sub_127620(v58, HIDWORD(v58), 0);
   sub_127B54(v20, HIDWORD(v20));
-  v21 = sub_127620(v57, HIDWORD(v57), 0, (*((uint32_t *)0x104a8c)));
+  v21 = sub_127620(v57, HIDWORD(v57), 0);
   v22 = sub_127B54(v21, HIDWORD(v21));
   msg_parse((*((uint32_t *)0x104a94)), v22);
   v23 = v10 + 32;
   do
   {
     v54 = *v10++;
-    v55 = sub_127570(v54);
+    v55 = sub_127570(v54, 0, 0, 0);
     if ( sub_127B2C(v15, HIDWORD(v15), v55, HIDWORD(v55)) )
     {
       v50 = v57;
@@ -7339,33 +7189,33 @@ int  rf_phy_process_handler(int *a1, int a2, int a3, int a4, long long *a5)
       v26 = sub_1272B0(v55, HIDWORD(v55), v15, HIDWORD(v15));
       v27 = v25;
       v28 = v26;
-      v29 = sub_127620(v57, HIDWORD(v57), v24, HIDWORD(v24));
+      v29 = sub_127620(v57, HIDWORD(v57), v24);
       v30 = v28;
-      v31 = sub_127620(v29, HIDWORD(v29), v27, HIDWORD(v27));
+      v31 = sub_127620(v29, HIDWORD(v29), v27);
       v32 = sub_1272B0(v15, HIDWORD(v15), v13, HIDWORD(v13));
       v33 = sub_127874(v31, HIDWORD(v31), v32, HIDWORD(v32));
       v34 = sub_1272B0(v15, HIDWORD(v15), v11, HIDWORD(v11));
       v35 = sub_127874(v33, HIDWORD(v33), v34, HIDWORD(v34));
-      v36 = sub_127620(v58, HIDWORD(v58), v30, HIDWORD(v30));
+      v36 = sub_127620(v58, HIDWORD(v58), v30);
       v37 = v35;
-      v38 = sub_127620(v36, HIDWORD(v36), v27, HIDWORD(v27));
+      v38 = sub_127620(v36, HIDWORD(v36), v27);
       v39 = sub_1272B0(v13, HIDWORD(v13), v15, HIDWORD(v15));
       v40 = sub_127874(v38, HIDWORD(v38), v39, HIDWORD(v39));
       v41 = sub_1272B0(v13, HIDWORD(v13), v11, HIDWORD(v11));
       v42 = sub_127874(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v43 = sub_1272B4(v37, HIDWORD(v37), v42, HIDWORD(v42));
-      v44 = sub_127620(v18, HIDWORD(v18), v30, HIDWORD(v30));
-      v45 = sub_127620(v44, HIDWORD(v44), v24, HIDWORD(v24));
+      v43 = sub_1272B4(v37, HIDWORD(v37));
+      v44 = sub_127620(v18, HIDWORD(v18), v30);
+      v45 = sub_127620(v44, HIDWORD(v44), v24);
       v46 = sub_1272B0(v11, HIDWORD(v11), v15, HIDWORD(v15));
       v47 = sub_127874(v45, HIDWORD(v45), v46, HIDWORD(v46));
       v48 = sub_1272B0(v11, HIDWORD(v11), v13, HIDWORD(v13));
       v49 = sub_127874(v47, HIDWORD(v47), v48, HIDWORD(v48));
-      v50 = sub_1272B4(v43, HIDWORD(v43), v49, HIDWORD(v49));
+      v50 = sub_1272B4(v43, HIDWORD(v43));
     }
     v56 = v50;
-    v51 = sub_127570(v10[63]);
-    v52 = sub_127620(v51, HIDWORD(v51), v56, HIDWORD(v56));
-    result = sub_127BE4(v52);
+    v51 = sub_127570(v10[63], 0, 0, 0);
+    v52 = sub_127620(v51, HIDWORD(v51), v56);
+    result = sub_127BE4(v52, 0);
     v10[31] = result;
   }
   while ( v10 != v23 );
@@ -7374,8 +7224,7 @@ int  rf_phy_process_handler(int *a1, int a2, int a3, int a4, long long *a5)
 
 
 // sub_1047B8 @ 0x1047b8, size 710 bytes
-int  sub_1047B8(int *a1, int a2, int a3, int a4, long long *a5)
-{
+int  sub_1047B8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   int v6; // r0
   int v8; // r0
   float v9; // r0
@@ -7431,34 +7280,34 @@ int  sub_1047B8(int *a1, int a2, int a3, int a4, long long *a5)
 
   v6 = sub_127B54(a3, a4);
   v8 = sub_11F504((*((uint32_t *)0x104a80)), v6);
-  v9 = sub_10DD20(v8);
+  v9 = sub_10DD20();
   v10 = a1;
   sub_11F504((*((uint32_t *)0x104a88)), (int)(float)(v9 * flt_104A84));
   v11 = a5[2];
-  v12 = sub_127620(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, (*((uint32_t *)0x104a8c)));
+  v12 = sub_127620(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0);
   sub_127B54(v12, HIDWORD(v12));
   v13 = a5[1];
-  v14 = sub_127620(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, (*((uint32_t *)0x104a8c)));
+  v14 = sub_127620(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0);
   sub_127B54(v14, HIDWORD(v14));
   v15 = *a5;
-  v16 = sub_127620(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, (*((uint32_t *)0x104a8c)));
+  v16 = sub_127620(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0);
   v17 = sub_127B54(v16, HIDWORD(v16));
   v18 = a5[5];
   v58 = a5[4];
   v57 = a5[3];
   sub_11F504((*((uint32_t *)0x104a90)), v17);
-  v19 = sub_127620(v18, HIDWORD(v18), 0, (*((uint32_t *)0x104a8c)));
+  v19 = sub_127620(v18, HIDWORD(v18), 0);
   sub_127B54(v19, HIDWORD(v19));
-  v20 = sub_127620(v58, HIDWORD(v58), 0, (*((uint32_t *)0x104a8c)));
+  v20 = sub_127620(v58, HIDWORD(v58), 0);
   sub_127B54(v20, HIDWORD(v20));
-  v21 = sub_127620(v57, HIDWORD(v57), 0, (*((uint32_t *)0x104a8c)));
+  v21 = sub_127620(v57, HIDWORD(v57), 0);
   v22 = sub_127B54(v21, HIDWORD(v21));
   sub_11F504((*((uint32_t *)0x104a94)), v22);
   v23 = v10 + 32;
   do
   {
     v54 = *v10++;
-    v55 = sub_127570(v54);
+    v55 = sub_127570(v54, 0, 0, 0);
     if ( sub_127B2C(v15, HIDWORD(v15), v55, HIDWORD(v55)) )
     {
       v50 = v57;
@@ -7478,33 +7327,33 @@ int  sub_1047B8(int *a1, int a2, int a3, int a4, long long *a5)
       v26 = sub_1272B0(v55, HIDWORD(v55), v15, HIDWORD(v15));
       v27 = v25;
       v28 = v26;
-      v29 = sub_127620(v57, HIDWORD(v57), v24, HIDWORD(v24));
+      v29 = sub_127620(v57, HIDWORD(v57), v24);
       v30 = v28;
-      v31 = sub_127620(v29, HIDWORD(v29), v27, HIDWORD(v27));
+      v31 = sub_127620(v29, HIDWORD(v29), v27);
       v32 = sub_1272B0(v15, HIDWORD(v15), v13, HIDWORD(v13));
       v33 = sub_127874(v31, HIDWORD(v31), v32, HIDWORD(v32));
       v34 = sub_1272B0(v15, HIDWORD(v15), v11, HIDWORD(v11));
       v35 = sub_127874(v33, HIDWORD(v33), v34, HIDWORD(v34));
-      v36 = sub_127620(v58, HIDWORD(v58), v30, HIDWORD(v30));
+      v36 = sub_127620(v58, HIDWORD(v58), v30);
       v37 = v35;
-      v38 = sub_127620(v36, HIDWORD(v36), v27, HIDWORD(v27));
+      v38 = sub_127620(v36, HIDWORD(v36), v27);
       v39 = sub_1272B0(v13, HIDWORD(v13), v15, HIDWORD(v15));
       v40 = sub_127874(v38, HIDWORD(v38), v39, HIDWORD(v39));
       v41 = sub_1272B0(v13, HIDWORD(v13), v11, HIDWORD(v11));
       v42 = sub_127874(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v43 = sub_1272B4(v37, HIDWORD(v37), v42, HIDWORD(v42));
-      v44 = sub_127620(v18, HIDWORD(v18), v30, HIDWORD(v30));
-      v45 = sub_127620(v44, HIDWORD(v44), v24, HIDWORD(v24));
+      v43 = sub_1272B4(v37, HIDWORD(v37));
+      v44 = sub_127620(v18, HIDWORD(v18), v30);
+      v45 = sub_127620(v44, HIDWORD(v44), v24);
       v46 = sub_1272B0(v11, HIDWORD(v11), v15, HIDWORD(v15));
       v47 = sub_127874(v45, HIDWORD(v45), v46, HIDWORD(v46));
       v48 = sub_1272B0(v11, HIDWORD(v11), v13, HIDWORD(v13));
       v49 = sub_127874(v47, HIDWORD(v47), v48, HIDWORD(v48));
-      v50 = sub_1272B4(v43, HIDWORD(v43), v49, HIDWORD(v49));
+      v50 = sub_1272B4(v43, HIDWORD(v43));
     }
     v56 = v50;
-    v51 = sub_127570(v10[63]);
-    v52 = sub_127620(v51, HIDWORD(v51), v56, HIDWORD(v56));
-    result = sub_127BE4(v52);
+    v51 = sub_127570(v10[63], 0, 0, 0);
+    v52 = sub_127620(v51, HIDWORD(v51), v56);
+    result = sub_127BE4(v52, 0);
     v10[31] = result;
   }
   while ( v10 != v23 );
@@ -7514,8 +7363,7 @@ int  sub_1047B8(int *a1, int a2, int a3, int a4, long long *a5)
 
 // rf_adc_capture_n_a98 @ 0x104a98, size 172 bytes
 // rf_adc_capture_n_a98 [rf]: Capture RF ADC samples for crypto/calibration
-int  rf_adc_capture_n_a98(int a1, int a2, int a3, int a4)
-{
+int  rf_adc_capture_n_a98(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int *v4; // r4
   int *v5; // r9
   int v6; // r5
@@ -7554,8 +7402,7 @@ int  rf_adc_capture_n_a98(int a1, int a2, int a3, int a4)
 
 
 // sub_104A98 @ 0x104a98, size 172 bytes
-int  sub_104A98(int a1, int a2, int a3, int a4)
-{
+int  sub_104A98(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int *v4; // r4
   int *v5; // r9
   int v6; // r5
@@ -7595,8 +7442,7 @@ int  sub_104A98(int a1, int a2, int a3, int a4)
 
 // sub_104B60 @ 0x104b60, size 154 bytes
 // sub_1204B60 [util]: Helper routine comparing two pointers with stack frame save
-int  sub_104B60(int a1, int a2, int a3)
-{
+int  sub_104B60(uint32_t a1, uint32_t a2, uint32_t a3) {
   float v6; // s14
   long long v8; // r8
   long long v9; // r0
@@ -7614,7 +7460,7 @@ int  sub_104B60(int a1, int a2, int a3)
     v14 = sub_12754C(a1);
     v15 = sub_12754C(a2);
     v16 = sub_127874(v14, HIDWORD(v14), v15, HIDWORD(v15));
-    v17 = sub_127BE4(v16);
+    v17 = sub_127BE4(v16, 0);
     v12 = COERCE_FLOAT(sub_11EAA0(v17));
     v13 = 20.0;
     goto LABEL_6;
@@ -7624,7 +7470,7 @@ int  sub_104B60(int a1, int a2, int a3)
     v8 = sub_12754C(a2);
     v9 = sub_12754C(a1);
     v10 = sub_127874(v8, HIDWORD(v8), v9, HIDWORD(v9));
-    v11 = sub_127BE4(v10);
+    v11 = sub_127BE4(v10, 0);
     v12 = COERCE_FLOAT(sub_11EAA0(v11));
     v13 = -20.0;
 LABEL_6:
@@ -7640,8 +7486,7 @@ LABEL_4:
 
 // crypto_gain_clamp @ 0x104c08, size 168 bytes
 // crypto_gain_clamp [util]: Computes scaled gain by dividing floating-point value by 20
-int  crypto_gain_clamp(float a1, int a2, int a3)
-{
+int  crypto_gain_clamp(uint32_t a1, uint32_t a2, uint32_t a3) {
   float v6; // r0
   long long v7; // r0
   long long v8; // r0
@@ -7650,8 +7495,8 @@ int  crypto_gain_clamp(float a1, int a2, int a3)
   long long v12; // kr08_8
 
   v6 = sub_11E8E0(a1 / 20.0);
-  v7 = sub_127570((float)a2 * v6);
-  v8 = math_round(v7, HIDWORD(v7));
+  v7 = sub_127570((float)a2 * v6, 0, 0, 0);
+  v8 = math_round(v7);
   v9 = sub_127B54(v8, HIDWORD(v8));
   if ( v9 <= 232 )
   {
@@ -7679,8 +7524,7 @@ int  crypto_gain_clamp(float a1, int a2, int a3)
 
 
 // sub_104C08 @ 0x104c08, size 168 bytes
-int  sub_104C08(float a1, int a2, int a3)
-{
+int  sub_104C08(uint32_t a1, uint32_t a2, uint32_t a3) {
   float v6; // r0
   long long v7; // r0
   long long v8; // r0
@@ -7689,8 +7533,8 @@ int  sub_104C08(float a1, int a2, int a3)
   long long v12; // kr08_8
 
   v6 = sub_11E8E0(a1 / 20.0);
-  v7 = sub_127570((float)a2 * v6);
-  v8 = sub_127194(v7, HIDWORD(v7));
+  v7 = sub_127570((float)a2 * v6, 0, 0, 0);
+  v8 = sub_127194(v7);
   v9 = sub_127B54(v8, HIDWORD(v8));
   if ( v9 <= 232 )
   {
@@ -7719,8 +7563,7 @@ int  sub_104C08(float a1, int a2, int a3)
 
 // ftoi32_trunc_sat @ 0x104cc0, size 154 bytes
 // ftoi32_trunc_sat [util]: Convert float to int32 with saturation and store result
-int  ftoi32_trunc_sat(int a1, float a2, int *a3, int a4, int a5)
-{
+int  ftoi32_trunc_sat(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   int result; // r0
   int v7; // r3
   int v8; // r1
@@ -7802,8 +7645,7 @@ LABEL_23:
 
 
 // sub_104CC0 @ 0x104cc0, size 154 bytes
-int  sub_104CC0(int a1, float a2, int *a3, int a4, int a5)
-{
+int  sub_104CC0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   int result; // r0
   int v7; // r3
   int v8; // r1
@@ -7886,17 +7728,7 @@ LABEL_23:
 
 // lmac_rf_behavioral_handler @ 0x104d60, size 1618 bytes
 // lmac_rf_behavioral_handler [rf]: LMAC RF behavioral handler with large stack and FP state
-int  lmac_rf_behavioral_handler(
-        int a1,
-        int a2,
-        float *a3,
-        int a4,
-        unsigned char a5,
-        char a6,
-        unsigned char a7,
-        int a8,
-        int a9)
-{
+int  lmac_rf_behavioral_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9) {
   float *v11; // r4
   int v12; // r10
   int v13; // r9
@@ -8056,9 +7888,9 @@ int  lmac_rf_behavioral_handler(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_127570(LODWORD(v15));
-        v18 = sub_127570(LODWORD(v16));
-        v19 = sub_127620(v18, HIDWORD(v18), (*((uint32_t *)0x105040)), (*((uint32_t *)0x105044)));
+        v17 = sub_127570(LODWORD(v15), 0, 0, 0);
+        v18 = sub_127570(LODWORD(v16), 0, 0, 0);
+        v19 = sub_127620(v18, HIDWORD(v18), (*((uint32_t *)0x105040)));
         if ( sub_127B04(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
           sub_11F74C(1, v12, v20, v21);
@@ -8083,7 +7915,7 @@ int  lmac_rf_behavioral_handler(
     {
       v29 = sub_12754C(++v26);
       v30 = sub_127874(v29, HIDWORD(v29), v28, HIDWORD(v28));
-      *(uint32_t *)v27++ = sub_127BE4(v30);
+      *(uint32_t *)v27++ = sub_127BE4(v30, 0);
       *v24++ = 1.0;
       *v25++ = v23;
     }
@@ -8129,7 +7961,7 @@ int  lmac_rf_behavioral_handler(
             || (v46 = v11[v127 + 32],
                 v115 = &v11[v127],
                 v47 = v45[32] - v46,
-                v48 = sub_127570(LODWORD(v47)),
+                v48 = sub_127570(LODWORD(v47), 0, 0, 0),
                 sub_127B04(v48, HIDWORD(v48), (*((uint32_t *)0x105030)), (*((uint32_t *)0x105034)))) )
           {
             v43 = 1.0;
@@ -8174,7 +8006,7 @@ int  lmac_rf_behavioral_handler(
       {
         v56 = *v116;
         v57 = *v55 - *v116;
-        v58 = sub_127570(LODWORD(v57));
+        v58 = sub_127570(LODWORD(v57), 0, 0, 0);
         if ( !sub_127B40(v58, HIDWORD(v58), (*((uint32_t *)0x105030)), (*((uint32_t *)0x105034))) )
           v57 = v50;
         v59 = (float)((float)((float)(v55[96] - v116[96]) / v57) * (float)(v61 - v56)) + v116[96];
@@ -8371,17 +8203,7 @@ LABEL_48:
 
 
 // sub_104D60 @ 0x104d60, size 1618 bytes
-int  sub_104D60(
-        int a1,
-        int a2,
-        float *a3,
-        int a4,
-        unsigned char a5,
-        char a6,
-        unsigned char a7,
-        int a8,
-        int a9)
-{
+int  sub_104D60(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9) {
   float *v11; // r4
   int v12; // r10
   int v13; // r9
@@ -8541,9 +8363,9 @@ int  sub_104D60(
       v16 = *(v14 - 2);
       if ( v15 < v16 )
       {
-        v17 = sub_127570(LODWORD(v15));
-        v18 = sub_127570(LODWORD(v16));
-        v19 = sub_127620(v18, HIDWORD(v18), (*((uint32_t *)0x105040)), (*((uint32_t *)0x105044)));
+        v17 = sub_127570(LODWORD(v15), 0, 0, 0);
+        v18 = sub_127570(LODWORD(v16), 0, 0, 0);
+        v19 = sub_127620(v18, HIDWORD(v18), (*((uint32_t *)0x105040)));
         if ( sub_127B04(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
         {
           sub_11F74C(1, v12, v20, v21);
@@ -8568,7 +8390,7 @@ int  sub_104D60(
     {
       v29 = sub_12754C(++v26);
       v30 = sub_127874(v29, HIDWORD(v29), v28, HIDWORD(v28));
-      *(uint32_t *)v27++ = sub_127BE4(v30);
+      *(uint32_t *)v27++ = sub_127BE4(v30, 0);
       *v24++ = 1.0;
       *v25++ = v23;
     }
@@ -8614,7 +8436,7 @@ int  sub_104D60(
             || (v46 = v11[v127 + 32],
                 v115 = &v11[v127],
                 v47 = v45[32] - v46,
-                v48 = sub_127570(LODWORD(v47)),
+                v48 = sub_127570(LODWORD(v47), 0, 0, 0),
                 sub_127B04(v48, HIDWORD(v48), (*((uint32_t *)0x105030)), (*((uint32_t *)0x105034)))) )
           {
             v43 = 1.0;
@@ -8659,7 +8481,7 @@ int  sub_104D60(
       {
         v56 = *v116;
         v57 = *v55 - *v116;
-        v58 = sub_127570(LODWORD(v57));
+        v58 = sub_127570(LODWORD(v57), 0, 0, 0);
         if ( !sub_127B40(v58, HIDWORD(v58), (*((uint32_t *)0x105030)), (*((uint32_t *)0x105034))) )
           v57 = v50;
         v59 = (float)((float)((float)(v55[96] - v116[96]) / v57) * (float)(v61 - v56)) + v116[96];
@@ -8857,8 +8679,7 @@ LABEL_48:
 
 // crypto_key_schedule @ 0x1053c0, size 190 bytes
 // crypto_key_schedule [ke]: Initialize crypto key schedule / expand key material
-int  crypto_key_schedule(unsigned int a1, uint32_t *a2)
-{
+int  crypto_key_schedule(uint32_t a1, uint32_t a2) {
   int v4; // r1
   int result; // r0
   int v6; // r2
@@ -8928,8 +8749,7 @@ LABEL_3:
 
 
 // sub_1053C0 @ 0x1053c0, size 190 bytes
-int  sub_1053C0(unsigned int a1, uint32_t *a2)
-{
+int  sub_1053C0(uint32_t a1, uint32_t a2) {
   int v4; // r1
   int result; // r0
   int v6; // r2
@@ -8999,8 +8819,7 @@ LABEL_3:
 
 
 // sub_105494 @ 0x105494, size 206 bytes
-int  sub_105494(unsigned int a1, int a2, int a3, int a4)
-{
+int  sub_105494(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v6; // r5
   int v7; // r8
   int v8; // r10
@@ -9072,8 +8891,7 @@ int  sub_105494(unsigned int a1, int a2, int a3, int a4)
 
 
 // sub_105578 @ 0x105578, size 2120 bytes
-unsigned int * sub_105578(int a1, int a2, unsigned int a3, unsigned int a4, unsigned char a5, int a6)
-{
+unsigned int * sub_105578(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   uint32_t *v6; // lr
   unsigned int *v7; // r4
   unsigned int *v8; // r5
@@ -9330,14 +9148,14 @@ LABEL_3:
   v120 = (v34 >> 8) & 1;
   v35 = (v27 >> 6) & 1;
   *(uint32_t *)v36 |= 0x400000u;
-  v36 = ((unsigned)(v36) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v36) = 90;
   do
     v36 = (void *)(unsigned char)((uint8_t)v36 - 1);
   while ( v36 );
   v37 = (*((uint32_t *)0x105864));
   *(uint32_t *)(*((uint32_t *)0x105864)) &= ~0x100000u;
   *(uint32_t *)v37 |= 0x200000u;
-  v37 = ((unsigned)(v37) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v37) = 60;
   do
     v37 = (void *)(unsigned char)((uint8_t)v37 - 1);
   while ( v37 );
@@ -9345,14 +9163,14 @@ LABEL_3:
   *(uint32_t *)(*((uint32_t *)0x105864)) |= 0x100000u;
   *(uint32_t *)v38 |= 0x20000u;
   *(uint32_t *)v38 |= 0x10000u;
-  v38 = ((unsigned)(v38) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v38) = 90;
   do
     v38 = (void *)(unsigned char)((uint8_t)v38 - 1);
   while ( v38 );
   v39 = (*((uint32_t *)0x105b9c));
   *(uint32_t *)(*((uint32_t *)0x105b9c)) &= ~0x40000u;
   *(uint32_t *)v39 |= 0x80000u;
-  v39 = ((unsigned)(v39) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v39) = 60;
   do
     v39 = (void *)(unsigned char)((uint8_t)v39 - 1);
   while ( v39 );
@@ -9360,7 +9178,7 @@ LABEL_3:
   *(uint32_t *)(*((uint32_t *)0x105b9c)) |= 0x40000u;
   *(uint32_t *)v40 |= 0x8000u;
   *(uint32_t *)v40 |= 0x4000u;
-  v40 = ((unsigned)(v40) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v40) = 90;
   do
     v40 = (void *)(unsigned char)((uint8_t)v40 - 1);
   while ( v40 );
@@ -9499,8 +9317,7 @@ LABEL_3:
 
 
 // sub_105DCC @ 0x105dcc, size 188 bytes
-int  sub_105DCC(int a1, int a2, int a3, int a4, int a5)
-{
+int  sub_105DCC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   int v9; // r4
   unsigned int v10; // r4
   int v11; // r8
@@ -9570,8 +9387,7 @@ LABEL_9:
 
 // crypto_table_copy_165d00 @ 0x105e94, size 146 bytes
 // crypto_table_copy_165d00 [ke]: Copy crypto table from ROM to RAM
-int  crypto_table_copy_165d00(int a1, int a2)
-{
+int  crypto_table_copy_165d00(uint32_t a1, uint32_t a2) {
   int v4; // r1
   int v5; // r2
   int v6; // r3
@@ -9697,8 +9513,7 @@ int  crypto_table_copy_165d00(int a1, int a2)
 
 
 // sub_105E94 @ 0x105e94, size 146 bytes
-int  sub_105E94(int a1, int a2)
-{
+int  sub_105E94(uint32_t a1, uint32_t a2) {
   int v4; // r1
   int v5; // r2
   int v6; // r3
@@ -9824,8 +9639,7 @@ int  sub_105E94(int a1, int a2)
 
 
 // sub_105F40 @ 0x105f40, size 124 bytes
-int  sub_105F40(uint32_t *a1, int a2, int a3)
-{
+int  sub_105F40(uint32_t a1, uint32_t a2, uint32_t a3) {
   long long v5; // r0
   int v6; // r0
   uint32_t *v7; // r9
@@ -9841,7 +9655,7 @@ int  sub_105F40(uint32_t *a1, int a2, int a3)
   v5 = sub_12754C(a2);
   v6 = sub_127874(v5, HIDWORD(v5), (*((uint32_t *)0x105fc8)), (*((uint32_t *)0x105fcc)));
   v7 = &a1[a3];
-  v8 = sub_127BE4(v6);
+  v8 = sub_127BE4(v6, 0);
   v9 = v7[35];
   v10 = COERCE_FLOAT(sub_11EAA0(v8));
   v11 = a1[42];
@@ -9869,8 +9683,7 @@ LABEL_3:
 
 // sub_105FD0 @ 0x105fd0, size 3010 bytes
 // sub_1205FD0 [rf]: Initializes RF calibration/lookup tables from constant pool
-int  sub_105FD0(unsigned int a1, int a2, short *a3, int a4, int a5, int a6, int a7, int a8)
-{
+int  sub_105FD0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8) {
   uint32_t *v8; // r9
   unsigned int *v9; // r8
   unsigned int *v10; // r10
@@ -10119,14 +9932,14 @@ int  sub_105FD0(unsigned int a1, int a2, short *a3, int a4, int a5, int a6, int 
   v146 = (v19 >> 8) & 1;
   v144 = (v87 >> 19) & 1;
   *v15 |= 0x400000u;
-  a4 = ((unsigned)(a4) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(a4) = 90;
   do
     a4 = (unsigned char)(a4 - 1);
   while ( a4 );
   v24 = (*((uint32_t *)0x1062b8));
   *(uint32_t *)(*((uint32_t *)0x1062b8)) &= ~0x100000u;
   *(uint32_t *)v24 |= 0x200000u;
-  v24 = ((unsigned)(v24) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v24) = 60;
   do
     v24 = (void *)(unsigned char)((uint8_t)v24 - 1);
   while ( v24 );
@@ -10134,14 +9947,14 @@ int  sub_105FD0(unsigned int a1, int a2, short *a3, int a4, int a5, int a6, int 
   *(uint32_t *)(*((uint32_t *)0x1062b8)) |= 0x100000u;
   *(uint32_t *)v25 |= 0x20000u;
   *(uint32_t *)v25 |= 0x10000u;
-  v25 = ((unsigned)(v25) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v25) = 90;
   do
     v25 = (void *)(unsigned char)((uint8_t)v25 - 1);
   while ( v25 );
   v26 = (*((uint32_t *)0x106470));
   *(uint32_t *)(*((uint32_t *)0x106470)) &= ~0x40000u;
   *(uint32_t *)v26 |= 0x80000u;
-  v26 = ((unsigned)(v26) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v26) = 60;
   do
     v26 = (void *)(unsigned char)((uint8_t)v26 - 1);
   while ( v26 );
@@ -10149,7 +9962,7 @@ int  sub_105FD0(unsigned int a1, int a2, short *a3, int a4, int a5, int a6, int 
   *(uint32_t *)(*((uint32_t *)0x106470)) |= 0x40000u;
   *v27 |= 0x8000u;
   *v27 |= 0x4000u;
-  v28 = ((unsigned)(v28) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v28) = 90;
   do
     v28 = (unsigned char)(v28 - 1);
   while ( v28 );
@@ -10730,8 +10543,7 @@ uint32_t *sub_106F08()
 
 
 // sub_106F74 @ 0x106f74, size 222 bytes
-int  sub_106F74(int a1, int a2)
-{
+int  sub_106F74(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r5
   unsigned int *v3; // r4
   uint32_t *v5; // r2
@@ -10776,8 +10588,7 @@ int  sub_106F74(int a1, int a2)
 
 // log_free_pool_dispatch2_n324 @ 0x107068, size 212 bytes
 // log_free_pool_dispatch2_n324 [util]: Initializes log entry and dispatches to free-pool handler
-int  log_free_pool_dispatch2_n324(int a1, int a2)
-{
+int  log_free_pool_dispatch2_n324(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r5
   unsigned int *v3; // r4
   uint32_t *v5; // r2
@@ -10824,8 +10635,7 @@ int  log_free_pool_dispatch2_n324(int a1, int a2)
 
 
 // sub_107068 @ 0x107068, size 212 bytes
-int  sub_107068(int a1, int a2)
-{
+int  sub_107068(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r5
   unsigned int *v3; // r4
   uint32_t *v5; // r2
@@ -10872,8 +10682,7 @@ int  sub_107068(int a1, int a2)
 
 
 // sub_107150 @ 0x107150, size 176 bytes
-int  sub_107150(int a1)
-{
+int  sub_107150(uint32_t a1) {
   int v2; // r1
   int v3; // r2
   int v4; // r3
@@ -10992,8 +10801,7 @@ int  sub_107150(int a1)
 
 // sub_107214 @ 0x107214, size 164 bytes
 // sub_1207214 [util]: Utility function loading constant and calling helper
-int  sub_107214(unsigned int a1, uint32_t *a2, int a3, int a4)
-{
+int  sub_107214(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r8
   int v8; // r3
   int v9; // s15
@@ -11028,8 +10836,7 @@ LABEL_3:
 
 
 // sub_1072CC @ 0x1072cc, size 212 bytes
-int  sub_1072CC(int a1, uint32_t *a2, int a3)
-{
+int  sub_1072CC(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r5
   unsigned int *v4; // r4
   int *v5; // r6
@@ -11078,8 +10885,7 @@ int  sub_1072CC(int a1, uint32_t *a2, int a3)
 
 
 // sub_1073BC @ 0x1073bc, size 174 bytes
-int  sub_1073BC(unsigned int *a1, int a2)
-{
+int  sub_1073BC(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r3
   unsigned int v3; // r5
   int v5; // r7
@@ -11116,8 +10922,7 @@ int  sub_1073BC(unsigned int *a1, int a2)
 
 
 // sub_10747C @ 0x10747c, size 414 bytes
-int  sub_10747C(int a1)
-{
+int  sub_10747C(uint32_t a1) {
   int *v1; // r4
   uint32_t *v2; // r6
   int *v3; // r5
@@ -11200,8 +11005,7 @@ int  sub_10747C(int a1)
 
 // sdio_buffer_prepare_2 @ 0x107638, size 418 bytes
 // sdio_buffer_prepare [mmio]: Prepare SDIO buffer for transfer
-int  sdio_buffer_prepare_2(int a1)
-{
+int  sdio_buffer_prepare_2(uint32_t a1) {
   int *v1; // r4
   uint32_t *v2; // r5
   int *v3; // r8
@@ -11295,8 +11099,7 @@ int  sdio_buffer_prepare_2(int a1)
 
 
 // sub_107638 @ 0x107638, size 418 bytes
-int  sub_107638(int a1)
-{
+int  sub_107638(uint32_t a1) {
   int *v1; // r4
   uint32_t *v2; // r5
   int *v3; // r8
@@ -11390,8 +11193,7 @@ int  sub_107638(int a1)
 
 
 // sub_1077F8 @ 0x1077f8, size 92 bytes
-int sub_1077F8()
-{
+int sub_1077F8() {
   uint32_t *v0; // r4
   uint32_t *v1; // r3
   int result; // r0
@@ -11410,7 +11212,7 @@ int sub_1077F8()
   *v0 |= 1u;
   while ( (*v3 & 1) == 0 )
   {
-    v4 = ((unsigned)(v4) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v4) = 50;
     do
       v4 = (unsigned short)(v4 - 1);
     while ( v4 );
@@ -11421,8 +11223,7 @@ int sub_1077F8()
 
 
 // sub_107860 @ 0x107860, size 104 bytes
-int sub_107860()
-{
+int sub_107860() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int result; // r0
@@ -11442,7 +11243,7 @@ int sub_107860()
   *v0 |= 1u;
   while ( (*v3 & 1) == 0 )
   {
-    v4 = ((unsigned)(v4) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+    LOWORD(v4) = 50;
     do
       v4 = (unsigned short)(v4 - 1);
     while ( v4 );
@@ -11454,8 +11255,7 @@ int sub_107860()
 
 // divmod64_compute @ 0x1078d4, size 104 bytes
 // divmod64_compute [util]: 64-bit division/modulo via magic-number multiply
-int * divmod64_compute(int *a1)
-{
+int * divmod64_compute(uint32_t a1) {
   int v1; // r2
   int v2; // r7
   int v3; // r1
@@ -11493,8 +11293,7 @@ int * divmod64_compute(int *a1)
 
 
 // sub_1078D4 @ 0x1078d4, size 104 bytes
-int * sub_1078D4(int *a1)
-{
+int * sub_1078D4(uint32_t a1) {
   int v1; // r2
   int v2; // r7
   int v3; // r1
@@ -11533,8 +11332,7 @@ int * sub_1078D4(int *a1)
 
 // ipc_doorbell_handler_n_21a @ 0x107944, size 276 bytes
 // ipc_doorbell_handler_n_21a [ipc]: Handles IPC doorbell message write/ack
-int  ipc_doorbell_handler_n_21a(int a1, uint32_t *a2)
-{
+int  ipc_doorbell_handler_n_21a(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r6
   unsigned int *v3; // r8
   unsigned int v4; // r3
@@ -11630,8 +11428,7 @@ LABEL_7:
 
 
 // sub_107944 @ 0x107944, size 276 bytes
-int  sub_107944(int a1, uint32_t *a2)
-{
+int  sub_107944(uint32_t a1, uint32_t a2) {
   unsigned int *v2; // r6
   unsigned int *v3; // r8
   unsigned int v4; // r3
@@ -11727,8 +11524,7 @@ LABEL_7:
 
 
 // sub_107A70 @ 0x107a70, size 348 bytes
-int  sub_107A70(int a1, int *a2, uint32_t *a3)
-{
+int  sub_107A70(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v4; // r3
   long long v5; // kr08_8
   int v6; // r2
@@ -11777,7 +11573,7 @@ LABEL_8:
       v18 = ((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)(2 * *(uint32_t *)(a1 + 24))) >> 32)
           - ((2 * *(uint32_t *)(a1 + 24)) >> 31);
       v19 = (*((uint32_t *)0x107bcc)) * (long long)v16;
-      v11 = (v11 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)a2[1]) >> 32) - (a2[1] >> 31))) & 0xFFFFFFFFULL) << 32);
+      HIDWORD(v11) = 2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)a2[1]) >> 32) - (a2[1] >> 31));
       LODWORD(v11) = ((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)*a2) >> 32) - (*a2 >> 31);
       *(uint64_t *)a2 = v11;
       v14 = __PAIR64__(v18 + HIDWORD(v19) - (v16 >> 31), v17);
@@ -11791,7 +11587,7 @@ LABEL_8:
     v21 = *(uint32_t *)(a1 + 28);
     v22 = *(uint32_t *)(a1 + 24);
     v23 = ((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)(2 * v20)) >> 32) - ((2 * v20) >> 31);
-    v11 = (uint32_t)(2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)*a2) >> 32) - (*a2 >> 31)));
+    LODWORD(v11) = 2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)*a2) >> 32) - (*a2 >> 31));
     v24 = ((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)v21) >> 32) - (v21 >> 31);
     HIDWORD(v11) = ((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)a2[1]) >> 32) - (a2[1] >> 31);
     *(uint64_t *)a2 = v11;
@@ -11799,8 +11595,8 @@ LABEL_8:
   }
   else
   {
-    v11 = (uint32_t)(2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)*a2) >> 32) - (*a2 >> 31)));
-    v11 = (uint32_t)(2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)a2[1]) >> 32) - (a2[1] >> 31)));
+    LODWORD(v11) = 2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)*a2) >> 32) - (*a2 >> 31));
+    HIDWORD(v11) = 2 * (((unsigned long long)((*((uint32_t *)0x107bcc)) * (long long)a2[1]) >> 32) - (a2[1] >> 31));
     v12 = *(uint32_t *)(a1 + 20) + *(uint32_t *)(a1 + 28);
     v13 = *(uint32_t *)(a1 + 32) + *(uint32_t *)(a1 + 24);
     *(uint64_t *)a2 = v11;
@@ -11814,8 +11610,7 @@ LABEL_9:
 
 // mmio_read_field_n_bd8 @ 0x107bd8, size 60 bytes
 // mmio_read_field_n_bd8 [mmio]: Read shifted field from MMIO register block
-int mmio_read_field_n_bd8()
-{
+int mmio_read_field_n_bd8() {
   unsigned int *v0; // r5
   unsigned int v1; // r4
   int v2; // r6
@@ -11834,8 +11629,7 @@ int mmio_read_field_n_bd8()
 
 
 // sub_107BD8 @ 0x107bd8, size 60 bytes
-int sub_107BD8()
-{
+int sub_107BD8() {
   unsigned int *v0; // r5
   unsigned int v1; // r4
   int v2; // r6
@@ -11855,8 +11649,7 @@ int sub_107BD8()
 
 // rf_chan_param_get @ 0x107c28, size 56 bytes
 // rf_chan_param_get [rf]: Extract channel/bandwidth param via ubfx nibble from RF config regs
-int rf_chan_param_get()
-{
+int rf_chan_param_get() {
   unsigned int *v0; // r5
   int v1; // r6
   unsigned short v2; // r4
@@ -11875,8 +11668,7 @@ int rf_chan_param_get()
 
 
 // sub_107C28 @ 0x107c28, size 56 bytes
-int sub_107C28()
-{
+int sub_107C28() {
   unsigned int *v0; // r5
   int v1; // r6
   unsigned short v2; // r4
@@ -11895,8 +11687,7 @@ int sub_107C28()
 
 
 // sub_107C70 @ 0x107c70, size 4140 bytes
-uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, short a7)
-{
+uint32_t * sub_107C70(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7) {
   int *v7; // r4
   unsigned int *v8; // lr
   unsigned int *v9; // r5
@@ -12165,14 +11956,14 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *v14 |= 0x800000u;
   v15 = a4;
   *v14 |= 0x400000u;
-  a4 = ((unsigned)(a4) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(a4) = 90;
   do
     a4 = (unsigned char)(a4 - 1);
   while ( a4 );
   v17 = (*((uint32_t *)0x107f3c));
   *(uint32_t *)(*((uint32_t *)0x107f3c)) &= ~0x100000u;
   *(uint32_t *)v17 |= 0x200000u;
-  v17 = ((unsigned)(v17) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v17) = 60;
   do
     v17 = (void *)(unsigned char)((uint8_t)v17 - 1);
   while ( v17 );
@@ -12180,14 +11971,14 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *(uint32_t *)(*((uint32_t *)0x107f3c)) |= 0x100000u;
   *(uint32_t *)v18 |= 0x20000u;
   *(uint32_t *)v18 |= 0x10000u;
-  v18 = ((unsigned)(v18) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v18) = 90;
   do
     v18 = (void *)(unsigned char)((uint8_t)v18 - 1);
   while ( v18 );
   v19 = (*((uint32_t *)0x107f30));
   *(uint32_t *)(*((uint32_t *)0x107f30)) &= ~0x40000u;
   *(uint32_t *)v19 |= 0x80000u;
-  v19 = ((unsigned)(v19) & 0xFFFFFF00U) | (((unsigned)(60) & 0xFFU) << 0);
+  LOBYTE(v19) = 60;
   do
     v19 = (void *)(unsigned char)((uint8_t)v19 - 1);
   while ( v19 );
@@ -12195,7 +11986,7 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
   *(uint32_t *)(*((uint32_t *)0x107f30)) |= 0x40000u;
   *v20 |= 0x8000u;
   *v20 |= 0x4000u;
-  v21 = ((unsigned)(v21) & 0xFFFFFF00U) | (((unsigned)(90) & 0xFFU) << 0);
+  LOBYTE(v21) = 90;
   do
     v21 = (unsigned char)(v21 - 1);
   while ( v21 );
@@ -12615,8 +12406,7 @@ uint32_t * sub_107C70(int a1, unsigned int *a2, int a3, unsigned int a4, unsigne
 
 
 // sub_108CB8 @ 0x108cb8, size 114 bytes
-uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2)
-{
+uint32_t * sub_108CB8(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int v3; // r3
   int v4; // r3
@@ -12625,12 +12415,12 @@ uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2)
   int v7; // r3
   unsigned int v8; // r3
 
-  v2 = ((unsigned)(v2) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+  LOWORD(v2) = 50;
   do
     v2 = (unsigned short)(v2 - 1);
   while ( v2 );
   *(uint32_t *)(*((uint32_t *)0x108d2c)) = 2;
-  v3 = ((unsigned)(v3) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+  LOWORD(v3) = 50;
   do
     v3 = (unsigned short)(v3 - 1);
   while ( v3 );
@@ -12638,13 +12428,13 @@ uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2)
   {
     while ( 1 )
     {
-      v4 = ((unsigned)(v4) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+      LOWORD(v4) = 50;
       do
         v4 = (unsigned short)(v4 - 1);
       while ( v4 );
       if ( (*(uint32_t *)(*((uint32_t *)0x108d30)) & 1) != 0 )
       {
-        v5 = ((unsigned)(v5) & 0xFFFF0000U) | (((unsigned)(50) & 0xFFFFU) << 0);
+        LOWORD(v5) = 50;
         do
           v5 = (unsigned short)(v5 - 1);
         while ( v5 );
@@ -12667,8 +12457,7 @@ uint32_t * sub_108CB8(uint32_t *result, unsigned int *a2)
 
 
 // sub_108D34 @ 0x108d34, size 492 bytes
-uint32_t * sub_108D34(int a1, int a2)
-{
+uint32_t * sub_108D34(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r2
   unsigned int *v3; // r3
   uint32_t *v4; // r12
@@ -12765,8 +12554,7 @@ LABEL_7:
 
 
 // sub_109100 @ 0x109100, size 32 bytes
-int  sub_109100(int result, int a2, uint8_t *a3, char *a4, int *a5)
-{
+int  sub_109100(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   unsigned int v5; // r3
   long long v6; // kr00_8
   char v7; // r3
@@ -12994,8 +12782,7 @@ LABEL_7:
 
 
 // sub_109120 @ 0x109120, size 98 bytes
-int  sub_109120(long long a1, int a2, uint32_t *a3)
-{
+int  sub_109120(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char v3; // r5
   uint32_t *v4; // r6
   int v5; // r4
@@ -13003,21 +12790,21 @@ int  sub_109120(long long a1, int a2, uint32_t *a3)
 
   if ( a1 )
   {
-    a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(a1) + a1) & 0xFFFFFFFFULL) << 0);
+    LODWORD(a1) = HIDWORD(a1) + a1;
     if ( (uint32_t)a1 )
     {
-      a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(0) & 0xFFFFFFFFULL) << 32);
+      HIDWORD(a1) = 0;
       while ( 1 )
       {
         v3 = BYTE4(a1) + 1;
         v4 = &a3[HIDWORD(a1)];
         if ( *v4 <= a2 )
           break;
-        a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(v3) & 0xFFFFFFFFULL) << 32);
+        HIDWORD(a1) = v3;
         if ( v3 >= (int)a1 )
           goto LABEL_12;
       }
-      a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)((unsigned char)a1) & 0xFFFFFFFFULL) << 0);
+      LODWORD(a1) = (unsigned char)a1;
       if ( (unsigned int)(unsigned char)a1 > HIDWORD(a1) )
       {
         v5 = (int)&a3[(unsigned char)a1 - 1 - (unsigned char)(a1 - 1 - BYTE4(a1))];
@@ -13046,8 +12833,7 @@ LABEL_12:
 
 
 // sub_109184 @ 0x109184, size 476 bytes
-int  sub_109184(unsigned int a1, int a2, int *a3)
-{
+int  sub_109184(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r12
   int v4; // r4
   int *v5; // r6
@@ -13088,7 +12874,7 @@ int  sub_109184(unsigned int a1, int a2, int *a3)
   v4 = 128;
   v5 = a3;
   v6 = 0;
-  v7 = ((unsigned)(v7) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+  LOBYTE(v7) = 1;
   while ( 1 )
   {
     v9 = *v5;
@@ -13204,8 +12990,7 @@ LABEL_14:
 
 
 // sub_109368 @ 0x109368, size 278 bytes
-int  sub_109368(float *a1, float *a2)
-{
+int  sub_109368(uint32_t a1, uint32_t a2) {
   float v2; // s15
   float v3; // s14
   float v4; // s13
@@ -13231,8 +13016,7 @@ int  sub_109368(float *a1, float *a2)
 
 // sub_109480 @ 0x109480, size 690 bytes
 // sub_1209480 [util]: Null/zero check utility function
-int  sub_109480(int a1, short *a2)
-{
+int  sub_109480(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r2
   short *v3; // r8
   short *v4; // r4
@@ -13378,7 +13162,7 @@ LABEL_48:
     {
       v21 = a2[v18];
       v22 = v16;
-      v42 = ((unsigned)(v42) & 0xFFFFFF00U) | (((unsigned)(v12) & 0xFFU) << 0);
+      LOBYTE(v42) = v12;
       v20 = v19;
       v16 = v12;
       v19 = v21;
@@ -13388,14 +13172,14 @@ LABEL_48:
     v24 = a2[v17];
     if ( v23 < v24 )
     {
-      v42 = ((unsigned)(v42) & 0xFFFF00FFU) | (((unsigned)(v13) & 0xFFU) << 8);
+      HIBYTE(v42) = v13;
       v41 = v9;
       v23 = v24;
       v13 = v9;
     }
     if ( v20 > v23 )
     {
-      v42 = ((unsigned)(v42) & 0xFFFFFF00U) | (((unsigned)(v13) & 0xFFU) << 0);
+      LOBYTE(v42) = v13;
       v41 = v16;
       v23 = v20;
       v13 = v16;
@@ -13516,8 +13300,7 @@ LABEL_65:
 
 
 // sub_109738 @ 0x109738, size 610 bytes
-int  sub_109738(unsigned int a1, float *a2, float *a3, int a4)
-{
+int  sub_109738(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   float v4; // s13
   float v5; // s14
   float v10; // s15
@@ -13573,20 +13356,20 @@ int  sub_109738(unsigned int a1, float *a2, float *a3, int a4)
   v16 = (float)(v14 * 3.0) - (float)(v15 * v15);
   if ( v16 > 0.0 )
   {
-    v17 = sub_127570((float)(v14 * 3.0) - (float)(v15 * v15));
+    v17 = sub_127570((float)(v14 * 3.0) - (float)(v15 * v15), 0, 0, 0);
     if ( !sub_127B04(v17, HIDWORD(v17), (*((uint32_t *)0x1099a0)), (*((uint32_t *)0x1099a4))) )
       goto LABEL_11;
     v16 = flt_1099A8;
     goto LABEL_10;
   }
-  v38 = sub_127570(-v16);
+  v38 = sub_127570(-v16, 0, 0, 0);
   if ( sub_127B04(v38, HIDWORD(v38), (*((uint32_t *)0x1099a0)), (*((uint32_t *)0x1099a4))) )
   {
     v16 = flt_1099B8;
 LABEL_10:
     v20 = (*((uint32_t *)0x1099ac));
     *(uint8_t *)a4 |= 4u;
-    sub_10DA6C(v20, v18, v19);
+    sub_10DA6C(v20, v18);
     v11 = *a2;
     v12 = a2[1];
     v13 = a2[2];
@@ -13604,11 +13387,11 @@ LABEL_11:
               + (float)((float)((float)(v23 * v12) + (float)(v14 * (float)(1.0 / v16))) * v21))
       + (float)((float)((float)(v23 * v13) + (float)(v14 * (float)(1.0 / v16))) * v22);
   if ( a1 > 0xD && v24 < 20.0
-    || (v31 = sub_127570(LODWORD(v24)), (result = sub_127B04(v31, HIDWORD(v31), (*((uint32_t *)0x1099a0)), (*((uint32_t *)0x1099a4)))) != 0) )
+    || (v31 = sub_127570(LODWORD(v24), 0, 0, 0), (result = sub_127B04(v31, HIDWORD(v31), (*((uint32_t *)0x1099a0)), (*((uint32_t *)0x1099a4)))) != 0) )
   {
     v26 = (*((uint32_t *)0x1099b0));
     *(uint8_t *)a4 |= 8u;
-    result = sub_10DA6C(v26, v18, v19);
+    result = sub_10DA6C(v26, v18);
     v24 = 1.0;
     v28 = 2.0;
   }
@@ -13650,8 +13433,7 @@ LABEL_11:
 
 
 // sub_1099BC @ 0x1099bc, size 546 bytes
-int  sub_1099BC(int a1, int a2, int a3, int a4)
-{
+int  sub_1099BC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v8; // r1
   int v9; // r2
   int v10; // r3
@@ -13755,13 +13537,13 @@ int  sub_1099BC(int a1, int a2, int a3, int a4)
         v26 = *(float *)(a4 + 8);
         v27 = v23[32];
         v28 = v26 * *v23++;
-        v29 = sub_127570((float)(v28 - v27) + *(float *)(a4 + 12));
-        v30 = sub_127620(v29, HIDWORD(v29), v29, HIDWORD(v29));
-        v31 = sub_127570((float)(v26 * v26) + 1.0);
+        v29 = sub_127570((float)(v28 - v27) + *(float *)(a4 + 12), 0, 0, 0);
+        v30 = sub_127620(v29, HIDWORD(v29), v29);
+        v31 = sub_127570((float)(v26 * v26) + 1.0, 0, 0, 0);
         v32 = sub_127874(v30, HIDWORD(v30), v31, HIDWORD(v31));
-        v33 = sub_127570(LODWORD(v18));
-        v34 = sub_1272B4(v32, HIDWORD(v32), v33, HIDWORD(v33));
-        v18 = COERCE_FLOAT(sub_127BE4(v34));
+        v33 = sub_127570(LODWORD(v18), 0, 0, 0);
+        v34 = sub_1272B4(v32, HIDWORD(v32));
+        v18 = COERCE_FLOAT(sub_127BE4(v34, 0));
         if ( v23 == v24 )
           goto LABEL_6;
       }
@@ -13843,19 +13625,7 @@ LABEL_18:
 
 
 // sub_109BF8 @ 0x109bf8, size 300 bytes
-int * sub_109BF8(
-        int a1,
-        int *a2,
-        int a3,
-        int a4,
-        int a5,
-        unsigned char a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11)
-{
+int * sub_109BF8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11) {
   uint32_t *v11; // r4
   int v15; // r1
   unsigned char v16; // r10
@@ -13949,19 +13719,7 @@ int * sub_109BF8(
 
 // rf_sub_1209D40 @ 0x109d40, size 1512 bytes
 // rf_sub_1209D40 [rf]: LMAC RF handler (unidentified)
-int  rf_sub_1209D40(
-        int *a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11)
-{
+int  rf_sub_1209D40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11) {
   int *v11; // r10
   int v13; // r1
   int v14; // r2
@@ -14187,7 +13945,7 @@ LABEL_19:
           *((uint32_t *)v24 + 8) = 1;
           if ( i <= 8
             && v41 > v40
-            && (v52 = sub_127570(LODWORD(v51)), sub_127B40(v52, HIDWORD(v52), (*((uint32_t *)0x10a068)), (*((uint32_t *)0x10a06c))))
+            && (v52 = sub_127570(LODWORD(v51), 0, 0, 0), sub_127B40(v52, HIDWORD(v52), (*((uint32_t *)0x10a068)), (*((uint32_t *)0x10a06c))))
             && v78 == 1 )
           {
             sub_11F74C(1, (*((uint32_t *)0x10a328)), v42, 1);
@@ -14271,19 +14029,7 @@ LABEL_29:
 
 
 // sub_109D40 @ 0x109d40, size 1512 bytes
-int  sub_109D40(
-        int *a1,
-        int a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11)
-{
+int  sub_109D40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11) {
   int *v11; // r10
   int v13; // r1
   int v14; // r2
@@ -14509,7 +14255,7 @@ LABEL_19:
           *((uint32_t *)v24 + 8) = 1;
           if ( i <= 8
             && v41 > v40
-            && (v52 = sub_127570(LODWORD(v51)), sub_127B40(v52, HIDWORD(v52), (*((uint32_t *)0x10a068)), (*((uint32_t *)0x10a06c))))
+            && (v52 = sub_127570(LODWORD(v51), 0, 0, 0), sub_127B40(v52, HIDWORD(v52), (*((uint32_t *)0x10a068)), (*((uint32_t *)0x10a06c))))
             && v78 == 1 )
           {
             sub_11F74C(1, (*((uint32_t *)0x10a328)), v42, 1);
@@ -14594,8 +14340,7 @@ LABEL_29:
 
 // mac_aggr_setup @ 0x10a36c, size 572 bytes
 // mac_aggr_setup [mac]: MAC aggregation/AMPDU setup with subframe type dispatch
-int  mac_aggr_setup(int a1, unsigned int a2, unsigned char *a3, int *a4)
-{
+int  mac_aggr_setup(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned char *v6; // r6
   uint8_t *v7; // r9
   int i; // r8
@@ -14723,7 +14468,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      sub_10DA6C((*((uint32_t *)0x10a5ac)), a2, v15);
+      sub_10DA6C((*((uint32_t *)0x10a5ac)), a2);
       return v21;
     }
     goto LABEL_21;
@@ -14756,7 +14501,7 @@ LABEL_42:
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v20);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
   sub_109738(a2, v30, v31, (int)v32);
@@ -14765,7 +14510,7 @@ LABEL_42:
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v32[0]);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
 LABEL_26:
@@ -14773,7 +14518,7 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v20);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
   return v21;
@@ -14781,8 +14526,7 @@ LABEL_22:
 
 
 // sub_10A36C @ 0x10a36c, size 572 bytes
-int  sub_10A36C(int a1, unsigned int a2, unsigned char *a3, int *a4)
-{
+int  sub_10A36C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned char *v6; // r6
   uint8_t *v7; // r9
   int i; // r8
@@ -14910,7 +14654,7 @@ LABEL_21:
     {
 LABEL_42:
       v21 = 32 * (9 - a2);
-      sub_10DA6C((*((uint32_t *)0x10a5ac)), a2, v15);
+      sub_10DA6C((*((uint32_t *)0x10a5ac)), a2);
       return v21;
     }
     goto LABEL_21;
@@ -14943,7 +14687,7 @@ LABEL_42:
         goto LABEL_26;
     }
     v21 = 32 * (9 - a2);
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v20);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
   sub_109738(a2, v30, v31, (int)v32);
@@ -14952,7 +14696,7 @@ LABEL_42:
   if ( (v32[0] & 0xE) != 0 )
   {
     v21 = 128;
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v32[0]);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
 LABEL_26:
@@ -14960,7 +14704,7 @@ LABEL_26:
   if ( v27 )
   {
 LABEL_22:
-    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2, v20);
+    sub_10DA6C((*((uint32_t *)0x10a5a8)), a2);
     return v21;
   }
   return v21;
@@ -14969,8 +14713,7 @@ LABEL_22:
 
 // sub_10A5B0 @ 0x10a5b0, size 1610 bytes
 // sub_120A5B0 [rf]: RF register setup routine touching 0x40344xxx MMIO block with FP context
-int  sub_10A5B0(unsigned int a1, unsigned int a2, int a3, unsigned int a4, unsigned char a5, char a6)
-{
+int  sub_10A5B0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   unsigned int v8; // s17
   int v9; // r3
   uint32_t *v10; // r2
@@ -15237,8 +14980,7 @@ LABEL_28:
 
 // rf_rx_dc_calib @ 0x10ac18, size 1062 bytes
 // rf_rx_dc_calib [rf]: RF RX DC/IQ calibration with FP ops, accesses 0x40346xxx RF regs
-int  rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3)
-{
+int  rf_rx_dc_calib(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r9
   int v4; // r10
   int v5; // r11
@@ -15415,11 +15157,11 @@ LABEL_5:
       sub_11F74C(1, (*((uint32_t *)0x10af88)), v29, v30);
       if ( v29 > 0x1388 )
       {
-        v91 = ((unsigned)(v91) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
-        v89 = ((unsigned)(v89) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
-        v89 = ((unsigned)(v89) & 0x0000FFFFU) | (((unsigned)(v29) & 0xFFFFU) << 16);
-        v90 = ((unsigned)(v90) & 0xFFFF0000U) | (((unsigned)(v29) & 0xFFFFU) << 0);
-        v90 = ((unsigned)(v90) & 0x0000FFFFU) | (((unsigned)(v29) & 0xFFFFU) << 16);
+        LOBYTE(v91) = 0;
+        LOBYTE(v89) = 1;
+        HIWORD(v89) = v29;
+        LOWORD(v90) = v29;
+        HIWORD(v90) = v29;
         sub_102908((unsigned char *)&v89, 0);
         v79 = sub_102968(v29);
         v84 = (*((uint32_t *)0x10b040)) + 384 * v79;
@@ -15429,9 +15171,9 @@ LABEL_5:
       }
       else
       {
-        v90 = ((unsigned)(v90) & 0xFFFF0000U) | (((unsigned)(v29) & 0xFFFFU) << 0);
-        v89 = ((unsigned)(v89) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
-        v91 = ((unsigned)(v91) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+        LOWORD(v90) = v29;
+        LOBYTE(v89) = 0;
+        LOBYTE(v91) = 0;
         sub_102908((unsigned char *)&v89, 0);
         v84 = (*((uint32_t *)0x10af8c));
         v83 = a2;
@@ -15617,8 +15359,7 @@ LABEL_18:
 
 
 // sub_10AC18 @ 0x10ac18, size 1062 bytes
-int  sub_10AC18(unsigned int *a1, uint8_t *a2, int a3)
-{
+int  sub_10AC18(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r9
   int v4; // r10
   int v5; // r11
@@ -15795,11 +15536,11 @@ LABEL_5:
       sub_11F74C(1, (*((uint32_t *)0x10af88)), v29, v30);
       if ( v29 > 0x1388 )
       {
-        v91 = ((unsigned)(v91) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
-        v89 = ((unsigned)(v89) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
-        v89 = ((unsigned)(v89) & 0x0000FFFFU) | (((unsigned)(v29) & 0xFFFFU) << 16);
-        v90 = ((unsigned)(v90) & 0xFFFF0000U) | (((unsigned)(v29) & 0xFFFFU) << 0);
-        v90 = ((unsigned)(v90) & 0x0000FFFFU) | (((unsigned)(v29) & 0xFFFFU) << 16);
+        LOBYTE(v91) = 0;
+        LOBYTE(v89) = 1;
+        HIWORD(v89) = v29;
+        LOWORD(v90) = v29;
+        HIWORD(v90) = v29;
         sub_102908((unsigned char *)&v89, 0);
         v79 = sub_102968(v29);
         v84 = (*((uint32_t *)0x10b040)) + 384 * v79;
@@ -15809,9 +15550,9 @@ LABEL_5:
       }
       else
       {
-        v90 = ((unsigned)(v90) & 0xFFFF0000U) | (((unsigned)(v29) & 0xFFFFU) << 0);
-        v89 = ((unsigned)(v89) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
-        v91 = ((unsigned)(v91) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+        LOWORD(v90) = v29;
+        LOBYTE(v89) = 0;
+        LOBYTE(v91) = 0;
         sub_102908((unsigned char *)&v89, 0);
         v84 = (*((uint32_t *)0x10af8c));
         v83 = a2;
@@ -15997,19 +15738,7 @@ LABEL_18:
 
 
 // sub_10B048 @ 0x10b048, size 3748 bytes
-int  sub_10B048(
-        int *a1,
-        int a2,
-        int a3,
-        int a4,
-        unsigned short *a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        long long *a11)
-{
+int  sub_10B048(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8, uint32_t a9, uint32_t a10, uint32_t a11) {
   int v11; // s26
   int v12; // r8
   int v13; // r1
@@ -16325,13 +16054,13 @@ LABEL_5:
       if ( v174 != 1 )
         break;
       v221 = 3;
-      v226 = ((unsigned)(v226) & 0xFFFF0000U) | (((unsigned)(2048) & 0xFFFFU) << 0);
+      LOWORD(v226) = 2048;
       sub_105FD0(v175, (int)v211, (short *)&v226, 0, 1, 1, 1, v179);
 LABEL_177:
       ++v174;
     }
     v221 = 3;
-    v226 = ((unsigned)(v226) & 0xFFFF0000U) | (((unsigned)(2048) & 0xFFFFU) << 0);
+    LOWORD(v226) = 2048;
     sub_105FD0(v175, (int)v211, (short *)&v226, 0, 1, v174, 1, v179);
     if ( v174 != 2 )
       goto LABEL_177;
@@ -16511,12 +16240,12 @@ LABEL_35:
       if ( v179 )
       {
         v207 = 1792;
-        v206 = ((unsigned)(v206) & 0x0000FFFFU) | (((unsigned)(2048) & 0xFFFFU) << 16);
+        HIWORD(v206) = 2048;
         if ( v180 )
         {
           if ( v180 == 1 )
           {
-            v206 = ((unsigned)(v206) & 0xFFFF0000U) | (((unsigned)(2048) & 0xFFFFU) << 0);
+            LOWORD(v206) = 2048;
             v96 = 8;
             v221 = 4;
             v222 = 4;
@@ -16538,7 +16267,7 @@ LABEL_35:
             v97 = 12;
             v223 = 6;
             v216 = 0x900000009LL;
-            v206 = ((unsigned)(v206) & 0xFFFF0000U) | (((unsigned)(v155) & 0xFFFFU) << 0);
+            LOWORD(v206) = v155;
             v217 = 12;
             v194 = 0;
             v96 = 8;
@@ -16552,7 +16281,7 @@ LABEL_35:
           v96 = 8;
           v216 = 0x90000000ELL;
           v217 = 14;
-          v206 = ((unsigned)(v206) & 0xFFFF0000U) | (((unsigned)(896) & 0xFFFFU) << 0);
+          LOWORD(v206) = 896;
           v223 = 8;
           v194 = 0x2000;
         }
@@ -16636,9 +16365,9 @@ LABEL_35:
           v114 = (*v103 >> 8) & 0xF;
         }
         if ( v114 > SHIDWORD(v111) )
-          v214 = (uint32_t)(v114);
+          HIDWORD(v214) = v114;
         if ( v114 < (int)v111 )
-          v214 = (uint32_t)(v114);
+          LODWORD(v214) = v114;
         if ( v114 == v110 && !v107 )
         {
           if ( *v193 )
@@ -16655,12 +16384,12 @@ LABEL_35:
           v116 = *v191;
           v117 = sub_12754C(*v191);
           v118 = sub_127874(v117, HIDWORD(v117), 0, (*((uint32_t *)0x10b7cc)));
-          v119 = sub_127BE4(v118);
+          v119 = sub_127BE4(v118, 0);
           v106 = sub_11EAA0(v119) * 20.0;
           v187 = v178;
           v120 = sub_11E8E0((float)-v106 / 20.0);
-          v121 = sub_127570((float)v116 * v120);
-          v122 = math_round(v121, HIDWORD(v121));
+          v121 = sub_127570((float)v116 * v120, 0, 0, 0);
+          v122 = math_round(v121);
           v105 = sub_127B54(v122, HIDWORD(v122));
           v104 = v105 | v194 | 0xFFC000;
           v107 = 1;
@@ -16670,7 +16399,7 @@ LABEL_35:
           v184 = v178;
           v189 = 1;
         }
-        if ( v216 = (uint32_t)(= v114 && !v190 )
+        if ( HIDWORD(v216) == v114 && !v190 )
         {
           v185 = v178;
           v190 = 1;
@@ -16687,7 +16416,7 @@ LABEL_35:
       v65 = v199;
       v197 = v104;
       v11 = v105;
-      sub_11F74C(1), (*((uint32_t *)0x10b7d8)), HIDWORD(v214), v214);
+      sub_11F74C(1, (*((uint32_t *)0x10b7d8)), HIDWORD(v214), v214);
       if ( v187 == 255 )
       {
         msg_parse((*((uint32_t *)0x10bf04)), v123);
@@ -16737,7 +16466,7 @@ LABEL_80:
       v131 = (short)v211[HIDWORD(v216) + 32];
       if ( (int)v216 <= SHIDWORD(v214) )
       {
-        v128 = (uint32_t)(&v211[v216 - 1]);
+        HIDWORD(v128) = &v211[v216 - 1];
         v161 = (float *)&v209[v216];
         do
         {
@@ -16746,7 +16475,7 @@ LABEL_80:
           sub_104B60(v162, v129, (int)v211);
           v163 = HIDWORD(v214);
           *v161++ = v212;
-          v128 = (uint32_t)(v128 + 1);
+          LODWORD(v128) = v128 + 1;
         }
         while ( v163 >= (int)v128 );
         v132 = (float)(v184 - v187) - *(float *)&v209[v216];
@@ -16762,7 +16491,7 @@ LABEL_80:
       if ( SHIDWORD(v128) < (int)v128 )
       {
         v157 = &v211[HIDWORD(v128) + 16];
-        v128 = (uint32_t)(&v209[HIDWORD(v128)]);
+        LODWORD(v128) = &v209[HIDWORD(v128)];
         do
         {
           v158 = *v157++;
@@ -16770,24 +16499,24 @@ LABEL_80:
           sub_104B60(v158, v130, (int)v211);
           v159 = HIDWORD(v216);
           *(float *)v128 = v212;
-          v128 = (uint32_t)(v128 + 4);
+          LODWORD(v128) = v128 + 4;
           v160 = (float *)&v209[v159];
           v133 = (float)(v185 - v184) - *v160;
           ++HIDWORD(v128);
           sub_11F74C(1, (*((uint32_t *)0x10bef0)), (int)(float)(v133 * v26), v160);
         }
         while ( (int)v216 > SHIDWORD(v128) );
-        v128 = (uint32_t)(HIDWORD(v216));
+        HIDWORD(v128) = HIDWORD(v216);
       }
       else
       {
         v133 = v92;
       }
-      v128 = (uint32_t)(v218);
+      LODWORD(v128) = v218;
       if ( v218 < SHIDWORD(v128) )
       {
         v134 = (*((uint32_t *)0x10b7e4));
-        v128 = (uint32_t)(&v211[v218 + 32]);
+        HIDWORD(v128) = &v211[v218 + 32];
         v135 = (float *)&v209[v218];
         do
         {
@@ -16797,7 +16526,7 @@ LABEL_80:
           sub_104B60(v136, v131, (int)v211);
           v137 = HIDWORD(v216);
           *v135++ = v212;
-          v128 = (uint32_t)(v128 + 1);
+          LODWORD(v128) = v128 + 1;
         }
         while ( v137 > (int)v128 );
       }
@@ -16874,7 +16603,7 @@ LABEL_80:
           sub_104B60(v211[15], v129, (int)v211);
           v152 = v212;
           sub_11F74C(1, (*((uint32_t *)0x10bb78)), 100 * v93, (int)(float)(v212 * v26));
-          v200 = sub_127570((float)v93 - v152);
+          v200 = sub_127570((float)v93 - v152, 0, 0, 0);
           if ( !sub_127B40(v200, HIDWORD(v200), (*((uint32_t *)0x10bb50)), (*((uint32_t *)0x10bb54)))
             && !sub_127B04(v200, HIDWORD(v200), (*((uint32_t *)0x10bb58)), (*((uint32_t *)0x10bb5c))) )
           {
@@ -16973,8 +16702,7 @@ LABEL_15:
 
 
 // sub_10BF28 @ 0x10bf28, size 546 bytes
-uint32_t * sub_10BF28(uint32_t *result, unsigned int a2, int a3, int a4)
-{
+uint32_t * sub_10BF28(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r6
   int v7; // r7
   int v8; // r3
@@ -17085,16 +16813,16 @@ uint32_t * sub_10BF28(uint32_t *result, unsigned int a2, int a3, int a4)
       v19 = dbl_10C150;
     }
     v20 = sub_12754C(v17);
-    v21 = sub_127620(v20, HIDWORD(v20), 0, (*((uint32_t *)0x10c190)));
+    v21 = sub_127620(v20, HIDWORD(v20), 0);
     v22 = sub_127874(v18, HIDWORD(v18), v21, HIDWORD(v21));
-    v23 = sub_127620(v22, HIDWORD(v22), 0, (*((uint32_t *)0x10c194)));
-    v24 = sub_127194(v23, HIDWORD(v23));
+    v23 = sub_127620(v22, HIDWORD(v22), 0);
+    v24 = sub_127194(v23);
     v25 = sub_127874(LODWORD(v19), HIDWORD(v19), 0, (*((uint32_t *)0x10c190)));
-    v26 = sub_127194(v25, HIDWORD(v25));
+    v26 = sub_127194(v25);
     v27 = v24;
     v28 = v26;
-    *(uint32_t *)(*((uint32_t *)0x10c1b0)) = sub_127BA4(v27) & 0x7FFFFFFF;
-    v10 = sub_127BA4(v28);
+    *(uint32_t *)(*((uint32_t *)0x10c1b0)) = sub_127BA4(v27, 0) & 0x7FFFFFFF;
+    v10 = sub_127BA4(v28, 0);
     v14 = (*((uint32_t *)0x10c198));
     v13 = *(uint32_t *)(*((uint32_t *)0x10c198)) & (*((uint32_t *)0x10c1a0));
     v15 = (*((uint32_t *)0x10c19c)) & (v10 << 13) | v13;
@@ -17135,7 +16863,7 @@ LABEL_3:
         v57 = v40;
         v58 = v41;
         v59 = v42;
-        v40 = (uint32_t)(*(uint32_t *)(v36 + 4));
+        HIDWORD(v40) = *(uint32_t *)(v36 + 4);
         v43 = *(uint32_t *)(v36 + 8);
         v44 = *(uint32_t *)(v36 + 12);
         v60 = *(uint32_t *)v36;
@@ -17143,7 +16871,7 @@ LABEL_3:
         v62 = v43;
         v63 = v44;
         *((uint8_t *)v33 + 4) = 0;
-        v40 = (uint32_t)((*((uint32_t *)0x10c1ac)));
+        LODWORD(v40) = (*((uint32_t *)0x10c1ac));
         *((uint8_t *)v33 + 12) = 0;
         *((uint8_t *)v33 + 20) = 0;
         *((uint8_t *)v33 + 28) = 0;
@@ -17169,8 +16897,7 @@ LABEL_3:
 
 // tx_phy_config @ 0x10bf28, size 546 bytes
 // tx_phy_config [tx]: Configure TX PHY parameters from descriptor fields
-uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
-{
+uint32_t * tx_phy_config(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r6
   int v7; // r7
   int v8; // r3
@@ -17281,16 +17008,16 @@ uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4)
       v19 = dbl_10C150;
     }
     v20 = sub_12754C(v17);
-    v21 = sub_127620(v20, HIDWORD(v20), 0, (*((uint32_t *)0x10c190)));
+    v21 = sub_127620(v20, HIDWORD(v20), 0);
     v22 = sub_127874(v18, HIDWORD(v18), v21, HIDWORD(v21));
-    v23 = sub_127620(v22, HIDWORD(v22), 0, (*((uint32_t *)0x10c194)));
-    v24 = math_round(v23, HIDWORD(v23));
+    v23 = sub_127620(v22, HIDWORD(v22), 0);
+    v24 = math_round(v23);
     v25 = sub_127874(LODWORD(v19), HIDWORD(v19), 0, (*((uint32_t *)0x10c190)));
-    v26 = math_round(v25, HIDWORD(v25));
+    v26 = math_round(v25);
     v27 = v24;
     v28 = v26;
-    *(uint32_t *)(*((uint32_t *)0x10c1b0)) = sub_127BA4(v27) & 0x7FFFFFFF;
-    v10 = sub_127BA4(v28);
+    *(uint32_t *)(*((uint32_t *)0x10c1b0)) = sub_127BA4(v27, 0) & 0x7FFFFFFF;
+    v10 = sub_127BA4(v28, 0);
     v14 = (*((uint32_t *)0x10c198));
     v13 = *(uint32_t *)(*((uint32_t *)0x10c198)) & (*((uint32_t *)0x10c1a0));
     v15 = (*((uint32_t *)0x10c19c)) & (v10 << 13) | v13;
@@ -17331,7 +17058,7 @@ LABEL_3:
         v57 = v40;
         v58 = v41;
         v59 = v42;
-        v40 = (uint32_t)(*(uint32_t *)(v36 + 4));
+        HIDWORD(v40) = *(uint32_t *)(v36 + 4);
         v43 = *(uint32_t *)(v36 + 8);
         v44 = *(uint32_t *)(v36 + 12);
         v60 = *(uint32_t *)v36;
@@ -17339,7 +17066,7 @@ LABEL_3:
         v62 = v43;
         v63 = v44;
         *((uint8_t *)v33 + 4) = 0;
-        v40 = (uint32_t)((*((uint32_t *)0x10c1ac)));
+        LODWORD(v40) = (*((uint32_t *)0x10c1ac));
         *((uint8_t *)v33 + 12) = 0;
         *((uint8_t *)v33 + 20) = 0;
         *((uint8_t *)v33 + 28) = 0;
@@ -17574,10 +17301,10 @@ LABEL_19:
         if ( v16 > 0x1F )
         {
           v16 = 31;
-          v95 = ((unsigned)(v95) & 0xFFFFFF00U) | (((unsigned)(31) & 0xFFU) << 0);
+          LOBYTE(v95) = 31;
         }
         sub_10F170(v16);
-        v18 = sub_10DA6C((*((uint32_t *)0x10c728)), (unsigned char)v95, v17);
+        v18 = sub_10DA6C((*((uint32_t *)0x10c728)), (unsigned char)v95);
 LABEL_22:
         v19 = HIBYTE(v95);
         if ( HIBYTE(v95) )
@@ -17589,20 +17316,20 @@ LABEL_22:
           else
           {
             v19 = 63;
-            v95 = ((unsigned)(v95) & 0xFFFF00FFU) | (((unsigned)(63) & 0xFFU) << 8);
+            HIBYTE(v95) = 63;
             v20 = 16515072;
           }
           v21 = (*((uint32_t *)0x10c72c));
           v22 = (*((uint32_t *)0x10c730));
           *(uint32_t *)(*((uint32_t *)0x10c72c)) = *(uint32_t *)(*((uint32_t *)0x10c72c)) & 0xFF03FFFF | v20;
-          v18 = sub_10DA6C(v22, v19, v21);
+          v18 = sub_10DA6C(v22, v19);
         }
         v23 = *(unsigned char *)(*((uint32_t *)0x10c734));
-        if ( (v23 == 7 || v23 == 193) && !sub_113B4C(v18) )
+        if ( (v23 == 7 || v23 == 193) && !sub_113B4C() )
         {
           v53 = sub_113B5C(3);
           if ( v53 != 3 )
-            sub_10DA6C((*((uint32_t *)0x10ca8c)), v53, v54);
+            sub_10DA6C((*((uint32_t *)0x10ca8c)), v53);
         }
         v24 = HIBYTE(*(uint32_t *)(*((uint32_t *)0x10c720))) & 2;
         if ( v24 )
@@ -17653,14 +17380,14 @@ LABEL_22:
           {
             v79 = (*((uint32_t *)0x10cbcc));
             v80 = (*((uint32_t *)0x10cbdc));
-            sub_10DA6C((*((uint32_t *)0x10cbd0)), v55, v56);
+            sub_10DA6C((*((uint32_t *)0x10cbd0)), v55);
             v82 = 0;
             v93 = v97;
             v83 = (uint8_t *)v79;
             v84 = v80;
             do
             {
-              sub_10DA6C((*((uint32_t *)0x10cbc0)), v82, v81);
+              sub_10DA6C((*((uint32_t *)0x10cbc0)), v82);
               v85 = (char *)v93;
               v86 = v83;
               v87 = 0;
@@ -17670,7 +17397,7 @@ LABEL_22:
                 v89 = (*((uint32_t *)0x10cbc4));
                 *(uint8_t *)(*v84 + v87 + 3 * v82) = v88;
                 v90 = *v84 + v87++;
-                sub_10DA6C(v89, *(char *)(v90 + 3 * v82), v88);
+                sub_10DA6C(v89, *(char *)(v90 + 3 * v82));
                 *v86++ = 15;
               }
               while ( v87 != 3 );
@@ -17681,14 +17408,14 @@ LABEL_22:
             while ( v82 != 3 );
             v57 = (*((uint32_t *)0x10cbd4));
             v24 = 0;
-            sub_10DA6C((*((uint32_t *)0x10cbc8)), v91, v81);
+            sub_10DA6C((*((uint32_t *)0x10cbc8)), v91);
             v57[1] |= 1u;
           }
           memset(v98, 0, 20);
           if ( !rf_emit_setup_word(v98) )
           {
             v67 = (*((uint32_t *)0x10cbd8));
-            sub_10DA6C((*((uint32_t *)0x10cbb8)), v58, v59);
+            sub_10DA6C((*((uint32_t *)0x10cbb8)), v58);
             v94 = v57;
             v69 = (*((uint32_t *)0x10cbbc));
             v92 = v98;
@@ -17696,7 +17423,7 @@ LABEL_22:
             v71 = 0;
             do
             {
-              sub_10DA6C((*((uint32_t *)0x10cbc0)), v71, v68);
+              sub_10DA6C((*((uint32_t *)0x10cbc0)), v71);
               v72 = (char *)v92;
               v73 = (uint8_t *)v69;
               v74 = 0;
@@ -17706,7 +17433,7 @@ LABEL_22:
                 v76 = (*((uint32_t *)0x10cbc4));
                 *(uint8_t *)(*v70 + v24 + v74) = v75;
                 v77 = *(char *)(*v70 + v24 + v74++);
-                sub_10DA6C(v76, v77, v75);
+                sub_10DA6C(v76, v77);
                 *v73++ = 15;
               }
               while ( v74 != 6 );
@@ -17717,7 +17444,7 @@ LABEL_22:
             }
             while ( v24 != 18 );
             v57 = v94;
-            sub_10DA6C((*((uint32_t *)0x10cbc8)), v78, v68);
+            sub_10DA6C((*((uint32_t *)0x10cbc8)), v78);
             v94[1] |= 1u;
           }
           if ( sub_1145DC(&v96) )
@@ -17732,12 +17459,12 @@ LABEL_22:
             v38 = v60;
           }
         }
-        v40 = sub_10DA6C((*((uint32_t *)0x10c740)), v38, v39);
+        v40 = sub_10DA6C((*((uint32_t *)0x10c740)), v38);
         if ( *((uint8_t *)v5 + 372) )
         {
           if ( (*(uint32_t *)(*((uint32_t *)0x10c720)) & 0x2000000) != 0 )
           {
-            v40 = sub_1141CC(v40);
+            v40 = sub_1141CC();
             if ( v40 )
             {
               v50 = sub_11413C();
@@ -17765,7 +17492,7 @@ LABEL_22:
             }
           }
         }
-        v41 = patch_apply_slot_36(v40);
+        v41 = patch_apply_slot_36();
         v42 = (*((uint32_t *)0x10c744));
         if ( v41 )
           *(uint32_t *)(*((uint32_t *)0x10c744)) |= 1u;
@@ -17819,9 +17546,9 @@ LABEL_22:
     goto LABEL_22;
   }
 LABEL_12:
-  v11 = sub_10F1E0(v10);
-  inited = rf_init_blockb_e798(v11);
-  rf_init_blockc(inited);
+  v11 = sub_10F1E0();
+  inited = rf_init_blockb_e798();
+  rf_init_blockc();
   goto LABEL_15;
 }
 
@@ -17924,8 +17651,7 @@ int *sub_10CC98()
 
 // mmio_check_status_n0d24 @ 0x10cd24, size 52 bytes
 // mmio_check_status_n0d24 [mmio]: Check MMIO status register and dispatch
-int mmio_check_status_n0d24()
-{
+int mmio_check_status_n0d24() {
   int v0; // r4
   int result; // r0
   int *v2; // r2
@@ -17952,8 +17678,7 @@ int mmio_check_status_n0d24()
 
 
 // sub_10CD24 @ 0x10cd24, size 52 bytes
-int sub_10CD24()
-{
+int sub_10CD24() {
   int v0; // r4
   int result; // r0
   int *v2; // r2
@@ -17980,8 +17705,7 @@ int sub_10CD24()
 
 
 // sub_10CD6C @ 0x10cd6c, size 236 bytes
-int  sub_10CD6C(char a1)
-{
+int  sub_10CD6C(uint32_t a1) {
   int v1; // r5
   unsigned char *v2; // r11
   int v3; // r8
@@ -18044,11 +17768,11 @@ int  sub_10CD6C(char a1)
       }
       v15 = (*((uint32_t *)0x10ce64));
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)(*((uint32_t *)0x10ce60));
-      list_push_tail(v15);
+      list_push_tail(v15, 0);
       if ( !*(uint32_t *)(v1 + 588) )
         goto LABEL_13;
     }
-    sub_10DA6C((*((uint32_t *)0x10ce6c)), v6, v7);
+    sub_10DA6C((*((uint32_t *)0x10ce6c)), v6);
   }
 LABEL_13:
   result = irq_nesting_or(2048);
@@ -18059,8 +17783,7 @@ LABEL_13:
 
 // rf_init_or_isr @ 0x10ce80, size 52 bytes
 // rf_init_or_isr [rf]: RF register initialization or interrupt service routine
-int rf_init_or_isr()
-{
+int rf_init_or_isr() {
   int v0; // r4
   uint32_t *v1; // r2
   int result; // r0
@@ -18083,8 +17806,7 @@ int rf_init_or_isr()
 
 
 // sub_10CE80 @ 0x10ce80, size 52 bytes
-int sub_10CE80()
-{
+int sub_10CE80() {
   int v0; // r4
   uint32_t *v1; // r2
   int result; // r0
@@ -18107,8 +17829,7 @@ int sub_10CE80()
 
 
 // sub_10CEC0 @ 0x10cec0, size 34 bytes
-int sub_10CEC0()
-{
+int sub_10CEC0() {
   int v0; // r3
   int result; // r0
 
@@ -18124,8 +17845,7 @@ int sub_10CEC0()
 
 // rf_efuse_read_word_n_ce4 @ 0x10cef4, size 44 bytes
 // rf_efuse_read_word_n_ce4 [rf]: Loads pointer table and reads eFuse/RF configuration word at offset 0x214
-int rf_efuse_read_word_n_ce4()
-{
+int rf_efuse_read_word_n_ce4() {
   uint32_t *v0; // r4
   int result; // r0
 
@@ -18149,8 +17869,7 @@ int rf_efuse_read_word_n_ce4()
 
 
 // sub_10CEF4 @ 0x10cef4, size 44 bytes
-int sub_10CEF4()
-{
+int sub_10CEF4() {
   uint32_t *v0; // r4
   int result; // r0
 
@@ -18175,30 +17894,26 @@ int sub_10CEF4()
 
 // mmio_write0x40035100_set0x100 @ 0x10cf2c, size 10 bytes
 // mmio_write0x40035100_set0x100 [mmio]: Write 0x100 to MMIO register 0x40035100 then return
-void mmio_write0x40035100_set0x100()
-{
+void mmio_write0x40035100_set0x100() {
   *(uint32_t *)(*((uint32_t *)0x10cf38)) = 256;
 }
 
 
 // sub_10CF2C @ 0x10cf2c, size 10 bytes
-void sub_10CF2C()
-{
+void sub_10CF2C() {
   *(uint32_t *)(*((uint32_t *)0x10cf38)) = 256;
 }
 
 
 // sub_10CF3C @ 0x10cf3c, size 8 bytes
-void sub_10CF3C()
-{
+void sub_10CF3C() {
   *(uint32_t *)(*((uint32_t *)0x10cf44)) = 128;
 }
 
 
 // sub_10CF48 @ 0x10cf48, size 190 bytes
 // sub_120CF48 [util]: Lookup entry in table at 0x180ac0 offset by halfword, call handler
-int  sub_10CF48(uint16_t *a1)
-{
+int  sub_10CF48(uint32_t a1) {
   short **v2; // r7
   int v3; // r0
   short *v4; // r6
@@ -18267,8 +17982,7 @@ int  sub_10CF48(uint16_t *a1)
 
 // sub_10D02C @ 0x10d02c, size 48 bytes
 // sub_120D02C [mmio]: Reads MMIO register 0x40035104 and processes bit flags
-int sub_10D02C()
-{
+int sub_10D02C() {
   uint32_t *v0; // r4
   int *v1; // r7
   uint32_t *v2; // r6
@@ -18296,8 +18010,7 @@ int sub_10D02C()
 
 // sub_10D06C @ 0x10d06c, size 932 bytes
 // sub_120D06C [unknown]: Dispatches handler based on byte tag compare against 3
-int  sub_10D06C(unsigned short *a1)
-{
+int  sub_10D06C(uint32_t a1) {
   unsigned char **v1; // r7
   unsigned char *v2; // r2
   int v3; // r3
@@ -18437,7 +18150,7 @@ LABEL_5:
   if ( !v6 )
   {
 LABEL_59:
-    sub_10DA6C((*((uint32_t *)0x10d410)), a1[2], a1[4]);
+    sub_10DA6C((*((uint32_t *)0x10d410)), a1[2]);
     return sub_11DEE8(a1);
   }
   if ( !*((uint32_t *)(*((uint32_t *)0x10d34c)) + 2057) )
@@ -18461,9 +18174,9 @@ LABEL_59:
           __enable_irq();
       }
     }
-    v51 = sub_11E82C((*((uint32_t *)0x10d41c)), v47);
-    v50 = sub_11E82C((*((uint32_t *)0x10d420)), v49);
-    sub_10DA6C((*((uint32_t *)0x10d424)), v51, v50);
+    v51 = sub_11E82C((*((uint32_t *)0x10d41c)));
+    v50 = sub_11E82C((*((uint32_t *)0x10d420)));
+    sub_10DA6C((*((uint32_t *)0x10d424)), v51);
     return sub_11DEE8(a1);
   }
   if ( (__get_CPSR() & 1) == 0 )
@@ -18525,7 +18238,7 @@ LABEL_16:
       if ( v16 > 0x186 )
       {
         v18 = 0;
-        v16 = ((unsigned)(v16) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+        LOWORD(v16) = 0;
         v17 = 1;
       }
       else
@@ -18556,8 +18269,8 @@ LABEL_16:
       v24 = (int *)(*((uint32_t *)0x10d358));
       v25 = (*((uint32_t *)0x10d35c));
       ++*(uint32_t *)(*((uint32_t *)0x10d358));
-      v26 = list_push_tail(v25);
-      rf_bus_mark_ne0(v26);
+      v26 = list_push_tail(v25, 0);
+      rf_bus_mark_ne0(v26, 0);
       if ( *v24 )
       {
         v27 = *v24 - 1;
@@ -18583,7 +18296,7 @@ LABEL_16:
   v10 = (*((uint32_t *)0x10d340));
   while ( !*(uint32_t *)(*((uint32_t *)0x10d340)) )
     ;
-  list_push_tail(*(uint32_t *)(*((uint32_t *)0x10d344)) + 524);
+  list_push_tail(*(uint32_t *)(*((uint32_t *)0x10d344)) + 524, 0);
   v11 = (*((uint32_t *)0x10d348));
   *v10 = 1;
   *v11 = 2;
@@ -18597,7 +18310,7 @@ LABEL_27:
   v29 = (int *)sub_1101AC();
   if ( !v29 )
   {
-    sub_10DA6C((*((uint32_t *)0x10d428)), v30, v31);
+    sub_10DA6C((*((uint32_t *)0x10d428)), v30);
     return sub_11DEE8(a1);
   }
   *(uint16_t *)v6 = a1[5] + 12;
@@ -18607,7 +18320,7 @@ LABEL_27:
   v29[1] = 0;
   *v29 = v6;
   v29[2] = (unsigned short)(v32 + 16) | 0x80000000;
-  rf_field_align_n_2a4();
+  rf_field_align_n_2a4(0);
   return sub_11DEE8(a1);
 }
 
@@ -18620,8 +18333,7 @@ int *sub_10D43C()
 
 
 // sub_10D44C @ 0x10d44c, size 36 bytes
-int sub_10D44C()
-{
+int sub_10D44C() {
   int v0; // r3
   int result; // r0
 
@@ -18638,8 +18350,7 @@ int sub_10D44C()
 
 
 // sub_10D474 @ 0x10d474, size 68 bytes
-int sub_10D474()
-{
+int sub_10D474() {
   unsigned int *v0; // r2
   unsigned int v1; // r3
   int result; // r0
@@ -18667,8 +18378,7 @@ int sub_10D474()
 
 // timer_init @ 0x10d474, size 68 bytes
 // timer_init [util]: Initialize hardware timer subsystem
-int timer_init()
-{
+int timer_init() {
   unsigned int *v0; // r2
   unsigned int v1; // r3
   int result; // r0
@@ -18696,8 +18406,7 @@ int timer_init()
 
 // irq23_enable @ 0x10d4c8, size 20 bytes
 // irq23_enable [mmio]: Enable IRQ line 23 in interrupt controller
-void irq23_enable()
-{
+void irq23_enable() {
   uint32_t *v0; // r3
 
   v0 = (*((uint32_t *)0x10d4e0));
@@ -18707,8 +18416,7 @@ void irq23_enable()
 
 
 // sub_10D4C8 @ 0x10d4c8, size 20 bytes
-void sub_10D4C8()
-{
+void sub_10D4C8() {
   uint32_t *v0; // r3
 
   v0 = (*((uint32_t *)0x10d4e0));
@@ -18719,8 +18427,7 @@ void sub_10D4C8()
 
 // log_hw_init_d4e8 @ 0x10d4e8, size 236 bytes
 // log_hw_init_d4e8 [util]: Initialize hardware logging subsystem
-void log_hw_init_d4e8()
-{
+void log_hw_init_d4e8() {
   int v0; // r3
   uint32_t *v1; // r5
   uint32_t *v2; // r0
@@ -18822,8 +18529,7 @@ LABEL_7:
 
 
 // sub_10D4E8 @ 0x10d4e8, size 236 bytes
-void sub_10D4E8()
-{
+void sub_10D4E8() {
   int v0; // r3
   uint32_t *v1; // r5
   uint32_t *v2; // r0
@@ -18925,8 +18631,7 @@ LABEL_7:
 
 
 // sub_10D614 @ 0x10d614, size 12 bytes
-void sub_10D614()
-{
+void sub_10D614() {
   if ( !*(uint32_t *)(*((uint32_t *)0x10d620)) )
     log_hw_init_d4e8();
 }
@@ -18934,8 +18639,7 @@ void sub_10D614()
 
 // nvic_irq_enable @ 0x10d624, size 20 bytes
 // nvic_irq_enable [util]: Enable NVIC interrupt 15 via ISER/ICER at 0xE000E100
-void nvic_irq_enable()
-{
+void nvic_irq_enable() {
   *((uint32_t *)(*((uint32_t *)0x10d638)) + 32) = 0x8000;
   __dsb(0xFu);
   __isb(0xFu);
@@ -18943,8 +18647,7 @@ void nvic_irq_enable()
 
 
 // sub_10D624 @ 0x10d624, size 20 bytes
-void sub_10D624()
-{
+void sub_10D624() {
   *((uint32_t *)(*((uint32_t *)0x10d638)) + 32) = 0x8000;
   __dsb(0xFu);
   __isb(0xFu);
@@ -18952,8 +18655,7 @@ void sub_10D624()
 
 
 // sub_10D63C @ 0x10d63c, size 14 bytes
-int  sub_10D63C(int result)
-{
+int  sub_10D63C(uint32_t a1) {
   while ( (*(uint32_t *)(*((uint32_t *)0x10d64c)) & 0x80000) != 0 )
     ;
   *(uint32_t *)(*((uint32_t *)0x10d650)) = result;
@@ -18963,8 +18665,7 @@ int  sub_10D63C(int result)
 
 // uart_putc @ 0x10d63c, size 14 bytes
 // uart_putc [mmio]: Writes a single character to UART data register at 0x40032000
-int  uart_putc(int result)
-{
+int  uart_putc(uint32_t a1) {
   while ( (*(uint32_t *)(*((uint32_t *)0x10d64c)) & 0x80000) != 0 )
     ;
   *(uint32_t *)(*((uint32_t *)0x10d650)) = result;
@@ -18973,8 +18674,7 @@ int  uart_putc(int result)
 
 
 // sub_10D654 @ 0x10d654, size 34 bytes
-uint8_t * sub_10D654(uint8_t *result)
-{
+uint8_t * sub_10D654(uint32_t a1) {
   int v1; // r1
   uint32_t *v2; // r2
   uint32_t *v3; // r4
@@ -19001,8 +18701,7 @@ uint8_t * sub_10D654(uint8_t *result)
 
 // uart_puts @ 0x10d654, size 34 bytes
 // uart_puts [util]: Output null-terminated string to UART byte-by-byte
-uint8_t * uart_puts(uint8_t *result)
-{
+uint8_t * uart_puts(uint32_t a1) {
   int v1; // r1
   uint32_t *v2; // r2
   uint32_t *v3; // r4
@@ -19028,8 +18727,7 @@ uint8_t * uart_puts(uint8_t *result)
 
 
 // sub_10D680 @ 0x10d680, size 16 bytes
-int sub_10D680()
-{
+int sub_10D680() {
   while ( (*(uint32_t *)(*((uint32_t *)0x10d690)) & 1) == 0 )
     ;
   return (unsigned char)*(uint32_t *)(*((uint32_t *)0x10d694));
@@ -19038,23 +18736,20 @@ int sub_10D680()
 
 // mmio_reg_bit0_read @ 0x10d698, size 10 bytes
 // mmio_reg_bit0_read [mmio]: Reads bit 0 of MMIO register at 0x40032014
-int mmio_reg_bit0_read()
-{
+int mmio_reg_bit0_read() {
   return *(uint32_t *)(*((uint32_t *)0x10d6a4)) & 1;
 }
 
 
 // sub_10D698 @ 0x10d698, size 10 bytes
-int sub_10D698()
-{
+int sub_10D698() {
   return *(uint32_t *)(*((uint32_t *)0x10d6a4)) & 1;
 }
 
 
 // message_dispatch_n286 @ 0x10d6a8, size 940 bytes
 // message_dispatch_n286 [ipc]: Dispatch message by ID/index comparison
-int  message_dispatch_n286(int a1, int a2)
-{
+int  message_dispatch_n286(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r0
   int v4; // r1
@@ -19184,7 +18879,7 @@ LABEL_4:
     if ( **(uint8_t **)(*((uint32_t *)0x10d988)) != 3 )
     {
       if ( v6 >= 124 )
-        v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(124) & 0xFFFFU) << 0);
+        LOWORD(v6) = 124;
       rf_chan_setup_init(19, v81, (unsigned short)v6);
     }
   }
@@ -19195,13 +18890,13 @@ LABEL_4:
     v17 = (uint8_t **)(*((uint32_t *)0x10d988));
     if ( **(uint8_t **)(*((uint32_t *)0x10d988)) == 3 )
       goto LABEL_12;
-    if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c)), v4) <= 4 )
+    if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c))) <= 4 )
     {
       if ( **v15 != 2 )
         return v5;
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c)), v23) > 4 )
+        if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c))) > 4 )
         {
           v60 = (*((uint32_t *)0x10d9b8));
           v61 = (*((uint32_t *)0x10d978));
@@ -19371,7 +19066,7 @@ LABEL_30:
         return v5;
       }
       sub_1282E8(v43 + 4, v81, v6);
-      v35 = ((unsigned)(v35) & 0xFFFF0000U) | (((unsigned)(v6) & 0xFFFFU) << 0);
+      LOWORD(v35) = v6;
     }
     *(uint16_t *)v43 = v5 + 1;
     *(uint8_t *)(v43 + 2) = 19;
@@ -19382,7 +19077,7 @@ LABEL_30:
     v46 = *((unsigned short *)v45 + 4122);
     if ( v46 > 0x186 )
     {
-      v46 = ((unsigned)(v46) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v46) = 0;
       v47 = 1;
     }
     else
@@ -19396,7 +19091,7 @@ LABEL_30:
     *(uint32_t *)(v49 + 4) = v43;
     *(uint16_t *)v49 = v35 + 5;
     *(uint8_t *)(v49 + 3) = *(uint8_t *)(v49 + 3) & 0x31 | 4;
-    v48 = ((unsigned)(v48) & 0xFFFFFF00U) | (((unsigned)(v45[3074] + 1) & 0xFFU) << 0);
+    LOBYTE(v48) = v45[3074] + 1;
     *((uint16_t *)v45 + 4122) = v47;
     v45[3074] = (uint8_t)v48;
     *(uint32_t *)(v2 + 4) = v49;
@@ -19411,8 +19106,8 @@ LABEL_30:
     v50 = (int *)(*((uint32_t *)0x10d9ac));
     v51 = (*((uint32_t *)0x10d9b0));
     ++*(uint32_t *)(*((uint32_t *)0x10d9ac));
-    v52 = list_push_tail(v51);
-    rf_bus_mark_ne0(v52);
+    v52 = list_push_tail(v51, 0);
+    rf_bus_mark_ne0(v52, 0);
     if ( *v50 )
     {
       v53 = *v50 - 1;
@@ -19430,8 +19125,7 @@ LABEL_30:
 
 
 // sub_10D6A8 @ 0x10d6a8, size 940 bytes
-int  sub_10D6A8(int a1, int a2)
-{
+int  sub_10D6A8(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r0
   int v4; // r1
@@ -19561,7 +19255,7 @@ LABEL_4:
     if ( **(uint8_t **)(*((uint32_t *)0x10d988)) != 3 )
     {
       if ( v6 >= 124 )
-        v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(124) & 0xFFFFU) << 0);
+        LOWORD(v6) = 124;
       sub_110BF8(19, v81, (unsigned short)v6);
     }
   }
@@ -19572,13 +19266,13 @@ LABEL_4:
     v17 = (uint8_t **)(*((uint32_t *)0x10d988));
     if ( **(uint8_t **)(*((uint32_t *)0x10d988)) == 3 )
       goto LABEL_12;
-    if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c)), v4) <= 4 )
+    if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c))) <= 4 )
     {
       if ( **v15 != 2 )
         return v5;
       if ( **v17 != 3 )
       {
-        if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c)), v23) > 4 )
+        if ( (unsigned int)sub_11E82C((*((uint32_t *)0x10d98c))) > 4 )
         {
           v60 = (*((uint32_t *)0x10d9b8));
           v61 = (*((uint32_t *)0x10d978));
@@ -19748,7 +19442,7 @@ LABEL_30:
         return v5;
       }
       sub_1282E8(v43 + 4, v81, v6);
-      v35 = ((unsigned)(v35) & 0xFFFF0000U) | (((unsigned)(v6) & 0xFFFFU) << 0);
+      LOWORD(v35) = v6;
     }
     *(uint16_t *)v43 = v5 + 1;
     *(uint8_t *)(v43 + 2) = 19;
@@ -19759,7 +19453,7 @@ LABEL_30:
     v46 = *((unsigned short *)v45 + 4122);
     if ( v46 > 0x186 )
     {
-      v46 = ((unsigned)(v46) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v46) = 0;
       v47 = 1;
     }
     else
@@ -19773,7 +19467,7 @@ LABEL_30:
     *(uint32_t *)(v49 + 4) = v43;
     *(uint16_t *)v49 = v35 + 5;
     *(uint8_t *)(v49 + 3) = *(uint8_t *)(v49 + 3) & 0x31 | 4;
-    v48 = ((unsigned)(v48) & 0xFFFFFF00U) | (((unsigned)(v45[3074] + 1) & 0xFFU) << 0);
+    LOBYTE(v48) = v45[3074] + 1;
     *((uint16_t *)v45 + 4122) = v47;
     v45[3074] = (uint8_t)v48;
     *(uint32_t *)(v2 + 4) = v49;
@@ -19788,8 +19482,8 @@ LABEL_30:
     v50 = (int *)(*((uint32_t *)0x10d9ac));
     v51 = (*((uint32_t *)0x10d9b0));
     ++*(uint32_t *)(*((uint32_t *)0x10d9ac));
-    v52 = sub_11E724(v51);
-    sub_112D84(v52);
+    v52 = sub_11E724(v51, 0);
+    sub_112D84(v52, 0);
     if ( *v50 )
     {
       v53 = *v50 - 1;
@@ -19807,8 +19501,7 @@ LABEL_30:
 
 
 // sub_10DA6C @ 0x10da6c, size 28 bytes
-int sub_10DA6C(int a1, ...)
-{
+int sub_10DA6C(uint32_t a1, uint32_t a2) {
   va_list varg_r1; // [sp+14h] [bp+8h] BYREF
 
   va_start(varg_r1, a1);
@@ -19818,8 +19511,7 @@ int sub_10DA6C(int a1, ...)
 
 // bitmask_pow2_set @ 0x10da88, size 74 bytes
 // bitmask_pow2_set [util]: Computes power-of-two bitmask for given bit index
-int  bitmask_pow2_set(int result)
-{
+int  bitmask_pow2_set(uint32_t a1) {
   int v1; // r2
 
   v1 = 1 << result;
@@ -19839,8 +19531,7 @@ int  bitmask_pow2_set(int result)
 
 
 // sub_10DA88 @ 0x10da88, size 74 bytes
-int  sub_10DA88(int result)
-{
+int  sub_10DA88(uint32_t a1) {
   int v1; // r2
 
   v1 = 1 << result;
@@ -19861,8 +19552,7 @@ int  sub_10DA88(int result)
 
 // mmio_clear_bit @ 0x10dad8, size 18 bytes
 // mmio_clear_bit [mmio]: Clear a single bit in MMIO register at 0x4010b008
-int  mmio_clear_bit(char a1)
-{
+int  mmio_clear_bit(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -19872,8 +19562,7 @@ int  mmio_clear_bit(char a1)
 
 
 // sub_10DAD8 @ 0x10dad8, size 18 bytes
-int  sub_10DAD8(char a1)
-{
+int  sub_10DAD8(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -19884,8 +19573,7 @@ int  sub_10DAD8(char a1)
 
 // rf_reg_bit_set @ 0x10daf0, size 16 bytes
 // rf_reg_bit_set [mmio]: Sets a bit in RF MMIO register at 0x4010b000
-int  rf_reg_bit_set(char a1)
-{
+int  rf_reg_bit_set(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *((uint32_t *)(*((uint32_t *)0x10db00)) + 2);
@@ -19895,8 +19583,7 @@ int  rf_reg_bit_set(char a1)
 
 
 // sub_10DAF0 @ 0x10daf0, size 16 bytes
-int  sub_10DAF0(char a1)
-{
+int  sub_10DAF0(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *((uint32_t *)(*((uint32_t *)0x10db00)) + 2);
@@ -19907,8 +19594,7 @@ int  sub_10DAF0(char a1)
 
 // sub_10DB04 @ 0x10db04, size 16 bytes
 // sub_120DB04 [rf]: Unknown LMAC RF helper function
-int  sub_10DB04(char a1)
-{
+int  sub_10DB04(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *(uint32_t *)(*((uint32_t *)0x10db14));
@@ -19918,8 +19604,7 @@ int  sub_10DB04(char a1)
 
 
 // sub_10DB18 @ 0x10db18, size 18 bytes
-int  sub_10DB18(char a1)
-{
+int  sub_10DB18(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -19930,23 +19615,20 @@ int  sub_10DB18(char a1)
 
 // rf_check_bit @ 0x10db30, size 20 bytes
 // rf_check_bit [rf]: Tests a single bit in MMIO register and returns 1/0
-int  rf_check_bit(char a1)
-{
+int  rf_check_bit(uint32_t a1) {
   return ((1 << a1) & *(uint32_t *)(*((uint32_t *)0x10db44))) != 0;
 }
 
 
 // sub_10DB30 @ 0x10db30, size 20 bytes
-int  sub_10DB30(char a1)
-{
+int  sub_10DB30(uint32_t a1) {
   return ((1 << a1) & *(uint32_t *)(*((uint32_t *)0x10db44))) != 0;
 }
 
 
 // irq_prio_set_db48 @ 0x10db48, size 42 bytes
 // irq_prio_set_db48 [util]: Set interrupt priority (validate irq < 8)
-int  irq_prio_set_db48(int result)
-{
+int  irq_prio_set_db48(uint32_t a1) {
   uint32_t *v1; // r1
 
   if ( result <= 7 )
@@ -19961,8 +19643,7 @@ int  irq_prio_set_db48(int result)
 
 
 // sub_10DB48 @ 0x10db48, size 42 bytes
-int  sub_10DB48(int result)
-{
+int  sub_10DB48(uint32_t a1) {
   uint32_t *v1; // r1
 
   if ( result <= 7 )
@@ -19977,8 +19658,7 @@ int  sub_10DB48(int result)
 
 
 // sub_10DB78 @ 0x10db78, size 18 bytes
-int  sub_10DB78(char a1)
-{
+int  sub_10DB78(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -19989,8 +19669,7 @@ int  sub_10DB78(char a1)
 
 // irq_prio_set2 @ 0x10db90, size 16 bytes
 // irq_prio_set2 [util]: Set IRQ priority bit in NVIC at 0x40505000+8
-int  irq_prio_set2(char a1)
-{
+int  irq_prio_set2(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *((uint32_t *)(*((uint32_t *)0x10dba0)) + 2);
@@ -20000,8 +19679,7 @@ int  irq_prio_set2(char a1)
 
 
 // sub_10DB90 @ 0x10db90, size 16 bytes
-int  sub_10DB90(char a1)
-{
+int  sub_10DB90(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *((uint32_t *)(*((uint32_t *)0x10dba0)) + 2);
@@ -20012,8 +19690,7 @@ int  sub_10DB90(char a1)
 
 // irq_enable @ 0x10dba4, size 16 bytes
 // irq_enable [util]: Enables an interrupt by setting the corresponding bit in the IRQ enable register
-int  irq_enable(char a1)
-{
+int  irq_enable(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *(uint32_t *)(*((uint32_t *)0x10dbb4));
@@ -20023,8 +19700,7 @@ int  irq_enable(char a1)
 
 
 // sub_10DBA4 @ 0x10dba4, size 16 bytes
-int  sub_10DBA4(char a1)
-{
+int  sub_10DBA4(uint32_t a1) {
   int result; // r0
 
   result = (1 << a1) | *(uint32_t *)(*((uint32_t *)0x10dbb4));
@@ -20035,8 +19711,7 @@ int  sub_10DBA4(char a1)
 
 // irq_disable @ 0x10dbb8, size 18 bytes
 // irq_disable [util]: Clear interrupt bit in NVIC/IRQ mask register
-int  irq_disable(char a1)
-{
+int  irq_disable(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -20046,8 +19721,7 @@ int  irq_disable(char a1)
 
 
 // sub_10DBB8 @ 0x10dbb8, size 18 bytes
-int  sub_10DBB8(char a1)
-{
+int  sub_10DBB8(uint32_t a1) {
   int result; // r0
 
   result = 1 << a1;
@@ -20058,23 +19732,20 @@ int  sub_10DBB8(char a1)
 
 // irq_mask_test @ 0x10dbd0, size 20 bytes
 // irq_mask_test [util]: Test/validate IRQ mask register handling
-int  irq_mask_test(char a1)
-{
+int  irq_mask_test(uint32_t a1) {
   return ((1 << a1) & *(uint32_t *)(*((uint32_t *)0x10dbe4))) != 0;
 }
 
 
 // sub_10DBD0 @ 0x10dbd0, size 20 bytes
-int  sub_10DBD0(char a1)
-{
+int  sub_10DBD0(uint32_t a1) {
   return ((1 << a1) & *(uint32_t *)(*((uint32_t *)0x10dbe4))) != 0;
 }
 
 
 // rf_agc_check_nbf4 @ 0x10dbf4, size 64 bytes
 // rf_agc_check_nbf4 [rf]: Checks AGC byte masked with 0xc0 equals 0xc0 at 0x180560
-int  rf_agc_check_nbf4(int a1)
-{
+int  rf_agc_check_nbf4(uint32_t a1) {
   int v1; // r3
   int v2; // r0
   int v3; // r1
@@ -20095,8 +19766,7 @@ int  rf_agc_check_nbf4(int a1)
 
 
 // sub_10DBF4 @ 0x10dbf4, size 64 bytes
-int  sub_10DBF4(int a1)
-{
+int  sub_10DBF4(uint32_t a1) {
   int v1; // r3
   int v2; // r0
   int v3; // r1
@@ -20118,12 +19788,11 @@ int  sub_10DBF4(int a1)
 
 // rf_subsystem_init @ 0x10dc40, size 48 bytes
 // rf_subsystem_init [rf]: Initialize lmac RF subsystem helper
-int rf_subsystem_init()
-{
+int rf_subsystem_init() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb((*((uint32_t *)0x10dc70)), 2048, 15360);
+  result = rf_reg_write_cb();
   v1 = (*((uint32_t *)0x10dc74));
   *((uint32_t *)(*((uint32_t *)0x10dc74)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20133,12 +19802,11 @@ int rf_subsystem_init()
 
 
 // sub_10DC40 @ 0x10dc40, size 48 bytes
-int sub_10DC40()
-{
+int sub_10DC40() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = sub_10EFB4((*((uint32_t *)0x10dc70)), 2048, 15360);
+  result = sub_10EFB4();
   v1 = (*((uint32_t *)0x10dc74));
   *((uint32_t *)(*((uint32_t *)0x10dc74)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20148,12 +19816,11 @@ int sub_10DC40()
 
 
 // sub_10DC78 @ 0x10dc78, size 48 bytes
-int sub_10DC78()
-{
+int sub_10DC78() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb((*((uint32_t *)0x10dca8)), 1024, 15360);
+  result = rf_reg_write_cb();
   v1 = (*((uint32_t *)0x10dcac));
   *((uint32_t *)(*((uint32_t *)0x10dcac)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20164,12 +19831,11 @@ int sub_10DC78()
 
 // mmio_config_init @ 0x10dcb0, size 48 bytes
 // mmio_config_init [mmio]: Initialize MMIO region with 0x3c00/0x2000 and OR-mask 0xf
-int mmio_config_init()
-{
+int mmio_config_init() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb((*((uint32_t *)0x10dce0)), 0x2000, 15360);
+  result = rf_reg_write_cb();
   v1 = (*((uint32_t *)0x10dce4));
   *((uint32_t *)(*((uint32_t *)0x10dce4)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20179,12 +19845,11 @@ int mmio_config_init()
 
 
 // sub_10DCB0 @ 0x10dcb0, size 48 bytes
-int sub_10DCB0()
-{
+int sub_10DCB0() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = sub_10EFB4((*((uint32_t *)0x10dce0)), 0x2000, 15360);
+  result = sub_10EFB4();
   v1 = (*((uint32_t *)0x10dce4));
   *((uint32_t *)(*((uint32_t *)0x10dce4)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20195,12 +19860,11 @@ int sub_10DCB0()
 
 // rf_pll_ldo_init @ 0x10dce8, size 48 bytes
 // rf_pll_ldo_init [rf]: Initialize PLL/LDO with 0x3c00/0x1000 timing and trim 0xf
-int rf_pll_ldo_init()
-{
+int rf_pll_ldo_init() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = rf_reg_write_cb((*((uint32_t *)0x10dd18)), 4096, 15360);
+  result = rf_reg_write_cb();
   v1 = (*((uint32_t *)0x10dd1c));
   *((uint32_t *)(*((uint32_t *)0x10dd1c)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20210,12 +19874,11 @@ int rf_pll_ldo_init()
 
 
 // sub_10DCE8 @ 0x10dce8, size 48 bytes
-int sub_10DCE8()
-{
+int sub_10DCE8() {
   int result; // r0
   uint32_t *v1; // r3
 
-  result = sub_10EFB4((*((uint32_t *)0x10dd18)), 4096, 15360);
+  result = sub_10EFB4();
   v1 = (*((uint32_t *)0x10dd1c));
   *((uint32_t *)(*((uint32_t *)0x10dd1c)) + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
@@ -20225,8 +19888,7 @@ int sub_10DCE8()
 
 
 // sub_10DD20 @ 0x10dd20, size 128 bytes
-int sub_10DD20()
-{
+int sub_10DD20() {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
   int v2; // r1
@@ -20250,16 +19912,15 @@ int sub_10DD20()
     ;
   v1[7] = 1;
   v4 = sub_12752C(v1[4]);
-  v5 = sub_127620(v4, HIDWORD(v4), (*((uint32_t *)0x10dda0)), (*((uint32_t *)0x10dda4)));
+  v5 = sub_127620(v4, HIDWORD(v4), (*((uint32_t *)0x10dda0)));
   v6 = sub_127874(v5, HIDWORD(v5), (*((uint32_t *)0x10dda8)), (*((uint32_t *)0x10ddac)));
   v7 = sub_1272B0(v6, HIDWORD(v6), (*((uint32_t *)0x10ddb0)), (*((uint32_t *)0x10ddb4)));
-  return sub_127BE4(v7);
+  return sub_127BE4(v7, 0);
 }
 
 
 // sub_10DDC8 @ 0x10ddc8, size 162 bytes
-int  sub_10DDC8(int result, int a2)
-{
+int  sub_10DDC8(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r4
   uint32_t *v3; // r3
   int v4; // r2
@@ -20295,10 +19956,10 @@ int  sub_10DDC8(int result, int a2)
         ;
       v2[7] = 1;
       v10 = sub_12752C(v2[4]);
-      v11 = sub_127620(v10, HIDWORD(v10), v6, HIDWORD(v6));
+      v11 = sub_127620(v10, HIDWORD(v10), v6);
       v12 = sub_127874(v11, HIDWORD(v11), v7, HIDWORD(v7));
       v13 = sub_1272B0(v12, HIDWORD(v12), (*((uint32_t *)0x10de80)), (*((uint32_t *)0x10de84)));
-      result = sub_127BE4(v13);
+      result = sub_127BE4(v13, 0);
       *v8++ = result;
     }
     while ( v8 != v9 );
@@ -20308,8 +19969,7 @@ int  sub_10DDC8(int result, int a2)
 
 
 // sub_10DE98 @ 0x10de98, size 72 bytes
-int sub_10DE98()
-{
+int sub_10DE98() {
   uint32_t *v0; // r3
   uint32_t *v1; // r0
   int v2; // r1
@@ -20332,8 +19992,7 @@ int sub_10DE98()
 
 
 // sub_10DEF0 @ 0x10def0, size 72 bytes
-int sub_10DEF0()
-{
+int sub_10DEF0() {
   uint32_t *v0; // r3
   long long v1; // r0
   long long v2; // r0
@@ -20345,17 +20004,16 @@ int sub_10DEF0()
   v0 = (*((uint32_t *)0x10df50));
   *((uint32_t *)(*((uint32_t *)0x10df50)) + 7) = 1;
   v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10df38)), (*((uint32_t *)0x10df3c)));
+  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10df38)));
   v3 = sub_127874(v2, HIDWORD(v2), (*((uint32_t *)0x10df40)), (*((uint32_t *)0x10df44)));
   v4 = sub_1272B0(v3, HIDWORD(v3), (*((uint32_t *)0x10df48)), (*((uint32_t *)0x10df4c)));
-  return sub_127BE4(v4);
+  return sub_127BE4(v4, 0);
 }
 
 
 // rf_lmac_misc_n_df54 @ 0x10df54, size 146 bytes
 // rf_lmac_misc_n_df54 [rf]: LMAC RF misc handler
-float rf_lmac_misc_n_df54()
-{
+float rf_lmac_misc_n_df54() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20379,14 +20037,13 @@ float rf_lmac_misc_n_df54()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  rf_reg_write_cb((*((uint32_t *)0x10dffc)), 0, 15360);
+  rf_reg_write_cb();
   return (float)((float)((float)((float)v5 / flt_10E000) - 1.0) * flt_10E004) * 5.5;
 }
 
 
 // sub_10DF54 @ 0x10df54, size 146 bytes
-float sub_10DF54()
-{
+float sub_10DF54() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20410,15 +20067,14 @@ float sub_10DF54()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  sub_10EFB4((*((uint32_t *)0x10dffc)), 0, 15360);
+  sub_10EFB4();
   return (float)((float)((float)((float)v5 / flt_10E000) - 1.0) * flt_10E004) * 5.5;
 }
 
 
 // rf_hw_init_n008 @ 0x10e008, size 142 bytes
 // rf_hw_init_n008 [rf]: Initialize RF MMIO registers and hardware state
-float rf_hw_init_n008()
-{
+float rf_hw_init_n008() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20442,15 +20098,14 @@ float rf_hw_init_n008()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  rf_reg_write_cb((*((uint32_t *)0x10e0ac)), 0, 15360);
+  rf_reg_write_cb();
   return (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4)
        + (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4);
 }
 
 
 // sub_10E008 @ 0x10e008, size 142 bytes
-float sub_10E008()
-{
+float sub_10E008() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20474,7 +20129,7 @@ float sub_10E008()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  sub_10EFB4((*((uint32_t *)0x10e0ac)), 0, 15360);
+  sub_10EFB4();
   return (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4)
        + (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4);
 }
@@ -20482,8 +20137,7 @@ float sub_10E008()
 
 // mmio_init_n_0b8 @ 0x10e0b8, size 146 bytes
 // mmio_init_n_0b8 [mmio]: Initialize MMIO region control registers
-float mmio_init_n_0b8()
-{
+float mmio_init_n_0b8() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20507,14 +20161,13 @@ float mmio_init_n_0b8()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  rf_reg_write_cb((*((uint32_t *)0x10e160)), 0, 15360);
+  rf_reg_write_cb();
   return (float)((float)((float)((float)v5 / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
 }
 
 
 // sub_10E0B8 @ 0x10e0b8, size 146 bytes
-float sub_10E0B8()
-{
+float sub_10E0B8() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20538,15 +20191,14 @@ float sub_10E0B8()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  sub_10EFB4((*((uint32_t *)0x10e160)), 0, 15360);
+  sub_10EFB4();
   return (float)((float)((float)((float)v5 / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
 }
 
 
 // rf_subsystem_init_e170 @ 0x10e170, size 138 bytes
 // rf_subsystem_init_e170 [mmio]: Initialize RF subsystem MMIO at 0x4010d000/0x40100000
-float rf_subsystem_init_e170()
-{
+float rf_subsystem_init_e170() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20570,14 +20222,13 @@ float rf_subsystem_init_e170()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  rf_reg_write_cb((*((uint32_t *)0x10e210)), 0, 15360);
+  rf_reg_write_cb();
   return (float)((float)((float)v5 / flt_10E214) - 1.0) * flt_10E218;
 }
 
 
 // sub_10E170 @ 0x10e170, size 138 bytes
-float sub_10E170()
-{
+float sub_10E170() {
   uint32_t *v0; // r4
   uint32_t *v1; // r2
   int v2; // r3
@@ -20601,14 +20252,13 @@ float sub_10E170()
     ;
   v0[7] = 1;
   v5 = v0[4];
-  sub_10EFB4((*((uint32_t *)0x10e210)), 0, 15360);
+  sub_10EFB4();
   return (float)((float)((float)v5 / flt_10E214) - 1.0) * flt_10E218;
 }
 
 
 // sub_10E21C @ 0x10e21c, size 170 bytes
-float sub_10E21C()
-{
+float sub_10E21C() {
   uint32_t *v0; // r3
   uint32_t *v1; // r1
   int v2; // r2
@@ -20639,8 +20289,7 @@ float sub_10E21C()
 
 // rf_init_wake_n_e8 @ 0x10e2e8, size 252 bytes
 // rf_init_wake_n_e8 [rf]: RF subsystem init/wakeup, enables clock and writes control reg
-int rf_init_wake_n_e8()
-{
+int rf_init_wake_n_e8() {
   uint32_t *v0; // r5
   long long v1; // r0
   long long v2; // r0
@@ -20672,7 +20321,7 @@ int rf_init_wake_n_e8()
     ;
   v0[7] = 1;
   v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
+  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e3e8)));
   v3 = sub_127874(v2, HIDWORD(v2), (*((uint32_t *)0x10e3f0)), (*((uint32_t *)0x10e3f4)));
   v4 = sub_1272B0(v3, HIDWORD(v3), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
   v5 = ((int ( *)(int))sub_127BE4)(v4);
@@ -20685,27 +20334,26 @@ int rf_init_wake_n_e8()
   v7 = v6[4];
   rf_agc_check_nbf4(3);
   v8 = sub_12752C(v7);
-  v9 = sub_127620(v8, HIDWORD(v8), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
+  v9 = sub_127620(v8, HIDWORD(v8), (*((uint32_t *)0x10e3e8)));
   v10 = sub_127874(v9, HIDWORD(v9), (*((uint32_t *)0x10e3f0)), (*((uint32_t *)0x10e3f4)));
   v11 = sub_1272B0(v10, HIDWORD(v10), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
   v12 = ((int ( *)(int))sub_127BE4)(v11);
-  v13 = sub_127570(v12);
+  v13 = sub_127570(v12, 0, 0, 0);
   v14 = sub_127874(v13, HIDWORD(v13), (*((uint32_t *)0x10e3f8)), (*((uint32_t *)0x10e3fc)));
-  v15 = sub_127620(v14, HIDWORD(v14), 0, (*((uint32_t *)0x10e40c)));
-  v16 = sub_127570(v5);
+  v15 = sub_127620(v14, HIDWORD(v14), 0);
+  v16 = sub_127570(v5, 0, 0, 0);
   v17 = sub_127874(v16, HIDWORD(v16), (*((uint32_t *)0x10e3f8)), (*((uint32_t *)0x10e3fc)));
-  v18 = sub_127620(v17, HIDWORD(v17), 0, (*((uint32_t *)0x10e410)));
-  v19 = sub_1272B4(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = sub_127620(v19, HIDWORD(v19), 0, (*((uint32_t *)0x10e414)));
-  v21 = sub_127620(v20, HIDWORD(v20), (*((uint32_t *)0x10e400)), (*((uint32_t *)0x10e404)));
+  v18 = sub_127620(v17, HIDWORD(v17), 0);
+  v19 = sub_1272B4(v15, HIDWORD(v15));
+  v20 = sub_127620(v19, HIDWORD(v19), 0);
+  v21 = sub_127620(v20, HIDWORD(v20), (*((uint32_t *)0x10e400)));
   v22 = sub_127874(v21, HIDWORD(v21), 0, (*((uint32_t *)0x10e418)));
-  return (int)sub_127BE4(v22);
+  return (int)sub_127BE4(v22, 0);
 }
 
 
 // sub_10E2E8 @ 0x10e2e8, size 252 bytes
-int sub_10E2E8()
-{
+int sub_10E2E8() {
   uint32_t *v0; // r5
   long long v1; // r0
   long long v2; // r0
@@ -20737,7 +20385,7 @@ int sub_10E2E8()
     ;
   v0[7] = 1;
   v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
+  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e3e8)));
   v3 = sub_127874(v2, HIDWORD(v2), (*((uint32_t *)0x10e3f0)), (*((uint32_t *)0x10e3f4)));
   v4 = sub_1272B0(v3, HIDWORD(v3), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
   v5 = ((int ( *)(int))sub_127BE4)(v4);
@@ -20750,28 +20398,27 @@ int sub_10E2E8()
   v7 = v6[4];
   sub_10DBF4(3);
   v8 = sub_12752C(v7);
-  v9 = sub_127620(v8, HIDWORD(v8), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
+  v9 = sub_127620(v8, HIDWORD(v8), (*((uint32_t *)0x10e3e8)));
   v10 = sub_127874(v9, HIDWORD(v9), (*((uint32_t *)0x10e3f0)), (*((uint32_t *)0x10e3f4)));
   v11 = sub_1272B0(v10, HIDWORD(v10), (*((uint32_t *)0x10e3e8)), (*((uint32_t *)0x10e3ec)));
   v12 = ((int ( *)(int))sub_127BE4)(v11);
-  v13 = sub_127570(v12);
+  v13 = sub_127570(v12, 0, 0, 0);
   v14 = sub_127874(v13, HIDWORD(v13), (*((uint32_t *)0x10e3f8)), (*((uint32_t *)0x10e3fc)));
-  v15 = sub_127620(v14, HIDWORD(v14), 0, (*((uint32_t *)0x10e40c)));
-  v16 = sub_127570(v5);
+  v15 = sub_127620(v14, HIDWORD(v14), 0);
+  v16 = sub_127570(v5, 0, 0, 0);
   v17 = sub_127874(v16, HIDWORD(v16), (*((uint32_t *)0x10e3f8)), (*((uint32_t *)0x10e3fc)));
-  v18 = sub_127620(v17, HIDWORD(v17), 0, (*((uint32_t *)0x10e410)));
-  v19 = sub_1272B4(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = sub_127620(v19, HIDWORD(v19), 0, (*((uint32_t *)0x10e414)));
-  v21 = sub_127620(v20, HIDWORD(v20), (*((uint32_t *)0x10e400)), (*((uint32_t *)0x10e404)));
+  v18 = sub_127620(v17, HIDWORD(v17), 0);
+  v19 = sub_1272B4(v15, HIDWORD(v15));
+  v20 = sub_127620(v19, HIDWORD(v19), 0);
+  v21 = sub_127620(v20, HIDWORD(v20), (*((uint32_t *)0x10e400)));
   v22 = sub_127874(v21, HIDWORD(v21), 0, (*((uint32_t *)0x10e418)));
-  return (int)sub_127BE4(v22);
+  return (int)sub_127BE4(v22, 0);
 }
 
 
 // rf_mmio_reg_enable @ 0x10e420, size 130 bytes
 // rf_mmio_reg_enable [mmio]: Writes 1 to MMIO reg 0x4010d004 to enable RF block
-int rf_mmio_reg_enable()
-{
+int rf_mmio_reg_enable() {
   uint32_t *v0; // r2
   long long v1; // r0
   long long v2; // r0
@@ -20791,23 +20438,22 @@ int rf_mmio_reg_enable()
     ;
   v0[7] = 1;
   v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e4a8)), (*((uint32_t *)0x10e4ac)));
+  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e4a8)));
   v3 = sub_127874(v2, HIDWORD(v2), (*((uint32_t *)0x10e4b0)), (*((uint32_t *)0x10e4b4)));
   v4 = sub_1272B0(v3, HIDWORD(v3), (*((uint32_t *)0x10e4a8)), (*((uint32_t *)0x10e4ac)));
-  v5 = sub_127BE4(v4);
-  v6 = sub_127570(LODWORD(v5));
+  v5 = sub_127BE4(v4, 0);
+  v6 = sub_127570(LODWORD(v5), 0, 0, 0);
   v7 = sub_127874(v6, HIDWORD(v6), (*((uint32_t *)0x10e4b8)), (*((uint32_t *)0x10e4bc)));
-  v8 = sub_127620(v7, HIDWORD(v7), 0, (*((uint32_t *)0x10e4cc)));
-  v9 = sub_127620(v8, HIDWORD(v8), 0, (*((uint32_t *)0x10e4d0)));
-  v10 = sub_127620(v9, HIDWORD(v9), (*((uint32_t *)0x10e4c0)), (*((uint32_t *)0x10e4c4)));
+  v8 = sub_127620(v7, HIDWORD(v7), 0);
+  v9 = sub_127620(v8, HIDWORD(v8), 0);
+  v10 = sub_127620(v9, HIDWORD(v9), (*((uint32_t *)0x10e4c0)));
   v11 = sub_127874(v10, HIDWORD(v10), 0, (*((uint32_t *)0x10e4d4)));
-  return (int)sub_127BE4(v11);
+  return (int)sub_127BE4(v11, 0);
 }
 
 
 // sub_10E420 @ 0x10e420, size 130 bytes
-int sub_10E420()
-{
+int sub_10E420() {
   uint32_t *v0; // r2
   long long v1; // r0
   long long v2; // r0
@@ -20827,24 +20473,23 @@ int sub_10E420()
     ;
   v0[7] = 1;
   v1 = sub_12752C(v0[4]);
-  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e4a8)), (*((uint32_t *)0x10e4ac)));
+  v2 = sub_127620(v1, HIDWORD(v1), (*((uint32_t *)0x10e4a8)));
   v3 = sub_127874(v2, HIDWORD(v2), (*((uint32_t *)0x10e4b0)), (*((uint32_t *)0x10e4b4)));
   v4 = sub_1272B0(v3, HIDWORD(v3), (*((uint32_t *)0x10e4a8)), (*((uint32_t *)0x10e4ac)));
-  v5 = sub_127BE4(v4);
-  v6 = sub_127570(LODWORD(v5));
+  v5 = sub_127BE4(v4, 0);
+  v6 = sub_127570(LODWORD(v5), 0, 0, 0);
   v7 = sub_127874(v6, HIDWORD(v6), (*((uint32_t *)0x10e4b8)), (*((uint32_t *)0x10e4bc)));
-  v8 = sub_127620(v7, HIDWORD(v7), 0, (*((uint32_t *)0x10e4cc)));
-  v9 = sub_127620(v8, HIDWORD(v8), 0, (*((uint32_t *)0x10e4d0)));
-  v10 = sub_127620(v9, HIDWORD(v9), (*((uint32_t *)0x10e4c0)), (*((uint32_t *)0x10e4c4)));
+  v8 = sub_127620(v7, HIDWORD(v7), 0);
+  v9 = sub_127620(v8, HIDWORD(v8), 0);
+  v10 = sub_127620(v9, HIDWORD(v9), (*((uint32_t *)0x10e4c0)));
   v11 = sub_127874(v10, HIDWORD(v10), 0, (*((uint32_t *)0x10e4d4)));
-  return (int)sub_127BE4(v11);
+  return (int)sub_127BE4(v11, 0);
 }
 
 
 // rf_init_blockc @ 0x10e4d8, size 628 bytes
 // rf_init_blockc [rf]: Initialize RF hardware block C with register setup
-int rf_init_blockc()
-{
+int rf_init_blockc() {
   int v0; // r3
   int v1; // r0
   uint32_t *v2; // r4
@@ -20894,18 +20539,18 @@ int rf_init_blockc()
   v2 = (*((uint32_t *)0x10e774));
   *((uint32_t *)(*((uint32_t *)0x10e768)) + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  rf_reg_write_cb(v1, 1024, 15360);
+  rf_reg_write_cb();
   v2[2] = (*((uint32_t *)0x10e778)) & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
   v3 = sub_12752C(v2[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10e750)));
   v5 = sub_1272B0(v4, HIDWORD(v4), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
   v6 = sub_127B54(v5, HIDWORD(v5));
   msg_parse((*((uint32_t *)0x10e77c)), v6);
-  cb_efa4 = rf_reg_read_cb_efa4((*((uint32_t *)0x10e780)));
+  cb_efa4 = rf_reg_read_cb_efa4();
   v8 = v6 - 1400;
   v9 = abs32(v6 - 1400);
   v10 = cb_efa4 & 0x3F;
@@ -20913,7 +20558,7 @@ int rf_init_blockc()
   if ( v9 > 49 )
   {
     v11 = sub_12754C(v9);
-    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10e760)), (*((uint32_t *)0x10e764)));
+    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10e760)));
     v13 = sub_127B54(v12, HIDWORD(v12));
     v14 = v13;
     if ( v8 <= 0 )
@@ -20935,14 +20580,14 @@ int rf_init_blockc()
     }
     if ( v15 > 11 )
     {
-      rf_reg_write_cb((*((uint32_t *)0x10e780)), v15, 63);
+      rf_reg_write_cb();
       v16 = (*((uint32_t *)0x10e774));
       *((uint32_t *)(*((uint32_t *)0x10e774)) + 1) = 1;
       while ( v16[7] != 1 )
         ;
       v16[7] = 1;
       v17 = sub_12752C(v16[4]);
-      v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+      v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10e750)));
       v19 = sub_1272B0(v18, HIDWORD(v18), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
       v6 = sub_127B54(v19, HIDWORD(v19));
       msg_parse((*((uint32_t *)0x10e784)), v14);
@@ -20988,13 +20633,13 @@ LABEL_19:
       v26 = v42 + v43 * v27;
       goto LABEL_28;
     }
-    rf_reg_write_cb(v22, v26, 63);
+    rf_reg_write_cb();
     v23[1] = 1;
     while ( v23[7] != 1 )
       ;
     v23[7] = 1;
     v29 = sub_12752C(v23[4]);
-    v30 = sub_127620(v29, HIDWORD(v29), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+    v30 = sub_127620(v29, HIDWORD(v29), (*((uint32_t *)0x10e750)));
     v31 = sub_1272B0(v30, HIDWORD(v30), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
     v41 = sub_127B54(v31, HIDWORD(v31));
     msg_parse(v24, v28);
@@ -21017,24 +20662,23 @@ LABEL_19:
   }
 LABEL_28:
   msg_parse((*((uint32_t *)0x10e788)), v28);
-  rf_reg_write_cb((*((uint32_t *)0x10e780)), v26, 63);
+  rf_reg_write_cb();
   v35 = (*((uint32_t *)0x10e774));
   *((uint32_t *)(*((uint32_t *)0x10e774)) + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
   v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10e750)));
   v38 = sub_1272B0(v37, HIDWORD(v37), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
   v39 = sub_127B54(v38, HIDWORD(v38));
   msg_parse((*((uint32_t *)0x10e78c)), v39);
-  return rf_reg_write_cb((*((uint32_t *)0x10e770)), 0, 15360);
+  return rf_reg_write_cb();
 }
 
 
 // sub_10E4D8 @ 0x10e4d8, size 628 bytes
-int sub_10E4D8()
-{
+int sub_10E4D8() {
   int v0; // r3
   int v1; // r0
   uint32_t *v2; // r4
@@ -21084,18 +20728,18 @@ int sub_10E4D8()
   v2 = (*((uint32_t *)0x10e774));
   *((uint32_t *)(*((uint32_t *)0x10e768)) + 14) = 296;
   v2[3] = v0 | v2[3] & 0xE0000000;
-  sub_10EFB4(v1, 1024, 15360);
+  sub_10EFB4();
   v2[2] = (*((uint32_t *)0x10e778)) & v2[2] | 0x1200000F;
   v2[1] = 1;
   while ( v2[7] != 1 )
     ;
   v2[7] = 1;
   v3 = sub_12752C(v2[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10e750)));
   v5 = sub_1272B0(v4, HIDWORD(v4), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
   v6 = sub_127B54(v5, HIDWORD(v5));
   sub_11F504((*((uint32_t *)0x10e77c)), v6);
-  v7 = sub_10EFA4((*((uint32_t *)0x10e780)));
+  v7 = sub_10EFA4();
   v8 = v6 - 1400;
   v9 = abs32(v6 - 1400);
   v10 = v7 & 0x3F;
@@ -21103,7 +20747,7 @@ int sub_10E4D8()
   if ( v9 > 49 )
   {
     v11 = sub_12754C(v9);
-    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10e760)), (*((uint32_t *)0x10e764)));
+    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10e760)));
     v13 = sub_127B54(v12, HIDWORD(v12));
     v14 = v13;
     if ( v8 <= 0 )
@@ -21125,14 +20769,14 @@ int sub_10E4D8()
     }
     if ( v15 > 11 )
     {
-      sub_10EFB4((*((uint32_t *)0x10e780)), v15, 63);
+      sub_10EFB4();
       v16 = (*((uint32_t *)0x10e774));
       *((uint32_t *)(*((uint32_t *)0x10e774)) + 1) = 1;
       while ( v16[7] != 1 )
         ;
       v16[7] = 1;
       v17 = sub_12752C(v16[4]);
-      v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+      v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10e750)));
       v19 = sub_1272B0(v18, HIDWORD(v18), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
       v6 = sub_127B54(v19, HIDWORD(v19));
       sub_11F504((*((uint32_t *)0x10e784)), v14);
@@ -21178,13 +20822,13 @@ LABEL_19:
       v26 = v42 + v43 * v27;
       goto LABEL_28;
     }
-    sub_10EFB4(v22, v26, 63);
+    sub_10EFB4();
     v23[1] = 1;
     while ( v23[7] != 1 )
       ;
     v23[7] = 1;
     v29 = sub_12752C(v23[4]);
-    v30 = sub_127620(v29, HIDWORD(v29), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+    v30 = sub_127620(v29, HIDWORD(v29), (*((uint32_t *)0x10e750)));
     v31 = sub_1272B0(v30, HIDWORD(v30), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
     v41 = sub_127B54(v31, HIDWORD(v31));
     sub_11F504(v24, v28);
@@ -21207,25 +20851,24 @@ LABEL_19:
   }
 LABEL_28:
   sub_11F504((*((uint32_t *)0x10e788)), v28);
-  sub_10EFB4((*((uint32_t *)0x10e780)), v26, 63);
+  sub_10EFB4();
   v35 = (*((uint32_t *)0x10e774));
   *((uint32_t *)(*((uint32_t *)0x10e774)) + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
   v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10e750)), (*((uint32_t *)0x10e754)));
+  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10e750)));
   v38 = sub_1272B0(v37, HIDWORD(v37), (*((uint32_t *)0x10e758)), (*((uint32_t *)0x10e75c)));
   v39 = sub_127B54(v38, HIDWORD(v38));
   sub_11F504((*((uint32_t *)0x10e78c)), v39);
-  return sub_10EFB4((*((uint32_t *)0x10e770)), 0, 15360);
+  return sub_10EFB4();
 }
 
 
 // rf_init_blockb_e798 @ 0x10e798, size 664 bytes
 // rf_init_blockb_e798 [rf]: Initialize RF subsystem block B with control registers and vector table
-int rf_init_blockb_e798()
-{
+int rf_init_blockb_e798() {
   uint32_t *v0; // r1
   int v1; // r3
   int v2; // r2
@@ -21282,13 +20925,13 @@ int rf_init_blockb_e798()
     ;
   v0[7] = 1;
   v3 = sub_12752C(v0[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10ea30)));
   v5 = sub_127874(v4, HIDWORD(v4), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
   v6 = sub_1272B0(v5, HIDWORD(v5), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
   v7 = sub_127B54(v6, HIDWORD(v6));
-  v8 = rf_reg_read_cb_efa4((*((uint32_t *)0x10ea58))) & 0x1F;
+  v8 = rf_reg_read_cb_efa4() & 0x1F;
   v9 = v7 - 840;
-  sub_10DA6C((*((uint32_t *)0x10ea5c)), v7, v8);
+  sub_10DA6C((*((uint32_t *)0x10ea5c)), v7);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -21307,7 +20950,7 @@ int rf_init_blockb_e798()
   else
   {
     v11 = sub_12754C(v10);
-    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10ea40)), (*((uint32_t *)0x10ea44)));
+    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10ea40)));
     v13 = sub_127B54(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
@@ -21332,14 +20975,14 @@ int rf_init_blockb_e798()
       v9 = -9;
       goto LABEL_33;
     }
-    rf_reg_write_cb((*((uint32_t *)0x10ea58)), v15, 31);
+    rf_reg_write_cb();
     v16 = (*((uint32_t *)0x10ea4c));
     *((uint32_t *)(*((uint32_t *)0x10ea4c)) + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
     v17 = sub_12752C(v16[4]);
-    v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+    v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10ea30)));
     v19 = sub_127874(v18, HIDWORD(v18), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
     v20 = sub_1272B0(v19, HIDWORD(v19), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
     v7 = sub_127B54(v20, HIDWORD(v20));
@@ -21365,13 +21008,13 @@ int rf_init_blockb_e798()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    rf_reg_write_cb(v23, v25, 31);
+    rf_reg_write_cb();
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
     v28 = sub_12752C(v24[4]);
-    v29 = sub_127620(v28, HIDWORD(v28), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+    v29 = sub_127620(v28, HIDWORD(v28), (*((uint32_t *)0x10ea30)));
     v30 = sub_127874(v29, HIDWORD(v29), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
     v31 = sub_1272B0(v30, HIDWORD(v30), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
     v32 = sub_127B54(v31, HIDWORD(v31));
@@ -21398,28 +21041,27 @@ int rf_init_blockb_e798()
   }
 LABEL_33:
   sub_10DA6C((*((uint32_t *)0x10ea68)), v9);
-  rf_reg_write_cb((*((uint32_t *)0x10ea58)), v8, 31);
+  rf_reg_write_cb();
   v35 = (*((uint32_t *)0x10ea4c));
   *((uint32_t *)(*((uint32_t *)0x10ea4c)) + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
   v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10ea30)));
   v38 = sub_127874(v37, HIDWORD(v37), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
   v39 = sub_1272B0(v38, HIDWORD(v38), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
   v40 = sub_127B54(v39, HIDWORD(v39));
   sub_10DA6C((*((uint32_t *)0x10ea6c)), v40);
   result = *((uint32_t *)(*((uint32_t *)0x10ea70)) + 94);
   if ( result != 0x80000000 )
-    return sub_110C7C();
+    return sub_110C7C(0);
   return result;
 }
 
 
 // sub_10E798 @ 0x10e798, size 664 bytes
-int sub_10E798()
-{
+int sub_10E798() {
   uint32_t *v0; // r1
   int v1; // r3
   int v2; // r2
@@ -21476,13 +21118,13 @@ int sub_10E798()
     ;
   v0[7] = 1;
   v3 = sub_12752C(v0[4]);
-  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x10ea30)));
   v5 = sub_127874(v4, HIDWORD(v4), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
   v6 = sub_1272B0(v5, HIDWORD(v5), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
   v7 = sub_127B54(v6, HIDWORD(v6));
-  v8 = sub_10EFA4((*((uint32_t *)0x10ea58))) & 0x1F;
+  v8 = sub_10EFA4() & 0x1F;
   v9 = v7 - 840;
-  sub_10DA6C((*((uint32_t *)0x10ea5c)), v7, v8);
+  sub_10DA6C((*((uint32_t *)0x10ea5c)), v7);
   v10 = abs32(v7 - 840);
   if ( v10 <= 47 )
   {
@@ -21501,7 +21143,7 @@ int sub_10E798()
   else
   {
     v11 = sub_12754C(v10);
-    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10ea40)), (*((uint32_t *)0x10ea44)));
+    v12 = sub_127620(v11, HIDWORD(v11), (*((uint32_t *)0x10ea40)));
     v13 = sub_127B54(v12, HIDWORD(v12));
     v14 = v13;
     if ( v9 <= 0 )
@@ -21526,14 +21168,14 @@ int sub_10E798()
       v9 = -9;
       goto LABEL_33;
     }
-    sub_10EFB4((*((uint32_t *)0x10ea58)), v15, 31);
+    sub_10EFB4();
     v16 = (*((uint32_t *)0x10ea4c));
     *((uint32_t *)(*((uint32_t *)0x10ea4c)) + 1) = 1;
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
     v17 = sub_12752C(v16[4]);
-    v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+    v18 = sub_127620(v17, HIDWORD(v17), (*((uint32_t *)0x10ea30)));
     v19 = sub_127874(v18, HIDWORD(v18), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
     v20 = sub_1272B0(v19, HIDWORD(v19), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
     v7 = sub_127B54(v20, HIDWORD(v20));
@@ -21559,13 +21201,13 @@ int sub_10E798()
       v8 = v43 + v42 * v27;
       goto LABEL_33;
     }
-    sub_10EFB4(v23, v25, 31);
+    sub_10EFB4();
     v24[1] = 1;
     while ( v24[7] != 1 )
       ;
     v24[7] = 1;
     v28 = sub_12752C(v24[4]);
-    v29 = sub_127620(v28, HIDWORD(v28), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+    v29 = sub_127620(v28, HIDWORD(v28), (*((uint32_t *)0x10ea30)));
     v30 = sub_127874(v29, HIDWORD(v29), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
     v31 = sub_1272B0(v30, HIDWORD(v30), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
     v32 = sub_127B54(v31, HIDWORD(v31));
@@ -21592,28 +21234,27 @@ int sub_10E798()
   }
 LABEL_33:
   sub_10DA6C((*((uint32_t *)0x10ea68)), v9);
-  sub_10EFB4((*((uint32_t *)0x10ea58)), v8, 31);
+  sub_10EFB4();
   v35 = (*((uint32_t *)0x10ea4c));
   *((uint32_t *)(*((uint32_t *)0x10ea4c)) + 1) = 1;
   while ( v35[7] != 1 )
     ;
   v35[7] = 1;
   v36 = sub_12752C(v35[4]);
-  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
+  v37 = sub_127620(v36, HIDWORD(v36), (*((uint32_t *)0x10ea30)));
   v38 = sub_127874(v37, HIDWORD(v37), (*((uint32_t *)0x10ea38)), (*((uint32_t *)0x10ea3c)));
   v39 = sub_1272B0(v38, HIDWORD(v38), (*((uint32_t *)0x10ea30)), (*((uint32_t *)0x10ea34)));
   v40 = sub_127B54(v39, HIDWORD(v39));
   sub_10DA6C((*((uint32_t *)0x10ea6c)), v40);
   result = *((uint32_t *)(*((uint32_t *)0x10ea70)) + 94);
   if ( result != 0x80000000 )
-    return sub_110C7C();
+    return sub_110C7C(0);
   return result;
 }
 
 
 // sub_10EA74 @ 0x10ea74, size 416 bytes
-int  sub_10EA74(unsigned int a1, unsigned int a2, unsigned int *a3)
-{
+int  sub_10EA74(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v3; // r4
   unsigned int *v4; // r6
   unsigned int *v5; // r5
@@ -21708,8 +21349,7 @@ LABEL_9:
 
 
 // sub_10EC2C @ 0x10ec2c, size 272 bytes
-int  sub_10EC2C(int a1)
-{
+int  sub_10EC2C(uint32_t a1) {
   short *v1; // r9
   int v2; // r7
   int v3; // r5
@@ -21801,8 +21441,7 @@ int  sub_10EC2C(int a1)
 
 // sub_10ED50 @ 0x10ed50, size 260 bytes
 // sub_120ED50 [mmio]: hardware/NVIC initialization touching system control and IRQ registers
-int  sub_10ED50(unsigned int *a1)
-{
+int  sub_10ED50(uint32_t a1) {
   uint32_t *v1; // r2
   int v2; // r7
   int v3; // r3
@@ -21861,8 +21500,7 @@ int  sub_10ED50(unsigned int *a1)
 
 // rf_calib_init_loader @ 0x10ee7c, size 256 bytes
 // rf_calib_init_loader [rf]: Load calibration constants from ROM tables into RF MMIO block at 0x40100000
-int rf_calib_init_loader()
-{
+int rf_calib_init_loader() {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
   int v2; // r0
@@ -21923,8 +21561,7 @@ int rf_calib_init_loader()
 
 
 // sub_10EE7C @ 0x10ee7c, size 256 bytes
-int sub_10EE7C()
-{
+int sub_10EE7C() {
   unsigned int *v0; // r4
   uint32_t *v1; // r2
   int v2; // r0
@@ -21986,44 +21623,38 @@ int sub_10EE7C()
 
 // rf_reg_read_cb_efa4 @ 0x10efa4, size 8 bytes
 // rf_reg_read_cb_efa4 [rf]: RF register read callback dispatch table (0x1b0/0x1b4/0x1b8)
-int rf_reg_read_cb_efa4()
-{
+int rf_reg_read_cb_efa4() {
   return (*((volatile uint32_t *)0x1B0))();
 }
 
 
 // sub_10EFA4 @ 0x10efa4, size 8 bytes
-int sub_10EFA4()
-{
+int sub_10EFA4() {
   return (*((volatile uint32_t *)0x1B0))();
 }
 
 
 // sub_10EFAC @ 0x10efac, size 8 bytes
-int sub_10EFAC()
-{
+int sub_10EFAC() {
   return (*((volatile uint32_t *)0x1B4))();
 }
 
 
 // rf_reg_write_cb @ 0x10efb4, size 8 bytes
 // rf_reg_write_cb [rf]: Callback after RF register write
-int rf_reg_write_cb()
-{
+int rf_reg_write_cb() {
   return (*((volatile uint32_t *)0x1B8))();
 }
 
 
 // sub_10EFB4 @ 0x10efb4, size 8 bytes
-int sub_10EFB4()
-{
+int sub_10EFB4() {
   return (*((volatile uint32_t *)0x1B8))();
 }
 
 
 // sub_10EFBC @ 0x10efbc, size 70 bytes
-int  sub_10EFBC(int a1, int a2)
-{
+int  sub_10EFBC(uint32_t a1, uint32_t a2) {
   int *v2; // r5
   uint32_t *v3; // r4
   int result; // r0
@@ -22066,8 +21697,7 @@ int  sub_10EFBC(int a1, int a2)
 
 // rf_reg_write_wait @ 0x10f010, size 70 bytes
 // rf_reg_write_wait [rf]: Write RF register and wait for completion
-int  rf_reg_write_wait(int a1, int a2, int a3)
-{
+int  rf_reg_write_wait(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r5
   uint32_t *v4; // r4
   int result; // r0
@@ -22109,8 +21739,7 @@ int  rf_reg_write_wait(int a1, int a2, int a3)
 
 
 // sub_10F010 @ 0x10f010, size 70 bytes
-int  sub_10F010(int a1, int a2, int a3)
-{
+int  sub_10F010(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r5
   uint32_t *v4; // r4
   int result; // r0
@@ -22153,8 +21782,7 @@ int  sub_10F010(int a1, int a2, int a3)
 
 // sub_10F064 @ 0x10f064, size 70 bytes
 // rf_reg_write_core [rf]: Core routine for writing an RF register
-int  sub_10F064(int a1, int a2, int a3, int a4)
-{
+int  sub_10F064(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int *v4; // r5
   uint32_t *v5; // r4
   int result; // r0
@@ -22197,8 +21825,7 @@ int  sub_10F064(int a1, int a2, int a3, int a4)
 
 // rf_state_check_n2ae @ 0x10f0b8, size 66 bytes
 // rf_state_check_n2ae [rf]: Check RF state, store halfword and trigger 0x1119c0
-int  rf_state_check_n2ae(int a1)
-{
+int  rf_state_check_n2ae(uint32_t a1) {
   msg_parse((*((uint32_t *)0x10f0fc)), a1);
   sub_10F064((*((uint32_t *)0x10f104)), 196608, (*((uint32_t *)0x10f100)), 1);
   sub_10F064(1879048192, 1, 1, 1);
@@ -22208,8 +21835,7 @@ int  rf_state_check_n2ae(int a1)
 
 
 // sub_10F0B8 @ 0x10f0b8, size 66 bytes
-int  sub_10F0B8(int a1)
-{
+int  sub_10F0B8(uint32_t a1) {
   sub_11F504((*((uint32_t *)0x10f0fc)), a1);
   sub_10F064((*((uint32_t *)0x10f104)), 196608, (*((uint32_t *)0x10f100)), 1);
   sub_10F064(1879048192, 1, 1, 1);
@@ -22219,8 +21845,7 @@ int  sub_10F0B8(int a1)
 
 
 // sub_10F110 @ 0x10f110, size 46 bytes
-int  sub_10F110(int a1)
-{
+int  sub_10F110(uint32_t a1) {
   sub_10F064((*((uint32_t *)0x10f144)), 196608, (*((uint32_t *)0x10f140)), 1);
   rf_reg_write_wait((*((uint32_t *)0x10f148)), a1 << 15, 1);
   return sub_10F064(1879048192, 1, 1, 1);
@@ -22229,45 +21854,39 @@ int  sub_10F110(int a1)
 
 // rf_byte_extract_save @ 0x10f14c, size 12 bytes
 // rf_byte_extract_save [rf]: Extracts high byte and saves to stack
-int rf_byte_extract_save()
-{
+int rf_byte_extract_save() {
   return sub_10F064((*((uint32_t *)0x10f158)), 0, 2, 1);
 }
 
 
 // sub_10F14C @ 0x10f14c, size 12 bytes
-int sub_10F14C()
-{
+int sub_10F14C() {
   return sub_10F064((*((uint32_t *)0x10f158)), 0, 2, 1);
 }
 
 
 // mmio_bit_extract_n @ 0x10f15c, size 16 bytes
 // mmio_bit_extract_n [mmio]: Reads MMIO register 0x7000101c and extracts 5-bit field at bit 11
-int mmio_bit_extract_n()
-{
+int mmio_bit_extract_n() {
   return (unsigned short)sub_10EFBC((*((uint32_t *)0x10f16c)), 1) >> 11;
 }
 
 
 // sub_10F15C @ 0x10f15c, size 16 bytes
-int sub_10F15C()
-{
+int sub_10F15C() {
   return (unsigned short)sub_10EFBC((*((uint32_t *)0x10f16c)), 1) >> 11;
 }
 
 
 // sub_10F170 @ 0x10f170, size 18 bytes
-int  sub_10F170(int a1)
-{
+int  sub_10F170(uint32_t a1) {
   return sub_10F064((*((uint32_t *)0x10f184)), (a1 << 11) & 0xF800, 63488, 1);
 }
 
 
 // fw_state_check_n960 @ 0x10f188, size 82 bytes
 // fw_state_check_n960 [util]: Load firmware state word from 0x182b60 and test sign
-int  fw_state_check_n960(int a1)
-{
+int  fw_state_check_n960(uint32_t a1) {
   unsigned int v2; // r0
   unsigned int v3; // r1
 
@@ -22297,8 +21916,7 @@ int  fw_state_check_n960(int a1)
 
 
 // sub_10F188 @ 0x10f188, size 82 bytes
-int  sub_10F188(int a1)
-{
+int  sub_10F188(uint32_t a1) {
   unsigned int v2; // r0
   unsigned int v3; // r1
 
@@ -22328,8 +21946,7 @@ int  sub_10F188(int a1)
 
 
 // sub_10F1E0 @ 0x10f1e0, size 458 bytes
-int sub_10F1E0()
-{
+int sub_10F1E0() {
   uint8_t *v0; // r4
   int v1; // r5
   int v2; // r1
@@ -22386,8 +22003,7 @@ int sub_10F1E0()
 
 
 // sub_10F434 @ 0x10f434, size 18 bytes
-unsigned int sub_10F434()
-{
+unsigned int sub_10F434() {
   unsigned int result; // r0
 
   result = sub_1029DC(0xC2u);
@@ -22398,8 +22014,7 @@ unsigned int sub_10F434()
 
 // log_tick @ 0x10f44c, size 90 bytes
 // log_tick [util]: Periodic logging tick handler
-int log_tick()
-{
+int log_tick() {
   uint8_t *v0; // r6
   int v1; // r4
   int v2; // r0
@@ -22408,7 +22023,7 @@ int log_tick()
   v0 = (*((uint32_t *)0x10f4ac));
   v1 = *((char *)(*((uint32_t *)0x10f4ac)) + 7) - (char)(*((uint8_t *)(*((uint32_t *)0x10f4ac)) + 5) + (*(uint8_t *)(*((uint32_t *)0x10f4a8)) & 3));
   if ( v1 < -62 )
-    v1 = ((unsigned)(v1) & 0xFFFFFF00U) | (((unsigned)(-62) & 0xFFU) << 0);
+    LOBYTE(v1) = -62;
   sub_1029DC(v1);
   v2 = (*((uint32_t *)0x10f4b0));
   v0[7] = v1;
@@ -22421,8 +22036,7 @@ int log_tick()
 
 
 // sub_10F44C @ 0x10f44c, size 90 bytes
-int sub_10F44C()
-{
+int sub_10F44C() {
   uint8_t *v0; // r6
   int v1; // r4
   int v2; // r0
@@ -22431,7 +22045,7 @@ int sub_10F44C()
   v0 = (*((uint32_t *)0x10f4ac));
   v1 = *((char *)(*((uint32_t *)0x10f4ac)) + 7) - (char)(*((uint8_t *)(*((uint32_t *)0x10f4ac)) + 5) + (*(uint8_t *)(*((uint32_t *)0x10f4a8)) & 3));
   if ( v1 < -62 )
-    v1 = ((unsigned)(v1) & 0xFFFFFF00U) | (((unsigned)(-62) & 0xFFU) << 0);
+    LOBYTE(v1) = -62;
   sub_1029DC(v1);
   v2 = (*((uint32_t *)0x10f4b0));
   v0[7] = v1;
@@ -22461,8 +22075,7 @@ void __attribute__((noreturn)) sub_10F4B8()
 
 
 // sub_10F50C @ 0x10f50c, size 52 bytes
-int sub_10F50C()
-{
+int sub_10F50C() {
   uint8_t *v0; // r3
   int result; // r0
   void *v2; // r1
@@ -22491,16 +22104,14 @@ int sub_10F50C()
 
 // rf_init_enable_n3bc @ 0x10f5bc, size 12 bytes
 // rf_init_enable_n3bc [rf]: Enable/init RF block and return status (split helper)
-int  rf_init_enable_n3bc(int a1, int a2)
-{
+int  rf_init_enable_n3bc(uint32_t a1, uint32_t a2) {
   sub_10FEF8(a2);
   return 1;
 }
 
 
 // sub_10F5BC @ 0x10f5bc, size 12 bytes
-int  sub_10F5BC(int a1, int a2)
-{
+int  sub_10F5BC(uint32_t a1, uint32_t a2) {
   sub_10FEF8(a2);
   return 1;
 }
@@ -22508,8 +22119,7 @@ int  sub_10F5BC(int a1, int a2)
 
 // sub_10F5C8 @ 0x10f5c8, size 48 bytes
 // sub_120F5C8 [rf]: lmacfw RF initialization subroutine, stores bytes and calls helper
-int sub_10F5C8()
-{
+int sub_10F5C8() {
   uint8_t *v0; // r4
   char *v1; // r0
 
@@ -22525,8 +22135,7 @@ int sub_10F5C8()
 
 
 // sub_10F5FC @ 0x10f5fc, size 156 bytes
-long long sub_10F5FC()
-{
+long long sub_10F5FC() {
   uint16_t *v0; // r5
   int *v1; // r4
   int *v2; // r5
@@ -22557,7 +22166,7 @@ long long sub_10F5FC()
   do
   {
     v1 += 4;
-    list_push_tail(v3);
+    list_push_tail(v3, 0);
   }
   while ( v1 != v2 );
   v4 = (*((uint32_t *)0x10f6a0));
@@ -22577,8 +22186,7 @@ long long sub_10F5FC()
 
 // log_system_init_f6a4 @ 0x10f6a4, size 192 bytes
 // log_system_init_f6a4 [util]: Initialize firmware logging subsystem
-int log_system_init_f6a4()
-{
+int log_system_init_f6a4() {
   unsigned char **v0; // r4
   int v1; // r3
   uint32_t *v2; // r3
@@ -22632,12 +22240,12 @@ int log_system_init_f6a4()
   {
     v17 = (int ( **)(int))(*((uint32_t *)0x10f768));
     *(uint32_t *)(*((uint32_t *)0x10f784)) = (*((uint32_t *)0x10f798));
-    v18 = patch_apply_n422(v4, HIDWORD(v4));
-    inited = rf_lmac_init_n114(v18);
-    v20 = sub_11016C(inited);
-    log_free_pool_dispatch2_n4ac(v20);
+    v18 = patch_apply_n422();
+    inited = rf_lmac_init_n114();
+    v20 = sub_11016C();
+    log_free_pool_dispatch2_n4ac();
     v21 = v17[2]((*((uint32_t *)0x10f78c)));
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v17[3](v21)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = v17[3](v21);
     v5 = **v0;
   }
   if ( v5 == 2 )
@@ -22647,10 +22255,10 @@ int log_system_init_f6a4()
     v13 = (int ( **)(int))(*((uint32_t *)0x10f768));
     *(uint16_t *)(v12 + 8244) = 0;
     v14 = sub_113280();
-    sub_1130CC(v14);
+    sub_1130CC();
     v15 = v13[6]((*((uint32_t *)0x10f78c)));
     v16 = v13[7](v15);
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(rf_chan_set_mask(v16)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = rf_chan_set_mask(v16, 0);
     v5 = **v0;
   }
   if ( v5 == 3 )
@@ -22659,15 +22267,14 @@ int log_system_init_f6a4()
     *(uint32_t *)(*((uint32_t *)0x10f784)) = (*((uint32_t *)0x10f788));
     sub_113760();
     v11 = v10[8]((*((uint32_t *)0x10f78c)));
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v10[9](v11)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = v10[9](v11);
   }
   return v4;
 }
 
 
 // sub_10F6A4 @ 0x10f6a4, size 192 bytes
-int sub_10F6A4()
-{
+int sub_10F6A4() {
   unsigned char **v0; // r4
   int v1; // r3
   uint32_t *v2; // r3
@@ -22721,12 +22328,12 @@ int sub_10F6A4()
   {
     v17 = (int ( **)(int))(*((uint32_t *)0x10f768));
     *(uint32_t *)(*((uint32_t *)0x10f784)) = (*((uint32_t *)0x10f798));
-    v18 = sub_1100D4(v4, HIDWORD(v4));
-    v19 = sub_110114(v18);
-    v20 = sub_11016C(v19);
-    sub_11007C(v20);
+    v18 = sub_1100D4();
+    v19 = sub_110114();
+    v20 = sub_11016C();
+    sub_11007C();
     v21 = v17[2]((*((uint32_t *)0x10f78c)));
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v17[3](v21)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = v17[3](v21);
     v5 = **v0;
   }
   if ( v5 == 2 )
@@ -22736,10 +22343,10 @@ int sub_10F6A4()
     v13 = (int ( **)(int))(*((uint32_t *)0x10f768));
     *(uint16_t *)(v12 + 8244) = 0;
     v14 = sub_113280();
-    sub_1130CC(v14);
+    sub_1130CC();
     v15 = v13[6]((*((uint32_t *)0x10f78c)));
     v16 = v13[7](v15);
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(sub_113694(v16)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = sub_113694(v16, 0);
     v5 = **v0;
   }
   if ( v5 == 3 )
@@ -22748,7 +22355,7 @@ int sub_10F6A4()
     *(uint32_t *)(*((uint32_t *)0x10f784)) = (*((uint32_t *)0x10f788));
     sub_113760();
     v11 = v10[8]((*((uint32_t *)0x10f78c)));
-    v4 = (v4 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v10[9](v11)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v4) = v10[9](v11);
   }
   return v4;
 }
@@ -22756,8 +22363,7 @@ int sub_10F6A4()
 
 // sub_10F7FC @ 0x10f7fc, size 24 bytes
 // sub_120F7FC [unknown]: Unknown helper in lmacfw RF image
-int sub_10F7FC()
-{
+int sub_10F7FC() {
   int v0; // r0
 
   v0 = rf_setup_dispatch(1037, 1, 4, 8);
@@ -22766,8 +22372,7 @@ int sub_10F7FC()
 
 
 // sub_10F814 @ 0x10f814, size 492 bytes
-unsigned int  sub_10F814(int *a1, int a2, unsigned int a3)
-{
+unsigned int  sub_10F814(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int result; // r0
   int v6; // r2
   unsigned int v7; // r3
@@ -22929,8 +22534,7 @@ LABEL_6:
 
 // log_pool_alloc2_a18 @ 0x10fa18, size 396 bytes
 // log_pool_alloc2_a18 [util]: Allocates an entry from the firmware log pool
-uint32_t * log_pool_alloc2_a18(int a1, unsigned int a2)
-{
+uint32_t * log_pool_alloc2_a18(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r6
   uint32_t *v3; // r5
   unsigned short *v4; // r4
@@ -22955,13 +22559,13 @@ uint32_t * log_pool_alloc2_a18(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    sub_10DA6C((*((uint32_t *)0x10fbcc)));
+    sub_10DA6C((*((uint32_t *)0x10fbcc)), 0);
     return (void*)0;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    sub_10DA6C((*((uint32_t *)0x10fbbc)));
+    sub_10DA6C((*((uint32_t *)0x10fbbc)), 0);
     return v3;
   }
   v4 = *(unsigned short **)(a1 + 12);
@@ -23064,7 +22668,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    sub_10DA6C((*((uint32_t *)0x10fbc4)), v11, v3);
+    sub_10DA6C((*((uint32_t *)0x10fbc4)), v11);
     return (void*)0;
   }
   if ( v10 > (unsigned int)v3 )
@@ -23111,8 +22715,7 @@ LABEL_43:
 
 
 // sub_10FA18 @ 0x10fa18, size 396 bytes
-uint32_t * sub_10FA18(int a1, unsigned int a2)
-{
+uint32_t * sub_10FA18(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r6
   uint32_t *v3; // r5
   unsigned short *v4; // r4
@@ -23137,13 +22740,13 @@ uint32_t * sub_10FA18(int a1, unsigned int a2)
   if ( !*(uint8_t *)(a1 + 8) )
   {
 LABEL_57:
-    sub_10DA6C((*((uint32_t *)0x10fbcc)));
+    sub_10DA6C((*((uint32_t *)0x10fbcc)), 0);
     return (void*)0;
   }
   v3 = *(uint32_t **)(a1 + 12);
   if ( !v3 )
   {
-    sub_10DA6C((*((uint32_t *)0x10fbbc)));
+    sub_10DA6C((*((uint32_t *)0x10fbbc)), 0);
     return v3;
   }
   v4 = *(unsigned short **)(a1 + 12);
@@ -23246,7 +22849,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    sub_10DA6C((*((uint32_t *)0x10fbc4)), v11, v3);
+    sub_10DA6C((*((uint32_t *)0x10fbc4)), v11);
     return (void*)0;
   }
   if ( v10 > (unsigned int)v3 )
@@ -23293,8 +22896,7 @@ LABEL_43:
 
 
 // sub_10FBD0 @ 0x10fbd0, size 554 bytes
-int  sub_10FBD0(int a1, uint32_t *a2)
-{
+int  sub_10FBD0(uint32_t a1, uint32_t a2) {
   unsigned int *v4; // r7
   unsigned int v5; // r6
   int v6; // r8
@@ -23499,8 +23101,7 @@ LABEL_39:
 
 // log_ptr_in_range @ 0x10fe24, size 46 bytes
 // log_ptr_in_range [util]: Check if a pointer falls within the log buffer range
-int  log_ptr_in_range(unsigned int a1)
-{
+int  log_ptr_in_range(uint32_t a1) {
   if ( *(uint32_t *)(*((uint32_t *)0x10fe54)) <= a1 && a1 <= *(uint32_t *)(*((uint32_t *)0x10fe54)) + *((uint32_t *)(*((uint32_t *)0x10fe54)) + 1) )
     return 1;
   if ( a1 < *(uint32_t *)(*((uint32_t *)0x10fe58)) )
@@ -23510,8 +23111,7 @@ int  log_ptr_in_range(unsigned int a1)
 
 
 // sub_10FE24 @ 0x10fe24, size 46 bytes
-int  sub_10FE24(unsigned int a1)
-{
+int  sub_10FE24(uint32_t a1) {
   if ( *(uint32_t *)(*((uint32_t *)0x10fe54)) <= a1 && a1 <= *(uint32_t *)(*((uint32_t *)0x10fe54)) + *((uint32_t *)(*((uint32_t *)0x10fe54)) + 1) )
     return 1;
   if ( a1 < *(uint32_t *)(*((uint32_t *)0x10fe58)) )
@@ -23522,8 +23122,7 @@ int  sub_10FE24(unsigned int a1)
 
 // rf_init_setup_n3ac @ 0x10fe5c, size 66 bytes
 // rf_init_setup_n3ac [rf]: Initialize RF subsystem registers from arguments
-int  rf_init_setup_n3ac(int a1, int a2, int a3)
-{
+int  rf_init_setup_n3ac(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r3
   uint32_t *v4; // r3
 
@@ -23547,8 +23146,7 @@ int  rf_init_setup_n3ac(int a1, int a2, int a3)
 
 
 // sub_10FE5C @ 0x10fe5c, size 66 bytes
-int  sub_10FE5C(int a1, int a2, int a3)
-{
+int  sub_10FE5C(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r3
   uint32_t *v4; // r3
 
@@ -23572,8 +23170,7 @@ int  sub_10FE5C(int a1, int a2, int a3)
 
 
 // sub_10FEAC @ 0x10feac, size 62 bytes
-uint32_t * sub_10FEAC(char a1)
-{
+uint32_t * sub_10FEAC(uint32_t a1) {
   uint32_t *v2; // r4
 
   if ( **(uint8_t **)(*((uint32_t *)0x10feec)) == 1 )
@@ -23593,8 +23190,7 @@ uint32_t * sub_10FEAC(char a1)
 
 
 // sub_10FEF8 @ 0x10fef8, size 218 bytes
-int  sub_10FEF8(uint32_t *a1)
-{
+int  sub_10FEF8(uint32_t a1) {
   int result; // r0
   int v3; // r2
   int v4; // r3
@@ -23608,7 +23204,7 @@ int  sub_10FEF8(uint32_t *a1)
     if ( v5 != 1 )
     {
       if ( v5 == 2 )
-        return sub_113300(a1);
+        return sub_113300();
       if ( v5 != 3 )
       {
 LABEL_11:
@@ -23620,19 +23216,19 @@ LABEL_11:
         return rf_cmd_send_n264((*((uint32_t *)0x10ffe8)), (*((uint32_t *)0x10ffe4)), 204);
       return result;
     }
-    return sub_1103B0(a1);
+    return sub_1103B0();
   }
   v3 = *((unsigned char *)a1 - 4);
   v4 = **(unsigned char **)(*((uint32_t *)0x10ffd4));
   if ( v4 == 1 )
   {
     if ( v3 == 3 )
-      return sub_110280(a1);
+      return sub_110280();
     if ( v3 == 2 )
-      return sub_110320(a1);
+      return sub_110320();
     if ( *((uint8_t *)a1 - 4) )
       return result;
-    return sub_1103B0(a1);
+    return sub_1103B0();
   }
   if ( v4 != 2 )
   {
@@ -23642,26 +23238,25 @@ LABEL_11:
       {
         if ( v3 != 3 )
           return result;
-        return log_free_pool_e(a1);
+        return log_free_pool_e();
       }
       if ( v3 == 3 )
-        return log_free_pool_e(a1);
+        return log_free_pool_e();
       return rf_cmd_send_n264((*((uint32_t *)0x10ffe8)), (*((uint32_t *)0x10ffe4)), 204);
     }
     goto LABEL_11;
   }
   if ( v3 == 3 )
-    return rf_mem_write_n3f8(a1);
+    return rf_mem_write_n3f8();
   if ( !*((uint8_t *)a1 - 4) )
-    return sub_113300(a1);
+    return sub_113300();
   return result;
 }
 
 
 // sub_10FFF0 @ 0x10fff0, size 122 bytes
 // log_free_pool_dispatch2_n460 [util]: Dispatch log entry into free pool with metadata fields
-int sub_10FFF0()
-{
+int sub_10FFF0() {
   void *v0; // r4
   int v1; // r3
   uint32_t *v2; // r0
@@ -23698,8 +23293,7 @@ int sub_10FFF0()
 
 // log_free_pool_dispatch2_n4ac @ 0x11007c, size 72 bytes
 // log_free_pool_dispatch2_n4d0 [util]: Dispatch free pool entry and log release
-int log_free_pool_dispatch2_n4ac()
-{
+int log_free_pool_dispatch2_n4ac() {
   void *v0; // r8
   int result; // r0
   uint32_t *v2; // r5
@@ -23719,7 +23313,7 @@ int log_free_pool_dispatch2_n4ac()
     do
     {
       log_pool_alloc2_a18(v3, 0x63Cu);
-      result = list_push_tail(v4);
+      result = list_push_tail(v4, 0);
       v6 = *(unsigned short *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
@@ -23731,8 +23325,7 @@ int log_free_pool_dispatch2_n4ac()
 
 
 // sub_11007C @ 0x11007c, size 72 bytes
-int sub_11007C()
-{
+int sub_11007C() {
   void *v0; // r8
   int result; // r0
   uint32_t *v2; // r5
@@ -23752,7 +23345,7 @@ int sub_11007C()
     do
     {
       sub_10FA18(v3, 0x63Cu);
-      result = sub_11E724(v4);
+      result = sub_11E724(v4, 0);
       v6 = *(unsigned short *)(*(uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
@@ -23765,8 +23358,7 @@ int sub_11007C()
 
 // patch_apply_n422 @ 0x1100d4, size 52 bytes
 // patch_apply_n422 [patch]: Applies a firmware patch table entry
-int patch_apply_n422()
-{
+int patch_apply_n422() {
   void *v0; // r5
   int result; // r0
   int v2; // r7
@@ -23783,7 +23375,7 @@ int patch_apply_n422()
     do
     {
       log_pool_alloc2_a18(v2, 0xCu);
-      result = list_push_tail(v3);
+      result = list_push_tail(v3, 0);
       ++v4;
     }
     while ( *(unsigned short *)(*(uint32_t *)v0 + 2) > (unsigned int)(unsigned short)v4 );
@@ -23793,8 +23385,7 @@ int patch_apply_n422()
 
 
 // sub_1100D4 @ 0x1100d4, size 52 bytes
-int sub_1100D4()
-{
+int sub_1100D4() {
   void *v0; // r5
   int result; // r0
   int v2; // r7
@@ -23811,7 +23402,7 @@ int sub_1100D4()
     do
     {
       sub_10FA18(v2, 0xCu);
-      result = sub_11E724(v3);
+      result = sub_11E724(v3, 0);
       ++v4;
     }
     while ( *(unsigned short *)(*(uint32_t *)v0 + 2) > (unsigned int)(unsigned short)v4 );
@@ -23820,43 +23411,9 @@ int sub_1100D4()
 }
 
 
-// log_free_dispatch_n2b4 @ 0x110114, size 72 bytes
-int log_free_dispatch_n2b4()
-{
-  void *v0; // r8
-  int result; // r0
-  uint32_t *v2; // r5
-  int v3; // r7
-  int v4; // r6
-  int v5; // r4
-  unsigned int v6; // r1
-
-  v0 = (*((uint32_t *)0x110168));
-  result = sub_11E71C((*((uint32_t *)0x11015c)));
-  if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
-  {
-    v2 = (*((uint32_t *)0x110160));
-    v3 = (*((uint32_t *)0x110164));
-    v4 = (*((uint32_t *)0x11015c));
-    v5 = 0;
-    do
-    {
-      sub_10FA18(v3, 0x6B8u);
-      result = sub_11E724(v4);
-      v6 = *(unsigned short *)(*(uint32_t *)v0 + 8);
-      ++v5;
-      ++*v2;
-    }
-    while ( v6 > (unsigned short)v5 );
-  }
-  return result;
-}
-
-
 // rf_lmac_init_n114 @ 0x110114, size 72 bytes
 // rf_lmac_init_n114 [rf]: Initialize LMAC RF subsystem state and dispatch handlers
-int rf_lmac_init_n114()
-{
+int rf_lmac_init_n114() {
   void *v0; // r8
   int result; // r0
   uint32_t *v2; // r5
@@ -23876,7 +23433,39 @@ int rf_lmac_init_n114()
     do
     {
       log_pool_alloc2_a18(v3, 0x6B8u);
-      result = list_push_tail(v4);
+      result = list_push_tail(v4, 0);
+      v6 = *(unsigned short *)(*(uint32_t *)v0 + 8);
+      ++v5;
+      ++*v2;
+    }
+    while ( v6 > (unsigned short)v5 );
+  }
+  return result;
+}
+
+
+// sub_110114 @ 0x110114, size 72 bytes
+int sub_110114() {
+  void *v0; // r8
+  int result; // r0
+  uint32_t *v2; // r5
+  int v3; // r7
+  int v4; // r6
+  int v5; // r4
+  unsigned int v6; // r1
+
+  v0 = (*((uint32_t *)0x110168));
+  result = sub_11E71C((*((uint32_t *)0x11015c)));
+  if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
+  {
+    v2 = (*((uint32_t *)0x110160));
+    v3 = (*((uint32_t *)0x110164));
+    v4 = (*((uint32_t *)0x11015c));
+    v5 = 0;
+    do
+    {
+      sub_10FA18(v3, 0x6B8u);
+      result = sub_11E724(v4, 0);
       v6 = *(unsigned short *)(*(uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
@@ -23889,8 +23478,7 @@ int rf_lmac_init_n114()
 
 // sub_11016C @ 0x11016c, size 52 bytes
 // sub_121016C [unknown]: Initialize engine context and read state register
-int sub_11016C()
-{
+int sub_11016C() {
   void *v0; // r5
   int result; // r0
   int v2; // r7
@@ -23907,7 +23495,7 @@ int sub_11016C()
     do
     {
       log_pool_alloc2_a18(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      result = list_push_tail(v3, 0);
       ++v4;
     }
     while ( *(unsigned short *)(*(uint32_t *)v0 + 4) > (unsigned int)(unsigned short)v4 );
@@ -23917,8 +23505,7 @@ int sub_11016C()
 
 
 // sub_1101AC @ 0x1101ac, size 52 bytes
-int sub_1101AC()
-{
+int sub_1101AC() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -23951,8 +23538,7 @@ int sub_1101AC()
 
 // rf_lmac_init_n1ec @ 0x1101ec, size 54 bytes
 // rf_lmac_init_n1ec [rf]: Initialize LMAC RF state with config
-int rf_lmac_init_n1ec()
-{
+int rf_lmac_init_n1ec() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -23967,7 +23553,7 @@ int rf_lmac_init_n1ec()
   v0 = (int *)(*((uint32_t *)0x110228));
   v1 = (*((uint32_t *)0x11022c));
   ++*(uint32_t *)(*((uint32_t *)0x110228));
-  result = list_push_tail(v1);
+  result = list_push_tail(v1, 0);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -23984,8 +23570,7 @@ int rf_lmac_init_n1ec()
 
 
 // sub_1101EC @ 0x1101ec, size 54 bytes
-int sub_1101EC()
-{
+int sub_1101EC() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24000,7 +23585,7 @@ int sub_1101EC()
   v0 = (int *)(*((uint32_t *)0x110228));
   v1 = (*((uint32_t *)0x11022c));
   ++*(uint32_t *)(*((uint32_t *)0x110228));
-  result = sub_11E724(v1);
+  result = sub_11E724(v1, 0);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -24018,8 +23603,7 @@ int sub_1101EC()
 
 // sub_110280 @ 0x110280, size 62 bytes
 // sub_1210280 [rf]: LMAC RF helper performing shift-based bit manipulation
-int sub_110280()
-{
+int sub_110280() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24035,7 +23619,7 @@ int sub_110280()
   v0 = (int *)(*((uint32_t *)0x1102c4));
   v1 = (*((uint32_t *)0x1102c8));
   ++*(uint32_t *)(*((uint32_t *)0x1102c4));
-  result = list_push_tail(v1);
+  result = list_push_tail(v1, 0);
   v3 = *v0;
   ++*(uint32_t *)(*((uint32_t *)0x1102cc));
   if ( v3 )
@@ -24055,8 +23639,7 @@ int sub_110280()
 
 // lmac_rf_handler_1102d0 @ 0x1102d0, size 62 bytes
 // lmac_rf_handler_1102d0 [rf]: LMAC RF handler stub at 0x1102d0
-int lmac_rf_handler_1102d0()
-{
+int lmac_rf_handler_1102d0() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24090,8 +23673,7 @@ int lmac_rf_handler_1102d0()
 
 
 // sub_1102D0 @ 0x1102d0, size 62 bytes
-int sub_1102D0()
-{
+int sub_1102D0() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24126,8 +23708,7 @@ int sub_1102D0()
 
 // sub_110320 @ 0x110320, size 62 bytes
 // sub_1210320 [rf]: Unidentified behavioral routine in lmacfw_rf firmware
-int sub_110320()
-{
+int sub_110320() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24143,7 +23724,7 @@ int sub_110320()
   v0 = (int *)(*((uint32_t *)0x110364));
   v1 = (*((uint32_t *)0x110368));
   ++*(uint32_t *)(*((uint32_t *)0x110364));
-  result = list_push_tail(v1);
+  result = list_push_tail(v1, 0);
   v3 = *v0;
   ++*(uint32_t *)(*((uint32_t *)0x11036c));
   if ( v3 )
@@ -24163,8 +23744,7 @@ int sub_110320()
 
 // sub_110370 @ 0x110370, size 52 bytes
 // sub_1210370 [util]: Trampoline stub with shifted register setup
-int sub_110370()
-{
+int sub_110370() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24196,8 +23776,7 @@ int sub_110370()
 
 
 // sub_1103B0 @ 0x1103b0, size 54 bytes
-int sub_1103B0()
-{
+int sub_1103B0() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -24212,7 +23791,7 @@ int sub_1103B0()
   v0 = (int *)(*((uint32_t *)0x1103ec));
   v1 = (*((uint32_t *)0x1103f0));
   ++*(uint32_t *)(*((uint32_t *)0x1103ec));
-  result = list_push_tail(v1);
+  result = list_push_tail(v1, 0);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -24230,8 +23809,7 @@ int sub_1103B0()
 
 // rf_bus_init_n3fa @ 0x1103f4, size 260 bytes
 // rf_bus_init_n3fa [rf]: Initialize the RF bus interface
-int  rf_bus_init_n3fa(int result)
-{
+int  rf_bus_init_n3fa(uint32_t a1) {
   uint32_t *v1; // r4
   unsigned int v2; // r3
   int *v3; // r6
@@ -24271,7 +23849,7 @@ LABEL_2:
     v10 = v9;
     if ( !v9 )
     {
-      sub_10DA6C((*((uint32_t *)0x110520)));
+      sub_10DA6C((*((uint32_t *)0x110520)), 0);
       result = sub_110320();
       if ( *(unsigned short *)(v6 + 28) > 1u )
         return result;
@@ -24299,7 +23877,7 @@ LABEL_2:
       }
       else
       {
-        sub_10DA6C((*((uint32_t *)0x110514)));
+        sub_10DA6C((*((uint32_t *)0x110514)), 0);
         v11 = *v7;
       }
     }
@@ -24341,8 +23919,7 @@ LABEL_2:
 
 
 // sub_1103F4 @ 0x1103f4, size 260 bytes
-int  sub_1103F4(int result)
-{
+int  sub_1103F4(uint32_t a1) {
   uint32_t *v1; // r4
   unsigned int v2; // r3
   int *v3; // r6
@@ -24382,7 +23959,7 @@ LABEL_2:
     v10 = v9;
     if ( !v9 )
     {
-      sub_10DA6C((*((uint32_t *)0x110520)));
+      sub_10DA6C((*((uint32_t *)0x110520)), 0);
       result = sub_110320();
       if ( *(unsigned short *)(v6 + 28) > 1u )
         return result;
@@ -24410,7 +23987,7 @@ LABEL_2:
       }
       else
       {
-        sub_10DA6C((*((uint32_t *)0x110514)));
+        sub_10DA6C((*((uint32_t *)0x110514)), 0);
         v11 = *v7;
       }
     }
@@ -24453,8 +24030,7 @@ LABEL_2:
 
 // rf_init_agc_or_radio @ 0x11052c, size 288 bytes
 // rf_init_agc_or_radio [rf]: Initialize RF AGC/radio registers from config table
-int  rf_init_agc_or_radio(int a1, int a2)
-{
+int  rf_init_agc_or_radio(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r4
   int *v3; // r7
   unsigned int v6; // r2
@@ -24500,7 +24076,7 @@ LABEL_24:
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DA6C((*((uint32_t *)0x110674)));
+      sub_10DA6C((*((uint32_t *)0x110674)), 0);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -24564,8 +24140,7 @@ LABEL_24:
 
 
 // sub_11052C @ 0x11052c, size 288 bytes
-int  sub_11052C(int a1, int a2)
-{
+int  sub_11052C(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r4
   int *v3; // r7
   unsigned int v6; // r2
@@ -24611,7 +24186,7 @@ LABEL_24:
     v11 = v10;
     if ( !v10 )
     {
-      sub_10DA6C((*((uint32_t *)0x110674)));
+      sub_10DA6C((*((uint32_t *)0x110674)), 0);
       (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
       goto LABEL_23;
     }
@@ -24675,16 +24250,14 @@ LABEL_24:
 
 
 // sub_110684 @ 0x110684, size 10 bytes
-int sub_110684()
-{
+int sub_110684() {
   sub_1108C0();
   return 1;
 }
 
 
 // sub_110690 @ 0x110690, size 52 bytes
-int  sub_110690(int a1)
-{
+int  sub_110690(uint32_t a1) {
   uint32_t *v1; // r2
   uint32_t *v2; // r1
 
@@ -24712,8 +24285,7 @@ int  sub_110690(int a1)
 
 
 // sub_1108C0 @ 0x1108c0, size 414 bytes
-int sub_1108C0()
-{
+int sub_1108C0() {
   uint32_t *v0; // r3
   uint32_t *v1; // r1
   int *v2; // r4
@@ -24832,8 +24404,7 @@ int sub_1108C0()
 
 
 // sub_110AB8 @ 0x110ab8, size 112 bytes
-int  sub_110AB8(int a1, int a2, int a3)
-{
+int  sub_110AB8(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r5
   uint32_t *v4; // r4
   int v5; // r6
@@ -24891,8 +24462,7 @@ int  sub_110AB8(int a1, int a2, int a3)
 
 
 // sub_110B44 @ 0x110b44, size 28 bytes
-uint32_t * sub_110B44(uint32_t *result, int a2, int a3, unsigned short a4, int a5)
-{
+uint32_t * sub_110B44(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   result[2] = (*((uint32_t *)0x110b60)) & result[2] | a4 | (a5 << 31);
   *result = a2;
   result[1] = a3;
@@ -24902,8 +24472,7 @@ uint32_t * sub_110B44(uint32_t *result, int a2, int a3, unsigned short a4, int a
 
 // rf_field_align_n_2a4 @ 0x110b64, size 116 bytes
 // rf_field_align_n_2a4 [rf]: RF register field alignment utility (variant 2a4)
-int  rf_field_align_n_2a4(int result)
-{
+int  rf_field_align_n_2a4(uint32_t a1) {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
   int v3; // r4
@@ -24960,8 +24529,7 @@ int  rf_field_align_n_2a4(int result)
 
 
 // sub_110B64 @ 0x110b64, size 116 bytes
-int  sub_110B64(int result)
-{
+int  sub_110B64(uint32_t a1) {
   uint32_t *v1; // r1
   uint32_t *v2; // r2
   int v3; // r4
@@ -25019,8 +24587,7 @@ int  sub_110B64(int result)
 
 // rf_chan_setup_init @ 0x110bf8, size 118 bytes
 // rf_chan_setup_init [rf]: Initialize RF channel setup with 4-byte config
-int  rf_chan_setup_init(char a1, int a2, int a3)
-{
+int  rf_chan_setup_init(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r6
@@ -25029,7 +24596,7 @@ int  rf_chan_setup_init(char a1, int a2, int a3)
 
   v6 = sub_10FEAC(4);
   if ( !v6 )
-    return sub_10DA6C((*((uint32_t *)0x110c78)));
+    return sub_10DA6C((*((uint32_t *)0x110c78)), 0);
   v7 = v6;
   v8 = (uint32_t *)sub_1101AC();
   if ( v8 )
@@ -25048,15 +24615,14 @@ int  rf_chan_setup_init(char a1, int a2, int a3)
   }
   else
   {
-    sub_10DA6C((*((uint32_t *)0x110c74)));
+    sub_10DA6C((*((uint32_t *)0x110c74)), 0);
     return sub_10FEF8(v7);
   }
 }
 
 
 // sub_110BF8 @ 0x110bf8, size 118 bytes
-int  sub_110BF8(char a1, int a2, int a3)
-{
+int  sub_110BF8(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r6
@@ -25065,7 +24631,7 @@ int  sub_110BF8(char a1, int a2, int a3)
 
   v6 = sub_10FEAC(4);
   if ( !v6 )
-    return sub_10DA6C((*((uint32_t *)0x110c78)));
+    return sub_10DA6C((*((uint32_t *)0x110c78)), 0);
   v7 = v6;
   v8 = (uint32_t *)sub_1101AC();
   if ( v8 )
@@ -25084,7 +24650,7 @@ int  sub_110BF8(char a1, int a2, int a3)
   }
   else
   {
-    sub_10DA6C((*((uint32_t *)0x110c74)));
+    sub_10DA6C((*((uint32_t *)0x110c74)), 0);
     return sub_10FEF8(v7);
   }
 }
@@ -25092,8 +24658,7 @@ int  sub_110BF8(char a1, int a2, int a3)
 
 // sub_110C7C @ 0x110c7c, size 124 bytes
 // rf_bus_mark_n_4da [rf]: Marks RF bus region by ORing 0x800000 flag into control register
-int  sub_110C7C(int a1)
-{
+int  sub_110C7C(uint32_t a1) {
   int *v1; // r3
   int v2; // r2
   int v3; // r1
@@ -25122,8 +24687,7 @@ int  sub_110C7C(int a1)
 
 // rf_msg_process @ 0x110d00, size 1068 bytes
 // rf_bus_mark_n_3b2 [rf]: Marks RF bus registers with channel/state flags
-int rf_msg_process()
-{
+int rf_msg_process() {
   int v0; // r4
   int v1; // r1
   int v2; // r1
@@ -25314,7 +24878,7 @@ rf_bus_mark_n_425:
       v12 = patch_apply_n_ff;
       *(uint32_t *)rf_bus_reset2_n_338 = v10;
       *v12 = 16;
-      list_push_tail((*((uint32_t *)0x110fd4)));
+      list_push_tail((*((uint32_t *)0x110fd4)), 0);
       irq_nesting_or(2048);
     }
     *(uint32_t *)rf_bus_reset2_n_367 = 1024;
@@ -25344,7 +24908,7 @@ rf_bus_mark_n_425:
       *((uint32_t *)v30 + 410) = v28;
       v30[1644] = v27;
       v13[2433] = v14 + 1;
-      list_push_tail(v13 + 2436);
+      list_push_tail(v13 + 2436, 0);
       irq_nesting_or(0x1000000);
     }
     else
@@ -25371,7 +24935,7 @@ rf_bus_mark_n_425:
       v16[3072] = (uint32_t)(uintptr_t)v24;
       *((uint16_t *)v25 + 4) = *v26;
       v16[3074] = v17 + 1;
-      list_push_tail(v16 + 3080);
+      list_push_tail(v16 + 3080, 0);
       result = irq_nesting_or(1024);
     }
     else
@@ -25399,7 +24963,7 @@ rf_bus_mark_n_425:
       v19[4 * v22 + 773] = *v23;
       LOWORD(v19[4 * v22 + 774]) = *(uint32_t *)rf_bus_mark_n190;
       *((uint8_t *)v19 + 6162) = v20 + 1;
-      list_push_tail(rf_bus_mark_n_18b);
+      list_push_tail(rf_bus_mark_n_18b, 0);
       result = irq_nesting_or(512);
     }
     else
@@ -25421,8 +24985,7 @@ rf_bus_mark_n_425:
 
 // sub_110D00 @ 0x110d00, size 1068 bytes
 // rf_bus_reset2 [rf]: Reset the RF bus DMA chain (instance 2) by clearing descriptors, reprogramming the control word from RF register 0x1812, and re-arming the DMA engine at 0x40240018.
-int sub_110D00()
-{
+int sub_110D00() {
   int v0; // r4
   int v1; // r1
   int v2; // r1
@@ -25613,7 +25176,7 @@ LABEL_12:
       v12 = (*((uint32_t *)0x110fd0));
       *(uint32_t *)(*((uint32_t *)0x110fcc)) = v10;
       *v12 = 16;
-      sub_11E724((*((uint32_t *)0x110fd4)));
+      sub_11E724((*((uint32_t *)0x110fd4)), 0);
       sub_11E5E0(2048);
     }
     *(uint32_t *)(*((uint32_t *)0x110f9c)) = 1024;
@@ -25643,7 +25206,7 @@ LABEL_12:
       *((uint32_t *)v30 + 410) = v28;
       v30[1644] = v27;
       v13[2433] = v14 + 1;
-      sub_11E724(v13 + 2436);
+      sub_11E724(v13 + 2436, 0);
       sub_11E5E0(0x1000000);
     }
     else
@@ -25670,7 +25233,7 @@ LABEL_12:
       v16[3072] = (uint32_t)(uintptr_t)v24;
       *((uint16_t *)v25 + 4) = *v26;
       v16[3074] = v17 + 1;
-      sub_11E724(v16 + 3080);
+      sub_11E724(v16 + 3080, 0);
       result = sub_11E5E0(1024);
     }
     else
@@ -25698,7 +25261,7 @@ LABEL_12:
       v19[4 * v22 + 773] = *v23;
       LOWORD(v19[4 * v22 + 774]) = *(uint32_t *)(*((uint32_t *)0x110ffc));
       *((uint8_t *)v19 + 6162) = v20 + 1;
-      sub_11E724((*((uint32_t *)0x111000)));
+      sub_11E724((*((uint32_t *)0x111000)), 0);
       result = sub_11E5E0(512);
     }
     else
@@ -25720,8 +25283,7 @@ LABEL_12:
 
 // rf_bus_mark_118c @ 0x11118c, size 114 bytes
 // rf_bus_reset2_n_150 [rf]: Second-stage RF bus reset using MMIO constants
-int rf_bus_mark_118c()
-{
+int rf_bus_mark_118c() {
   int v0; // r3
   int *v1; // r2
   uint32_t *v2; // r1
@@ -25765,8 +25327,7 @@ int rf_bus_mark_118c()
 
 
 // sub_11118C @ 0x11118c, size 114 bytes
-int sub_11118C()
-{
+int sub_11118C() {
   int v0; // r3
   int *v1; // r2
   uint32_t *v2; // r1
@@ -25811,8 +25372,7 @@ int sub_11118C()
 
 // sub_111218 @ 0x111218, size 74 bytes
 // rf_bus_mark_nbc [rf]: Marks RF bus registers at 0x900-0x914 with flags
-int sub_111218()
-{
+int sub_111218() {
   uint32_t *v0; // r1
   int v1; // r0
   uint32_t *v2; // r3
@@ -25837,8 +25397,7 @@ int sub_111218()
 
 // rf_bus_mark_ne8 @ 0x111274, size 48 bytes
 // rf_bus_mark_n102 [rf]: Mark/flag RF bus slot for pending operation
-int * rf_bus_mark_ne8(int a1)
-{
+int * rf_bus_mark_ne8(uint32_t a1) {
   int v2; // r0
   int v3; // r5
   int *result; // r0
@@ -25859,8 +25418,7 @@ int * rf_bus_mark_ne8(int a1)
 
 
 // sub_111274 @ 0x111274, size 48 bytes
-int * sub_111274(int a1)
-{
+int * sub_111274(uint32_t a1) {
   int v2; // r0
   int v3; // r5
   int *result; // r0
@@ -25882,8 +25440,7 @@ int * sub_111274(int a1)
 
 // sub_1112AC @ 0x1112ac, size 48 bytes
 // rf_cmd_dispatch_n1b4 [rf]: Dispatches RF command requests from MAC scheduler
-int * sub_1112AC(int a1)
-{
+int * sub_1112AC(uint32_t a1) {
   int v2; // r0
   int v3; // r5
   int *result; // r0
@@ -25943,8 +25500,7 @@ int *sub_1112E4()
 
 // rf_bus_reset2_0 @ 0x111304, size 242 bytes
 // rf_bus_write_n_100 [rf]: RF bus write clearing/setting control bits
-int rf_bus_reset2_0()
-{
+int rf_bus_reset2_0() {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -26007,8 +25563,7 @@ LABEL_11:
 
 // sub_111304 @ 0x111304, size 242 bytes
 // rf_bus_write2_176 [rf]: Write 2 words (0x2e, 0x2f) to RF register 0x14b408 via the RF MCU mailbox doorbell.
-int sub_111304()
-{
+int sub_111304() {
   uint32_t *v0; // r2
   uint32_t *v1; // r2
   uint32_t *v2; // r1
@@ -26071,8 +25626,7 @@ LABEL_11:
 
 // rf_bus_reset2_n101 @ 0x111404, size 88 bytes
 // rf_bus_setup_n_3ef [rf]: RF bus setup writing 32-bit/16-bit MMIO fields
-int  rf_bus_reset2_n101(int result, int a2)
-{
+int  rf_bus_reset2_n101(uint32_t a1, uint32_t a2) {
   int *v2; // r4
   int v3; // r5
   int v4; // r3
@@ -26106,8 +25660,7 @@ int  rf_bus_reset2_n101(int result, int a2)
 
 
 // sub_111404 @ 0x111404, size 88 bytes
-int  sub_111404(int result, int a2)
-{
+int  sub_111404(uint32_t a1, uint32_t a2) {
   int *v2; // r4
   int v3; // r5
   int v4; // r3
@@ -26142,8 +25695,7 @@ int  sub_111404(int result, int a2)
 
 // rf_bus_write_1 @ 0x11146c, size 162 bytes
 // rf_bus_setup_n_30e [rf]: Configure RF bus register with flag bits
-int * rf_bus_write_1(int a1, int a2, int a3)
-{
+int * rf_bus_write_1(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r6
   int *v4; // r5
   int v5; // r7
@@ -26194,8 +25746,7 @@ rf_bus_write2_n_66:
 
 
 // sub_11146C @ 0x11146c, size 162 bytes
-int * sub_11146C(int a1, int a2, int a3)
-{
+int * sub_11146C(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v3; // r6
   int *v4; // r5
   int v5; // r7
@@ -26247,8 +25798,7 @@ LABEL_10:
 
 // sub_111524 @ 0x111524, size 224 bytes
 // rf_bus_mark_n45e [rf]: Clear/mark RF bus register bits via mask
-int  sub_111524(int a1, int a2, int a3)
-{
+int  sub_111524(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r6
   uint32_t *v4; // r4
   int v5; // r5
@@ -26329,8 +25879,7 @@ rf_bus_write_n_2e3:
 
 // sub_111618 @ 0x111618, size 42 bytes
 // rf_fault_dump_n254 [rf]: Dump RF fault context by copying 12 bytes from fault record to stack
-int  sub_111618(int a1, int a2)
-{
+int  sub_111618(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r0
   int v4; // r0
 
@@ -26355,8 +25904,7 @@ int  sub_111618(int a1, int a2)
 
 // sub_11164C @ 0x11164c, size 36 bytes
 // rf_bus_mark_n4c8 [rf]: Marks RF bus state for n4c8 access pattern
-int * sub_11164C(int *result, unsigned int a2)
-{
+int * sub_11164C(uint32_t a1, uint32_t a2) {
   if ( result )
   {
     if ( a2 <= 5 )
@@ -26372,8 +25920,7 @@ int * sub_11164C(int *result, unsigned int a2)
 
 // sub_111670 @ 0x111670, size 36 bytes
 // unknown_func_0 [unknown]: firmware function (unlabeled)
-int * sub_111670(int *result, unsigned int a2)
-{
+int * sub_111670(uint32_t a1, uint32_t a2) {
   if ( result )
   {
     if ( a2 <= 5 )
@@ -26389,8 +25936,7 @@ int * sub_111670(int *result, unsigned int a2)
 
 // sub_111694 @ 0x111694, size 40 bytes
 // rf_bus_write2_n17b [rf]: RF bus 2-byte write with parameter validation
-int * sub_111694(int *result, unsigned int a2)
-{
+int * sub_111694(uint32_t a1, uint32_t a2) {
   if ( result )
   {
     if ( a2 <= 5 )
@@ -26407,24 +25953,21 @@ int * sub_111694(int *result, unsigned int a2)
 // rf_bus_setup_n_148 @ 0x1116bc, size 4 bytes
 // rf_bus_reset2_n3ba [rf]: Reset RF bus and initialize MMIO state
 // attributes: thunk
-int * rf_bus_setup_n_148(int *result, unsigned int a2)
-{
+int * rf_bus_setup_n_148(uint32_t a1, uint32_t a2) {
   return sub_11164C(result, a2);
 }
 
 
 // sub_1116BC @ 0x1116bc, size 4 bytes
 // attributes: thunk
-int * sub_1116BC(int *result, unsigned int a2)
-{
+int * sub_1116BC(uint32_t a1, uint32_t a2) {
   return sub_11164C(result, a2);
 }
 
 
 // rf_bus_write_n274 @ 0x1116c0, size 262 bytes
 // rf_bus_write_702 [rf]: Write data to the RF bus
-int  rf_bus_write_n274(uint32_t *a1, int a2)
-{
+int  rf_bus_write_n274(uint32_t a1, uint32_t a2) {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
   void *v6; // r0
@@ -26504,8 +26047,7 @@ int  rf_bus_write_n274(uint32_t *a1, int a2)
 
 
 // sub_1116C0 @ 0x1116c0, size 262 bytes
-int  sub_1116C0(uint32_t *a1, int a2)
-{
+int  sub_1116C0(uint32_t a1, uint32_t a2) {
   uint8_t *v4; // r6
   uint32_t *v5; // r7
   void *v6; // r0
@@ -26586,8 +26128,7 @@ int  sub_1116C0(uint32_t *a1, int a2)
 
 // rf_bus_setup_1804 @ 0x111804, size 316 bytes
 // rf_bus_write2_183c [rf]: Write 16-bit value to RF bus double-word register
-int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
-{
+int * rf_bus_setup_1804(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int v4; // r6
   unsigned int v7; // r11
   int v8; // r7
@@ -26614,7 +26155,7 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
         if ( a4 > 0x320 )
         {
           v9 = 400;
-          v8 = ((unsigned)(v8) & 0xFFFF0000U) | (((unsigned)(400) & 0xFFFFU) << 0);
+          LOWORD(v8) = 400;
           v10 = 26214400;
         }
         else
@@ -26632,7 +26173,7 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
           else
             v18 = ((unsigned int)(*((uint32_t *)0x111948)) * (unsigned long long)v7) >> 32;
           if ( v19 )
-            v7 = ((unsigned)(v7) & 0xFFFF0000U) | (((unsigned)(v18 >> 1) & 0xFFFFU) << 0);
+            LOWORD(v7) = v18 >> 1;
         }
       }
       else
@@ -26649,7 +26190,7 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DA6C(rf_bus_setup_n148, v13, v9, 2048);
+        result = (int *)sub_10DA6C(rf_bus_setup_n148, v13);
         v13 = (unsigned short)*v12;
       }
       v14 = (*((uint32_t *)0x111944));
@@ -26674,8 +26215,7 @@ int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4)
 
 // sub_111804 @ 0x111804, size 316 bytes
 // rf_mbx_init [rf]: Initialize the N30 RFIC mailbox bus: program control regs, clear pending IRQ, and drain 10-entry status doorbell array.
-int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4)
-{
+int * sub_111804(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int v4; // r6
   unsigned int v7; // r11
   int v8; // r7
@@ -26702,7 +26242,7 @@ int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4)
         if ( a4 > 0x320 )
         {
           v9 = 400;
-          v8 = ((unsigned)(v8) & 0xFFFF0000U) | (((unsigned)(400) & 0xFFFFU) << 0);
+          LOWORD(v8) = 400;
           v10 = 26214400;
         }
         else
@@ -26720,7 +26260,7 @@ int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4)
           else
             v18 = ((unsigned int)(*((uint32_t *)0x111948)) * (unsigned long long)v7) >> 32;
           if ( v19 )
-            v7 = ((unsigned)(v7) & 0xFFFF0000U) | (((unsigned)(v18 >> 1) & 0xFFFFU) << 0);
+            LOWORD(v7) = v18 >> 1;
         }
       }
       else
@@ -26737,7 +26277,7 @@ int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4)
       *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
       if ( v13 + v9 > 2048 )
       {
-        result = (int *)sub_10DA6C((*((uint32_t *)0x11194c)), v13, v9, 2048);
+        result = (int *)sub_10DA6C((*((uint32_t *)0x11194c)), v13);
         v13 = (unsigned short)*v12;
       }
       v14 = (*((uint32_t *)0x111944));
@@ -26762,8 +26302,7 @@ int * sub_111804(int *result, unsigned int a2, int a3, unsigned int a4)
 
 // rf_bus_setup_n14c @ 0x111950, size 158 bytes
 // rf_bus_write2_n4b2 [rf]: Write to RF bus returning small status codes
-int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
-{
+int  rf_bus_setup_n14c(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
   int v4; // r12
   int v5; // r3
@@ -26780,7 +26319,7 @@ int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C(rf_bus_write2_n4dc);
+    sub_10DA6C(rf_bus_write2_n4dc, 0);
     return 3;
   }
   else
@@ -26822,8 +26361,7 @@ int  rf_bus_setup_n14c(int a1, int a2, unsigned int a3)
 
 
 // sub_111950 @ 0x111950, size 158 bytes
-int  sub_111950(int a1, int a2, unsigned int a3)
-{
+int  sub_111950(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
   int v4; // r12
   int v5; // r3
@@ -26840,7 +26378,7 @@ int  sub_111950(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C((*((uint32_t *)0x111a00)));
+    sub_10DA6C((*((uint32_t *)0x111a00)), 0);
     return 3;
   }
   else
@@ -26883,8 +26421,7 @@ int  sub_111950(int a1, int a2, unsigned int a3)
 
 // hw_event_flag @ 0x111a04, size 32 bytes
 // rf_bus_write2_n4f8 [rf]: Write to RF bus register with mode check
-int  hw_event_flag(int a1)
-{
+int  hw_event_flag(uint32_t a1) {
   int result; // r0
   int v2; // r3
 
@@ -26897,8 +26434,7 @@ int  hw_event_flag(int a1)
 
 
 // sub_111A04 @ 0x111a04, size 32 bytes
-int  sub_111A04(int a1)
-{
+int  sub_111A04(uint32_t a1) {
   int result; // r0
   int v2; // r3
 
@@ -26912,8 +26448,7 @@ int  sub_111A04(int a1)
 
 // sub_111A24 @ 0x111a24, size 162 bytes
 // rf_bus_setup_n28c [rf]: Configure RF bus control registers and setup pointers
-int  sub_111A24(int a1, int a2, unsigned int a3)
-{
+int  sub_111A24(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
   int v4; // r12
   int v5; // r3
@@ -26930,7 +26465,7 @@ int  sub_111A24(int a1, int a2, unsigned int a3)
     return 2;
   if ( a2 << 30 )
   {
-    sub_10DA6C(rf_bus_setup_1ad8);
+    sub_10DA6C(rf_bus_setup_1ad8, 0);
     return 3;
   }
   else
@@ -26973,8 +26508,7 @@ int  sub_111A24(int a1, int a2, unsigned int a3)
 
 // rf_state_check @ 0x111adc, size 66 bytes
 // rf_bus_setup_n30e [rf]: RF bus register setup for N30E
-int rf_state_check()
-{
+int rf_state_check() {
   uint8_t *v0; // r4
   int v1; // r0
   int ( *v3)(uint32_t); // r3
@@ -26990,7 +26524,7 @@ int rf_state_check()
       *(uint8_t *)rf_bus_setup_n324 = 4;
       *v0 = 7;
       if ( !fw_flag_is_set() )
-        rf_chan_set_mask(0);
+        rf_chan_set_mask(0, 0);
       return 1;
     }
     else
@@ -27007,8 +26541,7 @@ int rf_state_check()
 
 
 // sub_111ADC @ 0x111adc, size 66 bytes
-int sub_111ADC()
-{
+int sub_111ADC() {
   uint8_t *v0; // r4
   int v1; // r0
   int ( *v3)(uint32_t); // r3
@@ -27024,7 +26557,7 @@ int sub_111ADC()
       *(uint8_t *)(*((uint32_t *)0x111b28)) = 4;
       *v0 = 7;
       if ( !sub_113344() )
-        sub_113694(0);
+        sub_113694(0, 0);
       return 1;
     }
     else
@@ -27042,8 +26575,7 @@ int sub_111ADC()
 
 // rf_level_apply_n_358 @ 0x111b30, size 1958 bytes
 // rf_cmd_wait_n308 [rf]: Wait for RF command completion, poll status registers
-int  rf_level_apply_n_358(long long a1)
-{
+int  rf_level_apply_n_358(uint32_t a1) {
   int *v1; // r9
   int v3; // r4
   unsigned char *v4; // r5
@@ -27256,16 +26788,16 @@ int  rf_level_apply_n_358(long long a1)
     if ( v16 == 2 )
     {
       v5 = rf_bus_write_n_89;
-      sub_10DA6C(rf_bus_reset_n_49c);
+      sub_10DA6C(rf_bus_reset_n_49c, 0);
       goto rf_bus_setup_358;
     }
     if ( (a1 & 0x100000000LL) == 0 )
       goto rf_bus_setup_n42c;
     if ( v16 == 4 )
     {
-      a1 = (uint32_t)(*((unsigned short *)rf_bus_reset_n_4b4 + 4));
+      HIDWORD(a1) = *((unsigned short *)rf_bus_reset_n_4b4 + 4);
       v50 = *((uint16_t *)rf_bus_reset_n_4b4 + 5);
-      a1 = (uint32_t)((unsigned short)(WORD2(a1) - v50));
+      LODWORD(a1) = (unsigned short)(WORD2(a1) - v50);
       if ( WORD2(a1) == v50 )
       {
         *(uint8_t *)rf_bus_reset_n_4b4 = 5;
@@ -27278,14 +26810,14 @@ int  rf_level_apply_n_358(long long a1)
       else
       {
         if ( (unsigned int)a1 >= 0x40 )
-          a1 = (uint32_t)(64);
+          LODWORD(a1) = 64;
         v51 = 0;
       }
       v52 = (unsigned short)(v50 + a1);
       *((uint16_t *)rf_bus_reset_n_4b4 + 5) = v52;
       if ( HIDWORD(a1) < v52 )
       {
-        a1 = (uint32_t)(sub_10DA6C((*((uint32_t *)0x1122e0))));
+        LODWORD(a1) = sub_10DA6C((*((uint32_t *)0x1122e0)), 0);
         WORD2(a1) = *((uint16_t *)v4 + 4);
         v52 = *((unsigned short *)v4 + 5);
       }
@@ -27303,10 +26835,10 @@ int  rf_level_apply_n_358(long long a1)
           v54[516] |= 0x10u;
           return a1;
         }
-        a1 = (uint32_t)(rf_bus_reset2_n101(0, 0));
+        LODWORD(a1) = rf_bus_reset2_n101(0, 0);
         goto rf_bus_setup_n42c;
       }
-      a1 = (uint32_t)(rf_bus_reset2_n101(*((uint32_t *)v4 + 1) + v52, v53));
+      LODWORD(a1) = rf_bus_reset2_n101(*((uint32_t *)v4 + 1) + v52, v53);
 rf_bus_setup_n42c:
       if ( (v3 & 0x20) == 0 )
         return a1;
@@ -27323,22 +26855,22 @@ LABEL_19:
         v30[704] |= 0x84000000;
         *v4 = 7;
         v30[517] |= 0x10u;
-        a1 = (uint32_t)(sub_111218());
+        LODWORD(a1) = sub_111218();
       }
       return a1;
     }
     if ( v16 != 7 )
       goto rf_bus_setup_n42c;
     v24 = (*((uint32_t *)0x111e44));
-    a1 = (uint32_t)(rf_bus_reset_n_498);
-    a1 = (uint32_t)(0);
+    HIDWORD(a1) = rf_bus_reset_n_498;
+    LODWORD(a1) = 0;
     *(uint8_t *)rf_bus_reset_n_4b4 = 0;
     v24[517] &= ~0x10u;
     v24[516] &= ~0x10u;
     if ( *(uint8_t *)HIDWORD(a1) )
     {
       v24[513] = (16 * (unsigned char)*(uint8_t *)HIDWORD(a1)) & 0x70 | v24[513] & 0xFFFFFF8F;
-      *(uint8_t *)a1 = (uint32_t)(0);
+      *(uint8_t *)HIDWORD(a1) = 0;
     }
   }
   else
@@ -27349,10 +26881,10 @@ LABEL_19:
       if ( (*((uint32_t *)(*((uint32_t *)0x111e44)) + 708) & 0x7F) == 0x40 )
       {
         v19 = *((uint32_t *)(*((uint32_t *)0x111e44)) + 708);
-        a1 = (uint32_t)(v19 << 12);
+        LODWORD(a1) = v19 << 12;
         if ( (v19 & 0x80000) != 0 )
         {
-          a1 = (uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4);
+          LODWORD(a1) = *(uint32_t *)rf_bus_reset_n_4a4;
           v20 = *(uint32_t **)rf_bus_write_n_89;
           *v20 = rf_bus_reset_n_4a0;
           v20[1] = a1;
@@ -27396,7 +26928,7 @@ rf_bus_setup_358:
       v8 = v6[6] | (v6[7] << 8);
       *((uint16_t *)v4 + 9) = v8;
       if ( !v8 && (v4[12] & 0x80u) != 0 )
-        sub_10DA6C((*((uint32_t *)0x11219c)));
+        sub_10DA6C((*((uint32_t *)0x11219c)), 0);
       v9 = (*((uint32_t *)0x111e44));
       v10 = rf_bus_reset_1e48;
       v11 = *((int ( **)(void *))rf_bus_reset_1e48 + 3);
@@ -27427,7 +26959,7 @@ LABEL_49:
         sub_111524(0, 0x200000, 0);
 LABEL_50:
         v26 = *(uint32_t **)v5;
-        a1 = (uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4);
+        LODWORD(a1) = *(uint32_t *)rf_bus_reset_n_4a4;
         v27 = (*((uint32_t *)0x111e44));
         *v26 = rf_bus_reset_n_4a0;
         v26[1] = a1;
@@ -27610,155 +27142,155 @@ LABEL_44:
             case 0xCu:
             case 0xDu:
             case 0xEu:
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
 LABEL_144:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
 LABEL_145:
               v5[4] = v34;
               (*((volatile uint32_t *)0xA)) = 0;
-              v34 = ((unsigned)(v34) & 0xFFFF0000U) | (((unsigned)((*((volatile uint32_t *)0x30))) & 0xFFFFU) << 0);
+              LOWORD(v34) = (*((volatile uint32_t *)0x30));
 LABEL_146:
-              (void)0
+              (void)0 }
 LABEL_147:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = v34;
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
               (*((volatile uint32_t *)0xA)) = 0;
               v61 = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               break;
             default:
-              sub_10DA6C((*((uint32_t *)0x111e5c)));
+              sub_10DA6C((*((uint32_t *)0x111e5c)), 0);
               goto LABEL_54;
           }
           while ( 1 )
           {
-            (void)0
-            (void)0
-            (void)0
+            (void)0 }
+            (void)0 }
+            (void)0 }
             if ( 0 )
               break;
             if ( !__CFSHL__(851968, 3) )
@@ -27859,6 +27391,13 @@ LABEL_157:
           _T1 = *v1;
           v1 - 255;
           (void)0
+            LDC             p0, c0, [R9], {0xFF}
+            STC             p0, c0, [R11],#0x3FC
+            STCL            p0, c0, [R0], {0xFF}
+            LDC             p0, c0, [R9,#0x3FC]
+            STC             p0, c0, [R11,#0x3FC]!
+            STCL            p0, c0, [R0,#0x3FC]
+          }
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
           __mrc(0, 6, 7, 15, 7);
@@ -27912,9 +27451,13 @@ LABEL_268:
               _T1 = *0;
               LOWORD(0) = (uint16_t)0 - 1020;
               (void)0
+                LDC             p0, c0, [R0], {0xFF}
+                STC             p0, c0, [R2],#0x3FC
+              }
               _T1 = *v70;
               v169 = v70 + 255;
               (void)0
+              }
               _T1 = v169[255];
               v70 = v169 + 255;
               (void)0
@@ -28135,6 +27678,13 @@ LABEL_166:
                       _T1 = *0;
                       0 - 255;
                       (void)0
+                        LDC             p0, c0, [R9], {0xFF}
+                        STC             p0, c0, [R11],#0x3FC
+                        STCL            p0, c0, [R0], {0xFF}
+                        LDC             p0, c0, [R9,#0x3FC]
+                        STC             p0, c0, [R11,#0x3FC]!
+                        STCL            p0, c0, [R0,#0x3FC]
+                      }
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
                       __mrc(0, 6, 7, 15, 7);
@@ -28241,9 +27791,14 @@ LABEL_304:
                           _T1 = *0;
                           LOWORD(0) = (uint16_t)0 - 1020;
                           (void)0
+                            LDC             p0, c0, [R0], {0xFF}
+                            STC             p0, c0, [R2],#0x3FC
+                          }
                           _T1 = *v70;
                           v70 + 255;
                           (void)0
+                            LDC             p0, c0, [R5,#0x3FC]!
+                          }
 LABEL_318:
                           (void)0
                           v85 = __mrc(0, 5, 5, 15, 7);
@@ -28674,9 +28229,13 @@ LABEL_210:
                 (void)0
 LABEL_211:
                 (void)0
+                  LDC             p0, c0, [R0], {0xFF}
+                  STC             p0, c0, [R2],#0x3FC
+                }
                 _T1 = *v70;
                 v133 = v70 + 255;
                 (void)0
+                }
                 _T1 = v133[255];
                 v70 = v133 + 255;
                 (void)0
@@ -28769,7 +28328,7 @@ LABEL_72:
           v44 = (int *)(*((uint32_t *)0x112190));
           v45 = 64 - *(unsigned short *)v21;
           if ( v45 >= (unsigned short)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) )
-            v45 = ((unsigned)(v45) & 0xFFFF0000U) | (((unsigned)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) & 0xFFFFU) << 0);
+            LOWORD(v45) = *((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43;
           sub_1282E8(v43 + *((uint32_t *)rf_bus_reset_n_4b4 + 1), *(uint32_t *)(*((uint32_t *)0x112190)), (unsigned short)v45);
           v46 = *((unsigned short *)v4 + 4);
           v47 = (unsigned short)(v45 + *((uint16_t *)v4 + 5));
@@ -28779,7 +28338,7 @@ LABEL_72:
             v55 = *((void ( **)(unsigned char *))(*((uint32_t *)0x1122dc)) + 4);
             if ( v55 )
               v55(v4);
-            a1 = (uint32_t)(v3 << 26);
+            LODWORD(a1) = v3 << 26;
             if ( (v3 & 0x20) == 0 )
             {
               *v4 = 6;
@@ -28795,11 +28354,11 @@ LABEL_72:
             v58[704] |= 0x84000000;
             *v4 = 7;
             v58[517] |= 0x10u;
-            a1 = (uint32_t)(sub_111218());
+            LODWORD(a1) = sub_111218();
             goto LABEL_19;
           }
           v48 = *(uint32_t **)v5;
-          a1 = (uint32_t)(*v44);
+          LODWORD(a1) = *v44;
           v49 = rf_bus_reset_n_170;
           *v48 = (*((uint32_t *)0x112194));
           v48[1] = a1;
@@ -28812,15 +28371,15 @@ LABEL_72:
           *(uint8_t *)rf_bus_reset_n_4b4 = 0;
           v26 = *(uint32_t **)v5;
           v42 = (*((uint32_t *)0x112190));
-          a1 = (uint32_t)((*((uint32_t *)0x112194)));
+          LODWORD(a1) = (*((uint32_t *)0x112194));
           v27[517] &= ~0x10u;
           v27[516] &= ~0x10u;
-          a1 = (uint32_t)(*v42);
+          HIDWORD(a1) = *v42;
           *(uint64_t *)v26 = a1;
           goto LABEL_51;
         default:
           v23 = (*((uint32_t *)0x111e44));
-          a1 = (uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4);
+          LODWORD(a1) = *(uint32_t *)rf_bus_reset_n_4a4;
           *v21 = rf_bus_reset_n_4a0;
           v21[1] = a1;
           v23[709] = (uint32_t)(uintptr_t)v21;
@@ -28831,7 +28390,7 @@ LABEL_72:
       goto rf_bus_setup_n42c;
     }
     if ( *(uint8_t *)rf_bus_reset_n_4b4 )
-      a1 = (uint32_t)(sub_11164C((int *)1, 0));
+      LODWORD(a1) = sub_11164C((int *)1, 0);
     *v4 = 1;
   }
   return a1;
@@ -28840,8 +28399,7 @@ LABEL_72:
 
 // sub_111B30 @ 0x111b30, size 1958 bytes
 // rf_bus_poll_flush_n416 [rf]: Polls RFIC status byte at 0x180468 for value 2, then drains 7-word RFIC register block at 0x2007ff00.
-int  sub_111B30(long long a1)
-{
+int  sub_111B30(uint32_t a1) {
   int *v1; // r9
   int v3; // r4
   unsigned char *v4; // r5
@@ -29054,16 +28612,16 @@ int  sub_111B30(long long a1)
     if ( v16 == 2 )
     {
       v5 = (*((uint32_t *)0x111e40));
-      sub_10DA6C((*((uint32_t *)0x111e54)));
+      sub_10DA6C((*((uint32_t *)0x111e54)), 0);
       goto LABEL_7;
     }
     if ( (a1 & 0x100000000LL) == 0 )
       goto LABEL_18;
     if ( v16 == 4 )
     {
-      a1 = (uint32_t)(*((unsigned short *)(*((uint32_t *)0x111e3c)) + 4));
+      HIDWORD(a1) = *((unsigned short *)(*((uint32_t *)0x111e3c)) + 4);
       v50 = *((uint16_t *)(*((uint32_t *)0x111e3c)) + 5);
-      a1 = (uint32_t)((unsigned short)(WORD2(a1) - v50));
+      LODWORD(a1) = (unsigned short)(WORD2(a1) - v50);
       if ( WORD2(a1) == v50 )
       {
         *(uint8_t *)(*((uint32_t *)0x111e3c)) = 5;
@@ -29076,14 +28634,14 @@ int  sub_111B30(long long a1)
       else
       {
         if ( (unsigned int)a1 >= 0x40 )
-          a1 = (uint32_t)(64);
+          LODWORD(a1) = 64;
         v51 = 0;
       }
       v52 = (unsigned short)(v50 + a1);
       *((uint16_t *)(*((uint32_t *)0x111e3c)) + 5) = v52;
       if ( HIDWORD(a1) < v52 )
       {
-        a1 = (uint32_t)(sub_10DA6C((*((uint32_t *)0x1122e0))));
+        LODWORD(a1) = sub_10DA6C((*((uint32_t *)0x1122e0)), 0);
         WORD2(a1) = *((uint16_t *)v4 + 4);
         v52 = *((unsigned short *)v4 + 5);
       }
@@ -29101,10 +28659,10 @@ int  sub_111B30(long long a1)
           v54[516] |= 0x10u;
           return a1;
         }
-        a1 = (uint32_t)(sub_111404(0, 0));
+        LODWORD(a1) = sub_111404(0, 0);
         goto LABEL_18;
       }
-      a1 = (uint32_t)(sub_111404(*((uint32_t *)v4 + 1) + v52, v53));
+      LODWORD(a1) = sub_111404(*((uint32_t *)v4 + 1) + v52, v53);
 LABEL_18:
       if ( (v3 & 0x20) == 0 )
         return a1;
@@ -29121,22 +28679,22 @@ LABEL_19:
         v30[704] |= 0x84000000;
         *v4 = 7;
         v30[517] |= 0x10u;
-        a1 = (uint32_t)(sub_111218());
+        LODWORD(a1) = sub_111218();
       }
       return a1;
     }
     if ( v16 != 7 )
       goto LABEL_18;
     v24 = (*((uint32_t *)0x111e44));
-    a1 = (uint32_t)((*((uint32_t *)0x111e58)));
-    a1 = (uint32_t)(0);
+    HIDWORD(a1) = (*((uint32_t *)0x111e58));
+    LODWORD(a1) = 0;
     *(uint8_t *)(*((uint32_t *)0x111e3c)) = 0;
     v24[517] &= ~0x10u;
     v24[516] &= ~0x10u;
     if ( *(uint8_t *)HIDWORD(a1) )
     {
       v24[513] = (16 * (unsigned char)*(uint8_t *)HIDWORD(a1)) & 0x70 | v24[513] & 0xFFFFFF8F;
-      *(uint8_t *)a1 = (uint32_t)(0);
+      *(uint8_t *)HIDWORD(a1) = 0;
     }
   }
   else
@@ -29147,10 +28705,10 @@ LABEL_19:
       if ( (*((uint32_t *)(*((uint32_t *)0x111e44)) + 708) & 0x7F) == 0x40 )
       {
         v19 = *((uint32_t *)(*((uint32_t *)0x111e44)) + 708);
-        a1 = (uint32_t)(v19 << 12);
+        LODWORD(a1) = v19 << 12;
         if ( (v19 & 0x80000) != 0 )
         {
-          a1 = (uint32_t)(*(uint32_t *)(*((uint32_t *)0x111e4c)));
+          LODWORD(a1) = *(uint32_t *)(*((uint32_t *)0x111e4c));
           v20 = *(uint32_t **)(*((uint32_t *)0x111e40));
           *v20 = (*((uint32_t *)0x111e50));
           v20[1] = a1;
@@ -29194,7 +28752,7 @@ LABEL_7:
       v8 = v6[6] | (v6[7] << 8);
       *((uint16_t *)v4 + 9) = v8;
       if ( !v8 && (v4[12] & 0x80u) != 0 )
-        sub_10DA6C((*((uint32_t *)0x11219c)));
+        sub_10DA6C((*((uint32_t *)0x11219c)), 0);
       v9 = (*((uint32_t *)0x111e44));
       v10 = (*((uint32_t *)0x111e48));
       v11 = *((int ( **)(void *))(*((uint32_t *)0x111e48)) + 3);
@@ -29225,7 +28783,7 @@ LABEL_49:
         sub_111524(0, 0x200000, 0);
 LABEL_50:
         v26 = *(uint32_t **)v5;
-        a1 = (uint32_t)(*(uint32_t *)(*((uint32_t *)0x111e4c)));
+        LODWORD(a1) = *(uint32_t *)(*((uint32_t *)0x111e4c));
         v27 = (*((uint32_t *)0x111e44));
         *v26 = (*((uint32_t *)0x111e50));
         v26[1] = a1;
@@ -29407,155 +28965,155 @@ LABEL_44:
             case 0xCu:
             case 0xDu:
             case 0xEu:
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
 LABEL_144:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
 LABEL_145:
               v5[4] = v34;
               (*((volatile uint32_t *)0xA)) = 0;
-              v34 = ((unsigned)(v34) & 0xFFFF0000U) | (((unsigned)((*((volatile uint32_t *)0x30))) & 0xFFFFU) << 0);
+              LOWORD(v34) = (*((volatile uint32_t *)0x30));
 LABEL_146:
-              (void)0
+              (void)0 }
 LABEL_147:
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = v34;
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               v5[4] = (*((volatile uint32_t *)0x30));
               (*((volatile uint32_t *)0xA)) = 0;
               v61 = (*((volatile uint32_t *)0x30));
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
-              (void)0
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
+              (void)0 }
               break;
             default:
-              sub_10DA6C((*((uint32_t *)0x111e5c)));
+              sub_10DA6C((*((uint32_t *)0x111e5c)), 0);
               goto LABEL_54;
           }
           while ( 1 )
           {
-            (void)0
-            (void)0
-            (void)0
+            (void)0 }
+            (void)0 }
+            (void)0 }
             if ( 0 )
               break;
             if ( !__CFSHL__(851968, 3) )
@@ -29656,6 +29214,13 @@ LABEL_157:
           _T1 = *v1;
           v1 - 255;
           (void)0
+            LDC             p0, c0, [R9], {0xFF}
+            STC             p0, c0, [R11],#0x3FC
+            STCL            p0, c0, [R0], {0xFF}
+            LDC             p0, c0, [R9,#0x3FC]
+            STC             p0, c0, [R11,#0x3FC]!
+            STCL            p0, c0, [R0,#0x3FC]
+          }
           __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
           __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
           __mrc(0, 6, 7, 15, 7);
@@ -29709,9 +29274,13 @@ LABEL_268:
               _T1 = *0;
               LOWORD(0) = (uint16_t)0 - 1020;
               (void)0
+                LDC             p0, c0, [R0], {0xFF}
+                STC             p0, c0, [R2],#0x3FC
+              }
               _T1 = *v70;
               v169 = v70 + 255;
               (void)0
+              }
               _T1 = v169[255];
               v70 = v169 + 255;
               (void)0
@@ -29932,6 +29501,13 @@ LABEL_166:
                       _T1 = *0;
                       0 - 255;
                       (void)0
+                        LDC             p0, c0, [R9], {0xFF}
+                        STC             p0, c0, [R11],#0x3FC
+                        STCL            p0, c0, [R0], {0xFF}
+                        LDC             p0, c0, [R9,#0x3FC]
+                        STC             p0, c0, [R11,#0x3FC]!
+                        STCL            p0, c0, [R0,#0x3FC]
+                      }
                       __mcr(0, 5, v85, 11, 15, 7);
                       __mcr(0, 6, v85, 0, 15, 7);
                       __mrc(0, 6, 7, 15, 7);
@@ -30038,9 +29614,14 @@ LABEL_304:
                           _T1 = *0;
                           LOWORD(0) = (uint16_t)0 - 1020;
                           (void)0
+                            LDC             p0, c0, [R0], {0xFF}
+                            STC             p0, c0, [R2],#0x3FC
+                          }
                           _T1 = *v70;
                           v70 + 255;
                           (void)0
+                            LDC             p0, c0, [R5,#0x3FC]!
+                          }
 LABEL_318:
                           (void)0
                           v85 = __mrc(0, 5, 5, 15, 7);
@@ -30471,9 +30052,13 @@ LABEL_210:
                 (void)0
 LABEL_211:
                 (void)0
+                  LDC             p0, c0, [R0], {0xFF}
+                  STC             p0, c0, [R2],#0x3FC
+                }
                 _T1 = *v70;
                 v133 = v70 + 255;
                 (void)0
+                }
                 _T1 = v133[255];
                 v70 = v133 + 255;
                 (void)0
@@ -30566,7 +30151,7 @@ LABEL_72:
           v44 = (int *)(*((uint32_t *)0x112190));
           v45 = 64 - *(unsigned short *)v21;
           if ( v45 >= (unsigned short)(*((uint16_t *)(*((uint32_t *)0x111e3c)) + 4) - v43) )
-            v45 = ((unsigned)(v45) & 0xFFFF0000U) | (((unsigned)(*((uint16_t *)(*((uint32_t *)0x111e3c)) + 4) - v43) & 0xFFFFU) << 0);
+            LOWORD(v45) = *((uint16_t *)(*((uint32_t *)0x111e3c)) + 4) - v43;
           sub_1282E8(v43 + *((uint32_t *)(*((uint32_t *)0x111e3c)) + 1), *(uint32_t *)(*((uint32_t *)0x112190)), (unsigned short)v45);
           v46 = *((unsigned short *)v4 + 4);
           v47 = (unsigned short)(v45 + *((uint16_t *)v4 + 5));
@@ -30576,7 +30161,7 @@ LABEL_72:
             v55 = *((void ( **)(unsigned char *))(*((uint32_t *)0x1122dc)) + 4);
             if ( v55 )
               v55(v4);
-            a1 = (uint32_t)(v3 << 26);
+            LODWORD(a1) = v3 << 26;
             if ( (v3 & 0x20) == 0 )
             {
               *v4 = 6;
@@ -30592,11 +30177,11 @@ LABEL_72:
             v58[704] |= 0x84000000;
             *v4 = 7;
             v58[517] |= 0x10u;
-            a1 = (uint32_t)(sub_111218());
+            LODWORD(a1) = sub_111218();
             goto LABEL_19;
           }
           v48 = *(uint32_t **)v5;
-          a1 = (uint32_t)(*v44);
+          LODWORD(a1) = *v44;
           v49 = (*((uint32_t *)0x112180));
           *v48 = (*((uint32_t *)0x112194));
           v48[1] = a1;
@@ -30609,15 +30194,15 @@ LABEL_72:
           *(uint8_t *)(*((uint32_t *)0x111e3c)) = 0;
           v26 = *(uint32_t **)v5;
           v42 = (*((uint32_t *)0x112190));
-          a1 = (uint32_t)((*((uint32_t *)0x112194)));
+          LODWORD(a1) = (*((uint32_t *)0x112194));
           v27[517] &= ~0x10u;
           v27[516] &= ~0x10u;
-          a1 = (uint32_t)(*v42);
+          HIDWORD(a1) = *v42;
           *(uint64_t *)v26 = a1;
           goto LABEL_51;
         default:
           v23 = (*((uint32_t *)0x111e44));
-          a1 = (uint32_t)(*(uint32_t *)(*((uint32_t *)0x111e4c)));
+          LODWORD(a1) = *(uint32_t *)(*((uint32_t *)0x111e4c));
           *v21 = (*((uint32_t *)0x111e50));
           v21[1] = a1;
           v23[709] = (uint32_t)(uintptr_t)v21;
@@ -30628,7 +30213,7 @@ LABEL_72:
       goto LABEL_18;
     }
     if ( *(uint8_t *)(*((uint32_t *)0x111e3c)) )
-      a1 = (uint32_t)(sub_11164C((int *)1, 0));
+      LODWORD(a1) = sub_11164C((int *)1, 0);
     *v4 = 1;
   }
   return a1;
@@ -30637,8 +30222,7 @@ LABEL_72:
 
 // sub_1122F0 @ 0x1122f0, size 582 bytes
 // rf_bus_setup_n3a0 [mac]: Set up RF bus register pairs from input bytes
-int sub_1122F0()
-{
+int sub_1122F0() {
   uint8_t *v0; // r3
   uint32_t *v1; // r4
   uint32_t *v2; // r3
@@ -30824,8 +30408,7 @@ LABEL_24:
 
 // rf_cmd_send_n_3ac @ 0x11256c, size 40 bytes
 // rf_fault_dump [rf]: Dumps RF fault state for diagnostic logging
-uint8_t * rf_cmd_send_n_3ac(int a1, int a2)
-{
+uint8_t * rf_cmd_send_n_3ac(uint32_t a1, uint32_t a2) {
   uint8_t *result; // r0
 
   if ( (*((uint16_t *)rf_bus_reset_n2a4 + 89) & 0x4000) != 0 )
@@ -30838,8 +30421,7 @@ uint8_t * rf_cmd_send_n_3ac(int a1, int a2)
 
 
 // sub_11256C @ 0x11256c, size 40 bytes
-uint8_t * sub_11256C(int a1, int a2)
-{
+uint8_t * sub_11256C(uint32_t a1, uint32_t a2) {
   uint8_t *result; // r0
 
   if ( (*((uint16_t *)(*((uint32_t *)0x112594)) + 89) & 0x4000) != 0 )
@@ -30853,23 +30435,20 @@ uint8_t * sub_11256C(int a1, int a2)
 
 // rf_bus_reset_n2b4 @ 0x1125a4, size 6 bytes
 // rf_bus_reset_n2b4 [rf]: RF bus reset/read register byte stub
-int rf_bus_reset_n2b4()
-{
+int rf_bus_reset_n2b4() {
   return *(unsigned char *)rf_cmd_send_n_36c;
 }
 
 
 // sub_1125A4 @ 0x1125a4, size 6 bytes
-int sub_1125A4()
-{
+int sub_1125A4() {
   return *(unsigned char *)(*((uint32_t *)0x1125ac));
 }
 
 
 // sub_1125B0 @ 0x1125b0, size 48 bytes
 // rf_cmd_send_n_360 [rf]: Send RF command to hardware queue
-uint8_t * sub_1125B0(int a1, int a2)
-{
+uint8_t * sub_1125B0(uint32_t a1, uint32_t a2) {
   uint8_t *result; // r0
   uint32_t *v3; // r2
 
@@ -30886,8 +30465,7 @@ uint8_t * sub_1125B0(int a1, int a2)
 
 // sub_1125F4 @ 0x1125f4, size 594 bytes
 // rf_bus_mark_n_372 [rf]: Mark/latch RF bus transaction state
-int sub_1125F4()
-{
+int sub_1125F4() {
   uint32_t *v0; // r3
   int v1; // r2
   int v2; // r4
@@ -30931,10 +30509,10 @@ int sub_1125F4()
   v1 = *((uint32_t *)(*((uint32_t *)0x112848)) + 5);
   *((uint32_t *)(*((uint32_t *)0x112848)) + 5) = v1;
   v2 = v0[6] & v1;
-  v3 = (v3 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v2 << 19) & 0xFFFFFFFFULL) << 0);
+  LODWORD(v3) = v2 << 19;
   if ( (v2 & 0x1000) != 0 )
   {
-    v3 = (v3 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(sub_1122F0()) & 0xFFFFFFFFULL) << 0);
+    LODWORD(v3) = sub_1122F0();
     v4 = v2 & 0x2000;
     if ( (v2 & 0x2000) == 0 )
       return v3;
@@ -30944,7 +30522,7 @@ int sub_1125F4()
   }
   else
   {
-    v3 = (v3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(v2 << 18) & 0xFFFFFFFFULL) << 32);
+    HIDWORD(v3) = v2 << 18;
     v4 = v2 & rf_bus_write2_n_4f3;
     v5 = v2 & 0x40000;
     v6 = v2 & 0x80000;
@@ -30963,12 +30541,12 @@ int sub_1125F4()
   v25[704] = v28;
   v29 = *v26;
   v30 = *v27;
-  v3 = (v3 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(rf_cmd_send_n_ac) & 0xFFFFFFFFULL) << 0);
+  LODWORD(v3) = rf_cmd_send_n_ac;
   *v29 = rf_cmd_send_n_ac;
   v29[1] = v30;
   v25[709] = (uint32_t)(uintptr_t)v29;
   v25[706] = (uint32_t)(uintptr_t)v25[706];
-  v3 = (v3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(v25[704] | 0x84000000) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(v3) = v25[704] | 0x84000000;
   v25[704] = HIDWORD(v3);
 rf_bus_reset_n334:
   if ( v5 )
@@ -30979,12 +30557,12 @@ rf_bus_reset_n334:
     v11 = *((uint32_t *)(*((uint32_t *)0x112848)) + 518) & *((uint32_t *)(*((uint32_t *)0x112848)) + 519);
     while ( 1 )
     {
-      v3 = (v3 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(1) & 0xFFFFFFFFULL) << 0);
+      LODWORD(v3) = 1;
       if ( ((1 << v10) & v11) != 0 )
       {
         if ( !v10 )
         {
-          v3 = (uint32_t)(v8[578]);
+          HIDWORD(v3) = v8[578];
           v8[578] = HIDWORD(v3);
           v23 = v8[516] & HIDWORD(v3);
           if ( (v23 & 0x18) != 0 )
@@ -31001,7 +30579,7 @@ rf_bus_reset_n334:
         v12 = (char *)&v8[8 * v10 - 8];
         v13 = *((uint32_t *)v12 + 586);
         *((uint32_t *)v12 + 586) = v13;
-        v3 = (uint32_t)(v8[516] & v13);
+        HIDWORD(v3) = v8[516] & v13;
         if ( (v3 & 0x900000000LL) != 0 )
         {
           if ( *(uint8_t *)(v9 - 5) )
@@ -31011,15 +30589,15 @@ rf_bus_reset_n334:
             v33 = (v13 & 1) == 0;
             if ( (v13 & 1) == 0 )
               sub_11164C((int *)1, (unsigned char)v10);
-            v3 = (uint32_t)(sub_100200((int *)(v9 - 16), 0, 0x10u));
+            LODWORD(v3) = sub_100200((int *)(v9 - 16), 0, 0x10u);
             v14 = *(int ( **)(int, int, int))(rf_cmd_send_n_c8 + 4 * v10 + 52);
             if ( v14 )
-              v3 = (uint32_t)(v14(v37, v35, v33));
+              LODWORD(v3) = v14(v37, v35, v33);
           }
         }
         else
         {
-          v3 = (uint32_t)(sub_10DA6C((*((uint32_t *)0x112858))));
+          LODWORD(v3) = sub_10DA6C((*((uint32_t *)0x112858)), 0);
         }
       }
       if ( (unsigned char)v10 == 5 )
@@ -31041,18 +30619,18 @@ rf_cmd_send_n_272:
       {
         if ( !i )
         {
-          v3 = (uint32_t)(v15[706]);
+          HIDWORD(v3) = v15[706];
           v15[706] = HIDWORD(v3);
           v22 = v15[517] & HIDWORD(v3);
           if ( (v22 & 0x10) != 0 )
           {
             v15[517] &= ~0x10u;
-            v3 = (uint32_t)(rf_bus_write_1(0, 0x200000, 0));
+            LODWORD(v3) = rf_bus_write_1(0, 0x200000, 0);
           }
           else if ( (v22 & 0x29) != 0 )
           {
-            v3 = (uint32_t)(0);
-            v3 = (uint32_t)(rf_level_apply_n_358(v3));
+            LODWORD(v3) = 0;
+            LODWORD(v3) = rf_level_apply_n_358(v3);
           }
           goto LABEL_19;
         }
@@ -31066,10 +30644,10 @@ rf_cmd_send_n_272:
             v36 = **(unsigned short **)(v17 + 4 * i);
             v34 = *(uint32_t *)(v16 - 12);
             v38 = *(uint32_t *)(v16 - 16);
-            v3 = (uint32_t)(sub_100200((int *)(v16 - 16), 0, 0x10u));
+            LODWORD(v3) = sub_100200((int *)(v16 - 16), 0, 0x10u);
             v31 = *(int ( **)(int, int, uint32_t))(4 * i + rf_cmd_send_n_c8 + 32);
             if ( v31 )
-              v3 = (uint32_t)(v31(v38, v34 - v36, 0));
+              LODWORD(v3) = v31(v38, v34 - v36, 0);
           }
         }
       }
@@ -31081,7 +30659,7 @@ LABEL_19:
   }
   if ( v7 )
   {
-    v3 = (uint32_t)(rf_cmd_send_n_3ac(v3, SHIDWORD(v3)));
+    LODWORD(v3) = rf_cmd_send_n_3ac(v3, SHIDWORD(v3));
     if ( v4 >= 0 )
       return v3;
   }
@@ -31089,15 +30667,14 @@ LABEL_19:
   {
     return v3;
   }
-  v3 = (uint32_t)(sub_1125B0(v3, SHIDWORD(v3)));
+  LODWORD(v3) = sub_1125B0(v3, SHIDWORD(v3));
   return v3;
 }
 
 
 // rf_cmd_wait @ 0x112878, size 126 bytes
 // rf_stream_start [rf]: Start RF stream, init control byte and config word
-void rf_cmd_wait()
-{
+void rf_cmd_wait() {
   int *v0; // r4
   int v1; // r2
   int v2; // r3
@@ -31134,8 +30711,7 @@ void rf_cmd_wait()
 
 
 // sub_112878 @ 0x112878, size 126 bytes
-void sub_112878()
-{
+void sub_112878() {
   int *v0; // r4
   int v1; // r2
   int v2; // r3
@@ -31173,8 +30749,7 @@ void sub_112878()
 
 // rf_cmd_send_2918 @ 0x112918, size 100 bytes
 // rf_cmd_send_n56 [rf]: Send RF command variant n56, returns small status codes
-int  rf_cmd_send_2918(int a1, unsigned short *a2)
-{
+int  rf_cmd_send_2918(uint32_t a1, uint32_t a2) {
   int v4; // r2
   int v5; // r3
   int v6; // r2
@@ -31198,8 +30773,7 @@ int  rf_cmd_send_2918(int a1, unsigned short *a2)
 
 
 // sub_112918 @ 0x112918, size 100 bytes
-int  sub_112918(int a1, unsigned short *a2)
-{
+int  sub_112918(uint32_t a1, uint32_t a2) {
   int v4; // r2
   int v5; // r3
   int v6; // r2
@@ -31223,16 +30797,14 @@ int  sub_112918(int a1, unsigned short *a2)
 
 
 // sub_1129CC @ 0x1129cc, size 4 bytes
-int sub_1129CC()
-{
+int sub_1129CC() {
   return (*((uint32_t *)0x1129d0));
 }
 
 
 // rf_cmd_send_nf4 @ 0x112a0c, size 308 bytes
 // rf_cmd_send_n190 [rf]: Send RF command to radio via mailbox
-int  rf_cmd_send_nf4(unsigned char *a1, unsigned int a2, int a3)
-{
+int  rf_cmd_send_nf4(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned short *v3; // r7
   unsigned char *v4; // r6
   uint8_t *v5; // r4
@@ -31261,14 +30833,14 @@ int  rf_cmd_send_nf4(unsigned char *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    sub_10DA6C((*((uint32_t *)0x112b58)), *v3, *v4);
+    sub_10DA6C((*((uint32_t *)0x112b58)), *v3);
     ipc_msg_post_check(rf_cmd_send_n244, v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    sub_10DA6C((*((uint32_t *)0x112b60)), *v3, a2);
+    sub_10DA6C((*((uint32_t *)0x112b60)), *v3);
   }
   else
   {
@@ -31282,13 +30854,13 @@ int  rf_cmd_send_nf4(unsigned char *a1, unsigned int a2, int a3)
       v12 = (*((uint32_t *)0x112b78));
       if ( *((unsigned char *)(*((uint32_t *)0x112b78)) + 2433) >= (unsigned int)*((unsigned char *)(*((uint32_t *)0x112b78)) + 2434) )
       {
-        sub_10DA6C(rf_cmd_send_n258);
+        sub_10DA6C(rf_cmd_send_n258, 0);
       }
       else
       {
         if ( v11 + 4 == a2 || a2 == v11 + 5 )
         {
-          sub_113630(a1);
+          sub_113630(a1, 0, 0);
           v13 = v12[2433];
           v14 = rf_bus_mark_n_494_2b54;
           v15 = (unsigned char)v12[2432]
@@ -31301,28 +30873,27 @@ int  rf_cmd_send_nf4(unsigned char *a1, unsigned int a2, int a3)
           *((uint32_t *)v16 + 409) = v7 + 4;
           *((uint32_t *)v16 + 412) = v11;
           v12[2433] = v13 + 1;
-          list_push_tail(v14);
+          list_push_tail(v14, 0);
           irq_nesting_or(0x1000000);
           return 1;
         }
-        sub_10DA6C(rf_cmd_send_n25c, *v3, v11, a2);
+        sub_10DA6C(rf_cmd_send_n25c, *v3);
       }
     }
     else
     {
-      sub_10DA6C((*((uint32_t *)0x112b68)), *v3, v9, v11, a2);
+      sub_10DA6C((*((uint32_t *)0x112b68)), *v3);
     }
   }
   v18 = sub_10FEF8(&v7[-*(uint32_t *)(*((uint32_t *)0x112b64))]);
-  sub_113630(v18);
+  sub_113630(v18, 0, 0);
   return 1;
 }
 
 
 // sub_112A0C @ 0x112a0c, size 308 bytes
 // rf_cmd_send_n16a [rf]: Enqueue and dispatch an N16A-type RF command to the upper MAC via IPC.
-int  sub_112A0C(unsigned char *a1, unsigned int a2, int a3)
-{
+int  sub_112A0C(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned short *v3; // r7
   unsigned char *v4; // r6
   uint8_t *v5; // r4
@@ -31351,14 +30922,14 @@ int  sub_112A0C(unsigned char *a1, unsigned int a2, int a3)
   v7 = a1;
   if ( *v4 != 2 )
   {
-    sub_10DA6C((*((uint32_t *)0x112b58)), *v3, *v4);
+    sub_10DA6C((*((uint32_t *)0x112b58)), *v3);
     sub_1136F4((*((uint32_t *)0x112b5c)), v7, a2, *v4);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    sub_10DA6C((*((uint32_t *)0x112b60)), *v3, a2);
+    sub_10DA6C((*((uint32_t *)0x112b60)), *v3);
   }
   else
   {
@@ -31372,13 +30943,13 @@ int  sub_112A0C(unsigned char *a1, unsigned int a2, int a3)
       v12 = (*((uint32_t *)0x112b78));
       if ( *((unsigned char *)(*((uint32_t *)0x112b78)) + 2433) >= (unsigned int)*((unsigned char *)(*((uint32_t *)0x112b78)) + 2434) )
       {
-        sub_10DA6C((*((uint32_t *)0x112b70)));
+        sub_10DA6C((*((uint32_t *)0x112b70)), 0);
       }
       else
       {
         if ( v11 + 4 == a2 || a2 == v11 + 5 )
         {
-          sub_113630(a1);
+          sub_113630(a1, 0, 0);
           v13 = v12[2433];
           v14 = (*((uint32_t *)0x112b54));
           v15 = (unsigned char)v12[2432]
@@ -31391,28 +30962,27 @@ int  sub_112A0C(unsigned char *a1, unsigned int a2, int a3)
           *((uint32_t *)v16 + 409) = v7 + 4;
           *((uint32_t *)v16 + 412) = v11;
           v12[2433] = v13 + 1;
-          sub_11E724(v14);
+          sub_11E724(v14, 0);
           sub_11E5E0(0x1000000);
           return 1;
         }
-        sub_10DA6C((*((uint32_t *)0x112b74)), *v3, v11, a2);
+        sub_10DA6C((*((uint32_t *)0x112b74)), *v3);
       }
     }
     else
     {
-      sub_10DA6C((*((uint32_t *)0x112b68)), *v3, v9, v11, a2);
+      sub_10DA6C((*((uint32_t *)0x112b68)), *v3);
     }
   }
   v18 = sub_10FEF8(&v7[-*(uint32_t *)(*((uint32_t *)0x112b64))]);
-  sub_113630(v18);
+  sub_113630(v18, 0, 0);
   return 1;
 }
 
 
 // sub_112B7C @ 0x112b7c, size 126 bytes
 // rf_cmd_send_n2c0 [rf]: Send RF command 0xC0 and check status
-int  sub_112B7C(int a1)
-{
+int  sub_112B7C(uint32_t a1) {
   unsigned short *v2; // r4
   int v3; // r1
   uint8_t *v4; // r1
@@ -31457,8 +31027,7 @@ int  sub_112B7C(int a1)
 
 // rf_stream_start_2c20 @ 0x112c20, size 130 bytes
 // sdio_buffer_prepare_n1dc [mmio]: Prepare SDIO transfer buffer alignment and descriptor
-int  rf_stream_start_2c20(int a1, unsigned int a2)
-{
+int  rf_stream_start_2c20(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
   uint32_t *v4; // r7
@@ -31473,7 +31042,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
   v3 = (*((uint32_t *)0x112ca8));
   if ( *(uint8_t *)(*((uint32_t *)0x112ca8)) )
   {
-    sub_10DA6C((*((uint32_t *)0x112cb8)), (*((uint32_t *)0x112cb4)), *(unsigned char *)(*((uint32_t *)0x112ca8)));
+    sub_10DA6C((*((uint32_t *)0x112cb8)), (*((uint32_t *)0x112cb4)));
     return -3;
   }
   else
@@ -31485,7 +31054,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
     v6 = v5;
     if ( v5 )
     {
-      sub_10DA6C((*((uint32_t *)0x112cbc)), (*((uint32_t *)0x112cb4)), v5);
+      sub_10DA6C((*((uint32_t *)0x112cbc)), (*((uint32_t *)0x112cb4)));
       return -1;
     }
     else
@@ -31504,8 +31073,7 @@ int  rf_stream_start_2c20(int a1, unsigned int a2)
 
 
 // sub_112C20 @ 0x112c20, size 130 bytes
-int  sub_112C20(int a1, unsigned int a2)
-{
+int  sub_112C20(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r4
   uint8_t *v3; // r6
   uint32_t *v4; // r7
@@ -31520,7 +31088,7 @@ int  sub_112C20(int a1, unsigned int a2)
   v3 = (*((uint32_t *)0x112ca8));
   if ( *(uint8_t *)(*((uint32_t *)0x112ca8)) )
   {
-    sub_10DA6C((*((uint32_t *)0x112cb8)), (*((uint32_t *)0x112cb4)), *(unsigned char *)(*((uint32_t *)0x112ca8)));
+    sub_10DA6C((*((uint32_t *)0x112cb8)), (*((uint32_t *)0x112cb4)));
     return -3;
   }
   else
@@ -31532,7 +31100,7 @@ int  sub_112C20(int a1, unsigned int a2)
     v6 = v5;
     if ( v5 )
     {
-      sub_10DA6C((*((uint32_t *)0x112cbc)), (*((uint32_t *)0x112cb4)), v5);
+      sub_10DA6C((*((uint32_t *)0x112cbc)), (*((uint32_t *)0x112cb4)));
       return -1;
     }
     else
@@ -31552,8 +31120,7 @@ int  sub_112C20(int a1, unsigned int a2)
 
 // rf_stream_start2_cc0 @ 0x112cc0, size 164 bytes
 // rf_cmd_send_n428 [rf]: Send RF command N428
-int  rf_stream_start2_cc0(int a1, unsigned int a2)
-{
+int  rf_stream_start2_cc0(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
   int v4; // r3
@@ -31569,7 +31136,7 @@ int  rf_stream_start2_cc0(int a1, unsigned int a2)
   v3 = (*((uint32_t *)0x112d68));
   if ( *(uint8_t *)(*((uint32_t *)0x112d68)) )
   {
-    sub_10DA6C((*((uint32_t *)0x112d7c)), (*((uint32_t *)0x112d78)), *(unsigned char *)(*((uint32_t *)0x112d68)));
+    sub_10DA6C((*((uint32_t *)0x112d7c)), (*((uint32_t *)0x112d78)));
     return -3;
   }
   else
@@ -31590,7 +31157,7 @@ int  rf_stream_start2_cc0(int a1, unsigned int a2)
     v7 = v6;
     if ( v6 )
     {
-      sub_10DA6C((*((uint32_t *)0x112d80)), (*((uint32_t *)0x112d78)), v6);
+      sub_10DA6C((*((uint32_t *)0x112d80)), (*((uint32_t *)0x112d78)));
       return -1;
     }
     else
@@ -31609,8 +31176,7 @@ int  rf_stream_start2_cc0(int a1, unsigned int a2)
 
 
 // sub_112CC0 @ 0x112cc0, size 164 bytes
-int  sub_112CC0(int a1, unsigned int a2)
-{
+int  sub_112CC0(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r4
   uint8_t *v3; // r5
   int v4; // r3
@@ -31626,7 +31192,7 @@ int  sub_112CC0(int a1, unsigned int a2)
   v3 = (*((uint32_t *)0x112d68));
   if ( *(uint8_t *)(*((uint32_t *)0x112d68)) )
   {
-    sub_10DA6C((*((uint32_t *)0x112d7c)), (*((uint32_t *)0x112d78)), *(unsigned char *)(*((uint32_t *)0x112d68)));
+    sub_10DA6C((*((uint32_t *)0x112d7c)), (*((uint32_t *)0x112d78)));
     return -3;
   }
   else
@@ -31647,7 +31213,7 @@ int  sub_112CC0(int a1, unsigned int a2)
     v7 = v6;
     if ( v6 )
     {
-      sub_10DA6C((*((uint32_t *)0x112d80)), (*((uint32_t *)0x112d78)), v6);
+      sub_10DA6C((*((uint32_t *)0x112d80)), (*((uint32_t *)0x112d78)));
       return -1;
     }
     else
@@ -31667,8 +31233,7 @@ int  sub_112CC0(int a1, unsigned int a2)
 
 // rf_bus_mark_ne0 @ 0x112d84, size 148 bytes
 // rf_cmd_send_n4ce [tx]: Sends an RF command with masked flag field
-int  rf_bus_mark_ne0(int a1, int a2)
-{
+int  rf_bus_mark_ne0(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r6
   int **v3; // r4
   char v4; // r0
@@ -31687,7 +31252,7 @@ int  rf_bus_mark_ne0(int a1, int a2)
   if ( *(uint8_t *)rf_cmd_send_n500 )
     return -99;
   v3 = (int **)(*((uint32_t *)0x112e1c));
-  v4 = sub_11E82C((*((uint32_t *)0x112e1c)), a2);
+  v4 = sub_11E82C((*((uint32_t *)0x112e1c)));
   v5 = (*((uint32_t *)0x112e24));
   *(uint8_t *)(*((uint32_t *)0x112e24)) = v4;
   if ( v4 )
@@ -31737,8 +31302,7 @@ rf_cmd_send_n4c6:
 
 // sub_112D84 @ 0x112d84, size 148 bytes
 // rf_cmd_send_n4de [rf]: Sends fixed RF command 0x1212923 (n4de) by clearing and populating the shared cmd mailbox then ringing the doorbell.
-int  sub_112D84(int a1, int a2)
-{
+int  sub_112D84(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r6
   int **v3; // r4
   char v4; // r0
@@ -31757,7 +31321,7 @@ int  sub_112D84(int a1, int a2)
   if ( *(uint8_t *)(*((uint32_t *)0x112e18)) )
     return -99;
   v3 = (int **)(*((uint32_t *)0x112e1c));
-  v4 = sub_11E82C((*((uint32_t *)0x112e1c)), a2);
+  v4 = sub_11E82C((*((uint32_t *)0x112e1c)));
   v5 = (*((uint32_t *)0x112e24));
   *(uint8_t *)(*((uint32_t *)0x112e24)) = v4;
   if ( v4 )
@@ -31806,8 +31370,7 @@ LABEL_11:
 
 
 // sub_112E28 @ 0x112e28, size 174 bytes
-int  sub_112E28(int f594, int a2, int a3)
-{
+int  sub_112E28(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char *v3; // r5
   char v4; // r3
   uint8_t *v5; // r4
@@ -31841,7 +31404,7 @@ int  sub_112E28(int f594, int a2, int a3)
         {
           v10 = *(uint32_t *)(*(uint32_t *)(sub_11E7AC(v7) + 4) + 4);
           --*v5;
-          list_push_tail(v9);
+          list_push_tail(v9, 0);
           v11 = *(unsigned char *)(v10 + 2) >> 4;
           if ( v11 )
             break;
@@ -31856,7 +31419,7 @@ int  sub_112E28(int f594, int a2, int a3)
         }
         else
         {
-          sub_10DA6C(v8);
+          sub_10DA6C(v8, 0);
           f594 = rf_mem_read_f594(v10, 32, 1, 0);
         }
       }
@@ -31878,8 +31441,7 @@ LABEL_12:
 
 // sub_112EF4 @ 0x112ef4, size 80 bytes
 // rf_init_helper_n0c [util]: RF init helper, copies 18 bytes and checks config byte
-uint32_t * sub_112EF4(int a1)
-{
+uint32_t * sub_112EF4(uint32_t a1) {
   uint32_t *v2; // r4
   int v3; // r0
   unsigned int v4; // r0
@@ -31889,7 +31451,7 @@ uint32_t * sub_112EF4(int a1)
     case 1:
       v2 = (*((uint32_t *)0x112f4c));
       v3 = sub_1282E8((*((uint32_t *)0x112f4c)), (*((uint32_t *)0x112f50)), 18);
-      if ( *((uint8_t *)(*((uint32_t *)0x112f54)) + 370) && sub_113B30(v3) )
+      if ( *((uint8_t *)(*((uint32_t *)0x112f54)) + 370) && sub_113B30() )
       {
         v4 = rf_helper_sub_n_3b78();
         v2[2] = ((HIWORD(v4) << 16) + 0x10000) | (unsigned short)v4;
@@ -31910,8 +31472,7 @@ uint32_t * sub_112EF4(int a1)
 
 
 // sub_112F58 @ 0x112f58, size 14 bytes
-int  sub_112F58(unsigned int a1)
-{
+int  sub_112F58(uint32_t a1) {
   if ( a1 > 7 )
     return 0;
   else
@@ -31921,8 +31482,7 @@ int  sub_112F58(unsigned int a1)
 
 // sub_112F6C @ 0x112f6c, size 298 bytes
 // sub_1212F6C [unknown]: Unknown behavioral stub
-void  sub_112F6C(int a1, int a2, int a3, int a4)
-{
+void  sub_112F6C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v4; // r5
   unsigned short *v5; // r2
   int v6; // r1
@@ -32025,14 +31585,13 @@ LABEL_6:
   else
   {
     irq_nesting_or(256);
-    sub_10DA6C((*((uint32_t *)0x1130c4)));
+    sub_10DA6C((*((uint32_t *)0x1130c4)), 0);
   }
 }
 
 
 // sub_1130CC @ 0x1130cc, size 124 bytes
-int sub_1130CC()
-{
+int sub_1130CC() {
   void *v0; // r7
   int result; // r0
   uint16_t *v2; // r9
@@ -32061,7 +31620,7 @@ int sub_1130CC()
         if ( **v6 < 0 )
           rf_cmd_send_n264((*((uint32_t *)0x113158)), (*((uint32_t *)0x113154)), 495);
       }
-      result = list_push_tail((*((uint32_t *)0x11314c)));
+      result = list_push_tail((*((uint32_t *)0x11314c)), 0);
       v8 = *(unsigned short *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;
@@ -32074,8 +31633,7 @@ int sub_1130CC()
 
 // rf_mem_write_n3f8 @ 0x1131bc, size 156 bytes
 // rf_mem_write_n3f8 [rf]: Write to RF memory region n3f8
-void rf_mem_write_n3f8()
-{
+void rf_mem_write_n3f8() {
   int *v0; // r4
   int v1; // r0
   uint8_t *v2; // r1
@@ -32098,7 +31656,7 @@ void rf_mem_write_n3f8()
   v0 = (int *)(*((uint32_t *)0x11325c));
   v1 = (*((uint32_t *)0x113260));
   ++*(uint32_t *)(*((uint32_t *)0x11325c));
-  list_push_tail(v1);
+  list_push_tail(v1, 0);
   v2 = (*((uint32_t *)0x113268));
   v3 = *(unsigned char *)(*((uint32_t *)0x113268));
   v4 = *(uint16_t *)(*((uint32_t *)0x113264)) + 1;
@@ -32132,8 +31690,7 @@ void rf_mem_write_n3f8()
 
 
 // sub_1131BC @ 0x1131bc, size 156 bytes
-void sub_1131BC()
-{
+void sub_1131BC() {
   int *v0; // r4
   int v1; // r0
   uint8_t *v2; // r1
@@ -32156,7 +31713,7 @@ void sub_1131BC()
   v0 = (int *)(*((uint32_t *)0x11325c));
   v1 = (*((uint32_t *)0x113260));
   ++*(uint32_t *)(*((uint32_t *)0x11325c));
-  sub_11E724(v1);
+  sub_11E724(v1, 0);
   v2 = (*((uint32_t *)0x113268));
   v3 = *(unsigned char *)(*((uint32_t *)0x113268));
   v4 = *(uint16_t *)(*((uint32_t *)0x113264)) + 1;
@@ -32191,8 +31748,7 @@ void sub_1131BC()
 
 // sub_113280 @ 0x113280, size 52 bytes
 // sub_1213280 [unknown]: Unidentified initialization helper in lmacfw_rf
-int sub_113280()
-{
+int sub_113280() {
   void *v0; // r5
   int result; // r0
   int v2; // r7
@@ -32209,7 +31765,7 @@ int sub_113280()
     do
     {
       log_pool_alloc2_a18(v2, 0x7Cu);
-      result = list_push_tail(v3);
+      result = list_push_tail(v3, 0);
       ++v4;
     }
     while ( *(unsigned short *)(*(uint32_t *)v0 + 4) > (unsigned int)(unsigned short)v4 );
@@ -32220,8 +31776,7 @@ int sub_113280()
 
 // sub_1132C0 @ 0x1132c0, size 52 bytes
 // sub_12132C0 [unknown]: Thin wrapper routine (push r4,lr; small arithmetic tail)
-int sub_1132C0()
-{
+int sub_1132C0() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -32254,8 +31809,7 @@ int sub_1132C0()
 
 // sub_113300 @ 0x113300, size 54 bytes
 // sub_1213300 [unknown]: Stub function with invalid instruction (corpus artifact)
-int sub_113300()
-{
+int sub_113300() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -32270,7 +31824,7 @@ int sub_113300()
   v0 = (int *)(*((uint32_t *)0x11333c));
   v1 = (*((uint32_t *)0x113340));
   ++*(uint32_t *)(*((uint32_t *)0x11333c));
-  result = list_push_tail(v1);
+  result = list_push_tail(v1, 0);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -32288,22 +31842,19 @@ int sub_113300()
 
 // fw_flag_is_set @ 0x113344, size 16 bytes
 // fw_flag_is_set [util]: Return 1 if firmware flag byte is 0 or 1, else 0
-int fw_flag_is_set()
-{
+int fw_flag_is_set() {
   return *((unsigned char *)(*((uint32_t *)0x113354)) + 8) == 1;
 }
 
 
 // sub_113344 @ 0x113344, size 16 bytes
-int sub_113344()
-{
+int sub_113344() {
   return *((unsigned char *)(*((uint32_t *)0x113354)) + 8) == 1;
 }
 
 
 // sub_113358 @ 0x113358, size 18 bytes
-int sub_113358()
-{
+int sub_113358() {
   int v0; // r1
 
   sub_112B7C((*((uint32_t *)0x11336c)));
@@ -32313,8 +31864,7 @@ int sub_113358()
 
 
 // sub_113374 @ 0x113374, size 264 bytes
-int  sub_113374(int a1)
-{
+int  sub_113374(uint32_t a1) {
   void *v1; // r5
   uint32_t *v2; // r1
   int *v3; // r2
@@ -32408,8 +31958,7 @@ int  sub_113374(int a1)
 
 
 // sub_1134D8 @ 0x1134d8, size 28 bytes
-int  sub_1134D8(int a1)
-{
+int  sub_1134D8(uint32_t a1) {
   uint8_t *v1; // r2
   char v2; // r3
 
@@ -32423,8 +31972,7 @@ int  sub_1134D8(int a1)
 
 
 // sub_113630 @ 0x113630, size 12 bytes
-void  sub_113630(int a1, int a2, int a3)
-{
+void  sub_113630(uint32_t a1, uint32_t a2, uint32_t a3) {
   if ( !*(uint8_t *)(*((uint32_t *)0x11363c)) )
     sub_112F6C(a1, a2, a3, *(unsigned char *)(*((uint32_t *)0x11363c)));
 }
@@ -32432,42 +31980,40 @@ void  sub_113630(int a1, int a2, int a3)
 
 // rf_stream_start_once @ 0x113640, size 64 bytes
 // rf_stream_start_once [rf]: Initialize and start an RF data stream via callback
-int rf_stream_start_once()
-{
+int rf_stream_start_once() {
   int v0; // r0
   uint32_t *v1; // r4
   int result; // r0
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)(*((uint32_t *)0x113680)) + 2) + 16))(*((uint32_t *)(*((uint32_t *)0x113680)) + 1));
   if ( !v0 )
-    return sub_10DA6C((*((uint32_t *)0x11368c)));
+    return sub_10DA6C((*((uint32_t *)0x11368c)), 0);
   v1 = (uint32_t *)v0;
   result = rf_stream_start_2c20(*(uint32_t *)(*((uint32_t *)0x113684)) + v0, *(uint32_t *)(*((uint32_t *)0x113688)));
   if ( result < 0 )
   {
     sub_10FEF8(v1);
-    return sub_10DA6C((*((uint32_t *)0x113690)));
+    return sub_10DA6C((*((uint32_t *)0x113690)), 0);
   }
   return result;
 }
 
 
 // sub_113640 @ 0x113640, size 64 bytes
-int sub_113640()
-{
+int sub_113640() {
   int v0; // r0
   uint32_t *v1; // r4
   int result; // r0
 
   v0 = (*(int ( **)(uint32_t))(*((uint32_t *)(*((uint32_t *)0x113680)) + 2) + 16))(*((uint32_t *)(*((uint32_t *)0x113680)) + 1));
   if ( !v0 )
-    return sub_10DA6C((*((uint32_t *)0x11368c)));
+    return sub_10DA6C((*((uint32_t *)0x11368c)), 0);
   v1 = (uint32_t *)v0;
   result = sub_112C20(*(uint32_t *)(*((uint32_t *)0x113684)) + v0, *(uint32_t *)(*((uint32_t *)0x113688)));
   if ( result < 0 )
   {
     sub_10FEF8(v1);
-    return sub_10DA6C((*((uint32_t *)0x113690)));
+    return sub_10DA6C((*((uint32_t *)0x113690)), 0);
   }
   return result;
 }
@@ -32475,16 +32021,14 @@ int sub_113640()
 
 // rf_chan_set_mask @ 0x113694, size 16 bytes
 // rf_chan_set_mask [rf]: Sets a 0x100 channel/mask register for RF configuration
-int  rf_chan_set_mask(int a1, int a2)
-{
+int  rf_chan_set_mask(uint32_t a1, uint32_t a2) {
   msg_parse((*((uint32_t *)0x1136a4)), a2);
   return rf_stream_start_once();
 }
 
 
 // sub_113694 @ 0x113694, size 16 bytes
-int  sub_113694(int a1, int a2)
-{
+int  sub_113694(uint32_t a1, uint32_t a2) {
   sub_11F504((*((uint32_t *)0x1136a4)), a2);
   return sub_113640();
 }
@@ -32492,8 +32036,7 @@ int  sub_113694(int a1, int a2)
 
 // ipc_msg_post_check @ 0x1136f4, size 82 bytes
 // ipc_msg_post_check [ipc]: Validates and posts IPC message via global queue pointer
-int  ipc_msg_post_check(int a1, int a2, int a3, int a4)
-{
+int  ipc_msg_post_check(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int result; // r0
 
   if ( a1 == *(uint32_t *)(*((uint32_t *)0x113748)) || a1 == *((uint32_t *)(*((uint32_t *)0x113748)) + 1) )
@@ -32501,14 +32044,13 @@ int  ipc_msg_post_check(int a1, int a2, int a3, int a4)
   else
     result = msg_parse((*((uint32_t *)0x11374c)), a1);
   if ( *((uint8_t *)(*((uint32_t *)0x113750)) + 353) )
-    return timer_set_relative(1068, 1, 1000 * *((unsigned char *)(*((uint32_t *)0x113750)) + 354), a4);
+    return timer_set_relative(1068, 1, 1000 * *((unsigned char *)(*((uint32_t *)0x113750)) + 354));
   return result;
 }
 
 
 // sub_1136F4 @ 0x1136f4, size 82 bytes
-int  sub_1136F4(int a1, int a2, int a3, int a4)
-{
+int  sub_1136F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int result; // r0
 
   if ( a1 == *(uint32_t *)(*((uint32_t *)0x113748)) || a1 == *((uint32_t *)(*((uint32_t *)0x113748)) + 1) )
@@ -32516,14 +32058,13 @@ int  sub_1136F4(int a1, int a2, int a3, int a4)
   else
     result = sub_11F504((*((uint32_t *)0x11374c)), a1);
   if ( *((uint8_t *)(*((uint32_t *)0x113750)) + 353) )
-    return sub_11DAFC(1068, 1, 1000 * *((unsigned char *)(*((uint32_t *)0x113750)) + 354), a4);
+    return sub_11DAFC(1068, 1, 1000 * *((unsigned char *)(*((uint32_t *)0x113750)) + 354));
   return result;
 }
 
 
 // sub_113760 @ 0x113760, size 72 bytes
-int sub_113760()
-{
+int sub_113760() {
   uint32_t *v0; // r5
   void *v1; // r7
   int result; // r0
@@ -32541,7 +32082,7 @@ int sub_113760()
     do
     {
       log_pool_alloc2_a18(v3, 0x6B8u);
-      result = list_push_tail(*v0 + 580);
+      result = list_push_tail(*v0 + 580, 0);
       ++v4;
     }
     while ( *(unsigned short *)(*(uint32_t *)v1 + 8) > (unsigned int)(unsigned short)v4 );
@@ -32552,8 +32093,7 @@ int sub_113760()
 
 // log_free_pool_e @ 0x1137b8, size 72 bytes
 // log_free_pool_e [util]: Frees a logging buffer pool entry
-int log_free_pool_e()
-{
+int log_free_pool_e() {
   int *v0; // r5
   uint32_t *v1; // r4
   int result; // r0
@@ -32570,7 +32110,7 @@ int log_free_pool_e()
   ++*(uint32_t *)(*((uint32_t *)0x113804));
   while ( !*v1 )
     ;
-  result = list_push_tail(*(uint32_t *)(*((uint32_t *)0x11380c)) + 580);
+  result = list_push_tail(*(uint32_t *)(*((uint32_t *)0x11380c)) + 580, 0);
   *v1 = 1;
   if ( *v0 )
   {
@@ -32588,8 +32128,7 @@ int log_free_pool_e()
 
 
 // sub_1137B8 @ 0x1137b8, size 72 bytes
-int sub_1137B8()
-{
+int sub_1137B8() {
   int *v0; // r5
   uint32_t *v1; // r4
   int result; // r0
@@ -32606,7 +32145,7 @@ int sub_1137B8()
   ++*(uint32_t *)(*((uint32_t *)0x113804));
   while ( !*v1 )
     ;
-  result = sub_11E724(*(uint32_t *)(*((uint32_t *)0x11380c)) + 580);
+  result = sub_11E724(*(uint32_t *)(*((uint32_t *)0x11380c)) + 580, 0);
   *v1 = 1;
   if ( *v0 )
   {
@@ -32624,16 +32163,14 @@ int sub_1137B8()
 
 
 // sub_113810 @ 0x113810, size 16 bytes
-int  sub_113810(int a1, int a2, int a3, int a4)
-{
+int  sub_113810(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11F74C(256, (*((uint32_t *)0x113820)), a3, a4);
   return 1;
 }
 
 
-// fw_sub_1213824_load_struct_call @ 0x113824, size 24 bytes
-int  fw_sub_1213824_load_struct_call(int a1)
-{
+// sub_113824 @ 0x113824, size 24 bytes
+int  sub_113824(uint32_t a1) {
   uint32_t *v1; // r2
   uint16_t *v2; // r1
 
@@ -32651,8 +32188,7 @@ int  fw_sub_1213824_load_struct_call(int a1)
 
 
 // sub_113854 @ 0x113854, size 94 bytes
-int  sub_113854(int a1)
-{
+int  sub_113854(uint32_t a1) {
   int *v1; // r3
   int v2; // r2
   int v3; // r4
@@ -32693,30 +32229,26 @@ int  sub_113854(int a1)
 
 // sub_1138D0 @ 0x1138d0, size 10 bytes
 // sub_12138D0 [unknown]: Unidentified function at 0x12138D0
-void sub_1138D0()
-{
+void sub_1138D0() {
   **(uint32_t **)(*((uint32_t *)0x1138dc)) = **(uint32_t **)(*((uint32_t *)0x1138dc));
 }
 
 
 // rf_clear_flag_bit1 @ 0x1138e0, size 14 bytes
 // rf_clear_flag_bit1 [mmio]: Clears bit 1 in shared mmio control register (bic r3, r3, 2)
-void rf_clear_flag_bit1()
-{
+void rf_clear_flag_bit1() {
   *(uint32_t *)(*(uint32_t *)(*((uint32_t *)0x1138f0)) + 8) &= ~2u;
 }
 
 
 // sub_1138E0 @ 0x1138e0, size 14 bytes
-void sub_1138E0()
-{
+void sub_1138E0() {
   *(uint32_t *)(*(uint32_t *)(*((uint32_t *)0x1138f0)) + 8) &= ~2u;
 }
 
 
 // sub_1138F4 @ 0x1138f4, size 68 bytes
-int sub_1138F4()
-{
+int sub_1138F4() {
   int v0; // r2
   int v1; // r1
   uint32_t *v2; // r3
@@ -32796,8 +32328,7 @@ LABEL_5:
 
 
 // sub_113A44 @ 0x113a44, size 130 bytes
-int  sub_113A44(unsigned int a1)
-{
+int  sub_113A44(uint32_t a1) {
   int v1; // r8
   uint32_t *v3; // r3
   unsigned int v4; // r6
@@ -32855,8 +32386,7 @@ LABEL_4:
 
 // host_reg_wait_set @ 0x113ad0, size 88 bytes
 // host_reg_wait_set [mac]: Polls host register 0x40035244 until bit becomes non-zero
-int  host_reg_wait_set(unsigned int a1, int a2)
-{
+int  host_reg_wait_set(uint32_t a1, uint32_t a2) {
   uint32_t *v4; // r3
 
   fw_state_check_n960(1);
@@ -32880,8 +32410,7 @@ int  host_reg_wait_set(unsigned int a1, int a2)
 
 
 // sub_113AD0 @ 0x113ad0, size 88 bytes
-int  sub_113AD0(unsigned int a1, int a2)
-{
+int  sub_113AD0(uint32_t a1, uint32_t a2) {
   uint32_t *v4; // r3
 
   sub_10F188(1);
@@ -32905,38 +32434,33 @@ int  sub_113AD0(unsigned int a1, int a2)
 
 
 // sub_113B30 @ 0x113b30, size 14 bytes
-unsigned int sub_113B30()
-{
+unsigned int sub_113B30() {
   return ((unsigned int)sub_113A44(1u) >> 9) & 1;
 }
 
 
 // rf_cmd_status_get_n1c0 @ 0x113b40, size 10 bytes
 // rf_cmd_status_get_n1c0 [rf]: Read RF command status field and extract nibble
-int rf_cmd_status_get_n1c0()
-{
+int rf_cmd_status_get_n1c0() {
   return host_reg_wait_set(1u, 512);
 }
 
 
 // sub_113B40 @ 0x113b40, size 10 bytes
-int sub_113B40()
-{
+int sub_113B40() {
   return sub_113AD0(1u, 512);
 }
 
 
 // sub_113B4C @ 0x113b4c, size 14 bytes
 // sub_1213B4C [util]: Calls helper and returns a 4-bit field extracted at bit 13 (ubfx r0,r0,0xd,4)
-unsigned int sub_113B4C()
-{
+unsigned int sub_113B4C() {
   return ((unsigned int)sub_113A44(1u) >> 13) & 0xF;
 }
 
 
 // sub_113B5C @ 0x113b5c, size 26 bytes
-unsigned int  sub_113B5C(int a1)
-{
+unsigned int  sub_113B5C(uint32_t a1) {
   host_reg_wait_set(1u, (a1 << 13) & 0x1E000);
   return ((unsigned int)sub_113A44(1u) >> 13) & 0xF;
 }
@@ -32944,37 +32468,32 @@ unsigned int  sub_113B5C(int a1)
 
 // rf_helper_sub_n_3b78 @ 0x113b78, size 6 bytes
 // rf_helper_sub_n_3b78 [rf]: Small RF helper wrapper saving r0 and returning
-int rf_helper_sub_n_3b78()
-{
+int rf_helper_sub_n_3b78() {
   return sub_113A44(2u);
 }
 
 
 // sub_113B78 @ 0x113b78, size 6 bytes
-int sub_113B78()
-{
+int sub_113B78() {
   return sub_113A44(2u);
 }
 
 
 // rf_fault_dump_n_b2 @ 0x113b80, size 8 bytes
 // rf_fault_dump_n_b2 [rf]: Dump RF fault state, iterating up to 0x5c entries
-int  rf_fault_dump_n_b2(int a1)
-{
+int  rf_fault_dump_n_b2(uint32_t a1) {
   return host_reg_wait_set(2u, a1);
 }
 
 
 // sub_113B80 @ 0x113b80, size 8 bytes
-int  sub_113B80(int a1)
-{
+int  sub_113B80(uint32_t a1) {
   return sub_113AD0(2u, a1);
 }
 
 
 // sub_113B88 @ 0x113b88, size 40 bytes
-int  sub_113B88(uint8_t *a1)
-{
+int  sub_113B88(uint32_t a1) {
   short v2; // r0
 
   v2 = sub_113A44(6u);
@@ -32996,8 +32515,7 @@ int  sub_113B88(uint8_t *a1)
 
 // rf_init_channel_n6 @ 0x113bb0, size 54 bytes
 // rf_init_channel_n6 [rf]: Initializes RF channel 6 via sub_113a44 helper
-int  rf_init_channel_n6(int a1)
-{
+int  rf_init_channel_n6(uint32_t a1) {
   short v2; // r0
   char v3; // r1
   int v4; // r5
@@ -33022,8 +32540,7 @@ LABEL_3:
 
 
 // sub_113BB0 @ 0x113bb0, size 54 bytes
-int  sub_113BB0(int a1)
-{
+int  sub_113BB0(uint32_t a1) {
   short v2; // r0
   char v3; // r1
   int v4; // r5
@@ -33049,8 +32566,7 @@ LABEL_3:
 
 // rf_cmd_query_status @ 0x113be8, size 44 bytes
 // rf_cmd_query_status [rf]: Query RF command status (opcode 6)
-int  rf_cmd_query_status(uint8_t *a1)
-{
+int  rf_cmd_query_status(uint32_t a1) {
   unsigned int v2; // r0
   char v4; // r3
 
@@ -33075,8 +32591,7 @@ int  rf_cmd_query_status(uint8_t *a1)
 
 
 // sub_113BE8 @ 0x113be8, size 44 bytes
-int  sub_113BE8(uint8_t *a1)
-{
+int  sub_113BE8(uint32_t a1) {
   unsigned int v2; // r0
   char v4; // r3
 
@@ -33102,8 +32617,7 @@ int  sub_113BE8(uint8_t *a1)
 
 // rf_reg_check @ 0x113c14, size 50 bytes
 // rf_reg_check [rf]: Invoke RF helper with opcode 6 and check 0xff0000 result
-int  rf_reg_check(int a1)
-{
+int  rf_reg_check(uint32_t a1) {
   unsigned int v2; // r0
   char v3; // r1
   int v4; // r4
@@ -33128,8 +32642,7 @@ LABEL_3:
 
 
 // sub_113C14 @ 0x113c14, size 50 bytes
-int  sub_113C14(int a1)
-{
+int  sub_113C14(uint32_t a1) {
   unsigned int v2; // r0
   char v3; // r1
   int v4; // r4
@@ -33154,8 +32667,7 @@ LABEL_3:
 
 
 // sub_113C48 @ 0x113c48, size 78 bytes
-int  sub_113C48(int *a1, unsigned int *a2)
-{
+int  sub_113C48(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r4
   unsigned int v5; // r0
   unsigned int v6; // r4
@@ -33199,8 +32711,7 @@ int  sub_113C48(int *a1, unsigned int *a2)
 
 // rf_status_poll @ 0x113c98, size 104 bytes
 // rf_status_poll [rf]: Poll and update RF status register state
-int  rf_status_poll(unsigned int a1, int a2)
-{
+int  rf_status_poll(uint32_t a1, uint32_t a2) {
   int v4; // r4
   unsigned int v5; // r4
 
@@ -33229,8 +32740,7 @@ int  rf_status_poll(unsigned int a1, int a2)
 
 
 // sub_113C98 @ 0x113c98, size 104 bytes
-int  sub_113C98(unsigned int a1, int a2)
-{
+int  sub_113C98(uint32_t a1, uint32_t a2) {
   int v4; // r4
   unsigned int v5; // r4
 
@@ -33260,8 +32770,7 @@ int  sub_113C98(unsigned int a1, int a2)
 
 // rf_init_param_load @ 0x113d00, size 128 bytes
 // rf_init_param_load [rf]: Loads RF parameter via helper and extracts bit fields
-int  rf_init_param_load(int *a1, unsigned int *a2)
-{
+int  rf_init_param_load(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r0
   int v5; // r4
   int result; // r0
@@ -33315,8 +32824,7 @@ int  rf_init_param_load(int *a1, unsigned int *a2)
 
 
 // sub_113D00 @ 0x113d00, size 128 bytes
-int  sub_113D00(int *a1, unsigned int *a2)
-{
+int  sub_113D00(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r0
   int v5; // r4
   int result; // r0
@@ -33371,8 +32879,7 @@ int  sub_113D00(int *a1, unsigned int *a2)
 
 // rf_init_n_d80 @ 0x113d80, size 120 bytes
 // rf_init_n_d80 [rf]: RF subsystem initialization with param 0xf
-int  rf_init_n_d80(unsigned int a1, int a2)
-{
+int  rf_init_n_d80(uint32_t a1, uint32_t a2) {
   int v4; // r4
   unsigned int v5; // r4
 
@@ -33403,8 +32910,7 @@ int  rf_init_n_d80(unsigned int a1, int a2)
 
 
 // sub_113D80 @ 0x113d80, size 120 bytes
-int  sub_113D80(unsigned int a1, int a2)
-{
+int  sub_113D80(uint32_t a1, uint32_t a2) {
   int v4; // r4
   unsigned int v5; // r4
 
@@ -33435,8 +32941,7 @@ int  sub_113D80(unsigned int a1, int a2)
 
 
 // sub_113DF8 @ 0x113df8, size 116 bytes
-int  sub_113DF8(int a1, int a2)
-{
+int  sub_113DF8(uint32_t a1, uint32_t a2) {
   int v3; // r1
   int v4; // r2
   unsigned int v5; // r0
@@ -33489,8 +32994,7 @@ LABEL_9:
 
 
 // sub_113E70 @ 0x113e70, size 92 bytes
-int  sub_113E70(int a1, char a2, uint8_t *a3)
-{
+int  sub_113E70(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v5; // r1
   int v6; // r2
   unsigned int v7; // r0
@@ -33530,8 +33034,7 @@ int  sub_113E70(int a1, char a2, uint8_t *a3)
 
 
 // sub_113ED0 @ 0x113ed0, size 104 bytes
-int  sub_113ED0(int a1, char a2, int a3)
-{
+int  sub_113ED0(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v5; // r1
   int v6; // r2
   unsigned int v7; // r5
@@ -33560,7 +33063,7 @@ int  sub_113ED0(int a1, char a2, int a3)
     v13 = v11 >> 4;
     if ( v13 )
       return -1;
-    v12 = ((unsigned)(v12) & 0xFFFFFF00U) | (((unsigned)(4) & 0xFFU) << 0);
+    LOBYTE(v12) = 4;
   }
   else
   {
@@ -33576,8 +33079,7 @@ int  sub_113ED0(int a1, char a2, int a3)
 
 
 // sub_113F3C @ 0x113f3c, size 152 bytes
-int  sub_113F3C(int a1, int a2)
-{
+int  sub_113F3C(uint32_t a1, uint32_t a2) {
   int v3; // r1
   int v4; // r2
   unsigned int v5; // r6
@@ -33626,11 +33128,11 @@ int  sub_113F3C(int a1, int a2)
     }
     v11 = (v10 & 1) == 0;
     if ( (v10 & 1) != 0 )
-      v12 = ((unsigned)(v12) & 0xFFFFFF00U) | (((unsigned)(-1) & 0xFFU) << 0);
+      LOBYTE(v12) = -1;
     v13 = v10 >> 1;
     if ( v11 )
-      v12 = ((unsigned)(v12) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
-    v14 = ((unsigned)(v14) & 0xFFFFFF00U) | (((unsigned)(v13 * v12) & 0xFFU) << 0);
+      LOBYTE(v12) = 1;
+    LOBYTE(v14) = v13 * v12;
     v15 = (uint8_t *)(a2 + v8);
 LABEL_8:
     ++v8;
@@ -33643,8 +33145,7 @@ LABEL_8:
 
 
 // sub_113FD8 @ 0x113fd8, size 102 bytes
-int  sub_113FD8(int a1, int a2, uint8_t *a3)
-{
+int  sub_113FD8(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v5; // r1
   int v6; // r2
   unsigned int v7; // r0
@@ -33663,7 +33164,7 @@ int  sub_113FD8(int a1, int a2, uint8_t *a3)
   if ( a2 > 3 )
   {
     ++v7;
-    a2 = ((unsigned)(a2) & 0xFFFFFF00U) | (((unsigned)(a2 - 4) & 0xFFU) << 0);
+    LOBYTE(a2) = a2 - 4;
   }
   v8 = (unsigned int)sub_113A44(v7) >> (8 * a2);
   v9 = (unsigned char)v8 >> 4;
@@ -33691,8 +33192,7 @@ int  sub_113FD8(int a1, int a2, uint8_t *a3)
 
 
 // sub_114044 @ 0x114044, size 110 bytes
-int  sub_114044(int a1, int a2, int a3)
-{
+int  sub_114044(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v5; // r1
   int v6; // r2
   unsigned int v7; // r6
@@ -33713,7 +33213,7 @@ int  sub_114044(int a1, int a2, int a3)
   if ( a2 > 3 )
   {
     ++v7;
-    a2 = ((unsigned)(a2) & 0xFFFFFF00U) | (((unsigned)(a2 - 4) & 0xFFU) << 0);
+    LOBYTE(a2) = a2 - 4;
   }
   v8 = 8 * a2;
   v9 = (unsigned int)sub_113A44(v7) >> v8;
@@ -33724,7 +33224,7 @@ int  sub_114044(int a1, int a2, int a3)
     v12 = v10 >> 4;
     if ( v12 )
       return -1;
-    v11 = ((unsigned)(v11) & 0xFFFFFF00U) | (((unsigned)(4) & 0xFFU) << 0);
+    LOBYTE(v11) = 4;
   }
   else
   {
@@ -33740,8 +33240,7 @@ int  sub_114044(int a1, int a2, int a3)
 
 
 // sub_1140B8 @ 0x1140b8, size 54 bytes
-int  sub_1140B8(int *a1)
-{
+int  sub_1140B8(uint32_t a1) {
   unsigned char v2; // r0
   int v3; // r2
   int result; // r0
@@ -33775,8 +33274,7 @@ int  sub_1140B8(int *a1)
 
 
 // sub_1140F0 @ 0x1140f0, size 76 bytes
-int  sub_1140F0(int a1)
-{
+int  sub_1140F0(uint32_t a1) {
   unsigned char v2; // r0
   char v3; // r1
   int v4; // r4
@@ -33807,30 +33305,26 @@ int  sub_1140F0(int a1)
 
 
 // sub_11413C @ 0x11413c, size 14 bytes
-int sub_11413C()
-{
+int sub_11413C() {
   return sub_113A44(0x11u) & 7;
 }
 
 
 // sub_11414C @ 0x11414c, size 14 bytes
-unsigned int sub_11414C()
-{
+unsigned int sub_11414C() {
   return ((unsigned int)sub_113A44(0x11u) >> 3) & 7;
 }
 
 
 // sub_11415C @ 0x11415c, size 14 bytes
-unsigned int sub_11415C()
-{
+unsigned int sub_11415C() {
   return ((unsigned int)sub_113A44(0x11u) >> 6) & 7;
 }
 
 
 // rf_bus_handler_16c @ 0x11416c, size 40 bytes
 // rf_bus_handler_16c [rf]: RF bus transaction handler
-int  rf_bus_handler_16c(uint8_t *a1)
-{
+int  rf_bus_handler_16c(uint32_t a1) {
   short v2; // r0
 
   v2 = sub_113A44(0xFu);
@@ -33851,8 +33345,7 @@ int  rf_bus_handler_16c(uint8_t *a1)
 
 
 // sub_11416C @ 0x11416c, size 40 bytes
-int  sub_11416C(uint8_t *a1)
-{
+int  sub_11416C(uint32_t a1) {
   short v2; // r0
 
   v2 = sub_113A44(0xFu);
@@ -33873,8 +33366,7 @@ int  sub_11416C(uint8_t *a1)
 
 
 // sub_114194 @ 0x114194, size 54 bytes
-int  sub_114194(int a1)
-{
+int  sub_114194(uint32_t a1) {
   short v2; // r0
   char v3; // r1
   int v4; // r5
@@ -33899,60 +33391,52 @@ LABEL_3:
 
 
 // sub_1141CC @ 0x1141cc, size 14 bytes
-unsigned int sub_1141CC()
-{
+unsigned int sub_1141CC() {
   return ((unsigned int)sub_113A44(0xFu) >> 18) & 1;
 }
 
 
 // patch_apply_slot_36 @ 0x1141dc, size 14 bytes
 // patch_apply_slot_36 [patch]: Applies a firmware patch entry referenced via table at 0x182610
-unsigned int patch_apply_slot_36()
-{
+unsigned int patch_apply_slot_36() {
   return ((unsigned int)sub_113A44(0xFu) >> 19) & 1;
 }
 
 
 // sub_1141DC @ 0x1141dc, size 14 bytes
-unsigned int sub_1141DC()
-{
+unsigned int sub_1141DC() {
   return ((unsigned int)sub_113A44(0xFu) >> 19) & 1;
 }
 
 
 // sub_1141EC @ 0x1141ec, size 10 bytes
-int sub_1141EC()
-{
+int sub_1141EC() {
   return host_reg_wait_set(0xFu, 0x80000);
 }
 
 
 // sub_1141F8 @ 0x1141f8, size 14 bytes
-unsigned int sub_1141F8()
-{
+unsigned int sub_1141F8() {
   return ((unsigned int)sub_113A44(0xFu) >> 20) & 1;
 }
 
 
 // sub_114208 @ 0x114208, size 6 bytes
 // sub_1214208 [unknown]: Unknown helper, saves r4/lr
-int sub_114208()
-{
+int sub_114208() {
   return sub_113A44(0x1Bu);
 }
 
 
 // sub_114210 @ 0x114210, size 8 bytes
-int  sub_114210(int a1)
-{
+int  sub_114210(uint32_t a1) {
   return host_reg_wait_set(0x1Bu, a1);
 }
 
 
 // sub_114218 @ 0x114218, size 54 bytes
 // sub_1214218 [unknown]: Stub helper, shifted mask op after register save
-int sub_114218()
-{
+int sub_114218() {
   int *v0; // r4
   int result; // r0
   int v2; // r3
@@ -33983,8 +33467,7 @@ int sub_114218()
 
 // rf_event_handler_n258 @ 0x114258, size 54 bytes
 // rf_event_handler_n258 [rf]: RF event/IRQ dispatch handler, lmacfw rf context
-int rf_event_handler_n258()
-{
+int rf_event_handler_n258() {
   int *v0; // r4
   int result; // r0
   int v2; // r3
@@ -34014,8 +33497,7 @@ int rf_event_handler_n258()
 
 
 // sub_114258 @ 0x114258, size 54 bytes
-int sub_114258()
-{
+int sub_114258() {
   int *v0; // r4
   int result; // r0
   int v2; // r3
@@ -34046,8 +33528,7 @@ int sub_114258()
 
 // sub_114298 @ 0x114298, size 54 bytes
 // sub_1214298 [unknown]: Unknown helper, small prologue with bit shift
-int sub_114298()
-{
+int sub_114298() {
   int *v0; // r4
   int result; // r0
   int v2; // r3
@@ -34077,16 +33558,14 @@ int sub_114298()
 
 
 // sub_1142D8 @ 0x1142d8, size 8 bytes
-int sub_1142D8()
-{
+int sub_1142D8() {
   return (*((volatile uint32_t *)0x1D8))();
 }
 
 
 // lmac_state_get_n_e0 @ 0x1142e0, size 42 bytes
 // lmac_state_get_n_e0 [util]: Get LMAC state value from global pointer
-void lmac_state_get_n_e0()
-{
+void lmac_state_get_n_e0() {
   int *v0; // r4
 
   v0 = (int *)(*((uint32_t *)0x11430c));
@@ -34099,8 +33578,7 @@ void lmac_state_get_n_e0()
 
 
 // sub_1142E0 @ 0x1142e0, size 42 bytes
-void sub_1142E0()
-{
+void sub_1142E0() {
   int *v0; // r4
 
   v0 = (int *)(*((uint32_t *)0x11430c));
@@ -34114,8 +33592,7 @@ void sub_1142E0()
 
 // rf_init_or_config_n_318 @ 0x114318, size 248 bytes
 // rf_init_or_config_n_318 [rf]: RF subsystem initialization/configuration handler
-int  rf_init_or_config_n_318(int a1, int a2, unsigned int a3)
-{
+int  rf_init_or_config_n_318(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   unsigned int v7; // r5
   uint32_t v9[4]; // [sp+0h] [bp-4Ch] BYREF
@@ -34209,8 +33686,7 @@ LABEL_12:
 
 
 // sub_114318 @ 0x114318, size 248 bytes
-int  sub_114318(int a1, int a2, unsigned int a3)
-{
+int  sub_114318(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   unsigned int v7; // r5
   uint32_t v9[4]; // [sp+0h] [bp-4Ch] BYREF
@@ -34305,8 +33781,7 @@ LABEL_12:
 
 // rf_param_setup_44 @ 0x11441c, size 300 bytes
 // rf_param_setup_44 [rf]: RF parameter setup routine using global state table at 0x180558
-int  rf_param_setup_44(int a1, int a2, unsigned int a3)
-{
+int  rf_param_setup_44(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r7
   int v7; // r5
   unsigned int v8; // r5
@@ -34420,8 +33895,7 @@ LABEL_12:
 
 
 // sub_11441C @ 0x11441c, size 300 bytes
-int  sub_11441C(int a1, int a2, unsigned int a3)
-{
+int  sub_11441C(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r7
   int v7; // r5
   unsigned int v8; // r5
@@ -34536,128 +34010,111 @@ LABEL_12:
 
 // sub_114558 @ 0x114558, size 10 bytes
 // sub_1214558 [util]: Trivial stub: r1=r0, r2=4, r0=1 (init/setup helper)
-int  sub_114558(int a1)
-{
+int  sub_114558(uint32_t a1) {
   return rf_init_or_config_n_318(1, a1, 4u);
 }
 
 
 // sub_114564 @ 0x114564, size 10 bytes
 // sub_1214564 [unknown]: Unidentified helper at 0x1214564
-int  sub_114564(int a1)
-{
+int  sub_114564(uint32_t a1) {
   return rf_param_setup_44(1, a1, 4u);
 }
 
 
 // rf_param_set_op2 @ 0x114570, size 10 bytes
 // rf_param_set_op2 [rf]: Set RF parameter via opcode 2 with 12-byte payload
-int  rf_param_set_op2(int a1)
-{
+int  rf_param_set_op2(uint32_t a1) {
   return rf_init_or_config_n_318(2, a1, 0xCu);
 }
 
 
 // sub_114570 @ 0x114570, size 10 bytes
-int  sub_114570(int a1)
-{
+int  sub_114570(uint32_t a1) {
   return sub_114318(2, a1, 0xCu);
 }
 
 
 // sub_11457C @ 0x11457c, size 10 bytes
-int  sub_11457C(int a1)
-{
+int  sub_11457C(uint32_t a1) {
   return rf_param_setup_44(2, a1, 0xCu);
 }
 
 
 // rf_emit_setup_word @ 0x114588, size 10 bytes
 // rf_emit_setup_word [rf]: Emits a 4-byte setup word (type 0x14) to RF path
-int  rf_emit_setup_word(int a1)
-{
+int  rf_emit_setup_word(uint32_t a1) {
   return rf_init_or_config_n_318(4, a1, 0x14u);
 }
 
 
 // sub_114588 @ 0x114588, size 10 bytes
-int  sub_114588(int a1)
-{
+int  sub_114588(uint32_t a1) {
   return sub_114318(4, a1, 0x14u);
 }
 
 
 // sub_114594 @ 0x114594, size 10 bytes
-int  sub_114594(int a1)
-{
+int  sub_114594(uint32_t a1) {
   return rf_param_setup_44(4, a1, 0x14u);
 }
 
 
 // sub_1145A0 @ 0x1145a0, size 10 bytes
 // sub_12145A0_5a0 [rf]: lmac RF behavioral stub
-int  sub_1145A0(int a1)
-{
+int  sub_1145A0(uint32_t a1) {
   return rf_init_or_config_n_318(8, a1, 4u);
 }
 
 
 // rf_setup_param_n5ac @ 0x1145ac, size 10 bytes
 // rf_setup_param_n5ac [rf]: Set up RF parameter (size=4, value=0x20)
-int  rf_setup_param_n5ac(int a1)
-{
+int  rf_setup_param_n5ac(uint32_t a1) {
   return rf_param_setup_44(8, a1, 4u);
 }
 
 
 // sub_1145AC @ 0x1145ac, size 10 bytes
-int  sub_1145AC(int a1)
-{
+int  sub_1145AC(uint32_t a1) {
   return sub_11441C(8, a1, 4u);
 }
 
 
 // sub_1145B8 @ 0x1145b8, size 10 bytes
-int  sub_1145B8(int a1)
-{
+int  sub_1145B8(uint32_t a1) {
   return rf_init_or_config_n_318(32, a1, 4u);
 }
 
 
 // sub_1145C4 @ 0x1145c4, size 10 bytes
-int  sub_1145C4(int a1)
-{
+int  sub_1145C4(uint32_t a1) {
   return rf_init_or_config_n_318(64, a1, 4u);
 }
 
 
 // sub_1145D0 @ 0x1145d0, size 10 bytes
 // sub_12145D0 [util]: Trivial wrapper setting up 4-byte call with 0x80 argument
-int  sub_1145D0(int a1)
-{
+int  sub_1145D0(uint32_t a1) {
   return rf_param_setup_44(64, a1, 4u);
 }
 
 
 // sub_1145DC @ 0x1145dc, size 10 bytes
 // sub_12145DC [mmio]: Small register move helper, likely MMIO/macro stub
-int  sub_1145DC(int a1)
-{
+int  sub_1145DC(uint32_t a1) {
   return rf_init_or_config_n_318(128, a1, 4u);
 }
 
 
 // sub_1145E8 @ 0x1145e8, size 10 bytes
-int  sub_1145E8(int a1)
-{
+int  sub_1145E8(uint32_t a1) {
   return rf_param_setup_44(128, a1, 4u);
 }
 
 
 // rf_msg_handler_main_45f4 @ 0x1145f4, size 228 bytes
 // rf_msg_handler_main_45f4 [rf]: Top-level RF message handler dispatching on message id with stack-local context
-int  rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3)
-{
+int  rf_msg_handler_main_45f4(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
   int v9; // [sp+4h] [bp-140h]
@@ -34739,8 +34196,7 @@ LABEL_11:
 
 
 // sub_1145F4 @ 0x1145f4, size 228 bytes
-int  sub_1145F4(int a1, int a2, unsigned int a3)
-{
+int  sub_1145F4(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v6; // r4
   int v8; // [sp+0h] [bp-144h] BYREF
   int v9; // [sp+4h] [bp-140h]
@@ -34823,8 +34279,7 @@ LABEL_11:
 
 // sub_1146E4 @ 0x1146e4, size 298 bytes
 // sub_12146E4 [util]: LMAC helper with large stack frame and pointer dereference
-int  sub_1146E4(int a1, int a2, unsigned int a3)
-{
+int  sub_1146E4(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r6
   int v7; // r5
   unsigned int v8; // r5
@@ -34934,86 +34389,74 @@ LABEL_11:
 
 // rf_reg_write_setup_n4820 @ 0x114820, size 10 bytes
 // rf_reg_write_setup_n4820 [rf]: Set up register write call (id=6, op=2)
-int  rf_reg_write_setup_n4820(int a1)
-{
+int  rf_reg_write_setup_n4820(uint32_t a1) {
   return rf_msg_handler_main_45f4(2, a1, 6u);
 }
 
 
 // sub_114820 @ 0x114820, size 10 bytes
-int  sub_114820(int a1)
-{
+int  sub_114820(uint32_t a1) {
   return sub_1145F4(2, a1, 6u);
 }
 
 
 // sub_11482C @ 0x11482c, size 10 bytes
-int  sub_11482C(int a1)
-{
+int  sub_11482C(uint32_t a1) {
   return sub_1146E4(2, a1, 6u);
 }
 
 
 // sub_114838 @ 0x114838, size 12 bytes
-int  sub_114838(int a1)
-{
+int  sub_114838(uint32_t a1) {
   return rf_msg_handler_main_45f4(0x100000, a1, 2u);
 }
 
 
 // sub_114844 @ 0x114844, size 12 bytes
-int  sub_114844(int a1)
-{
+int  sub_114844(uint32_t a1) {
   return sub_1146E4(0x100000, a1, 2u);
 }
 
 
 // sub_114850 @ 0x114850, size 12 bytes
-int  sub_114850(int a1)
-{
+int  sub_114850(uint32_t a1) {
   return rf_msg_handler_main_45f4(0x400000, a1, 4u);
 }
 
 
 // sub_11485C @ 0x11485c, size 12 bytes
-int  sub_11485C(int a1)
-{
+int  sub_11485C(uint32_t a1) {
   return sub_1146E4(0x400000, a1, 4u);
 }
 
 
-// rf_cmd_wait_n_7e @ 0x114868, size 12 bytes
-int  rf_cmd_wait_n_7e(int a1)
-{
+// sub_114868 @ 0x114868, size 12 bytes
+int  sub_114868(uint32_t a1) {
   return rf_msg_handler_main_45f4(0x800000, a1, 2u);
 }
 
 
 // sub_114874 @ 0x114874, size 12 bytes
-int  sub_114874(int a1)
-{
+int  sub_114874(uint32_t a1) {
   return sub_1146E4(0x800000, a1, 2u);
 }
 
 
 // sub_114880 @ 0x114880, size 12 bytes
-int  sub_114880(int a1)
-{
+int  sub_114880(uint32_t a1) {
   return rf_msg_handler_main_45f4(0x1000000, a1, 0xAu);
 }
 
 
 // sub_11488C @ 0x11488c, size 12 bytes
-int  sub_11488C(int a1)
-{
+int  sub_11488C(uint32_t a1) {
   return sub_1146E4(0x1000000, a1, 0xAu);
 }
 
 
 // rf_chan_configure @ 0x114898, size 96 bytes
 // rf_chan_configure [rf]: Configure RF channel/parameters from global state
-int  rf_chan_configure(int a1, int a2, unsigned int a3)
-{
+int  rf_chan_configure(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   uint32_t v8[4]; // [sp+0h] [bp-50h] BYREF
   uint8_t v9[64]; // [sp+10h] [bp-40h] BYREF
@@ -35037,8 +34480,7 @@ int  rf_chan_configure(int a1, int a2, unsigned int a3)
 
 
 // sub_114898 @ 0x114898, size 96 bytes
-int  sub_114898(int a1, int a2, unsigned int a3)
-{
+int  sub_114898(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   uint32_t v8[4]; // [sp+0h] [bp-50h] BYREF
   uint8_t v9[64]; // [sp+10h] [bp-40h] BYREF
@@ -35062,8 +34504,7 @@ int  sub_114898(int a1, int a2, unsigned int a3)
 
 
 // sub_114904 @ 0x114904, size 142 bytes
-int  sub_114904(int a1, int a2, unsigned int a3)
-{
+int  sub_114904(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t *v6; // r4
   int v7; // r8
   int v9; // r1
@@ -35101,23 +34542,20 @@ LABEL_5:
 
 
 // sub_1149A4 @ 0x1149a4, size 10 bytes
-int  sub_1149A4(int a1)
-{
+int  sub_1149A4(uint32_t a1) {
   return rf_chan_configure(1, a1, 0x40u);
 }
 
 
 // sub_1149B0 @ 0x1149b0, size 10 bytes
-int  sub_1149B0(int a1)
-{
+int  sub_1149B0(uint32_t a1) {
   return sub_114904(1, a1, 0x40u);
 }
 
 
 // rf_init_or_reset_helper @ 0x1149bc, size 52 bytes
 // rf_init_or_reset_helper [rf]: RF subsystem initialization or reset helper
-int rf_init_or_reset_helper()
-{
+int rf_init_or_reset_helper() {
   int *v0; // r4
   int ( *v1)(int); // r2
   int result; // r0
@@ -35149,8 +34587,7 @@ int rf_init_or_reset_helper()
 
 
 // sub_1149BC @ 0x1149bc, size 52 bytes
-int sub_1149BC()
-{
+int sub_1149BC() {
   int *v0; // r4
   int ( *v1)(int); // r2
   int result; // r0
@@ -35182,8 +34619,7 @@ int sub_1149BC()
 
 
 // sub_1149FC @ 0x1149fc, size 56 bytes
-int  sub_1149FC(int a1)
-{
+int  sub_1149FC(uint32_t a1) {
   int v1; // r0
   int *v2; // r4
   int ( *v3)(int); // r2
@@ -35295,8 +34731,7 @@ void __attribute__((noreturn)) sub_114A68()
 
 // rf_mode_check @ 0x114b5c, size 230 bytes
 // rf_mode_check [rf]: Check current RF mode/state byte
-int rf_mode_check()
-{
+int rf_mode_check() {
   int v0; // r4
   uint32_t *v1; // r3
   uint32_t *v2; // r2
@@ -35363,8 +34798,7 @@ int rf_mode_check()
 
 
 // sub_114B5C @ 0x114b5c, size 230 bytes
-int sub_114B5C()
-{
+int sub_114B5C() {
   int v0; // r4
   uint32_t *v1; // r3
   uint32_t *v2; // r2
@@ -35431,8 +34865,7 @@ int sub_114B5C()
 
 
 // sub_114C68 @ 0x114c68, size 464 bytes
-int sub_114C68()
-{
+int sub_114C68() {
   uint32_t *v0; // r7
   int v1; // r6
   int *v2; // r5
@@ -35468,12 +34901,12 @@ int sub_114C68()
   {
     v4 = i;
     v5 = *v2++;
-    sub_10DA6C(v1, v4, v5);
+    sub_10DA6C(v1, v4);
   }
   v6 = (*((uint32_t *)0x114e40));
-  sub_10DA6C((*((uint32_t *)0x114e44)), v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
-  sub_10DA6C((*((uint32_t *)0x114e48)), *v6, v6[1], v6[2], v6[3]);
-  sub_10DA6C((*((uint32_t *)0x114e4c)), v6[9], v6[10], v6[11], v6[12], v6[15]);
+  sub_10DA6C((*((uint32_t *)0x114e44)), v0[13]);
+  sub_10DA6C((*((uint32_t *)0x114e48)), *v6);
+  sub_10DA6C((*((uint32_t *)0x114e4c)), v6[9]);
   v7 = v6[10];
   if ( (uint8_t)v7 )
   {
@@ -35516,17 +34949,17 @@ int sub_114C68()
       (v7 >> 25) & 1);
   if ( (v0[19] & 8) == 0 )
   {
-    sub_10DA6C((*((uint32_t *)0x114e64)));
+    sub_10DA6C((*((uint32_t *)0x114e64)), 0);
     goto LABEL_9;
   }
-  sub_10DA6C((*((uint32_t *)0x114e50)));
+  sub_10DA6C((*((uint32_t *)0x114e50)), 0);
   if ( (v0[20] & 1) == 0 )
   {
 LABEL_9:
-    sub_10DA6C((*((uint32_t *)0x114e54)));
+    sub_10DA6C((*((uint32_t *)0x114e54)), 0);
     goto LABEL_10;
   }
-  sub_10DA6C((*((uint32_t *)0x114e68)));
+  sub_10DA6C((*((uint32_t *)0x114e68)), 0);
 LABEL_10:
   v8 = v0[19];
   v9 = v8 << 29;
@@ -35538,14 +34971,14 @@ LABEL_10:
   CPSR = __get_CPSR();
   v12 = __get_CPSR();
   v26 = __get_CPSR();
-  result = sub_10DA6C((*((uint32_t *)0x114e60)), v10, CPSR, v12, v26);
+  result = sub_10DA6C((*((uint32_t *)0x114e60)), v10);
   v14 = v0[18];
   if ( v14 )
   {
     v21 = (*((uint32_t *)0x114e84));
     v22 = (*((uint32_t *)0x114e88));
     v23 = v14 & 0xFFFFFFF0;
-    sub_10DA6C((*((uint32_t *)0x114e8c)));
+    sub_10DA6C((*((uint32_t *)0x114e8c)), 0);
     v24 = v23 + 256;
     do
     {
@@ -35563,7 +34996,7 @@ LABEL_10:
     v16 = (*((uint32_t *)0x114e84));
     v17 = (*((uint32_t *)0x114e88));
     v18 = v15 & 0xFFFFFFF0;
-    sub_10DA6C((*((uint32_t *)0x114e80)));
+    sub_10DA6C((*((uint32_t *)0x114e80)), 0);
     v19 = v18 + 256;
     do
     {
@@ -35587,7 +35020,7 @@ void __attribute__((noreturn)) rf_state_check_n_e90()
   int v1; // r0
   int v2; // r0
 
-  sub_10DA6C((*((uint32_t *)0x114ec4)));
+  sub_10DA6C((*((uint32_t *)0x114ec4)), 0);
   if ( *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x114ec8)) + 6) == 2 )
   {
     v2 = rf_mode_check();
@@ -35611,7 +35044,7 @@ void __attribute__((noreturn)) sub_114E90()
   int v1; // r0
   int v2; // r0
 
-  sub_10DA6C((*((uint32_t *)0x114ec4)));
+  sub_10DA6C((*((uint32_t *)0x114ec4)), 0);
   if ( *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x114ec8)) + 6) == 2 )
   {
     v2 = sub_114B5C();
@@ -35631,55 +35064,53 @@ void __attribute__((noreturn)) sub_114E90()
 // sub_114ECC @ 0x114ecc, size 72 bytes
 void  __attribute__((noreturn)) sub_114ECC(int a1)
 {
-  sub_10DA6C((*((uint32_t *)0x114f14)));
+  sub_10DA6C((*((uint32_t *)0x114f14)), 0);
   switch ( a1 )
   {
     case '0':
-      sub_10DA6C((*((uint32_t *)0x114f24)));
+      sub_10DA6C((*((uint32_t *)0x114f24)), 0);
       break;
     case '@':
-      sub_10DA6C((*((uint32_t *)0x114f2c)));
+      sub_10DA6C((*((uint32_t *)0x114f2c)), 0);
       break;
     case ' ':
-      sub_10DA6C((*((uint32_t *)0x114f28)));
+      sub_10DA6C((*((uint32_t *)0x114f28)), 0);
       break;
     default:
-      sub_10DA6C((*((uint32_t *)0x114f18)));
+      sub_10DA6C((*((uint32_t *)0x114f18)), 0);
       break;
   }
-  sub_10DA6C((*((uint32_t *)0x114f1c)));
+  sub_10DA6C((*((uint32_t *)0x114f1c)), 0);
   sub_114C68();
-  sub_10DA6C((*((uint32_t *)0x114f20)));
+  sub_10DA6C((*((uint32_t *)0x114f20)), 0);
   rf_state_check_n_e90();
 }
 
 
 // rf_init_submodule_dispatch @ 0x115000, size 22 bytes
 // rf_init_submodule_dispatch [rf]: Dispatches initialization calls to RF subsystem submodules
-int rf_init_submodule_dispatch()
-{
+int rf_init_submodule_dispatch() {
   int v0; // r0
   int v1; // r0
   int v2; // r0
 
   v0 = nullsub_5();
   v1 = lmac_rf_state_check(v0);
-  v2 = sdio_buffer_prepare_6ec(v1);
-  return rf_cmd_dispatch_n_500(v2);
+  v2 = sdio_buffer_prepare_6ec();
+  return rf_cmd_dispatch_n_500();
 }
 
 
 // sub_115000 @ 0x115000, size 22 bytes
-int sub_115000()
-{
+int sub_115000() {
   int v0; // r0
   int v1; // r0
   int v2; // r0
 
   v0 = nullsub_5();
   v1 = sub_118624(v0);
-  v2 = sub_11E6EC(v1);
-  return sub_121A44(v2);
+  v2 = sub_11E6EC();
+  return sub_121A44();
 }
 
 
@@ -35717,7 +35148,7 @@ void __attribute__((noreturn)) sub_115018()
     if ( *(uint8_t *)(*v0 + 3) )
       sub_1138D0();
     if ( !*v3 )
-      inited = rf_init_handler_1(inited);
+      inited = rf_init_handler_1();
     inited = sub_123240(inited);
   }
 }
@@ -35725,8 +35156,7 @@ void __attribute__((noreturn)) sub_115018()
 
 // rf_init_check_flags @ 0x1150a8, size 330 bytes
 // rf_init_check_flags [rf]: Check RF initialization flag bit and dispatch based on status
-void  rf_init_check_flags(int a1, int a2)
-{
+void  rf_init_check_flags(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int v3; // r2
   int v4; // r1
@@ -35736,7 +35166,7 @@ void  rf_init_check_flags(int a1, int a2)
 
   v2 = **(unsigned short **)(*((uint32_t *)0x1151f4));
   if ( (v2 & 1) != 0 )
-    sub_1216EC(a1, a2, v2 << 31);
+    sub_1216EC();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -35758,8 +35188,7 @@ void  rf_init_check_flags(int a1, int a2)
 
 
 // sub_1150A8 @ 0x1150a8, size 330 bytes
-void  sub_1150A8(int a1, int a2)
-{
+void  sub_1150A8(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int v3; // r2
   int v4; // r1
@@ -35769,7 +35198,7 @@ void  sub_1150A8(int a1, int a2)
 
   v2 = **(unsigned short **)(*((uint32_t *)0x1151f4));
   if ( (v2 & 1) != 0 )
-    sub_1216EC(a1, a2, v2 << 31);
+    sub_1216EC();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -35792,8 +35221,7 @@ void  sub_1150A8(int a1, int a2)
 
 // rf_chan_check_enter @ 0x11522c, size 132 bytes
 // rf_chan_check_enter [rf]: Checks RF channel/state flag and enters RF path
-int rf_chan_check_enter()
-{
+int rf_chan_check_enter() {
   int **v0; // r5
   uint32_t *v1; // r6
   int *v2; // r0
@@ -35826,7 +35254,7 @@ int rf_chan_check_enter()
   do
   {
     (*v0)[11 * v5 + 8] = *v1 + 76 * v5;
-    result = list_push_tail(v4);
+    result = list_push_tail(v4, 0);
     ++v5;
   }
   while ( *(unsigned short *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
@@ -35835,8 +35263,7 @@ int rf_chan_check_enter()
 
 
 // sub_11522C @ 0x11522c, size 132 bytes
-int sub_11522C()
-{
+int sub_11522C() {
   int **v0; // r5
   uint32_t *v1; // r6
   int *v2; // r0
@@ -35869,7 +35296,7 @@ int sub_11522C()
   do
   {
     (*v0)[11 * v5 + 8] = *v1 + 76 * v5;
-    result = sub_11E724(v4);
+    result = sub_11E724(v4, 0);
     ++v5;
   }
   while ( *(unsigned short *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
@@ -35879,22 +35306,19 @@ int sub_11522C()
 
 // rf_lmac_log_str_n2cc @ 0x1152cc, size 8 bytes
 // rf_lmac_log_str_n2cc [util]: Format and emit RF LMAC log string
-int rf_lmac_log_str_n2cc()
-{
-  return list_push_tail((*((uint32_t *)0x1152d4)));
+int rf_lmac_log_str_n2cc() {
+  return list_push_tail((*((uint32_t *)0x1152d4)), 0);
 }
 
 
 // sub_1152CC @ 0x1152cc, size 8 bytes
-int sub_1152CC()
-{
-  return sub_11E724((*((uint32_t *)0x1152d4)));
+int sub_1152CC() {
+  return sub_11E724((*((uint32_t *)0x1152d4)), 0);
 }
 
 
 // sub_1152D8 @ 0x1152d8, size 56 bytes
-long long  sub_1152D8(int a1)
-{
+long long  sub_1152D8(uint32_t a1) {
   int v1; // r1
   int v2; // r3
   int v3; // r5
@@ -35921,8 +35345,7 @@ long long  sub_1152D8(int a1)
 
 
 // sub_115314 @ 0x115314, size 18 bytes
-uint32_t * sub_115314(int a1)
-{
+uint32_t * sub_115314(uint32_t a1) {
   uint32_t *result; // r0
 
   result = *(uint32_t **)(a1 + 28);
@@ -35937,8 +35360,7 @@ uint32_t * sub_115314(int a1)
 
 // rf_subcmd_dispatch @ 0x11532c, size 80 bytes
 // rf_subcmd_dispatch [rf]: Dispatch on subcommand (cmp r0, 5)
-int  rf_subcmd_dispatch(int result)
-{
+int  rf_subcmd_dispatch(uint32_t a1) {
   switch ( result )
   {
     case 0:
@@ -35966,8 +35388,7 @@ int  rf_subcmd_dispatch(int result)
 
 
 // sub_11532C @ 0x11532c, size 80 bytes
-int  sub_11532C(int result)
-{
+int  sub_11532C(uint32_t a1) {
   switch ( result )
   {
     case 0:
@@ -35995,8 +35416,7 @@ int  sub_11532C(int result)
 
 
 // sub_11538C @ 0x11538c, size 90 bytes
-int  sub_11538C(int result)
-{
+int  sub_11538C(uint32_t a1) {
   long long v1; // kr00_8
   int v2; // r2
   int v3; // r3
@@ -36033,8 +35453,7 @@ int  sub_11538C(int result)
 
 // sub_1153F4 @ 0x1153f4, size 594 bytes
 // sub_12153F4 [util]: Switch dispatch on input code (<=5) with 4 saved regs
-int * sub_1153F4(int a1, int a2, int a3, int a4)
-{
+int * sub_1153F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v5; // r3
   int *v6; // r0
   int *v7; // r3
@@ -36066,7 +35485,7 @@ LABEL_12:
         *v16 = 512;
         goto LABEL_4;
       }
-      result = (int *)sub_121960((*((uint32_t *)0x115690)), (*((uint32_t *)0x115684)), 1919, a4);
+      result = (int *)sub_121960((*((uint32_t *)0x115690)), (*((uint32_t *)0x115684)), 1919);
       break;
     case 1:
       if ( ((*(uint32_t *)(*((uint32_t *)0x115648)) >> 8) & 3) != 2 )
@@ -36081,7 +35500,7 @@ LABEL_16:
         *v18 = 1024;
         goto LABEL_4;
       }
-      result = (int *)sub_121960((*((uint32_t *)0x115694)), (*((uint32_t *)0x115684)), 1907, a4);
+      result = (int *)sub_121960((*((uint32_t *)0x115694)), (*((uint32_t *)0x115684)), 1907);
       break;
     case 2:
       if ( ((*(uint32_t *)(*((uint32_t *)0x115648)) >> 12) & 3) != 2 )
@@ -36096,7 +35515,7 @@ LABEL_14:
         *v17 = 2048;
         goto LABEL_4;
       }
-      result = (int *)sub_121960((*((uint32_t *)0x115698)), (*((uint32_t *)0x115684)), 1895, a4);
+      result = (int *)sub_121960((*((uint32_t *)0x115698)), (*((uint32_t *)0x115684)), 1895);
       break;
     case 3:
       if ( (HIWORD(*(uint32_t *)(*((uint32_t *)0x115648))) & 3) != 2 )
@@ -36111,7 +35530,7 @@ LABEL_18:
         *v19 = 4096;
         goto LABEL_4;
       }
-      result = (int *)sub_121960((*((uint32_t *)0x11569c)), (*((uint32_t *)0x115684)), 1883, a4);
+      result = (int *)sub_121960((*((uint32_t *)0x11569c)), (*((uint32_t *)0x115684)), 1883);
       break;
     case 5:
       if ( (HIBYTE(*(uint32_t *)(*((uint32_t *)0x115648))) & 3) != 2 )
@@ -36126,7 +35545,7 @@ LABEL_3:
         *v5 = 0x4000;
         goto LABEL_4;
       }
-      result = (int *)sub_121960((*((uint32_t *)0x11568c)), (*((uint32_t *)0x115684)), 1931, a4);
+      result = (int *)sub_121960((*((uint32_t *)0x11568c)), (*((uint32_t *)0x115684)), 1931);
       break;
     default:
       if ( **(short **)(*((uint32_t *)0x115680)) < 0 )
@@ -36168,8 +35587,7 @@ LABEL_4:
 
 // rf_init_handler @ 0x1156a0, size 154 bytes
 // rf_init_handler [rf]: RF initialization handler
-int * rf_init_handler(int a1, int a2, int a3, int a4)
-{
+int * rf_init_handler(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // zf
   int *v6; // r5
   int v7; // r2
@@ -36189,7 +35607,7 @@ int * rf_init_handler(int a1, int a2, int a3, int a4)
     v6 += a4;
   v8 = *v6;
   if ( v7 < 0 && v8 == a1 )
-    return (int *)sub_121960((*((uint32_t *)0x11574c)), (*((uint32_t *)0x115748)), 1972, v8);
+    return (int *)sub_121960((*((uint32_t *)0x11574c)), (*((uint32_t *)0x115748)), 1972);
   if ( v8 )
   {
     v11 = (*((uint32_t *)0x115750));
@@ -36223,8 +35641,7 @@ int * rf_init_handler(int a1, int a2, int a3, int a4)
 
 
 // sub_1156A0 @ 0x1156a0, size 154 bytes
-int * sub_1156A0(int a1, int a2, int a3, int a4)
-{
+int * sub_1156A0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // zf
   int *v6; // r5
   int v7; // r2
@@ -36244,7 +35661,7 @@ int * sub_1156A0(int a1, int a2, int a3, int a4)
     v6 += a4;
   v8 = *v6;
   if ( v7 < 0 && v8 == a1 )
-    return (int *)sub_121960((*((uint32_t *)0x11574c)), (*((uint32_t *)0x115748)), 1972, v8);
+    return (int *)sub_121960((*((uint32_t *)0x11574c)), (*((uint32_t *)0x115748)), 1972);
   if ( v8 )
   {
     v11 = (*((uint32_t *)0x115750));
@@ -36278,8 +35695,7 @@ int * sub_1156A0(int a1, int a2, int a3, int a4)
 
 
 // sub_115754 @ 0x115754, size 184 bytes
-int * sub_115754(int a1, int a2, int a3, int a4)
-{
+int * sub_115754(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r1
   short **v9; // r8
   int v10; // r7
@@ -36350,8 +35766,7 @@ LABEL_7:
 
 // rf_lmac_handler_n5820 @ 0x115820, size 108 bytes
 // rf_lmac_handler_n5820 [rf]: LMAC RF interrupt/event handler
-int rf_lmac_handler_n5820()
-{
+int rf_lmac_handler_n5820() {
   int *v0; // r4
   int v1; // r0
   int v2; // r0
@@ -36360,7 +35775,7 @@ int rf_lmac_handler_n5820()
   v0 = (int *)(*((uint32_t *)0x11588c));
   v1 = rf_chan_check_enter();
   v2 = nullsub_4(v1);
-  sub_115FBC(v2);
+  sub_115FBC();
   rf_init_load_globals(0);
   sub_100200(v0, 0, 0x94u);
   sub_11E71C(v0 + 3);
@@ -36384,8 +35799,7 @@ int rf_lmac_handler_n5820()
 
 
 // sub_115820 @ 0x115820, size 108 bytes
-int sub_115820()
-{
+int sub_115820() {
   int *v0; // r4
   int v1; // r0
   int v2; // r0
@@ -36394,7 +35808,7 @@ int sub_115820()
   v0 = (int *)(*((uint32_t *)0x11588c));
   v1 = sub_11522C();
   v2 = nullsub_4(v1);
-  sub_115FBC(v2);
+  sub_115FBC();
   sub_11639C(0);
   sub_100200(v0, 0, 0x94u);
   sub_11E71C(v0 + 3);
@@ -36419,23 +35833,20 @@ int sub_115820()
 
 // is_flag_set_clz @ 0x115890, size 14 bytes
 // is_flag_set_clz [util]: Check if flag byte is set using clz, returns 0/1
-int is_flag_set_clz()
-{
+int is_flag_set_clz() {
   return *((unsigned char *)(*((uint32_t *)0x1158a0)) + 142) == 0;
 }
 
 
 // sub_115890 @ 0x115890, size 14 bytes
-int sub_115890()
-{
+int sub_115890() {
   return *((unsigned char *)(*((uint32_t *)0x1158a0)) + 142) == 0;
 }
 
 
 // rf_event_handler_8a4 @ 0x1158a4, size 250 bytes
 // rf_event_handler_8a4 [rf]: RF event/state handler
-int  rf_event_handler_8a4(int result)
-{
+int  rf_event_handler_8a4(uint32_t a1) {
   int v1; // r3
   int v2; // r6
   uint32_t *v3; // r2
@@ -36522,8 +35933,7 @@ int  rf_event_handler_8a4(int result)
 
 
 // sub_1158A4 @ 0x1158a4, size 250 bytes
-int  sub_1158A4(int result)
-{
+int  sub_1158A4(uint32_t a1) {
   int v1; // r3
   int v2; // r6
   uint32_t *v3; // r2
@@ -36610,8 +36020,7 @@ int  sub_1158A4(int result)
 
 
 // sub_1159C8 @ 0x1159c8, size 226 bytes
-int  sub_1159C8(int result)
-{
+int  sub_1159C8(uint32_t a1) {
   uint32_t *v1; // r5
   int v2; // r4
   int v3; // r11
@@ -36669,7 +36078,7 @@ int  sub_1159C8(int result)
       if ( *(uint16_t *)(v2 + 4) )
         result = sub_115FF0(v2, v8, v3);
       else
-        result = sub_11660C(v2, v8, v3);
+        result = sub_11660C();
       v2 = v1[3];
       *v6 = *v4 + *(uint32_t *)(v5 + 4 * v3);
       if ( !v2 )
@@ -36712,8 +36121,7 @@ LABEL_16:
 
 // rf_chan_table_lookup @ 0x115ad0, size 116 bytes
 // rf_chan_table_lookup [rf]: Looks up channel entry in table indexed by 5-element stride
-int  rf_chan_table_lookup(int a1)
-{
+int  rf_chan_table_lookup(uint32_t a1) {
   uint32_t *v1; // r5
   int v3; // r3
   int v4; // r4
@@ -36730,8 +36138,8 @@ int  rf_chan_table_lookup(int a1)
     v1 = (uint32_t *)(*((uint32_t *)0x115b48));
   if ( a1 != 5 )
     v1 += 7 * a1;
-  rf_bus_write_60fc(a1, (*((uint32_t *)0x115b44)) + 8 * a1, 0);
-  rf_bus_write_60fc(a1, v1 + 3, 0);
+  rf_bus_write_60fc(a1, (*((uint32_t *)0x115b44)) + 8 * a1);
+  rf_bus_write_60fc(a1, v1 + 3);
   *v1 = 0;
   v1[5] = 0;
   sub_1152D8(a1);
@@ -36765,8 +36173,7 @@ int  rf_chan_table_lookup(int a1)
 
 
 // sub_115AD0 @ 0x115ad0, size 116 bytes
-int  sub_115AD0(int a1)
-{
+int  sub_115AD0(uint32_t a1) {
   uint32_t *v1; // r5
   int v3; // r3
   int v4; // r4
@@ -36783,8 +36190,8 @@ int  sub_115AD0(int a1)
     v1 = (uint32_t *)(*((uint32_t *)0x115b48));
   if ( a1 != 5 )
     v1 += 7 * a1;
-  sub_1160FC(a1, (*((uint32_t *)0x115b44)) + 8 * a1, 0);
-  sub_1160FC(a1, v1 + 3, 0);
+  sub_1160FC(a1, (*((uint32_t *)0x115b44)) + 8 * a1);
+  sub_1160FC(a1, v1 + 3);
   *v1 = 0;
   v1[5] = 0;
   sub_1152D8(a1);
@@ -36819,8 +36226,7 @@ int  sub_115AD0(int a1)
 
 // rf_subcmd_dispatch_n5b60 @ 0x115b60, size 276 bytes
 // rf_register_access_helper [rf]: Helper wrapping RF register access (pushes r4-r6,lr)
-int  rf_subcmd_dispatch_n5b60(int a1, int a2)
-{
+int  rf_subcmd_dispatch_n5b60(uint32_t a1, uint32_t a2) {
   uint8_t *v4; // r3
   char *v5; // r0
   int *v6; // r5
@@ -36863,7 +36269,7 @@ int  rf_subcmd_dispatch_n5b60(int a1, int a2)
       v21 = (*((uint32_t *)0x115c80));
       *(uint8_t *)(a1 + 14) = a2;
       *(uint8_t *)(a1 + 53) = 1;
-      list_push_tail(v21 + 152 * (short)v20 + 48);
+      list_push_tail(v21 + 152 * (short)v20 + 48, 0);
       return 1;
     }
   }
@@ -36878,7 +36284,7 @@ int  rf_subcmd_dispatch_n5b60(int a1, int a2)
   ++*(uint32_t *)(*((uint32_t *)0x115c7c));
   if ( v7 )
   {
-    list_push_tail(v5 + 12);
+    list_push_tail(v5 + 12, 0);
     v8 = *v6;
     if ( *v6 )
     {
@@ -36896,7 +36302,7 @@ LABEL_8:
     v22[4] = (*((uint32_t *)0x115c88));
     v22[2] = a1;
     v22[3] = a1;
-    list_push_tail(v5 + 12);
+    list_push_tail(v5 + 12, 0);
     v8 = *v6;
     if ( *v6 )
       goto LABEL_8;
@@ -36946,8 +36352,7 @@ LABEL_8:
 
 
 // sub_115B60 @ 0x115b60, size 276 bytes
-int  sub_115B60(int a1, int a2)
-{
+int  sub_115B60(uint32_t a1, uint32_t a2) {
   uint8_t *v4; // r3
   char *v5; // r0
   int *v6; // r5
@@ -36990,7 +36395,7 @@ int  sub_115B60(int a1, int a2)
       v21 = (*((uint32_t *)0x115c80));
       *(uint8_t *)(a1 + 14) = a2;
       *(uint8_t *)(a1 + 53) = 1;
-      sub_11E724(v21 + 152 * (short)v20 + 48);
+      sub_11E724(v21 + 152 * (short)v20 + 48, 0);
       return 1;
     }
   }
@@ -37005,7 +36410,7 @@ int  sub_115B60(int a1, int a2)
   ++*(uint32_t *)(*((uint32_t *)0x115c7c));
   if ( v7 )
   {
-    sub_11E724(v5 + 12);
+    sub_11E724(v5 + 12, 0);
     v8 = *v6;
     if ( *v6 )
     {
@@ -37023,7 +36428,7 @@ LABEL_8:
     v22[4] = (*((uint32_t *)0x115c88));
     v22[2] = a1;
     v22[3] = a1;
-    sub_11E724(v5 + 12);
+    sub_11E724(v5 + 12, 0);
     v8 = *v6;
     if ( *v6 )
       goto LABEL_8;
@@ -37073,23 +36478,20 @@ LABEL_8:
 
 
 // sub_115C90 @ 0x115c90, size 12 bytes
-void sub_115C90()
-{
+void sub_115C90() {
   *((uint32_t *)(*((uint32_t *)0x115c9c)) + 1) = (*((uint32_t *)0x115ca0)) & *(uint32_t *)(*((uint32_t *)0x115c9c));
 }
 
 
 // sub_115D4C @ 0x115d4c, size 14 bytes
-void sub_115D4C()
-{
+void sub_115D4C() {
   *(uint32_t *)(*((uint32_t *)0x115d60)) = *(uint32_t *)(*((uint32_t *)0x115d5c)) & 0xF00000;
 }
 
 
 // sub_115D64 @ 0x115d64, size 76 bytes
 // sub_1215D64 [util]: Helper routine with stack frame and shift op
-int sub_115D64()
-{
+int sub_115D64() {
   int *v0; // r6
   uint8_t *v1; // r7
   uint8_t *v2; // r5
@@ -37136,8 +36538,7 @@ int sub_115D64()
 
 // patch_table_apply_dbc @ 0x115dbc, size 186 bytes
 // patch_table_apply_dbc [patch]: Applies a sequence of register patches from table
-int patch_table_apply_dbc()
-{
+int patch_table_apply_dbc() {
   int *v0; // r10
   uint8_t *v1; // r5
   uint32_t *v2; // r8
@@ -37215,8 +36616,7 @@ int patch_table_apply_dbc()
 
 
 // sub_115DBC @ 0x115dbc, size 186 bytes
-int sub_115DBC()
-{
+int sub_115DBC() {
   int *v0; // r10
   uint8_t *v1; // r5
   uint32_t *v2; // r8
@@ -37322,16 +36722,16 @@ uint32_t *rf_fault_dump_n_26c()
   {
     v5 = (unsigned char)v4;
     sub_11E71C(v3);
-    rf_bus_write_60fc((unsigned char)v4++, v1, v3);
-    rf_bus_write_60fc(v5, v2, v3);
+    rf_bus_write_60fc((unsigned char)v4++, v1);
+    rf_bus_write_60fc(v5, v2);
     v1 += 8;
     v3 += 2;
     v2 += 28;
   }
   while ( v4 != 4 );
   v6 = (int *)(*((uint32_t *)0x115f6c));
-  v7 = sub_116328(5, (*((uint32_t *)0x115f6c)), 0);
-  sub_115FBC(v7);
+  v7 = sub_116328(5, (*((uint32_t *)0x115f6c)));
+  sub_115FBC();
   v8 = *((uint16_t *)v0 + 70);
   sub_100200(v6 - 31, 0, 0x94u);
   *((uint16_t *)v0 + 70) = v8;
@@ -37390,16 +36790,16 @@ uint32_t *sub_115E98()
   {
     v5 = (unsigned char)v4;
     sub_11E71C(v3);
-    sub_1160FC((unsigned char)v4++, v1, v3);
-    sub_1160FC(v5, v2, v3);
+    sub_1160FC((unsigned char)v4++, v1);
+    sub_1160FC(v5, v2);
     v1 += 8;
     v3 += 2;
     v2 += 28;
   }
   while ( v4 != 4 );
   v6 = (int *)(*((uint32_t *)0x115f6c));
-  v7 = sub_116328(5, (*((uint32_t *)0x115f6c)), 0);
-  sub_115FBC(v7);
+  v7 = sub_116328(5, (*((uint32_t *)0x115f6c)));
+  sub_115FBC();
   v8 = *((uint16_t *)v0 + 70);
   sub_100200(v6 - 31, 0, 0x94u);
   *((uint16_t *)v0 + 70) = v8;
@@ -37431,8 +36831,7 @@ uint32_t *sub_115E98()
 
 
 // sub_115F78 @ 0x115f78, size 58 bytes
-int  sub_115F78(int a1)
-{
+int  sub_115F78(uint32_t a1) {
   uint32_t *v1; // r6
   uint32_t *v2; // r7
   int v3; // r2
@@ -37465,8 +36864,7 @@ int  sub_115F78(int a1)
 
 
 // sub_115FBC @ 0x115fbc, size 48 bytes
-int sub_115FBC()
-{
+int sub_115FBC() {
   int v0; // r4
 
   v0 = (*((uint32_t *)0x115fec));
@@ -37479,20 +36877,18 @@ int sub_115FBC()
 
 
 // sub_115FF0 @ 0x115ff0, size 34 bytes
-int  sub_115FF0(int a1, int a2, int a3)
-{
+int  sub_115FF0(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
 
   v3 = (*((uint32_t *)0x116014));
   **(uint32_t **)(a1 + 32) = a2;
-  list_push_tail(v3 + 8 * a3);
+  list_push_tail(v3 + 8 * a3, 0);
   return irq_nesting_or(*(uint32_t *)((*((uint32_t *)0x116018)) + 4 * a3));
 }
 
 
 // sub_11601C @ 0x11601c, size 186 bytes
-int  sub_11601C(int a1)
-{
+int  sub_11601C(uint32_t a1) {
   int v1; // r5
   int v2; // r6
   int v4; // r7
@@ -37541,7 +36937,7 @@ int  sub_11601C(int a1)
             __enable_irq();
         }
       }
-      result = rf_cmd_dispatch_n_454((unsigned char)a1, v6, v10);
+      result = rf_cmd_dispatch_n_454((unsigned char)a1);
       v6 = *(uint32_t *)(v1 + 8 * a1);
     }
     while ( v6 );
@@ -37552,8 +36948,7 @@ int  sub_11601C(int a1)
 
 // rf_bus_write_60fc @ 0x1160fc, size 502 bytes
 // rf_bus_write_60fc [rf]: Writes value to RF bus register
-int  rf_bus_write_60fc(int a1, int a2)
-{
+int  rf_bus_write_60fc(uint32_t a1, uint32_t a2) {
   unsigned char **v2; // r11
   int v3; // r10
   int v6; // r1
@@ -37604,7 +36999,7 @@ int  rf_bus_write_60fc(int a1, int a2)
       }
       if ( *(uint16_t *)(v8 + 4) )
         break;
-      sub_11660C(v8, v6, v7);
+      sub_11660C();
       v8 = sub_11E7AC(a2);
       if ( !v8 )
         return sub_116654();
@@ -37637,7 +37032,7 @@ int  rf_bus_write_60fc(int a1, int a2)
               if ( v20 > 0x186 )
               {
                 v21 = 0;
-                v20 = ((unsigned)(v20) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+                LOWORD(v20) = 0;
                 v31 = 1;
               }
               else
@@ -37666,7 +37061,7 @@ int  rf_bus_write_60fc(int a1, int a2)
               v26 = (int *)(*((uint32_t *)0x116324));
               ++*(uint32_t *)(*((uint32_t *)0x116324));
               msg_parse(v3, v8);
-              v27 = list_push_tail((*((uint32_t *)0x11630c)));
+              v27 = list_push_tail((*((uint32_t *)0x11630c)), 0);
               rf_bus_mark_ne0(v27, v28);
               if ( *v26 )
               {
@@ -37682,12 +37077,12 @@ int  rf_bus_write_60fc(int a1, int a2)
             }
             else
             {
-              sub_10DA6C((*((uint32_t *)0x116310)));
+              sub_10DA6C((*((uint32_t *)0x116310)), 0);
             }
           }
           else
           {
-            sub_10DA6C((*((uint32_t *)0x116314)));
+            sub_10DA6C((*((uint32_t *)0x116314)), 0);
           }
           break;
         case 1:
@@ -37703,15 +37098,14 @@ int  rf_bus_write_60fc(int a1, int a2)
       }
     }
     sub_115314(v8);
-    rf_cmd_dispatch_n_454(a1, v8, v13);
+    rf_cmd_dispatch_n_454(a1);
   }
   return sub_116654();
 }
 
 
 // sub_1160FC @ 0x1160fc, size 502 bytes
-int  sub_1160FC(int a1, int a2)
-{
+int  sub_1160FC(uint32_t a1, uint32_t a2) {
   unsigned char **v2; // r11
   int v3; // r10
   int v6; // r1
@@ -37762,7 +37156,7 @@ int  sub_1160FC(int a1, int a2)
       }
       if ( *(uint16_t *)(v8 + 4) )
         break;
-      sub_11660C(v8, v6, v7);
+      sub_11660C();
       v8 = sub_11E7AC(a2);
       if ( !v8 )
         return sub_116654();
@@ -37795,7 +37189,7 @@ int  sub_1160FC(int a1, int a2)
               if ( v20 > 0x186 )
               {
                 v21 = 0;
-                v20 = ((unsigned)(v20) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+                LOWORD(v20) = 0;
                 v31 = 1;
               }
               else
@@ -37824,7 +37218,7 @@ int  sub_1160FC(int a1, int a2)
               v26 = (int *)(*((uint32_t *)0x116324));
               ++*(uint32_t *)(*((uint32_t *)0x116324));
               sub_11F504(v3, v8);
-              v27 = sub_11E724((*((uint32_t *)0x11630c)));
+              v27 = sub_11E724((*((uint32_t *)0x11630c)), 0);
               sub_112D84(v27, v28);
               if ( *v26 )
               {
@@ -37840,12 +37234,12 @@ int  sub_1160FC(int a1, int a2)
             }
             else
             {
-              sub_10DA6C((*((uint32_t *)0x116310)));
+              sub_10DA6C((*((uint32_t *)0x116310)), 0);
             }
           }
           else
           {
-            sub_10DA6C((*((uint32_t *)0x116314)));
+            sub_10DA6C((*((uint32_t *)0x116314)), 0);
           }
           break;
         case 1:
@@ -37861,15 +37255,14 @@ int  sub_1160FC(int a1, int a2)
       }
     }
     sub_115314(v8);
-    sub_121AF0(a1, v8, v13);
+    sub_121AF0(a1);
   }
   return sub_116654();
 }
 
 
 // sub_116328 @ 0x116328, size 102 bytes
-int  sub_116328(int a1, int a2)
-{
+int  sub_116328(uint32_t a1, uint32_t a2) {
   short **v2; // r5
   int v3; // r7
   int v4; // r6
@@ -37899,7 +37292,7 @@ LABEL_2:
 LABEL_5:
       if ( !*(uint16_t *)(v8 + 4) )
       {
-        sub_11660C(v8, v7, *(unsigned short *)(v8 + 4));
+        sub_11660C();
         goto LABEL_2;
       }
       if ( **v2 >= 0 )
@@ -37922,8 +37315,7 @@ LABEL_4:
 
 // rf_init_load_globals @ 0x11639c, size 252 bytes
 // rf_init_load_globals [rf]: Loads RF subsystem globals from ROM/RAM pointers
-int  rf_init_load_globals(int a1)
-{
+int  rf_init_load_globals(uint32_t a1) {
   int v2; // r5
   uint32_t *v3; // r4
   uint32_t *v4; // r11
@@ -37979,7 +37371,7 @@ int  rf_init_load_globals(int a1)
         v16 -= 0x10000;
       }
       while ( v15 != 1024 );
-      list_push_tail(v8);
+      list_push_tail(v8, 0);
     }
     v3 += 1050;
     v2 += 56;
@@ -38021,8 +37413,7 @@ int  rf_init_load_globals(int a1)
 
 
 // sub_11639C @ 0x11639c, size 252 bytes
-int  sub_11639C(int a1)
-{
+int  sub_11639C(uint32_t a1) {
   int v2; // r5
   uint32_t *v3; // r4
   uint32_t *v4; // r11
@@ -38078,7 +37469,7 @@ int  sub_11639C(int a1)
         v16 -= 0x10000;
       }
       while ( v15 != 1024 );
-      sub_11E724(v8);
+      sub_11E724(v8, 0);
     }
     v3 += 1050;
     v2 += 56;
@@ -38121,8 +37512,7 @@ int  sub_11639C(int a1)
 
 // rf_buf_setup_check @ 0x1164c4, size 168 bytes
 // rf_buf_setup_check [rf]: Setup/check RF buffer with 0x1000 size limit
-int  rf_buf_setup_check(int a1, int a2, int a3)
-{
+int  rf_buf_setup_check(uint32_t a1, uint32_t a2, uint32_t a3) {
   long long v3; // kr00_8
   int v6; // r1
   int v7; // r7
@@ -38178,8 +37568,7 @@ int  rf_buf_setup_check(int a1, int a2, int a3)
 
 
 // sub_1164C4 @ 0x1164c4, size 168 bytes
-int  sub_1164C4(int a1, int a2, int a3)
-{
+int  sub_1164C4(uint32_t a1, uint32_t a2, uint32_t a3) {
   long long v3; // kr00_8
   int v6; // r1
   int v7; // r7
@@ -38236,8 +37625,7 @@ int  sub_1164C4(int a1, int a2, int a3)
 
 // rf_alloc_or_init @ 0x116580, size 38 bytes
 // rf_alloc_or_init [rf]: Allocates/init RF context via 0x11e7ac then stores result
-int  rf_alloc_or_init(int a1, int a2)
-{
+int  rf_alloc_or_init(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int v5; // r1
   int v6; // r4
@@ -38258,8 +37646,7 @@ int  rf_alloc_or_init(int a1, int a2)
 
 
 // sub_116580 @ 0x116580, size 38 bytes
-int  sub_116580(int a1, int a2)
-{
+int  sub_116580(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int v5; // r1
   int v6; // r4
@@ -38281,8 +37668,7 @@ int  sub_116580(int a1, int a2)
 
 // sub_1165B0 @ 0x1165b0, size 78 bytes
 // sub_12165B0 [rf]: LMAC RF helper, checks flag and dispatches operation
-int  sub_1165B0(int a1, int a2)
-{
+int  sub_1165B0(uint32_t a1, uint32_t a2) {
   long long v2; // kr00_8
   int v5; // r2
 
@@ -38301,22 +37687,20 @@ int  sub_1165B0(int a1, int a2)
 
 
 // sub_11660C @ 0x11660c, size 22 bytes
-int sub_11660C()
-{
-  list_push_tail((*((uint32_t *)0x116624)));
+int sub_11660C() {
+  list_push_tail((*((uint32_t *)0x116624)), 0);
   return irq_nesting_or(0x200000);
 }
 
 
 // sub_116628 @ 0x116628, size 40 bytes
-int  sub_116628(int result, int a2)
-{
+int  sub_116628(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
 
   v2 = result;
   if ( !*(uint8_t *)(result + 52) )
-    result = list_push_tail((*((uint32_t *)0x116650)));
+    result = list_push_tail((*((uint32_t *)0x116650)), 0);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 44);
@@ -38370,15 +37754,14 @@ uint32_t *sub_116654()
     if ( v7 )
       v7(result[12], *(uint32_t *)(result[8] + 68));
     if ( !*((uint8_t *)v4 + 52) )
-      list_push_tail((*((uint32_t *)0x1166c8)));
+      list_push_tail((*((uint32_t *)0x1166c8)), 0);
   }
   return result;
 }
 
 
 // sub_1166CC @ 0x1166cc, size 340 bytes
-int  sub_1166CC(int a1, int a2, int a3)
-{
+int  sub_1166CC(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r10
   int v4; // r11
   int v6; // r5
@@ -38431,7 +37814,7 @@ LABEL_4:
   {
     v22 = v3 + 152 * a1;
     *(uint32_t *)(v13 + 108) = *(uint32_t *)(v22 + 36);
-    v22 = ((unsigned)(v22) & 0xFFFF0000U) | (((unsigned)(*(uint16_t *)(v22 + 40)) & 0xFFFFU) << 0);
+    LOWORD(v22) = *(uint16_t *)(v22 + 40);
     v23 = *(uint32_t *)(v12 + 88);
     *(uint8_t *)(v13 + 105) = 2;
     *(uint32_t *)(v13 + 114) = v23;
@@ -38479,31 +37862,28 @@ LABEL_4:
 // rf_channel_set_n6838 @ 0x116838, size 4 bytes
 // rf_channel_set_n6838 [rf]: Set RF channel by querying current state and applying delta (sub 1)
 // attributes: thunk
-int  rf_channel_set_n6838(int a1, int a2, int a3)
-{
+int  rf_channel_set_n6838(uint32_t a1, uint32_t a2, uint32_t a3) {
   return sub_1166CC(a1, a2, a3);
 }
 
 
 // sub_116838 @ 0x116838, size 4 bytes
 // attributes: thunk
-int  sub_116838(int a1, int a2, int a3)
-{
+int  sub_116838(uint32_t a1, uint32_t a2, uint32_t a3) {
   return sub_1166CC(a1, a2, a3);
 }
 
 
 // rf_temp_sensor_read @ 0x11683c, size 24 bytes
 // rf_temp_sensor_read [rf]: Read RF temperature sensor value
-int rf_temp_sensor_read()
-{
+int rf_temp_sensor_read() {
   uint8_t *v0; // r4
   int v1; // r0
   int result; // r0
 
   v0 = (*((uint32_t *)0x116854));
   v1 = sub_11E71C((*((uint32_t *)0x116854)));
-  result = (unsigned char)(sub_121A60(v1) - 1);
+  result = (unsigned char)(sub_121A60() - 1);
   v0[11] = result;
   v0[10] = result;
   return result;
@@ -38511,15 +37891,14 @@ int rf_temp_sensor_read()
 
 
 // sub_11683C @ 0x11683c, size 24 bytes
-int sub_11683C()
-{
+int sub_11683C() {
   uint8_t *v0; // r4
   int v1; // r0
   int result; // r0
 
   v0 = (*((uint32_t *)0x116854));
   v1 = sub_11E71C((*((uint32_t *)0x116854)));
-  result = (unsigned char)(sub_121A60(v1) - 1);
+  result = (unsigned char)(sub_121A60() - 1);
   v0[11] = result;
   v0[10] = result;
   return result;
@@ -38527,8 +37906,7 @@ int sub_11683C()
 
 
 // sub_116858 @ 0x116858, size 974 bytes
-int  sub_116858(int a1)
-{
+int  sub_116858(uint32_t a1) {
   short **v1; // r7
   int v2; // r5
   int v3; // r1
@@ -38586,7 +37964,7 @@ int  sub_116858(int a1)
     v3 = **(short **)(*((uint32_t *)0x116b48));
     if ( v3 < 0 && !v2 )
     {
-      sub_121960((*((uint32_t *)0x116b7c)), (*((uint32_t *)0x116b78)), 423, *(uint32_t *)(*((uint32_t *)0x116b48)));
+      sub_121960((*((uint32_t *)0x116b7c)), (*((uint32_t *)0x116b78)), 423);
       return v2;
     }
     v5 = *(short **)(v2 + 8);
@@ -38609,7 +37987,7 @@ int  sub_116858(int a1)
         v2 = (v7 >> 15) & 0x1F0;
         if ( !v2 )
         {
-          sub_121960((*((uint32_t *)0x116b84)), (*((uint32_t *)0x116b78)), 475, v7);
+          sub_121960((*((uint32_t *)0x116b84)), (*((uint32_t *)0x116b78)), 475);
           return v2;
         }
       }
@@ -38779,10 +38157,10 @@ LABEL_44:
               return v34;
             }
             v35 = sub_12754C(v34);
-            v36 = sub_127620(v35, HIDWORD(v35), (*((uint32_t *)0x116b38)), (*((uint32_t *)0x116b3c)));
+            v36 = sub_127620(v35, HIDWORD(v35), (*((uint32_t *)0x116b38)));
             v37 = sub_12754C(v33);
-            v38 = sub_127620(v37, HIDWORD(v37), (*((uint32_t *)0x116b40)), (*((uint32_t *)0x116b44)));
-            v39 = sub_1272B4(v36, HIDWORD(v36), v38, HIDWORD(v38));
+            v38 = sub_127620(v37, HIDWORD(v37), (*((uint32_t *)0x116b40)));
+            v39 = sub_1272B4(v36, HIDWORD(v36));
             *(uint8_t *)(v11 + 145) = sub_127B54(v39, HIDWORD(v39));
           }
           return 0;
@@ -38799,8 +38177,7 @@ LABEL_42:
 
 
 // sub_116C48 @ 0x116c48, size 30 bytes
-int sub_116C48()
-{
+int sub_116C48() {
   uint8_t *v0; // r4
   unsigned int v1; // r2
   unsigned int v2; // r3
@@ -38820,8 +38197,7 @@ int sub_116C48()
 
 
 // sub_116C6C @ 0x116c6c, size 30 bytes
-int sub_116C6C()
-{
+int sub_116C6C() {
   uint8_t *v0; // r4
   unsigned int *v1; // r2
   int v2; // r3
@@ -38840,16 +38216,14 @@ int sub_116C6C()
 
 // rf_calib_table_init @ 0x116c94, size 14 bytes
 // rf_calib_table_init [rf]: Initializes RF calibration table pointers
-int rf_calib_table_init()
-{
+int rf_calib_table_init() {
   sub_117410();
   return rf_temp_sensor_read();
 }
 
 
 // sub_116C94 @ 0x116c94, size 14 bytes
-int sub_116C94()
-{
+int sub_116C94() {
   sub_117410();
   return sub_11683C();
 }
@@ -38857,8 +38231,7 @@ int sub_116C94()
 
 // accum_update_addr_pair @ 0x116ca4, size 38 bytes
 // accum_update_addr_pair [util]: Add two 32-bit address pairs and store accumulator
-int accum_update_addr_pair()
-{
+int accum_update_addr_pair() {
   uint32_t *v0; // r3
   long long v1; // kr00_8
   long long v2; // kr08_8
@@ -38877,8 +38250,7 @@ int accum_update_addr_pair()
 
 
 // sub_116CA4 @ 0x116ca4, size 38 bytes
-int sub_116CA4()
-{
+int sub_116CA4() {
   uint32_t *v0; // r3
   long long v1; // kr00_8
   long long v2; // kr08_8
@@ -38897,15 +38269,13 @@ int sub_116CA4()
 
 
 // sub_116CD4 @ 0x116cd4, size 8 bytes
-int sub_116CD4()
-{
+int sub_116CD4() {
   return irq_nesting_or(0x800000);
 }
 
 
 // sub_116CDC @ 0x116cdc, size 158 bytes
-int sub_116CDC()
-{
+int sub_116CDC() {
   uint16_t *v0; // r5
   int v1; // r4
   int result; // r0
@@ -38941,7 +38311,7 @@ int sub_116CDC()
         v5(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_1174EC();
+        result = sub_1174EC(0);
       if ( *v3 )
       {
         v6 = *v3 - 1;
@@ -38971,8 +38341,7 @@ int sub_116CDC()
 
 
 // sub_116D98 @ 0x116d98, size 126 bytes
-int sub_116D98()
-{
+int sub_116D98() {
   int *v0; // r5
   int v1; // r4
   int result; // r0
@@ -39012,7 +38381,7 @@ int sub_116D98()
         v6(*(uint32_t *)(v1 + 8));
       result = *(uint32_t *)(v1 + 12);
       if ( result )
-        result = sub_1174EC();
+        result = sub_1174EC(0);
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -39033,8 +38402,7 @@ int sub_116D98()
 
 
 // sub_116E24 @ 0x116e24, size 144 bytes
-int sub_116E24()
-{
+int sub_116E24() {
   int *v0; // r6
   int v1; // r4
   int result; // r0
@@ -39076,7 +38444,7 @@ int sub_116E24()
           v7(*(uint32_t *)(v1 + 8));
         result = *(uint32_t *)(v1 + 12);
         if ( result )
-          result = sub_1174EC();
+          result = sub_1174EC(0);
         if ( *v5 )
         {
           v8 = *v5 - 1;
@@ -39098,8 +38466,7 @@ int sub_116E24()
 
 
 // sub_116EC4 @ 0x116ec4, size 312 bytes
-int  sub_116EC4(int a1, int a2, int a3, int a4)
-{
+int  sub_116EC4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v4; // r7
   uint8_t *v5; // r9
   int v6; // r8
@@ -39120,7 +38487,7 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
   v7 = a1;
   for ( i = 0; ; ++i )
   {
-    v11 = sub_11798C(a1, a2, a3, a4);
+    v11 = sub_11798C();
     *v4 = 0x10000;
     result = sub_11E628(0x400000);
     if ( !v11 )
@@ -39139,7 +38506,7 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
         return irq_nesting_or(0x400000);
       }
     }
-    result = sub_121A68(result, v12, v13, v9);
+    result = sub_121A68();
     if ( !result )
       return result;
     if ( *(uint32_t *)(v11 + 20) != v6 )
@@ -39153,7 +38520,7 @@ int  sub_116EC4(int a1, int a2, int a3, int a4)
     }
     else
     {
-      a1 = sub_117590(v11);
+      a1 = sub_117590(v11, 0, 0);
     }
     a4 = **(unsigned char **)(*((uint32_t *)0x11700c));
     switch ( a4 )
@@ -39197,8 +38564,7 @@ LABEL_22:
 
 
 // sub_11702C @ 0x11702c, size 278 bytes
-int  sub_11702C(int *a1, int a2, uint16_t *a3)
-{
+int  sub_11702C(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint8_t *v3; // r7
   int v4; // r6
   int v5; // r5
@@ -39239,7 +38605,7 @@ int  sub_11702C(int *a1, int a2, uint16_t *a3)
     v21 = (unsigned short)(v20 - v19);
     if ( a2 + v5 >= v21 )
     {
-      v10 = ((unsigned)(v10) & 0xFFFF0000U) | (((unsigned)(v19 - v20 + v5 + a2) & 0xFFFFU) << 0);
+      LOWORD(v10) = v19 - v20 + v5 + a2;
       a2 = (unsigned short)(v21 - v5);
       v10 = (unsigned short)v10;
       v5 = 0;
@@ -39309,8 +38675,7 @@ LABEL_10:
 
 
 // sub_117164 @ 0x117164, size 266 bytes
-uint32_t * sub_117164(uint32_t *a1, int a2, uint16_t *a3)
-{
+uint32_t * sub_117164(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r7
   int v4; // r10
   uint32_t *v5; // r6
@@ -39369,7 +38734,7 @@ LABEL_5:
       v24 = v12;
       rf_cmd_send_n264((*((uint32_t *)0x117278)), (*((uint32_t *)0x117274)), 683);
       v16 = v5[2];
-      v12 = ((unsigned)(v12) & 0xFFFF0000U) | (((unsigned)(v24) & 0xFFFFU) << 0);
+      LOWORD(v12) = v24;
     }
     sub_110B44(v13, v16, 0, v12, v9);
     if ( v7 )
@@ -39408,8 +38773,7 @@ LABEL_16:
 
 
 // sub_117284 @ 0x117284, size 258 bytes
-uint32_t * sub_117284(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5)
-{
+uint32_t * sub_117284(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   unsigned char **v5; // r9
   uint32_t *v6; // r7
   int v7; // r5
@@ -39500,8 +38864,7 @@ uint32_t * sub_117284(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a
 
 // scan_channel_done_n_180 @ 0x11739c, size 98 bytes
 // scan_channel_done_n_180 [scan]: Handles scan-channel-complete notification from MAC
-int  scan_channel_done_n_180(int a1, int a2)
-{
+int  scan_channel_done_n_180(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int result; // r0
   unsigned int v4; // r3
@@ -39538,7 +38901,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(short **)(*((uint32_t *)0x117400)) < 0 && !a2 )
-      return sub_121960((*((uint32_t *)0x117408)), (*((uint32_t *)0x117404)), 1119, v2);
+      return sub_121960((*((uint32_t *)0x117408)), (*((uint32_t *)0x117404)), 1119);
     v2 = *(unsigned short *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
@@ -39547,8 +38910,7 @@ LABEL_9:
 
 
 // sub_11739C @ 0x11739c, size 98 bytes
-int  sub_11739C(int a1, int a2)
-{
+int  sub_11739C(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int result; // r0
   unsigned int v4; // r3
@@ -39585,7 +38947,7 @@ LABEL_9:
   {
     a2 = *(uint32_t *)(a2 + 4);
     if ( **(short **)(*((uint32_t *)0x117400)) < 0 && !a2 )
-      return sub_121960((*((uint32_t *)0x117408)), (*((uint32_t *)0x117404)), 1119, v2);
+      return sub_121960((*((uint32_t *)0x117408)), (*((uint32_t *)0x117404)), 1119);
     v2 = *(unsigned short *)(a2 + 16) << 31;
     if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
       goto LABEL_8;
@@ -39594,8 +38956,7 @@ LABEL_9:
 
 
 // sub_117410 @ 0x117410, size 118 bytes
-int sub_117410()
-{
+int sub_117410() {
   int v0; // r3
   uint32_t *v1; // r2
   uint32_t *v2; // r12
@@ -39612,12 +38973,12 @@ int sub_117410()
 
   v0 = (*((uint32_t *)0x117488));
   v1 = (*((uint32_t *)0x11748c));
-  v12 = (v12 & 0x00000000FFFFFFFFULL) | (((unsigned long long)((*((uint32_t *)0x117490))) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(v12) = (*((uint32_t *)0x117490));
   v2 = (*((uint32_t *)0x1174ac));
   v3 = (int *)(*((uint32_t *)0x117494));
   v4 = (*((uint32_t *)0x117498));
   *(uint32_t *)(*((uint32_t *)0x11748c)) = (*((uint32_t *)0x117488));
-  v12 = (v12 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v0 + 24832) & 0xFFFFFFFFULL) << 0);
+  LODWORD(v12) = v0 + 24832;
   *v3 = v0;
   *v4 = v0 + 24884;
   v5 = (*((uint32_t *)0x1174b0));
@@ -39638,7 +38999,7 @@ int sub_117410()
   v11 = *(uint32_t *)((char *)v4 + 0xFFFFFF40);
   v1[3] = HIDWORD(v12);
   v1[1] = v12 + 56;
-  v12 = (v12 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(v12) + 668) & 0xFFFFFFFFULL) << 0);
+  LODWORD(v12) = HIDWORD(v12) + 668;
   *((uint64_t *)v1 + 2) = v12;
   *(v4 - 48) = v11 & 0x80000 | 0x78025;
   return v12;
@@ -39647,8 +39008,7 @@ int sub_117410()
 
 // sub_1174B8 @ 0x1174b8, size 44 bytes
 // sub_12174B8 [mmio]: Modify MMIO register bits via masked read-modify-write
-unsigned int  sub_1174B8(int a1)
-{
+unsigned int  sub_1174B8(uint32_t a1) {
   unsigned int *v1; // r1
   unsigned int result; // r0
 
@@ -39661,8 +39021,7 @@ unsigned int  sub_1174B8(int a1)
 
 
 // sub_1174EC @ 0x1174ec, size 66 bytes
-int  sub_1174EC(int result)
-{
+int  sub_1174EC(uint32_t a1) {
   unsigned int v1; // r3
   unsigned int v2; // r2
   unsigned int v3; // r2
@@ -39687,8 +39046,7 @@ int  sub_1174EC(int result)
 
 
 // sub_117538 @ 0x117538, size 80 bytes
-int  sub_117538(int a1)
-{
+int  sub_117538(uint32_t a1) {
   uint32_t *v1; // r4
   int result; // r0
   unsigned int v3; // r3
@@ -39722,8 +39080,7 @@ int  sub_117538(int a1)
 
 
 // sub_117590 @ 0x117590, size 936 bytes
-int  sub_117590(int a1, int a2, int a3)
-{
+int  sub_117590(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r6
   int v4; // r9
   unsigned char **v5; // r5
@@ -39820,7 +39177,7 @@ int  sub_117590(int a1, int a2, int a3)
             __enable_irq();
         }
       }
-      return sub_10DA6C((*((uint32_t *)0x11794c)), v54, v55);
+      return sub_10DA6C((*((uint32_t *)0x11794c)), v54);
     }
     if ( (__get_CPSR() & 1) == 0 )
     {
@@ -39848,7 +39205,7 @@ int  sub_117590(int a1, int a2, int a3)
     *(uint32_t *)(v4 + 4) = v34;
     v36 = *v27;
     v37 = *((uint8_t *)v26 + 3074) + 1;
-    v34 = ((unsigned)(v34) & 0xFFFFFF00U) | (((unsigned)(v35[3] + 1) & 0xFFU) << 0);
+    LOBYTE(v34) = v35[3] + 1;
     v26[4122] = (uint32_t)(uintptr_t)v33 + 1;
     *((uint8_t *)v26 + 3074) = v37;
     v35[3] = (uint8_t)v34;
@@ -39898,7 +39255,7 @@ LABEL_7:
         *(uint32_t *)(a1 + 120) = 262148;
 LABEL_24:
         scan_channel_done_n_180(a1, v60);
-        return list_push_tail((*((uint32_t *)0x11788c)));
+        return list_push_tail((*((uint32_t *)0x11788c)), 0);
       }
       if ( v11 == 1 )
       {
@@ -39983,7 +39340,7 @@ LABEL_15:
           v19 = (int *)(*((uint32_t *)0x117884));
           v20 = (*((uint32_t *)0x117888));
           ++*(uint32_t *)(*((uint32_t *)0x117884));
-          v21 = list_push_tail(v20);
+          v21 = list_push_tail(v20, 0);
           rf_bus_mark_ne0(v21, v22);
           if ( *v19 )
           {
@@ -40010,17 +39367,16 @@ LABEL_15:
       goto LABEL_5;
   }
   if ( !v9 )
-    return sub_121960((*((uint32_t *)0x11793c)), (*((uint32_t *)0x117938)), 1545, v8);
+    return sub_121960((*((uint32_t *)0x11793c)), (*((uint32_t *)0x117938)), 1545);
   if ( v9 <= 0x3000 )
     goto LABEL_37;
-  return sub_121960((*((uint32_t *)0x117940)), (*((uint32_t *)0x117938)), 1547, v8);
+  return sub_121960((*((uint32_t *)0x117940)), (*((uint32_t *)0x117938)), 1547);
 }
 
 
 // rf_table_lookup_handler @ 0x117954, size 50 bytes
 // rf_table_lookup_handler [rf]: Look up handler from RF table and invoke callback
-int  rf_table_lookup_handler(int a1)
-{
+int  rf_table_lookup_handler(uint32_t a1) {
   void *v2; // r0
 
   scan_channel_done_n_180(a1, *(uint32_t *)(a1 + 28));
@@ -40029,13 +39385,12 @@ int  rf_table_lookup_handler(int a1)
     return sub_1174EC(a1);
   *(uint8_t *)(a1 + 16) |= 1u;
   *(uint32_t *)(a1 + 4) = 0;
-  return list_push_tail(v2);
+  return list_push_tail(v2, 0);
 }
 
 
 // sub_117954 @ 0x117954, size 50 bytes
-int  sub_117954(int a1)
-{
+int  sub_117954(uint32_t a1) {
   void *v2; // r0
 
   sub_11739C(a1, *(uint32_t *)(a1 + 28));
@@ -40044,13 +39399,12 @@ int  sub_117954(int a1)
     return sub_1174EC(a1);
   *(uint8_t *)(a1 + 16) |= 1u;
   *(uint32_t *)(a1 + 4) = 0;
-  return sub_11E724(v2);
+  return sub_11E724(v2, 0);
 }
 
 
 // sub_11798C @ 0x11798c, size 52 bytes
-unsigned int sub_11798C()
-{
+unsigned int sub_11798C() {
   int v0; // r3
   unsigned int result; // r0
   unsigned int v2; // r3
@@ -40074,8 +39428,7 @@ unsigned int sub_11798C()
 
 
 // sub_1179C8 @ 0x1179c8, size 124 bytes
-int  sub_1179C8(int result)
-{
+int  sub_1179C8(uint32_t a1) {
   int v1; // r4
   short v2; // r2
   int v3; // r1
@@ -40116,8 +39469,7 @@ int  sub_1179C8(int result)
 
 
 // sub_117A58 @ 0x117a58, size 26 bytes
-int sub_117A58()
-{
+int sub_117A58() {
   uint32_t *v0; // r2
 
   v0 = (*((uint32_t *)0x117a78));
@@ -40151,8 +39503,7 @@ uint64_t *sub_117A7C()
 
 // sub_117AC8 @ 0x117ac8, size 48 bytes
 // sub_1217AC8 [unknown]: Unknown internal function (lmacfw)
-int * sub_117AC8(int a1)
-{
+int * sub_117AC8(uint32_t a1) {
   int v2; // r5
   int v3; // r0
   int *result; // r0
@@ -40171,8 +39522,7 @@ int * sub_117AC8(int a1)
 
 // rf_init_subsystem_7af8 @ 0x117af8, size 74 bytes
 // rf_init_subsystem_7af8 [rf]: Initialize RF subsystem state, loop clearing slots
-int rf_init_subsystem_7af8()
-{
+int rf_init_subsystem_7af8() {
   int v0; // r5
   int v1; // r7
   int i; // r6
@@ -40186,7 +39536,7 @@ int rf_init_subsystem_7af8()
   for ( i = 0; i != 76; i += 19 )
   {
     sub_117AC8(v0 - 88);
-    list_push_tail(v1);
+    list_push_tail(v1, 0);
     v3 = v0 - 32;
     do
     {
@@ -40203,8 +39553,7 @@ int rf_init_subsystem_7af8()
 
 
 // sub_117AF8 @ 0x117af8, size 74 bytes
-int sub_117AF8()
-{
+int sub_117AF8() {
   int v0; // r5
   int v1; // r7
   int i; // r6
@@ -40218,7 +39567,7 @@ int sub_117AF8()
   for ( i = 0; i != 76; i += 19 )
   {
     sub_117AC8(v0 - 88);
-    sub_11E724(v1);
+    sub_11E724(v1, 0);
     v3 = v0 - 32;
     do
     {
@@ -40235,8 +39584,7 @@ int sub_117AF8()
 
 
 // sub_117B4C @ 0x117b4c, size 328 bytes
-int  sub_117B4C(int *a1, uint8_t *a2)
-{
+int  sub_117B4C(uint32_t a1, uint32_t a2) {
   int v3; // r6
   int v5; // r0
   int v6; // r4
@@ -40273,7 +39621,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
     v24 = sub_11E7AC((*((uint32_t *)0x117c94)));
     if ( !v24 )
     {
-      sub_11E724((*((uint32_t *)0x117c94)));
+      sub_11E724((*((uint32_t *)0x117c94)), 0);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v24;
@@ -40285,10 +39633,10 @@ int  sub_117B4C(int *a1, uint8_t *a2)
     *(uint16_t *)(v24 + 40) = *((uint16_t *)a1 + 11);
     v27 = (1 << v25) - 1;
     v7 = (*((uint32_t *)0x117c98));
-    v27 = ((unsigned)(v27) & 0xFFFF0000U) | (((unsigned)((uint16_t)v27 << 8) & 0xFFFFU) << 0);
+    LOWORD(v27) = (uint16_t)v27 << 8;
     v28 = *(uint16_t *)(v24 + 40) & ~(uint16_t)v27;
     *(uint16_t *)(v24 + 40) = v28;
-    v27 = ((unsigned)(v27) & 0xFFFF0000U) | (((unsigned)(v28 | v27 & (*((uint16_t *)a1 + 11) - (v26 << 8))) & 0xFFFFU) << 0);
+    LOWORD(v27) = v28 | v27 & (*((uint16_t *)a1 + 11) - (v26 << 8));
     v29 = (*((uint32_t *)0x117c9c)) * ((v24 - v7) >> 3);
     *(uint16_t *)(v24 + 40) = v27;
     *(uint8_t *)(v24 + 33) = v29;
@@ -40308,7 +39656,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
   v12 = (*((uint32_t *)0x117c9c));
   v13 = (*((uint32_t *)0x117ca0));
   if ( v11 < 0x10 )
-    v11 = ((unsigned)(v11) & 0xFFFFFF00U) | (((unsigned)(16) & 0xFFU) << 0);
+    LOBYTE(v11) = 16;
   *(uint8_t *)(v6 + 28) = v11;
   *(uint16_t *)(v6 + 20) = *((uint16_t *)a1 + 8);
   *(uint32_t *)(v6 + 16) = a1[2];
@@ -40356,8 +39704,7 @@ int  sub_117B4C(int *a1, uint8_t *a2)
 
 // tx_buffer_acquire_or_alloc @ 0x117b4c, size 328 bytes
 // tx_buffer_acquire_or_alloc [tx]: Acquire or allocate LMAC TX buffer via SDIO prep
-int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2)
-{
+int  tx_buffer_acquire_or_alloc(uint32_t a1, uint32_t a2) {
   int v3; // r6
   int v5; // r0
   int v6; // r4
@@ -40394,7 +39741,7 @@ int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2)
     v24 = sub_11E7AC((*((uint32_t *)0x117c94)));
     if ( !v24 )
     {
-      list_push_tail((*((uint32_t *)0x117c94)));
+      list_push_tail((*((uint32_t *)0x117c94)), 0);
       return 1;
     }
     *(uint32_t *)(v6 + 44) = v24;
@@ -40406,10 +39753,10 @@ int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2)
     *(uint16_t *)(v24 + 40) = *((uint16_t *)a1 + 11);
     v27 = (1 << v25) - 1;
     v7 = (*((uint32_t *)0x117c98));
-    v27 = ((unsigned)(v27) & 0xFFFF0000U) | (((unsigned)((uint16_t)v27 << 8) & 0xFFFFU) << 0);
+    LOWORD(v27) = (uint16_t)v27 << 8;
     v28 = *(uint16_t *)(v24 + 40) & ~(uint16_t)v27;
     *(uint16_t *)(v24 + 40) = v28;
-    v27 = ((unsigned)(v27) & 0xFFFF0000U) | (((unsigned)(v28 | v27 & (*((uint16_t *)a1 + 11) - (v26 << 8))) & 0xFFFFU) << 0);
+    LOWORD(v27) = v28 | v27 & (*((uint16_t *)a1 + 11) - (v26 << 8));
     v29 = (*((uint32_t *)0x117c9c)) * ((v24 - v7) >> 3);
     *(uint16_t *)(v24 + 40) = v27;
     *(uint8_t *)(v24 + 33) = v29;
@@ -40429,7 +39776,7 @@ int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2)
   v12 = (*((uint32_t *)0x117c9c));
   v13 = (*((uint32_t *)0x117ca0));
   if ( v11 < 0x10 )
-    v11 = ((unsigned)(v11) & 0xFFFFFF00U) | (((unsigned)(16) & 0xFFU) << 0);
+    LOBYTE(v11) = 16;
   *(uint8_t *)(v6 + 28) = v11;
   *(uint16_t *)(v6 + 20) = *((uint16_t *)a1 + 8);
   *(uint32_t *)(v6 + 16) = a1[2];
@@ -40477,8 +39824,7 @@ int  tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2)
 
 // sub_117CB4 @ 0x117cb4, size 160 bytes
 // sub_1217CB4 [util]: Index/compute entry into table via stride*8 multiply
-int  sub_117CB4(int a1)
-{
+int  sub_117CB4(uint32_t a1) {
   int v1; // r6
   int v3; // r5
   int v4; // r5
@@ -40514,7 +39860,7 @@ int  sub_117CB4(int a1)
     {
 LABEL_5:
       sub_117AC8(v8);
-      list_push_tail((*((uint32_t *)0x117d68)));
+      list_push_tail((*((uint32_t *)0x117d68)), 0);
       goto LABEL_6;
     }
     v11 = (int *)(*((uint32_t *)0x117d60));
@@ -40543,14 +39889,13 @@ LABEL_5:
     goto LABEL_5;
 LABEL_6:
   sub_117AC8(v4);
-  return list_push_tail((*((uint32_t *)0x117d68)));
+  return list_push_tail((*((uint32_t *)0x117d68)), 0);
 }
 
 
 // sub_117D6C @ 0x117d6c, size 70 bytes
 // sub_1217D6C [unknown]: Push-context helper loading offset 0x30 from argument struct
-int  sub_117D6C(int a1, int a2, int a3)
-{
+int  sub_117D6C(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
   int v6; // r8
   int v7; // r0
@@ -40583,18 +39928,16 @@ int  sub_117D6C(int a1, int a2, int a3)
 
 
 // sub_117DB4 @ 0x117db4, size 10 bytes
-int  sub_117DB4(int result)
-{
+int  sub_117DB4(uint32_t a1) {
   if ( *(uint32_t *)(result + 72) )
-    return rf_bus_reset2_c158();
+    return rf_bus_reset2_c158(0);
   return result;
 }
 
 
 // rf_status_check_n_1c0 @ 0x117dc0, size 44 bytes
 // rf_status_check_n_1c0 [rf]: Check RF status byte at offset 0x5e from radio state block
-void rf_status_check_n_1c0()
-{
+void rf_status_check_n_1c0() {
   uint8_t *v0; // r3
   unsigned int v1; // r2
 
@@ -40609,8 +39952,7 @@ void rf_status_check_n_1c0()
 
 
 // sub_117DC0 @ 0x117dc0, size 44 bytes
-void sub_117DC0()
-{
+void sub_117DC0() {
   uint8_t *v0; // r3
   unsigned int v1; // r2
 
@@ -40625,8 +39967,7 @@ void sub_117DC0()
 
 
 // sub_117DF4 @ 0x117df4, size 90 bytes
-int sub_117DF4()
-{
+int sub_117DF4() {
   uint8_t *v0; // r8
   int v1; // r4
   int v2; // r7
@@ -40648,7 +39989,7 @@ int sub_117DF4()
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
     v1 += 224;
-    result = list_push_tail(v0);
+    result = list_push_tail(v0, 0);
   }
   while ( v1 != v3 );
   v0[16] = -1;
@@ -40657,8 +39998,7 @@ int sub_117DF4()
 
 
 // sub_117E5C @ 0x117e5c, size 520 bytes
-int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
-{
+int  sub_117E5C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned char *v4; // r5
   int v8; // r7
   int v9; // r0
@@ -40684,7 +40024,7 @@ int  sub_117E5C(int a1, int a2, int a3, uint8_t *a4)
   if ( !*(uint32_t *)(*((uint32_t *)0x118064)) )
     return 1;
   if ( !*((uint32_t *)(*((uint32_t *)0x118064)) + 2) )
-    rf_state_check_nec();
+    rf_state_check_nec(0);
   v8 = (*((uint32_t *)0x11806c));
   v9 = sub_11E7AC((*((uint32_t *)0x118064)));
   *(uint8_t *)(v9 + 94) = a2;
@@ -40771,7 +40111,7 @@ LABEL_8:
   if ( v15 == 1 )
     *(uint32_t *)(*((uint32_t *)0x11809c)) |= 1u;
   *a4 = *(uint8_t *)(v10 + 95);
-  list_push_tail((*((uint32_t *)0x118088)));
+  list_push_tail((*((uint32_t *)0x118088)), 0);
   sub_11E71C(v10 + 148);
   sub_11E71C(v10 + 180);
   sub_11E71C(v10 + 156);
@@ -40801,8 +40141,7 @@ LABEL_8:
 
 
 // sub_1180B8 @ 0x1180b8, size 470 bytes
-int  sub_1180B8(int a1)
-{
+int  sub_1180B8(uint32_t a1) {
   int v2; // r8
   int v3; // r9
   int v4; // r0
@@ -40841,7 +40180,7 @@ int  sub_1180B8(int a1)
         goto LABEL_7;
       goto LABEL_12;
     }
-    rf_gpio_clear_bit_n_e20(v4);
+    rf_gpio_clear_bit_n_e20();
 LABEL_4:
     v8 = v7[18];
     v9 = v7[17] + v8;
@@ -40930,14 +40269,13 @@ LABEL_7:
   *(uint8_t *)(v10 + 97) = 127;
   *(uint32_t *)(v10 + 52) = v11;
   sub_11F74C(256, v13, v14, v12);
-  return list_push_tail((*((uint32_t *)0x118294)));
+  return list_push_tail((*((uint32_t *)0x118294)), 0);
 }
 
 
 // rf_init_or_setup_n32c @ 0x1182c8, size 40 bytes
 // rf_init_or_setup_n32c [rf]: RF initialization/setup routine
-int  rf_init_or_setup_n32c(int result)
-{
+int  rf_init_or_setup_n32c(uint32_t a1) {
   int v1; // r4
   int v2; // r5
   int v3; // r6
@@ -40957,8 +40295,7 @@ int  rf_init_or_setup_n32c(int result)
 
 
 // sub_1182C8 @ 0x1182c8, size 40 bytes
-int  sub_1182C8(int result)
-{
+int  sub_1182C8(uint32_t a1) {
   int v1; // r4
   int v2; // r5
   int v3; // r6
@@ -40979,8 +40316,7 @@ int  sub_1182C8(int result)
 
 // rf_state_get_init @ 0x1182f4, size 22 bytes
 // rf_state_get_init [rf]: Get pointer to RF state structure
-int rf_state_get_init()
-{
+int rf_state_get_init() {
   uint32_t *i; // r4
   int result; // r0
 
@@ -40991,8 +40327,7 @@ int rf_state_get_init()
 
 
 // sub_1182F4 @ 0x1182f4, size 22 bytes
-int sub_1182F4()
-{
+int sub_1182F4() {
   uint32_t *i; // r4
   int result; // r0
 
@@ -41003,16 +40338,14 @@ int sub_1182F4()
 
 
 // sub_118310 @ 0x118310, size 16 bytes
-int  sub_118310(int a1)
-{
+int  sub_118310(uint32_t a1) {
   return sub_11AB18(a1 + 48, *((uint32_t *)(*((uint32_t *)0x118320)) + 4) + 10000);
 }
 
 
 // rf_chan_init_or_reset_n_324 @ 0x118324, size 26 bytes
 // rf_chan_init_or_reset_n_324 [rf]: Initializes/resets an RF channel context structure
-int  rf_chan_init_or_reset_n_324(int a1)
-{
+int  rf_chan_init_or_reset_n_324(uint32_t a1) {
   int result; // r0
 
   result = timestamp_remove(a1 + 48);
@@ -41023,8 +40356,7 @@ int  rf_chan_init_or_reset_n_324(int a1)
 
 
 // sub_118324 @ 0x118324, size 26 bytes
-int  sub_118324(int a1)
-{
+int  sub_118324(uint32_t a1) {
   int result; // r0
 
   result = sub_11AC10(a1 + 48);
@@ -41035,15 +40367,13 @@ int  sub_118324(int a1)
 
 
 // sub_118340 @ 0x118340, size 14 bytes
-void  sub_118340(int a1, int a2)
-{
+void  sub_118340(uint32_t a1, uint32_t a2) {
   *(uint32_t *)(*((uint32_t *)0x118350)) = a2 | (HIWORD(*(uint32_t *)(*((uint32_t *)0x118350))) << 16);
 }
 
 
 // sub_118354 @ 0x118354, size 24 bytes
-void sub_118354()
-{
+void sub_118354() {
   int v0; // r3
 
   v0 = *((unsigned char *)(*((uint32_t *)0x11836c)) + 18) + *((unsigned char *)(*((uint32_t *)0x11836c)) + 17);
@@ -41054,8 +40384,7 @@ void sub_118354()
 
 
 // sub_118374 @ 0x118374, size 38 bytes
-int  sub_118374(uint8_t *a1)
-{
+int  sub_118374(uint32_t a1) {
   uint32_t *v1; // r3
   int *v2; // r3
   int result; // r0
@@ -41081,8 +40410,7 @@ int  sub_118374(uint8_t *a1)
 
 
 // sub_1183A0 @ 0x1183a0, size 134 bytes
-int sub_1183A0()
-{
+int sub_1183A0() {
   int result; // r0
   uint32_t *v1; // r1
   uint16_t *v2; // r3
@@ -41121,8 +40449,7 @@ int sub_1183A0()
 
 
 // sub_11843C @ 0x11843c, size 86 bytes
-int sub_11843C()
-{
+int sub_11843C() {
   uint16_t *v0; // r4
   int v1; // r3
   short *v2; // r1
@@ -41333,10 +40660,10 @@ uint32_t *lmac_rf_state_check()
     updated = accum_update_addr_pair();
   else
     updated = rf_calib_table_init();
-  v3 = sub_11AB0C(updated);
-  v4 = sub_11CA94(v3);
-  v5 = lmac_rf_init_5cbuf(v4);
-  sub_11D8D4(v5);
+  v3 = sub_11AB0C();
+  v4 = sub_11CA94();
+  v5 = lmac_rf_init_5cbuf();
+  sub_11D8D4();
   sub_10F50C();
   return mmio_reg_set_bits();
 }
@@ -41364,10 +40691,10 @@ uint32_t *sub_118624()
     v2 = sub_116CA4();
   else
     v2 = sub_116C94();
-  v3 = sub_11AB0C(v2);
-  v4 = sub_11CA94(v3);
-  v5 = sub_11BA64(v4);
-  sub_11D8D4(v5);
+  v3 = sub_11AB0C();
+  v4 = sub_11CA94();
+  v5 = sub_11BA64();
+  sub_11D8D4();
   sub_10F50C();
   return sub_1184B0();
 }
@@ -41375,8 +40702,7 @@ uint32_t *sub_118624()
 
 // rf_event_dispatch_n1a4 @ 0x118674, size 550 bytes
 // rf_event_dispatch_n1a4 [rf]: Dispatch RF event processing from queued struct
-int  rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6)
-{
+int  rf_event_dispatch_n1a4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   unsigned int v7; // r4
   long long v8; // r10
   int v10; // r5
@@ -41445,7 +40771,7 @@ LABEL_5:
   }
   else
   {
-    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430, (*((uint32_t *)0x1188a4)));
+    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430);
     v17 = 500;
     v16 = (short **)(*((uint32_t *)0x1188a4));
   }
@@ -41467,7 +40793,7 @@ LABEL_5:
       v22 = v17 - v21;
       goto LABEL_14;
     }
-    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430, *v20);
+    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430);
   }
   v22 = v17 - 500;
   v21 = 500;
@@ -41477,7 +40803,7 @@ LABEL_14:
   v25 = v8 - v7 + v22;
   a4[10] = v25;
   a4[11] = HIDWORD(v23) + v24;
-  v26 = sub_127F8C(v8, HIDWORD(v8), v10, v10 >> 31);
+  v26 = sub_127F8C(v8, HIDWORD(v8), v10);
   v24 = (unsigned int)v8 >= v21;
   v33 = v8 - v21;
   v27 = (*((uint32_t *)0x1188ac));
@@ -41503,8 +40829,7 @@ LABEL_14:
 
 
 // sub_118674 @ 0x118674, size 550 bytes
-int  sub_118674(int a1, int a2, int a3, uint32_t *a4, int a5, int a6)
-{
+int  sub_118674(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6) {
   unsigned int v7; // r4
   long long v8; // r10
   int v10; // r5
@@ -41573,7 +40898,7 @@ LABEL_5:
   }
   else
   {
-    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430, (*((uint32_t *)0x1188a4)));
+    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430);
     v17 = 500;
     v16 = (short **)(*((uint32_t *)0x1188a4));
   }
@@ -41595,7 +40920,7 @@ LABEL_5:
       v22 = v17 - v21;
       goto LABEL_14;
     }
-    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430, *v20);
+    sub_121960((*((uint32_t *)0x1188bc)), (*((uint32_t *)0x1188b8)), 430);
   }
   v22 = v17 - 500;
   v21 = 500;
@@ -41605,7 +40930,7 @@ LABEL_14:
   v25 = v8 - v7 + v22;
   a4[10] = v25;
   a4[11] = HIDWORD(v23) + v24;
-  v26 = sub_127F8C(v8, HIDWORD(v8), v10, v10 >> 31);
+  v26 = sub_127F8C(v8, HIDWORD(v8), v10);
   v24 = (unsigned int)v8 >= v21;
   v33 = v8 - v21;
   v27 = (*((uint32_t *)0x1188ac));
@@ -41632,44 +40957,39 @@ LABEL_14:
 
 // lmac_init_wait_flag @ 0x1188c4, size 42 bytes
 // lmac_init_wait_flag [mac]: Polls a flag register and waits for it to become 1
-int lmac_init_wait_flag()
-{
+int lmac_init_wait_flag() {
   if ( sub_11E34C(0) == 1 )
     *(uint32_t *)(*((uint32_t *)0x1188f0)) = 48;
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // sub_1188C4 @ 0x1188c4, size 42 bytes
-int sub_1188C4()
-{
+int sub_1188C4() {
   if ( sub_11E34C(0) == 1 )
     *(uint32_t *)(*((uint32_t *)0x1188f0)) = 48;
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // mmio_init_clock_gate_n121 @ 0x1188f4, size 14 bytes
 // mmio_init_clock_gate_n121 [mmio]: Writes 0x30 to MMIO 0x40320038 to configure clock gate/control
-int mmio_init_clock_gate_n121()
-{
+int mmio_init_clock_gate_n121() {
   *(uint32_t *)(*((uint32_t *)0x118904)) = 48;
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // sub_1188F4 @ 0x1188f4, size 14 bytes
-int sub_1188F4()
-{
+int sub_1188F4() {
   *(uint32_t *)(*((uint32_t *)0x118904)) = 48;
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // sub_118908 @ 0x118908, size 118 bytes
 // sub_1218914 [unknown]: Indexed table entry lookup with multiplied offset
-int  sub_118908(int result)
-{
+int  sub_118908(uint32_t a1) {
   int v1; // r5
   int v2; // r4
   unsigned int v3; // r3
@@ -41684,7 +41004,7 @@ int  sub_118908(int result)
     v6 = *(uint32_t *)((*((uint32_t *)0x118980)) + 152 * *(unsigned char *)(result + 102) + 8) + v1;
     sub_11AB18(result + 24, v6);
     sub_118310(v2);
-    result = unknown_helper_2(v2, v1, v6);
+    result = unknown_helper_2(v2, v1);
     if ( !result )
     {
       v3 = (unsigned char)(*(uint8_t *)(v2 + 116) + 1);
@@ -41707,8 +41027,7 @@ int  sub_118908(int result)
 
 // rf_table_lookup_n360 @ 0x11898c, size 180 bytes
 // rf_table_lookup_n360 [rf]: Looks up an entry in the RF register/object table by index
-int  rf_table_lookup_n360(int a1, int a2)
-{
+int  rf_table_lookup_n360(uint32_t a1, uint32_t a2) {
   int v2; // r6
   uint32_t *v3; // r3
   uint32_t *v4; // lr
@@ -41768,8 +41087,7 @@ int  rf_table_lookup_n360(int a1, int a2)
 
 
 // sub_11898C @ 0x11898c, size 180 bytes
-int  sub_11898C(int a1, int a2)
-{
+int  sub_11898C(uint32_t a1, uint32_t a2) {
   int v2; // r6
   uint32_t *v3; // r3
   uint32_t *v4; // lr
@@ -41830,8 +41148,7 @@ int  sub_11898C(int a1, int a2)
 
 // sub_118A60 @ 0x118a60, size 496 bytes
 // sub_1218A60 [scan]: Scans structure fields (byte at +1, byte at +0x29) and branches on 0xff sentinel
-int  sub_118A60(char *a1)
-{
+int  sub_118A60(uint32_t a1) {
   unsigned int v1; // r7
   int v2; // r5
   int v4; // r1
@@ -41985,8 +41302,7 @@ LABEL_21:
 
 
 // sub_118C90 @ 0x118c90, size 114 bytes
-unsigned int  sub_118C90(unsigned int result)
-{
+unsigned int  sub_118C90(uint32_t a1) {
   int v1; // r3
   uint32_t *v2; // r1
   uint32_t *v3; // r2
@@ -42027,17 +41343,15 @@ unsigned int  sub_118C90(unsigned int result)
 
 
 // sub_118D28 @ 0x118d28, size 22 bytes
-int sub_118D28()
-{
+int sub_118D28() {
   sub_11E628(0x2000000);
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // rf_state_check_nec @ 0x118d40, size 118 bytes
 // rf_state_check_nec [rf]: Check RF state and clear bits 0x10 in control regs 0x810/0x814
-unsigned int  rf_state_check_nec(int *a1)
-{
+unsigned int  rf_state_check_nec(uint32_t a1) {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
   uint32_t *v3; // r4
@@ -42083,8 +41397,7 @@ unsigned int  rf_state_check_nec(int *a1)
 
 
 // sub_118D40 @ 0x118d40, size 118 bytes
-unsigned int  sub_118D40(int *a1)
-{
+unsigned int  sub_118D40(uint32_t a1) {
   uint32_t *v1; // r3
   uint32_t *v2; // r7
   uint32_t *v3; // r4
@@ -42131,8 +41444,7 @@ unsigned int  sub_118D40(int *a1)
 
 // sub_118DEC @ 0x118dec, size 34 bytes
 // sub_1226698 [bt]: FMAC BT helper: dispatch on arg0 with 8-register save
-unsigned int sub_118DEC()
-{
+unsigned int sub_118DEC() {
   unsigned int result; // r0
   int v1; // r1
   uint32_t *v2; // r2
@@ -42149,8 +41461,7 @@ unsigned int sub_118DEC()
 
 // rf_gpio_clear_bit_n_e20 @ 0x118e20, size 40 bytes
 // rf_gpio_clear_bit_n_e20 [mmio]: Clear bit in GPIO/peripheral MMIO register 0x4032004c
-unsigned int rf_gpio_clear_bit_n_e20()
-{
+unsigned int rf_gpio_clear_bit_n_e20() {
   unsigned int result; // r0
   uint32_t *v1; // r2
 
@@ -42164,8 +41475,7 @@ unsigned int rf_gpio_clear_bit_n_e20()
 
 
 // sub_118E20 @ 0x118e20, size 40 bytes
-unsigned int sub_118E20()
-{
+unsigned int sub_118E20() {
   unsigned int result; // r0
   uint32_t *v1; // r2
 
@@ -42179,21 +41489,19 @@ unsigned int sub_118E20()
 
 
 // sub_118E58 @ 0x118e58, size 86 bytes
-int sub_118E58()
-{
+int sub_118E58() {
   if ( **(short **)(*((uint32_t *)0x118eb0)) < 0 && sub_11E34C(0) != 3 )
     rf_cmd_send_n264((*((uint32_t *)0x118ec4)), (*((uint32_t *)0x118ec0)), 1785);
   if ( *((uint8_t *)(*((uint32_t *)0x118eb4)) + 28) && *((unsigned char *)(*((uint32_t *)0x118eb8)) + 18) + *((unsigned char *)(*((uint32_t *)0x118eb8)) + 17) <= 1 )
-    return sub_11E1E4(0);
+    return sub_11E1E4(0, 0);
   *(uint32_t *)(*((uint32_t *)0x118ebc)) = 48;
-  return sub_11E1E4(0);
+  return sub_11E1E4(0, 0);
 }
 
 
 // rf_link_state_check @ 0x118ec8, size 214 bytes
 // rf_link_state_check [rf]: Checks current RF link state value against zero
-int  rf_link_state_check(int a1, int a2, int a3)
-{
+int  rf_link_state_check(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int *v4; // r8
   int *v5; // r4
@@ -42249,7 +41557,7 @@ int  rf_link_state_check(int a1, int a2, int a3)
   *(uint32_t *)(*((uint32_t *)0x118fc0)) = 4;
   if ( v14 )
     sub_115D64();
-  result = sub_11E1E4(0);
+  result = sub_11E1E4(0, 0);
   v16 = *v4;
   *((uint16_t *)(*((uint32_t *)0x118fc4)) + 8) = 0;
   if ( v16 )
@@ -42268,8 +41576,7 @@ int  rf_link_state_check(int a1, int a2, int a3)
 
 
 // sub_118EC8 @ 0x118ec8, size 214 bytes
-int  sub_118EC8(int a1, int a2, int a3)
-{
+int  sub_118EC8(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int *v4; // r8
   int *v5; // r4
@@ -42325,7 +41632,7 @@ int  sub_118EC8(int a1, int a2, int a3)
   *(uint32_t *)(*((uint32_t *)0x118fc0)) = 4;
   if ( v14 )
     sub_115D64();
-  result = sub_11E1E4(0);
+  result = sub_11E1E4(0, 0);
   v16 = *v4;
   *((uint16_t *)(*((uint32_t *)0x118fc4)) + 8) = 0;
   if ( v16 )
@@ -42345,8 +41652,7 @@ int  sub_118EC8(int a1, int a2, int a3)
 
 // rf_dispatch_handler_n8 @ 0x118fd8, size 116 bytes
 // rf_dispatch_handler_n8 [rf]: RF handler dispatching to internal worker
-int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3)
-{
+int  rf_dispatch_handler_n8(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   int v8; // r8
   int v9; // r9
@@ -42375,8 +41681,7 @@ int  rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3)
 
 
 // sub_118FD8 @ 0x118fd8, size 116 bytes
-int  sub_118FD8(int a1, uint8_t *a2, uint8_t *a3)
-{
+int  sub_118FD8(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r4
   int v8; // r8
   int v9; // r9
@@ -42405,8 +41710,7 @@ int  sub_118FD8(int a1, uint8_t *a2, uint8_t *a3)
 
 
 // sub_119054 @ 0x119054, size 260 bytes
-int  sub_119054(int a1)
-{
+int  sub_119054(uint32_t a1) {
   int v1; // r7
   int v2; // r9
   int v4; // r5
@@ -42495,8 +41799,7 @@ int  sub_119054(int a1)
 
 
 // sub_119170 @ 0x119170, size 30 bytes
-int  sub_119170(int a1)
-{
+int  sub_119170(uint32_t a1) {
   uint8_t *v2; // r0
 
   v2 = (uint8_t *)rf_setup_dispatch(67, 4, 0, 1);
@@ -42506,8 +41809,7 @@ int  sub_119170(int a1)
 
 
 // sub_119190 @ 0x119190, size 36 bytes
-int  sub_119190(int result, int a2, int a3)
-{
+int  sub_119190(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
 
   v3 = result;
@@ -42526,8 +41828,7 @@ int  sub_119190(int result, int a2, int a3)
 
 // rf_chan_param_set_n_1b8 @ 0x1191b8, size 94 bytes
 // rf_chan_param_set_n_1b8 [rf]: Store channel/band parameters into RF context byte fields
-int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2)
-{
+int  rf_chan_param_set_n_1b8(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int result; // r0
   char v5; // r2
@@ -42547,13 +41848,13 @@ int  rf_chan_param_set_n_1b8(uint8_t *a1, int a2)
     {
       if ( v6 != 1 || result >= a2 || a2 <= v2 + v5 )
         goto LABEL_7;
-      v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+      LOBYTE(v6) = 0;
     }
     else
     {
       if ( result <= a2 || a2 >= v2 - v5 )
         goto LABEL_7;
-      v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+      LOBYTE(v6) = 1;
     }
     v8 = (uint8_t *)rf_setup_dispatch(87, 4, 0, 3);
     *v8 = a1[95];
@@ -42568,8 +41869,7 @@ LABEL_7:
 
 
 // sub_1191B8 @ 0x1191b8, size 94 bytes
-int  sub_1191B8(uint8_t *a1, int a2)
-{
+int  sub_1191B8(uint32_t a1, uint32_t a2) {
   int v2; // r3
   int result; // r0
   char v5; // r2
@@ -42589,13 +41889,13 @@ int  sub_1191B8(uint8_t *a1, int a2)
     {
       if ( v6 != 1 || result >= a2 || a2 <= v2 + v5 )
         goto LABEL_7;
-      v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+      LOBYTE(v6) = 0;
     }
     else
     {
       if ( result <= a2 || a2 >= v2 - v5 )
         goto LABEL_7;
-      v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+      LOBYTE(v6) = 1;
     }
     v8 = (uint8_t *)sub_11DDF0(87, 4, 0, 3);
     *v8 = a1[95];
@@ -42611,8 +41911,7 @@ LABEL_7:
 
 // sub_119218 @ 0x119218, size 232 bytes
 // sub_1219218 [mmio]: Read RF status words from MMIO 0x40501000 region
-int  sub_119218(int a1, int a2, int a3, int *a4)
-{
+int  sub_119218(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r10
   uint32_t *v6; // r4
   int v7; // r8
@@ -42679,16 +41978,14 @@ int  sub_119218(int a1, int a2, int a3, int *a4)
 
 
 // sub_119308 @ 0x119308, size 4 bytes
-int sub_119308()
-{
+int sub_119308() {
   return 0;
 }
 
 
 // sub_11930C @ 0x11930c, size 34 bytes
 // sub_121930C [rf]: Unknown RF helper routine
-int  sub_11930C(int a1, int a2, int a3, int a4)
-{
+int  sub_11930C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v5; // r4
 
   v5 = (uint8_t *)rf_setup_dispatch(11, a4, a3, 3);
@@ -42698,8 +41995,7 @@ int  sub_11930C(int a1, int a2, int a3, int a4)
 
 
 // sub_119330 @ 0x119330, size 154 bytes
-int  sub_119330(int a1, int *a2, int a3, int a4)
-{
+int  sub_119330(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r6
   int v6; // r7
   int v9; // r8
@@ -42739,8 +42035,7 @@ int  sub_119330(int a1, int *a2, int a3, int a4)
 
 
 // sub_1193E0 @ 0x1193e0, size 14 bytes
-int  sub_1193E0(int a1, int a2, int a3, int a4)
-{
+int  sub_1193E0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(102, a4, a3);
   return 0;
 }
@@ -42748,24 +42043,21 @@ int  sub_1193E0(int a1, int a2, int a3, int a4)
 
 // buf_alloc_0x68_init @ 0x1193f0, size 14 bytes
 // buf_alloc_0x68_init [util]: Allocate 0x68-byte buffer and return 0 (init helper)
-int  buf_alloc_0x68_init(int a1, int a2, int a3, int a4)
-{
+int  buf_alloc_0x68_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(104, a4, a3);
   return 0;
 }
 
 
 // sub_1193F0 @ 0x1193f0, size 14 bytes
-int  sub_1193F0(int a1, int a2, int a3, int a4)
-{
+int  sub_1193F0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(104, a4, a3);
   return 0;
 }
 
 
 // sub_119400 @ 0x119400, size 28 bytes
-int  sub_119400(int a1, uint32_t *a2, int a3, int a4)
-{
+int  sub_119400(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r0
   uint32_t *v5; // r5
   int v6; // r4
@@ -42775,7 +42067,7 @@ int  sub_119400(int a1, uint32_t *a2, int a3, int a4)
   v5 = a2;
   v6 = (*((uint32_t *)0x11941c));
   v7 = a2[1];
-  v5 = ((unsigned)(v5) & 0xFFFF0000U) | (((unsigned)(*((uint16_t *)v5 + 4)) & 0xFFFFU) << 0);
+  LOWORD(v5) = *((uint16_t *)v5 + 4);
   *(uint32_t *)(*((uint32_t *)0x11941c)) = v4;
   *(uint32_t *)(v6 + 4) = v7;
   *(uint16_t *)(v6 + 8) = (uint16_t)v5;
@@ -42785,8 +42077,7 @@ int  sub_119400(int a1, uint32_t *a2, int a3, int a4)
 
 
 // sub_119420 @ 0x119420, size 76 bytes
-int  sub_119420(int a1, int *a2, int a3, int a4)
-{
+int  sub_119420(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char *v7; // r7
   uint32_t *v8; // r3
   int v9; // r6
@@ -42821,8 +42112,7 @@ int  sub_119420(int a1, int *a2, int a3, int a4)
 
 
 // sub_119478 @ 0x119478, size 108 bytes
-int  sub_119478(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119478(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r4
   int v6; // r8
   int v9; // r7
@@ -42851,8 +42141,7 @@ int  sub_119478(int a1, unsigned char *a2, int a3, int a4)
 
 // sub_1194F4 @ 0x1194f4, size 14 bytes
 // sub_12194F4 [util]: Thin wrapper invoking helper with param 0x70
-int  sub_1194F4(int a1, int a2, int a3, int a4)
-{
+int  sub_1194F4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(112, a4, a3);
   return 0;
 }
@@ -42860,16 +42149,14 @@ int  sub_1194F4(int a1, int a2, int a3, int a4)
 
 // rf_send_cmd_0x72 @ 0x119504, size 14 bytes
 // rf_send_cmd_0x72 [rf]: Send RF command 0x72 ('r') and return status 0
-int  rf_send_cmd_0x72(int a1, int a2, int a3, int a4)
-{
+int  rf_send_cmd_0x72(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(114, a4, a3);
   return 0;
 }
 
 
 // sub_119504 @ 0x119504, size 14 bytes
-int  sub_119504(int a1, int a2, int a3, int a4)
-{
+int  sub_119504(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(114, a4, a3);
   return 0;
 }
@@ -42877,16 +42164,14 @@ int  sub_119504(int a1, int a2, int a3, int a4)
 
 // sub_119514 @ 0x119514, size 14 bytes
 // sub_1219514 [rf]: Send command 0x6E to RF sub-handler and return 0
-int  sub_119514(int a1, int a2, int a3, int a4)
-{
+int  sub_119514(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(110, a4, a3);
   return 0;
 }
 
 
 // sub_119524 @ 0x119524, size 34 bytes
-int  sub_119524(int a1, int a2, int a3, int a4)
-{
+int  sub_119524(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11F74C(256, (*((uint32_t *)0x119548)), a3, a4);
   sub_11DED8(108, a4, a3);
   return 0;
@@ -42895,8 +42180,7 @@ int  sub_119524(int a1, int a2, int a3, int a4)
 
 // sub_11954C @ 0x11954c, size 288 bytes
 // sub_121954C [rf]: Issue sub-call with opcode 0x6a via dispatch
-int  sub_11954C(int a1, int a2, int a3, int a4)
-{
+int  sub_11954C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r4
   int v6; // r3
   unsigned int v7; // r3
@@ -42931,7 +42215,7 @@ LABEL_4:
   if ( !v6 && *(uint8_t *)(a2 + 20) )
   {
     msg_parse((*((uint32_t *)0x119694)), *(unsigned char *)(a2 + 20));
-    v15 = ((unsigned)(v15) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(a2 + 20)) & 0xFFU) << 0);
+    LOBYTE(v15) = *(uint8_t *)(a2 + 20);
   }
   v7 = HIBYTE(v15);
   if ( !HIBYTE(v15) )
@@ -42941,7 +42225,7 @@ LABEL_4:
       msg_parse((*((uint32_t *)0x119690)), *(unsigned char *)(a2 + 21));
       v8 = (unsigned char)v15;
       v7 = *(unsigned char *)(a2 + 21);
-      v15 = ((unsigned)(v15) & 0xFFFF00FFU) | (((unsigned)(*(uint8_t *)(a2 + 21)) & 0xFFU) << 8);
+      HIBYTE(v15) = *(uint8_t *)(a2 + 21);
       if ( !(uint8_t)v15 )
         goto LABEL_13;
     }
@@ -42955,7 +42239,7 @@ LABEL_10:
     if ( v8 > 0x1F )
     {
       v8 = 31;
-      v15 = ((unsigned)(v15) & 0xFFFFFF00U) | (((unsigned)(31) & 0xFFU) << 0);
+      LOBYTE(v15) = 31;
     }
     sub_10F170(v8);
     msg_parse((*((uint32_t *)0x119670)), (unsigned char)v15);
@@ -42972,7 +42256,7 @@ LABEL_18:
   if ( v7 > 0x3F )
   {
     v12 = 63;
-    v15 = ((unsigned)(v15) & 0xFFFF00FFU) | (((unsigned)(63) & 0xFFU) << 8);
+    HIBYTE(v15) = 63;
     v13 = 16515072;
   }
   else
@@ -42984,8 +42268,8 @@ LABEL_18:
   *(uint32_t *)(*((uint32_t *)0x119688)) = *(uint32_t *)(*((uint32_t *)0x119688)) & 0xFF03FFFF | v13;
   msg_parse(v14, v12);
 LABEL_14:
-  v9 = (v9 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(*((uint32_t *)(*((uint32_t *)0x119674)) + 2)) & 0xFFFFFFFFULL) << 0);
-  v9 = (v9 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(*(uint32_t *)(*((uint32_t *)0x119678))) & 0xFFFFFFFFULL) << 32);
+  LODWORD(v9) = *((uint32_t *)(*((uint32_t *)0x119674)) + 2);
+  HIDWORD(v9) = *(uint32_t *)(*((uint32_t *)0x119678));
   v10 = (*((uint32_t *)0x119680));
   *(uint32_t *)(v5 + 12) = *(uint32_t *)(*((uint32_t *)0x11967c));
   *(uint64_t *)(v5 + 4) = v9;
@@ -42997,8 +42281,7 @@ LABEL_14:
 
 // rf_xo_pll_init @ 0x119698, size 20 bytes
 // rf_xo_pll_init [rf]: Initializes RF XO/PLL subsystem (cmd 0x76)
-int  rf_xo_pll_init(int a1, int a2, int a3, int a4)
-{
+int  rf_xo_pll_init(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r0
 
   v4 = rf_setup_dispatch(118, a4, a3, 12);
@@ -43008,8 +42291,7 @@ int  rf_xo_pll_init(int a1, int a2, int a3, int a4)
 
 
 // sub_119698 @ 0x119698, size 20 bytes
-int  sub_119698(int a1, int a2, int a3, int a4)
-{
+int  sub_119698(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r0
 
   v4 = sub_11DDF0(118, a4, a3, 12);
@@ -43020,8 +42302,7 @@ int  sub_119698(int a1, int a2, int a3, int a4)
 
 // rf_init_msg_send @ 0x1196ac, size 120 bytes
 // rf_init_msg_send [ipc]: Build and send RF init message (op 0x74) via ipc_send
-int  rf_init_msg_send(int a1, int a2, int a3, int a4)
-{
+int  rf_init_msg_send(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v4; // r4
   unsigned short v5; // r3
   unsigned int v6; // r2
@@ -43062,8 +42343,7 @@ int  rf_init_msg_send(int a1, int a2, int a3, int a4)
 
 
 // sub_1196AC @ 0x1196ac, size 120 bytes
-int  sub_1196AC(int a1, int a2, int a3, int a4)
-{
+int  sub_1196AC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v4; // r4
   unsigned short v5; // r3
   unsigned int v6; // r2
@@ -43104,8 +42384,7 @@ int  sub_1196AC(int a1, int a2, int a3, int a4)
 
 
 // sub_11972C @ 0x11972c, size 110 bytes
-int  sub_11972C(int a1, int a2, int a3, int a4)
-{
+int  sub_11972C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r8
   int v5; // r7
 
@@ -43124,8 +42403,7 @@ int  sub_11972C(int a1, int a2, int a3, int a4)
 
 // sub_1197A4 @ 0x1197a4, size 50 bytes
 // sub_12197A4 [mac]: Initialize LMAC subsystem, allocate and populate context buffer
-int  sub_1197A4(int a1, int a2, int a3, int a4)
-{
+int  sub_1197A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v4; // r4
   int v5; // r1
   int v6; // r3
@@ -43144,8 +42422,7 @@ int  sub_1197A4(int a1, int a2, int a3, int a4)
 
 // rf_iq_dc_calib_n7c @ 0x1197dc, size 186 bytes
 // rf_iq_dc_calib_n7c [rf]: RF IQ/DC calibration init using 0x7c register
-int  rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4)
-{
+int  rf_iq_dc_calib_n7c(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r1
   uint8_t *v6; // r5
   char v7; // r2
@@ -43187,7 +42464,7 @@ int  rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4)
     if ( a2[3] )
       *((uint16_t *)v8 + 89) |= 0x4000u;
     msg_parse((*((uint32_t *)0x1198a4)), v9);
-    v9 = ((unsigned)(v9) & 0xFFFFFF00U) | (((unsigned)(v8[188]) & 0xFFU) << 0);
+    LOBYTE(v9) = v8[188];
   }
   *v6 = v9;
   sub_11DE50(v6);
@@ -43196,8 +42473,7 @@ int  rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4)
 
 
 // sub_1197DC @ 0x1197dc, size 186 bytes
-int  sub_1197DC(int a1, uint8_t *a2, int a3, int a4)
-{
+int  sub_1197DC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r1
   uint8_t *v6; // r5
   char v7; // r2
@@ -43239,7 +42515,7 @@ int  sub_1197DC(int a1, uint8_t *a2, int a3, int a4)
     if ( a2[3] )
       *((uint16_t *)v8 + 89) |= 0x4000u;
     sub_11F504((*((uint32_t *)0x1198a4)), v9);
-    v9 = ((unsigned)(v9) & 0xFFFFFF00U) | (((unsigned)(v8[188]) & 0xFFU) << 0);
+    LOBYTE(v9) = v8[188];
   }
   *v6 = v9;
   sub_11DE50(v6);
@@ -43248,8 +42524,7 @@ int  sub_1197DC(int a1, uint8_t *a2, int a3, int a4)
 
 
 // sub_1198AC @ 0x1198ac, size 198 bytes
-int  sub_1198AC(int a1, int a2, int a3, int a4)
-{
+int  sub_1198AC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r0
   unsigned int v5; // r4
   int v6; // r7
@@ -43324,8 +42599,7 @@ int  sub_1198AC(int a1, int a2, int a3, int a4)
 
 
 // sub_11998C @ 0x11998c, size 56 bytes
-int  sub_11998C(int a1, int a2, int a3, int a4)
-{
+int  sub_11998C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v4; // r4
   int v5; // r0
 
@@ -43340,8 +42614,7 @@ int  sub_11998C(int a1, int a2, int a3, int a4)
 
 // sub_1199CC @ 0x1199cc, size 254 bytes
 // sub_12199CC [rf]: Allocates 0x88-byte context and initializes RF object
-int  sub_1199CC(int a1, int *a2, int a3, int a4)
-{
+int  sub_1199CC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r6
   int v6; // r0
   int v7; // r4
@@ -43384,8 +42657,8 @@ int  sub_1199CC(int a1, int *a2, int a3, int a4)
       {
         if ( v14 )
         {
-          v16 = rf_level_apply_n274(v6);
-          sub_127108(v16);
+          v16 = rf_level_apply_n274();
+          sub_127108();
         }
         else
         {
@@ -43444,8 +42717,7 @@ LABEL_3:
 
 
 // sub_119AE8 @ 0x119ae8, size 10 bytes
-int sub_119AE8()
-{
+int sub_119AE8() {
   sub_1238E0();
   return 0;
 }
@@ -43453,8 +42725,7 @@ int sub_119AE8()
 
 // rf_chan_set_calib_af4 @ 0x119af4, size 54 bytes
 // rf_chan_set_calib_af4 [rf]: Sets RF channel with calibration, dispatches via callback
-int  rf_chan_set_calib_af4(int a1, uint8_t *a2, int a3, int a4)
-{
+int  rf_chan_set_calib_af4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v7; // r0
   char v9; // r6
   uint8_t *v10; // r0
@@ -43474,8 +42745,7 @@ int  rf_chan_set_calib_af4(int a1, uint8_t *a2, int a3, int a4)
 
 
 // sub_119AF4 @ 0x119af4, size 54 bytes
-int  sub_119AF4(int a1, uint8_t *a2, int a3, int a4)
-{
+int  sub_119AF4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v7; // r0
   char v9; // r6
   uint8_t *v10; // r0
@@ -43496,8 +42766,7 @@ int  sub_119AF4(int a1, uint8_t *a2, int a3, int a4)
 
 // rf_param_load_byte @ 0x119b2c, size 32 bytes
 // rf_param_load_byte [util]: Load a single parameter byte and dispatch to handler
-int  rf_param_load_byte(int a1, unsigned char *a2, int a3, int a4)
-{
+int  rf_param_load_byte(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   lmac_table_lookup_n540(*a2);
   sub_11DED8(58, a4, a3);
   return 0;
@@ -43505,8 +42774,7 @@ int  rf_param_load_byte(int a1, unsigned char *a2, int a3, int a4)
 
 
 // sub_119B2C @ 0x119b2c, size 32 bytes
-int  sub_119B2C(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119B2C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11C540(*a2);
   sub_11DED8(58, a4, a3);
   return 0;
@@ -43514,8 +42782,7 @@ int  sub_119B2C(int a1, unsigned char *a2, int a3, int a4)
 
 
 // sub_119B4C @ 0x119b4c, size 14 bytes
-int  sub_119B4C(int a1, int a2, int a3, int a4)
-{
+int  sub_119B4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   rf_chan_lookup(a2, a4);
   return 0;
 }
@@ -43523,8 +42790,7 @@ int  sub_119B4C(int a1, int a2, int a3, int a4)
 
 // rf_param_parse_n_5c @ 0x119b5c, size 50 bytes
 // rf_param_parse_n_5c [rf]: Parses parameter struct reading byte field at offset 2
-int  rf_param_parse_n_5c(int a1, unsigned char *a2, int a3, int a4)
-{
+int  rf_param_parse_n_5c(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v7; // [sp+4h] [bp-8h]
   int v8; // [sp+4h] [bp-8h]
 
@@ -43542,8 +42808,7 @@ int  rf_param_parse_n_5c(int a1, unsigned char *a2, int a3, int a4)
 
 
 // sub_119B5C @ 0x119b5c, size 50 bytes
-int  sub_119B5C(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119B5C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v7; // [sp+4h] [bp-8h]
   int v8; // [sp+4h] [bp-8h]
 
@@ -43561,8 +42826,7 @@ int  sub_119B5C(int a1, unsigned char *a2, int a3, int a4)
 
 
 // sub_119B90 @ 0x119b90, size 32 bytes
-int  sub_119B90(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119B90(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   rf_indexed_lookup_n_88(*a2);
   sub_11DED8(54, a4, a3);
   return 0;
@@ -43571,8 +42835,7 @@ int  sub_119B90(int a1, unsigned char *a2, int a3, int a4)
 
 // sub_119BB0 @ 0x119bb0, size 38 bytes
 // rf_alloc_buf_0x34 [rf]: Allocate 0x34-byte RF buffer via helper, returns indexed handle
-int  sub_119BB0(int a1, int a2, int a3, int a4)
-{
+int  sub_119BB0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v5; // r4
 
   v5 = (uint8_t *)rf_setup_dispatch(52, a4, a3, 2);
@@ -43583,8 +42846,7 @@ int  sub_119BB0(int a1, int a2, int a3, int a4)
 
 
 // sub_119BD8 @ 0x119bd8, size 32 bytes
-int  sub_119BD8(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119BD8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_119054(*a2);
   sub_11DED8(13, a4, a3);
   return 0;
@@ -43593,8 +42855,7 @@ int  sub_119BD8(int a1, unsigned char *a2, int a3, int a4)
 
 // sub_119BF8 @ 0x119bf8, size 66 bytes
 // rf_param_handler [rf]: Validates and dispatches RF parameter configuration
-int  sub_119BF8(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119BF8(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int v7; // r0
 
   if ( **(short **)(*((uint32_t *)0x119c3c)) < 0 )
@@ -43613,8 +42874,7 @@ LABEL_3:
 
 
 // sub_119C4C @ 0x119c4c, size 184 bytes
-int  sub_119C4C(int a1, char *a2, int a3, int a4)
-{
+int  sub_119C4C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t *v5; // r0
   short **v6; // r6
   uint8_t *v7; // r5
@@ -43665,8 +42925,7 @@ LABEL_4:
 
 
 // sub_119D18 @ 0x119d18, size 58 bytes
-int  sub_119D18(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119D18(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r5
   int v6; // r6
   int v7; // r0
@@ -43689,17 +42948,15 @@ int  sub_119D18(int a1, unsigned char *a2, int a3, int a4)
 
 // sub_119D58 @ 0x119d58, size 22 bytes
 // sub_1219D58 [rf]: Unknown helper in lmacfw_rf image (reconstructed flow)
-int  sub_119D58(int a1, int a2, int a3, int a4)
-{
+int  sub_119D58(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11DED8(1, a4, a3);
-  sub_11E1E4(0);
+  sub_11E1E4(0, 0);
   return 0;
 }
 
 
 // sub_119D70 @ 0x119d70, size 190 bytes
-int  sub_119D70(int a1, int a2, int a3, int a4)
-{
+int  sub_119D70(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r0
   uint32_t *v5; // r5
   uint32_t *v6; // r3
@@ -43789,7 +43046,7 @@ int  rf_status_check_init(int a1, void ( **a2)(int), int a3)
     if ( result != 2 )
     {
       sub_11D01C();
-      sub_11E1E4(a3);
+      sub_11E1E4(a3, 0);
       return 2;
     }
   }
@@ -43797,7 +43054,7 @@ int  rf_status_check_init(int a1, void ( **a2)(int), int a3)
   {
     if ( **v3 < 0 && *(uint32_t *)(*((uint32_t *)0x119f94)) << 28 )
       rf_cmd_send_n264((*((uint32_t *)0x119f98)), (*((uint32_t *)0x119f8c)), 1594);
-    v7 = sub_11E1E4(a3);
+    v7 = sub_11E1E4(a3, 0);
     (*a2)(v7);
     return 0;
   }
@@ -43821,7 +43078,7 @@ int  sub_119F10(int a1, void ( **a2)(int), int a3)
     if ( result != 2 )
     {
       sub_11D01C();
-      sub_11E1E4(a3);
+      sub_11E1E4(a3, 0);
       return 2;
     }
   }
@@ -43829,7 +43086,7 @@ int  sub_119F10(int a1, void ( **a2)(int), int a3)
   {
     if ( **v3 < 0 && *(uint32_t *)(*((uint32_t *)0x119f94)) << 28 )
       sub_1219C4((*((uint32_t *)0x119f98)), (*((uint32_t *)0x119f8c)), 1594);
-    v7 = sub_11E1E4(a3);
+    v7 = sub_11E1E4(a3, 0);
     (*a2)(v7);
     return 0;
   }
@@ -43838,8 +43095,7 @@ int  sub_119F10(int a1, void ( **a2)(int), int a3)
 
 
 // sub_119F9C @ 0x119f9c, size 130 bytes
-int  sub_119F9C(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_119F9C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v7; // r2
   uint16_t *v8; // r5
   int result; // r0
@@ -43874,7 +43130,7 @@ LABEL_6:
   if ( result != 2 )
   {
     sub_11D01C();
-    sub_11E1E4(a3);
+    sub_11E1E4(a3, 0);
     return 2;
   }
   return result;
@@ -43882,8 +43138,7 @@ LABEL_6:
 
 
 // sub_11A034 @ 0x11a034, size 1760 bytes
-int  sub_11A034(int a1, unsigned char *a2, int a3, int a4)
-{
+int  sub_11A034(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v8; // r0
   short **v10; // r8
   int v11; // r3
@@ -43937,7 +43192,7 @@ int  sub_11A034(int a1, unsigned char *a2, int a3, int a4)
       *((uint8_t *)(*((uint32_t *)0x11a2e4)) + 17) = *(uint8_t *)(*((uint32_t *)0x11a2e8)) & 0xF;
       v14[16] = sub_11E34C(a3);
       sub_11D01C();
-      sub_11E1E4(a3);
+      sub_11E1E4(a3, 0);
     }
     return 2;
   }
@@ -44042,7 +43297,7 @@ LABEL_13:
             if ( v16 <= 3 )
               v16 = sub_1180B8(v16);
             if ( !*((uint32_t *)(*((uint32_t *)0x11a2ec)) + 2) )
-              sub_11D3DC(v16);
+              sub_11D3DC();
             sub_11DED8(9, a4, a3);
             v12 = (char **)(*((uint32_t *)0x11a2e4));
             v13 = 0;
@@ -44245,7 +43500,7 @@ LABEL_54:
             break;
           case 48:
 LABEL_57:
-            sub_121A10(a2);
+            sub_121A10();
             v12 = (char **)(*((uint32_t *)0x11a660));
             v13 = 0;
             break;
@@ -44300,23 +43555,21 @@ LABEL_11:
       }
     }
     *(uint32_t *)(*((uint32_t *)0x11a2e8)) = (unsigned char)(16 * *((uint8_t *)v12 + 17));
-    sub_11E1E4(a3);
+    sub_11E1E4(a3, 0);
     return v13;
   }
 }
 
 
 // sub_11A728 @ 0x11a728, size 4 bytes
-int sub_11A728()
-{
+int sub_11A728() {
   return 0;
 }
 
 
 // rf_reg_probe_id @ 0x11a72c, size 132 bytes
 // rf_reg_probe_id [rf]: Probes RF register 0x40320200 and reads header
-int  rf_reg_probe_id(unsigned short *a1)
-{
+int  rf_reg_probe_id(uint32_t a1) {
   int v1; // r3
   int *v2; // r2
   int v4; // r0
@@ -44351,8 +43604,7 @@ int  rf_reg_probe_id(unsigned short *a1)
 
 
 // sub_11A72C @ 0x11a72c, size 132 bytes
-int  sub_11A72C(unsigned short *a1)
-{
+int  sub_11A72C(uint32_t a1) {
   int v1; // r3
   int *v2; // r2
   int v4; // r0
@@ -44388,8 +43640,7 @@ int  sub_11A72C(unsigned short *a1)
 
 // rf_state_copy_to_shm @ 0x11a7c8, size 242 bytes
 // rf_state_copy_to_shm [patch]: Copy RF calibration/state bytes to shared memory region
-int  rf_state_copy_to_shm(unsigned char *a1)
-{
+int  rf_state_copy_to_shm(uint32_t a1) {
   uint8_t *v1; // r2
   int v2; // r3
   unsigned char v4; // r0
@@ -44474,8 +43725,7 @@ int  rf_state_copy_to_shm(unsigned char *a1)
 
 
 // sub_11A7C8 @ 0x11a7c8, size 242 bytes
-int  sub_11A7C8(unsigned char *a1)
-{
+int  sub_11A7C8(uint32_t a1) {
   uint8_t *v1; // r2
   int v2; // r3
   unsigned char v4; // r0
@@ -44561,8 +43811,7 @@ int  sub_11A7C8(unsigned char *a1)
 
 // rf_mmio_status_read @ 0x11a8e4, size 192 bytes
 // rf_mmio_status_read [mmio]: Reads byte status field and MMIO register value from 0x403200e4
-int  rf_mmio_status_read(unsigned char *a1)
-{
+int  rf_mmio_status_read(uint32_t a1) {
   int v1; // r1
   int v3; // r3
   unsigned int *v4; // r0
@@ -44614,8 +43863,7 @@ int  rf_mmio_status_read(unsigned char *a1)
 
 
 // sub_11A8E4 @ 0x11a8e4, size 192 bytes
-int  sub_11A8E4(unsigned char *a1)
-{
+int  sub_11A8E4(uint32_t a1) {
   int v1; // r1
   int v3; // r3
   unsigned int *v4; // r0
@@ -44667,8 +43915,7 @@ int  sub_11A8E4(unsigned char *a1)
 
 
 // sub_11A9BC @ 0x11a9bc, size 140 bytes
-int  sub_11A9BC(unsigned char *a1, void *a2)
-{
+int  sub_11A9BC(uint32_t a1, uint32_t a2) {
   int v2; // r3
 
   v2 = *a1;
@@ -44705,8 +43952,7 @@ int  sub_11A9BC(unsigned char *a1, void *a2)
 
 
 // sub_11AA5C @ 0x11aa5c, size 34 bytes
-unsigned char * sub_11AA5C(unsigned char *result)
-{
+unsigned char * sub_11AA5C(uint32_t a1) {
   unsigned int v1; // r2
   unsigned char *v2; // r3
   uint8_t *v3; // r4
@@ -44725,8 +43971,7 @@ unsigned char * sub_11AA5C(unsigned char *result)
 
 
 // sub_11AA8C @ 0x11aa8c, size 114 bytes
-int  sub_11AA8C(int a1, unsigned short *a2, int a3, void *a4)
-{
+int  sub_11AA8C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r4
   void *v6; // r1
   int v8; // [sp+0h] [bp-8h]
@@ -44778,23 +44023,20 @@ int  sub_11AA8C(int a1, unsigned short *a2, int a3, void *a4)
 
 
 // sub_11AB00 @ 0x11ab00, size 10 bytes
-unsigned int  sub_11AB00(int a1, int a2)
-{
+unsigned int  sub_11AB00(uint32_t a1, uint32_t a2) {
   return (unsigned int)(*(uint32_t *)(a1 + 12) - *(uint32_t *)(a2 + 12)) >> 31;
 }
 
 
 // sub_11AB0C @ 0x11ab0c, size 6 bytes
 // sub_121AB0C [unknown]: Unknown LMAC RF helper (no clear pattern)
-int sub_11AB0C()
-{
+int sub_11AB0C() {
   return sub_11E71C((*((uint32_t *)0x11ab14)));
 }
 
 
 // sub_11AB18 @ 0x11ab18, size 212 bytes
-int  sub_11AB18(int a1, int a2)
-{
+int  sub_11AB18(uint32_t a1, uint32_t a2) {
   int *v4; // r7
   uint32_t *v5; // r2
   int *v6; // r6
@@ -44867,8 +44109,7 @@ LABEL_6:
 
 
 // sub_11AC10 @ 0x11ac10, size 96 bytes
-int  sub_11AC10(int a1)
-{
+int  sub_11AC10(uint32_t a1) {
   int *v1; // r4
   void *v2; // r5
   uint8_t v3; // zf
@@ -44925,8 +44166,7 @@ int  sub_11AC10(int a1)
 
 // timestamp_remove @ 0x11ac10, size 96 bytes
 // timestamp_remove [rx]: Strip/remove timestamp field from received frame
-int  timestamp_remove(int a1)
-{
+int  timestamp_remove(uint32_t a1) {
   int *v1; // r4
   void *v2; // r5
   uint8_t v3; // zf
@@ -44982,8 +44222,7 @@ int  timestamp_remove(int a1)
 
 
 // sub_11AC80 @ 0x11ac80, size 186 bytes
-int sub_11AC80()
-{
+int sub_11AC80() {
   uint32_t *v0; // r7
   int *v1; // r6
   int *v2; // r8
@@ -45077,8 +44316,7 @@ LABEL_17:
 
 // ipc_msg_send_n_d58 @ 0x11ad58, size 42 bytes
 // ipc_msg_send_n_d58 [ipc]: Send IPC message (opcode 0x48) with header field from r4+0x18
-int  ipc_msg_send_n_d58(int a1)
-{
+int  ipc_msg_send_n_d58(uint32_t a1) {
   uint8_t *v2; // r0
   uint32_t *v3; // r2
 
@@ -45092,8 +44330,7 @@ int  ipc_msg_send_n_d58(int a1)
 
 
 // sub_11AD58 @ 0x11ad58, size 42 bytes
-int  sub_11AD58(int a1)
-{
+int  sub_11AD58(uint32_t a1) {
   uint8_t *v2; // r0
   uint32_t *v3; // r2
 
@@ -45108,8 +44345,7 @@ int  sub_11AD58(int a1)
 
 // sub_11AD88 @ 0x11ad88, size 70 bytes
 // sub_121AD88 [unknown]: Resolve two symbol pointers and compute difference between resolved addresses
-int  sub_11AD88(int a1, int a2)
-{
+int  sub_11AD88(uint32_t a1, uint32_t a2) {
   int v3; // r4
   int v4; // r0
   int v5; // r5
@@ -45127,8 +44363,7 @@ int  sub_11AD88(int a1, int a2)
 
 // sub_11ADD0 @ 0x11add0, size 76 bytes
 // sub_121ADD0 [util]: Lookup/validate state entry against stored pointer
-int  sub_11ADD0(int result)
-{
+int  sub_11ADD0(uint32_t a1) {
   uint32_t *v1; // r6
   int v2; // r5
   int v3; // r4
@@ -45165,8 +44400,7 @@ int  sub_11ADD0(int result)
 
 // rf_cal_or_init_handler @ 0x11ae24, size 322 bytes
 // rf_cal_or_init_handler [rf]: RF calibration/init handler dispatching per-band ops
-int  rf_cal_or_init_handler(int a1, int a2, int a3)
-{
+int  rf_cal_or_init_handler(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r8
   uint32_t *v4; // r9
   int v5; // r11
@@ -45270,8 +44504,7 @@ LABEL_24:
 
 
 // sub_11AE24 @ 0x11ae24, size 322 bytes
-int  sub_11AE24(int a1, int a2, int a3)
-{
+int  sub_11AE24(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r8
   uint32_t *v4; // r9
   int v5; // r11
@@ -45376,8 +44609,7 @@ LABEL_24:
 
 // rf_xosc_setup @ 0x11af78, size 166 bytes
 // rf_xosc_setup [rf]: Configure RF crystal oscillator parameters
-int  rf_xosc_setup(int a1, int a2, int a3)
-{
+int  rf_xosc_setup(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r5
@@ -45404,7 +44636,7 @@ int  rf_xosc_setup(int a1, int a2, int a3)
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = list_push_tail(v9);
+  result = list_push_tail(v9, 0);
   if ( !v10 )
   {
     v8[18] = (uint32_t)(uintptr_t)v7;
@@ -45455,8 +44687,7 @@ int  rf_xosc_setup(int a1, int a2, int a3)
 
 
 // sub_11AF78 @ 0x11af78, size 166 bytes
-int  sub_11AF78(int a1, int a2, int a3)
-{
+int  sub_11AF78(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v6; // r0
   uint32_t *v7; // r4
   uint32_t *v8; // r5
@@ -45483,7 +44714,7 @@ int  sub_11AF78(int a1, int a2, int a3)
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = sub_11E724(v9);
+  result = sub_11E724(v9, 0);
   if ( !v10 )
   {
     v8[18] = (uint32_t)(uintptr_t)v7;
@@ -45535,8 +44766,7 @@ int  sub_11AF78(int a1, int a2, int a3)
 
 // rf_init_or_query @ 0x11b044, size 56 bytes
 // rf_init_or_query [rf]: RF subsystem init/query: calls helper and stores result on stack
-int rf_init_or_query()
-{
+int rf_init_or_query() {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
@@ -45552,7 +44782,7 @@ int rf_init_or_query()
     v3 = (char *)(v1 + 8);
     do
     {
-      list_push_tail(v2);
+      list_push_tail(v2, 0);
       result = sub_11E7AC(v3);
     }
     while ( result );
@@ -45562,8 +44792,7 @@ int rf_init_or_query()
 
 
 // sub_11B044 @ 0x11b044, size 56 bytes
-int sub_11B044()
-{
+int sub_11B044() {
   int result; // r0
   uint32_t *v1; // r4
   char *v2; // r5
@@ -45579,7 +44808,7 @@ int sub_11B044()
     v3 = (char *)(v1 + 8);
     do
     {
-      sub_11E724(v2);
+      sub_11E724(v2, 0);
       result = sub_11E7AC(v3);
     }
     while ( result );
@@ -45589,8 +44818,7 @@ int sub_11B044()
 
 
 // sub_11B088 @ 0x11b088, size 272 bytes
-int  sub_11B088(int a1, int a2, unsigned int a3)
-{
+int  sub_11B088(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r8
   int v4; // r9
   int v5; // r10
@@ -45671,8 +44899,7 @@ LABEL_18:
 
 // rf_mailbox_post_n44 @ 0x11b1a4, size 256 bytes
 // rf_mailbox_post_n44 [ipc]: Post message into RF mailbox peripheral
-int  rf_mailbox_post_n44(int result)
-{
+int  rf_mailbox_post_n44(uint32_t a1) {
   uint8_t *v1; // r4
   int v2; // r5
   int v3; // r6
@@ -45750,8 +44977,7 @@ int  rf_mailbox_post_n44(int result)
 
 
 // sub_11B1A4 @ 0x11b1a4, size 256 bytes
-int  sub_11B1A4(int result)
-{
+int  sub_11B1A4(uint32_t a1) {
   uint8_t *v1; // r4
   int v2; // r5
   int v3; // r6
@@ -45830,8 +45056,7 @@ int  sub_11B1A4(int result)
 
 // sub_11B2C8 @ 0x11b2c8, size 134 bytes
 // sub_121B2C8 [unknown]: Checks a flag byte from a global struct and shifts it, branches on result
-int sub_11B2C8()
-{
+int sub_11B2C8() {
   uint8_t *v0; // r4
   int v1; // r3
   int result; // r0
@@ -45844,7 +45069,7 @@ int sub_11B2C8()
     if ( **(short **)(*((uint32_t *)0x11b354)) < 0 && (v1 & 4) != 0 )
     {
       rf_cmd_send_n264((*((uint32_t *)0x11b364)), (*((uint32_t *)0x11b360)), 1720);
-      v1 = ((unsigned)(v1) & 0xFFFFFF00U) | (((unsigned)(v0[88]) & 0xFFU) << 0);
+      LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xFA | 4;
     return rf_mailbox_post_n44((*((uint32_t *)0x11b358)));
@@ -45854,7 +45079,7 @@ int sub_11B2C8()
     if ( **(short **)(*((uint32_t *)0x11b354)) < 0 && (v1 & 8) != 0 )
     {
       rf_cmd_send_n264((*((uint32_t *)0x11b368)), (*((uint32_t *)0x11b360)), 1731);
-      v1 = ((unsigned)(v1) & 0xFFFFFF00U) | (((unsigned)(v0[88]) & 0xFFU) << 0);
+      LOBYTE(v1) = v0[88];
     }
     v0[88] = v1 & 0xF5 | 8;
     return rf_mailbox_post_n44((*((uint32_t *)0x11b35c)));
@@ -45865,8 +45090,7 @@ int sub_11B2C8()
 
 // phy_flag_check_or_set @ 0x11b36c, size 48 bytes
 // phy_flag_check_or_set [rx]: Check/set a packed PHY status flag bit
-int phy_flag_check_or_set()
-{
+int phy_flag_check_or_set() {
   void *v0; // r2
   int v1; // r0
   int result; // r0
@@ -45886,8 +45110,7 @@ int phy_flag_check_or_set()
 
 
 // sub_11B36C @ 0x11b36c, size 48 bytes
-int sub_11B36C()
-{
+int sub_11B36C() {
   void *v0; // r2
   int v1; // r0
   int result; // r0
@@ -45908,8 +45131,7 @@ int sub_11B36C()
 
 // rf_state_reset_n_3a4 @ 0x11b3a4, size 282 bytes
 // rf_state_reset_n_3a4 [rf]: RF state reset clearing context fields
-int  rf_state_reset_n_3a4(int result, int a2, int a3)
-{
+int  rf_state_reset_n_3a4(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint8_t *v3; // r6
   int v4; // r4
   int v6; // r3
@@ -46014,8 +45236,7 @@ LABEL_4:
 
 
 // sub_11B3A4 @ 0x11b3a4, size 282 bytes
-int  sub_11B3A4(int result, int a2, int a3)
-{
+int  sub_11B3A4(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint8_t *v3; // r6
   int v4; // r4
   int v6; // r3
@@ -46121,8 +45342,7 @@ LABEL_4:
 
 // rf_chan_init_n4e8 @ 0x11b4e8, size 448 bytes
 // rf_chan_init_n4e8 [rf]: Initialize RF channel context from data tables, call helper, read signed halfword
-int  rf_chan_init_n4e8(int a1)
-{
+int  rf_chan_init_n4e8(uint32_t a1) {
   short **v1; // r7
   uint8_t *v2; // r6
   int v4; // r0
@@ -46227,7 +45447,7 @@ LABEL_33:
         if ( v28 == 3 )
         {
           msg_parse((*((uint32_t *)0x11b6d4)), v24);
-          sub_11E1E4(2);
+          sub_11E1E4(2, 0);
         }
         goto LABEL_5;
       }
@@ -46293,7 +45513,7 @@ LABEL_6:
       sub_11ADD0((int)v12);
   }
 LABEL_15:
-  list_push_tail((*((uint32_t *)0x11b6bc)));
+  list_push_tail((*((uint32_t *)0x11b6bc)), 0);
   v14 = v7[10];
   if ( *(unsigned char *)(v14 + 24) > 2u )
     rf_state_reset_n_3a4(v14, 0, v13);
@@ -46348,8 +45568,7 @@ LABEL_15:
 
 
 // sub_11B4E8 @ 0x11b4e8, size 448 bytes
-int  sub_11B4E8(int a1)
-{
+int  sub_11B4E8(uint32_t a1) {
   short **v1; // r7
   uint8_t *v2; // r6
   int v4; // r0
@@ -46454,7 +45673,7 @@ LABEL_33:
         if ( v28 == 3 )
         {
           sub_11F504((*((uint32_t *)0x11b6d4)), v24);
-          sub_11E1E4(2);
+          sub_11E1E4(2, 0);
         }
         goto LABEL_5;
       }
@@ -46520,7 +45739,7 @@ LABEL_6:
       sub_11ADD0((int)v12);
   }
 LABEL_15:
-  sub_11E724((*((uint32_t *)0x11b6bc)));
+  sub_11E724((*((uint32_t *)0x11b6bc)), 0);
   v14 = v7[10];
   if ( *(unsigned char *)(v14 + 24) > 2u )
     sub_11B3A4(v14, 0, v13);
@@ -46575,8 +45794,7 @@ LABEL_15:
 
 
 // sub_11B6F0 @ 0x11b6f0, size 68 bytes
-int sub_11B6F0()
-{
+int sub_11B6F0() {
   int *v0; // r4
   int v1; // r5
   int result; // r0
@@ -46601,8 +45819,7 @@ int sub_11B6F0()
 
 
 // sub_11B740 @ 0x11b740, size 182 bytes
-int sub_11B740()
-{
+int sub_11B740() {
   uint32_t *v0; // r6
   int v1; // r5
   int v2; // r7
@@ -46689,8 +45906,7 @@ LABEL_12:
 
 // rf_msg_alloc_init @ 0x11b80c, size 420 bytes
 // rf_msg_alloc_init [ipc]: Allocates and initializes RF message buffer from pool
-int rf_msg_alloc_init()
-{
+int rf_msg_alloc_init() {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
   int v2; // r4
@@ -46735,11 +45951,11 @@ int rf_msg_alloc_init()
   {
     v5 = *(uint16_t *)(v2 + 14);
     if ( v5 )
-      v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+      LOBYTE(v5) = 1;
   }
   else
   {
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+    LOBYTE(v5) = 0;
   }
   v6 = 0;
   v3[1] = v5;
@@ -46833,8 +46049,7 @@ LABEL_15:
 
 
 // sub_11B80C @ 0x11b80c, size 420 bytes
-int sub_11B80C()
-{
+int sub_11B80C() {
   uint32_t *v0; // r5
   uint32_t *v1; // r6
   int v2; // r4
@@ -46879,11 +46094,11 @@ int sub_11B80C()
   {
     v5 = *(uint16_t *)(v2 + 14);
     if ( v5 )
-      v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+      LOBYTE(v5) = 1;
   }
   else
   {
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(0) & 0xFFU) << 0);
+    LOBYTE(v5) = 0;
   }
   v6 = 0;
   v3[1] = v5;
@@ -46977,8 +46192,7 @@ LABEL_15:
 
 
 // sub_11B9E0 @ 0x11b9e0, size 44 bytes
-int sub_11B9E0()
-{
+int sub_11B9E0() {
   uint32_t *v0; // r3
   int v1; // r1
   int v2; // r2
@@ -47010,8 +46224,7 @@ LABEL_6:
 
 
 // sub_11BA18 @ 0x11ba18, size 44 bytes
-int  sub_11BA18(int result)
-{
+int  sub_11BA18(uint32_t a1) {
   char v1; // r3
   void *v2; // r2
 
@@ -47035,8 +46248,7 @@ int  sub_11BA18(int result)
 
 
 // sub_11BA4C @ 0x11ba4c, size 22 bytes
-int  sub_11BA4C(int a1, int a2, int a3)
-{
+int  sub_11BA4C(uint32_t a1, uint32_t a2, uint32_t a3) {
   int result; // r0
 
   rf_link_state_check(a1, a2, a3);
@@ -47049,8 +46261,7 @@ int  sub_11BA4C(int a1, int a2, int a3)
 
 // lmac_rf_init_5cbuf @ 0x11ba64, size 138 bytes
 // lmac_rf_init_5cbuf [rf]: Initialize RF 0x5c-byte context block to zero
-int lmac_rf_init_5cbuf()
-{
+int lmac_rf_init_5cbuf() {
   int *v0; // r7
   void *v1; // r6
   unsigned int v2; // r5
@@ -47070,7 +46281,7 @@ int lmac_rf_init_5cbuf()
     *((uint8_t *)i + 24) = -1;
     if ( v2 <= 2 )
     {
-      list_push_tail(v1);
+      list_push_tail(v1, 0);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -47084,10 +46295,10 @@ LABEL_4:
     goto LABEL_4;
   sub_11E71C((*((uint32_t *)0x11baf8)));
   sub_11E71C((*((uint32_t *)0x11bafc)));
-  list_push_tail((*((uint32_t *)0x11baf8)));
-  list_push_tail((*((uint32_t *)0x11baf8)));
-  list_push_tail((*((uint32_t *)0x11baf8)));
-  result = list_push_tail((*((uint32_t *)0x11baf8)));
+  list_push_tail((*((uint32_t *)0x11baf8)), 0);
+  list_push_tail((*((uint32_t *)0x11baf8)), 0);
+  list_push_tail((*((uint32_t *)0x11baf8)), 0);
+  result = list_push_tail((*((uint32_t *)0x11baf8)), 0);
   v5 = (*((uint32_t *)0x11baf0));
   v6 = (*((uint32_t *)0x11bb14));
   *((uint32_t *)(*((uint32_t *)0x11baf0)) + 13) = (*((uint32_t *)0x11bb10));
@@ -47098,8 +46309,7 @@ LABEL_4:
 
 
 // sub_11BA64 @ 0x11ba64, size 138 bytes
-int sub_11BA64()
-{
+int sub_11BA64() {
   int *v0; // r7
   void *v1; // r6
   unsigned int v2; // r5
@@ -47119,7 +46329,7 @@ int sub_11BA64()
     *((uint8_t *)i + 24) = -1;
     if ( v2 <= 2 )
     {
-      sub_11E724(v1);
+      sub_11E724(v1, 0);
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -47133,10 +46343,10 @@ LABEL_4:
     goto LABEL_4;
   sub_11E71C((*((uint32_t *)0x11baf8)));
   sub_11E71C((*((uint32_t *)0x11bafc)));
-  sub_11E724((*((uint32_t *)0x11baf8)));
-  sub_11E724((*((uint32_t *)0x11baf8)));
-  sub_11E724((*((uint32_t *)0x11baf8)));
-  result = sub_11E724((*((uint32_t *)0x11baf8)));
+  sub_11E724((*((uint32_t *)0x11baf8)), 0);
+  sub_11E724((*((uint32_t *)0x11baf8)), 0);
+  sub_11E724((*((uint32_t *)0x11baf8)), 0);
+  result = sub_11E724((*((uint32_t *)0x11baf8)), 0);
   v5 = (*((uint32_t *)0x11baf0));
   v6 = (*((uint32_t *)0x11bb14));
   *((uint32_t *)(*((uint32_t *)0x11baf0)) + 13) = (*((uint32_t *)0x11bb10));
@@ -47147,8 +46357,7 @@ LABEL_4:
 
 
 // sub_11BB18 @ 0x11bb18, size 118 bytes
-int  sub_11BB18(short *a1, int a2, char a3)
-{
+int  sub_11BB18(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint8_t *v3; // r4
   short v7; // r3
   uint8_t *v8; // r2
@@ -47164,7 +46373,7 @@ int  sub_11BB18(short *a1, int a2, char a3)
   *((uint16_t *)v3 + 45) = v7;
   v8 = (*((uint32_t *)0x11bb98));
   v3[96] = *((uint8_t *)a1 + 4);
-  v7 = ((unsigned)(v7) & 0xFFFFFF00U) | (((unsigned)(v8[88]) & 0xFFU) << 0);
+  LOBYTE(v7) = v8[88];
   v3[97] = *((uint8_t *)a1 + 3);
   v8[88] = v7 | 2;
   v3[110] = a3;
@@ -47176,8 +46385,7 @@ int  sub_11BB18(short *a1, int a2, char a3)
 
 // sub_11BBA4 @ 0x11bba4, size 392 bytes
 // sub_121BBA4 [unknown]: Init handler reading control byte from 0x1863b0+0x80 and struct fields
-int  sub_11BBA4(unsigned char *a1, int a2)
-{
+int  sub_11BBA4(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r7
   int v5; // r5
   unsigned int v6; // r3
@@ -47288,8 +46496,7 @@ int  sub_11BBA4(unsigned char *a1, int a2)
 
 // sub_11BD44 @ 0x11bd44, size 54 bytes
 // sub_121BD44 [util]: LMAC RF helper: load constant and tail-call helper
-int  sub_11BD44(int a1, uint8_t *a2)
-{
+int  sub_11BD44(uint32_t a1, uint32_t a2) {
   int v4; // r0
   char v5; // r2
   int v6; // r1
@@ -47310,8 +46517,7 @@ int  sub_11BD44(int a1, uint8_t *a2)
 
 // rf_indexed_lookup_n_88 @ 0x11bd88, size 136 bytes
 // rf_indexed_lookup_n_88 [rf]: Indexed table lookup using r0*7 stride into RF state array
-int * rf_indexed_lookup_n_88(int a1)
-{
+int * rf_indexed_lookup_n_88(uint32_t a1) {
   short **v1; // r8
   int v2; // r5
   int *v4; // r6
@@ -47336,7 +46542,7 @@ int * rf_indexed_lookup_n_88(int a1)
   {
     v5 = 8 * a1;
   }
-  list_push_tail((*((uint32_t *)0x11be14)));
+  list_push_tail((*((uint32_t *)0x11be14)), 0);
   v6 = v2 + 4 * (v5 - a1);
   result = sub_100200(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;
@@ -47346,8 +46552,7 @@ int * rf_indexed_lookup_n_88(int a1)
 
 
 // sub_11BD88 @ 0x11bd88, size 136 bytes
-int * sub_11BD88(int a1)
-{
+int * sub_11BD88(uint32_t a1) {
   short **v1; // r8
   int v2; // r5
   int *v4; // r6
@@ -47372,7 +46577,7 @@ int * sub_11BD88(int a1)
   {
     v5 = 8 * a1;
   }
-  sub_11E724((*((uint32_t *)0x11be14)));
+  sub_11E724((*((uint32_t *)0x11be14)), 0);
   v6 = v2 + 4 * (v5 - a1);
   result = sub_100200(v4, 0, 0x1Cu);
   *(uint16_t *)(v6 + 14) = 255;
@@ -47382,8 +46587,7 @@ int * sub_11BD88(int a1)
 
 
 // sub_11BE28 @ 0x11be28, size 136 bytes
-int  sub_11BE28(unsigned char *a1)
-{
+int  sub_11BE28(uint32_t a1) {
   int v1; // r4
   int result; // r0
   unsigned char *v3; // r5
@@ -47439,8 +46643,7 @@ int  sub_11BE28(unsigned char *a1)
 
 // rf_chan_lookup @ 0x11bec0, size 102 bytes
 // rf_chan_lookup [rf]: Look up RF channel entry from global table indexed by byte at offset 1
-int  rf_chan_lookup(int result, int a2)
-{
+int  rf_chan_lookup(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r5
   int v5; // r7
@@ -47478,8 +46681,7 @@ LABEL_4:
 
 
 // sub_11BEC0 @ 0x11bec0, size 102 bytes
-int  sub_11BEC0(int result, int a2)
-{
+int  sub_11BEC0(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r5
   int v5; // r7
@@ -47517,8 +46719,7 @@ LABEL_4:
 
 
 // sub_11BF38 @ 0x11bf38, size 216 bytes
-int  sub_11BF38(int a1, int a2)
-{
+int  sub_11BF38(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r10
   int *v3; // r4
   int v5; // r3
@@ -47588,8 +46789,7 @@ LABEL_14:
 
 // unknown_helper_2 @ 0x11bf38, size 216 bytes
 // unknown_helper_2 [unknown]: unknown helper, low-confidence guess
-int  unknown_helper_2(int a1, int a2)
-{
+int  unknown_helper_2(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r10
   int *v3; // r4
   int v5; // r3
@@ -47658,8 +46858,7 @@ LABEL_14:
 
 
 // sub_11C01C @ 0x11c01c, size 296 bytes
-int  sub_11C01C(int result)
-{
+int  sub_11C01C(uint32_t a1) {
   uint32_t *v1; // r5
   int v2; // r4
   int v3; // r6
@@ -47767,8 +46966,7 @@ LABEL_14:
 
 // rf_bus_reset2_c158 @ 0x11c158, size 264 bytes
 // rf_bus_reset2_c158 [rf]: Tear down RF bus state and trigger secondary reset sequence
-int  rf_bus_reset2_c158(int result)
-{
+int  rf_bus_reset2_c158(uint32_t a1) {
   void *v1; // r5
   int v2; // r4
   int v3; // r3
@@ -47816,7 +47014,7 @@ int  rf_bus_reset2_c158(int result)
       if ( (v3 & 1) == 0 )
       {
         result = rf_cal_or_init_handler(result, *(uint32_t *)(result + 36), 0);
-        v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v2 + 85)) & 0xFFU) << 0);
+        LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       }
       *(uint8_t *)(v2 + 85) = v3 & 0xFB;
     }
@@ -47865,8 +47063,7 @@ int  rf_bus_reset2_c158(int result)
 
 
 // sub_11C158 @ 0x11c158, size 264 bytes
-int  sub_11C158(int result)
-{
+int  sub_11C158(uint32_t a1) {
   void *v1; // r5
   int v2; // r4
   int v3; // r3
@@ -47914,7 +47111,7 @@ int  sub_11C158(int result)
       if ( (v3 & 1) == 0 )
       {
         result = sub_11AE24(result, *(uint32_t *)(result + 36), 0);
-        v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v2 + 85)) & 0xFFU) << 0);
+        LOBYTE(v3) = *(uint8_t *)(v2 + 85);
       }
       *(uint8_t *)(v2 + 85) = v3 & 0xFB;
     }
@@ -47964,8 +47161,7 @@ int  sub_11C158(int result)
 
 // rf_msg_handler_n0ec @ 0x11c26c, size 158 bytes
 // rf_msg_handler_n0ec [rf]: RF context handler reading env state from indexed global
-int  rf_msg_handler_n0ec(int result)
-{
+int  rf_msg_handler_n0ec(uint32_t a1) {
   int v1; // r7
   int v2; // r5
   uint8_t *v3; // r6
@@ -48005,8 +47201,7 @@ int  rf_msg_handler_n0ec(int result)
 
 
 // sub_11C26C @ 0x11c26c, size 158 bytes
-int  sub_11C26C(int result)
-{
+int  sub_11C26C(uint32_t a1) {
   int v1; // r7
   int v2; // r5
   uint8_t *v3; // r6
@@ -48047,8 +47242,7 @@ int  sub_11C26C(int result)
 
 // rf_get_status_byte_n_a24 @ 0x11c324, size 96 bytes
 // rf_get_status_byte_n_a24 [rf]: Reads a single status byte at offset 0x19 from a structure
-int  rf_get_status_byte_n_a24(int result)
-{
+int  rf_get_status_byte_n_a24(uint32_t a1) {
   int v1; // r3
   int v2; // r2
   int v3; // r1
@@ -48093,8 +47287,7 @@ LABEL_6:
 
 
 // sub_11C324 @ 0x11c324, size 96 bytes
-int  sub_11C324(int result)
-{
+int  sub_11C324(uint32_t a1) {
   int v1; // r3
   int v2; // r2
   int v3; // r1
@@ -48139,8 +47332,7 @@ LABEL_6:
 
 
 // sub_11C38C @ 0x11c38c, size 388 bytes
-int  sub_11C38C(int a1, int a2)
-{
+int  sub_11C38C(uint32_t a1, uint32_t a2) {
   short **v2; // r9
   int v3; // r7
   int v4; // r10
@@ -48212,7 +47404,7 @@ int  sub_11C38C(int a1, int a2)
       }
       while ( v20 != v19 );
     }
-    list_push_tail((*((uint32_t *)0x11c528)));
+    list_push_tail((*((uint32_t *)0x11c528)), 0);
     if ( (v13[88] & 0xC) != 0 )
     {
       v18 = *((uint32_t *)v13 + 8);
@@ -48240,8 +47432,7 @@ int  sub_11C38C(int a1, int a2)
 
 // lmac_table_lookup_n540 @ 0x11c540, size 522 bytes
 // lmac_table_lookup_n540 [mac]: LMAC table lookup with index scaling
-int  lmac_table_lookup_n540(int a1)
-{
+int  lmac_table_lookup_n540(uint32_t a1) {
   short **v1; // r8
   int v2; // r6
   unsigned char *v3; // r5
@@ -48401,8 +47592,7 @@ LABEL_36:
 
 
 // sub_11C540 @ 0x11c540, size 522 bytes
-int  sub_11C540(int a1)
-{
+int  sub_11C540(uint32_t a1) {
   short **v1; // r8
   int v2; // r6
   unsigned char *v3; // r5
@@ -48562,8 +47752,7 @@ LABEL_36:
 
 
 // sub_11C7DC @ 0x11c7dc, size 48 bytes
-int * sub_11C7DC(int a1)
-{
+int * sub_11C7DC(uint32_t a1) {
   int v1; // r4
   int v2; // r6
   char v3; // r5
@@ -48599,8 +47788,7 @@ int *sub_11C814()
 
 
 // sub_11C834 @ 0x11c834, size 24 bytes
-int  sub_11C834(int a1, int a2, int a3)
-{
+int  sub_11C834(uint32_t a1, uint32_t a2, uint32_t a3) {
   int result; // r0
 
   result = (*((uint32_t *)0x11c84c)) + 32 * a1;
@@ -48614,8 +47802,7 @@ int  sub_11C834(int a1, int a2, int a3)
 
 // sub_11C850 @ 0x11c850, size 48 bytes
 // sub_121C850 [mmio]: Allocate LMAC object via helper and stash return in r4
-int  sub_11C850(int a1, int a2, int a3, int a4)
-{
+int  sub_11C850(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r4
 
   v5 = sub_11E34C(2);
@@ -48630,8 +47817,7 @@ int  sub_11C850(int a1, int a2, int a3, int a4)
 
 // rf_chan_set_n1cc @ 0x11c88c, size 138 bytes
 // rf_chan_set_n1cc [rf]: Set RF channel via 0x11e34c, validate result==3
-int rf_chan_set_n1cc()
-{
+int rf_chan_set_n1cc() {
   int v0; // r0
   uint8_t *v1; // r4
   int v2; // r0
@@ -48664,7 +47850,7 @@ int rf_chan_set_n1cc()
     {
       sub_11DED8(2050, v5, 2);
     }
-    sub_11E1E4(2);
+    sub_11E1E4(2, 0);
     return 0;
   }
   else
@@ -48676,8 +47862,7 @@ int rf_chan_set_n1cc()
 
 
 // sub_11C88C @ 0x11c88c, size 138 bytes
-int sub_11C88C()
-{
+int sub_11C88C() {
   int v0; // r0
   uint8_t *v1; // r4
   int v2; // r0
@@ -48710,7 +47895,7 @@ int sub_11C88C()
     {
       sub_11DED8(2050, v5, 2);
     }
-    sub_11E1E4(2);
+    sub_11E1E4(2, 0);
     return 0;
   }
   else
@@ -48722,8 +47907,7 @@ int sub_11C88C()
 
 
 // sub_11C92C @ 0x11c92c, size 98 bytes
-int sub_11C92C()
-{
+int sub_11C92C() {
   int v0; // r5
   int v1; // r4
   int v2; // r0
@@ -48739,14 +47923,13 @@ int sub_11C92C()
     rf_cmd_send_n264((*((uint32_t *)0x11c9a0)), (*((uint32_t *)0x11c99c)), 163);
   if ( (*(uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
     sub_11CBC8();
-  sub_11E1E4(2);
+  sub_11E1E4(2, 0);
   return 0;
 }
 
 
 // sub_11C9A4 @ 0x11c9a4, size 124 bytes
-int  sub_11C9A4(int a1, int a2, int a3, int a4)
-{
+int  sub_11C9A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   short v4; // r6
   uint8_t *v6; // r4
   int v7; // r0
@@ -48780,8 +47963,7 @@ int  sub_11C9A4(int a1, int a2, int a3, int a4)
 
 // fw_signature_check @ 0x11ca38, size 88 bytes
 // fw_signature_check [util]: Check firmware header magic against expected value 0x96c
-int  fw_signature_check(unsigned short *a1)
-{
+int  fw_signature_check(uint32_t a1) {
   int v1; // r3
   int result; // r0
 
@@ -48804,8 +47986,7 @@ int  fw_signature_check(unsigned short *a1)
 
 
 // sub_11CA38 @ 0x11ca38, size 88 bytes
-int  sub_11CA38(unsigned short *a1)
-{
+int  sub_11CA38(uint32_t a1) {
   int v1; // r3
   int result; // r0
 
@@ -48828,13 +48009,12 @@ int  sub_11CA38(unsigned short *a1)
 
 
 // sub_11CA94 @ 0x11ca94, size 40 bytes
-int sub_11CA94()
-{
+int sub_11CA94() {
   int result; // r0
   uint32_t *v1; // r3
 
   sub_100200((int *)(*((uint32_t *)0x11cabc)), 0, 0xCu);
-  result = sub_11E1E4(2);
+  result = sub_11E1E4(2, 0);
   v1 = (*((uint32_t *)0x11cac0));
   *(uint32_t *)(*((uint32_t *)0x11cac0)) = (*((uint32_t *)0x11cac4));
   v1[2] = (uint32_t)(uintptr_t)v1 + 5;
@@ -48845,8 +48025,7 @@ int sub_11CA94()
 
 
 // sub_11CAC8 @ 0x11cac8, size 170 bytes
-int sub_11CAC8()
-{
+int sub_11CAC8() {
   uint32_t *v0; // r6
   int v1; // r7
   int v2; // r5
@@ -48895,21 +48074,20 @@ int sub_11CAC8()
         if ( v7 == 2484 )
         {
           *(uint8_t *)(v5 + 2) = 14;
-          return sub_11E1E4(2);
+          return sub_11E1E4(2, 0);
         }
-        v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)((unsigned int)(((unsigned int)(*((uint32_t *)0x11cb80)) * (unsigned long long)(unsigned int)(v7 - 2407)) >> 32) >> 2) & 0xFFU) << 0);
+        LOBYTE(v6) = (unsigned int)(((unsigned int)(*((uint32_t *)0x11cb80)) * (unsigned long long)(unsigned int)(v7 - 2407)) >> 32) >> 2;
       }
       *(uint8_t *)(v5 + 2) = v6;
     }
   }
-  return sub_11E1E4(2);
+  return sub_11E1E4(2, 0);
 }
 
 
 // rf_pwr_tbl_init_n0c8 @ 0x11cb84, size 60 bytes
 // rf_pwr_tbl_init_n0c8 [rf]: init RF power table from offset 0x168/0x16c
-int  rf_pwr_tbl_init_n0c8(int a1)
-{
+int  rf_pwr_tbl_init_n0c8(uint32_t a1) {
   char *v1; // r4
   uint32_t *v2; // r6
   int result; // r0
@@ -48926,8 +48104,7 @@ int  rf_pwr_tbl_init_n0c8(int a1)
 
 
 // sub_11CB84 @ 0x11cb84, size 60 bytes
-int  sub_11CB84(int a1)
-{
+int  sub_11CB84(uint32_t a1) {
   char *v1; // r4
   uint32_t *v2; // r6
   int result; // r0
@@ -48945,8 +48122,7 @@ int  sub_11CB84(int a1)
 
 // sub_11CBC8 @ 0x11cbc8, size 304 bytes
 // sub_121CBC8 [mmio]: Read PHY status fields from shared state
-void sub_11CBC8()
-{
+void sub_11CBC8() {
   int v0; // r5
   int v1; // r8
   char *v2; // r6
@@ -49005,7 +48181,7 @@ void sub_11CBC8()
       v13 = *((uint16_t *)(*((uint32_t *)0x11cd08)) + 2);
       *(uint32_t *)(v9 + 114) = *(uint32_t *)v1;
       v14 = *v11;
-      v11 = ((unsigned)(v11) & 0xFFFF0000U) | (((unsigned)(*(uint16_t *)(v1 + 4)) & 0xFFFFU) << 0);
+      LOWORD(v11) = *(uint16_t *)(v1 + 4);
       *(uint32_t *)(v9 + 108) = v14;
       ++v10;
       v15 = *(uint32_t *)(v0 + 352);
@@ -49052,8 +48228,7 @@ void sub_11CBC8()
 
 // sub_11CD0C @ 0x11cd0c, size 40 bytes
 // sub_121CD0C [util]: Init function calling helper with arg 0x804
-int  sub_11CD0C(char a1, int a2)
-{
+int  sub_11CD0C(uint32_t a1, uint32_t a2) {
   uint8_t *v3; // r4
   int v4; // r3
 
@@ -49065,15 +48240,13 @@ int  sub_11CD0C(char a1, int a2)
 
 
 // sub_11CD3C @ 0x11cd3c, size 16 bytes
-int sub_11CD3C()
-{
+int sub_11CD3C() {
   return *(uint32_t *)(*((uint32_t *)0x11cd4c)) + 6 * *((unsigned char *)(*((uint32_t *)0x11cd4c)) + 10);
 }
 
 
 // sub_11CD50 @ 0x11cd50, size 20 bytes
-int  sub_11CD50(int a1)
-{
+int  sub_11CD50(uint32_t a1) {
   if ( (*(uint8_t *)(a1 + 3) & 5) != 0 )
     return *(uint32_t *)(*(uint32_t *)(*((uint32_t *)0x11cd64)) + 20);
   else
@@ -49083,12 +48256,11 @@ int  sub_11CD50(int a1)
 
 // rf_check_status_b4 @ 0x11cd68, size 56 bytes
 // rf_check_status_b4 [rf]: Check RF status flag and branch on zero
-int rf_check_status_b4()
-{
+int rf_check_status_b4() {
   int result; // r0
 
   if ( **(short **)(*((uint32_t *)0x11cda0)) < 0 && *(uint32_t *)(*((uint32_t *)0x11cda8)) << 28 )
-    return sub_121960((*((uint32_t *)0x11cdb0)), (*((uint32_t *)0x11cdac)), 105, *(uint32_t *)(*((uint32_t *)0x11cda8)));
+    return sub_121960((*((uint32_t *)0x11cdb0)), (*((uint32_t *)0x11cdac)), 105);
   if ( (*(uint32_t *)(*((uint32_t *)0x11cda4)) & 0x80) != 0 )
   {
     *(uint32_t *)(*((uint32_t *)0x11cda4)) &= ~0x80u;
@@ -49099,12 +48271,11 @@ int rf_check_status_b4()
 
 
 // sub_11CD68 @ 0x11cd68, size 56 bytes
-int sub_11CD68()
-{
+int sub_11CD68() {
   int result; // r0
 
   if ( **(short **)(*((uint32_t *)0x11cda0)) < 0 && *(uint32_t *)(*((uint32_t *)0x11cda8)) << 28 )
-    return sub_121960((*((uint32_t *)0x11cdb0)), (*((uint32_t *)0x11cdac)), 105, *(uint32_t *)(*((uint32_t *)0x11cda8)));
+    return sub_121960((*((uint32_t *)0x11cdb0)), (*((uint32_t *)0x11cdac)), 105);
   if ( (*(uint32_t *)(*((uint32_t *)0x11cda4)) & 0x80) != 0 )
   {
     *(uint32_t *)(*((uint32_t *)0x11cda4)) &= ~0x80u;
@@ -49116,8 +48287,7 @@ int sub_11CD68()
 
 // sub_11CDB8 @ 0x11cdb8, size 530 bytes
 // sub_121CDB8 [util]: Check firmware ready flag from MMIO
-unsigned int  sub_11CDB8(unsigned int result)
-{
+unsigned int  sub_11CDB8(uint32_t a1) {
   uint32_t *v1; // r6
   unsigned int v2; // r5
   int v3; // r2
@@ -49158,22 +48328,22 @@ unsigned int  sub_11CDB8(unsigned int result)
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = math_round((*((uint32_t *)0x11cfd8)), (*((uint32_t *)0x11cfdc)));
-      v22 = sub_127BA4(v21);
+      v21 = math_round((*((uint32_t *)0x11cfd8)));
+      v22 = sub_127BA4(v21, 0);
       v23 = (*((uint32_t *)0x11d010));
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (unsigned int *)(*((uint32_t *)0x11cff4));
-      v25 = math_round(0, v23);
-      *v24 = (*((uint32_t *)0x11cff8)) & (sub_127BA4(v25) << 20) | *v24 & 0xC00FFFFF;
+      v25 = math_round(0);
+      *v24 = (*((uint32_t *)0x11cff8)) & (sub_127BA4(v25, 0) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
       v7 = sub_12754C(result);
-      v8 = sub_127620(v7, HIDWORD(v7), (*((uint32_t *)0x11cfd0)), (*((uint32_t *)0x11cfd4)));
-      v9 = sub_127BE4(v8);
-      v10 = sub_127570(LODWORD(v9));
-      v11 = math_round(v10, HIDWORD(v10));
-      *v1 = v4 & (sub_127BA4(v11) << 18) | *v1 & v5;
+      v8 = sub_127620(v7, HIDWORD(v7), (*((uint32_t *)0x11cfd0)));
+      v9 = sub_127BE4(v8, 0);
+      v10 = sub_127570(LODWORD(v9), 0, 0, 0);
+      v11 = math_round(v10);
+      *v1 = v4 & (sub_127BA4(v11, 0) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)(*((uint32_t *)0x11cff4));
     *(uint32_t *)(*((uint32_t *)0x11cfec)) = (*((uint32_t *)0x11cff0)) & ((v6 * (unsigned short)(*(uint32_t *)(*((uint32_t *)0x11cfec)) >> 8) / v2) << 8)
@@ -49225,7 +48395,7 @@ uint32_t *sub_11D01C()
   int v8; // r3
 
   if ( **(short **)(*((uint32_t *)0x11d094)) < 0 && !(*(uint32_t *)(*((uint32_t *)0x11d0ac)) << 28) )
-    return (uint32_t *)sub_121960((*((uint32_t *)0x11d0b4)), (*((uint32_t *)0x11d0b0)), 213, *(uint32_t *)(*((uint32_t *)0x11d0ac)));
+    return (uint32_t *)sub_121960((*((uint32_t *)0x11d0b4)), (*((uint32_t *)0x11d0b0)), 213);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -49260,8 +48430,7 @@ uint32_t *sub_11D01C()
 
 // mmio_init_40328050 @ 0x11d0b8, size 502 bytes
 // mmio_init_40328050 [mmio]: Initialize MMIO register block at 0x40328050 with value 1
-int mmio_init_40328050()
-{
+int mmio_init_40328050() {
   uint32_t *v0; // r2
   unsigned int v1; // r0
   uint32_t *v2; // r3
@@ -49383,8 +48552,7 @@ int mmio_init_40328050()
 
 
 // sub_11D0B8 @ 0x11d0b8, size 502 bytes
-int sub_11D0B8()
-{
+int sub_11D0B8() {
   uint32_t *v0; // r2
   unsigned int v1; // r0
   uint32_t *v2; // r3
@@ -49598,8 +48766,7 @@ int *sub_11D348()
 
 
 // sub_11D3DC @ 0x11d3dc, size 110 bytes
-unsigned int sub_11D3DC()
-{
+unsigned int sub_11D3DC() {
   uint32_t *v0; // r2
   uint32_t *v1; // r0
   short **v2; // r5
@@ -49635,8 +48802,7 @@ unsigned int sub_11D3DC()
 
 // sub_11D470 @ 0x11d470, size 298 bytes
 // sub_121D470 [mmio]: Copies MMIO register value 0x40328084 to 0x40328088
-int sub_11D470()
-{
+int sub_11D470() {
   int v0; // r4
   int result; // r0
   int v2; // r3
@@ -49700,14 +48866,14 @@ LABEL_13:
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5d0));
     v5 = 760;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   if ( (v0 & 2) != 0 )
   {
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5d4));
     v5 = 761;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   v2 = v0 << 29;
   if ( (v0 & 4) != 0 )
@@ -49715,7 +48881,7 @@ LABEL_13:
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5d8));
     v5 = 762;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   result = v0 << 28;
   if ( (v0 & 8) != 0 )
@@ -49723,21 +48889,21 @@ LABEL_13:
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5cc));
     v5 = 763;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   if ( (v0 & 0x80) != 0 )
   {
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5e0));
     v5 = 765;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   if ( (v0 & 0x40) != 0 )
   {
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5dc));
     v5 = 767;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   v2 = v0 << 26;
   if ( (v0 & 0x20) != 0 )
@@ -49745,15 +48911,14 @@ LABEL_13:
     v3 = (*((uint32_t *)0x11d5b4));
     v4 = (*((uint32_t *)0x11d5b8));
     v5 = 769;
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   return result;
 }
 
 
 // sub_11D5E4 @ 0x11d5e4, size 330 bytes
-int sub_11D5E4()
-{
+int sub_11D5E4() {
   int v0; // r4
   int result; // r0
   int v2; // r3
@@ -49874,15 +49039,14 @@ int sub_11D5E4()
         }
       }
     }
-    return sub_121960(v4, v3, v5, v2);
+    return sub_121960(v4, v3, v5);
   }
   return result;
 }
 
 
 // sub_11D778 @ 0x11d778, size 290 bytes
-void  sub_11D778(int a1, int a2)
-{
+void  sub_11D778(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int *v3; // r0
   int *v4; // r1
@@ -49935,8 +49099,7 @@ void  sub_11D778(int a1, int a2)
 
 
 // sub_11D8D4 @ 0x11d8d4, size 22 bytes
-int sub_11D8D4()
-{
+int sub_11D8D4() {
   int v0; // r4
 
   v0 = (*((uint32_t *)0x11d8ec));
@@ -49946,8 +49109,7 @@ int sub_11D8D4()
 
 
 // sub_11D8F0 @ 0x11d8f0, size 178 bytes
-int  sub_11D8F0(int a1)
-{
+int  sub_11D8F0(uint32_t a1) {
   int v1; // r5
   int *v3; // r7
   int v4; // r8
@@ -49999,24 +49161,21 @@ LABEL_8:
 
 
 // sub_11D9C0 @ 0x11d9c0, size 22 bytes
-int sub_11D9C0()
-{
+int sub_11D9C0() {
   *(uint32_t *)((*((uint32_t *)0x11d9d8)) + 4680) &= ~1u;
   return irq_nesting_or(0x8000);
 }
 
 
 // sub_11D9DC @ 0x11d9dc, size 22 bytes
-int sub_11D9DC()
-{
+int sub_11D9DC() {
   *(uint32_t *)((*((uint32_t *)0x11d9f4)) + 4808) &= ~1u;
   return irq_nesting_or(0x40000000);
 }
 
 
 // sub_11D9F8 @ 0x11d9f8, size 64 bytes
-int  sub_11D9F8(char a1)
-{
+int  sub_11D9F8(uint32_t a1) {
   int result; // r0
   unsigned int *v2; // r2
   uint8_t v3[7]; // [sp+7h] [bp-Dh] BYREF
@@ -50033,8 +49192,7 @@ int  sub_11D9F8(char a1)
 
 
 // sub_11DA3C @ 0x11da3c, size 26 bytes
-int  sub_11DA3C(int a1, uint8_t *a2, uint8_t *a3)
-{
+int  sub_11DA3C(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int result; // r0
 
@@ -50054,8 +49212,7 @@ int  sub_11DA3C(int a1, uint8_t *a2, uint8_t *a3)
 
 
 // sub_11DA5C @ 0x11da5c, size 26 bytes
-int  sub_11DA5C(int result, int a2)
-{
+int  sub_11DA5C(uint32_t a1, uint32_t a2) {
   int v2; // r3
 
   if ( a2 != 127 )
@@ -50074,8 +49231,7 @@ int  sub_11DA5C(int result, int a2)
 
 
 // sub_11DA78 @ 0x11da78, size 64 bytes
-int  sub_11DA78(int result, int a2)
-{
+int  sub_11DA78(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r0
 
@@ -50095,22 +49251,19 @@ int  sub_11DA78(int result, int a2)
 
 
 // sub_11DAC8 @ 0x11dac8, size 18 bytes
-int  sub_11DAC8(int a1, int a2)
-{
+int  sub_11DAC8(uint32_t a1, uint32_t a2) {
   return *(uint32_t *)(a1 + 8) - *(uint32_t *)(a2 + 8) > (unsigned int)(*((uint32_t *)0x11dadc));
 }
 
 
 // sub_11DAE0 @ 0x11dae0, size 26 bytes
-int  sub_11DAE0(int a1, unsigned int a2)
-{
+int  sub_11DAE0(uint32_t a1, uint32_t a2) {
   return *(unsigned short *)(a1 + 4) == HIWORD(a2) && *(unsigned short *)(a1 + 6) == (unsigned short)a2;
 }
 
 
 // sub_11DAFC @ 0x11dafc, size 288 bytes
-int  sub_11DAFC(int a1, int a2, unsigned int a3)
-{
+int  sub_11DAFC(uint32_t a1, uint32_t a2, uint32_t a3) {
   short **v3; // r11
   int *v7; // r8
   uint32_t *v8; // r10
@@ -50191,8 +49344,7 @@ LABEL_10:
 
 // timer_set_relative @ 0x11dafc, size 288 bytes
 // timer_set_relative [util]: Schedule a relative timer with callback and argument
-int  timer_set_relative(int a1, int a2, unsigned int a3)
-{
+int  timer_set_relative(uint32_t a1, uint32_t a2, uint32_t a3) {
   short **v3; // r11
   int *v7; // r8
   uint32_t *v8; // r10
@@ -50273,8 +49425,7 @@ LABEL_10:
 
 // event_queue_push @ 0x11dc54, size 152 bytes
 // event_queue_push [util]: Pushes an event onto the firmware event queue
-int  event_queue_push(int result, int a2)
-{
+int  event_queue_push(uint32_t a1, uint32_t a2) {
   int *v2; // r5
   uint32_t *v3; // r6
   int v4; // r4
@@ -50342,8 +49493,7 @@ LABEL_8:
 
 
 // sub_11DC54 @ 0x11dc54, size 152 bytes
-int  sub_11DC54(int result, int a2)
-{
+int  sub_11DC54(uint32_t a1, uint32_t a2) {
   int *v2; // r5
   uint32_t *v3; // r6
   int v4; // r4
@@ -50411,8 +49561,7 @@ LABEL_8:
 
 
 // sub_11DD10 @ 0x11dd10, size 166 bytes
-int sub_11DD10()
-{
+int sub_11DD10() {
   uint32_t *v0; // r7
   int *v1; // r5
   int *v2; // r9
@@ -50506,8 +49655,7 @@ LABEL_15:
 
 // sub_11DDCC @ 0x11ddcc, size 32 bytes
 // sub_121DDCC [unknown]: Load shared state pointer and read offset 0x14
-int  sub_11DDCC(int a1, int a2)
-{
+int  sub_11DDCC(uint32_t a1, uint32_t a2) {
   int **v2; // r3
 
   v2 = *((int ***)(*((uint32_t *)0x11ddec)) + 5);
@@ -50525,8 +49673,7 @@ int  sub_11DDCC(int a1, int a2)
 
 // rf_setup_dispatch @ 0x11ddf0, size 82 bytes
 // rf_setup_dispatch [rf]: RF init/dispatch calling helper and reading config ptr
-int  rf_setup_dispatch(short a1, short a2, short a3, unsigned int a4)
-{
+int  rf_setup_dispatch(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v8; // r0
   int v9; // r4
 
@@ -50545,8 +49692,7 @@ int  rf_setup_dispatch(short a1, short a2, short a3, unsigned int a4)
 
 
 // sub_11DDF0 @ 0x11ddf0, size 82 bytes
-int  sub_11DDF0(short a1, short a2, short a3, unsigned int a4)
-{
+int  sub_11DDF0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v8; // r0
   int v9; // r4
 
@@ -50565,8 +49711,7 @@ int  sub_11DDF0(short a1, short a2, short a3, unsigned int a4)
 
 
 // sub_11DE50 @ 0x11de50, size 110 bytes
-int  sub_11DE50(int a1)
-{
+int  sub_11DE50(uint32_t a1) {
   short v1; // r5
   unsigned short *v4; // r0
 
@@ -50584,15 +49729,14 @@ int  sub_11DE50(int a1)
   }
   else
   {
-    list_push_tail((*((uint32_t *)0x11dec4)));
+    list_push_tail((*((uint32_t *)0x11dec4)), 0);
     return irq_nesting_or(0x4000000);
   }
 }
 
 
 // sub_11DED8 @ 0x11ded8, size 16 bytes
-int  sub_11DED8(short a1, short a2, short a3)
-{
+int  sub_11DED8(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r0
 
   v3 = rf_setup_dispatch(a1, a2, a3, 0);
@@ -50602,8 +49746,7 @@ int  sub_11DED8(short a1, short a2, short a3)
 
 // sub_11DEE8 @ 0x11dee8, size 4 bytes
 // attributes: thunk
-int  sub_11DEE8(int a1)
-{
+int  sub_11DEE8(uint32_t a1) {
   return sub_11E078(a1);
 }
 
@@ -50776,8 +49919,7 @@ uint32_t *sub_11DF44()
 
 // sub_11DF94 @ 0x11df94, size 200 bytes
 // sub_121DF94 [util]: Allocates and aligns buffer from heap pool
-int  sub_11DF94(int a1)
-{
+int  sub_11DF94(uint32_t a1) {
   short **v1; // r7
   unsigned int v2; // r4
   unsigned int v3; // r6
@@ -50865,8 +50007,7 @@ LABEL_14:
 
 
 // sub_11E078 @ 0x11e078, size 226 bytes
-uint32_t * sub_11E078(char *a1)
-{
+uint32_t * sub_11E078(uint32_t a1) {
   short **v1; // r9
   char *v2; // r4
   int v3; // r8
@@ -50947,8 +50088,8 @@ LABEL_20:
   if ( v14 == &v2[v13] )
   {
     v15 = *((uint32_t *)v14 + 1);
-    v16 = (v16 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(*(uint32_t *)v14) & 0xFFFFFFFFULL) << 0);
-    v16 = (v16 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(v13 + v15) & 0xFFFFFFFFULL) << 32);
+    LODWORD(v16) = *(uint32_t *)v14;
+    HIDWORD(v16) = v13 + v15;
     *(uint64_t *)v2 = v16;
   }
 LABEL_13:
@@ -50968,8 +50109,7 @@ LABEL_13:
 
 
 // sub_11E184 @ 0x11e184, size 82 bytes
-int  sub_11E184(int a1, int *a2, int a3)
-{
+int  sub_11E184(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int v5; // r2
   int v6; // r4
@@ -51003,8 +50143,7 @@ int  sub_11E184(int a1, int *a2, int a3)
 
 // sub_11E1E4 @ 0x11e1e4, size 300 bytes
 // sub_121E1E4 [rf]: LMAC handler checking RF state flags
-uint32_t * sub_11E1E4(unsigned int a1, int a2)
-{
+uint32_t * sub_11E1E4(uint32_t a1, uint32_t a2) {
   short **v2; // r7
   unsigned int v5; // r9
   unsigned int v6; // r6
@@ -51090,7 +50229,7 @@ LABEL_3:
       v12 = (int *)(*((uint32_t *)0x11e324));
       v13 = (*((uint32_t *)0x11e328));
       ++*(uint32_t *)(*((uint32_t *)0x11e324));
-      list_push_tail(v13);
+      list_push_tail(v13, 0);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -51110,8 +50249,7 @@ LABEL_3:
 
 
 // sub_11E34C @ 0x11e34c, size 142 bytes
-int  sub_11E34C(unsigned int a1)
-{
+int  sub_11E34C(uint32_t a1) {
   short **v1; // r6
   unsigned int v2; // r7
   unsigned int v3; // r5
@@ -51164,8 +50302,7 @@ LABEL_6:
 
 
 // sub_11E3FC @ 0x11e3fc, size 186 bytes
-int  sub_11E3FC(int a1, unsigned int a2)
-{
+int  sub_11E3FC(uint32_t a1, uint32_t a2) {
   short **v2; // r4
   unsigned int v4; // r7
   unsigned int v5; // r8
@@ -51235,8 +50372,7 @@ LABEL_3:
 
 
 // sub_11E4D8 @ 0x11e4d8, size 222 bytes
-int sub_11E4D8()
-{
+int sub_11E4D8() {
   int *v0; // r5
   int v1; // r0
   int result; // r0
@@ -51283,7 +50419,7 @@ int sub_11E4D8()
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = list_push_tail((*((uint32_t *)0x11e5d4)));
+        result = list_push_tail((*((uint32_t *)0x11e5d4)), 0);
         goto LABEL_12;
       }
       if ( result )
@@ -51330,8 +50466,7 @@ LABEL_12:
 
 // irq_nesting_or @ 0x11e5e0, size 52 bytes
 // irq_nesting_or [util]: Set/clear IRQ nesting bit via OR mask
-int  irq_nesting_or(int a1)
-{
+int  irq_nesting_or(uint32_t a1) {
   uint32_t *v1; // r2
   int *v2; // r5
   int v3; // r1
@@ -51368,8 +50503,7 @@ int  irq_nesting_or(int a1)
 
 
 // sub_11E5E0 @ 0x11e5e0, size 52 bytes
-int  sub_11E5E0(int a1)
-{
+int  sub_11E5E0(uint32_t a1) {
   uint32_t *v1; // r2
   int *v2; // r5
   int v3; // r1
@@ -51406,15 +50540,13 @@ int  sub_11E5E0(int a1)
 
 
 // sub_11E620 @ 0x11e620, size 8 bytes
-int sub_11E620()
-{
+int sub_11E620() {
   return irq_nesting_or(0x10000000);
 }
 
 
 // sub_11E628 @ 0x11e628, size 54 bytes
-int  sub_11E628(int a1)
-{
+int  sub_11E628(uint32_t a1) {
   uint32_t *v1; // r2
   int *v2; // r5
   int v3; // r1
@@ -51452,8 +50584,7 @@ int  sub_11E628(int a1)
 
 // rf_init_handler_1 @ 0x11e66c, size 104 bytes
 // rf_init_handler [rf]: LMAC RF initialization/handler dispatching with global context load
-void rf_init_handler_1()
-{
+void rf_init_handler_1() {
   unsigned int *v0; // r6
   unsigned int v1; // r4
   short **v2; // r8
@@ -51506,8 +50637,7 @@ LABEL_5:
 
 
 // sub_11E66C @ 0x11e66c, size 104 bytes
-void sub_11E66C()
-{
+void sub_11E66C() {
   unsigned int *v0; // r6
   unsigned int v1; // r4
   short **v2; // r8
@@ -51561,8 +50691,7 @@ LABEL_5:
 
 // sdio_buffer_prepare_6ec @ 0x11e6ec, size 40 bytes
 // sdio_buffer_prepare_6ec [mmio]: Prepare SDIO buffer for transfer
-int sdio_buffer_prepare_6ec()
-{
+int sdio_buffer_prepare_6ec() {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
   int v2; // r1
@@ -51583,8 +50712,7 @@ int sdio_buffer_prepare_6ec()
 
 
 // sub_11E6EC @ 0x11e6ec, size 40 bytes
-int sub_11E6EC()
-{
+int sub_11E6EC() {
   uint32_t *v0; // r0
   uint32_t *v1; // r3
   int v2; // r1
@@ -51605,8 +50733,7 @@ int sub_11E6EC()
 
 
 // sub_11E71C @ 0x11e71c, size 8 bytes
-uint32_t * sub_11E71C(uint32_t *result)
-{
+uint32_t * sub_11E71C(uint32_t a1) {
   *result = 0;
   result[1] = 0;
   return result;
@@ -51615,8 +50742,7 @@ uint32_t * sub_11E71C(uint32_t *result)
 
 // list_push_tail @ 0x11e724, size 60 bytes
 // sdio_buffer_prepare_n_46e [mmio]: Prepares an SDIO buffer descriptor for host data transfer
-int  list_push_tail(int result, uint32_t *a2)
-{
+int  list_push_tail(uint32_t a1, uint32_t a2) {
   int v2; // r5
 
   v2 = result;
@@ -51633,8 +50759,7 @@ int  list_push_tail(int result, uint32_t *a2)
 
 
 // sub_11E724 @ 0x11e724, size 60 bytes
-int  sub_11E724(int result, uint32_t *a2)
-{
+int  sub_11E724(uint32_t a1, uint32_t a2) {
   int v2; // r5
 
   v2 = result;
@@ -51652,8 +50777,7 @@ int  sub_11E724(int result, uint32_t *a2)
 
 // sub_11E76C @ 0x11e76c, size 52 bytes
 // sdio_buffer_prepare_776 [mmio]: Prepare SDIO buffer for DMA transfer
-int  sub_11E76C(int result, uint32_t *a2)
-{
+int  sub_11E76C(uint32_t a1, uint32_t a2) {
   uint32_t *v2; // r5
 
   v2 = (uint32_t *)result;
@@ -51675,8 +50799,7 @@ int  sub_11E76C(int result, uint32_t *a2)
 
 // sub_11E7AC @ 0x11e7ac, size 22 bytes
 // sdio_buffer_prepare_n_402 [mac]: Copy and clear SDIO buffer descriptor
-uint32_t * sub_11E7AC(int a1)
-{
+uint32_t * sub_11E7AC(uint32_t a1) {
   uint32_t *v1; // r3
   uint32_t *v2; // r2
 
@@ -51694,8 +50817,7 @@ uint32_t * sub_11E7AC(int a1)
 
 // list_remove_node @ 0x11e7c4, size 90 bytes
 // sdio_buffer_prepare_n_3a0 [mmio]: Prepares SDIO buffer descriptor (shift/align field extraction)
-int  list_remove_node(int result, uint32_t *a2)
-{
+int  list_remove_node(uint32_t a1, uint32_t a2) {
   int v2; // r5
   uint32_t *v4; // r3
   uint32_t *v5; // r2
@@ -51737,8 +50859,7 @@ int  list_remove_node(int result, uint32_t *a2)
 
 
 // sub_11E7C4 @ 0x11e7c4, size 90 bytes
-int  sub_11E7C4(int result, uint32_t *a2)
-{
+int  sub_11E7C4(uint32_t a1, uint32_t a2) {
   int v2; // r5
   uint32_t *v4; // r3
   uint32_t *v5; // r2
@@ -51781,8 +50902,7 @@ int  sub_11E7C4(int result, uint32_t *a2)
 
 // sub_11E82C @ 0x11e82c, size 20 bytes
 // sdio_buffer_prepare_n_382 [mmio]: Prepare SDIO DMA buffer descriptors for transfer
-int  sub_11E82C(uint32_t **a1)
-{
+int  sub_11E82C(uint32_t a1) {
   uint32_t *v1; // r3
   int result; // r0
 
@@ -51883,8 +51003,7 @@ LABEL_7:
 
 // sub_11E888 @ 0x11e888, size 42 bytes
 // sdio_buffer_prepare_n_32a [tx]: Validate/prepare SDIO buffer descriptor
-uint32_t * sub_11E888(uint32_t *result, uint32_t *a2, uint32_t *a3)
-{
+uint32_t * sub_11E888(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint32_t **v3; // r3
 
   if ( !a2 )
@@ -51912,8 +51031,7 @@ uint32_t * sub_11E888(uint32_t *result, uint32_t *a2, uint32_t *a3)
 
 // sub_11E8B4 @ 0x11e8b4, size 40 bytes
 // sdio_buffer_prepare_n_2f4_e8c0 [mmio]: Tail/epilogue of SDIO buffer prepare helper
-unsigned int  sub_11E8B4(unsigned char *a1, int a2, unsigned int a3)
-{
+unsigned int  sub_11E8B4(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char *v3; // r1
   int v4; // t1
 
@@ -51932,8 +51050,7 @@ unsigned int  sub_11E8B4(unsigned char *a1, int a2, unsigned int a3)
 
 // sub_11E8E0 @ 0x11e8e0, size 110 bytes
 // sdio_buffer_prepare_n_2ac [mmio]: Prepare SDIO buffer descriptors with DMA settings
-int  sub_11E8E0(int a1)
-{
+int  sub_11E8E0(uint32_t a1) {
   int v1; // r5
   long long v3; // r0
   long long v4; // r0
@@ -51946,10 +51063,10 @@ int  sub_11E8E0(int a1)
   v1 = (*((uint32_t *)0x11e958));
   sub_1282E8(v9, (*((uint32_t *)0x11e958)), 128);
   sub_1282E8(v10, v1 + 128, 128);
-  v3 = sub_127570(a1);
-  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x11e950)), (*((uint32_t *)0x11e954)));
-  v5 = sub_127620(v4, HIDWORD(v4), 0, (*((uint32_t *)0x11e95c)));
-  v6 = sub_1272B4(v5, HIDWORD(v5), 0, (*((uint32_t *)0x11e960)));
+  v3 = sub_127570(a1, 0, 0, 0);
+  v4 = sub_127620(v3, HIDWORD(v3), (*((uint32_t *)0x11e950)));
+  v5 = sub_127620(v4, HIDWORD(v4), 0);
+  v6 = sub_1272B4(v5, HIDWORD(v5));
   v7 = sub_127B54(v6, HIDWORD(v6));
   return v7 & 0x7F800000
        | ((((v7 & 0x7FFFFF) * (long long)(int)v9[(v7 >> 18) & 0x1F]) >> 23) + *(uint32_t *)&v10[4 * ((v7 >> 18) & 0x1F)]);
@@ -51957,8 +51074,7 @@ int  sub_11E8E0(int a1)
 
 
 // sub_11E964 @ 0x11e964, size 242 bytes
-float  sub_11E964(unsigned int a1)
-{
+float  sub_11E964(uint32_t a1) {
   unsigned int v1; // r3
   int v2; // s15
   int v3; // r0
@@ -52023,31 +51139,28 @@ float  sub_11E964(unsigned int a1)
 
 // sub_11EAA0 @ 0x11eaa0, size 26 bytes
 // sdio_buffer_prepare_n_108 [mac]: Prepares SDIO host buffer for transfer
-float  sub_11EAA0(unsigned int a1)
-{
+float  sub_11EAA0(uint32_t a1) {
   float v1; // r0
   long long v2; // r0
   int v3; // r0
 
   v1 = sub_11E964(a1);
-  v2 = sub_127570(LODWORD(v1));
-  v3 = sub_127620(v2, HIDWORD(v2), sdio_buffer_prepare_n_f4, (*((uint32_t *)0x11eac4)));
-  return sub_127BE4(v3);
+  v2 = sub_127570(LODWORD(v1), 0, 0, 0);
+  v3 = sub_127620(v2, HIDWORD(v2), sdio_buffer_prepare_n_f4);
+  return sub_127BE4(v3, 0);
 }
 
 
 // sub_11EAC8 @ 0x11eac8, size 4 bytes
 // attributes: thunk
-float  sub_11EAC8(int a1)
-{
+float  sub_11EAC8(uint32_t a1) {
   return sub_127228(a1);
 }
 
 
 // sdio_buffer_prepare_n_e8 @ 0x11eacc, size 120 bytes
 // sdio_buffer_prepare_n_be [mmio]: Bulk-copy SDIO buffer via stm/ldm pairs
-float  sdio_buffer_prepare_n_e8(float a1)
-{
+float  sdio_buffer_prepare_n_e8(uint32_t a1) {
   int v1; // r1
   int v2; // r2
   int v3; // r3
@@ -52138,8 +51251,7 @@ float  sdio_buffer_prepare_n_e8(float a1)
 
 
 // sub_11EACC @ 0x11eacc, size 120 bytes
-float  sub_11EACC(float a1)
-{
+float  sub_11EACC(uint32_t a1) {
   int v1; // r1
   int v2; // r2
   int v3; // r3
@@ -52231,8 +51343,7 @@ float  sub_11EACC(float a1)
 
 // sub_11EB48 @ 0x11eb48, size 38 bytes
 // sdio_buffer_prepare_n_66 [mmio]: Prepares SDIO DMA buffer for host transfer
-unsigned int  sub_11EB48(unsigned char *a1, int a2, unsigned int a3)
-{
+unsigned int  sub_11EB48(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char *v3; // r4
   int v4; // t1
 
@@ -52251,8 +51362,7 @@ unsigned int  sub_11EB48(unsigned char *a1, int a2, unsigned int a3)
 
 // sub_11EB74 @ 0x11eb74, size 64 bytes
 // rf_cmd_send_n208 [rf]: Send RF command, compare sequence/count
-uint8_t * sub_11EB74(uint8_t *result, int a2)
-{
+uint8_t * sub_11EB74(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r1
   uint8_t *v3; // r2
 
@@ -52281,16 +51391,14 @@ uint8_t * sub_11EB74(uint8_t *result, int a2)
 
 // rf_mem_read_n_ec @ 0x11f4a8, size 6 bytes
 // rf_mem_read_n_ec [rf]: Read RF memory and store to shared pointer
-int  rf_mem_read_n_ec(int result)
-{
+int  rf_mem_read_n_ec(uint32_t a1) {
   *(uint32_t *)rf_mem_read_n_e4 = result;
   return result;
 }
 
 
 // sub_11F4A8 @ 0x11f4a8, size 6 bytes
-int  sub_11F4A8(int result)
-{
+int  sub_11F4A8(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x11f4b0)) = result;
   return result;
 }
@@ -52298,16 +51406,14 @@ int  sub_11F4A8(int result)
 
 // rf_bus_write_n144 @ 0x11f4b4, size 6 bytes
 // rf_bus_write_n144 [rf]: Writes to RF bus with shifted index
-int  rf_bus_write_n144(int result)
-{
+int  rf_bus_write_n144(uint32_t a1) {
   *((uint32_t *)rf_mem_read_n_d8 + 1) = result;
   return result;
 }
 
 
 // sub_11F4B4 @ 0x11f4b4, size 6 bytes
-int  sub_11F4B4(int result)
-{
+int  sub_11F4B4(uint32_t a1) {
   *((uint32_t *)(*((uint32_t *)0x11f4bc)) + 1) = result;
   return result;
 }
@@ -52315,38 +51421,33 @@ int  sub_11F4B4(int result)
 
 // rf_mem_read_f4c0 @ 0x11f4c0, size 6 bytes
 // rf_mem_read_n_d2 [rf]: Reads value from RF memory region
-int rf_mem_read_f4c0()
-{
+int rf_mem_read_f4c0() {
   return *(uint32_t *)rf_mem_write_short;
 }
 
 
 // sub_11F4C0 @ 0x11f4c0, size 6 bytes
-int sub_11F4C0()
-{
+int sub_11F4C0() {
   return *(uint32_t *)(*((uint32_t *)0x11f4c8));
 }
 
 
 // rf_mem_read_n_c8 @ 0x11f4cc, size 6 bytes
 // rf_mem_read_n_c8 [rf]: Read RF control field from memory-mapped register
-int rf_mem_read_n_c8()
-{
+int rf_mem_read_n_c8() {
   return *((uint32_t *)rf_mem_read_f4d4 + 1);
 }
 
 
 // sub_11F4CC @ 0x11f4cc, size 6 bytes
-int sub_11F4CC()
-{
+int sub_11F4CC() {
   return *((uint32_t *)(*((uint32_t *)0x11f4d4)) + 1);
 }
 
 
 // rf_feature_check @ 0x11f4d8, size 40 bytes
 // rf_mem_read_n_b2 [rf]: RF memory read: extract single bit from word at given shift
-int  rf_feature_check(unsigned int a1, unsigned int a2)
-{
+int  rf_feature_check(uint32_t a1, uint32_t a2) {
   int result; // r0
 
   if ( a1 > 9 )
@@ -52359,8 +51460,7 @@ int  rf_feature_check(unsigned int a1, unsigned int a2)
 
 
 // sub_11F4D8 @ 0x11f4d8, size 40 bytes
-int  sub_11F4D8(unsigned int a1, unsigned int a2)
-{
+int  sub_11F4D8(uint32_t a1, uint32_t a2) {
   int result; // r0
 
   if ( a1 > 9 )
@@ -52374,8 +51474,7 @@ int  sub_11F4D8(unsigned int a1, unsigned int a2)
 
 // msg_parse @ 0x11f504, size 128 bytes
 // rf_mem_read_n_48 [rf]: Read RF calibration/state memory at offset 0x66
-int msg_parse(int result, ...)
-{
+int msg_parse(uint32_t a1, uint32_t a2) {
   uint32_t *v1; // r6
   unsigned char *v2; // r4
   short **v3; // r8
@@ -52425,8 +51524,7 @@ int msg_parse(int result, ...)
 
 
 // sub_11F504 @ 0x11f504, size 128 bytes
-int sub_11F504(int result, ...)
-{
+int sub_11F504(uint32_t a1, uint32_t a2) {
   uint32_t *v1; // r6
   unsigned char *v2; // r4
   short **v3; // r8
@@ -52477,8 +51575,7 @@ int sub_11F504(int result, ...)
 
 // rf_mem_read_f594 @ 0x11f594, size 404 bytes
 // rf_mem_read_n72 [rf]: Bulk RF memory read across entry table
-unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
-{
+unsigned int  rf_mem_read_f594(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r4
   int v5; // r9
   unsigned int v6; // r5
@@ -52529,7 +51626,7 @@ unsigned int  rf_mem_read_f594(unsigned int result, int a2, int a3, int a4)
         if ( v4 == 2 )
         {
           v22 += 4;
-          msg_parse((*((uint32_t *)0x11f738)), (unsigned short)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
+          msg_parse((*((uint32_t *)0x11f738)), (unsigned short)cb_efa4);
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -52540,7 +51637,7 @@ rf_mem_read_n166:
         }
         else
         {
-          msg_parse(v5);
+          msg_parse(v5, 0);
 rf_mem_read_6b8:
           v22 += 4;
           v6 += 4;
@@ -52548,7 +51645,7 @@ rf_mem_read_6b8:
             goto rf_mem_read_n166;
         }
       }
-      msg_parse(v21, cb_efa4, BYTE1(cb_efa4), BYTE2(cb_efa4));
+      msg_parse(v21, cb_efa4);
       goto rf_mem_read_6b8;
     }
     if ( v24 )
@@ -52644,8 +51741,7 @@ LABEL_30:
 
 // sub_11F594 @ 0x11f594, size 404 bytes
 // rf_mem_read_n118 [rf]: Reads a 32-bit value from RF memory-mapped register at index 118 (MMIO 0x1b0).
-unsigned int  sub_11F594(unsigned int result, int a2, int a3, int a4)
-{
+unsigned int  sub_11F594(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r4
   int v5; // r9
   unsigned int v6; // r5
@@ -52696,7 +51792,7 @@ unsigned int  sub_11F594(unsigned int result, int a2, int a3, int a4)
         if ( v4 == 2 )
         {
           v22 += 4;
-          sub_11F504((*((uint32_t *)0x11f738)), (unsigned short)v23, HIWORD(v23), BYTE2(v23));
+          sub_11F504((*((uint32_t *)0x11f738)), (unsigned short)v23);
           v6 += 4;
           if ( v7 <= v22 )
           {
@@ -52707,7 +51803,7 @@ LABEL_40:
         }
         else
         {
-          sub_11F504(v5);
+          sub_11F504(v5, 0);
 LABEL_36:
           v22 += 4;
           v6 += 4;
@@ -52715,7 +51811,7 @@ LABEL_36:
             goto LABEL_40;
         }
       }
-      sub_11F504(v21, v23, BYTE1(v23), BYTE2(v23));
+      sub_11F504(v21, v23);
       goto LABEL_36;
     }
     if ( v24 )
@@ -52811,8 +51907,7 @@ LABEL_30:
 
 // sub_11F74C @ 0x11f74c, size 36 bytes
 // rf_mem_read_n1c8 [rf]: Read from RF shared memory via helper
-int  sub_11F74C(int result, int a2, int a3, int a4)
-{
+int  sub_11F74C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t varg_r2[2]; // [sp+10h] [bp+8h] BYREF
 
   varg_r2[0] = a3;
@@ -52825,9 +51920,8 @@ int  sub_11F74C(int result, int a2, int a3, int a4)
 
 // rf_msg_process_body_n_ee @ 0x11f774, size 32 bytes
 // rf_mem_read_n1e8 [rf]: Read RF memory region with mailbox kick and flag clear
-int rf_msg_process_body_n_ee()
-{
-  msg_parse((*((uint32_t *)0x11f794)));
+int rf_msg_process_body_n_ee() {
+  msg_parse((*((uint32_t *)0x11f794)), 0);
   event_queue_push(1071, 1);
   *((uint32_t *)(*((uint32_t *)0x11f798)) + 20) &= ~2u;
   return 0;
@@ -52835,9 +51929,8 @@ int rf_msg_process_body_n_ee()
 
 
 // sub_11F774 @ 0x11f774, size 32 bytes
-int sub_11F774()
-{
-  sub_11F504((*((uint32_t *)0x11f794)));
+int sub_11F774() {
+  sub_11F504((*((uint32_t *)0x11f794)), 0);
   sub_11DC54(1071, 1);
   *((uint32_t *)(*((uint32_t *)0x11f798)) + 20) &= ~2u;
   return 0;
@@ -52846,8 +51939,7 @@ int sub_11F774()
 
 // rf_mem_read_n208 @ 0x11f79c, size 6938 bytes
 // rf_mem_read_n4a0 [rf]: Read RF memory entry and validate against expected value 0x1666
-int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
-{
+int  rf_mem_read_n208(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v5; // r0
   uint32_t *v6; // r5
   unsigned int v7; // r3
@@ -53120,7 +52212,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
       v116 = *(unsigned char *)(a2 + 16);
       v237 = v109;
       v238 = v116;
-      msg_parse((*((uint32_t *)0x120680)), v111, v110, v109, v112, v113, v114);
+      msg_parse((*((uint32_t *)0x120680)), v111);
       msg_parse((*((uint32_t *)0x120684)), v115);
       v117 = v110;
       if ( (*(uint8_t *)(*((uint32_t *)0x120688)) & 8) == 0 && v110 > 1 )
@@ -53130,7 +52222,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
       }
       sub_123FF0(v237, v112, 0);
       sub_123F4C(v113);
-      v244 = (v244 & 0xFFFFFFFFFFFFFF00ULL) | (((unsigned long long)(v111 > 0x23) & 0x0FFULL) << 0);
+      LOBYTE(v244) = v111 > 0x23;
       BYTE1(v244) = v110;
       if ( v111 > 0x23 )
       {
@@ -53149,7 +52241,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
       {
         WORD2(v244) = 5 * v111 + 2407;
       }
-      v244 = (v244 & 0xFFFFFFFF0000FFFFULL) | (((unsigned long long)(0) & 0xFFFFULL) << 16);
+      HIWORD(v244) = 0;
       v246 = 0;
       if ( v110 )
       {
@@ -53181,7 +52273,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
         *(uint8_t *)(*((uint32_t *)0x120698)) = v115;
       *v119 = 1;
       *v120 = 1;
-      rf_state_get_n246(0, &v244, 0);
+      rf_state_get_n246(0, &v244);
       if ( (uint8_t)v244 )
         rf_init_hw_setup(WORD2(v244));
       else
@@ -53191,7 +52283,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
         goto LABEL_21;
       goto LABEL_59;
     case 1:
-      msg_parse((*((uint32_t *)0x120650)));
+      msg_parse((*((uint32_t *)0x120650)), 0);
       v101 = *(uint32_t *)(*((uint32_t *)0x120654));
       *(uint32_t *)(*((uint32_t *)0x120658)) = 0;
       if ( v101 )
@@ -53218,7 +52310,7 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
             __enable_irq();
         }
       }
-      msg_parse((*((uint32_t *)0x12066c)));
+      msg_parse((*((uint32_t *)0x12066c)), 0);
       goto LABEL_21;
     case 2:
       if ( *(uint8_t *)(*((uint32_t *)0x120670)) == 1 )
@@ -53245,21 +52337,21 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
           {
             v126 = *(char *)(a2 + 9);
             v127 = sub_12754C(v126);
-            v128 = sub_127BE4(v127);
+            v128 = sub_127BE4(v127, 0);
             if ( v126 <= 0 )
             {
-              v220 = sub_127570(LODWORD(v128));
-              v221 = sub_1272B4(v220, HIDWORD(v220), 0, (*((uint32_t *)0x12118c)));
+              v220 = sub_127570(LODWORD(v128), 0, 0, 0);
+              v221 = sub_1272B4(v220, HIDWORD(v220));
               v222 = sub_127874(v221, HIDWORD(v221), 0, (*((uint32_t *)0x121190)));
-              v129 = sub_127620(v222, HIDWORD(v222), 0, (*((uint32_t *)0x121194)));
+              v129 = sub_127620(v222, HIDWORD(v222), 0);
             }
             else
             {
-              v129 = sub_127570((float)(v128 / flt_12069C) * flt_1206A0);
+              v129 = sub_127570((float)(v128 / flt_12069C) * flt_1206A0, 0, 0, 0);
             }
-            v130 = math_round(v129, HIDWORD(v129));
-            v131 = sub_127BA4(v130);
-            msg_parse((*((uint32_t *)0x1206a4)), v126, v131, 1023, 1);
+            v130 = math_round(v129);
+            v131 = sub_127BA4(v130, 0);
+            msg_parse((*((uint32_t *)0x1206a4)), v126);
             v132 = (unsigned int *)(*((uint32_t *)0x1206a8));
             v133 = (unsigned int *)(*((uint32_t *)0x1206ac));
             v134 = (*((uint32_t *)0x1206b0));
@@ -53285,17 +52377,17 @@ int  rf_mem_read_n208(int a1, int a2, short a3, short a4)
           else
           {
 LABEL_243:
-            msg_parse((*((uint32_t *)0x1209f0)));
+            msg_parse((*((uint32_t *)0x1209f0)), 0);
           }
         }
         else
         {
-          msg_parse((*((uint32_t *)0x121110)));
+          msg_parse((*((uint32_t *)0x121110)), 0);
         }
       }
       else
       {
-        msg_parse((*((uint32_t *)0x121114)));
+        msg_parse((*((uint32_t *)0x121114)), 0);
         v199 = (*((uint32_t *)0x12111c));
         v200 = (*((uint32_t *)0x121120));
         *(uint32_t *)(*((uint32_t *)0x121118)) &= ~0x10000000u;
@@ -53307,7 +52399,7 @@ LABEL_243:
       }
       goto LABEL_21;
     case 3:
-      msg_parse((*((uint32_t *)0x11ffd0)));
+      msg_parse((*((uint32_t *)0x11ffd0)), 0);
       if ( !*(uint8_t *)(*((uint32_t *)0x11ffd4)) )
       {
         v59 = (*((uint32_t *)0x11ffd8));
@@ -53329,7 +52421,7 @@ LABEL_243:
           while ( *v61 << 28 )
           {
             if ( (unsigned int)(v64[4] - v63) > 0x7530 )
-              msg_parse((*((uint32_t *)0x12110c)));
+              msg_parse((*((uint32_t *)0x12110c)), 0);
           }
           while ( (*(uint32_t *)(*((uint32_t *)0x1202c4)) & *(uint32_t *)(*((uint32_t *)0x1202c0)) & 4) == 0 )
             ;
@@ -53346,13 +52438,13 @@ LABEL_243:
                 __enable_irq();
             }
           }
-          msg_parse((*((uint32_t *)0x1202d0)));
+          msg_parse((*((uint32_t *)0x1202d0)), 0);
         }
       }
       v68 = *(unsigned char *)(a2 + 8);
       v69 = *(unsigned char *)(a2 + 9);
-      msg_parse((*((uint32_t *)0x1202d4)), v68, v69);
-      v244 = ((unsigned)(v244) & 0xFFFFFF00U) | (((unsigned)(v68 > 0x23) & 0xFFU) << 0);
+      msg_parse((*((uint32_t *)0x1202d4)), v68);
+      LOBYTE(v244) = v68 > 0x23;
       BYTE1(v244) = v69;
       if ( v68 > 0x23 )
       {
@@ -53366,7 +52458,7 @@ LABEL_243:
           WORD2(v244) = 2484;
           if ( v68 == 14 )
           {
-            v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+            HIWORD(v244) = 0;
             v246 = 0;
             if ( v69 == 1 )
               v71 = 2474;
@@ -53375,7 +52467,7 @@ LABEL_243:
             goto LABEL_120;
           }
           msg_parse((*((uint32_t *)0x120db0)), v68);
-          v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+          HIWORD(v244) = 0;
           v246 = 0;
           v70 = WORD2(v244);
           if ( BYTE1(v244) != 1 )
@@ -53385,7 +52477,7 @@ LABEL_243:
         v70 = 5 * v68 + 2407;
         WORD2(v244) = v70;
       }
-      v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+      HIWORD(v244) = 0;
       v246 = 0;
       if ( v69 != 1 )
       {
@@ -53400,7 +52492,7 @@ LABEL_120:
 LABEL_336:
         WORD1(v244) = v70 + 10;
 LABEL_121:
-        rf_state_get_n246(0, &v244, 0);
+        rf_state_get_n246(0, &v244);
         v72 = (*((uint32_t *)0x1202dc));
         *(uint32_t *)(*((uint32_t *)0x1202d8)) |= 0x10u;
         v73 = *v72 & 0xF;
@@ -53420,16 +52512,16 @@ LABEL_322:
       }
       goto LABEL_336;
     case 4:
-      msg_parse((*((uint32_t *)0x120304)));
+      msg_parse((*((uint32_t *)0x120304)), 0);
       v86 = *(uint32_t *)(*((uint32_t *)0x120308));
       v87 = *(uint32_t *)(*((uint32_t *)0x12030c));
       v88 = (*((uint32_t *)0x120310));
       *v6 = *(uint32_t *)(*((uint32_t *)0x120308));
       v6[1] = v87 + v86;
-      msg_parse(v88);
+      msg_parse(v88, 0);
       goto LABEL_21;
     case 5:
-      msg_parse((*((uint32_t *)0x1202f8)));
+      msg_parse((*((uint32_t *)0x1202f8)), 0);
       if ( *(uint32_t *)(*((uint32_t *)0x1202dc)) << 28 )
       {
         if ( (__get_CPSR() & 1) == 0 )
@@ -53446,7 +52538,7 @@ LABEL_322:
         while ( *v80 << 28 )
         {
           if ( (unsigned int)(v81[4] - v82) > 0x7530 )
-            msg_parse((*((uint32_t *)0x120d8c)), *v80 << 28, 30000);
+            msg_parse((*((uint32_t *)0x120d8c)), *v80 << 28);
         }
         while ( (*(uint32_t *)(*((uint32_t *)0x1202c4)) & *(uint32_t *)(*((uint32_t *)0x1202c0)) & 4) == 0 )
           ;
@@ -53463,11 +52555,11 @@ LABEL_322:
               __enable_irq();
           }
         }
-        msg_parse((*((uint32_t *)0x1202d0)));
+        msg_parse((*((uint32_t *)0x1202d0)), 0);
       }
       goto LABEL_21;
     case 6:
-      msg_parse((*((uint32_t *)0x1209cc)));
+      msg_parse((*((uint32_t *)0x1209cc)), 0);
       goto LABEL_21;
     case 7:
       msg_parse((*((uint32_t *)0x11ffa8)), *(unsigned char *)(a2 + 8));
@@ -53483,16 +52575,16 @@ LABEL_322:
         v44 = 1;
       if ( v44 >= 31 )
         v44 = 31;
-      msg_parse((*((uint32_t *)0x11ffa0)), n, v44);
+      msg_parse((*((uint32_t *)0x11ffa0)), n);
       sub_10F170(v44);
       v45 = (unsigned char)mmio_bit_extract_n();
       v46 = sub_126E54();
       rf_level_apply_n200(v45);
       if ( !v43 )
-        msg_parse((*((uint32_t *)0x120dc0)), *((unsigned char *)(*((uint32_t *)0x120dbc)) + 4), *((char *)(*((uint32_t *)0x120dbc)) + 2));
+        msg_parse((*((uint32_t *)0x120dc0)), *((unsigned char *)(*((uint32_t *)0x120dbc)) + 4));
       v47 = (*((uint32_t *)0x11ffa4));
       *v6 = v45;
-      msg_parse(v47, v45, v46);
+      msg_parse(v47, v45);
       goto LABEL_21;
     case 9:
       v40 = (unsigned int *)(*((uint32_t *)0x11ff98));
@@ -53501,14 +52593,14 @@ LABEL_322:
         v41 = 1;
       if ( v41 >= 63 )
         v41 = 63;
-      msg_parse((*((uint32_t *)0x11ff9c)));
+      msg_parse((*((uint32_t *)0x11ff9c)), 0);
       *v40 = *v40 & 0xFF03FFFF | (v41 << 18);
       *v6 = (*v40 >> 18) & 0x3F;
       goto LABEL_21;
     case 0xA:
       v237 = *(unsigned char *)(a2 + 8);
       v39 = sub_113A44(v237);
-      msg_parse((*((uint32_t *)0x11ff94)), v237, v39);
+      msg_parse((*((uint32_t *)0x11ff94)), v237);
       *v6 = v39;
       goto LABEL_21;
     case 0xB:
@@ -53556,7 +52648,7 @@ LABEL_322:
       }
       else
       {
-        v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(v158) & 0xFFFFU) << 0);
+        LOWORD(v244) = v158;
         WORD2(v244) = v157;
         BYTE2(v244) = HIBYTE(v154);
         BYTE3(v244) = BYTE2(v154);
@@ -53609,7 +52701,7 @@ LABEL_322:
       }
       else
       {
-        v244 = (uint32_t)(0);
+        LODWORD(v244) = 0;
         WORD2(v244) = 0;
         if ( rf_reg_write_setup_n4820((int)&v244) )
         {
@@ -53670,8 +52762,8 @@ LABEL_322:
         if ( inited < 0 )
         {
           if ( inited != -1 )
-            msg_parse((*((uint32_t *)0x121124)));
-          msg_parse((*((uint32_t *)0x121128)));
+            msg_parse((*((uint32_t *)0x121124)), 0);
+          msg_parse((*((uint32_t *)0x121128)), 0);
         }
         v57 = v58 << 16;
       }
@@ -53680,7 +52772,7 @@ LABEL_322:
         sub_100200((int *)&v244, 0, 0x40u);
         sub_1149A4((int)&v244);
         WORD1(v244) = v54;
-        v244 = (uint32_t)(v55);
+        HIDWORD(v244) = v55;
         sub_1149B0((int)&v244);
         sub_1149A4((int)&v244);
         v53 = (unsigned short)__rev16(WORD1(v244));
@@ -53690,7 +52782,7 @@ LABEL_322:
       }
       *v6 = v56;
       v6[1] = v57 | v53;
-      msg_parse((*((uint32_t *)0x11ffcc)), v53, v56, v58);
+      msg_parse((*((uint32_t *)0x11ffcc)), v53);
       goto LABEL_21;
     case 0x11:
       if ( (*(uint32_t *)(*((uint32_t *)0x11ffc0)) & 0x2000000) != 0 )
@@ -53712,20 +52804,20 @@ LABEL_322:
       }
       *v6 = v50;
       v6[1] = v51 | v49;
-      msg_parse((*((uint32_t *)0x11ffc4)));
+      msg_parse((*((uint32_t *)0x11ffc4)), 0);
       goto LABEL_21;
     case 0x12:
       msg_parse((*((uint32_t *)0x11ffb8)), *(unsigned char *)(a2 + 8));
-      v244 = ((unsigned)(v244) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(a2 + 8)) & 0xFFU) << 0);
+      LOBYTE(v244) = *(uint8_t *)(a2 + 8);
       sub_114194((unsigned char)v244);
       rf_bus_handler_16c(&v244);
       *v6 = (unsigned char)v244;
-      msg_parse((*((uint32_t *)0x11ffbc)));
+      msg_parse((*((uint32_t *)0x11ffbc)), 0);
       goto LABEL_21;
     case 0x13:
       rf_bus_handler_16c(&v244);
       *v6 = (unsigned char)v244;
-      msg_parse((*((uint32_t *)0x11ffb4)));
+      msg_parse((*((uint32_t *)0x11ffb4)), 0);
       goto LABEL_21;
     case 0x14:
       if ( *(uint32_t *)(a2 + 4) )
@@ -53734,7 +52826,7 @@ LABEL_322:
         v150 = (*((uint32_t *)0x120d80));
         v191 = (*((uint32_t *)0x120d84));
         *(uint32_t *)(*((uint32_t *)0x120d80)) = v190 != 0;
-        msg_parse(v191);
+        msg_parse(v191, 0);
       }
       else
       {
@@ -53750,7 +52842,7 @@ LABEL_322:
         v161 = (*((uint32_t *)0x1209d8));
         v162 = (*((uint32_t *)0x120a08));
         v163 = (*((uint32_t *)0x1209fc));
-        msg_parse((*((uint32_t *)0x1209f8)));
+        msg_parse((*((uint32_t *)0x1209f8)), 0);
         for ( i = 0; i != 3; ++i )
         {
           msg_parse(v162, i);
@@ -53772,7 +52864,7 @@ LABEL_322:
         v169 = (*((uint32_t *)0x1209d0));
         v170 = (*((uint32_t *)0x120a08));
         v171 = (*((uint32_t *)0x1209fc));
-        msg_parse((*((uint32_t *)0x120a04)));
+        msg_parse((*((uint32_t *)0x120a04)), 0);
         for ( k = 0; k != 3; ++k )
         {
           msg_parse(v170, k);
@@ -53856,7 +52948,7 @@ LABEL_233:
       {
         if ( v143 != 2 )
         {
-          msg_parse((*((uint32_t *)0x121160)));
+          msg_parse((*((uint32_t *)0x121160)), 0);
           goto LABEL_233;
         }
         if ( v142 > 3 )
@@ -53878,7 +52970,7 @@ LABEL_233:
                 v149 = (*((uint32_t *)0x1209d4));
 LABEL_230:
                 if ( v147 >= 32 )
-                  v147 = ((unsigned)(v147) & 0xFFFFFF00U) | (((unsigned)(32) & 0xFFU) << 0);
+                  LOBYTE(v147) = 32;
                 *(uint8_t *)(v148 + 12 * v144 + v145) = v147;
                 msg_parse(v149, v144);
                 goto LABEL_233;
@@ -53916,7 +53008,7 @@ LABEL_385:
           goto LABEL_383;
         }
       }
-      msg_parse((*((uint32_t *)0x121180)));
+      msg_parse((*((uint32_t *)0x121180)), 0);
       goto LABEL_233;
     case 0x16:
       v7 = *(uint32_t *)(a2 + 4);
@@ -53963,7 +53055,7 @@ LABEL_385:
                 }
                 v219 = v212;
                 v13 = (*((uint32_t *)0x12115c));
-                msg_parse((*((uint32_t *)0x121158)), v219, v213, v214);
+                msg_parse((*((uint32_t *)0x121158)), v219);
                 goto LABEL_20;
               }
             }
@@ -53976,7 +53068,7 @@ LABEL_385:
           {
             v19 = (*((uint32_t *)0x12119c));
             v13 = (*((uint32_t *)0x12115c));
-            msg_parse((*((uint32_t *)0x121164)));
+            msg_parse((*((uint32_t *)0x121164)), 0);
             goto LABEL_20;
           }
           v9 = (*((uint32_t *)0x11fcd0));
@@ -54026,28 +53118,28 @@ LABEL_385:
                 }
                 v18 = v11;
                 v19 = (*((uint32_t *)0x11fd2c));
-                msg_parse((*((uint32_t *)0x11fcdc)), v10, v18, v12);
+                msg_parse((*((uint32_t *)0x11fcdc)), v10);
                 goto LABEL_20;
               }
             }
 LABEL_373:
             v19 = (*((uint32_t *)0x12119c));
             v13 = (*((uint32_t *)0x12115c));
-            msg_parse((*((uint32_t *)0x12116c)));
+            msg_parse((*((uint32_t *)0x12116c)), 0);
             goto LABEL_20;
           }
         }
         v19 = (*((uint32_t *)0x12119c));
         v13 = (*((uint32_t *)0x12115c));
-        msg_parse((*((uint32_t *)0x121170)));
+        msg_parse((*((uint32_t *)0x121170)), 0);
       }
       else
       {
         v19 = (*((uint32_t *)0x120dc8));
         v177 = (*((uint32_t *)0x120dcc));
         v178 = (*((uint32_t *)0x120dd0));
-        msg_parse((*((uint32_t *)0x120d58)));
-        msg_parse((*((uint32_t *)0x120d5c)));
+        msg_parse((*((uint32_t *)0x120d58)), 0);
+        msg_parse((*((uint32_t *)0x120d5c)), 0);
         for ( kk = 0; kk != 3; ++kk )
         {
           msg_parse(v177, kk);
@@ -54060,8 +53152,8 @@ LABEL_373:
         v13 = (*((uint32_t *)0x120d64));
         v182 = (*((uint32_t *)0x120dcc));
         v183 = (*((uint32_t *)0x120dd0));
-        msg_parse((*((uint32_t *)0x120d60)));
-        msg_parse((*((uint32_t *)0x120d68)));
+        msg_parse((*((uint32_t *)0x120d60)), 0);
+        msg_parse((*((uint32_t *)0x120d68)), 0);
         for ( nn = 0; nn != 3; ++nn )
         {
           msg_parse(v182, nn);
@@ -54071,7 +53163,7 @@ LABEL_373:
             msg_parse(v183, v186);
           }
         }
-        msg_parse((*((uint32_t *)0x120d6c)));
+        msg_parse((*((uint32_t *)0x120d6c)), 0);
       }
 LABEL_20:
       sub_1282E8(v6, *v19, 9);
@@ -54093,7 +53185,7 @@ LABEL_21:
         }
         if ( v75 <= 3 )
         {
-          msg_parse((*((uint32_t *)0x121170)));
+          msg_parse((*((uint32_t *)0x121170)), 0);
         }
         else
         {
@@ -54107,7 +53199,7 @@ LABEL_129:
             sub_122728(v75, v76, v77, v78);
             goto LABEL_130;
           }
-          msg_parse((*((uint32_t *)0x121184)), *(char *)(a2 + 11), v77);
+          msg_parse((*((uint32_t *)0x121184)), *(char *)(a2 + 11));
         }
 LABEL_130:
         sub_1282E8(v6, *(uint32_t *)(*((uint32_t *)0x1202e8)), 9);
@@ -54144,9 +53236,9 @@ LABEL_269:
       if ( !*(uint32_t *)(a2 + 4) )
         goto LABEL_244;
       if ( *(unsigned char *)(a2 + 8) > 2u )
-        msg_parse((*((uint32_t *)0x120d9c)));
+        msg_parse((*((uint32_t *)0x120d9c)), 0);
       else
-        sub_125AD8();
+        sub_125AD8(0);
       goto LABEL_21;
     case 0x1D:
       sub_126258(*(unsigned char *)(a2 + 8), *(unsigned char *)(a2 + 9), *(unsigned char *)(a2 + 10));
@@ -54189,7 +53281,7 @@ LABEL_269:
         sub_126764(*(unsigned char *)(a2 + 8));
       else
 LABEL_244:
-        msg_parse((*((uint32_t *)0x1209f4)));
+        msg_parse((*((uint32_t *)0x1209f4)), 0);
       goto LABEL_21;
     case 0x23:
       v32 = *(uint32_t *)(a2 + 4);
@@ -54200,7 +53292,7 @@ LABEL_244:
         v33 = *(unsigned char *)(a2 + 9);
         v32 = *(unsigned char *)(a2 + 8);
 LABEL_63:
-        v30 = sub_122F3C(v32, v33);
+        v30 = sub_122F3C(v32, v33, 0, 0);
         goto LABEL_54;
       }
       if ( *(uint8_t *)(a2 + 8) != 1 )
@@ -54220,7 +53312,7 @@ LABEL_281:
         if ( *(uint8_t *)(a2 + 8) == 1 )
         {
 LABEL_295:
-          msg_parse((*((uint32_t *)0x120d90)));
+          msg_parse((*((uint32_t *)0x120d90)), 0);
           v30 = -4;
 LABEL_54:
           *v6 = v30;
@@ -54253,10 +53345,10 @@ LABEL_59:
     case 0x27:
       if ( *(uint32_t *)(a2 + 4) && *(unsigned char *)(a2 + 8) > 1u )
         goto LABEL_295;
-      v30 = sub_123020();
+      v30 = sub_123020(0);
       goto LABEL_54;
     case 0x28:
-      msg_parse((*((uint32_t *)0x11fd20)));
+      msg_parse((*((uint32_t *)0x11fd20)), 0);
       timer_set_relative(1071, 1, (*((uint32_t *)0x11fd24)));
       goto LABEL_21;
     case 0x50:
@@ -54271,9 +53363,9 @@ LABEL_59:
       if ( *(uint8_t *)(a2 + 9) )
       {
         v27 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x11fd14))) )
+        if ( sub_125E0C((*((uint32_t *)0x11fd14)), 0) )
         {
-          msg_parse((*((uint32_t *)0x11fd18)));
+          msg_parse((*((uint32_t *)0x11fd18)), 0);
           v28 = 2;
           v29 = v27;
           goto LABEL_48;
@@ -54282,9 +53374,9 @@ LABEL_59:
       else
       {
         v237 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x121174))) )
+        if ( sub_125E0C((*((uint32_t *)0x121174)), 0) )
         {
-          msg_parse((*((uint32_t *)0x121178)));
+          msg_parse((*((uint32_t *)0x121178)), 0);
           v29 = v237;
           v28 = 1;
 LABEL_48:
@@ -54295,10 +53387,10 @@ LABEL_48:
           goto LABEL_21;
         }
       }
-      msg_parse((*((uint32_t *)0x12117c)));
+      msg_parse((*((uint32_t *)0x12117c)), 0);
       goto LABEL_21;
     case 0x51:
-      v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v244) = 0;
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
         msg_parse((*((uint32_t *)0x120d78)), (*((uint32_t *)0x120d7c)));
@@ -54315,11 +53407,11 @@ LABEL_48:
     case 0x5B:
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
-        msg_parse((*((uint32_t *)0x120db8)));
+        msg_parse((*((uint32_t *)0x120db8)), 0);
       }
       else if ( *(uint32_t *)(a2 + 4) )
       {
-        msg_parse((*((uint32_t *)0x11fd00)));
+        msg_parse((*((uint32_t *)0x11fd00)), 0);
         v24 = *(uint32_t *)(a2 + 4);
         *v6 = 0xFFFF;
         v6[1] = 0xFFFF;
@@ -54327,9 +53419,9 @@ LABEL_48:
         {
           v25 = *(unsigned short *)(a2 + 8);
           v26 = *(unsigned short *)(a2 + 10);
-          msg_parse((*((uint32_t *)0x11fd04)), v25, v26);
+          msg_parse((*((uint32_t *)0x11fd04)), v25);
           sub_100200((int *)&v244, 0, 4u);
-          v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(v25) & 0xFFFFU) << 0);
+          LOWORD(v244) = v25;
           WORD1(v244) = v26;
           sub_11485C((int)&v244);
           *v6 = v25;
@@ -54343,13 +53435,13 @@ LABEL_48:
         msg_parse((*((uint32_t *)0x120d94)), v196);
         if ( v196 || WORD1(v244) == 0xFFFF || (unsigned short)v244 == 0xFFFF )
         {
-          msg_parse((*((uint32_t *)0x121100)));
+          msg_parse((*((uint32_t *)0x121100)), 0);
         }
         else
         {
-          msg_parse((*((uint32_t *)0x120da0)));
-          v197 = (uint32_t)((unsigned short)v244);
-          v197 = (uint32_t)(WORD1(v244));
+          msg_parse((*((uint32_t *)0x120da0)), 0);
+          LODWORD(v197) = (unsigned short)v244;
+          HIDWORD(v197) = WORD1(v244);
           *(uint64_t *)v6 = v197;
         }
       }
@@ -54359,9 +53451,9 @@ LABEL_48:
       if ( *(uint32_t *)(a2 + 4) == 2 )
       {
         v23 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x11fcf4))) )
+        if ( sub_125E0C((*((uint32_t *)0x11fcf4)), 0) )
         {
-          msg_parse((*((uint32_t *)0x11fcf8)));
+          msg_parse((*((uint32_t *)0x11fcf8)), 0);
           sub_1282E8((*((uint32_t *)0x11fcf0)), v23, 2);
           msg_parse((*((uint32_t *)0x11fcfc)), (*((uint32_t *)0x11fcf0)));
           if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) == 0 )
@@ -54369,12 +53461,12 @@ LABEL_48:
         }
         else
         {
-          msg_parse((*((uint32_t *)0x121168)));
+          msg_parse((*((uint32_t *)0x121168)), 0);
         }
       }
       goto LABEL_21;
     case 0x5D:
-      v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v244) = 0;
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
         msg_parse((*((uint32_t *)0x120d78)), (*((uint32_t *)0x120d74)));
@@ -54393,7 +53485,7 @@ LABEL_28:
           }
         }
 LABEL_42:
-        msg_parse((*((uint32_t *)0x11fd0c)));
+        msg_parse((*((uint32_t *)0x11fd0c)), 0);
       }
 LABEL_30:
       *v6 = (unsigned short)v244;
@@ -54406,13 +53498,13 @@ LABEL_30:
         v21 = *(unsigned char *)(a2 + 8);
         sub_1149FC(v21);
         if ( v21 )
-          msg_parse((*((uint32_t *)0x11fce0)));
+          msg_parse((*((uint32_t *)0x11fce0)), 0);
         else
-          msg_parse((*((uint32_t *)0x121104)));
+          msg_parse((*((uint32_t *)0x121104)), 0);
       }
       else
       {
-        msg_parse((*((uint32_t *)0x120d70)));
+        msg_parse((*((uint32_t *)0x120d70)), 0);
       }
 LABEL_25:
       v22 = rf_init_or_reset_helper();
@@ -54424,7 +53516,7 @@ LABEL_25:
       sub_100200((int *)&v244, 0, 0x40u);
       if ( !*(uint32_t *)(a2 + 4) )
       {
-        v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+        LOWORD(v240) = 0;
         goto LABEL_162;
       }
       v198 = *(unsigned char *)(a2 + 8);
@@ -54433,10 +53525,10 @@ LABEL_25:
       {
         v100 = 5 * v198 + 5000;
         v241 = v100;
-        v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(1) & 0xFFFFU) << 0);
+        LOWORD(v240) = 1;
         goto LABEL_163;
       }
-      v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v240) = 0;
       if ( v198 <= 0xD )
       {
         v100 = 5 * v198 + 2407;
@@ -54449,10 +53541,10 @@ LABEL_162:
         v100 = 2484;
         v241 = 2484;
 LABEL_163:
-        v240 = ((unsigned)(v240) & 0x0000FFFFU) | (((unsigned)(v100) & 0xFFFFU) << 16);
+        HIWORD(v240) = v100;
         v242 = 0;
         v243 = 0;
-        rf_state_get_n246(0, &v240, 0);
+        rf_state_get_n246(0, &v240);
         sub_108D34(0xFFFF, (int)&v244);
         sub_1282E8(v6, &v244, 64);
         goto LABEL_21;
@@ -54474,7 +53566,7 @@ LABEL_163:
         v5[4] = 255;
         if ( v93 )
         {
-          msg_parse((*((uint32_t *)0x120324)));
+          msg_parse((*((uint32_t *)0x120324)), 0);
           if ( *(uint32_t *)(a2 + 4) > 8u )
           {
             v94 = *(unsigned char *)(a2 + 16);
@@ -54483,7 +53575,7 @@ LABEL_163:
             v97 = *(unsigned char *)(a2 + 10) | (*(unsigned char *)(a2 + 11) << 8);
             v98 = *(uint64_t *)(a2 + 8);
             v237 = *(unsigned char *)(a2 + 12) | (*(unsigned char *)(a2 + 13) << 8);
-            msg_parse((*((uint32_t *)0x120328)), v96, v97, v237, v95, v94);
+            msg_parse((*((uint32_t *)0x120328)), v96);
             sub_100200((int *)&v244, 0xFFu, 0xAu);
             v244 = v98;
             v245 = v94;
@@ -54503,15 +53595,15 @@ LABEL_163:
           msg_parse((*((uint32_t *)0x120d94)), v193);
           if ( v193 )
           {
-            msg_parse((*((uint32_t *)0x121140)));
+            msg_parse((*((uint32_t *)0x121140)), 0);
           }
           else
           {
-            msg_parse((*((uint32_t *)0x120d98)), (unsigned short)v244, WORD1(v244), WORD2(v244), HIWORD(v244), v245);
-            v194 = (uint32_t)(HIWORD(v244));
-            v195 = (uint32_t)((unsigned short)v244);
-            v195 = (uint32_t)(WORD1(v244));
-            v194 = (uint32_t)(WORD2(v244));
+            msg_parse((*((uint32_t *)0x120d98)), (unsigned short)v244);
+            HIDWORD(v194) = HIWORD(v244);
+            LODWORD(v195) = (unsigned short)v244;
+            HIDWORD(v195) = WORD1(v244);
+            LODWORD(v194) = WORD2(v244);
             *(uint64_t *)v6 = v195;
             *((uint64_t *)v6 + 1) = v194;
             v6[4] = v245;
@@ -54520,8 +53612,8 @@ LABEL_163:
       }
       goto LABEL_21;
     case 0x108:
-      msg_parse((*((uint32_t *)0x120314)));
-      v244 = (uint32_t)(0);
+      msg_parse((*((uint32_t *)0x120314)), 0);
+      LODWORD(v244) = 0;
       sub_100200((int *)&v244 + 1, 0, 0x3FCu);
       if ( *(uint32_t *)(a2 + 4) == 8 )
       {
@@ -54534,7 +53626,7 @@ LABEL_163:
           if ( v90 )
           {
 LABEL_149:
-            msg_parse((*((uint32_t *)0x12031c)), v89, v90);
+            msg_parse((*((uint32_t *)0x12031c)), v89);
             if ( v90 >> 10 )
             {
               v91 = v89;
@@ -54581,8 +53673,7 @@ LABEL_148:
 
 // sub_11F79C @ 0x11f79c, size 6938 bytes
 // rf_mem_read_n214 [rf]: Reads 0x108 bytes from RF memory bank 214 via command 0x8012f803, polling status until completion.
-int  sub_11F79C(int a1, int a2, short a3, short a4)
-{
+int  sub_11F79C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v5; // r0
   uint32_t *v6; // r5
   unsigned int v7; // r3
@@ -54855,7 +53946,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
       v116 = *(unsigned char *)(a2 + 16);
       v237 = v109;
       v238 = v116;
-      sub_11F504((*((uint32_t *)0x120680)), v111, v110, v109, v112, v113, v114);
+      sub_11F504((*((uint32_t *)0x120680)), v111);
       sub_11F504((*((uint32_t *)0x120684)), v115);
       v117 = v110;
       if ( (*(uint8_t *)(*((uint32_t *)0x120688)) & 8) == 0 && v110 > 1 )
@@ -54865,7 +53956,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
       }
       sub_123FF0(v237, v112, 0);
       sub_123F4C(v113);
-      v244 = (v244 & 0xFFFFFFFFFFFFFF00ULL) | (((unsigned long long)(v111 > 0x23) & 0x0FFULL) << 0);
+      LOBYTE(v244) = v111 > 0x23;
       BYTE1(v244) = v110;
       if ( v111 > 0x23 )
       {
@@ -54884,7 +53975,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
       {
         WORD2(v244) = 5 * v111 + 2407;
       }
-      v244 = (v244 & 0xFFFFFFFF0000FFFFULL) | (((unsigned long long)(0) & 0xFFFFULL) << 16);
+      HIWORD(v244) = 0;
       v246 = 0;
       if ( v110 )
       {
@@ -54916,7 +54007,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
         *(uint8_t *)(*((uint32_t *)0x120698)) = v115;
       *v119 = 1;
       *v120 = 1;
-      sub_1246F0(0, &v244, 0);
+      sub_1246F0(0, &v244);
       if ( (uint8_t)v244 )
         sub_1010D4(WORD2(v244));
       else
@@ -54926,7 +54017,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
         goto LABEL_21;
       goto LABEL_59;
     case 1:
-      sub_11F504((*((uint32_t *)0x120650)));
+      sub_11F504((*((uint32_t *)0x120650)), 0);
       v101 = *(uint32_t *)(*((uint32_t *)0x120654));
       *(uint32_t *)(*((uint32_t *)0x120658)) = 0;
       if ( v101 )
@@ -54953,7 +54044,7 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
             __enable_irq();
         }
       }
-      sub_11F504((*((uint32_t *)0x12066c)));
+      sub_11F504((*((uint32_t *)0x12066c)), 0);
       goto LABEL_21;
     case 2:
       if ( *(uint8_t *)(*((uint32_t *)0x120670)) == 1 )
@@ -54980,21 +54071,21 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
           {
             v126 = *(char *)(a2 + 9);
             v127 = sub_12754C(v126);
-            v128 = sub_127BE4(v127);
+            v128 = sub_127BE4(v127, 0);
             if ( v126 <= 0 )
             {
-              v220 = sub_127570(LODWORD(v128));
-              v221 = sub_1272B4(v220, HIDWORD(v220), 0, (*((uint32_t *)0x12118c)));
+              v220 = sub_127570(LODWORD(v128), 0, 0, 0);
+              v221 = sub_1272B4(v220, HIDWORD(v220));
               v222 = sub_127874(v221, HIDWORD(v221), 0, (*((uint32_t *)0x121190)));
-              v129 = sub_127620(v222, HIDWORD(v222), 0, (*((uint32_t *)0x121194)));
+              v129 = sub_127620(v222, HIDWORD(v222), 0);
             }
             else
             {
-              v129 = sub_127570((float)(v128 / flt_12069C) * flt_1206A0);
+              v129 = sub_127570((float)(v128 / flt_12069C) * flt_1206A0, 0, 0, 0);
             }
-            v130 = sub_127194(v129, HIDWORD(v129));
-            v131 = sub_127BA4(v130);
-            sub_11F504((*((uint32_t *)0x1206a4)), v126, v131, 1023, 1);
+            v130 = sub_127194(v129);
+            v131 = sub_127BA4(v130, 0);
+            sub_11F504((*((uint32_t *)0x1206a4)), v126);
             v132 = (unsigned int *)(*((uint32_t *)0x1206a8));
             v133 = (unsigned int *)(*((uint32_t *)0x1206ac));
             v134 = (*((uint32_t *)0x1206b0));
@@ -55020,17 +54111,17 @@ int  sub_11F79C(int a1, int a2, short a3, short a4)
           else
           {
 LABEL_243:
-            sub_11F504((*((uint32_t *)0x1209f0)));
+            sub_11F504((*((uint32_t *)0x1209f0)), 0);
           }
         }
         else
         {
-          sub_11F504((*((uint32_t *)0x121110)));
+          sub_11F504((*((uint32_t *)0x121110)), 0);
         }
       }
       else
       {
-        sub_11F504((*((uint32_t *)0x121114)));
+        sub_11F504((*((uint32_t *)0x121114)), 0);
         v199 = (*((uint32_t *)0x12111c));
         v200 = (*((uint32_t *)0x121120));
         *(uint32_t *)(*((uint32_t *)0x121118)) &= ~0x10000000u;
@@ -55042,7 +54133,7 @@ LABEL_243:
       }
       goto LABEL_21;
     case 3:
-      sub_11F504((*((uint32_t *)0x11ffd0)));
+      sub_11F504((*((uint32_t *)0x11ffd0)), 0);
       if ( !*(uint8_t *)(*((uint32_t *)0x11ffd4)) )
       {
         v59 = (*((uint32_t *)0x11ffd8));
@@ -55064,7 +54155,7 @@ LABEL_243:
           while ( *v61 << 28 )
           {
             if ( (unsigned int)(v64[4] - v63) > 0x7530 )
-              sub_11F504((*((uint32_t *)0x12110c)));
+              sub_11F504((*((uint32_t *)0x12110c)), 0);
           }
           while ( (*(uint32_t *)(*((uint32_t *)0x1202c4)) & *(uint32_t *)(*((uint32_t *)0x1202c0)) & 4) == 0 )
             ;
@@ -55081,13 +54172,13 @@ LABEL_243:
                 __enable_irq();
             }
           }
-          sub_11F504((*((uint32_t *)0x1202d0)));
+          sub_11F504((*((uint32_t *)0x1202d0)), 0);
         }
       }
       v68 = *(unsigned char *)(a2 + 8);
       v69 = *(unsigned char *)(a2 + 9);
-      sub_11F504((*((uint32_t *)0x1202d4)), v68, v69);
-      v244 = ((unsigned)(v244) & 0xFFFFFF00U) | (((unsigned)(v68 > 0x23) & 0xFFU) << 0);
+      sub_11F504((*((uint32_t *)0x1202d4)), v68);
+      LOBYTE(v244) = v68 > 0x23;
       BYTE1(v244) = v69;
       if ( v68 > 0x23 )
       {
@@ -55101,7 +54192,7 @@ LABEL_243:
           WORD2(v244) = 2484;
           if ( v68 == 14 )
           {
-            v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+            HIWORD(v244) = 0;
             v246 = 0;
             if ( v69 == 1 )
               v71 = 2474;
@@ -55110,7 +54201,7 @@ LABEL_243:
             goto LABEL_120;
           }
           sub_11F504((*((uint32_t *)0x120db0)), v68);
-          v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+          HIWORD(v244) = 0;
           v246 = 0;
           v70 = WORD2(v244);
           if ( BYTE1(v244) != 1 )
@@ -55120,7 +54211,7 @@ LABEL_243:
         v70 = 5 * v68 + 2407;
         WORD2(v244) = v70;
       }
-      v244 = ((unsigned)(v244) & 0x0000FFFFU) | (((unsigned)(0) & 0xFFFFU) << 16);
+      HIWORD(v244) = 0;
       v246 = 0;
       if ( v69 != 1 )
       {
@@ -55135,7 +54226,7 @@ LABEL_120:
 LABEL_336:
         WORD1(v244) = v70 + 10;
 LABEL_121:
-        sub_1246F0(0, &v244, 0);
+        sub_1246F0(0, &v244);
         v72 = (*((uint32_t *)0x1202dc));
         *(uint32_t *)(*((uint32_t *)0x1202d8)) |= 0x10u;
         v73 = *v72 & 0xF;
@@ -55155,16 +54246,16 @@ LABEL_322:
       }
       goto LABEL_336;
     case 4:
-      sub_11F504((*((uint32_t *)0x120304)));
+      sub_11F504((*((uint32_t *)0x120304)), 0);
       v86 = *(uint32_t *)(*((uint32_t *)0x120308));
       v87 = *(uint32_t *)(*((uint32_t *)0x12030c));
       v88 = (*((uint32_t *)0x120310));
       *v6 = *(uint32_t *)(*((uint32_t *)0x120308));
       v6[1] = v87 + v86;
-      sub_11F504(v88);
+      sub_11F504(v88, 0);
       goto LABEL_21;
     case 5:
-      sub_11F504((*((uint32_t *)0x1202f8)));
+      sub_11F504((*((uint32_t *)0x1202f8)), 0);
       if ( *(uint32_t *)(*((uint32_t *)0x1202dc)) << 28 )
       {
         if ( (__get_CPSR() & 1) == 0 )
@@ -55181,7 +54272,7 @@ LABEL_322:
         while ( *v80 << 28 )
         {
           if ( (unsigned int)(v81[4] - v82) > 0x7530 )
-            sub_11F504((*((uint32_t *)0x120d8c)), *v80 << 28, 30000);
+            sub_11F504((*((uint32_t *)0x120d8c)), *v80 << 28);
         }
         while ( (*(uint32_t *)(*((uint32_t *)0x1202c4)) & *(uint32_t *)(*((uint32_t *)0x1202c0)) & 4) == 0 )
           ;
@@ -55198,11 +54289,11 @@ LABEL_322:
               __enable_irq();
           }
         }
-        sub_11F504((*((uint32_t *)0x1202d0)));
+        sub_11F504((*((uint32_t *)0x1202d0)), 0);
       }
       goto LABEL_21;
     case 6:
-      sub_11F504((*((uint32_t *)0x1209cc)));
+      sub_11F504((*((uint32_t *)0x1209cc)), 0);
       goto LABEL_21;
     case 7:
       sub_11F504((*((uint32_t *)0x11ffa8)), *(unsigned char *)(a2 + 8));
@@ -55218,16 +54309,16 @@ LABEL_322:
         v44 = 1;
       if ( v44 >= 31 )
         v44 = 31;
-      sub_11F504((*((uint32_t *)0x11ffa0)), v42, v44);
+      sub_11F504((*((uint32_t *)0x11ffa0)), v42);
       sub_10F170(v44);
       v45 = (unsigned char)sub_10F15C();
       v46 = sub_126E54();
       sub_126FD8(v45);
       if ( !v43 )
-        sub_11F504((*((uint32_t *)0x120dc0)), *((unsigned char *)(*((uint32_t *)0x120dbc)) + 4), *((char *)(*((uint32_t *)0x120dbc)) + 2));
+        sub_11F504((*((uint32_t *)0x120dc0)), *((unsigned char *)(*((uint32_t *)0x120dbc)) + 4));
       v47 = (*((uint32_t *)0x11ffa4));
       *v6 = v45;
-      sub_11F504(v47, v45, v46);
+      sub_11F504(v47, v45);
       goto LABEL_21;
     case 9:
       v40 = (unsigned int *)(*((uint32_t *)0x11ff98));
@@ -55236,14 +54327,14 @@ LABEL_322:
         v41 = 1;
       if ( v41 >= 63 )
         v41 = 63;
-      sub_11F504((*((uint32_t *)0x11ff9c)));
+      sub_11F504((*((uint32_t *)0x11ff9c)), 0);
       *v40 = *v40 & 0xFF03FFFF | (v41 << 18);
       *v6 = (*v40 >> 18) & 0x3F;
       goto LABEL_21;
     case 0xA:
       v237 = *(unsigned char *)(a2 + 8);
       v39 = sub_113A44(v237);
-      sub_11F504((*((uint32_t *)0x11ff94)), v237, v39);
+      sub_11F504((*((uint32_t *)0x11ff94)), v237);
       *v6 = v39;
       goto LABEL_21;
     case 0xB:
@@ -55291,7 +54382,7 @@ LABEL_322:
       }
       else
       {
-        v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(v158) & 0xFFFFU) << 0);
+        LOWORD(v244) = v158;
         WORD2(v244) = v157;
         BYTE2(v244) = HIBYTE(v154);
         BYTE3(v244) = BYTE2(v154);
@@ -55344,7 +54435,7 @@ LABEL_322:
       }
       else
       {
-        v244 = (uint32_t)(0);
+        LODWORD(v244) = 0;
         WORD2(v244) = 0;
         if ( sub_114820((int)&v244) )
         {
@@ -55405,8 +54496,8 @@ LABEL_322:
         if ( v188 < 0 )
         {
           if ( v188 != -1 )
-            sub_11F504((*((uint32_t *)0x121124)));
-          sub_11F504((*((uint32_t *)0x121128)));
+            sub_11F504((*((uint32_t *)0x121124)), 0);
+          sub_11F504((*((uint32_t *)0x121128)), 0);
         }
         v57 = v58 << 16;
       }
@@ -55415,7 +54506,7 @@ LABEL_322:
         sub_100200((int *)&v244, 0, 0x40u);
         sub_1149A4((int)&v244);
         WORD1(v244) = v54;
-        v244 = (uint32_t)(v55);
+        HIDWORD(v244) = v55;
         sub_1149B0((int)&v244);
         sub_1149A4((int)&v244);
         v53 = (unsigned short)__rev16(WORD1(v244));
@@ -55425,7 +54516,7 @@ LABEL_322:
       }
       *v6 = v56;
       v6[1] = v57 | v53;
-      sub_11F504((*((uint32_t *)0x11ffcc)), v53, v56, v58);
+      sub_11F504((*((uint32_t *)0x11ffcc)), v53);
       goto LABEL_21;
     case 0x11:
       if ( (*(uint32_t *)(*((uint32_t *)0x11ffc0)) & 0x2000000) != 0 )
@@ -55447,20 +54538,20 @@ LABEL_322:
       }
       *v6 = v50;
       v6[1] = v51 | v49;
-      sub_11F504((*((uint32_t *)0x11ffc4)));
+      sub_11F504((*((uint32_t *)0x11ffc4)), 0);
       goto LABEL_21;
     case 0x12:
       sub_11F504((*((uint32_t *)0x11ffb8)), *(unsigned char *)(a2 + 8));
-      v244 = ((unsigned)(v244) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(a2 + 8)) & 0xFFU) << 0);
+      LOBYTE(v244) = *(uint8_t *)(a2 + 8);
       sub_114194((unsigned char)v244);
       sub_11416C(&v244);
       *v6 = (unsigned char)v244;
-      sub_11F504((*((uint32_t *)0x11ffbc)));
+      sub_11F504((*((uint32_t *)0x11ffbc)), 0);
       goto LABEL_21;
     case 0x13:
       sub_11416C(&v244);
       *v6 = (unsigned char)v244;
-      sub_11F504((*((uint32_t *)0x11ffb4)));
+      sub_11F504((*((uint32_t *)0x11ffb4)), 0);
       goto LABEL_21;
     case 0x14:
       if ( *(uint32_t *)(a2 + 4) )
@@ -55469,7 +54560,7 @@ LABEL_322:
         v150 = (*((uint32_t *)0x120d80));
         v191 = (*((uint32_t *)0x120d84));
         *(uint32_t *)(*((uint32_t *)0x120d80)) = v190 != 0;
-        sub_11F504(v191);
+        sub_11F504(v191, 0);
       }
       else
       {
@@ -55485,7 +54576,7 @@ LABEL_322:
         v161 = (*((uint32_t *)0x1209d8));
         v162 = (*((uint32_t *)0x120a08));
         v163 = (*((uint32_t *)0x1209fc));
-        sub_11F504((*((uint32_t *)0x1209f8)));
+        sub_11F504((*((uint32_t *)0x1209f8)), 0);
         for ( i = 0; i != 3; ++i )
         {
           sub_11F504(v162, i);
@@ -55507,7 +54598,7 @@ LABEL_322:
         v169 = (*((uint32_t *)0x1209d0));
         v170 = (*((uint32_t *)0x120a08));
         v171 = (*((uint32_t *)0x1209fc));
-        sub_11F504((*((uint32_t *)0x120a04)));
+        sub_11F504((*((uint32_t *)0x120a04)), 0);
         for ( k = 0; k != 3; ++k )
         {
           sub_11F504(v170, k);
@@ -55591,7 +54682,7 @@ LABEL_233:
       {
         if ( v143 != 2 )
         {
-          sub_11F504((*((uint32_t *)0x121160)));
+          sub_11F504((*((uint32_t *)0x121160)), 0);
           goto LABEL_233;
         }
         if ( v142 > 3 )
@@ -55613,7 +54704,7 @@ LABEL_233:
                 v149 = (*((uint32_t *)0x1209d4));
 LABEL_230:
                 if ( v147 >= 32 )
-                  v147 = ((unsigned)(v147) & 0xFFFFFF00U) | (((unsigned)(32) & 0xFFU) << 0);
+                  LOBYTE(v147) = 32;
                 *(uint8_t *)(v148 + 12 * v144 + v145) = v147;
                 sub_11F504(v149, v144);
                 goto LABEL_233;
@@ -55651,7 +54742,7 @@ LABEL_385:
           goto LABEL_383;
         }
       }
-      sub_11F504((*((uint32_t *)0x121180)));
+      sub_11F504((*((uint32_t *)0x121180)), 0);
       goto LABEL_233;
     case 0x16:
       v7 = *(uint32_t *)(a2 + 4);
@@ -55698,7 +54789,7 @@ LABEL_385:
                 }
                 v219 = v212;
                 v13 = (*((uint32_t *)0x12115c));
-                sub_11F504((*((uint32_t *)0x121158)), v219, v213, v214);
+                sub_11F504((*((uint32_t *)0x121158)), v219);
                 goto LABEL_20;
               }
             }
@@ -55711,7 +54802,7 @@ LABEL_385:
           {
             v19 = (*((uint32_t *)0x12119c));
             v13 = (*((uint32_t *)0x12115c));
-            sub_11F504((*((uint32_t *)0x121164)));
+            sub_11F504((*((uint32_t *)0x121164)), 0);
             goto LABEL_20;
           }
           v9 = (*((uint32_t *)0x11fcd0));
@@ -55761,28 +54852,28 @@ LABEL_385:
                 }
                 v18 = v11;
                 v19 = (*((uint32_t *)0x11fd2c));
-                sub_11F504((*((uint32_t *)0x11fcdc)), v10, v18, v12);
+                sub_11F504((*((uint32_t *)0x11fcdc)), v10);
                 goto LABEL_20;
               }
             }
 LABEL_373:
             v19 = (*((uint32_t *)0x12119c));
             v13 = (*((uint32_t *)0x12115c));
-            sub_11F504((*((uint32_t *)0x12116c)));
+            sub_11F504((*((uint32_t *)0x12116c)), 0);
             goto LABEL_20;
           }
         }
         v19 = (*((uint32_t *)0x12119c));
         v13 = (*((uint32_t *)0x12115c));
-        sub_11F504((*((uint32_t *)0x121170)));
+        sub_11F504((*((uint32_t *)0x121170)), 0);
       }
       else
       {
         v19 = (*((uint32_t *)0x120dc8));
         v177 = (*((uint32_t *)0x120dcc));
         v178 = (*((uint32_t *)0x120dd0));
-        sub_11F504((*((uint32_t *)0x120d58)));
-        sub_11F504((*((uint32_t *)0x120d5c)));
+        sub_11F504((*((uint32_t *)0x120d58)), 0);
+        sub_11F504((*((uint32_t *)0x120d5c)), 0);
         for ( jj = 0; jj != 3; ++jj )
         {
           sub_11F504(v177, jj);
@@ -55795,8 +54886,8 @@ LABEL_373:
         v13 = (*((uint32_t *)0x120d64));
         v182 = (*((uint32_t *)0x120dcc));
         v183 = (*((uint32_t *)0x120dd0));
-        sub_11F504((*((uint32_t *)0x120d60)));
-        sub_11F504((*((uint32_t *)0x120d68)));
+        sub_11F504((*((uint32_t *)0x120d60)), 0);
+        sub_11F504((*((uint32_t *)0x120d68)), 0);
         for ( mm = 0; mm != 3; ++mm )
         {
           sub_11F504(v182, mm);
@@ -55806,7 +54897,7 @@ LABEL_373:
             sub_11F504(v183, v186);
           }
         }
-        sub_11F504((*((uint32_t *)0x120d6c)));
+        sub_11F504((*((uint32_t *)0x120d6c)), 0);
       }
 LABEL_20:
       sub_1282E8(v6, *v19, 9);
@@ -55828,7 +54919,7 @@ LABEL_21:
         }
         if ( v75 <= 3 )
         {
-          sub_11F504((*((uint32_t *)0x121170)));
+          sub_11F504((*((uint32_t *)0x121170)), 0);
         }
         else
         {
@@ -55842,7 +54933,7 @@ LABEL_129:
             sub_122728(v75, v76, v77, v78);
             goto LABEL_130;
           }
-          sub_11F504((*((uint32_t *)0x121184)), *(char *)(a2 + 11), v77);
+          sub_11F504((*((uint32_t *)0x121184)), *(char *)(a2 + 11));
         }
 LABEL_130:
         sub_1282E8(v6, *(uint32_t *)(*((uint32_t *)0x1202e8)), 9);
@@ -55879,9 +54970,9 @@ LABEL_269:
       if ( !*(uint32_t *)(a2 + 4) )
         goto LABEL_244;
       if ( *(unsigned char *)(a2 + 8) > 2u )
-        sub_11F504((*((uint32_t *)0x120d9c)));
+        sub_11F504((*((uint32_t *)0x120d9c)), 0);
       else
-        sub_125AD8();
+        sub_125AD8(0);
       goto LABEL_21;
     case 0x1D:
       sub_126258(*(unsigned char *)(a2 + 8), *(unsigned char *)(a2 + 9), *(unsigned char *)(a2 + 10));
@@ -55924,7 +55015,7 @@ LABEL_269:
         sub_126764(*(unsigned char *)(a2 + 8));
       else
 LABEL_244:
-        sub_11F504((*((uint32_t *)0x1209f4)));
+        sub_11F504((*((uint32_t *)0x1209f4)), 0);
       goto LABEL_21;
     case 0x23:
       v32 = *(uint32_t *)(a2 + 4);
@@ -55935,7 +55026,7 @@ LABEL_244:
         v33 = *(unsigned char *)(a2 + 9);
         v32 = *(unsigned char *)(a2 + 8);
 LABEL_63:
-        v30 = sub_122F3C(v32, v33);
+        v30 = sub_122F3C(v32, v33, 0, 0);
         goto LABEL_54;
       }
       if ( *(uint8_t *)(a2 + 8) != 1 )
@@ -55955,7 +55046,7 @@ LABEL_281:
         if ( *(uint8_t *)(a2 + 8) == 1 )
         {
 LABEL_295:
-          sub_11F504((*((uint32_t *)0x120d90)));
+          sub_11F504((*((uint32_t *)0x120d90)), 0);
           v30 = -4;
 LABEL_54:
           *v6 = v30;
@@ -55988,10 +55079,10 @@ LABEL_59:
     case 0x27:
       if ( *(uint32_t *)(a2 + 4) && *(unsigned char *)(a2 + 8) > 1u )
         goto LABEL_295;
-      v30 = sub_123020();
+      v30 = sub_123020(0);
       goto LABEL_54;
     case 0x28:
-      sub_11F504((*((uint32_t *)0x11fd20)));
+      sub_11F504((*((uint32_t *)0x11fd20)), 0);
       sub_11DAFC(1071, 1, (*((uint32_t *)0x11fd24)));
       goto LABEL_21;
     case 0x50:
@@ -56006,9 +55097,9 @@ LABEL_59:
       if ( *(uint8_t *)(a2 + 9) )
       {
         v27 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x11fd14))) )
+        if ( sub_125E0C((*((uint32_t *)0x11fd14)), 0) )
         {
-          sub_11F504((*((uint32_t *)0x11fd18)));
+          sub_11F504((*((uint32_t *)0x11fd18)), 0);
           v28 = 2;
           v29 = v27;
           goto LABEL_48;
@@ -56017,9 +55108,9 @@ LABEL_59:
       else
       {
         v237 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x121174))) )
+        if ( sub_125E0C((*((uint32_t *)0x121174)), 0) )
         {
-          sub_11F504((*((uint32_t *)0x121178)));
+          sub_11F504((*((uint32_t *)0x121178)), 0);
           v29 = v237;
           v28 = 1;
 LABEL_48:
@@ -56030,10 +55121,10 @@ LABEL_48:
           goto LABEL_21;
         }
       }
-      sub_11F504((*((uint32_t *)0x12117c)));
+      sub_11F504((*((uint32_t *)0x12117c)), 0);
       goto LABEL_21;
     case 0x51:
-      v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v244) = 0;
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
         sub_11F504((*((uint32_t *)0x120d78)), (*((uint32_t *)0x120d7c)));
@@ -56050,11 +55141,11 @@ LABEL_48:
     case 0x5B:
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
-        sub_11F504((*((uint32_t *)0x120db8)));
+        sub_11F504((*((uint32_t *)0x120db8)), 0);
       }
       else if ( *(uint32_t *)(a2 + 4) )
       {
-        sub_11F504((*((uint32_t *)0x11fd00)));
+        sub_11F504((*((uint32_t *)0x11fd00)), 0);
         v24 = *(uint32_t *)(a2 + 4);
         *v6 = 0xFFFF;
         v6[1] = 0xFFFF;
@@ -56062,9 +55153,9 @@ LABEL_48:
         {
           v25 = *(unsigned short *)(a2 + 8);
           v26 = *(unsigned short *)(a2 + 10);
-          sub_11F504((*((uint32_t *)0x11fd04)), v25, v26);
+          sub_11F504((*((uint32_t *)0x11fd04)), v25);
           sub_100200((int *)&v244, 0, 4u);
-          v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(v25) & 0xFFFFU) << 0);
+          LOWORD(v244) = v25;
           WORD1(v244) = v26;
           sub_11485C((int)&v244);
           *v6 = v25;
@@ -56078,13 +55169,13 @@ LABEL_48:
         sub_11F504((*((uint32_t *)0x120d94)), v196);
         if ( v196 || WORD1(v244) == 0xFFFF || (unsigned short)v244 == 0xFFFF )
         {
-          sub_11F504((*((uint32_t *)0x121100)));
+          sub_11F504((*((uint32_t *)0x121100)), 0);
         }
         else
         {
-          sub_11F504((*((uint32_t *)0x120da0)));
-          v197 = (uint32_t)((unsigned short)v244);
-          v197 = (uint32_t)(WORD1(v244));
+          sub_11F504((*((uint32_t *)0x120da0)), 0);
+          LODWORD(v197) = (unsigned short)v244;
+          HIDWORD(v197) = WORD1(v244);
           *(uint64_t *)v6 = v197;
         }
       }
@@ -56094,9 +55185,9 @@ LABEL_48:
       if ( *(uint32_t *)(a2 + 4) == 2 )
       {
         v23 = a2 + 8;
-        if ( sub_125E0C((*((uint32_t *)0x11fcf4))) )
+        if ( sub_125E0C((*((uint32_t *)0x11fcf4)), 0) )
         {
-          sub_11F504((*((uint32_t *)0x11fcf8)));
+          sub_11F504((*((uint32_t *)0x11fcf8)), 0);
           sub_1282E8((*((uint32_t *)0x11fcf0)), v23, 2);
           sub_11F504((*((uint32_t *)0x11fcfc)), (*((uint32_t *)0x11fcf0)));
           if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) == 0 )
@@ -56104,12 +55195,12 @@ LABEL_48:
         }
         else
         {
-          sub_11F504((*((uint32_t *)0x121168)));
+          sub_11F504((*((uint32_t *)0x121168)), 0);
         }
       }
       goto LABEL_21;
     case 0x5D:
-      v244 = ((unsigned)(v244) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v244) = 0;
       if ( (*(uint32_t *)(*((uint32_t *)0x11fce8)) & 0x2000000) != 0 )
       {
         sub_11F504((*((uint32_t *)0x120d78)), (*((uint32_t *)0x120d74)));
@@ -56128,7 +55219,7 @@ LABEL_28:
           }
         }
 LABEL_42:
-        sub_11F504((*((uint32_t *)0x11fd0c)));
+        sub_11F504((*((uint32_t *)0x11fd0c)), 0);
       }
 LABEL_30:
       *v6 = (unsigned short)v244;
@@ -56141,13 +55232,13 @@ LABEL_30:
         v21 = *(unsigned char *)(a2 + 8);
         sub_1149FC(v21);
         if ( v21 )
-          sub_11F504((*((uint32_t *)0x11fce0)));
+          sub_11F504((*((uint32_t *)0x11fce0)), 0);
         else
-          sub_11F504((*((uint32_t *)0x121104)));
+          sub_11F504((*((uint32_t *)0x121104)), 0);
       }
       else
       {
-        sub_11F504((*((uint32_t *)0x120d70)));
+        sub_11F504((*((uint32_t *)0x120d70)), 0);
       }
 LABEL_25:
       v22 = sub_1149BC();
@@ -56159,7 +55250,7 @@ LABEL_25:
       sub_100200((int *)&v244, 0, 0x40u);
       if ( !*(uint32_t *)(a2 + 4) )
       {
-        v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+        LOWORD(v240) = 0;
         goto LABEL_162;
       }
       v198 = *(unsigned char *)(a2 + 8);
@@ -56168,10 +55259,10 @@ LABEL_25:
       {
         v100 = 5 * v198 + 5000;
         v241 = v100;
-        v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(1) & 0xFFFFU) << 0);
+        LOWORD(v240) = 1;
         goto LABEL_163;
       }
-      v240 = ((unsigned)(v240) & 0xFFFF0000U) | (((unsigned)(0) & 0xFFFFU) << 0);
+      LOWORD(v240) = 0;
       if ( v198 <= 0xD )
       {
         v100 = 5 * v198 + 2407;
@@ -56184,10 +55275,10 @@ LABEL_162:
         v100 = 2484;
         v241 = 2484;
 LABEL_163:
-        v240 = ((unsigned)(v240) & 0x0000FFFFU) | (((unsigned)(v100) & 0xFFFFU) << 16);
+        HIWORD(v240) = v100;
         v242 = 0;
         v243 = 0;
-        sub_1246F0(0, &v240, 0);
+        sub_1246F0(0, &v240);
         sub_108D34(0xFFFF, (int)&v244);
         sub_1282E8(v6, &v244, 64);
         goto LABEL_21;
@@ -56209,7 +55300,7 @@ LABEL_163:
         v5[4] = 255;
         if ( v93 )
         {
-          sub_11F504((*((uint32_t *)0x120324)));
+          sub_11F504((*((uint32_t *)0x120324)), 0);
           if ( *(uint32_t *)(a2 + 4) > 8u )
           {
             v94 = *(unsigned char *)(a2 + 16);
@@ -56218,7 +55309,7 @@ LABEL_163:
             v97 = *(unsigned char *)(a2 + 10) | (*(unsigned char *)(a2 + 11) << 8);
             v98 = *(uint64_t *)(a2 + 8);
             v237 = *(unsigned char *)(a2 + 12) | (*(unsigned char *)(a2 + 13) << 8);
-            sub_11F504((*((uint32_t *)0x120328)), v96, v97, v237, v95, v94);
+            sub_11F504((*((uint32_t *)0x120328)), v96);
             sub_100200((int *)&v244, 0xFFu, 0xAu);
             v244 = v98;
             v245 = v94;
@@ -56238,15 +55329,15 @@ LABEL_163:
           sub_11F504((*((uint32_t *)0x120d94)), v193);
           if ( v193 )
           {
-            sub_11F504((*((uint32_t *)0x121140)));
+            sub_11F504((*((uint32_t *)0x121140)), 0);
           }
           else
           {
-            sub_11F504((*((uint32_t *)0x120d98)), (unsigned short)v244, WORD1(v244), WORD2(v244), HIWORD(v244), v245);
-            v194 = (uint32_t)(HIWORD(v244));
-            v195 = (uint32_t)((unsigned short)v244);
-            v195 = (uint32_t)(WORD1(v244));
-            v194 = (uint32_t)(WORD2(v244));
+            sub_11F504((*((uint32_t *)0x120d98)), (unsigned short)v244);
+            HIDWORD(v194) = HIWORD(v244);
+            LODWORD(v195) = (unsigned short)v244;
+            HIDWORD(v195) = WORD1(v244);
+            LODWORD(v194) = WORD2(v244);
             *(uint64_t *)v6 = v195;
             *((uint64_t *)v6 + 1) = v194;
             v6[4] = v245;
@@ -56255,8 +55346,8 @@ LABEL_163:
       }
       goto LABEL_21;
     case 0x108:
-      sub_11F504((*((uint32_t *)0x120314)));
-      v244 = (uint32_t)(0);
+      sub_11F504((*((uint32_t *)0x120314)), 0);
+      LODWORD(v244) = 0;
       sub_100200((int *)&v244 + 1, 0, 0x3FCu);
       if ( *(uint32_t *)(a2 + 4) == 8 )
       {
@@ -56269,7 +55360,7 @@ LABEL_163:
           if ( v90 )
           {
 LABEL_149:
-            sub_11F504((*((uint32_t *)0x12031c)), v89, v90);
+            sub_11F504((*((uint32_t *)0x12031c)), v89);
             if ( v90 >> 10 )
             {
               v91 = v89;
@@ -56315,8 +55406,7 @@ LABEL_148:
 
 
 // sub_1212D0 @ 0x1212d0, size 118 bytes
-int  sub_1212D0(int a1, int a2, short a3, short a4)
-{
+int  sub_1212D0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   int v6; // r1
   uint32_t *v7; // r4
@@ -56356,15 +55446,14 @@ LABEL_3:
 LABEL_5:
   v8 = (*((uint32_t *)0x12134c));
   *v7 = 0;
-  msg_parse(v8);
+  msg_parse(v8, 0);
   sub_11DE50((int)v7);
   return 0;
 }
 
 
 // sub_12135C @ 0x12135c, size 68 bytes
-int  sub_12135C(int a1, uint32_t *a2, short a3, short a4)
-{
+int  sub_12135C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v5; // r0
   int v6; // r1
   unsigned int v7; // r2
@@ -56379,15 +55468,14 @@ int  sub_12135C(int a1, uint32_t *a2, short a3, short a4)
   v5[1] = v7;
   v8 = (int)v5;
   sub_1282E8(v5 + 2, v6, v7);
-  msg_parse((*((uint32_t *)0x1213a0)), *a2, *(uint32_t *)(v8 + 4) + *a2, *(uint32_t *)(v8 + 8));
+  msg_parse((*((uint32_t *)0x1213a0)), *a2);
   sub_11DE50(v8);
   return 0;
 }
 
 
 // sub_1213A4 @ 0x1213a4, size 82 bytes
-int  sub_1213A4(int a1, uint32_t *a2, short a3, short a4)
-{
+int  sub_1213A4(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v5; // r5
   int v6; // r0
   uint8_t v7; // zf
@@ -56403,7 +55491,7 @@ int  sub_1213A4(int a1, uint32_t *a2, short a3, short a4)
   if ( v8 << 30 )
     *v5 = 1;
   sub_1282E8(v6, a2 + 2, v8);
-  msg_parse((*((uint32_t *)0x1213f8)), *a2, a2[1] + *a2, a2[2], *v5);
+  msg_parse((*((uint32_t *)0x1213f8)), *a2);
   sub_11DE50((int)v5);
   return 0;
 }
@@ -56411,8 +55499,7 @@ int  sub_1213A4(int a1, uint32_t *a2, short a3, short a4)
 
 // rf_init_register_40a @ 0x1213fc, size 30 bytes
 // rf_init_register_40a [rf]: Initialize RF register block 0x40a and clear state
-int  rf_init_register_40a(int a1, int a2, short a3, short a4)
-{
+int  rf_init_register_40a(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v4; // r0
 
   v4 = (uint32_t *)rf_setup_dispatch(1034, a4, a3, 0xCu);
@@ -56425,8 +55512,7 @@ int  rf_init_register_40a(int a1, int a2, short a3, short a4)
 
 
 // sub_1213FC @ 0x1213fc, size 30 bytes
-int  sub_1213FC(int a1, int a2, short a3, short a4)
-{
+int  sub_1213FC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint32_t *v4; // r0
 
   v4 = (uint32_t *)sub_11DDF0(1034, a4, a3, 0xCu);
@@ -56439,8 +55525,7 @@ int  sub_1213FC(int a1, int a2, short a3, short a4)
 
 
 // sub_12141C @ 0x12141c, size 112 bytes
-int  sub_12141C(int a1, int *a2, short a3, short a4)
-{
+int  sub_12141C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int *v5; // r5
   int v6; // r2
   int v7; // r0
@@ -56464,15 +55549,14 @@ int  sub_12141C(int a1, int *a2, short a3, short a4)
   v8 = a2[2];
   v9 = a2[1];
   *v5 = v6;
-  msg_parse((*((uint32_t *)0x12148c)), v9, v8, v8, v6, v7, v7);
+  msg_parse((*((uint32_t *)0x12148c)), v9);
   sub_11DE50((int)v5);
   return 0;
 }
 
 
 // sub_121490 @ 0x121490, size 72 bytes
-int  sub_121490(int a1, int *a2, short a3, short a4)
-{
+int  sub_121490(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   uint32_t *v6; // r1
   uint32_t *v7; // r4
@@ -56492,7 +55576,7 @@ int  sub_121490(int a1, int *a2, short a3, short a4)
     *(uint32_t *)(v5 + 4) = *v6;
   }
   *v7 = v6;
-  msg_parse((*((uint32_t *)0x1214d8)));
+  msg_parse((*((uint32_t *)0x1214d8)), 0);
   sub_11DE50((int)v7);
   return 0;
 }
@@ -56500,8 +55584,7 @@ int  sub_121490(int a1, int *a2, short a3, short a4)
 
 // rf_lmac_init_or_setup @ 0x1214dc, size 42 bytes
 // rf_lmac_init_or_setup [rf]: LMAC RF setup helper that loads config pointer and dispatches to sub-handler
-int  rf_lmac_init_or_setup(int a1, uint32_t *a2, short a3, short a4)
-{
+int  rf_lmac_init_or_setup(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   msg_parse((*((uint32_t *)0x121508)), *a2);
   *((uint32_t *)(*((uint32_t *)0x12150c)) + 1) = *a2;
   sub_11DED8(1031, a4, a3);
@@ -56510,8 +55593,7 @@ int  rf_lmac_init_or_setup(int a1, uint32_t *a2, short a3, short a4)
 
 
 // sub_1214DC @ 0x1214dc, size 42 bytes
-int  sub_1214DC(int a1, uint32_t *a2, short a3, short a4)
-{
+int  sub_1214DC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_11F504((*((uint32_t *)0x121508)), *a2);
   *((uint32_t *)(*((uint32_t *)0x12150c)) + 1) = *a2;
   sub_11DED8(1031, a4, a3);
@@ -56520,8 +55602,7 @@ int  sub_1214DC(int a1, uint32_t *a2, short a3, short a4)
 
 
 // sub_121510 @ 0x121510, size 42 bytes
-int  sub_121510(int a1, uint32_t *a2, short a3, short a4)
-{
+int  sub_121510(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   msg_parse((*((uint32_t *)0x12153c)), *a2);
   *(uint32_t *)(*((uint32_t *)0x121540)) = *a2;
   sub_11DED8(1029, a4, a3);
@@ -56531,8 +55612,7 @@ int  sub_121510(int a1, uint32_t *a2, short a3, short a4)
 
 // mmio_write_reg403 @ 0x121544, size 96 bytes
 // mmio_write_reg403 [mmio]: calls helper with reg 0x403, value 8; MMIO write wrapper
-int  mmio_write_reg403(int a1, int *a2, short a3, short a4)
-{
+int  mmio_write_reg403(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   uint32_t *v6; // r2
   int *v7; // r5
@@ -56565,8 +55645,7 @@ int  mmio_write_reg403(int a1, int *a2, short a3, short a4)
 
 
 // sub_121544 @ 0x121544, size 96 bytes
-int  sub_121544(int a1, int *a2, short a3, short a4)
-{
+int  sub_121544(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   uint32_t *v6; // r2
   int *v7; // r5
@@ -56599,8 +55678,7 @@ int  sub_121544(int a1, int *a2, short a3, short a4)
 
 
 // sub_1215A8 @ 0x1215a8, size 90 bytes
-int sub_1215A8()
-{
+int sub_1215A8() {
   uint8_t *v0; // r5
   int v1; // r0
   int v2; // r4
@@ -56619,7 +55697,7 @@ int sub_1215A8()
   {
     if ( v2 == 2 )
     {
-      rf_level_apply_n1b8(v1);
+      rf_level_apply_n1b8();
       timer_set_relative(1070, 1, 1000 * *((uint32_t *)(*((uint32_t *)0x12160c)) + 91));
       v0[1] = 1;
     }
@@ -56656,7 +55734,7 @@ void __attribute__((noreturn)) sub_121610()
 // sub_12161C @ 0x12161c, size 22 bytes
 void __attribute__((noreturn)) sub_12161C()
 {
-  msg_parse((*((uint32_t *)0x121634)));
+  msg_parse((*((uint32_t *)0x121634)), 0);
   event_queue_push(1069, 1);
   rf_fault_dump_n36e();
 }
@@ -56665,7 +55743,7 @@ void __attribute__((noreturn)) sub_12161C()
 // sub_121638 @ 0x121638, size 22 bytes
 void __attribute__((noreturn)) sub_121638()
 {
-  msg_parse((*((uint32_t *)0x121650)));
+  msg_parse((*((uint32_t *)0x121650)), 0);
   event_queue_push(1068, 1);
   rf_fault_dump_n36e();
 }
@@ -56673,8 +55751,7 @@ void __attribute__((noreturn)) sub_121638()
 
 // sub_121654 @ 0x121654, size 116 bytes
 // sub_1221654 [unknown]: Calls helper with 0x40e, checks state field
-int  sub_121654(int a1, int *a2, short a3, short a4)
-{
+int  sub_121654(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   int v6; // r3
   uint32_t *v7; // r4
@@ -56699,11 +55776,11 @@ int  sub_121654(int a1, int *a2, short a3, short a4)
       timer_set_relative(1068, 1, v9 << 10);
       break;
     default:
-      msg_parse((*((uint32_t *)0x1216c8)));
+      msg_parse((*((uint32_t *)0x1216c8)), 0);
       break;
   }
   *v7 = (unsigned char)sub_113A44(0xFu);
-  msg_parse((*((uint32_t *)0x1216cc)));
+  msg_parse((*((uint32_t *)0x1216cc)), 0);
   sub_11DE50((int)v7);
   return 0;
 }
@@ -56712,14 +55789,13 @@ int  sub_121654(int a1, int *a2, short a3, short a4)
 // sub_1216DC @ 0x1216dc, size 12 bytes
 void __attribute__((noreturn)) sub_1216DC()
 {
-  msg_parse((*((uint32_t *)0x1216e8)));
+  msg_parse((*((uint32_t *)0x1216e8)), 0);
   rf_fault_dump_n36e();
 }
 
 
 // sub_1216EC @ 0x1216ec, size 448 bytes
-int sub_1216EC()
-{
+int sub_1216EC() {
   uint32_t *v0; // r4
   uint32_t *v1; // r10
   uint32_t *v2; // r6
@@ -56745,7 +55821,7 @@ int sub_1216EC()
   v5 = (*((uint32_t *)0x121958));
   v6 = (*((uint32_t *)0x1218c0));
   msg_parse((*((uint32_t *)0x1218b0)), *(uint32_t *)(*((uint32_t *)0x1218ac)) & 0xF);
-  msg_parse((*((uint32_t *)0x1218c8)), *v0, *(uint32_t *)(*((uint32_t *)0x1218c4)));
+  msg_parse((*((uint32_t *)0x1218c8)), *v0);
   msg_parse((*((uint32_t *)0x1218cc)), *v1);
   msg_parse((*((uint32_t *)0x1218d0)), *v2);
   msg_parse((*((uint32_t *)0x1218d4)), *v3);
@@ -56829,10 +55905,10 @@ LABEL_6:
   v10 = (*((uint32_t *)0x121910));
   v11 = (*((uint32_t *)0x121914));
   v12 = (*((uint32_t *)0x121918));
-  v13 = ((unsigned)(v13) & 0xFFFFFF00U) | (((unsigned)(8) & 0xFFU) << 0);
+  LOBYTE(v13) = 8;
   do
   {
-    msg_parse(v11, *v10, v7);
+    msg_parse(v11, *v10);
     msg_parse((*((uint32_t *)0x12191c)), *v12);
     v13 = (unsigned char)(v13 - 1);
   }
@@ -56846,8 +55922,7 @@ LABEL_6:
 
 
 // sub_121960 @ 0x121960, size 82 bytes
-int  sub_121960(int a1, int a2, int a3)
-{
+int  sub_121960(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v4; // r4
   int v5; // r0
   int result; // r0
@@ -56862,7 +55937,7 @@ int  sub_121960(int a1, int a2, int a3)
   v4 = (int *)(*((uint32_t *)0x1219b8));
   v5 = (*((uint32_t *)0x1219bc));
   ++*(uint32_t *)(*((uint32_t *)0x1219b8));
-  result = msg_parse(v5, a1, a2, a3 & 0xFFFFF);
+  result = msg_parse(v5, a1);
   if ( *(int *)(*((uint32_t *)0x1219c0)) >= 0 )
   {
     sub_11D31C();
@@ -56885,15 +55960,14 @@ int  sub_121960(int a1, int a2, int a3)
 
 // rf_cmd_send_n264 @ 0x1219c4, size 36 bytes
 // rf_cmd_send_n264 [rf]: Send RF command (n264 variant) via MMIO
-int  rf_cmd_send_n264(int a1, int a2, int a3)
-{
+int  rf_cmd_send_n264(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v4; // r0
   int result; // r0
 
   __disable_irq();
   v4 = (*((uint32_t *)0x1219ec));
   *(uint32_t *)(*((uint32_t *)0x1219e8)) = 0;
-  result = msg_parse(v4, a1, a2, a3 & 0xFFFFF);
+  result = msg_parse(v4, a1);
   while ( *(uint32_t *)(*((uint32_t *)0x1219f0)) )
     ;
   return result;
@@ -56901,15 +55975,14 @@ int  rf_cmd_send_n264(int a1, int a2, int a3)
 
 
 // sub_1219C4 @ 0x1219c4, size 36 bytes
-int  sub_1219C4(int a1, int a2, int a3)
-{
+int  sub_1219C4(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v4; // r0
   int result; // r0
 
   __disable_irq();
   v4 = (*((uint32_t *)0x1219ec));
   *(uint32_t *)(*((uint32_t *)0x1219e8)) = 0;
-  result = sub_11F504(v4, a1, a2, a3 & 0xFFFFF);
+  result = sub_11F504(v4, a1);
   while ( *(uint32_t *)(*((uint32_t *)0x1219f0)) )
     ;
   return result;
@@ -56917,15 +55990,13 @@ int  sub_1219C4(int a1, int a2, int a3)
 
 
 // sub_1219F4 @ 0x1219f4, size 22 bytes
-int  sub_1219F4(int a1, int a2, int a3)
-{
-  return msg_parse((*((uint32_t *)0x121a0c)), a1, a2, a3 & 0xFFFFF);
+int  sub_1219F4(uint32_t a1, uint32_t a2, uint32_t a3) {
+  return msg_parse((*((uint32_t *)0x121a0c)), a1);
 }
 
 
 // sub_121A10 @ 0x121a10, size 40 bytes
-void sub_121A10()
-{
+void sub_121A10() {
   uint32_t *v0; // r3
   int v1; // r2
   int v2; // r1
@@ -56955,16 +56026,14 @@ void sub_121A10()
 
 // rf_cmd_dispatch_n_500 @ 0x121a44, size 16 bytes
 // rf_cmd_dispatch_n_4fe [rf]: Dispatch RF command to subsystem handler
-int rf_cmd_dispatch_n_500()
-{
+int rf_cmd_dispatch_n_500() {
   sub_100200((int *)rf_cmd_dispatch_n_4f0, 0, 8u);
   return 0;
 }
 
 
 // sub_121A44 @ 0x121a44, size 16 bytes
-int sub_121A44()
-{
+int sub_121A44() {
   sub_100200((int *)(*((uint32_t *)0x121a54)), 0, 8u);
   return 0;
 }
@@ -56973,16 +56042,14 @@ int sub_121A44()
 // rf_cmd_dispatch_n_4ec @ 0x121a58, size 4 bytes
 // rf_cmd_dispatch_n_4ec [rf]: Dispatch RF command from queue
 // attributes: thunk
-int rf_cmd_dispatch_n_4ec()
-{
+int rf_cmd_dispatch_n_4ec() {
   return sub_10D02C();
 }
 
 
 // sub_121A58 @ 0x121a58, size 4 bytes
 // attributes: thunk
-int sub_121A58()
-{
+int sub_121A58() {
   return sub_10D02C();
 }
 
@@ -56990,39 +56057,34 @@ int sub_121A58()
 // rf_cmd_dispatch_n_4e8 @ 0x121a5c, size 4 bytes
 // rf_cmd_dispatch_n_4e8 [rf]: Dispatches RF command based on current state (checks state==3)
 // attributes: thunk
-int  rf_cmd_dispatch_n_4e8(unsigned short *a1)
-{
+int  rf_cmd_dispatch_n_4e8(uint32_t a1) {
   return sub_10D06C(a1);
 }
 
 
 // sub_121A5C @ 0x121a5c, size 4 bytes
 // attributes: thunk
-int  sub_121A5C(unsigned short *a1)
-{
+int  sub_121A5C(uint32_t a1) {
   return sub_10D06C(a1);
 }
 
 
 // sub_121A60 @ 0x121a60, size 4 bytes
-int sub_121A60()
-{
+int sub_121A60() {
   return 2;
 }
 
 
 // j_nullsub_6 @ 0x121a64, size 4 bytes
 // attributes: thunk
-int j_nullsub_6(void)
-{
+int j_nullsub_6() {
   return nullsub_6();
 }
 
 
 // sub_121A68 @ 0x121a68, size 18 bytes
 // rf_cmd_dispatch_n_4da [rf]: RF command dispatch table lookup (variant 4da)
-int sub_121A68()
-{
+int sub_121A68() {
   if ( **(uint8_t **)(*((uint32_t *)0x121a7c)) == 3 )
     return sub_10CEC0();
   else
@@ -57031,16 +56093,14 @@ int sub_121A68()
 
 
 // sub_121A80 @ 0x121a80, size 4 bytes
-int sub_121A80()
-{
+int sub_121A80() {
   return 0;
 }
 
 
 // rf_cmd_dispatch_a84 @ 0x121a84, size 82 bytes
 // rf_cmd_dispatch [rf]: Dispatch RF command by opcode field
-void  rf_cmd_dispatch_a84(int a1)
-{
+void  rf_cmd_dispatch_a84(uint32_t a1) {
   int word_n_ce4; // r0
   int v3; // r5
   uint32_t *v4; // r4
@@ -57062,15 +56122,14 @@ void  rf_cmd_dispatch_a84(int a1)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x121ae4)));
+      msg_parse((*((uint32_t *)0x121ae4)), 0);
     }
   }
 }
 
 
 // sub_121A84 @ 0x121a84, size 82 bytes
-void  sub_121A84(int a1)
-{
+void  sub_121A84(uint32_t a1) {
   int v2; // r0
   int v3; // r5
   uint32_t *v4; // r4
@@ -57092,7 +56151,7 @@ void  sub_121A84(int a1)
     }
     else
     {
-      sub_11F504((*((uint32_t *)0x121ae4)));
+      sub_11F504((*((uint32_t *)0x121ae4)), 0);
     }
   }
 }
@@ -57100,23 +56159,20 @@ void  sub_121A84(int a1)
 
 // rf_cmd_dispatch_n_45c @ 0x121ae8, size 6 bytes
 // rf_cmd_dispatch_n_45c [rf]: Dispatch incoming RF commands to handlers
-int rf_cmd_dispatch_n_45c()
-{
+int rf_cmd_dispatch_n_45c() {
   return sub_10CD6C(0);
 }
 
 
 // sub_121AE8 @ 0x121ae8, size 6 bytes
-int sub_121AE8()
-{
+int sub_121AE8() {
   return sub_10CD6C(0);
 }
 
 
 // rf_cmd_dispatch_n_454 @ 0x121af0, size 66 bytes
 // rf_cmd_dispatch_n_438 [rf]: Dispatch RF command with sub-id compare against 3
-int  rf_cmd_dispatch_n_454(unsigned int a1)
-{
+int  rf_cmd_dispatch_n_454(uint32_t a1) {
   int *v2; // r5
   int result; // r0
   int v4; // r3
@@ -57148,8 +56204,7 @@ int  rf_cmd_dispatch_n_454(unsigned int a1)
 
 
 // sub_121AF0 @ 0x121af0, size 66 bytes
-int  sub_121AF0(unsigned int a1)
-{
+int  sub_121AF0(uint32_t a1) {
   int *v2; // r5
   int result; // r0
   int v4; // r3
@@ -57182,8 +56237,7 @@ int  sub_121AF0(unsigned int a1)
 
 // sub_121B40 @ 0x121b40, size 144 bytes
 // rf_mem_write_n_496 [rf]: Write aligned RF memory block
-unsigned int  sub_121B40(unsigned int a1, int a2, int a3)
-{
+unsigned int  sub_121B40(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned int v3; // r7
   int *v4; // r5
   uint8_t *v8; // r9
@@ -57244,8 +56298,7 @@ rf_cmd_dispatch_n_392:
 
 // sub_121BE0 @ 0x121be0, size 134 bytes
 // rf_mem_write_n_432 [rf]: Write to RF register/memory (length-bounded)
-int  sub_121BE0(unsigned char *a1, int a2)
-{
+int  sub_121BE0(uint32_t a1, uint32_t a2) {
   int v2; // r4
   unsigned char *v4; // r0
   int v5; // r2
@@ -57329,8 +56382,7 @@ rf_mem_write_n_3d0:
 
 // sub_121C6C @ 0x121c6c, size 136 bytes
 // rf_mem_write_n_384 [rf]: Invoke RF memory write helper and compare result
-uint32_t * sub_121C6C(int a1, uint32_t *a2, int a3)
-{
+uint32_t * sub_121C6C(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v5; // r0
   int v6; // r11
   int v7; // r9
@@ -57379,8 +56431,7 @@ rf_cmd_dispatch_1ccc:
 
 // rf_cmd_dispatch_1cf4 @ 0x121cf4, size 304 bytes
 // rf_cmd_dispatch_table [rf]: Dispatches RF command via table with size bounds 0x60/0x7f
-int  rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3)
-{
+int  rf_cmd_dispatch_1cf4(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r6
   char v4; // r4
   int *v6; // r7
@@ -57517,8 +56568,7 @@ rf_cmd_dispatch_n_204:
 
 // sub_121CF4 @ 0x121cf4, size 304 bytes
 // rf_mem_write_n_231 [rf]: Writes a block of N dwords from a RAM buffer to RF memory through the RF MMIO interface (reg 0 = addr/cmd, reg 8 = data).
-int  sub_121CF4(unsigned int a1, uint8_t *a2, int a3)
-{
+int  sub_121CF4(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r6
   char v4; // r4
   int *v6; // r7
@@ -57655,8 +56705,7 @@ LABEL_7:
 
 // parse_int @ 0x121e3c, size 172 bytes
 // rf_cmd_dispatch_n_87 [rf]: Dispatch RF command from command queue entry
-int  parse_int(unsigned char *a1, uint32_t *a2, unsigned int a3)
-{
+int  parse_int(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r5
   int v4; // r7
   int i; // r6
@@ -57730,8 +56779,7 @@ rf_mem_write_field_n1db:
 
 // sub_121E3C @ 0x121e3c, size 172 bytes
 // rf_cmd_dispatch_n_6 [rf]: RF command dispatch handler slot 6 (stub, returns 0)
-int  sub_121E3C(unsigned char *a1, uint32_t *a2, unsigned int a3)
-{
+int  sub_121E3C(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r5
   int v4; // r7
   int i; // r6
@@ -57805,8 +56853,7 @@ LABEL_6:
 
 // sub_121EE8 @ 0x121ee8, size 32 bytes
 // rf_cmd_dispatch_n_4b [rf]: Dispatches completed RF command response
-int sub_121EE8()
-{
+int sub_121EE8() {
   uint32_t *v0; // r4
   int v1; // r6
   int v2; // r5
@@ -57827,8 +56874,7 @@ int sub_121EE8()
 
 // rf_cmd_dispatch_n_34 @ 0x121f10, size 50 bytes
 // rf_mem_write_n_ee [rf]: RF memory write with parameter validation
-int  rf_cmd_dispatch_n_34(int a1)
-{
+int  rf_cmd_dispatch_n_34(uint32_t a1) {
   int v2; // r0
   int v3; // r0
   int v5; // r3
@@ -57849,8 +56895,7 @@ int  rf_cmd_dispatch_n_34(int a1)
 
 
 // sub_121F10 @ 0x121f10, size 50 bytes
-int  sub_121F10(int a1)
-{
+int  sub_121F10(uint32_t a1) {
   int v2; // r0
   int v3; // r0
   int v5; // r3
@@ -57872,8 +56917,7 @@ int  sub_121F10(int a1)
 
 // sub_121F44 @ 0x121f44, size 212 bytes
 // rf_cmd_dispatch_fc0 [rf]: Dispatch incoming RF commands to handlers
-int  sub_121F44(int a1, int a2)
-{
+int  sub_121F44(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r5
   int v5; // r0
   int v7; // r3
@@ -57900,23 +56944,23 @@ LABEL_3:
     if ( ((v4 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
       cb_efa4 = rf_reg_read_cb_efa4();
-      sub_10DA6C((*((uint32_t *)0x122018)), v4 & 0xFFFFFFFC, cb_efa4);
+      sub_10DA6C((*((uint32_t *)0x122018)), v4 & 0xFFFFFFFC);
       return 0;
     }
     else if ( v5 == 4 )
     {
-      sub_10DA6C((*((uint32_t *)0x12201c)), v4, *(uint32_t *)v4);
+      sub_10DA6C((*((uint32_t *)0x12201c)), v4);
       return 0;
     }
     else if ( v5 == 2 )
     {
-      sub_10DA6C((*((uint32_t *)0x122020)), v4, *(unsigned short *)v4);
+      sub_10DA6C((*((uint32_t *)0x122020)), v4);
       return 0;
     }
     else
     {
       if ( v5 == 1 )
-        sub_10DA6C((*((uint32_t *)0x122024)), v4, *(unsigned char *)v4);
+        sub_10DA6C((*((uint32_t *)0x122024)), v4);
       return 0;
     }
   }
@@ -57928,8 +56972,7 @@ LABEL_3:
 
 // sub_12202C @ 0x12202c, size 220 bytes
 // rf_cmd_dispatch_n146 [rf]: Dispatch queued RF command to handler
-int  sub_12202C(int a1, int a2)
-{
+int  sub_12202C(uint32_t a1, uint32_t a2) {
   int v4; // r10
   unsigned int v5; // r4
   int v6; // r6
@@ -57964,7 +57007,7 @@ int  sub_12202C(int a1, int a2)
       while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
       {
         v11 = v5 & 0xFFFFFFFC;
-        sub_10DA6C((*((uint32_t *)0x12210c)), v11, v6);
+        sub_10DA6C((*((uint32_t *)0x12210c)), v11);
         --v7;
         sub_10EFAC();
         v5 = v11 + v4;
@@ -57974,7 +57017,7 @@ int  sub_12202C(int a1, int a2)
       switch ( v4 )
       {
         case 4:
-          sub_10DA6C(v10, v5, v6);
+          sub_10DA6C(v10, v5);
           *(uint32_t *)v5 = v6;
           break;
         case 2:
@@ -57982,7 +57025,7 @@ int  sub_12202C(int a1, int a2)
           *(uint16_t *)v5 = v6;
           break;
         case 1:
-          sub_10DA6C(v8, v5, (unsigned char)v6);
+          sub_10DA6C(v8, v5);
           *(uint8_t *)v5 = v6;
           break;
       }
@@ -57999,8 +57042,7 @@ int  sub_12202C(int a1, int a2)
 
 // rf_mem_write_nf0 @ 0x12211c, size 108 bytes
 // rf_mem_write [mmio]: Write 32-bit value to RF memory-mapped register
-int  rf_mem_write_nf0(int a1, int a2)
-{
+int  rf_mem_write_nf0(uint32_t a1, uint32_t a2) {
   int v3; // r5
   int v4; // r4
   int v5; // r0
@@ -58029,8 +57071,7 @@ rf_cmd_dispatch_n240:
 
 
 // sub_12211C @ 0x12211c, size 108 bytes
-int  sub_12211C(int a1, int a2)
-{
+int  sub_12211C(uint32_t a1, uint32_t a2) {
   int v3; // r5
   int v4; // r4
   int v5; // r0
@@ -58060,8 +57101,7 @@ LABEL_5:
 
 // rf_mem_write_n16c @ 0x122198, size 144 bytes
 // rf_cmd_dispatch_n2ca [rf]: Dispatch RF command to handler
-int  rf_mem_write_n16c(int a1, int a2)
-{
+int  rf_mem_write_n16c(uint32_t a1, uint32_t a2) {
   int v4; // r0
   unsigned short v6; // r0
   int f4c0; // r0
@@ -58084,7 +57124,7 @@ int  rf_mem_write_n16c(int a1, int a2)
       if ( a1 <= 2 )
       {
 LABEL_5:
-        msg_parse((*((uint32_t *)0x122228)));
+        msg_parse((*((uint32_t *)0x122228)), 0);
         return 0;
       }
       v8 = parse_int(*(unsigned char **)(a2 + 8), (void*)0, 0x10u);
@@ -58109,8 +57149,7 @@ LABEL_5:
 
 
 // sub_122198 @ 0x122198, size 144 bytes
-int  sub_122198(int a1, int a2)
-{
+int  sub_122198(uint32_t a1, uint32_t a2) {
   int v4; // r0
   unsigned short v6; // r0
   int v7; // r0
@@ -58133,7 +57172,7 @@ int  sub_122198(int a1, int a2)
       if ( a1 <= 2 )
       {
 LABEL_5:
-        sub_11F504((*((uint32_t *)0x122228)));
+        sub_11F504((*((uint32_t *)0x122228)), 0);
         return 0;
       }
       v8 = sub_121E3C(*(unsigned char **)(a2 + 8), (void*)0, 0x10u);
@@ -58159,8 +57198,7 @@ LABEL_5:
 
 // rf_mem_write_n218 @ 0x122244, size 116 bytes
 // rf_cmd_dispatch_284 [rf]: Dispatch RF command converting float result to u32 for parameter
-int rf_mem_write_n218()
-{
+int rf_mem_write_n218() {
   float inited; // r0
   float v1; // r0
   float v2; // r0
@@ -58182,8 +57220,7 @@ int rf_mem_write_n218()
 
 
 // sub_122244 @ 0x122244, size 116 bytes
-int sub_122244()
-{
+int sub_122244() {
   float v0; // r0
   float v1; // r0
   float v2; // r0
@@ -58206,8 +57243,7 @@ int sub_122244()
 
 // rf_cmd_dispatch_n388 @ 0x1222cc, size 362 bytes
 // rf_cmd_dispatch [rf]: Dispatches RF control commands to RF hardware
-int  rf_cmd_dispatch_n388(int a1, int a2)
-{
+int  rf_cmd_dispatch_n388(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r6
   unsigned int v4; // r6
   unsigned short v5; // r0
@@ -58247,8 +57283,8 @@ int  rf_cmd_dispatch_n388(int a1, int a2)
   v6[8] = 0;
   v27 = 0;
   v8 = parse_int(v6, (void*)0, 0x10u);
-  v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(parse_int(v26, (void*)0, 0x10u)) & 0xFFFFU) << 0);
-  msg_parse((*((uint32_t *)0x122438)));
+  LOWORD(v6) = parse_int(v26, (void*)0, 0x10u);
+  msg_parse((*((uint32_t *)0x122438)), 0);
   v9 = (*((uint32_t *)0x122440));
   v10 = (*((uint32_t *)0x122444));
   v11 = (*((uint32_t *)0x12246c));
@@ -58293,14 +57329,13 @@ int  rf_cmd_dispatch_n388(int a1, int a2)
   *(uint32_t *)&v20[-148] = v23;
   v24 = (*((uint32_t *)0x122468));
   *v21 = v22;
-  msg_parse(v24, v4, v7, v8, (unsigned short)v6);
+  msg_parse(v24, v4);
   return 0;
 }
 
 
 // sub_1222CC @ 0x1222cc, size 362 bytes
-int  sub_1222CC(int a1, int a2)
-{
+int  sub_1222CC(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r6
   unsigned int v4; // r6
   unsigned short v5; // r0
@@ -58340,8 +57375,8 @@ int  sub_1222CC(int a1, int a2)
   v6[8] = 0;
   v27 = 0;
   v8 = sub_121E3C(v6, (void*)0, 0x10u);
-  v6 = ((unsigned)(v6) & 0xFFFF0000U) | (((unsigned)(sub_121E3C(v26, (void*)0, 0x10u)) & 0xFFFFU) << 0);
-  sub_11F504((*((uint32_t *)0x122438)));
+  LOWORD(v6) = sub_121E3C(v26, (void*)0, 0x10u);
+  sub_11F504((*((uint32_t *)0x122438)), 0);
   v9 = (*((uint32_t *)0x122440));
   v10 = (*((uint32_t *)0x122444));
   v11 = (*((uint32_t *)0x12246c));
@@ -58386,15 +57421,14 @@ int  sub_1222CC(int a1, int a2)
   *(uint32_t *)&v20[-148] = v23;
   v24 = (*((uint32_t *)0x122468));
   *v21 = v22;
-  sub_11F504(v24, v4, v7, v8, (unsigned short)v6);
+  sub_11F504(v24, v4);
   return 0;
 }
 
 
 // sub_12248C @ 0x12248c, size 104 bytes
 // rf_mem_write_n46a [rf]: Write value to RF register/memory via internal helper
-int  sub_12248C(int a1, int a2)
-{
+int  sub_12248C(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int n_c8; // r0
   unsigned int v7; // r4
@@ -58409,7 +57443,7 @@ int  sub_12248C(int a1, int a2)
   {
     if ( a1 == 2 )
     {
-      msg_parse((*((uint32_t *)0x122500)));
+      msg_parse((*((uint32_t *)0x122500)), 0);
     }
     else
     {
@@ -58426,15 +57460,14 @@ int  sub_12248C(int a1, int a2)
     }
     return 0;
   }
-  msg_parse((*((uint32_t *)0x1224fc)));
+  msg_parse((*((uint32_t *)0x1224fc)), 0);
   return 0;
 }
 
 
 // sub_122508 @ 0x122508, size 174 bytes
 // rf_mem_write_n4de [rf]: Write to RF memory, allocates 0x200 byte stack frame for data
-int  sub_122508(int a1, int a2)
-{
+int  sub_122508(uint32_t a1, uint32_t a2) {
   int result; // r0
   int v5; // r6
   int v6; // r7
@@ -58484,7 +57517,7 @@ LABEL_10:
         v12 = *v10++;
         msg_parse(v9, (int)v12);
         if ( (v11 & 7) == 7 )
-          msg_parse(v8);
+          msg_parse(v8, 0);
       }
     }
   }
@@ -58493,8 +57526,7 @@ LABEL_10:
 
 
 // sub_1225C4 @ 0x1225c4, size 44 bytes
-int  sub_1225C4(int a1, int a2)
-{
+int  sub_1225C4(uint32_t a1, uint32_t a2) {
   float v3; // r0
   int v4; // r0
 
@@ -58502,7 +57534,7 @@ int  sub_1225C4(int a1, int a2)
   {
     v3 = COERCE_FLOAT(sub_10DD20());
     v4 = msg_parse((*((uint32_t *)0x1225f0)), (int)v3);
-    rf_level_dump(v4);
+    rf_level_dump();
   }
   else
   {
@@ -58513,8 +57545,7 @@ int  sub_1225C4(int a1, int a2)
 
 
 // sub_1225F4 @ 0x1225f4, size 110 bytes
-int  sub_1225F4(int a1, int a2)
-{
+int  sub_1225F4(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r0
   int v5; // r7
   unsigned int v6; // r6
@@ -58523,7 +57554,7 @@ int  sub_1225F4(int a1, int a2)
 
   if ( a1 == 1 )
   {
-    rf_level_dump(1);
+    rf_level_dump();
     return 0;
   }
   else
@@ -58549,23 +57580,22 @@ int  sub_1225F4(int a1, int a2)
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        v8 = rf_level_apply_n274(v4);
-        sub_127108(v8);
+        v8 = rf_level_apply_n274();
+        sub_127108();
       }
       else
       {
         rf_bus_write_n3d6_716c();
       }
     }
-    msg_parse((*((uint32_t *)0x122668)), v5, v7[91]);
+    msg_parse((*((uint32_t *)0x122668)), v5);
     return 0;
   }
 }
 
 
 // sub_12266C @ 0x12266c, size 22 bytes
-int  sub_12266C(int a1)
-{
+int  sub_12266C(uint32_t a1) {
   int result; // r0
 
   result = *(uint32_t *)(*((uint32_t *)0x122684)) + 1000 * a1;
@@ -58576,8 +57606,7 @@ int  sub_12266C(int a1)
 
 
 // sub_122688 @ 0x122688, size 134 bytes
-int  sub_122688(int result, int a2)
-{
+int  sub_122688(uint32_t a1, uint32_t a2) {
   int v2; // r4
   unsigned char v4[8]; // [sp+4h] [bp-8h] BYREF
 
@@ -58588,7 +57617,7 @@ int  sub_122688(int result, int a2)
     {
       if ( (unsigned int)(a2 - 1) > 6 )
       {
-        msg_parse((*((uint32_t *)0x122724)));
+        msg_parse((*((uint32_t *)0x122724)), 0);
         return -12;
       }
       else if ( v2 )
@@ -58607,7 +57636,7 @@ int  sub_122688(int result, int a2)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x122720)));
+      msg_parse((*((uint32_t *)0x122720)), 0);
       return -21;
     }
   }
@@ -58616,7 +57645,7 @@ int  sub_122688(int result, int a2)
     *(uint32_t *)v4 = 0;
     if ( sub_1145A0((int)v4) )
     {
-      msg_parse((*((uint32_t *)0x12271c)));
+      msg_parse((*((uint32_t *)0x12271c)), 0);
       return 0;
     }
     else
@@ -58630,8 +57659,7 @@ int  sub_122688(int result, int a2)
 
 
 // sub_122728 @ 0x122728, size 1314 bytes
-int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
-{
+int  sub_122728(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r4
   int v5; // r5
   uint32_t *v6; // r6
@@ -58715,12 +57743,12 @@ int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
             v59 = v58;
             if ( v58 < 0 )
             {
-              msg_parse((*((uint32_t *)0x122c80)));
+              msg_parse((*((uint32_t *)0x122c80)), 0);
               v61 = 2 * a2;
             }
             else
             {
-              msg_parse((*((uint32_t *)0x122c78)), a2, a3, a4);
+              msg_parse((*((uint32_t *)0x122c78)), a2);
               *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x122c60)) + 3 * a2 + a3) = a4;
               v60 = sub_113E70(a2, a3, &v68);
               v59 = v60;
@@ -58728,7 +57756,7 @@ int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
               if ( (char)v68 == a4 )
                 sub_114210(v5);
               else
-                msg_parse((*((uint32_t *)0x122c7c)), (char)v68, v60);
+                msg_parse((*((uint32_t *)0x122c7c)), (char)v68);
             }
             *(uint8_t *)((*((uint32_t *)0x122c5c)) + a2 + v61 + a3) = v59;
           }
@@ -58738,7 +57766,7 @@ int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
             v69 = 0;
             v70 = 0;
             rf_param_set_op2((int)&v68);
-            msg_parse((*((uint32_t *)0x122a88)), a2, a3, a4);
+            msg_parse((*((uint32_t *)0x122a88)), a2);
             v40 = 3 * a2;
             v41 = *(uint32_t *)(*((uint32_t *)0x122a50)) + v40;
             v42 = &v73[v40 + a3];
@@ -58753,7 +57781,7 @@ int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
             }
             else
             {
-              msg_parse((*((uint32_t *)0x122a8c)));
+              msg_parse((*((uint32_t *)0x122a8c)), 0);
             }
           }
           v43 = *((unsigned short *)(*((uint32_t *)0x122a74)) + 20);
@@ -58777,7 +57805,7 @@ int  sub_122728(int a1, unsigned int a2, unsigned int a3, int a4)
           return 0;
         }
 LABEL_78:
-        msg_parse((*((uint32_t *)0x122c8c)));
+        msg_parse((*((uint32_t *)0x122c8c)), 0);
         return -11;
       }
     }
@@ -58785,7 +57813,7 @@ LABEL_78:
     {
       if ( a1 != 2 )
       {
-        msg_parse((*((uint32_t *)0x122c88)));
+        msg_parse((*((uint32_t *)0x122c88)), 0);
         return -21;
       }
       if ( a2 <= 2 && a3 <= 5 )
@@ -58798,12 +57826,12 @@ LABEL_78:
             v26 = v25;
             if ( v25 < 0 )
             {
-              msg_parse((*((uint32_t *)0x122c80)));
+              msg_parse((*((uint32_t *)0x122c80)), 0);
               v28 = 2 * a2;
             }
             else
             {
-              msg_parse((*((uint32_t *)0x122a6c)), a2, a3, a4);
+              msg_parse((*((uint32_t *)0x122a6c)), a2);
               *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x122a64)) + 6 * a2 + a3) = a4;
               v27 = sub_113FD8(a2, a3, &v68);
               v26 = v27;
@@ -58811,7 +57839,7 @@ LABEL_78:
               if ( (char)v68 == a4 )
                 sub_114210(1);
               else
-                msg_parse((*((uint32_t *)0x122a70)), (char)v68, v27);
+                msg_parse((*((uint32_t *)0x122a70)), (char)v68);
             }
             *(uint8_t *)((*((uint32_t *)0x122a58)) + 2 * (a2 + v28) + a3) = v26;
           }
@@ -58823,7 +57851,7 @@ LABEL_78:
             v71 = 0;
             v72 = 0;
             rf_emit_setup_word((int)&v68);
-            msg_parse((*((uint32_t *)0x122c4c)), a2, a3, a4);
+            msg_parse((*((uint32_t *)0x122c4c)), a2);
             v45 = 3 * a2;
             v46 = *(uint32_t *)(*((uint32_t *)0x122c50)) + 2 * v45;
             v47 = &v73[2 * v45 + a3];
@@ -58838,7 +57866,7 @@ LABEL_78:
             }
             else
             {
-              msg_parse((*((uint32_t *)0x122c54)));
+              msg_parse((*((uint32_t *)0x122c54)), 0);
             }
           }
           v29 = *((unsigned short *)(*((uint32_t *)0x122a74)) + 20);
@@ -58869,7 +57897,7 @@ LABEL_78:
         goto LABEL_78;
       }
     }
-    msg_parse((*((uint32_t *)0x122c84)));
+    msg_parse((*((uint32_t *)0x122c84)), 0);
     return -12;
   }
   if ( !v4 )
@@ -58880,19 +57908,19 @@ LABEL_78:
     v71 = 0;
     v72 = 0;
     v68 = 0;
-    msg_parse((*((uint32_t *)0x122a78)));
+    msg_parse((*((uint32_t *)0x122a78)), 0);
     if ( rf_param_set_op2((int)v67) )
     {
       sub_100200((int *)(*((uint32_t *)0x122a48)), 0xFu, 9u);
-      msg_parse((*((uint32_t *)0x122a7c)));
+      msg_parse((*((uint32_t *)0x122a7c)), 0);
     }
     else
     {
       v48 = (*((uint32_t *)0x122c5c));
       v49 = (*((uint32_t *)0x122c60));
       v50 = (*((uint32_t *)0x122c90));
-      msg_parse((*((uint32_t *)0x122c58)));
-      msg_parse((*((uint32_t *)0x122c64)));
+      msg_parse((*((uint32_t *)0x122c58)), 0);
+      msg_parse((*((uint32_t *)0x122c64)), 0);
       v51 = 0;
       v65 = v67;
       v52 = (uint8_t *)v48;
@@ -58914,22 +57942,22 @@ LABEL_78:
         v52 += 3;
       }
       while ( v51 != 3 );
-      msg_parse((*((uint32_t *)0x122c6c)));
+      msg_parse((*((uint32_t *)0x122c6c)), 0);
     }
-    msg_parse((*((uint32_t *)0x122a80)));
+    msg_parse((*((uint32_t *)0x122a80)), 0);
     v31 = rf_emit_setup_word((int)&v68);
     if ( v31 )
     {
       sub_100200((int *)(*((uint32_t *)0x122c70)), 0xFu, 0x12u);
-      msg_parse((*((uint32_t *)0x122c74)));
+      msg_parse((*((uint32_t *)0x122c74)), 0);
     }
     else
     {
       v64 = (*((uint32_t *)0x122a58));
-      msg_parse((*((uint32_t *)0x122a84)));
+      msg_parse((*((uint32_t *)0x122a84)), 0);
       v32 = (int *)(*((uint32_t *)0x122a64));
       v33 = (*((uint32_t *)0x122a94));
-      msg_parse((*((uint32_t *)0x122a68)));
+      msg_parse((*((uint32_t *)0x122a68)), 0);
       v66 = &v68;
       do
       {
@@ -58951,15 +57979,15 @@ LABEL_78:
         v64 += 6;
       }
       while ( v4 != 18 );
-      msg_parse((*((uint32_t *)0x122a5c)));
+      msg_parse((*((uint32_t *)0x122a5c)), 0);
     }
     return 0;
   }
   v62 = (*((uint32_t *)0x122a48));
-  msg_parse((*((uint32_t *)0x122a44)));
+  msg_parse((*((uint32_t *)0x122a44)), 0);
   v6 = (*((uint32_t *)0x122a50));
   v7 = (*((uint32_t *)0x122a90));
-  msg_parse((*((uint32_t *)0x122a4c)));
+  msg_parse((*((uint32_t *)0x122a4c)), 0);
   do
   {
     v8 = sub_113DF8(v5, *v6 + 3 * v5);
@@ -58970,7 +57998,7 @@ LABEL_78:
     {
       v11 = (v8 >> (4 * v10)) & 0xF;
       v12 = *(char *)(*v6 + v10++ + 3 * v5);
-      msg_parse(v7, v12, v11);
+      msg_parse(v7, v12);
       *v9++ = v11;
     }
     while ( v10 != 3 );
@@ -58979,11 +58007,11 @@ LABEL_78:
   }
   while ( v5 != 3 );
   v63 = (*((uint32_t *)0x122a58));
-  msg_parse((*((uint32_t *)0x122a5c)));
+  msg_parse((*((uint32_t *)0x122a5c)), 0);
   v13 = (*((uint32_t *)0x122a64));
   v14 = (*((uint32_t *)0x122a90));
-  msg_parse((*((uint32_t *)0x122a60)));
-  msg_parse((*((uint32_t *)0x122a68)));
+  msg_parse((*((uint32_t *)0x122a60)), 0);
+  msg_parse((*((uint32_t *)0x122a68)), 0);
   for ( k = 0; k != 3; ++k )
   {
     v16 = sub_113F3C(k, *v13 + 6 * k);
@@ -58994,21 +58022,20 @@ LABEL_78:
     {
       v19 = (v16 >> (4 * v18)) & 0xF;
       v20 = *(char *)(*v13 + v18++ + 6 * k);
-      msg_parse(v14, v20, v19);
+      msg_parse(v14, v20);
       *v17++ = v19;
     }
     while ( v18 != 6 );
     v63 += 6;
   }
-  msg_parse((*((uint32_t *)0x122a5c)));
+  msg_parse((*((uint32_t *)0x122a5c)), 0);
   return 0;
 }
 
 
 // sub_122C94 @ 0x122c94, size 256 bytes
 // sub_1222C94 [unknown]: Check bit 1 of 32-bit value loaded from 0x40500000 and branch on it
-int  sub_122C94(int a1, int a2, int a3)
-{
+int  sub_122C94(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r3
   int v4; // r0
   int v7; // r5
@@ -59022,7 +58049,7 @@ int  sub_122C94(int a1, int a2, int a3)
     {
       if ( (unsigned int)(a2 + 7) > 0xF )
       {
-        msg_parse((*((uint32_t *)0x122db0)));
+        msg_parse((*((uint32_t *)0x122db0)), 0);
         return -12;
       }
       else
@@ -59033,36 +58060,36 @@ int  sub_122C94(int a1, int a2, int a3)
           v8 = sub_1140F0(a2);
           if ( v8 < 0 )
           {
-            msg_parse((*((uint32_t *)0x122db4)));
+            msg_parse((*((uint32_t *)0x122db4)), 0);
             return -11;
           }
           else
           {
-            msg_parse((*((uint32_t *)0x122da4)), a2, v8, v7 + 30, v7 + 39);
+            msg_parse((*((uint32_t *)0x122da4)), a2);
             return a2 | (v8 << 8);
           }
         }
         else
         {
           *(uint16_t *)((char *)&v9 + 1) = 0;
-          v9 = ((unsigned)(v9) & 0xFFFF00FFU) | (((unsigned)(0) & 0xFFU) << 8);
-          v9 = ((unsigned)(v9) & 0xFFFFFF00U) | (((unsigned)(a2) & 0xFFU) << 0);
+          HIBYTE(v9) = 0;
+          LOBYTE(v9) = a2;
           sub_1145D0((int)&v9);
-          msg_parse((*((uint32_t *)0x122da0)), a2, v7 + 30, v7 + 39);
+          msg_parse((*((uint32_t *)0x122da0)), a2);
           return (char)v9 | 0xF00;
         }
       }
     }
     else
     {
-      msg_parse((*((uint32_t *)0x122dac)), a2, a3, v3);
+      msg_parse((*((uint32_t *)0x122dac)), a2);
       return -21;
     }
   }
   else if ( v3 )
   {
     v4 = sub_1140B8(&v9);
-    msg_parse((*((uint32_t *)0x122d98)), v9, v4, 10 * v9 + 30, 10 * v9 + 39);
+    msg_parse((*((uint32_t *)0x122d98)), v9);
     return (char)v9;
   }
   else
@@ -59070,12 +58097,12 @@ int  sub_122C94(int a1, int a2, int a3)
     v9 = 0;
     if ( sub_1145C4((int)&v9) )
     {
-      msg_parse((*((uint32_t *)0x122da8)));
+      msg_parse((*((uint32_t *)0x122da8)), 0);
       return 3584;
     }
     else
     {
-      msg_parse((*((uint32_t *)0x122d9c)), (char)v9, 10 * (char)v9 + 30, 10 * (char)v9 + 39);
+      msg_parse((*((uint32_t *)0x122d9c)), (char)v9);
       return (char)v9 | 0xF00;
     }
   }
@@ -59084,8 +58111,7 @@ int  sub_122C94(int a1, int a2, int a3)
 
 // sub_122DB8 @ 0x122db8, size 344 bytes
 // sub_1222DB8 [rf]: Initializes LMAC RF control structure with zeroed params
-int  sub_122DB8(int a1, unsigned int a2)
-{
+int  sub_122DB8(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r3
   int v3; // r5
   int v6; // r5
@@ -59115,7 +58141,7 @@ int  sub_122DB8(int a1, unsigned int a2)
     {
       v6 = sub_113B88(&v21);
       status = rf_cmd_query_status((uint8_t *)&v21 + 1);
-      msg_parse((*((uint32_t *)0x122f14)), (unsigned char)v21, v6, HIBYTE(v21), status);
+      msg_parse((*((uint32_t *)0x122f14)), (unsigned char)v21);
       v8 = status << 24;
       v9 = v6 << 16;
       return (unsigned char)v21 | (HIBYTE(v21) << 8) | v8 | v9;
@@ -59128,14 +58154,14 @@ int  sub_122DB8(int a1, unsigned int a2)
     {
       if ( v11 )
       {
-        msg_parse((*((uint32_t *)0x122f20)));
+        msg_parse((*((uint32_t *)0x122f20)), 0);
         v9 = 917504;
         v8 = 234881024;
       }
       else
       {
         v21 = v22;
-        msg_parse((*((uint32_t *)0x122f24)));
+        msg_parse((*((uint32_t *)0x122f24)), 0);
         v9 = 983040;
         v8 = 251658240;
       }
@@ -59155,7 +58181,7 @@ int  sub_122DB8(int a1, unsigned int a2)
         inited = rf_init_channel_n6(a2);
         if ( inited < 0 )
         {
-          msg_parse((*((uint32_t *)0x122f38)));
+          msg_parse((*((uint32_t *)0x122f38)), 0);
           v12 = 65280;
         }
         else
@@ -59166,7 +58192,7 @@ int  sub_122DB8(int a1, unsigned int a2)
       }
       else
       {
-        v22 = ((unsigned)(v22) & 0xFFFFFF00U) | (((unsigned)(a2) & 0xFFU) << 0);
+        LOBYTE(v22) = a2;
         sub_114564((int)&v22);
         v20 = a2;
         v12 = a2 | 0xF00;
@@ -59177,7 +58203,7 @@ int  sub_122DB8(int a1, unsigned int a2)
     else
     {
       v12 = ~((unsigned int)~(v13 << 23) >> 23);
-      msg_parse((*((uint32_t *)0x122f1c)));
+      msg_parse((*((uint32_t *)0x122f1c)), 0);
     }
   }
   else if ( a1 == 2 )
@@ -59189,7 +58215,7 @@ int  sub_122DB8(int a1, unsigned int a2)
       v18 = rf_reg_check((unsigned char)a2);
       if ( v18 < 0 )
       {
-        msg_parse((*((uint32_t *)0x122f38)));
+        msg_parse((*((uint32_t *)0x122f38)), 0);
         return 65280;
       }
       else
@@ -59217,8 +58243,7 @@ int  sub_122DB8(int a1, unsigned int a2)
 
 
 // sub_122F3C @ 0x122f3c, size 86 bytes
-int  sub_122F3C(int a1, int a2, int a3, int a4)
-{
+int  sub_122F3C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int v4; // r3
   unsigned int v6; // r5
   unsigned int v8; // r5
@@ -59230,18 +58255,18 @@ int  sub_122F3C(int a1, int a2, int a3, int a4)
       v4 = a2 << 28;
       if ( !(a2 << 28) || (v4 = a2 & 0xFFFFFFF0, (a2 & 0xFFFFFFF0) != 0) )
       {
-        msg_parse((*((uint32_t *)0x122f9c)), a2, a3, v4, a4);
+        msg_parse((*((uint32_t *)0x122f9c)), a2);
         return -11;
       }
       else
       {
         v6 = sub_113B5C((unsigned char)a2);
-        msg_parse((*((uint32_t *)0x122f94)), a2, v6);
+        msg_parse((*((uint32_t *)0x122f94)), a2);
       }
     }
     else
     {
-      msg_parse((*((uint32_t *)0x122fa0)));
+      msg_parse((*((uint32_t *)0x122fa0)), 0);
       return -21;
     }
     return v6;
@@ -59257,8 +58282,7 @@ int  sub_122F3C(int a1, int a2, int a3, int a4)
 
 // rf_init_handler_0 @ 0x122fa4, size 104 bytes
 // rf_init_handler [rf]: RF initialization handler calling chip setup routine
-unsigned int  rf_init_handler_0(int a1, int a2)
-{
+unsigned int  rf_init_handler_0(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r0
   unsigned int v5; // r4
 
@@ -59270,7 +58294,7 @@ unsigned int  rf_init_handler_0(int a1, int a2)
     {
       if ( v4 )
       {
-        msg_parse((*((uint32_t *)0x123010)));
+        msg_parse((*((uint32_t *)0x123010)), 0);
       }
       else
       {
@@ -59282,7 +58306,7 @@ unsigned int  rf_init_handler_0(int a1, int a2)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x123018)));
+      msg_parse((*((uint32_t *)0x123018)), 0);
       return 0;
     }
   }
@@ -59295,7 +58319,7 @@ unsigned int  rf_init_handler_0(int a1, int a2)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x12300c)));
+      msg_parse((*((uint32_t *)0x12300c)), 0);
     }
     return v5;
   }
@@ -59303,8 +58327,7 @@ unsigned int  rf_init_handler_0(int a1, int a2)
 
 
 // sub_122FA4 @ 0x122fa4, size 104 bytes
-unsigned int  sub_122FA4(int a1, int a2)
-{
+unsigned int  sub_122FA4(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r0
   unsigned int v5; // r4
 
@@ -59316,7 +58339,7 @@ unsigned int  sub_122FA4(int a1, int a2)
     {
       if ( v4 )
       {
-        sub_11F504((*((uint32_t *)0x123010)));
+        sub_11F504((*((uint32_t *)0x123010)), 0);
       }
       else
       {
@@ -59328,7 +58351,7 @@ unsigned int  sub_122FA4(int a1, int a2)
     }
     else
     {
-      sub_11F504((*((uint32_t *)0x123018)));
+      sub_11F504((*((uint32_t *)0x123018)), 0);
       return 0;
     }
   }
@@ -59341,7 +58364,7 @@ unsigned int  sub_122FA4(int a1, int a2)
     }
     else
     {
-      sub_11F504((*((uint32_t *)0x12300c)));
+      sub_11F504((*((uint32_t *)0x12300c)), 0);
     }
     return v5;
   }
@@ -59349,8 +58372,7 @@ unsigned int  sub_122FA4(int a1, int a2)
 
 
 // sub_123020 @ 0x123020, size 60 bytes
-int  sub_123020(int a1)
-{
+int  sub_123020(uint32_t a1) {
   unsigned int v1; // r4
   unsigned int v3; // r4
 
@@ -59364,7 +58386,7 @@ int  sub_123020(int a1)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x123064)));
+      msg_parse((*((uint32_t *)0x123064)), 0);
       return -21;
     }
     return v1;
@@ -59379,8 +58401,7 @@ int  sub_123020(int a1)
 
 
 // sub_123068 @ 0x123068, size 94 bytes
-int sub_123068()
-{
+int sub_123068() {
   int *v0; // r4
   uint32_t *v1; // r0
   int result; // r0
@@ -59419,8 +58440,7 @@ int sub_123068()
 
 // rf_init_or_reset @ 0x1230e8, size 288 bytes
 // rf_init_or_reset [rf]: RF subsystem initialization entry, sets up context and calls helper
-int  rf_init_or_reset(unsigned int a1)
-{
+int  rf_init_or_reset(uint32_t a1) {
   int v1; // r0
   int v2; // r4
   uint32_t *v4; // r0
@@ -59472,7 +58492,7 @@ int  rf_init_or_reset(unsigned int a1)
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        sub_10DA6C((*((uint32_t *)0x12321c)), CPSR, v7, v8, v9, v10, v23);
+        sub_10DA6C((*((uint32_t *)0x12321c)), CPSR);
         if ( v9 )
         {
           v13 = (*((uint32_t *)0x12323c));
@@ -59535,8 +58555,7 @@ int  rf_init_or_reset(unsigned int a1)
 
 
 // sub_1230E8 @ 0x1230e8, size 288 bytes
-int  sub_1230E8(unsigned int a1)
-{
+int  sub_1230E8(uint32_t a1) {
   int v1; // r0
   int v2; // r4
   uint32_t *v4; // r0
@@ -59588,7 +58607,7 @@ int  sub_1230E8(unsigned int a1)
         v9 = __get_CPSR();
         v10 = __get_CPSR();
         v23 = __get_CPSR();
-        sub_10DA6C((*((uint32_t *)0x12321c)), CPSR, v7, v8, v9, v10, v23);
+        sub_10DA6C((*((uint32_t *)0x12321c)), CPSR);
         if ( v9 )
         {
           v13 = (*((uint32_t *)0x12323c));
@@ -59707,7 +58726,7 @@ unsigned char *sub_123240()
         {
           if ( *((short *)v13 + 5) < v9 || *((short *)v13 + 4) > v9 )
           {
-            sub_10DA6C(v7, *v13, v13[1]);
+            sub_10DA6C(v7, *v13);
           }
           else
           {
@@ -59755,8 +58774,7 @@ unsigned char *sub_123240()
 
 
 // sub_123358 @ 0x123358, size 50 bytes
-void sub_123358()
-{
+void sub_123358() {
   uint32_t *v0; // r4
   unsigned int v1; // r0
 
@@ -59778,8 +58796,7 @@ void sub_123358()
 
 
 // sub_123394 @ 0x123394, size 38 bytes
-int  sub_123394(int a1)
-{
+int  sub_123394(uint32_t a1) {
   uint32_t *v1; // r1
   int v2; // r0
   int result; // r0
@@ -59795,8 +58812,7 @@ int  sub_123394(int a1)
 
 // rf_event_check_n3cc @ 0x1233cc, size 168 bytes
 // rf_event_check_n3cc [rf]: Checks RF event/state with byte compare from constant
-float  rf_event_check_n3cc(unsigned char *a1)
-{
+float  rf_event_check_n3cc(uint32_t a1) {
   int v1; // r2
   int v2; // r5
   int v3; // r4
@@ -59819,7 +58835,7 @@ float  rf_event_check_n3cc(unsigned char *a1)
     v6 = v1 - 1;
     *(uint16_t *)((*((uint32_t *)0x12347c)) + 8 * v6) = a1[4] | (a1[5] << 8);
     v7 = v4 + 8 * v6;
-    v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v7 + 2)) & 0xFFU) << 0);
+    LOBYTE(v6) = *(uint8_t *)(v7 + 2);
     v8 = *v5;
     v9 = *(char *)(*((uint32_t *)0x123484));
     *(uint8_t *)(v7 + 5) = a1[6];
@@ -59835,8 +58851,7 @@ float  rf_event_check_n3cc(unsigned char *a1)
 
 
 // sub_1233CC @ 0x1233cc, size 168 bytes
-float  sub_1233CC(unsigned char *a1)
-{
+float  sub_1233CC(uint32_t a1) {
   int v1; // r2
   int v2; // r5
   int v3; // r4
@@ -59859,7 +58874,7 @@ float  sub_1233CC(unsigned char *a1)
     v6 = v1 - 1;
     *(uint16_t *)((*((uint32_t *)0x12347c)) + 8 * v6) = a1[4] | (a1[5] << 8);
     v7 = v4 + 8 * v6;
-    v6 = ((unsigned)(v6) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v7 + 2)) & 0xFFU) << 0);
+    LOBYTE(v6) = *(uint8_t *)(v7 + 2);
     v8 = *v5;
     v9 = *(char *)(*((uint32_t *)0x123484));
     *(uint8_t *)(v7 + 5) = a1[6];
@@ -59876,8 +58891,7 @@ float  sub_1233CC(unsigned char *a1)
 
 // parse_subframe_header @ 0x123490, size 70 bytes
 // parse_subframe_header [rx]: Parses subframe header bytes, checks tag 0xc0
-unsigned char * parse_subframe_header(unsigned char *result)
-{
+unsigned char * parse_subframe_header(uint32_t a1) {
   int v1; // r4
   uint32_t *v2; // r3
   char v3; // r2
@@ -59902,8 +58916,7 @@ unsigned char * parse_subframe_header(unsigned char *result)
 
 
 // sub_123490 @ 0x123490, size 70 bytes
-unsigned char * sub_123490(unsigned char *result)
-{
+unsigned char * sub_123490(uint32_t a1) {
   int v1; // r4
   uint32_t *v2; // r3
   char v3; // r2
@@ -59928,8 +58941,7 @@ unsigned char * sub_123490(unsigned char *result)
 
 
 // sub_1234E4 @ 0x1234e4, size 480 bytes
-void sub_1234E4()
-{
+void sub_1234E4() {
   uint8_t *v0; // r6
   unsigned char *v1; // r5
   uint8_t *v2; // r7
@@ -59961,8 +58973,8 @@ void sub_1234E4()
   v0 = (*((uint32_t *)0x1236c4));
   v1 = (unsigned char *)(*((uint32_t *)0x1236c8));
   v2 = (*((uint32_t *)0x1236cc));
-  v3 = (v3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(*(unsigned char *)(*((uint32_t *)0x1236cc))) & 0xFFFFFFFFULL) << 32);
-  v3 = (v3 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(*(unsigned char *)(*((uint32_t *)0x1236c4)) | *(unsigned char *)(*((uint32_t *)0x1236c8))) & 0xFFFFFFFFULL) << 0);
+  HIDWORD(v3) = *(unsigned char *)(*((uint32_t *)0x1236cc));
+  LODWORD(v3) = *(unsigned char *)(*((uint32_t *)0x1236c4)) | *(unsigned char *)(*((uint32_t *)0x1236c8));
   v4 = BYTE4(v3) | v3;
   if ( !v3 )
   {
@@ -59973,7 +58985,7 @@ void sub_1234E4()
       v26[0] = v4;
       sub_113B88(&v25);
       rf_cmd_query_status(v26);
-      msg_parse((*((uint32_t *)0x1236f0)), v25, v26[0]);
+      msg_parse((*((uint32_t *)0x1236f0)), v25);
       v22 = v25;
       if ( v25 )
       {
@@ -59998,7 +59010,7 @@ void sub_1234E4()
         }
         v24 = (*((uint32_t *)0x1236f8));
         *(uint32_t *)(*((uint32_t *)0x1236dc)) = *(uint32_t *)(*((uint32_t *)0x1236dc)) & 0xFF03FFFF | v23;
-        msg_parse(v24);
+        msg_parse(v24, 0);
       }
     }
     BYTE4(v3) = *v2;
@@ -60029,7 +59041,7 @@ void sub_1234E4()
     }
     n = mmio_bit_extract_n();
     rf_level_apply_n200((unsigned char)n);
-    msg_parse((*((uint32_t *)0x1236d8)), *v1, n, v7);
+    msg_parse((*((uint32_t *)0x1236d8)), *v1);
     v11 = (unsigned char)(*v1 + 1);
     if ( v11 != 16 )
       goto LABEL_15;
@@ -60051,7 +59063,7 @@ void sub_1234E4()
         v21 = 63;
       *(uint32_t *)(*((uint32_t *)0x1236dc)) = *(uint32_t *)(*((uint32_t *)0x1236dc)) & 0xFF03FFFF | (v21 << 18);
     }
-    msg_parse((*((uint32_t *)0x1236ec)), *v1, (*(uint32_t *)(*((uint32_t *)0x1236dc)) >> 18) & 0x3F, v19);
+    msg_parse((*((uint32_t *)0x1236ec)), *v1);
     v11 = (unsigned char)(*v1 + 1);
     if ( v11 != 32 )
       goto LABEL_15;
@@ -60066,7 +59078,7 @@ LABEL_33:
   else
     v13 = *(uint32_t *)(*((uint32_t *)0x1236d4));
   v14 = mmio_bit_extract_n();
-  msg_parse((*((uint32_t *)0x1236e0)), v14, (*(uint32_t *)(*((uint32_t *)0x1236dc)) >> 18) & 0x3F, v12, v13);
+  msg_parse((*((uint32_t *)0x1236e0)), v14);
   v15 = (int *)(*((uint32_t *)0x1236e4));
   v11 = (unsigned char)(*v1 + 1);
   v16 = v13 + *(uint32_t *)(*((uint32_t *)0x1236e4));
@@ -60080,9 +59092,9 @@ LABEL_15:
   v17 = (*((uint32_t *)0x1236e8));
   *v1 = 0;
   *v15 = v16 / 16;
-  v18 = msg_parse(v17);
+  v18 = msg_parse(v17, 0);
   if ( (unsigned int)*(unsigned char *)(*((uint32_t *)0x1236d0)) - 2 <= 1 )
-    rf_init_n_dc(v18);
+    rf_init_n_dc();
   else
     sub_12646C(2);
 }
@@ -60090,8 +59102,7 @@ LABEL_15:
 
 // rf_chan_band_parse @ 0x1236fc, size 52 bytes
 // rf_chan_band_parse [rf]: Parse channel/band byte fields from descriptor
-uint8_t * rf_chan_band_parse(uint8_t *result)
-{
+uint8_t * rf_chan_band_parse(uint32_t a1) {
   uint8_t *v1; // r3
   char v2; // r1
   char v3; // r2
@@ -60114,8 +59125,7 @@ uint8_t * rf_chan_band_parse(uint8_t *result)
 
 
 // sub_1236FC @ 0x1236fc, size 52 bytes
-uint8_t * sub_1236FC(uint8_t *result)
-{
+uint8_t * sub_1236FC(uint32_t a1) {
   uint8_t *v1; // r3
   char v2; // r1
   char v3; // r2
@@ -60138,8 +59148,7 @@ uint8_t * sub_1236FC(uint8_t *result)
 
 
 // sub_12373C @ 0x12373c, size 386 bytes
-int sub_12373C()
-{
+int sub_12373C() {
   char *v0; // r5
   uint8_t *v1; // r8
   int *v2; // r7
@@ -60253,8 +59262,7 @@ LABEL_4:
 
 
 // sub_1238E0 @ 0x1238e0, size 276 bytes
-unsigned int sub_1238E0()
-{
+unsigned int sub_1238E0() {
   int *v0; // r10
   int *v1; // r8
   uint32_t *v2; // r7
@@ -60301,7 +59309,7 @@ unsigned int sub_1238E0()
     v13 = 4;
 LABEL_8:
     v14 = (*((uint32_t *)0x123a08));
-    result = msg_parse((*((uint32_t *)0x123a04)), v13, *v0, v3, *v1, v17, *v2, 0);
+    result = msg_parse((*((uint32_t *)0x123a04)), v13);
     goto LABEL_9;
   }
   v13 = v10;
@@ -60311,7 +59319,7 @@ LABEL_8:
   v14 = (*((uint32_t *)0x123a08));
   if ( !*(uint8_t *)(*((uint32_t *)0x123a08)) )
     goto LABEL_12;
-  result = msg_parse((*((uint32_t *)0x123a0c)), v4, v12);
+  result = msg_parse((*((uint32_t *)0x123a0c)), v4);
   v16 = (unsigned int *)(*((uint32_t *)0x123a14));
   *(uint32_t *)(*((uint32_t *)0x123a10)) = v4;
   *v16 = v12;
@@ -60328,8 +59336,7 @@ LABEL_12:
 
 // rf_chan_config_set @ 0x123a20, size 136 bytes
 // rf_chan_config_set [rf]: RF channel/configuration init from data tables 0x150040/0x14fe5c
-int  rf_chan_config_set(int a1)
-{
+int  rf_chan_config_set(uint32_t a1) {
   int v2; // r1
   long long v3; // r0
   uint16_t *v4; // r2
@@ -60355,7 +59362,7 @@ int  rf_chan_config_set(int a1)
   v3 = *((uint64_t *)(*((uint32_t *)0x123aa8)) + 1);
   v13 = *((uint32_t *)(*((uint32_t *)0x123aa8)) + 3);
   v12 = v3;
-  v3 = (v3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(*(uint32_t *)((*((uint32_t *)0x123aac)) + 4)) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(v3) = *(uint32_t *)((*((uint32_t *)0x123aac)) + 4);
   v14 = *(uint32_t *)(*((uint32_t *)0x123aac));
   v15 = WORD2(v3);
   sub_1282E8(&v16, &v10, 6);
@@ -60384,8 +59391,7 @@ int  rf_chan_config_set(int a1)
 
 
 // sub_123A20 @ 0x123a20, size 136 bytes
-int  sub_123A20(int a1)
-{
+int  sub_123A20(uint32_t a1) {
   int v2; // r1
   long long v3; // r0
   uint16_t *v4; // r2
@@ -60411,7 +59417,7 @@ int  sub_123A20(int a1)
   v3 = *((uint64_t *)(*((uint32_t *)0x123aa8)) + 1);
   v13 = *((uint32_t *)(*((uint32_t *)0x123aa8)) + 3);
   v12 = v3;
-  v3 = (v3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(*(uint32_t *)((*((uint32_t *)0x123aac)) + 4)) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(v3) = *(uint32_t *)((*((uint32_t *)0x123aac)) + 4);
   v14 = *(uint32_t *)(*((uint32_t *)0x123aac));
   v15 = WORD2(v3);
   sub_1282E8(&v16, &v10, 6);
@@ -60440,8 +59446,7 @@ int  sub_123A20(int a1)
 
 
 // sub_123AB4 @ 0x123ab4, size 114 bytes
-int  sub_123AB4(int a1)
-{
+int  sub_123AB4(uint32_t a1) {
   long long v2; // r0
   uint16_t *v3; // r2
   short v4; // r3
@@ -60460,7 +59465,7 @@ int  sub_123AB4(int a1)
   v2 = *((uint64_t *)(*((uint32_t *)0x123b28)) + 1);
   v10 = *((uint32_t *)(*((uint32_t *)0x123b28)) + 3);
   v9 = v2;
-  v2 = (v2 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(*((uint32_t *)(*((uint32_t *)0x123b28)) + 1)) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(v2) = *((uint32_t *)(*((uint32_t *)0x123b28)) + 1);
   v11 = *(uint32_t *)(*((uint32_t *)0x123b28));
   v12 = WORD2(v2);
   sub_1282E8(&v13, &v9, 6);
@@ -60489,8 +59494,7 @@ int  sub_123AB4(int a1)
 
 // patch_ctrl_write_magic @ 0x123b30, size 130 bytes
 // patch_ctrl_write_magic [patch]: Writes cafefade magic and control word to indexed register slot
-int  patch_ctrl_write_magic(uint32_t *a1, int a2, int a3)
-{
+int  patch_ctrl_write_magic(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r2
   int v4; // r4
   int v5; // r7
@@ -60549,8 +59553,7 @@ LABEL_7:
 
 
 // sub_123B30 @ 0x123b30, size 130 bytes
-int  sub_123B30(uint32_t *a1, int a2, int a3)
-{
+int  sub_123B30(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r2
   int v4; // r4
   int v5; // r7
@@ -60610,8 +59613,7 @@ LABEL_7:
 
 // rf_sub_3bbc @ 0x123bbc, size 750 bytes
 // rf_sub_3bbc [rf]: Auxiliary RF helper routine
-int rf_sub_3bbc()
-{
+int rf_sub_3bbc() {
   int *v0; // r4
   int v1; // r11
   int v2; // r0
@@ -60752,13 +59754,13 @@ LABEL_8:
 LABEL_45:
       if ( *(char *)(*((uint32_t *)0x123ee4)) > 0 )
       {
-        msg_parse((*((uint32_t *)0x123ef0)), v1, v17);
+        msg_parse((*((uint32_t *)0x123ef0)), v1);
         v29 = v27 & 1;
         if ( v29 )
           v35 = v28 - 1 + ((unsigned int)(v28 - 1) >> 31);
         else
           v35 = v28 + ((unsigned int)v28 >> 31);
-        msg_parse((*((uint32_t *)0x123ef4)), v21, v37, v23, v28, (v35 >> 1) + v21);
+        msg_parse((*((uint32_t *)0x123ef4)), v21);
         --*(uint8_t *)(*((uint32_t *)0x123ee4));
         v30 = 1;
       }
@@ -60787,7 +59789,7 @@ LABEL_45:
             v33 = (v28 - 1) / 2;
           else
             v33 = v28 / 2;
-          msg_parse((*((uint32_t *)0x123eec)), v32, v33 + v32);
+          msg_parse((*((uint32_t *)0x123eec)), v32);
         }
       }
       if ( v29 )
@@ -60853,8 +59855,7 @@ LABEL_39:
 
 
 // sub_123BBC @ 0x123bbc, size 750 bytes
-int sub_123BBC()
-{
+int sub_123BBC() {
   int *v0; // r4
   int v1; // r11
   int v2; // r0
@@ -60995,13 +59996,13 @@ LABEL_8:
 LABEL_45:
       if ( *(char *)(*((uint32_t *)0x123ee4)) > 0 )
       {
-        sub_11F504((*((uint32_t *)0x123ef0)), v1, v17);
+        sub_11F504((*((uint32_t *)0x123ef0)), v1);
         v29 = v27 & 1;
         if ( v29 )
           v35 = v28 - 1 + ((unsigned int)(v28 - 1) >> 31);
         else
           v35 = v28 + ((unsigned int)v28 >> 31);
-        sub_11F504((*((uint32_t *)0x123ef4)), v21, v37, v23, v28, (v35 >> 1) + v21);
+        sub_11F504((*((uint32_t *)0x123ef4)), v21);
         --*(uint8_t *)(*((uint32_t *)0x123ee4));
         v30 = 1;
       }
@@ -61030,7 +60031,7 @@ LABEL_45:
             v33 = (v28 - 1) / 2;
           else
             v33 = v28 / 2;
-          sub_11F504((*((uint32_t *)0x123eec)), v32, v33 + v32);
+          sub_11F504((*((uint32_t *)0x123eec)), v32);
         }
       }
       if ( v29 )
@@ -61096,8 +60097,7 @@ LABEL_39:
 
 
 // sub_123F04 @ 0x123f04, size 68 bytes
-int  sub_123F04(int a1, int a2, short a3, short a4)
-{
+int  sub_123F04(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v5; // r0
   int v6; // r4
   int v9; // [sp+8h] [bp-8h] BYREF
@@ -61115,8 +60115,7 @@ int  sub_123F04(int a1, int a2, short a3, short a4)
 
 
 // sub_123F4C @ 0x123f4c, size 18 bytes
-int  sub_123F4C(unsigned int a1)
-{
+int  sub_123F4C(uint32_t a1) {
   if ( a1 <= 0x17 )
     return 1;
   *(uint32_t *)(*((uint32_t *)0x123f60)) = a1;
@@ -61126,64 +60125,56 @@ int  sub_123F4C(unsigned int a1)
 
 // sub_123F64 @ 0x123f64, size 16 bytes
 // sub_1223F64 [mmio]: Set bit 6 in MMIO register (read-modify-write)
-int  sub_123F64(int result)
-{
+int  sub_123F64(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123f74)) = *(uint32_t *)(*((uint32_t *)0x123f74)) & 0xFFFFFFBF | (result << 6);
   return result;
 }
 
 
 // sub_123F78 @ 0x123f78, size 16 bytes
-int  sub_123F78(int result)
-{
+int  sub_123F78(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123f88)) = *(uint32_t *)(*((uint32_t *)0x123f88)) & 0xFFEFFFFF | (result << 20);
   return result;
 }
 
 
 // sub_123F8C @ 0x123f8c, size 16 bytes
-int  sub_123F8C(int result)
-{
+int  sub_123F8C(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123f9c)) = *(uint32_t *)(*((uint32_t *)0x123f9c)) & 0xFFDFFFFF | (result << 21);
   return result;
 }
 
 
 // sub_123FA0 @ 0x123fa0, size 14 bytes
-int  sub_123FA0(int result)
-{
+int  sub_123FA0(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123fb0)) = *(uint32_t *)(*((uint32_t *)0x123fb0)) & 0xFFFFFFFE | result;
   return result;
 }
 
 
 // sub_123FB4 @ 0x123fb4, size 16 bytes
-int  sub_123FB4(int result)
-{
+int  sub_123FB4(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123fc4)) = *(uint32_t *)(*((uint32_t *)0x123fc4)) & 0xF0FFFFFF | (result << 24);
   return result;
 }
 
 
 // sub_123FC8 @ 0x123fc8, size 16 bytes
-int  sub_123FC8(int result)
-{
+int  sub_123FC8(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123fd8)) = *(uint32_t *)(*((uint32_t *)0x123fd8)) & 0xFFFEFFFF | (result << 16);
   return result;
 }
 
 
 // sub_123FDC @ 0x123fdc, size 16 bytes
-int  sub_123FDC(int result)
-{
+int  sub_123FDC(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x123fec)) = *(uint32_t *)(*((uint32_t *)0x123fec)) & 0xFC0FFFFF | (result << 20);
   return result;
 }
 
 
 // sub_123FF0 @ 0x123ff0, size 118 bytes
-int  sub_123FF0(unsigned int a1, int a2, int a3)
-{
+int  sub_123FF0(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r4
   unsigned int *v4; // r5
   unsigned int v5; // r2
@@ -61218,22 +60209,20 @@ LABEL_8:
     *v6 = v7;
     goto LABEL_8;
   }
-  msg_parse((*((uint32_t *)0x124078)), a1, a3, *(uint32_t *)(*((uint32_t *)0x124070)) << 31);
+  msg_parse((*((uint32_t *)0x124078)), a1);
   return 1;
 }
 
 
 // sub_12407C @ 0x12407c, size 18 bytes
-int  sub_12407C(int a1)
-{
+int  sub_12407C(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x124090)) = *(uint32_t *)(*((uint32_t *)0x124090)) & 0xFFFFFE7F | (a1 << 7);
   return 0;
 }
 
 
 // sub_124094 @ 0x124094, size 18 bytes
-int  sub_124094(int a1)
-{
+int  sub_124094(uint32_t a1) {
   *(uint32_t *)(*((uint32_t *)0x1240a8)) = *(uint32_t *)(*((uint32_t *)0x1240a8)) & 0xFFFFFDFF | (a1 << 9);
   return 0;
 }
@@ -61241,8 +60230,7 @@ int  sub_124094(int a1)
 
 // rf_pll_config_patch_n_8c @ 0x1240ac, size 130 bytes
 // rf_pll_config_patch_n_8c [rf]: Configures RF PLL/clock registers by clearing mask bits 0x30000 and 0x600
-int  rf_pll_config_patch_n_8c(int a1)
-{
+int  rf_pll_config_patch_n_8c(uint32_t a1) {
   unsigned int *v1; // r1
   unsigned int *v2; // r4
   unsigned int v3; // r3
@@ -61262,36 +60250,36 @@ int  rf_pll_config_patch_n_8c(int a1)
   switch ( a1 )
   {
     case 0:
-      msg_parse((*((uint32_t *)0x12413c)));
+      msg_parse((*((uint32_t *)0x12413c)), 0);
       result = 0;
       break;
     case 1:
       v7 = (*((uint32_t *)0x124140));
       *v1 = v3 | 0x10000;
-      msg_parse(v7);
+      msg_parse(v7, 0);
       result = 0;
       break;
     case 2:
       v8 = (*((uint32_t *)0x124144));
       *v1 = v3 | 0x10000;
       *v2 = v4 | 0x200;
-      msg_parse(v8);
+      msg_parse(v8, 0);
       result = 0;
       break;
     case 3:
       v9 = (*((uint32_t *)0x124148));
       *v1 = v3 | 0x20000;
-      msg_parse(v9);
+      msg_parse(v9, 0);
       result = 0;
       break;
     case 4:
       v5 = (*((uint32_t *)0x124138));
       *v1 = v3 | 0x20000;
       *v2 = v4 | 0x400;
-      msg_parse(v5);
+      msg_parse(v5, 0);
       goto LABEL_3;
     default:
-      msg_parse((*((uint32_t *)0x12414c)));
+      msg_parse((*((uint32_t *)0x12414c)), 0);
 LABEL_3:
       result = 0;
       break;
@@ -61301,8 +60289,7 @@ LABEL_3:
 
 
 // sub_1240AC @ 0x1240ac, size 130 bytes
-int  sub_1240AC(int a1)
-{
+int  sub_1240AC(uint32_t a1) {
   unsigned int *v1; // r1
   unsigned int *v2; // r4
   unsigned int v3; // r3
@@ -61322,36 +60309,36 @@ int  sub_1240AC(int a1)
   switch ( a1 )
   {
     case 0:
-      sub_11F504((*((uint32_t *)0x12413c)));
+      sub_11F504((*((uint32_t *)0x12413c)), 0);
       result = 0;
       break;
     case 1:
       v7 = (*((uint32_t *)0x124140));
       *v1 = v3 | 0x10000;
-      sub_11F504(v7);
+      sub_11F504(v7, 0);
       result = 0;
       break;
     case 2:
       v8 = (*((uint32_t *)0x124144));
       *v1 = v3 | 0x10000;
       *v2 = v4 | 0x200;
-      sub_11F504(v8);
+      sub_11F504(v8, 0);
       result = 0;
       break;
     case 3:
       v9 = (*((uint32_t *)0x124148));
       *v1 = v3 | 0x20000;
-      sub_11F504(v9);
+      sub_11F504(v9, 0);
       result = 0;
       break;
     case 4:
       v5 = (*((uint32_t *)0x124138));
       *v1 = v3 | 0x20000;
       *v2 = v4 | 0x400;
-      sub_11F504(v5);
+      sub_11F504(v5, 0);
       goto LABEL_3;
     default:
-      sub_11F504((*((uint32_t *)0x12414c)));
+      sub_11F504((*((uint32_t *)0x12414c)), 0);
 LABEL_3:
       result = 0;
       break;
@@ -61362,51 +60349,47 @@ LABEL_3:
 
 // sub_124150 @ 0x124150, size 30 bytes
 // sub_1224150 [util]: Packs a value into a global word using shifts and ORs
-int  sub_124150(int a1)
-{
+int  sub_124150(uint32_t a1) {
   int v1; // r1
   int v2; // r0
 
   v1 = (HIWORD(*(uint32_t *)(*((uint32_t *)0x124170))) << 16) | (a1 << 8) | a1;
   v2 = (*((uint32_t *)0x124174));
   *(uint32_t *)(*((uint32_t *)0x124170)) = v1;
-  msg_parse(v2);
+  msg_parse(v2, 0);
   return 0;
 }
 
 
 // mmio_field_set_l2h2 @ 0x124178, size 26 bytes
 // mmio_field_set_l2h2 [mmio]: Clear/set 0x40000 bitfield in control register and trigger handler
-int  mmio_field_set_l2h2(int a1)
-{
+int  mmio_field_set_l2h2(uint32_t a1) {
   unsigned int v1; // r1
   int v2; // r0
 
   v1 = *(uint32_t *)(*((uint32_t *)0x124194)) & 0xFFFBFFFF | (a1 << 18);
   v2 = (*((uint32_t *)0x124198));
   *(uint32_t *)(*((uint32_t *)0x124194)) = v1;
-  msg_parse(v2);
+  msg_parse(v2, 0);
   return 0;
 }
 
 
 // sub_124178 @ 0x124178, size 26 bytes
-int  sub_124178(int a1)
-{
+int  sub_124178(uint32_t a1) {
   unsigned int v1; // r1
   int v2; // r0
 
   v1 = *(uint32_t *)(*((uint32_t *)0x124194)) & 0xFFFBFFFF | (a1 << 18);
   v2 = (*((uint32_t *)0x124198));
   *(uint32_t *)(*((uint32_t *)0x124194)) = v1;
-  sub_11F504(v2);
+  sub_11F504(v2, 0);
   return 0;
 }
 
 
 // sub_12419C @ 0x12419c, size 140 bytes
-int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
-{
+int  sub_12419C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5) {
   uint8_t *v5; // r9
   char v8; // r8
   int v10; // r3
@@ -61418,7 +60401,7 @@ int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
 
   v5 = (*((uint32_t *)0x124240));
   v8 = a3;
-  msg_parse((*((uint32_t *)0x124228)), a1, a2, a3, a4, a5, *((unsigned char *)(*((uint32_t *)0x124240)) + 36));
+  msg_parse((*((uint32_t *)0x124228)), a1);
   if ( v5[36] )
   {
     if ( a1 == 2 )
@@ -61458,8 +60441,7 @@ int  sub_12419C(int a1, int a2, int a3, int a4, int a5)
 
 // check_param_eq1 @ 0x124244, size 144 bytes
 // check_param_eq1 [util]: Compare parameter against 1 and branch
-unsigned int  check_param_eq1(unsigned int result, unsigned int a2, int a3)
-{
+unsigned int  check_param_eq1(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r2
   int v4; // r3
   int v5; // r2
@@ -61529,8 +60511,7 @@ unsigned int  check_param_eq1(unsigned int result, unsigned int a2, int a3)
 
 
 // sub_124244 @ 0x124244, size 144 bytes
-unsigned int  sub_124244(unsigned int result, unsigned int a2, int a3)
-{
+unsigned int  sub_124244(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r2
   int v4; // r3
   int v5; // r2
@@ -61601,8 +60582,7 @@ unsigned int  sub_124244(unsigned int result, unsigned int a2, int a3)
 
 // rf_table_lookup @ 0x1242f0, size 476 bytes
 // rf_table_lookup [rf]: Lookup RF table entry by index (<=0x80)
-int  rf_table_lookup(unsigned int a1)
-{
+int  rf_table_lookup(uint32_t a1) {
   int v2; // r7
   int v3; // r5
   int v4; // r0
@@ -61706,7 +60686,7 @@ int  rf_table_lookup(unsigned int a1)
         *(uint8_t *)(v7 + 130) = *(uint16_t *)(*((uint32_t *)0x1244dc));
         v17 = v13[5];
         *(uint8_t *)(v7 + 128) = -127;
-        v13 = ((unsigned)(v13) & 0xFFFFFF00U) | (((unsigned)(*v16) & 0xFFU) << 0);
+        LOBYTE(v13) = *v16;
         *(uint8_t *)(v7 + 131) = HIBYTE(v14);
         *(uint16_t *)(v7 + 132) = v15;
         *(uint8_t *)(v7 + 134) = v17;
@@ -61735,7 +60715,7 @@ int  rf_table_lookup(unsigned int a1)
         v20 = *v18;
         v21 = (*((uint32_t *)0x1244e0));
         *(uint8_t *)(v7 + 130) = *v18;
-        v21 = ((unsigned)(v21) & 0xFFFFFF00U) | (((unsigned)(*v21) & 0xFFU) << 0);
+        LOBYTE(v21) = *v21;
         *(uint8_t *)(v7 + 131) = HIBYTE(v20);
         *(uint8_t *)(v7 + 132) = v19;
         *(uint8_t *)(v7 + 129) = (uint8_t)v21;
@@ -61774,8 +60754,7 @@ LABEL_14:
 
 
 // sub_1242F0 @ 0x1242f0, size 476 bytes
-int  sub_1242F0(unsigned int a1)
-{
+int  sub_1242F0(uint32_t a1) {
   int v2; // r7
   int v3; // r5
   int v4; // r0
@@ -61879,7 +60858,7 @@ int  sub_1242F0(unsigned int a1)
         *(uint8_t *)(v7 + 130) = *(uint16_t *)(*((uint32_t *)0x1244dc));
         v17 = v13[5];
         *(uint8_t *)(v7 + 128) = -127;
-        v13 = ((unsigned)(v13) & 0xFFFFFF00U) | (((unsigned)(*v16) & 0xFFU) << 0);
+        LOBYTE(v13) = *v16;
         *(uint8_t *)(v7 + 131) = HIBYTE(v14);
         *(uint16_t *)(v7 + 132) = v15;
         *(uint8_t *)(v7 + 134) = v17;
@@ -61908,7 +60887,7 @@ int  sub_1242F0(unsigned int a1)
         v20 = *v18;
         v21 = (*((uint32_t *)0x1244e0));
         *(uint8_t *)(v7 + 130) = *v18;
-        v21 = ((unsigned)(v21) & 0xFFFFFF00U) | (((unsigned)(*v21) & 0xFFU) << 0);
+        LOBYTE(v21) = *v21;
         *(uint8_t *)(v7 + 131) = HIBYTE(v20);
         *(uint8_t *)(v7 + 132) = v19;
         *(uint8_t *)(v7 + 129) = (uint8_t)v21;
@@ -61948,8 +60927,7 @@ LABEL_14:
 
 // log_free_dispatch_n2f2 @ 0x1244f8, size 36 bytes
 // log_free_dispatch_n2f2 [util]: Dispatches log free with rotated value, likely a logger release
-int log_free_dispatch_n2f2()
-{
+int log_free_dispatch_n2f2() {
   int result; // r0
   int v1; // r3
 
@@ -61958,7 +60936,7 @@ int log_free_dispatch_n2f2()
   if ( v1 == 10 )
   {
     *(uint16_t *)(*((uint32_t *)0x12451c)) = 0;
-    return rf_init_n_dc(result);
+    return rf_init_n_dc();
   }
   else
   {
@@ -61969,8 +60947,7 @@ int log_free_dispatch_n2f2()
 
 
 // sub_1244F8 @ 0x1244f8, size 36 bytes
-int sub_1244F8()
-{
+int sub_1244F8() {
   int result; // r0
   int v1; // r3
 
@@ -61979,7 +60956,7 @@ int sub_1244F8()
   if ( v1 == 10 )
   {
     *(uint16_t *)(*((uint32_t *)0x12451c)) = 0;
-    return sub_12632C(result);
+    return sub_12632C();
   }
   else
   {
@@ -61990,8 +60967,7 @@ int sub_1244F8()
 
 
 // sub_124520 @ 0x124520, size 90 bytes
-void sub_124520()
-{
+void sub_124520() {
   uint16_t *v0; // r4
   int v1; // r0
   int v2; // r3
@@ -62008,7 +60984,7 @@ void sub_124520()
       if ( (unsigned int)*(unsigned char *)(*((uint32_t *)0x124584)) - 2 <= 1 )
       {
         *v0 = 0;
-        rf_init_n_dc(v1);
+        rf_init_n_dc();
       }
       else
       {
@@ -62025,8 +61001,7 @@ void sub_124520()
 
 // sub_124594 @ 0x124594, size 72 bytes
 // sub_1224594 [unknown]: Check shared init flag byte and branch on ready state
-int sub_124594()
-{
+int sub_124594() {
   uint16_t *v0; // r4
   int result; // r0
   int v2; // r3
@@ -62056,8 +61031,7 @@ int sub_124594()
 
 // rf_init_or_reset_sub_12245f0 @ 0x1245f0, size 60 bytes
 // rf_init_or_reset_sub_12245f0 [rf]: Trigger RF subsystem reset/initialization (param 0x80) via internal handler
-int rf_init_or_reset_sub_12245f0()
-{
+int rf_init_or_reset_sub_12245f0() {
   uint16_t *v0; // r4
   int result; // r0
   int v2; // r3
@@ -62082,8 +61056,7 @@ int rf_init_or_reset_sub_12245f0()
 
 
 // sub_1245F0 @ 0x1245f0, size 60 bytes
-int sub_1245F0()
-{
+int sub_1245F0() {
   uint16_t *v0; // r4
   int result; // r0
   int v2; // r3
@@ -62109,8 +61082,7 @@ int sub_1245F0()
 
 // sub_124638 @ 0x124638, size 44 bytes
 // sub_1224640 [util]: Periodic counter increment utility, resets at threshold 0x64
-int sub_124638()
-{
+int sub_124638() {
   uint16_t *v0; // r4
   int result; // r0
   int v2; // r3
@@ -62132,12 +61104,11 @@ int sub_124638()
 
 
 // sub_12466C @ 0x12466c, size 112 bytes
-void sub_12466C()
-{
+void sub_12466C() {
   int v0; // r0
 
   v0 = sub_11E628(0x2000);
-  if ( is_flag_set_n645c(v0) )
+  if ( is_flag_set_n645c() )
   {
     switch ( *(uint8_t *)(*((uint32_t *)0x1246dc)) )
     {
@@ -62175,8 +61146,7 @@ void sub_12466C()
 
 // rf_state_get_n246 @ 0x1246f0, size 152 bytes
 // rf_state_get_n246 [rf]: Get current RF state value
-int  rf_state_get_n246(int a1, int a2)
-{
+int  rf_state_get_n246(uint32_t a1, uint32_t a2) {
   uint8_t *v3; // r6
   int *v4; // r5
   int v5; // r3
@@ -62186,7 +61156,7 @@ int  rf_state_get_n246(int a1, int a2)
 
   if ( (*(uint32_t *)(*((uint32_t *)0x124788)) & 2) != 0 && (*(uint8_t *)a2 == 1 || *(unsigned short *)(a2 + 4) > 0x1387u) )
   {
-    msg_parse((*((uint32_t *)0x1247a0)));
+    msg_parse((*((uint32_t *)0x1247a0)), 0);
     return -1;
   }
   else
@@ -62236,8 +61206,7 @@ int  rf_state_get_n246(int a1, int a2)
 
 
 // sub_1246F0 @ 0x1246f0, size 152 bytes
-int  sub_1246F0(int a1, int a2)
-{
+int  sub_1246F0(uint32_t a1, uint32_t a2) {
   uint8_t *v3; // r6
   int *v4; // r5
   int v5; // r3
@@ -62247,7 +61216,7 @@ int  sub_1246F0(int a1, int a2)
 
   if ( (*(uint32_t *)(*((uint32_t *)0x124788)) & 2) != 0 && (*(uint8_t *)a2 == 1 || *(unsigned short *)(a2 + 4) > 0x1387u) )
   {
-    sub_11F504((*((uint32_t *)0x1247a0)));
+    sub_11F504((*((uint32_t *)0x1247a0)), 0);
     return -1;
   }
   else
@@ -62298,8 +61267,7 @@ int  sub_1246F0(int a1, int a2)
 
 // rf_state_load @ 0x1247a4, size 50 bytes
 // rf_state_load [rf]: Load state pointer from context struct
-int  rf_state_load(unsigned char **a1, unsigned char *a2)
-{
+int  rf_state_load(uint32_t a1, uint32_t a2) {
   unsigned char *v2; // r3
   unsigned char *v3; // t1
 
@@ -62320,8 +61288,7 @@ int  rf_state_load(unsigned char **a1, unsigned char *a2)
 
 
 // sub_1247A4 @ 0x1247a4, size 50 bytes
-int  sub_1247A4(unsigned char **a1, unsigned char *a2)
-{
+int  sub_1247A4(uint32_t a1, uint32_t a2) {
   unsigned char *v2; // r3
   unsigned char *v3; // t1
 
@@ -62343,8 +61310,7 @@ int  sub_1247A4(unsigned char **a1, unsigned char *a2)
 
 // sub_1247D8 @ 0x1247d8, size 168 bytes
 // sub_12247D8 [unknown]: Branch on state value, push r3-r5/lr prologue
-int  sub_1247D8(int a1, int a2)
-{
+int  sub_1247D8(uint32_t a1, uint32_t a2) {
   int *v2; // r5
   int v3; // r0
   uint8_t *v4; // r3
@@ -62411,14 +61377,13 @@ LABEL_15:
     v9 = 0;
     goto LABEL_15;
   }
-  msg_parse((*((uint32_t *)0x124898)));
+  msg_parse((*((uint32_t *)0x124898)), 0);
   return 1;
 }
 
 
 // sub_1248A4 @ 0x1248a4, size 50 bytes
-int sub_1248A4()
-{
+int sub_1248A4() {
   uint8_t *v0; // r4
   int *v1; // r3
   int v2; // r2
@@ -62428,7 +61393,7 @@ int sub_1248A4()
   v0 = (*((uint32_t *)0x1248dc));
   if ( *(uint8_t *)(*((uint32_t *)0x1248dc)) )
   {
-    msg_parse((*((uint32_t *)0x1248ec)));
+    msg_parse((*((uint32_t *)0x1248ec)), 0);
     return 0;
   }
   else
@@ -62445,29 +61410,26 @@ int sub_1248A4()
 
 // rf_lmac_init_n190 @ 0x1248f0, size 26 bytes
 // rf_lmac_init_n190 [rf]: LMAC RF subsystem init: clear status byte and invoke bringup at 0x11dc54
-int rf_lmac_init_n190()
-{
+int rf_lmac_init_n190() {
   *(uint8_t *)(*((uint32_t *)0x12490c)) = 0;
   event_queue_push(144, 0);
-  msg_parse((*((uint32_t *)0x124910)));
+  msg_parse((*((uint32_t *)0x124910)), 0);
   return 0;
 }
 
 
 // sub_1248F0 @ 0x1248f0, size 26 bytes
-int sub_1248F0()
-{
+int sub_1248F0() {
   *(uint8_t *)(*((uint32_t *)0x12490c)) = 0;
   sub_11DC54(144, 0);
-  sub_11F504((*((uint32_t *)0x124910)));
+  sub_11F504((*((uint32_t *)0x124910)), 0);
   return 0;
 }
 
 
 // mmio_syscfg_init_n4 @ 0x124914, size 32 bytes
 // mmio_syscfg_init_n4 [mmio]: Initialize SYSCFG/clock MMIO registers
-int mmio_syscfg_init_n4()
-{
+int mmio_syscfg_init_n4() {
   int *v0; // r1
   int v1; // r0
 
@@ -62476,14 +61438,13 @@ int mmio_syscfg_init_n4()
   *(uint32_t *)(*((uint32_t *)0x124934)) |= 0x10u;
   *v0 = v1;
   mmio_init_clock_gate_n121();
-  msg_parse((*((uint32_t *)0x124940)));
+  msg_parse((*((uint32_t *)0x124940)), 0);
   return 0;
 }
 
 
 // sub_124914 @ 0x124914, size 32 bytes
-int sub_124914()
-{
+int sub_124914() {
   int *v0; // r1
   int v1; // r0
 
@@ -62492,32 +61453,29 @@ int sub_124914()
   *(uint32_t *)(*((uint32_t *)0x124934)) |= 0x10u;
   *v0 = v1;
   sub_1188F4();
-  sub_11F504((*((uint32_t *)0x124940)));
+  sub_11F504((*((uint32_t *)0x124940)), 0);
   return 0;
 }
 
 
 // rf_cmd_send_n_438_4944 @ 0x124944, size 22 bytes
 // rf_cmd_send_n_438_4944 [rf]: Sends RF command toggling control bits in 0x804
-int rf_cmd_send_n_438_4944()
-{
-  msg_parse((*((uint32_t *)0x124964)), *(uint32_t *)(*((uint32_t *)0x12495c)), *(uint32_t *)(*((uint32_t *)0x124960)) + *(uint32_t *)(*((uint32_t *)0x12495c)));
+int rf_cmd_send_n_438_4944() {
+  msg_parse((*((uint32_t *)0x124964)), *(uint32_t *)(*((uint32_t *)0x12495c)));
   return 0;
 }
 
 
 // sub_124944 @ 0x124944, size 22 bytes
-int sub_124944()
-{
-  sub_11F504((*((uint32_t *)0x124964)), *(uint32_t *)(*((uint32_t *)0x12495c)), *(uint32_t *)(*((uint32_t *)0x124960)) + *(uint32_t *)(*((uint32_t *)0x12495c)));
+int sub_124944() {
+  sub_11F504((*((uint32_t *)0x124964)), *(uint32_t *)(*((uint32_t *)0x12495c)));
   return 0;
 }
 
 
 // rf_status_read_n_968 @ 0x124968, size 128 bytes
 // rf_status_read_n_968 [rf]: Read RF status register 0x40320038 and process bit field
-int rf_status_read_n_968()
-{
+int rf_status_read_n_968() {
   int *v0; // r6
   uint32_t *v1; // r4
   uint32_t *v2; // r5
@@ -62542,7 +61500,7 @@ int rf_status_read_n_968()
     while ( *v1 << 28 )
     {
       if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        msg_parse((*((uint32_t *)0x124a0c)), *v1 << 28, 30000);
+        msg_parse((*((uint32_t *)0x124a0c)), *v1 << 28);
     }
     v4 = (*((uint32_t *)0x1249f8));
     while ( (*(uint32_t *)(*((uint32_t *)0x1249f8)) & *(uint32_t *)(*((uint32_t *)0x1249f4)) & 4) == 0 )
@@ -62561,14 +61519,13 @@ int rf_status_read_n_968()
     }
     msg_parse((*((uint32_t *)0x124a04)), v4);
   }
-  msg_parse((*((uint32_t *)0x124a08)));
+  msg_parse((*((uint32_t *)0x124a08)), 0);
   return 0;
 }
 
 
 // sub_124968 @ 0x124968, size 128 bytes
-int sub_124968()
-{
+int sub_124968() {
   int *v0; // r6
   uint32_t *v1; // r4
   uint32_t *v2; // r5
@@ -62593,7 +61550,7 @@ int sub_124968()
     while ( *v1 << 28 )
     {
       if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        sub_11F504((*((uint32_t *)0x124a0c)), *v1 << 28, 30000);
+        sub_11F504((*((uint32_t *)0x124a0c)), *v1 << 28);
     }
     v4 = (*((uint32_t *)0x1249f8));
     while ( (*(uint32_t *)(*((uint32_t *)0x1249f8)) & *(uint32_t *)(*((uint32_t *)0x1249f4)) & 4) == 0 )
@@ -62612,19 +61569,18 @@ int sub_124968()
     }
     sub_11F504((*((uint32_t *)0x124a04)), v4);
   }
-  sub_11F504((*((uint32_t *)0x124a08)));
+  sub_11F504((*((uint32_t *)0x124a08)), 0);
   return 0;
 }
 
 
 // sub_124A10 @ 0x124a10, size 52 bytes
-int  sub_124A10(int a1, int a2)
-{
+int  sub_124A10(uint32_t a1, uint32_t a2) {
   int v2; // r3
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124a48)));
+    msg_parse((*((uint32_t *)0x124a48)), 0);
     return 1;
   }
   else
@@ -62632,7 +61588,7 @@ int  sub_124A10(int a1, int a2)
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     if ( (unsigned int)(v2 - 1) <= 0x30 )
     {
-      msg_parse((*((uint32_t *)0x124a4c)));
+      msg_parse((*((uint32_t *)0x124a4c)), 0);
       return 1;
     }
     else
@@ -62645,13 +61601,12 @@ int  sub_124A10(int a1, int a2)
 
 
 // sub_124A50 @ 0x124a50, size 46 bytes
-int  sub_124A50(int a1, int a2)
-{
+int  sub_124A50(uint32_t a1, uint32_t a2) {
   int v2; // r4
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124a84)));
+    msg_parse((*((uint32_t *)0x124a84)), 0);
     return 1;
   }
   else
@@ -62666,8 +61621,7 @@ int  sub_124A50(int a1, int a2)
 
 // sub_124A88 @ 0x124a88, size 110 bytes
 // sub_1224A88 [unknown]: Unknown helper, dispatches on 2-way state
-int  sub_124A88(int a1, unsigned char **a2)
-{
+int  sub_124A88(uint32_t a1, uint32_t a2) {
   int *v3; // r6
   unsigned int v4; // r5
   int v5; // r3
@@ -62680,7 +61634,7 @@ int  sub_124A88(int a1, unsigned char **a2)
 
   if ( a1 <= 2 )
   {
-    msg_parse((*((uint32_t *)0x124b00)));
+    msg_parse((*((uint32_t *)0x124b00)), 0);
     return -1;
   }
   else
@@ -62699,7 +61653,7 @@ int  sub_124A88(int a1, unsigned char **a2)
       v9 = v11;
     }
     sub_123FF0(v4, v7, v9);
-    msg_parse((*((uint32_t *)0x124afc)));
+    msg_parse((*((uint32_t *)0x124afc)), 0);
     result = *v3;
     if ( *v3 )
     {
@@ -62713,8 +61667,7 @@ int  sub_124A88(int a1, unsigned char **a2)
 
 // rf_chan_init_or_set_n54 @ 0x124b04, size 338 bytes
 // rf_chan_init_or_set_n54 [rf]: Initialize/set RF channel/param with memset(0) helper
-int  rf_chan_init_or_set_n54(int a1, int a2)
-{
+int  rf_chan_init_or_set_n54(uint32_t a1, uint32_t a2) {
   unsigned char v3; // r0
   unsigned int v4; // r4
   int v5; // r3
@@ -62731,7 +61684,7 @@ int  rf_chan_init_or_set_n54(int a1, int a2)
   v3 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
   if ( a1 <= 1 || (v4 = v3) == 0 )
   {
-    msg_parse((*((uint32_t *)0x124c68)));
+    msg_parse((*((uint32_t *)0x124c68)), 0);
     return -1;
   }
   *(uint32_t *)(*((uint32_t *)0x124c58)) |= 0x500000u;
@@ -62745,7 +61698,7 @@ int  rf_chan_init_or_set_n54(int a1, int a2)
     {
       if ( v4 != 14 )
       {
-        msg_parse((*((uint32_t *)0x124c6c)), v4, (uint32_t)v9);
+        msg_parse((*((uint32_t *)0x124c6c)), v4);
         return -2;
       }
       v13 = 2484;
@@ -62806,14 +61759,13 @@ LABEL_7:
   *(uint32_t *)(*((uint32_t *)0x124c58)) &= 0xFF87FFFF;
   if ( *v6 )
     rf_level_apply_n_4ec(*v6);
-  msg_parse((*((uint32_t *)0x124c64)), v4, v13, v11);
+  msg_parse((*((uint32_t *)0x124c64)), v4);
   return 0;
 }
 
 
 // sub_124B04 @ 0x124b04, size 338 bytes
-int  sub_124B04(int a1, int a2)
-{
+int  sub_124B04(uint32_t a1, uint32_t a2) {
   unsigned char v3; // r0
   unsigned int v4; // r4
   int v5; // r3
@@ -62830,7 +61782,7 @@ int  sub_124B04(int a1, int a2)
   v3 = sub_121E3C(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
   if ( a1 <= 1 || (v4 = v3) == 0 )
   {
-    sub_11F504((*((uint32_t *)0x124c68)));
+    sub_11F504((*((uint32_t *)0x124c68)), 0);
     return -1;
   }
   *(uint32_t *)(*((uint32_t *)0x124c58)) |= 0x500000u;
@@ -62844,7 +61796,7 @@ int  sub_124B04(int a1, int a2)
     {
       if ( v4 != 14 )
       {
-        sub_11F504((*((uint32_t *)0x124c6c)), v4, (uint32_t)v9);
+        sub_11F504((*((uint32_t *)0x124c6c)), v4);
         return -2;
       }
       v13 = 2484;
@@ -62905,14 +61857,13 @@ LABEL_7:
   *(uint32_t *)(*((uint32_t *)0x124c58)) &= 0xFF87FFFF;
   if ( *v6 )
     sub_1268EC(*v6);
-  sub_11F504((*((uint32_t *)0x124c64)), v4, v13, v11);
+  sub_11F504((*((uint32_t *)0x124c64)), v4);
   return 0;
 }
 
 
 // sub_124C70 @ 0x124c70, size 424 bytes
-int  sub_124C70(int a1, unsigned char **a2)
-{
+int  sub_124C70(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r4
   unsigned int v5; // r7
   int v6; // r8
@@ -62932,7 +61883,7 @@ int  sub_124C70(int a1, unsigned char **a2)
   get_cached_1828f8(&v13, 0);
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124e2c)));
+    msg_parse((*((uint32_t *)0x124e2c)), 0);
     return -1;
   }
   v4 = parse_int(a2[1], (void*)0, 0xAu);
@@ -62969,7 +61920,7 @@ int  sub_124C70(int a1, unsigned char **a2)
     {
       if ( (*(uint8_t *)(*((uint32_t *)0x124e18)) & 8) == 0 && (v4 > 1 || v5 > 1) )
       {
-        msg_parse((*((uint32_t *)0x124e30)), v4, v5);
+        msg_parse((*((uint32_t *)0x124e30)), v4);
         return -2;
       }
       v17 = HIDWORD(v13);
@@ -63022,7 +61973,7 @@ LABEL_16:
   *(uint8_t *)(*((uint32_t *)0x124e1c)) = v8;
   *v9 = v8;
   sub_102E84(v11, v10, v8);
-  msg_parse((*((uint32_t *)0x124e24)), v16, (unsigned short)v17);
+  msg_parse((*((uint32_t *)0x124e24)), v16);
   result = *(uint32_t *)(*((uint32_t *)0x124e28));
   if ( *(uint32_t *)(*((uint32_t *)0x124e28)) )
   {
@@ -63034,13 +61985,12 @@ LABEL_16:
 
 
 // sub_124E34 @ 0x124e34, size 38 bytes
-int  sub_124E34(int a1, int a2)
-{
+int  sub_124E34(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124e5c)));
+    msg_parse((*((uint32_t *)0x124e5c)), 0);
     return -1;
   }
   else
@@ -63054,8 +62004,7 @@ int  sub_124E34(int a1, int a2)
 
 // rf_param_select_n_e60 @ 0x124e60, size 166 bytes
 // rf_param_select_n_e60 [rf]: Select RF parameter by comparing value against 2 and allocating stack frame
-int  rf_param_select_n_e60(int a1, int a2)
-{
+int  rf_param_select_n_e60(uint32_t a1, uint32_t a2) {
   int *v3; // r5
   int v4; // r3
   unsigned char *v5; // r0
@@ -63075,7 +62024,7 @@ int  rf_param_select_n_e60(int a1, int a2)
 
   if ( a1 <= 2 )
   {
-    msg_parse((*((uint32_t *)0x124f1c)));
+    msg_parse((*((uint32_t *)0x124f1c)), 0);
     return -1;
   }
   else
@@ -63089,11 +62038,11 @@ int  rf_param_select_n_e60(int a1, int a2)
     v9 = *v3;
     v10 = *(uint32_t *)(*((uint32_t *)0x124f10));
     v11 = *(uint32_t *)(*((uint32_t *)0x124f14));
-    v16 = ((unsigned)(v16) & 0xFFFF0000U) | (((unsigned)(*(uint32_t *)(*((uint32_t *)0x124f0c))) & 0xFFFFU) << 0);
+    LOWORD(v16) = *(uint32_t *)(*((uint32_t *)0x124f0c));
     BYTE2(v16) = BYTE2(v8);
-    v17 = ((unsigned)(v17) & 0xFFFF0000U) | (((unsigned)(v9) & 0xFFFFU) << 0);
+    LOWORD(v17) = v9;
     BYTE2(v17) = BYTE2(v9);
-    v18 = ((unsigned)(v18) & 0xFFFF0000U) | (((unsigned)(v10) & 0xFFFFU) << 0);
+    LOWORD(v18) = v10;
     BYTE2(v18) = BYTE2(v10);
     LOWORD(v19[0]) = v11;
     BYTE2(v19[0]) = BYTE2(v11);
@@ -63125,15 +62074,14 @@ int  rf_param_select_n_e60(int a1, int a2)
       }
       v14 = &v17;
     }
-    msg_parse((*((uint32_t *)0x124f18)), v13, v14, v12, v16, v17, v18, v19[0]);
+    msg_parse((*((uint32_t *)0x124f18)), v13);
     return 0;
   }
 }
 
 
 // sub_124E60 @ 0x124e60, size 166 bytes
-int  sub_124E60(int a1, int a2)
-{
+int  sub_124E60(uint32_t a1, uint32_t a2) {
   int *v3; // r5
   int v4; // r3
   unsigned char *v5; // r0
@@ -63153,7 +62101,7 @@ int  sub_124E60(int a1, int a2)
 
   if ( a1 <= 2 )
   {
-    sub_11F504((*((uint32_t *)0x124f1c)));
+    sub_11F504((*((uint32_t *)0x124f1c)), 0);
     return -1;
   }
   else
@@ -63167,11 +62115,11 @@ int  sub_124E60(int a1, int a2)
     v9 = *v3;
     v10 = *(uint32_t *)(*((uint32_t *)0x124f10));
     v11 = *(uint32_t *)(*((uint32_t *)0x124f14));
-    v16 = ((unsigned)(v16) & 0xFFFF0000U) | (((unsigned)(*(uint32_t *)(*((uint32_t *)0x124f0c))) & 0xFFFFU) << 0);
+    LOWORD(v16) = *(uint32_t *)(*((uint32_t *)0x124f0c));
     BYTE2(v16) = BYTE2(v8);
-    v17 = ((unsigned)(v17) & 0xFFFF0000U) | (((unsigned)(v9) & 0xFFFFU) << 0);
+    LOWORD(v17) = v9;
     BYTE2(v17) = BYTE2(v9);
-    v18 = ((unsigned)(v18) & 0xFFFF0000U) | (((unsigned)(v10) & 0xFFFFU) << 0);
+    LOWORD(v18) = v10;
     BYTE2(v18) = BYTE2(v10);
     LOWORD(v19[0]) = v11;
     BYTE2(v19[0]) = BYTE2(v11);
@@ -63203,45 +62151,42 @@ int  sub_124E60(int a1, int a2)
       }
       v14 = &v17;
     }
-    sub_11F504((*((uint32_t *)0x124f18)), v13, v14, v12, v16, v17, v18, v19[0]);
+    sub_11F504((*((uint32_t *)0x124f18)), v13);
     return 0;
   }
 }
 
 
 // sub_124F20 @ 0x124f20, size 26 bytes
-int  sub_124F20(int a1, int a2)
-{
+int  sub_124F20(uint32_t a1, uint32_t a2) {
   int v2; // r0
 
   v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
   sub_124094(v2);
-  msg_parse((*((uint32_t *)0x124f3c)));
+  msg_parse((*((uint32_t *)0x124f3c)), 0);
   return 0;
 }
 
 
 // sub_124F40 @ 0x124f40, size 28 bytes
 // sub_1224F42 [rf]: RF register read wrapper and event post
-int  sub_124F40(int a1, int a2)
-{
+int  sub_124F40(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0);
   sub_124150(v2);
-  msg_parse((*((uint32_t *)0x124f5c)));
+  msg_parse((*((uint32_t *)0x124f5c)), 0);
   return 0;
 }
 
 
 // sub_124F60 @ 0x124f60, size 50 bytes
-int  sub_124F60(int a1, int a2)
-{
+int  sub_124F60(uint32_t a1, uint32_t a2) {
   int v2; // r4
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124f98)));
+    msg_parse((*((uint32_t *)0x124f98)), 0);
     return 1;
   }
   else
@@ -63249,175 +62194,166 @@ int  sub_124F60(int a1, int a2)
     v2 = (unsigned char)parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123F64(v2);
     if ( v2 )
-      msg_parse((*((uint32_t *)0x124f94)));
+      msg_parse((*((uint32_t *)0x124f94)), 0);
     return 0;
   }
 }
 
 
 // sub_124F9C @ 0x124f9c, size 42 bytes
-int  sub_124F9C(int a1, int a2)
-{
+int  sub_124F9C(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x124fcc)));
+    msg_parse((*((uint32_t *)0x124fcc)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     rf_pll_config_patch_n_8c(v2);
-    msg_parse((*((uint32_t *)0x124fc8)));
+    msg_parse((*((uint32_t *)0x124fc8)), 0);
     return 0;
   }
 }
 
 
 // sub_124FD0 @ 0x124fd0, size 42 bytes
-int  sub_124FD0(int a1, int a2)
-{
+int  sub_124FD0(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125000)));
+    msg_parse((*((uint32_t *)0x125000)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     mmio_field_set_l2h2(v2);
-    msg_parse((*((uint32_t *)0x124ffc)));
+    msg_parse((*((uint32_t *)0x124ffc)), 0);
     return 0;
   }
 }
 
 
 // sub_125004 @ 0x125004, size 42 bytes
-int  sub_125004(int a1, int a2)
-{
+int  sub_125004(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125034)));
+    msg_parse((*((uint32_t *)0x125034)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123F78(v2);
-    msg_parse((*((uint32_t *)0x125030)));
+    msg_parse((*((uint32_t *)0x125030)), 0);
     return 0;
   }
 }
 
 
 // sub_125038 @ 0x125038, size 42 bytes
-int  sub_125038(int a1, int a2)
-{
+int  sub_125038(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125068)));
+    msg_parse((*((uint32_t *)0x125068)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123F8C(v2);
-    msg_parse((*((uint32_t *)0x125064)));
+    msg_parse((*((uint32_t *)0x125064)), 0);
     return 0;
   }
 }
 
 
 // sub_12506C @ 0x12506c, size 42 bytes
-int  sub_12506C(int a1, int a2)
-{
+int  sub_12506C(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x12509c)));
+    msg_parse((*((uint32_t *)0x12509c)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123FC8(v2);
-    msg_parse((*((uint32_t *)0x125098)));
+    msg_parse((*((uint32_t *)0x125098)), 0);
     return 0;
   }
 }
 
 
 // sub_1250A0 @ 0x1250a0, size 42 bytes
-int  sub_1250A0(int a1, int a2)
-{
+int  sub_1250A0(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x1250d0)));
+    msg_parse((*((uint32_t *)0x1250d0)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123FA0(v2);
-    msg_parse((*((uint32_t *)0x1250cc)));
+    msg_parse((*((uint32_t *)0x1250cc)), 0);
     return 0;
   }
 }
 
 
 // sub_1250D4 @ 0x1250d4, size 42 bytes
-int  sub_1250D4(int a1, int a2)
-{
+int  sub_1250D4(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125104)));
+    msg_parse((*((uint32_t *)0x125104)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123FDC(v2);
-    msg_parse((*((uint32_t *)0x125100)));
+    msg_parse((*((uint32_t *)0x125100)), 0);
     return 0;
   }
 }
 
 
 // sub_125108 @ 0x125108, size 42 bytes
-int  sub_125108(int a1, int a2)
-{
+int  sub_125108(uint32_t a1, uint32_t a2) {
   unsigned char v2; // r0
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125138)));
+    msg_parse((*((uint32_t *)0x125138)), 0);
     return 1;
   }
   else
   {
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0xAu);
     sub_123FB4(v2);
-    msg_parse((*((uint32_t *)0x125134)));
+    msg_parse((*((uint32_t *)0x125134)), 0);
     return 0;
   }
 }
 
 
 // sub_12513C @ 0x12513c, size 328 bytes
-int  sub_12513C(int a1, unsigned char **a2)
-{
+int  sub_12513C(uint32_t a1, uint32_t a2) {
   unsigned int v4; // r4
   unsigned int v5; // r5
   unsigned int v6; // r7
@@ -63434,7 +62370,7 @@ int  sub_12513C(int a1, unsigned char **a2)
 
   if ( a1 <= 2 )
   {
-    msg_parse((*((uint32_t *)0x125290)));
+    msg_parse((*((uint32_t *)0x125290)), 0);
     return 1;
   }
   else
@@ -63504,15 +62440,15 @@ int  sub_12513C(int a1, unsigned char **a2)
       {
         sub_12419C(v8, v10, 0, v15, v16);
 LABEL_13:
-        msg_parse((*((uint32_t *)0x12528c)));
+        msg_parse((*((uint32_t *)0x12528c)), 0);
         return 0;
       }
-      msg_parse((*((uint32_t *)0x125298)));
+      msg_parse((*((uint32_t *)0x125298)), 0);
       return 1;
     }
     else
     {
-      msg_parse((*((uint32_t *)0x125294)));
+      msg_parse((*((uint32_t *)0x125294)), 0);
       return 1;
     }
   }
@@ -63520,8 +62456,7 @@ LABEL_13:
 
 
 // sub_12529C @ 0x12529c, size 18 bytes
-int sub_12529C()
-{
+int sub_12529C() {
   msg_parse((*((uint32_t *)0x1252b4)), *(char *)(*((uint32_t *)0x1252b0)));
   return 0;
 }
@@ -63529,8 +62464,7 @@ int sub_12529C()
 
 // rf_chan_set_check_52b8 @ 0x1252b8, size 184 bytes
 // rf_chan_set_check_52b8 [rf]: Set RF channel and verify selection
-int  rf_chan_set_check_52b8(int a1, unsigned char **a2)
-{
+int  rf_chan_set_check_52b8(uint32_t a1, uint32_t a2) {
   int v4; // r0
   unsigned int v6; // r4
   int v7; // r0
@@ -63548,7 +62482,7 @@ int  rf_chan_set_check_52b8(int a1, unsigned char **a2)
     {
       v8 = parse_int(a2[2], (void*)0, 0);
       v9 = parse_int(a2[3], (void*)0, 0x10u);
-      msg_parse((*((uint32_t *)0x125378)), v8, v9);
+      msg_parse((*((uint32_t *)0x125378)), v8);
       host_reg_wait_set(v8, v9);
     }
   }
@@ -63564,7 +62498,7 @@ int  rf_chan_set_check_52b8(int a1, unsigned char **a2)
         v10 = parse_int(a2[3], (void*)0, 0) + v6;
         if ( v10 >= 0x20 )
           v10 = 32;
-        msg_parse((*((uint32_t *)0x125370)));
+        msg_parse((*((uint32_t *)0x125370)), 0);
         if ( v6 < v10 )
         {
           v11 = (*((uint32_t *)0x125374));
@@ -63572,16 +62506,16 @@ int  rf_chan_set_check_52b8(int a1, unsigned char **a2)
           {
             v12 = sub_113A44(v6);
             v13 = v6++;
-            msg_parse(v11, v13, v12);
+            msg_parse(v11, v13);
           }
           while ( v10 > v6 );
         }
       }
       else
       {
-        msg_parse((*((uint32_t *)0x125370)));
+        msg_parse((*((uint32_t *)0x125370)), 0);
         v7 = sub_113A44(v6);
-        msg_parse((*((uint32_t *)0x125374)), v6, v7);
+        msg_parse((*((uint32_t *)0x125374)), v6);
       }
     }
   }
@@ -63590,8 +62524,7 @@ int  rf_chan_set_check_52b8(int a1, unsigned char **a2)
 
 
 // sub_1252B8 @ 0x1252b8, size 184 bytes
-int  sub_1252B8(int a1, unsigned char **a2)
-{
+int  sub_1252B8(uint32_t a1, uint32_t a2) {
   int v4; // r0
   unsigned int v6; // r4
   int v7; // r0
@@ -63609,7 +62542,7 @@ int  sub_1252B8(int a1, unsigned char **a2)
     {
       v8 = sub_121E3C(a2[2], (void*)0, 0);
       v9 = sub_121E3C(a2[3], (void*)0, 0x10u);
-      sub_11F504((*((uint32_t *)0x125378)), v8, v9);
+      sub_11F504((*((uint32_t *)0x125378)), v8);
       sub_113AD0(v8, v9);
     }
   }
@@ -63625,7 +62558,7 @@ int  sub_1252B8(int a1, unsigned char **a2)
         v10 = sub_121E3C(a2[3], (void*)0, 0) + v6;
         if ( v10 >= 0x20 )
           v10 = 32;
-        sub_11F504((*((uint32_t *)0x125370)));
+        sub_11F504((*((uint32_t *)0x125370)), 0);
         if ( v6 < v10 )
         {
           v11 = (*((uint32_t *)0x125374));
@@ -63633,16 +62566,16 @@ int  sub_1252B8(int a1, unsigned char **a2)
           {
             v12 = sub_113A44(v6);
             v13 = v6++;
-            sub_11F504(v11, v13, v12);
+            sub_11F504(v11, v13);
           }
           while ( v10 > v6 );
         }
       }
       else
       {
-        sub_11F504((*((uint32_t *)0x125370)));
+        sub_11F504((*((uint32_t *)0x125370)), 0);
         v7 = sub_113A44(v6);
-        sub_11F504((*((uint32_t *)0x125374)), v6, v7);
+        sub_11F504((*((uint32_t *)0x125374)), v6);
       }
     }
   }
@@ -63651,8 +62584,7 @@ int  sub_1252B8(int a1, unsigned char **a2)
 
 
 // sub_12537C @ 0x12537c, size 50 bytes
-int  sub_12537C(int a1, int a2)
-{
+int  sub_12537C(uint32_t a1, uint32_t a2) {
   int v2; // r1
   int v3; // r0
 
@@ -63665,15 +62597,14 @@ int  sub_12537C(int a1, int a2)
     v2 = parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0) != 0;
     v3 = (*((uint32_t *)0x1253b4));
     *(uint32_t *)(*((uint32_t *)0x1253b0)) = v2;
-    msg_parse(v3);
+    msg_parse(v3, 0);
   }
   return 0;
 }
 
 
 // sub_1253BC @ 0x1253bc, size 730 bytes
-int  sub_1253BC(int a1, unsigned char **a2)
-{
+int  sub_1253BC(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int v5; // r7
   int v6; // r0
@@ -63731,7 +62662,7 @@ int  sub_1253BC(int a1, unsigned char **a2)
       v25 = (*((uint32_t *)0x1256dc));
       v26 = (*((uint32_t *)0x1256b0));
       v27 = (uint8_t *)(*((uint32_t *)0x1256b4));
-      msg_parse((*((uint32_t *)0x1256a8)));
+      msg_parse((*((uint32_t *)0x1256a8)), 0);
       do
       {
         msg_parse(v25, v5);
@@ -63756,7 +62687,7 @@ int  sub_1253BC(int a1, unsigned char **a2)
       v33 = (*((uint32_t *)0x1256dc));
       v34 = (*((uint32_t *)0x1256d8));
       v35 = (*((uint32_t *)0x1256b0));
-      msg_parse((*((uint32_t *)0x1256ac)));
+      msg_parse((*((uint32_t *)0x1256ac)), 0);
       v36 = 0;
       while ( 1 )
       {
@@ -63770,7 +62701,7 @@ int  sub_1253BC(int a1, unsigned char **a2)
             break;
           if ( j > 3 )
             goto LABEL_48;
-          msg_parse(v34);
+          msg_parse(v34, 0);
 LABEL_49:
           ;
         }
@@ -63899,7 +62830,7 @@ LABEL_59:
           if ( v47 >= 32 )
             v47 = 32;
           *(uint8_t *)(v49 + v43) = v47;
-          msg_parse(v48, v7, v43);
+          msg_parse(v48, v7);
           return 0;
         }
 LABEL_65:
@@ -63907,17 +62838,16 @@ LABEL_65:
         return v44;
       }
 LABEL_72:
-      msg_parse((*((uint32_t *)0x1256d0)));
+      msg_parse((*((uint32_t *)0x1256d0)), 0);
       return -1;
   }
-  msg_parse((*((uint32_t *)0x1256d4)));
+  msg_parse((*((uint32_t *)0x1256d4)), 0);
   return -1;
 }
 
 
 // sub_1256E0 @ 0x1256e0, size 592 bytes
-int  sub_1256E0(int a1, unsigned char **a2)
-{
+int  sub_1256E0(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int v5; // r5
   uint8_t *v6; // r7
@@ -63963,7 +62893,7 @@ int  sub_1256E0(int a1, unsigned char **a2)
       if ( a1 <= 4 )
       {
 LABEL_50:
-        msg_parse((*((uint32_t *)0x125968)));
+        msg_parse((*((uint32_t *)0x125968)), 0);
         return -1;
       }
       v18 = parse_int(a2[2], (void*)0, 0);
@@ -63972,7 +62902,7 @@ LABEL_50:
       if ( v18 > 2 || v19 > 2 )
       {
 LABEL_49:
-        msg_parse((*((uint32_t *)0x125964)));
+        msg_parse((*((uint32_t *)0x125964)), 0);
         return -1;
       }
       v21 = a2[4];
@@ -63982,7 +62912,7 @@ LABEL_49:
       if ( v23 > -7 )
         v24 = v23;
       if ( v24 >= 7 )
-        v24 = ((unsigned)(v24) & 0xFFFFFF00U) | (((unsigned)(7) & 0xFFU) << 0);
+        LOBYTE(v24) = 7;
       *(uint8_t *)(3 * v18 + *(uint32_t *)(*((uint32_t *)0x12593c)) + v20) = v24;
       v25 = *((unsigned short *)v22 + 20);
       if ( v25 > 0x97B )
@@ -64001,7 +62931,7 @@ LABEL_49:
         mmio_set_bit_120090C(0, v25);
         ++*v17;
       }
-      msg_parse((*((uint32_t *)0x125940)), v18, v20);
+      msg_parse((*((uint32_t *)0x125940)), v18);
       return 0;
     }
     else
@@ -64024,7 +62954,7 @@ LABEL_49:
             if ( v12 > -7 )
               v13 = v12;
             if ( v13 >= 7 )
-              v13 = ((unsigned)(v13) & 0xFFFFFF00U) | (((unsigned)(7) & 0xFFU) << 0);
+              LOBYTE(v13) = 7;
             *(uint8_t *)(*(uint32_t *)(*((uint32_t *)0x125938)) + 6 * v7 + v9) = v13;
             v14 = v11[20];
             v15 = *((unsigned char *)v11 + 36);
@@ -64057,7 +62987,7 @@ LABEL_49:
             if ( v15 != 1 )
             {
 LABEL_40:
-              msg_parse((*((uint32_t *)0x125960)), v7, v9);
+              msg_parse((*((uint32_t *)0x125960)), v7);
               return 0;
             }
 LABEL_45:
@@ -64072,7 +63002,7 @@ LABEL_45:
         }
         goto LABEL_50;
       }
-      msg_parse((*((uint32_t *)0x12596c)));
+      msg_parse((*((uint32_t *)0x12596c)), 0);
       return -1;
     }
   }
@@ -64080,8 +63010,8 @@ LABEL_45:
   {
     v28 = (*((uint32_t *)0x12593c));
     v29 = (*((uint32_t *)0x125948));
-    msg_parse((*((uint32_t *)0x125944)));
-    msg_parse((*((uint32_t *)0x12594c)));
+    msg_parse((*((uint32_t *)0x125944)), 0);
+    msg_parse((*((uint32_t *)0x12594c)), 0);
     do
     {
       msg_parse((*((uint32_t *)0x125950)), v5);
@@ -64096,8 +63026,8 @@ LABEL_45:
     v32 = (*((uint32_t *)0x125938));
     v33 = (*((uint32_t *)0x125950));
     v34 = (*((uint32_t *)0x125948));
-    msg_parse((*((uint32_t *)0x125954)));
-    msg_parse((*((uint32_t *)0x125958)));
+    msg_parse((*((uint32_t *)0x125954)), 0);
+    msg_parse((*((uint32_t *)0x125958)), 0);
     for ( j = 0; j != 3; ++j )
     {
       msg_parse(v33, j);
@@ -64107,15 +63037,14 @@ LABEL_45:
         msg_parse(v34, v37);
       }
     }
-    msg_parse((*((uint32_t *)0x12595c)));
+    msg_parse((*((uint32_t *)0x12595c)), 0);
     return 0;
   }
 }
 
 
 // sub_125970 @ 0x125970, size 294 bytes
-int  sub_125970(int a1, int a2)
-{
+int  sub_125970(uint32_t a1, uint32_t a2) {
   int v4; // r0
   int v5; // r0
   char v6; // r1
@@ -64135,7 +63064,7 @@ int  sub_125970(int a1, int a2)
   switch ( v4 )
   {
     case 0:
-      msg_parse((*((uint32_t *)0x125aac)), *(char *)(*((uint32_t *)0x125a98)), *((char *)(*((uint32_t *)0x125a98)) + 1), *((char *)(*((uint32_t *)0x125a98)) + 2));
+      msg_parse((*((uint32_t *)0x125aac)), *(char *)(*((uint32_t *)0x125a98)));
       return 0;
     case 1:
       v9 = (*((uint32_t *)0x125aa0));
@@ -64190,32 +63119,30 @@ int  sub_125970(int a1, int a2)
           v6 = 7;
         v7 = (*((uint32_t *)0x125a9c));
         *((uint8_t *)(*((uint32_t *)0x125a98)) + 2) = v6;
-        msg_parse(v7);
+        msg_parse(v7, 0);
         return 0;
       }
 LABEL_28:
-      msg_parse((*((uint32_t *)0x125ab4)));
+      msg_parse((*((uint32_t *)0x125ab4)), 0);
       return -1;
     default:
-      msg_parse((*((uint32_t *)0x125ab8)));
+      msg_parse((*((uint32_t *)0x125ab8)), 0);
       return -1;
   }
 }
 
 
 // sub_125ABC @ 0x125abc, size 24 bytes
-int  sub_125ABC(int a1, int a2)
-{
+int  sub_125ABC(uint32_t a1, uint32_t a2) {
   parse_int(*(unsigned char **)(a2 + 4), (void*)0, 0);
-  msg_parse((*((uint32_t *)0x125ad4)));
+  msg_parse((*((uint32_t *)0x125ad4)), 0);
   return -1;
 }
 
 
 // sub_125AD8 @ 0x125ad8, size 158 bytes
 // sub_1225AD8 [unknown]: Small helper function called from lmac context
-unsigned int  sub_125AD8(unsigned int result)
-{
+unsigned int  sub_125AD8(uint32_t a1) {
   unsigned int v1; // r4
   char *v2; // r3
   int v3; // r1
@@ -64278,7 +63205,7 @@ unsigned int  sub_125AD8(unsigned int result)
       *(uint32_t *)(*((uint32_t *)0x125b98)) = (*((uint32_t *)0x125ba4));
       v8 = (*((uint32_t *)0x125ba8));
       *v6 = v7;
-      return msg_parse(v8);
+      return msg_parse(v8, 0);
     }
   }
   else
@@ -64288,7 +63215,7 @@ unsigned int  sub_125AD8(unsigned int result)
     *(uint32_t *)(*((uint32_t *)0x125b78)) = (*((uint32_t *)0x125bb0));
     v11 = (*((uint32_t *)0x125bb4));
     *v9 = v10;
-    return msg_parse(v11);
+    return msg_parse(v11, 0);
   }
   return result;
 }
@@ -64296,8 +63223,7 @@ unsigned int  sub_125AD8(unsigned int result)
 
 // ipc_msg_handler @ 0x125bfc, size 258 bytes
 // ipc_msg_handler [ipc]: Handles IPC message with payload parsing
-int  ipc_msg_handler(int a1, unsigned char **a2)
-{
+int  ipc_msg_handler(uint32_t a1, uint32_t a2) {
   int v4; // r8
   int v5; // r4
   int v6; // r5
@@ -64332,14 +63258,14 @@ LABEL_4:
             sub_10DB04(v5);
           else
             sub_10DB18(v5);
-          msg_parse((*((uint32_t *)0x125d00)), v5, v7);
+          msg_parse((*((uint32_t *)0x125d00)), v5);
           return 0;
         }
         else
         {
           mmio_clear_bit(v5);
           v10 = rf_check_bit(v5);
-          msg_parse((*((uint32_t *)0x125d0c)), v5, v10);
+          msg_parse((*((uint32_t *)0x125d0c)), v5);
           return 0;
         }
       }
@@ -64357,7 +63283,7 @@ LABEL_4:
   {
     sub_10DB78(v5);
     v9 = irq_mask_test(v5);
-    msg_parse((*((uint32_t *)0x125d04)), v5, v9);
+    msg_parse((*((uint32_t *)0x125d04)), v5);
     return v6;
   }
   irq_prio_set2(v5);
@@ -64365,14 +63291,13 @@ LABEL_4:
     irq_enable(v5);
   else
     irq_disable(v5);
-  msg_parse((*((uint32_t *)0x125d08)), v5, v7);
+  msg_parse((*((uint32_t *)0x125d08)), v5);
   return 0;
 }
 
 
 // sub_125BFC @ 0x125bfc, size 258 bytes
-int  sub_125BFC(int a1, unsigned char **a2)
-{
+int  sub_125BFC(uint32_t a1, uint32_t a2) {
   int v4; // r8
   int v5; // r4
   int v6; // r5
@@ -64407,14 +63332,14 @@ LABEL_4:
             sub_10DB04(v5);
           else
             sub_10DB18(v5);
-          sub_11F504((*((uint32_t *)0x125d00)), v5, v7);
+          sub_11F504((*((uint32_t *)0x125d00)), v5);
           return 0;
         }
         else
         {
           sub_10DAD8(v5);
           v10 = sub_10DB30(v5);
-          sub_11F504((*((uint32_t *)0x125d0c)), v5, v10);
+          sub_11F504((*((uint32_t *)0x125d0c)), v5);
           return 0;
         }
       }
@@ -64432,7 +63357,7 @@ LABEL_4:
   {
     sub_10DB78(v5);
     v9 = sub_10DBD0(v5);
-    sub_11F504((*((uint32_t *)0x125d04)), v5, v9);
+    sub_11F504((*((uint32_t *)0x125d04)), v5);
     return v6;
   }
   sub_10DB90(v5);
@@ -64440,14 +63365,13 @@ LABEL_4:
     sub_10DBA4(v5);
   else
     sub_10DBB8(v5);
-  sub_11F504((*((uint32_t *)0x125d08)), v5, v7);
+  sub_11F504((*((uint32_t *)0x125d08)), v5);
   return 0;
 }
 
 
 // sub_125D18 @ 0x125d18, size 44 bytes
-int  sub_125D18(int a1, int a2)
-{
+int  sub_125D18(uint32_t a1, uint32_t a2) {
   unsigned char v3; // r0
 
   if ( a1 > 1 )
@@ -64464,8 +63388,7 @@ int  sub_125D18(int a1, int a2)
 
 
 // sub_125D44 @ 0x125d44, size 88 bytes
-int  sub_125D44(int a1, int a2)
-{
+int  sub_125D44(uint32_t a1, uint32_t a2) {
   unsigned short v3; // r3
   unsigned char *v4; // r0
   unsigned short v5; // r4
@@ -64484,15 +63407,14 @@ int  sub_125D44(int a1, int a2)
   if ( (v7 & 0x2000000) == 0 )
   {
     sub_11485C((int)v9);
-    msg_parse((*((uint32_t *)0x125da0)), v5, v6);
+    msg_parse((*((uint32_t *)0x125da0)), v5);
   }
   return 0;
 }
 
 
 // sub_125DA4 @ 0x125da4, size 86 bytes
-int sub_125DA4()
-{
+int sub_125DA4() {
   int v1; // r4
   int v2[3]; // [sp+4h] [bp-Ch] BYREF
 
@@ -64502,16 +63424,15 @@ int sub_125DA4()
   v1 = sub_114850((int)v2);
   msg_parse((*((uint32_t *)0x125e00)), v1);
   if ( v1 || HIWORD(v2[0]) == 0xFFFF || LOWORD(v2[0]) == 0xFFFF )
-    msg_parse((*((uint32_t *)0x125e08)));
+    msg_parse((*((uint32_t *)0x125e08)), 0);
   else
-    msg_parse((*((uint32_t *)0x125e04)));
+    msg_parse((*((uint32_t *)0x125e04)), 0);
   return 0;
 }
 
 
 // sub_125E0C @ 0x125e0c, size 10 bytes
-int  sub_125E0C(unsigned char **a1, unsigned char *a2)
-{
+int  sub_125E0C(uint32_t a1, uint32_t a2) {
   if ( a2 )
     return rf_state_load(a1, a2);
   else
@@ -64521,8 +63442,7 @@ int  sub_125E0C(unsigned char **a1, unsigned char *a2)
 
 // rf_pm_check_n_e18 @ 0x125e18, size 178 bytes
 // rf_pm_check_n_e18 [rf]: Check RF power management state
-int  rf_pm_check_n_e18(int a1, int a2)
-{
+int  rf_pm_check_n_e18(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r1
   unsigned char *v5; // r1
   int v6; // r0
@@ -64531,7 +63451,7 @@ int  rf_pm_check_n_e18(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125ee8)));
+    msg_parse((*((uint32_t *)0x125ee8)), 0);
     return -1;
   }
   else
@@ -64544,7 +63464,7 @@ int  rf_pm_check_n_e18(int a1, int a2)
         if ( !v3 || !rf_state_load((unsigned char **)(*((uint32_t *)0x125ecc)), v3) )
         {
 LABEL_7:
-          msg_parse((*((uint32_t *)0x125ed0)));
+          msg_parse((*((uint32_t *)0x125ed0)), 0);
           return 0;
         }
       }
@@ -64556,7 +63476,7 @@ LABEL_7:
         if ( !v5 || !rf_state_load((unsigned char **)(*((uint32_t *)0x125ed4)), v5) )
           goto LABEL_7;
       }
-      msg_parse((*((uint32_t *)0x125ed8)));
+      msg_parse((*((uint32_t *)0x125ed8)), 0);
       v8 = *(uint32_t *)(a2 + 4);
       v6 = sub_1288C0(v8);
       sub_1282E8((*((uint32_t *)0x125edc)), v8, v6);
@@ -64573,8 +63493,7 @@ LABEL_7:
 
 
 // sub_125E18 @ 0x125e18, size 178 bytes
-int  sub_125E18(int a1, int a2)
-{
+int  sub_125E18(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r1
   unsigned char *v5; // r1
   int v6; // r0
@@ -64583,7 +63502,7 @@ int  sub_125E18(int a1, int a2)
 
   if ( a1 <= 1 )
   {
-    sub_11F504((*((uint32_t *)0x125ee8)));
+    sub_11F504((*((uint32_t *)0x125ee8)), 0);
     return -1;
   }
   else
@@ -64596,7 +63515,7 @@ int  sub_125E18(int a1, int a2)
         if ( !v3 || !sub_1247A4((unsigned char **)(*((uint32_t *)0x125ecc)), v3) )
         {
 LABEL_7:
-          sub_11F504((*((uint32_t *)0x125ed0)));
+          sub_11F504((*((uint32_t *)0x125ed0)), 0);
           return 0;
         }
       }
@@ -64608,7 +63527,7 @@ LABEL_7:
         if ( !v5 || !sub_1247A4((unsigned char **)(*((uint32_t *)0x125ed4)), v5) )
           goto LABEL_7;
       }
-      sub_11F504((*((uint32_t *)0x125ed8)));
+      sub_11F504((*((uint32_t *)0x125ed8)), 0);
       v8 = *(uint32_t *)(a2 + 4);
       v6 = sub_1288C0(v8);
       sub_1282E8((*((uint32_t *)0x125edc)), v8, v6);
@@ -64626,13 +63545,12 @@ LABEL_7:
 
 // rf_status_check_bit @ 0x125ef0, size 88 bytes
 // rf_status_check_bit [rf]: Check RF status register bit 0x02000000
-int  rf_status_check_bit(int a1, int a2, int a3)
-{
+int  rf_status_check_bit(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char v4[8]; // [sp+4h] [bp-8h] BYREF
 
   if ( (*(uint32_t *)(*((uint32_t *)0x125f48)) & 0x2000000) != 0 )
   {
-    msg_parse((*((uint32_t *)0x125f54)), (*((uint32_t *)0x125f50)), a3, HIBYTE(*(uint32_t *)(*((uint32_t *)0x125f48))) & 2);
+    msg_parse((*((uint32_t *)0x125f54)), (*((uint32_t *)0x125f50)));
     return 0;
   }
   else
@@ -64641,7 +63559,7 @@ int  rf_status_check_bit(int a1, int a2, int a3)
     sub_114838((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      msg_parse((*((uint32_t *)0x125f4c)));
+      msg_parse((*((uint32_t *)0x125f4c)), 0);
       return 0;
     }
     else
@@ -64654,13 +63572,12 @@ int  rf_status_check_bit(int a1, int a2, int a3)
 
 
 // sub_125EF0 @ 0x125ef0, size 88 bytes
-int  sub_125EF0(int a1, int a2, int a3)
-{
+int  sub_125EF0(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char v4[8]; // [sp+4h] [bp-8h] BYREF
 
   if ( (*(uint32_t *)(*((uint32_t *)0x125f48)) & 0x2000000) != 0 )
   {
-    sub_11F504((*((uint32_t *)0x125f54)), (*((uint32_t *)0x125f50)), a3, HIBYTE(*(uint32_t *)(*((uint32_t *)0x125f48))) & 2);
+    sub_11F504((*((uint32_t *)0x125f54)), (*((uint32_t *)0x125f50)));
     return 0;
   }
   else
@@ -64669,7 +63586,7 @@ int  sub_125EF0(int a1, int a2, int a3)
     sub_114838((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      sub_11F504((*((uint32_t *)0x125f4c)));
+      sub_11F504((*((uint32_t *)0x125f4c)), 0);
       return 0;
     }
     else
@@ -64683,15 +63600,14 @@ int  sub_125EF0(int a1, int a2, int a3)
 
 // rf_lmac_dispatch_n5a8 @ 0x125f58, size 130 bytes
 // rf_lmac_dispatch_n5a8 [ipc]: Branch on argument value 1, likely LMAC task dispatcher
-int  rf_lmac_dispatch_n5a8(int a1, int a2)
-{
+int  rf_lmac_dispatch_n5a8(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r1
   int v5; // r0
   int v6; // [sp+4h] [bp-4h]
 
   if ( a1 <= 1 )
   {
-    msg_parse((*((uint32_t *)0x125ff8)));
+    msg_parse((*((uint32_t *)0x125ff8)), 0);
     return -1;
   }
   else if ( sub_1288C0(*(uint32_t *)(a2 + 4)) == 2 )
@@ -64699,7 +63615,7 @@ int  rf_lmac_dispatch_n5a8(int a1, int a2)
     v3 = *(unsigned char **)(a2 + 4);
     if ( v3 && rf_state_load((unsigned char **)(*((uint32_t *)0x125fdc)), v3) )
     {
-      msg_parse((*((uint32_t *)0x125fe4)));
+      msg_parse((*((uint32_t *)0x125fe4)), 0);
       v6 = *(uint32_t *)(a2 + 4);
       v5 = sub_1288C0(v6);
       sub_1282E8((*((uint32_t *)0x125fe8)), v6, v5);
@@ -64710,28 +63626,27 @@ int  rf_lmac_dispatch_n5a8(int a1, int a2)
     }
     else
     {
-      msg_parse((*((uint32_t *)0x125fe0)));
+      msg_parse((*((uint32_t *)0x125fe0)), 0);
       return 0;
     }
   }
   else
   {
-    msg_parse((*((uint32_t *)0x125ff4)));
+    msg_parse((*((uint32_t *)0x125ff4)), 0);
     return -1;
   }
 }
 
 
 // sub_125F58 @ 0x125f58, size 130 bytes
-int  sub_125F58(int a1, int a2)
-{
+int  sub_125F58(uint32_t a1, uint32_t a2) {
   unsigned char *v3; // r1
   int v5; // r0
   int v6; // [sp+4h] [bp-4h]
 
   if ( a1 <= 1 )
   {
-    sub_11F504((*((uint32_t *)0x125ff8)));
+    sub_11F504((*((uint32_t *)0x125ff8)), 0);
     return -1;
   }
   else if ( sub_1288C0(*(uint32_t *)(a2 + 4)) == 2 )
@@ -64739,7 +63654,7 @@ int  sub_125F58(int a1, int a2)
     v3 = *(unsigned char **)(a2 + 4);
     if ( v3 && sub_1247A4((unsigned char **)(*((uint32_t *)0x125fdc)), v3) )
     {
-      sub_11F504((*((uint32_t *)0x125fe4)));
+      sub_11F504((*((uint32_t *)0x125fe4)), 0);
       v6 = *(uint32_t *)(a2 + 4);
       v5 = sub_1288C0(v6);
       sub_1282E8((*((uint32_t *)0x125fe8)), v6, v5);
@@ -64750,13 +63665,13 @@ int  sub_125F58(int a1, int a2)
     }
     else
     {
-      sub_11F504((*((uint32_t *)0x125fe0)));
+      sub_11F504((*((uint32_t *)0x125fe0)), 0);
       return 0;
     }
   }
   else
   {
-    sub_11F504((*((uint32_t *)0x125ff4)));
+    sub_11F504((*((uint32_t *)0x125ff4)), 0);
     return -1;
   }
 }
@@ -64764,13 +63679,12 @@ int  sub_125F58(int a1, int a2)
 
 // mmio_flag_check_40500000 @ 0x125ffc, size 88 bytes
 // mmio_flag_check_40500000 [mmio]: Read MMIO word at 0x40500000 and test bit1 flag
-int  mmio_flag_check_40500000(int a1, int a2, int a3)
-{
+int  mmio_flag_check_40500000(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char v4[8]; // [sp+4h] [bp-8h] BYREF
 
   if ( (*(uint32_t *)(*((uint32_t *)0x126054)) & 0x2000000) != 0 )
   {
-    msg_parse((*((uint32_t *)0x126060)), (*((uint32_t *)0x12605c)), a3, HIBYTE(*(uint32_t *)(*((uint32_t *)0x126054))) & 2);
+    msg_parse((*((uint32_t *)0x126060)), (*((uint32_t *)0x12605c)));
     return 0;
   }
   else
@@ -64779,7 +63693,7 @@ int  mmio_flag_check_40500000(int a1, int a2, int a3)
     sub_114868((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      msg_parse((*((uint32_t *)0x126058)));
+      msg_parse((*((uint32_t *)0x126058)), 0);
       return 0;
     }
     else
@@ -64792,13 +63706,12 @@ int  mmio_flag_check_40500000(int a1, int a2, int a3)
 
 
 // sub_125FFC @ 0x125ffc, size 88 bytes
-int  sub_125FFC(int a1, int a2, int a3)
-{
+int  sub_125FFC(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char v4[8]; // [sp+4h] [bp-8h] BYREF
 
   if ( (*(uint32_t *)(*((uint32_t *)0x126054)) & 0x2000000) != 0 )
   {
-    sub_11F504((*((uint32_t *)0x126060)), (*((uint32_t *)0x12605c)), a3, HIBYTE(*(uint32_t *)(*((uint32_t *)0x126054))) & 2);
+    sub_11F504((*((uint32_t *)0x126060)), (*((uint32_t *)0x12605c)));
     return 0;
   }
   else
@@ -64807,7 +63720,7 @@ int  sub_125FFC(int a1, int a2, int a3)
     sub_114868((int)v4);
     if ( v4[0] == 255 || v4[1] == 255 )
     {
-      sub_11F504((*((uint32_t *)0x126058)));
+      sub_11F504((*((uint32_t *)0x126058)), 0);
       return 0;
     }
     else
@@ -64820,8 +63733,7 @@ int  sub_125FFC(int a1, int a2, int a3)
 
 
 // sub_126064 @ 0x126064, size 152 bytes
-int  sub_126064(int a1, unsigned char **a2)
-{
+int  sub_126064(uint32_t a1, uint32_t a2) {
   unsigned short v3; // r6
   unsigned short v4; // r7
   unsigned short v5; // r8
@@ -64845,14 +63757,14 @@ int  sub_126064(int a1, unsigned char **a2)
   sub_100200(&v12, 0, 0xAu);
   v15 = v9;
   v10 = *(uint32_t *)(*((uint32_t *)0x1260fc));
-  v12 = ((unsigned)(v12) & 0xFFFF0000U) | (((unsigned)(v3) & 0xFFFFU) << 0);
-  v12 = ((unsigned)(v12) & 0x0000FFFFU) | (((unsigned)(v4) & 0xFFFFU) << 16);
+  LOWORD(v12) = v3;
+  HIWORD(v12) = v4;
   v13 = v5;
   v14 = v8;
   if ( (v10 & 0x2000000) == 0 )
   {
     sub_11488C((int)&v12);
-    msg_parse((*((uint32_t *)0x126100)), v3, v4, v5, v8, v9);
+    msg_parse((*((uint32_t *)0x126100)), v3);
   }
   return 0;
 }
@@ -64860,8 +63772,7 @@ int  sub_126064(int a1, unsigned char **a2)
 
 // sub_126104 @ 0x126104, size 94 bytes
 // patch_apply_nc4 [patch]: Applies RF register patch (sets 0xf00000 bit mask and writes value)
-int sub_126104()
-{
+int sub_126104() {
   int v1; // r4
   int v2; // [sp+Ch] [bp-14h] BYREF
   unsigned short v3; // [sp+10h] [bp-10h]
@@ -64874,17 +63785,16 @@ int sub_126104()
   v1 = sub_114880((int)&v2);
   msg_parse((*((uint32_t *)0x126168)), v1);
   if ( v1 )
-    msg_parse((*((uint32_t *)0x12616c)));
+    msg_parse((*((uint32_t *)0x12616c)), 0);
   else
-    msg_parse((*((uint32_t *)0x126170)), (unsigned short)v2, HIWORD(v2), v3, v4, v5);
+    msg_parse((*((uint32_t *)0x126170)), (unsigned short)v2);
   return 0;
 }
 
 
 // rf_init_calibration_n174 @ 0x126174, size 200 bytes
 // rf_init_calibration_n174 [rf]: Performs RF initialization and calibration sequence
-int rf_init_calibration_n174()
-{
+int rf_init_calibration_n174() {
   uint64_t *v0; // r5
   uint32_t *v1; // r7
   int v2; // r1
@@ -64941,8 +63851,7 @@ int rf_init_calibration_n174()
 
 
 // sub_126174 @ 0x126174, size 200 bytes
-int sub_126174()
-{
+int sub_126174() {
   uint64_t *v0; // r5
   uint32_t *v1; // r7
   int v2; // r1
@@ -64999,8 +63908,7 @@ int sub_126174()
 
 
 // sub_126258 @ 0x126258, size 148 bytes
-int  sub_126258(int a1, int a2, char a3)
-{
+int  sub_126258(uint32_t a1, uint32_t a2, uint32_t a3) {
   uint8_t *v3; // r5
   uint8_t *v5; // r3
   uint8_t *v6; // r0
@@ -65015,7 +63923,7 @@ int  sub_126258(int a1, int a2, char a3)
 
   v3 = (*((uint32_t *)0x1262ec));
   if ( *(uint8_t *)(*((uint32_t *)0x1262ec)) )
-    msg_parse((*((uint32_t *)0x126328)));
+    msg_parse((*((uint32_t *)0x126328)), 0);
   v5 = (*((uint32_t *)0x1262f4));
   v6 = (*((uint32_t *)0x1262f8));
   v7 = (*((uint32_t *)0x1262fc));
@@ -65031,7 +63939,7 @@ int  sub_126258(int a1, int a2, char a3)
   *v9 |= 0x200u;
   *v9 |= 0x400u;
   sub_100200(v10, 0, 8u);
-  msg_parse((*((uint32_t *)0x12630c)));
+  msg_parse((*((uint32_t *)0x12630c)), 0);
   v11 = (*((uint32_t *)0x126314));
   v12 = (*((uint32_t *)0x126318));
   v13 = (*((uint32_t *)0x12631c));
@@ -65043,15 +63951,14 @@ int  sub_126258(int a1, int a2, char a3)
   v14 = (*((uint32_t *)0x126324));
   *(uint32_t *)(*((uint32_t *)0x126320)) = *(uint32_t *)(*((uint32_t *)0x126320)) & 0xFF03FFFF | 0x800000;
   *v3 = 5;
-  msg_parse(v14);
+  msg_parse(v14, 0);
   return irq_nesting_or(0x2000);
 }
 
 
 // rf_init_n_dc @ 0x12632c, size 248 bytes
 // rf_init_n_dc [rf]: Initialize RF subsystem globals and call sub-init routine
-int rf_init_n_dc()
-{
+int rf_init_n_dc() {
   int v0; // r0
   int v1; // r4
   uint8_t *v2; // r8
@@ -65073,7 +63980,7 @@ int rf_init_n_dc()
 
   v0 = (*((uint32_t *)0x126428));
   *(uint8_t *)(*((uint32_t *)0x126424)) = 0;
-  msg_parse(v0);
+  msg_parse(v0, 0);
   v1 = *(unsigned char *)(*((uint32_t *)0x12642c));
   if ( v1 == 1 )
   {
@@ -65155,8 +64062,7 @@ LABEL_7:
 
 
 // sub_12632C @ 0x12632c, size 248 bytes
-int sub_12632C()
-{
+int sub_12632C() {
   int v0; // r0
   int v1; // r4
   uint8_t *v2; // r8
@@ -65178,7 +64084,7 @@ int sub_12632C()
 
   v0 = (*((uint32_t *)0x126428));
   *(uint8_t *)(*((uint32_t *)0x126424)) = 0;
-  sub_11F504(v0);
+  sub_11F504(v0, 0);
   v1 = *(unsigned char *)(*((uint32_t *)0x12642c));
   if ( v1 == 1 )
   {
@@ -65261,8 +64167,7 @@ LABEL_7:
 
 // is_flag_set_n645c @ 0x12645c, size 12 bytes
 // is_flag_set_n645c [util]: Check flag byte at 0x180834 returns 0 or 1
-int is_flag_set_n645c()
-{
+int is_flag_set_n645c() {
   int result; // r0
 
   result = *(unsigned char *)(*((uint32_t *)0x126468));
@@ -65273,8 +64178,7 @@ int is_flag_set_n645c()
 
 
 // sub_12645C @ 0x12645c, size 12 bytes
-int sub_12645C()
-{
+int sub_12645C() {
   int result; // r0
 
   result = *(unsigned char *)(*((uint32_t *)0x126468));
@@ -65286,20 +64190,18 @@ int sub_12645C()
 
 // sub_12646C @ 0x12646c, size 12 bytes
 // sub_122646C [util]: Bitfield extract/shift helper (mask+shift primitive)
-int  sub_12646C(char a1)
-{
+int  sub_12646C(uint32_t a1) {
   int v2; // r0
 
   v2 = (*((uint32_t *)0x12647c));
   *(uint8_t *)(*((uint32_t *)0x126478)) = a1;
-  return msg_parse(v2);
+  return msg_parse(v2, 0);
 }
 
 
 // mmio_write_40320150 @ 0x1264dc, size 70 bytes
 // mmio_write_40320150 [mmio]: Writes value to MMIO register 0x40320150
-int  mmio_write_40320150(int a1)
-{
+int  mmio_write_40320150(uint32_t a1) {
   uint32_t *v1; // r3
   int *v2; // r4
   int v3; // r1
@@ -65341,8 +64243,7 @@ int  mmio_write_40320150(int a1)
 
 
 // sub_1264DC @ 0x1264dc, size 70 bytes
-int  sub_1264DC(int a1)
-{
+int  sub_1264DC(uint32_t a1) {
   uint32_t *v1; // r3
   int *v2; // r4
   int v3; // r1
@@ -65385,8 +64286,7 @@ int  sub_1264DC(int a1)
 
 // sub_126538 @ 0x126538, size 64 bytes
 // sub_1226538 [unknown]: Unknown helper function in lmacfw_rf image
-int sub_126538()
-{
+int sub_126538() {
   uint32_t *v0; // r2
   unsigned int *v1; // r4
   int v2; // r1
@@ -65424,8 +64324,7 @@ int sub_126538()
 
 
 // sub_126588 @ 0x126588, size 418 bytes
-int sub_126588()
-{
+int sub_126588() {
   int v0; // r3
   uint8_t *v1; // r5
   uint8_t *v2; // r6
@@ -65484,23 +64383,23 @@ int sub_126588()
       {
         v29 = sub_12754C(*(uint32_t *)(*((uint32_t *)0x126758)));
         v30 = v29;
-        v29 = (v29 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(v28) & 0xFFFFFFFFULL) << 0);
+        LODWORD(v29) = v28;
         v31 = __PAIR64__(HIDWORD(v29), v30);
         v32 = sub_12754C(v29);
         v33 = sub_127874(v31, HIDWORD(v31), v32, HIDWORD(v32));
-        v34 = sub_127BE4(v33);
-        v35 = sub_127570(LODWORD(v34));
+        v34 = sub_127BE4(v33, 0);
+        v35 = sub_127570(LODWORD(v34), 0, 0, 0);
       }
       else
       {
         v35 = 0;
       }
-      v36 = math_round(v35, HIDWORD(v35));
+      v36 = math_round(v35);
       v37 = sub_127B54(v36, HIDWORD(v36));
       v38 = (*((uint32_t *)0x126748));
       v27[5] = v37;
       *v1 = 3;
-      msg_parse(v38);
+      msg_parse(v38, 0);
       return irq_nesting_or(0x2000);
     }
     else
@@ -65521,7 +64420,7 @@ int sub_126588()
       v40 = sub_12754C(*(uint32_t *)(*((uint32_t *)0x126758)));
       v41 = sub_12754C(v7);
       v42 = sub_127874(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v9 = sub_127BE4(v42);
+      v9 = sub_127BE4(v42, 0);
       v8 = *(float *)(*((uint32_t *)0x126740)) / (float)v7;
       *(float *)(*((uint32_t *)0x126740)) = v8;
     }
@@ -65530,13 +64429,13 @@ int sub_126588()
       v8 = *(float *)(*((uint32_t *)0x126740));
       v9 = 0.0;
     }
-    v10 = sub_127570(LODWORD(v8));
-    v11 = math_round(v10, HIDWORD(v10));
+    v10 = sub_127570(LODWORD(v8), 0, 0, 0);
+    v11 = math_round(v10);
     v12 = v11;
     *(float *)&v11 = v9;
     v13 = __PAIR64__(HIDWORD(v11), v12);
-    v14 = sub_127570(v11);
-    v15 = math_round(v14, HIDWORD(v14));
+    v14 = sub_127570(v11, 0, 0, 0);
+    v15 = math_round(v14);
     v16 = v13;
     v17 = v15;
     v18 = &v3[v6];
@@ -65549,12 +64448,12 @@ int sub_126588()
     if ( v20 == v21 )
     {
       *v1 = 4;
-      msg_parse(v22);
+      msg_parse(v22, 0);
     }
     else
     {
       *v1 = 2;
-      msg_parse(v22);
+      msg_parse(v22, 0);
       v23 = (int *)(*((uint32_t *)0x12674c));
       v24 = (int *)(*((uint32_t *)0x126750));
       v25 = (*((uint32_t *)0x126754));
@@ -65567,10 +64466,10 @@ int sub_126588()
   }
   else
   {
-    msg_parse((*((uint32_t *)0x12675c)));
+    msg_parse((*((uint32_t *)0x12675c)), 0);
     v43 = (*((uint32_t *)0x126748));
     *v1 = 1;
-    msg_parse(v43);
+    msg_parse(v43, 0);
     v44 = (*((uint32_t *)0x126760));
     *(uint32_t *)(*((uint32_t *)0x126760)) |= 0x100u;
     *v44 |= 0x200u;
@@ -65581,8 +64480,7 @@ int sub_126588()
 
 
 // sub_126764 @ 0x126764, size 226 bytes
-uint32_t * sub_126764(int a1)
-{
+uint32_t * sub_126764(uint32_t a1) {
   int v2; // r1
   int v3; // r2
   int v4; // r3
@@ -65641,7 +64539,7 @@ uint32_t * sub_126764(int a1)
   v34 = v10;
   if ( !a1 )
   {
-    result = (uint32_t *)msg_parse((*((uint32_t *)0x126868)));
+    result = (uint32_t *)msg_parse((*((uint32_t *)0x126868)), 0);
     v18 = (*((uint32_t *)0x126858));
     *(uint32_t *)(*((uint32_t *)0x126854)) |= 0x80000000;
     *v18 |= 0x80000000;
@@ -65651,7 +64549,7 @@ uint32_t * sub_126764(int a1)
     return (uint32_t *)msg_parse((*((uint32_t *)0x12684c)), a1);
   get_cached_1828f8(&v22, 0);
   v12 = BYTE1(v22);
-  result = (uint32_t *)msg_parse((*((uint32_t *)0x126850)), a1, WORD2(v22), WORD1(v22), BYTE1(v22));
+  result = (uint32_t *)msg_parse((*((uint32_t *)0x126850)), a1);
   if ( !v12 )
   {
     v19 = (*((uint32_t *)0x126858));
@@ -65687,8 +64585,7 @@ LABEL_8:
 
 // sub_12686C @ 0x12686c, size 108 bytes
 // sub_122686C [rf]: Reads flag byte from global base, RF state poll
-int  sub_12686C(int result)
-{
+int  sub_12686C(uint32_t a1) {
   unsigned short *v1; // r7
   int *v2; // r1
   int v3; // r12
@@ -65752,8 +64649,7 @@ LABEL_7:
 
 // rf_level_apply_n_4ec @ 0x1268ec, size 1078 bytes
 // rf_level_apply_n_42e [rf]: Apply TX/RF power level by programming level MMIO registers
-unsigned int * rf_level_apply_n_4ec(int a1)
-{
+unsigned int * rf_level_apply_n_4ec(uint32_t a1) {
   unsigned int *result; // r0
   int v3; // r6
   unsigned int v4; // r5
@@ -65814,7 +64710,7 @@ unsigned int * rf_level_apply_n_4ec(int a1)
       get_cached_1828f8(&v51, 0);
       v3 = BYTE1(v51);
       v4 = WORD1(v51);
-      msg_parse(rf_level_apply_n_210, a1, WORD2(v51), WORD1(v51), BYTE1(v51));
+      msg_parse(rf_level_apply_n_210, a1);
       result = (unsigned int *)rf_level_apply_n_207;
       v5 = rf_level_apply_n_203;
       v6 = rf_level_apply_n_200;
@@ -65939,7 +64835,7 @@ LABEL_10:
     {
       get_cached_1828f8(&v51, 0);
       v33 = WORD1(v51);
-      result = (unsigned int *)msg_parse(rf_level_apply_n_1b8, WORD2(v51), WORD1(v51), BYTE1(v51));
+      result = (unsigned int *)msg_parse(rf_level_apply_n_1b8, WORD2(v51));
       if ( v33 == 2412 )
       {
         v34 = (int *)(*((uint32_t *)0x126d28));
@@ -65968,7 +64864,7 @@ LABEL_10:
       *result = v37;
       goto LABEL_10;
     }
-    msg_parse(rf_level_apply_n_1b8, v22, v23, v24);
+    msg_parse(rf_level_apply_n_1b8, v22);
     result = (unsigned int *)sub_12686C(a1);
     if ( !*(uint8_t *)rf_level_apply_n_1b4 && *(uint32_t *)(*((uint32_t *)0x126c28)) )
     {
@@ -65988,7 +64884,7 @@ LABEL_10:
   }
   else
   {
-    result = (unsigned int *)msg_parse(rf_level_apply_n_1e0);
+    result = (unsigned int *)msg_parse(rf_level_apply_n_1e0, 0);
     v11 = rf_level_apply_n_1db;
     if ( (*(uint32_t *)rf_level_apply_n_1db & 0x10000) != 0 )
     {
@@ -66019,8 +64915,7 @@ LABEL_10:
 
 
 // sub_1268EC @ 0x1268ec, size 1078 bytes
-unsigned int * sub_1268EC(int a1)
-{
+unsigned int * sub_1268EC(uint32_t a1) {
   unsigned int *result; // r0
   int v3; // r6
   unsigned int v4; // r5
@@ -66081,7 +64976,7 @@ unsigned int * sub_1268EC(int a1)
       sub_1019EC(&v51, 0);
       v3 = BYTE1(v51);
       v4 = WORD1(v51);
-      sub_11F504((*((uint32_t *)0x126bc8)), a1, WORD2(v51), WORD1(v51), BYTE1(v51));
+      sub_11F504((*((uint32_t *)0x126bc8)), a1);
       result = (unsigned int *)(*((uint32_t *)0x126bd0));
       v5 = (*((uint32_t *)0x126bd4));
       v6 = (*((uint32_t *)0x126bd8));
@@ -66206,7 +65101,7 @@ LABEL_10:
     {
       sub_1019EC(&v51, 0);
       v33 = WORD1(v51);
-      result = (unsigned int *)sub_11F504((*((uint32_t *)0x126c20)), WORD2(v51), WORD1(v51), BYTE1(v51));
+      result = (unsigned int *)sub_11F504((*((uint32_t *)0x126c20)), WORD2(v51));
       if ( v33 == 2412 )
       {
         v34 = (int *)(*((uint32_t *)0x126d28));
@@ -66235,7 +65130,7 @@ LABEL_10:
       *result = v37;
       goto LABEL_10;
     }
-    sub_11F504((*((uint32_t *)0x126c20)), v22, v23, v24);
+    sub_11F504((*((uint32_t *)0x126c20)), v22);
     result = (unsigned int *)sub_12686C(a1);
     if ( !*(uint8_t *)(*((uint32_t *)0x126c24)) && *(uint32_t *)(*((uint32_t *)0x126c28)) )
     {
@@ -66255,7 +65150,7 @@ LABEL_10:
   }
   else
   {
-    result = (unsigned int *)sub_11F504((*((uint32_t *)0x126bf8)));
+    result = (unsigned int *)sub_11F504((*((uint32_t *)0x126bf8)), 0);
     v11 = (*((uint32_t *)0x126bfc));
     if ( (*(uint32_t *)(*((uint32_t *)0x126bfc)) & 0x10000) != 0 )
     {
@@ -66287,8 +65182,7 @@ LABEL_10:
 
 // rf_level_apply_6d60 @ 0x126d60, size 52 bytes
 // rf_level_apply_n_60 [rf]: Apply RF level by clearing bits 0x10000 and 0x780000 in control registers
-int  rf_level_apply_6d60(int a1)
-{
+int  rf_level_apply_6d60(uint32_t a1) {
   void *v1; // r1
   unsigned int *v2; // r2
   int v3; // r3
@@ -66311,13 +65205,12 @@ int  rf_level_apply_6d60(int a1)
     v5 = *v2 & 0xFF87FFFF;
   }
   *v2 = v5;
-  return msg_parse(v4, v1, v2, v5);
+  return msg_parse(v4, v1);
 }
 
 
 // sub_126D60 @ 0x126d60, size 52 bytes
-int  sub_126D60(int a1)
-{
+int  sub_126D60(uint32_t a1) {
   void *v1; // r1
   unsigned int *v2; // r2
   int v3; // r3
@@ -66340,14 +65233,13 @@ int  sub_126D60(int a1)
     v5 = *v2 & 0xFF87FFFF;
   }
   *v2 = v5;
-  return sub_11F504(v4, v1, v2, v5);
+  return sub_11F504(v4, v1);
 }
 
 
 // rf_level_step @ 0x126da4, size 44 bytes
 // rf_level_apply_n_a [rf]: applies RF level/threshold configuration
-unsigned int rf_level_step()
-{
+unsigned int rf_level_step() {
   unsigned char *v0; // r4
   unsigned int result; // r0
   unsigned int v2; // r3
@@ -66364,15 +65256,14 @@ unsigned int rf_level_step()
       v3 = result + 1;
     *((uint8_t *)rf_level_apply_n_8 + 6) = v3;
     sub_10F170(v3);
-    return msg_parse((*((uint32_t *)0x126dd4)), v0[5], v0[6]);
+    return msg_parse((*((uint32_t *)0x126dd4)), v0[5]);
   }
   return result;
 }
 
 
 // sub_126DA4 @ 0x126da4, size 44 bytes
-unsigned int sub_126DA4()
-{
+unsigned int sub_126DA4() {
   unsigned char *v0; // r4
   unsigned int result; // r0
   unsigned int v2; // r3
@@ -66389,7 +65280,7 @@ unsigned int sub_126DA4()
       v3 = result + 1;
     *((uint8_t *)(*((uint32_t *)0x126dd0)) + 6) = v3;
     sub_10F170(v3);
-    return sub_11F504((*((uint32_t *)0x126dd4)), v0[5], v0[6]);
+    return sub_11F504((*((uint32_t *)0x126dd4)), v0[5]);
   }
   return result;
 }
@@ -66397,8 +65288,7 @@ unsigned int sub_126DA4()
 
 // sub_126DD8 @ 0x126dd8, size 108 bytes
 // rf_level_apply_n54 [rf]: Applies RF TX power level bytes to register block
-int  sub_126DD8(int a1)
-{
+int  sub_126DD8(uint32_t a1) {
   uint8_t *v1; // r3
   int v2; // r2
   int v3; // r0
@@ -66420,15 +65310,15 @@ int  sub_126DD8(int a1)
   v6 = *(uint8_t *)(rf_level_apply_n70 + v2 + 32);
   v7 = *(uint8_t *)(rf_level_apply_n70 + v3 + 16);
   v8 = rf_level_apply_n74 + v2;
-  v2 = ((unsigned)(v2) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(rf_level_apply_n70 + v3) - *(uint8_t *)(rf_level_apply_n70 + v2)) & 0xFFU) << 0);
+  LOBYTE(v2) = *(uint8_t *)(rf_level_apply_n70 + v3) - *(uint8_t *)(rf_level_apply_n70 + v2);
   v9 = rf_level_apply_n74 + v3;
   v10 = *(uint8_t *)(rf_level_apply_n70 + v3 + 32);
-  v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(rf_level_apply_n74 + v3)) & 0xFFU) << 0);
+  LOBYTE(v3) = *(uint8_t *)(rf_level_apply_n74 + v3);
   v11 = *(uint8_t *)(v8 + 16);
   v12 = *(uint8_t *)(v9 + 16);
-  v8 = ((unsigned)(v8) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v8 + 32)) & 0xFFU) << 0);
+  LOBYTE(v8) = *(uint8_t *)(v8 + 32);
   *((uint8_t *)rf_level_apply_n6c + 8) = v2;
-  v2 = ((unsigned)(v2) & 0xFFFFFF00U) | (((unsigned)(*(uint8_t *)(v9 + 32) - v8) & 0xFFU) << 0);
+  LOBYTE(v2) = *(uint8_t *)(v9 + 32) - v8;
   v1[9] = v7 - v5;
   v1[10] = v10 - v6;
   v1[11] = v3 - v4;
@@ -66441,24 +65331,21 @@ int  sub_126DD8(int a1)
 // rf_level_apply_n78 @ 0x126e50, size 4 bytes
 // rf_level_apply_n78 [rf]: Apply RF TX power level setting
 // attributes: thunk
-int rf_level_apply_n78()
-{
+int rf_level_apply_n78() {
   return sub_10DE98();
 }
 
 
 // sub_126E50 @ 0x126e50, size 4 bytes
 // attributes: thunk
-int sub_126E50()
-{
+int sub_126E50() {
   return sub_10DE98();
 }
 
 
 // sub_126E54 @ 0x126e54, size 38 bytes
 // rf_level_apply_helper [rf]: RF level apply helper routine
-int sub_126E54()
-{
+int sub_126E54() {
   if ( *((uint8_t *)rf_level_apply_na4 + 1) )
     return *((char *)rf_level_apply_na4 + 3);
   sub_10DE98();
@@ -66468,8 +65355,7 @@ int sub_126E54()
 
 // rf_level_dump @ 0x126e80, size 118 bytes
 // rf_level_apply_nd8 [rf]: Apply RF power/level parameters from struct fields
-int rf_level_dump()
-{
+int rf_level_dump() {
   unsigned char *v0; // r4
   int v1; // r4
   int v2; // r0
@@ -66482,19 +65368,18 @@ int rf_level_dump()
     *((char *)rf_level_apply_n120 + 1),
     *((char *)rf_level_apply_n120 + 2),
     *((char *)rf_level_apply_n120 + 3));
-  msg_parse((*((uint32_t *)0x126f00)), v0[4], v0[5], v0[6]);
-  msg_parse((*((uint32_t *)0x126f04)), (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
+  msg_parse((*((uint32_t *)0x126f00)), v0[4]);
+  msg_parse((*((uint32_t *)0x126f04)), (char)v0[8]);
   v1 = *((unsigned char *)(*((uint32_t *)0x126f08)) + 363);
   v4 = *((uint32_t *)(*((uint32_t *)0x126f08)) + 91);
   v2 = sub_11DDCC(1070, 1);
-  return msg_parse((*((uint32_t *)0x126f0c)), v1, v4, v2);
+  return msg_parse((*((uint32_t *)0x126f0c)), v1);
 }
 
 
 // sub_126E80 @ 0x126e80, size 118 bytes
 // rf_level_apply_nc6 [rf]: Apply 9 signed RF level/IQ compensation values from a level table to chain 6 via rf_reg_write helper.
-int sub_126E80()
-{
+int sub_126E80() {
   unsigned char *v0; // r4
   int v1; // r4
   int v2; // r0
@@ -66507,19 +65392,18 @@ int sub_126E80()
     *((char *)(*((uint32_t *)0x126ef8)) + 1),
     *((char *)(*((uint32_t *)0x126ef8)) + 2),
     *((char *)(*((uint32_t *)0x126ef8)) + 3));
-  sub_11F504((*((uint32_t *)0x126f00)), v0[4], v0[5], v0[6]);
-  sub_11F504((*((uint32_t *)0x126f04)), (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
+  sub_11F504((*((uint32_t *)0x126f00)), v0[4]);
+  sub_11F504((*((uint32_t *)0x126f04)), (char)v0[8]);
   v1 = *((unsigned char *)(*((uint32_t *)0x126f08)) + 363);
   v4 = *((uint32_t *)(*((uint32_t *)0x126f08)) + 91);
   v2 = sub_11DDCC(1070, 1);
-  return sub_11F504((*((uint32_t *)0x126f0c)), v1, v4, v2);
+  return sub_11F504((*((uint32_t *)0x126f0c)), v1);
 }
 
 
 // rf_level_compute @ 0x126f10, size 110 bytes
 // rf_level_apply_f30 [rf]: Clamps and applies RF level offset to value
-int  rf_level_compute(int a1)
-{
+int  rf_level_compute(uint32_t a1) {
   signed int v1; // r0
   int v2; // r3
   int result; // r0
@@ -66537,7 +65421,7 @@ int  rf_level_compute(int a1)
   if ( v2 >= 31 )
     v2 = 31;
   if ( v2 < 1 )
-    v2 = ((unsigned)(v2) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+    LOBYTE(v2) = 1;
   *((uint8_t *)rf_stream_start_n_12a + 5) = v2;
   sub_126DD8(v1);
   result = rf_feature_check(9u, 4u);
@@ -66548,8 +65432,7 @@ int  rf_level_compute(int a1)
 
 
 // sub_126F10 @ 0x126f10, size 110 bytes
-int  sub_126F10(int a1)
-{
+int  sub_126F10(uint32_t a1) {
   signed int v1; // r0
   int v2; // r3
   int result; // r0
@@ -66567,7 +65450,7 @@ int  sub_126F10(int a1)
   if ( v2 >= 31 )
     v2 = 31;
   if ( v2 < 1 )
-    v2 = ((unsigned)(v2) & 0xFFFFFF00U) | (((unsigned)(1) & 0xFFU) << 0);
+    LOBYTE(v2) = 1;
   *((uint8_t *)(*((uint32_t *)0x126f84)) + 5) = v2;
   sub_126DD8(v1);
   result = sub_11F4D8(9u, 4u);
@@ -66579,8 +65462,7 @@ int  sub_126F10(int a1)
 
 // rf_level_apply_n1b8 @ 0x126f90, size 62 bytes
 // rf_level_apply_n1ce [rf]: Apply RF level/temperature compensation delta
-unsigned int rf_level_apply_n1b8()
-{
+unsigned int rf_level_apply_n1b8() {
   int v0; // s15
   int v1; // r3
 
@@ -66599,8 +65481,7 @@ unsigned int rf_level_apply_n1b8()
 
 
 // sub_126F90 @ 0x126f90, size 62 bytes
-unsigned int sub_126F90()
-{
+unsigned int sub_126F90() {
   int v0; // s15
   int v1; // r3
 
@@ -66620,8 +65501,7 @@ unsigned int sub_126F90()
 
 // rf_level_apply_n200 @ 0x126fd8, size 104 bytes
 // rf_level_apply_n262 [rf]: Apply RF TX level/amplitude settings to registers
-int  rf_level_apply_n200(char a1)
-{
+int  rf_level_apply_n200(uint32_t a1) {
   uint8_t *v1; // r4
   int v3; // r0
   int v4; // r2
@@ -66648,15 +65528,14 @@ int  rf_level_apply_n200(char a1)
   if ( v5 >= 8 )
     v5 = 8;
   if ( v5 < -7 )
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(-7) & 0xFFU) << 0);
+    LOBYTE(v5) = -7;
   v1[2] = v5;
   return rf_level_compute(v3);
 }
 
 
 // sub_126FD8 @ 0x126fd8, size 104 bytes
-int  sub_126FD8(char a1)
-{
+int  sub_126FD8(uint32_t a1) {
   uint8_t *v1; // r4
   int v3; // r0
   int v4; // r2
@@ -66683,7 +65562,7 @@ int  sub_126FD8(char a1)
   if ( v5 >= 8 )
     v5 = 8;
   if ( v5 < -7 )
-    v5 = ((unsigned)(v5) & 0xFFFFFF00U) | (((unsigned)(-7) & 0xFFU) << 0);
+    LOBYTE(v5) = -7;
   v1[2] = v5;
   return sub_126F10(v3);
 }
@@ -66691,8 +65570,7 @@ int  sub_126FD8(char a1)
 
 // rf_level_apply_n274 @ 0x12704c, size 174 bytes
 // rf_level_apply_n31e [rf]: Apply RF level/tx power setting
-void rf_level_apply_n274()
-{
+void rf_level_apply_n274() {
   uint8_t *v0; // r4
   int v1; // r2
   int v2; // r3
@@ -66738,13 +65616,13 @@ LABEL_4:
 LABEL_5:
     if ( v3 > 0x1F )
     {
-      v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(31) & 0xFFU) << 0);
+      LOBYTE(v3) = 31;
       v8 = 31;
     }
     goto rf_level_apply_n2aa;
   }
 LABEL_19:
-  v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(15) & 0xFFU) << 0);
+  LOBYTE(v3) = 15;
 rf_level_apply_n2aa:
   v0[4] = v3;
   n = mmio_bit_extract_n();
@@ -66778,8 +65656,7 @@ rf_level_apply_n2aa:
 
 
 // sub_12704C @ 0x12704c, size 174 bytes
-void sub_12704C()
-{
+void sub_12704C() {
   uint8_t *v0; // r4
   int v1; // r2
   int v2; // r3
@@ -66825,13 +65702,13 @@ LABEL_4:
 LABEL_5:
     if ( v3 > 0x1F )
     {
-      v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(31) & 0xFFU) << 0);
+      LOBYTE(v3) = 31;
       v8 = 31;
     }
     goto LABEL_7;
   }
 LABEL_19:
-  v3 = ((unsigned)(v3) & 0xFFFFFF00U) | (((unsigned)(15) & 0xFFU) << 0);
+  LOBYTE(v3) = 15;
 LABEL_7:
   v0[4] = v3;
   v4 = sub_10F15C();
@@ -66866,8 +65743,7 @@ LABEL_7:
 
 // sub_127108 @ 0x127108, size 88 bytes
 // bt_hci_cmd_send_n_c1c [bt]: Send HCI command 0x180a via BT path
-int sub_127108()
-{
+int sub_127108() {
   uint8_t *v0; // r4
   int result; // r0
   int v2; // r0
@@ -66899,8 +65775,7 @@ int sub_127108()
 
 // rf_bus_write_n3d6_716c @ 0x12716c, size 36 bytes
 // rf_level_apply_n3a6 [rf]: Apply RF TX power level adjustment
-int rf_bus_write_n3d6_716c()
-{
+int rf_bus_write_n3d6_716c() {
   int result; // r0
 
   *((uint8_t *)(*((uint32_t *)0x127190)) + 1) = 0;
@@ -66912,8 +65787,7 @@ int rf_bus_write_n3d6_716c()
 
 
 // sub_12716C @ 0x12716c, size 36 bytes
-int sub_12716C()
-{
+int sub_12716C() {
   int result; // r0
 
   *((uint8_t *)(*((uint32_t *)0x127190)) + 1) = 0;
@@ -66926,8 +65800,7 @@ int sub_12716C()
 
 // math_round @ 0x127194, size 142 bytes
 // rf_level_apply_n3dd [rf]: Applies RF level value via OR with mask register
-long long  math_round(long long a1)
-{
+long long  math_round(uint32_t a1) {
   int v1; // r7
   int v2; // r4
   int v3; // r5
@@ -66960,7 +65833,7 @@ long long  math_round(long long a1)
     }
     else if ( v1 == 2047 )
     {
-      return sub_1272B4(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return sub_1272B4(a1, HIDWORD(a1));
     }
   }
   else
@@ -66985,8 +65858,7 @@ long long  math_round(long long a1)
 
 
 // sub_127194 @ 0x127194, size 142 bytes
-long long  sub_127194(long long a1)
-{
+long long  sub_127194(uint32_t a1) {
   int v1; // r7
   int v2; // r4
   int v3; // r5
@@ -67019,7 +65891,7 @@ long long  sub_127194(long long a1)
     }
     else if ( v1 == 2047 )
     {
-      return sub_1272B4(a1, HIDWORD(a1), a1, HIDWORD(a1));
+      return sub_1272B4(a1, HIDWORD(a1));
     }
   }
   else
@@ -67044,8 +65916,7 @@ long long  sub_127194(long long a1)
 
 
 // sub_127228 @ 0x127228, size 114 bytes
-int  sub_127228(int a1)
-{
+int  sub_127228(uint32_t a1) {
   int v1; // r5
   unsigned int v3; // r7
   int v4; // r6
@@ -67058,13 +65929,13 @@ int  sub_127228(int a1)
   if ( v1 > 22 )
   {
     if ( v3 >= 0x7F800000 )
-      return sub_127C90(a1, a1);
+      return sub_127C90(a1, a1, 0, 0);
     return a1;
   }
   v4 = a1;
   if ( v1 < 0 )
   {
-    v8 = sub_127C90(a1, (*((uint32_t *)0x1272a0)));
+    v8 = sub_127C90(a1, (*((uint32_t *)0x1272a0)), 0, 0);
     if ( sub_127F78(v8, 0) )
     {
       if ( a1 >= 0 )
@@ -67077,7 +65948,7 @@ int  sub_127228(int a1)
   v5 = (*((uint32_t *)0x12729c)) >> v1;
   if ( (a1 & ((*((uint32_t *)0x12729c)) >> v1)) == 0 )
     return a1;
-  v6 = sub_127C90(a1, (*((uint32_t *)0x1272a0)));
+  v6 = sub_127C90(a1, (*((uint32_t *)0x1272a0)), 0, 0);
   if ( !sub_127F78(v6, 0) )
     return a1;
   if ( a1 < 0 )
@@ -67087,15 +65958,13 @@ int  sub_127228(int a1)
 
 
 // sub_1272B0 @ 0x1272b0, size 4 bytes
-long long  sub_1272B0(int a1, int a2, int a3, int a4)
-{
-  return sub_1272B4(a1, a2, a3, a4 ^ 0x80000000);
+long long  sub_1272B0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
+  return sub_1272B4(a1, a2);
 }
 
 
 // sub_1272B4 @ 0x1272b4, size 630 bytes
-int  sub_1272B4(long long a1, long long a2)
-{
+int  sub_1272B4(uint32_t a1, uint32_t a2) {
   int v2; // r4
   int v3; // r5
   uint8_t v4; // zf
@@ -67129,8 +65998,8 @@ int  sub_1272B4(long long a1, long long a2)
 
   v2 = 2 * HIDWORD(a1);
   v3 = 2 * HIDWORD(a2);
-  v4 = 2 * a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(= 2 * HIDWORD(a2)) & 0xFFFFFFFFULL) << 32);
-  if ( 2 * a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(= 2 * HIDWORD(a2) )
+  v4 = 2 * HIDWORD(a1) == 2 * HIDWORD(a2);
+  if ( 2 * HIDWORD(a1) == 2 * HIDWORD(a2) )
     v4 = (unsigned int)a1 == (unsigned int)a2;
   if ( !v4 )
   {
@@ -67184,7 +66053,7 @@ int  sub_1272B4(long long a1, long long a2)
   else
   {
     v5 = (unsigned int)v2 >> 21;
-    v6 = __OFSUB__((unsigned int)v3 >> 21) & 0xFFFFFFFFULL) << 32), v5);
+    v6 = __OFSUB__((unsigned int)v3 >> 21, v5);
     v8 = ((unsigned int)v3 >> 21) - v5;
     v7 = (v8 < 0) ^ v6 | (v8 == 0);
     if ( v8 < 0 != v6 )
@@ -67199,19 +66068,19 @@ int  sub_1272B4(long long a1, long long a2)
     if ( (unsigned int)v8 <= 0x36 )
     {
       v4 = a1 >= 0;
-      a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(HIDWORD(a1) & 0xFFFFF | 0x100000) & 0xFFFFFFFFULL) << 32);
+      HIDWORD(a1) = HIDWORD(a1) & 0xFFFFF | 0x100000;
       if ( !v4 )
       {
         v18 = (uint32_t)a1 == 0;
-        a1 = (uint32_t)(-(int)a1);
+        LODWORD(a1) = -(int)a1;
         HIDWORD(a1) -= 2 * HIDWORD(a1) + !v18;
       }
       v4 = a2 >= 0;
-      a2 = (uint32_t)(HIDWORD(a2) & 0xFFFFF | 0x100000);
+      HIDWORD(a2) = HIDWORD(a2) & 0xFFFFF | 0x100000;
       if ( !v4 )
       {
         v18 = (uint32_t)a2 == 0;
-        a2 = (uint32_t)(-(int)a2);
+        LODWORD(a2) = -(int)a2;
         HIDWORD(a2) -= 2 * HIDWORD(a2) + !v18;
       }
       if ( v5 == v8 )
@@ -67236,7 +66105,7 @@ int  sub_1272B4(long long a1, long long a2)
         if ( (uint32_t)a2 )
           v12 |= 2u;
         v16 = SHIDWORD(a2) >> v15;
-        a1 = (uint32_t)(a1 + v16);
+        LODWORD(a1) = a1 + v16;
         HIDWORD(a1) += (v16 >> 31) + __CFSHR__(v16, 31);
         v14 = a1 < 0;
       }
@@ -67244,7 +66113,7 @@ int  sub_1272B4(long long a1, long long a2)
       {
         v12 = (uint32_t)a2 << v11;
         v13 = a1 + ((unsigned int)a2 >> v8);
-        a2 = (uint32_t)(HIDWORD(a2) << v11);
+        LODWORD(a2) = HIDWORD(a2) << v11;
         SHIDWORD(a2) >>= v8;
         a1 = v13 + a2;
         v14 = a1 < 0;
@@ -67255,14 +66124,14 @@ int  sub_1272B4(long long a1, long long a2)
         v12 = -v12;
         v17 = v18;
         v18 = __CFSUB__(0, (uint32_t)a1, v18);
-        a1 = (uint32_t)(-(a1 + !v17));
-        a1 = (uint32_t)(-(HIDWORD(a1) + !v18));
+        LODWORD(a1) = -(a1 + !v17);
+        HIDWORD(a1) = -(HIDWORD(a1) + !v18);
       }
       if ( HIDWORD(a1) >= 0x100000 )
       {
         if ( HIDWORD(a1) < 0x200000
           || (v18 = a1 & 1,
-              a1 = (uint32_t)(a1 >> 1),
+              LODWORD(a1) = a1 >> 1,
               v12 = (v12 >> 1) | (v18 << 31),
               (unsigned int)((v10 + 1) << 21) < 0xFFC00000) )
         {
@@ -67270,28 +66139,28 @@ LABEL_30:
           v18 = v12 >= 0x80000000;
           if ( v12 == 0x80000000 )
             v18 = a1 & 1;
-          a1 = (uint32_t)(v18 + (uint32_t)a1);
+          LODWORD(a1) = v18 + (uint32_t)a1;
           return a1;
         }
 LABEL_69:
-        a1 = (uint32_t)(0);
+        LODWORD(a1) = 0;
         return a1;
       }
       v18 = __CFSHL__(v12, 1);
       v12 *= 2;
       v19 = v18 + (uint32_t)a1;
       v18 = __CFADD__(v18, (uint32_t)a1) | __CFADD__((uint32_t)a1, v19);
-      a1 = (uint32_t)(a1 + v19);
+      LODWORD(a1) = a1 + v19;
       HIDWORD(a1) += v18 + HIDWORD(a1);
       v18 = v10 != 0;
       v20 = v10 - 1;
       if ( v18 && HIDWORD(a1) >= 0x100000 )
         goto LABEL_30;
-      v21 = a1 = (uint32_t)(= 0);
+      v21 = HIDWORD(a1) == 0;
       if ( !HIDWORD(a1) )
       {
-        a1 = (uint32_t)(a1);
-        a1 = (uint32_t)(0);
+        HIDWORD(a1) = a1;
+        LODWORD(a1) = 0;
       }
       v22 = __clz(HIDWORD(a1));
       if ( v21 )
@@ -67304,7 +66173,7 @@ LABEL_69:
         v24 = v25 <= -12;
         if ( v25 > -12 )
         {
-          a1 = (uint32_t)(HIDWORD(a1) << v23);
+          LODWORD(a1) = HIDWORD(a1) << v23;
           HIDWORD(a1) >>= 32 - v23;
 LABEL_47:
           v7 = v20 < v23;
@@ -67317,20 +66186,20 @@ LABEL_47:
             if ( v7 )
               LODWORD(a1) = ((unsigned int)a1 >> (v29 + 32)) | (HIDWORD(a1) << -v29);
             else
-              a1 = (uint32_t)(HIDWORD(a1) >> v29);
+              LODWORD(a1) = HIDWORD(a1) >> v29;
           }
           return a1;
         }
-        v25 = ((unsigned)(v25) & 0xFFFFFF00U) | (((unsigned)(v23) & 0xFFU) << 0);
+        LOBYTE(v25) = v23;
       }
       if ( v24 )
-        v12 = ((unsigned)(v12) & 0xFFFFFF00U) | (((unsigned)(32 - v25) & 0xFFU) << 0);
+        LOBYTE(v12) = 32 - v25;
       HIDWORD(a1) <<= v25;
       v26 = (unsigned int)a1 >> v12;
       if ( v24 )
       {
         HIDWORD(a1) |= v26;
-        a1 = (uint32_t)((uint32_t)a1 << v25);
+        LODWORD(a1) = (uint32_t)a1 << v25;
       }
       goto LABEL_47;
     }
@@ -67340,8 +66209,7 @@ LABEL_47:
 
 
 // sub_12752C @ 0x12752c, size 30 bytes
-int  sub_12752C(int result)
-{
+int  sub_12752C(uint32_t a1) {
   if ( result )
     JUMPOUT(0x1273EC);
   return result;
@@ -67349,8 +66217,7 @@ int  sub_12752C(int result)
 
 
 // sub_12754C @ 0x12754c, size 34 bytes
-int  sub_12754C(int result)
-{
+int  sub_12754C(uint32_t a1) {
   if ( result )
     JUMPOUT(0x1273EC);
   return result;
@@ -67358,8 +66225,7 @@ int  sub_12754C(int result)
 
 
 // sub_127570 @ 0x127570, size 66 bytes
-int  sub_127570(int a1, int a2, int a3, unsigned int a4)
-{
+int  sub_127570(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // zf
   int v5; // r2
   int result; // r0
@@ -67377,8 +66243,7 @@ int  sub_127570(int a1, int a2, int a3, unsigned int a4)
 
 
 // sub_1275B4 @ 0x1275b4, size 106 bytes
-int  sub_1275B4(long long a1)
-{
+int  sub_1275B4(uint32_t a1) {
   if ( a1 )
     JUMPOUT(0x12739A);
   return a1;
@@ -67386,8 +66251,7 @@ int  sub_1275B4(long long a1)
 
 
 // sub_127620 @ 0x127620, size 412 bytes
-int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
-{
+int  sub_127620(uint32_t a1, uint32_t a2, uint32_t a3) {
   int v3; // r5
   unsigned int v4; // r12
   uint8_t v5; // zf
@@ -67437,7 +66301,7 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
       v5 = v3 == 0x7FF;
   }
   if ( v5 )
-    a1 = sub_1277FC();
+    a1 = sub_1277FC(0, 0, 0, 0, 0, 0, 0, 0);
   v7 = v6 + v3;
   v8 = HIDWORD(a1) ^ a3;
   v9 = HIDWORD(a1) & ~(v4 << 21);
@@ -67445,12 +66309,12 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
   v11 = ((unsigned int)a1 | (v9 << 12)) == 0;
   if ( (unsigned int)a1 | (v9 << 12) )
     v11 = (a2 | (v10 << 12)) == 0;
-  a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(v9 | 0x100000) & 0xFFFFFFFFULL) << 32);
+  HIDWORD(a1) = v9 | 0x100000;
   v12 = v10 | 0x100000;
   if ( v11 )
   {
-    a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(a1 | a2) & 0xFFFFFFFFULL) << 0);
-    a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)((v8 & 0x80000000 | HIDWORD(a1)) ^ v12) & 0xFFFFFFFFULL) << 32);
+    LODWORD(a1) = a1 | a2;
+    HIDWORD(a1) = (v8 & 0x80000000 | HIDWORD(a1)) ^ v12;
     v24 = v7 <= (int)(v4 >> 1);
     v26 = v7 - (v4 >> 1);
     if ( !v24 && (int)v4 > v26 )
@@ -67482,8 +66346,8 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
       v19 += v22;
       v20 += v25 + v20;
     }
-    a1 = (uint32_t)(v16 | (v20 << 11) | (v19 >> 21));
-    a1 = (uint32_t)((v19 << 11) | (v17 >> 21));
+    HIDWORD(a1) = v16 | (v20 << 11) | (v19 >> 21);
+    LODWORD(a1) = (v19 << 11) | (v17 >> 21);
     v23 = v17 << 11;
     v24 = v21 <= 253;
     if ( (unsigned int)v21 > 0xFD )
@@ -67493,7 +66357,7 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
       v25 = v23 >= 0x80000000;
       if ( v23 == 0x80000000 )
         v25 = a1 & 1;
-      a1 = (uint32_t)(v25 + (uint32_t)a1);
+      LODWORD(a1) = v25 + (uint32_t)a1;
       return a1;
     }
   }
@@ -67514,7 +66378,7 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
         v31 = (uint32_t)a1 << (32 - v30);
         LODWORD(a1) = (((unsigned int)a1 >> v30) | (HIDWORD(a1) << (32 - v30))) + (v31 >> 31);
         if ( !(v23 | (2 * v31)) )
-          a1 = (uint32_t)(a1 & ~(v31 >> 31));
+          LODWORD(a1) = a1 & ~(v31 >> 31);
       }
       else
       {
@@ -67522,7 +66386,7 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
         v33 = (uint32_t)a1 << v32;
         LODWORD(a1) = (((unsigned int)a1 >> (32 - v32)) | (HIDWORD(a1) << v32)) + ((uint32_t)a1 << v32 >> 31);
         if ( !(v23 | (2 * v33)) )
-          a1 = (uint32_t)(a1 & ~(v33 >> 31));
+          LODWORD(a1) = a1 & ~(v33 >> 31);
       }
     }
     else
@@ -67531,20 +66395,19 @@ int  sub_127620(long long a1, unsigned int a2, unsigned int a3)
       v35 = ((unsigned int)a1 >> v28) | (HIDWORD(a1) << (32 - v28));
       LODWORD(a1) = ((HIDWORD(a1) >> v28) & ~((HIDWORD(a1) & 0x80000000) >> v28)) + (v35 >> 31);
       if ( !(v34 | (2 * v35)) )
-        a1 = (uint32_t)(a1 & ~(v35 >> 31));
+        LODWORD(a1) = a1 & ~(v35 >> 31);
     }
   }
   else
   {
-    a1 = (uint32_t)(0);
+    LODWORD(a1) = 0;
   }
   return a1;
 }
 
 
 // sub_1277FC @ 0x1277fc, size 120 bytes
-int  sub_1277FC(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8)
-{
+int  sub_1277FC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5, uint32_t a6, uint32_t a7, uint32_t a8) {
   uint8_t v8; // cf
   int v9; // r4
   int v10; // r12
@@ -67570,14 +66433,14 @@ int  sub_1277FC(int result, unsigned int a2, int a3, unsigned int a4, int a5, in
       a2 = a4;
     }
     if ( !v14 && (v9 != v10 || !(result | (a2 << 12))) && (v12 != v10 || !(a3 | (a4 << 12))) )
-      (void)0
-    (void)0
+      (void)0 }
+    (void)0 }
   }
   v13 = (result | (2 * a2)) == 0;
   if ( result | (2 * a2) )
     v13 = (a3 | (2 * a4)) == 0;
   if ( v13 )
-    (void)0
+    (void)0 }
   if ( v9 )
     goto LABEL_27;
   while ( 1 )
@@ -67607,8 +66470,7 @@ LABEL_27:
 
 
 // sub_127874 @ 0x127874, size 360 bytes
-unsigned int  sub_127874(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4)
-{
+unsigned int  sub_127874(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   int v4; // r5
   unsigned int v5; // r12
   uint8_t v6; // zf
@@ -67649,14 +66511,14 @@ unsigned int  sub_127874(unsigned int result, unsigned int a2, unsigned int a3, 
       v6 = v4 == 0x7FF;
   }
   if ( v6 )
-    result = sub_1279E2();
+    result = sub_1279E2(0, 0, 0, 0);
   v8 = v7 - v4;
   v9 = a2 ^ a4;
   v10 = a2 << 12;
   if ( a3 | (a4 << 12) )
   {
-    v11 = (v11 & 0x00000000FFFFFFFFULL) | (((unsigned long long)((a4 << 8) & 0xFFFFFFF | 0x10000000 | HIBYTE(a3)) & 0xFFFFFFFFULL) << 32);
-    v11 = (v11 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(a3 << 8) & 0xFFFFFFFFULL) << 0);
+    HIDWORD(v11) = (a4 << 8) & 0xFFFFFFF | 0x10000000 | HIBYTE(a3);
+    LODWORD(v11) = a3 << 8;
     v12 = (v10 >> 4) | 0x10000000 | HIBYTE(result);
     v13 = result << 8;
     v14 = v9 & 0x80000000;
@@ -67737,8 +66599,7 @@ LABEL_38:
 
 
 // sub_1279E2 @ 0x1279e2, size 98 bytes
-int  sub_1279E2(int result, int a2, int a3, unsigned int a4)
-{
+int  sub_1279E2(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // cf
   int v5; // r4
   int v6; // r12
@@ -67807,8 +66668,7 @@ LABEL_30:
 
 
 // sub_127A54 @ 0x127a54, size 122 bytes
-int  sub_127A54(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
-{
+int  sub_127A54(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // zf
   uint8_t v5; // zf
   uint8_t v7; // cf
@@ -67845,23 +66705,20 @@ int  sub_127A54(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 
 
 // sub_127AD0 @ 0x127ad0, size 14 bytes
-int  sub_127AD0(int a1, int a2, int a3, int a4)
-{
+int  sub_127AD0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   return sub_127AE0(a3, a4, a1, a2);
 }
 
 
 // sub_127AE0 @ 0x127ae0, size 16 bytes
-unsigned int  sub_127AE0(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
-{
+unsigned int  sub_127AE0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   sub_127A54(a1, a2, a3, a4);
   return a1;
 }
 
 
 // sub_127AF0 @ 0x127af0, size 18 bytes
-int  sub_127AF0(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
-{
+int  sub_127AF0(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v4; // zf
 
   sub_127AE0(a1, a2, a3, a4);
@@ -67870,8 +66727,7 @@ int  sub_127AF0(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 
 
 // sub_127B04 @ 0x127b04, size 18 bytes
-int  sub_127B04(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
-{
+int  sub_127B04(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v4; // cf
 
   sub_127AE0(a1, a2, a3, a4);
@@ -67880,8 +66736,7 @@ int  sub_127B04(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 
 
 // sub_127B18 @ 0x127b18, size 18 bytes
-int  sub_127B18(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
-{
+int  sub_127B18(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v4; // cf
   char v5; // zf
 
@@ -67891,8 +66746,7 @@ int  sub_127B18(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 
 
 // sub_127B2C @ 0x127b2c, size 18 bytes
-int  sub_127B2C(int a1, int a2, int a3, int a4)
-{
+int  sub_127B2C(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v4; // cf
   char v5; // zf
 
@@ -67902,8 +66756,7 @@ int  sub_127B2C(int a1, int a2, int a3, int a4)
 
 
 // sub_127B40 @ 0x127b40, size 18 bytes
-int  sub_127B40(int a1, int a2, int a3, int a4)
-{
+int  sub_127B40(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   char v4; // cf
 
   sub_127AD0(a1, a2, a3, a4);
@@ -67912,8 +66765,7 @@ int  sub_127B40(int a1, int a2, int a3, int a4)
 
 
 // sub_127B54 @ 0x127b54, size 78 bytes
-unsigned int  sub_127B54(unsigned int a1, int a2)
-{
+unsigned int  sub_127B54(uint32_t a1, uint32_t a2) {
   int v2; // r2
   uint8_t v3; // cf
   int v4; // r2
@@ -67946,8 +66798,7 @@ LABEL_10:
 
 
 // sub_127BA4 @ 0x127ba4, size 64 bytes
-unsigned int  sub_127BA4(unsigned int a1, int a2)
-{
+unsigned int  sub_127BA4(uint32_t a1, uint32_t a2) {
   int v2; // r2
   uint8_t v3; // cf
   int v4; // r2
@@ -67976,8 +66827,7 @@ unsigned int  sub_127BA4(unsigned int a1, int a2)
 
 
 // sub_127BE4 @ 0x127be4, size 158 bytes
-unsigned int  sub_127BE4(unsigned int a1, int a2)
-{
+unsigned int  sub_127BE4(uint32_t a1, uint32_t a2) {
   unsigned int v2; // r12
   uint8_t v3; // cf
   uint8_t v4; // cc
@@ -68030,8 +66880,7 @@ LABEL_7:
 
 
 // sub_127C90 @ 0x127c90, size 352 bytes
-int  sub_127C90(int result, int a2, int a3, int a4)
-{
+int  sub_127C90(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   uint8_t v4; // zf
   int v5; // r2
   int v6; // r2
@@ -68151,7 +67000,7 @@ int  sub_127C90(int result, int a2, int a3, int a4)
         v11 ^= 0x800000u;
         if ( v6 )
         {
-          v8 = ((unsigned)(v8) & 0xFFFFFF00U) | (((unsigned)(v8 - 1) & 0xFFU) << 0);
+          LOBYTE(v8) = v8 - 1;
         }
         else
         {
@@ -68211,8 +67060,7 @@ LABEL_23:
 
 
 // sub_127E14 @ 0x127e14, size 140 bytes
-int  sub_127E14(long long a1)
-{
+int  sub_127E14(uint32_t a1) {
   uint8_t v1; // zf
   unsigned int v2; // r12
   int v3; // r3
@@ -68226,12 +67074,12 @@ int  sub_127E14(long long a1)
   if ( a1 )
   {
     v2 = HIDWORD(a1);
-    v1 = a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(= 0) & 0xFFFFFFFFULL) << 32);
+    v1 = HIDWORD(a1) == 0;
     if ( !HIDWORD(a1) )
     {
       v2 = a1;
-      a1 = (a1 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(a1) & 0xFFFFFFFFULL) << 32);
-      a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(0) & 0xFFFFFFFFULL) << 0);
+      HIDWORD(a1) = a1;
+      LODWORD(a1) = 0;
     }
     v3 = 1526726656;
     if ( v1 )
@@ -68244,16 +67092,16 @@ int  sub_127E14(long long a1)
     {
       v9 = v6 + 32;
       v1 = ((unsigned int)a1 | (2 * (HIDWORD(a1) << v9))) == 0;
-      a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)((HIDWORD(a1) >> (32 - v9)) + __CFSHL__(HIDWORD(a1) << v9, 1) + v7) & 0xFFFFFFFFULL) << 0);
+      LODWORD(a1) = (HIDWORD(a1) >> (32 - v9)) + __CFSHL__(HIDWORD(a1) << v9, 1) + v7;
       if ( v1 )
-        a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(a1 & ~(HIDWORD(a1) << v9 >> 31)) & 0xFFFFFFFFULL) << 0);
+        LODWORD(a1) = a1 & ~(HIDWORD(a1) << v9 >> 31);
     }
     else
     {
       v8 = (uint32_t)a1 << v6;
       LODWORD(a1) = ((unsigned int)a1 >> (32 - v6)) + ((uint32_t)a1 << v6 >= 0x80000000) + v7 + (HIDWORD(a1) << v6);
       if ( v8 == 0x80000000 )
-        a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(a1 & 0xFFFFFFFE) & 0xFFFFFFFFULL) << 0);
+        LODWORD(a1) = a1 & 0xFFFFFFFE;
     }
   }
   return a1;
@@ -68261,8 +67109,7 @@ int  sub_127E14(long long a1)
 
 
 // sub_127EB0 @ 0x127eb0, size 94 bytes
-int  sub_127EB0(int result, int a2)
-{
+int  sub_127EB0(uint32_t a1, uint32_t a2) {
   int v2; // r2
   unsigned int v3; // r3
   uint8_t v4; // zf
@@ -68306,8 +67153,7 @@ int  sub_127EB0(int result, int a2)
 
 
 // sub_127F10 @ 0x127f10, size 24 bytes
-unsigned long long  sub_127F10(int a1, int a2)
-{
+unsigned long long  sub_127F10(uint32_t a1, uint32_t a2) {
   unsigned long long v3; // [sp+0h] [bp-10h]
 
   v3 = __PAIR64__(a1, a2);
@@ -68317,8 +67163,7 @@ unsigned long long  sub_127F10(int a1, int a2)
 
 
 // sub_127F28 @ 0x127f28, size 18 bytes
-int sub_127F28()
-{
+int sub_127F28() {
   char v0; // zf
 
   ((void (*)(void))loc_127F18)();
@@ -68327,8 +67172,7 @@ int sub_127F28()
 
 
 // sub_127F3C @ 0x127f3c, size 18 bytes
-int sub_127F3C()
-{
+int sub_127F3C() {
   char v0; // cf
 
   ((void (*)(void))loc_127F18)();
@@ -68337,8 +67181,7 @@ int sub_127F3C()
 
 
 // sub_127F50 @ 0x127f50, size 18 bytes
-int sub_127F50()
-{
+int sub_127F50() {
   char v0; // cf
   char v1; // zf
 
@@ -68348,8 +67191,7 @@ int sub_127F50()
 
 
 // sub_127F64 @ 0x127f64, size 18 bytes
-int  sub_127F64(int a1, int a2)
-{
+int  sub_127F64(uint32_t a1, uint32_t a2) {
   char v2; // cf
   char v3; // zf
 
@@ -68359,8 +67201,7 @@ int  sub_127F64(int a1, int a2)
 
 
 // sub_127F78 @ 0x127f78, size 18 bytes
-int  sub_127F78(int a1, int a2)
-{
+int  sub_127F78(uint32_t a1, uint32_t a2) {
   char v2; // cf
 
   sub_127F10(a1, a2);
@@ -68369,23 +67210,21 @@ int  sub_127F78(int a1, int a2)
 
 
 // sub_127F8C @ 0x127f8c, size 48 bytes
-int  sub_127F8C(long long a1, int a2, int a3)
-{
+int  sub_127F8C(uint32_t a1, uint32_t a2, uint32_t a3) {
   if ( a3 || a2 )
   {
-    a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(sub_127FBC(a1)) & 0xFFFFFFFFULL) << 0);
+    LODWORD(a1) = sub_127FBC(a1, 0, 0, 0);
   }
   else if ( a1 )
   {
-    a1 = (a1 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+    LODWORD(a1) = -1;
   }
   return a1;
 }
 
 
 // sub_127FBC @ 0x127fbc, size 702 bytes
-int  sub_127FBC(unsigned int a1, unsigned int a2, long long a3, unsigned int *a4)
-{
+int  sub_127FBC(uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4) {
   unsigned int v5; // r4
   unsigned int v6; // lr
   unsigned int v7; // r7
@@ -68446,7 +67285,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, long long a3, unsigned int *a4
       if ( v30 )
       {
         v38 = ((unsigned int)a3 >> (32 - v30)) | (HIDWORD(a3) << v30);
-        a3 = (a3 & 0x00000000FFFFFFFFULL) | (((unsigned long long)(a2 << v30) & 0xFFFFFFFFULL) << 32);
+        HIDWORD(a3) = a2 << v30;
         v39 = HIWORD(v38);
         v40 = a2 >> (32 - v30);
         v41 = (a1 >> (32 - v30)) | HIDWORD(a3);
@@ -68510,7 +67349,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, long long a3, unsigned int *a4
         }
         else
         {
-          a3 = (uint32_t)((__PAIR64__(a2, a1) - a3) >> 32);
+          HIDWORD(a3) = (__PAIR64__(a2, a1) - a3) >> 32;
           v5 = a1 - a3;
           result = 1;
           v6 = HIDWORD(a3);
@@ -68672,8 +67511,7 @@ int  sub_127FBC(unsigned int a1, unsigned int a2, long long a3, unsigned int *a4
 
 
 // sub_128280 @ 0x128280, size 8 bytes
-int  sub_128280(int result)
-{
+int  sub_128280(uint32_t a1) {
   if ( result < 0 )
     return -result;
   return result;
@@ -68681,8 +67519,7 @@ int  sub_128280(int result)
 
 
 // sub_128288 @ 0x128288, size 94 bytes
-int  sub_128288(unsigned int a1, unsigned int a2, unsigned int a3)
-{
+int  sub_128288(uint32_t a1, uint32_t a2, uint32_t a3) {
   int *v3; // r4
   int *v4; // r3
   int v5; // r5
@@ -68744,8 +67581,7 @@ LABEL_5:
 
 
 // sub_1282E8 @ 0x1282e8, size 308 bytes
-char * sub_1282E8(char *a1, char *a2, unsigned int a3)
-{
+char * sub_1282E8(uint32_t a1, uint32_t a2, uint32_t a3) {
   char *v3; // r12
   uint8_t v4; // cf
   unsigned int i; // r2
@@ -68910,8 +67746,7 @@ LABEL_11:
 
 
 // sub_12841C @ 0x12841c, size 206 bytes
-unsigned char * sub_12841C(unsigned char *result, unsigned char a2)
-{
+unsigned char * sub_12841C(uint32_t a1, uint32_t a2) {
   unsigned char *v2; // r3
   int v3; // r6
   int v4; // t1
@@ -69007,8 +67842,7 @@ LABEL_18:
 
 
 // sub_128508 @ 0x128508, size 724 bytes
-int  sub_128508(unsigned int a1, unsigned int *a2)
-{
+int  sub_128508(uint32_t a1, uint32_t a2) {
   int v3; // r2
   int v4; // r3
   char v7; // r4
@@ -69087,7 +67921,7 @@ int  sub_128508(unsigned int a1, unsigned int *a2)
       HIDWORD(0) |= ~v12;
       LODWORD(0) = -1;
       HIDWORD(v14) |= ~v12;
-      v14 = (v14 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+      LODWORD(v14) = -1;
     }
     while ( 1 )
     {
@@ -69315,8 +68149,7 @@ LABEL_59:
 
 
 // sub_1287DC @ 0x1287dc, size 186 bytes
-unsigned int  sub_1287DC(unsigned int result, unsigned int a2)
-{
+unsigned int  sub_1287DC(uint32_t a1, uint32_t a2) {
   uint8_t *v2; // r12
   int *v3; // r1
   int v4; // r3
@@ -69408,8 +68241,7 @@ LABEL_11:
 
 // sub_1288C0 @ 0x1288c0, size 220 bytes
 // sub_12288C0 [util]: Memory copy/fill routine with pld prefetch
-unsigned int  sub_1288C0(unsigned int a1)
-{
+unsigned int  sub_1288C0(uint32_t a1) {
   long long *v1; // r1
   int v3; // r4
   int v5; // r0
@@ -69475,8 +68307,7 @@ LABEL_4:
 
 
 // sub_12899C @ 0x12899c, size 80 bytes
-int  sub_12899C(unsigned char *a1, unsigned char *a2, int a3)
-{
+int  sub_12899C(uint32_t a1, uint32_t a2, uint32_t a3) {
   unsigned char *v3; // r5
   unsigned char *v4; // r7
   int v5; // r3
@@ -69526,8 +68357,7 @@ int  sub_12899C(unsigned char *a1, unsigned char *a2, int a3)
 
 
 // sub_12F954 @ 0x12f954, size 12 bytes
-int sub_12F954()
-{
+int sub_12F954() {
   int v0; // r5
   int v1; // r6
   char v2; // r7
@@ -69539,15 +68369,13 @@ int sub_12F954()
 
 
 // sub_130DF4 @ 0x130df4, size 12 bytes
-void sub_130DF4()
-{
+void sub_130DF4() {
   ;
 }
 
 
 // sub_130E00 @ 0x130e00, size 12 bytes
-void sub_130E00()
-{
+void sub_130E00() {
   ;
 }
 

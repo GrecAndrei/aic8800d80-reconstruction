@@ -9,11 +9,11 @@
   "removed": 1228,
   "identical_list": [
     {
-      "address": "0x1006d8",
-      "name_a": "sub_1006D8",
-      "name_b": "sub_1006D8",
-      "n_lines_a": 14,
-      "n_lines_b": 14,
+      "address": "0x100898",
+      "name_a": "sub_100898",
+      "name_b": "sub_100898",
+      "n_lines_a": 98,
+      "n_lines_b": 98,
       "same_code": true
     },
     {
@@ -25,35 +25,11 @@
       "same_code": true
     },
     {
-      "address": "0x100200",
-      "name_a": "sub_100200",
-      "name_b": "sub_100200",
-      "n_lines_a": 82,
-      "n_lines_b": 82,
-      "same_code": true
-    },
-    {
       "address": "0x100730",
       "name_a": "sub_100730",
       "name_b": "sub_100730",
       "n_lines_a": 14,
       "n_lines_b": 14,
-      "same_code": true
-    },
-    {
-      "address": "0x100898",
-      "name_a": "sub_100898",
-      "name_b": "sub_100898",
-      "n_lines_a": 98,
-      "n_lines_b": 98,
-      "same_code": true
-    },
-    {
-      "address": "0x1007a4",
-      "name_a": "sub_1007A4",
-      "name_b": "sub_1007A4",
-      "n_lines_a": 93,
-      "n_lines_b": 93,
       "same_code": true
     },
     {
@@ -65,11 +41,35 @@
       "same_code": true
     },
     {
+      "address": "0x100200",
+      "name_a": "sub_100200",
+      "name_b": "sub_100200",
+      "n_lines_a": 82,
+      "n_lines_b": 82,
+      "same_code": true
+    },
+    {
+      "address": "0x1006d8",
+      "name_a": "sub_1006D8",
+      "name_b": "sub_1006D8",
+      "n_lines_a": 14,
+      "n_lines_b": 14,
+      "same_code": true
+    },
+    {
       "address": "0x10076c",
       "name_a": "sub_10076C",
       "name_b": "sub_10076C",
       "n_lines_a": 14,
       "n_lines_b": 14,
+      "same_code": true
+    },
+    {
+      "address": "0x1006cc",
+      "name_a": "sub_1006CC",
+      "name_b": "sub_1006CC",
+      "n_lines_a": 6,
+      "n_lines_b": 6,
       "same_code": true
     },
     {
@@ -81,11 +81,11 @@
       "same_code": true
     },
     {
-      "address": "0x1006cc",
-      "name_a": "sub_1006CC",
-      "name_b": "sub_1006CC",
-      "n_lines_a": 6,
-      "n_lines_b": 6,
+      "address": "0x1007a4",
+      "name_a": "sub_1007A4",
+      "name_b": "sub_1007A4",
+      "n_lines_a": 93,
+      "n_lines_b": 93,
       "same_code": true
     }
   ],
