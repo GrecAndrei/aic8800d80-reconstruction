@@ -7,12 +7,13 @@ reconstruction project.
 
 | Task | Command |
 |------|---------|
+| **Cross-compile C source tree** | `make -C src check` |
+| **Run Go structure analyzer** | `bin/fwstruct all` |
+| **Run Go hybrid ledger & verification** | `bin/fwhybrid all` |
+| **Run ARM QEMU emulator tests** | `arm-none-eabi-gcc --specs=nosys.specs -marm scratch/run_comprehensive_tests.c -o scratch/run_comprehensive_tests_arm && qemu-arm-static scratch/run_comprehensive_tests_arm` |
 | Reproduce v19 release | `python3 harness_v19/scripts/make_elf.py` + `harness_v19/scripts/run_v19.sh <img>` |
 | Run v18 inline-asm | `python3 harness_v17/disasm_to_asm.py` |
-| Run v17 LLM naming | `python3 harness_v17/naming_batch.py` |
-| Run v15 synthesis | `go run ./cmd/fwimplsynth -max-tasks 128` |
-| Build v19 release tarball | `tar -czf artifacts/releases/v19.tar.gz -C artifacts/releases/ aic8800d80-rebuild-v1-v19` |
-| Inspect a function | `cat artifacts/releases/aic8800d80-rebuild-v1-v19/decompiled/<img>/<addr>_<name>.c` |
+| Build release tarballs | `tar -czf artifacts/releases/aic8800d80-rebuild-v1-src.tar.gz src/` |
 
 ## Environment
 
