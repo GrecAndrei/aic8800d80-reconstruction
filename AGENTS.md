@@ -34,7 +34,7 @@ path, and cross-binary diffs. Supersedes the v20-v24 Python harnesses.
 ## Hard rules (do not violate)
 
 1. **THINK IN TAGS, NOT BASH COMMANDS**: never use bash as scratch.
-2. **LLM cost is NOT a constraint** — be aggressive, push through.
+2. **LLM cost is NOT a constraint**: do not halt execution prematurely due to token budget; execute all verification steps methodically.
 3. **Address-safety rule is absolute**: LLM may NOT compute any address,
    offset, pointer, or size in its head. Provide tools.
 4. **LLM is NEVER a C author** — only tool user / naming oracle. All C
@@ -46,14 +46,22 @@ path, and cross-binary diffs. Supersedes the v20-v24 Python harnesses.
    nohup'd process. Bash tool has 120s timeout.
 8. **No synthetic/template bodies**; demand real semantic fidelity.
 9. **Bugs are blocking**: fix integration bugs first, then continue.
-10. **Regular commits** on meaningful source changes.
+10. **Frequent Commits**: Commit code regularly after every meaningful change or feature progress.
 11. **Do not modify generated files manually**; fixes via real rebuild.
 12. **Dual-track (A + B)**: hardware test path + cloud release path.
-13. **"take this to the end and dont stop until reached"** — push through.
+13. **Task Completion**: execute tasks to full completion; verify output mechanically before concluding.
 14. **Use Hex-Rays decompiler** (`$IDAT (or default $HOME/ida-pro-9.3/idat)`)
     for v19 human-readable C.
 15. **Use `bin/fwstruct`** for v25 per-function metadata. Build with
     `go build -o bin/fwstruct ./cmd/fwstruct`.
+
+## Agent Demeanor & Communication Style
+
+- **Tone**: Focused, clear, objective, and pragmatic.
+- **Plain English Explanations**: When explaining progress, answering high-level questions, or clarifying "what this means", use direct, clear, plain English without unnecessary jargon.
+- **Zero Fluff**: No cheerleading, hype phrasing, or exclamation points.
+- **Focus**: Output accurate technical findings, clear summaries, code diffs, and actionable next steps.
+- **Verification**: Rely on empirical tool output rather than speculative assertions.
 
 ## Where to start
 

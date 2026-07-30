@@ -1,19 +1,22 @@
 // fwstruct - unified firmware-structure analyzer.
 //
-// All 13 subcommands are implemented:
-//   scan        parse v19 decompiled C into funcs.jsonl
-//   structs     cluster funcs by access pattern, propose struct types
-//   names       LLM-name proposed structs (calls MiniMax-M3)
-//   xref        cross-reference struct fields to functions
-//   callgraph   build call graph from C
-//   magic       classify numeric literals (magic numbers)
-//   initpath    extract boot path from start()
-//   diff        cross-binary version diff
-//   types       fix Hex-Rays type-inference bugs (rewrite MSVC -> C99)
-//   ivt         parse + name the Cortex-M Interrupt Vector Table
-//   annotate    emit annotated C with cluster context prepended
-//   report      aggregate summary across all subcommands
-//   all         run scan..report end-to-end
+// All subcommands are implemented:
+//
+//	scan        parse v19 decompiled C into funcs.jsonl
+//	structs     cluster funcs by access pattern, propose struct types
+//	names       LLM-name proposed structs (calls MiniMax-M3)
+//	xref        cross-reference struct fields to functions
+//	callgraph   build call graph from C
+//	magic       classify numeric literals (magic numbers)
+//	initpath    extract boot path from start()
+//	diff        cross-binary version diff
+//	types       fix Hex-Rays type-inference bugs (rewrite MSVC -> C99)
+//	ivt         parse + name the Cortex-M Interrupt Vector Table
+//	annotate    emit annotated C with cluster context prepended
+//	report      aggregate summary across all subcommands
+//	all         run scan..report end-to-end
+//	index       build function_index.json
+//	query       search function_index.json
 //
 // All outputs go to <out>/. Each subcommand reads prior outputs when
 // available, so a re-run of `names` doesn't re-parse v19.
@@ -58,6 +61,10 @@ func main() {
 		err = runReport(args)
 	case "all":
 		err = runAll(args)
+	case "index":
+		err = runIndex(args)
+	case "query":
+		err = runQuery(args)
 	case "-h", "--help", "help":
 		usage()
 		return
@@ -92,6 +99,8 @@ Commands:
   annotate     emit annotated C with all known context
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
+  index        build consolidated function_index.json
+  query         search the consolidated function index
 
 Common flags:
   --root <path>      workspace root (default: .)

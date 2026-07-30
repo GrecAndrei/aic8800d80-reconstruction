@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"sync"
 	"time"
 
@@ -69,7 +70,8 @@ func runNames(args []string) error {
 		cfg.Keys = llm.LoadKeysFromEnv()
 	}
 	if len(cfg.Keys) == 0 {
-		return fmt.Errorf("no LLM keys: set AIC8800D80_LLM_KEY_<N> or --llm-key-dir")
+		cf.VPrintf("names: no LLM keys found, running deterministic struct naming (fingerprint/semantic-root heuristic)")
+		return runDeterministicNames(cf, images)
 	}
 	client := llm.New(cfg)
 	cf.VPrintf("names: %d keys, model=%s, concurrency=%d", len(cfg.Keys), model, concurrency)
@@ -207,4 +209,85 @@ func buildNamingInput(image string, c *structs.Cluster) llm.StructProposalInput 
 		in.SampleFuncs = append(in.SampleFuncs, fmt.Sprintf("sub_%x", addr))
 	}
 	return in
+}
+
+func runDeterministicNames(cf commonFlags, images []string) error {
+	allProposals := []map[string]any{}
+	perImage := map[string][]map[string]any{}
+	totalNamed := 0
+
+	for _, img := range images {
+		var rep clusterReport
+		p := filepath.Join(cf.Out, img+"_clusters.json")
+		if err := readJSON(p, &rep); err != nil {
+			fmt.Fprintf(os.Stderr, "  %s: %v\n", img, err)
+			continue
+		}
+
+		fnMap := map[uint32]string{}
+		if funcs, err := loadFuncs(cf.Out, img); err == nil {
+			for _, fn := range funcs {
+				fnMap[fn.Address] = fn.Name
+			}
+		}
+
+		for _, c := range rep.Clusters {
+			var structName string
+			for _, addr := range c.Funcs {
+				if name, ok := fnMap[addr]; ok && len(name) > 4 && name[:4] != "sub_" {
+					parts := strings.Split(name, "_")
+					if len(parts) > 1 {
+						structName = "struct_" + strings.Join(parts[:len(parts)-1], "_") + "_t"
+						break
+					}
+				}
+			}
+			if structName == "" {
+				structName = fmt.Sprintf("struct_shape_%s_t", c.FPHash)
+			}
+
+			c.Name = structName
+			c.Fields = make(map[string]int)
+			c.FieldSizes = make(map[string]int)
+
+			fieldsInfo := []map[string]any{}
+			for _, k := range c.Fingerprint {
+				fName := fmt.Sprintf("field_0x%x", k.Offset)
+				c.Fields[fName] = k.Offset
+				c.FieldSizes[fName] = k.Size
+				fieldsInfo = append(fieldsInfo, map[string]any{
+					"name":   fName,
+					"offset": k.Offset,
+					"size":   k.Size,
+				})
+			}
+
+			entry := map[string]any{
+				"image":       img,
+				"group":       c.GroupID,
+				"primary_arg": c.PrimaryArg,
+				"struct_name": structName,
+				"fields":      fieldsInfo,
+			}
+			allProposals = append(allProposals, entry)
+			perImage[img] = append(perImage[img], entry)
+			totalNamed++
+		}
+
+		if err := fileio.WriteJSON(p, &rep); err != nil {
+			fmt.Fprintf(os.Stderr, "  rewrite %s: %v\n", p, err)
+		}
+	}
+
+	if err := fileio.WriteJSON(filepath.Join(cf.Out, "proposals.json"), allProposals); err != nil {
+		return err
+	}
+	for img, lst := range perImage {
+		if err := fileio.WriteJSON(filepath.Join(cf.Out, img+"_named.json"), lst); err != nil {
+			return err
+		}
+	}
+
+	cf.VPrintf("  done: %d deterministic proposals, %d clusters named", len(allProposals), totalNamed)
+	return nil
 }

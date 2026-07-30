@@ -15,7 +15,9 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
+	"time"
 
 	"aic8800d80/internal/decompile"
 	"aic8800d80/internal/fileio"
@@ -24,51 +26,55 @@ import (
 // typesReport lists the post-processed C files written to <out>/<img>_types/.
 //
 // types does 3 mechanical fixes on top of v19 decompiled C:
-//   1. Strip MSVC-style types (__int64, _DWORD, _BYTE, __fastcall) and
-//      rewrite as standard C (uint64_t, uint32_t, uint8_t, ...).
-//   2. Convert __fastcall(a, b, c) parameter syntax to f(a, b, c).
-//   3. Strip leading underscores from pseudo-register names (_R0 -> r0).
+//  1. Strip MSVC-style types (__int64, _DWORD, _BYTE, __fastcall) and
+//     rewrite as standard C (uint64_t, uint32_t, uint8_t, ...).
+//  2. Convert __fastcall(a, b, c) parameter syntax to f(a, b, c).
+//  3. Strip leading underscores from pseudo-register names (_R0 -> r0).
 type typesReport struct {
-	Image     string   `json:"image"`
+	Image      string   `json:"image"`
 	NFunctions int      `json:"n_functions"`
 	NRewritten int      `json:"n_rewritten"`
-	OutDir    string   `json:"out_dir"`
-	Errors    []string `json:"errors,omitempty"`
+	OutDir     string   `json:"out_dir"`
+	Errors     []string `json:"errors,omitempty"`
 }
 
 var (
-	msvcTypeRe  = regexp.MustCompile(`\b__int64\b`)
-	int8Re      = regexp.MustCompile(`\b__int8\b`)
-	int16Re     = regexp.MustCompile(`\b__int16\b`)
-	int32Re     = regexp.MustCompile(`\b__int32\b`)
-	uint8Re     = regexp.MustCompile(`\bunsigned __int8\b`)
-	uint16Re    = regexp.MustCompile(`\bunsigned __int16\b`)
-	uint32Re    = regexp.MustCompile(`\bunsigned __int32\b`)
-	uint64Re    = regexp.MustCompile(`\bunsigned __int64\b`)
+	msvcTypeRe   = regexp.MustCompile(`\b__int64\b`)
+	int8Re       = regexp.MustCompile(`\b__int8\b`)
+	int16Re      = regexp.MustCompile(`\b__int16\b`)
+	int32Re      = regexp.MustCompile(`\b__int32\b`)
+	uint8Re      = regexp.MustCompile(`\bunsigned __int8\b`)
+	uint16Re     = regexp.MustCompile(`\bunsigned __int16\b`)
+	uint32Re     = regexp.MustCompile(`\bunsigned __int32\b`)
+	uint64Re     = regexp.MustCompile(`\bunsigned __int64\b`)
 	ptrSizeMulRe = regexp.MustCompile(`\bunsigned\s+__int(\d+)\b`)
-	dwordRe     = regexp.MustCompile(`\b_DWORD\b`)
-	byteRe      = regexp.MustCompile(`\b_BYTE\b`)
-	wordRe      = regexp.MustCompile(`\b_WORD\b`)
-	qwordRe     = regexp.MustCompile(`\b_QWORD\b`)
-	fastcallRe  = regexp.MustCompile(`__fastcall\b`)
-	msRegRe     = regexp.MustCompile(`\b_([A-Z][A-Z0-9]+)\b`) // _R0, _ZF, _CF, _VF
-	boolRe      = regexp.MustCompile(`\bbool\b`)
-	nullPtrRe   = regexp.MustCompile(`\bnullptr\b`)
-	asmRe       = regexp.MustCompile(`__asm\s*\{[^}]*\}`) // MSVC inline asm
-	asmLineRe   = regexp.MustCompile(`__asm\s*\{`)
-	stdintRe    = regexp.MustCompile(`#\s*include\s*<stdint\.h>`)
-	dataRefRe   = regexp.MustCompile(`\b(off_|dword_|byte_|word_|qword_|algn_|unk_)[0-9a-fA-F]+\b`)
+	dwordRe      = regexp.MustCompile(`\b_DWORD\b`)
+	byteRe       = regexp.MustCompile(`\b_BYTE\b`)
+	wordRe       = regexp.MustCompile(`\b_WORD\b`)
+	qwordRe      = regexp.MustCompile(`\b_QWORD\b`)
+	fastcallRe   = regexp.MustCompile(`__fastcall\b`)
+	msRegRe      = regexp.MustCompile(`\b_([A-Z][A-Z0-9]+)\b`) // _R0, _ZF, _CF, _VF
+	boolRe       = regexp.MustCompile(`\bbool\b`)
+	nullPtrRe    = regexp.MustCompile(`\bnullptr\b`)
+	asmRe        = regexp.MustCompile(`__asm\s*\{[^}]*\}`) // MSVC inline asm
+	asmLineRe    = regexp.MustCompile(`__asm\s*\{`)
+	stdintRe     = regexp.MustCompile(`#\s*include\s*<stdint\.h>`)
+	dataRefRe    = regexp.MustCompile(`\b(off_|dword_|byte_|word_|qword_|algn_|unk_)[0-9a-fA-F]+\b`)
 )
 
 func collectDataDecls(src string) string {
 	seen := map[string]bool{}
 	var decls []string
 	for _, m := range dataRefRe.FindAllString(src, -1) {
-		if seen[m] { continue }
+		if seen[m] {
+			continue
+		}
 		seen[m] = true
 		decls = append(decls, fmt.Sprintf("extern uint32_t %s;", m))
 	}
-	if len(decls) == 0 { return "" }
+	if len(decls) == 0 {
+		return ""
+	}
 	return strings.Join(decls, "\n") + "\n\n"
 }
 
@@ -148,7 +154,9 @@ func rewriteC(src string) (string, bool) {
 	for asmLineRe.MatchString(out) {
 		// Find matching close brace.
 		start := asmLineRe.FindStringIndex(out)
-		if start == nil { break }
+		if start == nil {
+			break
+		}
 		i := start[1]
 		depth := 1
 		for i < len(out) && depth > 0 {
@@ -277,13 +285,13 @@ type ivtEntry struct {
 }
 
 type ivtReport struct {
-	Image     string         `json:"image"`
-	NVectors  int            `json:"n_vectors"`
-	StackTop  uint32         `json:"stack_top"`
-	Reset     uint32         `json:"reset"`
-	ResetName string         `json:"reset_name,omitempty"`
-	Entries   []ivtEntry     `json:"entries"`
-	Hint      string         `json:"hint"`
+	Image     string     `json:"image"`
+	NVectors  int        `json:"n_vectors"`
+	StackTop  uint32     `json:"stack_top"`
+	Reset     uint32     `json:"reset"`
+	ResetName string     `json:"reset_name,omitempty"`
+	Entries   []ivtEntry `json:"entries"`
+	Hint      string     `json:"hint"`
 }
 
 func runIVT(args []string) error {
@@ -302,10 +310,10 @@ func runIVT(args []string) error {
 	}
 	// Map image -> firmware basename (without _bin suffix).
 	binaryMap := map[string]string{
-		"fmacfw_8800d80_h_u02_bin":   "fmacfw_8800d80_h_u02",
-		"fmacfw_8800d80_u02_bin":     "fmacfw_8800d80_u02",
-		"fmacfwbt_8800d80_u02_bin":   "fmacfwbt_8800d80_u02",
-		"lmacfw_rf_8800d80_u02_bin":  "lmacfw_rf_8800d80_u02",
+		"fmacfw_8800d80_h_u02_bin":  "fmacfw_8800d80_h_u02",
+		"fmacfw_8800d80_u02_bin":    "fmacfw_8800d80_u02",
+		"fmacfwbt_8800d80_u02_bin":  "fmacfwbt_8800d80_u02",
+		"lmacfw_rf_8800d80_u02_bin": "lmacfw_rf_8800d80_u02",
 	}
 	// Load LLM names map. keys are "<image>|0x<runtime_addr>" where
 	// runtime_addr matches v19's decompiled addresses and the IVT entries.
@@ -408,7 +416,7 @@ func runIVT(args []string) error {
 			e := ivtEntry{Index: i, Address: addr}
 			if i > 1 && addr != 0 {
 				e.Offset = addr
-				e.Handler = resolve(addr&^1)
+				e.Handler = resolve(addr &^ 1)
 			}
 			rep.Entries = append(rep.Entries, e)
 		}
@@ -442,10 +450,10 @@ func allImageNames() []string {
 // Output: <out>/<img>_annotated/<addr>_<name>.c with header prepended.
 // Also writes <out>/<img>_annotated.json with a summary count.
 type annotateReport struct {
-	Image     string `json:"image"`
-	NFiles    int    `json:"n_files"`
-	NHeaders  int    `json:"n_headers_prepended"`
-	OutDir    string `json:"out_dir"`
+	Image    string `json:"image"`
+	NFiles   int    `json:"n_files"`
+	NHeaders int    `json:"n_headers_prepended"`
+	OutDir   string `json:"out_dir"`
 }
 
 func runAnnotate(args []string) error {
@@ -667,6 +675,21 @@ type fullReport struct {
 	Total  imageSummary   `json:"total"`
 }
 
+type indexFunc struct {
+	Image     string `json:"image"`
+	Address   uint32 `json:"address"`
+	Name      string `json:"name"`
+	Subsystem string `json:"subsystem"`
+	Cluster   string `json:"cluster"`
+	NLines    int    `json:"n_lines"`
+	NGotos    int    `json:"n_gotos"`
+	NReturns  int    `json:"n_returns"`
+	NCallees  int    `json:"n_callees"`
+	NCallers  int    `json:"n_callers"`
+	NAccesses int    `json:"n_accesses"`
+	NLiterals int    `json:"n_literals"`
+}
+
 func runReport(args []string) error {
 	fs := flag.NewFlagSet("report", flag.ContinueOnError)
 	var cf commonFlags
@@ -788,6 +811,7 @@ func runAll(args []string) error {
 	}{
 		{"scan", runScan},
 		{"structs", runStructs},
+		{"names", runNames},
 		{"callgraph", runCallgraph},
 		{"magic", runMagic},
 		{"initpath", runInitPath},
@@ -795,7 +819,6 @@ func runAll(args []string) error {
 		{"ivt", runIVT},
 		{"annotate", runAnnotate},
 		{"xref", runXref},
-		{"report", runReport},
 	}
 	for _, s := range steps {
 		fmt.Printf("==> %s\n", s.name)
@@ -817,7 +840,338 @@ func runAll(args []string) error {
 		}
 	}
 	fmt.Printf("==> report\n")
-	return runReport(args)
+	if err := runReport(args); err != nil {
+		return err
+	}
+	fmt.Printf("==> index\n")
+	return runIndex(args)
+}
+
+func runIndex(args []string) error {
+	fs := flag.NewFlagSet("index", flag.ContinueOnError)
+	var cf commonFlags
+	cf.Register(fs)
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if err := cf.Resolve(); err != nil {
+		return err
+	}
+	images, err := cf.SelectedImages()
+	if err != nil {
+		return err
+	}
+	return buildIndex(cf.Out, cf.Root, images)
+}
+
+// runQuery searches the consolidated function index (function_index.json)
+// by name fragment, address, or subsystem. Outputs matching entries
+// as a table.
+//
+// Flags:
+//
+//	--search <text>   match name against substring (case-insensitive)
+//	--addr <hex>      match a single function by address
+//	--subsystem <s>   filter by subsystem tag (rf, ipc, etc.)
+//	--image <img>     filter by image name fragment
+//	--limit <n>       cap number of results (default 50)
+func runQuery(args []string) error {
+	fs := flag.NewFlagSet("query", flag.ContinueOnError)
+	var cf commonFlags
+	cf.Register(fs)
+	var search, addr, subsystem, imageFilter string
+	var limit int
+	fs.StringVar(&search, "search", "", "substring match on function name (case-insensitive)")
+	fs.StringVar(&addr, "addr", "", "match exact address (hex, e.g. 0x100200)")
+	fs.StringVar(&subsystem, "subsystem", "", "filter by subsystem tag (rf/ipc/util/...)")
+	fs.StringVar(&imageFilter, "image", "", "filter by image name fragment (e.g. fmacfwbt)")
+	fs.IntVar(&limit, "limit", 50, "max results")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if err := cf.Resolve(); err != nil {
+		return err
+	}
+	idxPath := filepath.Join(cf.Out, "function_index.json")
+	data, err := os.ReadFile(idxPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "query: %v (run `fwstruct scan` first to build the index)\n", err)
+		return nil
+	}
+	var idx struct {
+		Functions []map[string]any `json:"functions"`
+	}
+	if err := json.Unmarshal(data, &idx); err != nil {
+		return err
+	}
+	matchAddr := uint32(0)
+	hasAddr := false
+	if addr != "" {
+		var a uint64
+		if n, _ := fmt.Sscanf(addr, "0x%x", &a); n == 1 {
+			matchAddr = uint32(a)
+			hasAddr = true
+		}
+	}
+	count := 0
+	for _, f := range idx.Functions {
+		if hasAddr {
+			if v, ok := f["address"].(float64); !ok || uint32(v) != matchAddr {
+				continue
+			}
+		}
+		if subsystem != "" {
+			if s, _ := f["subsystem"].(string); s != subsystem {
+				continue
+			}
+		}
+		if imageFilter != "" {
+			if img, _ := f["image"].(string); !strings.Contains(img, imageFilter) {
+				continue
+			}
+		}
+		if search != "" {
+			if name, _ := f["name"].(string); !strings.Contains(strings.ToLower(name), strings.ToLower(search)) {
+				continue
+			}
+		}
+		addrVal := uint64(0)
+		if v, ok := f["address"].(float64); ok {
+			addrVal = uint64(v)
+		}
+		fmt.Printf("  %-32s 0x%-8x %-32s %s\n",
+			f["image"], addrVal, f["name"], f["subsystem"])
+		count++
+		if count >= limit {
+			break
+		}
+	}
+	fmt.Printf("\n%d matches\n", count)
+	return nil
+}
+
+// buildIndex writes a consolidated function_index.json across all images.
+// Combines funcs.jsonl + clusters + callgraph + llm_names.json into a
+// single searchable file.
+func buildIndex(outDir string, root string, images []string) error {
+	var funcs []indexFunc
+	funcByKey := map[string]int{}
+	namedCount := 0
+	subByImageAddr := map[string]map[uint32]string{}
+	if llm, err := readJSONFile(filepath.Join(root, "harness_v19", "llm_names.json")); err == nil {
+		for k, v := range llm {
+			parts := strings.Split(k, "|")
+			if len(parts) != 2 {
+				continue
+			}
+			addr, err := strconv.ParseUint(strings.TrimPrefix(parts[1], "0x"), 16, 32)
+			if err != nil {
+				continue
+			}
+			vm, ok := v.(map[string]any)
+			if !ok {
+				continue
+			}
+			subsystem, _ := vm["subsystem"].(string)
+			if subsystem == "" {
+				continue
+			}
+			if subByImageAddr[parts[0]] == nil {
+				subByImageAddr[parts[0]] = map[uint32]string{}
+			}
+			subByImageAddr[parts[0]][uint32(addr)] = subsystem
+		}
+	}
+	for _, img := range images {
+		funcsFile := filepath.Join(outDir, img+"_funcs.jsonl")
+		lines, err := readFileLines(funcsFile)
+		if err != nil {
+			continue
+		}
+		clFnMap := map[uint32]string{}
+		if cl, err := readJSONFile(filepath.Join(outDir, img+"_clusters.json")); err == nil {
+			if fm, ok := cl["func_map"].(map[string]any); ok {
+				for addrHex, cid := range fm {
+					if n, ok := cid.(float64); ok {
+						addr, err := strconv.ParseUint(strings.TrimPrefix(addrHex, "0x"), 16, 32)
+						if err == nil {
+							clFnMap[uint32(addr)] = fmt.Sprintf("group_%d", int(n))
+						}
+					}
+				}
+			}
+			if clusters, ok := cl["clusters"].([]any); ok {
+				for _, item := range clusters {
+					cm, ok := item.(map[string]any)
+					if !ok {
+						continue
+					}
+					groupID := int(0)
+					if n, ok := cm["group_id"].(float64); ok {
+						groupID = int(n)
+					}
+					funcAddrs, ok := cm["funcs"].([]any)
+					if !ok {
+						continue
+					}
+					for _, rawAddr := range funcAddrs {
+						if addr, ok := rawAddr.(float64); ok {
+							clFnMap[uint32(addr)] = fmt.Sprintf("group_%d", groupID)
+						}
+					}
+				}
+			}
+		}
+		// Backward compatibility: older cluster reports only had func_map.
+		if len(clFnMap) == 0 {
+			var cl map[string]any
+			if d, err := readJSONFile(filepath.Join(outDir, img+"_clusters.json")); err == nil {
+				cl = d
+			}
+			if fm, ok := cl["func_map"].(map[string]any); ok {
+				for fname, cid := range fm {
+					if n, ok := cid.(float64); ok {
+						clFnMap[nameToAddr(fname)] = fmt.Sprintf("group_%d", int(n))
+					}
+				}
+			}
+		}
+		subByAddr := subByImageAddr[img]
+		for _, line := range lines {
+			var fd struct {
+				Image    string   `json:"_image"`
+				Address  uint32   `json:"address"`
+				Name     string   `json:"name"`
+				NLines   int      `json:"n_lines"`
+				NGotos   int      `json:"n_gotos"`
+				NReturns int      `json:"n_returns"`
+				Callees  []string `json:"callees"`
+				Accesses []any    `json:"accesses"`
+				Literals []string `json:"literals"`
+			}
+			if err := json.Unmarshal([]byte(line), &fd); err != nil {
+				continue
+			}
+			if fd.Image == "" {
+				fd.Image = img
+			}
+			f := indexFunc{
+				Image: fd.Image, Address: fd.Address, Name: fd.Name,
+				NLines: fd.NLines, NGotos: fd.NGotos, NReturns: fd.NReturns,
+				NCallees: len(fd.Callees), NAccesses: len(fd.Accesses),
+				NLiterals: len(fd.Literals),
+				Subsystem: subByAddr[fd.Address],
+				Cluster:   clFnMap[fd.Address],
+			}
+			key := fmt.Sprintf("%s|%08x", f.Image, f.Address)
+			if prev, ok := funcByKey[key]; ok {
+				if preferIndexEntry(f, funcs[prev]) {
+					funcs[prev] = f
+				}
+				continue
+			}
+			funcByKey[key] = len(funcs)
+			funcs = append(funcs, f)
+		}
+	}
+	// Add n_callers from callgraph by index.
+	type callgraphFile struct {
+		Callers map[string][]string `json:"callers"`
+	}
+	cgByImage := map[string]*callgraphFile{}
+	for _, img := range images {
+		var cg callgraphFile
+		if err := readJSONFile2(filepath.Join(outDir, img+"_callgraph.json"), &cg); err == nil {
+			cgByImage[img] = &cg
+		}
+	}
+	for i, f := range funcs {
+		if cg, ok := cgByImage[f.Image]; ok {
+			funcs[i].NCallers = len(cg.Callers[f.Name])
+		}
+	}
+	for _, f := range funcs {
+		if !strings.HasPrefix(f.Name, "sub_") {
+			namedCount++
+		}
+	}
+	idx := map[string]any{
+		"generated_at":    time.Now().UTC().Format(time.RFC3339),
+		"source":          "harness_v19/llm_names.json + harness_v25/out/*_funcs.jsonl + clusters + callgraph",
+		"images":          images,
+		"total_functions": len(funcs),
+		"named_functions": namedCount,
+		"functions":       funcs,
+	}
+	out, _ := json.MarshalIndent(idx, "", "  ")
+	return os.WriteFile(filepath.Join(outDir, "function_index.json"), out, 0o644)
+}
+
+func preferIndexEntry(candidate, current indexFunc) bool {
+	candidateNamed := !strings.HasPrefix(candidate.Name, "sub_")
+	currentNamed := !strings.HasPrefix(current.Name, "sub_")
+	if candidateNamed != currentNamed {
+		return candidateNamed
+	}
+	if candidate.Subsystem != "" && current.Subsystem == "" {
+		return true
+	}
+	if candidate.Cluster != "" && current.Cluster == "" {
+		return true
+	}
+	if candidate.NAccesses != current.NAccesses {
+		return candidate.NAccesses > current.NAccesses
+	}
+	return candidate.NLines > current.NLines
+}
+
+// callgraphRef lets buildIndex ignore callgraph loading without unused warnings.
+type callgraphRef struct {
+	out map[string]any
+}
+
+// readFileLines reads a file into a slice of lines.
+func readFileLines(path string) ([]string, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	return strings.Split(strings.TrimSpace(string(data)), "\n"), nil
+}
+
+// readJSONFile unmarshals JSON into a generic map.
+func readJSONFile(path string) (map[string]any, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	var out map[string]any
+	if err := json.Unmarshal(data, &out); err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// readJSONFile2 unmarshals JSON into a typed value v.
+func readJSONFile2(path string, v any) error {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(data, v)
+}
+
+// nameToAddr strips the leading sub_<hex> from a filename.
+func nameToAddr(filename string) uint32 {
+	parts := strings.SplitN(filename, "_", 2)
+	if len(parts) < 1 {
+		return 0
+	}
+	a, _ := strconv.ParseUint(strings.TrimPrefix(parts[0], "0x"), 16, 32)
+	if a == 0 {
+		a, _ = strconv.ParseUint(parts[0], 16, 32)
+	}
+	return uint32(a)
 }
 
 // ----- helpers -----
