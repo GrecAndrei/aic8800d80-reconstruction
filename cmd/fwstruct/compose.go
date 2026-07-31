@@ -294,6 +294,22 @@ func readFunctionUnits(funcDir string) ([]fnUnit, error) {
 		units = append(units, u)
 	}
 	sort.Slice(units, func(i, j int) bool { return units[i].Addr < units[j].Addr })
+	// Dedupe by address: the naming era left renamed re-decompiles alongside
+	// the original sub_<ADDR> files. Keep ONE body per address, preferring
+	// the plain sub_<ADDR> unit (pre-rename decompile with data symbols).
+	kept := make([]fnUnit, 0, len(units))
+	addrIdx := map[int]int{}
+	for _, u := range units {
+		if i, ok := addrIdx[u.Addr]; ok {
+			if u.Orig == fmt.Sprintf("sub_%X", u.Addr) {
+				kept[i] = u
+			}
+			continue
+		}
+		addrIdx[u.Addr] = len(kept)
+		kept = append(kept, u)
+	}
+	units = kept
 	return units, nil
 }
 

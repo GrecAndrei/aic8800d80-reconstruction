@@ -4328,59 +4328,39 @@ uint32_t off_127190 = 0x00180844;  /* ptr -> 0x180844 */
 /* --- forward declarations --- */
 int start(int a1, int a2, unsigned int a3);
 int * memset_thunk(int *result, uint8_t a2, unsigned int a3);
-int rf_init_setup_n_2a0();
 int process_state_update();
-void lmac_rf_init_globals();
 void init_buffer_list();
 int read_control_reg(int a1);
-int delay_us(int a1);
 int write_timer_reg(int a1);
 int store_byte_value(int a1);
-int hw_config_init();
 int get_device_config();
 int sub_1005E8();
-void panic_loop();
 void sub_1005F4();
-uint32_t *rf_init_clocks_n2c0();
 uint32_t *sub_10064C();
-uint32_t *hw_config_init_1();
+uint32_t *hw_config_init();
 int sub_1006C0(int result, int a2, int a3, unsigned int a4);
 int smem_access(int a1, unsigned int a2, uint32_t *a3);
-int mmio_set_bit_120090C(int a1, unsigned int a2);
 int rf_ctrl_set(int a1, unsigned int a2);
 int rf_reg_init(int a1, int a2);
 int rf_band_config();
 int rf_cal_read_0(int result);
 unsigned int rf_cal_read_1();
-int mmio_clock_setup(unsigned int a1, int a2);
 int mac_ctrl_set(unsigned int a1, int a2);
-unsigned int rf_init_hw_setup(unsigned int a1);
 unsigned int mac_ctrl_clear(unsigned int a1);
-void fw_state_check_n_c0();
 void tx_path_check();
 int irq_handler(int result, int a2, int a3);
-uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2);
 uint32_t * chip_id_get(uint32_t *result, uint32_t *a2);
-uint64_t * get_cached_1828f8(uint64_t *result, int a2);
 uint64_t * mac_time_get(uint64_t *result, int a2);
 int sys_status_bit21_get();
-BOOL rf_chip_ready_check();
 BOOL sys_ready_check();
 unsigned int ctrl_bit3_set(int a1);
-int phy_get_link_status();
 int sys_status_bit28_get();
-int mmio_get_bit_30();
 int sys_status_bit30_get();
-int chip_revision_get();
 int chip_info_nibble2_get();
-int lmac_rf_unk_1a9c();
 int chip_info_nibble1_get();
-int chip_rev_id_get();
 int chip_info_nibble0_get();
-int rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3);
 int rf_get_status(int a1, uint8_t *a2, uint8_t *a3);
 int rf_set_channel(unsigned int a1, signed int a2, int a3);
-int rf_mmio_set_byte_field(int result);
 int pll_set_output(int result);
 void rf_calibrate(int a1, int a2, int a3, int a4);
 int tx_set_power(uint8_t *a1, int a2);
@@ -4389,95 +4369,67 @@ int rf_check_freq(unsigned int a1);
 uint8_t * rf_get_rssi(uint8_t *result, uint8_t *a2);
 int clock_get_divider();
 unsigned int gpio_config(uint8_t a1);
-int rf_handler_unkn();
 int check_button();
-int lmac_interrupt_init();
 int nvic_enable_irq();
 int * gpio_set_pin(int a1);
 int gpio_clear_pin(int result);
 int periph_wait_status(int a1, uint16_t *a2);
-int lmac_sub_init(int a1, int a2, unsigned int a3, int a4);
 int memcpy_advance(int a1, int a2, unsigned int a3, int a4);
-BOOL mmio_status_flag_read();
 BOOL get_reset_reason();
-int rf_init_or_config_helper(int a1);
 int dma_init(int a1);
 int gpio_set_high(int a1);
 int clock_set_source(int a1, int a2, int a3);
 void check_chip_flag();
-unsigned int rf_power_enable_32dc(unsigned int result);
 unsigned int configure_external_clock(unsigned int result);
-uint32_t *clock_calc();
 uint32_t *save_rf_context();
 void rf_init_regs();
-int crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5);
 int poll_rf_status(int a1, int a2, int a3, int a4, int a5);
 int configure_bb_clock(int a1, int a2, int a3, int a4, int a5);
 int disable_bb_timer_irq();
 int set_system_mode(int a1);
-int rf_pll_init_n900();
 int enable_bb_clock();
 int * bb_reset(int a1);
-int crypto_table_init(int a1, int a2, int a3);
 int configure_bb_winsize(int a1, int a2, int a3);
 unsigned int enable_rf_dll(int a1, int a2);
-uint32_t *crypto_hw_reset_seq();
 uint32_t *bb_hw_init();
 unsigned int *disable_rx_path();
 int rand(int a1, int a2, uint32_t *a3);
 int wait_rf_ready();
-int crypto_calibrate();
 int load_patch_data();
 int lookup_rf_table(int a1, int a2, uint32_t *a3);
 int apply_tx_power(int a1, int a2, uint32_t *a3);
 int tx_power_calibrate(int a1, int a2, uint32_t *a3);
-int rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6);
 int wlan_init_globals(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6);
-int rf_phy_process_handler(int *a1, int a2, int a3, int a4, uint64_t *a5);
 int heap_calloc(int *a1, int a2, int a3, int a4, uint64_t *a5);
-int rf_adc_capture_n_a98(int a1, int a2, int a3, int a4);
 int prcm_set_mask(int a1, int a2, int a3, int a4);
 int min_u32(int a1, int a2, int a3);
-int crypto_gain_clamp(float a1, int a2, int a3);
 int scale_f32(float a1, int a2, int a3);
-int ftoi32_trunc_sat(int a1, float a2, int *a3, int a4, int a5);
 int list_remove(int a1, float a2, int *a3, int a4, int a5);
-int lmac_rf_behavioral_handler(int a1, int a2, float *a3, int a4, uint8_t a5, char a6, uint8_t a7, int a8, int a9);
 int rx_packet_handler(int a1, int a2, float *a3, int a4, uint8_t a5, char a6, uint8_t a7, int a8, int a9);
-int crypto_key_schedule(unsigned int a1, uint32_t *a2);
 int mac_get_params(unsigned int a1, uint32_t *a2);
 int phy_set_txpower(unsigned int a1, int a2, int a3, int a4);
 unsigned int * prcm_stop(int a1, int a2, unsigned int a3, unsigned int a4, uint8_t a5, int a6);
 int validate_handle(int a1, int a2, int a3, int a4, int a5);
-int crypto_table_copy_165d00(int a1, int a2);
 int load_device_desc(int a1, int a2);
 int malloc_wrapper(uint32_t *a1, int a2, int a3);
 int prcm_start(unsigned int a1, int a2, int16_t *a3, int a4, int a5, int a6, int a7, int a8);
-int *crypto_hw_config();
 int *clk_enable();
 uint32_t *clk_disable();
-uint32_t *crypto_hw_clear_regs();
 uint32_t *clk_set_divider();
 int pinmux_config(int a1, int a2);
-int log_free_pool_dispatch2_n324(int a1, int a2);
 int gpio_output(int a1, int a2);
 int load_patch_bundle(int a1);
 int rf_core_cmd_post(unsigned int a1, uint32_t *a2, int a3, int a4);
 int rf_core_irq_clear(int a1, uint32_t *a2, int a3);
 int timer_delta_compare(unsigned int *a1, int a2);
 int rf_core_irq_poll(int a1);
-int sdio_buffer_prepare_2(int a1);
 int rf_core_irq_dispatch(int a1);
 int rf_clear_irq_flag();
 int rf_clear_irq_flag_alt();
-int * divmod64_compute(int *a1);
 int * timer_ticks_to_micros(int *a1);
-int ipc_doorbell_handler_n_21a(int a1, uint32_t *a2);
 int rf_core_set_clock_override(int a1, uint32_t *a2);
 int rx_queue_pop_packet(int a1, int *a2, uint32_t *a3);
-int mmio_read_field_n_bd8();
 int rf_get_cca_status();
-int rf_chan_param_get();
 int rf_get_rx_rssi();
 uint32_t * rf_transmit_packet(int a1, unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, int16_t a7);
 uint32_t * rf_wait_for_command(uint32_t *result, unsigned int *a2);
@@ -4490,32 +4442,22 @@ int memzero_words(int a1, int16_t *a2);
 int compare_float_samples(unsigned int a1, float *a2, float *a3, int a4);
 int sub_1099BC(int a1, int a2, int a3, int a4);
 int * mmio_set_flag(int a1, int *a2, int a3, int a4, int a5, uint8_t a6, int a7, int a8, int a9, int a10, uint64_t *a11);
-int rf_sub_1209D40(int *a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, uint64_t *a11);
 int process_signal_buffer(int *a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, uint64_t *a11);
-int mac_aggr_setup(int a1, unsigned int a2, uint8_t *a3, int *a4);
 int validate_packet_length(int a1, unsigned int a2, uint8_t *a3, int *a4);
 int read_radio_status(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6);
-int rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3);
 int configure_dma_regs(unsigned int *a1, uint8_t *a2, int a3);
 int apply_dsp_transform(int *a1, int a2, int a3, int a4, uint16_t *a5, int a6, int a7, int a8, int a9, int a10, uint64_t *a11);
 uint32_t * parse_packet_control(uint32_t *result, unsigned int a2, int a3, int a4);
-uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4);
-void lmac_init_frame_n_1b4(int a1, int a2);
 void call_tx_function(int a1, int a2);
 void call_rx_function(int a1, int a2);
 void configure_dma_engine();
 int *config_uart_control();
-int *mac_desc_init();
 int *sub_10CC98();
-int mmio_check_status_n0d24();
 int wait_for_uart_event();
 int handle_interrupt_save(char a1);
-int rf_init_or_isr();
 int check_uart_flags();
 int lookup_mac_descriptor();
-int rf_efuse_read_word_n_ce4();
 int poll_hw_status();
-void mmio_write0x40035100_set0x100();
 void enable_uart();
 void rf_enable();
 int bt_event_process(uint16_t *a1);
@@ -4523,250 +4465,164 @@ int rf_irq_handler();
 int mac_ll_scheduler(uint16_t *a1);
 int rf_phy_irq();
 int rf_phy_init();
-int timer_init();
-void irq23_enable();
 void panic_fatal();
-void log_hw_init_d4e8();
 void mac_tx_work();
 void mac_tx_irq();
-void nvic_irq_enable();
 void trace_sync();
 int uart_tx_byte(int result);
-int uart_putc(int result);
 uint8_t * uart_tx_string(uint8_t *result);
-uint8_t * uart_puts(uint8_t *result);
 int uart_rx_byte();
-int mmio_reg_bit0_read();
 int uart_rx_ready();
-int message_dispatch_n286(int a1, int a2);
 int hci_cmd_init(int a1, int a2);
-int bitmask_pow2_set(int result);
 int rf_channel_valid(int result);
-int mmio_clear_bit(char a1);
 int gpio_cfg_clear(char a1);
-int rf_reg_bit_set(char a1);
 int gpio_cfg_set(char a1);
 int gpio_out_set(char a1);
 int gpio_out_clear(char a1);
-BOOL rf_check_bit(char a1);
 BOOL sub_10DB30(char a1);
-int irq_prio_set_db48(int result);
 int sub_10DB48(int result);
 int sub_10DB78(char a1);
-int irq_prio_set2(char a1);
 int gpio_set_pin_1(char a1);
-int irq_enable(char a1);
 int gpio_set_pin_out(char a1);
-int irq_disable(char a1);
 int gpio_clear_pin_1(char a1);
-BOOL irq_mask_test(char a1);
 BOOL gpio_get_pin(char a1);
-int rf_agc_check_nbf4(int a1);
 int check_hw_status(int a1);
-int rf_subsystem_init();
 int gpio_init_pin_11();
 int gpio_init_pin_10();
-int mmio_config_init();
 int gpio_init_pin_13();
-int rf_pll_ldo_init();
 int gpio_init_pin_12();
 int gpio_port_init();
 int sdio_core_reset(int result, int a2);
 int sdio_core_reset_alt();
 int wait_sdio_core_ready();
-float rf_lmac_misc_n_df54();
 float sdio_core_config_0();
-float rf_hw_init_n008();
 float sdio_core_config_1();
-float mmio_init_n_0b8();
 float sdio_core_config_2();
-float rf_subsystem_init_e170();
 float sdio_core_config_3();
 float sdio_core_init();
-int rf_init_wake_n_e8();
 int sdio_core_enable();
-int rf_mmio_reg_enable();
 int sdio_core_set_enable();
-int rf_init_blockc();
 int periph_cmd_write();
-int rf_init_blockb_e798();
 int periph_cmd_poll();
 int gpio_mode_set(unsigned int a1, unsigned int a2, unsigned int *a3);
 int gpio_af_set(int a1);
 int gpio_bank_init(unsigned int *a1);
-int rf_calib_init_loader();
 int gpio_bank_init2();
 int critical_enter(int a1, int a2);
-int rf_reg_write_wait(int a1, int a2, int a3);
 int critical_enter2(int a1, int a2, int a3);
 int critical_enter3(int a1, int a2, int a3, int a4);
-int rf_state_check_n2ae(int a1);
 int ke_event_set(int a1);
 int sub_10F110(int a1);
-int mmio_bit_extract_n();
 int sub_10F15C();
 int sub_10F170(int a1);
-int fw_state_check_n960(int a1);
 int sub_10F188(int a1);
 int sub_10F1E0();
 unsigned int sub_10F434();
-int log_tick();
 int sub_10F44C();
 void mem_get_stats();
 int rf_init();
-int rf_init_enable_n3bc(int a1, int a2);
 int mem_free_ret(int a1, int a2);
 int bt_msg_init();
 uint64_t mmio_write16();
-int log_system_init_f6a4();
 int bt_state_dispatch();
 unsigned int ke_msg_send(int *a1, int a2, unsigned int a3);
-uint32_t * log_pool_alloc2_a18(int a1, unsigned int a2);
 uint32_t * list_iterate(int a1, unsigned int a2);
 int sorted_list_search(int a1, uint32_t *a2);
-BOOL log_ptr_in_range(unsigned int a1);
 BOOL mem_is_in_heap(unsigned int a1);
-int rf_init_setup_n3ac(int a1, int a2, int a3);
 int mem_region_init(int a1, int a2, int a3);
 uint32_t * mem_alloc_checked(char a1);
 int mem_free(uint32_t *a1);
 int rf_tx_power_get();
-int log_free_pool_dispatch2_n4ac();
 int rx_channel_event();
-int patch_apply_n422();
 int rx_packet_event();
 int log_free_dispatch_n2b4();
-int rf_lmac_init_n114();
 int rx_adv_event();
-int irq_disable_1();
-int rf_lmac_init_n1ec();
+int irq_disable();
 int irq_disable_arg();
 int irq_disable_set();
-int lmac_rf_handler_1102d0();
 int irq_disable_set_flag();
 int irq_disable_set_flag_preserve();
 int irq_disable_set_flag_2();
 int irq_disable_set_flag_preserve_2();
-int rf_bus_init_n3fa(int result);
 int rx_irq_handler(int result);
-int rf_init_agc_or_radio(int a1, int a2);
 int tx_irq_handler(int a1, int a2);
 int list_init(int a1);
 int rf_cmd_start();
 int irq_disable_set_flag_3(int a1, int a2, int a3);
 uint32_t * set_radio_channel(uint32_t *result, int a2, int a3, uint16_t a4, int a5);
-int rf_field_align_n_2a4(int result);
 int irq_disable_set_flag_4(int result);
-int rf_chan_setup_init(char a1, int a2, int a3);
 int ke_alloc_node(char a1, int a2, int a3);
 int rf_reg_update(int a1);
-int rf_msg_process();
 int rf_irq_handler_1();
-int rf_bus_mark_118c();
 int timer_set_alarm();
 int timer_read_count();
-int * rf_bus_mark_ne8(int a1);
 int * timer_entry_clear(int a1);
 int * timer_entry_reset(int a1);
-int *rf_bus_scan();
-int *timer_init_1();
-int rf_bus_reset2_0();
+int *timer_init();
 int timer_start();
-int rf_bus_reset2_n101(int result, int a2);
 int rf_set_param(int result, int a2);
-int * rf_bus_write_1(int a1, int a2, int a3);
 int * rf_channel_set_flag(int a1, int a2, int a3);
 int rf_channel_get_flag(int a1, int a2, int a3);
 int rf_select_base(int a1, int a2);
 int * rf_enable_tx_patch(int *result, unsigned int a2);
 int * rf_enable_rx_patch(int *result, unsigned int a2);
 int * rf_enable_txrx_patch(int *result, unsigned int a2);
-int * rf_bus_setup_n_148(int *result, unsigned int a2);
 int * rf_enable_tx_patch_dup(int *result, unsigned int a2);
-int rf_bus_write_n274(uint32_t *a1, int a2);
 int ke_send_event(uint32_t *a1, int a2);
-int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4);
 int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4);
-int rf_bus_setup_n14c(int a1, int a2, unsigned int a3);
 int rf_channel_update(int a1, int a2, unsigned int a3);
-int hw_event_flag(int a1);
 int rf_read_status(int a1);
 int rf_channel_update_dup(int a1, int a2, unsigned int a3);
-int rf_state_check();
 int ke_timeout_tick();
-int rf_level_apply_n_358(uint64_t a1);
 int util_check_flags(uint64_t a1);
 int rf_init_1();
-uint8_t * rf_cmd_send_n_3ac(int a1, int a2);
 uint8_t * ke_poll_event_a(int a1, int a2);
-int rf_bus_reset_n2b4();
 int util_read_status();
 uint8_t * ke_poll_event_b(int a1, int a2);
 int mmio_read_irq_status();
-void rf_cmd_wait();
 void critical_section_enter();
-int rf_cmd_send_2918(int a1, uint16_t *a2);
 int wait_radio_state(int a1, uint16_t *a2);
-int rf_cmd_send_nf4(uint8_t *a1, unsigned int a2, int a3);
 int tick_counter_update(uint8_t *a1, unsigned int a2, int a3);
 int wait_rf_ready_1(int a1);
-int rf_stream_start_2c20(int a1, unsigned int a2);
 int send_data_packet(int a1, unsigned int a2);
-int rf_stream_start2_cc0(int a1, unsigned int a2);
 int send_control_packet(int a1, unsigned int a2);
-int rf_bus_mark_ne0(int a1, int a2);
 int process_event(int a1, int a2);
 int set_event_mode(int f594, int a2, int a3);
 uint32_t * map_event_type(int a1);
 int lookup_table_value(unsigned int a1);
 void main_event_handler(int a1, int a2, int a3, int a4);
 int timer_event_handler();
-void rf_mem_write_n3f8();
 void critical_section_enter_arg();
 int tx_event_handler();
 int disable_interrupts();
 int lock_acquire();
-BOOL fw_flag_is_set();
 BOOL is_radio_powered();
 int update_hw_config(int a1);
 int refresh_config_params(int a1);
 void check_and_process(int a1, int a2, int a3);
-int rf_stream_start_once();
 int dispatch_event_handler();
-int rf_chan_set_mask(int a1, int a2);
 int prepare_and_dispatch(int a1, int a2);
-int ipc_msg_post_check(int a1, int a2, int a3, int a4);
 int lookup_task_id(int a1, int a2, int a3, int a4);
 int controller_state_machine();
-int log_free_pool_e();
 int enter_critical_section();
 int send_hci_event(int a1, int a2, int a3, int a4);
 int fw_sub_1213824_load_struct_call(int a1);
 int bt_module_init(int a1);
 void memory_barrier_write();
-void rf_clear_flag_bit1();
 void clear_irq_flag();
 int check_rx_active();
 void get_device_state();
 int mmio_read32(unsigned int a1);
-int host_reg_wait_set(unsigned int a1, int a2);
 int mmio_write32(unsigned int a1, int a2);
 unsigned int mmio_rmw_field(int a1);
-int rf_fault_dump_n_b2(int a1);
 int mmio_write_reg2(int a1);
 int mmio_read_status(uint8_t *a1);
-int rf_init_channel_n6(int a1);
 int mmio_get_field(int a1);
-int rf_cmd_query_status(uint8_t *a1);
 int mmio_read_byte(uint8_t *a1);
-int rf_reg_check(int a1);
 int mmio_wait_bit(int a1);
 int mmio_read_pair(int *a1, unsigned int *a2);
-int rf_status_poll(unsigned int a1, int a2);
 int rf_status_check(unsigned int a1, int a2);
-int rf_init_param_load(int *a1, unsigned int *a2);
 int rf_irq_bit16_check(int *a1, unsigned int *a2);
-int rf_init_n_d80(unsigned int a1, int a2);
 int rf_irq_handle(unsigned int a1, int a2);
 int tx_desc_init(int a1, int a2);
 int tx_desc_build(int a1, char a2, uint8_t *a3);
@@ -4776,40 +4632,30 @@ int rx_desc_build(int a1, int a2, uint8_t *a3);
 int rx_packet_prepare(int a1, int a2, int a3);
 int rf_reg10_status(int *a1);
 int rf_reg10_low_check(int a1);
-int rf_bus_handler_16c(uint8_t *a1);
 int rf_regf_high_check(uint8_t *a1);
 int rf_regf_mask_shift(int a1);
 int mmio_reg_write_1b(int a1);
 int ke_event_schedule();
-int rf_event_handler_n258();
 int ke_event_schedule_alt();
 int ke_event_schedule_prio();
-void lmac_state_get_n_e0();
 void ke_event_busy_check();
-int rf_init_or_config_n_318(int a1, int a2, unsigned int a3);
 int ke_task_handler(int a1, int a2, unsigned int a3);
-int rf_param_setup_44(int a1, int a2, unsigned int a3);
 int ke_task_process(int a1, int a2, unsigned int a3);
 int sub_114558(int a1);
 int sub_114564(int a1);
-int rf_param_set_op2(int a1);
 int sub_114570(int a1);
 int mmio_write_2(int a1);
-int rf_emit_setup_word(int a1);
 int mmio_read_4(int a1);
 int mmio_write_4(int a1);
 int mmio_read_8(int a1);
-int rf_setup_param_n5ac(int a1);
 int mmio_write_8(int a1);
 int mmio_read_32(int a1);
 int mmio_read_64(int a1);
 int mmio_write_64(int a1);
 int mmio_read_128(int a1);
 int mmio_write_128(int a1);
-int rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3);
 int sub_1145F4(int a1, int a2, unsigned int a3);
 int sub_1146E4(int a1, int a2, unsigned int a3);
-int rf_reg_write_setup_n4820(int a1);
 int sub_114820(int a1);
 int sub_11482C(int a1);
 int sub_114838(int a1);
@@ -4820,78 +4666,56 @@ int rf_cmd_wait_n_7e(int a1);
 int sub_114874(int a1);
 int sub_114880(int a1);
 int send_cmd_short(int a1);
-int rf_chan_configure(int a1, int a2, unsigned int a3);
 int hci_tx_data(int a1, int a2, unsigned int a3);
 int hci_rx_data(int a1, int a2, unsigned int a3);
 int hci_tx_packet(int a1);
 int hci_rx_packet(int a1);
-int rf_init_or_reset_helper();
 int osal_int_enter();
 int osal_int_exit(int a1);
 void assert_handler();
 void get_free_heap_size();
-int rf_mode_check();
 int wait_hw_ready();
 int init_ram_table();
-void rf_state_check_n_e90();
 void bt_check_state();
 void cli_process_char(int a1);
 void bt_driver_init();
-void rf_init_check_flags(int a1, int a2);
 void mmio_wait_flag(int a1, int a2);
-int rf_chan_check_enter();
 int read_sensor_value();
 uint64_t get_channel_params(int a1);
 uint32_t * deferred_cb_clear(int a1);
-int rf_subcmd_dispatch(int result);
 int radio_pdu_type_cfg(int result);
 int llm_adv_pdu_build(int result);
 int * adv_pdu_type_handler(int a1, int a2, int a3, int a4);
-int * rf_init_handler(int a1, int a2, int a3, int a4);
 int * pdu_type_init(int a1, int a2, int a3, int a4);
 int * rx_pkt_status_update(int a1, int a2, int a3, int a4);
-int rf_lmac_handler_n5820();
 int ble_ll_init();
-BOOL is_flag_set_clz();
 BOOL rf_is_idle();
-int rf_event_handler_8a4(int result);
 int mmio_irq_set(int result);
 int llm_pdu_cfg_update(int result);
-int rf_chan_table_lookup(int a1);
 int llm_pdu_tx_cfg(int a1);
-int rf_subcmd_dispatch_n5b60(int a1, int a2);
 int llm_scan_pdu_cfg(int a1, int a2);
 void mmio_status_clear();
 void mmio_status_write();
 int critical_section_enter_1();
-int patch_table_apply_dbc();
 int critical_section_exit();
-uint32_t *rf_fault_dump_n_26c();
 uint32_t *rf_acquire();
 int rf_wait_timeout(int a1);
 int event_cb_register(int a1, int a2, int a3);
 int rx_scan_timing_update(int a1);
-int rf_bus_write_60fc(int a1, int a2);
 int wlan_hw_init(int a1, int a2);
 int wlan_clk_init(int a1, int a2);
-int rf_init_load_globals(int a1);
 int wlan_attach(int a1);
-int rf_buf_setup_check(int a1, int a2, int a3);
 int wlan_tx_enqueue(int a1, int a2, int a3);
-int rf_alloc_or_init(int a1, int a2);
 int sub_116580(int a1, int a2);
 int wlan_tx_submit(int a1, int a2);
 int wlan_tx_kick(int result, int a2);
 uint32_t *pool_alloc_init();
 int rate_index_lookup(int a1, int a2, int a3);
-int rf_channel_set_n6838(int a1, int a2, int a3);
 int rate_index_lookup_fast(int a1, int a2, int a3);
-int rf_temp_sensor_read();
 int event_count_update();
 int wlan_rx_process(int a1);
 int counter_increment();
 int hw_timer_load();
-int accum_update_addr_pair();
 int timestamp_add();
 int task_queue_handler_a();
 int task_queue_handler_b();
@@ -4900,14 +4724,12 @@ int mmio_regs_init(int a1, int a2, int a3, int a4);
 int wlan_rf_init(int *a1, int a2, uint16_t *a3);
 uint32_t * tx_send_packet(uint32_t *a1, int a2, uint16_t *a3);
 uint32_t * rx_parse_packet(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, int a5);
-int scan_channel_done_n_180(int a1, int a2);
 int ll_timer_offset_get(int a1, int a2);
 int ipc_regs_init();
 unsigned int gpio_set_bit10(int a1);
 int timer_is_past(int result);
 int scan_ctrl_update(int a1);
 int tx_acl_queue_process(int a1, int a2, int a3);
-int rf_table_lookup_handler(int a1);
 int ll_event_timer_handler(int a1);
 unsigned int timer_event_check();
 int rf_cal_offset_apply(int result);
@@ -4915,89 +4737,65 @@ int mmio_bit16_toggle();
 uint64_t *stack_canary_setup();
 int * mutex_acquire_if_ready(int a1);
 int btcoex_update_bt_info(int *a1, uint8_t *a2);
-int tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2);
 int rf_calibration_table_get(int a1);
 int rx_queue_flush(int a1, int a2, int a3);
 int capability_dispatch(int result);
-void rf_status_check_n_1c0();
 void btcoex_check_state();
 int btcoex_reset_context();
 int process_pending_events(int a1, int a2, int a3, uint8_t *a4);
 int link_context_by_index(int a1);
-int rf_init_or_setup_n32c(int result);
 int check_link_id(int result);
-int rf_state_get_init();
 int find_link_in_list();
 int copy_patch_region(int a1);
-int rf_chan_init_or_reset_n_324(int a1);
 int setup_packet_buffer(int a1);
 void write_register_low16(int a1, int a2);
 void clear_bb_irq();
 int reset_link_status(uint8_t *a1);
 int poll_hw_status_1();
 int init_link_manager();
-uint32_t *mmio_reg_set_bits();
 uint32_t *rf_clock_enable();
-uint32_t *lmac_rf_state_check();
 uint32_t *start_firmware();
-int rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6);
 int send_acl_packet(int a1, int a2, int a3, uint32_t *a4, int a5, int a6);
-int lmac_init_wait_flag();
 int chip_id_is_one();
-int mmio_init_clock_gate_n121();
 int write_bb_control();
 int link_context_by_handle(int result);
-int rf_table_lookup_n360(int a1, int a2);
 int update_rx_credits(int a1, int a2);
 int handle_hci_event(char *a1);
 unsigned int convert_handle_index(unsigned int result);
-unsigned int rf_state_check_nec(int *a1);
 unsigned int rf_read_status_1(int *a1);
 unsigned int rf_enable_1();
-unsigned int rf_gpio_clear_bit_n_e20();
 unsigned int rf_disable();
 int rf_packet_available();
-int rf_link_state_check(int a1, int a2, int a3);
 int rf_state_process(int a1, int a2, int a3);
-int rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3);
 int memory_allocate(int a1, uint8_t *a2, uint8_t *a3);
 int rf_channel_calibrate(int a1);
 int kernel_send_evt(int a1);
 int rf_agc_control(int result, int a2, int a3);
-int rf_chan_param_set_n_1b8(uint8_t *a1, int a2);
 int rf_temp_compensate(uint8_t *a1, int a2);
 BOOL timer_start_capture(int a1, int a2, int a3, int *a4);
 int kernel_send_msg(int a1, int a2, int a3, int a4);
 int rx_process_packet(int a1, int *a2, int a3, int a4);
 int send_event_0x66(int a1, int a2, int a3, int a4);
-int buf_alloc_0x68_init(int a1, int a2, int a3, int a4);
 int send_event_0x68(int a1, int a2, int a3, int a4);
 int trace_record_event(int a1, uint32_t *a2, int a3, int a4);
 int event_dispatch(int a1, int *a2, int a3, int a4);
 int rx_packet_check(int a1, uint8_t *a2, int a3, int a4);
 int send_event_0x70(int a1, int a2, int a3, int a4);
-int rf_send_cmd_0x72(int a1, int a2, int a3, int a4);
 int send_event_0x72(int a1, int a2, int a3, int a4);
 int ke_send_msg_0x6e(int a1, int a2, int a3, int a4);
 int alloc_hci_rx_buffer(int a1, int a2, int a3, int a4);
 int ke_alloc_msg_0x6a(int a1, int a2, int a3, int a4);
-int rf_xo_pll_init(int a1, int a2, int a3, int a4);
 int ke_send_msg_0x76(int a1, int a2, int a3, int a4);
-int rf_init_msg_send(int a1, int a2, int a3, int a4);
 int ke_alloc_msg_0x74(int a1, int a2, int a3, int a4);
 int store_adv_addr(int a1, int a2, int a3, int a4);
 int ke_alloc_msg_0x81(int a1, int a2, int a3, int a4);
-int rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4);
 int ke_alloc_msg_0x7c(int a1, uint8_t *a2, int a3, int a4);
 int parse_ll_pdu_header(int a1, int a2, int a3, int a4);
 int ke_cmd_write_mmio(int a1, int a2, int a3, int a4);
 int ke_alloc_msg_0x88(int a1, int *a2, int a3, int a4);
-int rf_chan_set_calib_af4(int a1, uint8_t *a2, int a3, int a4);
 int process_llcp_pdu(int a1, uint8_t *a2, int a3, int a4);
-int rf_param_load_byte(int a1, uint8_t *a2, int a3, int a4);
 int hci_build_event_0x3a(int a1, uint8_t *a2, int a3, int a4);
 int call_packet_helper(int a1, int a2, int a3, int a4);
-int rf_param_parse_n_5c(int a1, uint8_t *a2, int a3, int a4);
 int check_adv_pdu_type(int a1, uint8_t *a2, int a3, int a4);
 int hci_build_event_0x36(int a1, uint8_t *a2, int a3, int a4);
 int ke_alloc_msg_0x34(int a1, int a2, int a3, int a4);
@@ -5008,15 +4806,11 @@ int util_scale_index(int a1, uint8_t *a2, int a3, int a4);
 int timer_start_reset(int a1, int a2, int a3, int a4);
 int mmio_write_dword(int a1, int a2, int a3, int a4);
 void rf_get_rssi_1(int a1, int a2, int a3);
-int rf_status_check_init(int a1, void ( **a2)(int), int a3);
 int rf_check_rssi(int a1, void ( **a2)(int), int a3);
 int process_cmd_result(int a1, uint8_t *a2, int a3, int a4);
 int process_cmd_extended(int a1, uint8_t *a2, int a3, int a4);
-int rf_reg_probe_id(uint16_t *a1);
 int mmio_clear_bits(uint16_t *a1);
-int rf_state_copy_to_shm(uint8_t *a1);
 int rx_update_meta(uint8_t *a1);
-int rf_mmio_status_read(uint8_t *a1);
 int mmio_select_port(uint8_t *a1);
 int flag_update(uint8_t *a1, void *a2);
 uint8_t * patch_load_cal(uint8_t *result);
@@ -5024,83 +4818,59 @@ int ipc_dispatch(int a1, uint16_t *a2, int a3, void *a4);
 unsigned int cmp_before(int a1, int a2);
 int ke_enter_critical(int a1, int a2);
 int ke_exit_critical(int a1);
-int timestamp_remove(int a1);
 int ke_schedule();
-int ipc_msg_send_n_d58(int a1);
 int send_hci_event_1(int a1);
 BOOL time_delta(int a1, int a2);
 int list_search(int result);
-int rf_cal_or_init_handler(int a1, int a2, int a3);
 int rf_event_dispatch(int a1, int a2, int a3);
-int rf_xosc_setup(int a1, int a2, int a3);
 int ke_task_handler_1(int a1, int a2, int a3);
-int rf_init_or_query();
 int rx_buffer_alloc();
 int rf_calibrate_1(int a1, int a2, unsigned int a3);
-int rf_mailbox_post_n44(int result);
 int rf_register_access(int result);
 int rf_status_check_1();
-int phy_flag_check_or_set();
 int rf_flag_set();
-int rf_state_reset_n_3a4(int result, int a2, int a3);
 int rx_queue_init(int result, int a2, int a3);
-int rf_chan_init_n4e8(int a1);
 int tx_processing(int a1);
 int rf_reg_update_1();
 int tx_schedule();
-int rf_msg_alloc_init();
 int rx_queue_reset();
 int state_flag_check();
 int timer_countdown(int result);
 int scheduler_run(int a1, int a2, int a3);
-int lmac_rf_init_5cbuf();
 int env_reset();
 int rf_status_read(int16_t *a1, int a2, char a3);
 int tx_header_prepare(uint8_t *a1, int a2);
 int env_get(int a1, uint8_t *a2);
-int * rf_indexed_lookup_n_88(int a1);
 int * sub_11BD88(int a1);
 int rx_desc_parse(uint8_t *a1);
-int rf_chan_lookup(int result, int a2);
 int rf_tx_packet_check(int result, int a2);
 BOOL ke_event_process(int a1, int a2);
-BOOL unknown_helper_2(int a1, int a2);
 int bt_link_tx_check(int result);
-int rf_bus_reset2_c158(int result);
 int bt_link_rx_check(int result);
-int rf_msg_handler_n0ec(int result);
 int rf_get_status_1(int result);
-int rf_get_status_byte_n_a24(int result);
 int bt_conn_find_by_ptr(int result);
 int bt_conn_tx_schedule(int a1, int a2);
-int lmac_table_lookup_n540(int a1);
 int bt_conn_rx_schedule(int a1);
 int * tx_slot_get_busy(int a1);
 int tx_slot_ref(int a1, int a2, int a3);
 int ke_timer_register(int a1, int a2, int a3, int a4);
-int rf_chan_set_n1cc();
 int ke_timer_check();
 int ke_timer_update();
 int radio_send_command(int a1, int a2, int a3, int a4);
-int fw_signature_check(uint16_t *a1);
 int rf_channel_compare(uint16_t *a1);
 int ke_timer_flush();
 int queue_remove();
-int rf_pwr_tbl_init_n0c8(int a1);
 int aes_encrypt(int a1);
 void ll_rx_handler();
 int tx_buf_alloc(char a1, int a2);
 int rf_get_tx_entry();
 int rf_get_tx_power(int a1);
-int rf_check_status_b4();
 int rf_read_rssi();
 unsigned int rf_set_frequency(unsigned int result);
 uint32_t *rf_cal_trim_check();
-int mmio_init_40328050();
 int rf_cmd_strobe();
 void *rf_cmd_cancel();
-int *message_dispatch_n2fe();
-int *rf_cmd_wait_1();
+int *rf_cmd_wait();
 unsigned int rf_shutdown();
 int rf_irq_handler_2();
 int rf_cmd_set();
@@ -5115,19 +4885,14 @@ int rf_init_check(int result, int a2);
 BOOL time_is_after(int a1, int a2);
 BOOL util_compare_key(int a1, unsigned int a2);
 int ke_event_loop(int a1, int a2, unsigned int a3);
-int timer_set_relative(int a1, int a2, unsigned int a3);
-int event_queue_push(int result, int a2);
 int ke_int_lock(int result, int a2);
 int mmio_poll_wait();
 int ke_task_retrieve(int a1, int a2);
-int rf_setup_dispatch(int16_t a1, int16_t a2, int16_t a3, unsigned int a4);
 int ke_msg_send_1(int16_t a1, int16_t a2, int16_t a3, unsigned int a4);
 int rx_irq_handler_1(int a1);
 int ke_evt_handler(int16_t a1, int16_t a2, int16_t a3);
 int isr_forward(int a1);
-uint32_t * list_find_remove(int a1, int ( *a2)(uint32_t *, int), int a3);
 uint32_t * co_list_process(int a1, int ( *a2)(uint32_t *, int), int a3);
-uint32_t *rx_queue_head_init();
 uint32_t *critical_enter_1();
 int align_size_plus4(int a1);
 uint32_t * check_buffer_size(char *a1);
@@ -5136,22 +4901,16 @@ uint32_t * flash_erase_sector(unsigned int a1, int a2);
 int flash_write_byte(unsigned int a1);
 int flash_read_byte(int a1, unsigned int a2);
 int set_busy_flag();
-int irq_nesting_or(int a1);
 int set_busy_flag_alt(int a1);
 int enter_critical_section_1(int a1);
-void rf_init_handler_1();
 void process_event_queue();
-int sdio_buffer_prepare_6ec();
 int init_event_control();
 uint32_t * list_init_1(uint32_t *result);
-int list_push_tail(int result, uint32_t *a2);
 int check_kernel_state(int result, uint32_t *a2);
 int check_kernel_state_alt(int result, uint32_t *a2);
 uint32_t * list_pop_front(int a1);
-int list_remove_node(int result, uint32_t *a2);
 int check_kernel_state_alt2(int result, uint32_t *a2);
 int list_count(uint32_t **a1);
-int list_insert_sorted(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *));
 int list_foreach(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *));
 uint32_t * list_find(uint32_t *result, uint32_t *a2, uint32_t *a3);
 unsigned int crc32_update_msb(uint8_t *a1, int a2, unsigned int a3);
@@ -5159,73 +4918,50 @@ int crc32_block(int a1);
 float float_extract_parts(unsigned int a1);
 float float_to_double(unsigned int a1);
 float branch_to_127228(int a1);
-float sdio_buffer_prepare_n_e8(float a1);
 float hash_const_init(float a1);
 unsigned int crc32_update_lsb(uint8_t *a1, int a2, unsigned int a3);
 uint8_t * memchr(uint8_t *result, int a2);
-int rf_mem_read_n_ec(int result);
 int set_global_ptr(int result);
-int rf_bus_write_n144(int result);
 int set_global_variable(int result);
-int rf_mem_read_f4c0();
 int get_event_flags();
-int rf_mem_read_n_c8();
 int get_event_handler();
-BOOL rf_feature_check(unsigned int a1, unsigned int a2);
 BOOL test_event_flag(unsigned int a1, unsigned int a2);
-int msg_parse(int result, ...);
 int dispatch_event_handler_1(int result, ...);
-unsigned int rf_mem_read_f594(unsigned int result, int a2, int a3, int a4);
 unsigned int handle_ipc_request(unsigned int result, int a2, int a3, int a4);
 int check_interrupt_flag(int result, int a2, int a3, int a4);
-int rf_msg_process_body_n_ee();
 int enable_radio();
-int rf_mem_read_n208(int a1, int a2, int16_t a3, int16_t a4);
 int ke_send_msg_414(int a1, int a2, int16_t a3, int16_t a4);
 int ke_send_msg_410(int a1, int a2, int16_t a3, int16_t a4);
 int patch_ram_download(int a1, uint32_t *a2, int16_t a3, int16_t a4);
 int rf_write_0x40c(int a1, uint32_t *a2, int16_t a3, int16_t a4);
-int rf_init_register_40a(int a1, int a2, int16_t a3, int16_t a4);
 int rf_clear_buf_0x40a(int a1, int a2, int16_t a3, int16_t a4);
 int rf_write_0x412(int a1, int *a2, int16_t a3, int16_t a4);
 int rf_write_0x401(int a1, int *a2, int16_t a3, int16_t a4);
-int rf_lmac_init_or_setup(int a1, uint32_t *a2, int16_t a3, int16_t a4);
 int bt_post_event_14ea14(int a1, uint32_t *a2, int16_t a3, int16_t a4);
 int bt_post_event_14ea3c(int a1, uint32_t *a2, int16_t a3, int16_t a4);
-int mmio_write_reg403(int a1, int *a2, int16_t a3, int16_t a4);
 int rf_write_0x403(int a1, int *a2, int16_t a3, int16_t a4);
 int bt_set_reg_0x42e();
 int rf_write_0x40e(int a1, int *a2, int16_t a3, int16_t a4);
 int rf_init_phy();
 int ke_int_lock_1(int a1, int a2, int a3);
-int rf_cmd_send_n264(int a1, int a2, int a3);
 int flash_ctrl_init(int a1, int a2, int a3);
 int flash_cmd_exec(int a1, int a2, int a3);
 void ke_int_unlock();
-int rf_cmd_dispatch_n_4e8(uint16_t *a1);
 int patch_trampoline(uint16_t *a1);
 int patch_check_enabled();
-void rf_cmd_dispatch_a84(int a1);
 void patch_check_enabled_ctx(int a1);
-int rf_cmd_dispatch_n_454(unsigned int a1);
 int ke_int_lock_mode(unsigned int a1);
 unsigned int tlv_find(unsigned int a1, int a2, int a3);
 int str_skip_spaces(uint8_t *a1, int a2);
 uint32_t * parse_dot_separated(int a1, uint32_t *a2, int a3);
-int rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3);
 int co_list_insert(unsigned int a1, uint8_t *a2, int a3);
-int parse_int(uint8_t *a1, uint32_t *a2, unsigned int a3);
 int parse_number(uint8_t *a1, uint32_t *a2, unsigned int a3);
 int buffer_flush();
-int rf_cmd_dispatch_n_34(int a1);
 int str_has_extension(int a1);
 int parse_hex_value(int a1, int a2);
 int parse_mac_addr(int a1, int a2);
-int rf_mem_write_nf0(int a1, int a2);
 int parse_len_value(int a1, int a2);
-int rf_mem_write_n16c(int a1, int a2);
 int parse_decimal_value(int a1, int a2);
-int rf_cmd_dispatch_n388(int a1, int a2);
 int check_message_len(int a1, int a2);
 int process_items(int a1, int a2);
 int copy_packet_data(int a1, int a2);
@@ -5237,30 +4973,22 @@ int init_system(int a1, unsigned int a2, unsigned int a3, int a4);
 int check_radio_status(int a1, int a2, int a3);
 int pack_control_data(int a1, unsigned int a2);
 int check_address_alignment(int a1, int a2, int a3, int a4);
-unsigned int rf_init_handler_0(int a1, int a2);
 unsigned int lookup_entry(int a1, int a2);
 int handle_state_change(int a1);
 int enter_critical_section_2();
-int rf_init_or_reset(unsigned int a1);
 int process_queue_message(unsigned int a1);
 uint8_t *exit_critical_section();
 void wait_hw_interrupt_flag();
 int increment_debug_counter(int a1);
-float rf_event_check_n3cc(uint8_t *a1);
 float check_chip_version(uint8_t *a1);
-uint8_t * parse_subframe_header(uint8_t *result);
 uint8_t * validate_signature(uint8_t *result);
 void read_irq_status();
-uint8_t * rf_chan_band_parse(uint8_t *result);
 uint8_t * handle_cmd_type2(uint8_t *result);
 int wait_for_hw_event();
 unsigned int wait_for_tx_ready();
-int rf_chan_config_set(int a1);
 int build_hci_command(int a1);
 int build_hci_event(int a1);
-int patch_ctrl_write_magic(uint32_t *a1, int a2, int a3);
 int init_timer_slot(uint32_t *a1, int a2, int a3);
-int rf_sub_3bbc();
 int wait_for_state();
 int format_message(int a1, int a2, int16_t a3, int16_t a4);
 int set_state_checked(unsigned int a1);
@@ -5274,46 +5002,32 @@ int set_reg_158a08_bits20_25(int result);
 int configure_hw_regs(unsigned int a1, int a2, int a3);
 int set_reg_180800_bits7_8(int a1);
 int set_reg_180800_bit9(int a1);
-int rf_pll_config_patch_n_8c(int a1);
 int rf_disable_1(int a1);
 int rf_write_synth(int a1);
-int mmio_field_set_l2h2(int a1);
 int rf_set_bit18(int a1);
 int mac_tx_frame(int a1, int a2, int a3, int a4, int a5);
-unsigned int check_param_eq1(unsigned int result, unsigned int a2, int a3);
 unsigned int mac_validate_rate(unsigned int result, unsigned int a2, int a3);
-int rf_table_lookup(unsigned int a1);
 int ke_handle_message(unsigned int a1);
-int log_free_dispatch_n2f2();
 int ke_timer_tick();
 void ke_state_event_0();
 int ke_state_event_1();
-int rf_init_or_reset_sub_12245f0();
 int ke_start_event_80();
 int ke_stop_event_81();
 void util_alloc_buffer();
-int rf_state_get_n246(int a1, int a2);
 int rx_process_pending(int a1, int a2);
-int rf_state_load(uint8_t **a1, uint8_t *a2);
 int util_list_find(uint8_t **a1, uint8_t *a2);
 int util_buf_clear(int a1, int a2);
 int mmio_set_flag_1();
-int rf_lmac_init_n190();
 int mmio_clear_flag();
-int mmio_syscfg_init_n4();
 int mmio_enable_clock();
-int rf_cmd_send_n_438_4944();
 int mmio_read_timer();
-int rf_status_read_n_968();
 int mmio_check_status();
 int set_channel(int a1, int a2);
 int set_tx_power(int a1, int a2);
 int set_adv_interval(int a1, uint8_t **a2);
-int rf_chan_init_or_set_n54(int a1, int a2);
 int set_adv_type(int a1, int a2);
 int set_adv_data(int a1, uint8_t **a2);
 int set_adv_channel_map(int a1, int a2);
-int rf_param_select_n_e60(int a1, int a2);
 int set_scan_params(int a1, int a2);
 int set_random_addr(int a1, int a2);
 int set_private_addr(int a1, int a2);
@@ -5327,7 +5041,6 @@ int set_rx_gain(int a1, int a2);
 int set_tx_offset(int a1, int a2);
 int set_clock_offset(int a1, int a2);
 int set_bdaddr(int a1, uint8_t **a2);
-int rf_chan_set_check_52b8(int a1, uint8_t **a2);
 int set_local_name(int a1, uint8_t **a2);
 int bt_conditional_action(int a1, int a2);
 int process_bt_connection_event(int a1, uint8_t **a2);
@@ -5335,58 +5048,39 @@ int process_bt_inquiry_event(int a1, uint8_t **a2);
 int process_bt_service_search_event(int a1, int a2);
 int bt_control_block_cleanup(int a1, int a2);
 unsigned int bt_state_machine_dispatch(unsigned int result);
-int ipc_msg_handler(int a1, uint8_t **a2);
 int process_bt_ble_event(int a1, uint8_t **a2);
 int bt_conn_init(int a1, int a2);
 int parse_bt_name_field(int a1, int a2);
 int check_mmio_status_flag();
 int bt_msg_send_if_allocated(uint8_t **a1, uint8_t *a2);
-int rf_pm_check_n_e18(int a1, int a2);
 int acl_rx_handler(int a1, int a2);
-int rf_status_check_bit(int a1, int a2, int a3);
 int poll_radio_status(int a1, int a2, int a3);
-int rf_lmac_dispatch_n5a8(int a1, int a2);
 int ll_data_handler(int a1, int a2);
-int mmio_flag_check_40500000(int a1, int a2, int a3);
 int check_radio_flag(int a1, int a2, int a3);
 int pkt_buf_clear(int a1, uint8_t **a2);
 int rf_is_ready();
-int rf_init_calibration_n174();
 int radio_timer_snapshot();
 int ll_state_process(int a1, int a2, char a3);
-int rf_init_n_dc();
 int ll_state_reset();
-int is_flag_set_n645c();
 int rf_flag_is_set();
 int rf_set_flag(char a1);
-int mmio_write_40320150(int a1);
 int mmio_write_register(int a1);
 int mmio_set_control();
 int rf_state_machine();
 uint32_t * rf_config_load(int a1);
 int tx_descriptor_config(int result);
-unsigned int * rf_level_apply_n_4ec(int a1);
 unsigned int * sub_1268EC(int a1);
-int rf_level_apply_6d60(int a1);
 int mmio_bit_set(int a1);
-unsigned int rf_level_step();
 unsigned int rx_index_update();
 int tx_packet_pointer(int a1);
 int mac_packet_dispatch();
-int rf_level_dump();
 int rf_param_build();
-int rf_level_compute(int a1);
 int freq_offset_to_channel(int a1);
-unsigned int rf_level_apply_n1b8();
 unsigned int rf_set_frequency_1();
-int rf_level_apply_n200(char a1);
 int rf_cmd_check(char a1);
-void rf_level_apply_n274();
 void rf_read_trim();
 int rf_enable_2();
-int rf_bus_write_n3d6_716c();
 int rf_disable_2();
-uint64_t math_round(uint64_t a1);
 uint64_t parse_data_field(uint64_t a1);
 int sub_127228(int a1);
 uint64_t sub_1272B0(int a1, int a2, int a3, int a4);
@@ -5448,24 +5142,176 @@ int a2();
 int a3();
 int abs32();
 int bswap32();
+int chip_rev_id_get();
+int clock_calc();
+int crypto_calibrate();
+int crypto_gain_clamp();
+int crypto_hw_clear_regs();
+int crypto_hw_config();
+int crypto_hw_power_up();
+int crypto_hw_reset_seq();
+int crypto_key_schedule();
+int crypto_table_copy_165d00();
+int crypto_table_init();
+int delay_us();
+int divmod64_compute();
+int event_queue_push();
+int fw_signature_check();
+int get_cached_1828f8();
+int host_reg_wait_set();
+int ipc_doorbell_handler_n_21a();
+int ipc_msg_post_check();
+int ipc_msg_send_n_d58();
+int irq23_enable();
+int irq_nesting_or();
+int is_flag_set_clz();
+int is_flag_set_n645c();
 int j_nullsub_6();
+int list_find_remove();
+int list_insert_sorted();
+int list_push_tail();
+int list_remove_node();
+int lmac_rf_behavioral_handler();
+int lmac_rf_init_globals();
+int lmac_state_get_n_e0();
+int lmac_sub_init();
+int log_free_dispatch_n2f2();
+int log_free_pool_dispatch2_n324();
+int log_free_pool_e();
+int log_hw_init_d4e8();
+int log_pool_alloc2_a18();
+int log_ptr_in_range();
+int mac_aggr_setup();
+int math_round();
+int message_dispatch_n286();
+int message_dispatch_n2fe();
+int mmio_bit_extract_n();
+int mmio_field_set_l2h2();
+int mmio_get_bit_30();
+int mmio_init_clock_gate_n121();
+int mmio_read_field_n_bd8();
+int mmio_set_bit_120090C();
+int mmio_write_40320150();
+int msg_parse();
 int nullsub_1();
 int nullsub_2();
 int nullsub_3();
 int nullsub_4();
+int parse_int();
+int parse_subframe_header();
 int patch_apply_slot_36();
+int phy_flag_check_or_set();
+int phy_get_link_status();
+int read_mac_dual_addr();
+int rf_adc_capture_n_a98();
+int rf_alloc_or_init();
+int rf_bus_mark_118c();
+int rf_bus_mark_ne0();
+int rf_bus_reset2_c158();
+int rf_bus_scan();
+int rf_bus_write_1();
+int rf_bus_write_60fc();
+int rf_bus_write_n144();
+int rf_bus_write_n274();
+int rf_bus_write_n3d6_716c();
 int rf_byte_extract_save();
-int rf_calib_table_init();
-int rf_cmd_status_get_n1c0();
+int rf_cal_or_init_handler();
+int rf_calib_setup_n3d8();
+int rf_calibration_init();
+int rf_chan_band_parse();
+int rf_chan_configure();
+int rf_chan_init_n4e8();
+int rf_chan_init_or_reset_n_324();
+int rf_chan_lookup();
+int rf_chan_param_get();
+int rf_chan_param_set_n_1b8();
+int rf_chan_table_lookup();
+int rf_channel_set_n6838();
+int rf_check_status_b4();
+int rf_chip_ready_check();
+int rf_clear_flag_bit1();
+int rf_cmd_dispatch_a84();
+int rf_cmd_dispatch_n_34();
+int rf_cmd_dispatch_n_454();
+int rf_cmd_dispatch_n_4e8();
+int rf_cmd_query_status();
+int rf_cmd_send_n264();
+int rf_cmd_send_n_3ac();
+int rf_dispatch_handler_n8();
+int rf_emit_setup_word();
+int rf_event_check_n3cc();
+int rf_event_dispatch_n1a4();
+int rf_event_handler_8a4();
+int rf_event_handler_n258();
 int rf_fault_dump_n36e();
+int rf_fault_dump_n_26c();
+int rf_field_align_n_2a4();
+int rf_get_status_byte_n_a24();
+int rf_gpio_clear_bit_n_e20();
 int rf_helper_sub_n_3b78();
+int rf_indexed_lookup_n_88();
+int rf_init_agc_or_radio();
+int rf_init_blockb_e798();
+int rf_init_blockc();
+int rf_init_channel_n6();
+int rf_init_handler();
+int rf_init_handler_1();
+int rf_init_n_dc();
+int rf_init_or_config_helper();
+int rf_init_or_config_n_318();
+int rf_init_or_query();
+int rf_init_or_reset();
+int rf_init_or_reset_sub_12245f0();
 int rf_init_or_setup_n_1200a80();
-int rf_init_submodule_dispatch();
-int rf_init_subsystem_7af8();
+int rf_init_setup_n3ac();
+int rf_init_wake_n_e8();
+int rf_level_apply_n1b8();
+int rf_level_apply_n200();
+int rf_level_apply_n274();
 int rf_level_apply_n78();
-int rf_lmac_log_str_n2cc();
+int rf_level_apply_n_358();
+int rf_level_apply_n_4ec();
+int rf_level_dump();
+int rf_link_state_check();
+int rf_lmac_init_n1ec();
+int rf_mailbox_post_n44();
+int rf_mem_read_f594();
+int rf_mem_read_n_c8();
+int rf_mem_write_n3f8();
+int rf_mmio_reg_enable();
+int rf_mmio_status_read();
+int rf_msg_alloc_init();
+int rf_msg_handler_main_45f4();
+int rf_msg_handler_n0ec();
+int rf_param_set_op2();
+int rf_param_setup_44();
+int rf_phy_process_handler();
+int rf_pll_config_patch_n_8c();
+int rf_pll_init_n900();
+int rf_pwr_tbl_init_n0c8();
+int rf_reg_check();
+int rf_reg_probe_id();
 int rf_reg_read_cb_efa4();
 int rf_reg_write_cb();
+int rf_reg_write_wait();
+int rf_setup_dispatch();
+int rf_setup_param_n5ac();
+int rf_state_check_n_e90();
+int rf_state_check_nec();
+int rf_state_copy_to_shm();
+int rf_state_get_n246();
+int rf_state_load();
+int rf_status_check_n_1c0();
+int rf_stream_start2_cc0();
+int rf_stream_start_2c20();
+int rf_sub_1209D40();
+int rf_sub_3bbc();
+int rf_subcmd_dispatch_n5b60();
+int rf_table_lookup();
+int rf_table_lookup_handler();
+int rf_xosc_setup();
+int scan_channel_done_n_180();
+int sdio_buffer_prepare_2();
 int sub_100200();
 int sub_101A20();
 int sub_101A28();
@@ -5501,6 +5347,11 @@ int sub_11D8D4();
 int sub_11EBB4();
 int sub_121A60();
 int sub_121A80();
+int timer_set_relative();
+int timestamp_remove();
+int uart_putc();
+int uart_puts();
+int unknown_helper_2();
 int v1();
 int v10();
 int v11();
@@ -5524,141 +5375,27 @@ int vcvts_n_s32_f32();
 /* forward decls (undeclared identifiers, heal-generated) */
 extern uint32_t MEMORY[];
 extern volatile uint32_t _T1;
-int fmac_chan_set_or_init();
-int ipc_doorbell_handler_n1ae();
-int ipc_doorbell_handler_n40a();
-int log_free_pool_dispatch2_00c4();
-int log_free_pool_dispatch2_n480_1150();
 int log_free_pool_dispatch2_n49c();
-int log_free_pool_dispatch2_n4f8();
-int log_free_pool_dispatch2_n4fc();
-int log_free_pool_dispatch2_n500();
-int patch_apply_n_ff();
-int patch_apply_with_membar();
-int rf_bus_mark_id_n_1a3();
-int rf_bus_mark_n190();
-int rf_bus_mark_n2d4();
-int rf_bus_mark_n384();
 int rf_bus_mark_n47c();
-int rf_bus_mark_n_188();
-int rf_bus_mark_n_18b();
-int rf_bus_mark_n_193();
-int rf_bus_mark_n_1a7();
-int rf_bus_mark_n_1c4();
-int rf_bus_mark_n_30();
 int rf_bus_mark_n_490();
 int rf_bus_mark_n_494();
-int rf_bus_mark_n_494_2b54();
-int rf_bus_mark_n_b();
-int rf_bus_reset2_120c();
-int rf_bus_reset2_17e4();
-int rf_bus_reset2_n218();
-int rf_bus_reset2_n21c();
 int rf_bus_reset2_n344();
-int rf_bus_reset2_n4e8();
-int rf_bus_reset2_n_100();
-int rf_bus_reset2_n_104();
-int rf_bus_reset2_n_19c();
-int rf_bus_reset2_n_1bc();
-int rf_bus_reset2_n_2f4();
-int rf_bus_reset2_n_328();
-int rf_bus_reset2_n_338();
-int rf_bus_reset2_n_348();
-int rf_bus_reset2_n_350();
-int rf_bus_reset2_n_367();
-int rf_bus_reset2_n_373();
-int rf_bus_reset2_n_60();
 int rf_bus_reset2_n_94();
-int rf_bus_reset_1e48();
-int rf_bus_reset_22ec();
 int rf_bus_reset_helper();
-int rf_bus_reset_n1a7();
 int rf_bus_reset_n25c();
-int rf_bus_reset_n2a4();
 int rf_bus_reset_n2f4();
 int rf_bus_reset_n2f8_0();
-int rf_bus_reset_n_164();
-int rf_bus_reset_n_168();
-int rf_bus_reset_n_16c();
-int rf_bus_reset_n_170();
-int rf_bus_reset_n_174_217c();
-int rf_bus_reset_n_178();
-int rf_bus_reset_n_490();
-int rf_bus_reset_n_498();
-int rf_bus_reset_n_49c();
-int rf_bus_reset_n_4a0();
-int rf_bus_reset_n_4a4();
-int rf_bus_reset_n_4b4();
-int rf_bus_reset_n_8();
-int rf_bus_reset_n_c();
-int rf_bus_setup_17fc();
 int rf_bus_setup_1ad8();
-int rf_bus_setup_3f8();
-int rf_bus_setup_n148();
-int rf_bus_setup_n320();
-int rf_bus_setup_n324();
-int rf_bus_setup_n328();
-int rf_bus_setup_n_3c();
-int rf_bus_write2_1140();
-int rf_bus_write2_174();
-int rf_bus_write2_field();
-int rf_bus_write2_n2dc();
-int rf_bus_write2_n4dc();
-int rf_bus_write2_n_127();
 int rf_bus_write2_n_244();
 int rf_bus_write2_n_2c0();
-int rf_bus_write2_n_31c();
-int rf_bus_write2_n_3a0();
-int rf_bus_write2_n_3cc();
-int rf_bus_write2_n_3d0();
 int rf_bus_write2_n_4f3();
-int rf_bus_write2_n_bc();
-int rf_bus_write2_n_c0();
-int rf_bus_write_1170();
-int rf_bus_write_17cc();
-int rf_bus_write_17f8();
 int rf_bus_write_268();
 int rf_bus_write_n1a0();
-int rf_bus_write_n364();
-int rf_bus_write_n4d4();
-int rf_bus_write_n_1c4();
 int rf_bus_write_n_200();
-int rf_bus_write_n_2f4();
-int rf_bus_write_n_30c();
-int rf_bus_write_n_458();
-int rf_bus_write_n_463();
-int rf_bus_write_n_47c();
-int rf_bus_write_n_4a8();
-int rf_bus_write_n_4bc();
-int rf_bus_write_n_4cc();
-int rf_bus_write_n_4d3();
-int rf_bus_write_n_4d8();
-int rf_bus_write_n_6b();
-int rf_bus_write_n_89();
-int rf_cmd_dispatch_190();
-int rf_cmd_dispatch_46c();
-int rf_cmd_dispatch_e30();
 int rf_cmd_dispatch_n459();
-int rf_cmd_dispatch_n_40c();
-int rf_cmd_queue_next_n15a();
 int rf_cmd_send_2();
-int rf_cmd_send_2b40();
-int rf_cmd_send_dispatch();
-int rf_cmd_send_n230();
-int rf_cmd_send_n238();
-int rf_cmd_send_n244();
-int rf_cmd_send_n254();
-int rf_cmd_send_n258();
-int rf_cmd_send_n25c();
-int rf_cmd_send_n500();
-int rf_cmd_send_n64();
-int rf_cmd_send_n_14();
-int rf_cmd_send_n_18();
-int rf_cmd_send_n_1c();
 int rf_cmd_send_n_32c();
 int rf_cmd_send_n_338();
-int rf_cmd_send_n_36c();
-int rf_cmd_send_n_37c();
 int rf_cmd_send_n_3c8();
 int rf_cmd_send_n_3d4();
 int rf_cmd_send_n_3d8();
@@ -5672,84 +5409,24 @@ int rf_cmd_send_n_bc();
 int rf_cmd_send_n_c4();
 int rf_cmd_send_n_c8();
 int rf_cmd_send_n_cc();
-int rf_level_apply_0();
 int rf_level_apply_168();
-int rf_level_apply_2();
-int rf_level_apply_6d94();
-int rf_level_apply_calc();
-int rf_level_apply_n120();
-int rf_level_apply_n124();
-int rf_level_apply_n1f8();
-int rf_level_apply_n268();
-int rf_level_apply_n26c();
-int rf_level_apply_n270();
-int rf_level_apply_n324();
-int rf_level_apply_n328();
 int rf_level_apply_n388();
 int rf_level_apply_n38c();
 int rf_level_apply_n6c();
 int rf_level_apply_n70();
 int rf_level_apply_n74();
-int rf_level_apply_n_198();
-int rf_level_apply_n_19c();
-int rf_level_apply_n_1a8();
-int rf_level_apply_n_1ac();
-int rf_level_apply_n_1b4();
-int rf_level_apply_n_1b8();
-int rf_level_apply_n_1bc();
-int rf_level_apply_n_1c4();
-int rf_level_apply_n_1c8();
-int rf_level_apply_n_1d0();
-int rf_level_apply_n_1d3();
-int rf_level_apply_n_1d7();
-int rf_level_apply_n_1db();
-int rf_level_apply_n_1e0();
-int rf_level_apply_n_1e7();
-int rf_level_apply_n_1f4();
-int rf_level_apply_n_1fc();
-int rf_level_apply_n_200();
-int rf_level_apply_n_203();
-int rf_level_apply_n_207();
-int rf_level_apply_n_20c();
-int rf_level_apply_n_210();
-int rf_level_apply_n_38();
-int rf_level_apply_n_8();
-int rf_level_apply_n_88();
 int rf_level_apply_na4();
-int rf_level_bit_extract();
-int rf_mem_read_f4d4();
-int rf_mem_read_n1a0();
-int rf_mem_read_n1b4();
 int rf_mem_read_n1dc();
-int rf_mem_read_n_10();
-int rf_mem_read_n_d8();
-int rf_mem_read_n_e4();
-int rf_mem_write_1e24();
-int rf_mem_write_block();
-int rf_mem_write_n458();
 int rf_mem_write_n4d8();
 int rf_mem_write_n_123();
-int rf_mem_write_n_1f7();
-int rf_mem_write_n_4f8();
-int rf_mem_write_short();
-int rf_mem_write_word_2488();
 int rf_register_field_reset_26c();
-int rf_state_check_n_20c();
-int rf_stream_start_n_12a();
 int sdio_buffer_prepare_e7a0();
-int sdio_buffer_prepare_n140();
 int sdio_buffer_prepare_n_120();
 int sdio_buffer_prepare_n_128();
 int sdio_buffer_prepare_n_12c();
 int sdio_buffer_prepare_n_130();
 int sdio_buffer_prepare_n_134();
-int sdio_buffer_prepare_n_38c();
-int sdio_buffer_prepare_n_450();
-int sdio_buffer_prepare_n_49c();
-int sdio_buffer_prepare_n_4d8();
-int sdio_buffer_prepare_n_4dc();
 int sdio_buffer_prepare_n_f4();
-int sdio_buffer_prepare_split();
 int sdio_buffer_prepare_v2();
 // start @ 0x100100
 int start(int a1, int a2, unsigned int a3) {
@@ -5874,94 +5551,6 @@ LABEL_16:
 
 
 
-// rf_init_setup_n_2a0 @ 0x1002a0
-int rf_init_setup_n_2a0() {
-  uint8_t **v0; // r5
-  int v1; // r0
-  unsigned int v2; // r7
-  uint64_t v3; // kr00_8
-  uint64_t v4; // kr08_8
-  int v5; // r2
-  uint32_t *v6; // r3
-  unsigned int v7; // r4
-  int16_t **v8; // r6
-  int v9; // r0
-  uint32_t *v10; // r2
-  int v11; // r1
-  int v12; // r4
-  int v13; // r3
-  unsigned int v14; // r4
-  unsigned int v15; // r3
-  unsigned int v16; // r3
-  unsigned int v17; // r7
-  int result; // r0
-  uint8_t *v19; // r3
-  int v20; // r2
-  unsigned int v21; // r2
-
-  v0 = (uint8_t **)off_10038C;
-  v1 = dword_100390;
-  v2 = dword_100398;
-  v3 = *(uint64_t *)(*(uint32_t *)off_10038C + 36);
-  v4 = *(uint64_t *)(*(uint32_t *)off_10038C + 44);
-  v5 = 44 * *(uint16_t *)(*(uint32_t *)off_10038C + 8) + 44;
-  v6 = (void *)(uintptr_t)(off_10039C);
-  *(uint32_t *)off_100394 = dword_100390;
-  v7 = v5 + v1;
-  v8 = (int16_t **)off_1003A0;
-  v6[1] = HIDWORD(v3);
-  v9 = dword_1003A4;
-  *v6 = v3;
-  v6[2] = v4;
-  v6[3] = HIDWORD(v4);
-  sub_10DA6C(v9, v2, v7);
-  if ( **v8 < 0 && v7 >= v2 )
-    rf_cmd_send_n264(dword_1003D0, dword_1003C8, 120);
-  v10 = *(uint32_t **)off_1003A8;
-  v11 = dword_1003AC;
-  v12 = 76 * *((uint16_t *)*v0 + 4) + 76;
-  v13 = **(uint32_t **)off_1003A8;
-  *(uint32_t *)off_1003B0 = dword_1003AC;
-  v14 = v12 + v11;
-  if ( !v13 )
-  {
-    v15 = (v10[1] + 4) & 0xFFFFFFFC;
-    *v10 = v14 + 4;
-    v14 += v15;
-  }
-  if ( !v10[2] )
-  {
-    v16 = (v10[3] + 4) & 0xFFFFFFFC;
-    v10[2] = v14 + 4;
-    v14 += v16;
-  }
-  v17 = dword_1003B4;
-  result = sub_10DA6C(dword_1003B8, dword_1003AC, dword_1003B4);
-  if ( **v8 < 0 && v14 >= v17 )
-    result = rf_cmd_send_n264(dword_1003CC, dword_1003C8, 156);
-  v19 = *v0;
-  *(uint32_t *)off_1003BC = *((uint32_t *)*v0 + 3);
-  v20 = *v19;
-  if ( v20 == 2 )
-  {
-    v21 = *((uint32_t *)v19 + 4);
-  }
-  else
-  {
-    if ( v20 != 1 )
-      return result;
-    v21 = *((uint32_t *)v19 + 5);
-  }
-  if ( v21 )
-  {
-    if ( dword_1003C0 > v21 )
-      return sub_10DA6C(dword_1003C4, dword_1003C0, v21);
-  }
-  return result;
-}
-
-
-
 // process_state_update @ 0x1002a0
 int process_state_update() {
   uint8_t **v0; // r5
@@ -6046,75 +5635,6 @@ int process_state_update() {
       return sub_10DA6C(dword_1003C4, dword_1003C0, v21);
   }
   return result;
-}
-
-
-
-// lmac_rf_init_globals @ 0x1003d4
-void lmac_rf_init_globals() {
-  uint8_t *v0; // r4
-  uint32_t *v1; // r2
-  uint32_t *v2; // r5
-  uint32_t *v3; // r1
-  uint32_t *v4; // r3
-  uint32_t *v5; // r2
-  uint32_t *v6; // r6
-  int inited; // r0
-  uint32_t *v8; // r3
-  int v9; // r0
-  int v10; // r0
-  uint16_t *v11; // r2
-  uint8_t *v12; // r6
-  int v13; // r0
-  int v14; // r0
-  int v15; // r0
-  int v16; // r0
-  int v17; // r0
-  int v18; // r0
-  int v19; // r0
-
-  v0 = (void *)(uintptr_t)(off_100498);
-  v1 = (void *)(uintptr_t)(off_10049C);
-  v2 = (void *)(uintptr_t)(off_1004A0);
-  *(uint32_t *)off_100494 = off_100498;
-  *v1 = (int)(uintptr_t)(v0 + 12);
-  v3 = (void *)(uintptr_t)(off_1004A4);
-  v4 = (void *)(uintptr_t)(off_1004A8);
-  v5 = (void *)(uintptr_t)(off_1004AC);
-  v6 = (void *)(uintptr_t)(off_1004B0);
-  *v2 = (int)(uintptr_t)(v0 + 76);
-  *v3 = (int)(uintptr_t)(v0 + 136);
-  *v4 = (int)(uintptr_t)(v0 + 152);
-  *v6 = (int)(uintptr_t)(v0 + 178);
-  *v5 = (int)(uintptr_t)(v0 + 176);
-  inited = rf_init_setup_n_2a0();
-  if ( *(uint8_t *)*v2 == 1 )
-  {
-    v8 = (void *)(uintptr_t)(off_1004B8);
-    *((uint32_t *)off_1004B4 + 22) &= ~1u;
-    v8[20] |= 1u;
-    v8[20] &= ~2u;
-  }
-  v9 = enter_critical_section_2(inited);
-  v10 = ((int (*)())mem_get_stats)(v9);
-  rf_init_submodule_dispatch(v10);
-  v11 = (uint16_t *)*v6;
-  v12 = (uint8_t *)off_1004BC;
-  v13 = dword_1004C0;
-  *v11 |= 0x2000u;
-  v14 = msg_parse(v13, *v12);
-  v15 = rf_init_calibration_n174(v14);
-  if ( v0[363] )
-  {
-    v19 = ((int (*)())rf_level_apply_n274)(v15);
-    rf_enable_2(v19);
-  }
-  v16 = msg_parse(dword_1004C4, (uint8_t)v0[76]);
-  v17 = rf_tx_power_get(v16);
-  v18 = log_system_init_f6a4(v17);
-  if ( *(uint8_t *)*v2 == 3 )
-    *(uint32_t *)off_1004C8 = 1;
-  bt_driver_init(v18);
 }
 
 
@@ -6258,24 +5778,6 @@ int read_control_reg(int a1) {
 
 
 
-// delay_us @ 0x100560
-int delay_us(int a1) {
-  int result; // r0
-  int v3; // [sp+4h] [bp-8h]
-
-  result = a1 + *((uint32_t *)off_100588 + 4);
-  do
-  {
-    v3 = 32;
-    while ( v3-- )
-      ;
-  }
-  while ( *((uint32_t *)off_100588 + 4) - result < 0 );
-  return result;
-}
-
-
-
 // write_timer_reg @ 0x100560
 int write_timer_reg(int a1) {
   int result; // r0
@@ -6301,26 +5803,6 @@ int store_byte_value(int a1) {
   result = read_control_reg(a1);
   if ( *(uint8_t *)off_1005A0 != result )
     *(uint8_t *)off_1005A0 = result;
-  return result;
-}
-
-
-
-// hw_config_init @ 0x1005a4
-int hw_config_init() {
-  int *v0; // r4
-  int v1; // r5
-  int result; // r0
-  int16_t v3; // r2
-
-  v0 = (int *)off_1005DC;
-  v1 = read_control_reg(HIBYTE(*(uint32_t *)off_1005D8) & 3);
-  sub_100200(v0, 0, 8u);
-  result = dword_1005E0 + 16 * v1;
-  v3 = *(uint16_t *)(result + 6);
-  *(uint32_t *)off_1005E4 = *(uint16_t *)(result + 4);
-  *((uint8_t *)v0 + 1) = v3;
-  *(uint8_t *)v0 = -1;
   return result;
 }
 
@@ -6353,21 +5835,6 @@ int sub_1005E8() {
 
 
 
-// panic_loop @ 0x1005f4
-void panic_loop() {
-  int v1; // [sp+0h] [bp-Ch]
-
-  *(uint32_t *)off_100644 = 17;
-  while ( 1 )
-  {
-    v1 = 32;
-    while ( v1-- )
-      ;
-  }
-}
-
-
-
 // sub_1005F4 @ 0x1005f4
 void sub_1005F4() {
   int v1; // [sp+0h] [bp-Ch]
@@ -6379,21 +5846,6 @@ void sub_1005F4() {
     while ( v1-- )
       ;
   }
-}
-
-
-
-// rf_init_clocks_n2c0 @ 0x10064c
-uint32_t *rf_init_clocks_n2c0() {
-  uint32_t *result; // r0
-  int *v1; // r2
-
-  result = (void *)(uintptr_t)(off_100680);
-  v1 = (int *)off_100684;
-  *(uint32_t *)off_10067C |= 0x10000u;
-  *result = 0;
-  *v1 = *v1 & 0x1FFFFFFE | 0x20000001;
-  return result;
 }
 
 
@@ -6413,8 +5865,8 @@ uint32_t *sub_10064C() {
 
 
 
-// hw_config_init_1 @ 0x100688
-uint32_t *hw_config_init_1() {
+// hw_config_init @ 0x100688
+uint32_t *hw_config_init() {
   uint32_t *result; // r0
   unsigned int *v1; // r2
 
@@ -6648,25 +6100,6 @@ LABEL_6:
 
 
 
-// mmio_set_bit_120090C @ 0x10090c
-int mmio_set_bit_120090C(int a1, unsigned int a2) {
-  unsigned int *v2; // r5
-  int v3; // r0
-  unsigned int v4; // r4
-  int result; // r0
-  unsigned int v6; // [sp+4h] [bp-8h] BYREF
-
-  v2 = (unsigned int *)off_100940;
-  v3 = smem_access(a1, a2, (void *)(&v6));
-  v4 = *v2;
-  *v2 |= 0x4000000u;
-  result = sub_1006C0(v3, dword_100944, 96, v6);
-  *v2 = v4 & 0xFBFFFFFF;
-  return result;
-}
-
-
-
 // rf_ctrl_set @ 0x10090c
 int rf_ctrl_set(int a1, unsigned int a2) {
   unsigned int *v2; // r5
@@ -6881,147 +6314,6 @@ unsigned int rf_cal_read_1() {
 
 
 
-// mmio_clock_setup @ 0x100e00
-int mmio_clock_setup(unsigned int a1, int a2) {
-  uint32_t *v2; // r3
-  uint32_t *v3; // r2
-  uint32_t *v4; // r5
-  uint32_t *v5; // r6
-  uint32_t *v6; // r4
-  int v7; // r1
-  uint32_t *v8; // r1
-  uint32_t *v9; // r2
-  int v11; // r4
-  int v12; // r3
-  unsigned int *v13; // r5
-  unsigned int *v14; // r2
-  int v15; // r1
-  int v16; // r4
-  int v17; // r5
-  unsigned int *v18; // r4
-  uint32_t *v19; // r0
-  uint32_t *v20; // r5
-  uint8_t *v21; // r2
-  unsigned int *v22; // r4
-  unsigned int *v23; // r2
-  uint32_t *v24; // r5
-  unsigned int *v25; // r0
-  unsigned int *v26; // r4
-  uint32_t *v27; // r2
-  unsigned int v28; // r3
-  uint32_t *v29; // r2
-  unsigned int v30; // r3
-  int result; // r0
-
-  v2 = (void *)(uintptr_t)(off_10107C);
-  v3 = (void *)(uintptr_t)(off_101080);
-  v4 = (void *)(uintptr_t)(off_101084);
-  v5 = (void *)(uintptr_t)(off_101088);
-  *(uint32_t *)off_10107C |= 0x400u;
-  *v2 |= 0x800u;
-  *v4 &= ~4u;
-  *v3 &= ~0x80000u;
-  *v3 |= 0x100000u;
-  v2[7] &= ~0x400u;
-  v2[7] |= 0x100u;
-  v2[7] &= ~0x80u;
-  v6 = (void *)(uintptr_t)(off_10108C);
-  *v5 &= ~0x8000u;
-  v3[11] &= ~1u;
-  v3[11] &= ~2u;
-  if ( a2 == 2 )
-    v7 = 188416;
-  else
-    v7 = 385024;
-  *(uint32_t *)((char *)v4 + 0xFFFFFFEC) = *(uint32_t *)((char *)v4 + 0xFFFFFFEC) & 0xFFC01FFF | v7;
-  v8 = (void *)(uintptr_t)(off_101090);
-  *v6 &= ~0x40u;
-  v3[24] |= 0x8000u;
-  v3[24] &= ~0x4000u;
-  v9 = (void *)(uintptr_t)(off_101094);
-  *(uint32_t *)((char *)v4 + 0xFFFFFFF0) &= 0xFFF9FFFF;
-  *v8 &= ~1u;
-  *(v6 - 1903) |= 8u;
-  lmac_sub_init(1, 0, 16, *v9);
-  lmac_sub_init(1, 16, 16, *(uint32_t *)off_101098);
-  mmio_set_bit_120090C(0, a1);
-  if ( a1 > 0x98A )
-  {
-    v11 = 6;
-  }
-  else if ( a1 <= 0x97B )
-  {
-    v11 = 0;
-  }
-  else
-  {
-    v11 = 3;
-  }
-  v12 = dword_1010A4;
-  v13 = (unsigned int *)off_1010A8;
-  v14 = (unsigned int *)off_1010AC;
-  v15 = *(uint8_t *)off_10109C & 0xC0;
-  if ( v15 == 192 )
-    v12 = dword_1010A0;
-  *(uint32_t *)off_1010A8 = *(uint32_t *)off_1010A8 & 0xFE01FFFF | (*(uint8_t *)(v12 + v11) << 17);
-  v16 = v11 + v12;
-  *v13 = *v13 & 0xFFFFFF00 | *(uint8_t *)(v16 + 1);
-  v17 = *(uint8_t *)(v16 + 2);
-  v18 = (unsigned int *)off_1010B0;
-  v19 = (void *)(uintptr_t)(off_1010B4);
-  *v14 = *v14 & 0xFFFFFF00 | v17;
-  v20 = (void *)(uintptr_t)(off_1010B8);
-  *v18 = *v18 & 0xFF00FFFF | 0x2F0000;
-  *v19 |= 8u;
-  *v19 |= 4u;
-  *v14 &= 0xFFFC7FFF;
-  *v14 = *v14 & 0xFFFF8FFF | 0x1000;
-  v21 = (void *)(uintptr_t)(off_1010BC);
-  v22 = v18 + 19964;
-  *v20 &= 0xFFFFC7FF;
-  *v22 = *v22 & 0xFFFFE3FF | 0x1000;
-  v19[1984] = v19[1984] & 0xFFFFF83F | 0x400;
-  if ( !v21[1] )
-  {
-    v23 = (unsigned int *)off_1010C0;
-    *v22 = *v22 & 0xFFFFFC7F | 0x100;
-    *v23 = *v23 & 0x16000 | 0x8000 | *v23 & 0xFFFE1FFF;
-  }
-  v24 = (void *)(uintptr_t)(off_1010C4);
-  v25 = (unsigned int *)off_101088;
-  v26 = (unsigned int *)off_1010C8;
-  v27 = (void *)(uintptr_t)(off_101090);
-  *(uint32_t *)off_1010C4 |= 0xC00u;
-  *v25 = *v25 & 0xFFFFFF87 | 0x48;
-  *v26 |= 4u;
-  *v27 &= ~2u;
-  v26 += 1907;
-  v24[2] |= 0x20000u;
-  *v26 = *v26 & 0xFFF8FFFF | 0x20000;
-  *v26 = *v26 & 0xFFFFFFF0 | 8;
-  *(uint32_t *)((char *)v24 + 0xFFFFFFEC) = *(uint32_t *)((char *)v24 + 0xFFFFFFEC) & 0xFFFFE3FF | 0x800;
-  *(unsigned int *)((char *)v26 + 0xFFFFFFFC) = *(unsigned int *)((char *)v26 + 0xFFFFFFFC) & 0xFC7FFFFF | 0x1000000;
-  *v27 &= ~0x20u;
-  v28 = *v25;
-  v29 = (void *)(uintptr_t)(off_1010CC);
-  if ( v15 == 192 )
-    v30 = v28 | 0xE0000;
-  else
-    v30 = v28 & 0xFFF1FFFF;
-  if ( v15 != 192 )
-    v30 |= 0x60000u;
-  *v25 = v30;
-  while ( !*v29 )
-    ;
-  result = *(uint32_t *)off_1010D0 & 1;
-  if ( !result )
-    result = rf_cal_read_0(0);
-  *(uint32_t *)off_1010CC = 1;
-  return result;
-}
-
-
-
 // mac_ctrl_set @ 0x100e00
 int mac_ctrl_set(unsigned int a1, int a2) {
   uint32_t *v2; // r3
@@ -7158,504 +6450,6 @@ int mac_ctrl_set(unsigned int a1, int a2) {
   if ( !result )
     result = rf_cal_read_0(0);
   *(uint32_t *)off_1010CC = 1;
-  return result;
-}
-
-
-
-// rf_init_hw_setup @ 0x1010d4
-unsigned int rf_init_hw_setup(unsigned int a1) {
-  uint32_t *v1; // r1
-  uint32_t *v2; // r2
-  uint32_t *v3; // r3
-  uint32_t *v4; // r5
-  uint32_t *v5; // r6
-  uint32_t *v6; // r1
-  unsigned int *v7; // r4
-  uint32_t *v8; // r2
-  int v9; // r5
-  uint32_t *v11; // r0
-  unsigned int *v12; // r4
-  uint32_t *v13; // r1
-  unsigned int *v14; // r3
-  unsigned int v15; // r3
-  unsigned int **v16; // r4
-  int *v17; // r0
-  int v18; // r3
-  int *v19; // r11
-  unsigned int *v20; // r2
-  int v21; // r1
-  unsigned int v22; // r12
-  int *v23; // r10
-  int v24; // r8
-  unsigned int v25; // r9
-  int v26; // lr
-  int *v27; // r3
-  unsigned int v28; // r4
-  unsigned int v29; // r4
-  uint32_t *v30; // r3
-  unsigned int *v31; // r2
-  int v32; // r1
-  int v33; // r2
-  int v34; // r0
-  int v35; // r7
-  int v36; // r1
-  int v37; // r1
-  unsigned int *v38; // r4
-  int v39; // r5
-  uint8_t *v40; // r1
-  uint32_t *v41; // r1
-  unsigned int v42; // r3
-  uint32_t *v43; // r0
-  unsigned int *v44; // r1
-  int v45; // zf
-  unsigned int *v46; // r2
-  unsigned int v47; // r3
-  unsigned int v48; // r3
-  uint32_t *v49; // r2
-  int v50; // r1
-  int v51; // r4
-  int v52; // r0
-  int v53; // r1
-  uint32_t *v54; // r3
-  int v55; // r4
-  int v56; // r0
-  int v57; // r1
-  int v58; // r2
-  int v59; // r5
-  uint8_t *v60; // r4
-  int v61; // r0
-  uint32_t *v62; // r2
-  unsigned int result; // r0
-  uint32_t *v64; // r2
-  uint32_t *v65; // r3
-  int v66; // r1
-  int v67; // r4
-  int v68; // r0
-  int v69; // r1
-  int v70; // r4
-  int v71; // r0
-  int v72; // r1
-  int v73; // r2
-  int *v74; // r0
-  int v75; // r3
-  int *v76; // r2
-  int v77; // r1
-  int v78; // r1
-  int v79; // r4
-  int v80; // r0
-  int v81; // r1
-  int v82; // r4
-  int v83; // r0
-  int v84; // r1
-  int v85; // r2
-  uint32_t *v86; // [sp+4h] [bp-8h]
-
-  v1 = (void *)(uintptr_t)(off_101378);
-  v2 = (void *)(uintptr_t)(off_10137C);
-  v3 = (void *)(uintptr_t)(off_101380);
-  v4 = (void *)(uintptr_t)(off_101384);
-  v5 = (void *)(uintptr_t)(off_101388);
-  *(uint32_t *)off_101378 &= ~0x400u;
-  *v1 &= ~0x800u;
-  *v4 |= 4u;
-  v6 = (void *)(uintptr_t)(off_10138C);
-  *v2 |= 0x80000u;
-  *v2 &= ~0x100000u;
-  v7 = (unsigned int *)off_101390;
-  *v3 |= 0x400u;
-  *v3 &= ~0x100u;
-  *v3 |= 0x80u;
-  v8 = (void *)(uintptr_t)(off_101394);
-  *v5 |= 0x8000u;
-  *v6 |= 1u;
-  *v6 &= ~2u;
-  *(uint32_t *)((char *)v4 + 0xFFFFFFA4) |= 0x40u;
-  *v7 = *v7 & 0xFFC01FFF | 0x32000;
-  *v8 &= ~0x8000u;
-  *v8 |= 0x4000u;
-  v9 = *(uint8_t *)off_101398 & 0xC0;
-  if ( v9 == 192 )
-    *(uint32_t *)((char *)v8 + 0xFFFFFFFC) = *(uint32_t *)((char *)v8 + 0xFFFFFFFC) & 0xFFF9FFFF | 0x40000;
-  else
-    *(uint32_t *)off_10139C = *(uint32_t *)off_10139C & 0xFFF9FFFF | 0x20000;
-  v11 = (void *)(uintptr_t)(off_1013A0);
-  v12 = (unsigned int *)off_1013A4;
-  v13 = (void *)(uintptr_t)(off_1013A8);
-  v14 = (unsigned int *)off_1013AC;
-  *(uint32_t *)off_1013A0 = *(uint32_t *)off_1013A0 & 0xFFFFE3FF | 0x800;
-  *v12 = *v12 & 0xFC7FFFFF | 0x1000000;
-  *v13 &= 0xFFFFC7FF;
-  *v14 = *v14 & 0xFFFFF83F | 0x400;
-  v11[4] = v11[4] & 0xFFFFE3FF | 0x1000;
-  v12[4] |= 0xC00u;
-  v11[4] = v11[4] & 0xFFFFFF87 | 0x48;
-  v13 -= 1904;
-  *v14 &= ~1u;
-  *v13 |= 8u;
-  *v13 |= 4u;
-  *v14 &= ~2u;
-  v12[6] &= ~0x20000u;
-  *v14 |= 0x20u;
-  v15 = (uint16_t)(a1 - 5000);
-  if ( v9 == 192 )
-  {
-    if ( v15 <= 0xFA )
-    {
-      v74 = (int *)off_101700;
-      v75 = dword_10173C;
-      v76 = (int *)off_101708;
-      v19 = (int *)off_101770;
-      v77 = dword_101740;
-      v86 = (void *)(uintptr_t)(off_101700);
-    }
-    else if ( a1 > 0x14C8 )
-    {
-      if ( a1 <= 0x15C2 )
-      {
-        v74 = (int *)off_101700;
-        v75 = dword_101764;
-        v76 = (int *)off_101708;
-        v19 = (int *)off_101770;
-        v77 = dword_101768;
-        v86 = (void *)(uintptr_t)(off_101700);
-      }
-      else if ( a1 > 0x1612 )
-      {
-        v74 = (int *)off_1017A0;
-        if ( a1 > 0x1662 )
-        {
-          v75 = dword_1017B4;
-          v76 = (int *)off_1017A8;
-          v19 = (int *)off_1017BC;
-          v77 = dword_1017B8;
-        }
-        else
-        {
-          v75 = dword_1017A4;
-          v76 = (int *)off_1017A8;
-          v19 = (int *)off_1017BC;
-          v77 = dword_1017AC;
-        }
-        v86 = (void *)(uintptr_t)(off_1017A0);
-      }
-      else
-      {
-        v74 = (int *)off_101700;
-        v75 = dword_101750;
-        v76 = (int *)off_101708;
-        v19 = (int *)off_101770;
-        v77 = dword_101754;
-        v86 = (void *)(uintptr_t)(off_101700);
-      }
-    }
-    else
-    {
-      v74 = (int *)off_101700;
-      v75 = dword_101704;
-      v76 = (int *)off_101708;
-      v19 = (int *)off_101770;
-      v77 = dword_10170C;
-      v86 = (void *)(uintptr_t)(off_101700);
-    }
-    v26 = 0;
-    *v76 = v75;
-    *v74 = v75;
-    v20 = (unsigned int *)v75;
-    v23 = (int *)v75;
-    *v19 = v77;
-    v25 = 0;
-    v24 = 0;
-    v22 = 0;
-    goto LABEL_7;
-  }
-  if ( v15 > 0xFA )
-  {
-    if ( a1 > 0x14C8 )
-    {
-      if ( a1 > 0x15C2 )
-      {
-        if ( a1 <= 0x1612 )
-        {
-          v18 = dword_10175C;
-          v16 = (unsigned int **)off_101700;
-          v19 = (int *)off_101770;
-          v20 = (unsigned int *)dword_101758;
-          v37 = dword_10176C;
-          v86 = (void *)(uintptr_t)(off_101700);
-          *(uint32_t *)off_101708 = dword_10175C;
-          v22 = 0;
-          v24 = 1610612736;
-        }
-        else
-        {
-          v16 = (unsigned int **)off_101700;
-          v17 = (int *)off_101708;
-          v19 = (int *)off_101770;
-          v20 = (unsigned int *)dword_101758;
-          v86 = (void *)(uintptr_t)(off_101700);
-          v18 = dword_10175C;
-          if ( a1 > 0x1662 )
-          {
-            v21 = dword_1017B0;
-            goto LABEL_6;
-          }
-          v37 = dword_101760;
-          *(uint32_t *)off_101708 = dword_10175C;
-          v22 = 0;
-          v24 = 0x40000000;
-        }
-      }
-      else
-      {
-        v18 = dword_1013D0;
-        v16 = (unsigned int **)off_1013B0;
-        v19 = (int *)off_1013DC;
-        v20 = (unsigned int *)dword_1013D4;
-        v37 = dword_1013D8;
-        v86 = (void *)(uintptr_t)(off_1013B0);
-        *(uint32_t *)off_1013B4 = dword_1013D0;
-        v22 = 0x80000000;
-        v24 = 1610612736;
-      }
-      v23 = (int *)v18;
-      *v19 = v37;
-      *v16 = v20;
-      v25 = v22;
-      v26 = v24;
-      goto LABEL_7;
-    }
-    v16 = (unsigned int **)off_101700;
-    v17 = (int *)off_101708;
-    v18 = dword_101744;
-    v19 = (int *)off_101770;
-    v20 = (unsigned int *)dword_101748;
-    v21 = dword_10174C;
-    v86 = (void *)(uintptr_t)(off_101700);
-  }
-  else
-  {
-    v16 = (unsigned int **)off_1013B0;
-    v17 = (int *)off_1013B4;
-    v18 = dword_1013B8;
-    v19 = (int *)off_1013DC;
-    v20 = (unsigned int *)dword_1013BC;
-    v21 = dword_1013C0;
-    v86 = (void *)(uintptr_t)(off_1013B0);
-  }
-LABEL_6:
-  v22 = 0;
-  *v17 = v18;
-  v23 = (int *)v18;
-  *v19 = v21;
-  *v16 = v20;
-  v24 = 0;
-  v25 = 0;
-  v26 = 0;
-LABEL_7:
-  v27 = v23;
-  do
-  {
-    if ( v9 != 192 && (uint16_t)(a1 - 5000) > 0x140u )
-    {
-      v28 = v27[1] & 0xFFFFFFFE;
-      *v27 = *v27 & 0x1FFFFFFF | v26 | v25;
-      v27[1] = v28;
-      v29 = v20[1] & 0xFFFFFFFE;
-      *v20 = *v20 & 0x1FFFFFFF | v24 | v22;
-      v20[1] = v29;
-    }
-    v27 += 3;
-    v20 += 3;
-  }
-  while ( v27 != v23 + 48 );
-  lmac_sub_init(1, 0, 16, (int)(uintptr_t)(v23));
-  lmac_sub_init(1, 16, 16, *v19);
-  lmac_sub_init(1, 32, 16, *v86);
-  mmio_set_bit_120090C(1, a1);
-  v30 = (void *)(uintptr_t)(off_1013C4);
-  v31 = (unsigned int *)off_1013C8;
-  *(uint32_t *)off_1013C4 |= 8u;
-  *v30 |= 4u;
-  *v31 = *v31 & 0xFFFC7FFF | 0x10000;
-  *v31 = *v31 & 0xFFFF8FFF | 0x3000;
-  if ( a1 > 0x1666 )
-  {
-    v35 = 10;
-    v34 = 5;
-  }
-  else if ( a1 > 0x1616 )
-  {
-    v35 = 8;
-    v34 = 4;
-  }
-  else if ( a1 > 0x15C6 )
-  {
-    v35 = 6;
-    v34 = 3;
-  }
-  else
-  {
-    if ( a1 <= 0x1571 )
-    {
-      v32 = *(uint8_t *)off_101398;
-      v33 = v32 & 0xC0;
-      v34 = a1 > 0x1486;
-      if ( a1 <= 0x1486 )
-        v35 = 0;
-      else
-        v35 = 2;
-      if ( v33 == 192 )
-        goto LABEL_20;
-      goto LABEL_27;
-    }
-    v35 = 4;
-    v34 = 2;
-  }
-  v32 = *(uint8_t *)off_101674;
-  v33 = v32 & 0xC0;
-  if ( v33 == 192 )
-  {
-LABEL_20:
-    v36 = dword_1013CC;
-    goto LABEL_31;
-  }
-LABEL_27:
-  if ( v32 == 3 )
-  {
-    v36 = dword_101738;
-  }
-  else if ( v32 == 7 )
-  {
-    v36 = dword_101678;
-  }
-  else
-  {
-    v36 = 0;
-  }
-LABEL_31:
-  v38 = (unsigned int *)off_101680;
-  *(uint32_t *)off_10167C = *(uint32_t *)off_10167C & 0xFFFFFF00 | *(uint8_t *)(v36 + v35);
-  v39 = *(uint8_t *)(v36 + v35 + 1);
-  v40 = (void *)(uintptr_t)(off_101684);
-  *v38 = *v38 & 0xFFFFFF00 | v39;
-  if ( !v40[1] )
-  {
-    v41 = (void *)(uintptr_t)(off_101688);
-    v38[1918] &= 0xFFFFFC7F;
-    *v41 &= ~0x8000u;
-  }
-  v42 = *(uint32_t *)off_10168C & 0xFF00FFFF;
-  if ( v34 <= 1 )
-    v42 |= 0x1F0000u;
-  v43 = (void *)(uintptr_t)(off_101690);
-  *(uint32_t *)off_10168C = v42;
-  v44 = (unsigned int *)off_101694;
-  *v43 &= ~0x4000u;
-  *v44 = *v44 & 0xFFF8FFFF | 0x20000;
-  v45 = v33 == 192;
-  v46 = (unsigned int *)off_101698;
-  *v44 = *v44 & 0xFFFFFFF0 | 8;
-  v47 = *v46;
-  if ( v45 )
-    v48 = v47 | 0xE0000;
-  else
-    v48 = v47 & 0xFFF1FFFF;
-  if ( !v45 )
-    v48 |= 0x60000u;
-  *v46 = v48;
-  if ( a1 <= 0x15E4 )
-  {
-    v64 = (void *)(uintptr_t)(off_10169C);
-    v65 = (void *)(uintptr_t)(off_1016B4);
-    if ( a1 <= 0x14D6 )
-    {
-      v78 = dword_101714;
-      v79 = dword_101718;
-      *(uint32_t *)off_10169C = dword_101710;
-      v64[1] = v78;
-      v80 = dword_10171C;
-      v81 = dword_101720;
-      v64[2] = v79;
-      v64[3] = v80;
-      v64[4] = v81;
-      v82 = dword_101724;
-      v83 = dword_101728;
-      v84 = dword_10172C;
-      v85 = dword_101730;
-      *v65 = dword_101734;
-      v65[1] = v82;
-      v65[2] = v83;
-      v65[3] = v84;
-      v65[4] = v85;
-      v59 = 0;
-    }
-    else
-    {
-      v66 = dword_1016DC;
-      v67 = dword_1016E0;
-      *(uint32_t *)off_10169C = dword_1016D8;
-      v64[1] = v66;
-      v68 = dword_1016E4;
-      v69 = dword_1016E8;
-      v64[2] = v67;
-      v64[3] = v68;
-      v64[4] = v69;
-      v70 = dword_1016EC;
-      v71 = dword_1016F0;
-      v72 = dword_1016F4;
-      v73 = dword_1016F8;
-      *v65 = dword_1016FC;
-      v65[1] = v70;
-      v65[2] = v71;
-      v65[3] = v72;
-      v65[4] = v73;
-      v59 = 1;
-    }
-  }
-  else
-  {
-    v49 = (void *)(uintptr_t)(off_10169C);
-    v50 = dword_1016A4;
-    v51 = dword_1016A8;
-    *(uint32_t *)off_10169C = dword_1016A0;
-    v49[1] = v50;
-    v52 = dword_1016AC;
-    v53 = dword_1016B0;
-    v54 = (void *)(uintptr_t)(off_1016B4);
-    v49[2] = v51;
-    v49[3] = v52;
-    v49[4] = v53;
-    v55 = dword_1016B8;
-    v56 = dword_1016BC;
-    v57 = dword_1016C0;
-    v58 = dword_1016C4;
-    *v54 = dword_1016C8;
-    v54[1] = v55;
-    v54[2] = v56;
-    v54[3] = v57;
-    v54[4] = v58;
-    v59 = 2;
-  }
-  v60 = (void *)(uintptr_t)(off_1016CC);
-  if ( *(uint8_t *)off_1016CC != v59 )
-  {
-    v61 = mmio_status_flag_read();
-    rf_init_or_config_helper(v61);
-  }
-  v62 = (void *)(uintptr_t)(off_1016D0);
-  *v60 = v59;
-  while ( !*v62 )
-    ;
-  result = *(uint32_t *)off_1016D4 & 1;
-  if ( !result )
-  {
-    if ( a1 - 5270 > 0x32 && a1 - 5550 > 0x64 )
-      result = rf_cal_read_0(0);
-    else
-      result = rf_cal_read_1();
-  }
-  *(uint32_t *)off_1016D0 = 1;
   return result;
 }
 
@@ -8159,18 +6953,6 @@ LABEL_31:
 
 
 
-// fw_state_check_n_c0 @ 0x1017c0
-void fw_state_check_n_c0() {
-  if ( **(int16_t **)off_101954 < 0
-    && (uint8_t)BYTE2(*(uint32_t *)off_1019A8) + 10 * (HIBYTE(*(uint32_t *)off_1019A8) + 2) != 32 )
-  {
-    rf_cmd_send_n264(dword_1019B0, dword_1019AC, 6119);
-  }
-  panic_loop();
-}
-
-
-
 // tx_path_check @ 0x1017c0
 void tx_path_check() {
   if ( **(int16_t **)off_101954 < 0
@@ -8195,18 +6977,6 @@ int irq_handler(int result, int a2, int a3) {
 
 
 
-// read_mac_dual_addr @ 0x1019d4
-uint32_t * read_mac_dual_addr(uint32_t *result, uint32_t *a2) {
-  uint32_t *v2; // r3
-
-  v2 = (void *)(uintptr_t)(off_1019E8);
-  *result = *(uint32_t *)off_1019E4;
-  *a2 = *v2;
-  return result;
-}
-
-
-
 // chip_id_get @ 0x1019d4
 uint32_t * chip_id_get(uint32_t *result, uint32_t *a2) {
   uint32_t *v2; // r3
@@ -8214,25 +6984,6 @@ uint32_t * chip_id_get(uint32_t *result, uint32_t *a2) {
   v2 = (void *)(uintptr_t)(off_1019E8);
   *result = *(uint32_t *)off_1019E4;
   *a2 = *v2;
-  return result;
-}
-
-
-
-// get_cached_1828f8 @ 0x1019ec
-uint64_t * get_cached_1828f8(uint64_t *result, int a2) {
-  uint64_t *v2; // r4
-
-  v2 = result;
-  if ( a2 )
-  {
-    result = (uint64_t *)msg_parse(dword_101A18, dword_101A1C);
-    *v2 = *(uint64_t *)((char *)off_101A14 + 36);
-  }
-  else
-  {
-    *result = *(uint64_t *)((char *)off_101A14 + 36);
-  }
   return result;
 }
 
@@ -8264,13 +7015,6 @@ int sys_status_bit21_get() {
 
 
 
-// rf_chip_ready_check @ 0x101a3c
-BOOL rf_chip_ready_check() {
-  return *(uint32_t *)off_101A4C > 1u;
-}
-
-
-
 // sys_ready_check @ 0x101a3c
 BOOL sys_ready_check() {
   return *(uint32_t *)off_101A4C > 1u;
@@ -8289,23 +7033,9 @@ unsigned int ctrl_bit3_set(int a1) {
 
 
 
-// phy_get_link_status @ 0x101a68
-int phy_get_link_status() {
-  return (*(uint32_t *)off_101A74 >> 28) & 1;
-}
-
-
-
 // sys_status_bit28_get @ 0x101a68
 int sys_status_bit28_get() {
   return (*(uint32_t *)off_101A74 >> 28) & 1;
-}
-
-
-
-// mmio_get_bit_30 @ 0x101a78
-int mmio_get_bit_30() {
-  return (*(uint32_t *)off_101A84 >> 30) & 1;
 }
 
 
@@ -8317,23 +7047,9 @@ int sys_status_bit30_get() {
 
 
 
-// chip_revision_get @ 0x101a88
-int chip_revision_get() {
-  return (uint8_t)((BYTE1(*(uint32_t *)off_101A98) & 0xF) - 1);
-}
-
-
-
 // chip_info_nibble2_get @ 0x101a88
 int chip_info_nibble2_get() {
   return (uint8_t)((BYTE1(*(uint32_t *)off_101A98) & 0xF) - 1);
-}
-
-
-
-// lmac_rf_unk_1a9c @ 0x101a9c
-int lmac_rf_unk_1a9c() {
-  return (uint8_t)(((uint8_t)*(uint32_t *)off_101AAC >> 4) - 1);
 }
 
 
@@ -8345,120 +7061,9 @@ int chip_info_nibble1_get() {
 
 
 
-// chip_rev_id_get @ 0x101ab0
-int chip_rev_id_get() {
-  return (uint8_t)((*(uint8_t *)off_101AC0 & 0xF) - 1);
-}
-
-
-
 // chip_info_nibble0_get @ 0x101ab0
 int chip_info_nibble0_get() {
   return (uint8_t)((*(uint8_t *)off_101AC0 & 0xF) - 1);
-}
-
-
-
-// rf_calibration_init @ 0x101ac4
-int rf_calibration_init(int a1, uint8_t *a2, uint8_t *a3) {
-  int result; // r0
-  unsigned int v4; // r3
-  int v5; // r7
-  char v6; // r4
-  int v7; // r3
-  char v8; // r5
-  unsigned int v9; // r0
-  int v10; // r0
-  uint8_t v11; // r5
-  int v12; // r3
-  char v13; // r3
-  char v14; // r5
-
-  result = *((uint8_t *)off_101C44 + 36);
-  v4 = *((uint16_t *)off_101C44 + 20);
-  if ( *((uint8_t *)off_101C44 + 36) )
-  {
-    result = *((uint8_t *)off_101C48 + 197);
-    if ( *((uint8_t *)off_101C48 + 197) )
-    {
-      if ( v4 <= 0x1666 )
-      {
-        if ( v4 > 0x1616 )
-        {
-          v10 = 4;
-        }
-        else if ( v4 > 0x15C6 )
-        {
-          v10 = 3;
-        }
-        else if ( v4 > 0x1571 )
-        {
-          v10 = 2;
-        }
-        else
-        {
-          v10 = v4 > 0x1486;
-        }
-      }
-      else
-      {
-        v10 = 5;
-      }
-      v11 = *((uint8_t *)off_101C48 + 236);
-      v12 = (char)(*((uint8_t *)off_101C54 + 1) + *((uint8_t *)off_101C50 + 11) + *(uint8_t *)(*(uint32_t *)off_101C58 + v10));
-      if ( *((uint8_t *)off_101C48 + 396) )
-        result = (uint8_t)(*(uint8_t *)(*(uint32_t *)off_101C6C + v10) + v11);
-      else
-        result = v11;
-      if ( (v12 & 1) != 0 )
-        v12 = (char)v12 - 1;
-      v13 = v12 / 2 + result;
-      *a3 = v13;
-      *a2 = v13;
-    }
-    else if ( **(int16_t **)off_101C5C < 0 )
-    {
-      return rf_cmd_send_n264(dword_101C64, dword_101C60, 6921);
-    }
-  }
-  else if ( *((uint8_t *)off_101C48 + 197) )
-  {
-    if ( v4 > 0x97B )
-    {
-      if ( v4 > 0x994 )
-        result = 2;
-      else
-        result = 1;
-    }
-    v5 = (v5 & ~0xFFu) | ((uint8_t)(*((uint8_t *)off_101C48 + 198)) & 0xFFu);
-    v6 = *(uint8_t *)off_101C54 + *((uint8_t *)off_101C50 + 8) + *(uint8_t *)(*(uint32_t *)off_101C4C + result);
-    v7 = (char)(*((uint8_t *)off_101C50 + 10) + *(uint8_t *)off_101C54 + *(uint8_t *)(*(uint32_t *)off_101C4C + result + 6));
-    if ( *((uint8_t *)off_101C48 + 396) )
-    {
-      v14 = *(uint8_t *)(*(uint32_t *)off_101C68 + result);
-      v5 = (uint8_t)(v5 + v14);
-      v8 = v14 + *((uint8_t *)off_101C48 + 210);
-    }
-    else
-    {
-      v5 = (uint8_t)v5;
-      v8 = *((uint8_t *)off_101C48 + 210);
-    }
-    if ( ((*(uint8_t *)off_101C54 + *((uint8_t *)off_101C50 + 8) + *(uint8_t *)(*(uint32_t *)off_101C4C + result)) & 1) != 0 )
-      v9 = v6 - 1 + ((unsigned int)(v6 - 1) >> 31);
-    else
-      v9 = v6 + ((unsigned int)v6 >> 31);
-    if ( (v7 & 1) != 0 )
-      v7 = (char)v7 - 1;
-    result = (uint8_t)(v9 >> 1) + v5;
-    *a2 = result;
-    *a3 = v7 / 2 + v8;
-  }
-  else if ( **(int16_t **)off_101C5C < 0 )
-  {
-    return rf_cmd_send_n264(dword_101C64, dword_101C60, 6875);
-  }
-  return result;
 }
 
 
@@ -8699,32 +7304,6 @@ LABEL_19:
 
 
 
-// rf_mmio_set_byte_field @ 0x101dd0
-int rf_mmio_set_byte_field(int result) {
-  uint32_t *v1; // r2
-  unsigned int v2; // r3
-  int v3; // r3
-
-  v1 = (void *)(uintptr_t)(off_101E10);
-  *(uint32_t *)off_101E0C = *(uint32_t *)off_101E0C & 0xFFFFFF | ((uint8_t)(result / 2) << 24);
-  v2 = *v1 & 0xFFFFF0FF;
-  if ( (result & 1) != 0 )
-  {
-    if ( result >= 0 )
-      v3 = v2 | 0xB00;
-    else
-      v3 = v2 | 0x500;
-    *v1 = v3;
-  }
-  else
-  {
-    *v1 = v2 | 0x800;
-  }
-  return result;
-}
-
-
-
 // pll_set_output @ 0x101dd0
 int pll_set_output(int result) {
   uint32_t *v1; // r2
@@ -8836,18 +7415,6 @@ unsigned int gpio_config(uint8_t a1) {
 
 
 
-// rf_handler_unkn @ 0x102a1c
-int rf_handler_unkn() {
-  int result; // r0
-
-  result = msg_parse(dword_102A48, dword_102A44);
-  if ( **(int16_t **)off_102A4C < 0 )
-    return rf_cmd_send_n264(dword_102A54, dword_102A50, 61);
-  return result;
-}
-
-
-
 // check_button @ 0x102a1c
 int check_button() {
   int result; // r0
@@ -8856,48 +7423,6 @@ int check_button() {
   if ( **(int16_t **)off_102A4C < 0 )
     return flash_ctrl_init(dword_102A54, dword_102A50, 61);
   return result;
-}
-
-
-
-// lmac_interrupt_init @ 0x102a58
-int lmac_interrupt_init() {
-  uint32_t *v0; // r2
-  uint8_t *v1; // r3
-  int v3; // r4
-  int v4; // r5
-  int v5; // r6
-  int v6; // r5
-  int v7; // r6
-  void *v8; // r4
-
-  v0 = (void *)(uintptr_t)(off_102AB8);
-  v1 = (void *)(uintptr_t)(off_102ABC);
-  *(uint32_t *)(*((uint32_t *)off_102AB8 + 2) + 80) = dword_102AC0;
-  *(uint32_t *)v1 = 16;
-  v3 = dword_102AC4;
-  *(uint32_t *)(v0[2] + 84) = dword_102AC4;
-  *(uint32_t *)v1 = 32;
-  v4 = dword_102AC8;
-  *(uint32_t *)(v0[2] + 92) = v3;
-  *(uint32_t *)v1 = 128;
-  v5 = dword_102ACC;
-  *(uint32_t *)(v0[2] + 72) = v4;
-  *(uint32_t *)v1 = 4;
-  v6 = dword_102AD0;
-  *(uint32_t *)(v0[2] + 88) = v5;
-  *(uint32_t *)v1 = 64;
-  v7 = dword_102AD4;
-  *(uint32_t *)(v0[2] + 76) = v6;
-  v1[771] = -8;
-  *(uint32_t *)v1 = 8;
-  v8 = (void *)(uintptr_t)(off_102AD8);
-  *(uint32_t *)(v0[2] + 208) = v7;
-  *((uint32_t *)v1 + 1) = 16;
-  *(uint32_t *)(v0[2] + 212) = (int)(uintptr_t)(v8);
-  *((uint32_t *)v1 + 1) = 32;
-  __enable_irq();
-  return 16;
 }
 
 
@@ -9185,67 +7710,6 @@ LABEL_10:
 
 
 
-// lmac_sub_init @ 0x102d4c
-int lmac_sub_init(int a1, int a2, unsigned int a3, int a4) {
-  int v6; // r6
-  int v7; // r4
-  int v8; // r10
-  int v9; // r12
-  int v10; // r2
-  int v11; // r6
-  int v12; // lr
-  int *v13; // r7
-  int *v14; // r1
-  uint32_t *v15; // r4
-  int v16; // t1
-  int result; // r0
-
-  if ( a1 )
-  {
-    v6 = 16 * (dword_102DDC + a2);
-    v7 = 4;
-    v8 = 3;
-  }
-  else
-  {
-    v6 = 32 * (dword_102DD4 + a2);
-    v7 = 8;
-    v8 = 5;
-  }
-  while ( !*(uint32_t *)off_102DD8 )
-    ;
-  gpio_set_pin(a1);
-  if ( a3 )
-  {
-    v9 = 0;
-    v10 = 4 * (v7 - v8);
-    v11 = v6 - a4;
-    v12 = 0;
-    v13 = (int *)(a4 + 4 * v8);
-    do
-    {
-      v14 = (int *)(a4 + 4 * v9);
-      do
-      {
-        v15 = (void *)((int *)((char *)v14 + v11));
-        v16 = *v14++;
-        *v15 = v16;
-      }
-      while ( v13 != v14 );
-      ++v12;
-      v9 += v8;
-      v11 += v10;
-      v13 += v8;
-    }
-    while ( a3 > (uint8_t)v12 );
-  }
-  result = gpio_clear_pin(a1);
-  *(uint32_t *)off_102DD8 = 1;
-  return result;
-}
-
-
-
 // memcpy_advance @ 0x102d4c
 int memcpy_advance(int a1, int a2, unsigned int a3, int a4) {
   int v6; // r6
@@ -9307,18 +7771,6 @@ int memcpy_advance(int a1, int a2, unsigned int a3, int a4) {
 
 
 
-// mmio_status_flag_read @ 0x102de0
-BOOL mmio_status_flag_read() {
-  BOOL result; // r0
-
-  result = (*(uint32_t *)off_102DFC >> 27) & 1;
-  if ( (*(uint32_t *)off_102DFC & 0x8000000) != 0 )
-    return (*(uint32_t *)off_102E00 & 0x400) == 0;
-  return result;
-}
-
-
-
 // get_reset_reason @ 0x102de0
 BOOL get_reset_reason() {
   BOOL result; // r0
@@ -9327,28 +7779,6 @@ BOOL get_reset_reason() {
   if ( (*(uint32_t *)off_102DFC & 0x8000000) != 0 )
     return (*(uint32_t *)off_102E00 & 0x400) == 0;
   return result;
-}
-
-
-
-// rf_init_or_config_helper @ 0x102e04
-int rf_init_or_config_helper(int a1) {
-  uint64_t v1; // kr00_8
-  int v2; // r4
-
-  if ( a1 )
-  {
-    v1 = *(uint64_t *)((char *)off_102E40 + 4);
-    v2 = *(uint32_t *)off_102E40;
-  }
-  else
-  {
-    v2 = *(uint32_t *)off_102E44;
-    v1 = *(uint64_t *)((char *)off_102E44 + 4);
-  }
-  lmac_sub_init(0, 32, 0x10u, SHIDWORD(v1));
-  lmac_sub_init(0, 48, 0x10u, v1);
-  return lmac_sub_init(0, 64, 0x10u, v2);
 }
 
 
@@ -9670,25 +8100,6 @@ void check_chip_flag() {
 
 
 
-// rf_power_enable_32dc @ 0x1032dc
-unsigned int rf_power_enable_32dc(unsigned int result) {
-  if ( result )
-  {
-    if ( *((uint8_t *)off_10332C + 362) )
-      result = gpio_config(0xB5u);
-    *(uint32_t *)off_103330 |= 2u;
-  }
-  else
-  {
-    if ( *((uint8_t *)off_10332C + 362) )
-      result = gpio_config(0xC2u);
-    *(uint32_t *)off_103330 &= ~2u;
-  }
-  return result;
-}
-
-
-
 // configure_external_clock @ 0x1032dc
 unsigned int configure_external_clock(unsigned int result) {
   if ( result )
@@ -9703,61 +8114,6 @@ unsigned int configure_external_clock(unsigned int result) {
       result = gpio_config(0xC2u);
     *(uint32_t *)off_103330 &= ~2u;
   }
-  return result;
-}
-
-
-
-// clock_calc @ 0x103334
-uint32_t *clock_calc() {
-  int v0; // r1
-  int v1; // r2
-  int v2; // r3
-  unsigned int v3; // r3
-  uint8_t *v4; // r2
-  int v5; // r1
-  unsigned int v6; // r2
-  unsigned int v7; // r3
-  uint32_t *result; // r0
-  unsigned int *v9; // r1
-  unsigned int v10; // r3
-  int v11; // [sp+0h] [bp-14h]
-  int v12; // [sp+4h] [bp-10h]
-  int v13; // [sp+8h] [bp-Ch]
-  int v14; // [sp+Ch] [bp-8h]
-  uint8_t v15[4]; // [sp+10h] [bp-4h] BYREF
-
-  v0 = *(uint32_t *)(dword_1033A4 + 4);
-  v1 = *(uint32_t *)(dword_1033A4 + 8);
-  v2 = *(uint32_t *)(dword_1033A4 + 12);
-  v11 = *(uint32_t *)dword_1033A4;
-  v12 = v0;
-  v13 = v1;
-  v14 = v2;
-  if ( (*((uint32_t *)off_1033A8 + 4) & 2) != 0 )
-  {
-    v3 = dword_1033B0;
-    v4 = &v15[*((uint32_t *)off_1033A8 + 9) & 0xF];
-    v5 = (char)*(v4 - 16);
-    v6 = (uint8_t)*(v4 - 16);
-    if ( (*((uint32_t *)off_1033A8 + 4) & 4) == 0 )
-      v3 = dword_1033AC;
-    if ( v5 < 0 )
-    {
-      v3 *= 2;
-      v6 &= 0x7Fu;
-    }
-    v7 = v3 / v6;
-  }
-  else
-  {
-    v7 = 2 * *(uint32_t *)off_1033C0;
-  }
-  result = (void *)(uintptr_t)(off_1033B8);
-  v9 = (unsigned int *)off_1033BC;
-  v10 = v7 / (uint8_t)*((uint32_t *)off_1033A8 + 8);
-  *(uint32_t *)off_1033B4 = v10;
-  *v9 = v10 / (uint8_t)result[9];
   return result;
 }
 
@@ -9832,53 +8188,6 @@ void rf_init_regs() {
   *v1 |= 0x4000u;
   while ( 1 )
     ;
-}
-
-
-
-// crypto_hw_power_up @ 0x103540
-int crypto_hw_power_up(int a1, int a2, int a3, int a4, int a5) {
-  uint32_t *v5; // r2
-  int v6; // r3
-  uint32_t *v7; // r3
-  uint32_t *v8; // r2
-  int v9; // r3
-  int *v10; // r3
-  int *v11; // r0
-  int v12; // r1
-  int v13; // r2
-  int v14; // r3
-
-  v5 = (void *)(uintptr_t)(off_1035D0);
-  *(uint32_t *)off_1035CC |= 1u;
-  while ( (*v5 & 0x10) == 0 )
-  {
-    v6 = (v6 & ~0xFFFFu) | ((uint16_t)(50) & 0xFFFFu);
-    do
-      v6 = (uint16_t)(v6 - 1);
-    while ( v6 );
-  }
-  v7 = (void *)(uintptr_t)(off_1035D4);
-  v8 = (void *)(uintptr_t)(off_1035D0);
-  *(uint32_t *)off_1035D4 |= 0x80000u;
-  *v7 |= 0x100000u;
-  while ( (*v8 & 8) == 0 )
-  {
-    v9 = (v9 & ~0xFFFFu) | ((uint16_t)(50) & 0xFFFFu);
-    do
-      v9 = (uint16_t)(v9 - 1);
-    while ( v9 );
-  }
-  v10 = (int *)off_1035DC;
-  v11 = (int *)off_1035E0;
-  v12 = dword_1035E4;
-  *(uint32_t *)off_1035D8 |= 0x20000u;
-  *v10 |= 0x1000000u;
-  v13 = *v10 | 0x8000000;
-  *v10 = v13;
-  v14 = *v11 | 0x524;
-  *v11 = v14;
-  return ((int (*)())check_interrupt_flag)(0x2000, v12, v13, v14, a5);
 }
 
 
@@ -10181,36 +8490,6 @@ LABEL_22:
 
 
 
-// rf_pll_init_n900 @ 0x103900
-int rf_pll_init_n900() {
-  int *v0; // r4
-  int v1; // r0
-  int v2; // r1
-  int *v3; // r3
-  int v4; // r1
-  uint32_t *v5; // r2
-  int v6; // r0
-
-  v0 = (int *)off_10395C;
-  *(uint32_t *)off_103958 = 777;
-  while ( *v0 < 0 )
-    delay_us(1);
-  msg_parse(dword_103960, *(uint32_t *)off_10395C);
-  v1 = dword_103964;
-  *(uint32_t *)off_103958 = 0;
-  msg_parse(v1, v2);
-  v3 = (int *)off_10396C;
-  v4 = dword_103970;
-  v5 = (void *)(uintptr_t)(off_103974);
-  *(uint32_t *)off_103968 = 0;
-  *v3 = v4;
-  v6 = dword_103978;
-  *v5 &= 0xFF00FFFF;
-  return msg_parse(v6, 0x4000);
-}
-
-
-
 // enable_bb_clock @ 0x103900
 int enable_bb_clock() {
   int *v0; // r4
@@ -10289,85 +8568,6 @@ int * bb_reset(int a1) {
       v7 = 128;
   }
   *(uint32_t *)off_1039F4 &= ~0x100u;
-  return result;
-}
-
-
-
-// crypto_table_init @ 0x103a00
-int crypto_table_init(int a1, int a2, int a3) {
-  int v3; // r1
-  int v4; // r2
-  unsigned int *v5; // r3
-  int v6; // r8
-  int v7; // r12
-  int v8; // r6
-  unsigned int *v9; // lr
-  int v10; // r7
-  int result; // r0
-  int v12; // r4
-  int v13; // r1
-  int v14; // r1
-  int v15; // r3
-  uint32_t *v16; // r3
-  int v17; // r4
-  int v18; // r5
-  int v19; // r4
-
-  v3 = 3 * a2;
-  if ( !a3 )
-  {
-    v16 = (uint32_t *)(a1 + 16 * v3);
-    v17 = dword_103AC8;
-    v16[13] = dword_103AC4;
-    v16[14] = v17;
-    v18 = dword_103ACC;
-    v19 = dword_103AD0;
-    v16[12] = dword_103AD4;
-    v16[18] = 0;
-    v16[19] = 0;
-    v16[20] = 0;
-    v16[21] = 0;
-    v16[22] = 0;
-    v16[23] = 0;
-    v16[15] = dword_103AD8;
-    v16[16] = v18;
-    v16[17] = v19;
-  }
-  v4 = 4 * v3;
-  v5 = (unsigned int *)off_103AC0;
-  v6 = dword_103ADC;
-  *(uint32_t *)off_103ABC |= 0x100u;
-  v7 = 0;
-  v8 = a1 + 48;
-  *v5 &= 0xFFFCFFFF;
-  v9 = v5;
-  v10 = 0;
-  result = 0;
-  v12 = 4 * v3 + 11;
-  v13 = 128;
-  while ( 1 )
-  {
-    v14 = v13 + v10;
-    v15 = v10;
-    do
-    {
-      if ( v15 >= v4 && v15 <= v12 )
-        *(uint32_t *)(v7 + v6 + 4 * v15) = *(uint32_t *)(v8 + 4 * v15);
-      ++v15;
-    }
-    while ( v15 != v14 );
-    if ( ++result == 3 )
-      break;
-    v10 += 128;
-    v7 -= 512;
-    *v9 = *v9 & 0xFFFCFFFF | (result << 16);
-    if ( result == 2 )
-      v13 = 32;
-    else
-      v13 = 128;
-  }
-  *(uint32_t *)off_103ABC &= ~0x100u;
   return result;
 }
 
@@ -10478,55 +8678,6 @@ unsigned int enable_rf_dll(int a1, int a2) {
   *v3 |= 0x400000u;
   *v3 |= 0x200000u;
   *v2 = v4 & 0x1000000 | *v2 & 0xFEFFFFFF;
-  return result;
-}
-
-
-
-// crypto_hw_reset_seq @ 0x103b6c
-uint32_t *crypto_hw_reset_seq() {
-  unsigned int *v0; // r4
-  unsigned int *v1; // r0
-  uint32_t *v2; // r5
-  uint32_t *v3; // r1
-  uint32_t *v4; // r2
-  unsigned int *v5; // r6
-  uint32_t *v6; // r1
-  uint32_t *result; // r0
-  uint32_t *v8; // r2
-  int v9; // r4
-
-  v0 = (unsigned int *)off_103C44;
-  v1 = (unsigned int *)off_103C48;
-  v2 = (void *)(uintptr_t)(off_103C4C);
-  v3 = (void *)(uintptr_t)(off_103C50);
-  v4 = (void *)(uintptr_t)(off_103C54);
-  v5 = (unsigned int *)off_103C58;
-  *(uint32_t *)off_103C44 &= ~0x200u;
-  *v1 = *v1 & 0xFC000FFF | 0x333000;
-  *v2 = 8;
-  *v3 |= 0x1000000u;
-  v0 -= 136;
-  *v4 |= 0x2000000u;
-  *v0 &= ~0x20000u;
-  delay_us(2);
-  v6 = (void *)(uintptr_t)(off_103C5C);
-  result = (void *)(uintptr_t)(off_103C60);
-  v8 = (void *)(uintptr_t)(off_103C64);
-  *v0 |= 0x10000u;
-  *v0 |= 0x20000u;
-  *v0 = *v0 & 0xFFFF0FFF | 0x6000;
-  *v0 |= 0x80000u;
-  v9 = dword_103C68;
-  *v6 |= 0x80u;
-  *result |= 8u;
-  *v5 = *v5 & 0xFFFFF3FF | 0x800;
-  *(uint32_t *)((char *)v2 + 0xFFFFFFF0) = *(uint32_t *)((char *)v2 + 0xFFFFFFF0) & 0xF8FFFFFF | 0x6000000;
-  *v8 |= 0x20000000u;
-  *v8 &= ~0x10000000u;
-  v6[104] |= 0x80000000;
-  *(uint32_t *)((char *)result + 0xFFFFFF68) = v9;
-  *(uint32_t *)((char *)v2 + 0xFFFFFFD0) |= 0x1000000u;
   return result;
 }
 
@@ -10728,60 +8879,6 @@ int wait_rf_ready() {
     v2 += 2;
   }
   while ( (int *)(4 * v3) != v2 );
-  return result;
-}
-
-
-
-// crypto_calibrate @ 0x103eb4
-int crypto_calibrate() {
-  int *v0; // r1
-  uint32_t *v1; // r3
-  int v2; // r0
-  int v3; // r5
-  uint32_t *v4; // r6
-  int *v5; // r4
-  void *v6; // r3
-  int v7; // r1
-  int v8; // r3
-  int result; // r0
-  uint32_t *v10; // r3
-  uint32_t *v11; // r1
-
-  v0 = (int *)off_103F88;
-  v1 = (void *)(uintptr_t)(off_103F90);
-  v2 = dword_103F94;
-  v3 = *(uint32_t *)off_103F8C;
-  *(uint32_t *)off_103F8C = dword_103F98;
-  *v0 = v2;
-  v4 = (void *)(uintptr_t)(off_103F9C);
-  v5 = (int *)off_103FA0;
-  *v1 = *v1 & 0xFC000FFF | 0x333000;
-  *v1 &= 0x3FFFFFFFu;
-  *v1 |= 0xC000000u;
-  *v1 = ~(~(*v1 >> 12) << 12);
-  v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
-  *v1 |= 0x10000000u;
-  delay_us(10);
-  *v4 = dword_103FA4;
-  delay_us(125);
-  *v4 = dword_103FA8;
-  while ( *v5 < 0 )
-    delay_us(1);
-  check_interrupt_flag(1, dword_103FAC, *(uint32_t *)off_103FA0, off_103FA0);
-  v6 = (void *)(uintptr_t)(off_103F9C);
-  v7 = dword_103FB0;
-  *(uint32_t *)off_103F9C = 0;
-  check_interrupt_flag(1, v7, 0, (int)(uintptr_t)(v6));
-  *(uint32_t *)off_103F8C = v3;
-  wait_rf_ready();
-  result = check_interrupt_flag(1, dword_103FB4, 0x4000, v8);
-  v10 = (void *)(uintptr_t)(off_103F90);
-  v11 = (void *)(uintptr_t)(off_103FB8);
-  *(uint32_t *)off_103F90 &= 0xF3FFFFFF;
-  *v11 |= 0xF0u;
-  *v10 &= ~0x10000000u;
-  *v10 &= 0x3FFFFFFFu;
   return result;
 }
 
@@ -11132,263 +9229,6 @@ LABEL_32:
 
 
 
-// rf_calib_setup_n3d8 @ 0x1043d8
-int rf_calib_setup_n3d8(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6) {
-  int *v7; // r6
-  int v11; // r0
-  int v12; // r1
-  int v13; // r2
-  int v14; // r3
-  int v15; // r1
-  int v16; // r2
-  int v17; // r3
-  int v18; // r6
-  int v19; // r5
-  int v20; // r3
-  uint32_t *v21; // r3
-  float v22; // s23
-  float v23; // s20
-  float v24; // s19
-  float v25; // s18
-  float v26; // s21
-  float v27; // s22
-  int v28; // r8
-  int v29; // r9
-  int v30; // r3
-  float v31; // s14
-  int v32; // r7
-  int v33; // r0
-  float v34; // s17
-  int i; // r5
-  float v36; // s16
-  float v37; // s15
-  float v38; // s17
-  float v39; // s17
-  float v40; // s18
-  float v41; // s17
-  float v42; // s16
-  float *v43; // r4
-  int j; // r5
-  float v45; // s15
-  int v46; // r0
-  uint32_t *v47; // r2
-  float v48; // s15
-  float v49; // s16
-  int v50; // r4
-  float *v51; // r5
-  float v52; // s14
-  int result; // r0
-  int v54; // r0
-  int v55; // [sp+8h] [bp-14Ch]
-  int v56; // [sp+Ch] [bp-148h]
-  float *v57; // [sp+10h] [bp-144h]
-  int v58; // [sp+18h] [bp-13Ch]
-  int v59; // [sp+1Ch] [bp-138h]
-  int v60; // [sp+24h] [bp-130h]
-  uint32_t v62[8]; // [sp+30h] [bp-124h]
-  uint32_t v63[32]; // [sp+50h] [bp-104h] BYREF
-  uint8_t v64[132]; // [sp+D0h] [bp-84h] BYREF
-
-  v7 = (int *)dword_104704;
-  check_interrupt_flag(1, dword_104700, (int)(uintptr_t)(a3), (int)(uintptr_t)(a4));
-  memcpy_large((void *)(v63), (void *)(uintptr_t)(dword_104708), 128);
-  v11 = *v7;
-  v12 = v7[1];
-  v13 = v7[2];
-  v14 = v7[3];
-  v7 += 4;
-  v62[0] = v11;
-  v62[1] = v12;
-  v62[2] = v13;
-  v62[3] = v14;
-  v15 = v7[1];
-  v16 = v7[2];
-  v17 = v7[3];
-  v62[4] = *v7;
-  v62[5] = v15;
-  v62[6] = v16;
-  v62[7] = v17;
-  memcpy_large(v64, (void *)(v7 + 4), 128);
-  v18 = tx_power_calibrate(0, 0, a3);
-  v57 = (float *)(a1 + 128);
-  v58 = a1 + 384;
-  if ( a2 == 1 )
-  {
-    v54 = tx_power_calibrate(0, 1, a4);
-    if ( v18 < v54 )
-      v18 += 1280;
-    v19 = v54;
-  }
-  else
-  {
-    v19 = 0;
-  }
-  v20 = ((int)((uint64_t)(dword_10470C * (uint64_t)(0x2000 - v18)) >> 32) >> 9) - ((0x2000 - v18) >> 31);
-  if ( a6 )
-  {
-    if ( v20 >= 5 )
-      v20 = 5;
-    v59 = v20;
-  }
-  else
-  {
-    if ( v20 >= 10 )
-      v20 = 10;
-    v59 = v20;
-  }
-  check_interrupt_flag(1, dword_104710, v19, v18);
-  v21 = (uint32_t *)(a1 + 128);
-  do
-  {
-    *v21++ = 0;
-    v21[63] = 0;
-  }
-  while ( v21 != (uint32_t *)(a1 + 256) );
-  if ( v59 > 0 )
-  {
-    v22 = flt_104714;
-    v23 = flt_104718;
-    v24 = flt_10471C;
-    v25 = flt_104720;
-    v56 = v18;
-    v26 = flt_104714;
-    v60 = v19 - v18;
-    do
-    {
-      v27 = flt_104724;
-      v28 = 0;
-      v29 = 2;
-      while ( 1 )
-      {
-        if ( a6 == 1 && !*((uint8_t *)v62 + v29) )
-          goto LABEL_13;
-        v31 = flt_104714;
-        v55 = *(uint32_t *)&v64[4 * v29];
-        v32 = v55 + v56;
-        do
-        {
-          v33 = lookup_rf_table(v32++, 0, a3);
-          v31 = v31 + (float)v33;
-        }
-        while ( v32 != v55 + v56 + 12 );
-        v57[v29] = v57[v29] + v31;
-        if ( v29 <= 1 )
-        {
-LABEL_13:
-          v30 = v28 + 1;
-          if ( v28 == 31 )
-            break;
-          goto LABEL_14;
-        }
-        v34 = flt_104714;
-        for ( i = 1; ; ++i )
-        {
-          v36 = COERCE_FLOAT(apply_tx_power(v55 + v56 - 1 + i, 0, a3));
-          v37 = v36 - COERCE_FLOAT(apply_tx_power(v55 + v60 + v56 - 1 + i, 1, a4));
-          if ( v37 < v23 )
-            v37 = v37 + v24;
-          if ( v37 > v25 )
-            v37 = v37 - v24;
-          if ( i == 1 )
-          {
-            v34 = v34 + v37;
-            v26 = v37;
-            continue;
-          }
-          if ( (float)(v37 - v26) <= v25 )
-            break;
-          v34 = v34 + (float)(v37 - v24);
-          if ( i == 12 )
-            goto LABEL_35;
-LABEL_25:
-          ;
-        }
-        if ( (float)(v37 - v26) < v23 )
-          v37 = v37 + v24;
-        v34 = v34 + v37;
-        if ( i != 12 )
-          goto LABEL_25;
-LABEL_35:
-        v38 = v34 * v27;
-        if ( v38 <= 1.0 )
-        {
-          if ( v38 < -1.0 )
-            v38 = v38 + 2.0;
-          if ( v29 == 2 )
-            goto LABEL_49;
-LABEL_37:
-          v39 = v38 - v22;
-          if ( v39 <= 1.0 )
-          {
-            if ( v39 < -1.0 )
-              v39 = v39 + 2.0;
-          }
-          else
-          {
-            v39 = v39 - 2.0;
-          }
-        }
-        else
-        {
-          v38 = v38 - 2.0;
-          if ( v29 != 2 )
-            goto LABEL_37;
-LABEL_49:
-          v22 = v38;
-          v39 = flt_104714;
-        }
-        *(float *)(4 * v29 + v58) = *(float *)(4 * v29 + v58) + v39;
-        v30 = v28 + 1;
-        if ( v28 == 31 )
-          break;
-LABEL_14:
-        if ( v30 <= 2 )
-          v29 = v28;
-        else
-          v29 = v30;
-        v28 = v30;
-      }
-      v56 += 1280;
-    }
-    while ( v56 != v18 + 1280 * v59 );
-  }
-  v40 = flt_104728;
-  v41 = flt_10472C;
-  v42 = (float)v59;
-  v43 = (float *)a1;
-  for ( j = 1; ; ++j )
-  {
-    v46 = sdio_buffer_prepare_n_e8((float)(v43[32] / v42) / 12.0);
-    v47 = &v63[j];
-    *((uint32_t *)v43 + 32) = v46;
-    if ( (unsigned int)(j - 1) > 1 )
-      break;
-    v48 = (float)(int)*(v47 - 1) * v40;
-    v43[96] = (float)(*(float *)(a1 + 392) / v42) * v41;
-    *v43 = v48;
-LABEL_43:
-    ++v43;
-  }
-  v45 = (float)(int)*(v47 - 1) * v40;
-  v43[96] = (float)(v43[96] / v42) * v41;
-  *v43 = v45;
-  if ( j != 32 )
-    goto LABEL_43;
-  v49 = flt_1047B0;
-  v50 = dword_1047B4;
-  check_interrupt_flag(1, dword_1047AC, (int)(uintptr_t)(v47), 31);
-  v51 = (float *)a1;
-  do
-  {
-    v52 = *v51++;
-    result = check_interrupt_flag(1, v50, (int)(float)(v52 * v49), (int)(float)(v51[31] * v49));
-  }
-  while ( v57 != v51 );
-  return result;
-}
-
-
-
 // wlan_init_globals @ 0x1043d8
 int wlan_init_globals(int a1, int a2, uint32_t *a3, uint32_t *a4, int a5, int a6) {
   int *v7; // r6
@@ -11646,145 +9486,6 @@ LABEL_43:
 
 
 
-// rf_phy_process_handler @ 0x1047b8
-int rf_phy_process_handler(int *a1, int a2, int a3, int a4, uint64_t *a5) {
-  int v6; // r0
-  int v8; // r0
-  float v9; // r0
-  int *v10; // r11
-  uint64_t v11; // d9
-  uint64_t v12; // r0
-  uint64_t v13; // d13
-  uint64_t v14; // r0
-  uint64_t v15; // r4
-  uint64_t v16; // r0
-  int v17; // r0
-  uint64_t v18; // d8
-  uint64_t v19; // r0
-  uint64_t v20; // r0
-  uint64_t v21; // r0
-  int v22; // r0
-  int *v23; // r10
-  uint64_t v24; // d11
-  uint64_t v25; // r6
-  uint64_t v26; // r0
-  uint64_t v27; // r8
-  uint64_t v28; // r6
-  uint64_t v29; // r0
-  uint64_t v30; // d10
-  uint64_t v31; // r6
-  uint64_t v32; // r0
-  uint64_t v33; // r6
-  uint64_t v34; // r0
-  uint64_t v35; // r6
-  uint64_t v36; // r0
-  uint64_t v37; // d12
-  uint64_t v38; // r6
-  uint64_t v39; // r0
-  uint64_t v40; // r6
-  uint64_t v41; // r0
-  uint64_t v42; // r0
-  uint64_t v43; // r8
-  uint64_t v44; // r0
-  uint64_t v45; // r6
-  uint64_t v46; // r0
-  uint64_t v47; // r6
-  uint64_t v48; // r0
-  uint64_t v49; // r0
-  uint64_t v50; // r2
-  uint64_t v51; // r0
-  int v52; // r0
-  int result; // r0
-  int v54; // t1
-  uint64_t v55; // r8
-  uint64_t v56; // [sp+0h] [bp-1Ch]
-  uint64_t v57; // [sp+8h] [bp-14h]
-  uint64_t v58; // [sp+10h] [bp-Ch]
-
-  v6 = double_to_float(a3, a4);
-  v8 = msg_parse(dword_104A80, v6);
-  v9 = gpio_port_init(v8);
-  v10 = a1;
-  msg_parse(dword_104A88, (int)(float)(v9 * flt_104A84));
-  v11 = a5[2];
-  v12 = ((int (*)())sub_127620)(*((uint32_t *)a5 + 4), *((uint32_t *)a5 + 5), 0, dword_104A8C);
-  double_to_float(v12, HIDWORD(v12));
-  v13 = a5[1];
-  v14 = ((int (*)())sub_127620)(*((uint32_t *)a5 + 2), *((uint32_t *)a5 + 3), 0, dword_104A8C);
-  double_to_float(v14, HIDWORD(v14));
-  v15 = *a5;
-  v16 = ((int (*)())sub_127620)(*(uint32_t *)a5, *((uint32_t *)a5 + 1), 0, dword_104A8C);
-  v17 = double_to_float(v16, HIDWORD(v16));
-  v18 = a5[5];
-  v58 = a5[4];
-  v57 = a5[3];
-  msg_parse(dword_104A90, v17);
-  v19 = ((int (*)())sub_127620)(v18, HIDWORD(v18), 0, dword_104A8C);
-  double_to_float(v19, HIDWORD(v19));
-  v20 = ((int (*)())sub_127620)(v58, HIDWORD(v58), 0, dword_104A8C);
-  double_to_float(v20, HIDWORD(v20));
-  v21 = ((int (*)())sub_127620)(v57, HIDWORD(v57), 0, dword_104A8C);
-  v22 = double_to_float(v21, HIDWORD(v21));
-  msg_parse(dword_104A94, v22);
-  v23 = v10 + 32;
-  do
-  {
-    v54 = *v10++;
-    v55 = ((int (*)())sub_127570)(v54);
-    if ( double_ge(v15, HIDWORD(v15), v55, HIDWORD(v55)) )
-    {
-      v50 = v57;
-    }
-    else if ( double_eq(v13, HIDWORD(v13), v55, HIDWORD(v55)) )
-    {
-      v50 = v58;
-    }
-    else if ( double_le(v11, HIDWORD(v11), v55, HIDWORD(v55)) )
-    {
-      v50 = v18;
-    }
-    else
-    {
-      v24 = sub_1272B0(v55, HIDWORD(v55), v13, HIDWORD(v13));
-      v25 = sub_1272B0(v55, HIDWORD(v55), v11, HIDWORD(v11));
-      v26 = sub_1272B0(v55, HIDWORD(v55), v15, HIDWORD(v15));
-      v27 = v25;
-      v28 = v26;
-      v29 = ((int (*)())sub_127620)(v57, HIDWORD(v57), v24, HIDWORD(v24));
-      v30 = v28;
-      v31 = ((int (*)())sub_127620)(v29, HIDWORD(v29), v27, HIDWORD(v27));
-      v32 = sub_1272B0(v15, HIDWORD(v15), v13, HIDWORD(v13));
-      v33 = sub_127874(v31, HIDWORD(v31), v32, HIDWORD(v32));
-      v34 = sub_1272B0(v15, HIDWORD(v15), v11, HIDWORD(v11));
-      v35 = sub_127874(v33, HIDWORD(v33), v34, HIDWORD(v34));
-      v36 = ((int (*)())sub_127620)(v58, HIDWORD(v58), v30, HIDWORD(v30));
-      v37 = v35;
-      v38 = ((int (*)())sub_127620)(v36, HIDWORD(v36), v27, HIDWORD(v27));
-      v39 = sub_1272B0(v13, HIDWORD(v13), v15, HIDWORD(v15));
-      v40 = sub_127874(v38, HIDWORD(v38), v39, HIDWORD(v39));
-      v41 = sub_1272B0(v13, HIDWORD(v13), v11, HIDWORD(v11));
-      v42 = sub_127874(v40, HIDWORD(v40), v41, HIDWORD(v41));
-      v43 = ((int (*)())sub_1272B4)(v37, HIDWORD(v37), v42, HIDWORD(v42));
-      v44 = ((int (*)())sub_127620)(v18, HIDWORD(v18), v30, HIDWORD(v30));
-      v45 = ((int (*)())sub_127620)(v44, HIDWORD(v44), v24, HIDWORD(v24));
-      v46 = sub_1272B0(v11, HIDWORD(v11), v15, HIDWORD(v15));
-      v47 = sub_127874(v45, HIDWORD(v45), v46, HIDWORD(v46));
-      v48 = sub_1272B0(v11, HIDWORD(v11), v13, HIDWORD(v13));
-      v49 = sub_127874(v47, HIDWORD(v47), v48, HIDWORD(v48));
-      v50 = ((int (*)())sub_1272B4)(v43, HIDWORD(v43), v49, HIDWORD(v49));
-    }
-    v56 = v50;
-    v51 = ((int (*)())sub_127570)(v10[63]);
-    v52 = ((int (*)())sub_127620)(v51, HIDWORD(v51), v56, HIDWORD(v56));
-    result = ((int (*)())sub_127BE4)(v52);
-    v10[31] = result;
-  }
-  while ( v10 != v23 );
-  return result;
-}
-
-
-
 // heap_calloc @ 0x1047b8
 int heap_calloc(int *a1, int a2, int a3, int a4, uint64_t *a5) {
   int v6; // r0
@@ -11924,46 +9625,6 @@ int heap_calloc(int *a1, int a2, int a3, int a4, uint64_t *a5) {
 
 
 
-// rf_adc_capture_n_a98 @ 0x104a98
-int rf_adc_capture_n_a98(int a1, int a2, int a3, int a4) {
-  unsigned int *v4; // r4
-  int *v5; // r9
-  int v6; // r5
-  uint32_t *v7; // r11
-  uint32_t *v12; // r2
-  int v13; // r1
-  unsigned int v14; // r5
-  unsigned int v15; // r0
-  int result; // r0
-  int v17; // r1
-
-  v4 = (unsigned int *)off_104B44;
-  v5 = (int *)off_104B58;
-  v6 = dword_104B48;
-  v7 = (void *)(uintptr_t)(off_104B5C);
-  *(uint32_t *)off_104B44 &= ~0x20000000u;
-  *v5 = *v5 & v6 | 0x80;
-  delay_us(300);
-  *v5 = v6 & *v5 | a1 & 0xFFF;
-  *v7 = 0;
-  delay_us(2);
-  *v7 = 8;
-  delay_us(300);
-  v12 = (void *)(uintptr_t)(off_104B4C);
-  v13 = dword_104B50;
-  *v4 |= 0x40000000u;
-  v14 = HIWORD(*v12) & 0x3FFF;
-  v15 = *v4 & 0xBFFFFFFF;
-  *(uint16_t *)(a2 + 2 * (a3 + 16 * a4)) = v14;
-  *v4 = v15;
-  result = check_interrupt_flag(1, v13, a1, a4);
-  if ( v14 > 0x3E80 )
-    return msg_parse(dword_104B54, v17);
-  return result;
-}
-
-
-
 // prcm_set_mask @ 0x104a98
 int prcm_set_mask(int a1, int a2, int a3, int a4) {
   unsigned int *v4; // r4
@@ -12048,45 +9709,6 @@ LABEL_4:
 
 
 
-// crypto_gain_clamp @ 0x104c08
-int crypto_gain_clamp(float a1, int a2, int a3) {
-  float v6; // r0
-  uint64_t v7; // r0
-  uint64_t v8; // r0
-  int16_t v9; // r0
-  uint64_t v10; // kr00_8
-  uint64_t v12; // kr08_8
-
-  v6 = crc32_block(a1 / 20.0);
-  v7 = ((int (*)())sub_127570)((float)a2 * v6);
-  v8 = ((int (*)())math_round)(v7, HIDWORD(v7));
-  v9 = double_to_float(v8, HIDWORD(v8));
-  if ( v9 <= 232 )
-  {
-    if ( v9 > 31 )
-    {
-      *(uint8_t *)(a3 + 104) = v9;
-    }
-    else
-    {
-      v12 = *(uint64_t *)(a3 + 112);
-      *(uint8_t *)(a3 + 104) = 32;
-      if ( SHIDWORD(v12) < (int)v12 )
-        msg_parse(dword_104CB8, HIDWORD(v12));
-    }
-  }
-  else
-  {
-    v10 = *(uint64_t *)(a3 + 112);
-    *(uint8_t *)(a3 + 104) = -24;
-    if ( SHIDWORD(v10) < (int)v10 )
-      msg_parse(dword_104CBC, HIDWORD(v10));
-  }
-  return check_interrupt_flag(1, dword_104CB4, (int)(float)(a1 * flt_104CB0), a2);
-}
-
-
-
 // scale_f32 @ 0x104c08
 int scale_f32(float a1, int a2, int a3) {
   float v6; // r0
@@ -12122,89 +9744,6 @@ int scale_f32(float a1, int a2, int a3) {
       dispatch_event_handler_1(dword_104CBC, HIDWORD(v10));
   }
   return check_interrupt_flag(1, dword_104CB4, (int)(float)(a1 * flt_104CB0), a2);
-}
-
-
-
-// ftoi32_trunc_sat @ 0x104cc0
-int ftoi32_trunc_sat(int a1, float a2, int *a3, int a4, int a5) {
-  int result; // r0
-  int v7; // r3
-  int v8; // r1
-  float v9; // s14
-  int v10; // r1
-  int v11; // r3
-  int v12; // r3
-  int v13; // r1
-  float v14; // s14
-
-  result = a3[2];
-  a3[1] = result;
-  if ( a5 )
-  {
-    if ( result >= 0 )
-    {
-      v7 = a4 + 4 * (result + 33);
-      v8 = result;
-      while ( 1 )
-      {
-        v9 = *(float *)(v7 - 4);
-        v7 -= 4;
-        --v8;
-        if ( v9 < a2 )
-          break;
-        a3[1] = v8;
-        if ( v8 == -1 )
-          goto LABEL_22;
-      }
-LABEL_6:
-      v10 = a3[1];
-      v11 = v10 + 1;
-      goto LABEL_7;
-    }
-  }
-  else if ( result >= 0 )
-  {
-    v12 = a4 + 4 * (result + 1);
-    v13 = result;
-    while ( 1 )
-    {
-      v14 = *(float *)(v12 - 4);
-      v12 -= 4;
-      --v13;
-      if ( v14 < a2 )
-        goto LABEL_6;
-      a3[1] = v13;
-      if ( v13 == -1 )
-      {
-LABEL_22:
-        *a3 = 0;
-        goto LABEL_23;
-      }
-    }
-  }
-  v11 = result + 1;
-  v10 = result;
-LABEL_7:
-  if ( result >= v11 )
-  {
-    *a3 = v11;
-  }
-  else
-  {
-    v11 = result;
-    *a3 = result;
-  }
-  if ( v11 < 0 )
-    *a3 = 0;
-  if ( result < v10 )
-    a3[1] = result;
-  else
-    result = v10;
-  if ( result < 0 )
-LABEL_23:
-    a3[1] = 0;
-  return result;
 }
 
 
@@ -12288,482 +9827,6 @@ LABEL_7:
 LABEL_23:
     a3[1] = 0;
   return result;
-}
-
-
-
-// lmac_rf_behavioral_handler @ 0x104d60
-int lmac_rf_behavioral_handler( int a1, int a2, float *a3, int a4, uint8_t a5, char a6, uint8_t a7, int a8, int a9) {
-  float *v11; // r4
-  int v12; // r10
-  int v13; // r9
-  float *v14; // r5
-  float v15; // s15
-  float v16; // s16
-  uint64_t v17; // r6
-  uint64_t v18; // r0
-  uint64_t v19; // r0
-  int v20; // r2
-  int v21; // r3
-  uint64_t v22; // r0
-  float v23; // s17
-  float *v24; // r10
-  float *v25; // r9
-  int v26; // r5
-  float *v27; // r4
-  uint64_t v28; // r6
-  uint64_t v29; // r0
-  int v30; // r0
-  float v31; // s13
-  int v32; // r5
-  float *v33; // r2
-  float *v34; // r3
-  float v35; // s15
-  float v36; // s10
-  float v37; // s11
-  float v38; // s12
-  float *v39; // r3
-  float v40; // s18
-  float *v41; // r7
-  float *v42; // r6
-  float v43; // s15
-  float v44; // s16
-  float *v45; // r9
-  float v46; // s19
-  float v47; // s17
-  uint64_t v48; // r0
-  float v49; // s17
-  float v50; // s19
-  int v51; // r5
-  int v52; // r10
-  int v53; // r11
-  int v54; // r2
-  float *v55; // r7
-  float v56; // s18
-  float v57; // s16
-  uint64_t v58; // r0
-  float v59; // s15
-  int v60; // zf
-  float v61; // r9
-  float v62; // s16
-  float *v63; // r5
-  int *v64; // r6
-  float *v65; // r8
-  int *v66; // r7
-  int v67; // r9
-  float v68; // s13
-  float v69; // s15
-  int v70; // r1
-  float v71; // s14
-  int v72; // r2
-  int v73; // s13
-  int v74; // s15
-  int v75; // r3
-  int v76; // r11
-  int v77; // r7
-  int v78; // r5
-  int v79; // r8
-  int v80; // r10
-  int v81; // r9
-  int v82; // r1
-  int v83; // r6
-  int v84; // r3
-  int v85; // r4
-  int v86; // r5
-  int v87; // r9
-  int v88; // r7
-  int v89; // r6
-  int v90; // r11
-  int *v91; // r0
-  int v92; // r12
-  int v93; // t1
-  int v95; // r6
-  int v96; // r4
-  int v97; // r5
-  uint32_t *v98; // r1
-  int v99; // r2
-  int v100; // r6
-  int v101; // r1
-  int *v102; // r4
-  int v103; // t1
-  uint32_t *v104; // r12
-  int v105; // r2
-  int v106; // r0
-  int *v107; // r2
-  int *v108; // r0
-  int v109; // r1
-  int v110; // t1
-  int v111; // [sp+2Ch] [bp-180h]
-  int v112; // [sp+30h] [bp-17Ch]
-  int v113; // [sp+30h] [bp-17Ch]
-  int v114; // [sp+30h] [bp-17Ch]
-  float *v115; // [sp+34h] [bp-178h]
-  float *v116; // [sp+34h] [bp-178h]
-  int v117; // [sp+34h] [bp-178h]
-  float *v118; // [sp+38h] [bp-174h]
-  int v119; // [sp+38h] [bp-174h]
-  int v120; // [sp+38h] [bp-174h]
-  int v121; // [sp+3Ch] [bp-170h]
-  int v122; // [sp+40h] [bp-16Ch]
-  int v123; // [sp+44h] [bp-168h]
-  int v124; // [sp+48h] [bp-164h]
-  int v126; // [sp+5Ch] [bp-150h] BYREF
-  int v127; // [sp+60h] [bp-14Ch]
-  int v128; // [sp+64h] [bp-148h]
-  float v129[16]; // [sp+68h] [bp-144h] BYREF
-  float v130[16]; // [sp+A8h] [bp-104h] BYREF
-  uint8_t v131[64]; // [sp+E8h] [bp-C4h] BYREF
-  int v132; // [sp+128h] [bp-84h] BYREF
-  int v133; // [sp+12Ch] [bp-80h]
-  int v134; // [sp+130h] [bp-7Ch]
-  int v135; // [sp+134h] [bp-78h]
-  int v136; // [sp+138h] [bp-74h]
-  int v137; // [sp+13Ch] [bp-70h]
-  int v138; // [sp+140h] [bp-6Ch]
-  int v139; // [sp+144h] [bp-68h]
-  int v140; // [sp+148h] [bp-64h]
-  int v141; // [sp+14Ch] [bp-60h]
-  int v142; // [sp+150h] [bp-5Ch]
-  int v143; // [sp+154h] [bp-58h]
-  int v144; // [sp+158h] [bp-54h]
-  int v145; // [sp+15Ch] [bp-50h]
-  int v146; // [sp+160h] [bp-4Ch]
-  int v147; // [sp+164h] [bp-48h]
-  uint32_t v148[8]; // [sp+168h] [bp-44h] BYREF
-  int v149; // [sp+188h] [bp-24h]
-  int v150; // [sp+18Ch] [bp-20h]
-  int v151; // [sp+190h] [bp-1Ch]
-  int v152; // [sp+194h] [bp-18h]
-  int v153; // [sp+198h] [bp-14h]
-  int v154; // [sp+19Ch] [bp-10h]
-  int v155; // [sp+1A0h] [bp-Ch]
-  int v156; // [sp+1A4h] [bp-8h]
-  uint8_t v157[4]; // [sp+1A8h] [bp-4h] BYREF
-
-  v11 = a3;
-  v112 = a9 - 1;
-  if ( a2 > 1 )
-  {
-    v12 = dword_105048;
-    v13 = (int)&a3[a2 + 32];
-    v14 = a3 + 33;
-    do
-    {
-      v15 = *v14++;
-      v16 = *(v14 - 2);
-      if ( v15 < v16 )
-      {
-        v17 = ((int (*)())sub_127570)(LODWORD(v15));
-        v18 = ((int (*)())sub_127570)(LODWORD(v16));
-        v19 = ((int (*)())sub_127620)(v18, HIDWORD(v18), dword_105040, dword_105044);
-        if ( double_lt(v17, HIDWORD(v17), v19, HIDWORD(v19)) )
-        {
-          check_interrupt_flag(1, v12, v20, v21);
-          v16 = *(v14 - 2);
-        }
-        *(v14 - 1) = v16;
-      }
-    }
-    while ( (float *)v13 != v14 );
-  }
-  if ( a1 > 0 )
-  {
-    v22 = sub_12754C(a1);
-    v23 = flt_105038;
-    v118 = v11;
-    v24 = v130;
-    v25 = (float *)v131;
-    v26 = 0;
-    v27 = v129;
-    v28 = v22;
-    do
-    {
-      v29 = sub_12754C(++v26);
-      v30 = sub_127874(v29, HIDWORD(v29), v28, HIDWORD(v28));
-      *(uint32_t *)v27++ = ((int (*)())sub_127BE4)(v30);
-      *v24++ = 1.0;
-      *v25++ = v23;
-    }
-    while ( v26 != a1 );
-    v11 = v118;
-  }
-  v31 = v129[v112];
-  v32 = 0;
-  v119 = a2 - 1;
-  v128 = a2 - 1;
-  ftoi32_trunc_sat(a2, v31, &v126, (int)v11, 0);
-  v33 = &v11[v127];
-  v34 = &v11[v126];
-  v35 = *v33;
-  v36 = v33[32];
-  v37 = v34[32] - v36;
-  v38 = *v34 - *v33;
-  v39 = &v130[v112];
-  *v39 = v31;
-  v40 = (float)((float)((float)(v37 / v38) * (float)(v31 - v35)) + v36) / v31;
-  if ( a1 <= 0 )
-  {
-    if ( a1 )
-    {
-      check_interrupt_flag(1, dword_1053BC, (int)(uintptr_t)(v130), (int)(uintptr_t)(v39));
-      goto LABEL_44;
-    }
-  }
-  else
-  {
-    v41 = v130;
-    v42 = v129;
-    do
-    {
-      if ( v32 != v112 )
-      {
-        v44 = v40 * *v42;
-        ftoi32_trunc_sat(a2, v44, &v126, (int)v11, 1);
-        if ( v126 )
-        {
-          v45 = &v11[v126];
-          if ( v119 == v127
-            || (v46 = v11[v127 + 32],
-                v115 = &v11[v127],
-                v47 = v45[32] - v46,
-                v48 = ((int (*)())sub_127570)(LODWORD(v47)),
-                double_lt(v48, HIDWORD(v48), dword_105030, dword_105034)) )
-          {
-            v43 = 1.0;
-          }
-          else
-          {
-            v43 = (float)((float)((float)(*v45 - *v115) * (float)(v44 - v46)) / v47) + *v115;
-          }
-        }
-        else
-        {
-          v43 = (float)(v44 * *v11) / v11[32];
-        }
-        *v41 = v43;
-      }
-      ++v32;
-      ++v41;
-      ++v42;
-    }
-    while ( a1 != v32 );
-  }
-  v49 = flt_105038;
-  v113 = a1;
-  v50 = flt_10503C;
-  v51 = a9 - 1;
-  v52 = -1;
-  v53 = a9 - 1;
-  while ( 1 )
-  {
-    v61 = v130[v51];
-    ftoi32_trunc_sat(a2, v61, &v126, (int)v11, 0);
-    if ( v126 )
-    {
-      v116 = &v11[v127];
-      v54 = a2 - 1;
-      v55 = &v11[v126];
-      if ( v119 == v127 )
-      {
-        v59 = v11[v119 + 96];
-      }
-      else
-      {
-        v56 = *v116;
-        v57 = *v55 - *v116;
-        v58 = ((int (*)())sub_127570)(LODWORD(v57));
-        if ( !double_gt(v58, HIDWORD(v58), dword_105030, dword_105034) )
-          v57 = v50;
-        v59 = (float)((float)((float)(v55[96] - v116[96]) / v57) * (float)(v61 - v56)) + v116[96];
-      }
-    }
-    else
-    {
-      v59 = v11[v53 + 96];
-    }
-    v60 = v51 == v53;
-    if ( v51 != v53 )
-    {
-      v59 = v49 - v59;
-      *(float *)&v157[4 * v51 - 192] = v59;
-    }
-    v51 = v52 + 1;
-    if ( v60 )
-      v49 = v59;
-    if ( v113 <= v51 )
-      break;
-    ++v52;
-  }
-  check_interrupt_flag(1, dword_1052FC, v54, v113);
-  if ( v113 > 0 )
-  {
-    v62 = flt_105300;
-    v63 = v130;
-    v64 = &v132;
-    v65 = (float *)v131;
-    v66 = (void *)(v148);
-    v67 = 0;
-    do
-    {
-      v68 = *v65++;
-      v69 = *v63++;
-      v70 = dword_105304;
-      v71 = v68 / v62;
-      v72 = v67++;
-      v73 = vcvts_n_s32_f32(v69, 0xAu);
-      v74 = vcvts_n_s32_f32(v71, 9u);
-      v75 = v73;
-      *v64++ = v73;
-      if ( v73 >= 1024 )
-      {
-        *(v64 - 1) = 1023;
-        v75 = 1023;
-      }
-      *v66++ = v74;
-      if ( v74 < 0 )
-        *(v66 - 1) = v74 + (v74 < 0 ? 0x400 : 0);
-      check_interrupt_flag(1, v70, v72, v75);
-    }
-    while ( v113 != v67 );
-  }
-LABEL_44:
-  v76 = (v135 << 10) + (v134 << 20) + v136;
-  v111 = (v138 << 10) + (v137 << 20) + v139;
-  v114 = (v141 << 10) + (v140 << 20) + v142;
-  v117 = (v144 << 10) + (v143 << 20) + v145;
-  v121 = v148[1] + 1049600 * v148[0];
-  v122 = (v148[3] << 10) + (v148[2] << 20) + v148[4];
-  v123 = (v148[6] << 10) + (v148[5] << 20) + v148[7];
-  v120 = (v147 << 10) + (v146 << 20);
-  v77 = (v150 << 10) + (v149 << 20) + v151;
-  v78 = 15 - a8;
-  v79 = (v153 << 10) + (v152 << 20) + v154;
-  v80 = (v156 << 10) + (v155 << 20);
-  v81 = v133 + (v132 << 10);
-  if ( !a7 )
-  {
-    if ( a8 == 4 )
-    {
-      v78 = 1;
-    }
-    else if ( a8 == 7 )
-    {
-      v78 = 0;
-    }
-LABEL_48:
-    v82 = dword_10530C;
-    v83 = 48 * v78 + 1264 * a7 + dword_105308;
-    v124 = v78 + 24;
-    v84 = v78;
-    v85 = a4 + 96 + 48 * v78;
-    v86 = v133 + (v132 << 10);
-    v87 = (v150 << 10) + (v149 << 20) + v151;
-    v88 = v83;
-    v89 = (v135 << 10) + (v134 << 20) + v136;
-    v90 = v84;
-    do
-    {
-      check_interrupt_flag(1, v82, v90, v84);
-      *(uint32_t *)(v85 - 40) = v111;
-      *(uint32_t *)(v85 - 36) = v114;
-      *(uint32_t *)(v85 - 32) = v117;
-      *(uint32_t *)(v85 - 28) = v120;
-      *(uint32_t *)(v85 - 24) = v121;
-      *(uint32_t *)(v85 - 20) = v122;
-      v82 = dword_10530C;
-      *(uint32_t *)(v85 - 48) = v86;
-      *(uint32_t *)(v85 - 44) = v89;
-      *(uint32_t *)(v85 - 16) = v123;
-      *(uint32_t *)(v85 - 12) = v87;
-      *(uint32_t *)(v85 - 8) = v79;
-      *(uint32_t *)(v85 - 4) = v80;
-      v91 = (int *)(v85 - 48);
-      v92 = v88;
-      do
-      {
-        v93 = *v91++;
-        *(uint32_t *)(v92 + 4) = v93;
-        v92 += 4;
-      }
-      while ( (int *)v85 != v91 );
-      v84 = v124;
-      v90 += 8;
-      v88 += 384;
-      v85 += 384;
-    }
-    while ( v124 != v90 );
-    v76 = v89;
-    v81 = v86;
-    return check_interrupt_flag(1, dword_105310, v81, v76);
-  }
-  if ( a8 == 7 )
-    v78 = 5;
-  if ( !a6 )
-    goto LABEL_48;
-  if ( a5 == 2 )
-  {
-    v95 = dword_1053B8;
-    check_interrupt_flag(1, dword_1053B4, v78, 2);
-    v104 = (uint32_t *)(a4 + 48 * v78);
-    v104[14] = v111;
-    v104[15] = v114;
-    v104[16] = v117;
-    v104[17] = v120;
-    v104[18] = v121;
-    v105 = 12 * v78 + 12;
-    v104[19] = v122;
-    v104[12] = v81;
-    v104[13] = v76;
-    v104[22] = v79;
-    v104[23] = v80;
-    v106 = 4 * v105 - 48;
-    v96 = a4 + 96;
-    v104[20] = v123;
-    v104[21] = v77;
-    v107 = (int *)(a4 + 4 * v105);
-    v108 = (int *)(v106 + a4 + 96);
-    v109 = 1264 * a7 + 48 * v78 + 12 + v95;
-    do
-    {
-      v110 = *v107++;
-      *(uint32_t *)(v109 + 4) = v110;
-      v109 += 4;
-    }
-    while ( v108 != v107 );
-  }
-  else
-  {
-    v95 = dword_105314;
-    v96 = a4 + 96;
-  }
-  v97 = v78 + 8 * a5;
-  check_interrupt_flag(1, dword_10530C, v97, a5);
-  v97 *= 3;
-  v98 = (uint32_t *)(a4 + 16 * v97);
-  v98[14] = v111;
-  v98[15] = v114;
-  v98[16] = v117;
-  v98[17] = v120;
-  v98[18] = v121;
-  v98[19] = v122;
-  v99 = 4 * v97 + 12;
-  v98[12] = v81;
-  v98[13] = v76;
-  v98[20] = v123;
-  v98[21] = v77;
-  v98[22] = v79;
-  v98[23] = v80;
-  v100 = v95 + 1264 * a7 + 16 * v97 + 12;
-  v101 = v96 + 4 * v99 - 48;
-  v102 = (int *)(a4 + 4 * v99);
-  do
-  {
-    v103 = *v102++;
-    *(uint32_t *)(v100 + 4) = v103;
-    v100 += 4;
-  }
-  while ( (int *)v101 != v102 );
-  return check_interrupt_flag(1, dword_105310, v81, v76);
 }
 
 
@@ -13240,77 +10303,6 @@ LABEL_48:
   }
   while ( (int *)v101 != v102 );
   return check_interrupt_flag(1, dword_105310, v81, v76);
-}
-
-
-
-// crypto_key_schedule @ 0x1053c0
-int crypto_key_schedule(unsigned int a1, uint32_t *a2) {
-  int v4; // r1
-  int result; // r0
-  int v6; // r2
-  int v7; // r3
-  int v8; // r7
-  int v9; // r9
-  int v10; // r8
-  int v11; // r5
-  int v12; // r3
-  int v13; // r3
-  int v14; // r2
-  unsigned int v15; // r0
-  int v16; // r3
-  int v17; // r2
-
-  a2[14] = 0;
-  a2[15] = 15;
-  v4 = dword_105480;
-  a2[16] = 8;
-  result = check_interrupt_flag(1, v4, a1, 8);
-  if ( a1 )
-  {
-    v8 = dword_105484;
-    v9 = dword_10548C;
-    v10 = dword_105490;
-    v11 = 20;
-    while ( 1 )
-    {
-      while ( ((1 << v11) & a1) >> v11 != 1 )
-      {
-LABEL_3:
-        if ( ++v11 == 28 )
-          return result;
-      }
-      v12 = a2[14] + 10;
-      a2[v12] = v11 - 12;
-      check_interrupt_flag(1, v8, v11 - 12, v12);
-      v13 = a2[14] + 10;
-      v14 = a2[v13];
-      if ( v14 <= 7 )
-      {
-        result = check_interrupt_flag(((1 << v11) & a1) >> v11, v9, v14, v13);
-        if ( !a2[14] )
-          a2[16] = a2[10];
-        goto LABEL_3;
-      }
-      v15 = ((1 << v11) & a1) >> v11;
-      if ( v14 > 15 )
-      {
-        result = check_interrupt_flag(v15, v9, v14, v13);
-        if ( !a2[14] )
-          a2[15] = a2[10];
-        goto LABEL_3;
-      }
-      result = check_interrupt_flag(v15, v10, v14, v13);
-      v16 = a2[14];
-      ++v11;
-      v17 = a2[v16 + 10];
-      a2[14] = v16 + 1;
-      a2[15] = v17;
-      if ( v11 == 28 )
-        return result;
-    }
-  }
-  return check_interrupt_flag(1, dword_105488, v6, v7);
 }
 
 
@@ -13952,133 +10944,6 @@ LABEL_9:
   v13 = dword_105E8C;
   *(uint32_t *)off_105E88 = v10;
   return check_interrupt_flag(1, v13, *v12, (int)(uintptr_t)(v12));
-}
-
-
-
-// crypto_table_copy_165d00 @ 0x105e94
-int crypto_table_copy_165d00(int a1, int a2) {
-  int v4; // r1
-  int v5; // r2
-  int v6; // r3
-  int v7; // r1
-  int v8; // r2
-  int v9; // r3
-  int v10; // r1
-  int v11; // r2
-  int v12; // r3
-  int *v13; // r4
-  int v14; // r0
-  int v15; // r1
-  int v16; // r2
-  int v17; // r3
-  int v18; // r0
-  int v19; // r1
-  int v20; // r2
-  int v21; // r3
-  int v22; // r1
-  int v23; // r2
-  int v24; // r3
-  int v25; // r6
-  int v26; // r2
-  uint8_t *v27; // r3
-  int v28; // r1
-  unsigned int *v29; // r4
-  int v30; // r3
-  int v31; // r1
-  unsigned int v32; // r3
-  int v34; // [sp+0h] [bp-6Ch]
-  int v35; // [sp+4h] [bp-68h]
-  int v36; // [sp+8h] [bp-64h]
-  int v37; // [sp+Ch] [bp-60h]
-  int v38; // [sp+10h] [bp-5Ch]
-  int v39; // [sp+14h] [bp-58h]
-  int v40; // [sp+18h] [bp-54h]
-  int v41; // [sp+1Ch] [bp-50h]
-  int v42; // [sp+20h] [bp-4Ch]
-  int v43; // [sp+24h] [bp-48h]
-  int v44; // [sp+28h] [bp-44h]
-  int v45; // [sp+2Ch] [bp-40h]
-  int v46; // [sp+30h] [bp-3Ch]
-  int v47; // [sp+34h] [bp-38h]
-  int v48; // [sp+38h] [bp-34h]
-  int v49; // [sp+3Ch] [bp-30h]
-  int v50; // [sp+40h] [bp-2Ch]
-  int v51; // [sp+44h] [bp-28h]
-  int v52; // [sp+48h] [bp-24h]
-  int v53; // [sp+4Ch] [bp-20h]
-  int v54; // [sp+50h] [bp-1Ch]
-  int v55; // [sp+54h] [bp-18h]
-  int v56; // [sp+58h] [bp-14h]
-  int v57; // [sp+5Ch] [bp-10h]
-  int v58; // [sp+60h] [bp-Ch]
-  int v59; // [sp+64h] [bp-8h]
-  uint8_t v60[4]; // [sp+68h] [bp-4h] BYREF
-
-  v4 = *(uint32_t *)(dword_105F28 + 4);
-  v5 = *(uint32_t *)(dword_105F28 + 8);
-  v6 = *(uint32_t *)(dword_105F28 + 12);
-  v34 = *(uint32_t *)dword_105F28;
-  v35 = v4;
-  v36 = v5;
-  v37 = v6;
-  v7 = *(uint32_t *)(dword_105F28 + 20);
-  v8 = *(uint32_t *)(dword_105F28 + 24);
-  v9 = *(uint32_t *)(dword_105F28 + 28);
-  v38 = *(uint32_t *)(dword_105F28 + 16);
-  v39 = v7;
-  v40 = v8;
-  v41 = v9;
-  v10 = *(uint32_t *)(dword_105F28 + 36);
-  v11 = *(uint32_t *)(dword_105F28 + 40);
-  v12 = *(uint32_t *)(dword_105F28 + 44);
-  v42 = *(uint32_t *)(dword_105F28 + 32);
-  v43 = v10;
-  v44 = v11;
-  v45 = v12;
-  v13 = (int *)(dword_105F28 + 48 + 4);
-  v46 = *(uint32_t *)(dword_105F28 + 48);
-  v14 = *v13;
-  v15 = v13[1];
-  v16 = v13[2];
-  v17 = v13[3];
-  v13 += 4;
-  v47 = v14;
-  v48 = v15;
-  v49 = v16;
-  v50 = v17;
-  v18 = *v13;
-  v19 = v13[1];
-  v20 = v13[2];
-  v21 = v13[3];
-  v13 += 4;
-  v51 = v18;
-  v52 = v19;
-  v53 = v20;
-  v54 = v21;
-  v22 = v13[1];
-  v23 = v13[2];
-  v24 = v13[3];
-  v55 = *v13;
-  v56 = v22;
-  v57 = v23;
-  v58 = v24;
-  v25 = *(uint32_t *)(a1 + 4 * a2 + 140);
-  v59 = v13[4];
-  check_interrupt_flag(1, dword_105F2C, v25, v59);
-  if ( v25 > 25 )
-    v26 = 12;
-  else
-    v26 = (v25 / 2) & ~((v25 / 2) >> 31);
-  v27 = &v60[4 * v26];
-  v28 = *((uint32_t *)v27 - 26);
-  v29 = (unsigned int *)off_105F34;
-  v30 = *((uint32_t *)v27 - 13);
-  *(uint32_t *)off_105F30 = (8 * v28) & 0x38 | *(uint32_t *)off_105F30 & 0xFFFFFFC7;
-  v31 = dword_105F38;
-  v32 = (4 * v30) & 0x1C | *v29 & 0xFFFFFFE3;
-  *v29 = v32;
-  return check_interrupt_flag(1, v31, v26, v32);
 }
 
 
@@ -14867,79 +11732,6 @@ LABEL_28:
 
 
 
-// crypto_hw_config @ 0x106bb4
-int *crypto_hw_config() {
-  unsigned int *v0; // r4
-  uint32_t *v1; // r6
-  unsigned int *v2; // r5
-  uint32_t *v3; // r2
-  int v4; // r1
-  int v5; // r4
-  unsigned int *v6; // r3
-  uint32_t *v7; // r1
-  int *result; // r0
-  int v9; // r2
-  int *v10; // r1
-  unsigned int *v11; // r3
-
-  v0 = (unsigned int *)off_106D8C;
-  *(uint32_t *)off_106D88 |= 0x2000000u;
-  v1 = (void *)(uintptr_t)(off_106D90);
-  v2 = (unsigned int *)off_106D94;
-  *v0 &= ~0x20000u;
-  delay_us(2);
-  v3 = (void *)(uintptr_t)(off_106D98);
-  v4 = dword_106D9C;
-  *v0 |= 0x10000u;
-  *v0 |= 0x20000u;
-  *v1 |= 0x80000000;
-  *v3 = v4;
-  *v0 |= 0x80000u;
-  *v0 &= ~0x40000u;
-  *v0 = *v0 & 0xFFFF0FFF | 0x6000;
-  v5 = dword_106DA0;
-  *v2 &= ~0x40u;
-  v3 -= 129;
-  *v2 &= ~0x80u;
-  *v3 |= 0x10000000u;
-  *v3 = *v3 & 0xFC000FFF | 0x666000;
-  *v3 = *v3 & 0xFFFFF000 | 0xC0;
-  delay_us(10);
-  v6 = (unsigned int *)off_106DA4;
-  v7 = (void *)(uintptr_t)(off_106DA8);
-  result = (int *)off_106DAC;
-  *(uint32_t *)off_106DA4 &= ~2u;
-  *v7 |= 0x1000000u;
-  v9 = dword_106DB0;
-  *v6 = *v6 & 0x8FFFFFFF | 0x20000000;
-  *v6 &= 0xF8FFFFFF;
-  *v6 = *v6 & 0xFFFFFF8F | 0x40;
-  v10 = (int *)off_106DB4;
-  *v2 = *v2 & 0xFFF8FFFF | 0x20000;
-  *v2 = *v2 & 0xFFFF8FFF | 0x2000;
-  *v2 = *v2 & 0xFFFFF0FF | 0x600;
-  *result = *result & v9 | 0x351D;
-  *result = *result & v5 | 0xF9F0000;
-  *v10 = *v10 & v9 | 0x375C;
-  *v10 = *v10 & v5 | 0xF9D0000;
-  result[2] = result[2] & v9 | 0x35BB;
-  result[2] = result[2] & v5 | 0xF060000;
-  v10[2] = v10[2] & v9 | 0x3719;
-  v10[2] = v10[2] & v5 | 0xF020000;
-  v11 = (unsigned int *)off_106DB8;
-  result[4] = result[4] & v9 | 0x367A;
-  result[4] = result[4] & v5 | 0xECA0000;
-  *v11 = *v11 & 0xFFF0FFFF | 0x10000;
-  *v11 = *v11 & 0xFFFF0FFF | 0x1000;
-  *v11 = *v11 & 0xFFFFF0FF | 0x100;
-  *v11 = *v11 & 0xFFFFFF0F | 0x10;
-  *v11 = *v11 & 0xFFFFFFF0 | 1;
-  *v1 &= ~0x4000u;
-  return result;
-}
-
-
-
 // clk_enable @ 0x106bb4
 int *clk_enable() {
   unsigned int *v0; // r4
@@ -15067,29 +11859,6 @@ uint32_t *clk_disable() {
 
 
 
-// crypto_hw_clear_regs @ 0x106f08
-uint32_t *crypto_hw_clear_regs() {
-  unsigned int *v0; // r2
-  uint32_t *v1; // r3
-  uint32_t *result; // r0
-
-  v0 = (unsigned int *)off_106F68;
-  v1 = (void *)(uintptr_t)(off_106F6C);
-  result = (void *)(uintptr_t)(off_106F70);
-  *(uint32_t *)off_106F68 = *(uint32_t *)off_106F68 & 0xC0FFFFFF | 0x3000000;
-  *v0 = *v0 & 0xFFC0FFFF | 0x30000;
-  *v0 = *v0 & 0xFFFFC0FF | 0x300;
-  *v0 = *v0 & 0xFFFFFFC0 | 3;
-  *v1 &= 0xC0FFFFFF;
-  *v1 &= 0xFFC0FFFF;
-  *v1 &= 0xFFFFC0FF;
-  *v1 &= 0xFFFFFFC0;
-  *result &= 0xFFFFFFC0;
-  return result;
-}
-
-
-
 // clk_set_divider @ 0x106f08
 uint32_t *clk_set_divider() {
   unsigned int *v0; // r2
@@ -15153,54 +11922,6 @@ int pinmux_config(int a1, int a2) {
   *v3 &= ~0x200000u;
   *v3 &= ~0x100000u;
   *v2 = *v2 & 0xFFFFFF8F | 0x40;
-  return result;
-}
-
-
-
-// log_free_pool_dispatch2_n324 @ 0x107068
-int log_free_pool_dispatch2_n324(int a1, int a2) {
-  uint32_t *v2; // r5
-  unsigned int *v3; // r4
-  uint32_t *v5; // r2
-  int v6; // r1
-  int v7; // r2
-  unsigned int v8; // r3
-  int v9; // r2
-  int v10; // r3
-  int result; // r0
-
-  v2 = (void *)(uintptr_t)(off_10713C);
-  v3 = (unsigned int *)off_107140;
-  *(uint32_t *)off_10713C |= 4u;
-  *v2 |= 8u;
-  *v3 |= 0x1000000u;
-  *v3 = (a2 << 25) & 0x2000000 | *v3 & 0xFDFFFFFF;
-  *v3 |= 0x400000u;
-  *v3 |= 0x800000u;
-  *v3 |= 0x200000u;
-  *v3 |= 0x100000u;
-  crypto_hw_clear_regs();
-  *v2 &= ~1u;
-  delay_us(100);
-  v5 = (void *)(uintptr_t)(off_107144);
-  v6 = dword_107148;
-  *v3 |= 0x4000000u;
-  v7 = *v5 & 0x7FFF;
-  v8 = *v3 & 0xFBFFFFFF;
-  *v3 = v8;
-  *(uint32_t *)(a1 + 44) = v7;
-  check_interrupt_flag(1, v6, v7, v8);
-  delay_us(5);
-  result = check_interrupt_flag(1, dword_10714C, v9, v10);
-  *v3 &= ~0x1000000u;
-  *v3 &= ~0x2000000u;
-  *v2 &= ~4u;
-  *v2 &= ~8u;
-  *v3 &= ~0x400000u;
-  *v3 &= ~0x800000u;
-  *v3 &= ~0x200000u;
-  *v3 &= ~0x100000u;
   return result;
 }
 
@@ -15580,101 +12301,6 @@ int rf_core_irq_poll(int a1) {
 
 
 
-// sdio_buffer_prepare_2 @ 0x107638
-int sdio_buffer_prepare_2(int a1) {
-  int *v1; // r4
-  uint32_t *v2; // r5
-  int *v3; // r8
-  int v4; // r9
-  int *v5; // r6
-  uint32_t *v6; // r10
-  int v8; // r1
-  int v9; // r3
-  int v10; // r2
-  int *v11; // r5
-  int v12; // r3
-  int v13; // r3
-  int v14; // r6
-  int v15; // cc
-  uint32_t *v16; // r4
-  int v17; // r3
-  int v18; // r11
-  int v19; // r1
-  int result; // r0
-  uint32_t *v21; // r3
-  unsigned int v22; // [sp+18h] [bp-14h] BYREF
-  unsigned int v23; // [sp+1Ch] [bp-10h]
-  int v24; // [sp+20h] [bp-Ch]
-  int v25; // [sp+24h] [bp-8h]
-
-  v1 = (int *)off_1077DC;
-  v2 = (void *)(uintptr_t)(off_1077E0);
-  v3 = (int *)off_1077EC;
-  v4 = dword_1077F0;
-  v5 = (int *)off_1077E4;
-  v6 = (void *)(uintptr_t)(off_1077E4);
-  load_patch_bundle(a1);
-  v8 = dword_1077E8;
-  *v1 |= 0x1000000u;
-  v9 = *v1 | 0x2000000;
-  *v1 = v9;
-  check_interrupt_flag(1, v8, v10, v9);
-  crypto_hw_clear_regs();
-  *v2 &= ~1u;
-  delay_us(20);
-  *v2 |= 4u;
-  *v2 |= 8u;
-  delay_us(20);
-  v11 = (int *)off_1077EC;
-  *v1 |= 0x400000u;
-  *v3 = *v3 & v4 | 0xC00;
-  delay_us(20);
-  *v1 |= 0x4000000u;
-  v12 = *v5 & 0x7FFF;
-  *v1 &= ~0x4000000u;
-  v22 = v12;
-  *v3 = *v3 & v4 | 0x400;
-  delay_us(20);
-  *v1 |= 0x4000000u;
-  v13 = *v5;
-  v14 = dword_1077F0;
-  v23 = v13 & 0x7FFF;
-  *v1 &= ~0x4000000u;
-  v15 = v22 > v23;
-  v16 = (void *)(uintptr_t)(off_1077DC);
-  if ( v22 > v23 )
-    v17 = 1536;
-  else
-    v17 = 3584;
-  *v11 = *v11 & v14 | v17;
-  if ( v15 )
-    v18 = 512;
-  else
-    v18 = 2560;
-  delay_us(20);
-  *v16 |= 0x4000000u;
-  v24 = *v6 & 0x7FFF;
-  *v16 &= ~0x4000000u;
-  *v11 = *v11 & v14 | v18;
-  delay_us(20);
-  v19 = dword_1077F4;
-  *v16 |= 0x4000000u;
-  v25 = *v6 & 0x7FFF;
-  *v16 &= ~0x4000000u;
-  *v16 &= ~0x400000u;
-  check_interrupt_flag(1, v19, 3072, v22);
-  result = timer_delta_compare(&v22, a1);
-  v21 = (void *)(uintptr_t)(off_1077E0);
-  *(uint32_t *)off_1077E0 &= ~4u;
-  *v21 &= ~8u;
-  *v11 &= v14;
-  *v16 &= ~0x1000000u;
-  *v16 &= ~0x2000000u;
-  return result;
-}
-
-
-
 // rf_core_irq_dispatch @ 0x107638
 int rf_core_irq_dispatch(int a1) {
   int *v1; // r4
@@ -15833,45 +12459,6 @@ int rf_clear_irq_flag_alt() {
 
 
 
-// divmod64_compute @ 0x1078d4
-int * divmod64_compute(int *a1) {
-  int v1; // r2
-  int v2; // r7
-  int v3; // r1
-  int v4; // r12
-  int v5; // r5
-  int v6; // r6
-  int *result; // r0
-  int i; // r4
-  int v9; // r2
-  int *v10; // r3
-
-  v1 = a1[1];
-  v2 = ((uint64_t)(dword_107940 * (uint64_t)v1) >> 32) - (v1 >> 31);
-  v3 = a1[3] - v1 / 2 + v2 + (v1 >> 31) - ((uint64_t)(dword_10793C * (uint64_t)v1) >> 32);
-  v4 = ((uint64_t)(dword_107940 * (uint64_t)*a1) >> 32) - (*a1 >> 31);
-  v5 = (*a1 >> 31) - ((uint64_t)(dword_10793C * (uint64_t)*a1) >> 32);
-  v6 = a1[2] - *a1 / 2 + v4;
-  result = a1 + 7;
-  for ( i = 0; i != 9; i += 3 )
-  {
-    v9 = v6 + v5;
-    v10 = result - 3;
-    do
-    {
-      *v10++ = v9;
-      v9 += v4;
-      v10[8] = v3;
-    }
-    while ( v10 != result );
-    v3 += v2;
-    result = v10 + 3;
-  }
-  return result;
-}
-
-
-
 // timer_ticks_to_micros @ 0x1078d4
 int * timer_ticks_to_micros(int *a1) {
   int v1; // r2
@@ -15907,103 +12494,6 @@ int * timer_ticks_to_micros(int *a1) {
     result = v10 + 3;
   }
   return result;
-}
-
-
-
-// ipc_doorbell_handler_n_21a @ 0x107944
-int ipc_doorbell_handler_n_21a(int a1, uint32_t *a2) {
-  unsigned int *v2; // r6
-  unsigned int *v3; // r8
-  unsigned int v4; // r3
-  int v5; // r7
-  int v7; // r9
-  int *v8; // r4
-  int v9; // r11
-  int v10; // r10
-  int v11; // r0
-  int v12; // t1
-  int v13; // r3
-  int v14; // r2
-  int v15; // r1
-  int v16; // r5
-  unsigned int *v17; // r3
-  int v18; // r2
-  int v20; // [sp+8h] [bp-1Ch]
-  int v21; // [sp+Ch] [bp-18h]
-  int v22; // [sp+10h] [bp-14h]
-  int v23; // [sp+14h] [bp-10h]
-  int v24; // [sp+18h] [bp-Ch]
-
-  v2 = (unsigned int *)off_107A58;
-  v3 = (unsigned int *)off_107A6C;
-  *(uint32_t *)off_107A58 |= 0x1000000u;
-  v4 = *v2 & 0xFDFFFFFF;
-  v5 = 1;
-  *v2 = v4;
-  v7 = 1000;
-  check_interrupt_flag(1, dword_107A5C, (int)(uintptr_t)(a2), v4);
-  v8 = (int *)(a1 + 12);
-  v23 = 1;
-  v24 = 1;
-  v21 = 1;
-  v20 = 1;
-  v22 = 1;
-  v9 = 1;
-  v10 = 1000;
-  do
-  {
-    while ( 1 )
-    {
-      v11 = v8[10];
-      v12 = v8[1];
-      ++v8;
-      *v3 = dword_107A60 & (v11 << 16) | *v3 & 0xF000FFFF;
-      *v3 = v12 & 0xFFF | *v3 & 0xFFFFF000;
-      delay_us(40);
-      v13 = v8[9];
-      v14 = *v8;
-      v15 = dword_107A64;
-      *v2 |= 0x4000000u;
-      v16 = *(uint32_t *)off_107A68 & 0x7FFF;
-      *v2 &= ~0x4000000u;
-      check_interrupt_flag(1, v15, v14, v13);
-      if ( v16 >= v7 )
-        break;
-      v23 = v21;
-      v24 = v20;
-      v21 = v8[9];
-      v22 = v9;
-      v10 = v7;
-      v20 = *v8;
-      v7 = v16;
-      v9 = v5;
-LABEL_3:
-      if ( ++v5 == 10 )
-        goto LABEL_7;
-    }
-    if ( v16 >= v10 )
-      goto LABEL_3;
-    v22 = v5++;
-    v24 = *v8;
-    v23 = v8[9];
-    v10 = v16;
-  }
-  while ( v5 != 10 );
-LABEL_7:
-  v17 = (unsigned int *)off_107A58;
-  v18 = *(uint32_t *)off_107A58;
-  a2[5] = v20;
-  a2[6] = v21;
-  a2[7] = v24;
-  a2[3] = v7;
-  a2[8] = v23;
-  a2[9] = v9;
-  a2[4] = v10;
-  a2[10] = v22;
-  *v17 = v18 & 0xFEFFFFFF;
-  *v17 &= ~0x2000000u;
-  return v22;
 }
 
 
@@ -16191,26 +12681,6 @@ LABEL_9:
 
 
 
-// mmio_read_field_n_bd8 @ 0x107bd8
-int mmio_read_field_n_bd8() {
-  unsigned int *v0; // r5
-  unsigned int v1; // r4
-  int v2; // r6
-  int result; // r0
-  uint32_t *v4; // r2
-
-  v0 = (unsigned int *)off_107C18;
-  v1 = *(uint32_t *)off_107C18;
-  v2 = *(uint32_t *)off_107C14 >> 20;
-  result = check_interrupt_flag(1, dword_107C1C, v2, off_107C14);
-  v4 = (void *)(uintptr_t)(off_107C24);
-  *v0 = dword_107C20 & (((HIWORD(v1) & 0xFFF) + v2) << 16) | *v0 & 0xF000FFFF;
-  *v4 |= 0x800000u;
-  return result;
-}
-
-
-
 // rf_get_cca_status @ 0x107bd8
 int rf_get_cca_status() {
   unsigned int *v0; // r5
@@ -16226,26 +12696,6 @@ int rf_get_cca_status() {
   v4 = (void *)(uintptr_t)(off_107C24);
   *v0 = dword_107C20 & (((HIWORD(v1) & 0xFFF) + v2) << 16) | *v0 & 0xF000FFFF;
   *v4 |= 0x800000u;
-  return result;
-}
-
-
-
-// rf_chan_param_get @ 0x107c28
-int rf_chan_param_get() {
-  unsigned int *v0; // r5
-  int v1; // r6
-  uint16_t v2; // r4
-  int result; // r0
-  uint32_t *v4; // r1
-
-  v0 = (unsigned int *)off_107C64;
-  v1 = *(uint32_t *)off_107C64;
-  v2 = (uint16_t)*(uint32_t *)off_107C60 >> 4;
-  result = check_interrupt_flag(1, dword_107C68, v2, off_107C60);
-  v4 = (void *)(uintptr_t)(off_107C6C);
-  *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
-  *v4 |= 0x400000u;
   return result;
 }
 
@@ -16602,7 +13052,7 @@ uint32_t * rf_transmit_packet(int a1, unsigned int *a2, int a3, unsigned int a4,
   *(uint32_t *)off_1082A4 &= ~0x200u;
   *v29 |= 0x200u;
   *v29 &= ~0x200u;
-  v30 = crypto_hw_config();
+  v30 = (void *)(uintptr_t)(crypto_hw_config());
   if ( a3 == 255 )
   {
     v32 = (unsigned int *)off_1082E4;
@@ -16789,7 +13239,7 @@ uint32_t * rf_transmit_packet(int a1, unsigned int *a2, int a3, unsigned int a4,
               v127 = v204;
               v193 = v77;
               divmod64_compute(&v201);
-              ipc_doorbell_handler_n_21a((int)&v201, (void *)(&v193));
+              ipc_doorbell_handler_n_21a((int)&v201, &v193);
               rx_queue_pop_packet((int)&v193, &v201, v198);
               v79 = v77;
               if ( v77 )
@@ -18252,14 +14702,14 @@ int * mmio_set_flag( int a1, int *a2, int a3, int a4, int a5, uint8_t a6, int a7
   check_interrupt_flag(1, v15, a1, a4);
   if ( a5 )
   {
-    rf_calib_setup_n3d8((int)a2, 1, (void *)(uintptr_t)(dword_100000), (void *)(uintptr_t)(dword_100000), 0, 1);
+    rf_calib_setup_n3d8((int)a2, 1, dword_100000, dword_100000, 0, 1);
     return (int *)sub_1099BC(24, (int)a2, 1, (int)v36);
   }
   else
   {
     if ( a8 == 1 )
     {
-      rf_calib_setup_n3d8((int)a2, 1, (void *)(uintptr_t)(dword_100000), (void *)(uintptr_t)(dword_100000), 0, 0);
+      rf_calib_setup_n3d8((int)a2, 1, dword_100000, dword_100000, 0, 0);
       sub_1099BC(24, (int)a2, 0, (int)v36);
       v30 = (uint32_t *)dword_109D2C;
       v31 = (uint32_t *)dword_109D30;
@@ -18307,317 +14757,6 @@ int * mmio_set_flag( int a1, int *a2, int a3, int a4, int a5, uint8_t a6, int a7
     a2[129] = v29;
     a2[131] = v29;
   }
-  return result;
-}
-
-
-
-// rf_sub_1209D40 @ 0x109d40
-int rf_sub_1209D40( int *a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, uint64_t *a11) {
-  int *v11; // r10
-  int v13; // r1
-  int v14; // r2
-  float v15; // s20
-  int v17; // r7
-  unsigned int *v19; // r2
-  unsigned int v20; // r3
-  unsigned int v21; // r11
-  unsigned int v22; // r0
-  int v23; // r2
-  char *v24; // r7
-  int v25; // r3
-  int i; // r4
-  int v27; // r1
-  int v28; // r3
-  int v29; // r2
-  int v30; // r2
-  int j; // r3
-  float v32; // s16
-  int v33; // r1
-  int v34; // r3
-  int v35; // r2
-  int v36; // r2
-  int v37; // r3
-  int v38; // r3
-  float v39; // s21
-  float v40; // s22
-  float v41; // s17
-  int v42; // r8
-  float v43; // s23
-  float v44; // s16
-  int v45; // r3
-  int v46; // s25
-  int v47; // r3
-  int v48; // r3
-  int v49; // r3
-  int v50; // r3
-  float v51; // s15
-  uint64_t v52; // r0
-  int v53; // r3
-  int v54; // cc
-  unsigned int *v55; // r2
-  int v56; // r1
-  int v57; // r3
-  int v58; // r3
-  int v59; // r3
-  int v60; // r1
-  int k; // r3
-  int result; // r0
-  uint32_t *v63; // r3
-  int v64; // r3
-  int v65; // r3
-  int v66; // r3
-  int v67; // r3
-  int v68; // r3
-  int v69; // r3
-  int v70; // r3
-  int v71; // r3
-  int v72; // r3
-  int v73; // r3
-  int v74; // r3
-  int v75; // [sp+20h] [bp-20h]
-  int v76; // [sp+24h] [bp-1Ch]
-  int v77; // [sp+2Ch] [bp-14h]
-  int v78; // [sp+30h] [bp-10h]
-  int *v79; // [sp+34h] [bp-Ch]
-  int *v80; // [sp+38h] [bp-8h]
-  unsigned int *v81; // [sp+3Ch] [bp-4h]
-  uint32_t v82[3]; // [sp+40h] [bp+0h] BYREF
-  int v83[5]; // [sp+4Ch] [bp+Ch] BYREF
-  float v84; // [sp+24Ch] [bp+20Ch]
-  float v85; // [sp+250h] [bp+210h]
-  float v86; // [sp+254h] [bp+214h]
-  float v87; // [sp+258h] [bp+218h]
-  char v88; // [sp+25Ch] [bp+21Ch] BYREF
-  int v89; // [sp+2BCh] [bp+27Ch]
-  float v90; // [sp+2CCh] [bp+28Ch]
-  uint8_t v91[1204]; // [sp+2D0h] [bp+290h] BYREF
-
-  v11 = (int *)off_10A0BC;
-  v13 = *(uint32_t *)(dword_10A070 + 4);
-  v14 = *(uint32_t *)(dword_10A070 + 8);
-  v82[0] = *(uint32_t *)dword_10A070;
-  v82[1] = v13;
-  v82[2] = v14;
-  v15 = flt_10A074;
-  v79 = (void *)(v82);
-  *(uint32_t *)(a5 + 4 * a4) = 1;
-  v81 = (unsigned int *)(a2 - 4);
-  v77 = 1;
-  v80 = (int *)(a5 + 4 * a4);
-  v17 = 0;
-  while ( 2 )
-  {
-    v19 = v81 + 1;
-    v20 = v81[1];
-    ++v81;
-    v21 = (uint8_t)v17;
-    if ( !v20 )
-    {
-      check_interrupt_flag(1, dword_10A354, v17, 0);
-      check_interrupt_flag(1, dword_10A358, v17, v64);
-      goto LABEL_28;
-    }
-    if ( !a4 && v17 == 1 )
-    {
-      check_interrupt_flag(1, dword_10A35C, (int)(uintptr_t)(v19), v20);
-      goto LABEL_29;
-    }
-    check_interrupt_flag(1, dword_10A078, v17, v20);
-    v22 = *v81;
-    v89 = 0;
-    phy_set_txpower(v22, (int)v83, a4, (int)v81);
-    check_interrupt_flag(1, dword_10A07C, v17, v89);
-    v75 = *v79;
-    if ( v89 <= 0 )
-      goto LABEL_27;
-    v78 = v17;
-    v76 = 0;
-    v24 = &v88;
-    do
-    {
-      v25 = *a1;
-      for ( i = *((uint32_t *)v24 + 16); !*a1; v25 = *a1 )
-        delay_us(1);
-      check_interrupt_flag(1, dword_10A080, v23, v25);
-      prcm_stop((int)v83, (int)v91, v21, i, a4, 0);
-      *v11 &= ~0x8000u;
-      *v11 &= ~0x2000u;
-      mmio_set_flag(i, v83, (int)v91, v21, 0, a4, a6, a7, a9, a10, a11);
-      v27 = dword_10A084;
-      *v11 |= 0x8000u;
-      v28 = *v11 | 0x2000;
-      *v11 = v28;
-      check_interrupt_flag(1, v27, v29, v28);
-      for ( j = a1[1]; !j; j = a1[1] )
-        delay_us(1);
-      v32 = flt_10A08C;
-      check_interrupt_flag(1, dword_10A088, v30, j);
-      prcm_stop((int)v83, (int)v91, v21, i, a4, 1);
-      *v11 &= ~0x8000u;
-      *v11 &= ~0x2000u;
-      mmio_set_flag(i, v83, (int)v91, v21, 1, a4, a6, 0, a9, a10, a11);
-      v33 = dword_10A084;
-      *v11 |= 0x8000u;
-      v34 = *v11 | 0x2000;
-      *v11 = v34;
-      check_interrupt_flag(1, v33, v35, v34);
-      check_interrupt_flag(1, dword_10A090, v36, v37);
-      check_interrupt_flag(1, dword_10A094, (int)(float)(v84 * v32), (int)(float)(v85 * v32));
-      check_interrupt_flag(1, dword_10A098, (int)(float)(v86 * v32), (int)(float)(v87 * v32));
-      v39 = v84 / v85;
-      v40 = v86 / v87;
-      if ( i == 11 )
-      {
-        v41 = 3.0;
-        v43 = 3.0;
-        v42 = 30000;
-      }
-      else
-      {
-        v38 = i - 12;
-        if ( (unsigned int)(i - 12) <= 1 )
-        {
-          v43 = flt_10A344;
-          v42 = 11000;
-          v41 = 3.0;
-        }
-        else if ( i == 14 )
-        {
-          v43 = flt_10A348;
-          v42 = 13000;
-          v41 = 3.0;
-        }
-        else if ( i <= 7 )
-        {
-          v41 = v15;
-          v43 = v15;
-          v42 = 10010;
-        }
-        else
-        {
-          v41 = flt_10A09C;
-          v42 = 11000;
-          v43 = flt_10A09C;
-        }
-      }
-      v44 = flt_10A0A0;
-      check_interrupt_flag(1, dword_10A0A4, v42, v38);
-      check_interrupt_flag(1, dword_10A0A8, (int)(float)(v41 * v44), v45);
-      v46 = (int)(float)(v39 * v44);
-      check_interrupt_flag(1, dword_10A0AC, v46, v47);
-      check_interrupt_flag(1, dword_10A0B0, (int)(float)(v40 * v44), v48);
-      check_interrupt_flag(1, dword_10A0B4, (int)(float)(v86 * v44), v49);
-      if ( v43 >= v39 )
-      {
-        v51 = v90;
-        if ( v90 < 2.0 )
-          goto LABEL_19;
-        v56 = dword_10A328;
-        *(uint32_t *)v24 = 0;
-        *((uint32_t *)v24 + 8) = 0;
-        check_interrupt_flag(1, v56, v42, v50);
-        check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v57);
-        check_interrupt_flag(1, dword_10A330, (int)(float)(v39 * v44), v58);
-        check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v59);
-        check_interrupt_flag(1, dword_10A338, v78, i);
-        if ( i <= 10 && v78 == 1 )
-        {
-          v77 = 0;
-          msg_parse(dword_10A33C, i);
-          *(uint32_t *)v24 = 1;
-          *((uint32_t *)v24 + 8) = 1;
-        }
-      }
-      else
-      {
-        if ( v41 < v40 )
-        {
-          v51 = v90;
-LABEL_19:
-          *(uint32_t *)v24 = 1;
-          *((uint32_t *)v24 + 8) = 1;
-          if ( i <= 8
-            && v41 > v40
-            && (v52 = ((int (*)())sub_127570)(LODWORD(v51)), double_gt(v52, HIDWORD(v52), dword_10A068, dword_10A06C))
-            && v78 == 1 )
-          {
-            check_interrupt_flag(1, dword_10A328, v42, 1);
-            check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v65);
-            check_interrupt_flag(1, dword_10A330, v46, v66);
-            check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v67);
-            check_interrupt_flag(1, dword_10A364, (int)(float)(v90 * flt_10A360), v68);
-            check_interrupt_flag(1, dword_10A368, i, v69);
-            v77 = 0;
-          }
-          else
-          {
-            check_interrupt_flag(1, dword_10A0B8, v78, i);
-            v77 = 1;
-          }
-          goto LABEL_24;
-        }
-        v51 = v90;
-        if ( v90 < 2.0 )
-          goto LABEL_19;
-        v60 = dword_10A340;
-        *(uint32_t *)v24 = 1;
-        *((uint32_t *)v24 + 8) = 0;
-        check_interrupt_flag(1, v60, v78, i);
-        if ( i <= 8 && v78 == 1 )
-        {
-          if ( v90 > 2.0 )
-          {
-            check_interrupt_flag(1, dword_10A328, v42, 1);
-            check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v70);
-            check_interrupt_flag(1, dword_10A330, v46, v71);
-            check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v72);
-            check_interrupt_flag(1, dword_10A364, (int)(float)(v90 * v44), v73);
-            check_interrupt_flag(1, dword_10A368, i, v74);
-            v77 = 0;
-            check_interrupt_flag(1, dword_10A33C, i, 0);
-          }
-          else
-          {
-            v77 = 1;
-          }
-        }
-        else
-        {
-          v77 = 1;
-        }
-      }
-LABEL_24:
-      v23 = v89;
-      v75 &= *(uint32_t *)v24;
-      v53 = *v80 & v77;
-      v54 = v89 <= ++v76;
-      *v79 = v75;
-      v24 += 4;
-      *v80 = v53;
-    }
-    while ( !v54 );
-    v17 = v78;
-LABEL_27:
-    v55 = v81;
-    *v81 = *v81 & 0xFFFEFFFF | (v75 << 16);
-LABEL_28:
-    if ( v21 != 2 )
-    {
-LABEL_29:
-      ++v17;
-      ++v79;
-      continue;
-    }
-    break;
-  }
-  for ( k = a1[2]; !k; k = a1[2] )
-    delay_us(1);
-  result = check_interrupt_flag(1, dword_10A34C, (int)(uintptr_t)(v55), k);
-  v63 = (void *)(uintptr_t)(off_10A350);
-  *(uint32_t *)off_10A350 &= ~0x200u;
-  *v63 |= 0x200u;
-  *v63 &= ~0x200u;
   return result;
 }
 
@@ -18848,12 +14987,7 @@ int process_signal_buffer( int *a1, int a2, int a3, int a4, int a5, int a6, int 
 LABEL_19:
           *(uint32_t *)v24 = 1;
           *((uint32_t *)v24 + 8) = 1;
-          if ( i <= 8
-            && v41 > v40
-            && (v52 = ((int (*)())sub_127570)(LODWORD(v51)), double_gt(v52, HIDWORD(v52), dword_10A068, dword_10A06C))
-            && v78 == 1 )
-          {
-            check_interrupt_flag(1, dword_10A328, v42, 1);
+if ( i <= 8 && v41 > v40 && (v52 = ((int (*)())sub_127570)(LODWORD(v51)), double_gt(v52, HIDWORD(v52), dword_10A068, dword_10A06C)) && v78 == 1 ) { check_interrupt_flag(1, dword_10A328, v42, 1);
             check_interrupt_flag(1, dword_10A32C, (int)(float)(v41 * v44), v65);
             check_interrupt_flag(1, dword_10A330, v46, v66);
             check_interrupt_flag(1, dword_10A334, (int)(float)(v40 * v44), v67);
@@ -18930,193 +15064,6 @@ LABEL_29:
   *v63 |= 0x200u;
   *v63 &= ~0x200u;
   return result;
-}
-
-
-
-// mac_aggr_setup @ 0x10a36c
-int mac_aggr_setup(int a1, unsigned int a2, uint8_t *a3, int *a4) {
-  uint8_t *v6; // r6
-  uint8_t *v7; // r9
-  int i; // r8
-  int v9; // r2
-  int v10; // r0
-  int v11; // r4
-  char v12; // r0
-  float *v13; // r5
-  int v14; // r4
-  float *v15; // r2
-  int v16; // r3
-  int v17; // r1
-  int v18; // r0
-  uint8_t *v19; // r1
-  int v20; // r2
-  int v21; // r4
-  float v23; // s12
-  float v24; // s13
-  float v25; // s14
-  float v26; // s15
-  int v27; // r3
-  int v28; // r0
-  int v29; // r3
-  float v30[3]; // [sp+0h] [bp-58h] BYREF
-  float v31[3]; // [sp+Ch] [bp-4Ch] BYREF
-  uint8_t v32[4]; // [sp+18h] [bp-40h] BYREF
-  uint8_t var3C[92]; // [sp+1Ch] [bp-3Ch] BYREF
-
-  if ( a2 > 9 && a1 != 3 )
-  {
-    v6 = a3 - 1;
-    v7 = v32;
-    for ( i = 0; i != 4; ++i )
-    {
-      v9 = 0;
-      v10 = 0;
-      do
-      {
-        if ( (uint8_t)i != (uint8_t)v9 )
-        {
-          if ( (uint8_t)v9 )
-          {
-            v30[v10] = (float)v6[v9];
-            v11 = 4 * v10;
-          }
-          else
-          {
-            v11 = 4 * v10;
-            v30[v10] = 128.0;
-          }
-          v10 = (uint8_t)(v10 + 1);
-          *(float *)&var3C[v11 - 16] = (float)a4[v9];
-        }
-        ++v9;
-      }
-      while ( v9 != 4 );
-      *v7 = 0;
-      v12 = sub_109368(v30, v31);
-      *v7 = v12;
-      if ( (v12 & 0xE) == 0 )
-        compare_float_samples(a2, v30, v31, (int)v7);
-      v7 += 16;
-    }
-    v13 = (float *)var3C;
-    v14 = 0;
-    v15 = (float *)var3C;
-    v16 = 0;
-    v17 = 128;
-    do
-    {
-      v18 = *((uint8_t *)v15 - 4);
-      if ( *((uint8_t *)v15 - 4) )
-      {
-        if ( (v18 & 8) != 0 )
-          goto LABEL_42;
-        if ( v18 == 1 )
-          v14 = 1;
-      }
-      else if ( v17 == 128 )
-      {
-        v17 = v16;
-      }
-      else if ( *v15 <= *(float *)&var3C[16 * v17] )
-      {
-        v17 = v16;
-      }
-      v16 = (uint8_t)(v16 + 1);
-      v15 += 4;
-    }
-    while ( v16 != 4 );
-    if ( v14 )
-    {
-      if ( v17 != 128 )
-      {
-LABEL_21:
-        v19 = &var3C[16 * v17 + 60];
-        v20 = (uint8_t)*(v19 - 64);
-        v21 = (uint8_t)*(v19 - 63);
-        if ( !*(v19 - 64) )
-          return v21;
-        goto LABEL_22;
-      }
-      v29 = 0;
-      do
-      {
-        v15 = (float *)*((uint8_t *)v13 - 4);
-        if ( v15 == (float *)1 )
-        {
-          v15 = (float *)&var3C[16 * v17 + 60];
-          if ( v17 == 128 )
-          {
-            v17 = v29;
-          }
-          else if ( *v13 <= *(v15 - 15) )
-          {
-            v17 = v29;
-          }
-        }
-        v29 = (uint8_t)(v29 + 1);
-        v13 += 4;
-      }
-      while ( v29 != 4 );
-    }
-    if ( v17 == 128 )
-    {
-LABEL_42:
-      v21 = 32 * (9 - a2);
-      sub_10DA6C(dword_10A5AC, a2, v15);
-      return v21;
-    }
-    goto LABEL_21;
-  }
-  v23 = (float)a3[1];
-  v24 = (float)*a4;
-  v25 = (float)a4[1];
-  v26 = (float)a4[2];
-  v30[1] = (float)*a3;
-  v30[2] = v23;
-  v31[0] = v24;
-  v31[1] = v25;
-  v31[2] = v26;
-  v30[0] = 128.0;
-  v32[0] = 0;
-  if ( a2 > 9 )
-  {
-    v28 = sub_109368(v30, v31);
-    v32[0] = v28;
-    if ( (v28 & 0xE) != 0 )
-    {
-      v20 = v28;
-    }
-    else
-    {
-      compare_float_samples(a2, v30, v31, (int)v32);
-      v27 = v32[0];
-      v20 = v32[0];
-      if ( (v32[0] & 0xE) == 0 )
-        goto LABEL_26;
-    }
-    v21 = 32 * (9 - a2);
-    sub_10DA6C(dword_10A5A8, a2, v20);
-    return v21;
-  }
-  compare_float_samples(a2, v30, v31, (int)v32);
-  v20 = v32[0];
-  v27 = v32[0];
-  if ( (v32[0] & 0xE) != 0 )
-  {
-    v21 = 128;
-    sub_10DA6C(dword_10A5A8, a2, v32[0]);
-    return v21;
-  }
-LABEL_26:
-  v21 = v32[1];
-  if ( v27 )
-  {
-LABEL_22:
-    sub_10DA6C(dword_10A5A8, a2, v20);
-    return v21;
-  }
-  return v21;
 }
 
 
@@ -19571,386 +15518,6 @@ LABEL_28:
   v42 = *v40 | 0x40000;
   *v40 = v42;
   return check_interrupt_flag(0x2000, v41, v42, (int)(uintptr_t)(v40));
-}
-
-
-
-// rf_rx_dc_calib @ 0x10ac18
-int rf_rx_dc_calib(unsigned int *a1, uint8_t *a2, int a3) {
-  int v3; // r9
-  int v4; // r10
-  int v5; // r11
-  int v7; // r1
-  unsigned int v8; // r2
-  int v9; // lr
-  int v10; // r12
-  int v11; // r0
-  int *v12; // r2
-  int v13; // r4
-  unsigned int *v14; // r1
-  unsigned int *v15; // r6
-  int *v16; // r4
-  unsigned int v17; // r3
-  unsigned int *v18; // r4
-  int v19; // r2
-  int v20; // r3
-  int v21; // r0
-  int v22; // r1
-  int v23; // r2
-  int v24; // r3
-  unsigned int *v25; // r1
-  int v26; // r3
-  unsigned int *v27; // r9
-  int v28; // r10
-  unsigned int v29; // r4
-  unsigned int v30; // r3
-  int v31; // r5
-  int v32; // r4
-  int v33; // r7
-  int v34; // r9
-  int v35; // r0
-  int *v36; // r10
-  int v37; // r1
-  int v38; // r12
-  unsigned int *v39; // r2
-  unsigned int *v40; // r8
-  int *v41; // r12
-  int v42; // t1
-  uint32_t *v43; // r0
-  int v44; // r1
-  unsigned int v45; // r3
-  int v46; // r1
-  int v48; // r8
-  unsigned int *v49; // r2
-  int *v50; // lr
-  unsigned int *v51; // r8
-  int v52; // t1
-  int v53; // r6
-  unsigned int *v54; // r1
-  int *v55; // r5
-  unsigned int *v56; // r6
-  unsigned int v57; // r3
-  int v58; // s16
-  int i; // r8
-  int v60; // r10
-  int v61; // r7
-  int v62; // r5
-  int v63; // r6
-  int v64; // r1
-  int v65; // lr
-  int v66; // r10
-  int v67; // r3
-  int v68; // r12
-  int v69; // r5
-  unsigned int *v70; // r11
-  unsigned int v71; // r2
-  unsigned int v72; // t1
-  int v73; // r6
-  uint32_t *v74; // r0
-  int v75; // r3
-  int v76; // r0
-  int v77; // cc
-  int v78; // r3
-  int v79; // r0
-  int v80; // [sp+10h] [bp-1BCh]
-  int v81; // [sp+14h] [bp-1B8h]
-  unsigned int *v82; // [sp+18h] [bp-1B4h]
-  uint8_t *v83; // [sp+1Ch] [bp-1B0h]
-  int v84; // [sp+20h] [bp-1ACh]
-  int v85; // [sp+24h] [bp-1A8h]
-  int v88; // [sp+34h] [bp-198h]
-  int v89; // [sp+38h] [bp-194h] BYREF
-  int v90; // [sp+3Ch] [bp-190h]
-  int16_t v91; // [sp+40h] [bp-18Ch]
-  uint32_t v92[14]; // [sp+44h] [bp-188h] BYREF
-  int v93; // [sp+7Ch] [bp-150h]
-  uint8_t v94[128]; // [sp+88h] [bp-144h] BYREF
-  uint8_t v95[196]; // [sp+108h] [bp-C4h] BYREF
-
-  v3 = dword_10AF6C;
-  v4 = dword_10AF74;
-  v5 = dword_10AF98;
-  msg_parse(dword_10AF4C, a2);
-  v7 = *(uint32_t *)off_10AF50;
-  v8 = *(uint32_t *)off_10AF50 & 0xFFFFFFFE;
-  v89 = 0;
-  v90 = 0;
-  v91 = 0;
-  *(uint32_t *)off_10AF50 = v8;
-  v85 = v7 & 1;
-  gpio_set_pin(0);
-  v9 = dword_10AF70;
-  v10 = dword_10AF78;
-  v11 = 0;
-  v12 = (int *)v95;
-  do
-  {
-    if ( v11 )
-    {
-      if ( v11 != 1 )
-      {
-        v13 = v10;
-        goto LABEL_5;
-      }
-      v13 = v4;
-      v53 = v5;
-    }
-    else
-    {
-      v13 = v3;
-      v53 = v9;
-    }
-    v54 = (unsigned int *)(v53 + 4);
-    v55 = (int *)&v94[64 * v11];
-    v56 = (unsigned int *)(v53 + 516);
-    do
-    {
-      v57 = *v54;
-      *v54 &= 0xFFF1FFFF;
-      v54 += 8;
-      *v55++ = (v57 >> 17) & 7;
-    }
-    while ( v54 != v56 );
-LABEL_5:
-    v14 = (unsigned int *)(v13 + 4);
-    v15 = (unsigned int *)(v13 + 516);
-    v16 = v12;
-    do
-    {
-      v17 = *v14;
-      *v14 &= 0xFFF1FFFF;
-      v14 += 8;
-      *v16++ = (v17 >> 17) & 7;
-    }
-    while ( v15 != v14 );
-    ++v11;
-    v12 += 16;
-  }
-  while ( v11 != 3 );
-  v18 = (unsigned int *)off_10AF54;
-  gpio_clear_pin(0);
-  check_interrupt_flag(1, dword_10AF58, v19, v20);
-  v21 = dword_10AF5C;
-  *v18 |= 0x400u;
-  *v18 &= ~0x400u;
-  msg_parse(v21, v22);
-  check_interrupt_flag(1, dword_10AF60, v23, v24);
-  if ( (*(uint32_t *)off_10AF64 & 2) != 0 )
-    v26 = 8;
-  else
-    v26 = 56;
-  v27 = v18;
-  v80 = v26 + a3;
-  do
-  {
-    v28 = *(uint8_t *)(a3 + 5);
-    v29 = *(uint16_t *)(a3 + 2);
-    *v27 |= 0x400u;
-    v30 = *v27 & 0xFFFFFBFF;
-    *v27 = v30;
-    if ( v28 == 1 )
-    {
-      check_interrupt_flag(1, dword_10AF88, v29, v30);
-      if ( v29 > 0x1388 )
-      {
-        v91 = (v91 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-        v89 = (v89 & ~0xFFu) | ((uint8_t)(1) & 0xFFu);
-        v89 = (v89 & ~0xFFFF0000u) | (((uint16_t)(v29) & 0xFFFFu) << 16);
-        v90 = (v90 & ~0xFFFFu) | ((uint16_t)(v29) & 0xFFFFu);
-        v90 = (v90 & ~0xFFFF0000u) | (((uint16_t)(v29) & 0xFFFFu) << 16);
-        tx_set_power((uint8_t *)&v89, 0);
-        v79 = rf_check_freq(v29);
-        v84 = dword_10B040 + 384 * v79;
-        v82 = &a1[316 * (uint8_t)(v79 + 1)];
-        v58 = (uint8_t)(v79 + 1);
-        v83 = &a2[v58];
-      }
-      else
-      {
-        v90 = (v90 & ~0xFFFFu) | ((uint16_t)(v29) & 0xFFFFu);
-        v89 = (v89 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-        v91 = (v91 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-        tx_set_power((uint8_t *)&v89, 0);
-        v84 = dword_10AF8C;
-        v83 = a2;
-        v58 = 0;
-        v82 = a1;
-        v28 = 0;
-      }
-      rf_transmit_packet((int)(v82 + 292), v82, 255, 0, 0, dword_10AF90, 0);
-      delay_us(10000);
-      v88 = a3;
-      *v83 = 1;
-      v81 = v28;
-      for ( i = 0; i != 3; ++i )
-      {
-        if ( !v82[i] )
-          check_interrupt_flag(1, dword_10B044, i, 0);
-        if ( v81 == 1 )
-        {
-          if ( i )
-          {
-            if ( i == 1 )
-              v60 = 1;
-            else
-              v60 = 2;
-            if ( i == 1 )
-              v61 = 8;
-            else
-              v61 = 9;
-            if ( i == 1 )
-              v62 = 64;
-            else
-              v62 = 96;
-            if ( i == 1 )
-              v63 = 32;
-            else
-              v63 = 64;
-          }
-          else
-          {
-            v60 = 0;
-            v63 = 0;
-            v61 = 9;
-            v62 = 32;
-          }
-        }
-        else
-        {
-          v60 = 2;
-          v61 = 0;
-          v62 = 96;
-          v63 = 32;
-        }
-        v64 = dword_10AF94;
-        *v83 &= (v82[v60] & 0x20000) != 0;
-        check_interrupt_flag(1, v64, v58, i);
-        crypto_key_schedule(v82[v60], v92);
-        if ( v63 < v62 )
-        {
-          v65 = v93;
-          v66 = v92[10];
-          v67 = v84 - 4 + 4 * v62;
-          v25 = (unsigned int *)(v84 + 4 * (v63 + 0x3FFFFFFF));
-          v68 = v93 - 1;
-          v69 = 0;
-          v70 = (unsigned int *)v67;
-          do
-          {
-            v72 = v25[1];
-            ++v25;
-            v71 = v72;
-            v73 = (v72 >> 8) & 0xF;
-            if ( v61 <= v73 )
-            {
-              if ( v65 == 1 )
-              {
-                v69 = v66 == v73;
-              }
-              else if ( v68 > 0 )
-              {
-                v69 = 0;
-                v74 = v92;
-                v75 = 1;
-                if ( v73 < v66 )
-                {
-LABEL_46:
-                  v75 = v69 + 1;
-                  if ( v81 != 1 )
-                    v69 = 1;
-                  goto LABEL_48;
-                }
-                while ( 1 )
-                {
-                  if ( v74[11] > v73 )
-                    v69 = v75;
-                  else
-                    v69 += 2;
-LABEL_48:
-                  v76 = v75;
-                  v77 = v68 <= v75;
-                  v78 = v75 + 10;
-                  if ( v77 )
-                    break;
-                  v69 = v76;
-                  v77 = v73 < v92[v78];
-                  v74 = &v92[v76];
-                  v75 = v69 + 1;
-                  if ( v77 )
-                    goto LABEL_46;
-                }
-              }
-              *v25 = v71 & 0xE7FFFFFF | (v69 << 27);
-            }
-          }
-          while ( v70 != v25 );
-        }
-      }
-      a3 = v88;
-    }
-    a3 += 8;
-  }
-  while ( v80 != a3 );
-  v31 = dword_10AF6C;
-  v32 = dword_10AF70;
-  v33 = dword_10AF74;
-  v34 = dword_10AF98;
-  msg_parse(dword_10AF68, v25);
-  gpio_set_pin(0);
-  v35 = dword_10AF78;
-  v36 = (int *)v95;
-  v37 = 0;
-  while ( 2 )
-  {
-    if ( v37 )
-    {
-      if ( v37 != 1 )
-      {
-        v38 = v35;
-        goto LABEL_18;
-      }
-      v38 = v33;
-      v48 = v34;
-    }
-    else
-    {
-      v38 = v31;
-      v48 = v32;
-    }
-    v49 = (unsigned int *)(v48 + 4);
-    v50 = (int *)&v94[64 * v37];
-    v51 = (unsigned int *)(v48 + 484);
-    do
-    {
-      v52 = *v50++;
-      *v49 = *v49 & 0xFFF1FFFF | (v52 << 17);
-      v49 += 8;
-    }
-    while ( v51 != v49 );
-LABEL_18:
-    v39 = (unsigned int *)(v38 + 4);
-    v40 = (unsigned int *)(v38 + 484);
-    v41 = v36;
-    do
-    {
-      v42 = *v41++;
-      *v39 = *v39 & 0xFFF1FFFF | (v42 << 17);
-      v39 += 8;
-    }
-    while ( v40 != v39 );
-    ++v37;
-    v36 += 16;
-    if ( v37 != 3 )
-      continue;
-    break;
-  }
-  gpio_clear_pin(0);
-  v43 = (void *)(uintptr_t)(off_10AF7C);
-  v44 = dword_10AF80;
-  v45 = *(uint32_t *)off_10AF50 & 0xFFFFFFFE | v85;
-  *(uint32_t *)off_10AF50 = v45;
-  check_interrupt_flag(1, v44, (*v43 >> 21) & 7, v45);
-  return msg_parse(dword_10AF84, v46);
 }
 
 
@@ -20987,7 +16554,7 @@ LABEL_35:
           v187 = v178;
           v120 = crc32_block((float)-v106 / 20.0);
           v121 = ((int (*)())sub_127570)((float)v116 * v120);
-          v122 = ((int (*)())math_round)(v121, HIDWORD(v121));
+          v122 = math_round(v121, HIDWORD(v121));
           v105 = double_to_float(v122, HIDWORD(v122));
           v104 = v105 | v194 | 0xFFC000;
           v107 = 1;
@@ -21495,208 +17062,6 @@ LABEL_3:
 
 
 
-// tx_phy_config @ 0x10bf28
-uint32_t * tx_phy_config(uint32_t *result, unsigned int a2, int a3, int a4) {
-  int v4; // r6
-  int v7; // r7
-  int v8; // r3
-  int v9; // r10
-  int v10; // r0
-  unsigned int v11; // r3
-  unsigned int v12; // r3
-  int v13; // r1
-  void *v14; // r2
-  int v15; // r3
-  unsigned int v16; // r0
-  int v17; // r0
-  uint64_t v18; // r8
-  double v19; // d8
-  uint64_t v20; // r0
-  uint64_t v21; // r0
-  uint64_t v22; // r0
-  uint64_t v23; // r0
-  int v24; // r8
-  uint64_t v25; // r0
-  int v26; // r2
-  int v27; // r0
-  int v28; // r8
-  int v29; // r0
-  int v30; // r1
-  int v31; // r2
-  int v32; // r3
-  uint16_t *v33; // r6
-  int v34; // r1
-  int v35; // r2
-  int v36; // r5
-  uint64_t v37; // r0
-  int v38; // r2
-  int v39; // r3
-  uint64_t v40; // r0
-  int v41; // r2
-  int v42; // r3
-  int v43; // r2
-  int v44; // r3
-  int v45; // r0
-  int v46; // r1
-  int v47; // r2
-  int v48; // r3
-  int v49; // [sp+0h] [bp-64h]
-  int v50; // [sp+0h] [bp-64h]
-  int v51; // [sp+0h] [bp-64h]
-  int v52; // [sp+Ch] [bp-58h]
-  int v53[3]; // [sp+24h] [bp-40h] BYREF
-  uint64_t v54; // [sp+30h] [bp-34h] BYREF
-  int v55; // [sp+38h] [bp-2Ch]
-  int v56; // [sp+3Ch] [bp-28h]
-  uint64_t v57; // [sp+40h] [bp-24h]
-  int v58; // [sp+48h] [bp-1Ch]
-  int v59; // [sp+4Ch] [bp-18h]
-  int v60; // [sp+50h] [bp-14h]
-  int v61; // [sp+54h] [bp-10h]
-  int v62; // [sp+58h] [bp-Ch]
-  int v63; // [sp+5Ch] [bp-8h]
-
-  v4 = *result;
-  v7 = (uint8_t)*result >> 6;
-  if ( !a3 )
-  {
-    if ( !a4 )
-      return result;
-    goto LABEL_3;
-  }
-  v9 = result[1];
-  v10 = check_interrupt_flag(0x2000, dword_10C178, *result, v9);
-  v11 = a2 - 2;
-  do
-  {
-    *(uint16_t *)(v11 + 2) = -32640;
-    v11 += 2;
-  }
-  while ( a2 + 30 != v11 );
-  *(uint32_t *)(a2 + 32) = 0;
-  *(uint32_t *)(a2 + 36) = 0;
-  v12 = a2 + 36;
-  v13 = a2 + 100;
-  do
-  {
-    *(uint32_t *)(v12 + 4) = 0;
-    v12 += 4;
-  }
-  while ( v13 != v12 );
-  v14 = (void *)(uintptr_t)(off_10C17C);
-  do
-    v15 = *(uint32_t *)off_10C17C;
-  while ( !*(uint32_t *)off_10C17C );
-  if ( v7 )
-  {
-    v16 = (*(uint32_t *)off_10C180 >> 5) & 0x1F;
-    if ( (*(uint32_t *)off_10C180 & 0x400) != 0 )
-      v16 *= 2;
-    if ( (*(uint32_t *)off_10C184 & 0x80000) != 0 && (*(uint32_t *)off_10C184 & 0x40000) != 0 )
-      v16 >>= 1;
-    v17 = *(uint8_t *)off_10C18C * v16;
-    *(uint32_t *)off_10C188 &= ~1u;
-    if ( (uint8_t)v4 >> 7 )
-    {
-      v18 = *(uint64_t *)&dword_10C168;
-      v19 = dbl_10C160;
-    }
-    else
-    {
-      v18 = *(uint64_t *)&dword_10C158;
-      v19 = dbl_10C150;
-    }
-    v20 = sub_12754C(v17);
-    v21 = ((int (*)())sub_127620)(v20, HIDWORD(v20), 0, dword_10C190);
-    v22 = sub_127874(v18, HIDWORD(v18), v21, HIDWORD(v21));
-    v23 = ((int (*)())sub_127620)(v22, HIDWORD(v22), 0, dword_10C194);
-    v24 = ((int (*)())math_round)(v23, HIDWORD(v23));
-    v25 = sub_127874(LODWORD(v19), HIDWORD(v19), 0, dword_10C190);
-    v26 = ((int (*)())math_round)(v25, HIDWORD(v25));
-    v27 = v24;
-    v28 = v26;
-    *(uint32_t *)off_10C1B0 = ((int (*)())sub_127BA4)(v27) & 0x7FFFFFFF;
-    v10 = ((int (*)())sub_127BA4)(v28);
-    v14 = (void *)(uintptr_t)(off_10C198);
-    v13 = *(uint32_t *)off_10C198 & dword_10C1A0;
-    v15 = dword_10C19C & (v10 << 13) | v13;
-    *(uint32_t *)off_10C198 = v15;
-  }
-  crypto_hw_power_up(v10, v13, (int)v14, v15, v49);
-  v29 = read_radio_status((uint8_t)v4, a2, v9, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
-  result = (uint32_t *)configure_bb_clock(v29, v30, v31, v32, v50);
-  *(uint32_t *)off_10C17C = 1;
-  if ( a4 )
-  {
-LABEL_3:
-    v8 = *(uint32_t *)off_10C170;
-    if ( (*(uint32_t *)off_10C170 & 0x8000000) == 0
-      || (v8 = *(uint32_t *)off_10C174 << 21, (*(uint32_t *)off_10C174 & 0x400) != 0) )
-    {
-      if ( !v7 )
-      {
-        v33 = (uint16_t *)off_10C1A8;
-        v34 = *(uint32_t *)(dword_10C1A4 + 4);
-        v35 = *(uint32_t *)(dword_10C1A4 + 8);
-        v36 = dword_10C1A4 + 72;
-        v53[0] = *(uint32_t *)dword_10C1A4;
-        v53[1] = v34;
-        v53[2] = v35;
-        crypto_hw_power_up(v53[0], v34, v35, v8, v49);
-        v37 = *(uint64_t *)v36;
-        v38 = *(uint32_t *)(v36 + 8);
-        v39 = *(uint32_t *)(v36 + 12);
-        v36 += 16;
-        v54 = v37;
-        v55 = v38;
-        v56 = v39;
-        v40 = *(uint64_t *)v36;
-        v41 = *(uint32_t *)(v36 + 8);
-        v42 = *(uint32_t *)(v36 + 12);
-        v36 += 16;
-        v57 = v40;
-        v58 = v41;
-        v59 = v42;
-        v40 = (v40 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(*(uint32_t *)(v36 + 4)) << 32);
-        v43 = *(uint32_t *)(v36 + 8);
-        v44 = *(uint32_t *)(v36 + 12);
-        v60 = *(uint32_t *)v36;
-        v61 = HIDWORD(v40);
-        v62 = v43;
-        v63 = v44;
-        *((uint8_t *)v33 + 4) = 0;
-        v40 = (v40 & ~0xFFFFFFFFull) | ((uint32_t)(dword_10C1AC) & 0xFFFFFFFFu);
-        *((uint8_t *)v33 + 12) = 0;
-        *((uint8_t *)v33 + 20) = 0;
-        *((uint8_t *)v33 + 28) = 0;
-        *((uint8_t *)v33 + 36) = 0;
-        *((uint8_t *)v33 + 44) = 0;
-        *((uint8_t *)v33 + 52) = 0;
-        rf_rx_dc_calib((unsigned int *)v40, (uint8_t *)(a2 + 125), (int)v33);
-        v45 = apply_dsp_transform(v53, dword_10C1AC, a2 + 104, a2 + 125, v33, 6, 1, v52, 0, 0, &v54);
-        *((uint8_t *)v33 + 4) = 0;
-        *((uint8_t *)v33 + 12) = 0;
-        *((uint8_t *)v33 + 20) = 0;
-        *((uint8_t *)v33 + 28) = 0;
-        *((uint8_t *)v33 + 36) = 0;
-        *((uint8_t *)v33 + 44) = 0;
-        *((uint8_t *)v33 + 52) = 0;
-        return (uint32_t *)configure_bb_clock(v45, v46, v47, v48, v51);
-      }
-    }
-  }
-  return result;
-}
-
-
-
-// lmac_init_frame_n_1b4 @ 0x10c1b4
-void lmac_init_frame_n_1b4(int a1, int a2) {
-  rf_calibrate(a1, a2, a2, 0);
-}
-
-
-
 // call_tx_function @ 0x10c1b4
 void call_tx_function(int a1, int a2) {
   rf_calibrate(a1, a2, a2, 0);
@@ -21853,7 +17218,7 @@ void configure_dma_engine() {
       v62[9] = v62[9] & 0xFFFFFF00 | 0x60;
       v62[9] = v62[9] & 0xFFFF00FF | 0xDF00;
 LABEL_11:
-      v10 = ((int (*)())irq23_enable)();
+      v10 = irq23_enable();
       if ( !*(uint32_t *)off_10C3F4 )
         goto LABEL_15;
       goto LABEL_12;
@@ -21878,7 +17243,7 @@ LABEL_11:
     v13[9] = v13[9] & 0xFFFFFF00 | 0x60;
     v13[9] = v13[9] & 0xFFFF00FF | 0xDF00;
   }
-  v10 = timer_init();
+  v10 = (int)(uintptr_t)(timer_init());
   if ( !*(uint32_t *)off_10C724 )
   {
 LABEL_15:
@@ -21969,7 +17334,7 @@ LABEL_22:
         else
         {
           ((int (*)())memset)((void *)(v97), 0, sizeof(v97));
-          if ( rf_param_set_op2((int)(uintptr_t)(v97)) )
+          if ( rf_param_set_op2(v97) )
           {
             v57 = (void *)(uintptr_t)(off_10CA90);
           }
@@ -22009,7 +17374,7 @@ LABEL_22:
             v57[1] |= 1u;
           }
           ((int (*)())memset)(v98, 0, 20);
-          if ( !rf_emit_setup_word((int)(uintptr_t)(v98)) )
+          if ( !rf_emit_setup_word(v98) )
           {
             v67 = (void *)(uintptr_t)(off_10CBD8);
             sub_10DA6C(dword_10CBB8, v58, v59);
@@ -22044,9 +17409,7 @@ LABEL_22:
             sub_10DA6C(dword_10CBC8, v78, v68);
             v94[1] |= 1u;
           }
-          if ( mmio_read_128((int)(uintptr_t)(&v96)) )
-          {
-            v38 = -1;
+if ( mmio_read_128((int)(uintptr_t)(&v96)) ) { v38 = -1;
             *v57 = -1;
           }
           else
@@ -22127,9 +17490,7 @@ LABEL_22:
     else
     {
       *(uint32_t *)v98 = 0;
-      if ( sub_114558((int)(uintptr_t)(v98)) )
-      {
-        v16 = (uint8_t)v95;
+if ( sub_114558((int)(uintptr_t)(v98)) ) { v16 = (uint8_t)v95;
       }
       else
       {
@@ -22182,38 +17543,6 @@ int *config_uart_control() {
 
 
 
-// mac_desc_init @ 0x10cc98
-int *mac_desc_init() {
-  int v0; // r4
-  int v1; // zf
-  uint8_t v2; // r1
-  int **v3; // r4
-
-  v0 = *((uint32_t *)off_10CD0C + 23);
-  sub_100200((int *)dword_10CD10, 0, 0x28u);
-  sub_100200((int *)dword_10CD14, 0, 0x17C4u);
-  if ( (*(uint32_t *)off_10CD18 & 8) != 0 )
-  {
-    while ( (*(uint32_t *)off_10CD18 & 0x10) == 0 )
-      ;
-    v3 = (int **)off_10CD1C;
-  }
-  else
-  {
-    v2 = v0 & 3;
-    v1 = (v0 & 3) == 0;
-    v3 = (int **)off_10CD1C;
-    *(uint32_t *)off_10CD18 |= 8u;
-    if ( v1 )
-      sub_100200(*v3, v2, 0x258u);
-    *(uint32_t *)off_10CD18 |= 0x10u;
-  }
-  (*v3)[149] = *(uint32_t *)off_10CD20;
-  return config_uart_control();
-}
-
-
-
 // sub_10CC98 @ 0x10cc98
 int *sub_10CC98() {
   int v0; // r4
@@ -22242,34 +17571,6 @@ int *sub_10CC98() {
   }
   (*v3)[149] = *(uint32_t *)off_10CD20;
   return config_uart_control();
-}
-
-
-
-// mmio_check_status_n0d24 @ 0x10cd24
-int mmio_check_status_n0d24() {
-  int v0; // r4
-  int result; // r0
-  int *v2; // r2
-  uint8_t *v3; // r3
-  uint32_t *v4; // r2
-
-  v0 = *(uint32_t *)off_10CD58 & 0xF00;
-  if ( v0 )
-  {
-    result = irq_nesting_or(0x10000);
-    v2 = (int *)off_10CD5C;
-    v3 = (void *)(uintptr_t)(off_10CD64);
-    *(uint32_t *)off_10CD60 = v0;
-    *v2 = v0;
-    if ( *v3 )
-    {
-      v4 = (void *)(uintptr_t)(off_10CD68);
-      v3[1] = 1;
-      *v4 |= 1u;
-    }
-  }
-  return result;
 }
 
 
@@ -22366,7 +17667,7 @@ int handle_interrupt_save(char a1) {
       }
       v15 = dword_10CE64;
       *(uint32_t *)&v2[20 * v8 + 4] = v12 + *(uint32_t *)off_10CE60;
-      ((int (*)())list_push_tail)(v15);
+      list_push_tail(v15);
       if ( !*(uint32_t *)(v1 + 588) )
         goto LABEL_13;
     }
@@ -22375,30 +17676,6 @@ int handle_interrupt_save(char a1) {
 LABEL_13:
   result = irq_nesting_or(2048);
   *(uint32_t *)off_10CE68 = (1 << (a1 + 8)) & 0xF00;
-  return result;
-}
-
-
-
-// rf_init_or_isr @ 0x10ce80
-int rf_init_or_isr() {
-  int v0; // r4
-  uint32_t *v1; // r2
-  int result; // r0
-
-  v0 = *(uint32_t *)off_10CEB4;
-  if ( (*(uint32_t *)off_10CEB4 & 0x20) != 0 )
-  {
-    v1 = (void *)(uintptr_t)(off_10CEBC);
-    *(uint32_t *)off_10CEB8 = 32;
-    *v1 = 32;
-    result = irq_nesting_or(0x400000);
-  }
-  if ( (v0 & 2) != 0 )
-  {
-    result = irq_nesting_or(0x8000000);
-    *(uint32_t *)off_10CEB8 = 2;
-  }
   return result;
 }
 
@@ -22444,31 +17721,6 @@ int lookup_mac_descriptor() {
 
 
 
-// rf_efuse_read_word_n_ce4 @ 0x10cef4
-int rf_efuse_read_word_n_ce4() {
-  uint32_t *v0; // r4
-  int result; // r0
-
-  v0 = (void *)(uintptr_t)(off_10CF20);
-  while ( !*(uint32_t *)off_10CF20 )
-    ;
-  result = *(uint32_t *)(*(uint32_t *)off_10CF24 + 532);
-  if ( result )
-  {
-    result = (int)(uintptr_t)(list_pop_front(*(uint32_t *)off_10CF24 + 532));
-    *v0 = 1;
-    if ( result )
-      result += 4;
-  }
-  else
-  {
-    *(uint32_t *)off_10CF20 = 1;
-  }
-  return result;
-}
-
-
-
 // poll_hw_status @ 0x10cef4
 int poll_hw_status() {
   uint32_t *v0; // r4
@@ -22490,13 +17742,6 @@ int poll_hw_status() {
     *(uint32_t *)off_10CF20 = 1;
   }
   return result;
-}
-
-
-
-// mmio_write0x40035100_set0x100 @ 0x10cf2c
-void mmio_write0x40035100_set0x100() {
-  *(uint32_t *)off_10CF38 = 256;
 }
 
 
@@ -22872,8 +18117,8 @@ LABEL_16:
       v24 = (int *)off_10D358;
       v25 = dword_10D35C;
       ++*(uint32_t *)off_10D358;
-      v26 = ((int (*)())list_push_tail)(v25);
-      ((int (*)())rf_bus_mark_ne0)(v26);
+      v26 = list_push_tail(v25);
+      rf_bus_mark_ne0(v26);
       if ( *v24 )
       {
         v27 = *v24 - 1;
@@ -22899,7 +18144,7 @@ LABEL_16:
   v10 = (void *)(uintptr_t)(off_10D340);
   while ( !*(uint32_t *)off_10D340 )
     ;
-  ((int (*)())list_push_tail)(*(uint32_t *)off_10D344 + 524);
+  list_push_tail(*(uint32_t *)off_10D344 + 524);
   v11 = (void *)(uintptr_t)(off_10D348);
   *v10 = 1;
   *v11 = 2;
@@ -22910,7 +18155,7 @@ LABEL_9:
   if ( v9 != 1 )
     return isr_forward((int)(uintptr_t)(a1));
 LABEL_27:
-  v29 = (int *)irq_disable_1();
+  v29 = (int *)irq_disable();
   if ( !v29 )
   {
     sub_10DA6C(dword_10D428, v30, v31);
@@ -22923,7 +18168,7 @@ LABEL_27:
   v29[1] = 0;
   *v29 = v6;
   v29[2] = (uint16_t)(v32 + 16) | 0x80000000;
-  ((int (*)())rf_field_align_n_2a4)();
+  rf_field_align_n_2a4();
   return isr_forward((int)(uintptr_t)(a1));
 }
 
@@ -22975,45 +18220,6 @@ int rf_phy_init() {
 
 
 
-// timer_init @ 0x10d474
-int timer_init() {
-  unsigned int *v0; // r2
-  unsigned int v1; // r3
-  int result; // r0
-  uint32_t *v3; // r3
-
-  v0 = (unsigned int *)off_10D4B8;
-  v1 = *(uint32_t *)off_10D4B8;
-  if ( (*(uint32_t *)off_10D4B8 & 1) == 0 )
-  {
-    v1 = v1 & 0xFFFFFCFE | 0x101;
-    result = 17;
-    *((uint32_t *)off_10D4B8 + 4) = 0;
-    v0[5] = 0;
-    v0[1] = 17;
-    *v0 = v1;
-  }
-  if ( (v1 & 0x4000) == 0 )
-    *(uint32_t *)off_10D4B8 = v1 | 0x4040;
-  v3 = (void *)(uintptr_t)(off_10D4C0);
-  *(uint32_t *)(*((uint32_t *)off_10D4BC + 2) + 148) = off_10D4C4;
-  *v3 = 0x200000;
-  return result;
-}
-
-
-
-// irq23_enable @ 0x10d4c8
-void irq23_enable() {
-  uint32_t *v0; // r3
-
-  v0 = (void *)(uintptr_t)(off_10D4E0);
-  *(uint32_t *)(*((uint32_t *)off_10D4DC + 2) + 148) = off_10D4E4;
-  *v0 = 0x200000;
-}
-
-
-
 // panic_fatal @ 0x10d4c8
 void panic_fatal() {
   uint32_t *v0; // r3
@@ -23021,109 +18227,6 @@ void panic_fatal() {
   v0 = (void *)(uintptr_t)(off_10D4E0);
   *(uint32_t *)(*((uint32_t *)off_10D4DC + 2) + 148) = off_10D4E4;
   *v0 = 0x200000;
-}
-
-
-
-// log_hw_init_d4e8 @ 0x10d4e8
-void log_hw_init_d4e8() {
-  int v0; // r3
-  uint32_t *v1; // r5
-  uint32_t *v2; // r0
-  uint32_t *v3; // r1
-  uint32_t *v4; // r4
-  uint32_t *v5; // r0
-  unsigned int v6; // r3
-  unsigned int v7; // r2
-  unsigned int v8; // r3
-  int v9; // r7
-  int v10; // r0
-  int v11; // r3
-  uint32_t *v12; // r2
-  uint32_t *v13; // r4
-  int *v14; // r5
-  int *v15; // r6
-  uint32_t *v16; // r0
-  unsigned int *v17; // r1
-  uint32_t *v18; // r5
-  uint32_t *v19; // r2
-  int v20; // r0
-  uint32_t *v21; // r2
-  uint32_t *v22; // r3
-  int v23; // r0
-
-  v0 = *((uint32_t *)off_10D5D4 + 43);
-  if ( v0 >= 0 )
-  {
-    if ( *(uint32_t *)off_10D5D8 )
-    {
-      v21 = (void *)(uintptr_t)(off_10D600);
-      v22 = (void *)(uintptr_t)(off_10D604);
-      v23 = dword_10D608;
-      *(uint32_t *)off_10D5E0 = 1;
-      *(uint32_t *)(v21[2] + 124) = v23;
-      *v22 = 0x8000;
-    }
-  }
-  else if ( *(uint32_t *)off_10D5D8 )
-  {
-    v1 = (void *)(uintptr_t)(off_10D5E0);
-    v2 = (void *)(uintptr_t)(off_10D5E4);
-    v3 = (void *)(uintptr_t)(off_10D5E8);
-    *(uint32_t *)off_10D5DC = 0;
-    *v1 = 0;
-    *v2 = 1;
-    v4 = (void *)(uintptr_t)(off_10D5EC);
-    v5 = (void *)(uintptr_t)(off_10D5F0);
-    *v3 |= 0x100u;
-    *v4 = 3;
-    v6 = v0 & 0x7FFFFFFF;
-    if ( (v5[20] & 0x20) != 0 )
-    {
-      v7 = *(uint32_t *)off_10D610;
-      if ( v6 < *(uint32_t *)off_10D610 >> 4 )
-        goto LABEL_5;
-    }
-    else
-    {
-      v7 = 2 * *(uint32_t *)off_10D5F4;
-      if ( v6 < v7 >> 4 )
-      {
-LABEL_5:
-        v8 = v7 / v6;
-        v9 = (uint8_t)(v8 >> 4);
-        v10 = ((v8 >> 1) & 7) + 16 * ((v8 & 0xF) - ((v8 >> 1) & 7));
-        v11 = (uint8_t)(v8 >> 12);
-LABEL_6:
-        v12 = (void *)(uintptr_t)(off_10D5EC);
-        v13 = (void *)(uintptr_t)(off_10D5E0);
-        v14 = (int *)off_10D5F8;
-        v15 = (int *)off_10D5FC;
-        *(uint32_t *)off_10D5EC |= 0x80u;
-        *v15 = v9;
-        *v13 = v11;
-        *v14 = v10;
-        v16 = (void *)(uintptr_t)(off_10D5DC);
-        v17 = (unsigned int *)off_10D5E4;
-        v18 = (void *)(uintptr_t)(off_10D600);
-        *v12 &= ~0x80u;
-        *v16 = 7;
-        v19 = (void *)(uintptr_t)(off_10D604);
-        v20 = dword_10D608;
-        *v17 = *v17 & 0xFFFFFE00 | 1;
-        *v13 = 1;
-        *(uint32_t *)(v18[2] + 124) = v20;
-        *v19 = 0x8000;
-        goto LABEL_7;
-      }
-    }
-    v10 = 0;
-    v11 = 0;
-    v9 = 1;
-    goto LABEL_6;
-  }
-LABEL_7:
-  *(uint32_t *)off_10D60C = 1;
 }
 
 
@@ -23239,15 +18342,6 @@ void mac_tx_irq() {
 
 
 
-// nvic_irq_enable @ 0x10d624
-void nvic_irq_enable() {
-  *((uint32_t *)off_10D638 + 32) = 0x8000;
-  __dsb(0xFu);
-  __isb(0xFu);
-}
-
-
-
 // trace_sync @ 0x10d624
 void trace_sync() {
   *((uint32_t *)off_10D638 + 32) = 0x8000;
@@ -23259,16 +18353,6 @@ void trace_sync() {
 
 // uart_tx_byte @ 0x10d63c
 int uart_tx_byte(int result) {
-  while ( (*(uint32_t *)off_10D64C & 0x80000) != 0 )
-    ;
-  *(uint32_t *)off_10D650 = result;
-  return result;
-}
-
-
-
-// uart_putc @ 0x10d63c
-int uart_putc(int result) {
   while ( (*(uint32_t *)off_10D64C & 0x80000) != 0 )
     ;
   *(uint32_t *)off_10D650 = result;
@@ -23304,33 +18388,6 @@ uint8_t * uart_tx_string(uint8_t *result) {
 
 
 
-// uart_puts @ 0x10d654
-uint8_t * uart_puts(uint8_t *result) {
-  int v1; // r1
-  uint32_t *v2; // r2
-  uint32_t *v3; // r4
-  int v4; // t1
-
-  v1 = (uint8_t)*result;
-  if ( *result )
-  {
-    v2 = (void *)(uintptr_t)(off_10D678);
-    v3 = (void *)(uintptr_t)(off_10D67C);
-    do
-    {
-      while ( (*v2 & 0x80000) != 0 )
-        ;
-      *v3 = v1;
-      v4 = (uint8_t)*++result;
-      v1 = v4;
-    }
-    while ( v4 );
-  }
-  return result;
-}
-
-
-
 // uart_rx_byte @ 0x10d680
 int uart_rx_byte() {
   while ( (*(uint32_t *)off_10D690 & 1) == 0 )
@@ -23340,393 +18397,9 @@ int uart_rx_byte() {
 
 
 
-// mmio_reg_bit0_read @ 0x10d698
-int mmio_reg_bit0_read() {
-  return *(uint32_t *)off_10D6A4 & 1;
-}
-
-
-
 // uart_rx_ready @ 0x10d698
 int uart_rx_ready() {
   return *(uint32_t *)off_10D6A4 & 1;
-}
-
-
-
-// message_dispatch_n286 @ 0x10d6a8
-int message_dispatch_n286(int a1, int a2) {
-  int v2; // r4
-  int v3; // r0
-  int v4; // r1
-  int v5; // r6
-  int v6; // r5
-  int v7; // r3
-  uint8_t *v8; // r4
-  uint32_t *v9; // r1
-  uint32_t *v10; // r0
-  uint8_t *v11; // r5
-  int v12; // r2
-  int v13; // t1
-  uint8_t **v15; // r7
-  int v16; // r3
-  uint8_t **v17; // r8
-  int v18; // r0
-  uint32_t *v19; // r2
-  int *v20; // r4
-  int v21; // r1
-  int v22; // t1
-  int v23; // r1
-  uint8_t *v24; // r7
-  int v25; // r8
-  uint8_t *v26; // r0
-  uint8_t *v27; // r7
-  uint8_t *v28; // r8
-  int v29; // r0
-  uint32_t *v30; // r2
-  int *v31; // r12
-  int v32; // r1
-  int v33; // t1
-  uint16_t *v34; // r9
-  int v35; // r10
-  int v36; // r0
-  uint32_t *v37; // r2
-  int *v38; // r5
-  int v39; // r1
-  int v40; // t1
-  int *v41; // r11
-  int v42; // r0
-  int v43; // r7
-  int v44; // r3
-  uint8_t *v45; // r1
-  unsigned int v46; // r2
-  int16_t v47; // r0
-  uint32_t *v48; // r5
-  int v49; // r2
-  int *v50; // r5
-  int v51; // r0
-  int v52; // r0
-  int v53; // r3
-  int v54; // r2
-  int v55; // r0
-  uint32_t *v56; // r2
-  int *v57; // r4
-  int v58; // r1
-  int v59; // t1
-  int v60; // r0
-  uint32_t *v61; // r2
-  int *v62; // r4
-  int v63; // r1
-  int v64; // t1
-  int v65; // r0
-  uint32_t *v66; // r2
-  int *v67; // r7
-  int v68; // r1
-  int v69; // t1
-  int *v70; // r11
-  uint64_t v71; // kr00_8
-  int ( *v72)(uint32_t); // r3
-  int v73; // r0
-  uint16_t *v74; // r3
-  int v75; // r3
-  uint16_t v76; // r5
-  int v77; // r1
-  uint32_t *v78; // r2
-  int *v79; // r0
-  int v80; // t1
-  uint8_t v81[260]; // [sp+8h] [bp-104h] BYREF
-
-  v3 = sub_11EBB4(v81, 256, 0, a1, a2);
-  v5 = v3;
-  if ( v3 <= 0 )
-    return v5;
-  v6 = v3;
-  if ( *(uint32_t *)off_10D970 )
-  {
-    v7 = *((uint16_t *)off_10D974 + 89) & 0x4000;
-    if ( (*((uint16_t *)off_10D974 + 89) & 0x4000) == 0 )
-      goto LABEL_4;
-  }
-  else
-  {
-    log_hw_init_d4e8();
-    v7 = *((uint16_t *)off_10D974 + 89) & 0x4000;
-    if ( (*((uint16_t *)off_10D974 + 89) & 0x4000) == 0 )
-    {
-LABEL_4:
-      v8 = v81;
-      v9 = (void *)(uintptr_t)(off_10D978);
-      v10 = (void *)(uintptr_t)(off_10D97C);
-      v11 = &v81[v6];
-      do
-      {
-        v13 = *v8++;
-        v12 = v13;
-        if ( v13 == 10 && v7 != 13 )
-        {
-          while ( (*v9 & 0x80000) != 0 )
-            ;
-          *v10 = 13;
-          v12 = *(v8 - 1);
-        }
-        while ( (*v9 & 0x80000) != 0 )
-          ;
-        *v10 = v12;
-        v7 = *(v8 - 1);
-      }
-      while ( v8 != v11 );
-      return v5;
-    }
-  }
-  v15 = (uint8_t **)off_10D980;
-  v16 = **(uint8_t **)off_10D980;
-  if ( v16 == 1 )
-  {
-    if ( **(uint8_t **)off_10D988 != 3 )
-    {
-      if ( v6 >= 124 )
-        v6 = (v6 & ~0xFFFFu) | ((uint16_t)(124) & 0xFFFFu);
-      rf_chan_setup_init(19, (int)(uintptr_t)(v81), (uint16_t)v6);
-    }
-  }
-  else
-  {
-    if ( v16 != 2 )
-      return v5;
-    v17 = (uint8_t **)off_10D988;
-    if ( **(uint8_t **)off_10D988 == 3 )
-      goto LABEL_12;
-    if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v4) <= 4 )
-    {
-      if ( **v15 != 2 )
-        return v5;
-      if ( **v17 != 3 )
-      {
-        if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v23) > 4 )
-        {
-          v60 = dword_10D9B8;
-          v61 = (void *)(uintptr_t)(off_10D978);
-          v62 = (int *)off_10D97C;
-          v63 = 111;
-          do
-          {
-            while ( (*v61 & 0x80000) != 0 )
-              ;
-            *v62 = v63;
-            v64 = *(uint8_t *)++v60;
-            v63 = v64;
-          }
-          while ( v64 );
-        }
-        else
-        {
-          v55 = dword_10D9B4;
-          v56 = (void *)(uintptr_t)(off_10D978);
-          v57 = (int *)off_10D97C;
-          v58 = 102;
-          do
-          {
-            while ( (*v56 & 0x80000) != 0 )
-              ;
-            *v57 = v58;
-            v59 = *(uint8_t *)++v55;
-            v58 = v59;
-          }
-          while ( v59 );
-        }
-        return v5;
-      }
-LABEL_12:
-      v18 = dword_10D984;
-      v19 = (void *)(uintptr_t)(off_10D978);
-      v20 = (int *)off_10D97C;
-      v21 = 110;
-      do
-      {
-        while ( (*v19 & 0x80000) != 0 )
-          ;
-        *v20 = v21;
-        v22 = *(uint8_t *)++v18;
-        v21 = v22;
-      }
-      while ( v22 );
-      return v5;
-    }
-    v24 = v81;
-    v25 = dword_10D9C8;
-    while ( 1 )
-    {
-      v26 = v24++;
-      if ( !memcpy((int)(uintptr_t)(v26), v25, 20) )
-        break;
-      if ( &v81[v6] == v24 )
-      {
-        v27 = (void *)(uintptr_t)(off_10D990);
-        goto LABEL_30;
-      }
-    }
-    v65 = dword_10D9BC;
-    v66 = (void *)(uintptr_t)(off_10D978);
-    v67 = (int *)off_10D97C;
-    v68 = 70;
-    do
-    {
-      while ( (*v66 & 0x80000) != 0 )
-        ;
-      *v67 = v68;
-      v69 = *(uint8_t *)++v65;
-      v68 = v69;
-    }
-    while ( v69 );
-    v27 = (void *)(uintptr_t)(off_10D990);
-    v70 = (int *)off_10D9D0;
-    v71 = *(uint64_t *)(*(uint32_t *)off_10D9C0 + 4);
-    v72 = *(int ( **)(uint32_t))(HIDWORD(v71) + 16);
-    *(uint8_t *)off_10D990 = 1;
-    v73 = v72(v71);
-    v74 = (void *)(uintptr_t)(off_10D9C4);
-    *v70 = v73;
-    *v74 = 4;
-LABEL_30:
-    if ( *v27 )
-    {
-      v28 = (void *)(uintptr_t)(off_10D9CC);
-      if ( !memcpy((int)(uintptr_t)(v81), dword_10D994, 5) )
-      {
-        v29 = dword_10D998;
-        v30 = (void *)(uintptr_t)(off_10D978);
-        v31 = (int *)off_10D97C;
-        *v28 = 1;
-        v32 = 80;
-        do
-        {
-          while ( (*v30 & 0x80000) != 0 )
-            ;
-          *v31 = v32;
-          v33 = *(uint8_t *)++v29;
-          v32 = v33;
-        }
-        while ( v33 );
-      }
-      v34 = (uint16_t *)off_10D9C4;
-      v35 = *(uint16_t *)off_10D9C4;
-      if ( v35 + v6 <= 1720 )
-      {
-        v41 = (int *)off_10DA68;
-        memcpy_large((void *)(uintptr_t)(*(uint32_t *)off_10DA68 + v35), v81, v6);
-        v75 = (uint8_t)*v28;
-        v76 = v6 + *v34;
-        v35 = v76;
-        *v34 = v76;
-        if ( !v75 )
-          return v5;
-      }
-      else
-      {
-        v36 = dword_10D99C;
-        v37 = (void *)(uintptr_t)(off_10D978);
-        v38 = (int *)off_10D97C;
-        v39 = 66;
-        do
-        {
-          while ( (*v37 & 0x80000) != 0 )
-            ;
-          *v38 = v39;
-          v40 = *(uint8_t *)++v36;
-          v39 = v40;
-        }
-        while ( v40 );
-        v41 = (int *)off_10D9D0;
-      }
-      v42 = dword_10D98C;
-      *v27 = 0;
-      *v28 = 0;
-      v43 = *v41;
-      *v34 = 4;
-      *v41 = 0;
-      v5 = v35;
-      list_pop_front(v42);
-    }
-    else
-    {
-      v2 = (int)(uintptr_t)(list_pop_front(dword_10DA54));
-      if ( v6 <= 122 )
-        v43 = disable_interrupts();
-      else
-        v43 = (*(int ( **)(uint32_t))(*(uint32_t *)(*(uint32_t *)off_10DA58 + 8) + 16))(*(uint32_t *)(*(uint32_t *)off_10DA58 + 4));
-      if ( !v43 )
-      {
-        v77 = dword_10DA5C;
-        v78 = (void *)(uintptr_t)(off_10DA60);
-        v79 = (int *)off_10DA64;
-        v5 = 110;
-        do
-        {
-          while ( (*v78 & 0x80000) != 0 )
-            ;
-          *v79 = v5;
-          v80 = *(uint8_t *)++v77;
-          v5 = v80;
-        }
-        while ( v80 );
-        return v5;
-      }
-      memcpy_large((void *)(uintptr_t)(v43 + 4), v81, v6);
-      v35 = (v35 & ~0xFFFFu) | ((uint16_t)(v6) & 0xFFFFu);
-    }
-    *(uint16_t *)v43 = v5 + 1;
-    *(uint8_t *)(v43 + 2) = 19;
-    v44 = 0;
-    v45 = (void *)(uintptr_t)(off_10D9A0);
-    *(uint8_t *)(v43 + 3) = 0;
-    *(uint8_t *)(v43 + v5 + 4) = 0;
-    v46 = *((uint16_t *)v45 + 4122);
-    if ( v46 > 0x186 )
-    {
-      v46 = (v46 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-      v47 = 1;
-    }
-    else
-    {
-      v47 = v46 + 1;
-      v44 = 8 * v46;
-    }
-    v48 = (void *)(uintptr_t)(off_10D9A4);
-    *(uint16_t *)(v2 + 12) = v46;
-    v49 = *v48 + v44;
-    *(uint32_t *)(v49 + 4) = v43;
-    *(uint16_t *)v49 = v35 + 5;
-    *(uint8_t *)(v49 + 3) = *(uint8_t *)(v49 + 3) & 0x31 | 4;
-    v48 = (void *)(uintptr_t)(((uintptr_t)(v48) & ~0xFFu) | ((uint8_t)(v45[3074] + 1) & 0xFFu));
-    *((uint16_t *)v45 + 4122) = v47;
-    v45[3074] = (uint8_t)v48;
-    *(uint32_t *)(v2 + 4) = v49;
-    *(uint8_t *)(v2 + 14) = 1;
-    *(uint32_t *)v2 = 0;
-    *(uint32_t *)(v2 + 8) = v5 + 5;
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_10D9A8 = 1;
-    }
-    v50 = (int *)off_10D9AC;
-    v51 = dword_10D9B0;
-    ++*(uint32_t *)off_10D9AC;
-    v52 = ((int (*)())list_push_tail)(v51);
-    ((int (*)())rf_bus_mark_ne0)(v52);
-    if ( *v50 )
-    {
-      v53 = *v50 - 1;
-      v54 = *(uint32_t *)off_10D9A8;
-      *v50 = v53;
-      if ( !v53 )
-      {
-        if ( v54 )
-          __enable_irq();
-      }
-    }
-  }
-  return v5;
 }
 
 
@@ -23873,15 +18546,8 @@ LABEL_4:
     v17 = (uint8_t **)off_10D988;
     if ( **(uint8_t **)off_10D988 == 3 )
       goto LABEL_12;
-    if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v4) <= 4 )
-    {
-      if ( **v15 != 2 )
-        return v5;
-      if ( **v17 != 3 )
-      {
-        if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v23) > 4 )
-        {
-          v60 = dword_10D9B8;
+if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v4) <= 4 ) { if ( **v15 != 2 ) return v5;
+if ( **v17 != 3 ) { if ( (unsigned int)((int (*)())list_count)((void *)(uintptr_t)(dword_10D98C), v23) > 4 ) { v60 = dword_10D9B8;
           v61 = (void *)(uintptr_t)(off_10D978);
           v62 = (int *)off_10D97C;
           v63 = 111;
@@ -23934,8 +18600,7 @@ LABEL_12:
     while ( 1 )
     {
       v26 = v24++;
-      if ( !memcpy((int)(uintptr_t)(v26), v25, 20) )
-        break;
+if ( !memcpy((int)(uintptr_t)(v26), v25, 20) ) break;
       if ( &v81[v6] == v24 )
       {
         v27 = (void *)(uintptr_t)(off_10D990);
@@ -23968,9 +18633,7 @@ LABEL_30:
     if ( *v27 )
     {
       v28 = (void *)(uintptr_t)(off_10D9CC);
-      if ( !memcpy((int)(uintptr_t)(v81), dword_10D994, 5) )
-      {
-        v29 = dword_10D998;
+if ( !memcpy((int)(uintptr_t)(v81), dword_10D994, 5) ) { v29 = dword_10D998;
         v30 = (void *)(uintptr_t)(off_10D978);
         v31 = (int *)off_10D97C;
         *v28 = 1;
@@ -24108,27 +18771,6 @@ LABEL_30:
 
 
 
-// bitmask_pow2_set @ 0x10da88
-int bitmask_pow2_set(int result) {
-  int v1; // r2
-
-  v1 = 1 << result;
-  if ( result <= 1 || (unsigned int)(result - 8) <= 1 )
-  {
-    result = 4 * result + 1079001088;
-    *(uint32_t *)result = *(uint32_t *)result & 0xFFFFFFF0 | 1;
-  }
-  else if ( result <= 15 )
-  {
-    result = 4 * result + 1079001088;
-    *(uint32_t *)result &= 0xFFFFFFF0;
-  }
-  *((uint32_t *)off_10DAD4 + 1) |= v1;
-  return result;
-}
-
-
-
 // rf_channel_valid @ 0x10da88
 int rf_channel_valid(int result) {
   int v1; // r2
@@ -24150,34 +18792,12 @@ int rf_channel_valid(int result) {
 
 
 
-// mmio_clear_bit @ 0x10dad8
-int mmio_clear_bit(char a1) {
-  int result; // r0
-
-  result = 1 << a1;
-  *((uint32_t *)off_10DAEC + 2) &= ~result;
-  return result;
-}
-
-
-
 // gpio_cfg_clear @ 0x10dad8
 int gpio_cfg_clear(char a1) {
   int result; // r0
 
   result = 1 << a1;
   *((uint32_t *)off_10DAEC + 2) &= ~result;
-  return result;
-}
-
-
-
-// rf_reg_bit_set @ 0x10daf0
-int rf_reg_bit_set(char a1) {
-  int result; // r0
-
-  result = (1 << a1) | *((uint32_t *)off_10DB00 + 2);
-  *((uint32_t *)off_10DB00 + 2) = result;
   return result;
 }
 
@@ -24216,32 +18836,9 @@ int gpio_out_clear(char a1) {
 
 
 
-// rf_check_bit @ 0x10db30
-BOOL rf_check_bit(char a1) {
-  return ((1 << a1) & *(uint32_t *)off_10DB44) != 0;
-}
-
-
-
 // sub_10DB30 @ 0x10db30
 BOOL sub_10DB30(char a1) {
   return ((1 << a1) & *(uint32_t *)off_10DB44) != 0;
-}
-
-
-
-// irq_prio_set_db48 @ 0x10db48
-int irq_prio_set_db48(int result) {
-  uint32_t *v1; // r1
-
-  if ( result <= 7 )
-  {
-    v1 = (void *)(uintptr_t)(off_10DB74);
-    ((uint32_t *)(uintptr_t)&dword_40504080)[result] &= 0xFFFFFFF0;
-    result = (1 << result) | v1[1];
-    v1[1] = result;
-  }
-  return result;
 }
 
 
@@ -24273,34 +18870,12 @@ int sub_10DB78(char a1) {
 
 
 
-// irq_prio_set2 @ 0x10db90
-int irq_prio_set2(char a1) {
-  int result; // r0
-
-  result = (1 << a1) | *((uint32_t *)off_10DBA0 + 2);
-  *((uint32_t *)off_10DBA0 + 2) = result;
-  return result;
-}
-
-
-
 // gpio_set_pin_1 @ 0x10db90
 int gpio_set_pin_1(char a1) {
   int result; // r0
 
   result = (1 << a1) | *((uint32_t *)off_10DBA0 + 2);
   *((uint32_t *)off_10DBA0 + 2) = result;
-  return result;
-}
-
-
-
-// irq_enable @ 0x10dba4
-int irq_enable(char a1) {
-  int result; // r0
-
-  result = (1 << a1) | *(uint32_t *)off_10DBB4;
-  *(uint32_t *)off_10DBB4 = result;
   return result;
 }
 
@@ -24317,17 +18892,6 @@ int gpio_set_pin_out(char a1) {
 
 
 
-// irq_disable @ 0x10dbb8
-int irq_disable(char a1) {
-  int result; // r0
-
-  result = 1 << a1;
-  *(uint32_t *)off_10DBCC &= ~result;
-  return result;
-}
-
-
-
 // gpio_clear_pin_1 @ 0x10dbb8
 int gpio_clear_pin_1(char a1) {
   int result; // r0
@@ -24339,38 +18903,9 @@ int gpio_clear_pin_1(char a1) {
 
 
 
-// irq_mask_test @ 0x10dbd0
-BOOL irq_mask_test(char a1) {
-  return ((1 << a1) & *(uint32_t *)off_10DBE4) != 0;
-}
-
-
-
 // gpio_get_pin @ 0x10dbd0
 BOOL gpio_get_pin(char a1) {
   return ((1 << a1) & *(uint32_t *)off_10DBE4) != 0;
-}
-
-
-
-// rf_agc_check_nbf4 @ 0x10dbf4
-int rf_agc_check_nbf4(int a1) {
-  int v1; // r3
-  int v2; // r0
-  int v3; // r1
-
-  v1 = dword_10DC3C;
-  if ( (*(uint8_t *)off_10DC34 & 0xC0) == 0xC0 )
-    v1 = dword_10DC38;
-  v2 = 4 * a1;
-  v3 = v1 + 16;
-  do
-  {
-    *(uint32_t *)(v3 - 12) = *(uint32_t *)(v3 - 12) & 0xFFFFFFF3 | v2;
-    v3 += 12;
-  }
-  while ( v1 + 208 != v3 );
-  return lmac_sub_init(1, 16, 0x10u, v1);
 }
 
 
@@ -24393,21 +18928,6 @@ int check_hw_status(int a1) {
   }
   while ( v1 + 208 != v3 );
   return memcpy_advance(1, 16, 0x10u, v1);
-}
-
-
-
-// rf_subsystem_init @ 0x10dc40
-int rf_subsystem_init() {
-  int result; // r0
-  uint32_t *v1; // r3
-
-  result = rf_reg_write_cb(dword_10DC70, 2048, 15360);
-  v1 = (void *)(uintptr_t)(off_10DC74);
-  *((uint32_t *)off_10DC74 + 2) |= 0xFu;
-  v1[2] |= 0x10000000u;
-  v1[3] &= 0xFFFFF7FE;
-  return result;
 }
 
 
@@ -24442,21 +18962,6 @@ int gpio_init_pin_10() {
 
 
 
-// mmio_config_init @ 0x10dcb0
-int mmio_config_init() {
-  int result; // r0
-  uint32_t *v1; // r3
-
-  result = rf_reg_write_cb(dword_10DCE0, 0x2000, 15360);
-  v1 = (void *)(uintptr_t)(off_10DCE4);
-  *((uint32_t *)off_10DCE4 + 2) |= 0xFu;
-  v1[2] |= 0x10000000u;
-  v1[3] &= 0xFFFFF7FE;
-  return result;
-}
-
-
-
 // gpio_init_pin_13 @ 0x10dcb0
 int gpio_init_pin_13() {
   int result; // r0
@@ -24465,21 +18970,6 @@ int gpio_init_pin_13() {
   result = sub_10EFB4(dword_10DCE0, 0x2000, 15360);
   v1 = (void *)(uintptr_t)(off_10DCE4);
   *((uint32_t *)off_10DCE4 + 2) |= 0xFu;
-  v1[2] |= 0x10000000u;
-  v1[3] &= 0xFFFFF7FE;
-  return result;
-}
-
-
-
-// rf_pll_ldo_init @ 0x10dce8
-int rf_pll_ldo_init() {
-  int result; // r0
-  uint32_t *v1; // r3
-
-  result = rf_reg_write_cb(dword_10DD18, 4096, 15360);
-  v1 = (void *)(uintptr_t)(off_10DD1C);
-  *((uint32_t *)off_10DD1C + 2) |= 0xFu;
   v1[2] |= 0x10000000u;
   v1[3] &= 0xFFFFF7FE;
   return result;
@@ -24630,37 +19120,6 @@ int wait_sdio_core_ready() {
 
 
 
-// rf_lmac_misc_n_df54 @ 0x10df54
-float rf_lmac_misc_n_df54() {
-  uint32_t *v0; // r4
-  uint32_t *v1; // r2
-  int v2; // r3
-  int v3; // r0
-  int v4; // r1
-  unsigned int v5; // r4
-
-  v0 = (void *)(uintptr_t)(off_10DFE8);
-  v1 = (void *)(uintptr_t)(off_10DFEC);
-  v2 = dword_10DFF0;
-  v3 = dword_10DFF4;
-  v4 = dword_10DFF8;
-  *(uint32_t *)off_10DFE8 = 0;
-  v1[14] = 296;
-  v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
-  v0[3] = v2 & v0[3] | 0xA06A000;
-  v0[3] = v4 | v3 & v0[3];
-  mmio_config_init();
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v5 = v0[4];
-  rf_reg_write_cb(dword_10DFFC, 0, 15360);
-  return (float)((float)((float)((float)v5 / flt_10E000) - 1.0) * flt_10E004) * 5.5;
-}
-
-
-
 // sdio_core_config_0 @ 0x10df54
 float sdio_core_config_0() {
   uint32_t *v0; // r4
@@ -24688,38 +19147,6 @@ float sdio_core_config_0() {
   v5 = v0[4];
   sub_10EFB4(dword_10DFFC, 0, 15360);
   return (float)((float)((float)((float)v5 / flt_10E000) - 1.0) * flt_10E004) * 5.5;
-}
-
-
-
-// rf_hw_init_n008 @ 0x10e008
-float rf_hw_init_n008() {
-  uint32_t *v0; // r4
-  uint32_t *v1; // r2
-  int v2; // r3
-  int v3; // r0
-  int v4; // r1
-  unsigned int v5; // r4
-
-  v0 = (void *)(uintptr_t)(off_10E098);
-  v1 = (void *)(uintptr_t)(off_10E09C);
-  v2 = dword_10E0A0;
-  v3 = dword_10E0A4;
-  v4 = dword_10E0A8;
-  *(uint32_t *)off_10E098 = 0;
-  v1[14] = 296;
-  v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
-  v0[3] = v2 & v0[3] | 0xA06A000;
-  v0[3] = v4 | v3 & v0[3];
-  rf_subsystem_init();
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v5 = v0[4];
-  rf_reg_write_cb(dword_10E0AC, 0, 15360);
-  return (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4)
-       + (float)((float)((float)((float)v5 / flt_10E0B0) - 1.0) * flt_10E0B4);
 }
 
 
@@ -24756,37 +19183,6 @@ float sdio_core_config_1() {
 
 
 
-// mmio_init_n_0b8 @ 0x10e0b8
-float mmio_init_n_0b8() {
-  uint32_t *v0; // r4
-  uint32_t *v1; // r2
-  int v2; // r3
-  int v3; // r0
-  int v4; // r1
-  unsigned int v5; // r4
-
-  v0 = (void *)(uintptr_t)(off_10E14C);
-  v1 = (void *)(uintptr_t)(off_10E150);
-  v2 = dword_10E154;
-  v3 = dword_10E158;
-  v4 = dword_10E15C;
-  *(uint32_t *)off_10E14C = 0;
-  v1[14] = 296;
-  v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
-  v0[3] = v2 & v0[3] | 0xA06A000;
-  v0[3] = v4 | v3 & v0[3];
-  gpio_init_pin_10();
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v5 = v0[4];
-  rf_reg_write_cb(dword_10E160, 0, 15360);
-  return (float)((float)((float)((float)v5 / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
-}
-
-
-
 // sdio_core_config_2 @ 0x10e0b8
 float sdio_core_config_2() {
   uint32_t *v0; // r4
@@ -24814,37 +19210,6 @@ float sdio_core_config_2() {
   v5 = v0[4];
   sub_10EFB4(dword_10E160, 0, 15360);
   return (float)((float)((float)((float)v5 / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
-}
-
-
-
-// rf_subsystem_init_e170 @ 0x10e170
-float rf_subsystem_init_e170() {
-  uint32_t *v0; // r4
-  uint32_t *v1; // r2
-  int v2; // r3
-  int v3; // r0
-  int v4; // r1
-  unsigned int v5; // r4
-
-  v0 = (void *)(uintptr_t)(off_10E1FC);
-  v1 = (void *)(uintptr_t)(off_10E200);
-  v2 = dword_10E204;
-  v3 = dword_10E208;
-  v4 = dword_10E20C;
-  *(uint32_t *)off_10E1FC = 0;
-  v1[14] = 296;
-  v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
-  v0[3] = v2 & v0[3] | 0xA06A000;
-  v0[3] = v4 | v3 & v0[3];
-  rf_pll_ldo_init();
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v5 = v0[4];
-  rf_reg_write_cb(dword_10E210, 0, 15360);
-  return (float)((float)((float)v5 / flt_10E214) - 1.0) * flt_10E218;
 }
 
 
@@ -24907,71 +19272,6 @@ float sdio_core_init() {
     ;
   v0[7] = 1;
   return (float)((float)((float)(unsigned int)v0[4] / flt_10E2DC) - 1.0) * flt_10E2E0;
-}
-
-
-
-// rf_init_wake_n_e8 @ 0x10e2e8
-int rf_init_wake_n_e8() {
-  uint32_t *v0; // r5
-  uint64_t v1; // r0
-  uint64_t v2; // r0
-  uint64_t v3; // r0
-  int v4; // r0
-  int v5; // r6
-  uint32_t *v6; // r2
-  int v7; // r4
-  uint64_t v8; // r0
-  uint64_t v9; // r0
-  uint64_t v10; // r0
-  int v11; // r0
-  int v12; // r0
-  uint64_t v13; // r0
-  uint64_t v14; // r0
-  uint64_t v15; // r4
-  uint64_t v16; // r0
-  uint64_t v17; // r0
-  uint64_t v18; // r0
-  uint64_t v19; // r0
-  uint64_t v20; // r0
-  uint64_t v21; // r0
-  int v22; // r0
-
-  v0 = (void *)(uintptr_t)(off_10E408);
-  rf_agc_check_nbf4(1);
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v1 = sub_12752C(v0[4]);
-  v2 = ((int (*)())sub_127620)(v1, HIDWORD(v1), dword_10E3E8, dword_10E3EC);
-  v3 = sub_127874(v2, HIDWORD(v2), dword_10E3F0, dword_10E3F4);
-  v4 = sub_1272B0(v3, HIDWORD(v3), dword_10E3E8, dword_10E3EC);
-  v5 = ((int ( *)(int))sub_127BE4)(v4);
-  rf_agc_check_nbf4(2);
-  v6 = (void *)(uintptr_t)(off_10E408);
-  v0[1] = 1;
-  while ( v6[7] != 1 )
-    ;
-  v6[7] = 1;
-  v7 = v6[4];
-  rf_agc_check_nbf4(3);
-  v8 = sub_12752C(v7);
-  v9 = ((int (*)())sub_127620)(v8, HIDWORD(v8), dword_10E3E8, dword_10E3EC);
-  v10 = sub_127874(v9, HIDWORD(v9), dword_10E3F0, dword_10E3F4);
-  v11 = sub_1272B0(v10, HIDWORD(v10), dword_10E3E8, dword_10E3EC);
-  v12 = ((int ( *)(int))sub_127BE4)(v11);
-  v13 = ((int (*)())sub_127570)(v12);
-  v14 = sub_127874(v13, HIDWORD(v13), dword_10E3F8, dword_10E3FC);
-  v15 = ((int (*)())sub_127620)(v14, HIDWORD(v14), 0, dword_10E40C);
-  v16 = ((int (*)())sub_127570)(v5);
-  v17 = sub_127874(v16, HIDWORD(v16), dword_10E3F8, dword_10E3FC);
-  v18 = ((int (*)())sub_127620)(v17, HIDWORD(v17), 0, dword_10E410);
-  v19 = ((int (*)())sub_1272B4)(v15, HIDWORD(v15), v18, HIDWORD(v18));
-  v20 = ((int (*)())sub_127620)(v19, HIDWORD(v19), 0, dword_10E414);
-  v21 = ((int (*)())sub_127620)(v20, HIDWORD(v20), dword_10E400, dword_10E404);
-  v22 = sub_127874(v21, HIDWORD(v21), 0, dword_10E418);
-  return (int)((int (*)())sub_127BE4)(v22);
 }
 
 
@@ -25041,42 +19341,6 @@ int sdio_core_enable() {
 
 
 
-// rf_mmio_reg_enable @ 0x10e420
-int rf_mmio_reg_enable() {
-  uint32_t *v0; // r2
-  uint64_t v1; // r0
-  uint64_t v2; // r0
-  uint64_t v3; // r0
-  int v4; // r0
-  float v5; // r0
-  uint64_t v6; // r0
-  uint64_t v7; // r0
-  uint64_t v8; // r0
-  uint64_t v9; // r0
-  uint64_t v10; // r0
-  int v11; // r0
-
-  v0 = (void *)(uintptr_t)(off_10E4C8);
-  *((uint32_t *)off_10E4C8 + 1) = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v1 = sub_12752C(v0[4]);
-  v2 = ((int (*)())sub_127620)(v1, HIDWORD(v1), dword_10E4A8, dword_10E4AC);
-  v3 = sub_127874(v2, HIDWORD(v2), dword_10E4B0, dword_10E4B4);
-  v4 = sub_1272B0(v3, HIDWORD(v3), dword_10E4A8, dword_10E4AC);
-  v5 = ((int (*)())sub_127BE4)(v4);
-  v6 = ((int (*)())sub_127570)(LODWORD(v5));
-  v7 = sub_127874(v6, HIDWORD(v6), dword_10E4B8, dword_10E4BC);
-  v8 = ((int (*)())sub_127620)(v7, HIDWORD(v7), 0, dword_10E4CC);
-  v9 = ((int (*)())sub_127620)(v8, HIDWORD(v8), 0, dword_10E4D0);
-  v10 = ((int (*)())sub_127620)(v9, HIDWORD(v9), dword_10E4C0, dword_10E4C4);
-  v11 = sub_127874(v10, HIDWORD(v10), 0, dword_10E4D4);
-  return (int)((int (*)())sub_127BE4)(v11);
-}
-
-
-
 // sdio_core_set_enable @ 0x10e420
 int sdio_core_set_enable() {
   uint32_t *v0; // r2
@@ -25109,196 +19373,6 @@ int sdio_core_set_enable() {
   v10 = ((int (*)())sub_127620)(v9, HIDWORD(v9), dword_10E4C0, dword_10E4C4);
   v11 = sub_127874(v10, HIDWORD(v10), 0, dword_10E4D4);
   return (int)((int (*)())sub_127BE4)(v11);
-}
-
-
-
-// rf_init_blockc @ 0x10e4d8
-int rf_init_blockc() {
-  int v0; // r3
-  int v1; // r0
-  uint32_t *v2; // r4
-  uint64_t v3; // r0
-  uint64_t v4; // r0
-  uint64_t v5; // r0
-  int v6; // r5
-  char cb_efa4; // r0
-  int v8; // r4
-  int v9; // r3
-  int v10; // r6
-  uint64_t v11; // r0
-  uint64_t v12; // r0
-  int v13; // r0
-  int v14; // r8
-  int v15; // r4
-  uint32_t *v16; // r2
-  uint64_t v17; // r0
-  uint64_t v18; // r0
-  uint64_t v19; // r0
-  int v20; // r3
-  int v21; // r3
-  int v22; // r11
-  uint32_t *v23; // r6
-  int v24; // r10
-  int v25; // r7
-  int v26; // r4
-  int v27; // r2
-  int v28; // r9
-  uint64_t v29; // r0
-  uint64_t v30; // r0
-  uint64_t v31; // r0
-  int v32; // r5
-  int v33; // r2
-  int v34; // r3
-  uint32_t *v35; // r2
-  uint64_t v36; // r0
-  uint64_t v37; // r0
-  uint64_t v38; // r0
-  int v39; // r0
-  int v41; // [sp+4h] [bp-10h]
-  int v42; // [sp+8h] [bp-Ch]
-  int v43; // [sp+Ch] [bp-8h]
-
-  v0 = dword_10E76C;
-  v1 = dword_10E770;
-  v2 = (void *)(uintptr_t)(off_10E774);
-  *((uint32_t *)off_10E768 + 14) = 296;
-  v2[3] = v0 | v2[3] & 0xE0000000;
-  rf_reg_write_cb(v1, 1024, 15360);
-  v2[2] = dword_10E778 & v2[2] | 0x1200000F;
-  v2[1] = 1;
-  while ( v2[7] != 1 )
-    ;
-  v2[7] = 1;
-  v3 = sub_12752C(v2[4]);
-  v4 = ((int (*)())sub_127620)(v3, HIDWORD(v3), dword_10E750, dword_10E754);
-  v5 = sub_1272B0(v4, HIDWORD(v4), dword_10E758, dword_10E75C);
-  v6 = double_to_float(v5, HIDWORD(v5));
-  msg_parse(dword_10E77C, v6);
-  cb_efa4 = rf_reg_read_cb_efa4(dword_10E780);
-  v8 = v6 - 1400;
-  v9 = abs32(v6 - 1400);
-  v10 = cb_efa4 & 0x3F;
-  v42 = v10;
-  if ( v9 > 49 )
-  {
-    v11 = sub_12754C(v9);
-    v12 = ((int (*)())sub_127620)(v11, HIDWORD(v11), dword_10E760, dword_10E764);
-    v13 = double_to_float(v12, HIDWORD(v12));
-    v14 = v13;
-    if ( v8 <= 0 )
-    {
-      v34 = v10;
-      if ( v6 == 1400 )
-        goto LABEL_39;
-      v15 = v13 + v10;
-    }
-    else
-    {
-      v15 = v10 - v13;
-    }
-    if ( v15 > 32 )
-    {
-      v28 = 7;
-      v26 = v10 + 7;
-      goto LABEL_28;
-    }
-    if ( v15 > 11 )
-    {
-      rf_reg_write_cb(dword_10E780, v15, 63);
-      v16 = (void *)(uintptr_t)(off_10E774);
-      *((uint32_t *)off_10E774 + 1) = 1;
-      while ( v16[7] != 1 )
-        ;
-      v16[7] = 1;
-      v17 = sub_12752C(v16[4]);
-      v18 = ((int (*)())sub_127620)(v17, HIDWORD(v17), dword_10E750, dword_10E754);
-      v19 = sub_1272B0(v18, HIDWORD(v18), dword_10E758, dword_10E75C);
-      v6 = double_to_float(v19, HIDWORD(v19));
-      msg_parse(dword_10E784, v14);
-      if ( v6 <= 1400 )
-        v20 = 1;
-      else
-        v20 = -1;
-      v43 = v20;
-      goto LABEL_19;
-    }
-    v34 = v10;
-LABEL_39:
-    v26 = v34 - 13;
-    v28 = -13;
-    goto LABEL_28;
-  }
-  if ( (unsigned int)(v9 - 1) > 0x30 )
-  {
-    v26 = cb_efa4 & 0x3F;
-    v28 = 0;
-    goto LABEL_28;
-  }
-  if ( v8 <= 0 )
-    v21 = 1;
-  else
-    v21 = -1;
-  v43 = v21;
-  v14 = 0;
-LABEL_19:
-  v22 = dword_10E780;
-  v23 = (void *)(uintptr_t)(off_10E774);
-  v24 = dword_10E790;
-  v25 = v14 + 1;
-  v26 = v43 + v14 * v43 + v42;
-  while ( 1 )
-  {
-    v27 = v14;
-    v28 = v26 - v42;
-    v14 = v25;
-    if ( (unsigned int)(v26 - 12) > 0x14 )
-    {
-      v28 = v43 * v27;
-      v26 = v42 + v43 * v27;
-      goto LABEL_28;
-    }
-    rf_reg_write_cb(v22, v26, 63);
-    v23[1] = 1;
-    while ( v23[7] != 1 )
-      ;
-    v23[7] = 1;
-    v29 = sub_12752C(v23[4]);
-    v30 = ((int (*)())sub_127620)(v29, HIDWORD(v29), dword_10E750, dword_10E754);
-    v31 = sub_1272B0(v30, HIDWORD(v30), dword_10E758, dword_10E75C);
-    v41 = double_to_float(v31, HIDWORD(v31));
-    msg_parse(v24, v28);
-    v32 = v6 - 1400;
-    v33 = v41 - 1400;
-    if ( v32 * (v41 - 1400) <= 0 )
-      break;
-    v26 += v43;
-    v6 = v41;
-    ++v25;
-  }
-  if ( v33 < 0 )
-    v33 = 1400 - v41;
-  if ( v32 < 0 )
-    v32 = -v32;
-  if ( v33 > v32 )
-  {
-    v28 -= v43;
-    v26 = v42 + v28;
-  }
-LABEL_28:
-  msg_parse(dword_10E788, v28);
-  rf_reg_write_cb(dword_10E780, v26, 63);
-  v35 = (void *)(uintptr_t)(off_10E774);
-  *((uint32_t *)off_10E774 + 1) = 1;
-  while ( v35[7] != 1 )
-    ;
-  v35[7] = 1;
-  v36 = sub_12752C(v35[4]);
-  v37 = ((int (*)())sub_127620)(v36, HIDWORD(v36), dword_10E750, dword_10E754);
-  v38 = sub_1272B0(v37, HIDWORD(v37), dword_10E758, dword_10E75C);
-  v39 = double_to_float(v38, HIDWORD(v38));
-  msg_parse(dword_10E78C, v39);
-  return rf_reg_write_cb(dword_10E770, 0, 15360);
 }
 
 
@@ -25489,200 +19563,6 @@ LABEL_28:
   v39 = double_to_float(v38, HIDWORD(v38));
   dispatch_event_handler_1(dword_10E78C, v39);
   return sub_10EFB4(dword_10E770, 0, 15360);
-}
-
-
-
-// rf_init_blockb_e798 @ 0x10e798
-int rf_init_blockb_e798() {
-  uint32_t *v0; // r1
-  int v1; // r3
-  int v2; // r2
-  uint64_t v3; // r0
-  uint64_t v4; // r0
-  uint64_t v5; // r0
-  uint64_t v6; // r0
-  int v7; // r5
-  int v8; // r10
-  int v9; // r8
-  int v10; // r0
-  uint64_t v11; // r0
-  uint64_t v12; // r0
-  int v13; // r0
-  int v14; // r9
-  int v15; // r4
-  uint32_t *v16; // r2
-  uint64_t v17; // r0
-  uint64_t v18; // r0
-  uint64_t v19; // r0
-  uint64_t v20; // r0
-  int v21; // r3
-  int v22; // r3
-  int v23; // r11
-  uint32_t *v24; // r6
-  int v25; // r4
-  int i; // r7
-  int v27; // r2
-  uint64_t v28; // r0
-  uint64_t v29; // r0
-  uint64_t v30; // r0
-  uint64_t v31; // r0
-  int v32; // r10
-  int v33; // r5
-  int v34; // r2
-  uint32_t *v35; // r2
-  uint64_t v36; // r0
-  uint64_t v37; // r0
-  uint64_t v38; // r0
-  uint64_t v39; // r0
-  int v40; // r0
-  int result; // r0
-  int v42; // [sp+0h] [bp-Ch]
-  int v43; // [sp+4h] [bp-8h]
-
-  v0 = (void *)(uintptr_t)(off_10EA4C);
-  v1 = dword_10EA50;
-  v2 = dword_10EA54;
-  *((uint32_t *)off_10EA48 + 14) = 296;
-  v0[2] = v1 & v0[2] | 0x200000B;
-  v0[3] = v2 | v0[3] & 0xE0000000;
-  v0[1] = 1;
-  while ( v0[7] != 1 )
-    ;
-  v0[7] = 1;
-  v3 = sub_12752C(v0[4]);
-  v4 = ((int (*)())sub_127620)(v3, HIDWORD(v3), dword_10EA30, dword_10EA34);
-  v5 = sub_127874(v4, HIDWORD(v4), dword_10EA38, dword_10EA3C);
-  v6 = sub_1272B0(v5, HIDWORD(v5), dword_10EA30, dword_10EA34);
-  v7 = double_to_float(v6, HIDWORD(v6));
-  v8 = rf_reg_read_cb_efa4(dword_10EA58) & 0x1F;
-  v9 = v7 - 840;
-  sub_10DA6C(dword_10EA5C, v7, v8);
-  v10 = abs32(v7 - 840);
-  if ( v10 <= 47 )
-  {
-    if ( (unsigned int)(v10 - 1) > 0x2E )
-    {
-      v9 = 0;
-      goto LABEL_33;
-    }
-    if ( v9 <= 0 )
-      v22 = 1;
-    else
-      v22 = -1;
-    v42 = v22;
-    v14 = 0;
-  }
-  else
-  {
-    v11 = sub_12754C(v10);
-    v12 = ((int (*)())sub_127620)(v11, HIDWORD(v11), dword_10EA40, dword_10EA44);
-    v13 = double_to_float(v12, HIDWORD(v12));
-    v14 = v13;
-    if ( v9 <= 0 )
-    {
-      if ( v7 == 840 )
-        goto LABEL_33;
-      v15 = v13 + v8;
-    }
-    else
-    {
-      v15 = v8 - v13;
-    }
-    if ( v15 > 31 )
-    {
-      v8 += 9;
-      v9 = 9;
-      goto LABEL_33;
-    }
-    if ( v15 <= 12 )
-    {
-      v8 -= 9;
-      v9 = -9;
-      goto LABEL_33;
-    }
-    rf_reg_write_cb(dword_10EA58, v15, 31);
-    v16 = (void *)(uintptr_t)(off_10EA4C);
-    *((uint32_t *)off_10EA4C + 1) = 1;
-    while ( v16[7] != 1 )
-      ;
-    v16[7] = 1;
-    v17 = sub_12752C(v16[4]);
-    v18 = ((int (*)())sub_127620)(v17, HIDWORD(v17), dword_10EA30, dword_10EA34);
-    v19 = sub_127874(v18, HIDWORD(v18), dword_10EA38, dword_10EA3C);
-    v20 = sub_1272B0(v19, HIDWORD(v19), dword_10EA30, dword_10EA34);
-    v7 = double_to_float(v20, HIDWORD(v20));
-    msg_parse(dword_10EA60, v14);
-    if ( v7 <= 840 )
-      v21 = 1;
-    else
-      v21 = -1;
-    v42 = v21;
-  }
-  v23 = dword_10EA58;
-  v24 = (void *)(uintptr_t)(off_10EA4C);
-  v43 = v8;
-  v25 = v42 + v14 * v42 + v8;
-  for ( i = v14 + 1; ; ++i )
-  {
-    v27 = v14;
-    v9 = v25 - v43;
-    v14 = i;
-    if ( (unsigned int)(v25 - 13) > 0x12 )
-    {
-      v9 = v42 * v27;
-      v8 = v43 + v42 * v27;
-      goto LABEL_33;
-    }
-    rf_reg_write_cb(v23, v25, 31);
-    v24[1] = 1;
-    while ( v24[7] != 1 )
-      ;
-    v24[7] = 1;
-    v28 = sub_12752C(v24[4]);
-    v29 = ((int (*)())sub_127620)(v28, HIDWORD(v28), dword_10EA30, dword_10EA34);
-    v30 = sub_127874(v29, HIDWORD(v29), dword_10EA38, dword_10EA3C);
-    v31 = sub_1272B0(v30, HIDWORD(v30), dword_10EA30, dword_10EA34);
-    v32 = double_to_float(v31, HIDWORD(v31));
-    msg_parse(dword_10EA64, v9);
-    v33 = v7 - 840;
-    v34 = v32 - 840;
-    if ( v33 * (v32 - 840) <= 0 )
-      break;
-    v25 += v42;
-    v7 = v32;
-  }
-  if ( v34 < 0 )
-    v34 = 840 - v32;
-  if ( v33 < 0 )
-    v33 = -v33;
-  if ( v34 > v33 )
-  {
-    v9 -= v42;
-    v8 = v43 + v9;
-  }
-  else
-  {
-    v8 = v25;
-  }
-LABEL_33:
-  sub_10DA6C(dword_10EA68, v9);
-  rf_reg_write_cb(dword_10EA58, v8, 31);
-  v35 = (void *)(uintptr_t)(off_10EA4C);
-  *((uint32_t *)off_10EA4C + 1) = 1;
-  while ( v35[7] != 1 )
-    ;
-  v35[7] = 1;
-  v36 = sub_12752C(v35[4]);
-  v37 = ((int (*)())sub_127620)(v36, HIDWORD(v36), dword_10EA30, dword_10EA34);
-  v38 = sub_127874(v37, HIDWORD(v37), dword_10EA38, dword_10EA3C);
-  v39 = sub_1272B0(v38, HIDWORD(v38), dword_10EA30, dword_10EA34);
-  v40 = double_to_float(v39, HIDWORD(v39));
-  sub_10DA6C(dword_10EA6C, v40);
-  result = *((uint32_t *)off_10EA70 + 94);
-  if ( result != 0x80000000 )
-    return ((int (*)())rf_reg_update)();
-  return result;
 }
 
 
@@ -26128,68 +20008,6 @@ int gpio_bank_init(unsigned int *a1) {
 
 
 
-// rf_calib_init_loader @ 0x10ee7c
-int rf_calib_init_loader() {
-  unsigned int *v0; // r4
-  uint32_t *v1; // r2
-  int v2; // r0
-  int v3; // r3
-  uint32_t *v4; // r9
-  uint32_t *v5; // r6
-  uint32_t *v6; // r10
-  int v7; // r5
-  int *v8; // r2
-  int v9; // r1
-  unsigned int v10; // r8
-  unsigned int v11; // r7
-  unsigned int v12; // r6
-  unsigned int v13; // r5
-  int result; // r0
-  uint32_t v15[2]; // [sp+4h] [bp-Ch] BYREF
-  int16_t v16; // [sp+Ch] [bp-4h]
-
-  v0 = (unsigned int *)off_10EF7C;
-  v1 = (void *)(uintptr_t)(off_10EF80);
-  v2 = dword_10EF84;
-  v3 = dword_10EF88;
-  v4 = (void *)(uintptr_t)(off_10EF9C);
-  v5 = (void *)(uintptr_t)(off_10EF8C);
-  v6 = (void *)(uintptr_t)(off_10EFA0);
-  v7 = dword_10EF90;
-  v16 = 0;
-  *((uint32_t *)off_10EF7C + 14) = 296;
-  v1[3] = v2 | v1[3] & 0xE0000000;
-  v1[2] = v3 & v1[2] | 0x1200000D;
-  *v4 |= 0x20000000u;
-  *v5 &= ~1u;
-  v15[0] = v7;
-  v15[1] = 2442;
-  tx_set_power((uint8_t *)v15, 0);
-  v8 = (int *)off_10EF94;
-  v9 = dword_10EF98;
-  v0 += 593954;
-  *v6 |= 0x80000000;
-  *v8 = v9;
-  v10 = *v0;
-  v11 = *v0;
-  v12 = *v0;
-  v13 = *v0;
-  *v0 &= ~0x80000u;
-  *v0 |= 0x100000u;
-  *v0 |= 0x200000u;
-  *v0 |= 0x400000u;
-  result = gpio_af_set(4);
-  *v6 &= ~0x80000000;
-  *v4 &= ~0x20000000u;
-  *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
-  *v0 = v11 & 0x100000 | *v0 & 0xFFEFFFFF;
-  *v0 = v12 & 0x200000 | *v0 & 0xFFDFFFFF;
-  *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
-  return result;
-}
-
-
-
 // gpio_bank_init2 @ 0x10ee7c
 int gpio_bank_init2() {
   unsigned int *v0; // r4
@@ -26295,49 +20113,6 @@ int critical_enter(int a1, int a2) {
 
 
 
-// rf_reg_write_wait @ 0x10f010
-int rf_reg_write_wait(int a1, int a2, int a3) {
-  int *v3; // r5
-  uint32_t *v4; // r4
-  int result; // r0
-  int v6; // r3
-  int v7; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_10F058 = 1;
-  }
-  v3 = (int *)off_10F05C;
-  ++*(uint32_t *)off_10F05C;
-  if ( a3 )
-  {
-    v4 = (void *)(uintptr_t)(off_10F060);
-    while ( !*(uint32_t *)off_10F060 )
-      ;
-    result = sub_10EFAC();
-    *v4 = 1;
-  }
-  else
-  {
-    result = sub_10EFAC();
-  }
-  if ( *v3 )
-  {
-    v6 = *v3 - 1;
-    v7 = *(uint32_t *)off_10F058;
-    *v3 = v6;
-    if ( !v6 )
-    {
-      if ( v7 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
 // critical_enter2 @ 0x10f010
 int critical_enter2(int a1, int a2, int a3) {
   int *v3; // r5
@@ -26424,17 +20199,6 @@ int critical_enter3(int a1, int a2, int a3, int a4) {
 
 
 
-// rf_state_check_n2ae @ 0x10f0b8
-int rf_state_check_n2ae(int a1) {
-  msg_parse(dword_10F0FC, a1);
-  critical_enter3(dword_10F104, 196608, dword_10F100, 1);
-  critical_enter3(1879048192, 1, 1, 1);
-  rf_reg_write_wait(dword_10F108, a1, 1);
-  return critical_enter3(dword_10F10C, 2, 2, 1);
-}
-
-
-
 // ke_event_set @ 0x10f0b8
 int ke_event_set(int a1) {
   dispatch_event_handler_1(dword_10F0FC, a1);
@@ -26455,13 +20219,6 @@ int sub_10F110(int a1) {
 
 
 
-// mmio_bit_extract_n @ 0x10f15c
-int mmio_bit_extract_n() {
-  return (uint16_t)critical_enter(dword_10F16C, 1) >> 11;
-}
-
-
-
 // sub_10F15C @ 0x10f15c
 int sub_10F15C() {
   return (uint16_t)critical_enter(dword_10F16C, 1) >> 11;
@@ -26472,37 +20229,6 @@ int sub_10F15C() {
 // sub_10F170 @ 0x10f170
 int sub_10F170(int a1) {
   return critical_enter3(dword_10F184, (a1 << 11) & 0xF800, 63488, 1);
-}
-
-
-
-// fw_state_check_n960 @ 0x10f188
-int fw_state_check_n960(int a1) {
-  unsigned int v2; // r0
-  unsigned int v3; // r1
-
-  v2 = critical_enter(dword_10F1DC, 1);
-  v3 = (v2 >> 20) & 0xF;
-  if ( a1 )
-  {
-    if ( ((v2 >> 20) & 0xE) != 0 )
-    {
-      v3 = ((v3 - 2) << 20) & 0xF00000;
-    }
-    else if ( v3 )
-    {
-      v3 = ((v3 - 1) << 20) & 0xF00000;
-    }
-  }
-  else if ( v3 > 0xD )
-  {
-    v3 = 15728640;
-  }
-  else
-  {
-    v3 = ((v3 + 2) << 20) & 0xF00000;
-  }
-  return critical_enter3(dword_10F1DC, v3, 15728640, 1);
 }
 
 
@@ -26607,29 +20333,6 @@ unsigned int sub_10F434() {
 
 
 
-// log_tick @ 0x10f44c
-int log_tick() {
-  uint8_t *v0; // r6
-  int v1; // r4
-  int v2; // r0
-  int result; // r0
-
-  v0 = (void *)(uintptr_t)(off_10F4AC);
-  v1 = *((char *)off_10F4AC + 7) - (char)(*((uint8_t *)off_10F4AC + 5) + (*(uint8_t *)off_10F4A8 & 3));
-  if ( v1 < -62 )
-    v1 = (v1 & ~0xFFu) | ((uint8_t)(-62) & 0xFFu);
-  gpio_config(v1);
-  v2 = dword_10F4B0;
-  v0[7] = v1;
-  result = msg_parse(v2, (char)v1);
-  if ( (char)v1 >= -61 )
-    return ke_enter_critical((int)(uintptr_t)(v0 + 12), *((uint32_t *)off_10F4B4 + 4) + 30000 * *((uint16_t *)v0 + 4));
-  v0[11] = 0;
-  return result;
-}
-
-
-
 // sub_10F44C @ 0x10f44c
 int sub_10F44C() {
   uint8_t *v0; // r6
@@ -26699,14 +20402,6 @@ int rf_init() {
 
 
 
-// rf_init_enable_n3bc @ 0x10f5bc
-int rf_init_enable_n3bc(int a1, int a2) {
-  mem_free((void *)(uintptr_t)(a2));
-  return 1;
-}
-
-
-
 // mem_free_ret @ 0x10f5bc
 int mem_free_ret(int a1, int a2) {
   mem_free((void *)(uintptr_t)(a2));
@@ -26764,7 +20459,7 @@ uint64_t mmio_write16() {
   do
   {
     v1 += 4;
-    ((int (*)())list_push_tail)((int)(uintptr_t)(v3));
+    list_push_tail(v3);
   }
   while ( v1 != v2 );
   v4 = dword_10F6A0;
@@ -26779,95 +20474,6 @@ uint64_t mmio_write16() {
   }
   while ( v6 + 9 != (uint32_t *)result );
   return result;
-}
-
-
-
-// log_system_init_f6a4 @ 0x10f6a4
-int log_system_init_f6a4() {
-  uint8_t **v0; // r4
-  int v1; // r3
-  uint32_t *v2; // r3
-  int v3; // r2
-  uint64_t v4; // r0
-  int v5; // r3
-  uint32_t *v6; // r3
-  int v7; // r2
-  uint32_t *v8; // r3
-  void *v9; // r2
-  int ( **v10)(int); // r4
-  int v11; // r0
-  int v12; // r2
-  int ( **v13)(int); // r5
-  int v14; // r0
-  int v15; // r0
-  int v16; // r0
-  int ( **v17)(int); // r5
-  int v18; // r0
-  int inited; // r0
-  int v20; // r0
-  int v21; // r0
-
-  v0 = (uint8_t **)off_10F764;
-  v1 = **(uint8_t **)off_10F764;
-  switch ( v1 )
-  {
-    case 1:
-      v8 = (void *)(uintptr_t)(off_10F768);
-      v9 = (void *)(uintptr_t)(off_10F780);
-      *((uint32_t *)off_10F768 + 2) = off_10F77C;
-      v8[3] = (int)(uintptr_t)(v9);
-      break;
-    case 2:
-      v2 = (void *)(uintptr_t)(off_10F768);
-      v3 = dword_10F770;
-      *((uint32_t *)off_10F768 + 6) = dword_10F76C;
-      v2[7] = v3;
-      break;
-    case 3:
-      v6 = (void *)(uintptr_t)(off_10F768);
-      v7 = dword_10F778;
-      *((uint32_t *)off_10F768 + 8) = dword_10F774;
-      v6[9] = v7;
-      break;
-  }
-  bt_msg_init();
-  v4 = mmio_write16();
-  v5 = **v0;
-  if ( v5 == 1 )
-  {
-    v17 = (int ( **)(int))off_10F768;
-    *(uint32_t *)off_10F784 = dword_10F798;
-    v18 = patch_apply_n422(v4, HIDWORD(v4));
-    inited = rf_lmac_init_n114(v18);
-    v20 = rx_adv_event(inited);
-    log_free_pool_dispatch2_n4ac(v20);
-    v21 = v17[2](dword_10F78C);
-    v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(v17[3](v21)) & 0xFFFFFFFFu);
-    v5 = **v0;
-  }
-  if ( v5 == 2 )
-  {
-    v12 = dword_10F794;
-    *(uint32_t *)off_10F784 = dword_10F790;
-    v13 = (int ( **)(int))off_10F768;
-    *(uint16_t *)(v12 + 8244) = 0;
-    v14 = tx_event_handler();
-    timer_event_handler(v14);
-    v15 = v13[6](dword_10F78C);
-    v16 = v13[7](v15);
-    v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(((int (*)())rf_chan_set_mask)(v16)) & 0xFFFFFFFFu);
-    v5 = **v0;
-  }
-  if ( v5 == 3 )
-  {
-    v10 = (int ( **)(int))off_10F768;
-    *(uint32_t *)off_10F784 = dword_10F788;
-    controller_state_machine();
-    v11 = v10[8](dword_10F78C);
-    v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(v10[9](v11)) & 0xFFFFFFFFu);
-  }
-  return v4;
 }
 
 
@@ -27119,188 +20725,6 @@ LABEL_6:
       continue;
     return result;
   }
-}
-
-
-
-// log_pool_alloc2_a18 @ 0x10fa18
-uint32_t * log_pool_alloc2_a18(int a1, unsigned int a2) {
-  unsigned int v2; // r6
-  uint32_t *v3; // r5
-  uint16_t *v4; // r4
-  unsigned int v5; // r3
-  int *v6; // r6
-  int v7; // r3
-  int v8; // r2
-  unsigned int *v9; // r7
-  unsigned int v10; // r2
-  int v11; // r1
-  int v12; // r3
-  int v13; // r2
-  uint16_t v14; // r3
-  int v15; // cc
-  unsigned int v16; // r3
-  int *v18; // r3
-  int v19; // r3
-  int v20; // r3
-  int v21; // r2
-
-  v2 = *(uint8_t *)(a1 + 8);
-  if ( !*(uint8_t *)(a1 + 8) )
-  {
-LABEL_57:
-    sub_10DA6C(dword_10FBCC);
-    return 0;
-  }
-  v3 = *(uint32_t **)(a1 + 12);
-  if ( !v3 )
-  {
-    sub_10DA6C(dword_10FBBC);
-    return v3;
-  }
-  v4 = *(uint16_t **)(a1 + 12);
-  v5 = 1;
-  while ( v4[2] < a2 )
-  {
-    if ( v2 <= v5 )
-      goto LABEL_11;
-    v4 = (uint16_t *)&v3[3 * v5];
-LABEL_7:
-    v5 = (uint8_t)(v5 + 1);
-  }
-  if ( *v4 )
-    goto LABEL_12;
-  if ( v2 > v5 )
-  {
-    v4 = (uint16_t *)&v3[3 * v5];
-    goto LABEL_7;
-  }
-LABEL_11:
-  if ( v2 == v5 )
-    goto LABEL_57;
-LABEL_12:
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_10FBA4 = 1;
-  }
-  v6 = (int *)off_10FBA8;
-  v7 = *v4;
-  v3 = *(uint32_t **)off_10FBA8;
-  v8 = *(uint32_t *)off_10FBA8 + 1;
-  *(uint32_t *)off_10FBA8 = v8;
-  if ( !v7 )
-  {
-    if ( v8 )
-    {
-      v18 = (int *)off_10FBA4;
-      *v6 = (int)v3;
-      v19 = *v18;
-      if ( !v3 )
-      {
-        if ( v19 )
-          goto LABEL_43;
-      }
-    }
-    return 0;
-  }
-  v9 = (unsigned int *)off_10FBAC;
-  v3 = *((uint32_t **)v4 + 2);
-  v10 = *(uint32_t *)off_10FBAC;
-  if ( *(uint32_t *)off_10FBAC <= (unsigned int)v3 && (unsigned int)v3 <= *((uint32_t *)off_10FBAC + 1) + v10
-    || (unsigned int)v3 >= *(uint32_t *)off_10FBB0
-    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *((uint32_t *)off_10FBB0 + 1) )
-  {
-    *((uint32_t *)v4 + 2) = *v3;
-    *v4 = v7 - 1;
-    if ( v10 <= (unsigned int)v3 )
-      goto LABEL_18;
-  }
-  else
-  {
-    sub_10DA6C(dword_10FBB4, *((uint32_t *)v4 + 2));
-    v10 = *v9;
-    v14 = *v4 - 1;
-    v15 = *v9 > (unsigned int)v3;
-    *((uint32_t *)v4 + 2) = 0;
-    *v4 = v14;
-    if ( !v15 )
-    {
-LABEL_18:
-      if ( v9[1] + v10 >= (unsigned int)v3 )
-      {
-        v11 = *((uint8_t *)v3 - 3);
-        if ( v11 == 85 )
-          goto LABEL_20;
-        goto LABEL_45;
-      }
-    }
-  }
-  v16 = *(uint32_t *)off_10FBB0;
-  if ( *(uint32_t *)off_10FBB0 > (unsigned int)v3 || *((uint32_t *)off_10FBB0 + 1) + v16 < (unsigned int)v3 )
-  {
-    sub_10DA6C(dword_10FBC0, v3);
-    v11 = 0;
-    goto LABEL_45;
-  }
-  v11 = *((uint8_t *)v3 - 3);
-  if ( v11 != 85 )
-  {
-LABEL_45:
-    if ( *v6 )
-    {
-      v20 = *v6 - 1;
-      v21 = *(uint32_t *)off_10FBA4;
-      *v6 = v20;
-      if ( !v20 )
-      {
-        if ( v21 )
-          __enable_irq();
-      }
-    }
-    sub_10DA6C(dword_10FBC4, v11, v3);
-    return 0;
-  }
-  if ( v10 > (unsigned int)v3 )
-    goto LABEL_36;
-  if ( (unsigned int)v3 <= v10 + v9[1] )
-    goto LABEL_20;
-  if ( (unsigned int)v3 < v16 )
-  {
-LABEL_37:
-    sub_10DA6C(dword_10FBB8, v3);
-  }
-  else
-  {
-LABEL_36:
-    if ( (unsigned int)v3 > v16 + *((uint32_t *)off_10FBB0 + 1) )
-      goto LABEL_37;
-LABEL_20:
-    *((uint8_t *)v3 - 3) = -86;
-  }
-  if ( (unsigned int)v3 >= *v9 && (unsigned int)v3 <= *v9 + v9[1]
-    || (unsigned int)v3 >= *(uint32_t *)off_10FBB0
-    && (unsigned int)v3 <= *(uint32_t *)off_10FBB0 + *((uint32_t *)off_10FBB0 + 1) )
-  {
-    *((uint8_t *)v3 - 2) = 1;
-  }
-  else
-  {
-    sub_10DA6C(dword_10FBC8, v3);
-  }
-  if ( *v6 )
-  {
-    v12 = *v6 - 1;
-    v13 = *(uint32_t *)off_10FBA4;
-    *v6 = v12;
-    if ( !v12 )
-    {
-      if ( v13 )
-LABEL_43:
-        __enable_irq();
-    }
-  }
-  return v3;
 }
 
 
@@ -27692,17 +21116,6 @@ LABEL_39:
 
 
 
-// log_ptr_in_range @ 0x10fe24
-BOOL log_ptr_in_range(unsigned int a1) {
-  if ( *(uint32_t *)off_10FE54 <= a1 && a1 <= *(uint32_t *)off_10FE54 + *((uint32_t *)off_10FE54 + 1) )
-    return 1;
-  if ( a1 < *(uint32_t *)off_10FE58 )
-    return 0;
-  return a1 <= *(uint32_t *)off_10FE58 + *((uint32_t *)off_10FE58 + 1);
-}
-
-
-
 // mem_is_in_heap @ 0x10fe24
 BOOL mem_is_in_heap(unsigned int a1) {
   if ( *(uint32_t *)off_10FE54 <= a1 && a1 <= *(uint32_t *)off_10FE54 + *((uint32_t *)off_10FE54 + 1) )
@@ -27710,31 +21123,6 @@ BOOL mem_is_in_heap(unsigned int a1) {
   if ( a1 < *(uint32_t *)off_10FE58 )
     return 0;
   return a1 <= *(uint32_t *)off_10FE58 + *((uint32_t *)off_10FE58 + 1);
-}
-
-
-
-// rf_init_setup_n3ac @ 0x10fe5c
-int rf_init_setup_n3ac(int a1, int a2, int a3) {
-  uint32_t *v3; // r3
-  uint32_t *v4; // r3
-
-  v3 = (void *)(uintptr_t)(off_10FEA0);
-  *((uint32_t *)off_10FEA0 + 3) = dword_10FEA4;
-  *v3 = a2;
-  v3[1] = a3;
-  *((uint8_t *)v3 + 8) = 4;
-  ke_msg_send((void *)(v3), a1, 0x20u);
-  v4 = (void *)(uintptr_t)(off_10FEA8);
-  *((uint32_t *)off_10FEA8 + 5) = 4;
-  v4[1] = 0x10000;
-  v4[3] = 131074;
-  v4[6] = 0x40000;
-  *v4 = 1;
-  v4[2] = 1;
-  v4[4] = 0;
-  *((uint16_t *)v4 + 14) = 0;
-  return 0x40000;
 }
 
 
@@ -27771,7 +21159,7 @@ uint32_t * mem_alloc_checked(char a1) {
   if ( **(uint8_t **)off_10FEEC == 1 )
     v2 = (uint32_t *)irq_disable_set_flag_2();
   else
-    v2 = log_pool_alloc2_a18(dword_10FEF0, 0x7Cu);
+    v2 = (void *)(uintptr_t)(log_pool_alloc2_a18(dword_10FEF0, 0x7Cu));
   if ( !v2 )
     return v2;
   if ( log_ptr_in_range((unsigned int)v2) )
@@ -27843,7 +21231,7 @@ LABEL_11:
     goto LABEL_11;
   }
   if ( v3 == 3 )
-    return ((int (*)())rf_mem_write_n3f8)(a1);
+    return rf_mem_write_n3f8(a1);
   if ( !*((uint8_t *)a1 - 4) )
     return lock_acquire(a1);
   return result;
@@ -27888,39 +21276,6 @@ int rf_tx_power_get() {
 
 
 
-// log_free_pool_dispatch2_n4ac @ 0x11007c
-int log_free_pool_dispatch2_n4ac() {
-  void *v0; // r8
-  int result; // r0
-  uint32_t *v2; // r5
-  int v3; // r7
-  int v4; // r6
-  int v5; // r4
-  unsigned int v6; // r1
-
-  v0 = log_free_pool_dispatch2_n500;
-  result = (int)(uintptr_t)(list_init_1((void *)(log_free_pool_dispatch2_00c4)));
-  if ( *(uint16_t *)(*(uint32_t *)v0 + 6) )
-  {
-    v2 = (void *)(log_free_pool_dispatch2_n4f8);
-    v3 = (int)(uintptr_t)(log_free_pool_dispatch2_n4fc);
-    v4 = (int)(uintptr_t)(log_free_pool_dispatch2_00c4);
-    v5 = 0;
-    do
-    {
-      log_pool_alloc2_a18(v3, 0x63Cu);
-      result = ((int (*)())list_push_tail)(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 6);
-      ++v5;
-      ++*v2;
-    }
-    while ( v6 > (uint16_t)v5 );
-  }
-  return result;
-}
-
-
-
 // rx_channel_event @ 0x11007c
 int rx_channel_event() {
   void *v0; // r8
@@ -27948,34 +21303,6 @@ int rx_channel_event() {
       ++*v2;
     }
     while ( v6 > (uint16_t)v5 );
-  }
-  return result;
-}
-
-
-
-// patch_apply_n422 @ 0x1100d4
-int patch_apply_n422() {
-  void *v0; // r5
-  int result; // r0
-  int v2; // r7
-  int v3; // r6
-  int v4; // r4
-
-  v0 = (void *)(uintptr_t)(off_110108);
-  result = (int)(uintptr_t)(list_init_1((void *)(uintptr_t)(dword_11010C)));
-  if ( *(uint16_t *)(*(uint32_t *)v0 + 2) )
-  {
-    v2 = dword_110110;
-    v3 = dword_11010C;
-    v4 = 0;
-    do
-    {
-      log_pool_alloc2_a18(v2, 0xCu);
-      result = ((int (*)())list_push_tail)(v3);
-      ++v4;
-    }
-    while ( *(uint16_t *)(*(uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );
   }
   return result;
 }
@@ -28043,39 +21370,6 @@ int log_free_dispatch_n2b4() {
 
 
 
-// rf_lmac_init_n114 @ 0x110114
-int rf_lmac_init_n114() {
-  void *v0; // r8
-  int result; // r0
-  uint32_t *v2; // r5
-  int v3; // r7
-  int v4; // r6
-  int v5; // r4
-  unsigned int v6; // r1
-
-  v0 = (void *)(uintptr_t)(off_110168);
-  result = (int)(uintptr_t)(list_init_1((void *)(uintptr_t)(dword_11015C)));
-  if ( *(uint16_t *)(*(uint32_t *)v0 + 8) )
-  {
-    v2 = (void *)(uintptr_t)(off_110160);
-    v3 = dword_110164;
-    v4 = dword_11015C;
-    v5 = 0;
-    do
-    {
-      log_pool_alloc2_a18(v3, 0x6B8u);
-      result = ((int (*)())list_push_tail)(v4);
-      v6 = *(uint16_t *)(*(uint32_t *)v0 + 8);
-      ++v5;
-      ++*v2;
-    }
-    while ( v6 > (uint16_t)v5 );
-  }
-  return result;
-}
-
-
-
 // rx_adv_event @ 0x11016c
 int rx_adv_event() {
   void *v0; // r5
@@ -28094,7 +21388,7 @@ int rx_adv_event() {
     do
     {
       log_pool_alloc2_a18(v2, 0x7Cu);
-      result = ((int (*)())list_push_tail)(v3);
+      result = list_push_tail(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -28104,8 +21398,8 @@ int rx_adv_event() {
 
 
 
-// irq_disable_1 @ 0x1101ac
-int irq_disable_1() {
+// irq_disable @ 0x1101ac
+int irq_disable() {
   int *v0; // r4
   int v1; // r0
   int result; // r0
@@ -28125,39 +21419,6 @@ int irq_disable_1() {
   {
     v3 = *v0 - 1;
     v4 = *(uint32_t *)off_1101E0;
-    *v0 = v3;
-    if ( !v3 )
-    {
-      if ( v4 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// rf_lmac_init_n1ec @ 0x1101ec
-int rf_lmac_init_n1ec() {
-  int *v0; // r4
-  int v1; // r0
-  int result; // r0
-  int v3; // r3
-  int v4; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_110224 = 1;
-  }
-  v0 = (int *)off_110228;
-  v1 = dword_11022C;
-  ++*(uint32_t *)off_110228;
-  result = ((int (*)())list_push_tail)(v1);
-  if ( *v0 )
-  {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_110224;
     *v0 = v3;
     if ( !v3 )
     {
@@ -28220,7 +21481,7 @@ int irq_disable_set() {
   v0 = (int *)off_1102C4;
   v1 = dword_1102C8;
   ++*(uint32_t *)off_1102C4;
-  result = ((int (*)())list_push_tail)(v1);
+  result = list_push_tail(v1);
   v3 = *v0;
   ++*(uint32_t *)off_1102CC;
   if ( v3 )
@@ -28231,41 +21492,6 @@ int irq_disable_set() {
     if ( !v4 )
     {
       if ( v5 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// lmac_rf_handler_1102d0 @ 0x1102d0
-int lmac_rf_handler_1102d0() {
-  int *v0; // r4
-  int v1; // r0
-  int result; // r0
-  int v3; // r3
-  int v4; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_110310 = 1;
-  }
-  v0 = (int *)off_110314;
-  v1 = dword_110318;
-  ++*(uint32_t *)off_110314;
-  result = (int)(uintptr_t)(list_pop_front(v1));
-  if ( result )
-    --*(uint32_t *)off_11031C;
-  if ( *v0 )
-  {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_110310;
-    *v0 = v3;
-    if ( !v3 )
-    {
-      if ( v4 )
         __enable_irq();
     }
   }
@@ -28326,7 +21552,7 @@ int irq_disable_set_flag_preserve() {
   v0 = (int *)off_110364;
   v1 = dword_110368;
   ++*(uint32_t *)off_110364;
-  result = ((int (*)())list_push_tail)(v1);
+  result = list_push_tail(v1);
   v3 = *v0;
   ++*(uint32_t *)off_11036C;
   if ( v3 )
@@ -28394,7 +21620,7 @@ int irq_disable_set_flag_preserve_2() {
   v0 = (int *)off_1103EC;
   v1 = dword_1103F0;
   ++*(uint32_t *)off_1103EC;
-  result = ((int (*)())list_push_tail)(v1);
+  result = list_push_tail(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -28404,117 +21630,6 @@ int irq_disable_set_flag_preserve_2() {
     {
       if ( v4 )
         __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// rf_bus_init_n3fa @ 0x1103f4
-int rf_bus_init_n3fa(int result) {
-  uint32_t *v1; // r4
-  unsigned int v2; // r3
-  int *v3; // r6
-  int **v4; // r9
-  uint32_t *v5; // r8
-  int v6; // r5
-  int *v7; // r7
-  int v8; // r10
-  int *v9; // r0
-  int *v10; // r11
-  int v11; // r1
-  int v12; // r2
-  int16_t v13; // r3
-  int v14; // r1
-  int v15; // r2
-  int v16; // r3
-
-  v1 = (void *)(uintptr_t)(off_1104F8);
-  v2 = *(uint16_t *)(result + 28);
-  v3 = (int *)off_1104FC;
-  v4 = (int **)off_110524;
-  v5 = (void *)(uintptr_t)(off_110528);
-  v6 = result;
-LABEL_2:
-  v7 = (int *)off_110500;
-  while ( v2 <= 1 )
-  {
-    v8 = lmac_rf_handler_1102d0();
-    if ( !v8 )
-    {
-      result = sub_10DA6C(dword_11051C, *(uint32_t *)off_110518);
-      if ( *(uint16_t *)(v6 + 28) > 1u )
-        return result;
-      return irq_nesting_or(256);
-    }
-    v9 = (int *)irq_disable_1();
-    v10 = v9;
-    if ( !v9 )
-    {
-      sub_10DA6C(dword_110520);
-      result = irq_disable_set_flag_preserve();
-      if ( *(uint16_t *)(v6 + 28) > 1u )
-        return result;
-      return irq_nesting_or(256);
-    }
-    *v9 = v8;
-    v9[1] = 0;
-    v9[2] = 0;
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_110504 = 1;
-    }
-    v11 = *v7 + 1;
-    *v7 = v11;
-    *v1 = 1024;
-    while ( (*v1 & 0x800) != 0 )
-      ;
-    if ( (uint8_t)*v3 )
-    {
-      v16 = *(uint32_t *)(v6 + 20);
-      if ( v16 )
-      {
-        *(uint32_t *)(v16 + 4) = (int)(uintptr_t)(v9);
-      }
-      else
-      {
-        sub_10DA6C(dword_110514);
-        v11 = *v7;
-      }
-    }
-    else
-    {
-      if ( **(int16_t **)off_110508 < 0 && *v4 )
-      {
-        rf_cmd_send_n264(dword_110510, dword_11050C, 261);
-        v11 = *v7;
-      }
-      *v4 = v10;
-    }
-    v12 = *v3;
-    v13 = *(uint16_t *)(v6 + 28);
-    *(uint32_t *)(v6 + 20) = (int)(uintptr_t)(v10);
-    v2 = (uint16_t)(v13 + 1);
-    result = 1024;
-    *(uint16_t *)(v6 + 28) = v2;
-    *v3 = (uint8_t)(v12 + 1);
-    *v5 = 1024;
-    if ( v11 )
-    {
-      v14 = v11 - 1;
-      v15 = *(uint32_t *)off_110504;
-      *v7 = v14;
-      if ( !v14 )
-      {
-        if ( v15 )
-        {
-          __enable_irq();
-          v2 = *(uint16_t *)(v6 + 28);
-        }
-      }
-      goto LABEL_2;
     }
   }
   return result;
@@ -28559,7 +21674,7 @@ LABEL_2:
         return result;
       return set_busy_flag_alt(256);
     }
-    v9 = (int *)irq_disable_1();
+    v9 = (int *)irq_disable();
     v10 = v9;
     if ( !v9 )
     {
@@ -28633,117 +21748,6 @@ LABEL_2:
 
 
 
-// rf_init_agc_or_radio @ 0x11052c
-int rf_init_agc_or_radio(int a1, int a2) {
-  uint32_t *v2; // r4
-  int *v3; // r7
-  unsigned int v6; // r2
-  uint32_t *v7; // r9
-  int *v8; // r11
-  int v9; // r10
-  uint32_t *v10; // r0
-  uint32_t *v11; // r5
-  int v12; // r0
-  int *v13; // r3
-  int v14; // r0
-  int v15; // r1
-  int16_t v16; // r2
-  uint32_t *v17; // r1
-  int v18; // r0
-  int v19; // r2
-  unsigned int v21; // [sp+4h] [bp-8h]
-
-  v2 = (void *)(uintptr_t)(off_110650);
-  v3 = (int *)off_110654;
-  v21 = *(uint16_t *)(*(uint32_t *)off_11064C + 48);
-  rf_bus_init_n3fa(a2);
-  v6 = *(uint16_t *)(a2 + 0xC);
-LABEL_2:
-  v7 = (void *)(uintptr_t)(off_11067C);
-  v8 = (int *)off_110680;
-  while ( v21 > v6 )
-  {
-    if ( *v7 <= 4u )
-      goto LABEL_24;
-    v9 = (*(int ( **)(uint32_t))(*(uint32_t *)(a1 + 4 + 4) + 16))(*(uint32_t *)(a1 + 4));
-    if ( !v9 )
-    {
-      sub_10DA6C(dword_110678, *v7);
-LABEL_23:
-      if ( *(uint16_t *)(a2 + 0xC) >= (unsigned int)*(uint16_t *)(*(uint32_t *)off_11064C + 50) )
-        return 1;
-LABEL_24:
-      irq_nesting_or(256);
-      return 1;
-    }
-    v10 = (uint32_t *)irq_disable_1();
-    v11 = v10;
-    if ( !v10 )
-    {
-      sub_10DA6C(dword_110674);
-      (*(void ( **)(uint32_t, int))(*(uint32_t *)(a1 + 4 + 4) + 20))(*(uint32_t *)(a1 + 4), v9);
-      goto LABEL_23;
-    }
-    *v10 = 0;
-    v12 = *v8;
-    v11[1] = 0;
-    v11[2] = 0;
-    *v11 = v12 + v9;
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_110658 = 1;
-    }
-    v13 = (int *)off_11065C;
-    v14 = *(uint32_t *)off_11065C + 1;
-    *(uint32_t *)off_11065C = v14;
-    *v2 = 1;
-    while ( (*v2 & 2) != 0 )
-      ;
-    if ( *v3 )
-    {
-      v19 = *(uint32_t *)(a2 + 4);
-      if ( v19 )
-        *(uint32_t *)(v19 + 4) = (int)(uintptr_t)(v11);
-    }
-    else
-    {
-      if ( **(int16_t **)off_110660 < 0 && *(uint32_t *)off_110664 )
-      {
-        rf_cmd_send_n264(dword_11066C, dword_110670, 400);
-        v13 = (int *)off_11065C;
-        v14 = *(uint32_t *)off_11065C;
-      }
-      *(uint32_t *)off_110664 = (int)(uintptr_t)(v11);
-    }
-    v15 = *v3;
-    v16 = *(uint16_t *)(a2 + 0xC);
-    *(uint32_t *)(a2 + 4) = (int)(uintptr_t)(v11);
-    v6 = (uint16_t)(v16 + 1);
-    *(uint16_t *)(a2 + 0xC) = v6;
-    *v3 = (uint16_t)(v15 + 1);
-    *(uint32_t *)off_110668 = 1;
-    if ( v14 )
-    {
-      v17 = (void *)(uintptr_t)(off_110658);
-      v18 = v14 - 1;
-      *v13 = v18;
-      if ( !v18 )
-      {
-        if ( *v17 )
-        {
-          __enable_irq();
-          v6 = *(uint16_t *)(a2 + 0xC);
-        }
-      }
-      goto LABEL_2;
-    }
-  }
-  return 1;
-}
-
-
-
 // tx_irq_handler @ 0x11052c
 int tx_irq_handler(int a1, int a2) {
   uint32_t *v2; // r4
@@ -28787,7 +21791,7 @@ LABEL_24:
       set_busy_flag_alt(256);
       return 1;
     }
-    v10 = (uint32_t *)irq_disable_1();
+    v10 = (uint32_t *)irq_disable();
     v11 = v10;
     if ( !v10 )
     {
@@ -29073,64 +22077,6 @@ uint32_t * set_radio_channel(uint32_t *result, int a2, int a3, uint16_t a4, int 
 
 
 
-// rf_field_align_n_2a4 @ 0x110b64
-int rf_field_align_n_2a4(int result) {
-  uint32_t *v1; // r1
-  uint32_t *v2; // r2
-  int v3; // r4
-  int v4; // r5
-  int v5; // r6
-  uint32_t *v6; // r2
-  uint32_t *v7; // r7
-  int *v8; // r3
-  int v9; // r3
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_110BD8 = 1;
-  }
-  v1 = (void *)(uintptr_t)(off_110BDC);
-  v2 = (void *)(uintptr_t)(off_110BE0);
-  v3 = *(uint32_t *)off_110BDC;
-  v4 = *(uint32_t *)off_110BDC + 1;
-  *(uint32_t *)off_110BDC = v4;
-  *v2 = 64;
-  while ( (*v2 & 0x80) != 0 )
-    ;
-  if ( *(uint32_t *)off_110BE4 )
-  {
-    v5 = dword_110BE8;
-    v6 = (void *)(uintptr_t)(off_110BEC);
-    *(uint32_t *)(*(uint32_t *)(dword_110BE8 + 6164) + 4) = result;
-  }
-  else
-  {
-    v6 = (void *)(uintptr_t)(off_110BEC);
-    *(uint32_t *)off_110BE4 = result;
-    v5 = dword_110BE8;
-  }
-  ++*v6;
-  v7 = (void *)(uintptr_t)(off_110BF4);
-  *(uint8_t *)off_110BF0 |= 2u;
-  *v7 = 64;
-  *(uint32_t *)(v5 + 6164) = result;
-  if ( v4 )
-  {
-    v8 = (int *)off_110BD8;
-    *v1 = v3;
-    v9 = *v8;
-    if ( !v3 )
-    {
-      if ( v9 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
 // irq_disable_set_flag_4 @ 0x110b64
 int irq_disable_set_flag_4(int result) {
   uint32_t *v1; // r1
@@ -29189,42 +22135,6 @@ int irq_disable_set_flag_4(int result) {
 
 
 
-// rf_chan_setup_init @ 0x110bf8
-int rf_chan_setup_init(char a1, int a2, int a3) {
-  uint32_t *v6; // r0
-  uint32_t *v7; // r4
-  uint32_t *v8; // r6
-  int v9; // r2
-  int v10; // r3
-
-  v6 = mem_alloc_checked(4);
-  if ( !v6 )
-    return sub_10DA6C(dword_110C78);
-  v7 = v6;
-  v8 = (uint32_t *)irq_disable_1();
-  if ( v8 )
-  {
-    *(uint8_t *)v7 = a3;
-    *((uint8_t *)v7 + 1) = BYTE1(a3) & 0xF;
-    *((uint8_t *)v7 + 2) = a1;
-    *((uint8_t *)v7 + 3) = 0;
-    memcpy_large((void *)(v7 + 1), (void *)(uintptr_t)(a2), a3);
-    v9 = v8[2];
-    v10 = dword_110C70;
-    v8[1] = 0;
-    *v8 = (int)(uintptr_t)(v7);
-    v8[2] = (uint16_t)(a3 + 4) | v10 & v9 | 0x80000000;
-    return rf_field_align_n_2a4((int)v8);
-  }
-  else
-  {
-    sub_10DA6C(dword_110C74);
-    return mem_free(v7);
-  }
-}
-
-
-
 // ke_alloc_node @ 0x110bf8
 int ke_alloc_node(char a1, int a2, int a3) {
   uint32_t *v6; // r0
@@ -29237,7 +22147,7 @@ int ke_alloc_node(char a1, int a2, int a3) {
   if ( !v6 )
     return sub_10DA6C(dword_110C78);
   v7 = v6;
-  v8 = (uint32_t *)irq_disable_1();
+  v8 = (uint32_t *)irq_disable();
   if ( v8 )
   {
     *(uint8_t *)v7 = a3;
@@ -29286,304 +22196,6 @@ int rf_reg_update(int a1) {
   *v1 = v4;
   *v1 = v2 | 0xC00000;
   return sub_10DA6C(rf_bus_mark_n_490, *(uint32_t *)rf_bus_mark_n_494 & 0x3FFFFF);
-}
-
-
-
-// rf_msg_process @ 0x110d00
-int rf_msg_process() {
-  int v0; // r4
-  int v1; // r1
-  int v2; // r1
-  uint8_t *v3; // r6
-  unsigned int v4; // r1
-  int v5; // r5
-  unsigned int v6; // r2
-  char *v7; // r3
-  uint32_t *v8; // r7
-  uint32_t *v9; // r0
-  int v10; // r3
-  char *v11; // r1
-  uint32_t *v12; // r0
-  uint8_t *v13; // r5
-  unsigned int v14; // r1
-  int result; // r0
-  uint8_t *v16; // r0
-  unsigned int v17; // r1
-  uint32_t *v18; // r3
-  uint32_t *v19; // r0
-  unsigned int v20; // r2
-  uint32_t *v21; // r3
-  unsigned int v22; // r3
-  uint32_t *v23; // r7
-  unsigned int v24; // r3
-  char *v25; // r2
-  uint32_t *v26; // r5
-  int v27; // r6
-  int v28; // r7
-  unsigned int v29; // r3
-  char *v30; // r2
-  int v31; // r0
-  int v32; // r5
-  int v33; // r0
-  int v34; // r1
-  int v35; // r0
-  int v36; // r1
-  unsigned int *v37; // r2
-  int v38; // r5
-  int v39; // r1
-  unsigned int v40; // r3
-  int v41; // r1
-  uint8_t *v42; // r6
-  void *v43; // r3
-  int v44; // r1
-  void *v45; // r3
-  int v46; // r1
-  int *v47; // r2
-  int v48; // r1
-  int v49; // r3
-
-  v0 = *(uint32_t *)rf_bus_write_n_4d8;
-  if ( **(int16_t **)rf_bus_reset2_n_373 < 0 && !v0 )
-  {
-    flash_cmd_exec(dword_111130, dword_11112C, 39);
-    goto rf_bus_mark_n_431;
-  }
-  if ( (v0 & 0x2000) != 0 )
-  {
-    v37 = (unsigned int *)off_11113C;
-    v38 = *(uint32_t *)log_free_pool_dispatch2_n480_1150;
-    *(uint32_t *)log_free_pool_dispatch2_n480_1150 = *(uint32_t *)log_free_pool_dispatch2_n480_1150;
-    v39 = (int)(uintptr_t)(rf_bus_write2_n_3d0);
-    v40 = *v37 & 0xFFFFFFDF;
-    *v37 = v40;
-    check_interrupt_flag(2, v39, v38, v40);
-    if ( (v38 & 4) != 0 )
-    {
-      v43 = rf_bus_mark_n_30;
-      v44 = (int)(uintptr_t)(rf_bus_write_n_2f4);
-      *(uint8_t *)rf_bus_mark_n_30 = 1;
-      check_interrupt_flag(2, v44, 1, (int)(uintptr_t)(v43));
-    }
-    if ( (v38 & 1) != 0 )
-    {
-      v42 = (void *)(rf_bus_mark_n_30);
-      *(uint32_t *)rf_bus_write2_n_3cc = 16;
-      if ( *v42 )
-      {
-        check_interrupt_flag(2, (int)(uintptr_t)(rf_bus_reset_n1a7), 16, (uint8_t)*v42);
-        *v42 = 0;
-      }
-      if ( *(uint8_t *)rf_bus_write_n_30c )
-      {
-        v47 = (int *)rf_bus_mark_n_b;
-        *((uint8_t *)rf_bus_write_n_30c + 1) = 1;
-        v48 = (int)(uintptr_t)(rf_bus_write2_n_3a0);
-        v49 = *v47 | 1;
-        *v47 = v49;
-        check_interrupt_flag(2, v48, (int)(uintptr_t)(v47), v49);
-      }
-      *(uint8_t *)off_111164 = 0;
-    }
-    if ( (v38 & 2) != 0 )
-    {
-      v45 = (void *)(uintptr_t)(off_111164);
-      v46 = dword_11117C;
-      *(uint8_t *)off_111164 = 1;
-      check_interrupt_flag(2, v46, 1, (int)(uintptr_t)(v45));
-    }
-    if ( (v38 & 8) != 0 )
-      msg_parse((int)(uintptr_t)(rf_bus_reset2_n_19c), v41);
-  }
-  if ( (v0 & 1) != 0 )
-  {
-    msg_parse((int)(uintptr_t)(rf_bus_write_n_4d3), v0 << 31);
-    *(uint32_t *)rf_bus_reset2_n_367 = 1;
-  }
-  if ( (v0 & 0x20) != 0 )
-  {
-    rf_reg_update(*(uint32_t *)rf_bus_write_n_4cc);
-    *(uint32_t *)rf_bus_reset2_n_367 = 32;
-  }
-  if ( (v0 & 0x4000) != 0 )
-  {
-    v1 = *(uint32_t *)off_110FA4;
-    *(uint32_t *)off_110FA4 = *(uint32_t *)off_110FA4;
-    msg_parse((int)(uintptr_t)(rf_bus_write_n_4bc), v1);
-  }
-  if ( (v0 & 0x8000) == 0 )
-    goto rf_bus_mark_n_431;
-  v31 = dword_111138;
-  v32 = *(uint32_t *)sdio_buffer_prepare_n140;
-  *(uint32_t *)sdio_buffer_prepare_n140 = *(uint32_t *)sdio_buffer_prepare_n140;
-  msg_parse(v31, v32);
-  if ( (v32 & 4) != 0 )
-    *(uint32_t *)off_11113C &= ~1u;
-  if ( (v32 & 8) == 0 )
-  {
-rf_bus_mark_n_431:
-    v2 = v0 << 9;
-    if ( (v0 & 0x400000) == 0 )
-      goto LABEL_11;
-log_free_dispatch_1060:
-    v33 = dword_111144;
-    v34 = *(uint32_t *)rf_bus_write2_1140;
-    *(uint32_t *)rf_bus_write2_1140 = *(uint32_t *)rf_bus_write2_1140;
-    msg_parse(v33, v34);
-    if ( (v0 & 0x800000) == 0 )
-      goto rf_bus_mark_n_425;
-    goto rf_bus_reset2_n_292;
-  }
-  v2 = v0 << 9;
-  *(uint32_t *)off_11113C &= ~4u;
-  if ( (v0 & 0x400000) != 0 )
-    goto log_free_dispatch_1060;
-LABEL_11:
-  if ( (v0 & 0x800000) == 0 )
-    goto rf_bus_mark_n_425;
-rf_bus_reset2_n_292:
-  v35 = dword_11114C;
-  v36 = *(uint32_t *)rf_bus_reset2_n_1bc;
-  *(uint32_t *)rf_bus_reset2_n_1bc = *(uint32_t *)rf_bus_reset2_n_1bc;
-  msg_parse(v35, v36);
-rf_bus_mark_n_425:
-  if ( (v0 & 0x400) != 0 )
-  {
-    v3 = (void *)(rf_bus_reset2_n_350);
-    v4 = *((uint8_t *)rf_bus_reset2_n_350 + 1621);
-    if ( v4 >= *((uint8_t *)rf_bus_reset2_n_350 + 1622) )
-    {
-      msg_parse((int)(uintptr_t)(rf_bus_write2_174), v4);
-    }
-    else
-    {
-      v5 = *(uint32_t *)rf_bus_reset2_n_348;
-      v6 = *((uint8_t *)rf_bus_reset2_n_350 + 1620)
-         + 1
-         - 81
-         * ((unsigned int)(((unsigned int)dword_110FB8
-                          * (uint64_t)((unsigned int)*((uint8_t *)rf_bus_reset2_n_350 + 1620) + 1)) >> 32) >> 6);
-      v7 = (char *)rf_bus_reset2_n_350 + 20 * v6;
-      v8 = (void *)(rf_bus_write_n_4a8);
-      *((uint32_t *)v7 + 1) = *(uint32_t *)off_110FC0;
-      v3[1621] = v4 + 1;
-      v9 = (void *)(rf_bus_mark_n_1c4);
-      *((uint32_t *)v7 + 2) = *v8;
-      v7[12] = v5;
-      v3[1620] = v6;
-      v7[13] = BYTE1(v5) & 7;
-      *v9 = 16;
-      do
-        v10 = *v9 & 0x20;
-      while ( v10 );
-      v11 = &v3[20 * v6];
-      if ( (v11[13] & 4) == 0 )
-        v10 = *(uint32_t *)(*((uint32_t *)v11 + 2) + 4);
-      v12 = (void *)(patch_apply_n_ff);
-      *(uint32_t *)rf_bus_reset2_n_338 = v10;
-      *v12 = 16;
-      ((int (*)())list_push_tail)(dword_110FD4);
-      irq_nesting_or(2048);
-    }
-    *(uint32_t *)rf_bus_reset2_n_367 = 1024;
-  }
-  if ( (v0 & 0x200) != 0 )
-  {
-    msg_parse(dword_11116C, v2);
-    *(uint32_t *)rf_bus_write_1170 = 512;
-  }
-  if ( (v0 & 0x100) != 0 )
-  {
-    v13 = (void *)(rf_bus_reset2_n_350);
-    v14 = *((uint8_t *)rf_bus_reset2_n_350 + 2433);
-    if ( v14 < *((uint8_t *)rf_bus_reset2_n_350 + 2434) )
-    {
-      v27 = *(uint32_t *)rf_bus_write_n_458;
-      v28 = *(uint32_t *)off_11100C;
-      v29 = *((uint8_t *)rf_bus_reset2_n_350 + 2432)
-          + 1
-          - 40
-          * ((unsigned int)(((unsigned int)rf_bus_reset2_n_2f4
-                           * (uint64_t)((unsigned int)*((uint8_t *)rf_bus_reset2_n_350 + 2432) + 1)) >> 32) >> 5);
-      v30 = (char *)rf_bus_reset2_n_350 + 20 * v29;
-      *((uint8_t *)rf_bus_reset2_n_350 + 2432) = v29;
-      v30[1645] = BYTE1(v27) & 7;
-      *((uint32_t *)v30 + 409) = v28;
-      *((uint32_t *)v30 + 410) = v28;
-      v30[1644] = v27;
-      v13[2433] = v14 + 1;
-      ((int (*)())list_push_tail)((int)(uintptr_t)(v13 + 2436));
-      irq_nesting_or(0x1000000);
-    }
-    else
-    {
-      msg_parse(dword_110FD8, v14);
-    }
-    *(uint32_t *)rf_bus_reset2_n_367 = 256;
-  }
-  result = v0 << 19;
-  if ( (v0 & 0x1000) != 0 )
-  {
-    v16 = (void *)(rf_bus_reset2_n_328);
-    v17 = *((uint8_t *)rf_bus_reset2_n_328 + 3074);
-    if ( v17 < *((uint8_t *)rf_bus_reset2_n_328 + 3073) )
-    {
-      v24 = *((uint8_t *)rf_bus_reset2_n_328 + 3072)
-          + 1
-          - 192
-          * ((unsigned int)(((unsigned int)patch_apply_with_membar
-                           * (uint64_t)((unsigned int)*((uint8_t *)rf_bus_reset2_n_328 + 3072) + 1)) >> 32) >> 7);
-      v25 = (char *)rf_bus_reset2_n_328 + 16 * v24;
-      *((uint32_t *)v25 + 1) = *(uint32_t *)rf_bus_mark_n_188;
-      v26 = (void *)(rf_bus_write_n_463);
-      v16[3072] = v24;
-      *((uint16_t *)v25 + 4) = *v26;
-      v16[3074] = v17 + 1;
-      ((int (*)())list_push_tail)((int)(uintptr_t)(v16 + 3080));
-      result = irq_nesting_or(1024);
-    }
-    else
-    {
-      result = msg_parse(dword_110FE0, v17);
-    }
-    v18 = (void *)(rf_bus_mark_n_1a7);
-    *(uint32_t *)rf_bus_reset2_n_367 = 4096;
-    if ( !*v18 )
-      *(uint8_t *)rf_bus_mark_id_n_1a3 &= ~1u;
-  }
-  if ( (v0 & 0x800) != 0 )
-  {
-    v19 = (void *)(rf_bus_reset2_n_328);
-    v20 = *((uint8_t *)rf_bus_reset2_n_328 + 6162);
-    if ( *((uint8_t *)rf_bus_reset2_n_328 + 6161) > v20 )
-    {
-      v22 = *((uint8_t *)rf_bus_reset2_n_328 + 6160)
-          + 1
-          - 192
-          * ((unsigned int)(((unsigned int)patch_apply_with_membar
-                           * (uint64_t)((unsigned int)*((uint8_t *)rf_bus_reset2_n_328 + 6160) + 1)) >> 32) >> 7);
-      v23 = (void *)(rf_bus_mark_n_193);
-      *((uint8_t *)rf_bus_reset2_n_328 + 6160) = v22;
-      v19[4 * v22 + 773] = *v23;
-      v19[4 * v22 + 774] = (v19[4 * v22 + 774] & ~0xFFFFu) | ((uint16_t)(*(uint32_t *)rf_bus_mark_n190) & 0xFFFFu);
-      *((uint8_t *)v19 + 6162) = v20 + 1;
-      ((int (*)())list_push_tail)(rf_bus_mark_n_18b);
-      result = irq_nesting_or(512);
-    }
-    else
-    {
-      result = msg_parse(dword_110FEC, v20);
-    }
-    v21 = (void *)(rf_bus_write_n_47c);
-    *(uint32_t *)rf_bus_reset2_n_367 = 2048;
-    if ( !*v21 )
-      *(uint8_t *)rf_bus_mark_id_n_1a3 &= ~2u;
-  }
-  if ( (v0 & 4) != 0 )
-    *(uint32_t *)rf_bus_reset2_n_367 = 4;
-  if ( (v0 & 8) != 0 )
-    *(uint32_t *)rf_bus_reset2_n_367 = 8;
-  return result;
 }
 
 
@@ -29886,51 +22498,6 @@ LABEL_12:
 
 
 
-// rf_bus_mark_118c @ 0x11118c
-int rf_bus_mark_118c() {
-  int v0; // r3
-  int *v1; // r2
-  uint32_t *v2; // r1
-  int result; // r0
-  int v4; // r3
-  int v5; // r1
-  char *v6; // r3
-  uint32_t *v7; // r4
-  int v8; // r6
-  uint64_t v9; // kr00_8
-  uint64_t v10; // kr08_8
-
-  v0 = *(uint32_t *)rf_bus_reset2_n_100;
-  v1 = (int *)rf_bus_write2_n_31c;
-  v2 = (void *)(rf_bus_reset2_120c);
-  *(uint32_t *)(v0 + 4) = *(uint32_t *)rf_bus_reset2_n_104;
-  result = *v1;
-  v2[709] = v0;
-  v4 = *(uint32_t *)ipc_doorbell_handler_n40a;
-  *(uint8_t *)(result + 3) |= 0xC0u;
-  v5 = v4 + 3200;
-  do
-  {
-    *(uint8_t *)(v4 + 3) |= 0xC0u;
-    v4 += 8;
-  }
-  while ( v4 != v5 );
-  v6 = (char *)off_111214;
-  v7 = (void *)(rf_bus_reset2_120c);
-  v8 = *((uint32_t *)off_111214 + 2);
-  v9 = *(uint64_t *)off_111214;
-  *(uint8_t *)(*(uint32_t *)off_111214 + 3) |= 0xC0u;
-  *(uint8_t *)(HIDWORD(v9) + 3) |= 0xC0u;
-  v10 = *(uint64_t *)(v6 + 12);
-  *(uint8_t *)(v8 + 3) |= 0xC0u;
-  *(uint8_t *)(v10 + 3) |= 0xC0u;
-  *(uint8_t *)(HIDWORD(v10) + 3) |= 0xC0u;
-  v7[581] = result;
-  return result;
-}
-
-
-
 // timer_set_alarm @ 0x11118c
 int timer_set_alarm() {
   int v0; // r3
@@ -30001,28 +22568,6 @@ int timer_read_count() {
 
 
 
-// rf_bus_mark_ne8 @ 0x111274
-int * rf_bus_mark_ne8(int a1) {
-  int v2; // r0
-  int v3; // r5
-  int *result; // r0
-  int ( *v5)(uint32_t, uint32_t, int); // r3
-
-  v2 = (int)(uintptr_t)(rf_bus_reset2_n_60 + 16 * (a1 - 1));
-  v3 = *(uint8_t *)(v2 + 8);
-  result = (void *)(uintptr_t)(sub_100200((int *)v2, 0, 0x10u));
-  if ( v3 )
-  {
-    result = (int *)rf_bus_write_n_1c4;
-    v5 = *(int ( **)(uint32_t, uint32_t, int))(rf_bus_write_n_1c4 + 4 * a1 + 32);
-    if ( v5 )
-      return (int *)v5(0, 0, 1);
-  }
-  return result;
-}
-
-
-
 // timer_entry_clear @ 0x111274
 int * timer_entry_clear(int a1) {
   int v2; // r0
@@ -30066,27 +22611,8 @@ int * timer_entry_reset(int a1) {
 
 
 
-// rf_bus_scan @ 0x1112e4
-int *rf_bus_scan() {
-  int i; // r4
-  int v1; // r0
-  int *result; // r0
-  int v3; // [sp+4h] [bp-4h]
-
-  for ( i = 1; i != 6; ++i )
-  {
-    v1 = (uint8_t)i;
-    v3 = (uint8_t)i;
-    rf_bus_mark_ne8(v1);
-    result = timer_entry_reset(v3);
-  }
-  return result;
-}
-
-
-
-// timer_init_1 @ 0x1112e4
-int *timer_init_1() {
+// timer_init @ 0x1112e4
+int *timer_init() {
   int i; // r4
   int v1; // r0
   int *result; // r0
@@ -30100,69 +22626,6 @@ int *timer_init_1() {
     result = timer_entry_reset(v3);
   }
   return result;
-}
-
-
-
-// rf_bus_reset2_0 @ 0x111304
-int rf_bus_reset2_0() {
-  uint32_t *v0; // r2
-  uint32_t *v1; // r2
-  uint32_t *v2; // r1
-  uint32_t *v3; // r2
-  uint32_t *v4; // r1
-  int v5; // r3
-  uint32_t *v6; // r2
-  int v7; // r0
-
-  v0 = (void *)(rf_bus_setup_3f8);
-  *((uint32_t *)rf_bus_setup_3f8 + 4) |= 1u;
-  while ( (v0[4] & 1) != 0 )
-    ;
-  v1 = (void *)(rf_bus_setup_3f8);
-  while ( *((int *)rf_bus_setup_3f8 + 4) >= 0 )
-    ;
-  v2 = (void *)(rf_bus_setup_3f8);
-  *((uint32_t *)rf_bus_setup_3f8 + 3) |= 0x40000007u;
-  v1[3] = v1[3] & 0xFFFFC0FF | 0x2700;
-  v1[4] |= 1u;
-  while ( (v2[4] & 1) != 0 )
-    ;
-  v3 = (void *)(rf_bus_setup_3f8);
-  while ( *((int *)rf_bus_setup_3f8 + 4) >= 0 )
-    ;
-  v4 = (void *)(rf_bus_setup_3f8);
-  *((uint32_t *)rf_bus_setup_3f8 + 3) |= 0x40000007u;
-  v3[3] = v3[3] & 0xFFFFC0FF | 0x2700;
-  v3[512] &= 0xFFFFE7FC;
-  v3[512] |= 0x800004u;
-  v3[6] = 0;
-  v5 = 1;
-  v3[5] = -1;
-  v3[519] = 0;
-  v3[517] = 0;
-  v3[516] = 0;
-  while ( 1 )
-  {
-    v6 = &v4[8 * v5 - 16];
-    if ( v5 != 1 )
-      break;
-    v4[706] = -1;
-    v4[578] = -1;
-LABEL_11:
-    ++v5;
-  }
-  v6[714] = -1;
-  v6[586] = -1;
-  if ( v5 != 6 )
-    goto LABEL_11;
-  v4[6] = (int)(uintptr_t)(rf_bus_write2_n_127);
-  v7 = (int)(uintptr_t)(rf_bus_write_n_6b);
-  v4[513] &= ~2u;
-  v4[513] |= 0x8000u;
-  v4[2] = 46;
-  v4[2] |= 1u;
-  return msg_parse(v7, v4);
 }
 
 
@@ -30230,41 +22693,6 @@ LABEL_11:
 
 
 
-// rf_bus_reset2_n101 @ 0x111404
-int rf_bus_reset2_n101(int result, int a2) {
-  int *v2; // r4
-  int v3; // r5
-  int v4; // r3
-  char v5; // r2
-  uint32_t *v6; // r2
-
-  v2 = (int *)rf_bus_mark_n2d4;
-  v3 = *(uint32_t *)off_11145C;
-  v4 = *(uint32_t *)rf_bus_mark_n2d4;
-  *((uint16_t *)rf_bus_write2_n_c0 + 5) = a2;
-  if ( a2 == 64 )
-    v5 = -54;
-  else
-    v5 = -50;
-  *(uint32_t *)v4 = -1073741824;
-  *(uint32_t *)(v4 + 4) = v3;
-  *(uint8_t *)(v4 + 3) = v5;
-  *(uint16_t *)v4 = a2;
-  if ( result && a2 )
-  {
-    result = (int)(uintptr_t)(memcpy_large((void *)(uintptr_t)(v3), (void *)(uintptr_t)(result), a2));
-    v4 = *v2;
-  }
-  v6 = (void *)(rf_bus_write2_n_bc);
-  *(uint8_t *)(v4 + 3) &= 0x3Fu;
-  v6[578] = v6[578];
-  v6[581] = v4;
-  v6[576] |= 0x84000000;
-  return result;
-}
-
-
-
 // rf_set_param @ 0x111404
 int rf_set_param(int result, int a2) {
   int *v2; // r4
@@ -30296,58 +22724,6 @@ int rf_set_param(int result, int a2) {
   v6[581] = v4;
   v6[576] |= 0x84000000;
   return result;
-}
-
-
-
-// rf_bus_write_1 @ 0x11146c
-int * rf_bus_write_1(int a1, int a2, int a3) {
-  uint32_t *v3; // r6
-  int *v4; // r5
-  int v5; // r7
-  uint32_t *v6; // r4
-
-  if ( a1 )
-  {
-    v3 = (uint32_t *)(rf_bus_mark_n384 + 32 * (a1 - 1) + 8);
-    v4 = (int *)(rf_bus_mark_n384 + 32 * (a1 - 1));
-  }
-  else
-  {
-    v3 = (uint32_t *)rf_bus_reset2_n218;
-    v4 = (int *)rf_bus_reset2_n21c;
-  }
-  v5 = *v4;
-  if ( (*v4 & 0x80008000) != 0 && (((uintptr_t)(rf_bus_write2_field) & v5) != 0x20000 || a2 != 0x8000000 || a3))
-  {
-    v6 = (void *)(rf_cmd_queue_next_n15a);
-    *((uint32_t *)rf_cmd_queue_next_n15a + 513) |= 0x200u;
-    while ( (v6[5] & 0x80) == 0 )
-      ;
-    *v4 |= a2 | 0x8008000;
-    if ( a3 )
-      *v4 &= ~a3;
-    if ( !a1 )
-      goto rf_bus_write2_n_66;
-    if ( v5 < 0 )
-    {
-      *v3 = 2;
-      *v4 |= 0x40000000u;
-      while ( (*v3 & 2) == 0 )
-        ;
-      if ( (v5 & 0x8000) != 0 )
-        goto rf_bus_write2_n_66;
-    }
-    else if ( (v5 & 0x8000) != 0 )
-    {
-rf_bus_write2_n_66:
-      *((uint32_t *)rf_cmd_queue_next_n15a + 513) |= 0x400u;
-      return rf_bus_mark_ne8(a1);
-    }
-    *v4 &= ~0x8000u;
-    goto rf_bus_write2_n_66;
-  }
-  return rf_bus_mark_ne8(a1);
 }
 
 
@@ -30420,8 +22796,7 @@ int rf_channel_get_flag(int a1, int a2, int a3) {
     if ( (v5 & 0x80008000) == 0 )
       return (int)timer_entry_reset(a1);
     v6 = (uint32_t *)(dword_111604 + v3 + 8);
-    if ( ((uintptr_t)(rf_bus_mark_n47c) & v5) == 0x20000)
-      goto rf_bus_write_ndc;
+if ( ((uintptr_t)(rf_bus_mark_n47c) & v5) == 0x20000 ) goto rf_bus_write_ndc;
     goto rf_bus_write_n_2e3;
   }
   v4 = (void *)(uintptr_t)(off_111610);
@@ -30429,13 +22804,7 @@ int rf_channel_get_flag(int a1, int a2, int a3) {
   if ( (*(uint32_t *)off_111610 & 0x80008000) != 0 )
   {
     v6 = (uint32_t *)dword_111614;
-    if ( ((uintptr_t)(rf_bus_mark_n47c) & v5) == 0x20000)
-    {
-rf_bus_write_ndc:
-      if ( a2 == 0x8000000 )
-      {
-        if ( !a3 )
-          goto LABEL_11;
+if ( ((uintptr_t)(rf_bus_mark_n47c) & v5) == 0x20000 ) { rf_bus_write_ndc: if ( a2 == 0x8000000 ) { if ( !a3 ) goto LABEL_11;
         *v6 = 64;
         *v4 |= 0x8008000u;
 LABEL_27:
@@ -30519,7 +22888,7 @@ int * rf_enable_tx_patch(int *result, unsigned int a2) {
   }
   else if ( a2 <= 5 )
   {
-    return rf_bus_write_1(a2, 0x8000000, 0);
+    return (void *)(uintptr_t)(rf_bus_write_1(a2, 0x8000000, 0));
   }
   return result;
 }
@@ -30535,7 +22904,7 @@ int * rf_enable_rx_patch(int *result, unsigned int a2) {
   }
   else if ( a2 <= 5 )
   {
-    return rf_bus_write_1(a2, 0x200000, 0);
+    return (void *)(uintptr_t)(rf_bus_write_1(a2, 0x200000, 0));
   }
   return result;
 }
@@ -30551,16 +22920,9 @@ int * rf_enable_txrx_patch(int *result, unsigned int a2) {
   }
   else if ( a2 <= 5 )
   {
-    return rf_bus_write_1(a2, 0x8000000, 0x200000);
+    return (void *)(uintptr_t)(rf_bus_write_1(a2, 0x8000000, 0x200000));
   }
   return result;
-}
-
-
-
-// rf_bus_setup_n_148 @ 0x1116bc
-int * rf_bus_setup_n_148(int *result, unsigned int a2) {
-  return rf_enable_tx_patch(result, a2);
 }
 
 
@@ -30568,87 +22930,6 @@ int * rf_bus_setup_n_148(int *result, unsigned int a2) {
 // rf_enable_tx_patch_dup @ 0x1116bc
 int * rf_enable_tx_patch_dup(int *result, unsigned int a2) {
   return rf_enable_tx_patch(result, a2);
-}
-
-
-
-// rf_bus_write_n274 @ 0x1116c0
-int rf_bus_write_n274(uint32_t *a1, int a2) {
-  uint8_t *v4; // r6
-  uint32_t *v5; // r7
-  void *v6; // r0
-  int v7; // r1
-  uint32_t *v8; // r4
-  int v9; // r1
-  int v10; // r1
-  uint32_t *v11; // r3
-  uint8_t *v13; // r7
-  int v14; // r0
-  int v15; // r1
-  uint32_t *v16; // r3
-  void ( *v17)(int); // r2
-
-  msg_parse((int)(uintptr_t)(rf_bus_setup_n_3c), 0);
-  if ( !a1 )
-    return 1;
-  if ( !*a1 || !a1[1] || !a1[2] || !a1[5] )
-    return 2;
-  v4 = (void *)(rf_bus_write_17cc);
-  if ( *(uint8_t *)rf_bus_write_17cc )
-    return 3;
-  v5 = (void *)(rf_bus_write_n364);
-  v6 = (void *)(uintptr_t)(off_1117D4);
-  *(uint8_t *)rf_bus_write_17cc = 1;
-  memcpy_large(v6, (void *)(a1), 80);
-  v7 = v5[97];
-  if ( v7 )
-  {
-    msg_parse((int)(uintptr_t)(rf_bus_write2_n2dc), v7);
-    delay_us(v5[97]);
-  }
-  v8 = (void *)(uintptr_t)(off_1117D8);
-  if ( (*((uint32_t *)off_1117D8 + 512) & 0x7F0) != 0 )
-  {
-    v13 = (void *)(uintptr_t)(off_1117F0);
-    *((uint32_t *)off_1117F0 + 1) = 0;
-    *((uint32_t *)v13 + 2) = 0;
-    *v13 = 0;
-    *v4 = 4;
-    v14 = rf_bus_mark_118c();
-    v15 = *(uint32_t *)off_1117F4;
-    v16 = *(uint32_t **)rf_bus_write_17f8;
-    *v16 = (int)(uintptr_t)(rf_bus_setup_17fc);
-    v16[1] = v15;
-    v8[709] = (int)(uintptr_t)(v16);
-    v8[706] = v8[706];
-    v17 = *((void ( **)(int))off_1117D4 + 19);
-    v9 = 1;
-    v8[704] |= 0x84000000;
-    *v13 = 1;
-    if ( v17 )
-      v17(v14);
-  }
-  else
-  {
-    if ( (*((uint32_t *)off_1117D8 + 2) & 1) != 0 )
-    {
-      *((uint32_t *)off_1117D8 + 2) &= ~1u;
-      v8[513] |= 2u;
-    }
-    rf_bus_reset2_0();
-  }
-  msg_parse(dword_1117DC, v9);
-  v10 = (int)(uintptr_t)(rf_bus_reset2_17e4);
-  v11 = (void *)(uintptr_t)(off_1117E8);
-  *(uint32_t *)(*((uint32_t *)off_1117E0 + 2) + 320) = (int)(uintptr_t)(rf_bus_reset2_17e4);
-  v11[2] = 1;
-  if ( a2 == 1 )
-  {
-    while ( *v4 != 4 )
-      ;
-  }
-  msg_parse((int)(uintptr_t)(rf_bus_reset2_n4e8), v10);
-  return 0;
 }
 
 
@@ -30730,93 +23011,6 @@ int ke_send_event(uint32_t *a1, int a2) {
   }
   dispatch_event_handler_1(dword_1117EC, v10);
   return 0;
-}
-
-
-
-// rf_bus_setup_1804 @ 0x111804
-int * rf_bus_setup_1804(int *result, unsigned int a2, int a3, unsigned int a4) {
-  unsigned int v4; // r6
-  unsigned int v7; // r11
-  int v8; // r7
-  int v9; // r10
-  int v10; // r9
-  int v11; // r2
-  uint16_t *v12; // r4
-  int v13; // r1
-  uint32_t *v14; // r2
-  int v15; // r5
-  int v16; // r6
-  uint32_t *v17; // r2
-  unsigned int v18; // r3
-  int v19; // cf
-
-  v4 = a2 - 1;
-  if ( (uint8_t)(a2 - 1) <= 4u )
-  {
-    v7 = a4;
-    if ( result )
-    {
-      if ( (a3 & 0xFD) == 1 )
-      {
-        if ( a4 > 0x320 )
-        {
-          v9 = 400;
-          v8 = (v8 & ~0xFFFFu) | ((uint16_t)(400) & 0xFFFFu);
-          v10 = 26214400;
-        }
-        else
-        {
-          v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
-          v9 = v8;
-          v10 = (uint16_t)v8 << 16;
-        }
-        if ( a4 > 0x400 )
-        {
-          v18 = -1025;
-          v19 = v7 - 1025 >= 0x400;
-          if ( v7 - 1025 < 0x400 )
-            v7 >>= 1;
-          else
-            v18 = ((unsigned int)dword_111948 * (uint64_t)v7) >> 32;
-          if ( v19 )
-            v7 = (v7 & ~0xFFFFu) | ((uint16_t)(v18 >> 1) & 0xFFFFu);
-        }
-      }
-      else
-      {
-        v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
-        v9 = v8;
-        v10 = (uint16_t)v8 << 16;
-      }
-      if ( (*((uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
-        result = rf_enable_tx_patch(result, a2);
-      v11 = (a3 << 18) & 0xC0000;
-      v12 = (void *)(rf_bus_write_n4d4);
-      v13 = *(uint16_t *)rf_bus_write_n4d4;
-      *((uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
-      if ( v13 + v9 > 2048 )
-      {
-        result = (int *)sub_10DA6C(rf_bus_setup_n148, v13, v9, 2048);
-        v13 = (uint16_t)*v12;
-      }
-      v14 = (void *)(uintptr_t)(off_111944);
-      *((uint32_t *)off_111944 + v4 + 65) = v13 | v10;
-      v15 = (1 << a2) | v14[519];
-      *v12 = v8 + v13;
-      v14[519] = v15;
-    }
-    else
-    {
-      v16 = 32 * a2 + 1075838976;
-      if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a2) & 0x80008000) != 0 )
-        result = rf_enable_tx_patch(0, a2);
-      v17 = (void *)(uintptr_t)(off_111944);
-      *(uint32_t *)(v16 + 2816) = v7 & 0x7FF | (a3 << 18) & 0xC0000 | 0x18008000;
-      v17[519] |= 0x10000 << a2;
-    }
-  }
-  return result;
 }
 
 
@@ -30908,66 +23102,6 @@ int * util_process_cmd(int *result, unsigned int a2, int a3, unsigned int a4) {
 
 
 
-// rf_bus_setup_n14c @ 0x111950
-int rf_bus_setup_n14c(int a1, int a2, unsigned int a3) {
-  int v3; // r4
-  int v4; // r12
-  int v5; // r3
-  int v6; // r0
-  int v7; // r0
-  unsigned int v8; // r7
-  int v9; // r4
-  char v10; // r6
-
-  if ( *(uint8_t *)off_1119F0 != 4 )
-    return 1;
-  v3 = a1 - 1;
-  if ( (uint8_t)(a1 - 1) > 5u )
-    return 2;
-  if ( a2 << 30 )
-  {
-    sub_10DA6C(rf_bus_write2_n4dc);
-    return 3;
-  }
-  else
-  {
-    v4 = dword_1119F4 + 16 * v3;
-    if ( *(uint32_t *)v4 )
-    {
-      return 4;
-    }
-    else
-    {
-      v5 = 32 * a1 + 1075838976;
-      if ( (*((uint32_t *)&REG_4020_0b00 + 8 * a1) & 0x8000) != 0 )
-      {
-        v6 = dword_1119F8;
-        *(uint32_t *)(dword_1119F4 + 16 * v3) = a2;
-        v7 = *(uint32_t *)(v6 + 4 * v3);
-        v8 = dword_1119FC;
-        *(uint8_t *)(v4 + 8) = 1;
-        v9 = 32 * v3 + 1075838976;
-        v10 = *(uint8_t *)(v7 + 3) & 0x31;
-        if ( a3 >= v8 )
-          a3 = v8;
-        *(uint32_t *)(v4 + 4) = a3;
-        *(uint16_t *)v7 = a3;
-        *(uint32_t *)(v7 + 4) = a2;
-        *(uint8_t *)(v7 + 3) = v10 | 0xE;
-        *(uint32_t *)(v9 + 2868) = v7;
-        *(uint32_t *)(v5 + 2816) |= 0x84000000;
-        return 0;
-      }
-      else
-      {
-        return 5;
-      }
-    }
-  }
-}
-
-
-
 // rf_channel_update @ 0x111950
 int rf_channel_update(int a1, int a2, unsigned int a3) {
   int v3; // r4
@@ -31024,20 +23158,6 @@ int rf_channel_update(int a1, int a2, unsigned int a3) {
       }
     }
   }
-}
-
-
-
-// hw_event_flag @ 0x111a04
-int hw_event_flag(int a1) {
-  int result; // r0
-  int v2; // r3
-
-  result = 32 * a1 + 1075838976;
-  v2 = *(uint32_t *)(result + 2816);
-  if ( v2 < 0 )
-    *(uint32_t *)(result + 2816) = v2 & 0x7BFFFFFF | 0x4000000;
-  return result;
 }
 
 
@@ -31116,40 +23236,6 @@ int rf_channel_update_dup(int a1, int a2, unsigned int a3) {
 
 
 
-// rf_state_check @ 0x111adc
-int rf_state_check() {
-  uint8_t *v0; // r4
-  int v1; // r0
-  int ( *v3)(uint32_t); // r3
-
-  v0 = (void *)(uintptr_t)(off_111B20);
-  v1 = *((uint16_t *)off_111B20 + 7);
-  *(uint16_t *)rf_bus_setup_n320 = v1;
-  if ( v1 )
-  {
-    v3 = *((int ( **)(uint32_t))rf_bus_setup_n328 + 5);
-    if ( v3 && v3((uint8_t)v1) )
-    {
-      *(uint8_t *)rf_bus_setup_n324 = 4;
-      *v0 = 7;
-      if ( !fw_flag_is_set() )
-        ((int (*)())rf_chan_set_mask)(0);
-      return 1;
-    }
-    else
-    {
-      return 0;
-    }
-  }
-  else
-  {
-    *(uint8_t *)rf_bus_setup_n324 = 3;
-    return 1;
-  }
-}
-
-
-
 // ke_timeout_tick @ 0x111adc
 int ke_timeout_tick() {
   uint8_t *v0; // r4
@@ -31180,1803 +23266,6 @@ int ke_timeout_tick() {
     *(uint8_t *)off_111B28 = 3;
     return 1;
   }
-}
-
-
-
-// rf_level_apply_n_358 @ 0x111b30
-int rf_level_apply_n_358(uint64_t a1) {
-  int *v1; // r9
-  int v3; // r4
-  uint8_t *v4; // r5
-  uint16_t *v5; // r6
-  uint8_t *v6; // r3
-  uint8_t v7; // r2
-  int v8; // r3
-  uint32_t *v9; // r3
-  uint32_t *v10; // r4
-  int ( *v11)(void *); // r1
-  uint8_t *v12; // r8
-  char v13; // r2
-  int v14; // r7
-  int v15; // r0
-  int v16; // r3
-  int v17; // r3
-  uint32_t *v18; // r2
-  int v19; // r3
-  uint32_t *v20; // r3
-  uint32_t *v21; // r3
-  int v22; // r1
-  uint32_t *v23; // r2
-  uint32_t *v24; // r3
-  int v25; // r3
-  uint32_t *v26; // r2
-  uint32_t *v27; // r3
-  uint32_t *v28; // r2
-  int v29; // r0
-  uint32_t *v30; // r3
-  int v31; // r3
-  void *v32; // r3
-  unsigned int v33; // r0
-  int v34; // r3
-  int v35; // r1
-  int ( *v36)(uint32_t, uint32_t); // r3
-  uint8_t *v37; // r3
-  uint16_t *v38; // r3
-  void *v39; // r2
-  int v40; // r4
-  unsigned int v41; // r1
-  uint32_t *v42; // r4
-  int v43; // r0
-  int *v44; // r8
-  int v45; // r7
-  int v46; // r3
-  int v47; // r7
-  uint32_t *v48; // r2
-  uint32_t *v49; // r3
-  int16_t v50; // r2
-  int v51; // r6
-  unsigned int v52; // r2
-  unsigned int v53; // r1
-  uint32_t *v54; // r2
-  void ( *v55)(uint8_t *); // r3
-  uint32_t *v56; // r2
-  int v57; // r0
-  uint32_t *v58; // r3
-  unsigned int v59; // r0
-  int v60; // r0
-  int v61; // r3
-  int v62; // r5
-  signed int v63; // r6
-  int *v64; // r1
-  signed int *v65; // r3
-  int **v66; // r5
-  int *v67; // r0
-  int *v68; // r2
-  int *v69; // r4
-  signed int *v70; // r5
-  int **v71; // t0
-  int v72; // r7
-  int v73; // r1
-  signed int *v75; // r4
-  int **v76; // r7
-  int *v77; // r7
-  int *v78; // r7
-  int v79; // r7
-  int v80; // r7
-  signed int v85; // r0
-  int v86; // r6
-  int v87; // t0
-  int v88; // r7
-  int v89; // r7
-  int v90; // r7
-  int v91; // r7
-  int *v92; // r7
-  int *v93; // r7
-  int v94; // r7
-  signed int **v95; // r7
-  signed int **v96; // r7
-  signed int *v97; // r7
-  int v98; // r7
-  signed int *v99; // r1
-  int v100; // r7
-  int v101; // r7
-  int v106; // cc
-  int v107; // r7
-  int v108; // r7
-  int v109; // r7
-  int v110; // r7
-  int v111; // r7
-  int v112; // r7
-  int v113; // r7
-  int v114; // r7
-  int v116; // r7
-  int v117; // r7
-  signed int *v118; // r6
-  signed int *v119; // r1
-  signed int *v120; // r2
-  signed int *v121; // t0
-  int v122; // r7
-  int v123; // r7
-  int v124; // r7
-  int v125; // r7
-  int v126; // r7
-  signed int **v127; // r7
-  int v128; // r7
-  signed int *v129; // r7
-  int v130; // r7
-  int v131; // r7
-  uint32_t *v132; // r1
-  uint32_t *v133; // r5
-  int v136; // cc
-  int v137; // r7
-  int v138; // r7
-  int v139; // r7
-  int v140; // zf
-  int v142; // r7
-  int v143; // r7
-  int v144; // r7
-  int v145; // r7
-  int v146; // r7
-  int v147; // r7
-  int v148; // cf
-  int v149; // r7
-  int i; // r7
-  int v151; // r7
-  int v152; // cf
-  int v153; // r7
-  uint32_t *v154; // r6
-  int v155; // r6
-  int v156; // t0
-  int v157; // r7
-  int v158; // r7
-  signed int *v159; // r7
-  int v160; // r7
-  int *v161; // r7
-  int *v162; // r7
-  int v163; // r7
-  int v164; // r7
-  int v165; // r7
-  int v166; // r7
-  int v167; // r7
-  uint32_t *v169; // r5
-  int v172; // cc
-  int v173; // r7
-  int v174; // r7
-  int v175; // r7
-  int v176; // zf
-  int v177; // nf
-  int v178; // r7
-  int v179; // r7
-  int v180; // r7
-  int v181; // r7
-  int v182; // r7
-  int v183; // r7
-  int v184; // cf
-  int v185; // r7
-  int v186; // r7
-  int j; // r7
-  int v188; // r7
-  int v189; // r7
-  int v190; // r7
-  int v191; // r7
-  signed int *v192; // r7
-  int v196; // r7
-  int v197; // r7
-  int v198; // r7
-  signed int *v199; // r7
-  int v200; // r7
-  int v201; // r7
-  int v202; // r7
-  signed int *v203; // r6
-  signed int v204; // r0
-  signed int v205; // r1
-  signed int v206; // r2
-  signed int v207; // r4
-  signed int v208; // r6
-  uint32_t *v209; // t0
-  int v210; // r7
-  uint32_t *v211; // r3
-  signed int **v212; // r7
-  signed int *v213; // r7
-  signed int *v214; // r7
-  int v215; // r7
-  int v216; // r3
-  signed int v217; // r0
-  int16_t v218; // r0
-  int v219; // r0
-  unsigned int v220; // r2
-  int v221; // r4
-  int v222; // r3
-  int v223; // r0
-
-  v3 = HIDWORD(a1);
-  if ( (uint32_t)a1 )
-  {
-    v4 = (uint8_t *)rf_bus_reset_n_4b4;
-    v16 = *(uint8_t *)rf_bus_reset_n_4b4;
-    if ( v16 == 2 )
-    {
-      v5 = (void *)(rf_bus_write_n_89);
-      sub_10DA6C(rf_bus_reset_n_49c);
-      goto rf_bus_setup_358;
-    }
-    if ( (a1 & 0x100000000LL) == 0 )
-      goto rf_bus_setup_n42c;
-    if ( v16 == 4 )
-    {
-      a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(*((uint16_t *)rf_bus_reset_n_4b4 + 4)) << 32);
-      v50 = *((uint16_t *)rf_bus_reset_n_4b4 + 5);
-      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)(WORD2(a1) - v50)) & 0xFFFFFFFFu);
-      if ( WORD2(a1) == v50 )
-      {
-        *(uint8_t *)rf_bus_reset_n_4b4 = 5;
-        return a1;
-      }
-      if ( (uint32_t)a1 == 64 )
-      {
-        v51 = 1;
-      }
-      else
-      {
-        if ( (unsigned int)a1 >= 0x40 )
-          a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(64) & 0xFFFFFFFFu);
-        v51 = 0;
-      }
-      v52 = (uint16_t)(v50 + a1);
-      *((uint16_t *)rf_bus_reset_n_4b4 + 5) = v52;
-      if ( HIDWORD(a1) < v52 )
-      {
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(sub_10DA6C(dword_1122E0)) & 0xFFFFFFFFu);
-        a1 = (a1 & ~0xFFFF0000u) | (((uint16_t)(*((uint16_t *)v4 + 4)) & 0xFFFFu) << 16);
-        v52 = *((uint16_t *)v4 + 5);
-      }
-      v53 = (uint16_t)(WORD2(a1) - v52);
-      if ( v53 > 0x40 )
-      {
-        v53 = 64;
-      }
-      else if ( !v53 )
-      {
-        if ( !v51 )
-        {
-          v54 = (void *)(uintptr_t)(off_1122D8);
-          *v4 = 5;
-          v54[516] |= 0x10u;
-          return a1;
-        }
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(rf_bus_reset2_n101(0, 0)) & 0xFFFFFFFFu);
-        goto rf_bus_setup_n42c;
-      }
-      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(rf_bus_reset2_n101(*((uint32_t *)v4 + 1) + v52, v53)) & 0xFFFFFFFFu);
-rf_bus_setup_n42c:
-      if ( (v3 & 0x20) == 0 )
-        return a1;
-LABEL_19:
-      if ( *v4 == 6 )
-      {
-        v28 = *(uint32_t **)rf_bus_write_n_89;
-        v29 = *(uint32_t *)rf_bus_reset_n_4a4;
-        v30 = (void *)(uintptr_t)(off_111E44);
-        *v28 = (int)(uintptr_t)(rf_bus_reset_n_4a0);
-        v28[1] = v29;
-        v30[709] = (int)(uintptr_t)(v28);
-        v30[706] = v30[706];
-        v30[704] |= 0x84000000;
-        *v4 = 7;
-        v30[517] |= 0x10u;
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(timer_read_count()) & 0xFFFFFFFFu);
-      }
-      return a1;
-    }
-    if ( v16 != 7 )
-      goto rf_bus_setup_n42c;
-    v24 = (void *)(uintptr_t)(off_111E44);
-    a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(rf_bus_reset_n_498) << 32);
-    a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    *(uint8_t *)rf_bus_reset_n_4b4 = 0;
-    v24[517] &= ~0x10u;
-    v24[516] &= ~0x10u;
-    if ( *(uint8_t *)HIDWORD(a1) )
-    {
-      v24[513] = (16 * (uint8_t)*(uint8_t *)HIDWORD(a1)) & 0x70 | v24[513] & 0xFFFFFF8F;
-      *(uint8_t *)HIDWORD(a1) = 0;
-    }
-  }
-  else
-  {
-    if ( (BYTE4(a1) & 0x21) == 0x21 )
-    {
-      v18 = (void *)(uintptr_t)(off_111E44);
-      if ( (*((uint32_t *)off_111E44 + 708) & 0x7F) == 0x40 )
-      {
-        v19 = *((uint32_t *)off_111E44 + 708);
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(v19 << 12) & 0xFFFFFFFFu);
-        if ( (v19 & 0x80000) != 0 )
-        {
-          a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4) & 0xFFFFFFFFu);
-          v20 = *(uint32_t **)rf_bus_write_n_89;
-          *v20 = (int)(uintptr_t)(rf_bus_reset_n_4a0);
-          v20[1] = a1;
-          v18[709] = (int)(uintptr_t)(v20);
-          v18[706] = v18[706];
-          v18[704] |= 0x84000000;
-          return a1;
-        }
-      }
-    }
-    if ( (a1 & 0x100000000LL) == 0 )
-    {
-      v4 = (uint8_t *)rf_bus_reset_n_4b4;
-      v17 = *(uint8_t *)rf_bus_reset_n_4b4;
-      if ( (a1 & 0x800000000LL) != 0 )
-      {
-        if ( v17 != 1 )
-          return a1;
-      }
-      else if ( v17 != 2 )
-      {
-        goto rf_bus_setup_n42c;
-      }
-LABEL_6:
-      v5 = (void *)(rf_bus_write_n_89);
-rf_bus_setup_358:
-      if ( (v3 & 0x40) != 0 )
-        v6 = (uint8_t *)(*((uint32_t *)off_111E44 + 709) - 8);
-      else
-        v6 = *(uint8_t **)(*(uint32_t *)v5 + 4);
-      *((uint32_t *)v4 + 1) = 0;
-      *((uint32_t *)v4 + 2) = 0;
-      *v4 = 2;
-      v4[12] = v4[12] & 0x7F | (*v6 >> 7 << 7);
-      v7 = v4[12] & 0x9F | (32 * (((int)*v6 >> 5) & 3));
-      v4[12] = v7;
-      v4[12] = v7 & 0xE0 | *v6 & 0x1F;
-      v4[13] = v6[1];
-      *((uint16_t *)v4 + 7) = v6[2] | (v6[3] << 8);
-      *((uint16_t *)v4 + 8) = v6[4] | (v6[5] << 8);
-      v8 = v6[6] | (v6[7] << 8);
-      *((uint16_t *)v4 + 9) = v8;
-      if ( !v8 && (v4[12] & 0x80u) != 0 )
-        sub_10DA6C(dword_11219C);
-      v9 = (void *)(uintptr_t)(off_111E44);
-      v10 = (void *)(rf_bus_reset_1e48);
-      v11 = *((int ( **)(void *))rf_bus_reset_1e48 + 3);
-      *((uint32_t *)off_111E44 + 517) &= ~0x10u;
-      v9[516] &= ~0x10u;
-      if ( v11 && v11(rf_bus_reset_n_4b4) )
-      {
-LABEL_46:
-        v25 = *v4;
-        switch ( v25 )
-        {
-          case 3:
-            if ( !*((uint32_t *)v4 + 1) )
-              *((uint32_t *)v4 + 1) = (int)(uintptr_t)(rf_bus_reset_n_490);
-            goto LABEL_50;
-          case 4:
-LABEL_87:
-            rf_bus_reset2_n101(*((uint32_t *)v4 + 1), *((uint16_t *)v4 + 4));
-            goto LABEL_50;
-          case 7:
-LABEL_73:
-            timer_read_count();
-            goto LABEL_50;
-        }
-LABEL_49:
-        *v4 = 0;
-        rf_bus_write_1(0, 0x200000, 0);
-        rf_channel_get_flag(0, 0x200000, 0);
-LABEL_50:
-        v26 = *(uint32_t **)v5;
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4) & 0xFFFFFFFFu);
-        v27 = (void *)(uintptr_t)(off_111E44);
-        *v26 = (int)(uintptr_t)(rf_bus_reset_n_4a0);
-        v26[1] = a1;
-LABEL_51:
-        v27[709] = (int)(uintptr_t)(v26);
-        v27[706] = v27[706];
-        v27[704] |= 0x84000000;
-        return a1;
-      }
-      v12 = (void *)(uintptr_t)(off_111E64);
-      v13 = *(uint8_t *)off_111E64;
-      v14 = *(uint8_t *)off_111E64;
-      if ( (v4[12] & 0x60) != 0 )
-      {
-LABEL_54:
-        if ( v14 == 4 && *v12 != 4 )
-LABEL_56:
-          rf_bus_scan();
-        goto LABEL_49;
-      }
-      v15 = v4[13];
-      switch ( v4[13] )
-      {
-        case 0u:
-          if ( *(uint8_t *)off_111E64 == 4 )
-          {
-            v31 = v4[12] & 0x1F;
-            if ( v31 != 1 )
-            {
-              if ( v31 != 2 )
-                goto rf_bus_reset_e98;
-              v59 = *((uint16_t *)v4 + 8);
-              v41 = v59 & 0xF;
-              if ( v41 <= 5 )
-              {
-                v15 = (v59 >> 7) & 1;
-LABEL_97:
-                if ( rf_select_base(v15, v41) )
-                {
-                  v32 = rf_bus_reset_n_174_217c;
-                  *(uint16_t *)rf_bus_reset_n_174_217c = 1;
-                  goto LABEL_68;
-                }
-              }
-            }
-          }
-          else
-          {
-            if ( *((uint16_t *)v4 + 8) )
-              goto LABEL_54;
-            v31 = v4[12] & 0x1F;
-            if ( v31 != 1 )
-            {
-              if ( v31 != 2 )
-              {
-rf_bus_reset_e98:
-                if ( v31 )
-                {
-LABEL_59:
-                  if ( v13 != 4 )
-                    goto LABEL_49;
-                  goto rf_bus_reset_1e6c;
-                }
-                v32 = rf_bus_reset_n_174_217c;
-                *(uint16_t *)rf_bus_reset_n_174_217c = *(uint8_t *)rf_bus_reset_n_178;
-LABEL_68:
-                *((uint32_t *)v4 + 1) = (int)(uintptr_t)(v32);
-                *((uint16_t *)v4 + 4) = 2;
-                *v4 = 4;
-LABEL_86:
-                if ( v14 != 4 )
-                  goto LABEL_87;
-rf_bus_reset_n_a4:
-                if ( *v12 == 4 )
-                  goto LABEL_46;
-LABEL_45:
-                rf_bus_scan();
-                goto LABEL_46;
-              }
-              v41 = v4[13];
-              goto LABEL_97;
-            }
-          }
-          v32 = rf_bus_reset_n_8;
-          *(uint16_t *)rf_bus_reset_n_8 = 0;
-          goto LABEL_68;
-        case 1u:
-          if ( *(uint8_t *)off_111E64 != 4 && *((uint16_t *)v4 + 8) )
-            goto LABEL_54;
-          if ( (v4[12] & 0x1F) != 2 || *((uint16_t *)v4 + 7) )
-            goto LABEL_79;
-          rf_enable_txrx_patch((int *)((*((uint16_t *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
-          *v4 = 7;
-          if ( v14 == 4 )
-            goto LABEL_44;
-          goto LABEL_73;
-        case 3u:
-          if ( *(uint8_t *)off_111E64 != 4 && *((uint16_t *)v4 + 8) )
-            goto LABEL_54;
-          if ( (v4[12] & 0x1F) != 0 )
-          {
-            if ( (v4[12] & 0x1F) != 2 || *((uint16_t *)v4 + 7) )
-            {
-LABEL_79:
-              *v4 = 7;
-              if ( v13 == 4 )
-              {
-rf_bus_reset_1e6c:
-                if ( *v12 != 4 )
-                  goto LABEL_56;
-              }
-              goto LABEL_49;
-            }
-            rf_enable_rx_patch((int *)((*((uint16_t *)v4 + 8) >> 7) & 1), *((uint16_t *)v4 + 8) & 0xF);
-            *v4 = 7;
-            if ( v14 != 4 )
-              goto LABEL_73;
-          }
-          else
-          {
-            v60 = *((uint16_t *)v4 + 7);
-            if ( v60 != 2 )
-            {
-              v40 = v60 == 1;
-              *v4 = 7;
-LABEL_89:
-              if ( v14 != 4 || *v12 == 4 )
-              {
-                if ( v40 )
-                  goto LABEL_46;
-              }
-              else
-              {
-                rf_bus_scan();
-                if ( v40 )
-                  goto LABEL_46;
-              }
-              goto LABEL_49;
-            }
-            *(uint8_t *)rf_bus_reset_22ec = HIBYTE(*((uint16_t *)v4 + 8));
-            *v4 = 7;
-            if ( v13 != 4 )
-              goto LABEL_73;
-          }
-LABEL_44:
-          if ( *v12 == 4 )
-            goto LABEL_73;
-          goto LABEL_45;
-        case 5u:
-          v35 = *((uint16_t *)v4 + 7);
-          *((uint32_t *)rf_bus_reset_n_170 + 512) = (16 * v35) & 0x7F0
-                                                | *((uint32_t *)rf_bus_reset_n_170 + 512) & 0xFFFFF80F;
-          *v4 = 7;
-          if ( v35 )
-            *v12 = 3;
-          else
-            *v12 = 2;
-          goto LABEL_72;
-        case 6u:
-          v33 = *((uint16_t *)v4 + 7);
-          v34 = (v33 >> 8) - 1;
-          switch ( v33 >> 8 )
-          {
-            case 1u:
-            case 0xFu:
-              goto LABEL_145;
-            case 2u:
-            case 3u:
-              goto LABEL_147;
-            case 4u:
-            case 5u:
-              goto LABEL_144;
-            case 6u:
-              goto LABEL_146;
-            case 7u:
-            case 8u:
-            case 9u:
-            case 0xAu:
-            case 0xBu:
-            case 0xCu:
-            case 0xDu:
-            case 0xEu:
-              
-              
-LABEL_144:
-              
-              
-              
-              
-              
-              
-              
-LABEL_145:
-              v5[4] = v34;
-              ((uint32_t *)(uintptr_t)&MEMORY)[0xA] = 0;
-              v34 = (v34 & ~0xFFFFu) | ((uint16_t)(((uint32_t *)(uintptr_t)&MEMORY)[0x30]) & 0xFFFFu);
-LABEL_146:
-              
-LABEL_147:
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              v5[4] = v34;
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
-              ((uint32_t *)(uintptr_t)&MEMORY)[0xA] = 0;
-              v61 = ((uint32_t *)(uintptr_t)&MEMORY)[0x30];
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              break;
-            default:
-              sub_10DA6C(dword_111E5C);
-              goto LABEL_54;
-          }
-          while ( 1 )
-          {
-            
-            
-            
-            if ( 0 )
-              break;
-            if ( !__CFSHL__(851968, 3) )
-            {
-              if ( !__CFSHL__(6815744, 3) )
-                goto LABEL_156;
-              if ( __CFSHL__(54525952, 3) )
-                goto LABEL_157;
-            }
-          }
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680000] = 52;
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680004] = 10;
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680008] = (int)(uintptr_t)(v4);
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x68000C] = (int)(uintptr_t)(v5);
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x3400080] = 54526080;
-LABEL_156:
-          v61 = ((uint32_t *)(uintptr_t)&MEMORY)[0x3C];
-LABEL_157:
-          v62 = *(uint32_t *)(*(uint32_t *)(v61 + 8) + 8);
-          v63 = *(uint32_t *)(*(uint32_t *)(v61 + 8) + 12);
-          v64 = *(int **)v62;
-          v65 = *(signed int **)(v62 + 8);
-          v66 = *(int ***)(*(uint32_t *)(v62 + 28) + 12);
-          v67 = *v66;
-          v68 = v66[1];
-          v69 = v66[2];
-          v71 = v66 + 3;
-          v70 = v66[3];
-          v72 = 8 * (uint32_t)v71[1];
-          *v67 = (int)v64;
-          v67[1] = (int)v69;
-          v67[2] = (int)v70;
-          v67[3] = v63;
-          v67 += 4;
-          v72 *= 8;
-          *v67++ = v72;
-          *v64 = (int)v64;
-          v64[1] = (int)v69;
-          v64[2] = (int)v70;
-          v64[3] = v63;
-          v72 <<= 6;
-          *v64 = v72;
-          v73 = (int)(v64 + 1);
-          *v68 = v73;
-          v68[1] = (int)v69;
-          v68[2] = (int)v70;
-          v68[3] = v63;
-          v68 + 4;
-          *v69 = (int)v67;
-          v69[1] = (int)v69;
-          v69[2] = v63;
-          *v69 = (int)v67;
-          v69[1] = v73;
-          v69[2] = (int)v65;
-          v69[3] = (int)v69;
-          v69[4] = v63;
-          *v69 = v73;
-          v69[1] = (int)0;
-          v69[2] = (int)v70;
-          v69[3] = v63;
-          v69 += 4;
-          *v69 = v73;
-          v69[1] = (int)v69;
-          v69[2] = (int)v70;
-          v69[3] = v63;
-          v72 <<= 18;
-          *v69 = v72;
-          v75 = v69 + 1;
-          v72 *= 8;
-          *v75 = (signed int)v75;
-          v75[1] = v72;
-          v72 *= 8;
-          *(uint32_t *)v72 = (int)(uintptr_t)(v67);
-          *(uint32_t *)(v72 + 4) = (int)(uintptr_t)(v75);
-          *(uint32_t *)(v72 + 8) = v63;
-          v76 = (int **)(8 * (v72 + 12));
-          *v76 = v67;
-          v76[1] = (int *)v73;
-          v76[2] = v65;
-          v76[3] = v75;
-          v76[4] = (int *)v63;
-          v77 = (int *)(8 * (uint32_t)(v76 + 5));
-          *v77 = v73;
-          v77[1] = (int)0;
-          v77[2] = (int)v70;
-          v77[3] = v63;
-          v78 = (int *)(8 * (uint32_t)(v77 + 4));
-          *v78 = v73;
-          v78[1] = (int)v75;
-          v78[2] = (int)v70;
-          v78[3] = v63;
-          v79 = 8 * (uint32_t)(v78 + 4);
-          *(uint32_t *)v79 = v79;
-          v80 = 8 * v79;
-          v67[255] = (int)v67;
-          v67[256] = (int)v67;
-          
-          _T1 = *v1;
-          v1 - 255;
-          
-          __mcr(0, 5, (unsigned int)v67, 11, 15, 7);
-          __mcr(0, 6, (unsigned int)v67, 0, 15, 7);
-          __mrc(0, 6, 7, 15, 7);
-          __mrc(0, 6, 7, 15, 7);
-          __mrc(0, 6, 7, 15, 7);
-          v85 = __mrc(0, 6, 7, 15, 7);
-LABEL_244:
-          if ( 1 )
-            goto LABEL_201;
-          v143 = 8 * v80;
-          if ( v143 )
-            goto LABEL_270;
-          for ( i = 0; ; i = v142 << 6 )
-          {
-            (void)(__CFSHL__(i, 3));
-            v143 = 8 * i;
-            if ( !0 )
-              goto LABEL_326;
-            (void)(__CFSHL__(v143, 3));
-            v128 = 8 * v143;
-            if ( !0 )
-              goto LABEL_205;
-            v151 = 8 * v128;
-            if ( v151 < 0 )
-              JUMPOUT(0x1344C2);
-            v130 = 8 * v151;
-            if ( v130 < 0 )
-              goto LABEL_206;
-            v152 = __CFSHL__(v130, 3);
-            v153 = 8 * v130;
-            if ( v153 >= 0 )
-              goto LABEL_353;
-            v131 = 8 * v153;
-            if ( v131 >= 0 )
-              goto LABEL_208;
-            v142 = 8 * v131;
-            v140 = v142 == 0;
-            (void)(v142 < 0);
-            if ( _VF )
-              break;
-          }
-          while ( 1 )
-          {
-            if ( !(0 ^ _VF | v140) )
-              goto LABEL_266;
-            v143 = 8 * v142;
-            if ( !((v143 < 0) ^ _VF | (v143 == 0)) )
-            {
-LABEL_268:
-              
-              _T1 = *(uint32_t *)(uintptr_t)(0);
-              (void)((0 & ~0xFFFFu) | ((uint16_t)((uint16_t)0 - 1020) & 0xFFFFu));
-              
-              _T1 = *v70;
-              v169 = (void *)(v70 + 255);
-              
-              _T1 = v169[255];
-              v70 = (void *)(v169 + 255);
-              
-LABEL_269:
-              
-              v85 = __mrc(0, 5, 5, 15, 7);
-LABEL_270:
-              __mcr(0, 6, v85, 11, 15, 7);
-              __mcr(0, 7, v85, 0, 15, 7);
-              __mcr(0, 7, v85, 0, 15, 7);
-              __mcr(0, 7, v85, 0, 15, 7);
-LABEL_326:
-              (void)(__CFSHL__(v143, 3));
-              v200 = 8 * v143;
-              if ( !0 )
-              {
-                *(uint32_t *)v200 = v85;
-                *(uint32_t *)(v200 + 4) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v200 + 8) = (int)(uintptr_t)(v75);
-                *(uint32_t *)(v200 + 12) = (int)(uintptr_t)(v70);
-                *(uint32_t *)(v200 + 16) = v63;
-                v196 = 8 * (v200 + 20);
-                *(uint32_t *)v196 = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v196 + 4) = v196;
-                v197 = 8 * v196;
-                goto LABEL_323;
-              }
-              v201 = 8 * v200;
-              if ( v201 < 0 )
-                JUMPOUT(0x1343AA);
-              v197 = 8 * v201;
-              if ( v197 < 0 )
-              {
-LABEL_323:
-                *(uint32_t *)v197 = v85;
-                *(uint32_t *)(v197 + 4) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v197 + 8) = (int)(uintptr_t)(v75);
-                *(uint32_t *)(v197 + 12) = v197;
-                v198 = 8 * v197;
-                *(uint32_t *)v198 = v85;
-                *(uint32_t *)(v198 + 4) = v73;
-                *(uint32_t *)(v198 + 8) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v198 + 12) = (int)(uintptr_t)(v70);
-                *(uint32_t *)(v198 + 16) = v198;
-                v199 = (signed int *)(8 * v198);
-              }
-              else
-              {
-                v202 = 8 * v197;
-                if ( v202 >= 0 )
-                  JUMPOUT(0x1343B0);
-                v199 = (signed int *)(8 * v202);
-                if ( (int)v199 < 0 )
-                {
-                  if ( !_VF )
-                  {
-                    
-                    v75[512 * v73] = (v75[512 * v73] & ~0xFFFFu) | ((uint16_t)((uint16_t)0) & 0xFFFFu);
-                    JUMPOUT(0x1343D2);
-                  }
-LABEL_337:
-                  JUMPOUT(0x1343BE);
-                }
-              }
-              *v199 = v63;
-              v199[1] = (signed int)v199;
-              JUMPOUT(0x1341E0);
-            }
-            v144 = 8 * v143;
-            if ( !((v144 < 0) ^ _VF | (v144 == 0)) )
-              goto LABEL_199;
-            v123 = 8 * v144;
-            if ( !((v123 < 0) ^ _VF | (v123 == 0)) )
-              goto LABEL_202;
-            v145 = 8 * v123;
-            if ( !((v145 < 0) ^ _VF | (v145 == 0)) )
-              goto LABEL_209;
-            v146 = 8 * v145;
-            if ( !((v146 < 0) ^ _VF | (v146 == 0)) )
-              JUMPOUT(0x133D7E);
-            v147 = 8 * v146;
-            if ( !((v147 < 0) ^ _VF | (v147 == 0)) )
-            {
-              v107 = 8 * v147;
-              while ( 1 )
-              {
-                (void)(__CFSHL__(v107, 3));
-                v91 = 8 * v107;
-                if ( v91 != 0 && 0 )
-                  goto LABEL_163;
-                (void)(__CFSHL__(v91, 3));
-                v100 = 8 * v91;
-                if ( v100 != 0 && 0 )
-                  goto LABEL_166;
-                (void)(__CFSHL__(v100, 3));
-                v94 = 8 * v100;
-                if ( v94 == 0 || !0 )
-                  goto LABEL_164;
-                (void)(__CFSHL__(v94, 3));
-                v108 = 8 * v94;
-                if ( v108 == 0 || !0 )
-                  JUMPOUT(0x133BE6);
-                v109 = 8 * v108;
-                if ( !((v109 < 0) ^ _VF | (v109 == 0)) )
-                  goto LABEL_207;
-                v110 = 8 * v109;
-                if ( !((v110 < 0) ^ _VF | (v110 == 0)) )
-                  goto LABEL_211;
-                v111 = 8 * v110;
-                if ( !((v111 < 0) ^ _VF | (v111 == 0)) )
-                  goto LABEL_159;
-                v90 = 8 * v111;
-                if ( !((v90 < 0) ^ _VF | (v90 == 0)) )
-                  goto LABEL_162;
-                v112 = 8 * v90;
-                if ( !((v112 < 0) ^ _VF | (v112 == 0)) )
-                  goto LABEL_165;
-                v113 = 8 * v112;
-                if ( !((v113 < 0) ^ _VF | (v113 == 0)) )
-                  JUMPOUT(0x133BFE);
-                v114 = 8 * v113;
-                if ( !((v114 < 0) ^ _VF | (v114 == 0)) )
-                  goto LABEL_337;
-                (void)(__CFSHL__(v114, 3));
-                v116 = 8 * v114;
-                if ( (v116 < 0) ^ _VF | (v116 == 0) )
-                {
-                  (void)(__CFSHL__(v116, 3));
-                  v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
-                  if ( (v107 < 0) ^ _VF | (v107 == 0) )
-                  {
-                    v117 = 8 * v107;
-                    if ( v117 )
-                    {
-                      v89 = 8 * v117;
-                      if ( v89 )
-                      {
-                        if ( !(8 * v89) )
-                          goto LABEL_334;
-                        goto LABEL_213;
-                      }
-LABEL_161:
-                      *(uint32_t *)(uintptr_t)(v85);
-                      ((uint32_t *)(uintptr_t)0)[1] = v73;
-                      ((uint32_t *)(uintptr_t)0)[2] = (signed int)v65;
-                      ((uint32_t *)(uintptr_t)0)[3] = v63;
-                      ((uint32_t *)(uintptr_t)0)[4] = v89;
-                      (void)(0);
-                      v90 = 8 * v89;
-LABEL_162:
-                      *v65 = v85;
-                      v65[1] = (signed int)0;
-                      v65[2] = (signed int)v75;
-                      v65[3] = (signed int)v70;
-                      v65[4] = v90;
-                      v65 += 5;
-                      v91 = 8 * v90;
-                      *v65 = v85;
-                      v65[1] = v73;
-                      v65[2] = (signed int)v65;
-                      v65[3] = v63;
-                      v65[4] = v91;
-LABEL_163:
-                      v92 = (int *)(8 * v91);
-                      *v92 = v73;
-                      v92[1] = (int)0;
-                      v92[2] = (int)v70;
-                      v92[3] = v63;
-                      v93 = (int *)(8 * (uint32_t)(v92 + 4));
-                      *v93 = v73;
-                      v93[1] = (int)0;
-                      v93[2] = (int)v75;
-                      v93[3] = v63;
-                      v94 = (int)(v93 + 4);
-LABEL_164:
-                      v95 = (signed int **)(8 * v94);
-                      *v95 = v70;
-                      v95[1] = (signed int *)v63;
-                      v96 = (signed int **)(8 * (uint32_t)(v95 + 2));
-                      *v96 = 0;
-                      v96[1] = v65;
-                      v96[2] = v70;
-                      v96[3] = (signed int *)v63;
-                      v97 = (signed int *)(8 * (uint32_t)(v96 + 4));
-                      *v97 = v85;
-                      v97[1] = (signed int)v65;
-                      v97[2] = (signed int)v75;
-                      v97[3] = (signed int)v70;
-                      v97[4] = v63;
-                      v98 = 8 * (uint32_t)(v97 + 5);
-                      *(uint32_t *)v98 = (int)(uintptr_t)(v65);
-                      *(uint32_t *)(v98 + 4) = v98;
-                      v98 *= 8;
-                      *(uint32_t *)v98 = v85;
-                      *(uint32_t *)(v98 + 4) = (int)(uintptr_t)(v65);
-                      *(uint32_t *)(v98 + 8) = (int)(uintptr_t)(v75);
-                      *(uint32_t *)(v98 + 12) = v98;
-                      v98 *= 8;
-                      *(uint32_t *)v98 = v85;
-                      *(uint32_t *)(v98 + 4) = v73;
-                      *(uint32_t *)(v98 + 8) = (int)(uintptr_t)(v65);
-                      *(uint32_t *)(v98 + 12) = (int)(uintptr_t)(v70);
-                      *(uint32_t *)(v98 + 16) = v98;
-LABEL_165:
-                      v99 = *(signed int **)(v73 + 8);
-                      v85 = *v99;
-                      (signed int *)v99[1];
-                      v75 = (signed int *)v99[2];
-                      v70 = (signed int *)v99[3];
-                      v100 = v99[4];
-                      v73 = (int)(v99 + 5);
-LABEL_166:
-                      v101 = 8 * v100;
-                      *(uint32_t *)(v85 + 1020) = v85;
-                      *(uint32_t *)(v85 + 1024) = v85;
-                      
-                      _T1 = *(uint32_t *)(uintptr_t)(0);
-                      0 - 255;
-                      
-                      __mcr(0, 5, v85, 11, 15, 7);
-                      __mcr(0, 6, v85, 0, 15, 7);
-                      __mrc(0, 6, 7, 15, 7);
-                      __mrc(0, 6, 7, 15, 7);
-                      __mrc(0, 6, 7, 15, 7);
-                      v85 = __mrc(0, 6, 7, 15, 7);
-LABEL_304:
-                      if ( 1 )
-                        goto LABEL_260;
-                      if ( 8 * v101 )
-                        goto LABEL_319;
-                      for ( j = 0; ; j = v178 << 6 )
-                      {
-                        (void)(__CFSHL__(j, 3));
-                        v188 = 8 * j;
-                        if ( !0 )
-                          goto LABEL_342;
-                        (void)(__CFSHL__(v188, 3));
-                        v165 = 8 * v188;
-                        if ( !0 )
-                          goto LABEL_264;
-                        v189 = 8 * v165;
-                        if ( v189 < 0 )
-                        {
-                          
-                          *(signed int *)((char *)v65 + v85) = v85;
-                          if ( (v85 & 0x8000) != 0 )
-                            JUMPOUT(0x134694);
-                          
-                          v217 = *(uint16_t *)((v85 >> 16 << 11) + 0x18);
-                          *(signed int *)((char *)v65 + v217) = v217;
-                          if ( (v217 & 0x8000) != 0 )
-                            JUMPOUT(0x1346A8);
-                          
-                          v218 = ((uint32_t *)(uintptr_t)&MEMORY)[0x18];
-                          *(uint32_t *)((v63 << 12) + ((uint32_t *)(uintptr_t)&MEMORY)[0x18]) = v63;
-                          if ( v218 < 0 )
-                            JUMPOUT(0x1346BC);
-                          
-                          v219 = ((uint32_t *)(uintptr_t)&MEMORY)[0x18];
-                          if ( !_VF )
-                          {
-                            *(signed int *)((char *)v65 + ((uint32_t *)(uintptr_t)&MEMORY)[0x18]) = 0;
-                            v220 = v63 << 12;
-                            v221 = v219 >> 16;
-                            if ( (v219 & 0x8000) == 0 )
-                            {
-                              v222 = (v220 >= 0xE1) + v63 + 14286848;
-                              v223 = ((uint32_t *)(uintptr_t)&MEMORY)[0x8B0002E1];
-                              if ( !(__OFADD__(v220 >= 0xE1, v63) | __OFADD__(14286848, (v220 >= 0xE1) + v63)) )
-                              {
-                                *(uint32_t *)(v222 + ((uint32_t *)(uintptr_t)&MEMORY)[0x8B0002E1]) = v221;
-                                if ( v222 >= 0 )
-                                {
-                                  
-                                  *(uint32_t *)(v222 + *(uint16_t *)((v223 >> 16 << 11) + 0x18)) = *(uint16_t *)((v223 >> 16 << 11) + 0x18);
-                                  
-                                  JUMPOUT(0x13440E);
-                                }
-                              }
-                              
-                              JUMPOUT(0x134436);
-                            }
-                            JUMPOUT(0x1346D0);
-                          }
-                          goto LABEL_354;
-                        }
-                        v167 = 8 * v189;
-                        if ( v167 < 0 )
-                          goto LABEL_265;
-                        v190 = 8 * v167;
-                        if ( v190 >= 0 )
-                        {
-                          
-                          JUMPOUT(0x13459E);
-                        }
-                        v191 = 8 * v190;
-                        if ( v191 >= 0 )
-                          goto LABEL_267;
-                        v178 = 8 * v191;
-                        v176 = v178 == 0;
-                        v177 = v178 < 0;
-                        if ( _VF )
-                          break;
-                      }
-                      while ( 1 )
-                      {
-                        if ( !(v177 ^ _VF | v176) )
-                        {
-                          *(uint32_t *)v178 = v85;
-                          *(uint32_t *)(v178 + 4) = v73;
-                          *(uint32_t *)(v178 + 8) = (int)(uintptr_t)(v65);
-                          *(uint32_t *)(v178 + 12) = (int)(uintptr_t)(v70);
-                          *(uint32_t *)(v178 + 16) = v178;
-                          v192 = (signed int *)(8 * v178);
-                          *v192 = v63;
-                          v192[1] = (signed int)v192;
-                          JUMPOUT(0x134060);
-                        }
-                        v179 = 8 * v178;
-                        if ( !((v179 < 0) ^ _VF | (v179 == 0)) )
-                        {
-                          
-                          _T1 = *(uint32_t *)(uintptr_t)(0);
-                          (void)((0 & ~0xFFFFu) | ((uint16_t)((uint16_t)0 - 1020) & 0xFFFFu));
-                          
-                          _T1 = *v70;
-                          v70 + 255;
-                          
-LABEL_318:
-                          
-                          v85 = __mrc(0, 5, 5, 15, 7);
-LABEL_319:
-                          __mcr(0, 6, v85, 11, 15, 7);
-                          __mcr(0, 7, v85, 0, 15, 7);
-                          __mcr(0, 7, v85, 0, 15, 7);
-                          __mcr(0, 7, v85, 0, 15, 7);
-LABEL_342:
-                          
-                          *((uint16_t *)v75 + 14) = (uint16_t)0;
-                          JUMPOUT(0x13444A);
-                        }
-                        v180 = 8 * v179;
-                        if ( !((v180 < 0) ^ _VF | (v180 == 0)) )
-                          goto LABEL_258;
-                        v158 = 8 * v180;
-                        if ( !((v158 < 0) ^ _VF | (v158 == 0)) )
-                          goto LABEL_261;
-                        v181 = 8 * v158;
-                        if ( !((v181 < 0) ^ _VF | (v181 == 0)) )
-                          goto LABEL_267;
-                        v182 = 8 * v181;
-                        if ( !((v182 < 0) ^ _VF | (v182 == 0)) )
-                          JUMPOUT(0x133EFE);
-                        v183 = 8 * v182;
-                        if ( !((v183 < 0) ^ _VF | (v183 == 0)) )
-                        {
-                          v152 = __CFSHL__(v183, 3);
-LABEL_353:
-                          if ( v152 )
-                            JUMPOUT(0x13470A);
-LABEL_354:
-                          
-                          JUMPOUT(0x134422);
-                        }
-                        v184 = __CFSHL__(v183, 3);
-                        v185 = 8 * v183;
-                        if ( (v185 < 0) ^ _VF | (v185 == 0) )
-                        {
-                          (void)(__CFSHL__(v185, 3));
-                          v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
-                          if ( (v173 < 0) ^ _VF | (v173 == 0) )
-                          {
-                            v186 = 8 * v173;
-                            if ( !v186 )
-                              goto LABEL_318;
-                            v101 = 8 * v186;
-                            (void)(v101 == 0);
-                            goto LABEL_304;
-                          }
-                        }
-                        else
-                        {
-                          if ( v185 != 0 && v184 )
-                          {
-                            v154 = *(uint32_t **)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 12) + 12);
-                            (signed int *)v154[1];
-                            v75 = (signed int *)v154[2];
-                            v63 = (signed int)(v154 + 5);
-LABEL_258:
-                            v85 = *(uint32_t *)v63;
-                            v73 = *(uint32_t *)(v63 + 4);
-                            v65 = *(signed int **)(v63 + 8);
-                            v63 = *(uint32_t *)(v63 + 12);
-LABEL_259:
-                            v155 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v63 + 4) + 4) + 4) + 4);
-                            v70 = *(signed int **)v155;
-                            v156 = v155 + 4;
-                            v63 = *(uint32_t *)(v155 + 4);
-                            v157 = 8 * *(uint32_t *)(v156 + 4);
-                            *(uint32_t *)(uintptr_t)(v85);
-                            ((uint32_t *)(uintptr_t)0)[1] = (signed int)0;
-                            ((uint32_t *)(uintptr_t)0)[2] = (signed int)v75;
-                            ((uint32_t *)(uintptr_t)0)[3] = (signed int)v70;
-                            ((uint32_t *)(uintptr_t)0)[4] = v157;
-                            v157 *= 8;
-                            *(uint32_t *)(uintptr_t)(v85);
-                            ((uint32_t *)(uintptr_t)0)[1] = v73;
-                            ((uint32_t *)(uintptr_t)0)[2] = (signed int)v65;
-                            ((uint32_t *)(uintptr_t)0)[3] = v63;
-                            ((uint32_t *)(uintptr_t)0)[4] = v157;
-                            (void)(0);
-                            v101 = 8 * v157;
-LABEL_260:
-                            *v65 = v85;
-                            v65[1] = (signed int)0;
-                            v65[2] = (signed int)v75;
-                            v65[3] = (signed int)v70;
-                            v65[4] = v101;
-                            v65 += 5;
-                            v158 = 8 * v101;
-LABEL_261:
-                            *v65 = v85;
-                            v65[1] = v73;
-                            v65[2] = (signed int)v65;
-                            v65[3] = v63;
-                            v65[4] = v158;
-                            v159 = (signed int *)(8 * v158);
-                            *v159 = v85;
-                            v159[1] = v73;
-                            v159[2] = (signed int)v65;
-                            v159[3] = (signed int)v75;
-                            v159[4] = v63;
-                            v160 = (int)(v159 + 5);
-LABEL_262:
-                            v161 = (int *)(8 * v160);
-                            *v161 = v73;
-                            v161[1] = (int)0;
-                            v161[2] = (int)v70;
-                            v161[3] = v63;
-                            v162 = (int *)(8 * (uint32_t)(v161 + 4));
-                            *v162 = v73;
-                            v162[1] = (int)v75;
-                            v162[2] = (int)v70;
-                            v162[3] = v63;
-                            v163 = (int)(v162 + 4);
-LABEL_263:
-                            v164 = 8 * v163;
-                            *(uint32_t *)v164 = v164;
-                            v165 = 8 * v164;
-LABEL_264:
-                            *(uint32_t *)v165 = (int)(uintptr_t)(v75);
-                            *(uint32_t *)(v165 + 4) = v165;
-                            v166 = 8 * v165;
-                            *(uint32_t *)v166 = v73;
-                            *(uint32_t *)(v166 + 4) = (int)(uintptr_t)(v70);
-                            *(uint32_t *)(v166 + 8) = v166;
-                            v167 = 8 * v166;
-LABEL_265:
-                            *(uint32_t *)v167 = v85;
-                            *(uint32_t *)(v167 + 4) = 0;
-                            *(uint32_t *)(v167 + 8) = (int)(uintptr_t)(v75);
-                            *(uint32_t *)(v167 + 12) = (int)(uintptr_t)(v70);
-                            *(uint32_t *)(v167 + 16) = v167;
-                            v142 = 8 * v167;
-LABEL_266:
-                            *(uint32_t *)v142 = v85;
-                            *(uint32_t *)(v142 + 4) = v73;
-                            *(uint32_t *)(v142 + 8) = (int)(uintptr_t)(v65);
-                            *(uint32_t *)(v142 + 12) = v63;
-                            *(uint32_t *)(v142 + 16) = v142;
-LABEL_267:
-                            JUMPOUT(0x133EE0);
-                          }
-                          (void)(__CFSHL__(v185, 3));
-                          v173 = 8 * v185;
-                          v172 = v173 != 0 && 0;
-                        }
-                        if ( v172 )
-                          goto LABEL_259;
-                        (void)(__CFSHL__(v173, 3));
-                        v160 = 8 * v173;
-                        if ( v160 != 0 && 0 )
-                          goto LABEL_262;
-                        (void)(__CFSHL__(v160, 3));
-                        v174 = 8 * v160;
-                        if ( v174 != 0 && 0 )
-                          goto LABEL_267;
-                        (void)(__CFSHL__(v174, 3));
-                        v163 = 8 * v174;
-                        if ( v163 == 0 || !0 )
-                          goto LABEL_263;
-                        (void)(__CFSHL__(v163, 3));
-                        v175 = 8 * v163;
-                        if ( v175 == 0 || !0 )
-                        {
-                          v143 = 8 * v175;
-                          goto LABEL_268;
-                        }
-                        v178 = 8 * v175;
-                        v176 = v178 == 0;
-                        v177 = v178 < 0;
-                      }
-                    }
-LABEL_212:
-                    __mcr(0, 6, v85, 11, 15, 7);
-                    __mcr(0, 7, v85, 0, 15, 7);
-LABEL_213:
-                    __mcr(0, 7, v85, 0, 15, 7);
-                    __mcr(0, 7, v85, 0, 15, 7);
-                    __mcr(0, 7, v85, 0, 15, 7);
-                    __mcr(0, 7, v85, 0, 15, 7);
-LABEL_334:
-                    v203 = *(signed int **)(*(uint32_t *)(*(uint32_t *)v63 + 16) + 16);
-                    v204 = *v203;
-                    v205 = v203[1];
-                    v206 = v203[2];
-                    v207 = v203[3];
-                    v209 = (void *)(v203 + 4);
-                    v208 = v203[4];
-                    v210 = 8 * v209[1];
-                    *(uint32_t *)v205 = v204;
-                    *(uint32_t *)(v205 + 4) = (int)(uintptr_t)(v65);
-                    *(uint32_t *)(v205 + 8) = v207;
-                    *(uint32_t *)(v205 + 12) = v210;
-                    v205 += 16;
-                    v210 *= 8;
-                    *(uint32_t *)v205 = v204;
-                    *(uint32_t *)(v205 + 4) = v205;
-                    *(uint32_t *)(v205 + 8) = (int)(uintptr_t)(v65);
-                    *(uint32_t *)(v205 + 12) = (int)(uintptr_t)(v70);
-                    *(uint32_t *)(v205 + 16) = v210;
-                    v210 *= 8;
-                    *(uint32_t *)v205 = v208;
-                    *(uint32_t *)(v205 + 4) = v210;
-                    v205 += 8;
-                    v210 *= 8;
-                    *(uint32_t *)v206 = v204;
-                    *(uint32_t *)(v206 + 4) = v205;
-                    *(uint32_t *)(v206 + 8) = (int)(uintptr_t)(v65);
-                    *(uint32_t *)(v206 + 12) = (int)(uintptr_t)(v70);
-                    *(uint32_t *)(v206 + 16) = v210;
-                    v206 += 20;
-                    v210 *= 8;
-                    *(uint32_t *)v206 = v208;
-                    *(uint32_t *)(v206 + 4) = v210;
-                    v206 += 8;
-                    v210 *= 8;
-                    *v65 = v204;
-                    v65[1] = v205;
-                    v65[2] = (signed int)v65;
-                    v65[3] = (signed int)v70;
-                    v65[4] = v210;
-                    v210 *= 8;
-                    *v65 = v208;
-                    v65[1] = v210;
-                    v211 = (void *)(v65 + 2);
-                    v210 *= 8;
-                    *(uint32_t *)v210 = v205;
-                    *(uint32_t *)(v210 + 4) = v206;
-                    *(uint32_t *)(v210 + 8) = v207;
-                    *(uint32_t *)(v210 + 12) = v208;
-                    v212 = (signed int **)(8 * (v210 + 16));
-                    *v212 = v70;
-                    v212[1] = (signed int *)v208;
-                    v213 = (signed int *)(8 * (uint32_t)(v212 + 2));
-                    *v213 = v206;
-                    v213[1] = (signed int)v211;
-                    v213[2] = (signed int)v70;
-                    v213[3] = v208;
-                    v214 = (signed int *)(8 * (uint32_t)(v213 + 4));
-                    *v214 = v204;
-                    v214[1] = (signed int)v211;
-                    v214[2] = v207;
-                    v214[3] = (signed int)v70;
-                    v214[4] = v208;
-                    v215 = 8 * (uint32_t)(v214 + 5);
-                    *(uint32_t *)v215 = (int)(uintptr_t)(v211);
-                    *(uint32_t *)(v215 + 4) = v215;
-                    v215 *= 8;
-                    *(uint32_t *)v215 = v204;
-                    *(uint32_t *)(v215 + 4) = (int)(uintptr_t)(v211);
-                    *(uint32_t *)(v215 + 8) = v207;
-                    *(uint32_t *)(v215 + 12) = v215;
-                    v215 *= 8;
-                    *(uint32_t *)v215 = v204;
-                    *(uint32_t *)(v215 + 4) = v205;
-                    *(uint32_t *)(v215 + 8) = (int)(uintptr_t)(v211);
-                    *(uint32_t *)(v215 + 12) = (int)(uintptr_t)(v70);
-                    *(uint32_t *)(v215 + 16) = v215;
-                    v215 *= 8;
-                    *(uint32_t *)v215 = v208;
-                    *(uint32_t *)(v215 + 4) = v215;
-                    v216 = *(uint32_t *)v205;
-                    v205 += 8;
-                    *(uint16_t *)(v205 + 26) = (uint16_t)v70;
-                    *(uint16_t *)(v206 + 26) = v204;
-                    *(uint16_t *)(v205 + 22) = v216;
-                    *(uint16_t *)(v206 + 22) = v207;
-                    JUMPOUT(0x134378);
-                  }
-                }
-                else
-                {
-                  if ( v116 != 0 && 0 )
-                  {
-                    v63 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v75[1] + 24) + 4) + 12) + 12);
-LABEL_159:
-                    *(signed int **)(v63 + 4);
-                    v75 = *(signed int **)(v63 + 8);
-                    v63 += 20;
-LABEL_160:
-                    v85 = *(uint32_t *)v63;
-                    v73 = *(uint32_t *)(v63 + 4);
-                    v65 = *(signed int **)(v63 + 8);
-                    v86 = *(uint32_t *)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)(v63 + 12) + 4) + 4) + 4);
-                    v70 = *(signed int **)v86;
-                    v87 = v86 + 4;
-                    v63 = *(uint32_t *)(v86 + 4);
-                    v88 = 8 * *(uint32_t *)(v87 + 4);
-                    *(uint32_t *)v73 = v85;
-                    *(uint32_t *)(v73 + 4) = v73;
-                    *(uint32_t *)(v73 + 8) = (int)(uintptr_t)(v65);
-                    *(uint32_t *)(v73 + 12) = v63;
-                    *(uint32_t *)(v73 + 16) = v88;
-                    v88 *= 8;
-                    *(uint32_t *)(uintptr_t)(v85);
-                    ((uint32_t *)(uintptr_t)0)[1] = (signed int)0;
-                    ((uint32_t *)(uintptr_t)0)[2] = (signed int)v75;
-                    ((uint32_t *)(uintptr_t)0)[3] = (signed int)v70;
-                    ((uint32_t *)(uintptr_t)0)[4] = v88;
-                    v89 = 8 * v88;
-                    goto LABEL_161;
-                  }
-                  (void)(__CFSHL__(v116, 3));
-                  v107 = 8 * v116;
-                  v106 = v107 != 0 && 0;
-                }
-                if ( v106 )
-                  goto LABEL_160;
-              }
-            }
-            v148 = __CFSHL__(v147, 3);
-            v149 = 8 * v147;
-            if ( (v149 < 0) ^ _VF | (v149 == 0) )
-            {
-              (void)(__CFSHL__(v149, 3));
-              v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
-              if ( (v137 < 0) ^ _VF | (v137 == 0) )
-              {
-                v143 = 8 * v137;
-                if ( !v143 )
-                  goto LABEL_269;
-                v80 = 8 * v143;
-                (void)(v80 == 0);
-                goto LABEL_244;
-              }
-            }
-            else
-            {
-              if ( v149 != 0 && v148 )
-              {
-                v63 = **(uint32_t **)(*(uint32_t *)(*(uint32_t *)(v75[2] + 16) + 12) + 28);
-LABEL_199:
-                v65 = *(signed int **)(v63 + 8);
-                v70 = *(signed int **)(v63 + 12);
-                v63 += 20;
-LABEL_200:
-                v118 = *(signed int **)(*(uint32_t *)(*(uint32_t *)(*(uint32_t *)v63 + 16) + 16) + 16);
-                v85 = *v118;
-                v119 = (signed int *)v118[1];
-                v120 = (signed int *)v118[2];
-                v75 = (signed int *)v118[3];
-                v121 = v118 + 4;
-                v63 = v118[4];
-                v122 = 8 * v121[1];
-                *v119 = v63;
-                v119[1] = v122;
-                v73 = (int)(v119 + 2);
-                v122 *= 8;
-                *v120 = v85;
-                v120[1] = v73;
-                v120[2] = (signed int)v65;
-                v120[3] = (signed int)v70;
-                v120[4] = v122;
-                v120 + 5;
-                v80 = 8 * v122;
-LABEL_201:
-                *(uint32_t *)(uintptr_t)(v63);
-                ((uint32_t *)(uintptr_t)0)[1] = v80;
-                (void)(0);
-                v123 = 8 * v80;
-LABEL_202:
-                *v65 = v85;
-                v65[1] = v73;
-                v65[2] = (signed int)v65;
-                v65[3] = (signed int)v70;
-                v65[4] = v123;
-                v124 = 8 * v123;
-                *v65 = v63;
-                v65[1] = v124;
-                v65 += 2;
-LABEL_203:
-                v125 = 8 * v124;
-                *v75 = v85;
-                v75[1] = v73;
-                v75[2] = (signed int)v65;
-                v75[3] = (signed int)v70;
-                v75[4] = v125;
-                v75 += 5;
-                v125 *= 8;
-                *(uint32_t *)v125 = v73;
-                *(uint32_t *)(v125 + 4) = 0;
-                *(uint32_t *)(v125 + 8) = (int)(uintptr_t)(v75);
-                *(uint32_t *)(v125 + 12) = v63;
-                v126 = v125 + 16;
-LABEL_204:
-                v127 = (signed int **)(8 * v126);
-                *v127 = v70;
-                v127[1] = (signed int *)v63;
-                v128 = 8 * (uint32_t)(v127 + 2);
-LABEL_205:
-                *(uint32_t *)v128 = 0;
-                *(uint32_t *)(v128 + 4) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v128 + 8) = (int)(uintptr_t)(v70);
-                *(uint32_t *)(v128 + 12) = v63;
-                v129 = (signed int *)(8 * (v128 + 16));
-                *v129 = v85;
-                v129[1] = (signed int)v65;
-                v129[2] = (signed int)v75;
-                v129[3] = (signed int)v70;
-                v129[4] = v63;
-                v130 = 8 * (uint32_t)(v129 + 5);
-LABEL_206:
-                *(uint32_t *)v130 = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v130 + 4) = v130;
-                v109 = 8 * v130;
-LABEL_207:
-                *(uint32_t *)v109 = v85;
-                *(uint32_t *)(v109 + 4) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v109 + 8) = (int)(uintptr_t)(v75);
-                *(uint32_t *)(v109 + 12) = v109;
-                v131 = 8 * v109;
-LABEL_208:
-                *(uint32_t *)v131 = v85;
-                *(uint32_t *)(v131 + 4) = v73;
-                *(uint32_t *)(v131 + 8) = (int)(uintptr_t)(v65);
-                *(uint32_t *)(v131 + 12) = (int)(uintptr_t)(v70);
-                *(uint32_t *)(v131 + 16) = v131;
-LABEL_209:
-                v132 = (uint32_t *)(v73 + 8);
-                v65 = (signed int *)v132[6];
-                v70 = (signed int *)v132[7];
-LABEL_210:
-                
-LABEL_211:
-                
-                _T1 = *v70;
-                v133 = (void *)(v70 + 255);
-                
-                _T1 = v133[255];
-                v70 = (void *)(v133 + 255);
-                
-                v85 = __mrc(0, 5, 5, 15, 7);
-                goto LABEL_212;
-              }
-              (void)(__CFSHL__(v149, 3));
-              v137 = 8 * v149;
-              v136 = v137 != 0 && 0;
-            }
-            if ( v136 )
-              goto LABEL_200;
-            (void)(__CFSHL__(v137, 3));
-            v124 = 8 * v137;
-            if ( v124 != 0 && 0 )
-              goto LABEL_203;
-            (void)(__CFSHL__(v124, 3));
-            v138 = 8 * v124;
-            if ( v138 != 0 && 0 )
-              goto LABEL_210;
-            (void)(__CFSHL__(v138, 3));
-            v126 = 8 * v138;
-            if ( v126 == 0 || !0 )
-              goto LABEL_204;
-            (void)(__CFSHL__(v126, 3));
-            v139 = 8 * v126;
-            if ( v139 == 0 || !0 )
-              JUMPOUT(0x133D66);
-            v142 = 8 * v139;
-            v140 = v142 == 0;
-            (void)(v142 < 0);
-          }
-        case 8u:
-          *((uint32_t *)v4 + 1) = (int)(uintptr_t)(rf_bus_reset_n_164);
-          *((uint16_t *)v4 + 4) = 2;
-          *v4 = 4;
-          goto LABEL_86;
-        case 9u:
-          v40 = rf_state_check();
-          goto LABEL_89;
-        case 0xAu:
-          if ( *(uint8_t *)off_111E64 != 4 )
-            goto LABEL_54;
-          v38 = (void *)(rf_bus_reset_n_16c);
-          *v4 = *(uint8_t *)off_111E64;
-          v39 = rf_bus_reset_n_168;
-          *((uint16_t *)v4 + 8) = *v38;
-          *((uint32_t *)v4 + 1) = (int)(uintptr_t)(v39);
-          *((uint16_t *)v4 + 4) = 1;
-          goto LABEL_86;
-        case 0xBu:
-          v36 = (int ( *)(uint32_t, uint32_t))v10[6];
-          if ( !v36 || !v36(*((uint16_t *)v4 + 8), *((uint16_t *)v4 + 7)) )
-            goto LABEL_54;
-          v37 = (void *)(rf_bus_reset_n_168);
-          *(uint16_t *)rf_bus_reset_n_16c = *((uint16_t *)v4 + 8);
-          *v37 = *((uint16_t *)v4 + 7);
-          *v4 = 7;
-LABEL_72:
-          if ( v14 != 4 )
-            goto LABEL_73;
-          goto rf_bus_reset_n_a4;
-        default:
-          goto LABEL_59;
-      }
-    }
-    if ( (a1 & 0x800000000LL) != 0 )
-    {
-      v4 = (uint8_t *)rf_bus_reset_n_4b4;
-      if ( *(uint8_t *)rf_bus_reset_n_4b4 )
-      {
-        rf_enable_tx_patch((int *)1, 0);
-        v5 = (void *)(uintptr_t)(off_112198);
-        goto rf_bus_setup_358;
-      }
-      goto LABEL_6;
-    }
-    v5 = (void *)(rf_bus_write_n_89);
-    v4 = (uint8_t *)rf_bus_reset_n_4b4;
-    v21 = *(uint32_t **)rf_bus_write_n_89;
-    if ( (*(uint8_t *)(*(uint32_t *)rf_bus_write_n_89 + 3) & 1) == 0 )
-    {
-      v22 = *(uint8_t *)rf_bus_reset_n_4b4;
-      switch ( v22 )
-      {
-        case 2:
-          goto rf_bus_setup_358;
-        case 3:
-          v43 = *((uint16_t *)rf_bus_reset_n_4b4 + 5);
-          v44 = (int *)off_112190;
-          v45 = 64 - *(uint16_t *)v21;
-          if ( v45 >= (uint16_t)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) )
-            v45 = (v45 & ~0xFFFFu) | ((uint16_t)(*((uint16_t *)rf_bus_reset_n_4b4 + 4) - v43) & 0xFFFFu);
-          memcpy_large((void *)(uintptr_t)(v43 + *((uint32_t *)rf_bus_reset_n_4b4 + 1)), (void *)(uintptr_t)(*(uint32_t *)off_112190), (uint16_t)v45);
-          v46 = *((uint16_t *)v4 + 4);
-          v47 = (uint16_t)(v45 + *((uint16_t *)v4 + 5));
-          *((uint16_t *)v4 + 5) = v47;
-          if ( v46 == v47 )
-          {
-            v55 = *((void ( **)(uint8_t *))off_1122DC + 4);
-            if ( v55 )
-              v55(v4);
-            a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(v3 << 26) & 0xFFFFFFFFu);
-            if ( (v3 & 0x20) == 0 )
-            {
-              *v4 = 6;
-              return a1;
-            }
-            v56 = *(uint32_t **)v5;
-            v57 = *v44;
-            v58 = (void *)(uintptr_t)(off_1122D8);
-            *v56 = (int)(uintptr_t)(rf_bus_reset_n_c);
-            v56[1] = v57;
-            v58[709] = (int)(uintptr_t)(v56);
-            v58[706] = v58[706];
-            v58[704] |= 0x84000000;
-            *v4 = 7;
-            v58[517] |= 0x10u;
-            a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(timer_read_count()) & 0xFFFFFFFFu);
-            goto LABEL_19;
-          }
-          v48 = *(uint32_t **)v5;
-          a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(*v44) & 0xFFFFFFFFu);
-          v49 = (void *)(rf_bus_reset_n_170);
-          *v48 = dword_112194;
-          v48[1] = a1;
-          v49[709] = (int)(uintptr_t)(v48);
-          v49[706] = v49[706];
-          v49[704] |= 0x84000000;
-          break;
-        case 5:
-          v27 = (void *)(rf_bus_reset_n_170);
-          *(uint8_t *)rf_bus_reset_n_4b4 = 0;
-          v26 = *(uint32_t **)v5;
-          v42 = (void *)(uintptr_t)(off_112190);
-          a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(dword_112194) & 0xFFFFFFFFu);
-          v27[517] &= ~0x10u;
-          v27[516] &= ~0x10u;
-          a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(*v42) << 32);
-          *(uint64_t *)v26 = a1;
-          goto LABEL_51;
-        default:
-          v23 = (void *)(uintptr_t)(off_111E44);
-          a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(*(uint32_t *)rf_bus_reset_n_4a4) & 0xFFFFFFFFu);
-          *v21 = (int)(uintptr_t)(rf_bus_reset_n_4a0);
-          v21[1] = a1;
-          v23[709] = (int)(uintptr_t)(v21);
-          v23[706] = v23[706];
-          v23[704] |= 0x84000000;
-          break;
-      }
-      goto rf_bus_setup_n42c;
-    }
-    if ( *(uint8_t *)rf_bus_reset_n_4b4 )
-      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(rf_enable_tx_patch((int *)1, 0)) & 0xFFFFFFFFu);
-    *v4 = 1;
-  }
-  return a1;
 }
 
 
@@ -33341,10 +23630,7 @@ LABEL_7:
       v11 = *((int ( **)(void *))off_111E48 + 3);
       *((uint32_t *)off_111E44 + 517) &= ~0x10u;
       v9[516] &= ~0x10u;
-      if ( v11 && v11((void *)(uintptr_t)(off_111E3C)) )
-      {
-LABEL_46:
-        v25 = *v4;
+if ( v11 && v11((void *)(uintptr_t)(off_111E3C)) ) { LABEL_46: v25 = *v4;
         switch ( v25 )
         {
           case 3:
@@ -33384,7 +23670,7 @@ LABEL_51:
 LABEL_54:
         if ( v14 == 4 && *v12 != 4 )
 LABEL_56:
-          timer_init_1();
+          timer_init();
         goto LABEL_49;
       }
       v15 = v4[13];
@@ -33443,7 +23729,7 @@ LABEL_128:
                 if ( *v12 == 4 )
                   goto LABEL_46;
 LABEL_45:
-                timer_init_1();
+                timer_init();
                 goto LABEL_46;
               }
               v41 = v4[13];
@@ -33500,7 +23786,7 @@ LABEL_89:
               }
               else
               {
-                timer_init_1();
+                timer_init();
                 if ( v40 )
                   goto LABEL_46;
               }
@@ -33560,8 +23846,8 @@ LABEL_144:
               
 LABEL_145:
               v5[4] = v34;
-              ((uint32_t *)(uintptr_t)&MEMORY)[0xA] = 0;
-              v34 = (v34 & ~0xFFFFu) | ((uint16_t)(((uint32_t *)(uintptr_t)&MEMORY)[0x30]) & 0xFFFFu);
+              MEMORY[0xA] = 0;
+              v34 = (v34 & ~0xFFFFu) | ((uint16_t)(MEMORY[0x30]) & 0xFFFFu);
 LABEL_146:
               
 LABEL_147:
@@ -33613,7 +23899,7 @@ LABEL_147:
               
               
               
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
+              v5[4] = MEMORY[0x30];
               
               
               
@@ -33638,7 +23924,7 @@ LABEL_147:
               
               
               
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
+              v5[4] = MEMORY[0x30];
               
               
               
@@ -33663,9 +23949,9 @@ LABEL_147:
               
               
               
-              ((uint32_t *)(uintptr_t)&v5)[4] = MEMORY[0x30];
-              ((uint32_t *)(uintptr_t)&MEMORY)[0xA] = 0;
-              v61 = ((uint32_t *)(uintptr_t)&MEMORY)[0x30];
+              v5[4] = MEMORY[0x30];
+              MEMORY[0xA] = 0;
+              v61 = MEMORY[0x30];
               
               
               
@@ -33707,13 +23993,13 @@ LABEL_147:
                 goto LABEL_157;
             }
           }
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680000] = 52;
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680004] = 10;
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x680008] = (int)(uintptr_t)(v4);
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x68000C] = (int)(uintptr_t)(v5);
-          ((uint32_t *)(uintptr_t)&MEMORY)[0x3400080] = 54526080;
+          MEMORY[0x680000] = 52;
+          MEMORY[0x680004] = 10;
+          MEMORY[0x680008] = (int)(uintptr_t)(v4);
+          MEMORY[0x68000C] = (int)(uintptr_t)(v5);
+          MEMORY[0x3400080] = 54526080;
 LABEL_156:
-          v61 = ((uint32_t *)(uintptr_t)&MEMORY)[0x3C];
+          v61 = MEMORY[0x3C];
 LABEL_157:
           v62 = *(uint32_t *)(*(uint32_t *)(v61 + 8) + 8);
           v63 = *(uint32_t *)(*(uint32_t *)(v61 + 8) + 12);
@@ -34107,24 +24393,24 @@ LABEL_304:
                           if ( (v217 & 0x8000) != 0 )
                             JUMPOUT(0x1346A8);
                           
-                          v218 = ((uint32_t *)(uintptr_t)&MEMORY)[0x18];
-                          *(uint32_t *)((v63 << 12) + ((uint32_t *)(uintptr_t)&MEMORY)[0x18]) = v63;
+                          v218 = MEMORY[0x18];
+                          *(uint32_t *)((v63 << 12) + MEMORY[0x18]) = v63;
                           if ( v218 < 0 )
                             JUMPOUT(0x1346BC);
                           
-                          v219 = ((uint32_t *)(uintptr_t)&MEMORY)[0x18];
+                          v219 = MEMORY[0x18];
                           if ( !_VF )
                           {
-                            *(signed int *)((char *)v65 + ((uint32_t *)(uintptr_t)&MEMORY)[0x18]) = 0;
+                            *(signed int *)((char *)v65 + MEMORY[0x18]) = 0;
                             v220 = v63 << 12;
                             v221 = v219 >> 16;
                             if ( (v219 & 0x8000) == 0 )
                             {
                               v222 = (v220 >= 0xE1) + v63 + 14286848;
-                              v223 = ((uint32_t *)(uintptr_t)&MEMORY)[0x8B0002E1];
+                              v223 = MEMORY[0x8B0002E1];
                               if ( !(__OFADD__(v220 >= 0xE1, v63) | __OFADD__(14286848, (v220 >= 0xE1) + v63)) )
                               {
-                                *(uint32_t *)(v222 + ((uint32_t *)(uintptr_t)&MEMORY)[0x8B0002E1]) = v221;
+                                *(uint32_t *)(v222 + MEMORY[0x8B0002E1]) = v221;
                                 if ( v222 >= 0 )
                                 {
                                   
@@ -34963,20 +25249,6 @@ LABEL_24:
 
 
 
-// rf_cmd_send_n_3ac @ 0x11256c
-uint8_t * rf_cmd_send_n_3ac(int a1, int a2) {
-  uint8_t *result; // r0
-
-  if ( (*((uint16_t *)rf_bus_reset_n2a4 + 89) & 0x4000) != 0 )
-    result = uart_puts((uint8_t *)fmac_chan_set_or_init);
-  else
-    result = (uint8_t *)msg_parse(dword_112598, a2);
-  *(uint8_t *)rf_cmd_send_n_37c = 1;
-  return result;
-}
-
-
-
 // ke_poll_event_a @ 0x11256c
 uint8_t * ke_poll_event_a(int a1, int a2) {
   uint8_t *result; // r0
@@ -34987,13 +25259,6 @@ uint8_t * ke_poll_event_a(int a1, int a2) {
     result = (uint8_t *)dispatch_event_handler_1(dword_112598, a2);
   *(uint8_t *)off_11259C = 1;
   return result;
-}
-
-
-
-// rf_bus_reset_n2b4 @ 0x1125a4
-int rf_bus_reset_n2b4() {
-  return *(uint8_t *)rf_cmd_send_n_36c;
 }
 
 
@@ -35011,9 +25276,9 @@ uint8_t * ke_poll_event_b(int a1, int a2) {
   uint32_t *v3; // r2
 
   if ( (*((uint16_t *)rf_cmd_send_n_338 + 89) & 0x4000) != 0 )
-    result = uart_puts((uint8_t *)dword_1125F0);
+    result = (void *)(uintptr_t)(uart_puts((uint8_t *)dword_1125F0));
   else
-    result = (uint8_t *)msg_parse((int)(uintptr_t)(rf_bus_reset_n2f4), a2);
+    result = (uint8_t *)msg_parse(rf_bus_reset_n2f4, a2);
   v3 = (void *)(rf_cmd_send_n_32c);
   *(uint8_t *)rf_bus_reset_n2f8_0 = 0;
   v3[896] &= ~1u;
@@ -35231,44 +25496,6 @@ LABEL_19:
 
 
 
-// rf_cmd_wait @ 0x112878
-void rf_cmd_wait() {
-  int *v0; // r4
-  int v1; // r2
-  int v2; // r3
-  int v3; // r3
-  int v4; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)rf_cmd_send_dispatch = 1;
-  }
-  v0 = (int *)rf_cmd_send_n_1c;
-  v1 = *(uint8_t *)rf_cmd_send_n_18;
-  v2 = *(uint32_t *)rf_cmd_send_n_1c + 1;
-  *(uint32_t *)rf_cmd_send_n_1c = v2;
-  if ( v1 )
-  {
-    *((uint32_t *)rf_cmd_send_n_14 + 513) |= 1u;
-    while ( 1 )
-      ;
-  }
-  if ( v2 )
-  {
-    v3 = v2 - 1;
-    v4 = *(uint32_t *)rf_cmd_send_dispatch;
-    *v0 = v3;
-    if ( !v3 )
-    {
-      if ( v4 )
-        __enable_irq();
-    }
-  }
-}
-
-
-
 // critical_section_enter @ 0x112878
 void critical_section_enter() {
   int *v0; // r4
@@ -35307,31 +25534,6 @@ void critical_section_enter() {
 
 
 
-// rf_cmd_send_2918 @ 0x112918
-int rf_cmd_send_2918(int a1, uint16_t *a2) {
-  int v4; // r2
-  int v5; // r3
-  int v6; // r2
-
-  rf_cmd_wait();
-  if ( *(uint8_t *)rf_cmd_send_n64 != 4 )
-    return 1;
-  v4 = a1 - 1;
-  if ( (uint8_t)(a1 - 1) > 5u )
-    return 2;
-  if ( (*((uint32_t *)&REG_4020_0900 + 8 * a1) & 0x8000) == 0 )
-    return 5;
-  v5 = 32 * v4 + 0x40000000;
-  v6 = dword_112980 + 16 * v4;
-  *(uint32_t *)(v6 + 4) = *a2;
-  *(uint8_t *)(v6 + 11) = 1;
-  *(uint32_t *)(v5 + 2099508) = (int)(uintptr_t)(a2);
-  *((uint32_t *)&REG_4020_0900 + 8 * a1) |= 0x84000000;
-  return 0;
-}
-
-
-
 // wait_radio_state @ 0x112918
 int wait_radio_state(int a1, uint16_t *a2) {
   int v4; // r2
@@ -35353,95 +25555,6 @@ int wait_radio_state(int a1, uint16_t *a2) {
   *(uint32_t *)(v5 + 2099508) = (int)(uintptr_t)(a2);
   *((uint32_t *)&REG_4020_0900 + 8 * a1) |= 0x84000000;
   return 0;
-}
-
-
-
-// rf_cmd_send_nf4 @ 0x112a0c
-int rf_cmd_send_nf4(uint8_t *a1, unsigned int a2, int a3) {
-  uint16_t *v3; // r7
-  uint8_t *v4; // r6
-  uint8_t *v5; // r4
-  char v6; // r2
-  uint8_t *v7; // r4
-  int v9; // r8
-  int v10; // r3
-  int v11; // r6
-  uint8_t *v12; // r8
-  char v13; // r5
-  int v14; // r0
-  unsigned int v15; // r3
-  char *v16; // r3
-  int v18; // r0
-
-  v3 = (uint16_t *)rf_cmd_send_2b40;
-  v4 = (uint8_t *)off_112B44;
-  v5 = (void *)(rf_cmd_send_n230);
-  ++*(uint16_t *)rf_cmd_send_2b40;
-  if ( a3 )
-    v6 = 3;
-  else
-    v6 = 2;
-  *v4 = v6;
-  *v5 = 0;
-  v7 = a1;
-  if ( *v4 != 2 )
-  {
-    sub_10DA6C(dword_112B58, *v3, *v4);
-    ipc_msg_post_check((int)(uintptr_t)(rf_cmd_send_n244), (int)(uintptr_t)(v7), a2, *v4);
-    return 1;
-  }
-  *v4 = 0;
-  if ( a2 <= 3 )
-  {
-    sub_10DA6C(dword_112B60, *v3, a2);
-  }
-  else
-  {
-    v9 = a1[2];
-    v10 = (a1[1] << 8) & 0xF00;
-    v11 = *a1 | v10;
-    if ( *(uint8_t *)off_112B4C )
-      a1 = (uint8_t *)check_interrupt_flag(512, (int)(uintptr_t)(rf_cmd_send_n254), a2, v10);
-    if ( v9 == 17 )
-    {
-      v12 = (void *)(uintptr_t)(off_112B78);
-      if ( *((uint8_t *)off_112B78 + 2433) >= (unsigned int)*((uint8_t *)off_112B78 + 2434) )
-      {
-        sub_10DA6C(rf_cmd_send_n258);
-      }
-      else
-      {
-        if ( v11 + 4 == a2 || a2 == v11 + 5 )
-        {
-          ((int (*)())check_and_process)((int)(uintptr_t)(a1));
-          v13 = v12[2433];
-          v14 = (int)(uintptr_t)(rf_bus_mark_n_494_2b54);
-          v15 = (uint8_t)v12[2432]
-              + 1
-              - 40
-              * ((unsigned int)(((unsigned int)rf_cmd_send_n238
-                               * (uint64_t)((unsigned int)(uint8_t)v12[2432] + 1)) >> 32) >> 5);
-          v12[2432] = v15;
-          v16 = &v12[20 * v15];
-          *((uint32_t *)v16 + 409) = (int)(uintptr_t)(v7 + 4);
-          *((uint32_t *)v16 + 412) = v11;
-          v12[2433] = v13 + 1;
-          ((int (*)())list_push_tail)(v14);
-          irq_nesting_or(0x1000000);
-          return 1;
-        }
-        sub_10DA6C(rf_cmd_send_n25c, *v3, v11, a2);
-      }
-    }
-    else
-    {
-      sub_10DA6C(dword_112B68, *v3, v9, v11, a2);
-    }
-  }
-  v18 = mem_free((void *)(&v7[-*(uint32_t *)off_112B64]));
-  ((int (*)())check_and_process)(v18);
-  return 1;
 }
 
 
@@ -35554,10 +25667,9 @@ int wait_rf_ready_1(int a1) {
   {
     v2 = (uint16_t *)off_112C00;
     sub_100200((int *)off_112C00, 0xFFu, 4u);
-    if ( sub_114850((int)(uintptr_t)(v2)) || v2[1] == 0xFFFF || (v3 = *v2, v3 == 0xFFFF) )
-      msg_parse(dword_112C04, v3);
+if ( sub_114850((int)(uintptr_t)(v2)) || v2[1] == 0xFFFF || (v3 = *v2, v3 == 0xFFFF) ) msg_parse(dword_112C04, v3);
     else
-      msg_parse((int)(uintptr_t)(rf_cmd_dispatch_n459), v3);
+      msg_parse(rf_cmd_dispatch_n459, v3);
   }
   v4 = (void *)(uintptr_t)(off_112C0C);
   v5 = (void *)(uintptr_t)(off_112C10);
@@ -35576,53 +25688,6 @@ int wait_rf_ready_1(int a1) {
   }
   while ( v9 );
   return 0;
-}
-
-
-
-// rf_stream_start_2c20 @ 0x112c20
-int rf_stream_start_2c20(int a1, unsigned int a2) {
-  uint8_t *v2; // r4
-  uint8_t *v3; // r6
-  uint32_t *v4; // r7
-  int v5; // r0
-  int v6; // r2
-
-  v2 = (void *)(uintptr_t)(off_112CA4);
-  if ( *(uint8_t *)off_112CA4 )
-    return -14;
-  if ( !a1 || !a2 )
-    return -11;
-  v3 = (void *)(uintptr_t)(off_112CA8);
-  if ( *(uint8_t *)off_112CA8 )
-  {
-    sub_10DA6C(dword_112CB8, dword_112CB4, *(uint8_t *)off_112CA8);
-    return -3;
-  }
-  else
-  {
-    v4 = (void *)(uintptr_t)(off_112CAC);
-    *(uint8_t *)off_112CA8 = 1;
-    v4[716] &= 0xE007FFFF;
-    v5 = rf_bus_setup_n14c(1, a1, a2);
-    v6 = v5;
-    if ( v5 )
-    {
-      sub_10DA6C(dword_112CBC, dword_112CB4, v5);
-      return -1;
-    }
-    else
-    {
-      *(uint8_t *)off_112CB0 = 1;
-      if ( *v2 )
-      {
-        rf_bus_setup_n_148(0, 1u);
-        *v3 = 0;
-        return -14;
-      }
-    }
-  }
-  return v6;
 }
 
 
@@ -35670,63 +25735,6 @@ int send_data_packet(int a1, unsigned int a2) {
     }
   }
   return v6;
-}
-
-
-
-// rf_stream_start2_cc0 @ 0x112cc0
-int rf_stream_start2_cc0(int a1, unsigned int a2) {
-  uint8_t *v2; // r4
-  uint8_t *v3; // r5
-  int v4; // r3
-  uint32_t *v5; // r2
-  int v6; // r0
-  int v7; // r2
-
-  v2 = (void *)(uintptr_t)(off_112D64);
-  if ( *(uint8_t *)off_112D64 )
-    return -14;
-  if ( !a1 || !a2 )
-    return -11;
-  v3 = (void *)(uintptr_t)(off_112D68);
-  if ( *(uint8_t *)off_112D68 )
-  {
-    sub_10DA6C(dword_112D7C, dword_112D78, *(uint8_t *)off_112D68);
-    return -3;
-  }
-  else
-  {
-    v4 = *(char *)off_112D6C;
-    *(uint8_t *)off_112D68 = 1;
-    v5 = (void *)(uintptr_t)(off_112D70);
-    if ( v4 )
-    {
-      *((uint32_t *)off_112D70 + 716) &= 0xE007FFFF;
-      v5[512] |= 0x2000u;
-    }
-    else
-    {
-      *((uint32_t *)off_112D70 + 713) |= 1u;
-    }
-    v6 = rf_channel_update_dup(1, a1, a2);
-    v7 = v6;
-    if ( v6 )
-    {
-      sub_10DA6C(dword_112D80, dword_112D78, v6);
-      return -1;
-    }
-    else
-    {
-      *(uint8_t *)off_112D74 = 1;
-      if ( *v2 )
-      {
-        rf_bus_setup_n_148(0, 1u);
-        *v3 = 0;
-        return -14;
-      }
-    }
-  }
-  return v7;
 }
 
 
@@ -35784,75 +25792,6 @@ int send_control_packet(int a1, unsigned int a2) {
     }
   }
   return v7;
-}
-
-
-
-// rf_bus_mark_ne0 @ 0x112d84
-int rf_bus_mark_ne0(int a1, int a2) {
-  uint8_t *v2; // r6
-  int **v3; // r4
-  char v4; // r0
-  uint8_t *v5; // r12
-  int *v6; // r7
-  int *v7; // r5
-  unsigned int v8; // r4
-  int *v9; // r1
-  char v10; // r3
-  char v11; // r2
-  uint16_t *v12; // r1
-  int v13; // r2
-  char v14; // r3
-
-  v2 = (void *)(rf_cmd_send_n500);
-  if ( *(uint8_t *)rf_cmd_send_n500 )
-    return -99;
-  v3 = (int **)off_112E1C;
-  v4 = ((int (*)())list_count)((void *)(uintptr_t)(off_112E1C), a2);
-  v5 = (void *)(uintptr_t)(off_112E24);
-  *(uint8_t *)off_112E24 = v4;
-  if ( v4 )
-  {
-    v6 = *v3;
-    v7 = *(int **)(dword_112E20 + 8240);
-    if ( v4 != 1 )
-    {
-      v8 = *((uint16_t *)v6 + 6);
-      if ( *((uint16_t *)v7 + 6) < v8 )
-      {
-        v9 = v6;
-        v10 = v4;
-        while ( 1 )
-        {
-          v11 = v4 - v10--;
-          if ( !v8 )
-            break;
-          if ( !*v9 || !v10 )
-          {
-            *v5 = v10;
-            v7 = v9;
-            goto rf_cmd_send_n4c6;
-          }
-          v8 = *(uint16_t *)(*v9 + 12);
-          v7 = v9;
-          v9 = (int *)*v9;
-        }
-        *v5 = v11;
-      }
-      goto rf_cmd_send_n4c6;
-    }
-    if ( v7 )
-    {
-rf_cmd_send_n4c6:
-      v12 = (uint16_t *)v6[1];
-      v13 = v7[1] + 8 * (*((uint8_t *)v7 + 14) - 1);
-      v14 = *(uint8_t *)(v13 + 3);
-      *v2 = 1;
-      *(uint8_t *)(v13 + 3) = v14 & 0xF5 | 0xA;
-      return rf_cmd_send_2918(1, v12);
-    }
-  }
-  return -98;
 }
 
 
@@ -35961,7 +25900,7 @@ int set_event_mode(int f594, int a2, int a3) {
         {
           v10 = *(uint32_t *)(*(uint32_t *)(list_pop_front(v7) + 4) + 4);
           --*v5;
-          ((int (*)())list_push_tail)(v9);
+          list_push_tail(v9);
           v11 = *(uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
@@ -36179,7 +26118,7 @@ int timer_event_handler() {
         if ( **v6 < 0 )
           rf_cmd_send_n264(dword_113158, dword_113154, 495);
       }
-      result = ((int (*)())list_push_tail)(dword_11314C);
+      result = list_push_tail(dword_11314C);
       v8 = *(uint16_t *)(*(uint32_t *)v0 + 8);
       ++v7;
       ++*v3;
@@ -36187,64 +26126,6 @@ int timer_event_handler() {
     while ( v8 > v7 );
   }
   return result;
-}
-
-
-
-// rf_mem_write_n3f8 @ 0x1131bc
-void rf_mem_write_n3f8() {
-  int *v0; // r4
-  int v1; // r0
-  uint8_t *v2; // r1
-  int v3; // r0
-  uint16_t v4; // r3
-  int v5; // r3
-  int v6; // r2
-  int v7; // r3
-  int v8; // r2
-  int v9; // r3
-  int v10; // r0
-  int v11; // r1
-  int v12; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_113258 = 1;
-  }
-  v0 = (int *)off_11325C;
-  v1 = dword_113260;
-  ++*(uint32_t *)off_11325C;
-  ((int (*)())list_push_tail)(v1);
-  v2 = (void *)(uintptr_t)(off_113268);
-  v3 = *(uint8_t *)off_113268;
-  v4 = *(uint16_t *)off_113264 + 1;
-  *(uint16_t *)off_113264 = v4;
-  if ( v3 && *(uint8_t *)off_11326C <= (unsigned int)v4 )
-  {
-    v7 = *(uint8_t *)off_113270;
-    *v2 = 0;
-    if ( v7 )
-      *((uint32_t *)off_113274 + 512) &= ~0x2000u;
-    else
-      *((uint32_t *)off_113274 + 713) &= ~1u;
-    hw_event_flag(1);
-    event_queue_push(1069, 1);
-    v10 = check_interrupt_flag(512, dword_113278, v8, v9);
-    if ( !*(uint8_t *)off_11327C )
-      main_event_handler(v10, v11, v12, *(uint8_t *)off_11327C);
-  }
-  if ( *v0 )
-  {
-    v5 = *v0 - 1;
-    v6 = *(uint32_t *)off_113258;
-    *v0 = v5;
-    if ( !v5 )
-    {
-      if ( v6 )
-        __enable_irq();
-    }
-  }
 }
 
 
@@ -36325,7 +26206,7 @@ int tx_event_handler() {
     do
     {
       log_pool_alloc2_a18(v2, 0x7Cu);
-      result = ((int (*)())list_push_tail)(v3);
+      result = list_push_tail(v3);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -36384,7 +26265,7 @@ int lock_acquire() {
   v0 = (int *)off_11333C;
   v1 = dword_113340;
   ++*(uint32_t *)off_11333C;
-  result = ((int (*)())list_push_tail)(v1);
+  result = list_push_tail(v1);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -36397,13 +26278,6 @@ int lock_acquire() {
     }
   }
   return result;
-}
-
-
-
-// fw_flag_is_set @ 0x113344
-BOOL fw_flag_is_set() {
-  return *((uint8_t *)off_113354 + 8) == 1;
 }
 
 
@@ -36533,27 +26407,6 @@ void check_and_process(int a1, int a2, int a3) {
 
 
 
-// rf_stream_start_once @ 0x113640
-int rf_stream_start_once() {
-  int v0; // r0
-  uint32_t *v1; // r4
-  int result; // r0
-
-  v0 = (*(int ( **)(uint32_t))(*((uint32_t *)off_113680 + 2) + 16))(*((uint32_t *)off_113680 + 1));
-  if ( !v0 )
-    return sub_10DA6C(dword_11368C);
-  v1 = (uint32_t *)v0;
-  result = rf_stream_start_2c20(*(uint32_t *)off_113684 + v0, *(uint32_t *)off_113688);
-  if ( result < 0 )
-  {
-    mem_free(v1);
-    return sub_10DA6C(dword_113690);
-  }
-  return result;
-}
-
-
-
 // dispatch_event_handler @ 0x113640
 int dispatch_event_handler() {
   int v0; // r0
@@ -36575,33 +26428,10 @@ int dispatch_event_handler() {
 
 
 
-// rf_chan_set_mask @ 0x113694
-int rf_chan_set_mask(int a1, int a2) {
-  msg_parse(dword_1136A4, a2);
-  return rf_stream_start_once();
-}
-
-
-
 // prepare_and_dispatch @ 0x113694
 int prepare_and_dispatch(int a1, int a2) {
   dispatch_event_handler_1(dword_1136A4, a2);
   return dispatch_event_handler();
-}
-
-
-
-// ipc_msg_post_check @ 0x1136f4
-int ipc_msg_post_check(int a1, int a2, int a3, int a4) {
-  int result; // r0
-
-  if ( a1 == *(uint32_t *)off_113748 || a1 == *((uint32_t *)off_113748 + 1) )
-    result = msg_parse(dword_11375C, dword_113758);
-  else
-    result = msg_parse(dword_11374C, a1);
-  if ( *((uint8_t *)off_113750 + 353) )
-    return ((int (*)())timer_set_relative)(1068, 1, 1000 * *((uint8_t *)off_113750 + 354), a4);
-  return result;
 }
 
 
@@ -36640,46 +26470,10 @@ int controller_state_machine() {
     do
     {
       log_pool_alloc2_a18(v3, 0x6B8u);
-      result = ((int (*)())list_push_tail)(*v0 + 580);
+      result = list_push_tail(*v0 + 580);
       ++v4;
     }
     while ( *(uint16_t *)(*(uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );
-  }
-  return result;
-}
-
-
-
-// log_free_pool_e @ 0x1137b8
-int log_free_pool_e() {
-  int *v0; // r5
-  uint32_t *v1; // r4
-  int result; // r0
-  int v3; // r3
-  int v4; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_113800 = 1;
-  }
-  v0 = (int *)off_113804;
-  v1 = (void *)(uintptr_t)(off_113808);
-  ++*(uint32_t *)off_113804;
-  while ( !*v1 )
-    ;
-  result = ((int (*)())list_push_tail)(*(uint32_t *)off_11380C + 580);
-  *v1 = 1;
-  if ( *v0 )
-  {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_113800;
-    *v0 = v3;
-    if ( !v3 )
-    {
-      if ( v4 )
-        __enable_irq();
-    }
   }
   return result;
 }
@@ -36793,13 +26587,6 @@ int bt_module_init(int a1) {
 // memory_barrier_write @ 0x1138d0
 void memory_barrier_write() {
   **(uint32_t **)off_1138DC = **(uint32_t **)off_1138DC;
-}
-
-
-
-// rf_clear_flag_bit1 @ 0x1138e0
-void rf_clear_flag_bit1() {
-  *(uint32_t *)(*(uint32_t *)off_1138F0 + 8) &= ~2u;
 }
 
 
@@ -36950,31 +26737,6 @@ LABEL_4:
 
 
 
-// host_reg_wait_set @ 0x113ad0
-int host_reg_wait_set(unsigned int a1, int a2) {
-  uint32_t *v4; // r3
-
-  fw_state_check_n960(1);
-  while ( !*(uint32_t *)off_113B28 )
-    ;
-  if ( a1 <= 0x1F )
-  {
-    v4 = (void *)(uintptr_t)(off_113B2C);
-    *((uint32_t *)off_113B2C + 16) = 1;
-    v4[19] = 34816;
-    v4[21] = 629;
-    __dsb(0xFu);
-    v4[a1 + 512] = a2;
-    v4[16] = 0;
-    v4[19] = 0;
-    v4[21] &= ~4u;
-  }
-  *(uint32_t *)off_113B28 = 1;
-  return fw_state_check_n960(0);
-}
-
-
-
 // mmio_write32 @ 0x113ad0
 int mmio_write32(unsigned int a1, int a2) {
   uint32_t *v4; // r3
@@ -37008,13 +26770,6 @@ unsigned int mmio_rmw_field(int a1) {
 
 
 
-// rf_fault_dump_n_b2 @ 0x113b80
-int rf_fault_dump_n_b2(int a1) {
-  return host_reg_wait_set(2u, a1);
-}
-
-
-
 // mmio_write_reg2 @ 0x113b80
 int mmio_write_reg2(int a1) {
   return mmio_write32(2u, a1);
@@ -37040,32 +26795,6 @@ int mmio_read_status(uint8_t *a1) {
     else
       return 2;
   }
-}
-
-
-
-// rf_init_channel_n6 @ 0x113bb0
-int rf_init_channel_n6(int a1) {
-  int16_t v2; // r0
-  char v3; // r1
-  int v4; // r5
-
-  v2 = mmio_read32(6u);
-  v3 = v2;
-  if ( !(uint8_t)v2 )
-  {
-    v4 = 1;
-LABEL_3:
-    host_reg_wait_set(6u, a1 << v3);
-    return v4;
-  }
-  v4 = HIBYTE(v2);
-  if ( (v2 & 0xFF00) == 0 )
-  {
-    v3 = 8;
-    goto LABEL_3;
-  }
-  return -1;
 }
 
 
@@ -37096,32 +26825,6 @@ LABEL_3:
 
 
 
-// rf_cmd_query_status @ 0x113be8
-int rf_cmd_query_status(uint8_t *a1) {
-  unsigned int v2; // r0
-  char v4; // r3
-
-  v2 = mmio_read32(6u);
-  if ( HIBYTE(v2) )
-  {
-    *a1 = HIBYTE(v2);
-    return 0;
-  }
-  else
-  {
-    v4 = BYTE2(v2);
-    if ( !HIWORD(v2) )
-      v4 = 0;
-    *a1 = v4;
-    if ( HIWORD(v2) )
-      return 1;
-    else
-      return 2;
-  }
-}
-
-
-
 // mmio_read_byte @ 0x113be8
 int mmio_read_byte(uint8_t *a1) {
   unsigned int v2; // r0
@@ -37144,32 +26847,6 @@ int mmio_read_byte(uint8_t *a1) {
     else
       return 2;
   }
-}
-
-
-
-// rf_reg_check @ 0x113c14
-int rf_reg_check(int a1) {
-  unsigned int v2; // r0
-  char v3; // r1
-  int v4; // r4
-
-  v2 = mmio_read32(6u);
-  if ( (v2 & 0xFF0000) == 0 )
-  {
-    v3 = 16;
-    v4 = 1;
-LABEL_3:
-    host_reg_wait_set(6u, a1 << v3);
-    return v4;
-  }
-  v4 = HIBYTE(v2);
-  if ( !HIBYTE(v2) )
-  {
-    v3 = 24;
-    goto LABEL_3;
-  }
-  return -1;
 }
 
 
@@ -37244,36 +26921,6 @@ int mmio_read_pair(int *a1, unsigned int *a2) {
 
 
 
-// rf_status_poll @ 0x113c98
-int rf_status_poll(unsigned int a1, int a2) {
-  int v4; // r4
-  unsigned int v5; // r4
-
-  v4 = mmio_read32(7u);
-  if ( (uint16_t)mmio_read32(8u) | v4 )
-  {
-    v5 = mmio_read32(8u);
-    if ( (HIWORD(v5) << 16) | mmio_read32(9u) )
-    {
-      return -1;
-    }
-    else
-    {
-      host_reg_wait_set(8u, a1 << 16);
-      host_reg_wait_set(9u, HIWORD(a1) | (a2 << 16));
-      return 0;
-    }
-  }
-  else
-  {
-    host_reg_wait_set(7u, a1);
-    host_reg_wait_set(8u, a2);
-    return 1;
-  }
-}
-
-
-
 // rf_status_check @ 0x113c98
 int rf_status_check(unsigned int a1, int a2) {
   int v4; // r4
@@ -37300,61 +26947,6 @@ int rf_status_check(unsigned int a1, int a2) {
     mmio_write32(8u, a2);
     return 1;
   }
-}
-
-
-
-// rf_init_param_load @ 0x113d00
-int rf_init_param_load(int *a1, unsigned int *a2) {
-  unsigned int v4; // r0
-  int v5; // r4
-  int result; // r0
-  unsigned int v7; // r7
-  unsigned int v8; // r0
-  unsigned int v9; // r7
-  int v10; // r7
-  unsigned int v11; // r0
-
-  v4 = mmio_read32(0xFu);
-  v5 = HIWORD(v4) & 1;
-  if ( (v4 & 0x10000) != 0 )
-  {
-    result = mmio_read_pair(a1, a2);
-    if ( result <= 1 )
-      *a1 = *a1 & 0xFFFFFF00 | (uint8_t)(*a1 + 1);
-  }
-  else
-  {
-    v7 = mmio_read32(0xDu);
-    v8 = mmio_read32(0xEu);
-    v9 = HIWORD(v7) << 16;
-    if ( v9 | v8 )
-    {
-      v10 = (v8 << 16) | HIWORD(v9);
-      v11 = HIWORD(v8);
-    }
-    else
-    {
-      v10 = mmio_read32(0xCu);
-      v11 = (uint16_t)mmio_read32(0xDu);
-      if ( v10 )
-      {
-        v5 = 1;
-      }
-      else if ( (uint16_t)v11 )
-      {
-        v5 = 1;
-      }
-      else
-      {
-        v5 = 2;
-      }
-    }
-    *a1 = v10;
-    *a2 = v11;
-    return v5;
-  }
-  return result;
 }
 
 
@@ -37410,38 +27002,6 @@ int rf_irq_bit16_check(int *a1, unsigned int *a2) {
     return v5;
   }
   return result;
-}
-
-
-
-// rf_init_n_d80 @ 0x113d80
-int rf_init_n_d80(unsigned int a1, int a2) {
-  int v4; // r4
-  unsigned int v5; // r4
-
-  if ( (mmio_read32(0xFu) & 0x10000) != 0 )
-    return -2;
-  v4 = mmio_read32(0xCu);
-  if ( (uint16_t)mmio_read32(0xDu) | v4 )
-  {
-    v5 = mmio_read32(0xDu);
-    if ( (HIWORD(v5) << 16) | mmio_read32(0xEu) )
-    {
-      return -1;
-    }
-    else
-    {
-      host_reg_wait_set(0xDu, a1 << 16);
-      host_reg_wait_set(0xEu, HIWORD(a1) | (a2 << 16));
-      return 0;
-    }
-  }
-  else
-  {
-    host_reg_wait_set(0xCu, a1);
-    host_reg_wait_set(0xDu, a2);
-    return 1;
-  }
 }
 
 
@@ -37850,28 +27410,6 @@ int rf_reg10_low_check(int a1) {
 
 
 
-// rf_bus_handler_16c @ 0x11416c
-int rf_bus_handler_16c(uint8_t *a1) {
-  int16_t v2; // r0
-
-  v2 = mmio_read32(0xFu);
-  if ( (v2 & 0xFF00) != 0 )
-  {
-    *a1 = HIBYTE(v2);
-    return 0;
-  }
-  else
-  {
-    *a1 = v2;
-    if ( (uint8_t)v2 )
-      return 1;
-    else
-      return 2;
-  }
-}
-
-
-
 // rf_regf_high_check @ 0x11416c
 int rf_regf_high_check(uint8_t *a1) {
   int16_t v2; // r0
@@ -37941,42 +27479,11 @@ int ke_event_schedule() {
   }
   v0 = (int *)off_114254;
   ++*(uint32_t *)off_114254;
-  result = ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1C8])();
+  result = ((int (*)())MEMORY[0x1C8])();
   if ( *v0 )
   {
     v2 = *v0 - 1;
     v3 = *(uint32_t *)off_114250;
-    *v0 = v2;
-    if ( !v2 )
-    {
-      if ( v3 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// rf_event_handler_n258 @ 0x114258
-int rf_event_handler_n258() {
-  int *v0; // r4
-  int result; // r0
-  int v2; // r3
-  int v3; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_114290 = 1;
-  }
-  v0 = (int *)off_114294;
-  ++*(uint32_t *)off_114294;
-  result = ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D0])();
-  if ( *v0 )
-  {
-    v2 = *v0 - 1;
-    v3 = *(uint32_t *)off_114290;
     *v0 = v2;
     if ( !v2 )
     {
@@ -38003,7 +27510,7 @@ int ke_event_schedule_alt() {
   }
   v0 = (int *)off_114294;
   ++*(uint32_t *)off_114294;
-  result = ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D0])();
+  result = ((int (*)())MEMORY[0x1D0])();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -38034,7 +27541,7 @@ int ke_event_schedule_prio() {
   }
   v0 = (int *)off_1142D4;
   ++*(uint32_t *)off_1142D4;
-  result = ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D4])();
+  result = ((int (*)())MEMORY[0x1D4])();
   if ( *v0 )
   {
     v2 = *v0 - 1;
@@ -38051,20 +27558,6 @@ int ke_event_schedule_prio() {
 
 
 
-// lmac_state_get_n_e0 @ 0x1142e0
-void lmac_state_get_n_e0() {
-  int *v0; // r4
-
-  v0 = (int *)off_11430C;
-  if ( !*(uint32_t *)off_11430C )
-    *v0 = ke_event_schedule();
-  if ( !*(uint32_t *)off_114310 )
-    *(uint32_t *)off_114310 = *v0 + 67092480;
-  *(uint32_t *)off_114314 = 1;
-}
-
-
-
 // ke_event_busy_check @ 0x1142e0
 void ke_event_busy_check() {
   int *v0; // r4
@@ -38075,101 +27568,6 @@ void ke_event_busy_check() {
   if ( !*(uint32_t *)off_114310 )
     *(uint32_t *)off_114310 = *v0 + 67092480;
   *(uint32_t *)off_114314 = 1;
-}
-
-
-
-// rf_init_or_config_n_318 @ 0x114318
-int rf_init_or_config_n_318(int a1, int a2, unsigned int a3) {
-  int v6; // r4
-  unsigned int v7; // r5
-  uint32_t v9[4]; // [sp+0h] [bp-4Ch] BYREF
-  uint8_t v10[4]; // [sp+10h] [bp-3Ch] BYREF
-  uint8_t v11[12]; // [sp+14h] [bp-38h] BYREF
-  uint8_t v12[20]; // [sp+20h] [bp-2Ch] BYREF
-  uint8_t v13[8]; // [sp+34h] [bp-18h] BYREF
-  uint8_t v14[4]; // [sp+3Ch] [bp-10h] BYREF
-  uint8_t v15[4]; // [sp+40h] [bp-Ch] BYREF
-  uint8_t v16[8]; // [sp+44h] [bp-8h] BYREF
-
-  if ( !*(uint32_t *)off_114410 )
-    lmac_state_get_n_e0();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_114414 + 0x2000, 72, v9);
-  if ( v9[0] != dword_114418 )
-    return -1;
-  v6 = a1 & v9[1];
-  if ( !v6 )
-    return 1;
-  v7 = v6 & 1;
-  if ( (v6 & 1) != 0 )
-  {
-    memcpy_large((void *)(uintptr_t)(a2), v10, 4);
-    v7 = 4;
-    if ( (v6 & 2) == 0 )
-    {
-LABEL_7:
-      if ( (v6 & 4) == 0 )
-        goto LABEL_8;
-      goto LABEL_22;
-    }
-  }
-  else if ( (v6 & 2) == 0 )
-  {
-    goto LABEL_7;
-  }
-  memcpy_large((void *)(uintptr_t)(a2 + v7), v11, 12);
-  v7 += 12;
-  if ( (v6 & 4) == 0 )
-  {
-LABEL_8:
-    if ( (v6 & 8) == 0 )
-      goto LABEL_9;
-    goto LABEL_20;
-  }
-LABEL_22:
-  memcpy_large((void *)(uintptr_t)(a2 + v7), v12, 20);
-  v7 += 20;
-  if ( (v6 & 8) == 0 )
-  {
-LABEL_9:
-    if ( (v6 & 0x20) == 0 )
-      goto LABEL_10;
-    goto LABEL_18;
-  }
-LABEL_20:
-  memcpy_large((void *)(uintptr_t)(a2 + v7), v13, 4);
-  v7 += 4;
-  if ( (v6 & 0x20) == 0 )
-  {
-LABEL_10:
-    if ( (v6 & 0x40) == 0 )
-      goto LABEL_11;
-    goto LABEL_16;
-  }
-LABEL_18:
-  memcpy_large((void *)(uintptr_t)(a2 + v7), v14, 4);
-  v7 += 4;
-  if ( (v6 & 0x40) == 0 )
-  {
-LABEL_11:
-    if ( (v6 & 0x80) == 0 )
-      goto LABEL_12;
-    goto LABEL_15;
-  }
-LABEL_16:
-  memcpy_large((void *)(uintptr_t)(a2 + v7), v15, 4);
-  v7 += 4;
-  if ( (v6 & 0x80) != 0 )
-  {
-LABEL_15:
-    memcpy_large((void *)(uintptr_t)(a2 + v7), v16, 4);
-    v7 += 4;
-  }
-LABEL_12:
-  if ( a3 < v7 )
-    return -2;
-  else
-    return 0;
 }
 
 
@@ -38189,7 +27587,7 @@ int ke_task_handler(int a1, int a2, unsigned int a3) {
 
   if ( !*(uint32_t *)off_114410 )
     ke_event_busy_check();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_114414 + 0x2000, 72, v9);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_114414 + 0x2000, 72, v9);
   if ( v9[0] != dword_114418 )
     return -1;
   v6 = a1 & v9[1];
@@ -38265,121 +27663,6 @@ LABEL_12:
     return -2;
   else
     return 0;
-}
-
-
-
-// rf_param_setup_44 @ 0x11441c
-int rf_param_setup_44(int a1, int a2, unsigned int a3) {
-  uint32_t *v6; // r7
-  int v7; // r5
-  unsigned int v8; // r5
-  int v9; // r1
-  int v11; // [sp+0h] [bp-48h] BYREF
-  int v12; // [sp+4h] [bp-44h]
-  uint8_t v13[4]; // [sp+10h] [bp-38h] BYREF
-  uint8_t v14[12]; // [sp+14h] [bp-34h] BYREF
-  uint8_t v15[20]; // [sp+20h] [bp-28h] BYREF
-  uint8_t v16[8]; // [sp+34h] [bp-14h] BYREF
-  uint8_t v17[4]; // [sp+3Ch] [bp-Ch] BYREF
-  uint8_t v18[4]; // [sp+40h] [bp-8h] BYREF
-  uint8_t v19[4]; // [sp+44h] [bp-4h] BYREF
-
-  if ( !*(uint32_t *)off_114548 )
-    lmac_state_get_n_e0();
-  v6 = (void *)(uintptr_t)(off_11454C);
-  v7 = dword_114550;
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_11454C + 0x2000, 72, &v11);
-  if ( v11 == v7 )
-  {
-    v8 = a1 & 1;
-    v12 |= a1;
-    if ( (a1 & 1) == 0 )
-      goto LABEL_5;
-  }
-  else
-  {
-    sub_100200(&v11, 0xFFu, 0x48u);
-    v11 = v7;
-    v8 = a1 & 1;
-    v12 = a1;
-    if ( (a1 & 1) == 0 )
-    {
-LABEL_5:
-      if ( (a1 & 2) == 0 )
-        goto LABEL_6;
-      goto LABEL_15;
-    }
-  }
-  memcpy_large(v13, (void *)(uintptr_t)(a2), 4);
-  v8 = 4;
-  if ( (a1 & 2) == 0 )
-  {
-LABEL_6:
-    if ( (a1 & 4) == 0 )
-      goto LABEL_7;
-    goto LABEL_16;
-  }
-LABEL_15:
-  memcpy_large(v14, (void *)(uintptr_t)(a2 + v8), 12);
-  v8 += 12;
-  if ( (a1 & 4) == 0 )
-  {
-LABEL_7:
-    if ( (a1 & 8) == 0 )
-      goto LABEL_8;
-    goto LABEL_17;
-  }
-LABEL_16:
-  memcpy_large(v15, (void *)(uintptr_t)(a2 + v8), 20);
-  v8 += 20;
-  if ( (a1 & 8) == 0 )
-  {
-LABEL_8:
-    v9 = a1 << 26;
-    if ( (a1 & 0x20) == 0 )
-      goto LABEL_9;
-    goto LABEL_18;
-  }
-LABEL_17:
-  memcpy_large(v16, (void *)(uintptr_t)(a2 + v8), 4);
-  v9 = a1 << 26;
-  v8 += 4;
-  if ( (a1 & 0x20) == 0 )
-  {
-LABEL_9:
-    if ( (a1 & 0x40) == 0 )
-      goto LABEL_10;
-    goto LABEL_19;
-  }
-LABEL_18:
-  memcpy_large(v17, (void *)(uintptr_t)(a2 + v8), 4);
-  v8 += 4;
-  if ( (a1 & 0x40) == 0 )
-  {
-LABEL_10:
-    if ( (a1 & 0x80) == 0 )
-      goto LABEL_11;
-LABEL_20:
-    memcpy_large(v19, (void *)(uintptr_t)(a2 + v8), 4);
-    if ( a3 >= v8 + 4 )
-      goto LABEL_12;
-LABEL_21:
-    msg_parse(dword_114554, v9);
-    goto LABEL_12;
-  }
-LABEL_19:
-  memcpy_large(v18, (void *)(uintptr_t)(a2 + v8), 4);
-  v8 += 4;
-  if ( (a1 & 0x80) != 0 )
-    goto LABEL_20;
-LABEL_11:
-  if ( a3 < v8 )
-    goto LABEL_21;
-LABEL_12:
-  rf_event_handler_n258();
-  ke_event_schedule_prio();
-  return ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1E0])(*v6 + 0x2000, 72);
 }
 
 
@@ -38404,7 +27687,7 @@ int ke_task_process(int a1, int a2, unsigned int a3) {
     ke_event_busy_check();
   v6 = (void *)(uintptr_t)(off_11454C);
   v7 = dword_114550;
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_11454C + 0x2000, 72, &v11);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_11454C + 0x2000, 72, &v11);
   if ( v11 == v7 )
   {
     v8 = a1 & 1;
@@ -38494,7 +27777,7 @@ LABEL_11:
 LABEL_12:
   ke_event_schedule_alt();
   ke_event_schedule_prio();
-  return ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1E0])(*v6 + 0x2000, 72);
+  return ((int (*)())MEMORY[0x1E0])(*v6 + 0x2000, 72);
 }
 
 
@@ -38513,13 +27796,6 @@ int sub_114564(int a1) {
 
 
 
-// rf_param_set_op2 @ 0x114570
-int rf_param_set_op2(int a1) {
-  return rf_init_or_config_n_318(2, a1, 0xCu);
-}
-
-
-
 // sub_114570 @ 0x114570
 int sub_114570(int a1) {
   return ke_task_handler(2, a1, 0xCu);
@@ -38530,13 +27806,6 @@ int sub_114570(int a1) {
 // mmio_write_2 @ 0x11457c
 int mmio_write_2(int a1) {
   return rf_param_setup_44(2, a1, 0xCu);
-}
-
-
-
-// rf_emit_setup_word @ 0x114588
-int rf_emit_setup_word(int a1) {
-  return rf_init_or_config_n_318(4, a1, 0x14u);
 }
 
 
@@ -38558,13 +27827,6 @@ int mmio_write_4(int a1) {
 // mmio_read_8 @ 0x1145a0
 int mmio_read_8(int a1) {
   return rf_init_or_config_n_318(8, a1, 4u);
-}
-
-
-
-// rf_setup_param_n5ac @ 0x1145ac
-int rf_setup_param_n5ac(int a1) {
-  return rf_param_setup_44(8, a1, 4u);
 }
 
 
@@ -38611,89 +27873,6 @@ int mmio_write_128(int a1) {
 
 
 
-// rf_msg_handler_main_45f4 @ 0x1145f4
-int rf_msg_handler_main_45f4(int a1, int a2, unsigned int a3) {
-  unsigned int v6; // r4
-  int v8; // [sp+0h] [bp-144h] BYREF
-  int v9; // [sp+4h] [bp-140h]
-  uint8_t v10[272]; // [sp+14h] [bp-130h] BYREF
-  uint8_t v11[4]; // [sp+124h] [bp-20h] BYREF
-  uint8_t v12[8]; // [sp+128h] [bp-1Ch] BYREF
-  uint8_t v13[4]; // [sp+130h] [bp-14h] BYREF
-  uint8_t v14[2]; // [sp+134h] [bp-10h] BYREF
-  uint8_t v15[14]; // [sp+136h] [bp-Eh] BYREF
-
-  if ( !*(uint32_t *)off_1146D8 )
-    lmac_state_get_n_e0();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_1146DC + 4096, 320, &v8);
-  if ( v8 != dword_1146E0 )
-    return -1;
-  if ( (v9 & a1) == 0 )
-    return 1;
-  v6 = (uint8_t)v9 & (uint8_t)a1 & 2;
-  if ( ((uint8_t)v9 & (uint8_t)a1 & 2) != 0 )
-  {
-    memcpy_large((void *)(uintptr_t)(a2), v10, 6);
-    v6 = 6;
-    if ( (a1 & 0x100000) == 0 )
-    {
-LABEL_7:
-      if ( (a1 & 0x200000) == 0 )
-        goto LABEL_8;
-      goto LABEL_19;
-    }
-  }
-  else if ( (a1 & 0x100000) == 0 )
-  {
-    goto LABEL_7;
-  }
-  memcpy_large((void *)(uintptr_t)(a2 + v6), v11, 2);
-  v6 += 2;
-  if ( (a1 & 0x200000) == 0 )
-  {
-LABEL_8:
-    if ( (a1 & 0x400000) == 0 )
-      goto LABEL_9;
-    goto LABEL_17;
-  }
-LABEL_19:
-  memcpy_large((void *)(uintptr_t)(a2 + v6), v12, 8);
-  v6 += 8;
-  if ( (a1 & 0x400000) == 0 )
-  {
-LABEL_9:
-    if ( (a1 & 0x800000) == 0 )
-      goto LABEL_10;
-    goto LABEL_15;
-  }
-LABEL_17:
-  memcpy_large((void *)(uintptr_t)(a2 + v6), v13, 4);
-  v6 += 4;
-  if ( (a1 & 0x800000) == 0 )
-  {
-LABEL_10:
-    if ( (a1 & 0x1000000) == 0 )
-      goto LABEL_11;
-    goto LABEL_14;
-  }
-LABEL_15:
-  memcpy_large((void *)(uintptr_t)(a2 + v6), v14, 2);
-  v6 += 2;
-  if ( (a1 & 0x1000000) != 0 )
-  {
-LABEL_14:
-    memcpy_large((void *)(uintptr_t)(a2 + v6), v15, 10);
-    v6 += 10;
-  }
-LABEL_11:
-  if ( a3 < v6 )
-    return -2;
-  else
-    return 0;
-}
-
-
-
 // sub_1145F4 @ 0x1145f4
 int sub_1145F4(int a1, int a2, unsigned int a3) {
   unsigned int v6; // r4
@@ -38708,7 +27887,7 @@ int sub_1145F4(int a1, int a2, unsigned int a3) {
 
   if ( !*(uint32_t *)off_1146D8 )
     ke_event_busy_check();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_1146DC + 4096, 320, &v8);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_1146DC + 4096, 320, &v8);
   if ( v8 != dword_1146E0 )
     return -1;
   if ( (v9 & a1) == 0 )
@@ -38799,7 +27978,7 @@ int sub_1146E4(int a1, int a2, unsigned int a3) {
     lmac_state_get_n_e0();
   v6 = (void *)(uintptr_t)(off_114814);
   v7 = dword_114818;
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_114814 + 4096, 320, &v11);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_114814 + 4096, 320, &v11);
   if ( v11 == v7 )
   {
     v8 = a1 & 2;
@@ -38882,14 +28061,7 @@ LABEL_10:
 LABEL_11:
   rf_event_handler_n258();
   ke_event_schedule_prio();
-  return ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1E0])(*v6 + 4096, 320);
-}
-
-
-
-// rf_reg_write_setup_n4820 @ 0x114820
-int rf_reg_write_setup_n4820(int a1) {
-  return rf_msg_handler_main_45f4(2, a1, 6u);
+  return ((int (*)())MEMORY[0x1E0])(*v6 + 4096, 320);
 }
 
 
@@ -38964,31 +28136,6 @@ int send_cmd_short(int a1) {
 
 
 
-// rf_chan_configure @ 0x114898
-int rf_chan_configure(int a1, int a2, unsigned int a3) {
-  int v6; // r4
-  uint32_t v8[4]; // [sp+0h] [bp-50h] BYREF
-  uint8_t v9[64]; // [sp+10h] [bp-40h] BYREF
-
-  if ( !*(uint32_t *)off_1148F8 )
-    lmac_state_get_n_e0();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_1148FC, 80, v8);
-  if ( v8[0] != dword_114900 )
-    return -1;
-  v6 = a1 & v8[1];
-  if ( !v6 )
-    return 1;
-  if ( (v6 & 1) != 0 )
-  {
-    memcpy_large((void *)(uintptr_t)(a2), v9, 64);
-    if ( a3 <= 0x3F )
-      return -2;
-  }
-  return 0;
-}
-
-
-
 // hci_tx_data @ 0x114898
 int hci_tx_data(int a1, int a2, unsigned int a3) {
   int v6; // r4
@@ -38997,7 +28144,7 @@ int hci_tx_data(int a1, int a2, unsigned int a3) {
 
   if ( !*(uint32_t *)off_1148F8 )
     ke_event_busy_check();
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_1148FC, 80, v8);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_1148FC, 80, v8);
   if ( v8[0] != dword_114900 )
     return -1;
   v6 = a1 & v8[1];
@@ -39027,7 +28174,7 @@ int hci_rx_data(int a1, int a2, unsigned int a3) {
     lmac_state_get_n_e0();
   v6 = (void *)(uintptr_t)(off_114998);
   v7 = dword_1149A0;
-  ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1D8])(*(uint32_t *)off_114998, 80, &v10);
+  ((int (*)())MEMORY[0x1D8])(*(uint32_t *)off_114998, 80, &v10);
   if ( v10 == v7 )
   {
     v11 |= a1;
@@ -39048,7 +28195,7 @@ int hci_rx_data(int a1, int a2, unsigned int a3) {
 LABEL_5:
   rf_event_handler_n258();
   ke_event_schedule_prio();
-  return ((int (*)())((uint32_t *)(uintptr_t)&MEMORY)[0x1E0])(*v6, 80);
+  return ((int (*)())MEMORY[0x1E0])(*v6, 80);
 }
 
 
@@ -39063,39 +28210,6 @@ int hci_tx_packet(int a1) {
 // hci_rx_packet @ 0x1149b0
 int hci_rx_packet(int a1) {
   return hci_rx_data(1, a1, 0x40u);
-}
-
-
-
-// rf_init_or_reset_helper @ 0x1149bc
-int rf_init_or_reset_helper() {
-  int *v0; // r4
-  int ( *v1)(int); // r2
-  int result; // r0
-  int v3; // r3
-  int v4; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_1149F0 = 1;
-  }
-  v0 = (int *)off_1149F4;
-  v1 = (int ( *)(int))off_1149F8;
-  ++*(uint32_t *)off_1149F4;
-  result = v1(2);
-  if ( *v0 )
-  {
-    v3 = *v0 - 1;
-    v4 = *(uint32_t *)off_1149F0;
-    *v0 = v3;
-    if ( !v3 )
-    {
-      if ( v4 )
-        __enable_irq();
-    }
-  }
-  return result;
 }
 
 
@@ -39240,74 +28354,6 @@ void get_free_heap_size() {
   *(uint8_t *)off_114B58 = BYTE2(*(uint32_t *)off_114B40);
   clock_calc();
   lmac_rf_init_globals();
-}
-
-
-
-// rf_mode_check @ 0x114b5c
-int rf_mode_check() {
-  int v0; // r4
-  uint32_t *v1; // r3
-  uint32_t *v2; // r2
-  uint32_t *v3; // r3
-  uint32_t *v4; // r3
-  int v6; // r1
-  int v7; // r1
-  uint32_t *v8; // r2
-
-  if ( **(uint8_t **)off_114C44 == 2 )
-  {
-    if ( rf_bus_reset_n2b4() )
-      v0 = *((uint32_t *)off_114C64 + 87);
-    else
-      v0 = 16;
-    rf_init_1();
-    *((uint32_t *)off_114C50 + 34) = 1;
-    __dsb(0xFu);
-    __isb(0xFu);
-    msg_parse(dword_114C58, v6);
-    v8 = (void *)(uintptr_t)(off_114C5C);
-    *((uint32_t *)off_114C5C + 513) |= 2u;
-    v8[4] |= 1u;
-    while ( (v8[4] & 1) != 0 )
-      ;
-    msg_parse(dword_114C60, v7);
-  }
-  else
-  {
-    v0 = 16;
-  }
-  v1 = (void *)(uintptr_t)(off_114C48);
-  if ( (*((uint32_t *)off_114C48 + 74) & 0x80) != 0 )
-  {
-    v2 = (void *)(uintptr_t)(off_114C4C);
-    *((uint32_t *)off_114C48 + 74) = 128;
-    if ( (v2[1] & 0x20000) != 0 )
-    {
-      v1[65] = 2;
-      v2[1] &= ~0x20000u;
-      v2[1] |= 0x40000u;
-    }
-  }
-  v3 = (void *)(uintptr_t)(off_114C4C);
-  if ( (*((uint32_t *)off_114C4C + 2) & 0x20000) != 0 )
-  {
-    *((uint32_t *)off_114C48 + 65) = 8;
-    v3[2] &= ~0x20000u;
-    v3[2] |= 0x40000u;
-  }
-  v4 = (void *)(uintptr_t)(off_114C50);
-  *((uint32_t *)off_114C50 + 34) = 2;
-  __dsb(0xFu);
-  __isb(0xFu);
-  v4[34] = 1;
-  __dsb(0xFu);
-  __isb(0xFu);
-  nvic_irq_enable();
-  if ( *(uint8_t *)(*(uint32_t *)off_114C54 + 3) )
-    check_rx_active();
-  __disable_irq();
-  return v0;
 }
 
 
@@ -39529,30 +28575,6 @@ LABEL_10:
 
 
 
-// rf_state_check_n_e90 @ 0x114e90
-void rf_state_check_n_e90() {
-  int v0; // r0
-  int v1; // r0
-  int v2; // r0
-
-  sub_10DA6C(dword_114EC4);
-  if ( *(uint8_t *)(*(uint32_t *)off_114EC8 + 6) == 2 )
-  {
-    v2 = rf_mode_check();
-    rf_state_check_n2ae(v2);
-  }
-  while ( 1 )
-  {
-    while ( !mmio_reg_bit0_read() )
-      ;
-    v0 = uart_rx_byte();
-    v1 = rf_init_or_reset(v0);
-    exit_critical_section(v1);
-  }
-}
-
-
-
 // bt_check_state @ 0x114e90
 void bt_check_state() {
   int v0; // r0
@@ -39636,42 +28658,9 @@ void bt_driver_init() {
     if ( *(uint8_t *)(*v0 + 3) )
       memory_barrier_write();
     if ( !*v3 )
-      inited = ((int (*)())rf_init_handler_1)(inited);
+      inited = rf_init_handler_1(inited);
     inited = (int)(uintptr_t)(exit_critical_section(inited));
   }
-}
-
-
-
-// rf_init_check_flags @ 0x1150a8
-void rf_init_check_flags(int a1, int a2) {
-  int v2; // r3
-  int v3; // r2
-  int v4; // r1
-  int v5; // r3
-  int v6; // r0
-  uint32_t *v7; // r3
-
-  v2 = **(uint16_t **)off_1151F4;
-  if ( (v2 & 1) != 0 )
-    rf_init_phy(a1, a2, v2 << 31);
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_1151F8 = 1;
-  }
-  v3 = dword_115200;
-  v4 = dword_115204;
-  v5 = *(uint32_t *)off_1151FC + 1;
-  *(uint32_t *)off_1151FC = v5;
-  check_interrupt_flag(1024, v4, v3, v5);
-  v6 = enter_critical_section_1(0x80000000);
-  message_dispatch_n2fe(v6);
-  v7 = (void *)(uintptr_t)(off_115208);
-  *(uint32_t *)off_115208 &= 0xFFFFFFu;
-  *v7 |= 0x10u;
-  while ( 1 )
-    ;
 }
 
 
@@ -39699,55 +28688,12 @@ void mmio_wait_flag(int a1, int a2) {
   *(uint32_t *)off_1151FC = v5;
   check_interrupt_flag(1024, v4, v3, v5);
   v6 = enter_critical_section_1(0x80000000);
-  rf_cmd_wait_1(v6);
+  rf_cmd_wait(v6);
   v7 = (void *)(uintptr_t)(off_115208);
   *(uint32_t *)off_115208 &= 0xFFFFFFu;
   *v7 |= 0x10u;
   while ( 1 )
     ;
-}
-
-
-
-// rf_chan_check_enter @ 0x11522c
-int rf_chan_check_enter() {
-  int **v0; // r5
-  uint32_t *v1; // r6
-  int *v2; // r0
-  void *v3; // r9
-  int v4; // r8
-  uint16_t v5; // r10
-  int result; // r0
-
-  v0 = (int **)off_1152B4;
-  list_init_1((void *)(uintptr_t)(dword_1152B0));
-  if ( **(int16_t **)off_1152B8 < 0 )
-  {
-    v2 = *v0;
-    v1 = (void *)(uintptr_t)(off_1152BC);
-    if ( !*v0 || !*(uint32_t *)off_1152BC )
-    {
-      rf_cmd_send_n264(dword_1152C0, dword_1152C4, 90);
-      v2 = *v0;
-    }
-  }
-  else
-  {
-    v1 = (void *)(uintptr_t)(off_1152BC);
-    v2 = *v0;
-  }
-  v3 = (void *)(uintptr_t)(off_1152C8);
-  v4 = dword_1152B0;
-  sub_100200(v2, 0, 44 * *(uint16_t *)(*(uint32_t *)off_1152C8 + 8) + 44);
-  v5 = 0;
-  do
-  {
-    (*v0)[11 * v5 + 8] = *v1 + 76 * v5;
-    result = ((int (*)())list_push_tail)(v4);
-    ++v5;
-  }
-  while ( *(uint16_t *)(*(uint32_t *)v3 + 8) >= (unsigned int)v5 );
-  return result;
 }
 
 
@@ -39832,35 +28778,6 @@ uint32_t * deferred_cb_clear(int a1) {
   {
     result = (uint32_t *)mem_free(result);
     *(uint32_t *)(a1 + 28) = 0;
-  }
-  return result;
-}
-
-
-
-// rf_subcmd_dispatch @ 0x11532c
-int rf_subcmd_dispatch(int result) {
-  switch ( result )
-  {
-    case 0:
-      *(uint32_t *)off_11537C = 2;
-      break;
-    case 1:
-      *(uint32_t *)off_11537C = 4;
-      break;
-    case 2:
-      *(uint32_t *)off_11537C = 8;
-      break;
-    case 3:
-      *(uint32_t *)off_11537C = 16;
-      break;
-    case 5:
-      *(uint32_t *)off_11537C = 32;
-      break;
-    default:
-      if ( **(int16_t **)off_115380 < 0 )
-        result = rf_cmd_send_n264(dword_115388, dword_115384, 944);
-      break;
   }
   return result;
 }
@@ -40067,61 +28984,6 @@ LABEL_4:
 
 
 
-// rf_init_handler @ 0x1156a0
-int * rf_init_handler(int a1, int a2, int a3, int a4) {
-  int v4; // zf
-  int *v6; // r5
-  int v7; // r2
-  int v8; // r3
-  void *v11; // r8
-  int *result; // r0
-
-  v4 = a3 == 5;
-  if ( a3 != 5 )
-    a4 = 7 * a3;
-  if ( a3 == 5 )
-    v6 = (int *)dword_115744;
-  else
-    v6 = (int *)dword_115740;
-  v7 = **(int16_t **)off_11573C;
-  if ( !v4 )
-    v6 += a4;
-  v8 = *v6;
-  if ( v7 < 0 && v8 == a1 )
-    return (int *)((int (*)())ke_int_lock_1)(dword_11574C, dword_115748, 1972, v8);
-  if ( v8 )
-  {
-    v11 = (void *)(uintptr_t)(off_115750);
-    if ( *(uint8_t *)(*(uint32_t *)off_115750 + 1) || !v6[2] )
-      *(uint32_t *)(v8 + 4) = a1;
-    else
-      *(uint32_t *)(v6[1] + 4) = a1;
-    result = (int *)rf_subcmd_dispatch(a3);
-  }
-  else
-  {
-    result = adv_pdu_type_handler(a1, a3, v7, 0);
-    v11 = (void *)(uintptr_t)(off_115750);
-  }
-  if ( !*(uint8_t *)(*(uint32_t *)v11 + 1) )
-  {
-    if ( (*(uint32_t *)(a2 + 56) & 0x200000) != 0 )
-    {
-      v6[1] = a1;
-      v6[2] = 1;
-    }
-    else
-    {
-      v6[1] = 0;
-      v6[2] = 0;
-    }
-  }
-  *(uint32_t *)(dword_115740 + 28 * a3) = a2;
-  return result;
-}
-
-
-
 // pdu_type_init @ 0x1156a0
 int * pdu_type_init(int a1, int a2, int a3, int a4) {
   int v4; // zf
@@ -40192,7 +29054,7 @@ int * rx_pkt_status_update(int a1, int a2, int a3, int a4) {
   v5 = *(uint16_t *)(a2 + 4);
   *(uint16_t *)(a1 + 38) |= 4u;
   if ( !v5 )
-    return rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
+    return (void *)(uintptr_t)(rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4));
   v9 = (int16_t **)off_11581C;
   v10 = *(uint32_t *)(a2 + 32);
   if ( **(int16_t **)off_11581C < 0 )
@@ -40243,41 +29105,7 @@ LABEL_7:
     *v15 = v14 | (16 * v16);
   }
   llm_adv_pdu_build(a2);
-  return rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4);
-}
-
-
-
-// rf_lmac_handler_n5820 @ 0x115820
-int rf_lmac_handler_n5820() {
-  int *v0; // r4
-  int v1; // r0
-  int v2; // r0
-  int result; // r0
-
-  v0 = (int *)off_11588C;
-  v1 = rf_chan_check_enter();
-  v2 = nullsub_4(v1);
-  sub_115FBC(v2);
-  rf_init_load_globals(0);
-  sub_100200(v0, 0, 0x94u);
-  list_init_1((void *)(v0 + 3));
-  *v0 = 0;
-  *((uint8_t *)v0 + 26) = 0;
-  list_init_1((void *)(v0 + 10));
-  v0[7] = 0;
-  *((uint8_t *)v0 + 54) = 0;
-  list_init_1((void *)(v0 + 17));
-  v0[14] = 0;
-  *((uint8_t *)v0 + 82) = 0;
-  list_init_1((void *)(v0 + 24));
-  v0[21] = 0;
-  *((uint8_t *)v0 + 110) = 0;
-  result = (int)(uintptr_t)(list_init_1((void *)(v0 + 31)));
-  v0[28] = 0;
-  *((uint8_t *)v0 + 138) = 0;
-  *((uint16_t *)v0 + 70) = 0;
-  return result;
+  return (void *)(uintptr_t)(rf_init_handler(*(uint32_t *)(a1 + 32) + 8, *(uint32_t *)(a1 + 32) + 8, a4, a4));
 }
 
 
@@ -40316,104 +29144,9 @@ int ble_ll_init() {
 
 
 
-// is_flag_set_clz @ 0x115890
-BOOL is_flag_set_clz() {
-  return *((uint8_t *)off_1158A0 + 142) == 0;
-}
-
-
-
 // rf_is_idle @ 0x115890
 BOOL rf_is_idle() {
   return *((uint8_t *)off_1158A0 + 142) == 0;
-}
-
-
-
-// rf_event_handler_8a4 @ 0x1158a4
-int rf_event_handler_8a4(int result) {
-  int v1; // r3
-  int v2; // r6
-  uint32_t *v3; // r2
-  int *v4; // r5
-  int v5; // r4
-  int v6; // r1
-  int *v7; // r3
-  int v8; // r3
-  uint32_t *v9; // r2
-  uint32_t *v10; // r2
-  uint32_t *v11; // r2
-  uint32_t *v12; // r2
-  uint32_t *v13; // r2
-
-  v1 = *(uint32_t *)off_1159A0;
-  v2 = 1 << result;
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_1159A4 = 1;
-  }
-  v3 = (void *)(uintptr_t)(off_1159A8);
-  v4 = (int *)off_1159A0;
-  v5 = *(uint32_t *)off_1159A8;
-  v6 = *(uint32_t *)off_1159A8 + 1;
-  *(uint32_t *)off_1159A8 = v6;
-  *v4 = v1 & ~v2;
-  if ( v6 )
-  {
-    v7 = (int *)off_1159A4;
-    *v3 = v5;
-    v8 = *v7;
-    if ( !v5 )
-    {
-      if ( v8 )
-        __enable_irq();
-    }
-  }
-  *(uint32_t *)off_1159AC = v2;
-  switch ( result )
-  {
-    case 0:
-      v10 = (void *)(uintptr_t)(off_1159B4);
-      *(uint32_t *)off_1159B0 = 0x10000;
-      while ( (*v10 & 0x30) != 0 )
-        ;
-      *(uint32_t *)off_1159B8 = 0x10000;
-      break;
-    case 1:
-      v12 = (void *)(uintptr_t)(off_1159B4);
-      *(uint32_t *)off_1159B0 = 0x20000;
-      while ( (*v12 & 0x300) != 0 )
-        ;
-      *(uint32_t *)off_1159B8 = 0x20000;
-      break;
-    case 2:
-      v11 = (void *)(uintptr_t)(off_1159B4);
-      *(uint32_t *)off_1159B0 = 0x40000;
-      while ( (*v11 & 0x3000) != 0 )
-        ;
-      *(uint32_t *)off_1159B8 = 0x40000;
-      break;
-    case 3:
-      v13 = (void *)(uintptr_t)(off_1159B4);
-      *(uint32_t *)off_1159B0 = 0x80000;
-      while ( (*v13 & 0x30000) != 0 )
-        ;
-      *(uint32_t *)off_1159B8 = 0x80000;
-      break;
-    case 5:
-      v9 = (void *)(uintptr_t)(off_1159B4);
-      *(uint32_t *)off_1159B0 = 0x200000;
-      while ( (*v9 & 0x3000000) != 0 )
-        ;
-      *(uint32_t *)off_1159B8 = 0x200000;
-      break;
-    default:
-      if ( **(int16_t **)off_1159BC < 0 )
-        result = rf_cmd_send_n264(dword_1159C4, dword_1159C0, 2338);
-      break;
-  }
-  return result;
 }
 
 
@@ -40607,59 +29340,6 @@ LABEL_16:
 
 
 
-// rf_chan_table_lookup @ 0x115ad0
-int rf_chan_table_lookup(int a1) {
-  uint32_t *v1; // r5
-  int v3; // r3
-  int v4; // r4
-  uint32_t *v5; // r2
-  int *v6; // r5
-  int v7; // r1
-  int result; // r0
-  int *v9; // r3
-  int v10; // r3
-
-  if ( a1 == 5 )
-    v1 = (uint32_t *)dword_115B4C;
-  else
-    v1 = (uint32_t *)dword_115B48;
-  if ( a1 != 5 )
-    v1 += 7 * a1;
-  ((int (*)())rf_bus_write_60fc)(a1, dword_115B44 + 8 * a1, 0);
-  ((int (*)())rf_bus_write_60fc)(a1, (int)(uintptr_t)(v1 + 3), 0);
-  *v1 = 0;
-  v1[5] = 0;
-  get_channel_params(a1);
-  v3 = *(uint32_t *)off_115B50;
-  v4 = 1 << a1;
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_115B54 = 1;
-  }
-  v5 = (void *)(uintptr_t)(off_115B58);
-  v6 = (int *)off_115B50;
-  v7 = *(uint32_t *)off_115B58;
-  result = *(uint32_t *)off_115B58 + 1;
-  *(uint32_t *)off_115B58 = result;
-  *v6 = v3 & ~v4;
-  if ( result )
-  {
-    v9 = (int *)off_115B54;
-    *v5 = v7;
-    v10 = *v9;
-    if ( !v7 )
-    {
-      if ( v10 )
-        __enable_irq();
-    }
-  }
-  *(uint32_t *)off_115B5C = v4;
-  return result;
-}
-
-
-
 // llm_pdu_tx_cfg @ 0x115ad0
 int llm_pdu_tx_cfg(int a1) {
   uint32_t *v1; // r5
@@ -40709,133 +29389,6 @@ int llm_pdu_tx_cfg(int a1) {
   }
   *(uint32_t *)off_115B5C = v4;
   return result;
-}
-
-
-
-// rf_subcmd_dispatch_n5b60 @ 0x115b60
-int rf_subcmd_dispatch_n5b60(int a1, int a2) {
-  uint8_t *v4; // r3
-  char *v5; // r0
-  int *v6; // r5
-  int v7; // r2
-  int v8; // r3
-  int v9; // r3
-  int v10; // r2
-  int v11; // r2
-  int v12; // r1
-  int16_t v13; // r3
-  int *v14; // r3
-  int v15; // r3
-  int v16; // r2
-  int v17; // r3
-  int v18; // r2
-  int v20; // r3
-  int v21; // r0
-  uint32_t *v22; // r3
-
-  if ( a2 == 5 )
-  {
-    v5 = (char *)dword_115C84;
-    v4 = (uint8_t *)(dword_115C84 - 112);
-  }
-  else
-  {
-    v4 = (void *)(uintptr_t)(off_115C74);
-    v5 = (char *)off_115C74 + 28 * a2;
-  }
-  if ( v4[142] )
-  {
-    v20 = *(uint8_t *)(a1 + 16);
-    if ( v20 == 255 )
-    {
-      wlan_tx_kick(a1, 0);
-      return 0;
-    }
-    else
-    {
-      v21 = dword_115C80;
-      *(uint8_t *)(a1 + 14) = a2;
-      *(uint8_t *)(a1 + 53) = 1;
-      ((int (*)())list_push_tail)(v21 + 152 * (int16_t)v20 + 48);
-      return 1;
-    }
-  }
-  *(uint32_t *)(*(uint32_t *)(a1 + 32) + 64) |= 0x100u;
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_115C78 = 1;
-  }
-  v6 = (int *)off_115C7C;
-  v7 = *((uint32_t *)v5 + 5);
-  ++*(uint32_t *)off_115C7C;
-  if ( v7 )
-  {
-    ((int (*)())list_push_tail)((int)(uintptr_t)(v5 + 12));
-    v8 = *v6;
-    if ( *v6 )
-    {
-LABEL_8:
-      v9 = v8 - 1;
-      v10 = *(uint32_t *)off_115C78;
-      *v6 = v9;
-      if ( !v9 && v10 )
-        __enable_irq();
-    }
-  }
-  else
-  {
-    v22 = *(uint32_t **)(a1 + 28);
-    v22[4] = dword_115C88;
-    v22[2] = a1;
-    v22[3] = a1;
-    ((int (*)())list_push_tail)((int)(uintptr_t)(v5 + 12));
-    v8 = *v6;
-    if ( *v6 )
-      goto LABEL_8;
-  }
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_115C78 = 1;
-  }
-  v11 = *v6;
-  v12 = *v6 + 1;
-  v13 = *(uint16_t *)(a1 + 38) | 1;
-  *v6 = v12;
-  *(uint16_t *)(a1 + 38) = v13;
-  if ( v12 )
-  {
-    v14 = (int *)off_115C78;
-    *v6 = v11;
-    v15 = *v14;
-    if ( !v11 )
-    {
-      if ( v15 )
-        __enable_irq();
-    }
-  }
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_115C78 = 1;
-  }
-  v16 = *(uint32_t *)(a1 + 28);
-  ++*v6;
-  rx_pkt_status_update(a1, a1, v16, a2);
-  if ( *v6 )
-  {
-    v17 = *v6 - 1;
-    v18 = *(uint32_t *)off_115C78;
-    *v6 = v17;
-    if ( !v17 )
-    {
-      if ( v18 )
-        __enable_irq();
-    }
-  }
-  return 1;
 }
 
 
@@ -41028,85 +29581,6 @@ int critical_section_enter_1() {
 
 
 
-// patch_table_apply_dbc @ 0x115dbc
-int patch_table_apply_dbc() {
-  int *v0; // r10
-  uint8_t *v1; // r5
-  uint32_t *v2; // r8
-  int v3; // r9
-  int v4; // r7
-  uint32_t *v5; // r6
-  int *v6; // r11
-  int i; // r4
-  int v8; // r0
-  int v9; // r1
-  int v10; // r3
-  int *v11; // r3
-  int v12; // r3
-  int v13; // r3
-  int v14; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_115E78 = 1;
-  }
-  v0 = (int *)off_115E88;
-  v1 = (void *)(uintptr_t)(off_115E7C);
-  v2 = (void *)(uintptr_t)(off_115E8C);
-  v3 = dword_115E90;
-  v4 = dword_115E80;
-  v5 = (void *)(uintptr_t)(off_115E84);
-  v6 = (int *)off_115E94;
-  ++*(uint32_t *)off_115E88;
-  v1[143] = 0;
-  for ( i = 4; i != -1; --i )
-  {
-    if ( *((uint32_t *)v1 + 28) )
-    {
-      rf_subcmd_dispatch((uint8_t)i);
-      *(uint32_t *)(v4 + 4 * i) = *v2 + *(uint32_t *)(v3 + 4 * i);
-      *v5 = 1 << i;
-      if ( (__get_CPSR() & 1) == 0 )
-      {
-        __disable_irq();
-        *(uint32_t *)off_115E78 = 1;
-      }
-      v8 = *v0;
-      v9 = *v0 + 1;
-      v10 = (1 << i) | *v6;
-      *v0 = v9;
-      *v6 = v10;
-      if ( v9 )
-      {
-        v11 = (int *)off_115E78;
-        *v0 = v8;
-        v12 = *v11;
-        if ( !v8 )
-        {
-          if ( v12 )
-            __enable_irq();
-        }
-      }
-    }
-    v1 -= 28;
-  }
-  if ( *v0 )
-  {
-    v13 = *v0 - 1;
-    v14 = *(uint32_t *)off_115E78;
-    *v0 = v13;
-    if ( !v13 )
-    {
-      if ( v14 )
-        __enable_irq();
-    }
-  }
-  return irq_nesting_or(4096);
-}
-
-
-
 // critical_section_exit @ 0x115dbc
 int critical_section_exit() {
   int *v0; // r10
@@ -41182,74 +29656,6 @@ int critical_section_exit() {
     }
   }
   return set_busy_flag_alt(4096);
-}
-
-
-
-// rf_fault_dump_n_26c @ 0x115e98
-uint32_t *rf_fault_dump_n_26c() {
-  uint8_t *v0; // r5
-  int v1; // r8
-  char *v2; // r7
-  int *v3; // r4
-  int v4; // r6
-  int v5; // r9
-  int *v6; // r6
-  int v7; // r0
-  int16_t v8; // r4
-  int v9; // r2
-  uint32_t *result; // r0
-  uint32_t *v11; // r3
-  int v12; // [sp+0h] [bp-24h] BYREF
-
-  v0 = (void *)(uintptr_t)(off_115F68);
-  v1 = dword_115F74;
-  enter_critical_section_1(1966080);
-  v0[142] = 1;
-  v2 = v0 + 12;
-  v3 = &v12;
-  v4 = 0;
-  do
-  {
-    v5 = (uint8_t)v4;
-    list_init_1((void *)(v3));
-    ((int (*)())rf_bus_write_60fc)((uint8_t)v4++, v1, v3);
-    ((int (*)())rf_bus_write_60fc)(v5, (int)(uintptr_t)(v2), v3);
-    v1 += 8;
-    v3 += 2;
-    v2 += 28;
-  }
-  while ( v4 != 4 );
-  v6 = (int *)off_115F6C;
-  v7 = ((int (*)())wlan_clk_init)(5, off_115F6C, 0);
-  sub_115FBC(v7);
-  v8 = *((uint16_t *)v0 + 70);
-  sub_100200(v6 - 31, 0, 0x94u);
-  *((uint16_t *)v0 + 70) = v8;
-  list_init_1((void *)(v6 - 28));
-  *(int *)((char *)v6 + 0xFFFFFF84) = 0;
-  v0[26] = 0;
-  list_init_1((void *)(v6 - 21));
-  *((uint32_t *)v0 + 7) = 0;
-  v0[54] = 0;
-  list_init_1((void *)(v6 - 14));
-  *((uint32_t *)v0 + 14) = 0;
-  v0[82] = 0;
-  list_init_1((void *)(v6 - 7));
-  v9 = dword_115F70;
-  *((uint32_t *)v0 + 21) = 0;
-  v0[110] = 0;
-  result = (uint32_t *)(v9 + 144);
-  do
-  {
-    v11 = (uint32_t *)(v9 - 36);
-    do
-      *v11++ = 0;
-    while ( v11 != (uint32_t *)v9 );
-    v9 = (int)(v11 + 9);
-  }
-  while ( v11 + 9 != result );
-  return result;
 }
 
 
@@ -41362,7 +29768,7 @@ int event_cb_register(int a1, int a2, int a3) {
 
   v3 = dword_116014;
   **(uint32_t **)(a1 + 32) = a2;
-  ((int (*)())list_push_tail)(v3 + 8 * a3);
+  list_push_tail(v3 + 8 * a3);
   return irq_nesting_or(*(uint32_t *)(dword_116018 + 4 * a3));
 }
 
@@ -41418,170 +29824,12 @@ int rx_scan_timing_update(int a1) {
             __enable_irq();
         }
       }
-      result = ((int (*)())rf_cmd_dispatch_n_454)((uint8_t)a1, v6, v10);
+      result = rf_cmd_dispatch_n_454((uint8_t)a1, v6, v10);
       v6 = *(uint32_t *)(v1 + 8 * a1);
     }
     while ( v6 );
   }
   return result;
-}
-
-
-
-// rf_bus_write_60fc @ 0x1160fc
-int rf_bus_write_60fc(int a1, int a2) {
-  uint8_t **v2; // r11
-  int v3; // r10
-  int v6; // r1
-  int v7; // r2
-  int v8; // r4
-  int *v9; // r5
-  int v11; // r3
-  int v12; // r2
-  int v13; // r2
-  int v14; // r1
-  int v15; // r8
-  int v16; // r0
-  int v17; // r12
-  int v18; // r9
-  int16_t *v19; // lr
-  unsigned int v20; // r1
-  int v21; // r2
-  int *v22; // r3
-  int v23; // r1
-  int v24; // r3
-  uint8_t *v25; // r3
-  int *v26; // r8
-  int v27; // r0
-  int v28; // r1
-  int v29; // r3
-  int v30; // r2
-  int16_t v31; // [sp+4h] [bp-10h]
-  int v32; // [sp+8h] [bp-Ch] BYREF
-  int v33; // [sp+Ch] [bp-8h]
-
-  v2 = (uint8_t **)off_116318;
-  v3 = dword_11631C;
-  while ( 1 )
-  {
-    v8 = (int)(uintptr_t)(list_pop_front(a2));
-    if ( !v8 )
-      break;
-    while ( 1 )
-    {
-      v9 = *(int **)(v8 + 32);
-      if ( *(uint32_t *)(v8 + 24) )
-      {
-        *v9 = 2080374784;
-      }
-      else if ( *v9 >= 0 )
-      {
-        *v9 = 0x40000000;
-      }
-      if ( *(uint16_t *)(v8 + 4) )
-        break;
-      sub_11660C(v8, v6, v7);
-      v8 = (int)(uintptr_t)(list_pop_front(a2));
-      if ( !v8 )
-        return (int)(uintptr_t)(pool_alloc_init());
-    }
-    v11 = *v9;
-    v12 = *(uint32_t *)(v8 + 40);
-    *v9 |= 0x800000u;
-    if ( v12 < 0 )
-    {
-      v14 = **v2;
-      switch ( v14 )
-      {
-        case 2:
-          v15 = disable_interrupts();
-          if ( v15 )
-          {
-            if ( *(uint32_t *)off_1162F8 )
-            {
-              v16 = (int)(uintptr_t)(list_pop_front(off_1162F8));
-              *(uint8_t *)v15 = 8;
-              *(uint8_t *)(v15 + 1) = 0;
-              *(uint16_t *)(v15 + 2) = 18;
-              v17 = *(uint32_t *)(v8 + 40) & 0x3FFFFFFF;
-              v18 = v16;
-              v32 = *v9 & 0xF;
-              v33 = v17;
-              memcpy_large((void *)(uintptr_t)(v15 + 4), (void *)(&v32), 8);
-              v19 = (int16_t *)off_116320;
-              v20 = *(uint16_t *)off_116320;
-              if ( v20 > 0x186 )
-              {
-                v21 = 0;
-                v20 = (v20 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-                v31 = 1;
-              }
-              else
-              {
-                v31 = v20 + 1;
-                v21 = 8 * v20;
-              }
-              v22 = (int *)off_1162FC;
-              *(uint16_t *)(v18 + 12) = v20;
-              v23 = *v22;
-              v24 = dword_116300;
-              *(uint32_t *)(v23 + v21 + 4) = v15;
-              *(uint32_t *)(v23 + v21) = v24 & *(uint32_t *)(v23 + v21) | 0x400000C;
-              v25 = (void *)(uintptr_t)(off_116304);
-              *v19 = v31;
-              ++v25[3074];
-              *(uint32_t *)(v18 + 4) = v23 + v21;
-              *(uint8_t *)(v18 + 14) = 1;
-              *(uint32_t *)v18 = 0;
-              *(uint32_t *)(v18 + 8) = 12;
-              if ( (__get_CPSR() & 1) == 0 )
-              {
-                __disable_irq();
-                *(uint32_t *)off_116308 = 1;
-              }
-              v26 = (int *)off_116324;
-              ++*(uint32_t *)off_116324;
-              msg_parse(v3, v8);
-              v27 = ((int (*)())list_push_tail)(dword_11630C);
-              rf_bus_mark_ne0(v27, v28);
-              if ( *v26 )
-              {
-                v29 = *v26 - 1;
-                v30 = *(uint32_t *)off_116308;
-                *v26 = v29;
-                if ( !v29 )
-                {
-                  if ( v30 )
-                    __enable_irq();
-                }
-              }
-            }
-            else
-            {
-              sub_10DA6C(dword_116310);
-            }
-          }
-          else
-          {
-            sub_10DA6C(dword_116314);
-          }
-          break;
-        case 1:
-          v32 = v11 & 0xF;
-          v33 = v12 & 0x3FFFFFFF;
-          rf_chan_setup_init(18, (int)&v32, 8);
-          msg_parse(v3, v8);
-          break;
-        case 3:
-          **(uint32_t **)off_1162F4 = v11 & 0xF;
-          mmio_write0x40035100_set0x100();
-          break;
-      }
-    }
-    deferred_cb_clear(v8);
-    ((int (*)())rf_cmd_dispatch_n_454)(a1, v8, v13);
-  }
-  return (int)(uintptr_t)(pool_alloc_init());
 }
 
 
@@ -41797,105 +30045,6 @@ LABEL_4:
 
 
 
-// rf_init_load_globals @ 0x11639c
-int rf_init_load_globals(int a1) {
-  int v2; // r5
-  uint32_t *v3; // r4
-  uint32_t *v4; // r11
-  int v5; // r7
-  int v6; // r10
-  int v7; // r9
-  int v8; // r8
-  uint32_t *v9; // r6
-  int v10; // r8
-  int v11; // r0
-  int *v12; // r5
-  int v13; // r7
-  int result; // r0
-  int v15; // r3
-  int v16; // r2
-  uint32_t *v17; // r1
-  int v18; // r0
-
-  v2 = dword_11649C;
-  v3 = (uint32_t *)dword_1164A0;
-  v4 = (uint32_t *)dword_1164B8;
-  v5 = dword_1164A4;
-  v6 = dword_1164BC;
-  v7 = dword_1164C0;
-  v8 = dword_116498;
-  list_init_1((void *)(uintptr_t)(dword_116498));
-  list_init_1((void *)(uintptr_t)(v8 + 8));
-  do
-  {
-    if ( !a1 || !*(uint8_t *)(v2 + 53) )
-    {
-      sub_100200((int *)v2, 0, 0x38u);
-      v15 = 0;
-      *(uint32_t *)(v2 + 28) = (int)(uintptr_t)(v3);
-      *(uint32_t *)(v2 + 32) = (int)(uintptr_t)(v4);
-      v4[12] = 0;
-      v4[13] = 0;
-      v3[24] = 0;
-      v3[25] = 0;
-      v16 = dword_1164B4;
-      v4[6] = (int)(uintptr_t)(v3 + 26);
-      v4[2] = v6;
-      v3[11] = v7;
-      *(uint8_t *)(v2 + 52) = 0;
-      v4[9] = 0;
-      v4[14] = 0;
-      v17 = v3 + 25;
-      do
-      {
-        v18 = v16 | v15++;
-        v17[1] = v18;
-        ++v17;
-        v16 -= 0x10000;
-      }
-      while ( v15 != 1024 );
-      ((int (*)())list_push_tail)(v8);
-    }
-    v3 += 1050;
-    v2 += 56;
-    v4 += 19;
-  }
-  while ( v3 != (uint32_t *)v5 );
-  v9 = (void *)(uintptr_t)(off_1164A8);
-  v10 = dword_1164C0;
-  *(uint32_t *)off_1164A8 = dword_1164C0;
-  v9[1] = lmac_rf_unk_1a9c() << 14;
-  v11 = clock_get_divider();
-  v12 = (int *)off_1164AC;
-  v13 = dword_1164B0;
-  v9[2] = v11;
-  v9[5] = 1024;
-  v9[6] = 0;
-  v9[7] = 0;
-  v9[10] = 0;
-  v9[11] = 0;
-  *v12 = v10;
-  v9[3] = 0;
-  v9[8] = 0;
-  v9[12] = 0;
-  v9[4] = v13;
-  v12[1] = lmac_rf_unk_1a9c() << 14;
-  result = clock_get_divider();
-  v12[2] = result;
-  v12[3] = 0;
-  v12[6] = 0;
-  v12[7] = 0;
-  v12[10] = 0;
-  v12[11] = 0;
-  v12[4] = v13;
-  v12[8] = 0;
-  v12[12] = 0;
-  v12[5] = 4;
-  return result;
-}
-
-
-
 // wlan_attach @ 0x11639c
 int wlan_attach(int a1) {
   int v2; // r5
@@ -41995,63 +30144,6 @@ int wlan_attach(int a1) {
 
 
 
-// rf_buf_setup_check @ 0x1164c4
-int rf_buf_setup_check(int a1, int a2, int a3) {
-  uint64_t v3; // kr00_8
-  int v6; // r1
-  int v7; // r7
-  int result; // r0
-  int v9; // r2
-  int v10; // r3
-  int v11; // r2
-  uint64_t v12; // kr08_8
-
-  v3 = *(uint64_t *)(a1 + 28);
-  if ( a3 > 4096 )
-  {
-    v12 = (unsigned int)dword_11657C * (uint64_t)(unsigned int)(v3 - dword_116578);
-    *(uint32_t *)(HIDWORD(v3) + 28) = *(uint32_t *)(HIDWORD(v3) + 24) + 4095;
-    *(uint32_t *)(HIDWORD(v3) + 32) = patch_ctrl_write_magic((void *)(uintptr_t)(HIDWORD(v3) + 8), a3, HIDWORD(v12) >> 12) + 4;
-  }
-  else
-  {
-    *(uint32_t *)(HIDWORD(v3) + 28) = *(uint32_t *)(HIDWORD(v3) + 24) + a3 - 1;
-    *(uint32_t *)(HIDWORD(v3) + 32) = a3 + 4;
-    *(uint32_t *)(HIDWORD(v3) + 20) = 0;
-  }
-  if ( a2 )
-  {
-    if ( a2 == 1 )
-      v6 = dword_116574;
-    else
-      v6 = v3 + 44;
-    v7 = v3 + 44;
-  }
-  else
-  {
-    v6 = dword_116570;
-    v7 = v3 + 44;
-  }
-  result = (int)(uintptr_t)(memcpy_large((void *)(uintptr_t)(v7), (void *)(uintptr_t)(v6), 52));
-  v9 = *(uint32_t *)off_11656C;
-  if ( *(uint32_t *)(v3 + 64) & 0x7C | (*(uint32_t *)(v3 + 64) >> 11) & 6 )
-    v10 = (uint16_t)((uint16_t)*(uint32_t *)off_11656C << 8) | (uint8_t)v9;
-  else
-    v10 = *(uint32_t *)off_11656C & 0xFF00 | BYTE1(v9);
-  v11 = *(uint32_t *)(a1 + 28);
-  *(uint32_t *)(v3 + 80) = v10;
-  *(uint32_t *)(HIDWORD(v3) + 40) = 0;
-  *(uint32_t *)(HIDWORD(v3) + 44) = v7;
-  *(uint32_t *)(HIDWORD(v3) + 64) = 0;
-  *(uint32_t *)(a1 + 44) = 0;
-  *(uint32_t *)(a1 + 48) = 0;
-  *(uint32_t *)(v11 + 40) = 0;
-  *(uint16_t *)(a1 + 38) = 0;
-  return result;
-}
-
-
-
 // wlan_tx_enqueue @ 0x1164c4
 int wlan_tx_enqueue(int a1, int a2, int a3) {
   uint64_t v3; // kr00_8
@@ -42109,28 +30201,6 @@ int wlan_tx_enqueue(int a1, int a2, int a3) {
 
 
 
-// rf_alloc_or_init @ 0x116580
-int rf_alloc_or_init(int a1, int a2) {
-  int v4; // r0
-  int v5; // r1
-  int v6; // r4
-
-  v4 = (int)(uintptr_t)(list_pop_front(dword_1165A8));
-  v6 = v4;
-  if ( v4 )
-  {
-    rf_buf_setup_check(v4, a1, a2);
-    return v6;
-  }
-  else
-  {
-    msg_parse(dword_1165AC, v5);
-    return 0;
-  }
-}
-
-
-
 // sub_116580 @ 0x116580
 int sub_116580(int a1, int a2) {
   int v4; // r0
@@ -42180,7 +30250,7 @@ int wlan_tx_kick(int result, int a2) {
 
   v2 = result;
   if ( !*(uint8_t *)(result + 52) )
-    result = ((int (*)())list_push_tail)(dword_116650);
+    result = list_push_tail(dword_116650);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 44);
@@ -42234,7 +30304,7 @@ uint32_t *pool_alloc_init() {
     if ( v7 )
       v7(result[12], *(uint32_t *)(result[8] + 68));
     if ( !*((uint8_t *)v4 + 52) )
-      ((int (*)())list_push_tail)(dword_1166C8);
+      list_push_tail(dword_1166C8);
   }
   return result;
 }
@@ -42341,32 +30411,9 @@ LABEL_4:
 
 
 
-// rf_channel_set_n6838 @ 0x116838
-int rf_channel_set_n6838(int a1, int a2, int a3) {
-  return rate_index_lookup(a1, a2, a3);
-}
-
-
-
 // rate_index_lookup_fast @ 0x116838
 int rate_index_lookup_fast(int a1, int a2, int a3) {
   return rate_index_lookup(a1, a2, a3);
-}
-
-
-
-// rf_temp_sensor_read @ 0x11683c
-int rf_temp_sensor_read() {
-  uint8_t *v0; // r4
-  int v1; // r0
-  int result; // r0
-
-  v0 = (void *)(uintptr_t)(off_116854);
-  v1 = (int)(uintptr_t)(list_init_1((void *)(uintptr_t)(off_116854)));
-  result = (uint8_t)(sub_121A60(v1) - 1);
-  v0[11] = result;
-  v0[10] = result;
-  return result;
 }
 
 
@@ -42695,26 +30742,6 @@ int hw_timer_load() {
   v0[10] = v0[11];
   *v1 = v2 & 0xFFFFFEFF;
   return result;
-}
-
-
-
-// accum_update_addr_pair @ 0x116ca4
-int accum_update_addr_pair() {
-  uint32_t *v0; // r3
-  uint64_t v1; // kr00_8
-  uint64_t v2; // kr08_8
-
-  v0 = (void *)(uintptr_t)(off_116CD0);
-  v1 = *((uint64_t *)off_116CCC + 17);
-  v2 = *((uint64_t *)off_116CCC + 18);
-  *((uint32_t *)off_116CD0 + 1) = HIDWORD(v1) + v1;
-  v0[2] = v1;
-  v0[3] = v2;
-  v0[4] = HIDWORD(v2) + v2;
-  *v0 = v1;
-  v0[5] = v2;
-  return rf_temp_sensor_read();
 }
 
 
@@ -43184,7 +31211,7 @@ uint32_t * tx_send_packet(uint32_t *a1, int a2, uint16_t *a3) {
     if ( a2 + v4 >= v20 )
       break;
     v23 = a2;
-    v11 = irq_disable_1();
+    v11 = irq_disable();
     v10 = 0;
     v12 = v23;
     v9 = 1;
@@ -43227,7 +31254,7 @@ LABEL_5:
   v22 = (uint16_t)(v20 - v4);
   if ( !v10 )
     v9 = 1;
-  v11 = irq_disable_1();
+  v11 = irq_disable();
   v4 = 0;
   v12 = v22;
   v13 = (uint32_t *)v11;
@@ -43330,53 +31357,6 @@ uint32_t * rx_parse_packet(uint32_t *a1, unsigned int a2, int a3, uint32_t *a4, 
   *a1 = (int)(uintptr_t)(v6);
   *v22 = v7;
   return result;
-}
-
-
-
-// scan_channel_done_n_180 @ 0x11739c
-int scan_channel_done_n_180(int a1, int a2) {
-  int v2; // r3
-  int result; // r0
-  unsigned int v4; // r3
-  uint32_t *v5; // r1
-  int v6; // r2
-  int v7; // cf
-  unsigned int v8; // r2
-
-  if ( !a2 )
-  {
-    v4 = a1 + 156;
-    goto LABEL_9;
-  }
-  if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
-  {
-LABEL_8:
-    v4 = (*(uint32_t *)(a2 + 12) & 0xFFFFFFFC) + 4;
-LABEL_9:
-    v5 = (void *)(uintptr_t)(off_11740C);
-    v6 = *((uint32_t *)off_11740C + 2);
-    if ( *((uint32_t *)off_11740C + 1) == v4 )
-      v4 = *(uint32_t *)off_11740C;
-    *(uint32_t *)(a1 + 148) = v4;
-    result = v6 & 0x7FFFFFFF;
-    v7 = v4 >= (v6 & 0x7FFFFFFFu);
-    v8 = v6 & 0x80000000;
-    if ( !v7 )
-      v8 += 0x80000000;
-    v5[2] = v4 | v8;
-    return result;
-  }
-  v2 = *(uint32_t *)off_117400;
-  while ( 1 )
-  {
-    a2 = *(uint32_t *)(a2 + 4);
-    if ( **(int16_t **)off_117400 < 0 && !a2 )
-      return ((int (*)())ke_int_lock_1)(dword_117408, dword_117404, 1119, v2);
-    v2 = *(uint16_t *)(a2 + 16) << 31;
-    if ( (*(uint16_t *)(a2 + 16) & 1) != 0 )
-      goto LABEL_8;
-  }
 }
 
 
@@ -43731,7 +31711,7 @@ LABEL_7:
         *(uint32_t *)(a1 + 120) = 262148;
 LABEL_24:
         scan_channel_done_n_180(a1, v60);
-        return ((int (*)())list_push_tail)(dword_11788C);
+        return list_push_tail(dword_11788C);
       }
       if ( v11 == 1 )
       {
@@ -43739,7 +31719,7 @@ LABEL_24:
         v13 = *((uint8_t *)off_117874 + 32);
         if ( !*((uint8_t *)off_117874 + 32) )
           goto LABEL_10;
-        v43 = (uint32_t *)irq_disable_1();
+        v43 = (uint32_t *)irq_disable();
         v45 = (int)v43;
         if ( v43 )
         {
@@ -43816,7 +31796,7 @@ LABEL_15:
           v19 = (int *)off_117884;
           v20 = dword_117888;
           ++*(uint32_t *)off_117884;
-          v21 = ((int (*)())list_push_tail)(v20);
+          v21 = list_push_tail(v20);
           rf_bus_mark_ne0(v21, v22);
           if ( *v19 )
           {
@@ -43847,21 +31827,6 @@ LABEL_15:
   if ( v9 <= 0x3000 )
     goto LABEL_37;
   return ((int (*)())ke_int_lock_1)(dword_117940, dword_117938, 1547, v8);
-}
-
-
-
-// rf_table_lookup_handler @ 0x117954
-int rf_table_lookup_handler(int a1) {
-  void *v2; // r0
-
-  scan_channel_done_n_180(a1, *(uint32_t *)(a1 + 28));
-  v2 = (void *)(uintptr_t)(off_117988);
-  if ( !*(uint32_t *)off_117988 )
-    return timer_is_past(a1);
-  *(uint8_t *)(a1 + 16) |= 1u;
-  *(uint32_t *)(a1 + 4) = 0;
-  return ((int (*)())list_push_tail)((int)(uintptr_t)(v2));
 }
 
 
@@ -43973,9 +31938,9 @@ uint64_t *stack_canary_setup() {
   v3 = *(uint32_t *)dword_117AC4;
   v4 = *(uint32_t *)(dword_117AC4 + 8 + 0xFFFFFFFC);
   v5 = *(uint32_t *)(dword_117AC4 + 8);
-  result = get_cached_1828f8(&v1, 0);
+  result = (void *)(uintptr_t)(get_cached_1828f8(&v1, 0));
   if ( (v2 & 0xF) == 2 )
-    return (uint64_t *)((int (*)())rf_cmd_dispatch_a84)((int)(uintptr_t)(&v1));
+    return (uint64_t *)rf_cmd_dispatch_a84(&v1);
   return result;
 }
 
@@ -44120,126 +32085,6 @@ int btcoex_update_bt_info(int *a1, uint8_t *a2) {
 
 
 
-// tx_buffer_acquire_or_alloc @ 0x117b4c
-int tx_buffer_acquire_or_alloc(int *a1, uint8_t *a2) {
-  int v3; // r6
-  int v5; // r0
-  int v6; // r4
-  int v7; // r1
-  int *v8; // r2
-  int v9; // r0
-  int v10; // r3
-  unsigned int v11; // r0
-  char v12; // r3
-  int v13; // r2
-  int v14; // r3
-  int v15; // r1
-  int v16; // r6
-  int v17; // r3
-  uint32_t *v18; // r3
-  int v19; // r0
-  int v20; // r2
-  int v21; // r1
-  uint32_t *v22; // r1
-  int v24; // r0
-  char v25; // r1
-  int16_t v26; // lr
-  int v27; // r3
-  int16_t v28; // r12
-  int v29; // r12
-
-  v3 = *((uint8_t *)a1 + 25);
-  v5 = (int)(uintptr_t)(list_pop_front(dword_117C94));
-  if ( !v5 )
-    return 1;
-  v6 = v5;
-  if ( *((uint8_t *)a1 + 29) )
-  {
-    v24 = (int)(uintptr_t)(list_pop_front(dword_117C94));
-    if ( !v24 )
-    {
-      ((int (*)())list_push_tail)(dword_117C94);
-      return 1;
-    }
-    *(uint32_t *)(v6 + 44) = v24;
-    *(uint32_t *)(v24 + 44) = v6;
-    v25 = *((uint8_t *)a1 + 30);
-    v8 = (int *)((char *)a1 + 18);
-    v26 = *((uint8_t *)a1 + 29);
-    *(uint32_t *)(v24 + 36) = *(int *)((char *)a1 + 18);
-    *(uint16_t *)(v24 + 40) = *((uint16_t *)a1 + 11);
-    v27 = (1 << v25) - 1;
-    v7 = dword_117C98;
-    v27 = (v27 & ~0xFFFFu) | ((uint16_t)((uint16_t)v27 << 8) & 0xFFFFu);
-    v28 = *(uint16_t *)(v24 + 40) & ~(uint16_t)v27;
-    *(uint16_t *)(v24 + 40) = v28;
-    v27 = (v27 & ~0xFFFFu) | ((uint16_t)(v28 | v27 & (*((uint16_t *)a1 + 11) - (v26 << 8))) & 0xFFFFu);
-    v29 = dword_117C9C * ((v24 - v7) >> 3);
-    *(uint16_t *)(v24 + 40) = v27;
-    *(uint8_t *)(v24 + 33) = v29;
-    *(uint16_t *)(v24 + 30) = -1;
-  }
-  else
-  {
-    v7 = dword_117C98;
-    v8 = (int *)((char *)a1 + 18);
-  }
-  v9 = *v8;
-  v10 = *a1;
-  *(uint16_t *)(v6 + 40) = *((uint16_t *)v8 + 2);
-  *(uint32_t *)(v6 + 4) = v10;
-  *(uint32_t *)(v6 + 36) = v9;
-  v11 = *((uint8_t *)a1 + 24);
-  v12 = dword_117C9C;
-  v13 = dword_117CA0;
-  if ( v11 < 0x10 )
-    v11 = (v11 & ~0xFFu) | ((uint8_t)(16) & 0xFFu);
-  *(uint8_t *)(v6 + 28) = v11;
-  *(uint16_t *)(v6 + 20) = *((uint16_t *)a1 + 8);
-  *(uint32_t *)(v6 + 16) = a1[2];
-  *(uint32_t *)(v6 + 12) = a1[1];
-  *(uint32_t *)(v6 + 24) = a1[3];
-  v14 = (uint8_t)(v12 * ((v6 - v7) >> 3));
-  *(uint8_t *)(v6 + 32) = *((uint8_t *)a1 + 25);
-  *a2 = v14;
-  v15 = dword_117CA4;
-  *(uint8_t *)(v6 + 33) = v14;
-  check_interrupt_flag(256, v15, v13, v14);
-  v16 = dword_117CA8 + 224 * v3;
-  if ( *(uint8_t *)(v16 + 94) )
-    v17 = 102400;
-  else
-    v17 = *(uint16_t *)(v16 + 100) << 10;
-  *(uint32_t *)(v6 + 8) = v17;
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_117CAC = 1;
-  }
-  v18 = (void *)(uintptr_t)(off_117CB0);
-  v19 = *(uint32_t *)(v6 + 44);
-  v20 = *(uint32_t *)off_117CB0;
-  v21 = *(uint32_t *)off_117CB0 + 1;
-  *(uint32_t *)off_117CB0 = v21;
-  *(uint8_t *)(v6 + 35) = 1;
-  if ( v19 )
-    *(uint8_t *)(v19 + 35) = 1;
-  if ( v21 )
-  {
-    v22 = (void *)(uintptr_t)(off_117CAC);
-    *v18 = v20;
-    if ( !v20 )
-    {
-      if ( *v22 )
-        __enable_irq();
-    }
-  }
-  *(uint8_t *)(v6 + 124) = 0;
-  return 0;
-}
-
-
-
 // rf_calibration_table_get @ 0x117cb4
 int rf_calibration_table_get(int a1) {
   int v1; // r6
@@ -44277,7 +32122,7 @@ int rf_calibration_table_get(int a1) {
     {
 LABEL_5:
       mutex_acquire_if_ready(v8);
-      ((int (*)())list_push_tail)(dword_117D68);
+      list_push_tail(dword_117D68);
       goto LABEL_6;
     }
     v11 = (int *)off_117D60;
@@ -44306,7 +32151,7 @@ LABEL_5:
     goto LABEL_5;
 LABEL_6:
   mutex_acquire_if_ready(v4);
-  return ((int (*)())list_push_tail)(dword_117D68);
+  return list_push_tail(dword_117D68);
 }
 
 
@@ -44348,24 +32193,8 @@ int rx_queue_flush(int a1, int a2, int a3) {
 // capability_dispatch @ 0x117db4
 int capability_dispatch(int result) {
   if ( *(uint32_t *)(result + 72) )
-    return ((int (*)())rf_bus_reset2_c158)();
+    return rf_bus_reset2_c158();
   return result;
-}
-
-
-
-// rf_status_check_n_1c0 @ 0x117dc0
-void rf_status_check_n_1c0() {
-  uint8_t *v0; // r3
-  unsigned int v1; // r2
-
-  v0 = *((uint8_t **)off_117DEC + 2);
-  if ( !v0[94] && v0[96] && v0[103] )
-  {
-    v1 = (uint8_t)v0[104];
-    if ( v1 <= 8 )
-      *(uint32_t *)off_117DF0 = ((1 << v1) - 1) << 8;
-  }
 }
 
 
@@ -44409,7 +32238,7 @@ int btcoex_reset_context() {
     *(uint32_t *)(v1 + 52) = v2;
     *(uint32_t *)(v1 + 56) = v1;
     v1 += 224;
-    result = ((int (*)())list_push_tail)((int)(uintptr_t)(v0));
+    result = list_push_tail(v0);
   }
   while ( v1 != v3 );
   v0[16] = -1;
@@ -44445,7 +32274,7 @@ int process_pending_events(int a1, int a2, int a3, uint8_t *a4) {
   if ( !*(uint32_t *)off_118064 )
     return 1;
   if ( !*((uint32_t *)off_118064 + 2) )
-    ((int (*)())rf_state_check_nec)();
+    rf_state_check_nec();
   v8 = dword_11806C;
   v9 = (int)(uintptr_t)(list_pop_front(off_118064));
   *(uint8_t *)(v9 + 94) = a2;
@@ -44532,7 +32361,7 @@ LABEL_8:
   if ( v15 == 1 )
     *(uint32_t *)off_11809C |= 1u;
   *a4 = *(uint8_t *)(v10 + 95);
-  ((int (*)())list_push_tail)(dword_118088);
+  list_push_tail(dword_118088);
   list_init_1((void *)(uintptr_t)(v10 + 148));
   list_init_1((void *)(uintptr_t)(v10 + 180));
   list_init_1((void *)(uintptr_t)(v10 + 156));
@@ -44588,7 +32417,7 @@ int link_context_by_index(int a1) {
 
   v2 = dword_1182BC;
   v3 = dword_1182BC + 224 * a1;
-  v4 = list_remove_node(dword_118290, (void *)(uintptr_t)(v3));
+  v4 = list_remove_node(dword_118290, v3);
   v5 = *(uint8_t *)(v3 + 94);
   v6 = 224 * a1;
   if ( v5 == 2 )
@@ -44691,28 +32520,7 @@ LABEL_7:
   *(uint8_t *)(v10 + 97) = 127;
   *(uint32_t *)(v10 + 52) = v11;
   check_interrupt_flag(256, v13, v14, v12);
-  return ((int (*)())list_push_tail)(off_118294);
-}
-
-
-
-// rf_init_or_setup_n32c @ 0x1182c8
-int rf_init_or_setup_n32c(int result) {
-  int v1; // r4
-  int v2; // r5
-  int v3; // r6
-
-  v1 = dword_1182F0;
-  v2 = result;
-  v3 = dword_1182F0 + 608;
-  do
-  {
-    if ( *(uint8_t *)(v1 + 32) == *(uint8_t *)(v2 + 95) )
-      result = rx_queue_flush(v2, v1, 0);
-    v1 += 152;
-  }
-  while ( v3 != v1 );
-  return result;
+  return list_push_tail(off_118294);
 }
 
 
@@ -44738,18 +32546,6 @@ int check_link_id(int result) {
 
 
 
-// rf_state_get_init @ 0x1182f4
-int rf_state_get_init() {
-  uint32_t *i; // r4
-  int result; // r0
-
-  for ( i = *((uint32_t **)off_11830C + 2); i; i = (uint32_t *)*i )
-    result = rf_init_or_setup_n32c((int)i);
-  return result;
-}
-
-
-
 // find_link_in_list @ 0x1182f4
 int find_link_in_list() {
   uint32_t *i; // r4
@@ -44765,18 +32561,6 @@ int find_link_in_list() {
 // copy_patch_region @ 0x118310
 int copy_patch_region(int a1) {
   return ke_enter_critical(a1 + 48, *((uint32_t *)off_118320 + 4) + 10000);
-}
-
-
-
-// rf_chan_init_or_reset_n_324 @ 0x118324
-int rf_chan_init_or_reset_n_324(int a1) {
-  int result; // r0
-
-  result = timestamp_remove(a1 + 48);
-  if ( *(uint32_t *)(a1 + 72) )
-    return rf_bus_reset2_c158(a1);
-  return result;
 }
 
 
@@ -44908,86 +32692,6 @@ int init_link_manager() {
 
 
 
-// mmio_reg_set_bits @ 0x1184b0
-uint32_t *mmio_reg_set_bits() {
-  int *v0; // r4
-  int v1; // r0
-  int v2; // r0
-  uint32_t *v3; // r0
-  unsigned int *v4; // r1
-  unsigned int *v5; // r3
-  int *v6; // r5
-  int *v7; // r6
-  int v8; // r4
-  int v9; // r3
-  char v10; // r2
-  int v11; // zf
-  int v12; // r2
-  unsigned int v13; // r2
-  uint32_t *v14; // r2
-  uint32_t *v15; // r6
-  uint32_t *v16; // r5
-  uint32_t *v17; // r4
-  uint32_t *result; // r0
-  uint8_t **v19; // r1
-  int v20; // r3
-
-  v0 = (int *)off_1185DC;
-  *(uint32_t *)off_1185D8 |= 0x10u;
-  v1 = nullsub_1();
-  v2 = nullsub_2(v1);
-  nullsub_3(v2);
-  v3 = (void *)(uintptr_t)(off_1185E0);
-  v4 = (unsigned int *)off_1185E4;
-  v5 = (unsigned int *)off_1185E8;
-  v6 = (int *)off_1185EC;
-  v7 = (int *)off_1185F0;
-  *v0 = *v0 & 0x3FFFFF | 0x2800000;
-  v8 = dword_1185F4;
-  *v3 |= 0x8000000u;
-  *v4 = *v4 & 0xFF0FFFFF | 0x200000;
-  *v5 = *v5 & 0xFFFFF8FF | 0x600;
-  *v5 = *v5 & 0xFFFFC7FF | 0x2000;
-  *v5 = *v5 & 0xFFFE3FFF | 0xC000;
-  *v5 |= 0xE0000u;
-  *v6 = *v6 & v8 | 0x5DC;
-  v3[1] = v3[1] & v8 | 0xBB8;
-  *(v4 - 205) = *(v4 - 205) & 0xFFFF00FF | 0xDA00;
-  v9 = *v7;
-  v10 = *(uint8_t *)(*v7 + 2);
-  if ( (v10 & 0x10) != 0 )
-    v3[16] &= ~0x80000000;
-  else
-    *(uint32_t *)off_118620 |= 0x80000000;
-  v11 = (v10 & 1) == 0;
-  v12 = *(uint32_t *)off_1185F8;
-  if ( v11 )
-    v13 = v12 & 0xFFFBFFFF;
-  else
-    v13 = v12 | 0x40000;
-  *(uint32_t *)off_1185F8 = v13;
-  v14 = (void *)(uintptr_t)(off_1185FC);
-  *(uint32_t *)off_1185FC = dword_118600;
-  if ( *(uint8_t *)(v9 + 1) )
-    *(v14 - 215) |= 0x40u;
-  v15 = (void *)(uintptr_t)(off_118608);
-  v16 = (void *)(uintptr_t)(off_11860C);
-  v17 = (void *)(uintptr_t)(off_118610);
-  result = (void *)(uintptr_t)(off_118614);
-  v19 = (uint8_t **)off_118618;
-  *(uint32_t *)off_118604 &= ~1u;
-  *v15 = 0xFFFF;
-  *v16 = -1;
-  *v17 = 0xFFFF;
-  *result = -1;
-  v20 = **v19;
-  if ( (unsigned int)(v20 - 1) <= 1 || v20 == 4 )
-    *(uint32_t *)off_11861C |= 0x80000000;
-  return result;
-}
-
-
-
 // rf_clock_enable @ 0x1184b0
 uint32_t *rf_clock_enable() {
   int *v0; // r4
@@ -45068,37 +32772,6 @@ uint32_t *rf_clock_enable() {
 
 
 
-// lmac_rf_state_check @ 0x118624
-uint32_t *lmac_rf_state_check() {
-  uint8_t *v0; // r4
-  int inited; // r0
-  int updated; // r0
-  int v3; // r0
-  int v4; // r0
-  int v5; // r0
-
-  v0 = (void *)(uintptr_t)(off_118670);
-  if ( !*((uint8_t *)off_118670 + 2) )
-    mmio_init_40328050();
-  init_link_manager();
-  btcoex_reset_context();
-  inited = rf_init_subsystem_7af8();
-  sub_11C814(inited);
-  rf_lmac_handler_n5820();
-  if ( v0[2] )
-    updated = accum_update_addr_pair();
-  else
-    updated = rf_calib_table_init();
-  v3 = sub_11AB0C(updated);
-  v4 = ke_timer_flush(v3);
-  v5 = lmac_rf_init_5cbuf(v4);
-  sub_11D8D4(v5);
-  rf_init();
-  return mmio_reg_set_bits();
-}
-
-
-
 // start_firmware @ 0x118624
 uint32_t *start_firmware() {
   uint8_t *v0; // r4
@@ -45126,134 +32799,6 @@ uint32_t *start_firmware() {
   sub_11D8D4(v5);
   rf_init();
   return rf_clock_enable();
-}
-
-
-
-// rf_event_dispatch_n1a4 @ 0x118674
-int rf_event_dispatch_n1a4(int a1, int a2, int a3, uint32_t *a4, int a5, int a6) {
-  unsigned int v7; // r4
-  uint64_t v8; // r10
-  int v10; // r5
-  int v11; // r3
-  char *v12; // r2
-  int v13; // r9
-  int *v14; // r0
-  uint32_t *v15; // r2
-  int16_t **v16; // r3
-  int v17; // r8
-  char *v18; // r1
-  int *v19; // r0
-  uint32_t *v20; // r1
-  unsigned int v21; // r6
-  int v22; // r8
-  uint64_t v23; // kr08_8
-  int v24; // cf
-  int v25; // r4
-  uint64_t v26; // r0
-  uint32_t *v27; // r6
-  int v28; // r3
-  uint64_t v29; // r0
-  unsigned int v30; // r2
-  int v31; // r4
-  int result; // r0
-  unsigned int v33; // [sp+0h] [bp-1Ch]
-  int v34; // [sp+Ch] [bp-10h]
-  unsigned int v35; // [sp+10h] [bp-Ch]
-
-  v7 = *(uint32_t *)(a3 + 32);
-  v35 = *(uint32_t *)(a3 + 36);
-  v8 = *(uint64_t *)(a1 + 24);
-  v10 = *(uint16_t *)(a1 + 32) << 10;
-  if ( a6 )
-  {
-    v11 = *(uint8_t *)(a6 + 2);
-    if ( !*(uint8_t *)(a6 + 2) )
-      v11 = *(uint8_t *)(a6 + 3);
-    v34 = v10 * v11;
-    if ( !(*(uint8_t *)(a3 + 40) << 28) )
-      goto LABEL_5;
-LABEL_24:
-    v21 = 500;
-    v22 = 0;
-    goto LABEL_14;
-  }
-  v34 = *(uint16_t *)(a1 + 32) << 10;
-  if ( *(uint8_t *)(a3 + 40) << 28 )
-    goto LABEL_24;
-LABEL_5:
-  v12 = (char *)off_11889C;
-  v13 = dword_1188C0;
-  v14 = (int *)off_1188A0;
-  *(uint32_t *)off_11889C = *(uint8_t *)(dword_1188C0 + (*(uint8_t *)(a3 + 44) >> 4)) & 0x7F
-                        | *(uint32_t *)off_11889C & 0xFFFFFF80;
-  v15 = (void *)(v12 + 8);
-  *v14 = a2 | (*(uint8_t *)(a3 + 40) >> 7 << 20);
-  *v15 = 0x80000000;
-  __dsb(0xFu);
-  while ( (*v15 & 0xC0000000) != 0x40000000 )
-    ;
-  v16 = (int16_t **)off_1188A4;
-  if ( **(int16_t **)off_1188A4 >= 0 || (*v15 & 0x40000000) != 0 )
-  {
-    v17 = (uint16_t)*(uint32_t *)off_1188A8;
-  }
-  else
-  {
-    ((int (*)())ke_int_lock_1)(dword_1188BC, dword_1188B8, 430, off_1188A4);
-    v17 = 500;
-    v16 = (int16_t **)off_1188A4;
-  }
-  if ( !(*(uint8_t *)(a3 + 40) << 28) )
-  {
-    v18 = (char *)off_11889C;
-    v19 = (int *)off_1188A0;
-    *(uint32_t *)off_11889C = *(uint8_t *)(v13 + (*(uint8_t *)(a3 + 44) >> 4)) & 0x7F
-                          | *(uint32_t *)off_11889C & 0xFFFFFF80;
-    v20 = (void *)(v18 + 8);
-    *v19 = (*(uint8_t *)(a3 + 40) >> 7 << 20) | 0x18;
-    *v20 = 0x80000000;
-    __dsb(0xFu);
-    while ( (*v20 & 0xC0000000) != 0x40000000 )
-      ;
-    if ( **v16 >= 0 || (*v20 & 0x40000000) != 0 )
-    {
-      v21 = (uint16_t)*(uint32_t *)off_1188A8;
-      v22 = v17 - v21;
-      goto LABEL_14;
-    }
-    ((int (*)())ke_int_lock_1)(dword_1188BC, dword_1188B8, 430, *v20);
-  }
-  v22 = v17 - 500;
-  v21 = 500;
-LABEL_14:
-  v23 = v8 - __PAIR64__(v35, v7);
-  v24 = __CFADD__(v8 - v7, v22);
-  v25 = v8 - v7 + v22;
-  a4[10] = v25;
-  a4[11] = HIDWORD(v23) + v24;
-  v26 = ((int (*)())sub_127F8C)(v8, HIDWORD(v8), v10, v10 >> 31);
-  v24 = (unsigned int)v8 >= v21;
-  v33 = v8 - v21;
-  v27 = (void *)(uintptr_t)(off_1188AC);
-  v28 = v26 * (v10 >> 31) + v10 * HIDWORD(v26);
-  v29 = (unsigned int)v26 * (uint64_t)(unsigned int)v10;
-  v29 = (v29 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v29 >> 32) & 0xFFFFFFFFu) + (uint32_t)(v28))) << 32;;
-  if ( v29 < __PAIR64__(HIDWORD(v8) - (unsigned int)!v24, v33) )
-    v33 = v29;
-  v30 = v33 + v34;
-  if ( (*(uint32_t *)off_1188B0 & 0x2000000) != 0 )
-    v30 -= v25;
-  v31 = *((uint32_t *)off_1188AC + 4) - *(uint32_t *)off_1188B4 + v30 - 400;
-  if ( v31 - v27[4] - 4300 - sub_101A20() < 0 )
-    v31 += v10;
-  result = v31 - *((uint32_t *)off_1188AC + 4) - 4300 - sub_101A20();
-  if ( result >= 0 && a4[9] != v31 )
-  {
-    ke_enter_critical((int)(uintptr_t)(a4 + 6), v31);
-    return bt_link_tx_check((int)(uintptr_t)(a4));
-  }
-  return result;
 }
 
 
@@ -45386,27 +32931,10 @@ LABEL_14:
 
 
 
-// lmac_init_wait_flag @ 0x1188c4
-int lmac_init_wait_flag() {
-  if ( flash_write_byte(0) == 1 )
-    *(uint32_t *)off_1188F0 = 48;
-  return ((int (*)())flash_erase_sector)(0);
-}
-
-
-
 // chip_id_is_one @ 0x1188c4
 int chip_id_is_one() {
   if ( flash_write_byte(0) == 1 )
     *(uint32_t *)off_1188F0 = 48;
-  return ((int (*)())flash_erase_sector)(0);
-}
-
-
-
-// mmio_init_clock_gate_n121 @ 0x1188f4
-int mmio_init_clock_gate_n121() {
-  *(uint32_t *)off_118904 = 48;
   return ((int (*)())flash_erase_sector)(0);
 }
 
@@ -45436,7 +32964,7 @@ int link_context_by_handle(int result) {
     v6 = *(uint32_t *)(dword_118980 + 152 * *(uint8_t *)(result + 102) + 8) + v1;
     ke_enter_critical(result + 24, v6);
     copy_patch_region(v2);
-    result = ((int (*)())unknown_helper_2)(v2, v1, v6);
+    result = unknown_helper_2(v2, v1, v6);
     if ( !result )
     {
       v3 = (uint8_t)(*(uint8_t *)(v2 + 116) + 1);
@@ -45454,67 +32982,6 @@ int link_context_by_handle(int result) {
     }
   }
   return result;
-}
-
-
-
-// rf_table_lookup_n360 @ 0x11898c
-int rf_table_lookup_n360(int a1, int a2) {
-  int v2; // r6
-  uint32_t *v3; // r3
-  uint32_t *v4; // lr
-  uint32_t *v5; // r12
-  uint32_t *v6; // r7
-  uint16_t *v7; // r2
-  uint32_t *v8; // r5
-  int *v9; // r2
-  int v10; // r4
-  unsigned int v11; // r5
-  uint32_t *v12; // r12
-  uint32_t *v13; // r7
-  uint16_t *v14; // r3
-  uint32_t *v15; // r2
-
-  v2 = dword_118A40;
-  v3 = (void *)(uintptr_t)(off_118A44);
-  v4 = (void *)(uintptr_t)(off_118A58);
-  v5 = (void *)(uintptr_t)(off_118A5C);
-  v6 = (void *)(uintptr_t)(off_118A48);
-  v7 = (uint16_t *)(dword_118A40 + 152 * a1);
-  *(uint32_t *)off_118A44 = v7[18] | (v7[19] << 16);
-  v8 = (void *)(uintptr_t)(off_118A4C);
-  v3[1] = v7[20];
-  v9 = (int *)off_118A50;
-  *v4 = 0;
-  *v5 = 0;
-  *v8 = 0;
-  *v6 = 0;
-  v10 = (uint8_t)(a1 + 16);
-  *v9 = 0x20000000;
-  while ( (*v9 & 0x20000000) != 0 )
-    ;
-  if ( (*v9 & 0x10000000) == 0 )
-  {
-    v11 = HIWORD(*v9);
-    if ( (uint8_t)BYTE2(*v9) != v10 )
-    {
-      v12 = (void *)(uintptr_t)(off_118A54);
-      v13 = (void *)(uintptr_t)(off_118A50);
-      *(uint32_t *)off_118A44 = -1;
-      *v12 = -1;
-      *v9 = ((uint8_t)v11 << 16) | 0x40000000;
-      while ( (*v13 & 0x40000000) != 0 )
-        ;
-      v14 = (uint16_t *)(v2 + 152 * a1);
-      *(uint32_t *)off_118A44 = v14[18] | (v14[19] << 16);
-      *(uint32_t *)off_118A54 = v14[20];
-    }
-  }
-  v15 = (void *)(uintptr_t)(off_118A50);
-  *(uint32_t *)off_118A50 = (16 * a2) | (v10 << 16) | 0x40000002;
-  while ( (*v15 & 0x40000000) != 0 )
-    ;
-  return (uint8_t)(a1 + 16);
 }
 
 
@@ -45777,53 +33244,6 @@ unsigned int convert_handle_index(unsigned int result) {
 
 
 
-// rf_state_check_nec @ 0x118d40
-unsigned int rf_state_check_nec(int *a1) {
-  uint32_t *v1; // r3
-  uint32_t *v2; // r7
-  uint32_t *v3; // r4
-  uint32_t *v4; // r1
-  uint32_t *v5; // r6
-  uint32_t *v6; // r5
-  int v7; // r7
-  int v8; // r0
-  int16_t **v9; // r0
-  int *v10; // r4
-  int v11; // r2
-  int16_t *v12; // r3
-
-  v1 = (void *)(uintptr_t)(off_118DB8);
-  v2 = (void *)(uintptr_t)(off_118DBC);
-  v3 = (void *)(uintptr_t)(off_118DC0);
-  v4 = (void *)(uintptr_t)(off_118DC4);
-  v5 = (void *)(uintptr_t)(off_118DC8);
-  v6 = (void *)(uintptr_t)(off_118DCC);
-  *(uint32_t *)off_118DB8 &= ~2u;
-  *v1 |= 1u;
-  *v2 = 768;
-  v7 = *a1;
-  v8 = *((uint16_t *)a1 + 2);
-  *v5 = 0;
-  *v6 = 0;
-  *v3 = v7;
-  *v4 = v8;
-  v9 = (int16_t **)off_118DD0;
-  v10 = (int *)off_118DD4;
-  v11 = dword_118DD8;
-  *v1 &= 0xFFFFF8FF;
-  v12 = *v9;
-  *v10 = v11;
-  if ( *v12 < 0 && *(uint32_t *)off_118DE0 << 28 )
-  {
-    flash_cmd_exec(dword_118DE8, dword_118DE4, 472);
-    v11 = *v10;
-  }
-  *(uint32_t *)off_118DDC = v11 | v10[1];
-  return gpio_set_bit10(0);
-}
-
-
-
 // rf_read_status_1 @ 0x118d40
 unsigned int rf_read_status_1(int *a1) {
   uint32_t *v1; // r3
@@ -45888,21 +33308,6 @@ unsigned int rf_enable_1() {
 
 
 
-// rf_gpio_clear_bit_n_e20 @ 0x118e20
-unsigned int rf_gpio_clear_bit_n_e20() {
-  unsigned int result; // r0
-  uint32_t *v1; // r2
-
-  *(uint32_t *)off_118E48 &= ~2u;
-  result = gpio_set_bit10(0);
-  v1 = (void *)(uintptr_t)(off_118E50);
-  *(uint32_t *)off_118E4C = dword_118E54;
-  *v1 &= 0xFFFBFFFE;
-  return result;
-}
-
-
-
 // rf_disable @ 0x118e20
 unsigned int rf_disable() {
   unsigned int result; // r0
@@ -45926,82 +33331,6 @@ int rf_packet_available() {
     return ((int (*)())flash_erase_sector)(0);
   *(uint32_t *)off_118EBC = 48;
   return ((int (*)())flash_erase_sector)(0);
-}
-
-
-
-// rf_link_state_check @ 0x118ec8
-int rf_link_state_check(int a1, int a2, int a3) {
-  int v3; // r3
-  int *v4; // r8
-  int *v5; // r4
-  uint32_t *v6; // r5
-  int v7; // r3
-  int v8; // r7
-  int v9; // r9
-  int v10; // r2
-  unsigned int v11; // r3
-  int v12; // r2
-  int v13; // r3
-  int v14; // r3
-  int result; // r0
-  int v16; // r3
-  int v17; // r3
-  int v18; // r2
-
-  v3 = **(int16_t **)off_118FA0;
-  if ( v3 < 0 && flash_write_byte(0) == 4 )
-    rf_cmd_send_n264(dword_118FD0, dword_118FCC, 1799);
-  check_interrupt_flag(4, dword_118FA4, a3, v3);
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_118FA8 = 1;
-  }
-  v4 = (int *)off_118FD4;
-  v5 = (int *)off_118FAC;
-  v6 = (void *)(uintptr_t)(off_118FB0);
-  ++*(uint32_t *)off_118FD4;
-  v7 = *v5;
-  *v5 = 0;
-  v8 = v6[4];
-  v9 = v7 & 0xF;
-  while ( *v5 << 28 )
-  {
-    mmio_status_write();
-    v11 = v6[4] - v8;
-    if ( v11 > 0x7530 )
-      check_interrupt_flag(4, dword_118FC8, v10, v11);
-  }
-  v12 = *(uint32_t *)off_118FB4;
-  v13 = *(uint32_t *)off_118FB8;
-  if ( v9 )
-  {
-    while ( (v13 & v12 & 4) == 0 )
-    {
-      v12 = *(uint32_t *)off_118FB4;
-      v13 = *(uint32_t *)off_118FB8;
-    }
-  }
-  v14 = *((uint8_t *)off_118FBC + 90);
-  *(uint32_t *)off_118FC0 = 4;
-  if ( v14 )
-    critical_section_enter_1();
-  result = ((int (*)())flash_erase_sector)(0);
-  v16 = *v4;
-  *((uint16_t *)off_118FC4 + 8) = 0;
-  if ( v16 )
-  {
-    v17 = v16 - 1;
-    v18 = *(uint32_t *)off_118FA8;
-    *v4 = v17;
-    if ( !v17 )
-    {
-      if ( v18 )
-        __enable_irq();
-    }
-  }
-  return result;
 }
 
 
@@ -46078,36 +33407,6 @@ int rf_state_process(int a1, int a2, int a3) {
     }
   }
   return result;
-}
-
-
-
-// rf_dispatch_handler_n8 @ 0x118fd8
-int rf_dispatch_handler_n8(int a1, uint8_t *a2, uint8_t *a3) {
-  int v6; // r4
-  int v8; // r8
-  int v9; // r9
-  int v10; // r3
-  uint8_t *v11; // r8
-
-  v6 = tx_buffer_acquire_or_alloc((int *)a1, a2);
-  if ( v6 )
-    return v6;
-  v8 = *(uint8_t *)(a1 + 25);
-  v9 = dword_11904C + 152 * (uint8_t)*a2;
-  *(uint8_t *)(v9 + 125) = 0;
-  *(uint16_t *)(v9 + 126) = 0;
-  *a3 = rf_table_lookup_n360((uint8_t)*a2, v8);
-  v10 = *(uint32_t *)(v9 + 44);
-  if ( v10 )
-    rf_table_lookup_n360(*(uint8_t *)(v10 + 33), *(uint8_t *)(a1 + 25));
-  v11 = (uint8_t *)(dword_119050 + 224 * v8);
-  if ( v11[94] )
-    return v6;
-  v11[102] = *a2;
-  v11[103] = *(uint8_t *)(a1 + 29);
-  v11[104] = *(uint8_t *)(a1 + 30);
-  return 0;
 }
 
 
@@ -46256,48 +33555,6 @@ int rf_agc_control(int result, int a2, int a3) {
   {
     check_interrupt_flag(1024, dword_1191B4, a3, a2 << 8);
     return kernel_send_evt(v3);
-  }
-  return result;
-}
-
-
-
-// rf_chan_param_set_n_1b8 @ 0x1191b8
-int rf_chan_param_set_n_1b8(uint8_t *a1, int a2) {
-  int v2; // r3
-  int result; // r0
-  char v5; // r2
-  int v6; // r6
-  char v7; // r5
-  uint8_t *v8; // r0
-
-  v2 = (char)a1[118];
-  result = (char)a1[117];
-  v5 = a1[119];
-  v6 = (uint8_t)a1[120];
-  a1[117] = a2;
-  if ( v2 )
-  {
-    v7 = a2;
-    if ( v6 )
-    {
-      if ( v6 != 1 || result >= a2 || a2 <= v2 + v5 )
-        goto LABEL_7;
-      v6 = (v6 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-    }
-    else
-    {
-      if ( result <= a2 || a2 >= v2 - v5 )
-        goto LABEL_7;
-      v6 = (v6 & ~0xFFu) | ((uint8_t)(1) & 0xFFu);
-    }
-    v8 = (uint8_t *)rf_setup_dispatch(87, 4, 0, 3);
-    *v8 = a1[95];
-    v8[1] = v6;
-    v8[2] = v7;
-    result = rx_irq_handler_1((int)(uintptr_t)(v8));
-LABEL_7:
-    a1[120] = v6;
   }
   return result;
 }
@@ -46474,14 +33731,6 @@ int send_event_0x66(int a1, int a2, int a3, int a4) {
 
 
 
-// buf_alloc_0x68_init @ 0x1193f0
-int buf_alloc_0x68_init(int a1, int a2, int a3, int a4) {
-  ke_evt_handler(104, a4, a3);
-  return 0;
-}
-
-
-
 // send_event_0x68 @ 0x1193f0
 int send_event_0x68(int a1, int a2, int a3, int a4) {
   ke_evt_handler(104, a4, a3);
@@ -46579,14 +33828,6 @@ int rx_packet_check(int a1, uint8_t *a2, int a3, int a4) {
 // send_event_0x70 @ 0x1194f4
 int send_event_0x70(int a1, int a2, int a3, int a4) {
   ke_evt_handler(112, a4, a3);
-  return 0;
-}
-
-
-
-// rf_send_cmd_0x72 @ 0x119504
-int rf_send_cmd_0x72(int a1, int a2, int a3, int a4) {
-  ke_evt_handler(114, a4, a3);
   return 0;
 }
 
@@ -46718,65 +33959,12 @@ LABEL_14:
 
 
 
-// rf_xo_pll_init @ 0x119698
-int rf_xo_pll_init(int a1, int a2, int a3, int a4) {
-  int v4; // r0
-
-  v4 = rf_setup_dispatch(118, a4, a3, 12);
-  rx_irq_handler_1(v4);
-  return 0;
-}
-
-
-
 // ke_send_msg_0x76 @ 0x119698
 int ke_send_msg_0x76(int a1, int a2, int a3, int a4) {
   int v4; // r0
 
   v4 = ke_msg_send_1(118, a4, a3, 12);
   rx_irq_handler_1(v4);
-  return 0;
-}
-
-
-
-// rf_init_msg_send @ 0x1196ac
-int rf_init_msg_send(int a1, int a2, int a3, int a4) {
-  uint8_t *v4; // r4
-  uint16_t v5; // r3
-  unsigned int v6; // r2
-  int v7; // r0
-  unsigned int v9; // [sp+0h] [bp-14h] BYREF
-  unsigned int v10; // [sp+4h] [bp-10h] BYREF
-  unsigned int v11[3]; // [sp+8h] [bp-Ch] BYREF
-
-  v9 = 0;
-  v10 = 0;
-  v4 = (uint8_t *)rf_setup_dispatch(116, a4, a3, 6);
-  if ( (*(uint32_t *)off_119724 & 0x2000000) != 0 )
-  {
-    mmio_read_pair((int *)&v9, &v10);
-    v6 = v9;
-    v5 = v10;
-  }
-  else
-  {
-    ((int (*)())memset)((void *)(v11), 0, 6);
-    rf_reg_write_setup_n4820((int)v11);
-    v5 = __rev16(LOWORD(v11[0]));
-    v6 = bswap32(*(unsigned int *)((char *)v11 + 2));
-    v9 = v6;
-    v10 = v5;
-  }
-  v4[1] = v5;
-  v4[5] = v6;
-  *v4 = HIBYTE(v5);
-  v4[3] = BYTE2(v6);
-  v4[2] = HIBYTE(v6);
-  v7 = dword_119728;
-  v4[4] = BYTE1(v6);
-  msg_parse(v7, HIBYTE(v5));
-  rx_irq_handler_1((int)(uintptr_t)(v4));
   return 0;
 }
 
@@ -46857,58 +34045,6 @@ int ke_alloc_msg_0x81(int a1, int a2, int a3, int a4) {
   *v4 = v6;
   v4[v6 + 1] = 0;
   rx_irq_handler_1((int)(uintptr_t)(v4));
-  return 0;
-}
-
-
-
-// rf_iq_dc_calib_n7c @ 0x1197dc
-int rf_iq_dc_calib_n7c(int a1, uint8_t *a2, int a3, int a4) {
-  int v5; // r1
-  uint8_t *v6; // r5
-  char v7; // r2
-  uint8_t *v8; // r6
-  int v9; // r1
-  uint8_t v11[5]; // [sp+7h] [bp-5h] BYREF
-
-  v11[0] = 0;
-  v6 = (uint8_t *)rf_setup_dispatch(124, a4, a3, 2);
-  if ( *a2 )
-  {
-    msg_parse(dword_119898, v5);
-    **(uint8_t **)off_11989C = 0;
-  }
-  else
-  {
-    msg_parse(dword_1198A8, v5);
-    **(uint8_t **)off_11989C = 3;
-  }
-  rf_bus_handler_16c(v11);
-  v7 = v11[0];
-  v6[1] = v11[0];
-  v8 = (void *)(uintptr_t)(off_1198A0);
-  if ( a2[1] )
-    *((uint8_t *)off_1198A0 + 188) = (v7 & 0x20) != 0;
-  else
-    *((uint8_t *)off_1198A0 + 188) = (a2[2] & 0x20) != 0;
-  if ( sub_1141F8() )
-  {
-    v8[188] = 0;
-    v9 = 0;
-  }
-  else
-  {
-    v9 = (uint8_t)v8[188];
-  }
-  if ( *a2 )
-  {
-    if ( a2[3] )
-      *((uint16_t *)v8 + 89) |= 0x4000u;
-    msg_parse(dword_1198A4, v9);
-    v9 = (v9 & ~0xFFu) | ((uint8_t)(v8[188]) & 0xFFu);
-  }
-  *v6 = v9;
-  rx_irq_handler_1((int)(uintptr_t)(v6));
   return 0;
 }
 
@@ -47101,7 +34237,7 @@ int ke_alloc_msg_0x88(int a1, int *a2, int a3, int a4) {
       {
         if ( v14 )
         {
-          v16 = ((int (*)())rf_level_apply_n274)(v6);
+          v16 = rf_level_apply_n274(v6);
           rf_enable_2(v16);
         }
         else
@@ -47161,27 +34297,6 @@ LABEL_3:
 
 
 
-// rf_chan_set_calib_af4 @ 0x119af4
-int rf_chan_set_calib_af4(int a1, uint8_t *a2, int a3, int a4) {
-  char v7; // r0
-  char v9; // r6
-  uint8_t *v10; // r0
-
-  v7 = tx_header_prepare(a2, a4);
-  if ( a4 )
-  {
-    v9 = v7;
-    v10 = (uint8_t *)rf_setup_dispatch(71, a4, a3, 3);
-    *v10 = *a2;
-    v10[1] = v9;
-    v10[2] = 4;
-    rx_irq_handler_1((int)(uintptr_t)(v10));
-  }
-  return 0;
-}
-
-
-
 // process_llcp_pdu @ 0x119af4
 int process_llcp_pdu(int a1, uint8_t *a2, int a3, int a4) {
   char v7; // r0
@@ -47203,15 +34318,6 @@ int process_llcp_pdu(int a1, uint8_t *a2, int a3, int a4) {
 
 
 
-// rf_param_load_byte @ 0x119b2c
-int rf_param_load_byte(int a1, uint8_t *a2, int a3, int a4) {
-  lmac_table_lookup_n540(*a2);
-  ke_evt_handler(58, a4, a3);
-  return 0;
-}
-
-
-
 // hci_build_event_0x3a @ 0x119b2c
 int hci_build_event_0x3a(int a1, uint8_t *a2, int a3, int a4) {
   bt_conn_rx_schedule(*a2);
@@ -47224,25 +34330,6 @@ int hci_build_event_0x3a(int a1, uint8_t *a2, int a3, int a4) {
 // call_packet_helper @ 0x119b4c
 int call_packet_helper(int a1, int a2, int a3, int a4) {
   rf_chan_lookup(a2, a4);
-  return 0;
-}
-
-
-
-// rf_param_parse_n_5c @ 0x119b5c
-int rf_param_parse_n_5c(int a1, uint8_t *a2, int a3, int a4) {
-  int v7; // [sp+4h] [bp-8h]
-  int v8; // [sp+4h] [bp-8h]
-
-  if ( a2[2] )
-  {
-    v8 = a3;
-    lmac_table_lookup_n540(*a2);
-    a3 = v8;
-  }
-  v7 = a3;
-  bt_conn_tx_schedule(*a2, a2[1]);
-  ke_evt_handler(56, a4, v7);
   return 0;
 }
 
@@ -47476,38 +34563,6 @@ void rf_get_rssi_1(int a1, int a2, int a3) {
 
 
 
-// rf_status_check_init @ 0x119f10
-int rf_status_check_init(int a1, void ( **a2)(int), int a3) {
-  int16_t **v3; // r5
-  int result; // r0
-  int v7; // r0
-
-  v3 = (int16_t **)off_119F88;
-  if ( **(int16_t **)off_119F88 < 0 && flash_write_byte(a3) == 4 )
-    rf_cmd_send_n264(dword_119F90, dword_119F8C, 1587);
-  result = flash_write_byte(a3);
-  if ( result )
-  {
-    if ( result != 2 )
-    {
-      rf_cal_trim_check();
-      ((int (*)())flash_erase_sector)(a3);
-      return 2;
-    }
-  }
-  else
-  {
-    if ( **v3 < 0 && *(uint32_t *)off_119F94 << 28 )
-      rf_cmd_send_n264(dword_119F98, dword_119F8C, 1594);
-    v7 = ((int (*)())flash_erase_sector)(a3);
-    (*a2)(v7);
-    return 0;
-  }
-  return result;
-}
-
-
-
 // rf_check_rssi @ 0x119f10
 int rf_check_rssi(int a1, void ( **a2)(int), int a3) {
   int16_t **v3; // r5
@@ -47708,7 +34763,7 @@ int process_cmd_extended(int a1, uint8_t *a2, int a3, int a4) {
           case 57:
           case 58:
           case 59:
-            ((uint32_t *)(uintptr_t)&MEMORY)[4] = 0;
+            MEMORY[4] = 0;
             JUMPOUT(0x13E292);
           default:
             if ( **v10 < 0 )
@@ -48009,42 +35064,6 @@ LABEL_11:
 
 
 
-// rf_reg_probe_id @ 0x11a72c
-int rf_reg_probe_id(uint16_t *a1) {
-  int v1; // r3
-  int *v2; // r2
-  int v4; // r0
-  int *v5; // r5
-  int *v6; // r7
-  int v7; // r6
-  int v8; // r1
-  int v9; // r5
-  int *v10; // r0
-
-  v1 = dword_11A7B4;
-  v2 = *(int **)off_11A7B0;
-  v4 = *a1;
-  v5 = (int *)off_11A7B8;
-  v6 = (int *)off_11A7BC;
-  v7 = a1[2];
-  *v2 = **(uint32_t **)off_11A7B0 & dword_11A7B4 | (v4 << 12);
-  *v5 = *v5 & v1 | (v4 << 12);
-  v8 = a1[1];
-  v2[1] = v2[1] & v1 | (v8 << 12);
-  v9 = a1[3];
-  *v6 = *v6 & v1 | (v8 << 12);
-  v2[2] = v2[2] & v1 | (v7 << 12);
-  v10 = (int *)off_11A7C0;
-  v6[1] = v6[1] & v1 | (v7 << 12);
-  v2[3] = v2[3] & v1 | (v9 << 12);
-  *v10 = v1 & *v10 | (v9 << 12);
-  poll_hw_status_1();
-  msg_parse(dword_11A7C4, *a1);
-  return 0;
-}
-
-
-
 // mmio_clear_bits @ 0x11a72c
 int mmio_clear_bits(uint16_t *a1) {
   int v1; // r3
@@ -48077,92 +35096,6 @@ int mmio_clear_bits(uint16_t *a1) {
   poll_hw_status_1();
   dispatch_event_handler_1(dword_11A7C4, *a1);
   return 0;
-}
-
-
-
-// rf_state_copy_to_shm @ 0x11a7c8
-int rf_state_copy_to_shm(uint8_t *a1) {
-  uint8_t *v1; // r2
-  int v2; // r3
-  uint8_t v4; // r0
-  uint8_t v5; // r4
-  uint8_t v6; // r1
-  void *v7; // r1
-  int v8; // r11
-  uint32_t *v9; // r10
-  uint32_t *v10; // r9
-  int v11; // r8
-  int v12; // r7
-  uint8_t *v13; // r6
-  int i; // r4
-  int v15; // r3
-  int v16; // t1
-  int v17; // r2
-
-  v1 = (void *)(uintptr_t)(off_11A8BC);
-  v2 = a1[16];
-  *((uint8_t *)off_11A8BC + 360) = a1[17];
-  v1[361] = a1[18];
-  v4 = a1[21];
-  v1[356] = v4;
-  v5 = a1[22];
-  v1[357] = v5;
-  v6 = a1[23];
-  v1[358] = v6;
-  v1[359] = v6 + v4 + v5;
-  if ( a1[19] )
-    *(uint32_t *)off_11A8C0 |= 0x10u;
-  else
-    *(uint32_t *)off_11A8C0 &= ~0x10u;
-  v7 = (void *)(uintptr_t)(off_11A8C0);
-  if ( a1[20] )
-    *(uint32_t *)off_11A8C0 |= 2u;
-  else
-    *(uint32_t *)off_11A8C0 &= ~2u;
-  v8 = dword_11A8D8;
-  v9 = (void *)(uintptr_t)(off_11A8DC);
-  v10 = (void *)(uintptr_t)(off_11A8E0);
-  v11 = 224 * v2;
-  v12 = 224 * v2 + 8 + dword_11A8D8;
-  v13 = a1 - 4;
-  for ( i = 0; i != 4; ++i )
-  {
-    v16 = *((uint32_t *)v13 + 1);
-    v13 += 4;
-    v15 = v16;
-    if ( v16 )
-    {
-      *(uint32_t *)(v12 + 4 * i) = v15;
-      v7 = *(void **)off_11A8C4;
-      v17 = *(uint8_t *)(v8 + v11 + 96);
-      *(uint32_t *)(*(uint32_t *)off_11A8C4 + 4 * i) = v15;
-      if ( v17 )
-      {
-        if ( i == 1 )
-        {
-          *v9 = v15;
-        }
-        else if ( (uint8_t)i == 2 )
-        {
-          *v10 = v15;
-        }
-        else if ( (uint8_t)i )
-        {
-          *(uint32_t *)off_11A8C8 = v15;
-        }
-        else
-        {
-          *(uint32_t *)off_11A8D4 = v15;
-        }
-        poll_hw_status_1();
-      }
-    }
-  }
-  if ( a1[24] )
-    *(uint8_t *)off_11A8CC = a1[24];
-  msg_parse(dword_11A8D0, v7);
-  return rf_mem_read_f594((int)(uintptr_t)(a1), 28, 1, 0);
 }
 
 
@@ -48253,59 +35186,6 @@ int rx_update_meta(uint8_t *a1) {
 
 
 
-// rf_mmio_status_read @ 0x11a8e4
-int rf_mmio_status_read(uint8_t *a1) {
-  int v1; // r1
-  int v3; // r3
-  unsigned int *v4; // r0
-  int v5; // r1
-  unsigned int *v6; // r0
-  unsigned int v7; // r1
-  unsigned int *v8; // r0
-
-  v1 = *a1;
-  v3 = (uint8_t)*(uint32_t *)off_11A9A4;
-  if ( *a1 )
-  {
-    v4 = (unsigned int *)off_11A9A8;
-    *(uint32_t *)off_11A9A8 = *(uint32_t *)off_11A9A8 & 0xFFFFFF00 | v1;
-    *v4 = *v4 & 0xFF0000FF | ((v3 * v1) << 8);
-  }
-  v5 = a1[1];
-  if ( a1[1] )
-  {
-    v6 = (unsigned int *)off_11A9AC;
-    *(uint32_t *)off_11A9AC = *(uint32_t *)off_11A9AC & 0xFFFFFF00 | v5;
-    *v6 = *v6 & 0xFF0000FF | ((v3 * v5) << 8);
-  }
-  v7 = a1[2];
-  if ( a1[2] )
-  {
-    v8 = (unsigned int *)off_11A9B0;
-    *(uint32_t *)off_11A9B0 = *(uint32_t *)off_11A9B0 & 0xFFFFFF00 | v7;
-    *v8 = *v8 & 0xFF0000FF | ((v3 * v7) << 8);
-  }
-  if ( a1[3] )
-  {
-    v7 = (unsigned int)off_11A9B4;
-    *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFFFFFF00 | a1[3];
-  }
-  if ( a1[4] )
-  {
-    v7 = (unsigned int)off_11A9B4;
-    *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFFFF00FF | (a1[4] << 8);
-  }
-  if ( a1[5] )
-  {
-    v7 = (unsigned int)off_11A9B4;
-    *(uint32_t *)off_11A9B4 = *(uint32_t *)off_11A9B4 & 0xFF00FFFF | (a1[5] << 16);
-  }
-  msg_parse(dword_11A9B8, v7);
-  return rf_mem_read_f594((int)(uintptr_t)(a1), 6, 1, 0);
-}
-
-
-
 // mmio_select_port @ 0x11a8e4
 int mmio_select_port(uint8_t *a1) {
   int v1; // r1
@@ -48392,7 +35272,7 @@ int flag_update(uint8_t *a1, void *a2) {
     *(uint32_t *)off_11AA54 = *(uint32_t *)off_11AA54 & 0xFFF00FFF | (a1[4] << 12);
   }
   msg_parse(dword_11AA58, a2);
-  return rf_mem_read_f594((int)(uintptr_t)(a1), 5, 1, 0);
+  return rf_mem_read_f594(a1, 5, 1, 0);
 }
 
 
@@ -48511,7 +35391,7 @@ int ke_enter_critical(int a1, int a2) {
     list_pop_front(off_11ABF8);
     v12 = dword_11ABFC;
     *(uint32_t *)(a1 + 12) = a2;
-    result = list_insert_sorted((int)(uintptr_t)(v6), (void *)(uintptr_t)(a1), (void *)(uintptr_t)(v12));
+    result = list_insert_sorted(v6, a1, v12);
     v9 = *v6;
     if ( !*v6 )
     {
@@ -48520,10 +35400,10 @@ int ke_enter_critical(int a1, int a2) {
     }
     goto LABEL_14;
   }
-  list_remove_node(off_11ABF8, (void *)(uintptr_t)(a1));
+  list_remove_node(off_11ABF8, a1);
   v7 = dword_11ABFC;
   *(uint32_t *)(a1 + 12) = a2;
-  result = list_insert_sorted((int)(uintptr_t)(v6), (void *)(uintptr_t)(a1), (void *)(uintptr_t)(v7));
+  result = list_insert_sorted(v6, a1, v7);
   v9 = *v6;
   if ( a1 == *v6 )
   {
@@ -48591,63 +35471,6 @@ int ke_exit_critical(int a1) {
   else
   {
     result = check_kernel_state_alt2((int)(uintptr_t)(v2), (void *)(uintptr_t)(a1));
-  }
-  if ( *v1 )
-  {
-    v5 = *v1 - 1;
-    v6 = *(uint32_t *)off_11AC70;
-    *v1 = v5;
-    if ( !v5 )
-    {
-      if ( v6 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// timestamp_remove @ 0x11ac10
-int timestamp_remove(int a1) {
-  int *v1; // r4
-  void *v2; // r5
-  int v3; // zf
-  int result; // r0
-  int v5; // r3
-  int v6; // r2
-  uint32_t *v7; // r3
-  int v8; // r1
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_11AC70 = 1;
-  }
-  v1 = (int *)off_11AC74;
-  v2 = (void *)(uintptr_t)(off_11AC78);
-  v3 = *(uint32_t *)off_11AC78 == a1;
-  ++*(uint32_t *)off_11AC74;
-  if ( v3 )
-  {
-    result = (int)(uintptr_t)(list_pop_front((int)(uintptr_t)(v2)));
-    v7 = (void *)(uintptr_t)(off_11AC7C);
-    if ( *(uint32_t *)v2 )
-    {
-      v8 = *(uint32_t *)(*(uint32_t *)v2 + 12);
-      result = 0x40000;
-      *((uint32_t *)off_11AC7C + 2) = 0x40000;
-      v7[12] = v8;
-      v7[2] = 4;
-    }
-    else
-    {
-      *((uint32_t *)off_11AC7C + 2) = 1024;
-    }
-  }
-  else
-  {
-    result = list_remove_node((int)(uintptr_t)(v2), (void *)(uintptr_t)(a1));
   }
   if ( *v1 )
   {
@@ -48759,21 +35582,6 @@ LABEL_17:
 
 
 
-// ipc_msg_send_n_d58 @ 0x11ad58
-int ipc_msg_send_n_d58(int a1) {
-  uint8_t *v2; // r0
-  uint32_t *v3; // r2
-
-  v2 = (uint8_t *)rf_setup_dispatch(72, *(uint16_t *)(a1 + 14), 0, 2);
-  v2[1] = *(uint8_t *)(a1 + 24);
-  v3 = (void *)(uintptr_t)(off_11AD84);
-  *v2 = *(uint8_t *)(a1 + 26);
-  *v3 &= ~4u;
-  return rx_irq_handler_1((int)(uintptr_t)(v2));
-}
-
-
-
 // send_hci_event_1 @ 0x11ad58
 int send_hci_event_1(int a1) {
   uint8_t *v2; // r0
@@ -48839,111 +35647,6 @@ int list_search(int result) {
     *v5 = dword_11AE20;
     return rx_irq_handler_1((int)(uintptr_t)(v5));
   }
-  return result;
-}
-
-
-
-// rf_cal_or_init_handler @ 0x11ae24
-int rf_cal_or_init_handler(int a1, int a2, int a3) {
-  int v3; // r8
-  uint32_t *v4; // r9
-  int v5; // r11
-  int v8; // r10
-  int v9; // r7
-  int v10; // r3
-  int v11; // r0
-  int v12; // r4
-  int v13; // r7
-  int v14; // r2
-  int result; // r0
-  int v16; // r4
-  int v17; // r4
-  int v18; // r3
-  int v19; // r7
-  uint32_t *v20; // [sp+4h] [bp-8h]
-
-  v3 = a3;
-  v4 = (void *)(uintptr_t)(off_11AF70);
-  v5 = dword_11AF74;
-  v8 = a1 + 76;
-  if ( !a3 )
-    goto LABEL_21;
-  while ( 1 )
-  {
-    v9 = *(uint32_t *)(a1 + 72);
-    if ( v4[8] )
-      break;
-    v10 = v4[20];
-    if ( !v10 )
-      goto LABEL_5;
-    if ( v9 == v10 )
-      goto LABEL_5;
-    v19 = v4[21];
-    if ( a2 - v19 - 4000 - sub_101A20() >= 0 )
-      goto LABEL_5;
-LABEL_18:
-    if ( *(uint8_t *)(a1 + 94) )
-      v18 = 102400;
-    else
-      v18 = *(uint32_t *)(dword_11AF6C + 152 * *(uint8_t *)(a1 + 102) + 8);
-    ++v3;
-    a2 += v18;
-    if ( !v3 )
-    {
-LABEL_21:
-      if ( (*(uint8_t *)(a1 + 85) & 1) != 0 )
-      {
-        list_remove_node(dword_11AF68, (void *)(uintptr_t)(v8));
-        *(uint8_t *)(a1 + 85) &= ~1u;
-      }
-    }
-  }
-  v20 = (uint32_t *)v4[9];
-  v16 = v20[1];
-  v17 = v16 + 4000 + sub_101A20();
-  if ( v9 != v20[2] )
-  {
-    v17 += 4000 + sub_101A20();
-    if ( v20[3] )
-      v17 += 10000;
-  }
-  if ( a2 - v17 < 0 )
-    goto LABEL_18;
-LABEL_5:
-  *(uint32_t *)(a1 + 80) = a2;
-  v11 = sub_101A20();
-  v12 = v4[4];
-  v13 = a2 + 13999 + v11;
-  if ( v12 )
-  {
-    while ( 1 )
-    {
-      v14 = *(uint32_t *)(v12 + 4);
-      if ( v13 - v14 < 0 )
-        break;
-      if ( *(uint32_t *)(v5 + 224 * *(uint8_t *)(a1 + 84) + 72) != *(uint32_t *)(v5
-                                                                                   + 224 * *(uint8_t *)(v12 + 8)
-                                                                                   + 72) )
-      {
-        if ( time_delta(v8, v12) )
-          goto LABEL_18;
-        v14 = *(uint32_t *)(v12 + 4);
-      }
-      if ( a2 - v14 < 0 )
-        break;
-      v12 = *(uint32_t *)v12;
-      if ( !v12 )
-        goto LABEL_24;
-    }
-  }
-  else
-  {
-LABEL_24:
-    v12 = 0;
-  }
-  result = (int)(uintptr_t)(list_find((void *)(uintptr_t)(dword_11AF68), (void *)(uintptr_t)(v12), (void *)(uintptr_t)(v8)));
-  *(uint8_t *)(a1 + 85) |= 1u;
   return result;
 }
 
@@ -49054,85 +35757,6 @@ LABEL_24:
 
 
 
-// rf_xosc_setup @ 0x11af78
-int rf_xosc_setup(int a1, int a2, int a3) {
-  int v6; // r0
-  uint32_t *v7; // r4
-  uint32_t *v8; // r5
-  char *v9; // r0
-  int v10; // r6
-  int result; // r0
-  int *v12; // r6
-  int v13; // r1
-  int v14; // r0
-  int v15; // r3
-  int v16; // r2
-  int *v17; // r3
-  int v18; // r3
-  int v19; // r3
-  int v20; // r2
-
-  v6 = (int)(uintptr_t)(list_pop_front(dword_11B020));
-  v7 = (uint32_t *)v6;
-  if ( **(int16_t **)off_11B024 < 0 && !v6 )
-    rf_cmd_send_n264(dword_11B030, dword_11B02C, 227);
-  v8 = (void *)(uintptr_t)(off_11B028);
-  v9 = (char *)off_11B028 + 32;
-  v10 = *((uint32_t *)off_11B028 + 8);
-  v7[3] = a3;
-  v7[1] = a1;
-  v7[2] = a2;
-  result = ((int (*)())list_push_tail)((int)(uintptr_t)(v9));
-  if ( !v10 )
-  {
-    v8[18] = (int)(uintptr_t)(v7);
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_11B034 = 1;
-    }
-    v12 = (int *)off_11B03C;
-    v13 = v7[1];
-    v14 = *(uint32_t *)off_11B03C;
-    v15 = v13 - *((uint32_t *)off_11B038 + 4);
-    v16 = *(uint32_t *)off_11B03C + 1;
-    *(uint32_t *)off_11B03C = v16;
-    if ( v15 - 64 >= 0 )
-    {
-      result = ke_enter_critical(dword_11B040, v13);
-      if ( *v12 )
-      {
-        v19 = *v12 - 1;
-        v20 = *(uint32_t *)off_11B034;
-        *v12 = v19;
-        if ( !v19 )
-        {
-          if ( v20 )
-            __enable_irq();
-        }
-      }
-    }
-    else
-    {
-      if ( v16 )
-      {
-        v17 = (int *)off_11B034;
-        *v12 = v14;
-        v18 = *v17;
-        if ( !v14 )
-        {
-          if ( v18 )
-            __enable_irq();
-        }
-      }
-      return ((int ( *)(uint32_t *))v8[17])(v7);
-    }
-  }
-  return result;
-}
-
-
-
 // ke_task_handler_1 @ 0x11af78
 int ke_task_handler_1(int a1, int a2, int a3) {
   int v6; // r0
@@ -49206,33 +35830,6 @@ int ke_task_handler_1(int a1, int a2, int a3) {
       }
       return ((int ( *)(uint32_t *))v8[17])(v7);
     }
-  }
-  return result;
-}
-
-
-
-// rf_init_or_query @ 0x11b044
-int rf_init_or_query() {
-  int result; // r0
-  uint32_t *v1; // r4
-  char *v2; // r5
-  char *v3; // r4
-
-  result = (int)(uintptr_t)(list_pop_front(dword_11B07C));
-  if ( result )
-  {
-    v1 = (void *)(uintptr_t)(off_11B080);
-    timestamp_remove(dword_11B084);
-    v1[18] = 0;
-    v2 = (char *)(v1 + 6);
-    v3 = (char *)(v1 + 8);
-    do
-    {
-      ((int (*)())list_push_tail)((int)(uintptr_t)(v2));
-      result = (int)(uintptr_t)(list_pop_front((int)(uintptr_t)(v3)));
-    }
-    while ( result );
   }
   return result;
 }
@@ -49343,85 +35940,6 @@ LABEL_18:
     v11 = a2;
   }
   return rf_xosc_setup(v11, *(uint32_t *)(v3 + 224 * v6 + 72), v4);
-}
-
-
-
-// rf_mailbox_post_n44 @ 0x11b1a4
-int rf_mailbox_post_n44(int result) {
-  uint8_t *v1; // r4
-  int v2; // r5
-  int v3; // r6
-  int v4; // r7
-  char v5; // r3
-  int v6; // r9
-  int v7; // r7
-  int v8; // r8
-  int v9; // r6
-  int v10; // r10
-  int v11; // r0
-  int v12; // r3
-
-  v1 = (void *)(uintptr_t)(off_11B2AC);
-  v2 = result;
-  v3 = *((uint32_t *)off_11B2A4 + 4) + *(uint32_t *)(result + 20);
-  if ( result != dword_11B2A8 || (*((uint8_t *)off_11B2AC + 88) & 4) != 0 )
-  {
-    if ( *((uint32_t *)off_11B2AC + 10) != result )
-    {
-      result = sub_101A20();
-      v3 += 4000 + result;
-    }
-    v4 = (uint8_t)v1[91];
-    v5 = v1[88];
-    *((uint32_t *)v1 + 20) = v2;
-    *((uint32_t *)v1 + 21) = v3;
-    if ( v4 )
-    {
-      v1[88] = v5 | 0x40;
-    }
-    else
-    {
-      v1[88] = v5 & 0xBF;
-      rf_init_or_query();
-      result = rf_xosc_setup(v3, 0, 0);
-      v6 = *((uint32_t *)v1 + 4);
-      if ( v6 )
-      {
-        v7 = dword_11B2B4;
-        v8 = dword_11B2C4;
-        v9 = dword_11B2B0 - v3;
-        do
-        {
-          v10 = *(uint32_t *)(v6 + 4);
-          result = v10 - sub_101A20();
-          if ( result + v9 >= 0 )
-            break;
-          v11 = v7 + 224 * *(uint8_t *)(v6 + 8);
-          v12 = 102400;
-          if ( !*(uint8_t *)(v11 + 94) )
-            v12 = *(uint32_t *)(v8 + 152 * *(uint8_t *)(v11 + 102) + 8);
-          result = rf_cal_or_init_handler(v11, *(uint32_t *)(v6 + 4) + v12, 0);
-          v6 = *((uint32_t *)v1 + 4);
-        }
-        while ( v6 );
-      }
-      if ( *((uint32_t *)v1 + 11) )
-      {
-        if ( **(int16_t **)off_11B2B8 < 0 && (v1[88] & 0xC) == 0 )
-          return rf_cmd_send_n264(dword_11B2C0, dword_11B2BC, 1698);
-      }
-      else
-      {
-        return list_search(v2);
-      }
-    }
-  }
-  else
-  {
-    *((uint8_t *)off_11B2AC + 88) &= ~0x40u;
-  }
-  return result;
 }
 
 
@@ -49539,27 +36057,6 @@ int rf_status_check_1() {
 
 
 
-// phy_flag_check_or_set @ 0x11b36c
-int phy_flag_check_or_set() {
-  void *v0; // r2
-  int v1; // r0
-  int result; // r0
-
-  v0 = (void *)(uintptr_t)(off_11B39C);
-  if ( (*((uint8_t *)off_11B39C + 88) & 0x10) == 0 )
-  {
-    v1 = *((uint8_t *)off_11B39C + 90);
-    *((uint8_t *)off_11B39C + 88) |= 0x10u;
-    if ( v1 )
-      return ke_enter_critical((int)v0 + 48, *((uint32_t *)off_11B3A0 + 4) + 30000);
-    else
-      return rf_status_check_1();
-  }
-  return result;
-}
-
-
-
 // rf_flag_set @ 0x11b36c
 int rf_flag_set() {
   void *v0; // r2
@@ -49576,112 +36073,6 @@ int rf_flag_set() {
     else
       return rf_status_check_1();
   }
-  return result;
-}
-
-
-
-// rf_state_reset_n_3a4 @ 0x11b3a4
-int rf_state_reset_n_3a4(int result, int a2, int a3) {
-  uint8_t *v3; // r6
-  int v4; // r4
-  int v6; // r3
-  int v7; // zf
-  int v8; // r3
-  uint16_t *v9; // r8
-  uint16_t *v10; // r0
-  uint16_t *v11; // r7
-  int v12; // r0
-  int v13; // r2
-  unsigned int *v14; // r12
-  uint32_t *v15; // r1
-  char v16; // r3
-  uint32_t *v17; // r7
-  int v18; // r2
-  unsigned int v19; // r3
-
-  v3 = (void *)(uintptr_t)(off_11B4C0);
-  v4 = result;
-  *((uint32_t *)off_11B4C0 + 10) = 0;
-  if ( a2 )
-  {
-    v6 = *(uint8_t *)(result + 24);
-    if ( v6 != 3 )
-      goto LABEL_3;
-  }
-  else
-  {
-    result = rf_link_state_check(result, 0, a3);
-    v6 = *(uint8_t *)(v4 + 24);
-    if ( v6 != 3 )
-    {
-LABEL_3:
-      v7 = v6 == 4;
-      v8 = (uint8_t)v3[88];
-      if ( v7 )
-      {
-        v3[88] = v8 & 0xFB;
-        if ( *(uint16_t *)(v4 + 14) )
-        {
-          result = ipc_msg_send_n_d58(v4);
-          v8 = (uint8_t)v3[88];
-        }
-        else
-        {
-          v8 &= 0xDBu;
-        }
-      }
-      goto LABEL_4;
-    }
-  }
-  v3[88] &= ~8u;
-  v9 = (uint16_t *)rf_get_tx_entry();
-  v10 = (uint16_t *)rf_setup_dispatch(79, 4, 0, 12);
-  *v10 = *v9;
-  v11 = v10;
-  v12 = rf_get_tx_power((int)(uintptr_t)(v9));
-  v13 = dword_11B4C4;
-  v14 = (unsigned int *)off_11B4E4;
-  v15 = (void *)(uintptr_t)(off_11B4C8);
-  *((uint32_t *)v11 + 1) = (unsigned int)(((unsigned int)dword_11B4C4 * (uint64_t)(unsigned int)v12) >> 32) >> 6;
-  *((uint32_t *)v11 + 2) = (unsigned int)(((unsigned int)v13 * (uint64_t)*v14) >> 32) >> 6;
-  *((uint8_t *)v11 + 2) = 0;
-  v16 = 10;
-  while ( 1 )
-  {
-    --v16;
-    if ( (uint8_t)*v15 )
-      break;
-    if ( !v16 )
-      goto LABEL_13;
-  }
-  *((uint8_t *)v11 + 2) = *v15;
-LABEL_13:
-  rx_irq_handler_1((int)(uintptr_t)(v11));
-  v17 = (void *)(uintptr_t)(off_11B4D0);
-  v18 = **(int16_t **)off_11B4CC;
-  v19 = *((uint32_t *)off_11B4D0 + 1) & 0xFFFFDDFF;
-  *((uint32_t *)off_11B4D0 + 1) = v19;
-  if ( v18 < 0 && *(uint32_t *)off_11B4D8 << 28 )
-  {
-    flash_cmd_exec(dword_11B4E0, dword_11B4DC, 472);
-    v19 = v17[1];
-  }
-  *(uint32_t *)off_11B4D4 = v19 | *v17;
-  result = ke_evt_handler(142, 2, 255);
-  v8 = (uint8_t)v3[88];
-LABEL_4:
-  *(uint8_t *)(v4 + 24) = -1;
-  v3[88] = v8 & 0xEF;
-  if ( !(v8 << 30) )
-  {
-    if ( a2 )
-      return result;
-    return rf_packet_available();
-  }
-  result = phy_flag_check_or_set();
-  if ( !a2 )
-    return rf_packet_available();
   return result;
 }
 
@@ -49788,233 +36179,6 @@ LABEL_4:
   result = rf_flag_set();
   if ( !a2 )
     return rf_packet_available();
-  return result;
-}
-
-
-
-// rf_chan_init_n4e8 @ 0x11b4e8
-int rf_chan_init_n4e8(int a1) {
-  int16_t **v1; // r7
-  uint8_t *v2; // r6
-  int v4; // r0
-  int v5; // r5
-  int v6; // r3
-  uint32_t *v7; // r4
-  int v8; // r3
-  int v9; // r2
-  int v10; // r3
-  int v11; // r2
-  char *v12; // r0
-  int v13; // r2
-  int v14; // r0
-  int result; // r0
-  int *v16; // r5
-  int v17; // r1
-  int v18; // r6
-  int v19; // r3
-  int v20; // r2
-  int *v21; // r3
-  int v22; // r3
-  int v23; // r3
-  int v24; // r1
-  int v25; // r3
-  int v26; // r2
-  int v27; // r2
-  int v28; // r7
-  int v29; // r3
-  int v30; // r2
-
-  v1 = (int16_t **)off_11B6A8;
-  v2 = (void *)(uintptr_t)(off_11B6AC);
-  v4 = (int)(uintptr_t)(list_pop_front(dword_11B6B0));
-  v5 = v4;
-  if ( **v1 >= 0 )
-  {
-    v6 = (uint8_t)*v2;
-    if ( *v2 )
-    {
-LABEL_3:
-      v7 = (void *)(uintptr_t)(off_11B6B4);
-      goto LABEL_4;
-    }
-LABEL_26:
-    v7 = (void *)(uintptr_t)(off_11B6B4);
-    v8 = *((uint32_t *)off_11B6B4 + 10);
-    goto LABEL_6;
-  }
-  if ( a1 == v4 )
-  {
-    v6 = (uint8_t)*v2;
-    if ( *v2 )
-      goto LABEL_3;
-  }
-  else
-  {
-    rf_cmd_send_n264(dword_11B6E0, dword_11B6DC, 1958);
-    v6 = (uint8_t)*v2;
-    if ( *v2 )
-      goto LABEL_3;
-    if ( **v1 >= 0 )
-      goto LABEL_26;
-  }
-  v7 = (void *)(uintptr_t)(off_11B6B4);
-  v8 = *((uint32_t *)off_11B6B4 + 10);
-  if ( !v8 )
-  {
-    rf_cmd_send_n264(dword_11B6E4, dword_11B6DC, 1960);
-    v6 = (uint8_t)*v2;
-LABEL_4:
-    if ( v6 != 1 )
-    {
-LABEL_5:
-      v8 = v7[10];
-      goto LABEL_6;
-    }
-    msg_parse(dword_11B6CC, *((uint8_t *)v7 + 88));
-    v23 = *((uint8_t *)v7 + 88);
-    v24 = v23 << 28;
-    if ( (v23 & 8) != 0 )
-    {
-      v25 = dword_11B6E8;
-    }
-    else
-    {
-      if ( (v23 & 4) == 0 )
-      {
-        v25 = v7[11];
-        if ( !v25 )
-          goto LABEL_5;
-LABEL_33:
-        v27 = v7[10];
-        if ( v27 )
-        {
-          v24 = 1;
-          *(uint8_t *)(v27 + 16) = 1;
-        }
-        v7[10] = v25;
-        v7[11] = 0;
-        v28 = *(uint8_t *)(v25 + 24);
-        *(uint8_t *)(v25 + 16) = 4;
-        if ( v28 == 3 )
-        {
-          msg_parse(dword_11B6D4, v24);
-          ((int (*)())flash_erase_sector)(2);
-        }
-        goto LABEL_5;
-      }
-      v25 = dword_11B6D0;
-    }
-    v26 = v7[11];
-    if ( v26 != v25 && v26 )
-    {
-      v24 = 1;
-      *(uint8_t *)(v26 + 16) = 1;
-    }
-    goto LABEL_33;
-  }
-LABEL_6:
-  *(uint8_t *)(v8 + 16) = 1;
-  v9 = v7[20];
-  v10 = 0;
-  *v2 = 0;
-  if ( v9 )
-  {
-    v11 = *((uint8_t *)v7 + 90);
-    v7[20] = 0;
-    if ( !v11 )
-    {
-      *(uint32_t *)(v5 + 8) = 0;
-      goto LABEL_15;
-    }
-    if ( v11 == 1 || (v10 = v7[4]) == 0 )
-    {
-      v12 = (char *)off_11B6EC;
-      if ( *((uint8_t *)off_11B6EC + 24) == 255 )
-      {
-        if ( *((uint8_t *)off_11B6EC + 52) == 255 )
-        {
-          if ( *((uint8_t *)off_11B6EC + 80) == 255 )
-          {
-            *(uint32_t *)(v5 + 8) = v10;
-            goto LABEL_15;
-          }
-          v12 = (char *)off_11B6EC + 56;
-        }
-        else
-        {
-          v12 = (char *)off_11B6EC + 28;
-        }
-      }
-    }
-    else
-    {
-      v12 = *(char **)(dword_11B6B8 + 224 * *(uint8_t *)(v10 + 8) + 72);
-    }
-    *(uint32_t *)(v5 + 8) = (int)(uintptr_t)(v12);
-  }
-  else
-  {
-    v12 = *(char **)(v5 + 8);
-  }
-  if ( v12 )
-  {
-    if ( v7[11] )
-      v7[11] = (int)(uintptr_t)(v12);
-    else
-      list_search((int)v12);
-  }
-LABEL_15:
-  ((int (*)())list_push_tail)(dword_11B6BC);
-  v14 = v7[10];
-  if ( *(uint8_t *)(v14 + 24) > 2u )
-    rf_state_reset_n_3a4(v14, 0, v13);
-  result = v7[8];
-  v7[18] = result;
-  if ( result )
-  {
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_11B6C0 = 1;
-    }
-    v16 = (int *)off_11B6C8;
-    v17 = *(uint32_t *)(result + 4);
-    v18 = *(uint32_t *)off_11B6C8;
-    v19 = v17 - *((uint32_t *)off_11B6C4 + 4);
-    v20 = *(uint32_t *)off_11B6C8 + 1;
-    *(uint32_t *)off_11B6C8 = v20;
-    if ( v19 - 64 >= 0 )
-    {
-      result = ke_enter_critical(dword_11B6D8, v17);
-      if ( *v16 )
-      {
-        v29 = *v16 - 1;
-        v30 = *(uint32_t *)off_11B6C0;
-        *v16 = v29;
-        if ( !v29 )
-        {
-          if ( v30 )
-            __enable_irq();
-        }
-      }
-    }
-    else
-    {
-      if ( v20 )
-      {
-        v21 = (int *)off_11B6C0;
-        *v16 = v18;
-        v22 = *v21;
-        if ( !v18 )
-        {
-          if ( v22 )
-            __enable_irq();
-        }
-      }
-      return ((int (*)(void))v7[17])();
-    }
-  }
   return result;
 }
 
@@ -50360,150 +36524,6 @@ LABEL_12:
 
 
 
-// rf_msg_alloc_init @ 0x11b80c
-int rf_msg_alloc_init() {
-  uint32_t *v0; // r5
-  uint32_t *v1; // r6
-  int v2; // r4
-  uint8_t *v3; // r0
-  int v4; // r3
-  int16_t v5; // r3
-  BOOL v6; // r7
-  int v7; // r3
-  unsigned int v8; // r3
-  int v9; // r5
-  int v10; // r7
-  int v11; // r1
-  unsigned int v13; // r3
-  int v14; // r2
-  int v15; // r3
-
-  v0 = (void *)(uintptr_t)(off_11B9B0);
-  v1 = (void *)(uintptr_t)(off_11B9B4);
-  v2 = *((uint32_t *)off_11B9B0 + 11);
-  tx_set_power((uint8_t *)(v2 + 4), 0);
-  util_byte_to_hex(*(char *)(v2 + 12));
-  *(uint32_t *)off_11B9B8 = v1[*(uint8_t *)(v2 + 4) + 5];
-  if ( *(uint8_t *)(v2 + 24) == 3 )
-  {
-    v7 = v0[10];
-    if ( !v7 )
-    {
-      v0[10] = v2;
-      v0[11] = 0;
-      *(uint8_t *)(v2 + 16) = 4;
-      if ( *((uint8_t *)v0 + 90) || !*((uint8_t *)off_11B9BC + 143) )
-        goto LABEL_31;
-      goto LABEL_29;
-    }
-    v6 = 0;
-    goto LABEL_7;
-  }
-  v3 = (uint8_t *)rf_setup_dispatch(68, 4, 0, 4);
-  v4 = *(uint8_t *)(v2 + 24);
-  *v3 = v4;
-  if ( v4 == 4 )
-  {
-    v5 = *(uint16_t *)(v2 + 14);
-    if ( v5 )
-      v5 = (v5 & ~0xFFu) | ((uint8_t)(1) & 0xFFu);
-  }
-  else
-  {
-    v5 = (v5 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-  }
-  v6 = 0;
-  v3[1] = v5;
-  v3[3] = 0;
-  v3[2] = *(uint8_t *)(v2 + 26);
-  rx_irq_handler_1((int)(uintptr_t)(v3));
-  v7 = v0[10];
-  if ( v7 )
-  {
-    if ( *(uint8_t *)(v2 + 24) == 4
-      && *(uint16_t *)(v7 + 4) == *(uint16_t *)(v2 + 4)
-      && *(uint8_t *)(v7 + 13) == *(uint8_t *)(v2 + 13)
-      && *(uint16_t *)(v7 + 6) == *(uint16_t *)(v2 + 6)
-      && *(uint16_t *)(v7 + 8) == *(uint16_t *)(v2 + 8) )
-    {
-      v6 = *(uint16_t *)(v7 + 10) == *(uint16_t *)(v2 + 10);
-    }
-LABEL_7:
-    *(uint8_t *)(v7 + 16) = 1;
-    v8 = *(uint8_t *)(v2 + 24);
-    goto LABEL_8;
-  }
-  v6 = 0;
-  v8 = *(uint8_t *)(v2 + 24);
-LABEL_8:
-  v0[10] = v2;
-  v0[11] = 0;
-  *(uint8_t *)(v2 + 16) = 4;
-  if ( v8 > 2 )
-  {
-    if ( *((uint8_t *)v0 + 90) && !v6 || !*((uint8_t *)off_11B9BC + 143) )
-    {
-      if ( v8 != 3 )
-        return mmio_init_clock_gate_n121();
-      goto LABEL_31;
-    }
-    goto LABEL_29;
-  }
-  if ( *((uint8_t *)off_11B9BC + 143) )
-  {
-LABEL_29:
-    patch_table_apply_dbc();
-    v13 = *(uint8_t *)(v2 + 24);
-    if ( v13 <= 2 )
-      goto LABEL_10;
-    if ( v13 != 3 )
-      return mmio_init_clock_gate_n121();
-LABEL_31:
-    v14 = **(int16_t **)off_11B9C8;
-    v15 = v1[1] | 0x2200;
-    *(uint32_t *)off_11B9CC = 0;
-    v1[1] = v15;
-    if ( v14 < 0 && *(uint32_t *)off_11B9D4 << 28 )
-    {
-      flash_cmd_exec(dword_11B9DC, dword_11B9D8, 472);
-      v15 = v1[1];
-    }
-    *(uint32_t *)off_11B9D0 = v15 | *v1;
-    ke_evt_handler(141, 2, 255);
-    return mmio_init_clock_gate_n121();
-  }
-LABEL_10:
-  rf_reg_update_1();
-  v9 = *((uint32_t *)off_11B9C0 + 2);
-  if ( v9 )
-  {
-    v10 = dword_11B9C4;
-    do
-    {
-      while ( *(uint32_t *)(v9 + 72) != v2 )
-      {
-        v9 = *(uint32_t *)v9;
-        if ( !v9 )
-          goto LABEL_15;
-      }
-      *(uint8_t *)(v10 + 32 * *(uint8_t *)(v9 + 95) + 31) = 1;
-      rf_init_or_setup_n32c(v9);
-      v9 = *(uint32_t *)v9;
-    }
-    while ( v9 );
-  }
-LABEL_15:
-  v11 = *(uint16_t *)(v2 + 14);
-  if ( v11 != 255 )
-  {
-    ke_evt_handler(62, v11, 0);
-    *(uint16_t *)(v2 + 14) = 255;
-  }
-  return mmio_init_clock_gate_n121();
-}
-
-
-
 // rx_queue_reset @ 0x11b80c
 int rx_queue_reset() {
   uint32_t *v0; // r5
@@ -50719,55 +36739,6 @@ int scheduler_run(int a1, int a2, int a3) {
 
 
 
-// lmac_rf_init_5cbuf @ 0x11ba64
-int lmac_rf_init_5cbuf() {
-  int *v0; // r7
-  void *v1; // r6
-  unsigned int v2; // r5
-  int *i; // r4
-  int result; // r0
-  uint32_t *v5; // r3
-  int v6; // r1
-
-  v0 = (int *)off_11BAF4;
-  v1 = (void *)(uintptr_t)(off_11BAF0);
-  sub_100200((int *)off_11BAF0, 0, 0x5Cu);
-  v2 = 0;
-  for ( i = v0; ; i += 7 )
-  {
-    sub_100200(i, 0, 0x1Cu);
-    *((uint16_t *)i + 7) = 255;
-    *((uint8_t *)i + 24) = -1;
-    if ( v2 <= 2 )
-    {
-      ((int (*)())list_push_tail)((int)(uintptr_t)(v1));
-      goto LABEL_4;
-    }
-    if ( v2 != 3 )
-      break;
-    *((uint16_t *)v0 + 47) = 0;
-    *((uint8_t *)v0 + 89) = 0;
-LABEL_4:
-    ++v2;
-  }
-  if ( v2 != 4 )
-    goto LABEL_4;
-  list_init_1((void *)(uintptr_t)(dword_11BAF8));
-  list_init_1((void *)(uintptr_t)(dword_11BAFC));
-  ((int (*)())list_push_tail)(dword_11BAF8);
-  ((int (*)())list_push_tail)(dword_11BAF8);
-  ((int (*)())list_push_tail)(dword_11BAF8);
-  result = ((int (*)())list_push_tail)(dword_11BAF8);
-  v5 = (void *)(uintptr_t)(off_11BAF0);
-  v6 = dword_11BB14;
-  *((uint32_t *)off_11BAF0 + 13) = dword_11BB10;
-  v5[17] = v6;
-  v5[18] = 0;
-  return result;
-}
-
-
-
 // env_reset @ 0x11ba64
 int env_reset() {
   int *v0; // r7
@@ -50977,42 +36948,6 @@ int env_get(int a1, uint8_t *a2) {
 
 
 
-// rf_indexed_lookup_n_88 @ 0x11bd88
-int * rf_indexed_lookup_n_88(int a1) {
-  int16_t **v1; // r8
-  int v2; // r5
-  int *v4; // r6
-  int v5; // r7
-  int v6; // r5
-  int *result; // r0
-
-  v1 = (int16_t **)off_11BE24;
-  v2 = dword_11BE10;
-  v4 = (int *)(dword_11BE10 + 28 * a1);
-  if ( **(int16_t **)off_11BE24 < 0 )
-  {
-    v5 = 8 * a1;
-    if ( *(uint8_t *)(dword_11BE10 + 28 * a1 + 24) != 255
-      || (rf_cmd_send_n264(dword_11BE20, dword_11BE18, 3044), **v1 < 0) )
-    {
-      if ( *(uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
-        rf_cmd_send_n264(dword_11BE1C, dword_11BE18, 3046);
-    }
-  }
-  else
-  {
-    v5 = 8 * a1;
-  }
-  ((int (*)())list_push_tail)(dword_11BE14);
-  v6 = v2 + 4 * (v5 - a1);
-  result = (void *)(uintptr_t)(sub_100200(v4, 0, 0x1Cu));
-  *(uint16_t *)(v6 + 14) = 255;
-  *(uint8_t *)(v6 + 24) = -1;
-  return result;
-}
-
-
-
 // sub_11BD88 @ 0x11bd88
 int * sub_11BD88(int a1) {
   int16_t **v1; // r8
@@ -51101,45 +37036,6 @@ int rx_desc_parse(uint8_t *a1) {
     return util_byte_to_hex(*(char *)(v4 + 28 * v1 + 12));
   }
   return result;
-}
-
-
-
-// rf_chan_lookup @ 0x11bec0
-int rf_chan_lookup(int result, int a2) {
-  int v2; // r4
-  int v3; // r5
-  int v5; // r7
-  unsigned int v6; // r3
-  int v7; // r8
-
-  v2 = *(uint8_t *)(result + 1);
-  v3 = dword_11BF2C;
-  if ( **(int16_t **)off_11BF28 < 0 )
-  {
-    v7 = dword_11BF2C + 28 * v2;
-    v5 = 8 * v2;
-    v6 = *(uint8_t *)(v7 + 16);
-    if ( !*(uint8_t *)(v7 + 16) )
-    {
-      result = rf_cmd_send_n264(dword_11BF34, dword_11BF30, 3289);
-      if ( *(uint8_t *)(v7 + 16) <= 3u )
-        goto LABEL_4;
-      return ke_evt_handler(62, a2, 0);
-    }
-  }
-  else
-  {
-    v5 = 8 * v2;
-    v6 = *(uint8_t *)(dword_11BF2C + 28 * v2 + 16);
-  }
-  if ( v6 <= 3 )
-  {
-LABEL_4:
-    *(uint16_t *)(v3 + 4 * (v5 - v2) + 14) = a2;
-    return result;
-  }
-  return ke_evt_handler(62, a2, 0);
 }
 
 
@@ -51241,76 +37137,6 @@ LABEL_8:
   if ( (uint8_t)v2[90] > 1u )
   {
     check_kernel_state_alt2(dword_11C010, (void *)(uintptr_t)(a1 + 76));
-    *(uint8_t *)(a1 + 85) = *(uint8_t *)(a1 + 85) & 0xFC | 2;
-    ++v2[91];
-    return v6 != v7;
-  }
-LABEL_14:
-  *(uint8_t *)(a1 + 85) |= 2u;
-  ++v2[91];
-  return v6 != v7;
-}
-
-
-
-// unknown_helper_2 @ 0x11bf38
-BOOL unknown_helper_2(int a1, int a2) {
-  uint8_t *v2; // r10
-  int *v3; // r4
-  int v5; // r3
-  int v6; // r7
-  int v7; // r9
-  int v9; // r11
-  int v10; // r1
-
-  v2 = (void *)(uintptr_t)(off_11C014);
-  v3 = *((int **)off_11C014 + 4);
-  if ( !v3 )
-  {
-    v6 = *(uint32_t *)(a1 + 72);
-    v7 = *((uint32_t *)off_11C014 + 10);
-    goto LABEL_11;
-  }
-  v5 = v3[1];
-  v6 = *(uint32_t *)(a1 + 72);
-  v7 = *((uint32_t *)off_11C014 + 10);
-  if ( v5 != a2 )
-  {
-    v9 = dword_11C018;
-    while ( v5 - a2 < 0 )
-    {
-      v10 = *((uint8_t *)v3 + 8);
-      if ( v10 == *(uint8_t *)(a1 + 95) )
-      {
-        msg_parse(v9, v10);
-        list_remove_node((int)(uintptr_t)(v2 + 16), (void *)(v3));
-        *((uint8_t *)v3 + 9) &= ~1u;
-        v3 = (int *)*v3;
-        if ( !v3 )
-          break;
-      }
-      else
-      {
-        v3 = (int *)*v3;
-        if ( !v3 )
-          break;
-      }
-      v5 = v3[1];
-      if ( v5 == a2 )
-        goto LABEL_8;
-    }
-LABEL_11:
-    if ( (uint8_t)v2[90] > 1u )
-    {
-      *(uint8_t *)(a1 + 85) |= 4u;
-      return v6 != v7;
-    }
-    goto LABEL_14;
-  }
-LABEL_8:
-  if ( (uint8_t)v2[90] > 1u )
-  {
-    list_remove_node(dword_11C010, (void *)(uintptr_t)(a1 + 76));
     *(uint8_t *)(a1 + 85) = *(uint8_t *)(a1 + 85) & 0xFC | 2;
     ++v2[91];
     return v6 != v7;
@@ -51431,104 +37257,6 @@ LABEL_14:
 
 
 
-// rf_bus_reset2_c158 @ 0x11c158
-int rf_bus_reset2_c158(int result) {
-  void *v1; // r5
-  int v2; // r4
-  int v3; // r3
-  int v4; // r6
-  int v5; // r7
-  char v6; // r3
-  char v7; // r2
-  int v8; // r8
-  int v9; // r2
-  int v10; // r3
-  char v11; // r2
-
-  v1 = (void *)(uintptr_t)(off_11C260);
-  v2 = result;
-  v3 = *(uint8_t *)(result + 85);
-  if ( *((uint8_t *)off_11C260 + 90) <= 1u )
-  {
-    if ( (v3 & 2) != 0 )
-    {
-      v3 &= 0xFDu;
-      *(uint8_t *)(result + 85) = v3;
-      v11 = *((uint8_t *)v1 + 91) - 1;
-      *((uint8_t *)v1 + 91) = v11;
-      if ( !v11 && (*((uint8_t *)v1 + 88) & 0x40) != 0 )
-      {
-        rf_mailbox_post_n44(*((uint32_t *)v1 + 20));
-        v3 = *(uint8_t *)(v2 + 85);
-      }
-    }
-    if ( (v3 & 4) != 0 )
-    {
-      v3 &= 0xFBu;
-      *(uint8_t *)(v2 + 85) = v3;
-    }
-    result = v3 << 26;
-    if ( (v3 & 0x20) != 0 )
-      *(uint8_t *)(v2 + 85) = v3 & 0xDF;
-  }
-  else
-  {
-    v4 = v3 & 4;
-    v5 = *(uint32_t *)(result + 36);
-    if ( (v3 & 4) != 0 )
-    {
-      if ( (v3 & 1) == 0 )
-      {
-        result = rf_cal_or_init_handler(result, *(uint32_t *)(result + 36), 0);
-        v3 = (v3 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v2 + 85)) & 0xFFu);
-      }
-      *(uint8_t *)(v2 + 85) = v3 & 0xFB;
-    }
-    else if ( (v3 & 2) != 0 )
-    {
-      v6 = v3 & 0xFD;
-      *(uint8_t *)(result + 85) = v6;
-      v7 = *((uint8_t *)v1 + 91) - 1;
-      *((uint8_t *)v1 + 91) = v7;
-      if ( !v7 )
-      {
-        if ( (*((uint8_t *)v1 + 88) & 0x40) != 0 )
-        {
-          result = rf_mailbox_post_n44(*((uint32_t *)v1 + 20));
-          v6 = *(uint8_t *)(v2 + 85);
-        }
-        else
-        {
-          v4 = 1;
-        }
-      }
-      v8 = *(uint32_t *)(v2 + 80);
-      if ( (v6 & 8) != 0 )
-      {
-        v9 = *(uint8_t *)(v2 + 94);
-        *(uint8_t *)(v2 + 85) = v6 & 0xF7;
-        if ( v9 )
-          v10 = 102400;
-        else
-          v10 = *(uint32_t *)(dword_11C268 + 152 * *(uint8_t *)(v2 + 102) + 8);
-        v8 -= v10;
-      }
-      else
-      {
-        result = rf_cal_or_init_handler(v2, v5, 0);
-      }
-      if ( v4 )
-      {
-        if ( !*((uint32_t *)v1 + 11) )
-          return rf_calibrate_1(v2, *((uint32_t *)off_11C264 + 4), *((uint32_t *)off_11C264 + 4) - v8);
-      }
-    }
-  }
-  return result;
-}
-
-
-
 // bt_link_rx_check @ 0x11c158
 int bt_link_rx_check(int result) {
   void *v1; // r5
@@ -51627,47 +37355,6 @@ int bt_link_rx_check(int result) {
 
 
 
-// rf_msg_handler_n0ec @ 0x11c26c
-int rf_msg_handler_n0ec(int result) {
-  int v1; // r7
-  int v2; // r5
-  uint8_t *v3; // r6
-  int v4; // r8
-  int v5; // r0
-  int16_t v6; // r5
-  int16_t v7; // r4
-  int v8; // r2
-
-  v1 = *(uint32_t *)(result + 72);
-  v2 = result;
-  if ( **(int16_t **)off_11C30C < 0 && !v1 )
-    result = rf_cmd_send_n264(dword_11C320, dword_11C31C, 3591);
-  v3 = (void *)(uintptr_t)(off_11C310);
-  if ( (*((uint8_t *)off_11C310 + 88) & 0x20) == 0 && *((uint8_t *)off_11C310 + 90) > 1u )
-  {
-    v4 = *(uint8_t *)(v2 + 102);
-    v5 = rf_setup_dispatch(70, *((uint8_t *)off_11C310 + 88) & 0x20, *((uint8_t *)off_11C310 + 88) & 0x20, 20);
-    *(uint8_t *)v5 = 0;
-    *(uint8_t *)(v5 + 1) = *(uint8_t *)(v2 + 95);
-    *(uint8_t *)(v5 + 2) = *(uint8_t *)(v1 + 4);
-    *(uint8_t *)(v5 + 3) = *(uint8_t *)(v1 + 5);
-    v6 = *(uint16_t *)(v1 + 8);
-    v7 = *(uint16_t *)(v1 + 10);
-    v8 = dword_11C314;
-    *(uint16_t *)(v5 + 4) = *(uint16_t *)(v1 + 6);
-    *(uint16_t *)(v5 + 6) = v6;
-    *(uint16_t *)(v5 + 8) = v7;
-    *(uint8_t *)(v5 + 16) = *(uint8_t *)(v1 + 12);
-    *(uint32_t *)(v5 + 12) = (unsigned int)(((unsigned int)dword_11C318
-                                         * (uint64_t)(unsigned int)(*(uint32_t *)(v8 + 152 * v4 + 8) - 5000)) >> 32) >> 6;
-    result = rx_irq_handler_1(v5);
-    v3[88] |= 0x20u;
-  }
-  return result;
-}
-
-
-
 // rf_get_status_1 @ 0x11c26c
 int rf_get_status_1(int result) {
   int v1; // r7
@@ -51703,52 +37390,6 @@ int rf_get_status_1(int result) {
                                          * (uint64_t)(unsigned int)(*(uint32_t *)(v8 + 152 * v4 + 8) - 5000)) >> 32) >> 6;
     result = rx_irq_handler_1(v5);
     v3[88] |= 0x20u;
-  }
-  return result;
-}
-
-
-
-// rf_get_status_byte_n_a24 @ 0x11c324
-int rf_get_status_byte_n_a24(int result) {
-  int v1; // r3
-  int v2; // r2
-  int v3; // r1
-  int v4; // r3
-  uint32_t *v5; // r2
-  uint32_t *v6; // r2
-
-  if ( *(uint8_t *)(result + 25) )
-  {
-    v1 = 0;
-    v2 = dword_11C384;
-    while ( 1 )
-    {
-      v3 = *(uint32_t *)(v2 + 72);
-      v2 += 224;
-      if ( v3 == result )
-        break;
-      if ( ++v1 == 4 )
-      {
-        v4 = 15;
-        goto LABEL_6;
-      }
-    }
-    v4 = *(char *)(dword_11C384 + 224 * v1 + 97);
-    if ( v4 == 127 )
-      v4 = 15;
-LABEL_6:
-    v5 = (void *)(uintptr_t)(off_11C388);
-    *(uint8_t *)(result + 12) = v4;
-    if ( v5[10] == result )
-      return util_byte_to_hex(v4);
-  }
-  else
-  {
-    v6 = (void *)(uintptr_t)(off_11C388);
-    *(uint8_t *)(result + 12) = 15;
-    if ( v6[10] == result )
-      return util_byte_to_hex(15);
   }
   return result;
 }
@@ -51874,7 +37515,7 @@ int bt_conn_tx_schedule(int a1, int a2) {
       }
       while ( v20 != v19 );
     }
-    ((int (*)())list_push_tail)(dword_11C528);
+    list_push_tail(dword_11C528);
     if ( (v13[88] & 0xC) != 0 )
     {
       v18 = *((uint32_t *)v13 + 8);
@@ -51897,167 +37538,6 @@ int bt_conn_tx_schedule(int a1, int a2) {
   }
   check_interrupt_flag(256, dword_11C518, v12, a2);
   return rf_get_status_byte_n_a24(v7);
-}
-
-
-
-// lmac_table_lookup_n540 @ 0x11c540
-int lmac_table_lookup_n540(int a1) {
-  int16_t **v1; // r8
-  int v2; // r6
-  uint8_t *v3; // r5
-  int v5; // r10
-  int v6; // r9
-  char *v7; // r7
-  int v8; // r1
-  char v9; // r3
-  char v10; // r3
-  int v11; // r6
-  int v12; // r3
-  uint8_t v13; // r4
-  int v15; // r1
-  int16_t *v16; // r2
-  unsigned int v17; // r3
-  int v18; // r1
-  int v19; // r3
-  int v20; // r2
-  char *v21; // r1
-  int v22; // r0
-  int v23; // r3
-  int v24; // r3
-  char *v25; // r4
-  int v26; // r2
-  int v27; // r3
-
-  v1 = (int16_t **)off_11C77C;
-  v2 = dword_11C74C;
-  v3 = *(uint8_t **)(dword_11C74C + 224 * a1 + 72);
-  v5 = 8 * a1;
-  if ( **(int16_t **)off_11C77C < 0 && !v3 )
-    rf_cmd_send_n264(dword_11C760, dword_11C75C, 3149);
-  v6 = v2 + 32 * (v5 - a1);
-  v7 = (char *)off_11C750;
-  check_interrupt_flag(256, dword_11C754, v3[25], *((uint8_t *)off_11C750 + 91));
-  list_remove_node((int)(uintptr_t)(v7 + 16), (void *)(uintptr_t)(v2 + 224 * a1 + 76));
-  v9 = *(uint8_t *)(v6 + 85);
-  *(uint8_t *)(v6 + 85) = v9 & 0xFE;
-  if ( (v9 & 2) != 0 )
-  {
-    v10 = v7[91] - 1;
-    v7[91] = v10;
-    if ( !v10 && (v7[88] & 0x40) != 0 )
-    {
-      msg_parse(dword_11C758, v8);
-      rf_mailbox_post_n44(*((uint32_t *)v7 + 20));
-    }
-  }
-  v11 = v2 + 32 * (v5 - a1);
-  *(uint8_t *)(v11 + 85) = 0;
-  *(uint32_t *)(v11 + 72) = 0;
-  v12 = v3[16];
-  v13 = v3[25] - 1;
-  v3[25] = v13;
-  if ( v12 && !v13 )
-  {
-    list_remove_node(dword_11C764, (void *)(v3));
-    v3[16] = 0;
-    v16 = *v1;
-    v17 = (uint8_t)(v7[90] - 1);
-    v7[90] = v17;
-    if ( *v16 < 0 && v17 > 1 )
-    {
-      rf_cmd_send_n264(dword_11C770, dword_11C75C, 3210);
-      v17 = (uint8_t)v7[90];
-    }
-    if ( v17 )
-    {
-      list_init_1((void *)(uintptr_t)(dword_11C774));
-      v23 = dword_11C74C;
-      v15 = dword_11C74C + 896;
-      do
-      {
-        *(uint8_t *)(v23 + 85) &= ~1u;
-        v23 += 224;
-      }
-      while ( v15 != v23 );
-      if ( !*((uint32_t *)v7 + 20) )
-        rf_init_or_query();
-    }
-    if ( *((uint8_t **)v7 + 10) != v3 )
-    {
-      if ( *((uint8_t **)v7 + 11) != v3 )
-        return rf_get_status_byte_n_a24((int)v3);
-      v18 = v3[24];
-      v19 = v18 + 1;
-      if ( v18 == 2 )
-      {
-        if ( *((uint8_t *)off_11C768 + 24) != 255 )
-        {
-          v19 = 0;
-          v20 = 0;
-          goto LABEL_41;
-        }
-        v19 = 1;
-      }
-      else
-      {
-        v20 = 8 * v19;
-        if ( *((uint8_t *)off_11C768 + 28 * v19 + 24) != 255 )
-          goto LABEL_41;
-        v19 = v18 + 2;
-        if ( v18 == 1 )
-          v19 = 0;
-      }
-      v20 = 8 * v19;
-      if ( *((uint8_t *)off_11C768 + 28 * v19 + 24) == 255 )
-      {
-        v21 = 0;
-LABEL_22:
-        v22 = dword_11C76C;
-        *((uint32_t *)v7 + 11) = (int)(uintptr_t)(v21);
-        msg_parse(v22, v21);
-        return rf_get_status_byte_n_a24((int)v3);
-      }
-LABEL_41:
-      v21 = (char *)off_11C768 + 4 * (v20 - v19);
-      goto LABEL_22;
-    }
-    v24 = (uint8_t)v7[90];
-    *((uint32_t *)v7 + 10) = 0;
-    if ( !v24 )
-      return rf_get_status_byte_n_a24((int)v3);
-    v25 = *((char **)v7 + 11);
-    if ( v25 )
-      return rf_get_status_byte_n_a24((int)v3);
-    msg_parse(dword_11C778, v15);
-    v26 = v3[24];
-    v27 = v26 + 1;
-    if ( v26 == 2 )
-    {
-      if ( *((uint8_t *)off_11C768 + 24) == 255 )
-      {
-        v27 = 1;
-        goto LABEL_35;
-      }
-      v27 = 0;
-    }
-    else if ( *((uint8_t *)off_11C768 + 28 * v27 + 24) == 255 )
-    {
-      v27 = v26 + 2;
-      if ( v26 == 1 )
-        v27 = 0;
-LABEL_35:
-      if ( *((uint8_t *)off_11C768 + 28 * v27 + 24) == 255 )
-        goto LABEL_36;
-    }
-    v25 = (char *)off_11C768 + 28 * v27;
-LABEL_36:
-    if ( *((uint32_t *)v7 + 11) )
-      *((uint32_t *)v7 + 11) = (int)(uintptr_t)(v25);
-    else
-      list_search((int)v25);
-  }
-  return rf_get_status_byte_n_a24((int)v3);
 }
 
 
@@ -52279,52 +37759,6 @@ int ke_timer_register(int a1, int a2, int a3, int a4) {
 
 
 
-// rf_chan_set_n1cc @ 0x11c88c
-int rf_chan_set_n1cc() {
-  int v0; // r0
-  uint8_t *v1; // r4
-  int v2; // r0
-  unsigned int v3; // r2
-  unsigned int v4; // r3
-  int v5; // r1
-
-  if ( flash_write_byte(2) != 3 )
-  {
-    v0 = flash_write_byte(2);
-    msg_parse(dword_11C918, v0);
-  }
-  if ( **(int16_t **)off_11C91C < 0 && flash_write_byte(2) != 3 )
-    rf_cmd_send_n264(dword_11C928, dword_11C924, 201);
-  v1 = (void *)(uintptr_t)(off_11C920);
-  v2 = *(uint32_t *)off_11C920;
-  v3 = *(uint8_t *)(*(uint32_t *)off_11C920 + 367);
-  v4 = (uint8_t)(*((uint8_t *)off_11C920 + 10) + 1);
-  *((uint8_t *)off_11C920 + 10) = v4;
-  if ( v3 <= v4 || v1[11] )
-  {
-    isr_forward(v2 - 12);
-    v5 = *((uint16_t *)v1 + 4);
-    if ( v1[11] )
-    {
-      tx_buf_alloc(0, v5);
-      v1[11] = 0;
-    }
-    else
-    {
-      ke_evt_handler(2050, v5, 2);
-    }
-    ((int (*)())flash_erase_sector)(2);
-    return 0;
-  }
-  else
-  {
-    queue_remove();
-    return 0;
-  }
-}
-
-
-
 // ke_timer_check @ 0x11c88c
 int ke_timer_check() {
   int v0; // r0
@@ -52428,30 +37862,6 @@ int radio_send_command(int a1, int a2, int a3, int a4) {
 
 
 
-// fw_signature_check @ 0x11ca38
-int fw_signature_check(uint16_t *a1) {
-  int v1; // r3
-  int result; // r0
-
-  v1 = *a1;
-  result = *(uint32_t *)(*(uint32_t *)off_11CA90 + 16);
-  if ( v1 == 2412
-    || v1 == 2437
-    || v1 == 2462
-    || v1 == 2472
-    || v1 == 5180
-    || v1 == 5220
-    || v1 == 5765
-    || v1 == 5785
-    || v1 == 5805 )
-  {
-    result += 20000;
-  }
-  return result;
-}
-
-
-
 // rf_channel_compare @ 0x11ca38
 int rf_channel_compare(uint16_t *a1) {
   int v1; // r3
@@ -52551,24 +37961,6 @@ int queue_remove() {
     }
   }
   return ((int (*)())flash_erase_sector)(2);
-}
-
-
-
-// rf_pwr_tbl_init_n0c8 @ 0x11cb84
-int rf_pwr_tbl_init_n0c8(int a1) {
-  char *v1; // r4
-  uint32_t *v2; // r6
-  int result; // r0
-
-  v1 = (char *)off_11CBC0;
-  v2 = (void *)(uintptr_t)(off_11CBC4);
-  memcpy_large((void *)(uintptr_t)(off_11CBC0), (void *)(uintptr_t)(*(uint32_t *)(a1 + 360)), *(uint16_t *)(a1 + 364));
-  v2[1] = (int)(uintptr_t)(memchr(v1, *(uint16_t *)(*v2 + 364)));
-  result = queue_remove();
-  *(uint32_t *)&v1[-8] = *(uint32_t *)&v1[-12] - 1 + *(uint16_t *)(a1 + 364);
-  *((uint32_t *)v1 - 1) = 0;
-  return result;
 }
 
 
@@ -52727,22 +38119,6 @@ int rf_get_tx_power(int a1) {
 
 
 
-// rf_check_status_b4 @ 0x11cd68
-int rf_check_status_b4() {
-  int result; // r0
-
-  if ( **(int16_t **)off_11CDA0 < 0 && *(uint32_t *)off_11CDA8 << 28 )
-    return ((int (*)())ke_int_lock_1)(dword_11CDB0, dword_11CDAC, 105, *(uint32_t *)off_11CDA8);
-  if ( (*(uint32_t *)off_11CDA4 & 0x80) != 0 )
-  {
-    *(uint32_t *)off_11CDA4 &= ~0x80u;
-    return irq_nesting_or(0x2000000);
-  }
-  return result;
-}
-
-
-
 // rf_read_rssi @ 0x11cd68
 int rf_read_rssi() {
   int result; // r0
@@ -52801,12 +38177,12 @@ unsigned int rf_set_frequency(unsigned int result) {
     *v1 = v4 & ((result * ((*v1 >> 18) & 0x3FF) / v2) << 18) | *v1 & v5;
     if ( result == 240 )
     {
-      v21 = ((int (*)())math_round)(dword_11CFD8, dword_11CFDC);
+      v21 = math_round(dword_11CFD8, dword_11CFDC);
       v22 = ((int (*)())sub_127BA4)(v21);
       v23 = dword_11D010;
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (unsigned int *)off_11CFF4;
-      v25 = ((int (*)())math_round)(0, v23);
+      v25 = math_round(0, v23);
       *v24 = dword_11CFF8 & (((int (*)())sub_127BA4)(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
@@ -52815,7 +38191,7 @@ unsigned int rf_set_frequency(unsigned int result) {
       v8 = ((int (*)())sub_127620)(v7, HIDWORD(v7), dword_11CFD0, dword_11CFD4);
       v9 = ((int (*)())sub_127BE4)(v8);
       v10 = ((int (*)())sub_127570)(LODWORD(v9));
-      v11 = ((int (*)())math_round)(v10, HIDWORD(v10));
+      v11 = math_round(v10, HIDWORD(v10));
       *v1 = v4 & (((int (*)())sub_127BA4)(v11) << 18) | *v1 & v5;
     }
     v12 = (unsigned int *)off_11CFF4;
@@ -52897,129 +38273,6 @@ uint32_t *rf_cal_trim_check() {
         __enable_irq();
     }
   }
-  return result;
-}
-
-
-
-// mmio_init_40328050 @ 0x11d0b8
-int mmio_init_40328050() {
-  uint32_t *v0; // r2
-  unsigned int v1; // r0
-  uint32_t *v2; // r3
-  uint32_t *v3; // r2
-  int16_t **v4; // r1
-  char *v5; // r0
-  int *v6; // r3
-  uint32_t *v7; // r1
-  int v8; // r2
-  int *v9; // r4
-  int v10; // r5
-  uint8_t *v11; // r1
-  int *v12; // r3
-  uint32_t *v13; // r3
-  uint32_t *v14; // r4
-  unsigned int *v15; // r6
-  uint32_t *v16; // r2
-  uint32_t *v17; // r5
-  int result; // r0
-  uint32_t *v19; // r1
-  uint8_t **v20; // r2
-  uint32_t *v21; // r4
-  uint32_t *v22; // r6
-  int v23; // r0
-  unsigned int *v24; // r5
-  uint8_t v25; // [sp+6h] [bp-2h] BYREF
-  uint8_t v26; // [sp+7h] [bp-1h] BYREF
-
-  v0 = (void *)(uintptr_t)(off_11D2B0);
-  *(uint32_t *)off_11D2B0 = 1;
-  while ( (uint8_t)*v0 )
-    ;
-  v1 = sub_1005E8();
-  rf_set_frequency(v1);
-  v2 = (void *)(uintptr_t)(off_11D2B8);
-  *(uint32_t *)off_11D2B4 = dword_11D2BC;
-  v3 = (void *)(uintptr_t)(off_11D2C0);
-  *v2 = 0x80000000;
-  v4 = (int16_t **)off_11D2C4;
-  *v3 &= ~0x800u;
-  if ( **v4 < 0 && *(uint32_t *)off_11D2C8 < 0x13000000u )
-    rf_cmd_send_n264(dword_11D314, dword_11D310, 284);
-  v5 = (char *)off_11D2C8;
-  v6 = (int *)off_11D2CC;
-  v7 = (void *)(uintptr_t)(off_11D2C0);
-  v8 = dword_11D2D4;
-  *(uint32_t *)off_11D2C8 = dword_11D2D0;
-  *v6 = v8;
-  v9 = (int *)off_11D2D8;
-  v10 = dword_11D2DC;
-  *v7 |= 0x40007C0u;
-  *v7 &= ~0x4000000u;
-  v11 = (void *)(uintptr_t)(off_11D2E0);
-  v12 = v6 - 8199;
-  *(uint32_t *)&v5[-132] |= 0x10000u;
-  *v9 = v10;
-  *v12 |= 0xFF000000;
-  *v12 |= 0x800000u;
-  *v12 = *v12 & 0xFF80FFFF | 0x100000;
-  if ( !v11[2] )
-    *v12 = (HIWORD(*v12) << 16) | 0x64;
-  v13 = (void *)(uintptr_t)(off_11D2E4);
-  v14 = (void *)(uintptr_t)(off_11D2C0);
-  v15 = (unsigned int *)off_11D2EC;
-  *(uint32_t *)off_11D2E8 = 12288;
-  *v13 = 0;
-  rf_get_rssi(&v26, &v25);
-  v16 = (void *)(uintptr_t)(off_11D2F4);
-  *(uint32_t *)off_11D2F0 = (v26 << 8) | (v25 << 16) | v26;
-  v17 = (void *)(uintptr_t)(off_11D2F8);
-  *v14 |= 0x1000u;
-  *v14 |= 0x2000u;
-  *v16 |= 0x80000u;
-  *v16 &= ~0x80u;
-  result = lmac_rf_unk_1a9c();
-  v19 = (void *)(uintptr_t)(off_11D2FC);
-  *v15 = ((result + 1) << 26) & 0x1C000000 | *v15 & 0xE3FFFFFF;
-  v20 = (uint8_t **)off_11D300;
-  *v14 |= 0x20u;
-  *v17 &= ~1u;
-  *v19 |= 2u;
-  if ( **v20 == 1 )
-    *(uint32_t *)off_11D304 &= 0x80FFFFFF;
-  v21 = (void *)(uintptr_t)(off_11D2C0);
-  v22 = (void *)(uintptr_t)(off_11D308);
-  *(uint32_t *)off_11D2C0 |= 0x2000000u;
-  if ( (*v22 & 0x20000) != 0 )
-  {
-    result = phy_get_link_status();
-    if ( result )
-    {
-      v23 = chip_revision_get();
-      v24 = (unsigned int *)off_11D318;
-      result = v23 << 8;
-      *(uint32_t *)off_11D318 = result & 0x700 | *(uint32_t *)off_11D318 & 0xFFFFF8FF;
-      *v24 = *v24 & 0xFFFFFF1F | 0x60;
-      *v24 |= 4u;
-      *v24 |= 1u;
-      if ( (*v22 & 0x8000) != 0 )
-      {
-        result = sys_status_bit21_get();
-        if ( result )
-        {
-          *v21 |= 0x80000u;
-          *v24 = *v24 & 0xF1FFFFFF | 0x4000000;
-        }
-      }
-      if ( (*(uint32_t *)off_11D308 & 0x20000) != 0 )
-      {
-        result = mmio_get_bit_30();
-        if ( result )
-          *(uint32_t *)off_11D318 |= 2u;
-      }
-    }
-  }
-  *(uint32_t *)off_11D30C |= 1u;
   return result;
 }
 
@@ -53165,45 +38418,8 @@ void *rf_cmd_cancel() {
 
 
 
-// message_dispatch_n2fe @ 0x11d348
-int *message_dispatch_n2fe() {
-  uint32_t *v0; // r1
-  uint32_t *v1; // r0
-  uint32_t *v2; // r1
-  uint32_t *v3; // r2
-  int *result; // r0
-  uint32_t *v5; // r6
-  uint32_t *v6; // r4
-  int v7; // r5
-
-  v0 = (void *)(uintptr_t)(off_11D3C0);
-  v1 = (void *)(uintptr_t)(off_11D3C4);
-  *(uint32_t *)off_11D3BC &= ~0x80u;
-  *v0 = 0;
-  *v1 = 60;
-  while ( *v0 << 28 )
-    ;
-  v2 = (void *)(uintptr_t)(off_11D3C4);
-  v3 = (void *)(uintptr_t)(off_11D3C8);
-  result = (int *)off_11D3CC;
-  v5 = (void *)(uintptr_t)(off_11D3D0);
-  v6 = (void *)(uintptr_t)(off_11D3D4);
-  v7 = dword_11D3D8;
-  *(uint32_t *)off_11D3C4 |= 0x10000u;
-  *v3 &= 0xFFFFFF00;
-  *v5 = -1;
-  *result = v7;
-  *v6 |= 0x80000000;
-  result[4] |= 0x80000000;
-  v2[8197] |= 0x80000000;
-  *(v3 - 8208) |= 0x80u;
-  return result;
-}
-
-
-
-// rf_cmd_wait_1 @ 0x11d348
-int *rf_cmd_wait_1() {
+// rf_cmd_wait @ 0x11d348
+int *rf_cmd_wait() {
   uint32_t *v0; // r1
   uint32_t *v1; // r0
   uint32_t *v2; // r1
@@ -53819,156 +39035,6 @@ LABEL_10:
 
 
 
-// timer_set_relative @ 0x11dafc
-int timer_set_relative(int a1, int a2, unsigned int a3) {
-  int16_t **v3; // r11
-  int *v7; // r8
-  uint32_t *v8; // r10
-  int v9; // r6
-  int v10; // r4
-  int v11; // r2
-  int v12; // r0
-  unsigned int v13; // r5
-  int result; // r0
-  int v15; // r3
-  int v16; // r2
-  int v17; // r0
-
-  v3 = (int16_t **)off_11DC48;
-  if ( **(int16_t **)off_11DC48 < 0 )
-  {
-    if ( a3 )
-    {
-      if ( a3 > dword_11DC34 )
-        rf_cmd_send_n264(dword_11DC3C, dword_11DC38, 148);
-    }
-    else
-    {
-      rf_cmd_send_n264(dword_11DC40, dword_11DC38, 147);
-    }
-  }
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_11DC1C = 1;
-  }
-  v7 = (int *)off_11DC4C;
-  v8 = (void *)(uintptr_t)(off_11DC50);
-  v9 = *((uint32_t *)off_11DC50 + 5);
-  ++*(uint32_t *)off_11DC4C;
-  if ( v9 )
-    v9 = *(uint16_t *)(v9 + 4) == a1 && *(uint16_t *)(v9 + 6) == a2;
-  v10 = (int)(uintptr_t)(list_find_remove(dword_11DC24, (void *)(uintptr_t)(dword_11DC20), a2 | (a1 << 16)));
-  if ( !v10 )
-  {
-    v17 = align_size_plus4(12);
-    v10 = v17;
-    if ( **v3 < 0 && !v17 )
-      rf_cmd_send_n264(dword_11DC44, dword_11DC38, 165);
-    *(uint16_t *)(v10 + 4) = a1;
-    *(uint16_t *)(v10 + 6) = a2;
-  }
-  v11 = dword_11DC2C;
-  v12 = dword_11DC24;
-  v13 = a3 + *((uint32_t *)off_11DC28 + 4);
-  *(uint32_t *)(v10 + 8) = v13;
-  result = list_insert_sorted(v12, (void *)(uintptr_t)(v10), (void *)(uintptr_t)(v11));
-  if ( v9 )
-  {
-    v10 = v8[5];
-    if ( !v10 )
-      goto LABEL_10;
-LABEL_15:
-    result = ke_enter_critical(dword_11DC30, *(uint32_t *)(v10 + 8));
-    goto LABEL_10;
-  }
-  if ( v8[5] == v10 )
-    goto LABEL_15;
-LABEL_10:
-  if ( *v7 && (v15 = *v7 - 1, v16 = *(uint32_t *)off_11DC1C, (*v7 = v15) == 0) && v16 )
-  {
-    __enable_irq();
-    if ( (int)(v13 - *((uint32_t *)off_11DC28 + 4)) < 0 )
-      return irq_nesting_or(0x10000000);
-  }
-  else if ( (int)(v13 - *((uint32_t *)off_11DC28 + 4)) < 0 )
-  {
-    return irq_nesting_or(0x10000000);
-  }
-  return result;
-}
-
-
-
-// event_queue_push @ 0x11dc54
-int event_queue_push(int result, int a2) {
-  int *v2; // r5
-  uint32_t *v3; // r6
-  int v4; // r4
-  int v5; // r3
-  int v6; // r3
-  int v7; // r2
-  int v8; // r7
-  int v9; // r0
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_11DCEC = 1;
-  }
-  v2 = (int *)off_11DCF0;
-  v3 = (void *)(uintptr_t)(off_11DCF4);
-  v4 = *((uint32_t *)off_11DCF4 + 5);
-  v5 = *(uint32_t *)off_11DCF0 + 1;
-  *(uint32_t *)off_11DCF0 = v5;
-  if ( v4 )
-  {
-    if ( *(uint16_t *)(v4 + 4) == result && *(uint16_t *)(v4 + 6) == a2 )
-    {
-      list_pop_front((int)(uintptr_t)(v3 + 5));
-      v8 = v3[5];
-      v9 = (int)(v3 + 8);
-      if ( v8 )
-      {
-        ke_enter_critical(v9, *(uint32_t *)(v8 + 8));
-        if ( **(int16_t **)off_11DD00 < 0 && *(uint32_t *)(v8 + 8) - *((uint32_t *)off_11DD04 + 4) < 0 )
-          rf_cmd_send_n264(dword_11DD0C, dword_11DD08, 232);
-      }
-      else
-      {
-        timestamp_remove(v9);
-      }
-    }
-    else
-    {
-      result = (int)(uintptr_t)(list_find_remove(dword_11DCFC, (void *)(uintptr_t)(dword_11DCF8), a2 | (result << 16)));
-      v4 = result;
-      if ( !result )
-      {
-        v5 = *v2;
-        goto LABEL_8;
-      }
-    }
-    result = (int)(uintptr_t)(check_buffer_size((void *)(uintptr_t)(v4)));
-    v5 = *v2;
-  }
-LABEL_8:
-  if ( v5 )
-  {
-    v6 = v5 - 1;
-    v7 = *(uint32_t *)off_11DCEC;
-    *v2 = v6;
-    if ( !v6 )
-    {
-      if ( v7 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
 // ke_int_lock @ 0x11dc54
 int ke_int_lock(int result, int a2) {
   int *v2; // r5
@@ -54150,26 +39216,6 @@ int ke_task_retrieve(int a1, int a2) {
 
 
 
-// rf_setup_dispatch @ 0x11ddf0
-int rf_setup_dispatch(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
-  int v8; // r0
-  int v9; // r4
-
-  v8 = align_size_plus4(a4 + 12);
-  v9 = v8;
-  if ( **(int16_t **)off_11DE44 < 0 && !v8 )
-    rf_cmd_send_n264(dword_11DE4C, dword_11DE48, 145);
-  *(uint16_t *)(v9 + 4) = a1;
-  *(uint16_t *)(v9 + 6) = a2;
-  *(uint16_t *)(v9 + 8) = a3;
-  *(uint16_t *)(v9 + 10) = a4;
-  *(uint32_t *)v9 = 0;
-  sub_100200((int *)(v9 + 12), 0, a4);
-  return v9 + 12;
-}
-
-
-
 // ke_msg_send_1 @ 0x11ddf0
 int ke_msg_send_1(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
   int v8; // r0
@@ -54209,7 +39255,7 @@ int rx_irq_handler_1(int a1) {
   }
   else
   {
-    ((int (*)())list_push_tail)(dword_11DEC4);
+    list_push_tail(dword_11DEC4);
     return irq_nesting_or(0x4000000);
   }
 }
@@ -54229,49 +39275,6 @@ int ke_evt_handler(int16_t a1, int16_t a2, int16_t a3) {
 // isr_forward @ 0x11dee8
 int isr_forward(int a1) {
   return (int)(uintptr_t)(check_buffer_size((void *)(uintptr_t)(a1)));
-}
-
-
-
-// list_find_remove @ 0x11deec
-uint32_t * list_find_remove(int a1, int ( *a2)(uint32_t *, int), int a3) {
-  uint32_t *v3; // r4
-  uint32_t *v7; // r8
-  int i; // r0
-  int v9; // r3
-
-  v3 = *(uint32_t **)a1;
-  if ( !*(uint32_t *)a1 )
-    return 0;
-  v7 = 0;
-  for ( i = a2(v3, a3); ; i = a2(v3, a3) )
-  {
-    v9 = *v3;
-    if ( i )
-      break;
-    v7 = v3;
-    if ( !v9 )
-      return 0;
-    v3 = (uint32_t *)*v3;
-  }
-  if ( v7 )
-  {
-    *v7 = v9;
-    if ( *v3 )
-    {
-LABEL_8:
-      *v3 = 0;
-      return v3;
-    }
-  }
-  else
-  {
-    *(uint32_t *)a1 = v9;
-    if ( v9 )
-      goto LABEL_8;
-  }
-  *(uint32_t *)(a1 + 4) = (int)(uintptr_t)(v7);
-  return v3;
 }
 
 
@@ -54315,45 +39318,6 @@ LABEL_8:
   }
   *(uint32_t *)(a1 + 4) = (int)(uintptr_t)(v7);
   return v3;
-}
-
-
-
-// rx_queue_head_init @ 0x11df44
-uint32_t *rx_queue_head_init() {
-  uint32_t *result; // r0
-  uint32_t *v1; // r2
-  int v2; // r1
-  int v3; // r4
-  unsigned int v4; // r3
-  int *v5; // r3
-  int v6; // r3
-
-  result = (uint32_t *)(dword_11DF84 & 0xFFFFFFFC);
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_11DF88 = 1;
-  }
-  v1 = (void *)(uintptr_t)(off_11DF8C);
-  v2 = *(uint32_t *)off_11DF8C;
-  v3 = *(uint32_t *)off_11DF8C + 1;
-  v4 = (dword_11DF90 & 0xFFFFFFFC) - (uint32_t)result;
-  *(uint32_t *)off_11DF8C = v3;
-  *result = 0;
-  result[1] = v4;
-  if ( v3 )
-  {
-    v5 = (int *)off_11DF88;
-    *v1 = v2;
-    v6 = *v5;
-    if ( !v2 )
-    {
-      if ( v6 )
-        __enable_irq();
-    }
-  }
-  return result;
 }
 
 
@@ -54521,7 +39485,7 @@ uint32_t * check_buffer_size(char *a1) {
   *(uint32_t *)off_11E164 = v8;
   if ( !v2 )
   {
-    ((uint32_t *)(uintptr_t)&MEMORY)[0] = (int)(uintptr_t)(v5);
+    MEMORY[0] = (int)(uintptr_t)(v5);
     __und(0xFFu);
   }
   v9 = *((uint32_t *)v2 + 1);
@@ -54531,7 +39495,7 @@ uint32_t * check_buffer_size(char *a1) {
     {
       if ( **v1 < 0 )
         rf_cmd_send_n264(dword_11E170, dword_11E168, 247);
-      ((uint32_t *)(uintptr_t)&MEMORY)[0] = (int)(uintptr_t)(v5);
+      MEMORY[0] = (int)(uintptr_t)(v5);
       __und(0xFFu);
     }
     while ( 1 )
@@ -54699,7 +39663,7 @@ LABEL_3:
     *v7 = a2;
     while ( 1 )
     {
-      result = list_find_remove(v10, v9, a1);
+      result = (void *)(uintptr_t)(list_find_remove(v10, v9, a1));
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
@@ -54710,7 +39674,7 @@ LABEL_3:
       v12 = (int *)off_11E324;
       v13 = dword_11E328;
       ++*(uint32_t *)off_11E324;
-      ((int (*)())list_push_tail)(v13);
+      list_push_tail(v13);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -54903,7 +39867,7 @@ int set_busy_flag() {
         goto LABEL_12;
       if ( result == 2 )
       {
-        result = ((int (*)())list_push_tail)(dword_11E5D4);
+        result = list_push_tail(dword_11E5D4);
         goto LABEL_12;
       }
       if ( result )
@@ -54941,44 +39905,6 @@ LABEL_12:
     if ( !v9 )
     {
       if ( v10 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
-// irq_nesting_or @ 0x11e5e0
-int irq_nesting_or(int a1) {
-  uint32_t *v1; // r2
-  int *v2; // r5
-  int v3; // r1
-  int v4; // r4
-  int result; // r0
-  int *v6; // r3
-  int v7; // r3
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_11E614 = 1;
-  }
-  v1 = (void *)(uintptr_t)(off_11E618);
-  v2 = (int *)off_11E61C;
-  v3 = *(uint32_t *)off_11E618;
-  v4 = *(uint32_t *)off_11E618 + 1;
-  result = a1 | *(uint32_t *)off_11E61C;
-  *(uint32_t *)off_11E618 = v4;
-  *v2 = result;
-  if ( v4 )
-  {
-    v6 = (int *)off_11E614;
-    *v1 = v3;
-    v7 = *v6;
-    if ( !v3 )
-    {
-      if ( v7 )
         __enable_irq();
     }
   }
@@ -55063,60 +39989,6 @@ int enter_critical_section_1(int a1) {
 
 
 
-// rf_init_handler_1 @ 0x11e66c
-void rf_init_handler_1() {
-  unsigned int *v0; // r6
-  unsigned int v1; // r4
-  int16_t **v2; // r8
-  int v3; // r5
-  void *v4; // r7
-  int v5; // r10
-  int v6; // r9
-  int v7; // r4
-  void ( *v8)(uint32_t); // r3
-
-  v0 = (unsigned int *)sdio_buffer_prepare_split;
-  v1 = *(uint32_t *)sdio_buffer_prepare_split;
-  if ( *(uint32_t *)sdio_buffer_prepare_split )
-  {
-    v2 = (int16_t **)off_11E6E0;
-    v3 = (int)(uintptr_t)(sdio_buffer_prepare_n_4dc);
-    v4 = sdio_buffer_prepare_n_4d8;
-    v5 = dword_11E6E4;
-    v6 = dword_11E6E8;
-    while ( 1 )
-    {
-      v7 = __clz(v1);
-      if ( **v2 < 0 )
-      {
-        if ( v7 <= 23 )
-        {
-          v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
-          if ( v8 )
-            goto LABEL_5;
-        }
-        rf_cmd_send_n264(v6, v5, 230);
-      }
-      v8 = *(void ( **)(uint32_t))(v3 + 8 * v7);
-LABEL_5:
-      v8(*(uint32_t *)(v3 + 8 * v7 + 4));
-      v1 = *v0;
-      if ( *(uint8_t *)(*(uint32_t *)v4 + 3) )
-      {
-        memory_barrier_write();
-        if ( !v1 )
-          return;
-      }
-      else if ( !v1 )
-      {
-        return;
-      }
-    }
-  }
-}
-
-
-
 // process_event_queue @ 0x11e66c
 void process_event_queue() {
   unsigned int *v0; // r6
@@ -55171,28 +40043,6 @@ LABEL_5:
 
 
 
-// sdio_buffer_prepare_6ec @ 0x11e6ec
-int sdio_buffer_prepare_6ec() {
-  uint32_t *v0; // r0
-  uint32_t *v1; // r3
-  int v2; // r1
-
-  v0 = rx_queue_head_init();
-  v1 = (void *)(uintptr_t)(off_11E714);
-  v2 = (int)(uintptr_t)(sdio_buffer_prepare_n_49c);
-  *((uint32_t *)off_11E714 + 7) = (int)(uintptr_t)(v0);
-  v1[3] = 0;
-  v1[4] = 0;
-  v1[1] = 0;
-  v1[2] = 0;
-  v1[5] = 0;
-  v1[6] = 0;
-  v1[9] = v2;
-  return enter_critical_section_1(-1);
-}
-
-
-
 // init_event_control @ 0x11e6ec
 int init_event_control() {
   uint32_t *v0; // r0
@@ -55219,24 +40069,6 @@ int init_event_control() {
 uint32_t * list_init_1(uint32_t *result) {
   *result = 0;
   result[1] = 0;
-  return result;
-}
-
-
-
-// list_push_tail @ 0x11e724
-int list_push_tail(int result, uint32_t *a2) {
-  int v2; // r5
-
-  v2 = result;
-  if ( **(int16_t **)off_11E760 < 0 && !a2 )
-    result = rf_cmd_send_n264(dword_11E768, (int)(uintptr_t)(sdio_buffer_prepare_n_450), 72);
-  if ( *(uint32_t *)v2 )
-    **(uint32_t **)(v2 + 4) = (int)(uintptr_t)(a2);
-  else
-    *(uint32_t *)v2 = (int)(uintptr_t)(a2);
-  *(uint32_t *)(v2 + 4) = (int)(uintptr_t)(a2);
-  *a2 = 0;
   return result;
 }
 
@@ -55300,49 +40132,6 @@ uint32_t * list_pop_front(int a1) {
 
 
 
-// list_remove_node @ 0x11e7c4
-int list_remove_node(int result, uint32_t *a2) {
-  int v2; // r5
-  uint32_t *v4; // r3
-  uint32_t *v5; // r2
-  uint32_t *v6; // r3
-
-  v2 = result;
-  if ( **(int16_t **)off_11E820 < 0 && !result )
-    result = rf_cmd_send_n264((int)(uintptr_t)(sdio_buffer_prepare_n_38c), dword_11E824, 132);
-  v4 = *(uint32_t **)v2;
-  if ( *(uint32_t *)v2 )
-  {
-    if ( v4 == a2 )
-    {
-      v6 = *(uint32_t **)(v2 + 4);
-      *(uint32_t *)v2 = *a2;
-      if ( v6 == a2 )
-        *(uint32_t *)(v2 + 4) = 0;
-    }
-    else
-    {
-      while ( 1 )
-      {
-        v5 = v4;
-        v4 = (uint32_t *)*v4;
-        if ( !v4 )
-          break;
-        if ( v4 == a2 )
-        {
-          if ( *(uint32_t **)(v2 + 4) == a2 )
-            *(uint32_t *)(v2 + 4) = (int)(uintptr_t)(v5);
-          *v5 = *a2;
-          return result;
-        }
-      }
-    }
-  }
-  return result;
-}
-
-
-
 // check_kernel_state_alt2 @ 0x11e7c4
 int check_kernel_state_alt2(int result, uint32_t *a2) {
   int v2; // r5
@@ -55401,46 +40190,6 @@ int list_count(uint32_t **a1) {
     ++result;
   }
   while ( v1 );
-  return result;
-}
-
-
-
-// list_insert_sorted @ 0x11e840
-int list_insert_sorted(int result, uint32_t *a2, int ( *a3)(uint32_t *, uint32_t *)) {
-  uint32_t *v3; // r4
-  uint32_t *v4; // r7
-  uint32_t *v7; // r8
-
-  v3 = *(uint32_t **)result;
-  v4 = (uint32_t *)result;
-  if ( *(uint32_t *)result )
-  {
-    v7 = 0;
-    for ( result = a3(a2, v3); !result; result = a3(a2, v3) )
-    {
-      v7 = v3;
-      if ( !*v3 )
-      {
-        v4[1] = (int)(uintptr_t)(a2);
-        *a2 = 0;
-        goto sdio_buffer_prepare_n_33c;
-      }
-      v3 = (uint32_t *)*v3;
-    }
-    *a2 = (int)(uintptr_t)(v3);
-    if ( !v7 )
-      goto sdio_buffer_prepare_n_346;
-sdio_buffer_prepare_n_33c:
-    *v7 = (int)(uintptr_t)(a2);
-  }
-  else
-  {
-    *(uint32_t *)(result + 4) = (int)(uintptr_t)(a2);
-    *a2 = 0;
-sdio_buffer_prepare_n_346:
-    *v4 = (int)(uintptr_t)(a2);
-  }
   return result;
 }
 
@@ -55644,98 +40393,6 @@ float branch_to_127228(int a1) {
 
 
 
-// sdio_buffer_prepare_n_e8 @ 0x11eacc
-float sdio_buffer_prepare_n_e8(float a1) {
-  int v1; // r1
-  int v2; // r2
-  int v3; // r3
-  int v4; // r1
-  int v5; // r2
-  int v6; // r3
-  int v7; // r1
-  int v8; // r2
-  int v9; // r3
-  int v10; // r1
-  int v11; // r2
-  int v12; // r3
-  int v13; // r1
-  int v14; // r2
-  int v15; // r3
-  int v16; // r1
-  int v17; // r2
-  int v18; // r3
-  int v19; // r1
-  int v20; // r2
-  int v21; // r3
-  int v22; // r1
-  int v23; // r2
-  int v24; // r3
-  float v25; // s15
-  uint32_t v27[16]; // [sp+0h] [bp-80h]
-  uint32_t v28[16]; // [sp+40h] [bp-40h]
-
-  v1 = *(uint32_t *)(dword_11EB44 + 260);
-  v2 = *(uint32_t *)(dword_11EB44 + 264);
-  v3 = *(uint32_t *)(dword_11EB44 + 268);
-  v27[0] = *(uint32_t *)(dword_11EB44 + 256);
-  v27[1] = v1;
-  v27[2] = v2;
-  v27[3] = v3;
-  v4 = *(uint32_t *)(dword_11EB44 + 276);
-  v5 = *(uint32_t *)(dword_11EB44 + 280);
-  v6 = *(uint32_t *)(dword_11EB44 + 284);
-  v27[4] = *(uint32_t *)(dword_11EB44 + 272);
-  v27[5] = v4;
-  v27[6] = v5;
-  v27[7] = v6;
-  v7 = *(uint32_t *)(dword_11EB44 + 292);
-  v8 = *(uint32_t *)(dword_11EB44 + 296);
-  v9 = *(uint32_t *)(dword_11EB44 + 300);
-  v27[8] = *(uint32_t *)(dword_11EB44 + 288);
-  v27[9] = v7;
-  v27[10] = v8;
-  v27[11] = v9;
-  v10 = *(uint32_t *)(dword_11EB44 + 308);
-  v11 = *(uint32_t *)(dword_11EB44 + 312);
-  v12 = *(uint32_t *)(dword_11EB44 + 316);
-  v27[12] = *(uint32_t *)(dword_11EB44 + 304);
-  v27[13] = v10;
-  v27[14] = v11;
-  v27[15] = v12;
-  v13 = *(uint32_t *)(dword_11EB44 + 324);
-  v14 = *(uint32_t *)(dword_11EB44 + 328);
-  v15 = *(uint32_t *)(dword_11EB44 + 332);
-  v28[0] = *(uint32_t *)(dword_11EB44 + 320);
-  v28[1] = v13;
-  v28[2] = v14;
-  v28[3] = v15;
-  v16 = *(uint32_t *)(dword_11EB44 + 340);
-  v17 = *(uint32_t *)(dword_11EB44 + 344);
-  v18 = *(uint32_t *)(dword_11EB44 + 348);
-  v28[4] = *(uint32_t *)(dword_11EB44 + 336);
-  v28[5] = v16;
-  v28[6] = v17;
-  v28[7] = v18;
-  v19 = *(uint32_t *)(dword_11EB44 + 356);
-  v20 = *(uint32_t *)(dword_11EB44 + 360);
-  v21 = *(uint32_t *)(dword_11EB44 + 364);
-  v28[8] = *(uint32_t *)(dword_11EB44 + 352);
-  v28[9] = v19;
-  v28[10] = v20;
-  v28[11] = v21;
-  v22 = *(uint32_t *)(dword_11EB44 + 372);
-  v23 = *(uint32_t *)(dword_11EB44 + 376);
-  v24 = *(uint32_t *)(dword_11EB44 + 380);
-  v28[12] = *(uint32_t *)(dword_11EB44 + 368);
-  v28[13] = v22;
-  v28[14] = v23;
-  v28[15] = v24;
-  v25 = COERCE_FLOAT(v28[(LODWORD(a1) >> 20) & 0xF] + (LODWORD(a1) >> 1)) * *(float *)&v27[(LODWORD(a1) >> 20) & 0xF];
-  return (float)((float)(a1 / v25) + v25) * 0.5;
-}
-
-
-
 // hash_const_init @ 0x11eacc
 float hash_const_init(float a1) {
   int v1; // r1
@@ -55876,25 +40533,9 @@ uint8_t * memchr(uint8_t *result, int a2) {
 
 
 
-// rf_mem_read_n_ec @ 0x11f4a8
-int rf_mem_read_n_ec(int result) {
-  *(uint32_t *)rf_mem_read_n_e4 = result;
-  return result;
-}
-
-
-
 // set_global_ptr @ 0x11f4a8
 int set_global_ptr(int result) {
   *(uint32_t *)off_11F4B0 = result;
-  return result;
-}
-
-
-
-// rf_bus_write_n144 @ 0x11f4b4
-int rf_bus_write_n144(int result) {
-  *((uint32_t *)rf_mem_read_n_d8 + 1) = result;
   return result;
 }
 
@@ -55908,13 +40549,6 @@ int set_global_variable(int result) {
 
 
 
-// rf_mem_read_f4c0 @ 0x11f4c0
-int rf_mem_read_f4c0() {
-  return *(uint32_t *)rf_mem_write_short;
-}
-
-
-
 // get_event_flags @ 0x11f4c0
 int get_event_flags() {
   return *(uint32_t *)off_11F4C8;
@@ -55922,30 +40556,9 @@ int get_event_flags() {
 
 
 
-// rf_mem_read_n_c8 @ 0x11f4cc
-int rf_mem_read_n_c8() {
-  return *((uint32_t *)rf_mem_read_f4d4 + 1);
-}
-
-
-
 // get_event_handler @ 0x11f4cc
 int get_event_handler() {
   return *((uint32_t *)off_11F4D4 + 1);
-}
-
-
-
-// rf_feature_check @ 0x11f4d8
-BOOL rf_feature_check(unsigned int a1, unsigned int a2) {
-  BOOL result; // r0
-
-  if ( a1 > 9 )
-    return 0;
-  result = (*(uint32_t *)off_11F500 >> a1) & 1;
-  if ( result )
-    return *((uint32_t *)off_11F500 + 1) >= a2;
-  return result;
 }
 
 
@@ -55959,57 +40572,6 @@ BOOL test_event_flag(unsigned int a1, unsigned int a2) {
   result = (*(uint32_t *)off_11F500 >> a1) & 1;
   if ( result )
     return *((uint32_t *)off_11F500 + 1) >= a2;
-  return result;
-}
-
-
-
-// msg_parse @ 0x11f504
-int msg_parse(int result, ...) {
-  uint32_t *v1; // r6
-  uint8_t *v2; // r4
-  int16_t **v3; // r8
-  int v4; // r10
-  int v5; // r9
-  unsigned int v6; // r5
-  unsigned int v7; // t1
-  char v8; // r2
-  int varg_r0; // [sp+28h] [bp+20h]
-  va_list varg_r1; // [sp+2Ch] [bp+24h] BYREF
-
-  va_start(varg_r1, result);
-  varg_r0 = result;
-  v1 = (void *)(rf_mem_read_n_10);
-  if ( *((uint32_t *)rf_mem_read_n_10 + 1) )
-  {
-    v2 = (uint8_t *)result;
-    v3 = (int16_t **)off_11F588;
-    v4 = dword_11F58C;
-    v5 = dword_11F590;
-    do
-    {
-      result = (int)v2;
-      v7 = *v2++;
-      v6 = v7;
-      v8 = v7 + 0x80;
-      if ( (v7 & 0x80) == 0 )
-        break;
-      if ( v6 > 0x89 )
-      {
-        if ( **v3 < 0 && (uint8_t)(v6 + 102) > 5u )
-          result = rf_cmd_send_n264(v5, v4, 812);
-        if ( v1[1] <= v6 - 154 )
-          return result;
-      }
-      else if ( (((unsigned int)~*v1 >> v8) & 1) != 0 )
-      {
-        return result;
-      }
-      result = (int)v2;
-    }
-    while ( (uint8_t *)(varg_r0 + 2) != v2 );
-    return message_dispatch_n286(result, (int)(uintptr_t)(*(void **)&(varg_r1)));
-  }
   return result;
 }
 
@@ -56062,172 +40624,6 @@ int dispatch_event_handler_1(int result, ...) {
     return hci_cmd_init(result, (int)(uintptr_t)(*(void **)&(varg_r1)));
   }
   return result;
-}
-
-
-
-// rf_mem_read_f594 @ 0x11f594
-unsigned int rf_mem_read_f594(unsigned int result, int a2, int a3, int a4) {
-  int v4; // r4
-  int v5; // r9
-  unsigned int v6; // r5
-  unsigned int v7; // r7
-  int v8; // r8
-  int v9; // r10
-  uint16_t *v10; // r6
-  unsigned int v11; // r11
-  int v12; // r1
-  int v13; // r0
-  int v14; // r10
-  uint8_t *v15; // r11
-  int v16; // r4
-  unsigned int v17; // r8
-  unsigned int v19; // r8
-  int v20; // r0
-  int v21; // r10
-  unsigned int v22; // r8
-  unsigned int cb_efa4; // r6
-  unsigned int v24; // [sp+Ch] [bp-10h]
-  int v26; // [sp+14h] [bp-8h]
-
-  if ( !a2 )
-    return result;
-  v4 = a3;
-  if ( a3 != 4 && (unsigned int)(a3 - 1) > 1 )
-    return result;
-  v5 = dword_11F73C;
-  v24 = a2 * a3;
-  v6 = -a3 & result;
-  while ( 1 )
-  {
-    msg_parse(dword_11F728, v6);
-    v7 = v24;
-    if ( v24 >= 0x10 )
-      v7 = 16;
-    if ( ((v6 >> 20) & 0xFFFFFDFF) == 0x500 )
-    {
-      if ( !v24 )
-        return (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
-      v21 = dword_11F72C;
-      v22 = 0;
-      while ( 1 )
-      {
-        cb_efa4 = rf_reg_read_cb_efa4();
-        if ( v4 == 4 )
-          break;
-        if ( v4 == 2 )
-        {
-          v22 += 4;
-          msg_parse(dword_11F738, (uint16_t)cb_efa4, HIWORD(cb_efa4), BYTE2(cb_efa4));
-          v6 += 4;
-          if ( v7 <= v22 )
-          {
-rf_mem_read_n166:
-            a4 = 0;
-            goto rf_mem_read_nfa;
-          }
-        }
-        else
-        {
-          msg_parse(v5);
-rf_mem_read_6b8:
-          v22 += 4;
-          v6 += 4;
-          if ( v7 <= v22 )
-            goto rf_mem_read_n166;
-        }
-      }
-      msg_parse(v21, cb_efa4, BYTE1(cb_efa4), BYTE2(cb_efa4));
-      goto rf_mem_read_6b8;
-    }
-    if ( v24 )
-      break;
-    if ( a4 )
-    {
-      v10 = (uint16_t *)v6;
-      goto rf_mem_read_n90;
-    }
-rf_mem_read_nfa:
-    result = (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
-    v24 -= v7;
-    if ( !v24 )
-      return result;
-  }
-  v8 = dword_11F740;
-  v9 = dword_11F744;
-  v10 = (uint16_t *)v6;
-  v11 = 0;
-  do
-  {
-    while ( 1 )
-    {
-      v13 = v8;
-      if ( v4 != 4 )
-        break;
-      v11 += 4;
-      msg_parse(dword_11F72C, *(uint32_t *)v10);
-      v10 += 2;
-      if ( v7 <= v11 )
-        goto rf_mem_read_0;
-    }
-    if ( v4 == 2 )
-      v12 = *v10;
-    else
-      v12 = *(uint8_t *)v10;
-    if ( v4 == 2 )
-      v13 = v9;
-    v11 += v4;
-    msg_parse(v13, v12);
-    v10 = (uint16_t *)((char *)v10 + v4);
-  }
-  while ( v7 > v11 );
-rf_mem_read_0:
-  if ( !a4 )
-    goto LABEL_30;
-  if ( v24 > 0xF )
-  {
-    uart_puts((uint8_t *)dword_11F730);
-    goto LABEL_26;
-  }
-rf_mem_read_n90:
-  v14 = v4 - 1;
-  v26 = v4;
-  v15 = (uint8_t *)rf_mem_read_n1b4;
-  v16 = 0;
-  v17 = 16 - v7;
-  do
-  {
-    while ( (v14 & v16++) != 0 )
-    {
-      uart_puts(v15);
-      if ( v17 == v16 )
-        goto rf_mem_read_ncc;
-    }
-    uart_putc(32);
-    uart_puts(v15);
-  }
-  while ( v17 != v16 );
-rf_mem_read_ncc:
-  v4 = v26;
-  uart_puts((uint8_t *)dword_11F730);
-  if ( v24 )
-  {
-LABEL_26:
-    v19 = 0;
-    do
-    {
-      v20 = *(uint8_t *)(v6 + v19);
-      if ( (unsigned int)(v20 - 31) > 0x5F )
-        v20 = 46;
-      ++v19;
-      uart_putc(v20);
-    }
-    while ( v7 > v19 );
-LABEL_30:
-    v6 = (unsigned int)v10;
-    goto rf_mem_read_nfa;
-  }
-  return (unsigned int)uart_puts((uint8_t *)rf_mem_read_n1a0);
 }
 
 
@@ -56411,1756 +40807,12 @@ int check_interrupt_flag(int result, int a2, int a3, int a4) {
 
 
 
-// rf_msg_process_body_n_ee @ 0x11f774
-int rf_msg_process_body_n_ee() {
-  msg_parse(dword_11F794);
-  event_queue_push(1071, 1);
-  *((uint32_t *)off_11F798 + 20) &= ~2u;
-  return 0;
-}
-
-
-
 // enable_radio @ 0x11f774
 int enable_radio() {
   dispatch_event_handler_1(dword_11F794);
   ke_int_lock(1071, 1);
   *((uint32_t *)off_11F798 + 20) &= ~2u;
   return 0;
-}
-
-
-
-// rf_mem_read_n208 @ 0x11f79c
-int rf_mem_read_n208(int a1, int a2, int16_t a3, int16_t a4) {
-  uint32_t *v5; // r0
-  uint32_t *v6; // r5
-  unsigned int v7; // r3
-  int v8; // r2
-  uint8_t *v9; // r6
-  unsigned int v10; // r9
-  unsigned int v11; // r10
-  int v12; // r8
-  uint32_t *v13; // r7
-  uint16_t *v14; // r0
-  unsigned int v15; // r1
-  int v16; // r0
-  int v17; // r4
-  unsigned int v18; // r2
-  uint32_t *v19; // r10
-  int v21; // r4
-  int v22; // r4
-  int v23; // r4
-  unsigned int v24; // r2
-  int v25; // r7
-  int v26; // r4
-  int v27; // r4
-  int v28; // r2
-  int v29; // r1
-  int v30; // r0
-  int v31; // r0
-  unsigned int v32; // r0
-  int v33; // r1
-  unsigned int v34; // r0
-  int v35; // r1
-  uint32_t *v36; // r2
-  uint32_t *v37; // r1
-  uint32_t *v38; // r3
-  int v39; // r4
-  unsigned int *v40; // r6
-  int v41; // r4
-  uint8_t n; // r0
-  int v43; // r6
-  int v44; // r4
-  int v45; // r4
-  int v46; // r7
-  int v47; // r0
-  uint32_t *v48; // r2
-  unsigned int v49; // r1
-  unsigned int v50; // r2
-  int v51; // r4
-  unsigned int v52; // r2
-  unsigned int v53; // r6
-  int16_t v54; // r7
-  unsigned int v55; // r8
-  unsigned int v56; // r4
-  int v57; // r3
-  int v58; // r7
-  uint32_t *v59; // r1
-  int *v60; // r6
-  uint32_t *v61; // r7
-  uint32_t *v62; // r3
-  int v63; // r9
-  uint32_t *v64; // r8
-  int v65; // r3
-  int v66; // r3
-  int v67; // r2
-  unsigned int v68; // r6
-  int v69; // r4
-  int16_t v70; // r3
-  int16_t v71; // r3
-  uint32_t *v72; // r1
-  int v73; // r4
-  uint32_t *v74; // r3
-  unsigned int v75; // r0
-  int v76; // r1
-  unsigned int v77; // r2
-  unsigned int v78; // r3
-  int *v79; // r6
-  uint32_t *v80; // r4
-  uint32_t *v81; // r7
-  int v82; // r8
-  int v83; // r3
-  int v84; // r3
-  int v85; // r2
-  int v86; // r1
-  int v87; // r2
-  int v88; // r0
-  int v89; // r8
-  unsigned int v90; // r9
-  int v91; // r11
-  unsigned int v92; // r4
-  int v93; // r1
-  int v94; // r10
-  int v95; // r7
-  int v96; // r9
-  int v97; // r8
-  uint64_t v98; // kr00_8
-  int v99; // r3
-  int16_t v100; // r2
-  int v101; // r3
-  int v102; // r0
-  int *v103; // r4
-  int v104; // r3
-  int v105; // r2
-  int v106; // r6
-  uint32_t *v107; // r3
-  int v108; // r0
-  int v109; // r3
-  unsigned int v110; // r8
-  unsigned int v111; // r9
-  int v112; // r10
-  int v113; // r7
-  int v114; // r6
-  int v115; // r11
-  int v116; // r4
-  unsigned int v117; // r4
-  int *v118; // r8
-  uint32_t *v119; // r0
-  uint8_t *v120; // r1
-  unsigned int v121; // r4
-  int *v122; // r3
-  int v123; // r6
-  uint32_t *v124; // r3
-  int v125; // r3
-  int v126; // r4
-  int v127; // r0
-  float v128; // r0
-  uint64_t v129; // r0
-  int v130; // r0
-  int v131; // r8
-  unsigned int *v132; // r1
-  unsigned int *v133; // r4
-  int v134; // r6
-  uint32_t *v135; // r2
-  uint32_t *v136; // r0
-  uint32_t *v137; // r6
-  int v138; // r4
-  unsigned int v139; // r0
-  unsigned int v140; // r0
-  int v141; // r1
-  unsigned int v142; // r3
-  int v143; // r2
-  unsigned int v144; // r7
-  int v145; // r2
-  BOOL v146; // r3
-  int v147; // r3
-  int v148; // r1
-  int v149; // r0
-  uint32_t *v150; // r4
-  int v151; // r0
-  unsigned int v152; // r1
-  unsigned int v153; // r3
-  unsigned int v154; // r8
-  int v155; // r4
-  int v156; // r6
-  int16_t v157; // r3
-  int16_t v158; // r1
-  int v159; // r6
-  int v160; // r7
-  int v161; // r9
-  int v162; // r11
-  int v163; // r7
-  int i; // r8
-  char *v165; // r10
-  int j; // r4
-  int v167; // r6
-  int v168; // t1
-  int v169; // r9
-  int v170; // r11
-  int v171; // r7
-  int k; // r8
-  char *v173; // r10
-  int m; // r4
-  int v175; // r6
-  int v176; // t1
-  int v177; // r9
-  int v178; // r8
-  int kk; // r6
-  int mm; // r4
-  int v181; // r1
-  int v182; // r11
-  int v183; // r8
-  int nn; // r9
-  int i1; // r4
-  int v186; // r1
-  int v187; // r0
-  int inited; // r0
-  int v189; // r0
-  int v190; // r1
-  int v191; // r0
-  int v192; // r0
-  int v193; // r4
-  uint64_t v194; // r2
-  uint64_t v195; // r0
-  int v196; // r4
-  uint64_t v197; // r2
-  unsigned int v198; // r4
-  uint32_t *v199; // r3
-  uint32_t *v200; // r1
-  uint8_t *v201; // r2
-  uint8_t *v202; // r2
-  char v203; // r0
-  unsigned int v204; // r1
-  int v205; // r3
-  int *v206; // r4
-  int v207; // r3
-  int v208; // r1
-  int v209; // r2
-  BOOL v210; // r3
-  uint8_t *v211; // r6
-  unsigned int v212; // r7
-  unsigned int v213; // r8
-  int v214; // r4
-  uint16_t *v215; // r0
-  unsigned int v216; // r1
-  int v217; // r0
-  int v218; // r3
-  unsigned int v219; // r1
-  uint64_t v220; // r0
-  uint64_t v221; // r0
-  uint64_t v222; // r0
-  int v223; // r9
-  int v224; // r10
-  int v225; // r8
-  unsigned int jj; // r4
-  int v227; // r6
-  int v228; // t1
-  int v229; // r9
-  int v230; // r10
-  int v231; // r8
-  unsigned int ii; // r4
-  int v233; // r6
-  int v234; // t1
-  uint8_t v235[72]; // [sp+3Ch] [bp-468h] BYREF
-  int v236; // [sp+84h] [bp-420h]
-  int v237; // [sp+88h] [bp-41Ch]
-  int v238; // [sp+8Ch] [bp-418h]
-  unsigned int v239; // [sp+90h] [bp-414h] BYREF
-  unsigned int v240; // [sp+94h] [bp-410h] BYREF
-  int16_t v241; // [sp+98h] [bp-40Ch]
-  int16_t v242; // [sp+9Ah] [bp-40Ah]
-  char v243; // [sp+9Eh] [bp-406h]
-  uint64_t v244; // [sp+A0h] [bp-404h] BYREF
-  uint8_t v245; // [sp+A8h] [bp-3FCh]
-  char v246; // [sp+AAh] [bp-3FAh]
-
-  v5 = (uint32_t *)rf_setup_dispatch(1044, a4, a3, 0x48u);
-  v6 = v5;
-  switch ( *(uint32_t *)a2 )
-  {
-    case 0:
-      if ( *(uint8_t *)off_120670 == 1 )
-      {
-        v202 = (void *)(uintptr_t)(off_12112C);
-        *(uint8_t *)off_120670 = 0;
-        *v202 = 0;
-        event_queue_push(144, 0);
-      }
-      v106 = *(uint32_t *)off_120674 & 0xF;
-      if ( v106 == 3 )
-        message_dispatch_n2fe();
-      v107 = (void *)(uintptr_t)(off_120674);
-      v108 = dword_12067C;
-      *(uint32_t *)off_120678 = 0;
-      *v107 = 16 * v106;
-      msg_parse(v108, *(uint32_t *)(a2 + 4));
-      v109 = *(uint8_t *)(a2 + 10);
-      v110 = *(uint8_t *)(a2 + 9);
-      v111 = *(uint8_t *)(a2 + 8);
-      v112 = *(uint8_t *)(a2 + 11);
-      v113 = (uint16_t)(*(uint8_t *)(a2 + 12) + (*(uint8_t *)(a2 + 13) << 8));
-      v114 = (uint16_t)(*(uint8_t *)(a2 + 14) + (*(uint8_t *)(a2 + 15) << 8));
-      v115 = *(char *)(a2 + 16);
-      v116 = *(uint8_t *)(a2 + 16);
-      v237 = v109;
-      v238 = v116;
-      msg_parse(dword_120680, v111, v110, v109, v112, v113, v114);
-      msg_parse(dword_120684, v115);
-      v117 = v110;
-      if ( (*(uint8_t *)off_120688 & 8) == 0 && v110 > 1 )
-      {
-        msg_parse(dword_120DC4, v110);
-        goto LABEL_21;
-      }
-      configure_hw_regs(v237, v112, 0);
-      set_state_checked(v113);
-      v244 = (v244 & ~0xFFu) | ((uint8_t)(v111 > 0x23) & 0xFFu);
-      v244 = (v244 & ~0xFFu) | ((uint8_t)(v110) & 0xFFu);
-      if ( v111 > 0x23 )
-      {
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(5 * v111 + 5000) & 0xFFFFu) << 16);
-      }
-      else if ( v111 > 0xD )
-      {
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(2484) & 0xFFFFu) << 16);
-        if ( v111 != 14 )
-        {
-          msg_parse(dword_121108, v111);
-          v110 = BYTE1(v244);
-        }
-      }
-      else
-      {
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(5 * v111 + 2407) & 0xFFFFu) << 16);
-      }
-      v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(0) & 0xFFFFu) << 16);
-      v246 = 0;
-      if ( v110 )
-      {
-        if ( v110 == 1 )
-        {
-          if ( v111 == 1 || v111 == 36 )
-            v244 = (v244 & ~0xFFFFu) | ((uint16_t)(WORD2(v244) + 10) & 0xFFFFu);
-          else
-            v244 = (v244 & ~0xFFFFu) | ((uint16_t)(WORD2(v244) - 10) & 0xFFFFu);
-        }
-      }
-      else
-      {
-        v244 = (v244 & ~0xFFFFu) | ((uint16_t)(WORD2(v244)) & 0xFFFFu);
-      }
-      v118 = (int *)off_120654;
-      if ( *(uint32_t *)off_120654 )
-        rf_level_apply_n_4ec(0);
-      v119 = (void *)(uintptr_t)(off_120658);
-      v120 = (void *)(uintptr_t)(off_120690);
-      v121 = *(uint32_t *)off_12068C & 0xFFFFFE7F | (v117 << 7);
-      v122 = (int *)(v114 - 1);
-      if ( (unsigned int)(v114 - 1) > 0x30 )
-        v122 = (int *)dword_120694;
-      *(uint32_t *)off_12068C = v121;
-      if ( (unsigned int)(v114 - 1) > 0x30 )
-        *v122 = v114;
-      if ( (unsigned int)(v238 - 1) <= 0x1E )
-        *(uint8_t *)dword_120698 = v115;
-      *v119 = 1;
-      *v120 = 1;
-      ((int (*)())rf_state_get_n246)(0, (int)(uintptr_t)(&v244), 0);
-      if ( (uint8_t)v244 )
-        rf_init_hw_setup(WORD2(v244));
-      else
-        mmio_clock_setup(WORD2(v244), BYTE1(v244));
-      v31 = *v118;
-      if ( !*v118 )
-        goto LABEL_21;
-      goto LABEL_59;
-    case 1:
-      msg_parse(dword_120650);
-      v101 = *(uint32_t *)off_120654;
-      *(uint32_t *)off_120658 = 0;
-      if ( v101 )
-        rf_level_apply_n_4ec(0);
-      v102 = *(uint8_t *)off_12065C;
-      if ( (__get_CPSR() & 1) == 0 )
-      {
-        __disable_irq();
-        *(uint32_t *)off_120660 = 1;
-      }
-      v103 = (int *)off_120664;
-      v237 = v102;
-      ++*(uint32_t *)off_120664;
-      rf_event_handler_8a4(v102);
-      rf_bus_write_60fc(v237, dword_120668 + 28 * (int16_t)v237 + 12);
-      if ( *v103 )
-      {
-        v104 = *v103 - 1;
-        v105 = *(uint32_t *)off_120660;
-        *v103 = v104;
-        if ( !v104 )
-        {
-          if ( v105 )
-            __enable_irq();
-        }
-      }
-      msg_parse(dword_12066C);
-      goto LABEL_21;
-    case 2:
-      if ( *(uint8_t *)off_120670 == 1 )
-      {
-        v201 = (void *)(uintptr_t)(off_12112C);
-        *(uint8_t *)off_120670 = 0;
-        *v201 = 0;
-        event_queue_push(144, 0);
-      }
-      v123 = *(uint32_t *)off_120674 & 0xF;
-      if ( v123 == 3 )
-        message_dispatch_n2fe();
-      v124 = (void *)(uintptr_t)(off_120674);
-      *(uint32_t *)off_120678 = 0;
-      *v124 = 16 * v123;
-      v125 = *(uint32_t *)(a2 + 4);
-      if ( !v125 )
-        goto LABEL_243;
-      if ( *(uint8_t *)(a2 + 8) )
-      {
-        if ( *(uint8_t *)(a2 + 8) == 1 )
-        {
-          if ( v125 == 2 )
-          {
-            v126 = *(char *)(a2 + 9);
-            v127 = sub_12754C(v126);
-            v128 = ((int (*)())sub_127BE4)(v127);
-            if ( v126 <= 0 )
-            {
-              v220 = ((int (*)())sub_127570)(LODWORD(v128));
-              v221 = ((int (*)())sub_1272B4)(v220, HIDWORD(v220), 0, dword_12118C);
-              v222 = sub_127874(v221, HIDWORD(v221), 0, dword_121190);
-              v129 = ((int (*)())sub_127620)(v222, HIDWORD(v222), 0, dword_121194);
-            }
-            else
-            {
-              v129 = ((int (*)())sub_127570)((float)(v128 / flt_12069C) * flt_1206A0);
-            }
-            v130 = ((int (*)())math_round)(v129, HIDWORD(v129));
-            v131 = ((int (*)())sub_127BA4)(v130);
-            msg_parse(dword_1206A4, v126, v131, 1023, 1);
-            v132 = (unsigned int *)off_1206A8;
-            v133 = (unsigned int *)off_1206AC;
-            v134 = dword_1206B0;
-            v135 = (void *)(uintptr_t)(off_1206B4);
-            v136 = (void *)(uintptr_t)(off_1206B8);
-            *(uint32_t *)off_1206A8 = ~(~((*(uint32_t *)off_1206A8 & 0xFFFFF000) >> 10) << 10);
-            *v133 = *v133 & 0xFFFFFFC0 | 1;
-            *v133 |= 0x40u;
-            *v133 |= 0x80u;
-            *v132 = v134 & (v131 << 12) | *v132 & 0xFC000FFF;
-            v137 = (void *)(uintptr_t)(off_1206BC);
-            *v135 |= 0x1000000u;
-            *v137 |= 0x10000u;
-            *v132 |= 0x10000000u;
-            *v136 |= 0x100u;
-            get_elapsed_ticks(200);
-            *v133 = *v133 & 0xFF87FFFF | 0x100000;
-            get_elapsed_ticks(200);
-            *v133 |= 0x400000u;
-            get_elapsed_ticks(200);
-            *v133 |= 0x200000u;
-          }
-          else
-          {
-LABEL_243:
-            msg_parse(dword_1209F0);
-          }
-        }
-        else
-        {
-          msg_parse(dword_121110);
-        }
-      }
-      else
-      {
-        msg_parse(dword_121114);
-        v199 = (void *)(uintptr_t)(off_12111C);
-        v200 = (void *)(uintptr_t)(off_121120);
-        *(uint32_t *)off_121118 &= ~0x10000000u;
-        *v199 &= 0xFF87FFFF;
-        *v200 &= ~0x10000u;
-        *v199 &= 0xFFFFFFC0;
-        *v199 &= ~0x40u;
-        *v199 |= 0x80u;
-      }
-      goto LABEL_21;
-    case 3:
-      msg_parse(dword_11FFD0);
-      if ( !*(uint8_t *)off_11FFD4 )
-      {
-        v59 = (void *)(uintptr_t)(off_11FFD8);
-        *(uint8_t *)off_11FFD4 = 1;
-        if ( *v59 << 28 )
-        {
-          if ( (__get_CPSR() & 1) == 0 )
-          {
-            __disable_irq();
-            *(uint32_t *)off_11FFDC = 1;
-          }
-          v60 = (int *)off_11FFE0;
-          v61 = (void *)(uintptr_t)(off_11FFD8);
-          v62 = (void *)(uintptr_t)(off_11FFE4);
-          ++*(uint32_t *)off_11FFE0;
-          *v61 = 0;
-          v63 = v62[4];
-          v64 = v62;
-          while ( *v61 << 28 )
-          {
-            if ( (unsigned int)(v64[4] - v63) > 0x7530 )
-              msg_parse(dword_12110C);
-          }
-          while ( (*(uint32_t *)off_1202C4 & *(uint32_t *)off_1202C0 & 4) == 0 )
-            ;
-          v65 = *v60;
-          *(uint32_t *)off_1202C8 = 4;
-          if ( v65 )
-          {
-            v66 = v65 - 1;
-            v67 = *(uint32_t *)off_1202CC;
-            *v60 = v66;
-            if ( !v66 )
-            {
-              if ( v67 )
-                __enable_irq();
-            }
-          }
-          msg_parse(dword_1202D0);
-        }
-      }
-      v68 = *(uint8_t *)(a2 + 8);
-      v69 = *(uint8_t *)(a2 + 9);
-      msg_parse(dword_1202D4, v68, v69);
-      v244 = (v244 & ~0xFFu) | ((uint8_t)(v68 > 0x23) & 0xFFu);
-      v244 = (v244 & ~0xFFu) | ((uint8_t)(v69) & 0xFFu);
-      if ( v68 > 0x23 )
-      {
-        v70 = 5 * v68 + 5000;
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(v70) & 0xFFFFu) << 16);
-      }
-      else
-      {
-        if ( v68 > 0xD )
-        {
-          v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(2484) & 0xFFFFu) << 16);
-          if ( v68 == 14 )
-          {
-            v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(0) & 0xFFFFu) << 16);
-            v246 = 0;
-            if ( v69 == 1 )
-              v71 = 2474;
-            else
-              v71 = 2514;
-            goto LABEL_120;
-          }
-          msg_parse(dword_120DB0, v68);
-          v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(0) & 0xFFFFu) << 16);
-          v246 = 0;
-          v70 = WORD2(v244);
-          if ( BYTE1(v244) != 1 )
-            goto LABEL_119;
-          goto LABEL_322;
-        }
-        v70 = 5 * v68 + 2407;
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(v70) & 0xFFFFu) << 16);
-      }
-      v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(0) & 0xFFFFu) << 16);
-      v246 = 0;
-      if ( v69 != 1 )
-      {
-LABEL_119:
-        v71 = v70 + 30;
-LABEL_120:
-        v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v71) & 0xFFFFu);
-        goto LABEL_121;
-      }
-      if ( v68 == 1 )
-      {
-LABEL_336:
-        v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v70 + 10) & 0xFFFFu);
-LABEL_121:
-        ((int (*)())rf_state_get_n246)(0, (int)(uintptr_t)(&v244), 0);
-        v72 = (void *)(uintptr_t)(off_1202DC);
-        *(uint32_t *)off_1202D8 |= 0x10u;
-        v73 = *v72 & 0xF;
-        if ( v73 == 3 )
-          message_dispatch_n2fe();
-        v74 = (void *)(uintptr_t)(off_1202DC);
-        *(uint32_t *)off_1202E0 = dword_1202E4;
-        *v74 = 16 * v73;
-        mmio_init_clock_gate_n121();
-        goto LABEL_21;
-      }
-LABEL_322:
-      if ( v68 != 36 )
-      {
-        v71 = v70 - 10;
-        goto LABEL_120;
-      }
-      goto LABEL_336;
-    case 4:
-      msg_parse(dword_120304);
-      v86 = *(uint32_t *)off_120308;
-      v87 = *(uint32_t *)off_12030C;
-      v88 = dword_120310;
-      *v6 = *(uint32_t *)off_120308;
-      v6[1] = v87 + v86;
-      msg_parse(v88);
-      goto LABEL_21;
-    case 5:
-      msg_parse(dword_1202F8);
-      if ( *(uint32_t *)off_1202DC << 28 )
-      {
-        if ( (__get_CPSR() & 1) == 0 )
-        {
-          __disable_irq();
-          *(uint32_t *)off_1202CC = 1;
-        }
-        v79 = (int *)off_1202FC;
-        v80 = (void *)(uintptr_t)(off_1202DC);
-        v81 = (void *)(uintptr_t)(off_120300);
-        ++*(uint32_t *)off_1202FC;
-        *v80 = 0;
-        v82 = v81[4];
-        while ( *v80 << 28 )
-        {
-          if ( (unsigned int)(v81[4] - v82) > 0x7530 )
-            msg_parse(dword_120D8C, *v80 << 28, 30000);
-        }
-        while ( (*(uint32_t *)off_1202C4 & *(uint32_t *)off_1202C0 & 4) == 0 )
-          ;
-        v83 = *v79;
-        *(uint32_t *)off_1202C8 = 4;
-        if ( v83 )
-        {
-          v84 = v83 - 1;
-          v85 = *(uint32_t *)off_1202CC;
-          *v79 = v84;
-          if ( !v84 )
-          {
-            if ( v85 )
-              __enable_irq();
-          }
-        }
-        msg_parse(dword_1202D0);
-      }
-      goto LABEL_21;
-    case 6:
-      msg_parse(dword_1209CC);
-      goto LABEL_21;
-    case 7:
-      msg_parse(dword_11FFA8, *(uint8_t *)(a2 + 8));
-      v48 = (void *)(uintptr_t)(off_11FFB0);
-      *(uint32_t *)off_11FFAC = *(uint8_t *)(a2 + 8) | (*(uint8_t *)(a2 + 8) << 8);
-      *v48 = 1;
-      goto LABEL_21;
-    case 8:
-      n = mmio_bit_extract_n();
-      v43 = *(uint8_t *)(a2 + 8);
-      v44 = (char)(v43 + n);
-      if ( v44 < 1 )
-        v44 = 1;
-      if ( v44 >= 31 )
-        v44 = 31;
-      msg_parse(dword_11FFA0, n, v44);
-      sub_10F170(v44);
-      v45 = (uint8_t)mmio_bit_extract_n();
-      v46 = mac_packet_dispatch();
-      rf_level_apply_n200(v45);
-      if ( !v43 )
-        msg_parse(dword_120DC0, *((uint8_t *)off_120DBC + 4), *((char *)off_120DBC + 2));
-      v47 = dword_11FFA4;
-      *v6 = v45;
-      msg_parse(v47, v45, v46);
-      goto LABEL_21;
-    case 9:
-      v40 = (unsigned int *)off_11FF98;
-      v41 = (char)(*(uint8_t *)(a2 + 8) + ((*(uint32_t *)off_11FF98 >> 18) & 0x3F));
-      if ( v41 < 1 )
-        v41 = 1;
-      if ( v41 >= 63 )
-        v41 = 63;
-      msg_parse(dword_11FF9C);
-      *v40 = *v40 & 0xFF03FFFF | (v41 << 18);
-      *v6 = (*v40 >> 18) & 0x3F;
-      goto LABEL_21;
-    case 0xA:
-      v237 = *(uint8_t *)(a2 + 8);
-      v39 = mmio_read32(v237);
-      msg_parse(dword_11FF94, v237, v39);
-      *v6 = v39;
-      goto LABEL_21;
-    case 0xB:
-      *v5 = pack_control_data(1, *(uint8_t *)(a2 + 8));
-      goto LABEL_21;
-    case 0xC:
-      *v5 = pack_control_data(2, *(uint8_t *)(a2 + 8));
-      goto LABEL_21;
-    case 0xD:
-      v151 = pack_control_data(0, 0);
-      *v6 = v151;
-      msg_parse(dword_1209E4, v151);
-      goto LABEL_21;
-    case 0xE:
-      msg_parse(
-        dword_1209E8,
-        *(uint8_t *)(a2 + 13),
-        *(uint8_t *)(a2 + 12),
-        *(uint8_t *)(a2 + 11),
-        *(uint8_t *)(a2 + 10),
-        *(uint8_t *)(a2 + 9),
-        *(uint8_t *)(a2 + 8));
-      v152 = *(uint16_t *)(a2 + 12);
-      v153 = *(uint16_t *)(a2 + 8);
-      v154 = *(uint32_t *)(a2 + 8);
-      v155 = HIBYTE(*(uint32_t *)off_1209C4) & 2;
-      v156 = v152;
-      v157 = __rev16(v153);
-      v158 = __rev16(v152);
-      if ( v155 )
-      {
-        v192 = rf_status_poll(v154, v156);
-        v160 = v192;
-        if ( v192 < 0 )
-        {
-          msg_parse(dword_121144, v192);
-          v155 = v154;
-          v159 = v156 | (v160 << 16);
-        }
-        else
-        {
-          v159 = v156 | (v192 << 16);
-          v155 = v154;
-        }
-      }
-      else
-      {
-        v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v158) & 0xFFFFu);
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(v157) & 0xFFFFu) << 16);
-        v244 = (v244 & ~0xFF00u) | (((uint8_t)(HIBYTE(v154)) & 0xFFu) << 8);
-        v244 = (v244 & ~0xFF0000u) | (((uint8_t)(BYTE2(v154)) & 0xFFu) << 16);
-        sub_11482C((int)&v244);
-        sub_100200((int *)&v244, 0, 6u);
-        if ( rf_reg_write_setup_n4820((int)&v244) )
-        {
-          v159 = 917504;
-          v160 = 14;
-        }
-        else
-        {
-          v159 = (uint16_t)__rev16((uint16_t)v244) | 0xF0000;
-          v155 = bswap32(*(unsigned int *)((char *)&v244 + 2));
-          v160 = 15;
-        }
-      }
-      *v6 = v155;
-      v6[1] = v159;
-      v236 = v160;
-      memcpy_large(v235, (void *)(v6 + 18), 72);
-      msg_parse(
-        dword_1209EC,
-        *v6,
-        v6[1],
-        v6[2],
-        v6[3],
-        v6[4],
-        v6[5],
-        v6[6],
-        v6[7],
-        v6[8],
-        v6[9],
-        v6[10],
-        v6[11],
-        v6[12],
-        v6[13],
-        v6[14],
-        v6[15],
-        v6[16],
-        v6[17]);
-      goto LABEL_21;
-    case 0xF:
-      v138 = HIBYTE(*(uint32_t *)off_1209C4) & 2;
-      if ( v138 )
-      {
-        v189 = mmio_read_pair((int *)&v239, &v240);
-        v138 = v239;
-        v139 = v240 | (v189 << 16);
-      }
-      else
-      {
-        v244 = (v244 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-        v244 = (v244 & ~0xFFFF0000u) | (((uint16_t)(0) & 0xFFFFu) << 16);
-        if ( rf_reg_write_setup_n4820((int)&v244) )
-        {
-          v239 = 0;
-          v240 = 0;
-          v139 = 917504;
-        }
-        else
-        {
-          v138 = bswap32(*(unsigned int *)((char *)&v244 + 2));
-          v240 = (uint16_t)__rev16((uint16_t)v244);
-          v239 = v138;
-          v139 = v240 | 0xF0000;
-        }
-      }
-      *v6 = v138;
-      v6[1] = v139;
-      memcpy_large(v235, (void *)(v6 + 18), 72);
-      msg_parse(
-        dword_1209C8,
-        *v6,
-        v6[1],
-        v6[2],
-        v6[3],
-        v6[4],
-        v6[5],
-        v6[6],
-        v6[7],
-        v6[8],
-        v6[9],
-        v6[10],
-        v6[11],
-        v6[12],
-        v6[13],
-        v6[14],
-        v6[15],
-        v6[16],
-        v6[17]);
-      goto LABEL_21;
-    case 0x10:
-      msg_parse(
-        dword_11FFC8,
-        *(uint8_t *)(a2 + 13),
-        *(uint8_t *)(a2 + 12),
-        *(uint8_t *)(a2 + 11),
-        *(uint8_t *)(a2 + 10),
-        *(uint8_t *)(a2 + 9),
-        *(uint8_t *)(a2 + 8));
-      v52 = *(uint32_t *)(a2 + 8);
-      v53 = *(uint16_t *)(a2 + 12);
-      v54 = __rev16(v53);
-      v55 = bswap32(v52);
-      v56 = v52;
-      if ( (*(uint32_t *)off_11FFC0 & 0x2000000) != 0 )
-      {
-        inited = rf_init_n_d80(v52, v53);
-        v58 = inited;
-        if ( inited < 0 )
-        {
-          if ( inited != -1 )
-            msg_parse(dword_121124);
-          msg_parse(dword_121128);
-        }
-        v57 = v58 << 16;
-      }
-      else
-      {
-        sub_100200((int *)&v244, 0, 0x40u);
-        hci_tx_packet((int)&v244);
-        v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v54) & 0xFFFFu);
-        v244 = (v244 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v55) << 32);
-        hci_rx_packet((int)&v244);
-        hci_tx_packet((int)&v244);
-        v53 = (uint16_t)__rev16(WORD1(v244));
-        v56 = bswap32(HIDWORD(v244));
-        v57 = 983040;
-        v58 = 15;
-      }
-      *v6 = v56;
-      v6[1] = v57 | v53;
-      msg_parse(dword_11FFCC, v53, v56, v58);
-      goto LABEL_21;
-    case 0x11:
-      if ( (*(uint32_t *)off_11FFC0 & 0x2000000) != 0 )
-      {
-        v187 = rf_init_param_load((int *)&v239, &v240);
-        v50 = v239;
-        v49 = v240;
-        v51 = v187 << 16;
-      }
-      else
-      {
-        sub_100200((int *)&v244, 0, 0x40u);
-        hci_tx_packet((int)&v244);
-        v49 = (uint16_t)__rev16(WORD1(v244));
-        v50 = bswap32(HIDWORD(v244));
-        v239 = v50;
-        v240 = (uint16_t)v49;
-        v51 = 983040;
-      }
-      *v6 = v50;
-      v6[1] = v51 | v49;
-      msg_parse(dword_11FFC4);
-      goto LABEL_21;
-    case 0x12:
-      msg_parse(dword_11FFB8, *(uint8_t *)(a2 + 8));
-      v244 = (v244 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(a2 + 8)) & 0xFFu);
-      rf_regf_mask_shift((uint8_t)v244);
-      rf_bus_handler_16c((void *)(&v244));
-      *v6 = (uint8_t)v244;
-      msg_parse(dword_11FFBC);
-      goto LABEL_21;
-    case 0x13:
-      rf_bus_handler_16c((void *)(&v244));
-      *v6 = (uint8_t)v244;
-      msg_parse(dword_11FFB4);
-      goto LABEL_21;
-    case 0x14:
-      if ( *(uint32_t *)(a2 + 4) )
-      {
-        v190 = *(uint8_t *)(a2 + 8);
-        v150 = (void *)(uintptr_t)(off_120D80);
-        v191 = dword_120D84;
-        *(uint32_t *)off_120D80 = v190 != 0;
-        msg_parse(v191);
-      }
-      else
-      {
-        v150 = (void *)(uintptr_t)(off_1209DC);
-        msg_parse(dword_1209E0, *(uint32_t *)off_1209DC);
-      }
-      *v6 = *v150;
-      goto LABEL_21;
-    case 0x15:
-      v142 = *(uint32_t *)(a2 + 4);
-      if ( !v142 || (v143 = *(uint8_t *)(a2 + 8), !*(uint8_t *)(a2 + 8)) )
-      {
-        v161 = dword_1209D8;
-        v162 = dword_120A08;
-        v163 = dword_1209FC;
-        msg_parse(dword_1209F8);
-        for ( i = 0; i != 3; ++i )
-        {
-          msg_parse(v162, i);
-          v165 = (char *)v161;
-          for ( j = 0; j != 12; ++j )
-          {
-            v168 = *v165++;
-            v167 = v168;
-            if ( v168 != -128 )
-            {
-              if ( j && !(j << 30) )
-                uart_putc(32);
-              msg_parse(v163, v167);
-            }
-          }
-          uart_puts((uint8_t *)dword_120A00);
-          v161 += 12;
-        }
-        v169 = dword_1209D0;
-        v170 = dword_120A08;
-        v171 = dword_1209FC;
-        msg_parse(dword_120A04);
-        for ( k = 0; k != 3; ++k )
-        {
-          msg_parse(v170, k);
-          v173 = (char *)v169;
-          for ( m = 0; m != 12; ++m )
-          {
-            v176 = *v173++;
-            v175 = v176;
-            if ( v176 != -128 )
-            {
-              if ( m && !(m << 30) )
-                uart_putc(32);
-              msg_parse(v171, v175);
-            }
-          }
-          uart_puts((uint8_t *)dword_120A00);
-          v169 += 12;
-        }
-        goto LABEL_233;
-      }
-      if ( v143 == 1 )
-      {
-        if ( v142 > 3 )
-        {
-          v144 = *(uint8_t *)(a2 + 9);
-          if ( v144 <= 2 )
-          {
-            if ( v142 <= 0xB )
-            {
-              v145 = *(uint8_t *)(a2 + 10);
-              if ( v144 == 1 )
-                v210 = *(uint8_t *)(a2 + 10) <= 9u;
-              else
-                v210 = *(uint8_t *)(a2 + 10) <= 0xBu;
-              if ( v210 )
-              {
-                v147 = *(char *)(a2 + 11);
-                v148 = dword_121148;
-                v149 = dword_12114C;
-                goto LABEL_230;
-              }
-              goto LABEL_385;
-            }
-            v229 = dword_1212CC;
-            msg_parse(dword_1212C4, *(uint8_t *)(a2 + 9));
-            v230 = a2 + 9;
-            v231 = dword_1212C8 + 12 * v144;
-            for ( ii = 0; v144 != 1 || ii <= 9; ++ii )
-            {
-              v234 = *(char *)++v230;
-              v233 = v234;
-              if ( v234 >= 32 )
-                v233 = 32;
-              *(uint8_t *)++v231 = v233;
-              if ( ii )
-              {
-                if ( !(ii << 30) )
-                  uart_putc(32);
-                msg_parse(v229, v233);
-                if ( ii == 11 )
-                  break;
-              }
-              else
-              {
-                msg_parse(v229, v233);
-              }
-            }
-LABEL_397:
-            uart_puts((uint8_t *)dword_1212C0);
-            goto LABEL_233;
-          }
-LABEL_383:
-          msg_parse(dword_121188, v144);
-LABEL_233:
-          memcpy_large((void *)(v6), (void *)(uintptr_t)(dword_1209D8), 36);
-          memcpy_large((void *)(v6 + 9), (void *)(uintptr_t)(dword_1209D0), 36);
-          goto LABEL_21;
-        }
-      }
-      else
-      {
-        if ( v143 != 2 )
-        {
-          msg_parse(dword_121160);
-          goto LABEL_233;
-        }
-        if ( v142 > 3 )
-        {
-          v144 = *(uint8_t *)(a2 + 9);
-          if ( v144 <= 2 )
-          {
-            if ( v142 <= 0xB )
-            {
-              v145 = *(uint8_t *)(a2 + 10);
-              if ( v144 == 1 )
-                v146 = *(uint8_t *)(a2 + 10) <= 9u;
-              else
-                v146 = *(uint8_t *)(a2 + 10) <= 0xBu;
-              if ( v146 )
-              {
-                v147 = *(char *)(a2 + 11);
-                v148 = dword_1209D0;
-                v149 = dword_1209D4;
-LABEL_230:
-                if ( v147 >= 32 )
-                  v147 = (v147 & ~0xFFu) | ((uint8_t)(32) & 0xFFu);
-                *(uint8_t *)(v148 + 12 * v144 + v145) = v147;
-                msg_parse(v149, v144);
-                goto LABEL_233;
-              }
-LABEL_385:
-              msg_parse(dword_121198, v145);
-              goto LABEL_233;
-            }
-            v223 = dword_1212CC;
-            msg_parse(dword_1212B8, *(uint8_t *)(a2 + 9));
-            v224 = a2 + 9;
-            v225 = dword_1212BC + 12 * v144;
-            for ( jj = 0; v144 != 1 || jj <= 9; ++jj )
-            {
-              v228 = *(char *)++v224;
-              v227 = v228;
-              if ( v228 >= 32 )
-                v227 = 32;
-              *(uint8_t *)++v225 = v227;
-              if ( jj )
-              {
-                if ( !(jj << 30) )
-                  uart_putc(32);
-                msg_parse(v223, v227);
-                if ( jj == 11 )
-                  goto LABEL_397;
-              }
-              else
-              {
-                msg_parse(v223, v227);
-              }
-            }
-            goto LABEL_397;
-          }
-          goto LABEL_383;
-        }
-      }
-      msg_parse(dword_121180);
-      goto LABEL_233;
-    case 0x16:
-      v7 = *(uint32_t *)(a2 + 4);
-      if ( v7 && (v8 = *(uint8_t *)(a2 + 8), *(uint8_t *)(a2 + 8)) )
-      {
-        if ( v8 == 1 )
-        {
-          v211 = (void *)(uintptr_t)(off_121150);
-          ++*(uint8_t *)off_121150;
-          if ( v7 > 3 )
-          {
-            v212 = *(uint8_t *)(a2 + 9);
-            if ( v212 <= 2 )
-            {
-              v213 = *(uint8_t *)(a2 + 10);
-              if ( v213 <= 2 )
-              {
-                v214 = *(char *)(a2 + 11);
-                v19 = (void *)(uintptr_t)(off_12119C);
-                v215 = (uint16_t *)off_121154;
-                if ( v214 < -7 )
-                  v214 = -7;
-                if ( v214 >= 7 )
-                  v214 = 7;
-                *(uint8_t *)(*(uint32_t *)off_12119C + v213 + 3 * v212) = v214;
-                v216 = v215[20];
-                v217 = *((uint8_t *)v215 + 36);
-                if ( v216 <= 0x97B )
-                {
-                  v218 = 0;
-                }
-                else if ( v216 > 0x994 )
-                {
-                  v218 = 2;
-                }
-                else
-                {
-                  v218 = 1;
-                }
-                if ( !v217 && v218 == v213 )
-                {
-                  mmio_set_bit_120090C(0, v216);
-                  ++*v211;
-                }
-                v219 = v212;
-                v13 = (void *)(uintptr_t)(off_12115C);
-                msg_parse(dword_121158, v219, v213, v214);
-                goto LABEL_20;
-              }
-            }
-            goto LABEL_373;
-          }
-        }
-        else
-        {
-          if ( v8 != 2 )
-          {
-            v19 = (void *)(uintptr_t)(off_12119C);
-            v13 = (void *)(uintptr_t)(off_12115C);
-            msg_parse(dword_121164);
-            goto LABEL_20;
-          }
-          v9 = (void *)(uintptr_t)(off_11FCD0);
-          ++*(uint8_t *)off_11FCD0;
-          if ( v7 > 3 )
-          {
-            v10 = *(uint8_t *)(a2 + 9);
-            if ( v10 <= 2 )
-            {
-              v11 = *(uint8_t *)(a2 + 10);
-              if ( v11 <= 5 )
-              {
-                v12 = *(char *)(a2 + 11);
-                v13 = (void *)(uintptr_t)(off_11FCD4);
-                v14 = (uint16_t *)off_11FCD8;
-                if ( v12 < -7 )
-                  v12 = -7;
-                if ( v12 >= 7 )
-                  v12 = 7;
-                *(uint8_t *)(*(uint32_t *)off_11FCD4 + v11 + 6 * v10) = v12;
-                v15 = v14[20];
-                v16 = *((uint8_t *)v14 + 36);
-                if ( v15 > 0x1666 )
-                {
-                  v17 = 5;
-                }
-                else if ( v15 > 0x1616 )
-                {
-                  v17 = 4;
-                }
-                else if ( v15 > 0x15C6 )
-                {
-                  v17 = 3;
-                }
-                else if ( v15 > 0x1571 )
-                {
-                  v17 = 2;
-                }
-                else
-                {
-                  v17 = v15 > 0x1486;
-                }
-                if ( v16 == 1 && v17 == v11 )
-                {
-                  mmio_set_bit_120090C(1, v15);
-                  ++*v9;
-                }
-                v18 = v11;
-                v19 = (void *)(uintptr_t)(off_11FD2C);
-                msg_parse(dword_11FCDC, v10, v18, v12);
-                goto LABEL_20;
-              }
-            }
-LABEL_373:
-            v19 = (void *)(uintptr_t)(off_12119C);
-            v13 = (void *)(uintptr_t)(off_12115C);
-            msg_parse(dword_12116C);
-            goto LABEL_20;
-          }
-        }
-        v19 = (void *)(uintptr_t)(off_12119C);
-        v13 = (void *)(uintptr_t)(off_12115C);
-        msg_parse(dword_121170);
-      }
-      else
-      {
-        v19 = (void *)(uintptr_t)(off_120DC8);
-        v177 = dword_120DCC;
-        v178 = dword_120DD0;
-        msg_parse(dword_120D58);
-        msg_parse(dword_120D5C);
-        for ( kk = 0; kk != 3; ++kk )
-        {
-          msg_parse(v177, kk);
-          for ( mm = 0; mm != 3; ++mm )
-          {
-            v181 = *(char *)(*v19 + 3 * kk + mm);
-            msg_parse(v178, v181);
-          }
-        }
-        v13 = (void *)(uintptr_t)(off_120D64);
-        v182 = dword_120DCC;
-        v183 = dword_120DD0;
-        msg_parse(dword_120D60);
-        msg_parse(dword_120D68);
-        for ( nn = 0; nn != 3; ++nn )
-        {
-          msg_parse(v182, nn);
-          for ( i1 = 0; i1 != 6; ++i1 )
-          {
-            v186 = *(char *)(*v13 + 6 * nn + i1);
-            msg_parse(v183, v186);
-          }
-        }
-        msg_parse(dword_120D6C);
-      }
-LABEL_20:
-      memcpy_large((void *)(v6), (void *)(uintptr_t)(*v19), 9);
-      memcpy_large((char *)v6 + 9, (void *)(uintptr_t)(*v13), 18);
-LABEL_21:
-      rx_irq_handler_1((int)v6);
-      return 0;
-    case 0x18:
-      v75 = *(uint32_t *)(a2 + 4);
-      if ( v75 )
-      {
-        v76 = *(uint8_t *)(a2 + 8);
-        if ( !*(uint8_t *)(a2 + 8) )
-        {
-          v77 = *(uint8_t *)(a2 + 8);
-          v75 = v77;
-          v78 = v77;
-          goto LABEL_129;
-        }
-        if ( v75 <= 3 )
-        {
-          msg_parse(dword_121170);
-        }
-        else
-        {
-          v77 = *(uint8_t *)(a2 + 10);
-          v78 = *(char *)(a2 + 11);
-          if ( (uint8_t)(*(uint8_t *)(a2 + 11) + 7) <= 0xEu )
-          {
-            v75 = *(uint8_t *)(a2 + 8);
-            v76 = *(uint8_t *)(a2 + 9);
-LABEL_129:
-            init_system(v75, v76, v77, v78);
-            goto LABEL_130;
-          }
-          msg_parse(dword_121184, *(char *)(a2 + 11), v77);
-        }
-LABEL_130:
-        memcpy_large((void *)(v6), (void *)(uintptr_t)(*(uint32_t *)off_1202E8), 9);
-        memcpy_large((char *)v6 + 9, (void *)(uintptr_t)(*(uint32_t *)off_1202EC), 18);
-        memcpy_large((char *)v6 + 27, (void *)(uintptr_t)(dword_1202F0), 9);
-        memcpy_large((void *)(v6 + 9), (void *)(uintptr_t)(dword_1202F4), 18);
-        goto LABEL_21;
-      }
-      v77 = 0;
-      v76 = 0;
-      v78 = 0;
-      goto LABEL_129;
-    case 0x19:
-      v140 = *(uint32_t *)(a2 + 4);
-      if ( !v140 )
-        goto LABEL_269;
-      if ( v140 > 1 )
-      {
-        v141 = *(uint8_t *)(a2 + 9);
-        v140 = *(uint8_t *)(a2 + 8);
-LABEL_218:
-        v30 = check_system_flag(v140, v141);
-        goto LABEL_54;
-      }
-      if ( *(uint8_t *)(a2 + 8) != 1 )
-      {
-        v140 = *(uint8_t *)(a2 + 8);
-LABEL_269:
-        v141 = 0;
-        goto LABEL_218;
-      }
-      goto LABEL_295;
-    case 0x1A:
-      if ( !*(uint32_t *)(a2 + 4) )
-        goto LABEL_244;
-      if ( *(uint8_t *)(a2 + 8) > 2u )
-        msg_parse(dword_120D9C);
-      else
-        ((int (*)())bt_state_machine_dispatch)();
-      goto LABEL_21;
-    case 0x1D:
-      ll_state_process(*(uint8_t *)(a2 + 8), *(uint8_t *)(a2 + 9), *(uint8_t *)(a2 + 10));
-      *v6 = *(uint8_t *)off_11FF88;
-      goto LABEL_21;
-    case 0x1E:
-      if ( is_flag_set_n645c() )
-        msg_parse(dword_120DA8, *(uint8_t *)off_120DA4);
-      if ( *(uint8_t *)off_11FF88 == 1 )
-      {
-        v203 = mmio_bit_extract_n();
-        v204 = *(uint32_t *)off_121130;
-        v205 = *(uint8_t *)off_121134;
-        v206 = (int *)off_12113C;
-        v6[1] = *(uint32_t *)off_121138;
-        v207 = (v205 << 16) | (((v204 >> 18) & 0x3F) << 8) | v203;
-        v208 = *v206;
-        v209 = v206[1];
-        *v6 = v207;
-        v6[2] = v208;
-        v6[3] = v209;
-      }
-      else if ( *(uint8_t *)off_11FF8C )
-      {
-        v36 = (uint32_t *)dword_11FF90;
-        v37 = &v6[(uint8_t)(*(uint8_t *)off_11FF8C - 1) + 1];
-        v38 = v6;
-        do
-        {
-          *v38 = *v36;
-          v38[1] = v36[1];
-          ++v38;
-          v36 += 2;
-        }
-        while ( v38 != v37 );
-      }
-      goto LABEL_21;
-    case 0x20:
-      if ( *(uint32_t *)(a2 + 4) )
-        rf_config_load(*(uint8_t *)(a2 + 8));
-      else
-LABEL_244:
-        msg_parse(dword_1209F4);
-      goto LABEL_21;
-    case 0x23:
-      v32 = *(uint32_t *)(a2 + 4);
-      if ( !v32 )
-        goto LABEL_281;
-      if ( v32 > 1 )
-      {
-        v33 = *(uint8_t *)(a2 + 9);
-        v32 = *(uint8_t *)(a2 + 8);
-LABEL_63:
-        v30 = ((int (*)())check_address_alignment)(v32, v33);
-        goto LABEL_54;
-      }
-      if ( *(uint8_t *)(a2 + 8) != 1 )
-      {
-        v32 = *(uint8_t *)(a2 + 8);
-LABEL_281:
-        v33 = 0;
-        goto LABEL_63;
-      }
-      goto LABEL_295;
-    case 0x24:
-      v34 = *(uint32_t *)(a2 + 4);
-      if ( !v34 )
-        goto LABEL_247;
-      if ( v34 <= 4 )
-      {
-        if ( *(uint8_t *)(a2 + 8) == 1 )
-        {
-LABEL_295:
-          msg_parse(dword_120D90);
-          v30 = -4;
-LABEL_54:
-          *v6 = v30;
-          goto LABEL_21;
-        }
-        v34 = *(uint8_t *)(a2 + 8);
-LABEL_247:
-        v35 = 0;
-      }
-      else
-      {
-        v35 = *(uint32_t *)(a2 + 9);
-        v34 = *(uint8_t *)(a2 + 8);
-      }
-      v30 = rf_init_handler_0(v34, v35);
-      goto LABEL_54;
-    case 0x25:
-      if ( !*(uint32_t *)(a2 + 4) )
-        goto LABEL_243;
-      v31 = *(uint8_t *)(a2 + 8);
-      *(uint32_t *)off_11FD28 = v31;
-LABEL_59:
-      rf_level_apply_n_4ec(v31);
-      goto LABEL_21;
-    case 0x26:
-      if ( !*(uint32_t *)(a2 + 4) )
-        goto LABEL_243;
-      rf_level_apply_6d60(*(uint8_t *)(a2 + 8));
-      goto LABEL_21;
-    case 0x27:
-      if ( *(uint32_t *)(a2 + 4) && *(uint8_t *)(a2 + 8) > 1u )
-        goto LABEL_295;
-      v30 = ((int (*)())handle_state_change)();
-      goto LABEL_54;
-    case 0x28:
-      msg_parse(dword_11FD20);
-      timer_set_relative(1071, 1, dword_11FD24);
-      goto LABEL_21;
-    case 0x50:
-      sub_100200((int *)dword_11FD10, 0, 2u);
-      if ( *(uint32_t *)(a2 + 4) != 2 )
-      {
-        msg_parse(dword_120D88, *(uint32_t *)(a2 + 4));
-        goto LABEL_21;
-      }
-      if ( !*(uint8_t *)(a2 + 8) )
-        goto LABEL_21;
-      if ( *(uint8_t *)(a2 + 9) )
-      {
-        v27 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FD14)) )
-        {
-          msg_parse(dword_11FD18);
-          v28 = 2;
-          v29 = v27;
-          goto LABEL_48;
-        }
-      }
-      else
-      {
-        v237 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_121174)) )
-        {
-          msg_parse(dword_121178);
-          v29 = v237;
-          v28 = 1;
-LABEL_48:
-          memcpy_large((void *)(uintptr_t)(dword_11FD10), (void *)(uintptr_t)(v29), v28);
-          msg_parse(dword_11FD1C, dword_11FD10);
-          if ( (*(uint32_t *)off_11FCE8 & 0x2000000) == 0 )
-            sub_114844(dword_11FD10);
-          goto LABEL_21;
-        }
-      }
-      msg_parse(dword_12117C);
-      goto LABEL_21;
-    case 0x51:
-      v244 = (v244 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-      if ( (*(uint32_t *)off_11FCE8 & 0x2000000) != 0 )
-      {
-        msg_parse(dword_120D78, dword_120D7C);
-        memcpy_large((void *)(&v244), (void *)(uintptr_t)(dword_120D7C), 2);
-        goto LABEL_30;
-      }
-      sub_114838((int)&v244);
-      if ( (uint8_t)v244 != 255 )
-        goto LABEL_28;
-      goto LABEL_42;
-    case 0x52:
-      *v5 = *(char *)off_11FD08;
-      goto LABEL_21;
-    case 0x5B:
-      if ( (*(uint32_t *)off_11FCE8 & 0x2000000) != 0 )
-      {
-        msg_parse(dword_120DB8);
-      }
-      else if ( *(uint32_t *)(a2 + 4) )
-      {
-        msg_parse(dword_11FD00);
-        v24 = *(uint32_t *)(a2 + 4);
-        *v6 = 0xFFFF;
-        v6[1] = 0xFFFF;
-        if ( v24 > 3 )
-        {
-          v25 = *(uint16_t *)(a2 + 8);
-          v26 = *(uint16_t *)(a2 + 10);
-          msg_parse(dword_11FD04, v25, v26);
-          sub_100200((int *)&v244, 0, 4u);
-          v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v25) & 0xFFFFu);
-          v244 = (v244 & ~0xFFFFu) | ((uint16_t)(v26) & 0xFFFFu);
-          sub_11485C((int)&v244);
-          *v6 = v25;
-          v6[1] = v26;
-        }
-      }
-      else
-      {
-        sub_100200((int *)&v244, 0, 4u);
-        v196 = sub_114850((int)&v244);
-        msg_parse(dword_120D94, v196);
-        if ( v196 || WORD1(v244) == 0xFFFF || (uint16_t)v244 == 0xFFFF )
-        {
-          msg_parse(dword_121100);
-        }
-        else
-        {
-          msg_parse(dword_120DA0);
-          v197 = (v197 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)v244) & 0xFFFFFFFFu);
-          v197 = (v197 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(v244)) << 32);
-          *(uint64_t *)v6 = v197;
-        }
-      }
-      goto LABEL_21;
-    case 0x5C:
-      sub_100200((int *)dword_11FCF0, 0, 2u);
-      if ( *(uint32_t *)(a2 + 4) == 2 )
-      {
-        v23 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FCF4)) )
-        {
-          msg_parse(dword_11FCF8);
-          memcpy_large((void *)(uintptr_t)(dword_11FCF0), (void *)(uintptr_t)(v23), 2);
-          msg_parse(dword_11FCFC, dword_11FCF0);
-          if ( (*(uint32_t *)off_11FCE8 & 0x2000000) == 0 )
-            sub_114874(dword_11FCF0);
-        }
-        else
-        {
-          msg_parse(dword_121168);
-        }
-      }
-      goto LABEL_21;
-    case 0x5D:
-      v244 = (v244 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-      if ( (*(uint32_t *)off_11FCE8 & 0x2000000) != 0 )
-      {
-        msg_parse(dword_120D78, dword_120D74);
-        memcpy_large((void *)(&v244), (void *)(uintptr_t)(dword_120D74), 2);
-      }
-      else
-      {
-        sub_114868((int)&v244);
-        if ( (uint8_t)v244 != 255 )
-        {
-LABEL_28:
-          if ( BYTE1(v244) != 255 )
-          {
-            msg_parse(dword_11FCEC, &v244);
-            goto LABEL_30;
-          }
-        }
-LABEL_42:
-        msg_parse(dword_11FD0C);
-      }
-LABEL_30:
-      *v6 = (uint16_t)v244;
-      goto LABEL_21;
-    case 0x5E:
-      goto LABEL_25;
-    case 0x5F:
-      if ( *(uint32_t *)(a2 + 4) )
-      {
-        v21 = *(uint8_t *)(a2 + 8);
-        osal_int_exit(v21);
-        if ( v21 )
-          msg_parse(dword_11FCE0);
-        else
-          msg_parse(dword_121104);
-      }
-      else
-      {
-        msg_parse(dword_120D70);
-      }
-LABEL_25:
-      v22 = rf_init_or_reset_helper();
-      msg_parse(dword_11FCE4, v22);
-      *v6 = v22;
-      goto LABEL_21;
-    case 0x60:
-      sub_100200((int *)&v244, 0, 0x40u);
-      sub_100200((int *)&v244, 0, 0x40u);
-      if ( !*(uint32_t *)(a2 + 4) )
-      {
-        v240 = (v240 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-        goto LABEL_162;
-      }
-      v198 = *(uint8_t *)(a2 + 8);
-      msg_parse(dword_120DAC, v198);
-      if ( v198 > 0x23 )
-      {
-        v100 = 5 * v198 + 5000;
-        v241 = v100;
-        v240 = (v240 & ~0xFFFFu) | ((uint16_t)(1) & 0xFFFFu);
-        goto LABEL_163;
-      }
-      v240 = (v240 & ~0xFFFFu) | ((uint16_t)(0) & 0xFFFFu);
-      if ( v198 <= 0xD )
-      {
-        v100 = 5 * v198 + 2407;
-        v241 = v100;
-        goto LABEL_163;
-      }
-      if ( v198 == 14 )
-      {
-LABEL_162:
-        v100 = 2484;
-        v241 = 2484;
-LABEL_163:
-        v240 = (v240 & ~0xFFFF0000u) | (((uint16_t)(v100) & 0xFFFFu) << 16);
-        v242 = 0;
-        v243 = 0;
-        ((int (*)())rf_state_get_n246)(0, (int)(uintptr_t)(&v240), 0);
-        rf_core_init(0xFFFF, (int)&v244);
-        memcpy_large((void *)(v6), (void *)(&v244), 64);
-        goto LABEL_21;
-      }
-      msg_parse(dword_120DB0, v198);
-      return -2;
-    case 0x61:
-      if ( (*(uint32_t *)off_120318 & 0x2000000) != 0 )
-      {
-        msg_parse(dword_120DB4, *(uint32_t *)off_120318 << 6);
-      }
-      else
-      {
-        v93 = *(uint32_t *)(a2 + 4);
-        *v5 = 0xFFFF;
-        v5[1] = 0xFFFF;
-        v5[2] = 0xFFFF;
-        v5[3] = 0xFFFF;
-        v5[4] = 255;
-        if ( v93 )
-        {
-          msg_parse(dword_120324);
-          if ( *(uint32_t *)(a2 + 4) > 8u )
-          {
-            v94 = *(uint8_t *)(a2 + 16);
-            v95 = *(uint8_t *)(a2 + 14) | (*(uint8_t *)(a2 + 15) << 8);
-            v96 = *(uint8_t *)(a2 + 8) | (*(uint8_t *)(a2 + 9) << 8);
-            v97 = *(uint8_t *)(a2 + 10) | (*(uint8_t *)(a2 + 11) << 8);
-            v98 = *(uint64_t *)(a2 + 8);
-            v237 = *(uint8_t *)(a2 + 12) | (*(uint8_t *)(a2 + 13) << 8);
-            msg_parse(dword_120328, v96, v97, v237, v95, v94);
-            sub_100200((int *)&v244, 0xFFu, 0xAu);
-            v244 = v98;
-            v245 = v94;
-            send_cmd_short((int)&v244);
-            v99 = v237;
-            v6[4] = v94;
-            *v6 = v96;
-            v6[1] = v97;
-            v6[2] = v99;
-            v6[3] = v95;
-          }
-        }
-        else
-        {
-          sub_100200((int *)&v244, 0xFFu, 0xAu);
-          v193 = sub_114880((int)&v244);
-          msg_parse(dword_120D94, v193);
-          if ( v193 )
-          {
-            msg_parse(dword_121140);
-          }
-          else
-          {
-            msg_parse(dword_120D98, (uint16_t)v244, WORD1(v244), WORD2(v244), HIWORD(v244), v245);
-            v194 = (v194 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIWORD(v244)) << 32);
-            v195 = (v195 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)v244) & 0xFFFFFFFFu);
-            v195 = (v195 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(v244)) << 32);
-            v194 = (v194 & ~0xFFFFFFFFull) | ((uint32_t)(WORD2(v244)) & 0xFFFFFFFFu);
-            *(uint64_t *)v6 = v195;
-            *((uint64_t *)v6 + 1) = v194;
-            v6[4] = v245;
-          }
-        }
-      }
-      goto LABEL_21;
-    case 0x108:
-      msg_parse(dword_120314);
-      v244 = (v244 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-      sub_100200((int *)&v244 + 1, 0, 0x3FCu);
-      if ( *(uint32_t *)(a2 + 4) == 8 )
-      {
-        v89 = *(uint32_t *)(a2 + 8);
-        if ( !v89 )
-          v89 = 0x4000000;
-        if ( (*(uint32_t *)off_120318 & 0x2000000) == 0 )
-        {
-          v90 = *(uint32_t *)(a2 + 12);
-          if ( v90 )
-          {
-LABEL_149:
-            msg_parse(dword_12031C, v89, v90);
-            if ( v90 >> 10 )
-            {
-              v91 = v89;
-              v92 = -1;
-              do
-              {
-                sub_1142D8();
-                v91 += 1024;
-                v92 = crc32_update_lsb((uint8_t *)&v244, 1024, v92);
-              }
-              while ( v91 != v89 + (v90 >> 10 << 10) );
-            }
-            else
-            {
-              v92 = -1;
-            }
-            if ( (v90 & 0x3FF) != 0 )
-            {
-              sub_1142D8();
-              v92 = crc32_update_lsb((uint8_t *)&v244, v90 & 0x3FF, v92);
-            }
-            msg_parse(dword_120320, v92);
-LABEL_155:
-            *v6 = v92;
-            goto LABEL_21;
-          }
-LABEL_148:
-          v90 = ke_event_schedule();
-          goto LABEL_149;
-        }
-      }
-      else if ( (*(uint32_t *)off_120318 & 0x2000000) == 0 )
-      {
-        v89 = 0x4000000;
-        goto LABEL_148;
-      }
-      v92 = -1;
-      goto LABEL_155;
-    default:
-      goto LABEL_21;
-  }
 }
 
 
@@ -58423,7 +41075,7 @@ int ke_send_msg_414(int a1, int a2, int16_t a3, int16_t a4) {
       }
       v106 = *(uint32_t *)off_120674 & 0xF;
       if ( v106 == 3 )
-        rf_cmd_wait_1();
+        rf_cmd_wait();
       v107 = (void *)(uintptr_t)(off_120674);
       v108 = dword_12067C;
       *(uint32_t *)off_120678 = 0;
@@ -58549,7 +41201,7 @@ int ke_send_msg_414(int a1, int a2, int16_t a3, int16_t a4) {
       }
       v123 = *(uint32_t *)off_120674 & 0xF;
       if ( v123 == 3 )
-        rf_cmd_wait_1();
+        rf_cmd_wait();
       v124 = (void *)(uintptr_t)(off_120674);
       *(uint32_t *)off_120678 = 0;
       *v124 = 16 * v123;
@@ -58724,7 +41376,7 @@ LABEL_121:
         *(uint32_t *)off_1202D8 |= 0x10u;
         v73 = *v72 & 0xF;
         if ( v73 == 3 )
-          rf_cmd_wait_1();
+          rf_cmd_wait();
         v74 = (void *)(uintptr_t)(off_1202DC);
         *(uint32_t *)off_1202E0 = dword_1202E4;
         *v74 = 16 * v73;
@@ -59590,9 +42242,7 @@ LABEL_59:
       if ( *(uint8_t *)(a2 + 9) )
       {
         v27 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FD14)) )
-        {
-          dispatch_event_handler_1(dword_11FD18);
+if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FD14)) ) { dispatch_event_handler_1(dword_11FD18);
           v28 = 2;
           v29 = v27;
           goto LABEL_48;
@@ -59601,9 +42251,7 @@ LABEL_59:
       else
       {
         v237 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_121174)) )
-        {
-          dispatch_event_handler_1(dword_121178);
+if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_121174)) ) { dispatch_event_handler_1(dword_121178);
           v29 = v237;
           v28 = 1;
 LABEL_48:
@@ -59678,9 +42326,7 @@ LABEL_48:
       if ( *(uint32_t *)(a2 + 4) == 2 )
       {
         v23 = a2 + 8;
-        if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FCF4)) )
-        {
-          dispatch_event_handler_1(dword_11FCF8);
+if ( ((int (*)())bt_msg_send_if_allocated)((void *)(uintptr_t)(dword_11FCF4)) ) { dispatch_event_handler_1(dword_11FCF8);
           memcpy_large((void *)(uintptr_t)(dword_11FCF0), (void *)(uintptr_t)(v23), 2);
           dispatch_event_handler_1(dword_11FCFC, dword_11FCF0);
           if ( (*(uint32_t *)off_11FCE8 & 0x2000000) == 0 )
@@ -59994,20 +42640,6 @@ int rf_write_0x40c(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
 
 
 
-// rf_init_register_40a @ 0x1213fc
-int rf_init_register_40a(int a1, int a2, int16_t a3, int16_t a4) {
-  uint32_t *v4; // r0
-
-  v4 = (uint32_t *)rf_setup_dispatch(1034, a4, a3, 0xCu);
-  *v4 = 0;
-  v4[1] = 0;
-  v4[2] = 0;
-  rx_irq_handler_1((int)v4);
-  return 0;
-}
-
-
-
 // rf_clear_buf_0x40a @ 0x1213fc
 int rf_clear_buf_0x40a(int a1, int a2, int16_t a3, int16_t a4) {
   uint32_t *v4; // r0
@@ -60082,16 +42714,6 @@ int rf_write_0x401(int a1, int *a2, int16_t a3, int16_t a4) {
 
 
 
-// rf_lmac_init_or_setup @ 0x1214dc
-int rf_lmac_init_or_setup(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
-  msg_parse(dword_121508, *a2);
-  *((uint32_t *)off_12150C + 1) = *a2;
-  ke_evt_handler(1031, a4, a3);
-  return 0;
-}
-
-
-
 // bt_post_event_14ea14 @ 0x1214dc
 int bt_post_event_14ea14(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
   dispatch_event_handler_1(dword_121508, *a2);
@@ -60107,40 +42729,6 @@ int bt_post_event_14ea3c(int a1, uint32_t *a2, int16_t a3, int16_t a4) {
   msg_parse(dword_12153C, *a2);
   *(uint32_t *)off_121540 = *a2;
   ke_evt_handler(1029, a4, a3);
-  return 0;
-}
-
-
-
-// mmio_write_reg403 @ 0x121544
-int mmio_write_reg403(int a1, int *a2, int16_t a3, int16_t a4) {
-  int v5; // r0
-  uint32_t *v6; // r2
-  int *v7; // r5
-  int v8; // r3
-  int v9; // r0
-  int v10; // r2
-
-  v5 = rf_setup_dispatch(1027, a4, a3, 8u);
-  v6 = (uint32_t *)*a2;
-  v7 = (int *)v5;
-  if ( (((unsigned int)*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
-  {
-    rf_reg_write_wait((int)v6, a2[1], 1);
-    v9 = critical_enter(*a2, 1);
-    v8 = *a2;
-  }
-  else
-  {
-    *v6 = a2[1];
-    v8 = *a2;
-    v9 = *(uint32_t *)*a2;
-  }
-  v7[1] = v9;
-  v10 = a2[1];
-  *v7 = v8;
-  msg_parse(dword_1215A4, v10);
-  rx_irq_handler_1((int)v7);
   return 0;
 }
 
@@ -60413,22 +43001,6 @@ int ke_int_lock_1(int a1, int a2, int a3) {
 
 
 
-// rf_cmd_send_n264 @ 0x1219c4
-int rf_cmd_send_n264(int a1, int a2, int a3) {
-  int v4; // r0
-  int result; // r0
-
-  __disable_irq();
-  v4 = dword_1219EC;
-  *(uint32_t *)off_1219E8 = 0;
-  result = msg_parse(v4, a1, a2, a3 & 0xFFFFF);
-  while ( *(uint32_t *)off_1219F0 )
-    ;
-  return result;
-}
-
-
-
 // flash_ctrl_init @ 0x1219c4
 int flash_ctrl_init(int a1, int a2, int a3) {
   int v4; // r0
@@ -60482,13 +43054,6 @@ void ke_int_unlock() {
 
 
 
-// rf_cmd_dispatch_n_4e8 @ 0x121a5c
-int rf_cmd_dispatch_n_4e8(uint16_t *a1) {
-  return mac_ll_scheduler(a1);
-}
-
-
-
 // patch_trampoline @ 0x121a5c
 int patch_trampoline(uint16_t *a1) {
   return mac_ll_scheduler(a1);
@@ -60502,36 +43067,6 @@ int patch_check_enabled() {
     return lookup_mac_descriptor();
   else
     return 1;
-}
-
-
-
-// rf_cmd_dispatch_a84 @ 0x121a84
-void rf_cmd_dispatch_a84(int a1) {
-  int word_n_ce4; // r0
-  int v3; // r5
-  uint32_t *v4; // r4
-
-  if ( **(uint8_t **)rf_cmd_dispatch_46c == 3 )
-  {
-    word_n_ce4 = rf_efuse_read_word_n_ce4();
-    v3 = word_n_ce4;
-    if ( word_n_ce4 )
-    {
-      *(uint32_t *)(a1 + 24) = 49374;
-      memcpy_large((void *)(uintptr_t)(word_n_ce4), (void *)(uintptr_t)(a1), 28);
-      v4 = (void *)(uintptr_t)(off_121ADC);
-      while ( !*(uint32_t *)off_121ADC )
-        ;
-      list_push_tail(*(uint32_t *)off_121AE0 + 540, (uint32_t *)(v3 - 4));
-      *v4 = 1;
-      rf_enable();
-    }
-    else
-    {
-      msg_parse(dword_121AE4);
-    }
-  }
 }
 
 
@@ -60562,39 +43097,6 @@ void patch_check_enabled_ctx(int a1) {
       dispatch_event_handler_1(dword_121AE4);
     }
   }
-}
-
-
-
-// rf_cmd_dispatch_n_454 @ 0x121af0
-int rf_cmd_dispatch_n_454(unsigned int a1) {
-  int *v2; // r5
-  int result; // r0
-  int v4; // r3
-  int v5; // r2
-
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)rf_mem_write_n_4f8 = 1;
-  }
-  v2 = (int *)rf_cmd_dispatch_n_40c;
-  ++*(uint32_t *)rf_cmd_dispatch_n_40c;
-  result = rf_lmac_log_str_n2cc();
-  if ( a1 <= 3 )
-    --*(uint8_t *)(dword_121B3C + a1);
-  if ( *v2 )
-  {
-    v4 = *v2 - 1;
-    v5 = *(uint32_t *)rf_mem_write_n_4f8;
-    *v2 = v4;
-    if ( !v4 )
-    {
-      if ( v5 )
-        __enable_irq();
-    }
-  }
-  return result;
 }
 
 
@@ -60804,8 +43306,7 @@ uint32_t * parse_dot_separated(int a1, uint32_t *a2, int a3) {
         v10 = *v8;
         ++v9;
         v11 = v8;
-        if ( !crc32((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) )
-          break;
+if ( !crc32((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) ) break;
         v8 += 4;
         if ( a3 == v9 )
           goto rf_cmd_dispatch_1ccc;
@@ -60822,143 +43323,6 @@ rf_cmd_dispatch_1ccc:
       return a2;
   }
   return 0;
-}
-
-
-
-// rf_cmd_dispatch_1cf4 @ 0x121cf4
-int rf_cmd_dispatch_1cf4(unsigned int a1, uint8_t *a2, int a3) {
-  int *v3; // r6
-  char v4; // r4
-  int *v6; // r7
-  uint32_t *v7; // r3
-  int v8; // r2
-  int *v9; // r8
-  int result; // r0
-  int v11; // r0
-  int *v12; // r2
-  uint32_t *v13; // r3
-  int *v14; // r8
-  int v15; // r1
-  unsigned int v16; // r0
-  uint8_t *v17; // r0
-  int v18; // r2
-  int v19; // r3
-  unsigned int v20; // r1
-  uint8_t *v21; // r0
-  uint32_t *v22; // r3
-  uint8_t *v23; // r3
-  int v24; // r2
-
-  v3 = (int *)rf_mem_write_1e24;
-  v4 = a1;
-  if ( *(uint32_t *)rf_mem_write_1e24 )
-  {
-    if ( !a3 )
-      goto rf_cmd_queue_next_n_42b;
-rf_cmd_dispatch_n_1f0:
-    v11 = memset_ff(a3);
-    v12 = (int *)rf_state_check_n_20c;
-    v13 = (void *)(rf_cmd_dispatch_e30);
-    *v3 = (int)a2;
-    *v12 = v11;
-    *v13 = 0;
-    return 0;
-  }
-  *(uint32_t *)rf_mem_write_1e24 = (int)(uintptr_t)(a2);
-  if ( a3 )
-    goto rf_cmd_dispatch_n_1f0;
-rf_cmd_queue_next_n_42b:
-  v6 = (int *)rf_state_check_n_20c;
-  v7 = (void *)(uintptr_t)(off_121E2C);
-  v8 = *(uint32_t *)rf_state_check_n_20c;
-  *(uint32_t *)off_121E2C = *(uint32_t *)rf_state_check_n_20c;
-  if ( a1 <= 0x17 )
-  {
-    switch ( a1 )
-    {
-      case 0u:
-        return -1;
-      case 3u:
-        result = 0;
-        *a2 = 0;
-        return result;
-      case 8u:
-        goto rf_mem_write_n_28c;
-      case 0xAu:
-      case 0xDu:
-        v21 = (uint8_t *)rf_mem_write_n_1f7;
-        *(uint8_t *)*v3 = 0;
-        uart_puts(v21);
-        return *v3 - (uint32_t)a2;
-      case 0x15u:
-        v22 = (void *)(rf_cmd_dispatch_e30);
-        *v3 = (int)a2;
-        *v22 = 0;
-        return -1;
-      case 0x17u:
-        v14 = (int *)rf_cmd_dispatch_e30;
-        v15 = *v3;
-        if ( *(uint32_t *)rf_cmd_dispatch_e30 )
-        {
-          v16 = (unsigned int)a2;
-          while ( 1 )
-          {
-            v17 = (uint8_t *)tlv_find(v16, v15, v8);
-            v18 = *v14;
-            *v3 = (int)v17;
-            v15 = (int)v17;
-            if ( v18 <= 0 )
-              break;
-            v19 = *v17;
-            v16 = (unsigned int)a2;
-            if ( v19 == 32 )
-              break;
-            v8 = *v6;
-          }
-        }
-        return -1;
-      default:
-        v9 = (int *)rf_cmd_dispatch_e30;
-        if ( *(int *)rf_cmd_dispatch_e30 > 61 )
-          goto rf_cmd_dispatch_n_204;
-        if ( a1 != 9 )
-          goto rf_mem_write_n_213;
-        uart_puts((uint8_t *)(dword_121E38 + (v8 & 7)));
-        *(uint32_t *)off_121E2C = (*(uint32_t *)off_121E2C & 0xFFFFFFF8) + 8;
-        break;
-    }
-    goto rf_mem_write_n_22b;
-  }
-  if ( a1 == 127 )
-  {
-rf_mem_write_n_28c:
-    v20 = *v3;
-    if ( *(uint32_t *)rf_cmd_dispatch_e30 )
-      v20 = tlv_find((unsigned int)a2, v20, v8);
-    *v3 = v20;
-    return -1;
-  }
-  else
-  {
-    v9 = (int *)rf_cmd_dispatch_e30;
-    if ( *(int *)rf_cmd_dispatch_e30 <= 61 )
-    {
-rf_mem_write_n_213:
-      *v7 = v8 + 1;
-      uart_putc(a1);
-rf_mem_write_n_22b:
-      v23 = (uint8_t *)*v3;
-      *v23 = v4;
-      v24 = *v9 + 1;
-      *v3 = (int)(v23 + 1);
-      *v9 = v24;
-      return -1;
-    }
-rf_cmd_dispatch_n_204:
-    uart_putc(7);
-    return -1;
-  }
 }
 
 
@@ -61100,80 +43464,6 @@ LABEL_7:
 
 
 
-// parse_int @ 0x121e3c
-int parse_int(uint8_t *a1, uint32_t *a2, unsigned int a3) {
-  int v3; // r5
-  int v4; // r7
-  int i; // r6
-  unsigned int v6; // r3
-  int v8; // t1
-  int v9; // r3
-  int v10; // r3
-
-  v3 = *a1;
-  if ( v3 == 48 )
-  {
-    v3 = a1[1];
-    if ( (unsigned int)(v3 - 65) > 0x19 )
-      v9 = a1[1];
-    else
-      v9 = (uint8_t)(v3 + 32);
-    if ( v9 == 120 && ((v10 = a1[2], (unsigned int)(v10 - 48) <= 9) || (v10 & 0xFFFFFFDF) - 65 <= 5) )
-    {
-      a1 += 2;
-      v3 = v10;
-      a3 = 16;
-    }
-    else
-    {
-      ++a1;
-      if ( !a3 )
-      {
-        a3 = 8;
-        if ( v3 != 45 )
-          goto LABEL_5;
-LABEL_25:
-        v4 = 1;
-        v3 = *++a1;
-        goto rf_mem_write_field_n1db;
-      }
-    }
-  }
-  else if ( !a3 )
-  {
-    a3 = 10;
-  }
-  if ( v3 == 45 )
-    goto LABEL_25;
-LABEL_5:
-  v4 = 0;
-rf_mem_write_field_n1db:
-  for ( i = 0; ; i = v6 + i * a3 )
-  {
-    v6 = v3 - 48;
-    if ( (uint8_t)(v3 - 48) > 9u )
-    {
-      if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
-        break;
-      if ( (unsigned int)(v3 - 97) > 0x19 )
-        v6 = v3 - 55;
-      else
-        v6 = (uint8_t)(v3 - 32) - 55;
-    }
-    if ( a3 <= v6 )
-      break;
-    v8 = *++a1;
-    v3 = v8;
-  }
-  if ( v4 )
-    i = -i;
-  if ( a2 )
-    *a2 = (int)(uintptr_t)(a1);
-  return i;
-}
-
-
-
 // parse_number @ 0x121e3c
 int parse_number(uint8_t *a1, uint32_t *a2, unsigned int a3) {
   int v3; // r5
@@ -61265,28 +43555,6 @@ int buffer_flush() {
   }
   while ( v0 != (uint32_t *)v2 );
   return 0;
-}
-
-
-
-// rf_cmd_dispatch_n_34 @ 0x121f10
-int rf_cmd_dispatch_n_34(int a1) {
-  int v2; // r0
-  int v3; // r0
-  int v5; // r3
-
-  v2 = memset_ff(a1);
-  if ( v2 <= 2 )
-    return 4;
-  v3 = v2 + a1;
-  if ( *(uint8_t *)(v3 - 2) != 46 )
-    return 4;
-  v5 = *(uint8_t *)(v3 - 1);
-  if ( v5 == 98 )
-    return 1;
-  if ( v5 == 104 )
-    return 2;
-  return -1;
 }
 
 
@@ -61438,36 +43706,6 @@ int parse_mac_addr(int a1, int a2) {
 
 
 
-// rf_mem_write_nf0 @ 0x12211c
-int rf_mem_write_nf0(int a1, int a2) {
-  int v3; // r5
-  int v4; // r4
-  int v5; // r0
-  uint32_t *v6; // r3
-
-  if ( a1 <= 2 )
-  {
-    v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0x10u);
-    msg_parse(dword_122188, v4);
-    goto rf_cmd_dispatch_n240;
-  }
-  v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0);
-  v4 = parse_int(*(uint8_t **)(a2 + 8), 0, 0x10u);
-  msg_parse(dword_122188, v4);
-  if ( v3 == 1 )
-rf_cmd_dispatch_n240:
-    v4 = *(uint32_t *)(v4 + 4);
-  v5 = msg_parse(dword_12218C, v4);
-  v6 = (void *)(rf_mem_write_block);
-  *((uint32_t *)rf_cmd_dispatch_190 + 65) = 8;
-  v6[2] &= ~0x20000u;
-  v6[2] |= 0x40000u;
-  ((void ( *)(int))v4)(v5);
-  return 0;
-}
-
-
-
 // parse_len_value @ 0x12211c
 int parse_len_value(int a1, int a2) {
   int v3; // r5
@@ -61494,55 +43732,6 @@ LABEL_5:
   v6[2] |= 0x40000u;
   ((void ( *)(int))v4)(v5);
   return 0;
-}
-
-
-
-// rf_mem_write_n16c @ 0x122198
-int rf_mem_write_n16c(int a1, int a2) {
-  int v4; // r0
-  uint16_t v6; // r0
-  int f4c0; // r0
-  int v8; // r4
-
-  v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-  if ( v4 )
-  {
-    if ( v4 == 1 )
-    {
-      if ( a1 <= 2 )
-        goto LABEL_5;
-      v6 = parse_int(*(uint8_t **)(a2 + 8), 0, 0x10u);
-      **(uint16_t **)off_12222C = v6;
-      msg_parse(dword_122230, v6);
-      return 0;
-    }
-    else if ( v4 == 2 )
-    {
-      if ( a1 <= 2 )
-      {
-LABEL_5:
-        msg_parse(dword_122228);
-        return 0;
-      }
-      v8 = parse_int(*(uint8_t **)(a2 + 8), 0, 0x10u);
-      msg_parse(dword_122240, v8);
-      rf_mem_read_n_ec(v8);
-      return 0;
-    }
-    else
-    {
-      msg_parse(dword_12223C, v4);
-      return 0;
-    }
-  }
-  else
-  {
-    msg_parse(dword_122234, **(uint16_t **)off_12222C);
-    f4c0 = rf_mem_read_f4c0();
-    msg_parse(dword_122238, f4c0);
-    return 0;
-  }
 }
 
 
@@ -61592,99 +43781,6 @@ LABEL_5:
     dispatch_event_handler_1(dword_122238, v7);
     return 0;
   }
-}
-
-
-
-// rf_cmd_dispatch_n388 @ 0x1222cc
-int rf_cmd_dispatch_n388(int a1, int a2) {
-  uint8_t *v3; // r6
-  unsigned int v4; // r6
-  uint16_t v5; // r0
-  uint8_t *v6; // r5
-  uint16_t v7; // r7
-  unsigned int v8; // r8
-  uint32_t *v9; // r0
-  uint32_t *v10; // r1
-  uint32_t *v11; // r12
-  uint32_t *v12; // lr
-  uint32_t *v13; // r3
-  uint32_t *v14; // r9
-  uint32_t *v15; // lr
-  uint32_t *v16; // r0
-  uint32_t *v17; // r12
-  unsigned int *v18; // r1
-  unsigned int v19; // r3
-  char *v20; // r0
-  int *v21; // r12
-  int v22; // lr
-  int v23; // r9
-  int v24; // r0
-  uint8_t v26[4]; // [sp+8h] [bp-Ch] BYREF
-  char v27; // [sp+Ch] [bp-8h]
-
-  if ( memset_ff(*(uint32_t *)(a2 + 4)) != 12 || memset_ff(*(uint32_t *)(a2 + 8)) != 12 )
-    return -2;
-  v3 = *(uint8_t **)(a2 + 4);
-  memcpy_large(v26, v3 + 8, 4);
-  v3[8] = 0;
-  v27 = 0;
-  v4 = parse_int(v3, 0, 0x10u);
-  v5 = parse_int(v26, 0, 0x10u);
-  v6 = *(uint8_t **)(a2 + 8);
-  v7 = v5;
-  memcpy_large(v26, v6 + 8, 4);
-  v6[8] = 0;
-  v27 = 0;
-  v8 = parse_int(v6, 0, 0x10u);
-  v6 = (void *)(uintptr_t)(((uintptr_t)(v6) & ~0xFFFFu) | ((uint16_t)(parse_int(v26, 0, 0x10u)) & 0xFFFFu));
-  msg_parse(dword_122438);
-  v9 = (void *)(uintptr_t)(off_122440);
-  v10 = (void *)(uintptr_t)(off_122444);
-  v11 = (void *)(uintptr_t)(off_12246C);
-  v12 = (void *)(uintptr_t)(off_122470);
-  v13 = (void *)(uintptr_t)(off_122448);
-  *(uint32_t *)off_12243C = 512;
-  *v12 = 7;
-  *v9 = 7;
-  *v10 = 7;
-  *v11 = 7;
-  *v13 = 7;
-  v9[4] = 7;
-  v13 -= 495296;
-  v10[4] = 7;
-  v11[4] = 7;
-  *v13 = 9816;
-  *(v9 - 457703) = 50529027;
-  *(v10 - 457698) = dword_12244C;
-  v14 = (void *)(uintptr_t)(off_122474);
-  v15 = (void *)(uintptr_t)(off_122478);
-  v16 = (void *)(uintptr_t)(off_122454);
-  v13[37597] = dword_122450;
-  v17 = (void *)(uintptr_t)(off_12247C);
-  v18 = (unsigned int *)off_122458;
-  *v14 = -1;
-  *v15 = -1;
-  *v16 = -1;
-  *v17 = -1;
-  *v18 = bswap32(v4);
-  v18 += 4;
-  *(uint32_t *)off_12245C = __rev16(v7);
-  v19 = bswap32(v8);
-  *v18 = v19;
-  v20 = (char *)off_122460;
-  *(uint32_t *)off_122460 = __rev16((uint16_t)v6);
-  *(v18 - 380) = v19;
-  v21 = (int *)off_122480;
-  v22 = (int)(uintptr_t)(rf_mem_write_n458);
-  v23 = (int)(uintptr_t)(rf_mem_write_word_2488);
-  *(uint32_t *)off_122464 = __rev16((uint16_t)v6);
-  *(uint32_t *)&v20[-148] = 7;
-  *(uint32_t *)&v20[-148] = v23;
-  v24 = dword_122468;
-  *v21 = v22;
-  msg_parse(v24, v4, v7, v8, (uint16_t)v6);
-  return 0;
 }
 
 
@@ -61805,7 +43901,7 @@ int process_items(int a1, int a2) {
       v7 = parse_int(*(uint8_t **)(a2 + 8), 0, 0);
       if ( v7 > 5 )
       {
-        msg_parse((int)(uintptr_t)(rf_mem_write_n4d8), v7);
+        msg_parse(rf_mem_write_n4d8, v7);
       }
       else
       {
@@ -61937,7 +44033,7 @@ int parse_records(int a1, int a2) {
       *((uint8_t *)v7 + 363) = v5;
       if ( v6 )
       {
-        v8 = ((int (*)())rf_level_apply_n274)(v4);
+        v8 = rf_level_apply_n274(v4);
         rf_enable_2(v8);
       }
       else
@@ -62642,52 +44738,6 @@ int check_address_alignment(int a1, int a2, int a3, int a4) {
 
 
 
-// rf_init_handler_0 @ 0x122fa4
-unsigned int rf_init_handler_0(int a1, int a2) {
-  unsigned int v4; // r0
-  unsigned int v5; // r4
-
-  v4 = sub_113B30();
-  v5 = v4;
-  if ( a1 )
-  {
-    if ( a1 == 1 )
-    {
-      if ( v4 )
-      {
-        msg_parse(dword_123010);
-      }
-      else
-      {
-        msg_parse(dword_12301C, a2);
-        rf_fault_dump_n_b2(__ROR4__(a2, 16));
-        rf_cmd_status_get_n1c0();
-      }
-      return __ROR4__(rf_helper_sub_n_3b78(), 16);
-    }
-    else
-    {
-      msg_parse(dword_123018);
-      return 0;
-    }
-  }
-  else
-  {
-    if ( v4 )
-    {
-      v5 = __ROR4__(rf_helper_sub_n_3b78(), 16);
-      msg_parse(dword_123014, v5);
-    }
-    else
-    {
-      msg_parse(dword_12300C);
-    }
-    return v5;
-  }
-}
-
-
-
 // lookup_entry @ 0x122fa4
 unsigned int lookup_entry(int a1, int a2) {
   unsigned int v4; // r0
@@ -62803,122 +44853,6 @@ int enter_critical_section_2() {
 
 
 
-// rf_init_or_reset @ 0x1230e8
-int rf_init_or_reset(unsigned int a1) {
-  int v1; // r0
-  int v2; // r4
-  uint32_t *v4; // r0
-  uint32_t *v5; // r5
-  unsigned int CPSR; // r1
-  unsigned int v7; // r2
-  unsigned int v8; // r4
-  unsigned int v9; // r5
-  unsigned int v10; // r3
-  uint8_t *v11; // r2
-  int v12; // r0
-  int v13; // r8
-  int v14; // r7
-  unsigned int v15; // r5
-  unsigned int v16; // r6
-  int v17; // t1
-  int v18; // r7
-  int v19; // r6
-  unsigned int v20; // r4
-  unsigned int v21; // r5
-  int v22; // t1
-  unsigned int v23; // [sp+8h] [bp-8h]
-
-  v1 = rf_cmd_dispatch_1cf4(a1, (uint8_t *)dword_123208, 0);
-  v2 = v1;
-  if ( v1 >= 0 )
-  {
-    if ( v1 )
-    {
-      if ( memset_ff(dword_123210) != v1 || strcmp(dword_123210, (void *)(uintptr_t)(dword_123208)) )
-      {
-        v4 = list_pop_front(dword_123214);
-        v5 = v4;
-        if ( v4 )
-        {
-          strcpy((int)(uintptr_t)(v4 + 1), dword_123208);
-          list_push_tail(dword_123218, v5);
-        }
-        else
-        {
-          uart_puts((uint8_t *)dword_12322C);
-        }
-      }
-      else
-      {
-        CPSR = __get_CPSR();
-        v7 = __get_CPSR();
-        v8 = __get_CPSR();
-        v9 = __get_CPSR();
-        v10 = __get_CPSR();
-        v23 = __get_CPSR();
-        sub_10DA6C(dword_12321C, CPSR, v7, v8, v9, v10, v23);
-        if ( v9 )
-        {
-          v13 = dword_12323C;
-          v14 = dword_123234;
-          v15 = v9 & 0xFFFFFFF0;
-          uart_puts((uint8_t *)dword_123230);
-          v16 = v15 + 256;
-          do
-          {
-            if ( !(v15 << 28) )
-              sub_10DA6C(v13, v15);
-            v17 = *(uint32_t *)v15;
-            v15 += 4;
-            sub_10DA6C(v14, v17);
-          }
-          while ( v16 != v15 );
-        }
-        if ( v8 )
-        {
-          v18 = dword_12323C;
-          v19 = dword_123234;
-          v20 = v8 & 0xFFFFFFF0;
-          uart_puts((uint8_t *)dword_123238);
-          v21 = v20 + 256;
-          do
-          {
-            if ( !(v20 << 28) )
-              sub_10DA6C(v18, v20);
-            v22 = *(uint32_t *)v20;
-            v20 += 4;
-            sub_10DA6C(v19, v22);
-          }
-          while ( v21 != v20 );
-        }
-        uart_puts((uint8_t *)dword_123220);
-        v11 = (void *)(uintptr_t)(off_123224);
-        v12 = *(uint8_t *)off_123224;
-        if ( *(uint8_t *)off_123224 )
-        {
-          *((uint8_t *)off_123228 + 783) = -4;
-          v2 = 0;
-          *v11 = 0;
-        }
-        else
-        {
-          *((uint8_t *)off_123228 + 783) = -12;
-          v2 = v12;
-          *v11 = 1;
-        }
-      }
-    }
-    else
-    {
-      uart_puts((uint8_t *)dword_12320C);
-    }
-    rf_cmd_dispatch_1cf4(0x30u, (uint8_t *)dword_123208, dword_12320C);
-  }
-  return v2;
-}
-
-
-
 // process_queue_message @ 0x1230e8
 int process_queue_message(unsigned int a1) {
   int v1; // r0
@@ -62950,9 +44884,7 @@ int process_queue_message(unsigned int a1) {
   {
     if ( v1 )
     {
-      if ( memset_ff(dword_123210) != v1 || strcmp(dword_123210, (void *)(uintptr_t)(dword_123208)) )
-      {
-        v4 = list_pop_front(dword_123214);
+if ( memset_ff(dword_123210) != v1 || strcmp(dword_123210, (void *)(uintptr_t)(dword_123208)) ) { v4 = list_pop_front(dword_123214);
         v5 = v4;
         if ( v4 )
         {
@@ -63116,7 +45048,7 @@ uint8_t *exit_critical_section() {
       }
       v10 = dword_123348;
       ++*v0;
-      list_push_tail(v10, (void *)(v3));
+      list_push_tail(v10, v3);
       result = (uint8_t *)list_pop_front(dword_123338);
       v3 = result;
       if ( *v0 )
@@ -63177,46 +45109,6 @@ int increment_debug_counter(int a1) {
 
 
 
-// rf_event_check_n3cc @ 0x1233cc
-float rf_event_check_n3cc(uint8_t *a1) {
-  int v1; // r2
-  int v2; // r5
-  int v3; // r4
-  int v4; // r6
-  int *v5; // r7
-  int v6; // r2
-  int v7; // r1
-  int v8; // r6
-  int v9; // r3
-  float v10; // s16
-  float result; // r0
-
-  v1 = *(uint8_t *)off_123474;
-  v2 = HIWORD(*(uint32_t *)off_123478) & 0x3F;
-  v3 = *(uint32_t *)off_123478 & 0xFFF;
-  if ( v1 == a1[1] )
-  {
-    v4 = dword_12347C;
-    v5 = (int *)off_123480;
-    v6 = v1 - 1;
-    *(uint16_t *)(dword_12347C + 8 * v6) = a1[4] | (a1[5] << 8);
-    v7 = v4 + 8 * v6;
-    v6 = (v6 & ~0xFFu) | ((uint8_t)(*(uint8_t *)(v7 + 2)) & 0xFFu);
-    v8 = *v5;
-    v9 = *(char *)off_123484;
-    *(uint8_t *)(v7 + 5) = a1[6];
-    *(uint8_t *)(v7 + 2) = v6 + 1;
-    *v5 = v9 + v8;
-  }
-  mmio_write_40320150(*(uint32_t *)off_123488 + 20000);
-  v10 = float_to_double(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
-  result = float_to_double(COERCE_UNSIGNED_INT((float)(1 << v2)));
-  *(float *)off_12348C = (float)((float)(v10 * 10.0) - (float)(result * 10.0)) + *(float *)off_12348C;
-  return result;
-}
-
-
-
 // check_chip_version @ 0x1233cc
 float check_chip_version(uint8_t *a1) {
   int v1; // r2
@@ -63252,32 +45144,6 @@ float check_chip_version(uint8_t *a1) {
   v10 = float_to_double(COERCE_UNSIGNED_INT((float)(unsigned int)v3));
   result = float_to_double(COERCE_UNSIGNED_INT((float)(1 << v2)));
   *(float *)off_12348C = (float)((float)(v10 * 10.0) - (float)(result * 10.0)) + *(float *)off_12348C;
-  return result;
-}
-
-
-
-// parse_subframe_header @ 0x123490
-uint8_t * parse_subframe_header(uint8_t *result) {
-  int v1; // r4
-  uint32_t *v2; // r3
-  char v3; // r2
-
-  if ( result[1] == 192 && result[2] == 181 && result[3] == 122 )
-  {
-    v1 = result[4];
-    if ( (uint8_t)(v1 + 106) <= 1u )
-    {
-      v2 = (void *)(uintptr_t)(off_1234DC);
-      *(uint8_t *)off_1234D8 = result[5];
-      result = (uint8_t *)mmio_write_40320150(*v2 + 20000);
-      if ( v1 == 150 )
-        v3 = 2;
-      else
-        v3 = 0;
-      *(uint8_t *)off_1234E0 = v3;
-    }
-  }
   return result;
 }
 
@@ -63466,30 +45332,6 @@ LABEL_15:
     rf_init_n_dc(v18);
   else
     rf_set_flag(2);
-}
-
-
-
-// rf_chan_band_parse @ 0x1236fc
-uint8_t * rf_chan_band_parse(uint8_t *result) {
-  uint8_t *v1; // r3
-  char v2; // r1
-  char v3; // r2
-
-  if ( *result == 2 )
-  {
-    if ( *(uint8_t *)off_123730 == (uint8_t)result[1] )
-    {
-      v1 = (void *)(uintptr_t)(off_123734);
-      v2 = result[3];
-      v3 = result[4];
-      *((uint8_t *)off_123734 + 2) = result[2];
-      v1[3] = v2;
-      v1[4] = v3;
-    }
-    return (uint8_t *)mmio_write_40320150(*(uint32_t *)off_123738 + 20000);
-  }
-  return result;
 }
 
 
@@ -63707,62 +45549,6 @@ LABEL_12:
 
 
 
-// rf_chan_config_set @ 0x123a20
-int rf_chan_config_set(int a1) {
-  int v2; // r1
-  uint64_t v3; // r0
-  uint16_t *v4; // r2
-  int16_t v5; // r3
-  int16_t v6; // r1
-  int16_t v7; // r5
-  int v8; // r0
-  int v10; // [sp+0h] [bp-34h] BYREF
-  int16_t v11; // [sp+4h] [bp-30h]
-  int v12; // [sp+8h] [bp-2Ch] BYREF
-  int16_t v13; // [sp+Ch] [bp-28h]
-  int v14; // [sp+10h] [bp-24h] BYREF
-  int16_t v15; // [sp+14h] [bp-20h]
-  int v16; // [sp+18h] [bp-1Ch] BYREF
-  int16_t v17; // [sp+1Ch] [bp-18h]
-  uint8_t v18[8]; // [sp+20h] [bp-14h] BYREF
-  int v19; // [sp+28h] [bp-Ch] BYREF
-  int16_t v20; // [sp+2Ch] [bp-8h]
-
-  v2 = *((uint32_t *)off_123AA8 + 1);
-  v10 = *(uint32_t *)off_123AA8;
-  v11 = v2;
-  v3 = *((uint64_t *)off_123AA8 + 1);
-  v13 = *((uint32_t *)off_123AA8 + 3);
-  v12 = v3;
-  v3 = (v3 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(*(uint32_t *)(dword_123AAC + 4)) << 32);
-  v14 = *(uint32_t *)dword_123AAC;
-  v15 = WORD2(v3);
-  memcpy_large((void *)(&v16), (void *)(&v10), 6);
-  memcpy_large(v18, (void *)(&v12), 6);
-  memcpy_large((void *)(&v19), (void *)(&v14), 6);
-  v4 = (void *)(uintptr_t)(off_123AB0);
-  v5 = *((uint16_t *)off_123AB0 + 70);
-  *(uint32_t *)(a1 + 10) = v16;
-  v6 = v20;
-  v7 = v17;
-  *(uint8_t *)a1 = 8;
-  ++v5;
-  v8 = v19;
-  *(uint16_t *)(a1 + 14) = v7;
-  *(uint16_t *)(a1 + 8) = v6;
-  *(uint16_t *)(a1 + 20) = v6;
-  *(uint32_t *)(a1 + 4) = v8;
-  *(uint32_t *)(a1 + 16) = v8;
-  *(uint8_t *)(a1 + 1) = 2;
-  *(uint8_t *)(a1 + 2) = 1;
-  *(uint8_t *)(a1 + 3) = 0;
-  v4[70] = v5;
-  *(uint16_t *)(a1 + 22) = 16 * v5;
-  return 24;
-}
-
-
-
 // build_hci_command @ 0x123a20
 int build_hci_command(int a1) {
   int v2; // r1
@@ -63867,66 +45653,6 @@ int build_hci_event(int a1) {
 
 
 
-// patch_ctrl_write_magic @ 0x123b30
-int patch_ctrl_write_magic(uint32_t *a1, int a2, int a3) {
-  int v3; // r2
-  int v4; // r4
-  int v5; // r7
-  int v6; // r5
-  int *v7; // r8
-  int v8; // r2
-  int v10; // r0
-  int *v11; // r3
-  int v12; // r12
-  int *v13; // r4
-
-  v3 = 300 * a3;
-  v4 = dword_123BB4;
-  v5 = dword_123BB8;
-  v6 = a1[4];
-  *(uint32_t *)(dword_123BB4 + v3) = dword_123BB8;
-  if ( a2 >= 0x10000 )
-    a2 = 0x10000;
-  v7 = (int *)(v4 + v3);
-  v8 = a2 - 4096;
-  v7[2] = v6;
-  v7[4] = 0;
-  if ( a2 - 4096 <= 4096 )
-  {
-    v12 = a2 - 4096;
-    v13 = v7;
-  }
-  else
-  {
-    v10 = a1[5];
-    v11 = v7 + 5;
-    v12 = a2 - 61440;
-    while ( 1 )
-    {
-      v8 -= 4096;
-      v13 = v11;
-      *(v11 - 2) = v10;
-      *v11 = v5;
-      v11[2] = v6;
-      v11[4] = 0;
-      *(v11 - 4) = (int)v11;
-      v11 += 5;
-      if ( v8 <= 4096 )
-        break;
-      if ( v8 == v12 )
-        goto LABEL_7;
-    }
-    v12 = v8;
-  }
-LABEL_7:
-  v13[3] = v6 - 1 + v12;
-  v13[1] = 0;
-  a1[3] = (int)(uintptr_t)(v7);
-  return a2;
-}
-
-
-
 // init_timer_slot @ 0x123b30
 int init_timer_slot(uint32_t *a1, int a2, int a3) {
   int v3; // r2
@@ -63983,249 +45709,6 @@ LABEL_7:
   v13[1] = 0;
   a1[3] = (int)(uintptr_t)(v7);
   return a2;
-}
-
-
-
-// rf_sub_3bbc @ 0x123bbc
-int rf_sub_3bbc() {
-  int *v0; // r4
-  int v1; // r11
-  int v2; // r0
-  int v3; // r0
-  uint32_t *v4; // r5
-  uint32_t *v5; // r6
-  unsigned int v6; // r3
-  int v7; // r4
-  unsigned int v8; // r0
-  unsigned int v9; // r1
-  int v10; // r3
-  uint32_t *v11; // r0
-  int v12; // r2
-  uint8_t *v13; // r3
-  unsigned int v15; // r3
-  unsigned int v16; // r8
-  unsigned int v17; // r10
-  int v18; // r1
-  unsigned int v19; // r12
-  unsigned int v20; // lr
-  int v21; // r7
-  int v22; // r2
-  int v23; // r8
-  int v24; // r0
-  unsigned int v25; // r1
-  int v26; // r2
-  char v27; // r9
-  signed int v28; // r4
-  int v29; // r9
-  int v30; // r2
-  uint32_t *v31; // r8
-  int v32; // r1
-  int v33; // r2
-  int v34; // r4
-  signed int v35; // r3
-  unsigned int v36; // r0
-  int v37; // [sp+Ch] [bp-10h]
-  uint64_t v38; // [sp+10h] [bp-Ch] BYREF
-
-  v0 = (int *)off_123EAC;
-  if ( *(uint32_t *)off_123EAC <= 0x17u )
-    *(uint32_t *)off_123EAC = 1000;
-  get_cached_1828f8(&v38, 0);
-  v1 = (uint8_t)v38;
-  v2 = (uint8_t)v38;
-  if ( (uint8_t)v38 )
-    v2 = 1;
-  v3 = rf_alloc_or_init(v2, *v0);
-  v4 = (uint32_t *)v3;
-  if ( v3 )
-  {
-    v5 = *(uint32_t **)(v3 + 28);
-    v6 = v5[20];
-    v7 = *(uint32_t *)off_123EB4;
-    v8 = *(uint32_t *)off_123EB0;
-    v5[16] = *(uint32_t *)off_123EB0;
-    v9 = v6 >> 19 << 19;
-    v5[20] = v9;
-    if ( v7 )
-    {
-      v10 = *(uint32_t *)off_123EB8;
-      v11 = v5;
-LABEL_8:
-      v12 = *(uint32_t *)off_123EC0;
-      v5[12] = *(uint32_t *)off_123EBC;
-      v5[20] = v10 | v9;
-      v5[13] = v12;
-      rf_chan_config_set((int)(v11 + 26));
-      v13 = (uint8_t *)off_123EC4;
-      v4[11] = 0;
-      v4[12] = 0;
-      wlan_tx_submit((int)v4, *v13);
-      return 0;
-    }
-    v15 = v8 & 0x7F;
-    v16 = *((uint16_t *)off_123EC8 + 20);
-    v17 = (v8 >> 11) & 7;
-    if ( v1 )
-    {
-      v18 = (v8 >> 11) & 6;
-      if ( v18 )
-      {
-        if ( v17 >= 5 )
-          v18 = 2;
-        else
-          v18 = 1;
-        v19 = 4;
-        v20 = 7;
-      }
-      else
-      {
-        v19 = 7;
-        v20 = 11;
-      }
-      v21 = *(char *)(dword_123ECC + 12 * v18 + v15);
-      if ( v15 <= v19 )
-      {
-        v37 = 0;
-      }
-      else
-      {
-        if ( v20 < v15 )
-          v22 = 1;
-        else
-          v22 = 2;
-        if ( v20 < v15 )
-          v7 = 6;
-        else
-          v7 = 12;
-        v37 = v22;
-      }
-      if ( v16 > 0x1666 )
-      {
-        v23 = 5;
-      }
-      else if ( v16 > 0x1616 )
-      {
-        v23 = 4;
-      }
-      else if ( v16 > 0x15C6 )
-      {
-        v23 = 3;
-      }
-      else if ( v16 > 0x1571 )
-      {
-        v23 = 2;
-      }
-      else
-      {
-        v23 = v16 > 0x1486;
-      }
-      v27 = *(uint8_t *)(v7 + *(uint32_t *)off_123EF8 + v23)
-          + *((uint8_t *)off_123F00 + 1)
-          + *(uint8_t *)(dword_123ED8 + v37 + 11);
-      v28 = v27;
-      if ( *((uint8_t *)off_123EDC + 396) )
-        v21 = (char)(v21 + *(uint8_t *)(*(uint32_t *)off_123EFC + v23));
-LABEL_45:
-      if ( *(char *)off_123EE4 > 0 )
-      {
-        msg_parse(dword_123EF0, v1, v17);
-        v29 = v27 & 1;
-        if ( v29 )
-          v35 = v28 - 1 + ((unsigned int)(v28 - 1) >> 31);
-        else
-          v35 = v28 + ((unsigned int)v28 >> 31);
-        msg_parse(dword_123EF4, v21, v37, v23, v28, (v35 >> 1) + v21);
-        --*(uint8_t *)off_123EE4;
-        v30 = 1;
-      }
-      else
-      {
-        v29 = v27 & 1;
-        v30 = 0;
-      }
-      if ( v17 > 4 )
-      {
-        v31 = (void *)(uintptr_t)(off_123EB8);
-        if ( (v5[16] & 0x600) == 0x400 )
-          *(uint32_t *)off_123EB8 = *(uint32_t *)off_123EB8 & 0xFFFCFFFF | 0x20000;
-      }
-      else
-      {
-        v31 = (void *)(uintptr_t)(off_123EB8);
-      }
-      v32 = *(char *)off_123EE8;
-      if ( v32 < v21 )
-      {
-        v21 = *(char *)off_123EE8;
-        if ( v30 )
-        {
-          if ( v29 )
-            v33 = (v28 - 1) / 2;
-          else
-            v33 = v28 / 2;
-          msg_parse(dword_123EEC, v32, v33 + v32);
-        }
-      }
-      if ( v29 )
-        v34 = (v28 - 1) / 2;
-      else
-        v34 = v28 / 2;
-      v9 = v5[20];
-      v11 = (uint32_t *)v4[7];
-      v10 = *v31 & 0x70000 | (v21 + v34) | ((v21 + v34) << 8);
-      goto LABEL_8;
-    }
-    if ( ((v8 >> 11) & 6) != 0 )
-    {
-      v36 = dword_123ED0 + v15;
-      if ( v17 <= 4 )
-        v21 = *(char *)(v36 + 12);
-      else
-        v21 = *(char *)(v36 + 24);
-      v25 = 2;
-    }
-    else
-    {
-      v24 = v8 & 0x7C | v17;
-      if ( !v24 )
-      {
-        v37 = 0;
-        v21 = *(char *)(dword_123ED0 + v15);
-        goto LABEL_39;
-      }
-      v21 = *(char *)(dword_123ED0 + v15);
-      v25 = 9;
-    }
-    if ( v15 > v25 )
-      v26 = 1;
-    else
-      v26 = 2;
-    if ( v15 > v25 )
-      v24 = 3;
-    else
-      v24 = 6;
-    v37 = v26;
-LABEL_39:
-    if ( v16 <= 0x97B )
-    {
-      v23 = 0;
-    }
-    else if ( v16 > 0x994 )
-    {
-      v23 = 2;
-    }
-    else
-    {
-      v23 = 1;
-    }
-    v27 = *(uint8_t *)(*(uint32_t *)off_123ED4 + v23 + v24) + *(uint8_t *)off_123F00 + *(uint8_t *)(dword_123ED8 + v37 + 8);
-    v28 = v27;
-    if ( *((uint8_t *)off_123EDC + 396) )
-      v21 = (char)(v21 + *(uint8_t *)(*(uint32_t *)off_123EE0 + v23));
-    goto LABEL_45;
-  }
-  return 1;
 }
 
 
@@ -64480,7 +45963,7 @@ int format_message(int a1, int a2, int16_t a3, int16_t a4) {
   int v9; // [sp+8h] [bp-8h] BYREF
   int v10; // [sp+Ch] [bp-4h] BYREF
 
-  read_mac_dual_addr((void *)(&v9), (void *)(&v10));
+  read_mac_dual_addr(&v9, &v10);
   v5 = rf_setup_dispatch(2, a4, a3, 0x48u);
   v6 = v5;
   if ( (BYTE2(v9) & 3) == 2 )
@@ -64616,66 +46099,6 @@ int set_reg_180800_bit9(int a1) {
 
 
 
-// rf_pll_config_patch_n_8c @ 0x1240ac
-int rf_pll_config_patch_n_8c(int a1) {
-  unsigned int *v1; // r1
-  unsigned int *v2; // r4
-  unsigned int v3; // r3
-  unsigned int v4; // r2
-  int v5; // r0
-  int result; // r0
-  int v7; // r0
-  int v8; // r0
-  int v9; // r0
-
-  v1 = (unsigned int *)off_124130;
-  v2 = (unsigned int *)off_124134;
-  v3 = *(uint32_t *)off_124130 & 0xFFFCFFFF;
-  v4 = *(uint32_t *)off_124134 & 0xFFFFF9FF;
-  *(uint32_t *)off_124134 = v4;
-  *v1 = v3;
-  switch ( a1 )
-  {
-    case 0:
-      msg_parse(dword_12413C);
-      result = 0;
-      break;
-    case 1:
-      v7 = dword_124140;
-      *v1 = v3 | 0x10000;
-      msg_parse(v7);
-      result = 0;
-      break;
-    case 2:
-      v8 = dword_124144;
-      *v1 = v3 | 0x10000;
-      *v2 = v4 | 0x200;
-      msg_parse(v8);
-      result = 0;
-      break;
-    case 3:
-      v9 = dword_124148;
-      *v1 = v3 | 0x20000;
-      msg_parse(v9);
-      result = 0;
-      break;
-    case 4:
-      v5 = dword_124138;
-      *v1 = v3 | 0x20000;
-      *v2 = v4 | 0x400;
-      msg_parse(v5);
-      goto LABEL_3;
-    default:
-      msg_parse(dword_12414C);
-LABEL_3:
-      result = 0;
-      break;
-  }
-  return result;
-}
-
-
-
 // rf_disable_1 @ 0x1240ac
 int rf_disable_1(int a1) {
   unsigned int *v1; // r1
@@ -64750,20 +46173,6 @@ int rf_write_synth(int a1) {
 
 
 
-// mmio_field_set_l2h2 @ 0x124178
-int mmio_field_set_l2h2(int a1) {
-  unsigned int v1; // r1
-  int v2; // r0
-
-  v1 = *(uint32_t *)off_124194 & 0xFFFBFFFF | (a1 << 18);
-  v2 = dword_124198;
-  *(uint32_t *)off_124194 = v1;
-  msg_parse(v2);
-  return 0;
-}
-
-
-
 // rf_set_bit18 @ 0x124178
 int rf_set_bit18(int a1) {
   unsigned int v1; // r1
@@ -64826,77 +46235,6 @@ int mac_tx_frame(int a1, int a2, int a3, int a4, int a5) {
   }
   while ( v15 != v14 );
   return lmac_sub_init(1, (16 * a1) & 0xF0, 0x10u, v10);
-}
-
-
-
-// check_param_eq1 @ 0x124244
-unsigned int check_param_eq1(unsigned int result, unsigned int a2, int a3) {
-  int v3; // r2
-  int v4; // r3
-  int v5; // r2
-  int v6; // r5
-  int v7; // r4
-  int v8; // r3
-  unsigned int *v9; // r1
-  unsigned int v10; // t1
-
-  if ( result <= 1 )
-  {
-    if ( !result && a2 <= 3 )
-    {
-      *(uint32_t *)off_1242D4 = 0;
-      return result;
-    }
-    v4 = dword_1242E0;
-    v3 = 512;
-    *(uint32_t *)off_1242D4 = 512;
-  }
-  else if ( result > 4 )
-  {
-    if ( a3 )
-    {
-      v3 = 2048;
-      v4 = dword_1242EC;
-    }
-    else
-    {
-      v3 = 2048;
-      v4 = dword_1242DC;
-    }
-    *(uint32_t *)off_1242D4 = 2048;
-  }
-  else
-  {
-    if ( a3 )
-    {
-      v3 = 512;
-      v4 = dword_1242E8;
-    }
-    else
-    {
-      v3 = 512;
-      v4 = dword_1242D8;
-    }
-    *(uint32_t *)off_1242D4 = 512;
-  }
-  v5 = v4 + 4 * v3 - 4;
-  v6 = (*(uint32_t *)off_1242E4 >> 5) & 3;
-  *(uint32_t *)off_1242E4 &= 0xFFFFFF9F;
-  v7 = 1048580 - v4;
-  v8 = v4 - 4;
-  do
-  {
-    v9 = (unsigned int *)(v7 + v8);
-    v10 = *(uint32_t *)(v8 + 4);
-    v8 += 4;
-    result = v10;
-    *v9 = v10;
-  }
-  while ( v8 != v5 );
-  if ( v6 )
-    *(uint32_t *)off_1242E4 = *(uint32_t *)off_1242E4 & 0xFFFFFF9F | (32 * v6);
-  return result;
 }
 
 
@@ -64967,179 +46305,6 @@ unsigned int mac_validate_rate(unsigned int result, unsigned int a2, int a3) {
   while ( v8 != v5 );
   if ( v6 )
     *(uint32_t *)off_1242E4 = *(uint32_t *)off_1242E4 & 0xFFFFFF9F | (32 * v6);
-  return result;
-}
-
-
-
-// rf_table_lookup @ 0x1242f0
-int rf_table_lookup(unsigned int a1) {
-  int v2; // r7
-  int v3; // r5
-  int v4; // r0
-  int result; // r0
-  int v6; // r6
-  int v7; // r5
-  int v8; // r3
-  int v9; // r2
-  uint8_t *v10; // r3
-  char v11; // r0
-  char v12; // r1
-  uint8_t *v13; // r1
-  int16_t v14; // r3
-  int16_t v15; // r2
-  uint8_t *v16; // r7
-  char v17; // r0
-  int16_t *v18; // r8
-  unsigned int v19; // r4
-  int16_t v20; // r3
-  uint8_t *v21; // r2
-  char v22; // r1
-  unsigned int v23; // r3
-  char *v24; // r0
-  int16_t v25; // r2
-  int v26; // cc
-  char v27; // r3
-  int v28; // r0
-  uint64_t v29; // [sp+0h] [bp-8h] BYREF
-
-  if ( a1 == 128 )
-  {
-    v3 = 100;
-    v2 = 10240;
-  }
-  else if ( a1 == 129 )
-  {
-    v3 = 500;
-    v2 = 10244;
-  }
-  else
-  {
-    v2 = 10249;
-    if ( a1 == 1 )
-    {
-      v3 = 2000;
-    }
-    else
-    {
-      v3 = 200;
-      v2 = 10240;
-    }
-  }
-  get_cached_1828f8(&v29, 0);
-  v4 = (uint8_t)v29;
-  if ( (uint8_t)v29 )
-    v4 = 1;
-  result = rf_alloc_or_init(v4, v3);
-  v6 = result;
-  if ( result )
-  {
-    v7 = *(uint32_t *)(result + 28);
-    v8 = *(uint32_t *)off_1244D0;
-    *(uint32_t *)(v7 + 48) = *(uint32_t *)off_1244CC;
-    v9 = dword_1244D4;
-    *(uint32_t *)(v7 + 64) = v2;
-    *(uint32_t *)(v7 + 80) = v9;
-    *(uint32_t *)(v7 + 52) = v8;
-    if ( a1 == 128 )
-    {
-      build_hci_event(v7 + 104);
-      v23 = *(uint8_t *)off_1244EC;
-      v24 = (char *)off_1244E0;
-      v25 = *(uint16_t *)off_1244DC;
-      *(uint8_t *)(v7 + 128) = 0x80;
-      v23 -= 2;
-      v26 = v23 > 1;
-      if ( v23 <= 1 )
-        v22 = -106;
-      v27 = *v24;
-      *(uint8_t *)(v7 + 134) = v25;
-      if ( v26 )
-        v22 = -105;
-      *(uint8_t *)(v7 + 132) = v22;
-      *(uint8_t *)(v7 + 133) = v27;
-      *(uint8_t *)(v7 + 135) = HIBYTE(v25);
-      *(uint8_t *)(v7 + 129) = -64;
-      *(uint8_t *)(v7 + 130) = -75;
-      *(uint8_t *)(v7 + 131) = 122;
-      *(uint8_t *)(v7 + 136) = -1;
-      goto LABEL_14;
-    }
-    if ( a1 > 0x80 )
-    {
-      if ( a1 == 129 )
-      {
-        build_hci_event(v7 + 104);
-        v13 = (void *)(uintptr_t)(off_1244D8);
-        v14 = *(uint16_t *)off_1244DC;
-        v15 = *(uint16_t *)off_1244D8;
-        v16 = (void *)(uintptr_t)(off_1244E0);
-        *(uint8_t *)(v7 + 130) = *(uint16_t *)off_1244DC;
-        v17 = v13[5];
-        *(uint8_t *)(v7 + 128) = -127;
-        v13 = (void *)(uintptr_t)(((uintptr_t)(v13) & ~0xFFu) | ((uint8_t)(*v16) & 0xFFu));
-        *(uint8_t *)(v7 + 131) = HIBYTE(v14);
-        *(uint16_t *)(v7 + 132) = v15;
-        *(uint8_t *)(v7 + 134) = v17;
-        *(uint8_t *)(v7 + 129) = (uint8_t)v13;
-        *(uint8_t *)(v7 + 135) = -1;
-        goto LABEL_14;
-      }
-    }
-    else
-    {
-      if ( a1 == 1 )
-      {
-        v18 = (int16_t *)off_1244DC;
-        v19 = *(uint32_t *)off_1244E8 - *(uint32_t *)off_1244E4;
-        if ( v19 <= 0x4E1F )
-        {
-          v28 = dword_1244F4;
-          v19 = (1000 - *(uint16_t *)off_1244DC)
-              * ((*(uint32_t *)off_1244E4 - *(uint32_t *)off_1244F0)
-               / (unsigned int)*(uint16_t *)off_1244DC)
-              + 20000;
-          *(uint32_t *)off_1244E8 = *(uint32_t *)off_1244E4 + v19;
-          msg_parse(v28, v19);
-        }
-        rf_chan_config_set(v7 + 104);
-        v20 = *v18;
-        v21 = (void *)(uintptr_t)(off_1244E0);
-        *(uint8_t *)(v7 + 130) = *v18;
-        v21 = (void *)(uintptr_t)(((uintptr_t)(v21) & ~0xFFu) | ((uint8_t)(*v21) & 0xFFu));
-        *(uint8_t *)(v7 + 131) = HIBYTE(v20);
-        *(uint8_t *)(v7 + 132) = v19;
-        *(uint8_t *)(v7 + 129) = (uint8_t)v21;
-        *(uint8_t *)(v7 + 128) = 1;
-        *(uint8_t *)(v7 + 133) = BYTE1(v19);
-        *(uint8_t *)(v7 + 134) = BYTE2(v19);
-        *(uint8_t *)(v7 + 135) = HIBYTE(v19);
-        *(uint8_t *)(v7 + 136) = -1;
-        goto LABEL_14;
-      }
-      if ( a1 == 2 )
-      {
-        rf_chan_config_set(v7 + 104);
-        v10 = (void *)(uintptr_t)(off_1244D8);
-        *(uint8_t *)(v7 + 128) = 2;
-        v11 = v10[3];
-        v12 = v10[4];
-        *(uint8_t *)(v7 + 130) = v10[2];
-        *(uint8_t *)(v7 + 131) = v11;
-        *(uint8_t *)(v7 + 132) = v12;
-        *(uint8_t *)(v7 + 129) = 1;
-        *(uint8_t *)(v7 + 133) = -1;
-LABEL_14:
-        *(uint32_t *)(v6 + 44) = 0;
-        *(uint32_t *)(v6 + 48) = 0;
-        return wlan_tx_submit(v6, 0);
-      }
-    }
-    rf_chan_config_set(v7 + 104);
-    *(uint8_t *)(v7 + 128) = 0;
-    *(uint8_t *)(v7 + 129) = -1;
-    goto LABEL_14;
-  }
   return result;
 }
 
@@ -65318,27 +46483,6 @@ LABEL_14:
 
 
 
-// log_free_dispatch_n2f2 @ 0x1244f8
-int log_free_dispatch_n2f2() {
-  int result; // r0
-  int v1; // r3
-
-  result = rf_table_lookup(2u);
-  v1 = (uint16_t)(*(uint16_t *)off_12451C + 1);
-  if ( v1 == 10 )
-  {
-    *(uint16_t *)off_12451C = 0;
-    return rf_init_n_dc(result);
-  }
-  else
-  {
-    *(uint16_t *)off_12451C = v1;
-  }
-  return result;
-}
-
-
-
 // ke_timer_tick @ 0x1244f8
 int ke_timer_tick() {
   int result; // r0
@@ -65417,32 +46561,6 @@ int ke_state_event_1() {
       *v0 = 0;
       *v3 = 0;
       return mmio_write_40320150(v4 + 32);
-    }
-  }
-  return result;
-}
-
-
-
-// rf_init_or_reset_sub_12245f0 @ 0x1245f0
-int rf_init_or_reset_sub_12245f0() {
-  uint16_t *v0; // r4
-  int result; // r0
-  int v2; // r3
-  int v3; // r0
-
-  if ( *(uint8_t *)off_12462C )
-  {
-    v0 = (void *)(uintptr_t)(off_124630);
-    result = rf_table_lookup(0x80u);
-    v2 = (uint16_t)(*v0 + 1);
-    *v0 = v2;
-    if ( v2 == 10 )
-    {
-      rf_set_flag(1);
-      v3 = *(uint32_t *)off_124634 + 39936;
-      *v0 = 0;
-      return mmio_write_40320150(v3 + 64);
     }
   }
   return result;
@@ -65541,67 +46659,6 @@ void util_alloc_buffer() {
 
 
 
-// rf_state_get_n246 @ 0x1246f0
-int rf_state_get_n246(int a1, int a2) {
-  uint8_t *v3; // r6
-  int *v4; // r5
-  int v5; // r3
-  int v6; // r2
-  uint32_t *v7; // r5
-  int v8; // r4
-
-  if ( (*(uint32_t *)off_124788 & 2) != 0 && (*(uint8_t *)a2 == 1 || *(uint16_t *)(a2 + 4) > 0x1387u) )
-  {
-    msg_parse(dword_1247A0);
-    return -1;
-  }
-  else
-  {
-    v3 = (void *)(uintptr_t)(off_12478C);
-    if ( !*(uint8_t *)off_12478C )
-    {
-      if ( (__get_CPSR() & 1) == 0 )
-      {
-        __disable_irq();
-        *(uint32_t *)off_124790 = 1;
-      }
-      v4 = (int *)off_124794;
-      ++*(uint32_t *)off_124794;
-      message_dispatch_n2fe();
-      rf_fault_dump_n_26c();
-      if ( *v4 )
-      {
-        v5 = *v4 - 1;
-        v6 = *(uint32_t *)off_124790;
-        *v4 = v5;
-        if ( !v5 )
-        {
-          if ( v6 )
-            __enable_irq();
-        }
-      }
-    }
-    v7 = (void *)(uintptr_t)(off_12479C);
-    ++*(uint8_t *)off_124798;
-    *v7 |= 0x500000u;
-    tx_set_power((uint8_t *)a2, 0);
-    *v7 &= 0xFF87FFFF;
-    v8 = (uint8_t)*v3;
-    if ( *v3 )
-    {
-      return 0;
-    }
-    else
-    {
-      mmio_init_clock_gate_n121();
-      util_alloc_buffer();
-      return v8;
-    }
-  }
-}
-
-
-
 // rx_process_pending @ 0x1246f0
 int rx_process_pending(int a1, int a2) {
   uint8_t *v3; // r6
@@ -65628,7 +46685,7 @@ int rx_process_pending(int a1, int a2) {
       }
       v4 = (int *)off_124794;
       ++*(uint32_t *)off_124794;
-      rf_cmd_wait_1();
+      rf_cmd_wait();
       rf_acquire();
       if ( *v4 )
       {
@@ -65659,28 +46716,6 @@ int rx_process_pending(int a1, int a2) {
       return v8;
     }
   }
-}
-
-
-
-// rf_state_load @ 0x1247a4
-int rf_state_load(uint8_t **a1, uint8_t *a2) {
-  uint8_t *v2; // r3
-  uint8_t *v3; // t1
-
-  v2 = *a1;
-  if ( !*a1 )
-    return 0;
-  do
-  {
-    if ( *v2 == *a2 && v2[1] == a2[1] )
-      return 1;
-    v3 = a1[1];
-    ++a1;
-    v2 = v3;
-  }
-  while ( v3 );
-  return 0;
 }
 
 
@@ -65808,37 +46843,11 @@ int mmio_set_flag_1() {
 
 
 
-// rf_lmac_init_n190 @ 0x1248f0
-int rf_lmac_init_n190() {
-  *(uint8_t *)off_12490C = 0;
-  event_queue_push(144, 0);
-  msg_parse(dword_124910);
-  return 0;
-}
-
-
-
 // mmio_clear_flag @ 0x1248f0
 int mmio_clear_flag() {
   *(uint8_t *)off_12490C = 0;
   ke_int_lock(144, 0);
   dispatch_event_handler_1(dword_124910);
-  return 0;
-}
-
-
-
-// mmio_syscfg_init_n4 @ 0x124914
-int mmio_syscfg_init_n4() {
-  int *v0; // r1
-  int v1; // r0
-
-  v0 = (int *)off_124938;
-  v1 = dword_12493C;
-  *(uint32_t *)off_124934 |= 0x10u;
-  *v0 = v1;
-  mmio_init_clock_gate_n121();
-  msg_parse(dword_124940);
   return 0;
 }
 
@@ -65860,68 +46869,9 @@ int mmio_enable_clock() {
 
 
 
-// rf_cmd_send_n_438_4944 @ 0x124944
-int rf_cmd_send_n_438_4944() {
-  msg_parse(dword_124964, *(uint32_t *)off_12495C, *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
-  return 0;
-}
-
-
-
 // mmio_read_timer @ 0x124944
 int mmio_read_timer() {
   dispatch_event_handler_1(dword_124964, *(uint32_t *)off_12495C, *(uint32_t *)off_124960 + *(uint32_t *)off_12495C);
-  return 0;
-}
-
-
-
-// rf_status_read_n_968 @ 0x124968
-int rf_status_read_n_968() {
-  int *v0; // r6
-  uint32_t *v1; // r4
-  uint32_t *v2; // r5
-  int v3; // r7
-  void *v4; // r1
-  int v5; // r3
-  int v6; // r2
-
-  if ( *(uint32_t *)off_1249E8 << 28 )
-  {
-    if ( (__get_CPSR() & 1) == 0 )
-    {
-      __disable_irq();
-      *(uint32_t *)off_124A00 = 1;
-    }
-    v0 = (int *)off_1249EC;
-    v1 = (void *)(uintptr_t)(off_1249E8);
-    v2 = (void *)(uintptr_t)(off_1249F0);
-    ++*(uint32_t *)off_1249EC;
-    *v1 = 0;
-    v3 = v2[4];
-    while ( *v1 << 28 )
-    {
-      if ( (unsigned int)(v2[4] - v3) > 0x7530 )
-        msg_parse(dword_124A0C, *v1 << 28, 30000);
-    }
-    v4 = (void *)(uintptr_t)(off_1249F8);
-    while ( (*(uint32_t *)off_1249F8 & *(uint32_t *)off_1249F4 & 4) == 0 )
-      ;
-    *(uint32_t *)off_1249FC = 4;
-    if ( *v0 )
-    {
-      v5 = *v0 - 1;
-      v6 = *(uint32_t *)off_124A00;
-      *v0 = v5;
-      if ( !v5 )
-      {
-        if ( v6 )
-          __enable_irq();
-      }
-    }
-    msg_parse(dword_124A04, v4);
-  }
-  msg_parse(dword_124A08);
   return 0;
 }
 
@@ -66067,105 +47017,6 @@ int set_adv_interval(int a1, uint8_t **a2) {
     }
   }
   return result;
-}
-
-
-
-// rf_chan_init_or_set_n54 @ 0x124b04
-int rf_chan_init_or_set_n54(int a1, int a2) {
-  uint8_t v3; // r0
-  unsigned int v4; // r4
-  int v5; // r3
-  uint32_t *v6; // r1
-  unsigned int v8; // r5
-  uint64_t v9; // [sp+4h] [bp-18h] BYREF
-  char v10; // [sp+Ch] [bp-10h] BYREF
-  uint8_t v11; // [sp+Dh] [bp-Fh]
-  uint16_t v12; // [sp+Eh] [bp-Eh]
-  uint16_t v13; // [sp+10h] [bp-Ch]
-  int16_t v14; // [sp+12h] [bp-Ah]
-  char v15; // [sp+16h] [bp-6h]
-
-  v3 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-  if ( a1 <= 1 || (v4 = v3) == 0 )
-  {
-    msg_parse(dword_124C68);
-    return -1;
-  }
-  *(uint32_t *)off_124C58 |= 0x500000u;
-  get_cached_1828f8(&v9, 0);
-  if ( v4 <= 0x23 )
-  {
-    v5 = BYTE1(v9);
-    v10 = 0;
-    v11 = BYTE1(v9);
-    if ( v4 > 0xD )
-    {
-      if ( v4 != 14 )
-      {
-        msg_parse(dword_124C6C, v4, (uint32_t)v9);
-        return -2;
-      }
-      v13 = 2484;
-      v14 = 0;
-      v15 = 0;
-      if ( !BYTE1(v9) )
-        goto LABEL_6;
-LABEL_13:
-      v8 = WORD1(v9);
-      if ( v5 == 1 )
-      {
-        if ( v8 < WORD2(v9) )
-          goto LABEL_21;
-      }
-      else
-      {
-        if ( v5 != 2 )
-          goto LABEL_7;
-        if ( (int)(v8 + 20) < WORD2(v9) )
-        {
-          v12 = v13 - 30;
-          goto LABEL_7;
-        }
-        if ( v8 < WORD2(v9) )
-        {
-LABEL_21:
-          v12 = v13 - 10;
-          goto LABEL_7;
-        }
-        if ( WORD2(v9) < (int)(v8 - 19) )
-        {
-          v12 = v13 + 30;
-          goto LABEL_7;
-        }
-      }
-      v12 = v13 + 10;
-      goto LABEL_7;
-    }
-    v13 = 5 * v4 + 2407;
-  }
-  else
-  {
-    v5 = BYTE1(v9);
-    v13 = 5 * v4 + 5000;
-    v10 = 1;
-    v11 = BYTE1(v9);
-  }
-  v14 = 0;
-  v15 = 0;
-  if ( v5 )
-    goto LABEL_13;
-LABEL_6:
-  v12 = v13;
-LABEL_7:
-  *(uint8_t *)off_124C5C = 1;
-  rf_state_get_n246(0, (int)&v10);
-  v6 = (void *)(uintptr_t)(off_124C60);
-  *(uint32_t *)off_124C58 &= 0xFF87FFFF;
-  if ( *v6 )
-    rf_level_apply_n_4ec(*v6);
-  msg_parse(dword_124C64, v4, v13, v11);
-  return 0;
 }
 
 
@@ -66405,84 +47256,6 @@ int set_adv_channel_map(int a1, int a2) {
   {
     v2 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
     gpio_set_high(v2);
-    return 0;
-  }
-}
-
-
-
-// rf_param_select_n_e60 @ 0x124e60
-int rf_param_select_n_e60(int a1, int a2) {
-  int *v3; // r5
-  int v4; // r3
-  uint8_t *v5; // r0
-  int v6; // r4
-  int v7; // r0
-  int v8; // r3
-  int v9; // r5
-  int v10; // r1
-  int v11; // r2
-  int v12; // r3
-  int *v13; // r1
-  int *v14; // r2
-  int v16; // [sp+0h] [bp-14h] BYREF
-  int v17; // [sp+4h] [bp-10h] BYREF
-  int v18; // [sp+8h] [bp-Ch] BYREF
-  uint32_t v19[2]; // [sp+Ch] [bp-8h] BYREF
-
-  if ( a1 <= 2 )
-  {
-    msg_parse(dword_124F1C);
-    return -1;
-  }
-  else
-  {
-    v3 = (int *)off_124F08;
-    v4 = parse_int(*(uint8_t **)(a2 + 4), 0, 0xAu);
-    v5 = *(uint8_t **)(a2 + 8);
-    v6 = v4;
-    v7 = parse_int(v5, 0, 0xAu);
-    v8 = *(uint32_t *)off_124F0C;
-    v9 = *v3;
-    v10 = *(uint32_t *)off_124F10;
-    v11 = *(uint32_t *)off_124F14;
-    v16 = (v16 & ~0xFFFFu) | ((uint16_t)(*(uint32_t *)off_124F0C) & 0xFFFFu);
-    v16 = (v16 & ~0xFF00u) | (((uint8_t)(BYTE2(v8)) & 0xFFu) << 8);
-    v17 = (v17 & ~0xFFFFu) | ((uint16_t)(v9) & 0xFFFFu);
-    v17 = (v17 & ~0xFF00u) | (((uint8_t)(BYTE2(v9)) & 0xFFu) << 8);
-    v18 = (v18 & ~0xFFFFu) | ((uint16_t)(v10) & 0xFFFFu);
-    v18 = (v18 & ~0xFF00u) | (((uint8_t)(BYTE2(v10)) & 0xFFu) << 8);
-    v19[0] = (v19[0] & ~0xFFFFu) | ((uint16_t)(v11) & 0xFFFFu);
-    v19[0] = (v19[0] & ~0xFF00u) | (((uint8_t)(BYTE2(v11)) & 0xFFu) << 8);
-    if ( v6 )
-    {
-      if ( v7 )
-      {
-        gpio_set_pin(0);
-        v13 = &v18;
-      }
-      else
-      {
-        gpio_set_pin(1);
-        v13 = (void *)(v19);
-      }
-      v14 = &v16;
-    }
-    else
-    {
-      if ( v7 )
-      {
-        gpio_clear_pin(0);
-        v13 = &v18;
-      }
-      else
-      {
-        gpio_clear_pin(1);
-        v13 = (void *)(v19);
-      }
-      v14 = &v17;
-    }
-    msg_parse(dword_124F18, v13, v14, v12, v16, v17, v18, v19[0]);
     return 0;
   }
 }
@@ -66872,67 +47645,6 @@ LABEL_13:
       return 1;
     }
   }
-}
-
-
-
-// rf_chan_set_check_52b8 @ 0x1252b8
-int rf_chan_set_check_52b8(int a1, uint8_t **a2) {
-  int v4; // r0
-  unsigned int v6; // r4
-  int v7; // r0
-  unsigned int v8; // r4
-  int v9; // r5
-  unsigned int v10; // r5
-  int v11; // r6
-  int v12; // r0
-  unsigned int v13; // r1
-
-  v4 = parse_int(a2[1], 0, 0);
-  if ( v4 == 1 )
-  {
-    if ( a1 > 3 )
-    {
-      v8 = parse_int(a2[2], 0, 0);
-      v9 = parse_int(a2[3], 0, 0x10u);
-      msg_parse(dword_125378, v8, v9);
-      host_reg_wait_set(v8, v9);
-    }
-  }
-  else
-  {
-    if ( v4 != 2 )
-      return -(v4 != 0);
-    v6 = parse_int(a2[2], 0, 0);
-    if ( v6 <= 0x1F )
-    {
-      if ( a1 > 3 )
-      {
-        v10 = parse_int(a2[3], 0, 0) + v6;
-        if ( v10 >= 0x20 )
-          v10 = 32;
-        msg_parse(dword_125370);
-        if ( v6 < v10 )
-        {
-          v11 = dword_125374;
-          do
-          {
-            v12 = mmio_read32(v6);
-            v13 = v6++;
-            msg_parse(v11, v13, v12);
-          }
-          while ( v10 > v6 );
-        }
-      }
-      else
-      {
-        msg_parse(dword_125370);
-        v7 = mmio_read32(v6);
-        msg_parse(dword_125374, v6, v7);
-      }
-    }
-  }
-  return 0;
 }
 
 
@@ -67641,81 +48353,6 @@ unsigned int bt_state_machine_dispatch(unsigned int result) {
 
 
 
-// ipc_msg_handler @ 0x125bfc
-int ipc_msg_handler(int a1, uint8_t **a2) {
-  int v4; // r8
-  int v5; // r4
-  int v6; // r5
-  int v7; // r6
-  BOOL v9; // r0
-  BOOL v10; // r0
-
-  v4 = (*a2)[4];
-  v5 = parse_int(a2[1], 0, 0);
-  v6 = parse_int(a2[2], 0, 0);
-  if ( v6 )
-  {
-    if ( a1 <= 3 )
-      return -1;
-    v7 = parse_int(a2[3], 0, 0);
-    if ( v4 == 97 )
-      goto LABEL_4;
-  }
-  else
-  {
-    v7 = 0;
-    if ( v4 == 97 )
-    {
-LABEL_4:
-      if ( v5 <= 15 )
-      {
-        bitmask_pow2_set(v5);
-        if ( v6 )
-        {
-          rf_reg_bit_set(v5);
-          if ( v7 )
-            gpio_out_set(v5);
-          else
-            gpio_out_clear(v5);
-          msg_parse(dword_125D00, v5, v7);
-          return 0;
-        }
-        else
-        {
-          mmio_clear_bit(v5);
-          v10 = rf_check_bit(v5);
-          msg_parse(dword_125D0C, v5, v10);
-          return 0;
-        }
-      }
-      msg_parse(dword_125D14, v5);
-      return -2;
-    }
-  }
-  if ( v5 > 15 )
-  {
-    msg_parse(dword_125D10, v5);
-    return -2;
-  }
-  irq_prio_set_db48(v5);
-  if ( !v6 )
-  {
-    sub_10DB78(v5);
-    v9 = irq_mask_test(v5);
-    msg_parse(dword_125D04, v5, v9);
-    return v6;
-  }
-  irq_prio_set2(v5);
-  if ( v7 )
-    irq_enable(v5);
-  else
-    irq_disable(v5);
-  msg_parse(dword_125D08, v5, v7);
-  return 0;
-}
-
-
-
 // process_bt_ble_event @ 0x125bfc
 int process_bt_ble_event(int a1, uint8_t **a2) {
   int v4; // r8
@@ -67865,58 +48502,6 @@ int bt_msg_send_if_allocated(uint8_t **a1, uint8_t *a2) {
 
 
 
-// rf_pm_check_n_e18 @ 0x125e18
-int rf_pm_check_n_e18(int a1, int a2) {
-  uint8_t *v3; // r1
-  uint8_t *v5; // r1
-  int v6; // r0
-  int v7; // r0
-  int v8; // [sp+4h] [bp-4h]
-
-  if ( a1 <= 1 )
-  {
-    msg_parse(dword_125EE8);
-    return -1;
-  }
-  else
-  {
-    if ( memset_ff(*(uint32_t *)(a2 + 4)) == 1 || memset_ff(*(uint32_t *)(a2 + 4)) == 2 )
-    {
-      if ( memset_ff(*(uint32_t *)(a2 + 4)) == 1 )
-      {
-        v3 = *(uint8_t **)(a2 + 4);
-        if ( !v3 || !rf_state_load((uint8_t **)dword_125ECC, v3) )
-        {
-LABEL_7:
-          msg_parse(dword_125ED0);
-          return 0;
-        }
-      }
-      else
-      {
-        if ( memset_ff(*(uint32_t *)(a2 + 4)) != 2 )
-          return 0;
-        v5 = *(uint8_t **)(a2 + 4);
-        if ( !v5 || !rf_state_load((uint8_t **)dword_125ED4, v5) )
-          goto LABEL_7;
-      }
-      msg_parse(dword_125ED8);
-      v8 = *(uint32_t *)(a2 + 4);
-      v6 = memset_ff(v8);
-      memcpy_large((void *)(uintptr_t)(dword_125EDC), (void *)(uintptr_t)(v8), v6);
-      msg_parse(dword_125EE0, dword_125EDC);
-      if ( (*(uint32_t *)off_125EE4 & 0x2000000) == 0 )
-        sub_114844(dword_125EDC);
-      return 0;
-    }
-    v7 = memset_ff(*(uint32_t *)(a2 + 4));
-    msg_parse(dword_125EEC, v7);
-    return -1;
-  }
-}
-
-
-
 // acl_rx_handler @ 0x125e18
 int acl_rx_handler(int a1, int a2) {
   uint8_t *v3; // r1
@@ -67969,34 +48554,6 @@ LABEL_7:
 
 
 
-// rf_status_check_bit @ 0x125ef0
-int rf_status_check_bit(int a1, int a2, int a3) {
-  uint8_t v4[8]; // [sp+4h] [bp-8h] BYREF
-
-  if ( (*(uint32_t *)off_125F48 & 0x2000000) != 0 )
-  {
-    msg_parse(dword_125F54, dword_125F50, a3, HIBYTE(*(uint32_t *)off_125F48) & 2);
-    return 0;
-  }
-  else
-  {
-    *(uint16_t *)v4 = 0;
-    sub_114838((int)v4);
-    if ( v4[0] == 255 || v4[1] == 255 )
-    {
-      msg_parse(dword_125F4C);
-      return 0;
-    }
-    else
-    {
-      msg_parse(dword_125F54, v4);
-      return 0;
-    }
-  }
-}
-
-
-
 // poll_radio_status @ 0x125ef0
 int poll_radio_status(int a1, int a2, int a3) {
   uint8_t v4[8]; // [sp+4h] [bp-8h] BYREF
@@ -68020,46 +48577,6 @@ int poll_radio_status(int a1, int a2, int a3) {
       dispatch_event_handler_1(dword_125F54, v4);
       return 0;
     }
-  }
-}
-
-
-
-// rf_lmac_dispatch_n5a8 @ 0x125f58
-int rf_lmac_dispatch_n5a8(int a1, int a2) {
-  uint8_t *v3; // r1
-  int v5; // r0
-  int v6; // [sp+4h] [bp-4h]
-
-  if ( a1 <= 1 )
-  {
-    msg_parse(dword_125FF8);
-    return -1;
-  }
-  else if ( memset_ff(*(uint32_t *)(a2 + 4)) == 2 )
-  {
-    v3 = *(uint8_t **)(a2 + 4);
-    if ( v3 && rf_state_load((uint8_t **)dword_125FDC, v3) )
-    {
-      msg_parse(dword_125FE4);
-      v6 = *(uint32_t *)(a2 + 4);
-      v5 = memset_ff(v6);
-      memcpy_large((void *)(uintptr_t)(dword_125FE8), (void *)(uintptr_t)(v6), v5);
-      msg_parse(dword_125FEC, dword_125FE8);
-      if ( (*(uint32_t *)off_125FF0 & 0x2000000) == 0 )
-        sub_114874(dword_125FE8);
-      return 0;
-    }
-    else
-    {
-      msg_parse(dword_125FE0);
-      return 0;
-    }
-  }
-  else
-  {
-    msg_parse(dword_125FF4);
-    return -1;
   }
 }
 
@@ -68100,34 +48617,6 @@ int ll_data_handler(int a1, int a2) {
   {
     dispatch_event_handler_1(dword_125FF4);
     return -1;
-  }
-}
-
-
-
-// mmio_flag_check_40500000 @ 0x125ffc
-int mmio_flag_check_40500000(int a1, int a2, int a3) {
-  uint8_t v4[8]; // [sp+4h] [bp-8h] BYREF
-
-  if ( (*(uint32_t *)off_126054 & 0x2000000) != 0 )
-  {
-    msg_parse(dword_126060, dword_12605C, a3, HIBYTE(*(uint32_t *)off_126054) & 2);
-    return 0;
-  }
-  else
-  {
-    *(uint16_t *)v4 = 0;
-    sub_114868((int)v4);
-    if ( v4[0] == 255 || v4[1] == 255 )
-    {
-      msg_parse(dword_126058);
-      return 0;
-    }
-    else
-    {
-      msg_parse(dword_126060, v4);
-      return 0;
-    }
   }
 }
 
@@ -68218,64 +48707,6 @@ int rf_is_ready() {
   else
     msg_parse(dword_126170, (uint16_t)v2, HIWORD(v2), v3, v4, v5);
   return 0;
-}
-
-
-
-// rf_init_calibration_n174 @ 0x126174
-int rf_init_calibration_n174() {
-  uint64_t *v0; // r5
-  uint32_t *v1; // r7
-  int v2; // r1
-  uint64_t v3; // r0
-  uint32_t *v4; // r12
-  uint32_t *v5; // r2
-  uint32_t *v6; // r1
-  uint32_t *v7; // r5
-  char v9; // [sp+6h] [bp-46h] BYREF
-  char v10; // [sp+7h] [bp-45h] BYREF
-  int v11; // [sp+8h] [bp-44h] BYREF
-  uint16_t v12; // [sp+Ch] [bp-40h]
-  int v13; // [sp+10h] [bp-3Ch] BYREF
-  int16_t v14; // [sp+14h] [bp-38h]
-  uint8_t v15[8]; // [sp+18h] [bp-34h] BYREF
-  int v16; // [sp+20h] [bp-2Ch] BYREF
-  int16_t v17; // [sp+24h] [bp-28h]
-  uint8_t v18[18]; // [sp+28h] [bp-24h] BYREF
-  uint8_t v19[18]; // [sp+3Ah] [bp-12h] BYREF
-
-  v0 = (void *)(uintptr_t)(off_12623C);
-  v1 = (void *)(uintptr_t)(off_126240);
-  v2 = *((uint32_t *)off_12623C + 1);
-  v13 = *(uint32_t *)off_12623C;
-  v14 = v2;
-  v9 = 0;
-  v10 = 1;
-  memcpy_large((void *)(&v11), (void *)(&v13), 6);
-  memcpy_large(v19, (void *)(&v11), 6);
-  v19[7] = 0;
-  format_message(0, 0, 0, 0);
-  process_pending_events((int)&v11, 0, 0, &v10);
-  kernel_send_msg(0, (int)v18, 0, 0);
-  v3 = v0[1];
-  v17 = *((uint32_t *)v0 + 3);
-  v16 = v3;
-  memcpy_large(v15, (void *)(&v16), 6);
-  process_pending_events((int)v15, 0, 0, &v9);
-  v4 = (void *)(uintptr_t)(off_126254);
-  *(uint32_t *)off_126244 = v11;
-  v5 = (void *)(uintptr_t)(off_126248);
-  v6 = (void *)(uintptr_t)(off_12624C);
-  v7 = (void *)(uintptr_t)(off_126250);
-  *v4 = v12;
-  *v5 = 0xFFFF;
-  *v6 = -1;
-  *v1 = 0xFFFF;
-  *v7 = -1;
-  configure_hw_regs(2u, 0, 0);
-  set_reg_180800_bits7_8(0);
-  set_reg_1807fc_bit6(1);
-  return mmio_field_set_l2h2(0);
 }
 
 
@@ -68388,111 +48819,6 @@ int ll_state_process(int a1, int a2, char a3) {
 
 
 
-// rf_init_n_dc @ 0x12632c
-int rf_init_n_dc() {
-  int v0; // r0
-  int v1; // r4
-  uint8_t *v2; // r8
-  uint16_t *v3; // r5
-  int v4; // r9
-  int v5; // r1
-  uint8_t *v6; // r5
-  uint16_t *v7; // r4
-  uint32_t *v8; // r0
-  uint32_t *v9; // r2
-  uint32_t *v10; // r2
-  unsigned int *v11; // r4
-  int v12; // r1
-  int result; // r0
-  unsigned int v14; // r3
-  int *v15; // r3
-  int v16; // r3
-  uint32_t *v17; // r3
-
-  v0 = dword_126428;
-  *(uint8_t *)off_126424 = 0;
-  msg_parse(v0);
-  v1 = *(uint8_t *)off_12642C;
-  if ( v1 == 1 )
-  {
-    v17 = (void *)(uintptr_t)(off_126450);
-    *(uint32_t *)off_126450 &= ~0x100u;
-    *v17 &= ~0x200u;
-    *v17 &= ~0x400u;
-    goto LABEL_15;
-  }
-  if ( *(uint8_t *)off_12642C )
-  {
-LABEL_15:
-    msg_parse(
-      dword_126454,
-      *(uint8_t *)off_126434,
-      *(uint16_t *)off_126430,
-      *((uint8_t *)off_126430 + 2),
-      *((char *)off_126430 + 3),
-      *((char *)off_126430 + 4),
-      *((char *)off_126430 + 5));
-    goto LABEL_7;
-  }
-  v2 = (void *)(uintptr_t)(off_126458);
-  if ( *(uint8_t *)off_126458 )
-  {
-    v3 = (uint16_t *)off_126430;
-    v4 = dword_126454;
-    v5 = *(uint8_t *)off_12642C;
-    do
-    {
-      msg_parse(
-        v4,
-        v5 + 1,
-        v3[4 * v5],
-        LOBYTE(v3[4 * v5 + 1]),
-        SHIBYTE(v3[4 * v5 + 1]),
-        SLOBYTE(v3[4 * v5 + 2]),
-        SHIBYTE(v3[4 * v5 + 2]));
-      v5 = (uint8_t)++v1;
-    }
-    while ( (uint8_t)*v2 > (unsigned int)(uint8_t)v1 );
-  }
-  v6 = (void *)(uintptr_t)(off_126434);
-  v7 = (void *)(uintptr_t)(off_126438);
-  sub_100200((int *)off_126430, 0, 8u);
-  v8 = (void *)(uintptr_t)(off_12643C);
-  v9 = (void *)(uintptr_t)(off_126440);
-  *v6 = 1;
-  *v2 = 1;
-  *v7 = 0;
-  *v8 = 0;
-  *v9 = 0;
-LABEL_7:
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_126444 = 1;
-  }
-  v10 = (void *)(uintptr_t)(off_126448);
-  v11 = (unsigned int *)off_12644C;
-  v12 = *(uint32_t *)off_126448;
-  result = *(uint32_t *)off_126448 + 1;
-  v14 = *(uint32_t *)off_12644C & 0xFFFFFBFF;
-  *(uint32_t *)off_126448 = result;
-  *v11 = v14;
-  if ( result )
-  {
-    v15 = (int *)off_126444;
-    *v10 = v12;
-    v16 = *v15;
-    if ( !v12 )
-    {
-      if ( v16 )
-        __enable_irq();
-    }
-  }
-  return result;
-}
-
-
-
 // ll_state_reset @ 0x12632c
 int ll_state_reset() {
   int v0; // r0
@@ -68598,18 +48924,6 @@ LABEL_7:
 
 
 
-// is_flag_set_n645c @ 0x12645c
-int is_flag_set_n645c() {
-  int result; // r0
-
-  result = *(uint8_t *)off_126468;
-  if ( *(uint8_t *)off_126468 )
-    return 1;
-  return result;
-}
-
-
-
 // rf_flag_is_set @ 0x12645c
 int rf_flag_is_set() {
   int result; // r0
@@ -68629,49 +48943,6 @@ int rf_set_flag(char a1) {
   v2 = dword_12647C;
   *(uint8_t *)off_126478 = a1;
   return msg_parse(v2);
-}
-
-
-
-// mmio_write_40320150 @ 0x1264dc
-int mmio_write_40320150(int a1) {
-  uint32_t *v1; // r3
-  int *v2; // r4
-  int v3; // r1
-  int v4; // r2
-  int result; // r0
-  int v6; // nf
-  uint32_t *v7; // r2
-
-  *(uint32_t *)off_126524 = a1;
-  if ( (__get_CPSR() & 1) == 0 )
-  {
-    __disable_irq();
-    *(uint32_t *)off_126528 = 1;
-  }
-  v1 = (void *)(uintptr_t)(off_12652C);
-  v2 = (int *)off_126530;
-  v3 = *(uint32_t *)off_12652C;
-  v4 = *(uint32_t *)off_126530;
-  result = *(uint32_t *)off_12652C + 1;
-  v6 = (*(uint32_t *)off_126530 & 0x400) != 0;
-  *(uint32_t *)off_12652C = result;
-  if ( !v6 )
-  {
-    *(uint32_t *)off_126534 = 1024;
-    *v2 = v4 | 0x400;
-  }
-  if ( result )
-  {
-    v7 = (void *)(uintptr_t)(off_126528);
-    *v1 = v3;
-    if ( !v3 )
-    {
-      if ( *v7 )
-        __enable_irq();
-    }
-  }
-  return result;
 }
 
 
@@ -68829,7 +49100,7 @@ int rf_state_machine() {
       {
         v35 = 0;
       }
-      v36 = ((int (*)())math_round)(v35, HIDWORD(v35));
+      v36 = math_round(v35, HIDWORD(v35));
       v37 = double_to_float(v36, HIDWORD(v36));
       v38 = dword_126748;
       v27[5] = v37;
@@ -68865,12 +49136,12 @@ int rf_state_machine() {
       v9 = 0.0;
     }
     v10 = ((int (*)())sub_127570)(LODWORD(v8));
-    v11 = ((int (*)())math_round)(v10, HIDWORD(v10));
+    v11 = math_round(v10, HIDWORD(v10));
     v12 = v11;
     *(float *)&v11 = v9;
     v13 = __PAIR64__(HIDWORD(v11), v12);
     v14 = ((int (*)())sub_127570)(v11);
-    v15 = ((int (*)())math_round)(v14, HIDWORD(v14));
+    v15 = math_round(v14, HIDWORD(v14));
     v16 = v13;
     v17 = v15;
     v18 = &v3[v6];
@@ -69077,273 +49348,6 @@ LABEL_7:
       *v2 = v8 & v3 | v4;
       if ( (int *)v6 == v2 )
         return mmio_set_bit_120090C(0, v1[20]);
-    }
-  }
-  return result;
-}
-
-
-
-// rf_level_apply_n_4ec @ 0x1268ec
-unsigned int * rf_level_apply_n_4ec(int a1) {
-  unsigned int *result; // r0
-  int v3; // r6
-  unsigned int v4; // r5
-  uint32_t *v5; // r1
-  uint32_t *v6; // r2
-  uint32_t *v7; // r2
-  int *v8; // r3
-  int v9; // r2
-  uint32_t *v10; // r3
-  uint32_t *v11; // r3
-  uint32_t *v12; // r5
-  uint32_t *v13; // r4
-  uint32_t *v14; // r1
-  uint32_t *v15; // r1
-  int *v16; // r3
-  int v17; // r2
-  unsigned int *v18; // r4
-  uint32_t *v19; // r2
-  int v20; // r2
-  uint32_t *v21; // r8
-  unsigned int v22; // r6
-  unsigned int v23; // r7
-  int v24; // r5
-  uint32_t *v25; // r4
-  uint32_t *v26; // r0
-  unsigned int *v27; // r3
-  int v28; // r2
-  uint32_t *v29; // r2
-  uint32_t *v30; // r5
-  int *v31; // r3
-  int v32; // r2
-  unsigned int v33; // r4
-  int *v34; // r1
-  int *v35; // r5
-  int v36; // r6
-  int v37; // r4
-  int v38; // r2
-  uint32_t *v39; // r2
-  int *v40; // r3
-  int v41; // r2
-  uint32_t *v42; // r1
-  int *v43; // r3
-  unsigned int *v44; // r0
-  int v45; // r4
-  int v46; // r2
-  uint32_t *v47; // r2
-  int v48; // r2
-  int *v49; // r3
-  int v50; // r2
-  uint64_t v51; // [sp+8h] [bp-8h] BYREF
-
-  if ( a1 )
-  {
-    if ( a1 != 1 )
-    {
-      if ( (unsigned int)(a1 - 2) > 1 )
-        return (unsigned int *)msg_parse(dword_126BC4, a1);
-      get_cached_1828f8(&v51, 0);
-      v3 = BYTE1(v51);
-      v4 = WORD1(v51);
-      msg_parse((int)(uintptr_t)(rf_level_apply_n_210), a1, WORD2(v51), WORD1(v51), BYTE1(v51));
-      result = (unsigned int *)rf_level_apply_n_207;
-      v5 = (void *)(rf_level_apply_n_203);
-      v6 = (void *)(rf_level_apply_n_200);
-      *(uint32_t *)rf_level_apply_n_207 = *(uint32_t *)rf_level_apply_n_20c & 0xFFFFBFFF;
-      *v5 |= 0x80000000;
-      *v6 |= 0x8000u;
-      if ( a1 == 3 )
-      {
-        v6[80] |= 0x1000u;
-        if ( v3 )
-        {
-          if ( v3 == 1 )
-          {
-            v42 = (void *)(uintptr_t)(off_126D3C);
-            v43 = (int *)off_126D40;
-            v44 = (unsigned int *)off_126D44;
-            v45 = dword_126D48;
-            v46 = dword_126D4C;
-            *(uint32_t *)off_126D3C = dword_126D48;
-            *v43 = v46;
-            v47 = (void *)(uintptr_t)(off_126D24);
-            *v44 = *v44 & 0xFFFFFF00 | 1;
-            *v44 = *v44 & 0xFFFF00FF | 0x7F00;
-            *(uint32_t *)(v45 + 1174608113) = *(uint32_t *)(v45 + 1174608113) & 0xC000FFFF | 0x1490000;
-            v42[5] = v42[5] & 0xFFFFF0FF | 0x100;
-            result = v44 - 146;
-            *v47 &= ~0x80000000;
-            *result &= ~0x80000000;
-            if ( v4 == 2412 )
-            {
-              v49 = (int *)off_126D30;
-              result = (unsigned int *)dword_126D58;
-              v50 = dword_126D5C;
-              *(uint32_t *)off_126D2C = dword_126D58;
-              *v49 = v50;
-            }
-            else if ( v4 == 2472 )
-            {
-              result = (unsigned int *)rf_level_apply_n_88;
-              v48 = dword_126D54;
-              *(uint32_t *)off_126D2C = (int)(uintptr_t)(rf_level_apply_n_88);
-              REG_4034_2088 = v48;
-            }
-          }
-          else
-          {
-            v39 = (void *)(uintptr_t)(off_126D28);
-            *(uint32_t *)off_126D24 &= ~0x80000000;
-            *v39 &= ~0x80000000;
-          }
-        }
-        else
-        {
-          v15 = v5 - 101;
-          v16 = (int *)rf_level_apply_n_1d3;
-          v17 = dword_126C0C;
-          *v15 = (int)(uintptr_t)(rf_level_apply_n_1d0);
-          *v16 = v17;
-          v18 = (unsigned int *)rf_level_apply_n_1c8;
-          v19 = (void *)(rf_level_apply_n_1fc);
-          result[21] = result[21] & 0xFFFFFF00 | 1;
-          result[21] = result[21] & 0xFFFF00FF | 0x7F00;
-          *v18 = *v18 & 0xC000FFFF | 0x390000;
-          v15[5] = v15[5] & 0xFFFFF0FF | 0x100;
-          result -= 125;
-          *v19 &= ~0x80000000;
-          *result &= ~0x80000000;
-          if ( v4 == 2412 )
-          {
-            v40 = (int *)off_126D30;
-            result = (unsigned int *)dword_126D34;
-            v41 = dword_126D38;
-            *(uint32_t *)off_126D2C = dword_126D34;
-            *v40 = v41;
-          }
-          else if ( v4 == 2472 )
-          {
-            result = (unsigned int *)rf_level_apply_n_1c4;
-            v20 = dword_126C18;
-            *(uint32_t *)rf_level_apply_n_1f4 = (int)(uintptr_t)(rf_level_apply_n_1c4);
-            REG_4034_2088 = v20;
-          }
-        }
-      }
-      else
-      {
-        v7 = (void *)(ipc_doorbell_handler_n1ae);
-        *(uint32_t *)rf_level_apply_n_1fc &= ~0x80000000;
-        *v7 &= ~0x80000000;
-        if ( v3 )
-        {
-          if ( v3 == 1 )
-          {
-            v31 = (int *)off_126BE8;
-            result = (unsigned int *)dword_126C38;
-            v32 = (int)(uintptr_t)(rf_level_apply_n_19c);
-            *(uint32_t *)rf_level_apply_n_1f4 = dword_126C38;
-            *v31 = v32;
-          }
-        }
-        else
-        {
-          v8 = (int *)off_126BE8;
-          result = (unsigned int *)dword_126BEC;
-          v9 = (int)(uintptr_t)(rf_level_apply_n_1e7);
-          *(uint32_t *)rf_level_apply_n_1f4 = dword_126BEC;
-          *v8 = v9;
-        }
-      }
-      v10 = (void *)(rf_level_bit_extract);
-LABEL_10:
-      *v10 |= 2u;
-      *v10 |= 1u;
-      return result;
-    }
-    v21 = (void *)(rf_level_apply_n_198);
-    v22 = (*(uint32_t *)rf_level_apply_n_1bc >> 11) & 7;
-    v23 = *(uint32_t *)rf_level_apply_n_1bc & 0x7F;
-    v24 = (*(uint32_t *)rf_level_apply_n_1bc >> 7) & 3;
-    check_param_eq1(v22, v23, v24);
-    if ( !*v21 )
-    {
-      get_cached_1828f8(&v51, 0);
-      v33 = WORD1(v51);
-      result = (unsigned int *)msg_parse((int)(uintptr_t)(rf_level_apply_n_1b8), WORD2(v51), WORD1(v51), BYTE1(v51));
-      if ( v33 == 2412 )
-      {
-        v34 = (int *)off_126D28;
-        v35 = (int *)off_126D2C;
-        result = (unsigned int *)off_126D30;
-        v36 = dword_126D34;
-        v37 = dword_126D38;
-        *(uint32_t *)off_126D24 &= ~0x80000000;
-        v38 = *v34;
-      }
-      else
-      {
-        if ( v33 != 2472 )
-          return result;
-        v34 = (int *)ipc_doorbell_handler_n1ae;
-        v35 = (int *)rf_level_apply_n_1f4;
-        result = (unsigned int *)off_126BE8;
-        v36 = (int)(uintptr_t)(rf_level_apply_n_1c4);
-        v37 = dword_126C18;
-        *(uint32_t *)rf_level_apply_n_1fc &= ~0x80000000;
-        v38 = *v34;
-      }
-      v10 = (void *)(rf_level_bit_extract);
-      *v34 = v38 & 0x7FFFFFFF;
-      *v35 = v36;
-      *result = v37;
-      goto LABEL_10;
-    }
-    msg_parse((int)(uintptr_t)(rf_level_apply_n_1b8), v22, v23, v24);
-    result = (unsigned int *)tx_descriptor_config(a1);
-    if ( !*(uint8_t *)rf_level_apply_n_1b4 && *(uint32_t *)off_126C28 )
-    {
-      v25 = (void *)(rf_level_apply_n_200);
-      v26 = (void *)(rf_level_apply_n_1db);
-      v27 = (unsigned int *)rf_level_apply_n_1ac;
-      v28 = (int)(uintptr_t)(rf_level_apply_n_1a8);
-      *(uint32_t *)rf_level_apply_n_200 |= 0x4000u;
-      *v26 |= 0x10000u;
-      *v27 = v28 & ((*v21 - 1) << 16) | *v27 & 0x8000FFFF;
-      *v27 |= 0x60u;
-      *v27 |= 1u;
-      result = (void *)(v26 + 2071);
-      v25[79] = v25[79] & 0xFFFFFF | 0xA0000000;
-      *result = *result & 0xFF87FFFF | 0x700000;
-    }
-  }
-  else
-  {
-    result = (unsigned int *)msg_parse((int)(uintptr_t)(rf_level_apply_n_1e0));
-    v11 = (void *)(rf_level_apply_n_1db);
-    if ( (*(uint32_t *)rf_level_apply_n_1db & 0x10000) != 0 )
-    {
-      v29 = (void *)(rf_level_apply_n_1ac);
-      v30 = (void *)(rf_level_apply_calc);
-      *(uint32_t *)rf_level_apply_n_200 &= ~0x4000u;
-      *v11 &= ~0x10000u;
-      *v29 &= ~1u;
-      *v29 &= 0xFFFFFF9F;
-      *v30 &= 0xFF87FFFF;
-      result = (unsigned int *)tx_descriptor_config(0);
-    }
-    if ( *(int *)rf_level_apply_n_1fc >= 0 )
-    {
-      v12 = (void *)(ipc_doorbell_handler_n1ae);
-      v13 = (void *)(rf_level_apply_n_203);
-      result = (unsigned int *)rf_level_apply_n_200;
-      v14 = (void *)(rf_level_apply_n_1d7);
-      *(uint32_t *)rf_level_apply_n_1fc |= 0x80000000;
-      *v12 |= 0x80000000;
-      *v13 &= ~0x80000000;
-      *result &= ~0x8000u;
-      *v14 &= ~0x1000u;
     }
   }
   return result;
@@ -69618,35 +49622,6 @@ LABEL_10:
 
 
 
-// rf_level_apply_6d60 @ 0x126d60
-int rf_level_apply_6d60(int a1) {
-  void *v1; // r1
-  unsigned int *v2; // r2
-  int v3; // r3
-  int v4; // r0
-  unsigned int v5; // r3
-
-  v1 = rf_level_apply_6d94;
-  v2 = (unsigned int *)off_126D98;
-  v3 = *(uint32_t *)rf_level_apply_6d94;
-  if ( a1 )
-  {
-    *(uint32_t *)rf_level_apply_6d94 = v3 | 0x10000;
-    v4 = (int)(uintptr_t)(rf_level_apply_0);
-    v5 = *v2 & 0xFF87FFFF | 0x700000;
-  }
-  else
-  {
-    *(uint32_t *)rf_level_apply_6d94 = v3 & 0xFFFEFFFF;
-    v4 = (int)(uintptr_t)(rf_level_apply_n_38);
-    v5 = *v2 & 0xFF87FFFF;
-  }
-  *v2 = v5;
-  return msg_parse(v4, v1, v2, v5);
-}
-
-
-
 // mmio_bit_set @ 0x126d60
 int mmio_bit_set(int a1) {
   void *v1; // r1
@@ -69672,31 +49647,6 @@ int mmio_bit_set(int a1) {
   }
   *v2 = v5;
   return dispatch_event_handler_1(v4, v1, v2, v5);
-}
-
-
-
-// rf_level_step @ 0x126da4
-unsigned int rf_level_step() {
-  uint8_t *v0; // r4
-  unsigned int result; // r0
-  unsigned int v2; // r3
-  uint8_t v3; // r0
-
-  v0 = (uint8_t *)rf_level_apply_n_8;
-  result = *((uint8_t *)rf_level_apply_n_8 + 6);
-  v2 = *((uint8_t *)rf_level_apply_n_8 + 5);
-  if ( result != v2 )
-  {
-    if ( result >= v2 )
-      v3 = result - 1;
-    else
-      v3 = result + 1;
-    *((uint8_t *)rf_level_apply_n_8 + 6) = v3;
-    sub_10F170(v3);
-    return msg_parse(dword_126DD4, v0[5], v0[6]);
-  }
-  return result;
 }
 
 
@@ -69778,25 +49728,6 @@ int mac_packet_dispatch() {
 
 
 
-// rf_level_dump @ 0x126e80
-int rf_level_dump() {
-  uint8_t *v0; // r4
-  int v1; // r4
-  int v2; // r0
-  int v4; // [sp+14h] [bp-4h]
-
-  v0 = (uint8_t *)rf_level_apply_n120;
-msg_parse((int)(uintptr_t)(rf_level_apply_n124), *(char *)rf_level_apply_n120, *((char *)rf_level_apply_n120 + 1), *((char *)rf_level_apply_n120 + 2), *((char *)rf_level_apply_n120 + 3));
-  msg_parse(dword_126F00, v0[4], v0[5], v0[6]);
-  msg_parse(dword_126F04, (char)v0[8], (char)v0[9], (char)v0[10], (char)v0[11], (char)v0[12], (char)v0[13]);
-  v1 = *((uint8_t *)off_126F08 + 363);
-  v4 = *((uint32_t *)off_126F08 + 91);
-  v2 = ke_task_retrieve(1070, 1);
-  return msg_parse(dword_126F0C, v1, v4, v2);
-}
-
-
-
 // rf_param_build @ 0x126e80
 int rf_param_build() {
   uint8_t *v0; // r4
@@ -69817,36 +49748,6 @@ int rf_param_build() {
   v4 = *((uint32_t *)off_126F08 + 91);
   v2 = ke_task_retrieve(1070, 1);
   return dispatch_event_handler_1(dword_126F0C, v1, v4, v2);
-}
-
-
-
-// rf_level_compute @ 0x126f10
-int rf_level_compute(int a1) {
-  signed int v1; // r0
-  int v2; // r3
-  int result; // r0
-
-  if ( a1 > 29 )
-    v1 = (unsigned int)(((unsigned int)dword_126F8C * (uint64_t)(unsigned int)(a1 - 30)) >> 32) >> 3;
-  else
-    v1 = ((int)((uint64_t)(dword_126F80 * (uint64_t)(a1 - 40)) >> 32) >> 2) - ((a1 - 40) >> 31);
-  if ( v1 >= 8 )
-    v1 = 8;
-  if ( v1 < -7 )
-    v1 = -7;
-  v2 = *((uint8_t *)rf_stream_start_n_12a + 4)
-     + (char)(*(uint8_t *)(dword_126F88 + v1 + 7) - *(uint8_t *)(dword_126F88 + *((char *)rf_stream_start_n_12a + 2) + 7));
-  if ( v2 >= 31 )
-    v2 = 31;
-  if ( v2 < 1 )
-    v2 = (v2 & ~0xFFu) | ((uint8_t)(1) & 0xFFu);
-  *((uint8_t *)rf_stream_start_n_12a + 5) = v2;
-  tx_packet_pointer(v1);
-  result = rf_feature_check(9u, 4u);
-  if ( result )
-    return rf_level_dump();
-  return result;
 }
 
 
@@ -69881,26 +49782,6 @@ int freq_offset_to_channel(int a1) {
 
 
 
-// rf_level_apply_n1b8 @ 0x126f90
-unsigned int rf_level_apply_n1b8() {
-  int v0; // s15
-  int v1; // r3
-
-  v0 = (int)COERCE_FLOAT(wait_sdio_core_ready());
-  msg_parse((int)(uintptr_t)(rf_level_apply_n1f8), v0);
-  v1 = (char)v0 - *((char *)off_126FD4 + 3);
-  if ( v1 < 0 )
-    v1 = *((char *)off_126FD4 + 3) - (char)v0;
-  if ( v1 > 4 )
-  {
-    *((uint8_t *)off_126FD4 + 3) = v0;
-    rf_level_compute((char)v0);
-  }
-  return rf_level_step();
-}
-
-
-
 // rf_set_frequency_1 @ 0x126f90
 unsigned int rf_set_frequency_1() {
   int v0; // s15
@@ -69917,41 +49798,6 @@ unsigned int rf_set_frequency_1() {
     freq_offset_to_channel((char)v0);
   }
   return rx_index_update();
-}
-
-
-
-// rf_level_apply_n200 @ 0x126fd8
-int rf_level_apply_n200(char a1) {
-  uint8_t *v1; // r4
-  int v3; // r0
-  int v4; // r2
-  signed int v5; // r3
-
-  v1 = (void *)(rf_level_apply_n268);
-  if ( *((uint8_t *)rf_level_apply_n268 + 1) )
-  {
-    v3 = *((char *)rf_level_apply_n268 + 3);
-    v4 = v3;
-  }
-  else
-  {
-    sdio_core_reset_alt();
-    v4 = (int)COERCE_FLOAT(wait_sdio_core_ready());
-    v3 = (char)v4;
-  }
-  v1[4] = a1;
-  v1[6] = a1;
-  if ( v4 > 29 )
-    v5 = (unsigned int)(((unsigned int)rf_level_apply_n270 * (uint64_t)(unsigned int)(v4 - 30)) >> 32) >> 3;
-  else
-    v5 = ((int)((uint64_t)(*(const float *)(uintptr_t)&rf_level_apply_n26c * (uint64_t)(v4 - 40)) >> 32) >> 2) - ((v4 - 40) >> 31);
-  if ( v5 >= 8 )
-    v5 = 8;
-  if ( v5 < -7 )
-    v5 = (v5 & ~0xFFu) | ((uint8_t)(-7) & 0xFFu);
-  v1[2] = v5;
-  return rf_level_compute(v3);
 }
 
 
@@ -69987,93 +49833,6 @@ int rf_cmd_check(char a1) {
     v5 = (v5 & ~0xFFu) | ((uint8_t)(-7) & 0xFFu);
   v1[2] = v5;
   return freq_offset_to_channel(v3);
-}
-
-
-
-// rf_level_apply_n274 @ 0x12704c
-void rf_level_apply_n274() {
-  uint8_t *v0; // r4
-  int v1; // r2
-  int v2; // r3
-  unsigned int v3; // r3
-  char n; // r0
-  int v5; // r1
-  char v6; // r3
-  int v7; // r0
-  uint8_t v8; // [sp+3h] [bp-Dh] BYREF
-  int v9; // [sp+4h] [bp-Ch] BYREF
-  int v10; // [sp+8h] [bp-8h] BYREF
-  int v11; // [sp+Ch] [bp-4h] BYREF
-
-  v0 = (void *)(rf_level_apply_n324);
-  v1 = *(char *)rf_level_apply_n324;
-  if ( *(uint8_t *)rf_level_apply_n324 )
-    return;
-  v8 = *(uint8_t *)rf_level_apply_n324;
-  v2 = *(uint32_t *)rf_level_apply_n328;
-  v9 = v1;
-  if ( (v2 & 0x2000000) != 0 )
-  {
-    mmio_read_status(&v8);
-    rf_reg10_status(&v9);
-    goto LABEL_4;
-  }
-  v10 = 0;
-  v11 = 0;
-  if ( !sub_114558((int)&v10) )
-    v8 = v10;
-  if ( mmio_read_64((int)&v11) )
-  {
-LABEL_4:
-    v3 = v8;
-    if ( v8 )
-      goto LABEL_5;
-    goto LABEL_19;
-  }
-  v9 = (char)v11;
-  v3 = v8;
-  if ( v8 )
-  {
-LABEL_5:
-    if ( v3 > 0x1F )
-    {
-      v3 = (v3 & ~0xFFu) | ((uint8_t)(31) & 0xFFu);
-      v8 = 31;
-    }
-    goto rf_level_apply_n2aa;
-  }
-LABEL_19:
-  v3 = (v3 & ~0xFFu) | ((uint8_t)(15) & 0xFFu);
-rf_level_apply_n2aa:
-  v0[4] = v3;
-  n = mmio_bit_extract_n();
-  v5 = v9;
-  v0[6] = n;
-  if ( v5 )
-  {
-    if ( v5 < -7 )
-    {
-      v6 = -7;
-      v9 = -7;
-      v5 = -7;
-    }
-    else if ( v5 > 8 )
-    {
-      v6 = 8;
-      v9 = 8;
-      v5 = 8;
-    }
-    else
-    {
-      v6 = v5;
-    }
-    v7 = (int)(uintptr_t)(rf_level_apply_2);
-    v0[2] = v6;
-    msg_parse(v7, v5);
-  }
-  v0[3] = 0x80;
-  *v0 = 1;
 }
 
 
@@ -70197,19 +49956,6 @@ int rf_enable_2() {
 
 
 
-// rf_bus_write_n3d6_716c @ 0x12716c
-int rf_bus_write_n3d6_716c() {
-  int result; // r0
-
-  *((uint8_t *)off_127190 + 1) = 0;
-  result = ke_task_retrieve(1070, 1);
-  if ( result )
-    return event_queue_push(1070, 1);
-  return result;
-}
-
-
-
 // rf_disable_2 @ 0x12716c
 int rf_disable_2() {
   int result; // r0
@@ -70219,65 +49965,6 @@ int rf_disable_2() {
   if ( result )
     return ke_int_lock(1070, 1);
   return result;
-}
-
-
-
-// math_round @ 0x127194
-uint64_t math_round(uint64_t a1) {
-  int v1; // r7
-  int v2; // r4
-  int v3; // r5
-  uint64_t v4; // r2
-  int v5; // r3
-  unsigned int v6; // r7
-  int v7; // r3
-  int v8; // cf
-  int v9; // r3
-
-  v1 = (HIDWORD(a1) >> 20) & 0x7FF;
-  v2 = v1 - 1023;
-  v3 = HIDWORD(a1);
-  v4 = a1;
-  if ( v1 - 1023 > 19 )
-  {
-    if ( v2 <= 51 )
-    {
-      v6 = 0xFFFFFFFF >> ((HIDWORD(a1) >> 20) - 19);
-      if ( ((unsigned int)a1 & v6) != 0 )
-      {
-        v7 = 1 << (51 - v2);
-        v8 = __CFADD__((uint32_t)a1, v7);
-        v9 = a1 + v7;
-        if ( v8 )
-          v3 = HIDWORD(a1) + 1;
-        v5 = v9 & ~v6;
-        return __PAIR64__(v3, v5);
-      }
-    }
-    else if ( v1 == 2047 )
-    {
-      return ((int (*)())sub_1272B4)(a1, HIDWORD(a1), a1, HIDWORD(a1));
-    }
-  }
-  else
-  {
-    if ( v2 < 0 )
-    {
-      v3 = HIDWORD(a1) & 0x80000000;
-      if ( v1 == 1022 )
-        v3 |= 0x3FF00000u;
-      v5 = 0;
-      return __PAIR64__(v3, v5);
-    }
-    if ( HIDWORD(a1) & (dword_127224 >> ((HIDWORD(a1) >> 20) + 1)) | (unsigned int)a1 )
-    {
-      v3 = (HIDWORD(a1) + (0x80000 >> ((HIDWORD(a1) >> 20) + 1))) & ~(dword_127224 >> ((HIDWORD(a1) >> 20) + 1));
-      v5 = 0;
-      return __PAIR64__(v3, v5);
-    }
-  }
-  return v4;
 }
 
 

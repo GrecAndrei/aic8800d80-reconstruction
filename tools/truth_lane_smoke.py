@@ -31,6 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+SRC = REPO / "src"
 SMOKE = REPO / "tools" / "unicorn_smoke.py"
 
 
@@ -54,6 +55,40 @@ def extract_body(text: str, fn: str) -> str | None:
     return None
 
 
+def extract_body_by_addr(text: str, addr: str) -> str | None:
+    """Extract the body of the function whose composed marker line is
+    `// NAME @ 0xADDR` (unified-series src/<img>/main.c layout)."""
+    if not addr:
+        return None
+    try:
+        want = int(addr, 16)
+    except ValueError:
+        return None
+    want_variants = {want}
+    if want < 0x100000:
+        want_variants.add(want + 0x100000)
+    for m in re.finditer(r"^// \w+ @ (0x[0-9a-fA-F]+)$", text, re.M):
+        if int(m.group(1), 16) not in want_variants:
+            continue
+        k = m.end()
+        while k < len(text) and text[k] != "{":
+            k += 1
+        if k >= len(text):
+            return None
+        depth = 0
+        i = k
+        while i < len(text):
+            if text[i] == "{":
+                depth += 1
+            elif text[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    return text[m.start() : i + 1]
+            i += 1
+        return None
+    return None
+
+
 def find_sub_calls(body: str) -> list[str]:
     return sorted(set(re.findall(r"sub_[0-9A-Fa-f]+", body)))
 
@@ -61,6 +96,25 @@ def find_sub_calls(body: str) -> list[str]:
 def make_source(body: str) -> str:
     body = re.sub(r"^int [A-Za-z_][A-Za-z0-9_]*\(\.\.\.\);\s*$", "", body, flags=re.MULTILINE)
     return "#include <stdint.h>\n#include <stdbool.h>\n\n" + body + "\n"
+
+
+def make_src_source(body: str, main_text: str, skip_names: set[str]) -> str:
+    """Unified-series source: real headers + the main.c preamble (data segment
+    and heal-generated decls) + the single target body."""
+    first = re.search(r"^// \w+ @ 0x[0-9a-fA-F]+$", main_text, re.M)
+    pre = main_text[: first.start()] if first else ""
+    pre = re.sub(r'^\s*#\s*include\s*[<"][^>"]+[>"]\s*$', "", pre, flags=re.M)
+    for n in sorted(skip_names):
+        pre = re.sub(rf"^.*\b{re.escape(n)}\s*\([^;]*\);$", "", pre, flags=re.M)
+    hdrs = [
+        "#include <stdint.h>",
+        "#include <stdbool.h>",
+        "#include <stdarg.h>",
+        f'#include "{SRC / "include" / "aic8800d80_types.h"}"',
+        f'#include "{SRC / "include" / "aic8800d80_structs.h"}"',
+        f'#include "{SRC / "include" / "aic8800d80_mmio.h"}"',
+    ]
+    return "\n".join(hdrs) + "\n\n" + pre + "\n" + body + "\n"
 
 
 def is_realpseudocode_body(body: str) -> bool:
@@ -135,21 +189,30 @@ def main() -> int:
     ap.add_argument("--out", required=True, type=Path, help="Output directory")
     ap.add_argument("--max-insns", type=int, default=10000)
     ap.add_argument("--label", default="v12_smoke")
+    ap.add_argument("--src", action="store_true",
+                    help="Run against unified-series src/<img>_u02/main.c bodies (match by address marker)")
     args = ap.parse_args()
 
-    if not args.final and not args.final_dir:
-        ap.error("must provide --final (repeatable) or --final-dir")
-    if not args.final and args.final_dir:
-        args.final = sorted(args.final_dir.glob("*.reconstructed.c"))
+    if args.src:
+        final_by_image = {
+            k: SRC / f"{k}_u02" / "main.c"
+            for k in ("fmacfw", "fmacfw_h", "fmacfwbt", "lmacfw_rf")
+            if (SRC / f"{k}_u02" / "main.c").exists()
+        }
+    else:
+        if not args.final and not args.final_dir:
+            ap.error("must provide --final (repeatable) or --final-dir")
+        if not args.final and args.final_dir:
+            args.final = sorted(args.final_dir.glob("*.reconstructed.c"))
 
-    # Map each final file to its image identifier (extracted from filename).
-    final_by_image: dict[str, Path] = {}
-    for f in args.final:
-        # e.g. lmacfw_rf_8800d80_u02_bin.reconstructed.c -> lmacfw_rf
-        stem = f.stem.replace(".reconstructed", "").replace("_bin", "")
-        # strip the trailing _8800d80_u02
-        stem = re.sub(r"_8800d80_u02$", "", stem)
-        final_by_image[stem] = f
+        # Map each final file to its image identifier (extracted from filename).
+        final_by_image: dict[str, Path] = {}
+        for f in args.final:
+            # e.g. lmacfw_rf_8800d80_u02_bin.reconstructed.c -> lmacfw_rf
+            stem = f.stem.replace(".reconstructed", "").replace("_bin", "")
+            # strip the trailing _8800d80_u02
+            stem = re.sub(r"_8800d80_u02$", "", stem)
+            final_by_image[stem] = f
 
     final_text_by_image: dict[str, str] = {
         img: p.read_text(errors="replace") for img, p in final_by_image.items()
@@ -171,26 +234,50 @@ def main() -> int:
         tgt_image = tgt.get("image", "")
         # Pick the right final file for this target's image.
         # target's image is e.g. fmacfw_8800d80_h_u02.bin; we want fmacfw_h.
-        image_key = tgt_image.replace(".bin", "").replace("_8800d80_u02", "")
+        if args.src:
+            m2 = re.match(r"^(fmacfw)_8800d80(_h)?_u02(?:\.bin)?$", tgt_image)
+            if m2:
+                image_key = m2.group(1) + (m2.group(2) or "")
+            else:
+                m2 = re.match(r"^(fmacfwbt|lmacfw_rf)", tgt_image)
+                image_key = m2.group(1) if m2 else ""
+        else:
+            image_key = tgt_image.replace(".bin", "").replace("_8800d80_u02", "")
         text = final_text_by_image.get(image_key)
         if text is None:
             rows.append({"function": fn, "image": tgt_image, "address": tgt.get("address"),
                          "status": "no_final_file", "verdict": "FAIL",
                          "note": f"no final file for image {image_key!r}"})
             continue
-        body = extract_body(text, fn)
-        if body is None:
-            rows.append({"function": fn, "image": tgt_image, "address": tgt.get("address"),
-                         "status": "no_body", "verdict": "FAIL",
-                         "note": f"function definition not found in {image_key!r} final file"})
-            continue
-        is_real = is_realpseudocode_body(body)
-        subs = find_function_calls(body, fn)
-        body_file = bodies_dir / f"{fn}__{image_key}.c"
-        body_file.write_text(make_source(body))
+        if args.src:
+            body = extract_body_by_addr(text, tgt.get("address", ""))
+            if body is None:
+                rows.append({"function": fn, "image": tgt_image, "address": tgt.get("address"),
+                             "status": "no_body", "verdict": "FAIL",
+                             "note": f"no body at address {tgt.get('address')!r} in src/{image_key}_u02/main.c"})
+                continue
+            is_real = True
+            mm = re.match(r"^// (\w+) @ ", body)
+            run_fn = mm.group(1) if mm else fn
+            subs = find_function_calls(body, run_fn)
+            skip = set(subs) | {fn, run_fn}
+            body_file = bodies_dir / f"{fn}__{image_key}.c"
+            body_file.write_text(make_src_source(body, text, skip))
+        else:
+            body = extract_body(text, fn)
+            if body is None:
+                rows.append({"function": fn, "image": tgt_image, "address": tgt.get("address"),
+                             "status": "no_body", "verdict": "FAIL",
+                             "note": f"function definition not found in {image_key!r} final file"})
+                continue
+            is_real = is_realpseudocode_body(body)
+            subs = find_function_calls(body, fn)
+            run_fn = fn
+            body_file = bodies_dir / f"{fn}__{image_key}.c"
+            body_file.write_text(make_source(body))
         cmd = [
             sys.executable, str(SMOKE),
-            str(body_file), fn,
+            str(body_file), run_fn,
             "--image", tgt_image,
             "--address", tgt.get("address", ""),
             "--mmio-autopage",

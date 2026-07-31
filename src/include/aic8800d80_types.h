@@ -8,7 +8,9 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#if !defined(__STDC_HOSTED__) || __STDC_HOSTED__
 #include <inttypes.h>
+#endif
 
 #ifndef nullptr
 #define nullptr NULL

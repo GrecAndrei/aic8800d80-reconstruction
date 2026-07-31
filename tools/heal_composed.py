@@ -38,7 +38,8 @@ UNDECLARED = re.compile(r"'([A-Za-z_]\w*)' undeclared")
 
 FN_VALUE = re.compile(
     r"invalid operands to binary [*+/] \(have '.*?int \(\*\)\(\)'|"
-    r"incompatible types when assigning to type '([^']+)' from type 'int \(\*\)\(\)'")
+    r"incompatible (?:pointer )?types when assigning to type '([^']+)' from type 'int \(\*\)\(\)'|"
+    r"assignment to '([^']+)'(?: \{aka[^}]*\})? from incompatible pointer type 'int \(\*\)\(\)'")
 
 _name_addr_cache = None
 _data_sym_cache = None
@@ -79,6 +80,12 @@ def heal_fn_value(stmt, msg):
     rev = _name_addr_map()
     datas = _data_symbols()
     ftype = "float" if "'float'" in msg else ("double" if "'double'" in msg else "float")
+    fm = FN_VALUE.search(msg)
+    tgt = fm.group(1) if fm and fm.group(1) else (fm.group(2) if fm else None)
+    if tgt and tgt.endswith("*"):
+        ptr_cast = f"({tgt})(uintptr_t)"
+    else:
+        ptr_cast = None
     for fm in re.finditer(r"\b([A-Za-z_]\w*)\b", stmt):
         name = fm.group(1)
         chip = rev.get(name)
@@ -91,7 +98,8 @@ def heal_fn_value(stmt, msg):
             sym = f"{prefix}{chip:X}"
             if sym in datas:
                 return stmt[:fm.start()] + sym + nxt
-        ftype = "float" if "'float'" in msg else ("double" if "'double'" in msg else "float")
+        if ptr_cast:
+            return stmt[:fm.start()] + f"{ptr_cast}&{name}" + nxt
         return stmt[:fm.start()] + f"*(const {ftype} *)(uintptr_t)&{name}" + nxt
     return None
 
@@ -176,6 +184,7 @@ VOID_BINOP = re.compile(r"invalid operands to binary ([&|^+<>\-]{1,2}) \(have '(
 AGGREGATE_CAST = re.compile(r"aggregate value used where an integer was expected")
 CALLED_OBJECT = re.compile(r"called object is not a function or function pointer")
 FNP_TABLE_CALL = re.compile(r"\(\(uint32_t \*\)\(uintptr_t\)&(\w+)\)\[(0x[0-9A-Fa-f]+|[0-9]+)\]")
+MEM_ARRAY_CALL = re.compile(r"\bMEMORY\[(0x[0-9A-Fa-f]+|[0-9]+)\]")
 
 
 def compile_one(main_c: Path, wd: Path):
@@ -304,6 +313,9 @@ def heal_line(line: str, msg: str):
         if new_stmt:
             return f"{indent}{new_stmt}{term}{trail}", True
 
+    if stmt.count("(") != stmt.count(")"):
+        return line, False  # multi-line statement; caller must join first
+
     m = RETURN_CAST.search(msg)
     if m:
         cast = "(int)(uintptr_t)" if m.group(2).startswith("integer from") else "(void *)(uintptr_t)"
@@ -362,6 +374,9 @@ def heal_line(line: str, msg: str):
         am = AM_RE.match(stmt)
         if am and lhs_ok(am.group(1)) and not am.group(2).lstrip().startswith("(void *)(uintptr_t)"):
             return f"{indent}{am.group(1)} = (void *)(uintptr_t)({am.group(2)}){term}{trail}", True
+        mm = re.search(r"\{ (\w+) = ([^;]+)", stmt)
+        if mm and not mm.group(2).lstrip().startswith(("(void *)(uintptr_t)", "(int)(uintptr_t)")):
+            return f"{indent}{stmt[:mm.start()]}{{ {mm.group(1)} = (void *)(uintptr_t)({mm.group(2)}){stmt[mm.end():]}{term}{trail}", True
         mm = re.search(r"\((\w+) = (\w+),", stmt)
         if mm and mm.group(2).startswith(("off_", "dword_", "byte_", "word_", "unk_")):
             return f"{indent}{stmt[:mm.start()]}({mm.group(1)} = (void *)(uintptr_t)({mm.group(2)}),{stmt[mm.end():]}{term}{trail}", True
@@ -378,8 +393,8 @@ def heal_line(line: str, msg: str):
         zm = re.match(r"^0(\[\d+\])\s*=\s*(.+)$", stmt)
         if zm:
             return f"{indent}((uint32_t *)(uintptr_t)0){zm.group(1)} = {zm.group(2)}{term}{trail}", True
-        pat = re.compile(r"\b([A-Za-z_]\w*)\[")
-        if pat.search(stmt) and "(uintptr_t)" not in stmt:
+        pat = re.compile(r"(?<![&)\w])([A-Za-z_]\w*)\[")
+        if pat.search(stmt):
             new_stmt = pat.sub(r'((uint32_t *)(uintptr_t)&\1)[', stmt, count=1)
             return f"{indent}{new_stmt}{term}{trail}", True
     if FN_VALUE.search(msg):
@@ -468,6 +483,20 @@ def heal_line(line: str, msg: str):
                     j += 1
                 if depth == 0:
                     new_stmt = stmt[:m.start()] + f"((int (*)()){callee})" + "(" + stmt[i + 1:j - 1] + ")" + stmt[j:]
+                    return f"{indent}{new_stmt}{term}{trail}", True
+        for m in reversed(list(MEM_ARRAY_CALL.finditer(stmt))):
+            i = m.end()
+            if i < len(stmt) and stmt[i] == '(':
+                j = i + 1
+                depth = 1
+                while j < len(stmt) and depth > 0:
+                    if stmt[j] == '(':
+                        depth += 1
+                    elif stmt[j] == ')':
+                        depth -= 1
+                    j += 1
+                if depth == 0:
+                    new_stmt = stmt[:m.start()] + f"((int (*)()){m.group(0)})" + "(" + stmt[i + 1:j - 1] + ")" + stmt[j:]
                     return f"{indent}{new_stmt}{term}{trail}", True
     if re.match(r"^invalid type argument of unary '\*'", msg):
         mm = re.search(r"\*([A-Za-z_]\w*|\d+)\b", stmt)
