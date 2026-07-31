@@ -1,0 +1,1 @@
+{"fn": "sub_10064C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10064c", "status": "ok", "name": "periph_config", "params": [], "docstring": "Configure peripheral registers by setting bit flags", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114558", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114558", "status": "ok", "name": "bus_read32", "params": [], "docstring": "Reads 4 bytes from a bus address using bus id 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

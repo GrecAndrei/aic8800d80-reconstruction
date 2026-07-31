@@ -1,0 +1,1 @@
+{"fn": "sub_1294F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1294f8", "status": "ok", "name": "rf_isr", "params": [], "docstring": "Radio interrupt handler reading MMIO and shared radio state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

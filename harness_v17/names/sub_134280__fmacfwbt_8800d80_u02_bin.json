@@ -1,0 +1,1 @@
+{"fn": "sub_134280", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134280", "status": "ok", "name": "ll_event_process", "params": [], "docstring": "Processes link-layer event and initializes LL context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C5B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c5b0", "status": "ok", "name": "rf_timer_comp", "params": [], "docstring": "Compare timer values against timeout", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

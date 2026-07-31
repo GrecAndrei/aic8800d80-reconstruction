@@ -1,0 +1,1 @@
+{"fn": "sub_1421F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1421f8", "status": "ok", "name": "adv_type_validate", "params": [], "docstring": "Checks advertising PDU type bits and selects the field offset", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

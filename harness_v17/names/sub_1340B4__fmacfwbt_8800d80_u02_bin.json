@@ -1,0 +1,1 @@
+{"fn": "sub_1340B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1340b4", "status": "ok", "name": "llm_state_check_ready", "params": [], "docstring": "Checks LL task state against standby ready values", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114564", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114564", "status": "ok", "name": "bus_write32", "params": [], "docstring": "Writes 4 bytes to a bus address using bus id 1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

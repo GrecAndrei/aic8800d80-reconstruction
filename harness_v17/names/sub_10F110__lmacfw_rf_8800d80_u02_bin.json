@@ -1,0 +1,1 @@
+{"fn": "sub_10F110", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f110", "status": "ok", "name": "pmu_write_clock_ctrl", "params": [], "docstring": "Modifies PMU register 0x7000000c to configure clock control bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

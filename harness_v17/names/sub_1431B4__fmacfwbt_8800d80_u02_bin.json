@@ -1,0 +1,1 @@
+{"fn": "sub_1431B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1431b4", "status": "ok", "name": "double_add", "params": [], "docstring": "Perform software double-precision addition", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

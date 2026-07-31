@@ -1,0 +1,1 @@
+{"fn": "sub_1005E8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1005e8", "status": "ok", "name": "read_byte_register", "params": [], "docstring": "Read a byte from a fixed memory-mapped register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

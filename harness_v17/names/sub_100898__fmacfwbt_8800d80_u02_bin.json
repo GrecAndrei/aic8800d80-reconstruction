@@ -1,0 +1,1 @@
+{"fn": "sub_100898", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x100898", "status": "ok", "name": "heap_alloc", "params": [], "docstring": "Allocate memory from internal heap", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

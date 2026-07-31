@@ -1,0 +1,1 @@
+{"fn": "sub_1424DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1424dc", "status": "ok", "name": "double_exp_check", "params": [], "docstring": "Extracts a double exponent and branches on its exponent range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

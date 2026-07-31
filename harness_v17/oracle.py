@@ -27,67 +27,69 @@ def get_key():
     return k
 
 def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=6):
-    """Call LLM with tools. Loops until LLM gives a final answer or hits max_tool_rounds.
-    Returns (final_message, all_tool_calls_made).
+    """Call LLM with tools via the OpenAI SDK. Loops until LLM gives a final
+    answer or hits max_tool_rounds.
+    Returns (final_message_dict, all_tool_calls_made).
 
     max_tokens is intentionally NOT set by default (no output budget):
     reasoning models need the full output to finish.
     """
+    from openai import OpenAI
     key = get_key()
     base_url = key.get('base_url', 'https://opencode.ai/zen/go/v1').rstrip('/')
-    endpoint = base_url + "/chat/completions"
     model = key.get('model', 'deepseek-v4-flash')
+    client = OpenAI(
+        api_key=key['api_key'],
+        base_url=base_url,
+        default_headers={"User-Agent": "opencode/1.0"},
+        timeout=600.0,
+        max_retries=2,
+    )
     tool_results_seen = []  # collect every tool result for validation
     for round_n in range(max_tool_rounds + 1):
         # On the last round, force a final answer (no tools)
         is_final_round = (round_n == max_tool_rounds)
         try:
-            payload = {
+            kwargs = {
                 "model": model,
                 "messages": messages,
                 "temperature": temperature,
             }
             if max_tokens is not None:
-                payload["max_tokens"] = max_tokens
+                kwargs["max_tokens"] = max_tokens
             if tools and not is_final_round:
-                payload["tools"] = tools
+                kwargs["tools"] = tools
             if is_final_round:
                 # Force a final answer
                 messages.append({
                     "role": "user",
                     "content": "STOP using tools. Output your final JSON answer NOW based on what you've seen. No more tool calls."
                 })
-            req = urllib.request.Request(
-                endpoint,
-                data=json.dumps(payload).encode(),
-                headers={
-                    "Authorization": f"Bearer {key['api_key']}",
-                    "User-Agent": "opencode/1.0",
-                    "Content-Type": "application/json"
-                }
-            )
-            r = urllib.request.urlopen(req, timeout=120)
-            resp = json.loads(r.read())
-            msg = resp['choices'][0]['message']
-            if msg.get('tool_calls') and not is_final_round:
+            completion = client.chat.completions.create(**kwargs)
+            msg = completion.choices[0].message
+            if msg.tool_calls and not is_final_round:
                 # Execute each tool call
-                messages.append(msg)
-                for tc in msg['tool_calls']:
-                    fn_name = tc['function']['name']
+                messages.append({
+                    "role": "assistant",
+                    "content": msg.content,
+                    "tool_calls": [tc.model_dump(exclude_none=True) for tc in msg.tool_calls],
+                })
+                for tc in msg.tool_calls:
+                    fn_name = tc.function.name
                     try:
-                        fn_args = json.loads(tc['function']['arguments'])
+                        fn_args = json.loads(tc.function.arguments)
                     except Exception:
                         fn_args = {}
                     result = call_tool(fn_name, fn_args)
                     tool_results_seen.append({'name': fn_name, 'args': fn_args, 'result': result})
                     messages.append({
                         "role": "tool",
-                        "tool_call_id": tc['id'],
+                        "tool_call_id": tc.id,
                         "content": json.dumps(result),
                     })
                 continue
             # No tool calls: LLM gave a final answer
-            return msg, tool_results_seen
+            return {"content": msg.content, "tool_calls": msg.tool_calls}, tool_results_seen
         except Exception as e:
             return {'content': None, 'error': str(e)}, tool_results_seen
     return {'content': None, 'error': 'max_tool_rounds'}, tool_results_seen

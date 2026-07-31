@@ -1,0 +1,1 @@
+{"fn": "sub_142F78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142f78", "status": "ok", "name": "double_eq", "params": [], "docstring": "Double equality predicate", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

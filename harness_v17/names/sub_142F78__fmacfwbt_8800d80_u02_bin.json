@@ -1,0 +1,1 @@
+{"fn": "sub_142F78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x142f78", "status": "ok", "name": "softfloat_compare", "params": [], "docstring": "Core double comparison returning -1/0/1", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

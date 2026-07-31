@@ -1,0 +1,1 @@
+{"fn": "sub_12C98C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c98c", "status": "ok", "name": "ke_msg_send", "params": [], "docstring": "Send kernel message to task", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

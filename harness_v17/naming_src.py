@@ -11,16 +11,46 @@ Images are the 4 firmware binaries:
   fmacfwbt_u02    -> fmacfwbt_8800d80_u02_bin
   lmacfw_rf_u02   -> lmacfw_rf_8800d80_u02_bin
 """
-import json, re, sys, time, argparse
+import json, re, sys, time, argparse, subprocess
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "harness_v17"))
 import naming_batch as nb
+import tools as v17tools
 
 SRC_DIR = REPO / "src"
 OUT = nb.OUT
+FW_DIR = REPO / "inputs/firmware"
+
+_ANSI = re.compile(r'\x1b\[[0-9;]*m')
+
+_orig_disasm_at = v17tools.disasm_at
+
+
+def disasm_at_fallback(image, addr, n=8):
+    """Cache-aware disasm_at with per-address r2 fallback for function starts
+    the linear-sweep cache missed (data pool before the function shifts r2's
+    linear decode by 2 bytes). Uses the proven r2 form from AGENTS.md."""
+    got = _orig_disasm_at(image, addr, n)
+    if got:
+        return got
+    img = image[:-4] if image.endswith("_bin") else image
+    cmd = ["r2", "-q", "-2", "-a", "arm", "-b", "16", "-m", "0x100000",
+           "-c", f"s {addr}; pd {n}", str(FW_DIR / f"{img}.bin")]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+    except Exception:
+        return []
+    out = _ANSI.sub('', result.stdout).strip()
+    lines = [l.strip() for l in out.split('\n') if l.strip().startswith('0x')]
+    return lines
+
+
+def _disasm_at_wrapper(image, addr, n=8):
+    """Stand-in for v17tools.disasm_at used by naming_src naming runs."""
+    return disasm_at_fallback(image, addr, n)
 
 IMG_MAP = {
     "fmacfw_u02": "fmacfw_8800d80_u02_bin",
@@ -57,6 +87,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
+    v17tools.disasm_at = _disasm_at_wrapper
     targets = discover_targets()
 
     def _is_named(t):

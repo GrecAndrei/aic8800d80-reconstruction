@@ -1,0 +1,1 @@
+{"fn": "sub_142F58", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142f58", "status": "ok", "name": "double_swap_compare", "params": [], "docstring": "Swap double operands then compare", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

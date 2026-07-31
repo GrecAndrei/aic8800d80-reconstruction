@@ -1,0 +1,1 @@
+{"fn": "sub_109C0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x109c0c", "status": "ok", "name": "invoke_handler_165fcc", "params": [], "docstring": "Call handler with args loaded from global 0x165fcc", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

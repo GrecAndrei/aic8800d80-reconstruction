@@ -1,0 +1,1 @@
+{"fn": "sub_142E74", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142e74", "status": "ok", "name": "double_greater_equal", "params": [], "docstring": "Returns 1 if first double is greater than or equal to second", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

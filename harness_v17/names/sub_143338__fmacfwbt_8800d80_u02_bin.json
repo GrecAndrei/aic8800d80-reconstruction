@@ -1,0 +1,1 @@
+{"fn": "sub_143338", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x143338", "status": "ok", "name": "double_to_int", "params": [], "docstring": "Convert double-precision value to integer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

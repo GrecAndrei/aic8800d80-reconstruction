@@ -1,0 +1,1 @@
+{"fn": "sub_10F434", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f434", "status": "ok", "name": "set_tx_power_cal", "params": [], "docstring": "Writes TX power calibration byte to RAM buffer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

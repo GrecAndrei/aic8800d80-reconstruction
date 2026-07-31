@@ -1,0 +1,1 @@
+{"fn": "sub_10CC98", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cc98", "status": "ok", "name": "clear_buffer_180a0c", "params": [], "docstring": "Zero 0x17C4 bytes of buffer at 0x180a0c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

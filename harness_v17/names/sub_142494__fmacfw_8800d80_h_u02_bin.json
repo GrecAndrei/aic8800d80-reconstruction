@@ -1,0 +1,1 @@
+{"fn": "sub_142494", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142494", "status": "ok", "name": "global_table_lookup", "params": [], "docstring": "Loads a signed halfword from a global table and branches on it", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

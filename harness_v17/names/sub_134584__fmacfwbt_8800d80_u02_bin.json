@@ -1,0 +1,1 @@
+{"fn": "sub_134584", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134584", "status": "ok", "name": "ll_state_error_check", "params": [], "docstring": "Branches to error path when LL state is negative", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

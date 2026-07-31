@@ -1,0 +1,1 @@
+{"fn": "sub_10F15C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f15c", "status": "ok", "name": "get_xtal_ftune", "params": [], "docstring": "Reads crystal tuning capacitance value from PMU register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

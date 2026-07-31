@@ -1,0 +1,1 @@
+{"fn": "sub_1268EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1268ec", "status": "ok", "name": "init_with_stack", "params": [], "docstring": "Allocate/initialize context with null check", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

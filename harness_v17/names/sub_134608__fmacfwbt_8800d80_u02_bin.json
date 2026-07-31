@@ -1,0 +1,1 @@
+{"fn": "sub_134608", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134608", "status": "ok", "name": "llm_reset_cleanup", "params": [], "docstring": "Clears LL reset state fields and prepares RX", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1426B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1426b8", "status": "ok", "name": "softfloat_float_op", "params": [], "docstring": "Soft-float single helper handling exponent path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

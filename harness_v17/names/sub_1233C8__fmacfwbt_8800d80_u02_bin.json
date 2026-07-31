@@ -1,0 +1,1 @@
+{"fn": "sub_1233C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1233c8", "status": "ok", "name": "rf_reg_write_85", "params": [], "docstring": "Write RF register using command 0x85", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

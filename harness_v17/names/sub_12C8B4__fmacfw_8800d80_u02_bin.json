@@ -1,0 +1,1 @@
+{"fn": "sub_12C8B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c8b4", "status": "ok", "name": "ke_task_find", "params": [], "docstring": "Find kernel task by identifier", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

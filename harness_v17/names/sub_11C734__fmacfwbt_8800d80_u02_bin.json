@@ -1,0 +1,1 @@
+{"fn": "sub_11C734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c734", "status": "ok", "name": "global_flag_set", "params": [], "docstring": "Set and clear a global flag around call", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

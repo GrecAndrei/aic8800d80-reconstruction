@@ -1,0 +1,1 @@
+{"fn": "sub_1295B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1295b8", "status": "ok", "name": "ke_evt_wait", "params": [], "docstring": "Waits on kernel event semaphore with timeout and checks task state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

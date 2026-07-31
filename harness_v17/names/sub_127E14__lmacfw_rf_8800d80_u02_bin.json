@@ -1,0 +1,1 @@
+{"fn": "sub_127E14", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127e14", "status": "ok", "name": "aeabi_dcmp", "params": [], "docstring": "Double comparison helper with zero/NaN handling", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

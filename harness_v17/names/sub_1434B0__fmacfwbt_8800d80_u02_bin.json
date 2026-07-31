@@ -1,0 +1,1 @@
+{"fn": "sub_1434B0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1434b0", "status": "ok", "name": "double_is_nan", "params": [], "docstring": "Check whether a double-precision value is NaN", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

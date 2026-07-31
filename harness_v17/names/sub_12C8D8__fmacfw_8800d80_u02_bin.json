@@ -1,0 +1,1 @@
+{"fn": "sub_12C8D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c8d8", "status": "ok", "name": "ke_int_lock_save", "params": [], "docstring": "Disable interrupts and save state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

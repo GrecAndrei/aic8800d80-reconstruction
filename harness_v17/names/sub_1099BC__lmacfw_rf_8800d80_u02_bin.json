@@ -1,0 +1,1 @@
+{"fn": "sub_1099BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1099bc", "status": "ok", "name": "invoke_handler_14a99c", "params": [], "docstring": "Call handler with args loaded from global 0x14a99c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

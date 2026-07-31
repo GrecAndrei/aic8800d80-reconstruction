@@ -1,0 +1,1 @@
+{"fn": "sub_142B44", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142b44", "status": "ok", "name": "double_compare_nan", "params": [], "docstring": "Check for NaN/Inf in double comparison", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

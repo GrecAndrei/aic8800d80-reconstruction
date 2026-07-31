@@ -1,0 +1,1 @@
+{"fn": "sub_142874", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142874", "status": "ok", "name": "unsigned_int_to_double", "params": [], "docstring": "Convert unsigned 32-bit integer to IEEE754 double", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

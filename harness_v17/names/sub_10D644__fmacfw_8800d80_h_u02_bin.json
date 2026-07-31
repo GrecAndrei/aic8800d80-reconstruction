@@ -1,0 +1,1 @@
+{"fn": "sub_10D644", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d644", "status": "ok", "name": "nvic_disable_irq15", "params": [], "docstring": "Disables NVIC interrupt 15 and flushes the pipeline", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

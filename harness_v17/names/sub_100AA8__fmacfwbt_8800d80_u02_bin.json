@@ -1,0 +1,1 @@
+{"fn": "sub_100AA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x100aa8", "status": "ok", "name": "pll_enable", "params": [], "docstring": "Set clock control bits to start PLL", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

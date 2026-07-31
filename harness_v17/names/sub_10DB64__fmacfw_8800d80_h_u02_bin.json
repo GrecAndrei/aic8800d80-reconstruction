@@ -1,0 +1,1 @@
+{"fn": "sub_10DB64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10db64", "status": "ok", "name": "rf_irq_clear", "params": [], "docstring": "Clears low nibble of a radio interrupt control register by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

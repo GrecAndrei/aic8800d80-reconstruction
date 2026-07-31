@@ -1,0 +1,1 @@
+{"fn": "sub_142D2A", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x142d2a", "status": "ok", "name": "double_compare_ord", "params": [], "docstring": "Ordered double comparison path", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

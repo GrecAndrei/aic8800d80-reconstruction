@@ -1,0 +1,1 @@
+{"fn": "sub_12911C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12911c", "status": "ok", "name": "mm_state_idle", "params": [], "docstring": "Initialize MAC management state to idle", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}
