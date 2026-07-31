@@ -1,0 +1,1 @@
+{"fn": "sub_134DEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134dec", "status": "ok", "name": "phy_rate_power_update", "params": [], "docstring": "Update PHY rate power table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

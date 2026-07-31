@@ -1,0 +1,4 @@
+fmacfw_8800d80_u02: 170604 instructions cached in 39.6s -> fmacfw_8800d80_u02.jsonl
+fmacfw_8800d80_h_u02: 170718 instructions cached in 46.9s -> fmacfw_8800d80_h_u02.jsonl
+fmacfwbt_8800d80_u02: 170749 instructions cached in 42.8s -> fmacfwbt_8800d80_u02.jsonl
+lmacfw_rf_8800d80_u02: 127255 instructions cached in 33.4s -> lmacfw_rf_8800d80_u02.jsonl

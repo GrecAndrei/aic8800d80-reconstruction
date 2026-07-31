@@ -1,0 +1,1 @@
+{"fn": "sub_1072CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1072cc", "status": "ok", "name": "rf_core_irq_clear", "params": [], "docstring": "Clear and mask RF core interrupt event flags.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

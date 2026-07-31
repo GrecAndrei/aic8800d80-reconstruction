@@ -1,0 +1,1 @@
+{"fn": "sub_140338", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140338", "status": "ok", "name": "ble_ll_adv_rx_scan_req", "params": [], "docstring": "Handle scan request PDU flags", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

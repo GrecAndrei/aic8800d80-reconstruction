@@ -1,0 +1,1 @@
+{"fn": "sub_1337A0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1337a0", "status": "ok", "name": "ble_state_check_1337a0", "params": [], "docstring": "Checks global BLE state flag.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

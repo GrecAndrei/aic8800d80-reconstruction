@@ -1,0 +1,1 @@
+{"fn": "sub_113824", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113824", "status": "ok", "name": "bt_evt_sched_low", "params": [], "docstring": "Schedules low-priority Bluetooth event processing", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_136820", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136820", "status": "ok", "name": "bt_ready_check", "params": [], "docstring": "Acquires lock and checks BT ready flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122654", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122654", "status": "ok", "name": "ll_get_state", "params": [], "docstring": "Read link-layer connection state byte", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

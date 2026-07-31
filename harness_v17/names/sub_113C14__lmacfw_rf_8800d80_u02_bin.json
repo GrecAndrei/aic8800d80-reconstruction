@@ -1,0 +1,1 @@
+{"fn": "sub_113C14", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113c14", "status": "ok", "name": "mmio_wait_bit", "params": [], "docstring": "Test bit in hardware register and branch", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

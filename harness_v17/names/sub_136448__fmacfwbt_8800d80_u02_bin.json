@@ -1,0 +1,1 @@
+{"fn": "sub_136448", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136448", "status": "ok", "name": "rf_cal_cmd", "params": [], "docstring": "Run calibration command if RF status is ready", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

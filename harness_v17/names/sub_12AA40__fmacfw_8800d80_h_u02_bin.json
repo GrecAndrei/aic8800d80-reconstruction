@@ -1,0 +1,1 @@
+{"fn": "sub_12AA40", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12aa40", "status": "ok", "name": "is_channel_entry_valid", "params": [], "docstring": "Check if channel table entry valid", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11E724", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e724", "status": "ok", "name": "check_kernel_state", "params": [], "docstring": "Read global kernel state and branch on negative.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

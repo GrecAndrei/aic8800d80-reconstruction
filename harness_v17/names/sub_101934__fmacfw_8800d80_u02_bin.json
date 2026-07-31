@@ -1,0 +1,1 @@
+{"fn": "sub_101934", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101934", "status": "ok", "name": "poll_status", "params": [], "docstring": "Poll status flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

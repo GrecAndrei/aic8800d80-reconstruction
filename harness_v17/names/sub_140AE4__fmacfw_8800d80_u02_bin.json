@@ -1,0 +1,1 @@
+{"fn": "sub_140AE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140ae4", "status": "ok", "name": "ble_ll_adv_sm_check", "params": [], "docstring": "Check advertising set state limit", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

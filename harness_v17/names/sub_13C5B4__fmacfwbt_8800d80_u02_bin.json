@@ -1,0 +1,1 @@
+{"fn": "sub_13C5B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c5b4", "status": "ok", "name": "tx_prepare_ll_packet", "params": [], "docstring": "Prepare link-layer packet for transmission", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

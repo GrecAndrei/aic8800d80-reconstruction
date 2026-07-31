@@ -1,0 +1,1 @@
+{"fn": "sub_12BBF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12bbf0", "status": "ok", "name": "fifo_write", "params": [], "docstring": "Writes packet data and flags to radio FIFO registers", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

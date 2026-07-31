@@ -1,0 +1,1 @@
+{"fn": "sub_12F3A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f3a8", "status": "ok", "name": "lock_init_0x18274c", "params": [], "docstring": "Initialize lock structure at 0x18274c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

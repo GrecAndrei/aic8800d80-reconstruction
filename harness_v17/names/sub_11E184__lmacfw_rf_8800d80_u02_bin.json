@@ -1,0 +1,1 @@
+{"fn": "sub_11E184", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e184", "status": "ok", "name": "process_list_entries", "params": [], "docstring": "Process list entries pointed to by r1 with count r2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

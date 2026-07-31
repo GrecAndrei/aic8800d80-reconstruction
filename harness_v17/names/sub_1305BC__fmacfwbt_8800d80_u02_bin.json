@@ -1,0 +1,1 @@
+{"fn": "sub_1305BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1305bc", "status": "ok", "name": "log_mac_state", "params": [], "docstring": "Log MAC state fields to debug output", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

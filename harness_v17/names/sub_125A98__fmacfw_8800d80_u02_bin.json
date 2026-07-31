@@ -1,0 +1,1 @@
+{"fn": "sub_125A98", "img": "fmacfw_8800d80_u02_bin", "addr": "0x125a98", "status": "ok", "name": "co_list_push", "params": [], "docstring": "Push element onto linked list and mark pending", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_101A68", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101a68", "status": "ok", "name": "rf_set_address", "params": [], "docstring": "Writes two 64-bit values into radio address registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

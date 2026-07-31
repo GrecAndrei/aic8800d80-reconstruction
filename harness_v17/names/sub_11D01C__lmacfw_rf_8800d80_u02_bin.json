@@ -1,0 +1,1 @@
+{"fn": "sub_11D01C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d01c", "status": "ok", "name": "rf_cal_trim_check", "params": [], "docstring": "Check RF calibration trim value status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11F794", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f794", "status": "ok", "name": "ble_sched_poll", "params": [], "docstring": "poll BLE scheduler global state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

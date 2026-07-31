@@ -1,0 +1,1 @@
+{"fn": "sub_121FE4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121fe4", "status": "ok", "name": "set_rf_tx_power_compensation", "params": [], "docstring": "Update tx power compensation fields in radio struct", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

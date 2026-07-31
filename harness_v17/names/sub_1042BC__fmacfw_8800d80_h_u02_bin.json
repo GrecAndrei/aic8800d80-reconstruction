@@ -1,0 +1,1 @@
+{"fn": "sub_1042BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1042bc", "status": "ok", "name": "ke_acquire_lock", "params": [], "docstring": "Acquire kernel lock using global flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

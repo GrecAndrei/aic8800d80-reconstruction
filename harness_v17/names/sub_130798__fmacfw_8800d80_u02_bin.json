@@ -1,0 +1,1 @@
+{"fn": "sub_130798", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130798", "status": "ok", "name": "format_hw_version", "params": [], "docstring": "Build hardware version string from byte values", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

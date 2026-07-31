@@ -1,0 +1,1 @@
+{"fn": "sub_134CB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134cb0", "status": "ok", "name": "ctrl_isr_dispatch", "params": [], "docstring": "Dispatch to different handlers based on controller state flag.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

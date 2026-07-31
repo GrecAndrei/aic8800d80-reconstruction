@@ -1,0 +1,1 @@
+{"fn": "sub_122810", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122810", "status": "ok", "name": "mmio_write_phy", "params": [], "docstring": "Issue sdio write command with control flags", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

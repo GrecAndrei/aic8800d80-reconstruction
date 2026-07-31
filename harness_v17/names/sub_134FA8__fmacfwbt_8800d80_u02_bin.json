@@ -1,0 +1,1 @@
+{"fn": "sub_134FA8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x134fa8", "status": "ok", "name": "init_rf_config", "params": [], "docstring": "Initialize radio hardware parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

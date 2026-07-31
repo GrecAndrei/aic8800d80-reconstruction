@@ -1,0 +1,1 @@
+{"fn": "sub_1327E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1327e8", "status": "ok", "name": "rf_get_chan_index", "params": [], "docstring": "Extract channel index from frequency field", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

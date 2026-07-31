@@ -1,0 +1,1 @@
+{"fn": "sub_126444", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x126444", "status": "ok", "name": "llc_rx_event_save", "params": [], "docstring": "store rx event args and load controller env", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

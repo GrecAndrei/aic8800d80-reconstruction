@@ -1,0 +1,1 @@
+{"fn": "sub_127EA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127ea4", "status": "ok", "name": "rx_parse_header", "params": [], "docstring": "Parse received frame header fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

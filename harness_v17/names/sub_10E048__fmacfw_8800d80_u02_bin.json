@@ -1,0 +1,1 @@
+{"fn": "sub_10E048", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10e048", "status": "ok", "name": "rf_core_is_ready", "params": [], "docstring": "Check if RF core state is ready", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

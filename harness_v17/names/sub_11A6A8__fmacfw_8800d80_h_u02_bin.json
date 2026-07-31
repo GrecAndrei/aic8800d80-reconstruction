@@ -1,0 +1,1 @@
+{"fn": "sub_11A6A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a6a8", "status": "ok", "name": "invalid_handler", "params": [], "docstring": "Function with invalid disassembly at entry.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

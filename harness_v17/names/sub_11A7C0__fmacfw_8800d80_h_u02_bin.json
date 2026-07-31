@@ -1,0 +1,1 @@
+{"fn": "sub_11A7C0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a7c0", "status": "ok", "name": "get_conn_env", "params": [], "docstring": "Return connection context entry by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

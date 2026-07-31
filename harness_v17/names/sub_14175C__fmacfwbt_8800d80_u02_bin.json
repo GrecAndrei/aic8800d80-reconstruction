@@ -1,0 +1,1 @@
+{"fn": "sub_14175C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14175c", "status": "ok", "name": "start_advertising", "params": [], "docstring": "Start advertising with current event counter and check readiness", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

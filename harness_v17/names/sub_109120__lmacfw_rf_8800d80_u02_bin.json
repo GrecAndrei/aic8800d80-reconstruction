@@ -1,0 +1,1 @@
+{"fn": "sub_109120", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x109120", "status": "ok", "name": "atomic_write_if_zero", "params": [], "docstring": "Store value only if both input operands are zero.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

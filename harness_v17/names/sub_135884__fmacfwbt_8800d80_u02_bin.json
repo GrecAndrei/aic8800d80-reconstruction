@@ -1,0 +1,1 @@
+{"fn": "sub_135884", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135884", "status": "ok", "name": "rf_check_channel_10", "params": [], "docstring": "Check if current RF channel is 10", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

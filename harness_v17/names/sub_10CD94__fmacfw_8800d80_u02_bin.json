@@ -1,0 +1,1 @@
+{"fn": "sub_10CD94", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10cd94", "status": "ok", "name": "interrupt_wait", "params": [], "docstring": "Wait for interrupt-ready bit to be set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

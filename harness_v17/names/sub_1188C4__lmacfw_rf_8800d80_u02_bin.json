@@ -1,0 +1,1 @@
+{"fn": "sub_1188C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1188c4", "status": "ok", "name": "chip_id_is_one", "params": [], "docstring": "Check chip identifier returned by query equals one", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

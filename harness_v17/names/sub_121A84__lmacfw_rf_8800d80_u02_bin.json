@@ -1,0 +1,1 @@
+{"fn": "sub_121A84", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121a84", "status": "ok", "name": "patch_check_enabled_ctx", "params": [], "docstring": "Checks patch status and handles context", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

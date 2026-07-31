@@ -1,0 +1,1 @@
+{"fn": "sub_1278DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1278dc", "status": "ok", "name": "llc_env_init", "params": [], "docstring": "zero-initialize llc environment block", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D414", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d414", "status": "ok", "name": "read_global_halfword", "params": [], "docstring": "Load global pointer and read signed halfword from it", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

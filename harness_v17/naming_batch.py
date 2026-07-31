@@ -87,7 +87,7 @@ Output a JSON array with {len(valid)} entries. Each entry: {{"i": <index>, "name
         {"role": "user", "content": user},
     ]
     try:
-        msg, tool_calls = call_api(messages, [], max_tokens=4000, max_tool_rounds=0)
+        msg, tool_calls = call_api(messages, [], max_tool_rounds=0)
     except Exception as e:
         return [f"err:{e}"] * len(targets)
     content = (msg.get('content') or '').strip()

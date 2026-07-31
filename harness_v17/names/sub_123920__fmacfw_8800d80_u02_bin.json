@@ -1,0 +1,1 @@
+{"fn": "sub_123920", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123920", "status": "ok", "name": "lld_evt_timer_set", "params": [], "docstring": "Sets an event timer with period 0x100", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_115214", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x115214", "status": "ok", "name": "log_boot_message", "params": [], "docstring": "Print boot string and check status byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

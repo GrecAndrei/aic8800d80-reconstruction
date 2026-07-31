@@ -1,0 +1,1 @@
+{"fn": "sub_10EB18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10eb18", "status": "ok", "name": "rf_hardware_init", "params": [], "docstring": "Initialize RF hardware and control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

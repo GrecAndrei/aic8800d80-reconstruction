@@ -1,0 +1,1 @@
+{"fn": "sub_1174EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1174ec", "status": "ok", "name": "timer_is_past", "params": [], "docstring": "Check if a saved timestamp is before the current hardware timer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

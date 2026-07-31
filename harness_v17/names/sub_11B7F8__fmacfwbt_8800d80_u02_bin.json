@@ -1,0 +1,1 @@
+{"fn": "sub_11B7F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b7f8", "status": "ok", "name": "critical_section_enter", "params": [], "docstring": "Disable interrupts and update global interrupt state flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

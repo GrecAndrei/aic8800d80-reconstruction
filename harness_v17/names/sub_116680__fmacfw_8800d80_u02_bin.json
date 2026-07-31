@@ -1,0 +1,1 @@
+{"fn": "sub_116680", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116680", "status": "ok", "name": "phy_ctx_get_by_index", "params": [], "docstring": "Get PHY context pointer for given index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

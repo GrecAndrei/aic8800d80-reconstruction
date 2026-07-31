@@ -1,0 +1,1 @@
+{"fn": "sub_11A72C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11a72c", "status": "ok", "name": "mmio_clear_bits", "params": [], "docstring": "Read and mask hardware register bits.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

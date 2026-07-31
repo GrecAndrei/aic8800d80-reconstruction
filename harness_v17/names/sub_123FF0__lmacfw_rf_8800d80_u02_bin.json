@@ -1,0 +1,1 @@
+{"fn": "sub_123FF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123ff0", "status": "ok", "name": "configure_hw_regs", "params": [], "docstring": "Configures bitfields in registers 0x180800 and 0x158a08", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

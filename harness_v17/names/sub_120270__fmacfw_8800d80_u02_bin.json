@@ -1,0 +1,1 @@
+{"fn": "sub_120270", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120270", "status": "ok", "name": "set_attribute_word", "params": [], "docstring": "Writes a halfword attribute and tests a bitfield.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

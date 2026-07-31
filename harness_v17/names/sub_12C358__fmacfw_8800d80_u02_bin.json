@@ -1,0 +1,1 @@
+{"fn": "sub_12C358", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c358", "status": "ok", "name": "rf_set_channel", "params": [], "docstring": "Set radio channel using frequency table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

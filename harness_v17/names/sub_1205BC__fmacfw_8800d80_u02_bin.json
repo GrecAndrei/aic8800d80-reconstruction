@@ -1,0 +1,1 @@
+{"fn": "sub_1205BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1205bc", "status": "ok", "name": "poll_rf_interrupts", "params": [], "docstring": "Reads multiple RF MMIO registers and invokes helper routines.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

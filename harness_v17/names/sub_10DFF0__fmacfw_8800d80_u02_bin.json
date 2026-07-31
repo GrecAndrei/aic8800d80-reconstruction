@@ -1,0 +1,1 @@
+{"fn": "sub_10DFF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dff0", "status": "ok", "name": "rf_core_reset_alt", "params": [], "docstring": "Alternate RF core reset with interrupt masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

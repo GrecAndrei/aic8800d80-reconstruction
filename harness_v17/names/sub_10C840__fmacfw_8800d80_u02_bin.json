@@ -1,0 +1,1 @@
+{"fn": "sub_10C840", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c840", "status": "ok", "name": "gpio_af_select", "params": [], "docstring": "Select alternate function on GPIO pins", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

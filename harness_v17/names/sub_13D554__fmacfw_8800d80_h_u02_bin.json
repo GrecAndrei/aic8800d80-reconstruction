@@ -1,0 +1,1 @@
+{"fn": "sub_13D554", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13d554", "status": "ok", "name": "tx_prepare", "params": [], "docstring": "Prepare a transmission using current state and parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

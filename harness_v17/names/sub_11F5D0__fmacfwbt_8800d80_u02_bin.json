@@ -1,0 +1,1 @@
+{"fn": "sub_11F5D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11f5d0", "status": "ok", "name": "wlc_phy_radio_set", "params": [], "docstring": "Set radio parameter for band", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1033F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1033f8", "status": "ok", "name": "crypto_init", "params": [], "docstring": "Initializes crypto block and checks radio state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

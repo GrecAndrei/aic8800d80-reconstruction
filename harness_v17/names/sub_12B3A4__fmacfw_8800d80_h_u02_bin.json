@@ -1,0 +1,1 @@
+{"fn": "sub_12B3A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b3a4", "status": "ok", "name": "rf_execute_cmd", "params": [], "docstring": "Sends RF command and saves returned status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

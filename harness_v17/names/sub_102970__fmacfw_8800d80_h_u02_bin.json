@@ -1,0 +1,1 @@
+{"fn": "sub_102970", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102970", "status": "ok", "name": "check_boot_flag", "params": [], "docstring": "Checks a global flag and loads a constant if unset", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

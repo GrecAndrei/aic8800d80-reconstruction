@@ -1,0 +1,1 @@
+{"fn": "sub_106F08", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x106f08", "status": "ok", "name": "clk_set_divider", "params": [], "docstring": "Set clock divider in PRCM register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

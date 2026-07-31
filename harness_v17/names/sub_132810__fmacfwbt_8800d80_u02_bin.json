@@ -1,0 +1,1 @@
+{"fn": "sub_132810", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132810", "status": "ok", "name": "llm_rx_validate_pdu", "params": [], "docstring": "Validate received PDU header bytes", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

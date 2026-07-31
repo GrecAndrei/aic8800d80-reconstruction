@@ -1,0 +1,1 @@
+{"fn": "sub_10D15C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d15c", "status": "ok", "name": "status_poll", "params": [], "docstring": "Poll hardware status flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

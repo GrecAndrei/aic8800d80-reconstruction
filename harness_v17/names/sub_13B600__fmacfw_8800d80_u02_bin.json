@@ -1,0 +1,1 @@
+{"fn": "sub_13B600", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b600", "status": "ok", "name": "adv_pdu_conn_req_check", "params": [], "docstring": "Validate connect request advertising PDU", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

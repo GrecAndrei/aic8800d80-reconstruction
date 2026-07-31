@@ -1,0 +1,1 @@
+{"fn": "sub_13BF78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13bf78", "status": "ok", "name": "read_global_state_byte", "params": [], "docstring": "Reads byte at offset 0x1a from global state object after checking active pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

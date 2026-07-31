@@ -1,0 +1,1 @@
+{"fn": "sub_10DDA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10dda0", "status": "ok", "name": "gpio_init", "params": [], "docstring": "Initialize GPIO port with mask values", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

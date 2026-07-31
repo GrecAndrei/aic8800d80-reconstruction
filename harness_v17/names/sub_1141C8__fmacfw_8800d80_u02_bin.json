@@ -1,0 +1,1 @@
+{"fn": "sub_1141C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1141c8", "status": "ok", "name": "is_current_task", "params": [], "docstring": "Compares argument to global task id", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

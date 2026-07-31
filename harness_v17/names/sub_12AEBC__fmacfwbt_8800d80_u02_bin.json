@@ -1,0 +1,1 @@
+{"fn": "sub_12AEBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12aebc", "status": "ok", "name": "bt_control_dispatch", "params": [], "docstring": "Dispatch control command based on opcode", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

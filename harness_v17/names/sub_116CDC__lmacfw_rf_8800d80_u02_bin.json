@@ -1,0 +1,1 @@
+{"fn": "sub_116CDC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x116cdc", "status": "ok", "name": "task_queue_handler_a", "params": [], "docstring": "handle first task queue with delay", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

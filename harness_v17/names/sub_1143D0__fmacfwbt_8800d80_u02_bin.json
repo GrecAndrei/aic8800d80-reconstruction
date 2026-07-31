@@ -1,0 +1,1 @@
+{"fn": "sub_1143D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1143d0", "status": "ok", "name": "log_and_check_hw", "params": [], "docstring": "Log message then check hardware flag and MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

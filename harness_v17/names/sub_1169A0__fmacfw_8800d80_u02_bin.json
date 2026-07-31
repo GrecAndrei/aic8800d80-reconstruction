@@ -1,0 +1,1 @@
+{"fn": "sub_1169A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1169a0", "status": "ok", "name": "radio_channel_validate", "params": [], "docstring": "Validate channel and band arguments", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

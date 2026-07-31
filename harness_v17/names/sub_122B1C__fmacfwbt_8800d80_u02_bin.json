@@ -1,0 +1,1 @@
+{"fn": "sub_122B1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122b1c", "status": "ok", "name": "find_pending_command", "params": [], "docstring": "Search pending command list by flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_136E74", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136e74", "status": "ok", "name": "set_bt_irq_flag", "params": [], "docstring": "Sets BT IRQ flag and calls handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

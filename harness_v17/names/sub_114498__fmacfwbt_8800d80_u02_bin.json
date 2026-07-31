@@ -1,0 +1,1 @@
+{"fn": "sub_114498", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114498", "status": "ok", "name": "init_chip_state", "params": [], "docstring": "Initialize chip state structure using constant offsets", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

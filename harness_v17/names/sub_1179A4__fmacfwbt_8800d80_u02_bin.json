@@ -1,0 +1,1 @@
+{"fn": "sub_1179A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1179a4", "status": "ok", "name": "conn_tx", "params": [], "docstring": "Transmit data through indexed connection", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

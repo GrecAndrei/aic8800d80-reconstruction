@@ -1,0 +1,1 @@
+{"fn": "sub_141C0C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141c0c", "status": "ok", "name": "hci_le_connection_update", "params": [], "docstring": "Handle HCI LE connection update command", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

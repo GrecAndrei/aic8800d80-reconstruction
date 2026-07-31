@@ -1,0 +1,1 @@
+{"fn": "sub_1225FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1225fc", "status": "ok", "name": "rx_process_packet", "params": [], "docstring": "Process received packet header and payload.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

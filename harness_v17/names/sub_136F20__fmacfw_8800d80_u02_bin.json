@@ -1,0 +1,1 @@
+{"fn": "sub_136F20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136f20", "status": "ok", "name": "rf_send_channel", "params": [], "docstring": "Send current channel via command 0x100b", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

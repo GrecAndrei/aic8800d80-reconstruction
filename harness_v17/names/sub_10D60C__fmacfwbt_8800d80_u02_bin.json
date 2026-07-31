@@ -1,0 +1,1 @@
+{"fn": "sub_10D60C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d60c", "status": "ok", "name": "uart_puts", "params": [], "docstring": "Transmit a string over UART", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

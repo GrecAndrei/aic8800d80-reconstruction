@@ -1,0 +1,1 @@
+{"fn": "sub_110224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110224", "status": "ok", "name": "get_modulation_type", "params": [], "docstring": "Read modulation type", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114410", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114410", "status": "ok", "name": "get_config_a", "params": [], "docstring": "Return pointer to configuration block A", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

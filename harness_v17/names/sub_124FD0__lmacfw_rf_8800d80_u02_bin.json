@@ -1,0 +1,1 @@
+{"fn": "sub_124FD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124fd0", "status": "ok", "name": "set_super_timeout", "params": [], "docstring": "Parse supervision timeout value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

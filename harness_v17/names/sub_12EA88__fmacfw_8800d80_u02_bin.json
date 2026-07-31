@@ -1,0 +1,1 @@
+{"fn": "sub_12EA88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ea88", "status": "ok", "name": "event_dispatch", "params": [], "docstring": "Dispatches event message using global handler context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

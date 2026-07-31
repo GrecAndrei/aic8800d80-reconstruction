@@ -1,0 +1,1 @@
+{"fn": "sub_131F38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131f38", "status": "ok", "name": "bt_clear_flag", "params": [], "docstring": "Clear BT context flag and read input field", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

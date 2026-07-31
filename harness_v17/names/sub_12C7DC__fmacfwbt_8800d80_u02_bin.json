@@ -1,0 +1,1 @@
+{"fn": "sub_12C7DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c7dc", "status": "ok", "name": "timeout_exceeded", "params": [], "docstring": "Return 1 if (r3 - r2) > 0x11e1a300", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

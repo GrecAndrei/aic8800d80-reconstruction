@@ -1,0 +1,1 @@
+{"fn": "sub_12ECD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ecd0", "status": "ok", "name": "check_status_bits", "params": [], "docstring": "Checks status halfword against mask", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

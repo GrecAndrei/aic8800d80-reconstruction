@@ -1,0 +1,1 @@
+{"fn": "sub_10CB10", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10cb10", "status": "ok", "name": "invoke_alt_handler", "params": [], "docstring": "Invoke alternate event handler from global context", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

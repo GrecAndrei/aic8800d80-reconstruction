@@ -1,0 +1,1 @@
+{"fn": "sub_104B60", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x104b60", "status": "ok", "name": "min_u32", "params": [], "docstring": "Return minimum of two unsigned values", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

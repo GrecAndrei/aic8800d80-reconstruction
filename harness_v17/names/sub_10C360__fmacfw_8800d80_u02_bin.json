@@ -1,0 +1,1 @@
+{"fn": "sub_10C360", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c360", "status": "ok", "name": "rx_header_decode", "params": [], "docstring": "Decode RX descriptor fields for dispatch", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

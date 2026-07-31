@@ -1,0 +1,1 @@
+{"fn": "sub_118FD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118fd8", "status": "ok", "name": "memory_allocate", "params": [], "docstring": "Allocate memory through internal allocator", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

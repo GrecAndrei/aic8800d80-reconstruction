@@ -1,0 +1,1 @@
+{"fn": "sub_100FAC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x100fac", "status": "ok", "name": "arm_core_enable", "params": [], "docstring": "set ARM core clock/control enable bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

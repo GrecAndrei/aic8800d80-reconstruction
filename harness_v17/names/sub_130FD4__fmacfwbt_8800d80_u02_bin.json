@@ -1,0 +1,1 @@
+{"fn": "sub_130FD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130fd4", "status": "ok", "name": "rf_lookup_cal_entry", "params": [], "docstring": "Looks up a calibration data entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

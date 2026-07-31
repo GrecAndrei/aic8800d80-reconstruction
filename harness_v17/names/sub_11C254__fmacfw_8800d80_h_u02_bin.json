@@ -1,0 +1,1 @@
+{"fn": "sub_11C254", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c254", "status": "ok", "name": "phy_rate_to_index", "params": [], "docstring": "Convert PHY rate bitfield to channel index and validate", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_120BD0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120bd0", "status": "ok", "name": "wait_for_hw_flag", "params": [], "docstring": "Polls a hardware flag with a timeout value.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

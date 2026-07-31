@@ -26,22 +26,29 @@ def get_key():
     _local.i += 1
     return k
 
-def call_api(messages, tools, max_tokens=2000, temperature=0.0, max_tool_rounds=6):
+def call_api(messages, tools, max_tokens=None, temperature=0.0, max_tool_rounds=6):
     """Call LLM with tools. Loops until LLM gives a final answer or hits max_tool_rounds.
     Returns (final_message, all_tool_calls_made).
+
+    max_tokens is intentionally NOT set by default (no output budget):
+    reasoning models need the full output to finish.
     """
     key = get_key()
+    base_url = key.get('base_url', 'https://opencode.ai/zen/go/v1').rstrip('/')
+    endpoint = base_url + "/chat/completions"
+    model = key.get('model', 'deepseek-v4-flash')
     tool_results_seen = []  # collect every tool result for validation
     for round_n in range(max_tool_rounds + 1):
         # On the last round, force a final answer (no tools)
         is_final_round = (round_n == max_tool_rounds)
         try:
             payload = {
-                "model": key['model'],
+                "model": model,
                 "messages": messages,
-                "max_tokens": max_tokens,
                 "temperature": temperature,
             }
+            if max_tokens is not None:
+                payload["max_tokens"] = max_tokens
             if tools and not is_final_round:
                 payload["tools"] = tools
             if is_final_round:
@@ -51,10 +58,11 @@ def call_api(messages, tools, max_tokens=2000, temperature=0.0, max_tool_rounds=
                     "content": "STOP using tools. Output your final JSON answer NOW based on what you've seen. No more tool calls."
                 })
             req = urllib.request.Request(
-                "https://api.tokenrouter.com/v1/chat/completions",
+                endpoint,
                 data=json.dumps(payload).encode(),
                 headers={
                     "Authorization": f"Bearer {key['api_key']}",
+                    "User-Agent": "opencode/1.0",
                     "Content-Type": "application/json"
                 }
             )
@@ -177,7 +185,7 @@ Propose: (a) a real function name based on what it does, (b) parameter types, (c
         {"role": "system", "content": system},
         {"role": "user", "content": user},
     ]
-    msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tokens=1500, max_tool_rounds=max_tool_rounds)
+    msg, tool_calls = call_api(messages, TOOL_SCHEMA, max_tool_rounds=max_tool_rounds)
     content = msg.get('content') or ''
     if not content:
         return None, tool_calls, "no_content"

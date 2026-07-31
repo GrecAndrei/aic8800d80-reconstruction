@@ -1,0 +1,1 @@
+{"fn": "sub_12ED20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ed20", "status": "ok", "name": "send_command_event", "params": [], "docstring": "Sends an event or command through internal dispatcher", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

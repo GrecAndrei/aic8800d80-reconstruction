@@ -1,0 +1,1 @@
+{"fn": "sub_104828", "img": "fmacfw_8800d80_u02_bin", "addr": "0x104828", "status": "ok", "name": "alloc_buffer_by_flag", "params": [], "docstring": "Allocates buffer with size chosen by input flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12F10C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f10c", "status": "ok", "name": "msg_alloc_0x40e", "params": [], "docstring": "Allocate 4-byte message 0x40e and validate field", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

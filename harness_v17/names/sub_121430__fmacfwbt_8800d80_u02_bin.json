@@ -1,0 +1,1 @@
+{"fn": "sub_121430", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121430", "status": "ok", "name": "irq_lock_save", "params": [], "docstring": "disable interrupts and lock global state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

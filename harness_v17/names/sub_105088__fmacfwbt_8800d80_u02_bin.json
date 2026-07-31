@@ -1,0 +1,1 @@
+{"fn": "sub_105088", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x105088", "status": "ok", "name": "temp_sensor_convert", "params": [], "docstring": "Convert raw temperature sensor value to degrees", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

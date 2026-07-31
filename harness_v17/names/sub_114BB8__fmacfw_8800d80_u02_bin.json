@@ -1,0 +1,1 @@
+{"fn": "sub_114BB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114bb8", "status": "ok", "name": "invalid_handler", "params": [], "docstring": "Unknown handler reached through invalid opcode", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

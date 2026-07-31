@@ -1,0 +1,1 @@
+{"fn": "sub_12047C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12047c", "status": "ok", "name": "rf_phy_init", "params": [], "docstring": "Initialize RF/PHY registers and call helpers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

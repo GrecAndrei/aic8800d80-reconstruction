@@ -1,0 +1,1 @@
+{"fn": "sub_1414E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1414e0", "status": "ok", "name": "ll_event_schedule", "params": [], "docstring": "Schedule a link-layer event using the current event counter", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

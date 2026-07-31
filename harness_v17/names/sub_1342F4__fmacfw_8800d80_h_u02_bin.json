@@ -1,0 +1,1 @@
+{"fn": "sub_1342F4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1342f4", "status": "ok", "name": "ble_clear_state", "params": [], "docstring": "Clears BLE state bytes and loads controller pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

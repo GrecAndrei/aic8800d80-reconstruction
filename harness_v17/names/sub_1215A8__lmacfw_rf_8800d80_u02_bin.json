@@ -1,0 +1,1 @@
+{"fn": "sub_1215A8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1215a8", "status": "ok", "name": "bt_set_reg_0x42e", "params": [], "docstring": "Set register 0x42e to 1 and check flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

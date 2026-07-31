@@ -1,0 +1,1 @@
+{"fn": "sub_124F40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124f40", "status": "ok", "name": "set_private_addr", "params": [], "docstring": "Parse private address and update address table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

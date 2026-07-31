@@ -1,0 +1,1 @@
+{"fn": "sub_13B814", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b814", "status": "ok", "name": "call_callback", "params": [], "docstring": "Invokes a stored callback with computed offset.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

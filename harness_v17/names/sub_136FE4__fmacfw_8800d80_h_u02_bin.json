@@ -1,0 +1,1 @@
+{"fn": "sub_136FE4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136fe4", "status": "ok", "name": "rf_trace_channel2", "params": [], "docstring": "Send PHY current channel trace event again", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

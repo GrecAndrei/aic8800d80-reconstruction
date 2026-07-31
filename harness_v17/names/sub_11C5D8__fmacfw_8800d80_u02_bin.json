@@ -1,0 +1,1 @@
+{"fn": "sub_11C5D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c5d8", "status": "ok", "name": "process_tx_packet", "params": [], "docstring": "Handles TX packet configuration and transmission setup", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

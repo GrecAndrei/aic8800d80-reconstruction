@@ -1,0 +1,1 @@
+{"fn": "sub_10DCD4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dcd4", "status": "ok", "name": "rf_disable_irq", "params": [], "docstring": "Clear bit in RF interrupt mask at 0x40505000+8", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

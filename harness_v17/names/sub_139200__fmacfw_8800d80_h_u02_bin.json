@@ -1,0 +1,1 @@
+{"fn": "sub_139200", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x139200", "status": "ok", "name": "rf_get_tx_power_cal", "params": [], "docstring": "get per-channel TX power calibration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

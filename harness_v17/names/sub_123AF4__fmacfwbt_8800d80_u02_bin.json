@@ -1,0 +1,1 @@
+{"fn": "sub_123AF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123af4", "status": "ok", "name": "bsscfg_indexed_lookup", "params": [], "docstring": "Indexes a 0x528-byte table by byte and emits '/' char.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

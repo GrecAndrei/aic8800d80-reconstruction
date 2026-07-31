@@ -1,0 +1,1 @@
+{"fn": "sub_129404", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129404", "status": "ok", "name": "bus_cmd52_write", "params": [], "docstring": "Issue a bus command with address 0x55 and function 0xd", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

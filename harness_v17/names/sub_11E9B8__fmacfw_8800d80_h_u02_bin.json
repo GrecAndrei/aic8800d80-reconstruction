@@ -1,0 +1,1 @@
+{"fn": "sub_11E9B8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11e9b8", "status": "ok", "name": "check_fw_rom_signature", "params": [], "docstring": "Compares runtime firmware state with ROM signature", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C6AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c6ac", "status": "ok", "name": "util_format_string", "params": [], "docstring": "Build stack string and call formatter helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

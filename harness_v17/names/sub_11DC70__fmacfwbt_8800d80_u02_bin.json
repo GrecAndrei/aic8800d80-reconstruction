@@ -1,0 +1,1 @@
+{"fn": "sub_11DC70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11dc70", "status": "ok", "name": "tx_lock", "params": [], "docstring": "Lock TX path for processing", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

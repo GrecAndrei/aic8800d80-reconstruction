@@ -1,0 +1,1 @@
+{"fn": "sub_118A6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118a6c", "status": "ok", "name": "ll_event_init", "params": [], "docstring": "Zero and initialize a link-layer event control block", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

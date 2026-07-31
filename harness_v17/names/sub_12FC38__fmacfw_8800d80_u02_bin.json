@@ -1,0 +1,1 @@
+{"fn": "sub_12FC38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12fc38", "status": "ok", "name": "parse_hex10", "params": [], "docstring": "Parse 10-character hex string from struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

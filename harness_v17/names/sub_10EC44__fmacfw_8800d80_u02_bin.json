@@ -1,0 +1,1 @@
+{"fn": "sub_10EC44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ec44", "status": "ok", "name": "rf_hardware_setup", "params": [], "docstring": "Setup RF hardware with timing registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12D3E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d3e0", "status": "ok", "name": "load_version_string", "params": [], "docstring": "Copies 128 bytes from config global to stack buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

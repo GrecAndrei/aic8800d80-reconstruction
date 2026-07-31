@@ -1,0 +1,1 @@
+{"fn": "sub_1322EC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1322ec", "status": "ok", "name": "llm_event_wait", "params": [], "docstring": "Wait for LL event 5 before proceeding", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

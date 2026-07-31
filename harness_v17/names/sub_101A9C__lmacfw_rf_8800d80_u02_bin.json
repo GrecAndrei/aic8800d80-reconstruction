@@ -1,0 +1,1 @@
+{"fn": "sub_101A9C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x101a9c", "status": "ok", "name": "chip_info_nibble1_get", "params": [], "docstring": "Read bits 4-7 of system info and decrement", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1210E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1210e4", "status": "ok", "name": "set_clock_divisor", "params": [], "docstring": "Write clock control register and prepare reset.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

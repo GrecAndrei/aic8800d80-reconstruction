@@ -1,0 +1,1 @@
+{"fn": "sub_107A70", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x107a70", "status": "ok", "name": "rx_queue_pop_packet", "params": [], "docstring": "Validate and pop a packet from the RX ring buffer.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

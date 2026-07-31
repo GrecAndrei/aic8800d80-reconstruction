@@ -1,0 +1,1 @@
+{"fn": "sub_12F554", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f554", "status": "ok", "name": "load_and_process_r0", "params": [], "docstring": "Load from pointer arg and process in callee-saved regs", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

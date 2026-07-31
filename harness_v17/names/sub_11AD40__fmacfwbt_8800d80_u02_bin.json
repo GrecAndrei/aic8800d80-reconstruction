@@ -1,0 +1,1 @@
+{"fn": "sub_11AD40", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11ad40", "status": "ok", "name": "llc_conn_timer_tick", "params": [], "docstring": "Tick and expire per-connection timer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

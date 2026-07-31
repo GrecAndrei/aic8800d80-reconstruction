@@ -1,0 +1,1 @@
+{"fn": "sub_10D784", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d784", "status": "ok", "name": "nvic_set_priority", "params": [], "docstring": "Write priority to NVIC IPR and execute dsb/isb", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

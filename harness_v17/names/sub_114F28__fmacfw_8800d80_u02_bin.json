@@ -1,0 +1,1 @@
+{"fn": "sub_114F28", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114f28", "status": "ok", "name": "patch_check_region", "params": [], "docstring": "Compare patch region boundaries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

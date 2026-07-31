@@ -1,0 +1,1 @@
+{"fn": "sub_113F3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113f3c", "status": "ok", "name": "rx_desc_init", "params": [], "docstring": "Build RX descriptor from template at 0x14B9D8", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

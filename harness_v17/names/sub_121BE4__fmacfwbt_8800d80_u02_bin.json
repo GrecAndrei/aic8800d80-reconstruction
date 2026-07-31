@@ -1,0 +1,1 @@
+{"fn": "sub_121BE4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121be4", "status": "ok", "name": "mac_check_hw_state", "params": [], "docstring": "Check hardware state flag at global offset", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

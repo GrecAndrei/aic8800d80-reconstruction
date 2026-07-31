@@ -1,0 +1,1 @@
+{"fn": "sub_11838C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11838c", "status": "ok", "name": "ke_event_loop", "params": [], "docstring": "Main kernel event polling loop", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

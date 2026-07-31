@@ -1,0 +1,1 @@
+{"fn": "sub_122BF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122bf0", "status": "ok", "name": "process_hci_command_status", "params": [], "docstring": "Process HCI command status and arguments", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

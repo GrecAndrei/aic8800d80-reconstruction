@@ -1,0 +1,1 @@
+{"fn": "sub_13623C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13623c", "status": "ok", "name": "is_link_active", "params": [], "docstring": "Check if link state is active", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

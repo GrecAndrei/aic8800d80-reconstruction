@@ -1,0 +1,1 @@
+{"fn": "sub_103FF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103ff0", "status": "ok", "name": "apply_tx_power", "params": [], "docstring": "Applies a tx-power table entry with extended field extraction", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

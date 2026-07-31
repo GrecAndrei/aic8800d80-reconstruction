@@ -1,0 +1,1 @@
+{"fn": "sub_13D11C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13d11c", "status": "ok", "name": "bt_validate_ll_control", "params": [], "docstring": "Validate link-layer control field value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

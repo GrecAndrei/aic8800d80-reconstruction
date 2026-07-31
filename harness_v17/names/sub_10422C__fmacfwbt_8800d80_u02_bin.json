@@ -1,0 +1,1 @@
+{"fn": "sub_10422C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10422c", "status": "ok", "name": "util_get_buf_addr", "params": [], "docstring": "Select buffer address from status flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

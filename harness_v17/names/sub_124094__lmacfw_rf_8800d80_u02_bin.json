@@ -1,0 +1,1 @@
+{"fn": "sub_124094", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124094", "status": "ok", "name": "set_reg_180800_bit9", "params": [], "docstring": "Sets bit 9 in register 0x180800", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12BC2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12bc2c", "status": "ok", "name": "mmio_disable_bit", "params": [], "docstring": "Clears a flag in register and checks calibration state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1166CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1166cc", "status": "ok", "name": "rate_index_lookup", "params": [], "docstring": "convert rate table index into mcs multiplier", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_131FF4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131ff4", "status": "ok", "name": "send_req_5", "params": [], "docstring": "Calls handler with hardcoded request type 5", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

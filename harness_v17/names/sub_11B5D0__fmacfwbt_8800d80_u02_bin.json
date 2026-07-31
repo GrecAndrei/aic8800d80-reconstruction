@@ -1,0 +1,1 @@
+{"fn": "sub_11B5D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b5d0", "status": "ok", "name": "table_get_u16_168268", "params": [], "docstring": "Return uint16 table value at index from 0x168268", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

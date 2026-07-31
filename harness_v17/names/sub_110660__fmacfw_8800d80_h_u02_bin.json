@@ -1,0 +1,1 @@
+{"fn": "sub_110660", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110660", "status": "ok", "name": "event_queue_init", "params": [], "docstring": "Initializes an event/timer queue structure", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

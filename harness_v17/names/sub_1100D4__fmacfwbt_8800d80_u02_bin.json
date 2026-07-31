@@ -1,0 +1,1 @@
+{"fn": "sub_1100D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1100d4", "status": "ok", "name": "scan_irq_handler", "params": [], "docstring": "Handle scan interrupt path", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

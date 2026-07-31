@@ -1,0 +1,1 @@
+{"fn": "sub_112228", "img": "fmacfw_8800d80_u02_bin", "addr": "0x112228", "status": "ok", "name": "rf_init", "params": [], "docstring": "Initializes radio state and base register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

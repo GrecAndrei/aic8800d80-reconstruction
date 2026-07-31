@@ -1,0 +1,1 @@
+{"fn": "sub_13698C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13698c", "status": "ok", "name": "ke_send_event_0x3f", "params": [], "docstring": "Sends kernel event 0x3f message", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

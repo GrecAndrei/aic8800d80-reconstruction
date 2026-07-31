@@ -1,0 +1,1 @@
+{"fn": "sub_11C924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c924", "status": "ok", "name": "set_rf_channel", "params": [], "docstring": "Store two-byte RF channel value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

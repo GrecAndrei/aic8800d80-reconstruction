@@ -1,0 +1,1 @@
+{"fn": "sub_11EACC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11eacc", "status": "ok", "name": "hash_const_init", "params": [], "docstring": "Initialize local hash/context buffer with constant data.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

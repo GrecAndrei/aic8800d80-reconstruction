@@ -1,0 +1,1 @@
+{"fn": "sub_10C638", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c638", "status": "ok", "name": "peripheral_clock_enable", "params": [], "docstring": "Enable peripheral clock and clear reset flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

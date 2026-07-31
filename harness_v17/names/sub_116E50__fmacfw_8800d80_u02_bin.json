@@ -1,0 +1,1 @@
+{"fn": "sub_116E50", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116e50", "status": "ok", "name": "hw_type_get", "params": [], "docstring": "Read hardware type from device", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

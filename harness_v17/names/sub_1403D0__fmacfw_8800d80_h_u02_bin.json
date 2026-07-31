@@ -1,0 +1,1 @@
+{"fn": "sub_1403D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1403d0", "status": "ok", "name": "bt_global_state_read", "params": [], "docstring": "Reads a status word from the global Bluetooth control block", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_117424", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117424", "status": "ok", "name": "phy_set_rate_power", "params": [], "docstring": "Set PHY rate/power with index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

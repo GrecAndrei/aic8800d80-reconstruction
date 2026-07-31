@@ -1,0 +1,1 @@
+{"fn": "sub_1120E8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1120e8", "status": "ok", "name": "wlan_reset", "params": [], "docstring": "Initialize WLAN state variables and hardware", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

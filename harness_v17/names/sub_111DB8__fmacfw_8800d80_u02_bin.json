@@ -1,0 +1,1 @@
+{"fn": "sub_111DB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111db8", "status": "ok", "name": "cmd_dispatch", "params": [], "docstring": "Dispatches based on command type range", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

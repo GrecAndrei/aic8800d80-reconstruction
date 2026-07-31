@@ -1,0 +1,1 @@
+{"fn": "sub_115108", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115108", "status": "ok", "name": "syscall16_get_version", "params": [], "docstring": "Call service 16 and extract nibble from bits 4-7", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

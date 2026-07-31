@@ -1,0 +1,1 @@
+{"fn": "sub_11AD80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11ad80", "status": "ok", "name": "context_proc_at_offset44", "params": [], "docstring": "Process context object using a sub-table at 0x16ad30", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

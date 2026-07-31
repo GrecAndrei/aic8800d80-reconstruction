@@ -1,0 +1,1 @@
+{"fn": "sub_113908", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113908", "status": "ok", "name": "util_call_arg", "params": [], "docstring": "Invoke helper passing r0 argument", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

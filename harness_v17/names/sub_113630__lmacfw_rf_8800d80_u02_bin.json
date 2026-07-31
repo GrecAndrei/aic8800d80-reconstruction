@@ -1,0 +1,1 @@
+{"fn": "sub_113630", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113630", "status": "ok", "name": "check_and_process", "params": [], "docstring": "If idle flag is clear, jump to main event handler", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

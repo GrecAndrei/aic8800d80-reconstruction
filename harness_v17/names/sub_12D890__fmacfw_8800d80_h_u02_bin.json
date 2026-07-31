@@ -1,0 +1,1 @@
+{"fn": "sub_12D890", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d890", "status": "ok", "name": "log_message_level", "params": [], "docstring": "Logs message with format from global and level 5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

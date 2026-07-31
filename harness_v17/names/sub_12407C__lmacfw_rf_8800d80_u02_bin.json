@@ -1,0 +1,1 @@
+{"fn": "sub_12407C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12407c", "status": "ok", "name": "set_reg_180800_bits7_8", "params": [], "docstring": "Sets bits 7-8 in register 0x180800", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

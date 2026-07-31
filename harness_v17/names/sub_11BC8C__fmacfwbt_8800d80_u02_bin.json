@@ -1,0 +1,1 @@
+{"fn": "sub_11BC8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11bc8c", "status": "ok", "name": "bt_controller_event_handler", "params": [], "docstring": "Dispatch controller event based on state byte at offset 0xbe", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

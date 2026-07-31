@@ -1,0 +1,1 @@
+{"fn": "sub_13C734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c734", "status": "ok", "name": "bt_get_conn_ctx", "params": [], "docstring": "Return connection context indexed by handles", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

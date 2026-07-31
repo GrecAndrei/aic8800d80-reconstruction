@@ -1,0 +1,1 @@
+{"fn": "sub_1164E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1164e0", "status": "ok", "name": "set_callback_arg", "params": [], "docstring": "Updates a callback argument in a dispatch table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

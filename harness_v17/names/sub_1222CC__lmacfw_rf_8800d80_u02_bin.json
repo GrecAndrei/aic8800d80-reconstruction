@@ -1,0 +1,1 @@
+{"fn": "sub_1222CC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1222cc", "status": "ok", "name": "check_message_len", "params": [], "docstring": "Validate message length after processing header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

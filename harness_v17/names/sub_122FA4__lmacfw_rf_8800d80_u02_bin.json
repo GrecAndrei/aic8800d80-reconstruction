@@ -1,0 +1,1 @@
+{"fn": "sub_122FA4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122fa4", "status": "ok", "name": "lookup_entry", "params": [], "docstring": "Look up an entry and return result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

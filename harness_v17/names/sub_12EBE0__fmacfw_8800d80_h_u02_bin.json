@@ -1,0 +1,1 @@
+{"fn": "sub_12EBE0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ebe0", "status": "ok", "name": "pdu_alloc_410", "params": [], "docstring": "Allocates a protocol data unit from pool 0x410", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

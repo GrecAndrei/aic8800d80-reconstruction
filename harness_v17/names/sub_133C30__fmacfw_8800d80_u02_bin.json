@@ -1,0 +1,1 @@
+{"fn": "sub_133C30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133c30", "status": "ok", "name": "adv_state_handler", "params": [], "docstring": "Handle advertising state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

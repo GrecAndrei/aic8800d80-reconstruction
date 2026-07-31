@@ -1,0 +1,1 @@
+{"fn": "sub_1200D4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1200d4", "status": "ok", "name": "get_hw_tsf", "params": [], "docstring": "Read hardware TSF value from context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

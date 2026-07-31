@@ -1,0 +1,1 @@
+{"fn": "sub_123080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123080", "status": "ok", "name": "lookup_connection_entry", "params": [], "docstring": "Compute connection table index from handle bytes", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

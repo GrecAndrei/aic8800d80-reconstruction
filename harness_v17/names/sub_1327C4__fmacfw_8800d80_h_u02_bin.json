@@ -1,0 +1,1 @@
+{"fn": "sub_1327C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1327c4", "status": "ok", "name": "process_rx_event", "params": [], "docstring": "Processes RX event with stack frame and state", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

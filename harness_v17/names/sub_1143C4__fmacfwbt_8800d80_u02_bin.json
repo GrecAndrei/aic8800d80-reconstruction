@@ -1,0 +1,1 @@
+{"fn": "sub_1143C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1143c4", "status": "ok", "name": "log_debug_c", "params": [], "docstring": "Log debug message from third constant pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

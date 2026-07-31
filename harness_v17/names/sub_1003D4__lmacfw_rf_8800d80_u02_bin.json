@@ -1,0 +1,1 @@
+{"fn": "sub_1003D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1003d4", "status": "ok", "name": "init_buffer_list", "params": [], "docstring": "Initialize linked list entries for a buffer pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

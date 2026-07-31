@@ -1,0 +1,1 @@
+{"fn": "sub_11C834", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c834", "status": "ok", "name": "tx_slot_ref", "params": [], "docstring": "Adjust TX slot reference counter", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

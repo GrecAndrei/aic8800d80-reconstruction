@@ -1,0 +1,1 @@
+{"fn": "sub_125C68", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125c68", "status": "ok", "name": "timer_process", "params": [], "docstring": "Processes timer state and schedules wait", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

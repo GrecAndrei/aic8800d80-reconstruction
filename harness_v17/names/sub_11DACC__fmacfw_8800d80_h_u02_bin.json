@@ -1,0 +1,1 @@
+{"fn": "sub_11DACC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11dacc", "status": "ok", "name": "rx_packet_handler", "params": [], "docstring": "Handle incoming packet descriptor and prepare RX status", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

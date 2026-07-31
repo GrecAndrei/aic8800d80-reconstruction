@@ -1,0 +1,1 @@
+{"fn": "sub_110250", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x110250", "status": "ok", "name": "mmio_write_1", "params": [], "docstring": "MMIO write wrapper for a chip register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

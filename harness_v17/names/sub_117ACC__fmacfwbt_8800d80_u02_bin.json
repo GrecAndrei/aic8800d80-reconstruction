@@ -1,0 +1,1 @@
+{"fn": "sub_117ACC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117acc", "status": "ok", "name": "irq_counter_inc", "params": [], "docstring": "Increment IRQ event counter at 0x188950+0x1f8", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

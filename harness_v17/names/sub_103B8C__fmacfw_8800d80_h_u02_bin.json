@@ -1,0 +1,1 @@
+{"fn": "sub_103B8C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x103b8c", "status": "ok", "name": "bb_start_cmd", "params": [], "docstring": "Write start command to baseband control register", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

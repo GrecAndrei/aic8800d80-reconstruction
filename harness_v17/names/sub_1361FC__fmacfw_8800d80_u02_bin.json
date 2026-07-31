@@ -1,0 +1,1 @@
+{"fn": "sub_1361FC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1361fc", "status": "ok", "name": "patch_check_loaded", "params": [], "docstring": "Check patch status and run patch routine", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

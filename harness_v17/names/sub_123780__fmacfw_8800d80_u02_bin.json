@@ -1,0 +1,1 @@
+{"fn": "sub_123780", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123780", "status": "ok", "name": "ble_msg_helper", "params": [], "docstring": "Loads a byte and calls common helper before returning status", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

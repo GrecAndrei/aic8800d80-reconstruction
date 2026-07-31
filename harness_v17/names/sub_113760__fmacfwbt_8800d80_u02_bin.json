@@ -1,0 +1,1 @@
+{"fn": "sub_113760", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113760", "status": "ok", "name": "critical_section_enter", "params": [], "docstring": "Enters critical section and disables interrupts", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

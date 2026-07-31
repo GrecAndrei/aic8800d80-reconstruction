@@ -1,0 +1,1 @@
+{"fn": "sub_12D5A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d5a4", "status": "ok", "name": "extract_msg_type", "params": [], "docstring": "Extracts type bits and base offset from a packed message/address word", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

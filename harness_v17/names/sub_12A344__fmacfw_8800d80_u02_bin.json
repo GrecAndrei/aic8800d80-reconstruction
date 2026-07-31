@@ -1,0 +1,1 @@
+{"fn": "sub_12A344", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a344", "status": "ok", "name": "llc_conn_idx_valid", "params": [], "docstring": "Validate connection index field in link-layer context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_141A30", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141a30", "status": "ok", "name": "acl_rx_setup", "params": [], "docstring": "Prepares an ACL receive path using connection pointers", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124EE8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124ee8", "status": "ok", "name": "dispatch_by_type", "params": [], "docstring": "Switch dispatch based on command type", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

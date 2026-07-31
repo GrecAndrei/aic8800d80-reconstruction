@@ -1,0 +1,1 @@
+{"fn": "sub_124E60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124e60", "status": "ok", "name": "mac_isr_check", "params": [], "docstring": "Check interrupt flag bit", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

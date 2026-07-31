@@ -1,0 +1,1 @@
+{"fn": "sub_1197EC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1197ec", "status": "ok", "name": "rf_channel_lookup_uint8", "params": [], "docstring": "Look up 8-bit value from RF channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

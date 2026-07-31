@@ -1,0 +1,1 @@
+{"fn": "sub_114538", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114538", "status": "ok", "name": "set_hw_flag_bit", "params": [], "docstring": "Set bit 1 of hardware state flags at offset 8", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

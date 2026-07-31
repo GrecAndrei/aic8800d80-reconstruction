@@ -1,0 +1,1 @@
+{"fn": "sub_1019EC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1019ec", "status": "ok", "name": "mac_time_get", "params": [], "docstring": "Read 64-bit MAC timestamp from shared struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

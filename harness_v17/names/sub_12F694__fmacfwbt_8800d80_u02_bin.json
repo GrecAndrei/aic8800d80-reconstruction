@@ -1,0 +1,1 @@
+{"fn": "sub_12F694", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f694", "status": "ok", "name": "mmio_irq_clear", "params": [], "docstring": "Disable interrupts and clear an MMIO interrupt register.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_135978", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135978", "status": "ok", "name": "bt_send_ack_message", "params": [], "docstring": "send message with ack id 0xd", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

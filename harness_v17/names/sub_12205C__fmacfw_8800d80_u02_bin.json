@@ -1,0 +1,1 @@
+{"fn": "sub_12205C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12205c", "status": "ok", "name": "test_23bit_flag", "params": [], "docstring": "Test bit 23 of a status word.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

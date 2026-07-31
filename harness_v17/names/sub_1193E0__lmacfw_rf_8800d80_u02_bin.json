@@ -1,0 +1,1 @@
+{"fn": "sub_1193E0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1193e0", "status": "ok", "name": "send_event_0x66", "params": [], "docstring": "Queue event 0x66 for the kernel loop", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

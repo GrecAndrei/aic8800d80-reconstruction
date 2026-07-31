@@ -1,0 +1,1 @@
+{"fn": "sub_1119DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1119dc", "status": "ok", "name": "table_lookup_wrapper", "params": [], "docstring": "Wrapper that calls table lookup with constant", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

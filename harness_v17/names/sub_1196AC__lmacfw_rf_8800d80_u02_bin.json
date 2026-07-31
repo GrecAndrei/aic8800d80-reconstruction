@@ -1,0 +1,1 @@
+{"fn": "sub_1196AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1196ac", "status": "ok", "name": "ke_alloc_msg_0x74", "params": [], "docstring": "Allocate 6-byte zeroed kernel message 0x74", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114DE8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114de8", "status": "ok", "name": "is_patch_loaded", "params": [], "docstring": "Compare ROM and RAM patch pointers to determine load state", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

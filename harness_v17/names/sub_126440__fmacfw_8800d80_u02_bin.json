@@ -1,0 +1,1 @@
+{"fn": "sub_126440", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126440", "status": "ok", "name": "llm_adv_param_check", "params": [], "docstring": "Validate advertising report parameter bytes", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

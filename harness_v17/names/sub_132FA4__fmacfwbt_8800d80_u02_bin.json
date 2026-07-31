@@ -1,0 +1,1 @@
+{"fn": "sub_132FA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132fa4", "status": "ok", "name": "rf_config_chan_table", "params": [], "docstring": "Configure RF channel table entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

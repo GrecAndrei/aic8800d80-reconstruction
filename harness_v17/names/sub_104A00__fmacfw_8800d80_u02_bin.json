@@ -1,0 +1,1 @@
+{"fn": "sub_104A00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x104a00", "status": "ok", "name": "rf_scan_init", "params": [], "docstring": "Initializes RF scan state and buffers", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

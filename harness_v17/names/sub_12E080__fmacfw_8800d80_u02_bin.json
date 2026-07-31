@@ -1,0 +1,1 @@
+{"fn": "sub_12E080", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12e080", "status": "ok", "name": "rf_trim_low", "params": [], "docstring": "Maps lower frequency trim value to offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1063C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1063c0", "status": "ok", "name": "log_message", "params": [], "docstring": "Format and output a debug log message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

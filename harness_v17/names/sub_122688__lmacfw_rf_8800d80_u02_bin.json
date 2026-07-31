@@ -1,0 +1,1 @@
+{"fn": "sub_122688", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122688", "status": "ok", "name": "check_system_flag", "params": [], "docstring": "Check a system status flag in hardware register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

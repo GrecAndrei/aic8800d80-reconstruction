@@ -1,0 +1,1 @@
+{"fn": "sub_10F05C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f05c", "status": "ok", "name": "copy_stats", "params": [], "docstring": "Copy multiple words from context to statistics block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

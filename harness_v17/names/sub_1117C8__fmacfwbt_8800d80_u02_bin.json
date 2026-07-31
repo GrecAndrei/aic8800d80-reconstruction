@@ -1,0 +1,1 @@
+{"fn": "sub_1117C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1117c8", "status": "ok", "name": "tx_hdr_clear", "params": [], "docstring": "clear tx link-layer header entry", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

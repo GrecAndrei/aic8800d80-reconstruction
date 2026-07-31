@@ -1,0 +1,1 @@
+{"fn": "sub_1018A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1018a8", "status": "ok", "name": "copy_hw_register", "params": [], "docstring": "Copy value between two MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

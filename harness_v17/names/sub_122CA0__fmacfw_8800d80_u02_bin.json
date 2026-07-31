@@ -1,0 +1,1 @@
+{"fn": "sub_122CA0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122ca0", "status": "ok", "name": "get_patch_table_entry", "params": [], "docstring": "Locate patch-record indexed by type and send command 0x70", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

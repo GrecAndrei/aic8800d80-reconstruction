@@ -1,0 +1,1 @@
+{"fn": "sub_13B7D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13b7d0", "status": "ok", "name": "get_bt_state", "params": [], "docstring": "Reads BT state byte and compares to a value.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

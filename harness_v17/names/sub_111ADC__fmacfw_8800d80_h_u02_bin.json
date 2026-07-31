@@ -1,0 +1,1 @@
+{"fn": "sub_111ADC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111adc", "status": "ok", "name": "unknown_handler2", "params": [], "docstring": "Function entry with register save only", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

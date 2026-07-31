@@ -1,0 +1,1 @@
+{"fn": "sub_1203F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1203f4", "status": "ok", "name": "is_radio_ready", "params": [], "docstring": "Checks two state bytes and compares their sum to one.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

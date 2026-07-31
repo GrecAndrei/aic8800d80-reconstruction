@@ -1,0 +1,1 @@
+{"fn": "sub_10DF18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10df18", "status": "ok", "name": "rf_ctrl_config_set", "params": [], "docstring": "Write config data into RF control table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

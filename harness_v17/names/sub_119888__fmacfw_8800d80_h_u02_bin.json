@@ -1,0 +1,1 @@
+{"fn": "sub_119888", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119888", "status": "ok", "name": "btm_indirect_handler", "params": [], "docstring": "Dereference nested control-block pointers and continue processing.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

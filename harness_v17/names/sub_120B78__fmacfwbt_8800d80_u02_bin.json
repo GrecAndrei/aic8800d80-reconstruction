@@ -1,0 +1,1 @@
+{"fn": "sub_120B78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120b78", "status": "ok", "name": "tx_prepare_descriptor", "params": [], "docstring": "prepare tx descriptor from input metadata", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

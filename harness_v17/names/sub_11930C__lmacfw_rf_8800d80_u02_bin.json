@@ -1,0 +1,1 @@
+{"fn": "sub_11930C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11930c", "status": "ok", "name": "kernel_send_msg", "params": [], "docstring": "Send kernel message 0xb with three parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1149FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1149fc", "status": "ok", "name": "alloc_small_buffer", "params": [], "docstring": "Allocate a small buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

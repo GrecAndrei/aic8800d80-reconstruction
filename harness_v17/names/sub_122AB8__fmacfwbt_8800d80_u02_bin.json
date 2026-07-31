@@ -1,0 +1,1 @@
+{"fn": "sub_122AB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122ab8", "status": "ok", "name": "get_chip_status", "params": [], "docstring": "Read chip state and status flags", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

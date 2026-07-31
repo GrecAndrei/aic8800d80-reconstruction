@@ -1,0 +1,1 @@
+{"fn": "sub_131170", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131170", "status": "ok", "name": "decode_adv_type", "params": [], "docstring": "Extract advertising type and peer address type bitfields", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

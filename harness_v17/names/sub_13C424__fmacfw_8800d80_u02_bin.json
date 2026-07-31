@@ -1,0 +1,1 @@
+{"fn": "sub_13C424", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c424", "status": "ok", "name": "lookup_tx_power_limit", "params": [], "docstring": "Indexes global tables to compute TX power limit for band and rate", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

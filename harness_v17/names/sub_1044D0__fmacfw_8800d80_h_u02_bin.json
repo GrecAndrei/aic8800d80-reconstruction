@@ -1,0 +1,1 @@
+{"fn": "sub_1044D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1044d0", "status": "ok", "name": "tx_desc_parse", "params": [], "docstring": "Parse TX descriptor metadata fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

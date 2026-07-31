@@ -1,0 +1,1 @@
+{"fn": "sub_1029C4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1029c4", "status": "ok", "name": "read_calibration_offsets", "params": [], "docstring": "Reads two signed calibration bytes into output buffers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

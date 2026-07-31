@@ -1,0 +1,1 @@
+{"fn": "sub_137228", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137228", "status": "ok", "name": "rf_cmd_read", "params": [], "docstring": "Read radio status command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

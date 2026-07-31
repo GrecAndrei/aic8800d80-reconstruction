@@ -1,0 +1,1 @@
+{"fn": "sub_113EB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113eb4", "status": "ok", "name": "sleep_exit_critical", "params": [], "docstring": "Exits low-power mode and re-enters critical section", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

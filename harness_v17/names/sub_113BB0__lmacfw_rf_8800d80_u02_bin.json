@@ -1,0 +1,1 @@
+{"fn": "sub_113BB0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113bb0", "status": "ok", "name": "mmio_get_field", "params": [], "docstring": "Read hardware register field in low bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

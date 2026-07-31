@@ -1,0 +1,1 @@
+{"fn": "sub_10FE7C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10fe7c", "status": "ok", "name": "is_chip_ready", "params": [], "docstring": "Checks whether the chip status byte equals one", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

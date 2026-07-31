@@ -1,0 +1,1 @@
+{"fn": "sub_11B680", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b680", "status": "ok", "name": "state_check_and_setup", "params": [], "docstring": "Check global state byte and conditionally initialize a table", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

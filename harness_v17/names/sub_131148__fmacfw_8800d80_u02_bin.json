@@ -1,0 +1,1 @@
+{"fn": "sub_131148", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131148", "status": "ok", "name": "ll_get_conn_evt_cnt", "params": [], "docstring": "Get connection event counter", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

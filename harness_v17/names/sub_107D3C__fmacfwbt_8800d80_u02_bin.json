@@ -1,0 +1,1 @@
+{"fn": "sub_107D3C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x107d3c", "status": "ok", "name": "div_by_three_calc", "params": [], "docstring": "Perform division using magic constants", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

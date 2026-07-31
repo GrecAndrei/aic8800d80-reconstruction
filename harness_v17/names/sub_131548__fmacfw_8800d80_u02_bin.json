@@ -1,0 +1,1 @@
+{"fn": "sub_131548", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131548", "status": "ok", "name": "scan_report_parse", "params": [], "docstring": "Parse scan report data", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

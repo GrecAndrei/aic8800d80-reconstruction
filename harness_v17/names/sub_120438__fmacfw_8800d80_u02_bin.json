@@ -1,0 +1,1 @@
+{"fn": "sub_120438", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120438", "status": "ok", "name": "clear_device_flag", "params": [], "docstring": "Clears a byte at caller-provided address and loads global state.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

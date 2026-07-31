@@ -1,0 +1,1 @@
+{"fn": "sub_1019B4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1019b4", "status": "ok", "name": "irq_handler", "params": [], "docstring": "Dispatch interrupt when status bit 28 is set", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

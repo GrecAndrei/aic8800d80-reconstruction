@@ -1,0 +1,1 @@
+{"fn": "sub_11113C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11113c", "status": "ok", "name": "pack_control_word", "params": [], "docstring": "Pack 32-bit control word from fields", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

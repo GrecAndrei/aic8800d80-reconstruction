@@ -1,0 +1,1 @@
+{"fn": "sub_11C040", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c040", "status": "ok", "name": "bt_adv_check", "params": [], "docstring": "Check advertising state fields before starting advertisement", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

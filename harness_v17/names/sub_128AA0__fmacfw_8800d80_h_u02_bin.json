@@ -1,0 +1,1 @@
+{"fn": "sub_128AA0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128aa0", "status": "ok", "name": "wifi_disable_log", "params": [], "docstring": "Logs wifi disable register bit and state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

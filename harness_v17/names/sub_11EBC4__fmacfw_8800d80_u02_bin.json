@@ -1,0 +1,1 @@
+{"fn": "sub_11EBC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11ebc4", "status": "ok", "name": "rf_ctrl_enable", "params": [], "docstring": "set and clear RF control bits in MMIO registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

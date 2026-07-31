@@ -1,0 +1,1 @@
+{"fn": "sub_139E30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x139e30", "status": "ok", "name": "tx_power_set_band", "params": [], "docstring": "Set TX power band based on signed value and rate mask", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D7B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d7b4", "status": "ok", "name": "read_memory_byte", "params": [], "docstring": "Load byte from address in r0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

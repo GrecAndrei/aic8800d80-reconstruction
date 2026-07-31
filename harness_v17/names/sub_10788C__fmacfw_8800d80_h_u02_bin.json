@@ -1,0 +1,1 @@
+{"fn": "sub_10788C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10788c", "status": "ok", "name": "timer_get_interval", "params": [], "docstring": "Compute timer interval from values", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

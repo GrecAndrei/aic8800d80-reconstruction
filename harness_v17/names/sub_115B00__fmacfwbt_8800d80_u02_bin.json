@@ -1,0 +1,1 @@
+{"fn": "sub_115B00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115b00", "status": "ok", "name": "check_nvic_irq", "params": [], "docstring": "Check NVIC interrupt status and update PHY register if set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

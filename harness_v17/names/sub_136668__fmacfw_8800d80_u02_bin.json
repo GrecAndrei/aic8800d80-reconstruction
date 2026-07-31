@@ -1,0 +1,1 @@
+{"fn": "sub_136668", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136668", "status": "ok", "name": "bt_get_buffer", "params": [], "docstring": "Get global event buffer pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

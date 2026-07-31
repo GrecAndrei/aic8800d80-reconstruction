@@ -1,0 +1,1 @@
+{"fn": "sub_131008", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131008", "status": "ok", "name": "table_read_caps", "params": [], "docstring": "Look up entry and extract capability words from bytes 6-9.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

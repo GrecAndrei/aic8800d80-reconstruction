@@ -1,0 +1,1 @@
+{"fn": "sub_114FEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114fec", "status": "ok", "name": "apply_patch_table", "params": [], "docstring": "Iterate patch table at 0x187f38 and apply entries", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

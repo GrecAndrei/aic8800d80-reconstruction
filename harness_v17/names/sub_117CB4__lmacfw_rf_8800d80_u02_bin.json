@@ -1,0 +1,1 @@
+{"fn": "sub_117CB4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117cb4", "status": "ok", "name": "rf_calibration_table_get", "params": [], "docstring": "Look up calibration table entry scaled by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

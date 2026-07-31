@@ -1,0 +1,1 @@
+{"fn": "sub_1079CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1079cc", "status": "ok", "name": "sched_min_delta", "params": [], "docstring": "Find minimum timer delta from scheduler structure.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118BB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118bb8", "status": "ok", "name": "ll_queue_advance", "params": [], "docstring": "Advance link-layer event queue pointer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

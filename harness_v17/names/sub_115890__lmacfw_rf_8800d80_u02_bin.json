@@ -1,0 +1,1 @@
+{"fn": "sub_115890", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x115890", "status": "ok", "name": "rf_is_idle", "params": [], "docstring": "Return true when RF core is idle", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_102E08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102e08", "status": "ok", "name": "uart_send_data", "params": [], "docstring": "General data send routine with mode and length arguments", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

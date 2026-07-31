@@ -1,0 +1,1 @@
+{"fn": "sub_114574", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114574", "status": "ok", "name": "process_global_167204", "params": [], "docstring": "Call subroutine with 0x167204, then read byte from 0x182b64", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

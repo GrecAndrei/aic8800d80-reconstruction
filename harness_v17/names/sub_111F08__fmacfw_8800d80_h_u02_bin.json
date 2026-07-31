@@ -1,0 +1,1 @@
+{"fn": "sub_111F08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111f08", "status": "ok", "name": "mac_read_queue_reg", "params": [], "docstring": "Read MAC hardware queue register at offset 0xb00", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

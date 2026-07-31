@@ -1,0 +1,1 @@
+{"fn": "sub_1188F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1188f4", "status": "ok", "name": "write_bb_control", "params": [], "docstring": "Write baseband control register and invoke helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

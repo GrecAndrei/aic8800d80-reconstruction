@@ -1,0 +1,1 @@
+{"fn": "sub_117CC4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117cc4", "status": "ok", "name": "timer_queue_init", "params": [], "docstring": "Initialize timer queue with 1000 ms configuration", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

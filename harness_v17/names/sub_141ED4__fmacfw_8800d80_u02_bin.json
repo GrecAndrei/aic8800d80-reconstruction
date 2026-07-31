@@ -1,0 +1,1 @@
+{"fn": "sub_141ED4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x141ed4", "status": "ok", "name": "llcp_set_ack_flag", "params": [], "docstring": "Set LLCP acknowledgment flag in header", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

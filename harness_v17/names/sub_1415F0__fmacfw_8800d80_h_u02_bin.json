@@ -1,0 +1,1 @@
+{"fn": "sub_1415F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1415f0", "status": "ok", "name": "ke_timer_set", "params": [], "docstring": "Programs a kernel timer with supplied stack parameters", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

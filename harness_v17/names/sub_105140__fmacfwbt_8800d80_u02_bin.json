@@ -1,0 +1,1 @@
+{"fn": "sub_105140", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x105140", "status": "ok", "name": "ke_timer_adjust", "params": [], "docstring": "Adjust timer queue entry based on new time value", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

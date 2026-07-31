@@ -1,0 +1,1 @@
+{"fn": "sub_1221B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1221b4", "status": "ok", "name": "process_hci_packet", "params": [], "docstring": "Handle incoming HCI command packet", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

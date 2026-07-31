@@ -1,0 +1,1 @@
+{"fn": "sub_12C1E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12c1e0", "status": "ok", "name": "ipc_lock_acquire", "params": [], "docstring": "Test and clear hardware lock register", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

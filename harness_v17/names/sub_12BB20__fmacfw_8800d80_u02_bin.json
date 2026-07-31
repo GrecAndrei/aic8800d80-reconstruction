@@ -1,0 +1,1 @@
+{"fn": "sub_12BB20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12bb20", "status": "ok", "name": "mmio_clear_irqs", "params": [], "docstring": "Clears interrupt bits in several MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

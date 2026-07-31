@@ -1,0 +1,1 @@
+{"fn": "sub_119D2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x119d2c", "status": "ok", "name": "tx_check_size", "params": [], "docstring": "Validate aligned TX buffer size", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

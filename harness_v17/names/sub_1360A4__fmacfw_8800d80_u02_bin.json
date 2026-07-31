@@ -1,0 +1,1 @@
+{"fn": "sub_1360A4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1360a4", "status": "ok", "name": "ipc_register_handler", "params": [], "docstring": "Register a handler for an IPC call", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

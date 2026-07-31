@@ -1,0 +1,1 @@
+{"fn": "sub_10C490", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10c490", "status": "ok", "name": "sdio_bus_reset", "params": [], "docstring": "Resets SDIO bus core and clears DMA status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

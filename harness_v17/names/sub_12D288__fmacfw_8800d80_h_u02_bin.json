@@ -1,0 +1,1 @@
+{"fn": "sub_12D288", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d288", "status": "ok", "name": "list_remove", "params": [], "docstring": "Remove a node from linked list if present.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

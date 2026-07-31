@@ -1,0 +1,1 @@
+{"fn": "sub_13D54C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13d54c", "status": "ok", "name": "bt_cmd_handler", "params": [], "docstring": "Handle command after decoding type and call helper", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

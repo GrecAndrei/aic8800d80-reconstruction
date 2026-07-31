@@ -1,0 +1,1 @@
+{"fn": "sub_122F10", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122f10", "status": "ok", "name": "is_valid_conn_handle", "params": [], "docstring": "Validate connection handle byte", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

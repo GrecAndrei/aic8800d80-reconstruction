@@ -1,0 +1,1 @@
+{"fn": "sub_1080A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1080a8", "status": "ok", "name": "rx_desc_page_read", "params": [], "docstring": "Read RX descriptor page index from MAC register", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_129C28", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129c28", "status": "ok", "name": "sec_table_lookup", "params": [], "docstring": "Look up security profile entry by index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

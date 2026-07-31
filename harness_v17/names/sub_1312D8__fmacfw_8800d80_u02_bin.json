@@ -1,0 +1,1 @@
+{"fn": "sub_1312D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1312d8", "status": "ok", "name": "ke_event_lookup", "params": [], "docstring": "Lookup event from table", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

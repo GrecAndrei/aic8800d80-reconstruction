@@ -1,0 +1,1 @@
+{"fn": "sub_1073D8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1073d8", "status": "ok", "name": "pll_set_clock", "params": [], "docstring": "Configure PLL clock divider", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

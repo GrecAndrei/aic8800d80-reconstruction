@@ -1,0 +1,1 @@
+{"fn": "sub_128EC4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128ec4", "status": "ok", "name": "log_state_message", "params": [], "docstring": "Logs a state message through the common logging subsystem", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

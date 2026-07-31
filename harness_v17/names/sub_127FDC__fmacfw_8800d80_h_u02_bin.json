@@ -1,0 +1,1 @@
+{"fn": "sub_127FDC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127fdc", "status": "ok", "name": "radio_disabled_check", "params": [], "docstring": "Tests radio disabled byte at 0x5a", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

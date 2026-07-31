@@ -1,0 +1,1 @@
+{"fn": "sub_1009DC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1009dc", "status": "ok", "name": "bt_control_set", "params": [], "docstring": "Set BT control register bit", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

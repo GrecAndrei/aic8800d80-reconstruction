@@ -1,0 +1,1 @@
+{"fn": "sub_127170", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127170", "status": "ok", "name": "dma_setup_transfer", "params": [], "docstring": "Configure DMA for memory region transfer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

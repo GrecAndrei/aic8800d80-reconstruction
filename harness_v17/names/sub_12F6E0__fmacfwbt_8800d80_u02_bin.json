@@ -1,0 +1,1 @@
+{"fn": "sub_12F6E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f6e0", "status": "ok", "name": "ke_int_unlock", "params": [], "docstring": "Restore interrupts and release kernel lock.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

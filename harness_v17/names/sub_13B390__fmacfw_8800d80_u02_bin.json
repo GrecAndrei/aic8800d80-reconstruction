@@ -1,0 +1,1 @@
+{"fn": "sub_13B390", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b390", "status": "ok", "name": "ll_ccm_decrypt", "params": [], "docstring": "Perform CCM decryption and MIC verification", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

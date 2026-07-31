@@ -1,0 +1,1 @@
+{"fn": "sub_12BD74", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12bd74", "status": "ok", "name": "mac_config_clear", "params": [], "docstring": "Clear MAC register bits and set up configuration", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

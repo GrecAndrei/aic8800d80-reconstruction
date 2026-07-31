@@ -1,0 +1,1 @@
+{"fn": "sub_1244F8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1244f8", "status": "ok", "name": "ke_timer_tick", "params": [], "docstring": "Increment event timer and check limit", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

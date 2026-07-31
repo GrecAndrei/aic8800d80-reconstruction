@@ -1,0 +1,1 @@
+{"fn": "sub_12F588", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f588", "status": "ok", "name": "check_chip_mode", "params": [], "docstring": "Read global mode flag and compare to 3", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

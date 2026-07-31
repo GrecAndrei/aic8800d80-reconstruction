@@ -1,0 +1,1 @@
+{"fn": "sub_12D470", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d470", "status": "ok", "name": "check_abort_flag", "params": [], "docstring": "Return early if global short state is negative", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

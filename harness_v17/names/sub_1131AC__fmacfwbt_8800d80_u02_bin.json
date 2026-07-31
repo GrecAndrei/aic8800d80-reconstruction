@@ -1,0 +1,1 @@
+{"fn": "sub_1131AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1131ac", "status": "ok", "name": "global_env_init", "params": [], "docstring": "Initializes global environment if not already set", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10DCEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10dcec", "status": "ok", "name": "init_oscillators", "params": [], "docstring": "Initialize two oscillator circuits via helper calls", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

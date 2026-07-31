@@ -1,0 +1,1 @@
+{"fn": "sub_13CC18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13cc18", "status": "ok", "name": "rx_parse_packet_header", "params": [], "docstring": "Extract flags and fields from RX packet header", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

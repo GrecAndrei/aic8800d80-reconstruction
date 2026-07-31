@@ -1,0 +1,1 @@
+{"fn": "sub_117DC0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117dc0", "status": "ok", "name": "btcoex_check_state", "params": [], "docstring": "Check Bluetooth coexistence state flags from global context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

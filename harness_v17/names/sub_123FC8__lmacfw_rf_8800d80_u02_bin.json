@@ -1,0 +1,1 @@
+{"fn": "sub_123FC8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123fc8", "status": "ok", "name": "set_reg_158a08_bit16", "params": [], "docstring": "Sets bit 16 in register 0x158a08", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

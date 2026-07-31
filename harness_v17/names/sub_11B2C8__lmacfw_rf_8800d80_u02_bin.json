@@ -1,0 +1,1 @@
+{"fn": "sub_11B2C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11b2c8", "status": "ok", "name": "rf_status_check", "params": [], "docstring": "Check RF status flag if enabled", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

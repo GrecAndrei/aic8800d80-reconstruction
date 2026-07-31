@@ -1,0 +1,1 @@
+{"fn": "sub_10DF08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10df08", "status": "ok", "name": "radio_setup", "params": [], "docstring": "Configure pin mux and enable radio register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123194", "img": "fmacfw_8800d80_u02_bin", "addr": "0x123194", "status": "ok", "name": "send_cmd_85", "params": [], "docstring": "Send one-byte command 0x85 and poke IRQ register", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

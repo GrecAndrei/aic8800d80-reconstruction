@@ -1,0 +1,1 @@
+{"fn": "sub_124150", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124150", "status": "ok", "name": "rf_write_synth", "params": [], "docstring": "Set radio synthesizer control fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

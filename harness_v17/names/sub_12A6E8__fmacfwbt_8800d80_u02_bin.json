@@ -1,0 +1,1 @@
+{"fn": "sub_12A6E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a6e8", "status": "ok", "name": "bt_dev_check_ready", "params": [], "docstring": "Check device entry active and initialized", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

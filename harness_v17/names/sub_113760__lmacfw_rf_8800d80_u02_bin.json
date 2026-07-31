@@ -1,0 +1,1 @@
+{"fn": "sub_113760", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113760", "status": "ok", "name": "controller_state_machine", "params": [], "docstring": "Process controller context structures at offsets", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

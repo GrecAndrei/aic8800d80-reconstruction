@@ -1,0 +1,1 @@
+{"fn": "sub_1100E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1100e4", "status": "ok", "name": "get_core_temp", "params": [], "docstring": "Returns core temperature from PHY info under lock", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

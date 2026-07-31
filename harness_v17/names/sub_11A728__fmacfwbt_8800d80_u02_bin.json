@@ -1,0 +1,1 @@
+{"fn": "sub_11A728", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a728", "status": "ok", "name": "llc_conn_init", "params": [], "docstring": "Initialize connection control block and timer fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

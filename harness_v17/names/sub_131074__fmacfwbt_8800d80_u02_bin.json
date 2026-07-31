@@ -1,0 +1,1 @@
+{"fn": "sub_131074", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131074", "status": "ok", "name": "rf_set_cal_byte_a4", "params": [], "docstring": "Stores calibration data into power struct offset 0xa4", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

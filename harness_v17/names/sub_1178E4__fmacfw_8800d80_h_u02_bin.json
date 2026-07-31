@@ -1,0 +1,1 @@
+{"fn": "sub_1178E4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1178e4", "status": "ok", "name": "critical_section_enter", "params": [], "docstring": "Disable interrupts and set global lock flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

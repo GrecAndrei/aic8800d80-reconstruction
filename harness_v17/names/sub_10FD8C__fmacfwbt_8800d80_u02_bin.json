@@ -1,0 +1,1 @@
+{"fn": "sub_10FD8C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10fd8c", "status": "ok", "name": "is_address_in_heap", "params": [], "docstring": "Check if address is inside memory pool", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

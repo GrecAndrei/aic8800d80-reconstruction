@@ -1,0 +1,1 @@
+{"fn": "sub_127B14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127b14", "status": "ok", "name": "tx_acl_packet", "params": [], "docstring": "Prepare ACL packet using buffer and call CRC function", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

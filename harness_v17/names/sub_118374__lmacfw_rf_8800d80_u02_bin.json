@@ -1,0 +1,1 @@
+{"fn": "sub_118374", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118374", "status": "ok", "name": "reset_link_status", "params": [], "docstring": "Reset link status byte and walk active links", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

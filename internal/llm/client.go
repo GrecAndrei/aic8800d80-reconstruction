@@ -1,13 +1,13 @@
-// Package llm is a client for the MiniMax-M3 (tokenrouter) LLM API.
+// Package llm is a client for the DeepSeek V4 Flash LLM API.
 //
 // The package supports:
 //   - Per-call timeout (default 120s)
 //   - System + user message format
 //   - JSON mode (response_format=json_object)
-//   - 6-key round-robin for rate-limit distribution
+//   - Multi-key round-robin for rate-limit distribution
 //
-// All requests go through POST https://api.tokenrouter.com/v1/chat/completions
-// with model "MiniMax-M3" and 1M context.
+// All requests go through POST https://opencode.ai/zen/go/v1/chat/completions
+// with model "deepseek-v4-flash".
 package llm
 
 import (
@@ -26,8 +26,8 @@ import (
 )
 
 const (
-	Endpoint = "https://api.tokenrouter.com/v1/chat/completions"
-	Model    = "MiniMax-M3"
+	Endpoint = "https://opencode.ai/zen/go/v1/chat/completions"
+	Model    = "deepseek-v4-flash"
 )
 
 // Config holds the LLM client configuration.
@@ -40,14 +40,15 @@ type Config struct {
 	Temperature float64
 }
 
-// DefaultConfig returns a Config with 6 default keys (placeholders) and
-// reasonable defaults. Keys should be overridden via env or flags.
+// DefaultConfig returns a Config with the default DeepSeek endpoint/model and
+// reasonable defaults. MaxTokens is 0 = unlimited (no output budget), which
+// reasoning models require. Keys should be overridden via env or flags.
 func DefaultConfig() Config {
 	return Config{
 		Endpoint:    Endpoint,
 		Model:       Model,
 		Timeout:     120 * time.Second,
-		MaxTokens:   8000,
+		MaxTokens:   0,
 		Temperature: 0.2,
 	}
 }
@@ -182,6 +183,7 @@ func (c *Client) Call(ctx context.Context, systemPrompt, userPrompt string, json
 	}
 	httpReq.Header.Set("Content-Type", "application/json")
 	httpReq.Header.Set("Authorization", "Bearer "+key)
+	httpReq.Header.Set("User-Agent", "opencode/1.0")
 	resp, err := c.http.Do(httpReq)
 	if err != nil {
 		return "", err

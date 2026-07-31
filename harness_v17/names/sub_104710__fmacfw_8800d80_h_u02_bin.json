@@ -1,0 +1,1 @@
+{"fn": "sub_104710", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x104710", "status": "ok", "name": "rx_packet_alloc", "params": [], "docstring": "Allocate RX packet buffer depending on mode", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

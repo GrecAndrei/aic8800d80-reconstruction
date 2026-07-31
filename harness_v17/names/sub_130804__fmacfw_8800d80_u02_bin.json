@@ -1,0 +1,1 @@
+{"fn": "sub_130804", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130804", "status": "ok", "name": "pack_4_uint16", "params": [], "docstring": "Store four 16-bit values into output buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10F25C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10f25c", "status": "ok", "name": "bt_get_state", "params": [], "docstring": "Read BLE stack state flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

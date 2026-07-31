@@ -1,0 +1,1 @@
+{"fn": "sub_11F6F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11f6f0", "status": "ok", "name": "wlc_phy_band_init", "params": [], "docstring": "Reset band-specific PHY state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

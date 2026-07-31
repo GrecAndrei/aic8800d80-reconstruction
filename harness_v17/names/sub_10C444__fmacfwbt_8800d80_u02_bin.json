@@ -1,0 +1,1 @@
+{"fn": "sub_10C444", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10c444", "status": "ok", "name": "sdio_transfer_setup", "params": [], "docstring": "Prepares SDIO block transfer arguments and stack parameters", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

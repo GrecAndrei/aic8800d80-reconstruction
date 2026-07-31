@@ -1,0 +1,1 @@
+{"fn": "sub_12737C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12737c", "status": "ok", "name": "ctrl_reset_handler", "params": [], "docstring": "Clear event handler and reset state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

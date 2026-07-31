@@ -1,0 +1,1 @@
+{"fn": "sub_119C0C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119c0c", "status": "ok", "name": "compare_global_counters", "params": [], "docstring": "Compare two global counter values to decide branch.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

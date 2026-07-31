@@ -1,0 +1,1 @@
+{"fn": "sub_11B0D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b0d0", "status": "ok", "name": "check_packet_type", "params": [], "docstring": "Checks packet type bits in header", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

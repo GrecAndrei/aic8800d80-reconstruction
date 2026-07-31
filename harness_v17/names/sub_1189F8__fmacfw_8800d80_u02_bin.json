@@ -1,0 +1,1 @@
+{"fn": "sub_1189F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1189f8", "status": "ok", "name": "rf_pll_lock", "params": [], "docstring": "Lock RF PLL and wait with timeout", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

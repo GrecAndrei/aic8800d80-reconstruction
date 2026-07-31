@@ -1,0 +1,1 @@
+{"fn": "sub_1362C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1362c0", "status": "ok", "name": "tx_send_packet", "params": [], "docstring": "Transmit packet using global buffers", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_112EF4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112ef4", "status": "ok", "name": "map_event_type", "params": [], "docstring": "Map event code to a handler value with special cases", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

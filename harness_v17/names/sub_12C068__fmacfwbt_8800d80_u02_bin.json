@@ -1,0 +1,1 @@
+{"fn": "sub_12C068", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c068", "status": "ok", "name": "ke_critical_enter", "params": [], "docstring": "Enter critical section and set lock flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

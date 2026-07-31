@@ -1,0 +1,1 @@
+{"fn": "sub_116974", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116974", "status": "ok", "name": "mac_update_flags", "params": [], "docstring": "Set flag in MAC struct offset 0x52", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

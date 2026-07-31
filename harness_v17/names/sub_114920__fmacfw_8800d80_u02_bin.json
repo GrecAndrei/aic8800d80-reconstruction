@@ -1,0 +1,1 @@
+{"fn": "sub_114920", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114920", "status": "ok", "name": "copy_global_1672ec", "params": [], "docstring": "Copy 12 bytes from 0x1672ec to stack", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

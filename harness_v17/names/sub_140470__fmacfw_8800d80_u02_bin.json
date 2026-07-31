@@ -1,0 +1,1 @@
+{"fn": "sub_140470", "img": "fmacfw_8800d80_u02_bin", "addr": "0x140470", "status": "ok", "name": "ble_ll_scan_enable", "params": [], "docstring": "Enable or disable scanning state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

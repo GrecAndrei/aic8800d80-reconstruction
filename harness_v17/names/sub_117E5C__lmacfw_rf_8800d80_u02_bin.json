@@ -1,0 +1,1 @@
+{"fn": "sub_117E5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117e5c", "status": "ok", "name": "process_pending_events", "params": [], "docstring": "Iterate pending event list and invoke callbacks", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

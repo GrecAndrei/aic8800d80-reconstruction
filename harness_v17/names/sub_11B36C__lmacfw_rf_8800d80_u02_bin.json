@@ -1,0 +1,1 @@
+{"fn": "sub_11B36C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11b36c", "status": "ok", "name": "rf_flag_set", "params": [], "docstring": "Set RF mode flag and update state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

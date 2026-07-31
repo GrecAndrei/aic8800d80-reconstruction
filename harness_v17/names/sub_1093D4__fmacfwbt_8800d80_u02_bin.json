@@ -1,0 +1,1 @@
+{"fn": "sub_1093D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1093d4", "status": "ok", "name": "strlen", "params": [], "docstring": "Compute length of NUL-terminated string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

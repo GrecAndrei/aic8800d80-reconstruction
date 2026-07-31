@@ -1,0 +1,1 @@
+{"fn": "sub_12B514", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b514", "status": "ok", "name": "get_queue_entry_ptr", "params": [], "docstring": "Computes pointer to queue entry from global queue base and index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

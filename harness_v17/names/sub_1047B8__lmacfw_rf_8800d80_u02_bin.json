@@ -1,0 +1,1 @@
+{"fn": "sub_1047B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1047b8", "status": "ok", "name": "heap_calloc", "params": [], "docstring": "Allocate zeroed memory from heap", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

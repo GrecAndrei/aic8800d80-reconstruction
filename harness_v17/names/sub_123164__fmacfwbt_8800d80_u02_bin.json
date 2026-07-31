@@ -1,0 +1,1 @@
+{"fn": "sub_123164", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123164", "status": "ok", "name": "send_hci_reset_cmd", "params": [], "docstring": "Send HCI reset command 0x74", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

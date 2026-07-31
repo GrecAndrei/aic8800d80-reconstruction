@@ -1,0 +1,1 @@
+{"fn": "sub_11F3CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f3cc", "status": "ok", "name": "llc_ccm_encrypt", "params": [], "docstring": "encrypt or decrypt link-layer payload with CCM", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

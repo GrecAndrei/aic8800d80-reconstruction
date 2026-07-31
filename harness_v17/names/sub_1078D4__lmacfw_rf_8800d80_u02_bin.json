@@ -1,0 +1,1 @@
+{"fn": "sub_1078D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1078d4", "status": "ok", "name": "timer_ticks_to_micros", "params": [], "docstring": "Convert RF timer ticks to microseconds using reciprocal multiplication.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

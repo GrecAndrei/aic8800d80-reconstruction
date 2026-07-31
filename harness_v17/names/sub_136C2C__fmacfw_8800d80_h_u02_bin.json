@@ -1,0 +1,1 @@
+{"fn": "sub_136C2C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136c2c", "status": "ok", "name": "rf_config_lookup", "params": [], "docstring": "Look up PHY config and initialize state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

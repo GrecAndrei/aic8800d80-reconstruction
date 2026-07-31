@@ -1,0 +1,1 @@
+{"fn": "sub_115D28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115d28", "status": "ok", "name": "mac_status_check", "params": [], "docstring": "Read MAC status halfword and test bit0", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

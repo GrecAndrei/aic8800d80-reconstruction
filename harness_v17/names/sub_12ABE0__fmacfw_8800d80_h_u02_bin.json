@@ -1,0 +1,1 @@
+{"fn": "sub_12ABE0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12abe0", "status": "ok", "name": "get_dev_entry", "params": [], "docstring": "Get device table entry by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

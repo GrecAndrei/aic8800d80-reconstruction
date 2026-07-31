@@ -1,0 +1,1 @@
+{"fn": "sub_134E04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x134e04", "status": "ok", "name": "bt_setup_conn_profile", "params": [], "docstring": "initialize connection context from profile", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

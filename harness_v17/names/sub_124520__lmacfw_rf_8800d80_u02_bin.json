@@ -1,0 +1,1 @@
+{"fn": "sub_124520", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124520", "status": "ok", "name": "ke_state_event_0", "params": [], "docstring": "Check state and trigger event 0", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

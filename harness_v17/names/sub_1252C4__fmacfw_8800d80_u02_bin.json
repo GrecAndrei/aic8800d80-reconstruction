@@ -1,0 +1,1 @@
+{"fn": "sub_1252C4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1252c4", "status": "ok", "name": "hci_acl_header_parse", "params": [], "docstring": "Parses ACL packet header fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

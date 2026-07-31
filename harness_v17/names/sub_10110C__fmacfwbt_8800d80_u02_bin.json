@@ -1,0 +1,1 @@
+{"fn": "sub_10110C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10110c", "status": "ok", "name": "rf_analog_disable", "params": [], "docstring": "Clear RF analog enable bit 0x400", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

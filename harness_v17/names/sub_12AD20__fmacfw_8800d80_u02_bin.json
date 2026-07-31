@@ -1,0 +1,1 @@
+{"fn": "sub_12AD20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ad20", "status": "ok", "name": "em_dma_setup", "params": [], "docstring": "Prepare exchange-memory descriptor and read DMA status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

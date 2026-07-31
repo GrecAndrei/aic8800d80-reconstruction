@@ -1,0 +1,1 @@
+{"fn": "sub_12A204", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a204", "status": "ok", "name": "bt_scan_stop", "params": [], "docstring": "Stop scan when enabled and scan operation is active.", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

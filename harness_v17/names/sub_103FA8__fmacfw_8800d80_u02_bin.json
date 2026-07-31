@@ -1,0 +1,1 @@
+{"fn": "sub_103FA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103fa8", "status": "ok", "name": "mac_irq_enable", "params": [], "docstring": "Sets MAC interrupt mask bit", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_116034", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x116034", "status": "ok", "name": "rx_check_buffers", "params": [], "docstring": "Inspect RX buffer queue for pending data", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

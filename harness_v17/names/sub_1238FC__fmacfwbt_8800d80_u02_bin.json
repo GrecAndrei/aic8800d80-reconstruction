@@ -1,0 +1,1 @@
+{"fn": "sub_1238FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238fc", "status": "ok", "name": "output_byte_colon", "params": [], "docstring": "Formats a byte from buffer then emits ':' separator.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

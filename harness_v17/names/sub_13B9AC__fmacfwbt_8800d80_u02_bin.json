@@ -1,0 +1,1 @@
+{"fn": "sub_13B9AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b9ac", "status": "ok", "name": "rf_scan_entry", "params": [], "docstring": "Inspect scan descriptor entry for pending state", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

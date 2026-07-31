@@ -1,0 +1,1 @@
+{"fn": "sub_11BE6C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11be6c", "status": "ok", "name": "tx_frame_build", "params": [], "docstring": "Build TX frame descriptor and evaluate rate fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

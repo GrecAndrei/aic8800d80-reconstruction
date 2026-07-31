@@ -1,0 +1,1 @@
+{"fn": "sub_11B068", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b068", "status": "ok", "name": "get_ll_conn", "params": [], "docstring": "Get link-layer connection entry by index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

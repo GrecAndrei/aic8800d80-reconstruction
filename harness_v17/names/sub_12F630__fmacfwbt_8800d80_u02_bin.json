@@ -1,0 +1,1 @@
+{"fn": "sub_12F630", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f630", "status": "ok", "name": "ke_int_lock", "params": [], "docstring": "Disable interrupts and acquire kernel lock.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

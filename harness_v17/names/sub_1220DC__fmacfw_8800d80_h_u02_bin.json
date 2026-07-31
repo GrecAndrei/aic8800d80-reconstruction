@@ -1,0 +1,1 @@
+{"fn": "sub_1220DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1220dc", "status": "ok", "name": "rf_switch_channel", "params": [], "docstring": "Program RF registers for channel switching", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

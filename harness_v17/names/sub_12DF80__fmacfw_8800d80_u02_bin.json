@@ -1,0 +1,1 @@
+{"fn": "sub_12DF80", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12df80", "status": "ok", "name": "parse_frame_0x25", "params": [], "docstring": "Reads 0x25-byte frame and compares first halfword to 4", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

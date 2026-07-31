@@ -1,0 +1,1 @@
+{"fn": "sub_10D7E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d7e0", "status": "ok", "name": "gpio_read", "params": [], "docstring": "Read GPIO data register and mask low byte", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

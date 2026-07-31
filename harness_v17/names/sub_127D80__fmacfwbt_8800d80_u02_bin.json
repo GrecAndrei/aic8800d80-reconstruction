@@ -1,0 +1,1 @@
+{"fn": "sub_127D80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127d80", "status": "ok", "name": "rx_packet_handler", "params": [], "docstring": "Parse received packet header and dispatch", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

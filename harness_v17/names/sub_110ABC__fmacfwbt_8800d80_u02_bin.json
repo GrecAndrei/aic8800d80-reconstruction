@@ -1,0 +1,1 @@
+{"fn": "sub_110ABC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x110abc", "status": "ok", "name": "sch_arbitrate", "params": [], "docstring": "check scheduler queue for next event", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

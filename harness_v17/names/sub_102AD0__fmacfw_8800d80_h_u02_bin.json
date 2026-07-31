@@ -1,0 +1,1 @@
+{"fn": "sub_102AD0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102ad0", "status": "ok", "name": "rf_reg_write_byte", "params": [], "docstring": "Writes an 8-bit value to an RF control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

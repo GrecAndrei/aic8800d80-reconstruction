@@ -1,0 +1,1 @@
+{"fn": "sub_10DD20", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10dd20", "status": "ok", "name": "gpio_port_init", "params": [], "docstring": "Configure a GPIO port with a predefined set of pin modes and speeds", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

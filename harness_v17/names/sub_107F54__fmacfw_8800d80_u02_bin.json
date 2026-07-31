@@ -1,0 +1,1 @@
+{"fn": "sub_107F54", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107f54", "status": "ok", "name": "periph_clock_enable", "params": [], "docstring": "Enables a peripheral clock bit at 0x403420d4", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

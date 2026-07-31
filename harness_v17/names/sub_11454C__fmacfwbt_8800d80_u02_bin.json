@@ -1,0 +1,1 @@
+{"fn": "sub_11454C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11454c", "status": "ok", "name": "get_core_state", "params": [], "docstring": "Read core revision and compare with global power state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

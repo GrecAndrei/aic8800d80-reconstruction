@@ -1,0 +1,1 @@
+{"fn": "sub_126104", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x126104", "status": "ok", "name": "rf_is_ready", "params": [], "docstring": "Returns nonzero when radio ready flag is set", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

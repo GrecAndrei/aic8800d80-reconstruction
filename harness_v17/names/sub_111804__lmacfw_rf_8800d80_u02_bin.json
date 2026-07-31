@@ -1,0 +1,1 @@
+{"fn": "sub_111804", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x111804", "status": "ok", "name": "util_process_cmd", "params": [], "docstring": "Process command with channel check", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

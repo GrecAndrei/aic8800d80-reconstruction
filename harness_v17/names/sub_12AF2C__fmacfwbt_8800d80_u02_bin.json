@@ -1,0 +1,1 @@
+{"fn": "sub_12AF2C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12af2c", "status": "ok", "name": "bt_conn_set_bit", "params": [], "docstring": "Set connection status bit in flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

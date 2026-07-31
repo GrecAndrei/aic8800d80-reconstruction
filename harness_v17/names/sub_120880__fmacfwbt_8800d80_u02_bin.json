@@ -1,0 +1,1 @@
+{"fn": "sub_120880", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120880", "status": "ok", "name": "init_ctx_struct", "params": [], "docstring": "zero initialize 0x34-byte context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

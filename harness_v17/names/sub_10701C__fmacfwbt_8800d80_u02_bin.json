@@ -1,0 +1,1 @@
+{"fn": "sub_10701C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10701c", "status": "ok", "name": "rf_enable", "params": [], "docstring": "Enable RF block and set mode bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

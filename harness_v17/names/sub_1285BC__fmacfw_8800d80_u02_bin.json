@@ -1,0 +1,1 @@
+{"fn": "sub_1285BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1285bc", "status": "ok", "name": "sta_get_by_index", "params": [], "docstring": "Return station entry for given index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

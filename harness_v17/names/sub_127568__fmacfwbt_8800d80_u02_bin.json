@@ -1,0 +1,1 @@
+{"fn": "sub_127568", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127568", "status": "ok", "name": "set_advertising_flag", "params": [], "docstring": "Set advertising/scan flag and check auxiliary byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

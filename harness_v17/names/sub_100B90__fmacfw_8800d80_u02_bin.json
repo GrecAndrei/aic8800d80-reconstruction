@@ -1,0 +1,1 @@
+{"fn": "sub_100B90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100b90", "status": "ok", "name": "rf_config", "params": [], "docstring": "Configure RF registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

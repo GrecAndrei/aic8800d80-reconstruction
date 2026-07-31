@@ -1,0 +1,1 @@
+{"fn": "sub_112AC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x112ac0", "status": "ok", "name": "ke_wait_event_a", "params": [], "docstring": "Wait for event flag or send to event queue", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1010D4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1010d4", "status": "ok", "name": "mac_ctrl_clear", "params": [], "docstring": "Clear bit 0x400 in MAC control register", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

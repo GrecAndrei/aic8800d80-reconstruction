@@ -1,0 +1,1 @@
+{"fn": "sub_12903C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12903c", "status": "ok", "name": "mfp_key_disable", "params": [], "docstring": "Clear ownership bit in MFP key entry", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

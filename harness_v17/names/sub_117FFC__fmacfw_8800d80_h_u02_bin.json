@@ -1,0 +1,1 @@
+{"fn": "sub_117FFC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117ffc", "status": "ok", "name": "phy_calibrate", "params": [], "docstring": "Run PHY calibration with floating point state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

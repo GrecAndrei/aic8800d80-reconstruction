@@ -1,0 +1,1 @@
+{"fn": "sub_117F18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117f18", "status": "ok", "name": "ipc_handler_register", "params": [], "docstring": "Register a handler into the IPC dispatch table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

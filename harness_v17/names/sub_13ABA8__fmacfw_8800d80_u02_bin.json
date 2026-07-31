@@ -1,0 +1,1 @@
+{"fn": "sub_13ABA8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13aba8", "status": "ok", "name": "ll_conn_state_dispatch", "params": [], "docstring": "Dispatch connection state machine event", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

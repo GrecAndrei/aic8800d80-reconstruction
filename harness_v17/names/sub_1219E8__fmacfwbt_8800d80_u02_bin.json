@@ -1,0 +1,1 @@
+{"fn": "sub_1219E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1219e8", "status": "ok", "name": "read_hw_stats", "params": [], "docstring": "read phy statistics registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

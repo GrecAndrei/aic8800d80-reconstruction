@@ -1,0 +1,1 @@
+{"fn": "sub_13C694", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13c694", "status": "ok", "name": "bt_crypto_permute", "params": [], "docstring": "Mix key bytes using lookup tables", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

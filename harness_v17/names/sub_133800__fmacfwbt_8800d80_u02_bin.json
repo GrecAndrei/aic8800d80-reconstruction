@@ -1,0 +1,1 @@
+{"fn": "sub_133800", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133800", "status": "ok", "name": "assemble_bt_descriptor", "params": [], "docstring": "Assemble output descriptor from multiple source structures", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

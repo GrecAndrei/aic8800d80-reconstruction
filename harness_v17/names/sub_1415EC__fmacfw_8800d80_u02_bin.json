@@ -1,0 +1,1 @@
+{"fn": "sub_1415EC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1415ec", "status": "ok", "name": "ll_event_process", "params": [], "docstring": "Process link-layer event and advance scheduler", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10DB2C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10db2c", "status": "ok", "name": "gpio_clear_bit_reg8", "params": [], "docstring": "Clear specified bit in peripheral register at offset 8", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

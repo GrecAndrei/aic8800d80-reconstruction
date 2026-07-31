@@ -1,0 +1,1 @@
+{"fn": "sub_12CA38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12ca38", "status": "ok", "name": "branch_to_12cbc8", "params": [], "docstring": "Unconditional branch to 0x12cbc8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11E9F4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11e9f4", "status": "ok", "name": "read_chip_revision", "params": [], "docstring": "Reads and checks chip revision from global pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

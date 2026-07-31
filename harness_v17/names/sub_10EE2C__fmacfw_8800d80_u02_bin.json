@@ -1,0 +1,1 @@
+{"fn": "sub_10EE2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ee2c", "status": "ok", "name": "mmio_rmw32", "params": [], "docstring": "Masked read-modify-write of MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

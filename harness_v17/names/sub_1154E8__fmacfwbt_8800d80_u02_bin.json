@@ -1,0 +1,1 @@
+{"fn": "sub_1154E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1154e8", "status": "ok", "name": "check_patch_magic", "params": [], "docstring": "Validate patch RAM header by checking PTCH/PTSP magic", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

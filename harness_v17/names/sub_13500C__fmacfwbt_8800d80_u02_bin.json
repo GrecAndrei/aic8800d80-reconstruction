@@ -1,0 +1,1 @@
+{"fn": "sub_13500C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13500c", "status": "ok", "name": "check_fw_ready", "params": [], "docstring": "Check if firmware initialized and route accordingly", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

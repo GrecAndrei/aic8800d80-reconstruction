@@ -1,0 +1,1 @@
+{"fn": "sub_1018D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1018d4", "status": "ok", "name": "sys_status_get_bit30", "params": [], "docstring": "Read status bit 30 of system register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

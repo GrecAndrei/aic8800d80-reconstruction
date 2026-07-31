@@ -1,0 +1,1 @@
+{"fn": "sub_12A12C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a12c", "status": "ok", "name": "llc_get_evt_field", "params": [], "docstring": "Read connection event slot byte at offset 0x85", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

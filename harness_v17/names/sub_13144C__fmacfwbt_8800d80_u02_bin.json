@@ -1,0 +1,1 @@
+{"fn": "sub_13144C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13144c", "status": "ok", "name": "rf_set_cal_u32_dc", "params": [], "docstring": "Stores calibration u32 into power struct offset 0xdc", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

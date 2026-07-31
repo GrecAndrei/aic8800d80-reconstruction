@@ -1,0 +1,1 @@
+{"fn": "sub_119D70", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119d70", "status": "ok", "name": "mmio_write_dword", "params": [], "docstring": "Allocate buffer and write hardware config word.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

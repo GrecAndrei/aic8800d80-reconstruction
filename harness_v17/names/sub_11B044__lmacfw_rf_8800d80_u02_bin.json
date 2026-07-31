@@ -1,0 +1,1 @@
+{"fn": "sub_11B044", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11b044", "status": "ok", "name": "rx_buffer_alloc", "params": [], "docstring": "Allocate RX buffer and check availability", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

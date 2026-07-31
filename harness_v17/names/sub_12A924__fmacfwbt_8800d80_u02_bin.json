@@ -1,0 +1,1 @@
+{"fn": "sub_12A924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a924", "status": "ok", "name": "bt_conn_get_state", "params": [], "docstring": "Get connection state value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

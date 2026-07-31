@@ -1,0 +1,1 @@
+{"fn": "sub_11DEB0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11deb0", "status": "ok", "name": "rf_hw_init", "params": [], "docstring": "Initialize RF hardware registers and state.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

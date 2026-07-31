@@ -1,0 +1,1 @@
+{"fn": "sub_117538", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117538", "status": "ok", "name": "scan_ctrl_update", "params": [], "docstring": "Update scan control block state and prepare callback data", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

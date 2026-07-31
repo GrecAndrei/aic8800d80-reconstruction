@@ -1,0 +1,1 @@
+{"fn": "sub_1303A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1303a0", "status": "ok", "name": "rf_configure_channel", "params": [], "docstring": "Build RF channel configuration from calibration bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

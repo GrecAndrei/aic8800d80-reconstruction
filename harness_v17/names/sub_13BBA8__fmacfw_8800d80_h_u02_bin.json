@@ -1,0 +1,1 @@
+{"fn": "sub_13BBA8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13bba8", "status": "ok", "name": "init_patch_table", "params": [], "docstring": "Builds and initializes a patch/version table.", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

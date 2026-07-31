@@ -1,0 +1,1 @@
+{"fn": "sub_11E708", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11e708", "status": "ok", "name": "tx_packet_setup", "params": [], "docstring": "Set up stack frame for TX packet processing.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

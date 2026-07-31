@@ -1,0 +1,1 @@
+{"fn": "sub_104680", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x104680", "status": "ok", "name": "scan_set_interval", "params": [], "docstring": "Set scan interval based on mode", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

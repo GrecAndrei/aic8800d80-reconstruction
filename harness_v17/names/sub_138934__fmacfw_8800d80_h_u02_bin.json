@@ -1,0 +1,1 @@
+{"fn": "sub_138934", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x138934", "status": "ok", "name": "rf_set_tx_power", "params": [], "docstring": "write TX power setting via RF setter", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

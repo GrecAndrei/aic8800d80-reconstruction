@@ -1,0 +1,1 @@
+{"fn": "sub_12D934", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d934", "status": "ok", "name": "setup_stack_copy", "params": [], "docstring": "Copy context from global buffer into stack frame", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

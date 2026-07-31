@@ -1,0 +1,1 @@
+{"fn": "sub_13A704", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13a704", "status": "ok", "name": "rf_apply_chan_cfg", "params": [], "docstring": "Apply RF channel configuration", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

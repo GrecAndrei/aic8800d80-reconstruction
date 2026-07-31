@@ -1,0 +1,1 @@
+{"fn": "sub_115078", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115078", "status": "ok", "name": "syscall10_flash_erase", "params": [], "docstring": "Call service 10 and shift first arg left by 3", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11C3E8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c3e8", "status": "ok", "name": "sdio_dma_config", "params": [], "docstring": "Configure SDIO DMA address and set software magic", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

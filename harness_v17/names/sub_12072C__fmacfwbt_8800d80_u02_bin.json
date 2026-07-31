@@ -1,0 +1,1 @@
+{"fn": "sub_12072C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12072c", "status": "ok", "name": "check_event_state", "params": [], "docstring": "check event state from context counters", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

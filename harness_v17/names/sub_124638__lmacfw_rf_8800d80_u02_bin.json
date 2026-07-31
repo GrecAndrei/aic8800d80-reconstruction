@@ -1,0 +1,1 @@
+{"fn": "sub_124638", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124638", "status": "ok", "name": "ke_stop_event_81", "params": [], "docstring": "Check state and invoke event 0x81", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

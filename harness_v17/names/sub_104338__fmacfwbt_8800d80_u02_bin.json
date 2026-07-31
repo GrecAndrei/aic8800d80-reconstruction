@@ -1,0 +1,1 @@
+{"fn": "sub_104338", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x104338", "status": "ok", "name": "rf_power_on_reset", "params": [], "docstring": "Power-on reset sequence for RF", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

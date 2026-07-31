@@ -1,0 +1,1 @@
+{"fn": "sub_1236FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1236fc", "status": "ok", "name": "handle_cmd_type2", "params": [], "docstring": "Handles commands with first byte equal to 2", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

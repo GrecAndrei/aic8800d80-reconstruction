@@ -1,0 +1,1 @@
+{"fn": "sub_12876C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12876c", "status": "ok", "name": "remove_entry_by_owner", "params": [], "docstring": "Removes table entry whose owner pointer matches the object", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

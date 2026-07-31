@@ -1,0 +1,1 @@
+{"fn": "sub_12287C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12287c", "status": "ok", "name": "scan_state_check", "params": [], "docstring": "Validate scanning state against current channel", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

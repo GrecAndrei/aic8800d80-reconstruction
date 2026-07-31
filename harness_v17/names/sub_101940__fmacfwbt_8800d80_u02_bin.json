@@ -1,0 +1,1 @@
+{"fn": "sub_101940", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101940", "status": "ok", "name": "sys_mode_get", "params": [], "docstring": "Return four-bit system mode field minus one", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

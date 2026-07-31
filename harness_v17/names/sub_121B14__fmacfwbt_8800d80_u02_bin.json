@@ -1,0 +1,1 @@
+{"fn": "sub_121B14", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121b14", "status": "ok", "name": "mmio_clear_bit", "params": [], "docstring": "Clear bit 1 in MMIO control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

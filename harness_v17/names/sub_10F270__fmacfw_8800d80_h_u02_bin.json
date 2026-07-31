@@ -1,0 +1,1 @@
+{"fn": "sub_10F270", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f270", "status": "ok", "name": "rf_config_bb", "params": [], "docstring": "Programs baseband/RF control registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11482C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11482c", "status": "ok", "name": "malloc_from_heap", "params": [], "docstring": "Allocate memory block from heap", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

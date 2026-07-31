@@ -1,0 +1,1 @@
+{"fn": "sub_1145E8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1145e8", "status": "ok", "name": "mmio_write_128", "params": [], "docstring": "Write to MMIO offset 128 with 4-byte data", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

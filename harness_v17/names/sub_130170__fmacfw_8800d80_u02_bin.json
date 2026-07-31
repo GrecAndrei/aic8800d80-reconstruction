@@ -1,0 +1,1 @@
+{"fn": "sub_130170", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130170", "status": "ok", "name": "parse_large_ioctl", "params": [], "docstring": "Process ioctl-style input with large stack frame", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10F0B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f0b8", "status": "ok", "name": "ke_event_set", "params": [], "docstring": "Calls helper with constant 0x14ae28 and sets event flag 0x7000000c", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

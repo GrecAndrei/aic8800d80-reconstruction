@@ -1,0 +1,1 @@
+{"fn": "sub_1227F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1227f0", "status": "ok", "name": "send_hci_command_status", "params": [], "docstring": "Send HCI command status event", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

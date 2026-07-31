@@ -1,0 +1,1 @@
+{"fn": "sub_12F818", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f818", "status": "ok", "name": "parse_uint_base", "params": [], "docstring": "Parses an unsigned integer from a string with a given base.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

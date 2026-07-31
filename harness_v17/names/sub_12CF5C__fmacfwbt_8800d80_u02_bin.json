@@ -1,0 +1,1 @@
+{"fn": "sub_12CF5C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cf5c", "status": "ok", "name": "hci_cmd_send", "params": [], "docstring": "Send HCI command, splitting opcode bytes from r0", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

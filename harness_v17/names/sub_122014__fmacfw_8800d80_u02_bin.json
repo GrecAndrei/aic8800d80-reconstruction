@@ -1,0 +1,1 @@
+{"fn": "sub_122014", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122014", "status": "ok", "name": "send_fw_cmd", "params": [], "docstring": "Send firmware command 0x43 and read status field.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_113210", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113210", "status": "ok", "name": "bt_get_state", "params": [], "docstring": "Return Bluetooth module state byte", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

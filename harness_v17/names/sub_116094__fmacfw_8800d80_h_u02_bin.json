@@ -1,0 +1,1 @@
+{"fn": "sub_116094", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116094", "status": "ok", "name": "patch_enable", "params": [], "docstring": "Apply firmware patch magic and enable", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

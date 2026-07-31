@@ -1,0 +1,1 @@
+{"fn": "sub_132A7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132a7c", "status": "ok", "name": "rf_chan_valid_check", "params": [], "docstring": "Check channel parameter validity in RF table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

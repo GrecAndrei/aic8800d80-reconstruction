@@ -1,0 +1,1 @@
+{"fn": "sub_10E8B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10e8b4", "status": "ok", "name": "gpio_pad_ctrl_set", "params": [], "docstring": "Configure GPIO pad control bits in register 0x40344038", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

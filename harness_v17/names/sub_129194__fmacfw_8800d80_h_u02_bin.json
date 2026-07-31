@@ -1,0 +1,1 @@
+{"fn": "sub_129194", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129194", "status": "ok", "name": "mfp_is_enabled", "params": [], "docstring": "Test whether MFP feature is enabled", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

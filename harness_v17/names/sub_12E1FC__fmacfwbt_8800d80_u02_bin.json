@@ -1,0 +1,1 @@
+{"fn": "sub_12E1FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12e1fc", "status": "ok", "name": "freq_to_chan_map", "params": [], "docstring": "Map frequency code to channel index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

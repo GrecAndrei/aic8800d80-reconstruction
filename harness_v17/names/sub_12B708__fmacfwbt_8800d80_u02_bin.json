@@ -1,0 +1,1 @@
+{"fn": "sub_12B708", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b708", "status": "ok", "name": "bt_send_hci_804", "params": [], "docstring": "Send HCI command 0x804", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

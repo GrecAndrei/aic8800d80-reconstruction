@@ -1,0 +1,1 @@
+{"fn": "sub_12DE40", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12de40", "status": "ok", "name": "emit_percent_12de40", "params": [], "docstring": "Emit % via helper 0x12d6ec", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

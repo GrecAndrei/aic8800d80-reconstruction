@@ -1,0 +1,1 @@
+{"fn": "sub_129394", "img": "fmacfw_8800d80_u02_bin", "addr": "0x129394", "status": "ok", "name": "wlc_mmio_regs", "params": [], "docstring": "Read and modify chip MMIO control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

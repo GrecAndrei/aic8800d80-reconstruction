@@ -1,0 +1,1 @@
+{"fn": "sub_122830", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122830", "status": "ok", "name": "rx_process_packet", "params": [], "docstring": "Process received packet header and descriptor", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

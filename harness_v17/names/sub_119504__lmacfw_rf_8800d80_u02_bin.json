@@ -1,0 +1,1 @@
+{"fn": "sub_119504", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119504", "status": "ok", "name": "send_event_0x72", "params": [], "docstring": "Queue event 0x72 for the kernel loop", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

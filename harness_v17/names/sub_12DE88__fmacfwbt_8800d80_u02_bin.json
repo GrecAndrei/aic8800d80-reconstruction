@@ -1,0 +1,1 @@
+{"fn": "sub_12DE88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12de88", "status": "ok", "name": "parse_data_0", "params": [], "docstring": "Validate buffer bounds and parse data bytes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

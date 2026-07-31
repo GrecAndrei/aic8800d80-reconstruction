@@ -1,0 +1,1 @@
+{"fn": "sub_11BC08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11bc08", "status": "ok", "name": "crypto_aes_setup", "params": [], "docstring": "Initialize AES hardware registers from configuration", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

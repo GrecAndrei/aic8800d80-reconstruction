@@ -1,0 +1,1 @@
+{"fn": "sub_12AF2C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12af2c", "status": "ok", "name": "ke_msg_dequeue", "params": [], "docstring": "Dequeue kernel message and prepare dispatch", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

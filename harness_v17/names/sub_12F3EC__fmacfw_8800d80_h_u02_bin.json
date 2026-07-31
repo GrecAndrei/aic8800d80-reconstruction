@@ -1,0 +1,1 @@
+{"fn": "sub_12F3EC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f3ec", "status": "ok", "name": "state_check_0x182ba0", "params": [], "docstring": "Check state byte via pointer at 0x182ba0", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

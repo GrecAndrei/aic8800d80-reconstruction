@@ -1,0 +1,1 @@
+{"fn": "sub_13AB90", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ab90", "status": "ok", "name": "rf_set_band_config", "params": [], "docstring": "Store band configuration and prepare RF context", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

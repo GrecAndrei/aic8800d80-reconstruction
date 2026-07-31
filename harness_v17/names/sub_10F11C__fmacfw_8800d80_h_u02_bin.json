@@ -1,0 +1,1 @@
+{"fn": "sub_10F11C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10f11c", "status": "ok", "name": "ke_get_state", "params": [], "docstring": "Returns a kernel state byte from global environment", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

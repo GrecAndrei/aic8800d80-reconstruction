@@ -1,0 +1,1 @@
+{"fn": "sub_12FDE0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12fde0", "status": "ok", "name": "mode_dispatch", "params": [], "docstring": "Dispatches on mode argument for formatting.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10CAE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10cae0", "status": "ok", "name": "busy_flag_check", "params": [], "docstring": "Check busy flag for status condition", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_132744", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132744", "status": "ok", "name": "rf_read_status_flags", "params": [], "docstring": "Extracts status flags from hardware register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

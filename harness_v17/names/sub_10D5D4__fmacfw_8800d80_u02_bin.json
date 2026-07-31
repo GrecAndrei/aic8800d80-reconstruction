@@ -1,0 +1,1 @@
+{"fn": "sub_10D5D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d5d4", "status": "ok", "name": "rf_get_lock_status", "params": [], "docstring": "Read RF base status and test bit 0", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

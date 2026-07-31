@@ -1,0 +1,1 @@
+{"fn": "sub_11C01C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c01c", "status": "ok", "name": "bt_link_tx_check", "params": [], "docstring": "Check TX bit in connection state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13C5D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13c5d0", "status": "ok", "name": "bt_conn_is_connected", "params": [], "docstring": "Check connection established flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

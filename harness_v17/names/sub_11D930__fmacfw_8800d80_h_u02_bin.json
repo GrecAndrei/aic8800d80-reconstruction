@@ -1,0 +1,1 @@
+{"fn": "sub_11D930", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11d930", "status": "ok", "name": "dma_ring_init", "params": [], "docstring": "Initialize DMA ring with hardware registers and magic fill", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

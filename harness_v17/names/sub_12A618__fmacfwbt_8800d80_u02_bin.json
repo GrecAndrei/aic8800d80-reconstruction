@@ -1,0 +1,1 @@
+{"fn": "sub_12A618", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a618", "status": "ok", "name": "bt_packet_parse", "params": [], "docstring": "Parse incoming packet header fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

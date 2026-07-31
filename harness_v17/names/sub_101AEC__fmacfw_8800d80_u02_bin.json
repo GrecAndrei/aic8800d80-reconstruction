@@ -1,0 +1,1 @@
+{"fn": "sub_101AEC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101aec", "status": "ok", "name": "rf_get_field0", "params": [], "docstring": "Extracts 4-bit field at bits 0-3 and subtracts one", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

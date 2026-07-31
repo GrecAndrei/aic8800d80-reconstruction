@@ -1,0 +1,1 @@
+{"fn": "sub_12D908", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d908", "status": "ok", "name": "system_init_sequence", "params": [], "docstring": "Run initialisation sequence and finish with utility calls", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

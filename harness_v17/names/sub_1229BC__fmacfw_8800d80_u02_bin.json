@@ -1,0 +1,1 @@
+{"fn": "sub_1229BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1229bc", "status": "ok", "name": "scan_process_report", "params": [], "docstring": "Process scan report data.", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

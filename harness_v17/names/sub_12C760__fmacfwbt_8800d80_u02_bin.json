@@ -1,0 +1,1 @@
+{"fn": "sub_12C760", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c760", "status": "ok", "name": "scan_done_check_alt", "params": [], "docstring": "Check alternate scan state and signed result", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

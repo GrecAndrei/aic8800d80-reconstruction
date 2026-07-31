@@ -1,0 +1,1 @@
+{"fn": "sub_125BFC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125bfc", "status": "ok", "name": "process_bt_ble_event", "params": [], "docstring": "Handles a BT BLE event using message and state data.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

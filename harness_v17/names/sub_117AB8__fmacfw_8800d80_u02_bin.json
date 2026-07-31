@@ -1,0 +1,1 @@
+{"fn": "sub_117AB8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117ab8", "status": "ok", "name": "fatal_error_handler", "params": [], "docstring": "Save all registers and trap on fatal error", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

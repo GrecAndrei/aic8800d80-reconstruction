@@ -1,0 +1,1 @@
+{"fn": "sub_10CCA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10cca4", "status": "ok", "name": "gpio_set_pin7", "params": [], "docstring": "Set GPIO/register pin bit 7", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

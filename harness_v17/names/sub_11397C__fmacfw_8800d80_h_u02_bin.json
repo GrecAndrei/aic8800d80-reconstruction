@@ -1,0 +1,1 @@
+{"fn": "sub_11397C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11397c", "status": "ok", "name": "rf_save_regs", "params": [], "docstring": "Store radio hardware register pointers to globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

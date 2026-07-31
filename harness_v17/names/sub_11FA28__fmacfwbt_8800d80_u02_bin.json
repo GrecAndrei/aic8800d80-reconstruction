@@ -1,0 +1,1 @@
+{"fn": "sub_11FA28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11fa28", "status": "ok", "name": "si_secure_check", "params": [], "docstring": "Check secure boot status flags", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

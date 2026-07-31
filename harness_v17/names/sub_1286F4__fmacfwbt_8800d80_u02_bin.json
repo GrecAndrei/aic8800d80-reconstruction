@@ -1,0 +1,1 @@
+{"fn": "sub_1286F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1286f4", "status": "ok", "name": "bt_link_check", "params": [], "docstring": "Validate active link type in controller state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

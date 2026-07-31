@@ -1,0 +1,1 @@
+{"fn": "sub_1040F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1040f0", "status": "ok", "name": "mac_irq_pending_clear", "params": [], "docstring": "Clear MAC interrupt pending status", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_132820", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132820", "status": "ok", "name": "bitstream_extract2", "params": [], "docstring": "Extract two-bit field from packed data", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

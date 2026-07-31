@@ -1,0 +1,1 @@
+{"fn": "sub_12057C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12057c", "status": "ok", "name": "si_watchdog", "params": [], "docstring": "Check watchdog reset flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

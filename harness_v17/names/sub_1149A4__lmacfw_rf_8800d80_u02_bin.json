@@ -1,0 +1,1 @@
+{"fn": "sub_1149A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1149a4", "status": "ok", "name": "hci_tx_packet", "params": [], "docstring": "Send 64-byte packet as channel 1", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

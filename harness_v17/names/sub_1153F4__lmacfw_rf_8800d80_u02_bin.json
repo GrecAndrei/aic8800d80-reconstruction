@@ -1,0 +1,1 @@
+{"fn": "sub_1153F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1153f4", "status": "ok", "name": "adv_pdu_type_handler", "params": [], "docstring": "Dispatch advertising PDU type via jump table", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

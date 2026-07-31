@@ -1,0 +1,1 @@
+{"fn": "sub_116050", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116050", "status": "ok", "name": "init_event_slot", "params": [], "docstring": "Zeroes a 36-byte event slot at a computed array offset", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_110BF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x110bf8", "status": "ok", "name": "ke_alloc_node", "params": [], "docstring": "Allocate and init a kernel node", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

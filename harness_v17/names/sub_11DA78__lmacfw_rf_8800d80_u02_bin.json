@@ -1,0 +1,1 @@
+{"fn": "sub_11DA78", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11da78", "status": "ok", "name": "rf_init_check", "params": [], "docstring": "Check RF initialization flag and trim status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

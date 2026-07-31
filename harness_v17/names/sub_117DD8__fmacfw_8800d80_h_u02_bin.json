@@ -1,0 +1,1 @@
+{"fn": "sub_117DD8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117dd8", "status": "ok", "name": "register_handler", "params": [], "docstring": "Register object callback into handler table", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

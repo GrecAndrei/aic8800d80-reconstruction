@@ -1,0 +1,1 @@
+{"fn": "sub_11F7C0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f7c0", "status": "ok", "name": "task_event_handler", "params": [], "docstring": "Saves arguments and loads global state.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

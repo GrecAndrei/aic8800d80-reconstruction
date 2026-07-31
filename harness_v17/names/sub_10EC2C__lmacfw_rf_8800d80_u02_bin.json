@@ -1,0 +1,1 @@
+{"fn": "sub_10EC2C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10ec2c", "status": "ok", "name": "gpio_af_set", "params": [], "docstring": "Sets bits 26-28 of GPIO register 0x40344038", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

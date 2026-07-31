@@ -1,0 +1,1 @@
+{"fn": "sub_11C26C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c26c", "status": "ok", "name": "rf_get_status", "params": [], "docstring": "Read radio status and return flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

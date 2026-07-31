@@ -1,0 +1,1 @@
+{"fn": "sub_119420", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119420", "status": "ok", "name": "event_dispatch", "params": [], "docstring": "Dispatch event based on first byte and global state", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

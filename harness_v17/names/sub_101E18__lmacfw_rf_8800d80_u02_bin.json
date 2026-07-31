@@ -1,0 +1,1 @@
+{"fn": "sub_101E18", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x101e18", "status": "ok", "name": "rf_calibrate", "params": [], "docstring": "Perform RF calibration with floating-point math", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

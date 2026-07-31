@@ -1,0 +1,1 @@
+{"fn": "sub_128BE0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x128be0", "status": "ok", "name": "wlc_print_hex", "params": [], "docstring": "Print a 32-bit value in hex using the common logger", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

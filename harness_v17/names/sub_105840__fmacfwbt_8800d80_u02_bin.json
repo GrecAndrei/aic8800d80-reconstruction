@@ -1,0 +1,1 @@
+{"fn": "sub_105840", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x105840", "status": "ok", "name": "ke_task_create", "params": [], "docstring": "Create and initialize a kernel task structure", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

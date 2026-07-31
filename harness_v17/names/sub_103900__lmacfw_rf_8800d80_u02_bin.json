@@ -1,0 +1,1 @@
+{"fn": "sub_103900", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x103900", "status": "ok", "name": "enable_bb_clock", "params": [], "docstring": "Writes a clock enable value and waits for a baseband register", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

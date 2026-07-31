@@ -1,0 +1,1 @@
+{"fn": "sub_11F4B4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11f4b4", "status": "ok", "name": "set_global_variable", "params": [], "docstring": "Store r0 to global variable at 0x15868c+4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

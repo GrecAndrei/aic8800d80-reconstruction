@@ -1,0 +1,1 @@
+{"fn": "sub_129F0C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129f0c", "status": "ok", "name": "bt_get_conn_role", "params": [], "docstring": "Return connection role for a slot if the record is active.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

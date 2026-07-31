@@ -1,0 +1,1 @@
+{"fn": "sub_1059E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1059e8", "status": "ok", "name": "mac_event_init", "params": [], "docstring": "Initialize link layer event context with timer parameters.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

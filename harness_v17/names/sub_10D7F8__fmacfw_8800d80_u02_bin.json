@@ -1,0 +1,1 @@
+{"fn": "sub_10D7F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d7f8", "status": "ok", "name": "gpio_read_pin", "params": [], "docstring": "Read GPIO register 0x40032014 and test bit 0", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_140400", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140400", "status": "ok", "name": "acl_tx_setup", "params": [], "docstring": "Prepares an ACL transmit path using connection pointers", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

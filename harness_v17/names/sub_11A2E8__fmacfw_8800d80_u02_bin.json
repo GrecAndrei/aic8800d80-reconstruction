@@ -1,0 +1,1 @@
+{"fn": "sub_11A2E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11a2e8", "status": "ok", "name": "tx_queue_init", "params": [], "docstring": "Initialize TX queue descriptors", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

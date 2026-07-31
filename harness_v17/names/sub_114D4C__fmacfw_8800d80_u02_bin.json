@@ -1,0 +1,1 @@
+{"fn": "sub_114D4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114d4c", "status": "ok", "name": "ke_event_send_0x20", "params": [], "docstring": "Send kernel event 0x20 with 4-byte payload", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

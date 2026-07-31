@@ -1,0 +1,1 @@
+{"fn": "sub_12EFD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12efd4", "status": "ok", "name": "msg_alloc_40a_zero", "params": [], "docstring": "Allocates and zeroes message buffer for id 0x40a", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

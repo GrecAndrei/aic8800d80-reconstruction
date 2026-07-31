@@ -1,0 +1,1 @@
+{"fn": "sub_13623C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13623c", "status": "ok", "name": "patch_set_enabled", "params": [], "docstring": "Configure patch state when patch is loaded", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114298", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114298", "status": "ok", "name": "ke_event_schedule_prio", "params": [], "docstring": "Disable IRQs and set priority kernel event flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

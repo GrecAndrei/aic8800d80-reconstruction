@@ -1,0 +1,1 @@
+{"fn": "sub_11BC00", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11bc00", "status": "ok", "name": "process_radio_state", "params": [], "docstring": "Reads radio state flag and dispatches radio handling", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

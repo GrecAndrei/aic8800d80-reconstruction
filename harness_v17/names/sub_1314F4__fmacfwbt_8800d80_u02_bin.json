@@ -1,0 +1,1 @@
+{"fn": "sub_1314F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1314f4", "status": "ok", "name": "rf_config_band", "params": [], "docstring": "Configure RF band/channel parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

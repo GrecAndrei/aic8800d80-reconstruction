@@ -1,0 +1,1 @@
+{"fn": "sub_1420D0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1420d0", "status": "ok", "name": "adv_report_process", "params": [], "docstring": "Process received advertising report", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

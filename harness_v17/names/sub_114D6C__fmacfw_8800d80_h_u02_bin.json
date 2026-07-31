@@ -1,0 +1,1 @@
+{"fn": "sub_114D6C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114d6c", "status": "ok", "name": "check_patch_signature", "params": [], "docstring": "Verify PTCH signature at 0x174000", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

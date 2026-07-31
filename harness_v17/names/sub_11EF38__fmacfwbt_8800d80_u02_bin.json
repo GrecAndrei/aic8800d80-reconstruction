@@ -1,0 +1,1 @@
+{"fn": "sub_11EF38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11ef38", "status": "ok", "name": "mac_irq_check", "params": [], "docstring": "Check MAC interrupt status against radio register.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

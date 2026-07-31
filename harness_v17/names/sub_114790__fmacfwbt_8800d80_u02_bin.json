@@ -1,0 +1,1 @@
+{"fn": "sub_114790", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114790", "status": "ok", "name": "dispatch_by_cmd", "params": [], "docstring": "Dispatch on first byte command value", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

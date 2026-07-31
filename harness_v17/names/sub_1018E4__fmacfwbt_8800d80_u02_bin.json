@@ -1,0 +1,1 @@
+{"fn": "sub_1018E4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1018e4", "status": "ok", "name": "rf_config_write", "params": [], "docstring": "Write 16 bytes of RF configuration to RF registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11A1A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a1a8", "status": "ok", "name": "init_flow_entry", "params": [], "docstring": "Initialize flow-control entries and set 0x100 limit.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

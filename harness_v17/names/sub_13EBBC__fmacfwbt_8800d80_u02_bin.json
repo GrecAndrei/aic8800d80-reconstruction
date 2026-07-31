@@ -1,0 +1,1 @@
+{"fn": "sub_13EBBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ebbc", "status": "ok", "name": "parse_ll_header", "params": [], "docstring": "Parses link-layer header fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1018F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1018f0", "status": "ok", "name": "unknown_1018f0", "params": [], "docstring": "Insufficient disassembly; function prologue only", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

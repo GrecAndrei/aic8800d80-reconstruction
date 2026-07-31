@@ -1,0 +1,1 @@
+{"fn": "sub_120548", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120548", "status": "ok", "name": "clear_transmit_context", "params": [], "docstring": "Zeroes a 0x34-byte transmit-related buffer.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

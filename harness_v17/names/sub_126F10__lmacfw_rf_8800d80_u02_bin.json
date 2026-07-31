@@ -1,0 +1,1 @@
+{"fn": "sub_126F10", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x126f10", "status": "ok", "name": "freq_offset_to_channel", "params": [], "docstring": "convert frequency offset to channel number", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

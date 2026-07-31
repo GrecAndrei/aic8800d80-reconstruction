@@ -1,0 +1,1 @@
+{"fn": "sub_12EC84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ec84", "status": "ok", "name": "state_test_flag", "params": [], "docstring": "Tests a bit in global state flags word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

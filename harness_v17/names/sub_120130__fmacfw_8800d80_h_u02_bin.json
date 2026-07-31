@@ -1,0 +1,1 @@
+{"fn": "sub_120130", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120130", "status": "ok", "name": "set_bss_cap", "params": [], "docstring": "Store halfword in BSS capability field and test flag", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

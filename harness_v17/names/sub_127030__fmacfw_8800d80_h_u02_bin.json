@@ -1,0 +1,1 @@
+{"fn": "sub_127030", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127030", "status": "ok", "name": "llc_hw_reg_sync", "params": [], "docstring": "sync with llc hardware register and env", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1166FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1166fc", "status": "ok", "name": "switch_rf_path", "params": [], "docstring": "Configure RF path via a small switch table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

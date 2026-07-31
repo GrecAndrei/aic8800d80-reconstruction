@@ -1,0 +1,1 @@
+{"fn": "sub_1272A4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1272a4", "status": "ok", "name": "timeout_decrement", "params": [], "docstring": "Decrement timeout counter at context offset 0x59", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

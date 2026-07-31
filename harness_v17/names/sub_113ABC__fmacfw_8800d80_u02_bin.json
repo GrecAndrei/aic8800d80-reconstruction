@@ -1,0 +1,1 @@
+{"fn": "sub_113ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113abc", "status": "ok", "name": "save_task_ptr", "params": [], "docstring": "Copies task pointer to global 0x187eb0", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

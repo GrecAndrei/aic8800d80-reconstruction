@@ -1,0 +1,1 @@
+{"fn": "sub_13688C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13688c", "status": "ok", "name": "send_ble_hci_command", "params": [], "docstring": "Send BLE HCI command 0x1419", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

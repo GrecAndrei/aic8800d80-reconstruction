@@ -1,0 +1,1 @@
+{"fn": "sub_107518", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107518", "status": "ok", "name": "rf_synth_set_freq", "params": [], "docstring": "Program radio frequency synthesizer control value.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10D5F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10d5f4", "status": "ok", "name": "uart_putc", "params": [], "docstring": "Transmit a character over UART", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12B400", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b400", "status": "ok", "name": "rf_get_short_status", "params": [], "docstring": "Reads global RF status short and compares it", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

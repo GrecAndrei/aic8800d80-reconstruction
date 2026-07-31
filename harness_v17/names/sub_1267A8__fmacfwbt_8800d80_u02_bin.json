@@ -1,0 +1,1 @@
+{"fn": "sub_1267A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1267a8", "status": "ok", "name": "scan_adv_report", "params": [], "docstring": "Build scan advertising report", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

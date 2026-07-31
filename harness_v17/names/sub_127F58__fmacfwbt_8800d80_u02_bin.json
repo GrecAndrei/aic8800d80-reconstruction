@@ -1,0 +1,1 @@
+{"fn": "sub_127F58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x127f58", "status": "ok", "name": "find_free_conn", "params": [], "docstring": "Scan connection table for a free slot", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

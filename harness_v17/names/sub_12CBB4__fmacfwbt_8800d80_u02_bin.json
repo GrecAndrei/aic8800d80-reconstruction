@@ -1,0 +1,1 @@
+{"fn": "sub_12CBB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cbb4", "status": "ok", "name": "hci_evt_send", "params": [], "docstring": "Send HCI event frame using header at r0-6", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

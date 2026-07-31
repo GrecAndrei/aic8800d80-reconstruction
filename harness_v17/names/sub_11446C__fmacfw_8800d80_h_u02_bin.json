@@ -1,0 +1,1 @@
+{"fn": "sub_11446C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11446c", "status": "ok", "name": "default_handler", "params": [], "docstring": "No-op/default interrupt handler", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_113620", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113620", "status": "ok", "name": "is_single_channel", "params": [], "docstring": "Compares channel argument with 1", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

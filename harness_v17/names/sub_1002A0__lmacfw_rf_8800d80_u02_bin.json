@@ -1,0 +1,1 @@
+{"fn": "sub_1002A0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1002a0", "status": "ok", "name": "process_state_update", "params": [], "docstring": "Read and update global state structures", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

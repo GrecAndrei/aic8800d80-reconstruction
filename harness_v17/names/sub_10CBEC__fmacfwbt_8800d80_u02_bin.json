@@ -1,0 +1,1 @@
+{"fn": "sub_10CBEC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10cbec", "status": "ok", "name": "pmu_isr_extra", "params": [], "docstring": "Handles additional PMU interrupt status and control registers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

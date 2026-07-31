@@ -1,0 +1,1 @@
+{"fn": "sub_12B394", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b394", "status": "ok", "name": "bt_reset_controller", "params": [], "docstring": "Reset controller control block and start timer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

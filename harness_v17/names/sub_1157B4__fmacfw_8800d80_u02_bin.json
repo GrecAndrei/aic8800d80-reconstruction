@@ -1,0 +1,1 @@
+{"fn": "sub_1157B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1157b4", "status": "ok", "name": "system_init", "params": [], "docstring": "Resets a global state byte and calls initialization routines", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

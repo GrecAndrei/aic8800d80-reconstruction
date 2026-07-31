@@ -1,0 +1,30 @@
+src unnamed targets: 2619 (cached-skip applied)
+  100/2619 ok=80 rate=1.0/s eta=2600s
+  200/2619 ok=100 rate=1.5/s eta=1562s
+  300/2619 ok=160 rate=1.7/s eta=1354s
+  400/2619 ok=220 rate=1.8/s eta=1261s
+  500/2619 ok=240 rate=2.0/s eta=1071s
+  600/2619 ok=300 rate=1.9/s eta=1043s
+  700/2619 ok=338 rate=2.0/s eta=964s
+  800/2619 ok=437 rate=2.1/s eta=866s
+  900/2619 ok=517 rate=2.2/s eta=795s
+  1000/2619 ok=597 rate=2.1/s eta=760s
+  1100/2619 ok=617 rate=2.2/s eta=694s
+  1200/2619 ok=717 rate=2.3/s eta=611s
+  1300/2619 ok=776 rate=2.2/s eta=599s
+  1400/2619 ok=836 rate=2.3/s eta=531s
+  1500/2619 ok=896 rate=2.3/s eta=483s
+  1600/2619 ok=996 rate=2.3/s eta=434s
+  1700/2619 ok=1036 rate=2.4/s eta=390s
+  1800/2619 ok=1136 rate=2.4/s eta=337s
+  1900/2619 ok=1233 rate=2.4/s eta=298s
+  2000/2619 ok=1273 rate=2.4/s eta=260s
+  2100/2619 ok=1333 rate=2.4/s eta=213s
+  2200/2619 ok=1412 rate=2.4/s eta=173s
+  2300/2619 ok=1472 rate=2.5/s eta=129s
+  2400/2619 ok=1571 rate=2.5/s eta=88s
+  2500/2619 ok=1650 rate=2.5/s eta=48s
+  2600/2619 ok=1670 rate=2.4/s eta=8s
+
+DONE: 2619 ok=1670 fail=939 in 1086.8s
+statuses: [('ok', 1670), ('no_content', 939), ('filtered', 10)]

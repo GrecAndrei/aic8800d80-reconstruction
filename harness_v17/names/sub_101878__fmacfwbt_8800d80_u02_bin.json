@@ -1,0 +1,1 @@
+{"fn": "sub_101878", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101878", "status": "ok", "name": "sys_status_get_bit21", "params": [], "docstring": "Read status bit 21 of system register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

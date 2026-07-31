@@ -1,0 +1,1 @@
+{"fn": "sub_114090", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114090", "status": "ok", "name": "init_hw_timers", "params": [], "docstring": "Initialize hardware timer fields at offsets 0x234 and 0x23c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

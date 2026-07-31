@@ -1,0 +1,1 @@
+{"fn": "sub_1138E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1138e8", "status": "ok", "name": "is_rf_calib_running", "params": [], "docstring": "Checks if RF calibration mode byte equals one", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

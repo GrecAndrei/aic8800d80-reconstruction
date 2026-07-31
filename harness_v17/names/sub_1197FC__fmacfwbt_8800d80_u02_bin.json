@@ -1,0 +1,1 @@
+{"fn": "sub_1197FC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1197fc", "status": "ok", "name": "ble_connection_get", "params": [], "docstring": "Get BLE connection descriptor by index from array", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

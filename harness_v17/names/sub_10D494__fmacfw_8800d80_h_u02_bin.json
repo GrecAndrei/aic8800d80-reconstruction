@@ -1,0 +1,1 @@
+{"fn": "sub_10D494", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d494", "status": "ok", "name": "configure_radio", "params": [], "docstring": "Modifies radio control register and returns status code", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

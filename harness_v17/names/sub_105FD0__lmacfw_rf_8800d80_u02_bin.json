@@ -1,0 +1,1 @@
+{"fn": "sub_105FD0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x105fd0", "status": "ok", "name": "prcm_start", "params": [], "docstring": "Restore and enable peripheral clocks", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

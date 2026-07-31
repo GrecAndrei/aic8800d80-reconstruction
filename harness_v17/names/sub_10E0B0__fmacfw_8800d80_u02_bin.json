@@ -1,0 +1,1 @@
+{"fn": "sub_10E0B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10e0b0", "status": "ok", "name": "rf_core_enable", "params": [], "docstring": "Enable RF core and set state flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

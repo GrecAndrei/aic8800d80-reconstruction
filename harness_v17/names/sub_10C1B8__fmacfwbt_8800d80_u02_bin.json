@@ -1,0 +1,1 @@
+{"fn": "sub_10C1B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10c1b8", "status": "ok", "name": "sdio_packet_parse", "params": [], "docstring": "Parses SDIO packet header control bits", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

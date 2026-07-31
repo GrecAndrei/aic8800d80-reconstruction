@@ -1,0 +1,1 @@
+{"fn": "sub_12F35C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f35c", "status": "ok", "name": "mmio_write_field", "params": [], "docstring": "Extract 20-bit field and tail-call MMIO write helper.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

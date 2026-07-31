@@ -1,0 +1,1 @@
+{"fn": "sub_10C9CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10c9cc", "status": "ok", "name": "memory_buffer_alloc", "params": [], "docstring": "Allocate size 0x800 buffer and load global pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

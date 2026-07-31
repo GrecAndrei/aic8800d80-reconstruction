@@ -1,0 +1,1 @@
+{"fn": "sub_10B048", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10b048", "status": "ok", "name": "apply_dsp_transform", "params": [], "docstring": "Execute floating-point transform on data buffers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

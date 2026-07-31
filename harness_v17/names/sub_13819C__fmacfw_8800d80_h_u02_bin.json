@@ -1,0 +1,1 @@
+{"fn": "sub_13819C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13819c", "status": "ok", "name": "check_event_flag", "params": [], "docstring": "inspect firmware event flag at +0xf0b", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

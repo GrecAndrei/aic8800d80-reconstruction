@@ -1,0 +1,1 @@
+{"fn": "sub_11EF08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11ef08", "status": "ok", "name": "ble_event_wait", "params": [], "docstring": "wait for BLE scheduler event flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

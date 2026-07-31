@@ -1,0 +1,1 @@
+{"fn": "sub_126938", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126938", "status": "ok", "name": "send_event_to_host", "params": [], "docstring": "Send event to host layer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

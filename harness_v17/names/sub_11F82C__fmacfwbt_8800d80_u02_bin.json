@@ -1,0 +1,1 @@
+{"fn": "sub_11F82C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11f82c", "status": "ok", "name": "wlc_ucode_download", "params": [], "docstring": "Download microcode to core if not already loaded", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

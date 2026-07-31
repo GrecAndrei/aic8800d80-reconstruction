@@ -1,0 +1,1 @@
+{"fn": "sub_12EC38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ec38", "status": "ok", "name": "hw_poll_flag", "params": [], "docstring": "Polls hardware status register for a flag bit", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

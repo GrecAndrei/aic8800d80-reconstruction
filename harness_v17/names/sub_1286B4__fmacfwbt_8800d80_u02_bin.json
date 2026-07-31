@@ -1,0 +1,1 @@
+{"fn": "sub_1286B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1286b4", "status": "ok", "name": "bt_link_active", "params": [], "docstring": "Compare connection handle with active link", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

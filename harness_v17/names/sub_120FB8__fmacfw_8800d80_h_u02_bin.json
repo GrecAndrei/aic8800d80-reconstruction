@@ -1,0 +1,1 @@
+{"fn": "sub_120FB8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120fb8", "status": "ok", "name": "ke_timer_handler", "params": [], "docstring": "Process timer event from scheduled queue", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

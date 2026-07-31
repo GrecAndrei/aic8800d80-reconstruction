@@ -1,0 +1,1 @@
+{"fn": "sub_113B08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113b08", "status": "ok", "name": "adv_parse_report", "params": [], "docstring": "Parse advertising report header fields", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114024", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114024", "status": "ok", "name": "band_is_supported", "params": [], "docstring": "Check if band index matches one of two supported entries", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123358", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123358", "status": "ok", "name": "wait_hw_interrupt_flag", "params": [], "docstring": "Poll hardware register for interrupt flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

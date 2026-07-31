@@ -1,0 +1,1 @@
+{"fn": "sub_1337BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1337bc", "status": "ok", "name": "patch_flag_get", "params": [], "docstring": "Returns patch status flag", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

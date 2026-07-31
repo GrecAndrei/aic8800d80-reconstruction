@@ -1,0 +1,1 @@
+{"fn": "sub_12B540", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b540", "status": "ok", "name": "read_cal_value", "params": [], "docstring": "Reads a signed calibration value from calibration data pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

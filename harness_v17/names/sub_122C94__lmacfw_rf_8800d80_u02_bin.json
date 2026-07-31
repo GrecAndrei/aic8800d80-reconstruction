@@ -1,0 +1,1 @@
+{"fn": "sub_122C94", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x122c94", "status": "ok", "name": "check_radio_status", "params": [], "docstring": "Check radio or peripheral status flag", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13F244", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13f244", "status": "ok", "name": "ble_ll_conn_sm_validate", "params": [], "docstring": "Validate connection state machine pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

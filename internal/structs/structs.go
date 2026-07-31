@@ -185,3 +185,100 @@ func PrimaryArgFingerprint(fn *decompile.Func) (string, []AccessKey) {
 	return best, dedup
 }
 
+
+// FieldAccess counts read/write per field across all funcs in a cluster.
+type FieldAccess struct {
+	Name       string         `json:"name"`
+	Offset     int            `json:"offset"`
+	Size       int            `json:"size"`
+	Reads      int            `json:"reads"`
+	Writes     int            `json:"writes"`
+	Readers    map[uint32]int `json:"readers,omitempty"`
+	Writers    map[uint32]int `json:"writers,omitempty"`
+	ReadFuncs  []uint32       `json:"read_funcs,omitempty"`
+	WriteFuncs []uint32       `json:"write_funcs,omitempty"`
+}
+
+// BuildFieldXref computes, for a cluster, per-field read/write stats.
+//
+// For each field, count:
+//   - read/write occurrences
+//   - unique readers/writers
+//   - top readers/writers by count
+func BuildFieldXref(cluster *Cluster, funcs []*decompile.Func) map[string]*FieldAccess {
+	funcMap := map[uint32]*decompile.Func{}
+	for _, fn := range funcs {
+		funcMap[fn.Address] = fn
+	}
+	// First, generate field names from offsets (in the order they appear in the
+	// fingerprint). The LLM will later propose better names.
+	fields := map[int]string{} // offset -> name
+	for i, k := range cluster.Fingerprint {
+		fields[k.Offset] = fmt.Sprintf("field_%d_0x%x", i, k.Offset)
+	}
+	xref := map[string]*FieldAccess{}
+	for _, fa := range cluster.Fingerprint {
+		name := fields[fa.Offset]
+		xref[name] = &FieldAccess{
+			Name:    name,
+			Offset:  fa.Offset,
+			Size:    fa.Size,
+			Readers: map[uint32]int{},
+			Writers: map[uint32]int{},
+		}
+	}
+	for _, addr := range cluster.Funcs {
+		fn, ok := funcMap[addr]
+		if !ok {
+			continue
+		}
+		for _, a := range fn.Accesses {
+			if a.Base != cluster.PrimaryArg {
+				continue
+			}
+			name, ok := fields[a.Offset]
+			if !ok {
+				continue
+			}
+			fa, ok := xref[name]
+			if !ok {
+				continue
+			}
+			if a.Direction == "load" {
+				fa.Reads++
+				fa.Readers[addr]++
+			} else {
+				fa.Writes++
+				fa.Writers[addr]++
+			}
+		}
+	}
+	for _, fa := range xref {
+		readers := topN(fa.Readers, 10)
+		fa.ReadFuncs = make([]uint32, 0, len(readers))
+		for _, addr := range readers {
+			fa.ReadFuncs = append(fa.ReadFuncs, addr)
+		}
+		sort.Slice(fa.ReadFuncs, func(i, j int) bool { return fa.ReadFuncs[i] < fa.ReadFuncs[j] })
+		writers := topN(fa.Writers, 10)
+		fa.WriteFuncs = make([]uint32, 0, len(writers))
+		for _, addr := range writers {
+			fa.WriteFuncs = append(fa.WriteFuncs, addr)
+		}
+		sort.Slice(fa.WriteFuncs, func(i, j int) bool { return fa.WriteFuncs[i] < fa.WriteFuncs[j] })
+		fa.Readers = nil
+		fa.Writers = nil
+	}
+	return xref
+}
+
+func topN(m map[uint32]int, n int) []uint32 {
+	out := make([]uint32, 0, len(m))
+	for k := range m {
+		if len(out) >= n {
+			break
+		}
+		out = append(out, k)
+	}
+	return out
+}

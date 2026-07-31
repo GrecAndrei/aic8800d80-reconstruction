@@ -1,0 +1,1 @@
+{"fn": "sub_12A568", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a568", "status": "ok", "name": "bt_conn_validate", "params": [], "docstring": "Validate connection active and state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

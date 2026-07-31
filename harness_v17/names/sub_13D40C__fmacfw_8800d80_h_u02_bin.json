@@ -1,0 +1,1 @@
+{"fn": "sub_13D40C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13d40c", "status": "ok", "name": "mac_parse_fcf", "params": [], "docstring": "Extract frame control field bits from a 16-bit value", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

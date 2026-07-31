@@ -1,0 +1,1 @@
+{"fn": "sub_1270CC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1270cc", "status": "ok", "name": "ctrl_register_handler", "params": [], "docstring": "Set callback if not already installed", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

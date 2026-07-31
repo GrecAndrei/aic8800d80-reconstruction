@@ -1,0 +1,1 @@
+{"fn": "sub_12CC38", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cc38", "status": "ok", "name": "hci_evt_alloc_send", "params": [], "docstring": "Allocate event buffer then tail-call event sender", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

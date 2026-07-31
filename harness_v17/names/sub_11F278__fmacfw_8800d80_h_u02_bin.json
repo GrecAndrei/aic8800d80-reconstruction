@@ -1,0 +1,1 @@
+{"fn": "sub_11F278", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11f278", "status": "ok", "name": "reset_rx_control_fields", "params": [], "docstring": "Clears RX control fields at offsets 0x34/0xa3/0xb8", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_140C88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x140c88", "status": "ok", "name": "timer_start", "params": [], "docstring": "Start a timer using kernel time function", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

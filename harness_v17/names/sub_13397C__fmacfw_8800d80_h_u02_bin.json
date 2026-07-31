@@ -1,0 +1,1 @@
+{"fn": "sub_13397C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13397c", "status": "ok", "name": "ble_state_check_13397c", "params": [], "docstring": "Checks global BLE state and allocates stack frame.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

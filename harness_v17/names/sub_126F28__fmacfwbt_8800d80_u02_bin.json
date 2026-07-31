@@ -1,0 +1,1 @@
+{"fn": "sub_126F28", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x126f28", "status": "ok", "name": "timer_tick_handler", "params": [], "docstring": "Process timer events using main context and callback table", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

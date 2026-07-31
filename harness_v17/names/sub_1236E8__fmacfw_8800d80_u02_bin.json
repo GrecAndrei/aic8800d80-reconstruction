@@ -1,0 +1,1 @@
+{"fn": "sub_1236E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1236e8", "status": "ok", "name": "co_read_3_bytes", "params": [], "docstring": "Reads three bytes from data pointer and stores stack args", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

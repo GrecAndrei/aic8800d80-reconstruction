@@ -1,0 +1,1 @@
+{"fn": "sub_127AF0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127af0", "status": "ok", "name": "double_eq", "params": [], "docstring": "Returns 1 if two doubles are equal", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

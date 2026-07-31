@@ -1,0 +1,1 @@
+{"fn": "sub_138E1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x138e1c", "status": "ok", "name": "rf_cal_validate_channel", "params": [], "docstring": "Validate channel parameters against RF calibration state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

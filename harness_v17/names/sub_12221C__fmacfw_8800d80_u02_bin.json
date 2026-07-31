@@ -1,0 +1,1 @@
+{"fn": "sub_12221C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12221c", "status": "ok", "name": "mmio_masked_write", "params": [], "docstring": "Write to a register with bit mask.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

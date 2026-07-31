@@ -1,0 +1,1 @@
+{"fn": "sub_10FA18", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10fa18", "status": "ok", "name": "list_iterate", "params": [], "docstring": "Walks a linked list until the end is reached.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

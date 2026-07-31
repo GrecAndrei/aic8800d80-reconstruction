@@ -1,0 +1,1 @@
+{"fn": "sub_1334A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1334a4", "status": "ok", "name": "bt_packet_parse", "params": [], "docstring": "Parses fields from packet metadata into destination.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_117374", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117374", "status": "ok", "name": "mmio_set_bit", "params": [], "docstring": "Set a bit in an MMIO register based on input", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

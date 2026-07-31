@@ -1,0 +1,1 @@
+{"fn": "sub_125CD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125cd4", "status": "ok", "name": "mac_handler", "params": [], "docstring": "Handles MAC event based on status and queue", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

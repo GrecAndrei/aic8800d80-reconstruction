@@ -1,0 +1,1 @@
+{"fn": "sub_123394", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123394", "status": "ok", "name": "increment_debug_counter", "params": [], "docstring": "Increment a debug counter and read timer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118C90", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118c90", "status": "ok", "name": "convert_handle_index", "params": [], "docstring": "Translate handle value to internal link index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

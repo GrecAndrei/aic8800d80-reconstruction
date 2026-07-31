@@ -1,0 +1,1 @@
+{"fn": "sub_120214", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120214", "status": "ok", "name": "read_descriptor", "params": [], "docstring": "Loads a descriptor field from offset 0xf0 of an object.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

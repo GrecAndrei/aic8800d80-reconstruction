@@ -1,0 +1,1 @@
+{"fn": "sub_1275A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1275a0", "status": "ok", "name": "rf_reset", "params": [], "docstring": "Reset RF context and clear current TX buffer pointer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

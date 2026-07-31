@@ -1,0 +1,1 @@
+{"fn": "sub_125970", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125970", "status": "ok", "name": "process_bt_service_search_event", "params": [], "docstring": "Handles a BT service search state event.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

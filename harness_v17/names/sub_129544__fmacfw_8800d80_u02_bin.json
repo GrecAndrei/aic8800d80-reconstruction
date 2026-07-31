@@ -1,0 +1,1 @@
+{"fn": "sub_129544", "img": "fmacfw_8800d80_u02_bin", "addr": "0x129544", "status": "ok", "name": "wlc_bus_cmd", "params": [], "docstring": "Issue low-level bus command with fixed opcode", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12716C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12716c", "status": "ok", "name": "rf_disable", "params": [], "docstring": "disable RF and send disable command", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

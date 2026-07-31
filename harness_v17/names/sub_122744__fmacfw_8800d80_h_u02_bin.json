@@ -1,0 +1,1 @@
+{"fn": "sub_122744", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122744", "status": "ok", "name": "check_adv_enabled", "params": [], "docstring": "Check advertising enable flag in global state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

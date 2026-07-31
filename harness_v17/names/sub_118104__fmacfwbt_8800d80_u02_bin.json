@@ -1,0 +1,1 @@
+{"fn": "sub_118104", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x118104", "status": "ok", "name": "delay_loop", "params": [], "docstring": "Perform timing delay loop with 1000 iterations", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

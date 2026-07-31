@@ -1,0 +1,1 @@
+{"fn": "sub_10ED30", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10ed30", "status": "ok", "name": "periph_field_set", "params": [], "docstring": "Set a field in peripheral control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1213EC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1213ec", "status": "ok", "name": "check_isr_handler", "params": [], "docstring": "call handler with zero and check result", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

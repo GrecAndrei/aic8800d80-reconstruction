@@ -1,0 +1,1 @@
+{"fn": "sub_11C4E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c4e4", "status": "ok", "name": "set_short_address", "params": [], "docstring": "Stores two address bytes into global radio context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

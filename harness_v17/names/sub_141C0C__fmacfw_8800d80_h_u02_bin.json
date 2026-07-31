@@ -1,0 +1,1 @@
+{"fn": "sub_141C0C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x141c0c", "status": "ok", "name": "get_ll_conn_ctx", "params": [], "docstring": "Get link-layer connection context by index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1238AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1238ac", "status": "ok", "name": "call_125ac8", "params": [], "docstring": "Calls 0x125ac8 with r1 and returns 1.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

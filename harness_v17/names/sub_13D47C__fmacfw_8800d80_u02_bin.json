@@ -1,0 +1,1 @@
+{"fn": "sub_13D47C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13d47c", "status": "ok", "name": "bt_clr_flag", "params": [], "docstring": "Clear bit 2 of status byte and validate next state field", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

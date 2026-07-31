@@ -1,0 +1,1 @@
+{"fn": "sub_119CB4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x119cb4", "status": "ok", "name": "rf_channel_switch", "params": [], "docstring": "Switch RF channel based on link and parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

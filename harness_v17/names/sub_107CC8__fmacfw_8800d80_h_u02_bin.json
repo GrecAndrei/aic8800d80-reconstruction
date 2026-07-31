@@ -1,0 +1,1 @@
+{"fn": "sub_107CC8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x107cc8", "status": "ok", "name": "pmu_clock_disable", "params": [], "docstring": "Disable PMU clock output", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

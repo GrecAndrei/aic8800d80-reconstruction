@@ -1,0 +1,1 @@
+{"fn": "sub_112A0C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112a0c", "status": "ok", "name": "tick_counter_update", "params": [], "docstring": "Increment a 16-bit tick counter and branch on an argument", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

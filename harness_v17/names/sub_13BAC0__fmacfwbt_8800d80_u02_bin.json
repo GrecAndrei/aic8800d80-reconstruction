@@ -1,0 +1,1 @@
+{"fn": "sub_13BAC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13bac0", "status": "ok", "name": "rf_get_chan_cfg", "params": [], "docstring": "Get channel configuration from RF table by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

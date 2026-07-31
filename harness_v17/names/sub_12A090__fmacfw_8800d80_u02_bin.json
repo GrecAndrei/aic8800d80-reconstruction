@@ -1,0 +1,1 @@
+{"fn": "sub_12A090", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a090", "status": "ok", "name": "llc_get_local_state_idx", "params": [], "docstring": "Read local state index from connection context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

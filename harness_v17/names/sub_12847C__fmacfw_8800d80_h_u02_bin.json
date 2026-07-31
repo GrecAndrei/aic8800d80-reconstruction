@@ -1,0 +1,1 @@
+{"fn": "sub_12847C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12847c", "status": "ok", "name": "bsscfg_get", "params": [], "docstring": "Indexes bsscfg array by argument with size 0x528", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

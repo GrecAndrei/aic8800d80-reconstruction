@@ -1,0 +1,1 @@
+{"fn": "sub_11A800", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11a800", "status": "ok", "name": "rx_packet_parse", "params": [], "docstring": "Parse RX packet header fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

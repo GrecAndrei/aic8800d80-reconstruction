@@ -1,0 +1,1 @@
+{"fn": "sub_11B05C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11b05c", "status": "ok", "name": "rf_index_to_value2", "params": [], "docstring": "Lookup 16-bit auxiliary RF table value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

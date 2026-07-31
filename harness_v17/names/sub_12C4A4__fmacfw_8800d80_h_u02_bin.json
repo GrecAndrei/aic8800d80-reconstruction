@@ -1,0 +1,1 @@
+{"fn": "sub_12C4A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c4a4", "status": "ok", "name": "ke_event_handler", "params": [], "docstring": "Dispatch kernel event after checking global state flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

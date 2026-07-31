@@ -1,0 +1,1 @@
+{"fn": "sub_136D48", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136d48", "status": "ok", "name": "rf_rate_code_check_alt", "params": [], "docstring": "Validate alternate PHY rate code limit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

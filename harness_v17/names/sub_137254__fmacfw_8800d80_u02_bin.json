@@ -1,0 +1,1 @@
+{"fn": "sub_137254", "img": "fmacfw_8800d80_u02_bin", "addr": "0x137254", "status": "ok", "name": "init_sched_context", "params": [], "docstring": "Initialize scheduling context and evaluate mode flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

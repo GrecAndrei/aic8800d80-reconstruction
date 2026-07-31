@@ -1,0 +1,1 @@
+{"fn": "sub_13AAF4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13aaf4", "status": "ok", "name": "ll_conn_event_prepare", "params": [], "docstring": "Prepare connection event timing and state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

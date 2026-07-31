@@ -1,0 +1,1 @@
+{"fn": "sub_136F8C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136f8c", "status": "ok", "name": "rf_set_channel_freq", "params": [], "docstring": "Set PHY channel frequency and clear offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

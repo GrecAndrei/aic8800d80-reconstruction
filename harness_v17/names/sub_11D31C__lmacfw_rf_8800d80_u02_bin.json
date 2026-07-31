@@ -1,0 +1,1 @@
+{"fn": "sub_11D31C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d31c", "status": "ok", "name": "rf_cmd_cancel", "params": [], "docstring": "Cancel active RF commands by clearing busy bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

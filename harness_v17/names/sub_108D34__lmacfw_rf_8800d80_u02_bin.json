@@ -1,0 +1,1 @@
+{"fn": "sub_108D34", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x108d34", "status": "ok", "name": "rf_core_init", "params": [], "docstring": "Initialize RF core register blocks and enable radio.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

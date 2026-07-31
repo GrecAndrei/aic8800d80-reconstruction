@@ -1,0 +1,1 @@
+{"fn": "sub_13CB7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13cb7c", "status": "ok", "name": "rx_parse_pkt_header", "params": [], "docstring": "Extract packet type and flags from receive header words", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

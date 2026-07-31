@@ -1,0 +1,1 @@
+{"fn": "sub_1174B8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1174b8", "status": "ok", "name": "gpio_set_bit10", "params": [], "docstring": "Set or clear bit 10 in a chip control register based on argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

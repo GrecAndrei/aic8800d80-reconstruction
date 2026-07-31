@@ -1,0 +1,1 @@
+{"fn": "sub_111F58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111f58", "status": "ok", "name": "phy_reg_modify", "params": [], "docstring": "Compute radio register offset and modify bits", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

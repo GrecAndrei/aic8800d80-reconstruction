@@ -1,0 +1,1 @@
+{"fn": "sub_120750", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x120750", "status": "ok", "name": "clear_intr_status", "params": [], "docstring": "clear shared interrupt status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

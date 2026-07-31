@@ -1,0 +1,1 @@
+{"fn": "sub_12EB18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12eb18", "status": "ok", "name": "send_msg", "params": [], "docstring": "Prepares and sends a message with length validation", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_111D8C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111d8c", "status": "ok", "name": "flash_write_data", "params": [], "docstring": "Write data to flash at 0x08000000 with length 0x00200000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

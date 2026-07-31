@@ -1,0 +1,1 @@
+{"fn": "sub_132AA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132aa0", "status": "ok", "name": "rf_get_rssi_status", "params": [], "docstring": "Read RSSI and status bits from RF register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

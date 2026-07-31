@@ -1,0 +1,1 @@
+{"fn": "sub_13CFF0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13cff0", "status": "ok", "name": "scan_process_list", "params": [], "docstring": "Process list of 3-byte scan entries starting at offset 0xc", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

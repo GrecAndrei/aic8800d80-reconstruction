@@ -1,0 +1,1 @@
+{"fn": "sub_1062DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1062dc", "status": "ok", "name": "hw_rev_check", "params": [], "docstring": "Check hardware revision against expected value", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

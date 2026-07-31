@@ -1,0 +1,1 @@
+{"fn": "sub_12C7EC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c7ec", "status": "ok", "name": "tx_send_pdu", "params": [], "docstring": "Transmit PDU by calling 0x12c9a4 with extended header", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

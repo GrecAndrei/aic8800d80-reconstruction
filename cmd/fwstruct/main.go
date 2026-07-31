@@ -4,7 +4,7 @@
 //
 //	scan        parse v19 decompiled C into funcs.jsonl
 //	structs     cluster funcs by access pattern, propose struct types
-//	names       LLM-name proposed structs (calls MiniMax-M3)
+//	names       LLM-name proposed structs (calls deepseek-v4-flash)
 //	xref        cross-reference struct fields to functions
 //	callgraph   build call graph from C
 //	magic       classify numeric literals (magic numbers)
@@ -57,6 +57,10 @@ func main() {
 		err = runIVT(args)
 	case "annotate":
 		err = runAnnotate(args)
+	case "datasgen":
+		err = runDataSgen(args)
+	case "compose":
+		err = runCompose(args)
 	case "report":
 		err = runReport(args)
 	case "all":
@@ -88,7 +92,7 @@ Usage:
 Commands:
   scan         parse v19 decompiled C into funcs.jsonl
   structs      cluster funcs by access pattern, propose struct types
-  names        LLM-name proposed structs (calls MiniMax-M3)
+  names        LLM-name proposed structs (calls deepseek-v4-flash)
   xref         cross-reference struct fields to functions
   callgraph    build call graph from C
   magic        classify numeric literals
@@ -97,6 +101,8 @@ Commands:
   types        fix Hex-Rays type-inference bugs
   ivt          rewrite IVT for v18 bootable WFFW
   annotate     emit annotated C with all known context
+  datasgen     materialize the data segment (real values from the .bin)
+  compose      compose src/<img>/main.c from real bodies (no stubs)
   report       aggregate summary across all subcommands
   all          run full pipeline (scan..annotate)
   index        build consolidated function_index.json
@@ -108,7 +114,7 @@ Common flags:
   --out <path>       output dir (default: <root>/harness_v25/out)
   --images <a,b,c>   comma-separated image list (default: all)
   --llm-key-dir <p>  directory of *.key files for LLM
-  --llm-model <m>    LLM model (default: MiniMax-M3)
+  --llm-model <m>    LLM model (default: deepseek-v4-flash)
   --concurrency <n>  LLM call parallelism (default: 4)
   --verbose          verbose output
 `)

@@ -1,0 +1,1 @@
+{"fn": "sub_11C1B4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c1b4", "status": "ok", "name": "run_with_busy_flag", "params": [], "docstring": "Invoke callback while holding a global busy flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

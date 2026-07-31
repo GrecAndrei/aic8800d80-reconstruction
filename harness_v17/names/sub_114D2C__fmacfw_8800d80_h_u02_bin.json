@@ -1,0 +1,1 @@
+{"fn": "sub_114D2C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114d2c", "status": "ok", "name": "send_smc_cmd_0x400000", "params": [], "docstring": "Invoke SMC command 0x400000 with 4-byte buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

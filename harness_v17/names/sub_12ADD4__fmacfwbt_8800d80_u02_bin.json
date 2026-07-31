@@ -1,0 +1,1 @@
+{"fn": "sub_12ADD4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12add4", "status": "ok", "name": "bt_hci_fill_cmd", "params": [], "docstring": "Fill HCI command buffer with constant bytes", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

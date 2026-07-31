@@ -1,0 +1,1 @@
+{"fn": "sub_122A08", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122a08", "status": "ok", "name": "store_rx_info", "params": [], "docstring": "Store received packet metadata into global", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

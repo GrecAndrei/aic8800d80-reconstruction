@@ -1,0 +1,1 @@
+{"fn": "sub_13131C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13131c", "status": "ok", "name": "rf_get_cal_u16", "params": [], "docstring": "Stores u16 value from calibration data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

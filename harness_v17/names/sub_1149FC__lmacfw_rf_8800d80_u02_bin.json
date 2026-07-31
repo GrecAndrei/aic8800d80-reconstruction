@@ -1,0 +1,1 @@
+{"fn": "sub_1149FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1149fc", "status": "ok", "name": "osal_int_exit", "params": [], "docstring": "Exit critical section based on flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

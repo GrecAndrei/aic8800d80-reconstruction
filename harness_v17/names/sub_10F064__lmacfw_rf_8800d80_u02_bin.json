@@ -1,0 +1,1 @@
+{"fn": "sub_10F064", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f064", "status": "ok", "name": "critical_enter3", "params": [], "docstring": "Disables interrupts and sets lock variable 0x185afc", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

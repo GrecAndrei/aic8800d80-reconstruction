@@ -1,0 +1,1 @@
+{"fn": "sub_11B190", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b190", "status": "ok", "name": "lookup_table_u16", "params": [], "docstring": "Looks up 16-bit table value by index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

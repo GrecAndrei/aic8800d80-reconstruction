@@ -1,0 +1,1 @@
+{"fn": "sub_1223B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1223b8", "status": "ok", "name": "dma_tx_setup", "params": [], "docstring": "Configure DMA TX descriptors and start transfer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

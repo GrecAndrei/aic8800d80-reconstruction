@@ -1,0 +1,1 @@
+{"fn": "sub_124F20", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124f20", "status": "ok", "name": "set_random_addr", "params": [], "docstring": "Parse random address and update address struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

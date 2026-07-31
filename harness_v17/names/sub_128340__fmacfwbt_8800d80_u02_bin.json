@@ -1,0 +1,1 @@
+{"fn": "sub_128340", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128340", "status": "ok", "name": "hci_event_proc", "params": [], "docstring": "Process a received HCI event", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

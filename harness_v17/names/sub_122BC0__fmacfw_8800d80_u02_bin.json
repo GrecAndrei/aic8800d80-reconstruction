@@ -1,0 +1,1 @@
+{"fn": "sub_122BC0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122bc0", "status": "ok", "name": "hci_read_command", "params": [], "docstring": "Issue HCI read command via global controller", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

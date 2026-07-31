@@ -1,0 +1,1 @@
+{"fn": "sub_12D3C8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d3c8", "status": "ok", "name": "read_word", "params": [], "docstring": "Loads the first word pointed to by r0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

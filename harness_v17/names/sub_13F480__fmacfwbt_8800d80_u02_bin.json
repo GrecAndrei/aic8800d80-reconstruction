@@ -1,0 +1,1 @@
+{"fn": "sub_13F480", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f480", "status": "ok", "name": "validate_channel_map", "params": [], "docstring": "Validates channel map against link state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_109E48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x109e48", "status": "ok", "name": "mmio_set_bits", "params": [], "docstring": "Set bits in MMIO register and consume args", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

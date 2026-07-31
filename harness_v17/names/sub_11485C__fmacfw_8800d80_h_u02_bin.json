@@ -1,0 +1,1 @@
+{"fn": "sub_11485C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11485c", "status": "ok", "name": "packet_prepare_b", "params": [], "docstring": "Prepare TX descriptor from global template", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

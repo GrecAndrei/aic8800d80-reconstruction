@@ -1,0 +1,1 @@
+{"fn": "sub_12FF00", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12ff00", "status": "ok", "name": "l2cap_pdu_check", "params": [], "docstring": "Validate L2CAP PDU length is 12", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

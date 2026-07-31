@@ -1,0 +1,1 @@
+{"fn": "sub_133A98", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133a98", "status": "ok", "name": "rx_parse_descriptor", "params": [], "docstring": "Parse incoming descriptor type and route", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

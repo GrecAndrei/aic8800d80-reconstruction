@@ -1,0 +1,1 @@
+{"fn": "sub_10D224", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d224", "status": "ok", "name": "mmio_set_control_bit_25", "params": [], "docstring": "Write 0x02000000 to control register 0x40035000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12F710", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f710", "status": "ok", "name": "timer_clear", "params": [], "docstring": "Clear timer block and set timeout values.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

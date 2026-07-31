@@ -1,0 +1,1 @@
+{"fn": "sub_11E7AC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e7ac", "status": "ok", "name": "list_pop_front", "params": [], "docstring": "Pop first element from linked list.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

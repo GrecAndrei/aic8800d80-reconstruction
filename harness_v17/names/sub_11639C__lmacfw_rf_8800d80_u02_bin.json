@@ -1,0 +1,1 @@
+{"fn": "sub_11639C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11639c", "status": "ok", "name": "wlan_attach", "params": [], "docstring": "attach hardware blocks and store magic sentinel", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

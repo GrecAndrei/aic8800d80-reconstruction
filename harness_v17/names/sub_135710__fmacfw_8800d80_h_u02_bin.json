@@ -1,0 +1,1 @@
+{"fn": "sub_135710", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x135710", "status": "ok", "name": "rf_chan_state_get", "params": [], "docstring": "Reads current RF channel state from global tables", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

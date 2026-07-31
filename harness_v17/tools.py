@@ -105,12 +105,68 @@ def read_string_at(image, addr, max_len=128):
     except UnicodeDecodeError:
         return None
 
-# === DISASSEMBLY TOOLS (r2-backed) ===
+# === DISASSEMBLY TOOLS (r2-backed, full-image preprocessed cache) ===
 
 _ANSI = re.compile(r'\x1b\[[0-9;]*m')
 
+# Full-image linear disasm cache: image -> {"addrs": [int,...], "lines": [str,...]}
+# Built once per image by precompute_disasm.py (one r2 process per image),
+# so per-function queries never spawn r2 again.
+_DISASM_CACHE = {}
+_DISASM_CACHE_DIR = REPO / "harness_v17/disasm_cache"
+
+
+def _load_disasm_cache(image):
+    img = image[:-4] if image.endswith("_bin") else image
+    if img in _DISASM_CACHE:
+        return _DISASM_CACHE[img]
+    cache_file = _DISASM_CACHE_DIR / f"{img}.jsonl"
+    if not cache_file.exists():
+        return None
+    addrs, lines = [], []
+    try:
+        with open(cache_file) as f:
+            for line in f:
+                parts = line.rstrip("\n").split("\t", 1)
+                if len(parts) != 2:
+                    continue
+                try:
+                    addrs.append(int(parts[0], 16))
+                except ValueError:
+                    continue
+                lines.append(parts[1].strip())
+    except Exception:
+        return None
+    if not addrs:
+        return None
+    _DISASM_CACHE[img] = (addrs, lines)
+    return _DISASM_CACHE[img]
+
+
 def disasm_at(image, addr, n=30):
-    """Disassemble N instructions at chip runtime address. Returns list of instruction lines."""
+    """Disassemble N instructions at chip runtime address. Returns list of instruction lines.
+
+    Serves from the full-image precomputed cache (precompute_disasm.py).
+    Falls back to a per-call r2 spawn only if the cache is missing.
+    """
+    cache = _load_disasm_cache(image)
+    if cache is not None:
+        addrs, lines = cache
+        try:
+            a = int(addr, 16) if isinstance(addr, str) else addr
+        except ValueError:
+            return []
+        # Binary search for the start address
+        lo, hi = 0, len(addrs)
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if addrs[mid] < a:
+                lo = mid + 1
+            else:
+                hi = mid
+        if lo >= len(addrs) or addrs[lo] != a:
+            return []
+        return lines[lo:lo + n]
     img = image[:-4] if image.endswith("_bin") else image
     cmd = ["r2", "-q", "-a", "arm", "-b", "16", "-m", "0x100000", "-2",
            "-c", f"s {addr}; pd {n}", str(FW_DIR / f"{img}.bin")]

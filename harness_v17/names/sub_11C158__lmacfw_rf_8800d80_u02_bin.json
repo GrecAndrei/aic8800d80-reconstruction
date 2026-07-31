@@ -1,0 +1,1 @@
+{"fn": "sub_11C158", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c158", "status": "ok", "name": "bt_link_rx_check", "params": [], "docstring": "Check RX bit in connection state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12466C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12466c", "status": "ok", "name": "util_alloc_buffer", "params": [], "docstring": "Allocate buffer and check initialization", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13492C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13492c", "status": "ok", "name": "log_startup", "params": [], "docstring": "Logs startup message", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_132178", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132178", "status": "ok", "name": "get_device_id", "params": [], "docstring": "Reads packed device id from structure", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

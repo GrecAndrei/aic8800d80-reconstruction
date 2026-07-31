@@ -1,0 +1,1 @@
+{"fn": "sub_11E34C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e34c", "status": "ok", "name": "flash_write_byte", "params": [], "docstring": "Write byte to flash using low/high byte address", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

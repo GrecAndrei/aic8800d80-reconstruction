@@ -1,0 +1,1 @@
+{"fn": "sub_1317E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1317e0", "status": "ok", "name": "is_link_connected", "params": [], "docstring": "Check if link is connected", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

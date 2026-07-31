@@ -1,0 +1,1 @@
+{"fn": "sub_126CDC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x126cdc", "status": "ok", "name": "llc_sem_lock", "params": [], "docstring": "acquire list lock on llc timer entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

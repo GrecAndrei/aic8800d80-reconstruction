@@ -1,0 +1,1 @@
+{"fn": "sub_101260", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101260", "status": "ok", "name": "bb_disable", "params": [], "docstring": "Disable baseband core", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11F4C0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11f4c0", "status": "ok", "name": "get_event_flags", "params": [], "docstring": "Reads global event flag word", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

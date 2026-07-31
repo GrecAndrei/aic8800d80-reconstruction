@@ -1,0 +1,1 @@
+{"fn": "sub_113B80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113b80", "status": "ok", "name": "mmio_write_reg2", "params": [], "docstring": "Write hardware register 2 with argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

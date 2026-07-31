@@ -1,0 +1,1 @@
+{"fn": "sub_10197C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10197c", "status": "ok", "name": "llm_task_handler", "params": [], "docstring": "Handle LLM task event from BLE controller context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

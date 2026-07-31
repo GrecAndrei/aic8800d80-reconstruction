@@ -1,0 +1,1 @@
+{"fn": "sub_1141B8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1141b8", "status": "ok", "name": "state_init", "params": [], "docstring": "Zero out state structures and set initialized flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

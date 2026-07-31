@@ -1,0 +1,1 @@
+{"fn": "sub_1005B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1005b0", "status": "ok", "name": "chip_periph_init", "params": [], "docstring": "Read and initialize chip peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

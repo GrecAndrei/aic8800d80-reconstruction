@@ -1,0 +1,1 @@
+{"fn": "sub_131230", "img": "fmacfw_8800d80_u02_bin", "addr": "0x131230", "status": "ok", "name": "ll_get_access_addr", "params": [], "docstring": "Get access address", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

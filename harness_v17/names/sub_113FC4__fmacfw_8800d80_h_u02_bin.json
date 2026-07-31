@@ -1,0 +1,1 @@
+{"fn": "sub_113FC4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113fc4", "status": "ok", "name": "util_init_buffer", "params": [], "docstring": "Initialize 40-byte buffer structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

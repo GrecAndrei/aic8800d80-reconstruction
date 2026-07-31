@@ -1,0 +1,1 @@
+{"fn": "sub_119BEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119bec", "status": "ok", "name": "align_alloc_size", "params": [], "docstring": "Return word-aligned allocation size and compare with limit.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

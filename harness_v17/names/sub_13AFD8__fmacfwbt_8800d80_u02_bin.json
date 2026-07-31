@@ -1,0 +1,1 @@
+{"fn": "sub_13AFD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13afd8", "status": "ok", "name": "rf_get_pll_setting", "params": [], "docstring": "Read PLL configuration from channel table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

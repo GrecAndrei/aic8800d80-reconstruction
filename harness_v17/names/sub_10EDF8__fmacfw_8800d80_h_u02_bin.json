@@ -1,0 +1,1 @@
+{"fn": "sub_10EDF8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10edf8", "status": "ok", "name": "padding_data", "params": [], "docstring": "Padding or data word in code segment", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

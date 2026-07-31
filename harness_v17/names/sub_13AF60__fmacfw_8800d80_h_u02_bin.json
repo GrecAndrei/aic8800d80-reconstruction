@@ -1,0 +1,1 @@
+{"fn": "sub_13AF60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13af60", "status": "ok", "name": "get_config_flag", "params": [], "docstring": "Reads a config byte at offset 0x33 from the context.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

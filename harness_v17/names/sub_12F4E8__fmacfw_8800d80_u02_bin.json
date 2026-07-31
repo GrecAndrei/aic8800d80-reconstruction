@@ -1,0 +1,1 @@
+{"fn": "sub_12F4E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12f4e8", "status": "ok", "name": "reset_global_0x18274c", "params": [], "docstring": "Zero 8 bytes of global state at 0x18274c", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

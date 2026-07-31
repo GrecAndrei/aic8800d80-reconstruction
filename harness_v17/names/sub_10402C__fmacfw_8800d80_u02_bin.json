@@ -1,0 +1,1 @@
+{"fn": "sub_10402C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10402c", "status": "ok", "name": "parse_table_entry", "params": [], "docstring": "Scales table index by three and processes entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

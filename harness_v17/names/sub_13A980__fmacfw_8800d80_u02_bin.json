@@ -1,0 +1,1 @@
+{"fn": "sub_13A980", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13a980", "status": "ok", "name": "ll_conn_context_get", "params": [], "docstring": "Resolve connection context from link handle index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

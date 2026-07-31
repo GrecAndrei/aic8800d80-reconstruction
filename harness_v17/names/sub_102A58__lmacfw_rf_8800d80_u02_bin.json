@@ -1,0 +1,1 @@
+{"fn": "sub_102A58", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x102a58", "status": "ok", "name": "nvic_enable_irq", "params": [], "docstring": "Enable an interrupt in NVIC and set pending field", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

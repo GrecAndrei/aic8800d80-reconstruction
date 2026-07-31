@@ -1,0 +1,1 @@
+{"fn": "sub_12BAEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12baec", "status": "ok", "name": "rf_set_power_off", "params": [], "docstring": "Disables radio front end by clearing control bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

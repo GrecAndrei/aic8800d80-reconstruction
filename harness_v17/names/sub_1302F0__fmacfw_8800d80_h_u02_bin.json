@@ -1,0 +1,1 @@
+{"fn": "sub_1302F0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1302f0", "status": "ok", "name": "check_frame_len", "params": [], "docstring": "Compare frame length against 0x1d", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

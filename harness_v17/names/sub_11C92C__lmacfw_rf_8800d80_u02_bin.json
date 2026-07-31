@@ -1,0 +1,1 @@
+{"fn": "sub_11C92C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11c92c", "status": "ok", "name": "ke_timer_update", "params": [], "docstring": "Update kernel timer schedule based on current tick", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

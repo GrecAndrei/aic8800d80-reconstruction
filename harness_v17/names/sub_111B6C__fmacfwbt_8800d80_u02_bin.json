@@ -1,0 +1,1 @@
+{"fn": "sub_111B6C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111b6c", "status": "ok", "name": "rf_reg_read", "params": [], "docstring": "Read hardware register at base selected by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1147E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1147e0", "status": "ok", "name": "packet_prepare_a", "params": [], "docstring": "Prepare RX descriptor from global template", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

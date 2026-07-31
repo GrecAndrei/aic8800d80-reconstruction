@@ -1,0 +1,1 @@
+{"fn": "sub_111FDC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x111fdc", "status": "ok", "name": "phy_save_rssi", "params": [], "docstring": "Copy PHY RSSI halfword to shared status variable", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

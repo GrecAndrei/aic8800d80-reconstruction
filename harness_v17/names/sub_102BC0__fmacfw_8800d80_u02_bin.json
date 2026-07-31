@@ -1,0 +1,1 @@
+{"fn": "sub_102BC0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102bc0", "status": "ok", "name": "check_radio_state", "params": [], "docstring": "Calls helper and compares stored state value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

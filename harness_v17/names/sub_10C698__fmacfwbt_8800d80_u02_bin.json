@@ -1,0 +1,1 @@
+{"fn": "sub_10C698", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10c698", "status": "ok", "name": "pmu_clock_config", "params": [], "docstring": "Configures PMU clock control and divider registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

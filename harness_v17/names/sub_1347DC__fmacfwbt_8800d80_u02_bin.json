@@ -1,0 +1,1 @@
+{"fn": "sub_1347DC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1347dc", "status": "ok", "name": "rx_security_check", "params": [], "docstring": "Validate RX packet security flags", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

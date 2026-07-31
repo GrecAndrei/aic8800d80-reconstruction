@@ -1,0 +1,1 @@
+{"fn": "sub_103058", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x103058", "status": "ok", "name": "radio_set_power", "params": [], "docstring": "Sets radio power state and updates control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

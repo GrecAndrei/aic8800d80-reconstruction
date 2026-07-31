@@ -1,0 +1,1 @@
+{"fn": "sub_1204A8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1204a8", "status": "ok", "name": "read_hw_register", "params": [], "docstring": "Reads an MMIO register and extracts a bitfield.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

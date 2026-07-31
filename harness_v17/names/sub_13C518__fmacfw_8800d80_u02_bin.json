@@ -1,0 +1,1 @@
+{"fn": "sub_13C518", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13c518", "status": "ok", "name": "lookup_rate_table_entry", "params": [], "docstring": "Looks up PHY rate table entry by rate index and returns associated flags", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

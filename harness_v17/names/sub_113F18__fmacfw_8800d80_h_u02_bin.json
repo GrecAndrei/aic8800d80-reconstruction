@@ -1,0 +1,1 @@
+{"fn": "sub_113F18", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x113f18", "status": "ok", "name": "util_call_deep", "params": [], "docstring": "Call helper at 0x11d864", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

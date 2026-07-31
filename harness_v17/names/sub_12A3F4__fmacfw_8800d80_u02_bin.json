@@ -1,0 +1,1 @@
+{"fn": "sub_12A3F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a3f4", "status": "ok", "name": "hci_cmd_preprocess", "params": [], "docstring": "Inspect HCI command byte at packet offset 0x18", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

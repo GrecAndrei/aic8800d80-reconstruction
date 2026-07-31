@@ -1,0 +1,1 @@
+{"fn": "sub_109EB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x109eb0", "status": "ok", "name": "mmio_set_bit10", "params": [], "docstring": "Set bit 10 in WLAN register 0x4033b610", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

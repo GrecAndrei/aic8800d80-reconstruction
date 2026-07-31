@@ -1,0 +1,1 @@
+{"fn": "sub_12FC48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12fc48", "status": "ok", "name": "has_dot_extension", "params": [], "docstring": "Check if string ends with dot-containing extension.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

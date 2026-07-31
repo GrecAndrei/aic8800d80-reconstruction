@@ -1,0 +1,1 @@
+{"fn": "sub_10EF38", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ef38", "status": "ok", "name": "rf_get_state", "params": [], "docstring": "Return RF status/state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

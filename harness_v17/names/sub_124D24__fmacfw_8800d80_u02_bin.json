@@ -1,0 +1,1 @@
+{"fn": "sub_124D24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124d24", "status": "ok", "name": "co_time_compare", "params": [], "docstring": "Compares two timestamps at offset 0xc and returns sign", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

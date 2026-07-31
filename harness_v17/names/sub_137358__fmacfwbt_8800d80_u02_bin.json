@@ -1,0 +1,1 @@
+{"fn": "sub_137358", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137358", "status": "ok", "name": "init_radio_params", "params": [], "docstring": "Initialize radio parameter structure", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

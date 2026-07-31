@@ -1,0 +1,1 @@
+{"fn": "sub_139444", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x139444", "status": "ok", "name": "bt_parse_rx_packet", "params": [], "docstring": "parse RX packet header and validate tag", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

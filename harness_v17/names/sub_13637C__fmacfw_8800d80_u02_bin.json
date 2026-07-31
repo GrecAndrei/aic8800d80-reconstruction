@@ -1,0 +1,1 @@
+{"fn": "sub_13637C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13637c", "status": "ok", "name": "bt_cmd_guard_alt", "params": [], "docstring": "Guard another HCI command", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

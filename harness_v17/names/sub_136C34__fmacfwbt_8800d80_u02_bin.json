@@ -1,0 +1,1 @@
+{"fn": "sub_136C34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136c34", "status": "ok", "name": "phy_check_core_mode", "params": [], "docstring": "Check indexed core PHY mode is active", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

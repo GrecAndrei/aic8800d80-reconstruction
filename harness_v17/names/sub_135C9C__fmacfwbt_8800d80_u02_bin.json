@@ -1,0 +1,1 @@
+{"fn": "sub_135C9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135c9c", "status": "ok", "name": "hci_vendor_get_state", "params": [], "docstring": "Send HCI vendor command and load BT state pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

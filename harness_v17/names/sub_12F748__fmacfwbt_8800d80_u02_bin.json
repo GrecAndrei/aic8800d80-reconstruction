@@ -1,0 +1,1 @@
+{"fn": "sub_12F748", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f748", "status": "ok", "name": "patch_jump", "params": [], "docstring": "Jump-table trampoline to patched function.", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

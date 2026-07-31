@@ -1,0 +1,1 @@
+{"fn": "sub_132418", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132418", "status": "ok", "name": "llm_adv_state_get", "params": [], "docstring": "Get current advertising state from LLM", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

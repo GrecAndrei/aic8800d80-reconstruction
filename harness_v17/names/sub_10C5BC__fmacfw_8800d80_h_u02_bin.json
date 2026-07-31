@@ -1,0 +1,1 @@
+{"fn": "sub_10C5BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10c5bc", "status": "ok", "name": "peripheral_clock_config", "params": [], "docstring": "Configure peripheral clock and power registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

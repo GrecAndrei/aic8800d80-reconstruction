@@ -1,0 +1,1 @@
+{"fn": "sub_1202D8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1202d8", "status": "ok", "name": "mac_clear_irq", "params": [], "docstring": "Clear MAC interrupt register if counter sum equals one", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

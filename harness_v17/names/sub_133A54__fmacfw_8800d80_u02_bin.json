@@ -1,0 +1,1 @@
+{"fn": "sub_133A54", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133a54", "status": "ok", "name": "main_loop_init", "params": [], "docstring": "Initialize locals and check state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

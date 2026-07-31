@@ -1,0 +1,1 @@
+{"fn": "sub_124C58", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124c58", "status": "ok", "name": "ble_store_adv_data", "params": [], "docstring": "Store advertisement data from parameter struct", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

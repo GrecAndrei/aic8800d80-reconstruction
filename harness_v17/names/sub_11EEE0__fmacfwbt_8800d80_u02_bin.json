@@ -1,0 +1,1 @@
+{"fn": "sub_11EEE0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11eee0", "status": "ok", "name": "tx_packet_finish", "params": [], "docstring": "Complete TX descriptor and update link layer state.", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

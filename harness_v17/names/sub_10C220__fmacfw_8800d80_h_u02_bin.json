@@ -1,0 +1,1 @@
+{"fn": "sub_10C220", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10c220", "status": "ok", "name": "mac_descriptor_parse", "params": [], "docstring": "Parse MAC descriptor header fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

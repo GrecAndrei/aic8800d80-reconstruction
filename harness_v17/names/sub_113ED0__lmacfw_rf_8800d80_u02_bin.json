@@ -1,0 +1,1 @@
+{"fn": "sub_113ED0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113ed0", "status": "ok", "name": "tx_packet_prepare", "params": [], "docstring": "Prepare TX packet with data from 0x14B9CC", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

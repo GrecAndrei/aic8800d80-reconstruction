@@ -1,0 +1,1 @@
+{"fn": "sub_118B04", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118b04", "status": "ok", "name": "lock_acquire", "params": [], "docstring": "Acquire mutex on shared object", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

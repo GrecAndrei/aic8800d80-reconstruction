@@ -1,0 +1,1 @@
+{"fn": "sub_1162BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1162bc", "status": "ok", "name": "dispatch_config_command", "params": [], "docstring": "Jump table command dispatcher for six subcommands", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

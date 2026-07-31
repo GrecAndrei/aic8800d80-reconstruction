@@ -1,0 +1,1 @@
+{"fn": "sub_12BD48", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12bd48", "status": "ok", "name": "mmio_clear_high_bits", "params": [], "docstring": "Clear top bit of two chip control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

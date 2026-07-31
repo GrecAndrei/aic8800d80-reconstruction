@@ -1,0 +1,1 @@
+{"fn": "sub_12A7F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a7f4", "status": "ok", "name": "bt_conn_get_entry", "params": [], "docstring": "Return connection table pointer if active", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

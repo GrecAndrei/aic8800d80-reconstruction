@@ -1,0 +1,1 @@
+{"fn": "sub_115698", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x115698", "status": "ok", "name": "rx_packet_pending", "params": [], "docstring": "Check if rx packet pending in buffer", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

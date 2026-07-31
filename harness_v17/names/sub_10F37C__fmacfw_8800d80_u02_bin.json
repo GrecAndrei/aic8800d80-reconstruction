@@ -1,0 +1,1 @@
+{"fn": "sub_10F37C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10f37c", "status": "ok", "name": "tx_send_packet", "params": [], "docstring": "Build and transmit packet with protocol header", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

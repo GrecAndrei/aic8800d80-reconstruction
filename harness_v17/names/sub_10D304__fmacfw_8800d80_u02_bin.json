@@ -1,0 +1,1 @@
+{"fn": "sub_10D304", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d304", "status": "ok", "name": "rf_read_status_bit", "params": [], "docstring": "Read RF status at 0x40500000+0x12c and test bit", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

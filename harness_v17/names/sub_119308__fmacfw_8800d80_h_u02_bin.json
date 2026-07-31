@@ -1,0 +1,1 @@
+{"fn": "sub_119308", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x119308", "status": "ok", "name": "btm_read_indirect", "params": [], "docstring": "Read chained pointer field from BT control block.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

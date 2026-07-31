@@ -1,0 +1,1 @@
+{"fn": "sub_12D36C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d36c", "status": "ok", "name": "read_u32", "params": [], "docstring": "Loads and returns the first 32-bit word from the structure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

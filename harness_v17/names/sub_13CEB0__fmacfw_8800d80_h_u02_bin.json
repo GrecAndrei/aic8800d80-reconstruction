@@ -1,0 +1,1 @@
+{"fn": "sub_13CEB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13ceb0", "status": "ok", "name": "bt_get_conn_interval", "params": [], "docstring": "Read connection interval from context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

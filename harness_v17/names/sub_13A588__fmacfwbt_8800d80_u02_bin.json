@@ -1,0 +1,1 @@
+{"fn": "sub_13A588", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a588", "status": "ok", "name": "alloc_and_init_object", "params": [], "docstring": "Allocate 0x100000 bytes and initialize object via helper", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

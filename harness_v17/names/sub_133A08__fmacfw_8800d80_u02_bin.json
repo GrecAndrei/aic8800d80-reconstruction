@@ -1,0 +1,1 @@
+{"fn": "sub_133A08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133a08", "status": "ok", "name": "handle_state_five", "params": [], "docstring": "Handle state 5 event", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11FAF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11faf8", "status": "ok", "name": "wlc_ioctl", "params": [], "docstring": "Handle WLC ioctl command from host", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

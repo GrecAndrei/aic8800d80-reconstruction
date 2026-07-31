@@ -1,0 +1,1 @@
+{"fn": "sub_1347D4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1347d4", "status": "ok", "name": "ble_load_defaults", "params": [], "docstring": "Copies data block and configures controller pointer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

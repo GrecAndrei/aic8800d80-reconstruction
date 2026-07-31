@@ -1,0 +1,1 @@
+{"fn": "sub_13AF24", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13af24", "status": "ok", "name": "ll_conn_reset_flags", "params": [], "docstring": "Reset connection event flags and counters", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

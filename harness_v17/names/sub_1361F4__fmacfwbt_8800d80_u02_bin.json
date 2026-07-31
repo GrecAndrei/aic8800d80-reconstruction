@@ -1,0 +1,1 @@
+{"fn": "sub_1361F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1361f4", "status": "ok", "name": "patch_get_entry", "params": [], "docstring": "Look up patch data entry by input offset", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

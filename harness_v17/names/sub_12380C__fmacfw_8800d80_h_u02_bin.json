@@ -1,0 +1,1 @@
+{"fn": "sub_12380C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12380c", "status": "ok", "name": "parse_parameter", "params": [], "docstring": "Parse packed parameter flags", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

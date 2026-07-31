@@ -1,0 +1,1 @@
+{"fn": "sub_11849C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11849c", "status": "ok", "name": "ke_msg_dispatch", "params": [], "docstring": "Dispatch message via function pointer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

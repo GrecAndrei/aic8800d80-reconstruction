@@ -1,0 +1,1 @@
+{"fn": "sub_134CC4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134cc4", "status": "ok", "name": "assert_trace", "params": [], "docstring": "Trace assertion using current link layer event and return address.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1290C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1290c8", "status": "ok", "name": "mfp_get_active", "params": [], "docstring": "Check active state of MFP security", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

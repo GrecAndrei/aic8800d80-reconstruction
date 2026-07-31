@@ -1,0 +1,1 @@
+{"fn": "sub_10D5AC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d5ac", "status": "ok", "name": "rf_tx_config", "params": [], "docstring": "Configure RF TX based on status register 0x40501000", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

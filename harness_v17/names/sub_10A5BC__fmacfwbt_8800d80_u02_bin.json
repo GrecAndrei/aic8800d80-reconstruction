@@ -1,0 +1,1 @@
+{"fn": "sub_10A5BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10a5bc", "status": "ok", "name": "tx_packet_dispatch", "params": [], "docstring": "Dispatch TX packet by type and mode", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12F754", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f754", "status": "ok", "name": "state_ready_check", "params": [], "docstring": "Return 1 if system state equals ready, else dispatch.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

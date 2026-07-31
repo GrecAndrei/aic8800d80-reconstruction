@@ -1,0 +1,1 @@
+{"fn": "sub_130474", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130474", "status": "ok", "name": "set_flag_send_event_42e", "params": [], "docstring": "Set global flag and send event 0x42e", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

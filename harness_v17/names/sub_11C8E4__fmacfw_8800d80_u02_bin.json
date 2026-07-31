@@ -1,0 +1,1 @@
+{"fn": "sub_11C8E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c8e4", "status": "ok", "name": "reset_radio_core", "params": [], "docstring": "Writes reset/control values to radio core MMIO registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

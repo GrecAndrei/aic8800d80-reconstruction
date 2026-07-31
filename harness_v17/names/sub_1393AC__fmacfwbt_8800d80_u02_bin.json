@@ -1,0 +1,1 @@
+{"fn": "sub_1393AC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1393ac", "status": "ok", "name": "list_find_nonnull", "params": [], "docstring": "Iterate list nodes looking for non-null entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

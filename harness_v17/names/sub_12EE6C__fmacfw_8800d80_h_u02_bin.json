@@ -1,0 +1,1 @@
+{"fn": "sub_12EE6C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ee6c", "status": "ok", "name": "bt_global_op_0x16acdc", "params": [], "docstring": "Perform BT global operation using 0x16acdc", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

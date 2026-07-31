@@ -1,0 +1,1 @@
+{"fn": "sub_12E91C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12e91c", "status": "ok", "name": "is_id_lt_10", "params": [], "docstring": "Checks if ID is below 10 for range validation", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

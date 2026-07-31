@@ -1,0 +1,1 @@
+{"fn": "sub_124FB4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124fb4", "status": "ok", "name": "rf_chan_table_update", "params": [], "docstring": "Update RF channel table from offset", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

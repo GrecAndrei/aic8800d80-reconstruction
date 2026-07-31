@@ -1,0 +1,1 @@
+{"fn": "sub_103B6C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103b6c", "status": "ok", "name": "enable_pa", "params": [], "docstring": "Enables power amplifier and reads status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

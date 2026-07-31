@@ -1,0 +1,1 @@
+{"fn": "sub_120038", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120038", "status": "ok", "name": "update_object_index", "params": [], "docstring": "Reads object fields and multiplies an index to locate array entry.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_135020", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135020", "status": "ok", "name": "event_dispatch", "params": [], "docstring": "Handle incoming event and dispatch to handler", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

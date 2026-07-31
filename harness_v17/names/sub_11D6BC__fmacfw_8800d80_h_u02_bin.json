@@ -1,0 +1,1 @@
+{"fn": "sub_11D6BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11d6bc", "status": "ok", "name": "dma_poll_status", "params": [], "docstring": "Poll DMA status and return success flag", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

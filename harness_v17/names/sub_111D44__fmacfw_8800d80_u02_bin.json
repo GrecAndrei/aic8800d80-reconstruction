@@ -1,0 +1,1 @@
+{"fn": "sub_111D44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111d44", "status": "ok", "name": "flash_erase_main", "params": [], "docstring": "Erase main flash region starting at 0x08000000", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

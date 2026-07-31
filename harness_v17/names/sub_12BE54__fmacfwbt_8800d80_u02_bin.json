@@ -1,0 +1,1 @@
+{"fn": "sub_12BE54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12be54", "status": "ok", "name": "mmio_disable_irq", "params": [], "docstring": "Disable MMIO interrupt and reset related status", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

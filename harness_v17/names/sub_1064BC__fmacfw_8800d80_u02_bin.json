@@ -1,0 +1,1 @@
+{"fn": "sub_1064BC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1064bc", "status": "ok", "name": "memcpy_from_rodata", "params": [], "docstring": "Copy constant data block into local stack buffer.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

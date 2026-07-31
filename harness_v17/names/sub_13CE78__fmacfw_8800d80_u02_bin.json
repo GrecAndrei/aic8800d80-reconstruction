@@ -1,0 +1,1 @@
+{"fn": "sub_13CE78", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13ce78", "status": "ok", "name": "ll_pdu_type_get", "params": [], "docstring": "Decode link-layer PDU type from value bits 11-13", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

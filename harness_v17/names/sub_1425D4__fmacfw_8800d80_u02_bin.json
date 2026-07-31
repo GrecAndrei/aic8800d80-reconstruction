@@ -1,0 +1,1 @@
+{"fn": "sub_1425D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1425d4", "status": "ok", "name": "read_status_flag", "params": [], "docstring": "Check global flag and return halfword", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

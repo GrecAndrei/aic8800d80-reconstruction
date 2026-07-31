@@ -1,0 +1,1 @@
+{"fn": "sub_12A7E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a7e0", "status": "ok", "name": "rf_calib_setup", "params": [], "docstring": "Set up PLL calibration using channel-bias tables", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

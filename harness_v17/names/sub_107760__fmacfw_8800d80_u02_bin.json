@@ -1,0 +1,1 @@
+{"fn": "sub_107760", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107760", "status": "ok", "name": "timer_ticks_to_usec", "params": [], "docstring": "Compute timer conversion using constant multiplier.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

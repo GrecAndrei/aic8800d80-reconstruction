@@ -1,0 +1,1 @@
+{"fn": "sub_11D9F8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d9f8", "status": "ok", "name": "util_byte_to_hex", "params": [], "docstring": "Convert byte to two hexadecimal characters", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

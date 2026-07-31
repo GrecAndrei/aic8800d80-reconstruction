@@ -1,0 +1,1 @@
+{"fn": "sub_127A1C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127a1c", "status": "ok", "name": "stat_clear", "params": [], "docstring": "Clear global statistics buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

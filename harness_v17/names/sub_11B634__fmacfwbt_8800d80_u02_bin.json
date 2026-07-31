@@ -1,0 +1,1 @@
+{"fn": "sub_11B634", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b634", "status": "ok", "name": "zero_global_if_flag_clear", "params": [], "docstring": "Zero a global field when the flag at offset 0x25 is clear", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

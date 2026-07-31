@@ -1,0 +1,1 @@
+{"fn": "sub_119524", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119524", "status": "ok", "name": "alloc_hci_rx_buffer", "params": [], "docstring": "Reserve 0x100-byte receive buffer via global pool", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

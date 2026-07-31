@@ -1,0 +1,1 @@
+{"fn": "sub_12B22C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b22c", "status": "ok", "name": "bt_link_connected", "params": [], "docstring": "Check if active link is connected", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

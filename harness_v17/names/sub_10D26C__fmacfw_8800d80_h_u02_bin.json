@@ -1,0 +1,1 @@
+{"fn": "sub_10D26C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10d26c", "status": "ok", "name": "set_radio_mode", "params": [], "docstring": "Selects radio mode based on argument and writes to register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

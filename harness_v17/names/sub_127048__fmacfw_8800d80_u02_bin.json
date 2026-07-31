@@ -1,0 +1,1 @@
+{"fn": "sub_127048", "img": "fmacfw_8800d80_u02_bin", "addr": "0x127048", "status": "ok", "name": "ctrl_check_flags", "params": [], "docstring": "Check control flags and pointer availability", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

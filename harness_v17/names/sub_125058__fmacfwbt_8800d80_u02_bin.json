@@ -1,0 +1,1 @@
+{"fn": "sub_125058", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125058", "status": "ok", "name": "ke_event_set_lock", "params": [], "docstring": "Set kernel event under critical section", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

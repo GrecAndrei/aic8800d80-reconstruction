@@ -1,0 +1,1 @@
+{"fn": "sub_10F50C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f50c", "status": "ok", "name": "rf_init", "params": [], "docstring": "Writes RF calibration register if feature bit is clear.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

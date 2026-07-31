@@ -1,0 +1,1 @@
+{"fn": "sub_13F66C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13f66c", "status": "ok", "name": "build_ll_data_packet", "params": [], "docstring": "Builds a link-layer data packet from buffer", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

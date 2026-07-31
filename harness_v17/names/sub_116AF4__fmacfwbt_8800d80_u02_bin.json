@@ -1,0 +1,1 @@
+{"fn": "sub_116AF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x116af4", "status": "ok", "name": "get_cal_item", "params": [], "docstring": "Reads a signed calibration table value by index", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12ADF4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12adf4", "status": "ok", "name": "bt_conn_read_info", "params": [], "docstring": "Read connection info into output buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

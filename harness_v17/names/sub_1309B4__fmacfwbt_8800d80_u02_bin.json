@@ -1,0 +1,1 @@
+{"fn": "sub_1309B4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1309b4", "status": "ok", "name": "rf_write_pattern_bf0c", "params": [], "docstring": "Writes RF calibration pattern 0xbf 0x0c to buffer", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

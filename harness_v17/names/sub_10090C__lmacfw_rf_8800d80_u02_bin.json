@@ -1,0 +1,1 @@
+{"fn": "sub_10090C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10090c", "status": "ok", "name": "rf_ctrl_set", "params": [], "docstring": "Configure RF register after shared memory access", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

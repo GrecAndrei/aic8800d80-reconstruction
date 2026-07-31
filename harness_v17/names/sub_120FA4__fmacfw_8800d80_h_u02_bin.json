@@ -1,0 +1,1 @@
+{"fn": "sub_120FA4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x120fa4", "status": "ok", "name": "rf_write_reg", "params": [], "docstring": "Write 0x30 to RF control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

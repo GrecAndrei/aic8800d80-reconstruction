@@ -1,0 +1,1 @@
+{"fn": "sub_11D348", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11d348", "status": "ok", "name": "rf_cmd_wait", "params": [], "docstring": "Wait for RF command completion with timeout", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

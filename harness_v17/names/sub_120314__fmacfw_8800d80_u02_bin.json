@@ -1,0 +1,1 @@
+{"fn": "sub_120314", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120314", "status": "ok", "name": "alloc_kernel_message", "params": [], "docstring": "Allocates a message/control block via internal allocator.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

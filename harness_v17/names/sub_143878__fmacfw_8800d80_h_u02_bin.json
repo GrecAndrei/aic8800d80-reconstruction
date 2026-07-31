@@ -1,0 +1,1 @@
+{"fn": "sub_143878", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143878", "status": "ok", "name": "memset", "params": [], "docstring": "Fill memory with byte replicated into words.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

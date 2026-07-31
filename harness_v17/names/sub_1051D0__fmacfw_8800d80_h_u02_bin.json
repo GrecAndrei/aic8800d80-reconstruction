@@ -1,0 +1,1 @@
+{"fn": "sub_1051D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1051d0", "status": "ok", "name": "mem_swap_fields", "params": [], "docstring": "Copy structure field from offset 8 to offset 4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

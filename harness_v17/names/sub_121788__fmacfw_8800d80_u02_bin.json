@@ -1,0 +1,1 @@
+{"fn": "sub_121788", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121788", "status": "ok", "name": "read_mac_int_status", "params": [], "docstring": "Read multiple MAC interrupt/status registers.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

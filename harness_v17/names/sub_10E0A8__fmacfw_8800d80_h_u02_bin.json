@@ -1,0 +1,1 @@
+{"fn": "sub_10E0A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10e0a8", "status": "ok", "name": "hw_ctrl_set", "params": [], "docstring": "Set hardware control register to enabled state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

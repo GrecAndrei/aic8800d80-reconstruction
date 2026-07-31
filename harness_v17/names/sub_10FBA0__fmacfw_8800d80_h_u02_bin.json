@@ -1,0 +1,1 @@
+{"fn": "sub_10FBA0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10fba0", "status": "ok", "name": "util_check_arg", "params": [], "docstring": "Checks pointer argument for non-null", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

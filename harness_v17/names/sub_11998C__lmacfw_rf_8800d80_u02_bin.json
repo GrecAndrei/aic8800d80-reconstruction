@@ -1,0 +1,1 @@
+{"fn": "sub_11998C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11998c", "status": "ok", "name": "ke_cmd_write_mmio", "params": [], "docstring": "Allocate setup message and write MMIO register 0x70000010", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

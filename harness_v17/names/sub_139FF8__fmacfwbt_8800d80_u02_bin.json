@@ -1,0 +1,1 @@
+{"fn": "sub_139FF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x139ff8", "status": "ok", "name": "rf_cal_check_band", "params": [], "docstring": "Check RF calibration band flag and state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

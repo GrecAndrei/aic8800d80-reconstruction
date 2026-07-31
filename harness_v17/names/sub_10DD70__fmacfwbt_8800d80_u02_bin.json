@@ -1,0 +1,1 @@
+{"fn": "sub_10DD70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10dd70", "status": "ok", "name": "set_pin_mux", "params": [], "docstring": "Set pin mux bitfield at global register using argument", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

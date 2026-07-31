@@ -1,0 +1,1 @@
+{"fn": "sub_12266C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12266c", "status": "ok", "name": "get_elapsed_ticks", "params": [], "docstring": "Compute elapsed time from a hardware timer", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

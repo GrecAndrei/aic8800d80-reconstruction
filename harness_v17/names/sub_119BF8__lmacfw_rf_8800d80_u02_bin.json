@@ -1,0 +1,1 @@
+{"fn": "sub_119BF8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119bf8", "status": "ok", "name": "get_bt_state_word", "params": [], "docstring": "Read BLE environment state and branch on sign", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

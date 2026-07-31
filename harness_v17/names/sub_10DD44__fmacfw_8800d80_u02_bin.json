@@ -1,0 +1,1 @@
+{"fn": "sub_10DD44", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10dd44", "status": "ok", "name": "gpio_configure_pin", "params": [], "docstring": "Configure GPIO pin using bit mask for pins 0-7", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

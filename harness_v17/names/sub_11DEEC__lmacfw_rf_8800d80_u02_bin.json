@@ -1,0 +1,1 @@
+{"fn": "sub_11DEEC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11deec", "status": "ok", "name": "co_list_process", "params": [], "docstring": "Iterate linked list and process entries", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10ED84", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ed84", "status": "ok", "name": "mmio_read32", "params": [], "docstring": "Read 32-bit MMIO register with interrupt save", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

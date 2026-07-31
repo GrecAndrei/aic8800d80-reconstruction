@@ -1,0 +1,1 @@
+{"fn": "sub_11749C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11749c", "status": "ok", "name": "phy_band_validate", "params": [], "docstring": "Validate PHY band", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

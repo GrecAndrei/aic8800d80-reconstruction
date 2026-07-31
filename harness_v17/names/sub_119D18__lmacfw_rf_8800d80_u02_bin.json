@@ -1,0 +1,1 @@
+{"fn": "sub_119D18", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x119d18", "status": "ok", "name": "util_scale_index", "params": [], "docstring": "Scale table index by seven and call helper.", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

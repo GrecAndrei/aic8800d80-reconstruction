@@ -1,0 +1,1 @@
+{"fn": "sub_10294C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10294c", "status": "ok", "name": "check_event_state", "params": [], "docstring": "Reads event state and invokes handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

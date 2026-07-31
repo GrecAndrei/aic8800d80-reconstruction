@@ -1,0 +1,1 @@
+{"fn": "sub_136870", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136870", "status": "ok", "name": "txpwr_reset_state", "params": [], "docstring": "Reset tx power state buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

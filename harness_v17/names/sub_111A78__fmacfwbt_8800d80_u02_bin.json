@@ -1,0 +1,1 @@
+{"fn": "sub_111A78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111a78", "status": "ok", "name": "rx_desc_hw_config", "params": [], "docstring": "configure rx hardware descriptor entry", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

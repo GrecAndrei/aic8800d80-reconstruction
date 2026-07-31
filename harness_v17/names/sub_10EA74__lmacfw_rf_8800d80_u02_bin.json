@@ -1,0 +1,1 @@
+{"fn": "sub_10EA74", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10ea74", "status": "ok", "name": "gpio_mode_set", "params": [], "docstring": "Sets lower 3 bits of GPIO register 0x40344030", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

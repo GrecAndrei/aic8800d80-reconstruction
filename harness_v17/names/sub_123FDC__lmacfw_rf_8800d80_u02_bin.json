@@ -1,0 +1,1 @@
+{"fn": "sub_123FDC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123fdc", "status": "ok", "name": "set_reg_158a08_bits20_25", "params": [], "docstring": "Sets bits 20-25 in register 0x158a08", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

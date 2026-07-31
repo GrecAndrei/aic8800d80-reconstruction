@@ -1,0 +1,1 @@
+{"fn": "sub_13AC44", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ac44", "status": "ok", "name": "tx_prepare_frame_path", "params": [], "docstring": "Prepare transmit path based on band and flags", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

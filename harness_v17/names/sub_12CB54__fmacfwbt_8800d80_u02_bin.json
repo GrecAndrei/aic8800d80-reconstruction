@@ -1,0 +1,1 @@
+{"fn": "sub_12CB54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cb54", "status": "ok", "name": "bt_buf_alloc", "params": [], "docstring": "Allocate buffer with 12-byte header via mem_alloc", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

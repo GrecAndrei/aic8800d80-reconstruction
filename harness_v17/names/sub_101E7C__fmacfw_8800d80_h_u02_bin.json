@@ -1,0 +1,1 @@
+{"fn": "sub_101E7C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101e7c", "status": "ok", "name": "set_clock_divider", "params": [], "docstring": "Compute divider and write to clock control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_110008", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110008", "status": "ok", "name": "is_controller_mode", "params": [], "docstring": "Wrapper to test controller mode", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

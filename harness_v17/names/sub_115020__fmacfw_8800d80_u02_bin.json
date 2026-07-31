@@ -1,0 +1,1 @@
+{"fn": "sub_115020", "img": "fmacfw_8800d80_u02_bin", "addr": "0x115020", "status": "ok", "name": "patch_get_state", "params": [], "docstring": "Read patch state byte and compare to 2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12C3A8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c3a8", "status": "ok", "name": "get_status_flag_c5", "params": [], "docstring": "Return byte at global 0x17310c+0xc5", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

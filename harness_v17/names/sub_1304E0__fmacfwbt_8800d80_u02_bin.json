@@ -1,0 +1,1 @@
+{"fn": "sub_1304E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1304e0", "status": "ok", "name": "ll_seq_update", "params": [], "docstring": "Update link layer sequence number", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

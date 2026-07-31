@@ -1,0 +1,1 @@
+{"fn": "sub_12D108", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d108", "status": "ok", "name": "wlan_ioctl_handler_1", "params": [], "docstring": "Validate wlan status and handle ioctl operation 1.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

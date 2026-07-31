@@ -1,0 +1,1 @@
+{"fn": "sub_11E270", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11e270", "status": "ok", "name": "mac_get_flag", "params": [], "docstring": "Read flag byte from MAC context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

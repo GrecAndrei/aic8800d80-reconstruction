@@ -1,0 +1,1 @@
+{"fn": "sub_11E888", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e888", "status": "ok", "name": "list_find", "params": [], "docstring": "Search linked list for a target node.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

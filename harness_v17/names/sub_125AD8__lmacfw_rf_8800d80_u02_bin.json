@@ -1,0 +1,1 @@
+{"fn": "sub_125AD8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x125ad8", "status": "ok", "name": "bt_state_machine_dispatch", "params": [], "docstring": "Dispatches to BT state handlers based on state index.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

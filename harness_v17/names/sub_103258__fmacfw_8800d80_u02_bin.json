@@ -1,0 +1,1 @@
+{"fn": "sub_103258", "img": "fmacfw_8800d80_u02_bin", "addr": "0x103258", "status": "ok", "name": "load_and_store_block", "params": [], "docstring": "Copies memory block to stack and reads status", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

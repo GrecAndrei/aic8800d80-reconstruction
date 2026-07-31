@@ -1,0 +1,1 @@
+{"fn": "sub_142338", "img": "fmacfw_8800d80_u02_bin", "addr": "0x142338", "status": "ok", "name": "llcp_is_control", "params": [], "docstring": "Check if PDU is an LL control packet", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

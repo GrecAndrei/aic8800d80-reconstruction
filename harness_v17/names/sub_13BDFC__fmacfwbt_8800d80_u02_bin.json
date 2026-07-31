@@ -1,0 +1,1 @@
+{"fn": "sub_13BDFC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13bdfc", "status": "ok", "name": "sdio_cmd52_wr", "params": [], "docstring": "Issue SDIO CMD52 write operation", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

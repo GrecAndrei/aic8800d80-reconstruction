@@ -1,0 +1,1 @@
+{"fn": "sub_10FE24", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10fe24", "status": "ok", "name": "mem_is_in_heap", "params": [], "docstring": "Verifies a pointer lies inside the heap segment.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

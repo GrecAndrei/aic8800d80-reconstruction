@@ -1,0 +1,12 @@
+src unnamed targets: 949 (cached-skip applied)
+  100/949 ok=80 rate=0.8/s eta=1085s
+  200/949 ok=150 rate=1.0/s eta=718s
+  300/949 ok=240 rate=1.3/s eta=517s
+  400/949 ok=327 rate=1.3/s eta=428s
+  500/949 ok=406 rate=1.3/s eta=333s
+  600/949 ok=486 rate=1.4/s eta=249s
+  700/949 ok=566 rate=1.3/s eta=185s
+  800/949 ok=615 rate=1.4/s eta=107s
+
+DONE: 949 ok=722 fail=220 in 710.1s
+statuses: [('ok', 722), ('no_content', 220), ('filtered', 7)]

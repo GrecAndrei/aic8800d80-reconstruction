@@ -1,0 +1,1 @@
+{"fn": "sub_10410C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10410c", "status": "ok", "name": "mac_reset_control", "params": [], "docstring": "Sets MAC reset bit and updates related registers", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

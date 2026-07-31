@@ -1,0 +1,1 @@
+{"fn": "sub_12DE90", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12de90", "status": "ok", "name": "copy_config_data", "params": [], "docstring": "Copy input data via helper using stack buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

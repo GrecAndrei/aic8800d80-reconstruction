@@ -1,0 +1,1 @@
+{"fn": "sub_105118", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x105118", "status": "ok", "name": "div_by_20", "params": [], "docstring": "Divide floating-point input by 20", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

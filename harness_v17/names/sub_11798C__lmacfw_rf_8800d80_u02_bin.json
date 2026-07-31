@@ -1,0 +1,1 @@
+{"fn": "sub_11798C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11798c", "status": "ok", "name": "timer_event_check", "params": [], "docstring": "Compare scheduled event time with hardware timer and handle result", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

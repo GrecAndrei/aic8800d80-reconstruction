@@ -1,0 +1,1 @@
+{"fn": "sub_12B3E8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12b3e8", "status": "ok", "name": "hci_buffer_get", "params": [], "docstring": "Return HCI data buffer from global context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

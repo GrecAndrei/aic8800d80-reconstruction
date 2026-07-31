@@ -1,0 +1,1 @@
+{"fn": "sub_1146F0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1146f0", "status": "ok", "name": "check_bt_ptr_state", "params": [], "docstring": "Check pointer at 0x182558 and byte at 0x182b5c+6, conditionally set 0x1000", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

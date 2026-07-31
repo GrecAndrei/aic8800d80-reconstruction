@@ -1,0 +1,1 @@
+{"fn": "sub_127B40", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x127b40", "status": "ok", "name": "double_gt", "params": [], "docstring": "Returns 1 if first double is greater than second", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

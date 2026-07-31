@@ -1,0 +1,1 @@
+{"fn": "sub_101600", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101600", "status": "ok", "name": "llc_event_loop", "params": [], "docstring": "Protocol state handler for frame offset", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

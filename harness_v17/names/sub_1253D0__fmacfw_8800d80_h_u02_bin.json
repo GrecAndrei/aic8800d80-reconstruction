@@ -1,0 +1,1 @@
+{"fn": "sub_1253D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1253d0", "status": "ok", "name": "tx_pkt_complete", "params": [], "docstring": "Process TX completion descriptor", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

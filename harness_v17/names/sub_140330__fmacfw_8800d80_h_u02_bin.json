@@ -1,0 +1,1 @@
+{"fn": "sub_140330", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x140330", "status": "ok", "name": "bt_feature_check_4", "params": [], "docstring": "Queries a feature setting and compares it to four", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

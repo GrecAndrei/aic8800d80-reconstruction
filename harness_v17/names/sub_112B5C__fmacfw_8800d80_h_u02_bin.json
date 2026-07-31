@@ -1,0 +1,1 @@
+{"fn": "sub_112B5C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x112b5c", "status": "ok", "name": "phy_get_status", "params": [], "docstring": "Read PHY status flag from register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_108238", "img": "fmacfw_8800d80_u02_bin", "addr": "0x108238", "status": "ok", "name": "read_status_low", "params": [], "docstring": "Reads status register and extracts a low bit field", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

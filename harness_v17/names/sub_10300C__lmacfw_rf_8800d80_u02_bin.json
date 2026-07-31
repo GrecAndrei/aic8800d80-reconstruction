@@ -1,0 +1,1 @@
+{"fn": "sub_10300C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10300c", "status": "ok", "name": "check_chip_flag", "params": [], "docstring": "Reads a chip flag and updates an external control register", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

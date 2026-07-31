@@ -1,0 +1,1 @@
+{"fn": "sub_114210", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114210", "status": "ok", "name": "mmio_reg_write_1b", "params": [], "docstring": "Write to RF register 0x1B via helper", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

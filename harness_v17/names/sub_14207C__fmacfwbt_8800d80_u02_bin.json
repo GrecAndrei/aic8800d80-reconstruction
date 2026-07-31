@@ -1,0 +1,1 @@
+{"fn": "sub_14207C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14207c", "status": "ok", "name": "lookup_phy_entry", "params": [], "docstring": "Find PHY table entry by index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

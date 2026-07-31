@@ -1,0 +1,1 @@
+{"fn": "sub_1362F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1362f8", "status": "ok", "name": "bt_hci_reset", "params": [], "docstring": "Trigger HCI reset sequence", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

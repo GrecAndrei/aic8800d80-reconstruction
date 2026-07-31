@@ -1,0 +1,1 @@
+{"fn": "sub_117978", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117978", "status": "ok", "name": "critical_section_enter_alt", "params": [], "docstring": "Enter critical section by disabling interrupts", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

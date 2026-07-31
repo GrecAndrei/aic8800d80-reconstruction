@@ -1,0 +1,1 @@
+{"fn": "sub_13C26C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13c26c", "status": "ok", "name": "rx_clear_packet", "params": [], "docstring": "Zero out RX packet buffer", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

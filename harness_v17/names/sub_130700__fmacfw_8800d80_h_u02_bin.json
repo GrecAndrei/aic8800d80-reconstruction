@@ -1,0 +1,1 @@
+{"fn": "sub_130700", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130700", "status": "ok", "name": "ampdu_negotiate_params", "params": [], "docstring": "Negotiate AMPDU parameters from config struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

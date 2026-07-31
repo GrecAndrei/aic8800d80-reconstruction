@@ -1,0 +1,1 @@
+{"fn": "sub_104180", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x104180", "status": "ok", "name": "rf_disable", "params": [], "docstring": "Clear RF disable bit and read status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

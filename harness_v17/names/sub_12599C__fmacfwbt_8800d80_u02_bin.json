@@ -1,0 +1,1 @@
+{"fn": "sub_12599C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12599c", "status": "ok", "name": "memory_pool_init", "params": [], "docstring": "Initializes memory pools with magic and table pointers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

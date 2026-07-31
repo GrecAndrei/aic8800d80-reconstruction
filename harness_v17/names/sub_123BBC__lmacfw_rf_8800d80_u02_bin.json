@@ -1,0 +1,1 @@
+{"fn": "sub_123BBC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123bbc", "status": "ok", "name": "wait_for_state", "params": [], "docstring": "Waits on state variable with 1000 tick timeout", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

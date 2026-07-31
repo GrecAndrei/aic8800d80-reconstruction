@@ -1,0 +1,1 @@
+{"fn": "sub_100688", "img": "fmacfw_8800d80_u02_bin", "addr": "0x100688", "status": "ok", "name": "dispatch_interrupt", "params": [], "docstring": "Handle interrupt via status bits", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

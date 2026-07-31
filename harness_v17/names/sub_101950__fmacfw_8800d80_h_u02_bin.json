@@ -1,0 +1,1 @@
+{"fn": "sub_101950", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x101950", "status": "ok", "name": "rf_status_bit21", "params": [], "docstring": "Read bit 21 of RF base status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

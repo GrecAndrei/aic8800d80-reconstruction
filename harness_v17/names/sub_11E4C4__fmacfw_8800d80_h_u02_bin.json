@@ -1,0 +1,1 @@
+{"fn": "sub_11E4C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11e4c4", "status": "ok", "name": "tx_packet_complete", "params": [], "docstring": "Finish TX packet completion handling and cleanup", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12646C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12646c", "status": "ok", "name": "rf_set_flag", "params": [], "docstring": "store byte to RF flag and tail-call handler", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

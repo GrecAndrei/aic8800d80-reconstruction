@@ -1,0 +1,1 @@
+{"fn": "sub_11D670", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11d670", "status": "ok", "name": "seq_num_increment", "params": [], "docstring": "Increment sequence counter byte and compare with next", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

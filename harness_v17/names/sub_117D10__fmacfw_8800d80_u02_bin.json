@@ -1,0 +1,1 @@
+{"fn": "sub_117D10", "img": "fmacfw_8800d80_u02_bin", "addr": "0x117d10", "status": "ok", "name": "compare_uint16_field", "params": [], "docstring": "Compare two uint16 fields at offset 0x20", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

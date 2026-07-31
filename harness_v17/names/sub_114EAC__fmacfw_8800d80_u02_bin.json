@@ -1,0 +1,1 @@
+{"fn": "sub_114EAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114eac", "status": "ok", "name": "patch_check_magic", "params": [], "docstring": "Verify PTCH magic at patch base address", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

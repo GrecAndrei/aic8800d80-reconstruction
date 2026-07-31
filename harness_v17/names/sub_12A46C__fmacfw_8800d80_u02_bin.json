@@ -1,0 +1,1 @@
+{"fn": "sub_12A46C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a46c", "status": "ok", "name": "controller_status_byte", "params": [], "docstring": "Read global controller status byte", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

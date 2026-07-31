@@ -1,0 +1,1 @@
+{"fn": "sub_10CC50", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10cc50", "status": "ok", "name": "controller_config_read", "params": [], "docstring": "Read controller configuration from context", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

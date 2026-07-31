@@ -1,0 +1,1 @@
+{"fn": "sub_121200", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121200", "status": "ok", "name": "ll_tx_setup", "params": [], "docstring": "Configure DMA for link-layer TX packet", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1104FC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1104fc", "status": "ok", "name": "phy_calibrate", "params": [], "docstring": "Runs PHY calibration using global state and MMIO registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

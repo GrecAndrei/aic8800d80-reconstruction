@@ -1,0 +1,1 @@
+{"fn": "sub_10D774", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d774", "status": "ok", "name": "nvic_configure", "params": [], "docstring": "Set NVIC interrupt using mask 0x1c", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

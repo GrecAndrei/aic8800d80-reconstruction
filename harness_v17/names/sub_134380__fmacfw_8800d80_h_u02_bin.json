@@ -1,0 +1,1 @@
+{"fn": "sub_134380", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134380", "status": "ok", "name": "hci_build_acl", "params": [], "docstring": "Builds controller request with size 0x178 and type 6", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

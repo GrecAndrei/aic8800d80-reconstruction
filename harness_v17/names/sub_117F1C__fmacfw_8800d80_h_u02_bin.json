@@ -1,0 +1,1 @@
+{"fn": "sub_117F1C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117f1c", "status": "ok", "name": "invoke_handler", "params": [], "docstring": "Call registered function pointer and test result", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

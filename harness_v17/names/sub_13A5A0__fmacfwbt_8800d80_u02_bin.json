@@ -1,0 +1,1 @@
+{"fn": "sub_13A5A0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13a5a0", "status": "ok", "name": "rf_is_channel_idle", "params": [], "docstring": "Check if RF channel status word is zero", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

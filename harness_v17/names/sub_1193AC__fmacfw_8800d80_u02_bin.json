@@ -1,0 +1,1 @@
+{"fn": "sub_1193AC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1193ac", "status": "ok", "name": "lookup_table_u8", "params": [], "docstring": "Lookup 8-bit table entry by two indices", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

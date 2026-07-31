@@ -1,0 +1,1 @@
+{"fn": "sub_1009A0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1009a0", "status": "ok", "name": "sdio_irq_enable", "params": [], "docstring": "enable SDIO host interrupt bit", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

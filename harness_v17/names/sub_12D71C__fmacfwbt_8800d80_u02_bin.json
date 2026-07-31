@@ -1,0 +1,1 @@
+{"fn": "sub_12D71C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d71c", "status": "ok", "name": "crc32_update", "params": [], "docstring": "Update CRC32 with byte from buffer using table", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

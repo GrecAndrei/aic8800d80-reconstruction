@@ -1,0 +1,1 @@
+{"fn": "sub_11BFAC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11bfac", "status": "ok", "name": "parse_rx_header", "params": [], "docstring": "Parses received packet header fields and flags", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_135AFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135afc", "status": "ok", "name": "bt_get_acl_by_ble", "params": [], "docstring": "Resolve ACL connection context from BLE index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

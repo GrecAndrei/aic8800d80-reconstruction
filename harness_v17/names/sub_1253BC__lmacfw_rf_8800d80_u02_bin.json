@@ -1,0 +1,1 @@
+{"fn": "sub_1253BC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1253bc", "status": "ok", "name": "process_bt_connection_event", "params": [], "docstring": "Handles a BT connection state event and initializes associated data.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

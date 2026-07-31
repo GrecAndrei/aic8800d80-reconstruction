@@ -1,0 +1,1 @@
+{"fn": "sub_10E0F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10e0f8", "status": "ok", "name": "radio_init", "params": [], "docstring": "Initialize radio hardware and PLL registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

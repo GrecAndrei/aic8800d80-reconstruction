@@ -1,0 +1,1 @@
+{"fn": "sub_130288", "img": "fmacfw_8800d80_u02_bin", "addr": "0x130288", "status": "ok", "name": "read_mmio_reg", "params": [], "docstring": "Access memory-mapped I/O register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

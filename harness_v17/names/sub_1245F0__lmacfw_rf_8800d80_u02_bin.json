@@ -1,0 +1,1 @@
+{"fn": "sub_1245F0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1245f0", "status": "ok", "name": "ke_start_event_80", "params": [], "docstring": "Check state and invoke event 0x80", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

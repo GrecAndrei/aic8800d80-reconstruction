@@ -1,0 +1,1 @@
+{"fn": "sub_1306F8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1306f8", "status": "ok", "name": "store_half_return_two", "params": [], "docstring": "Store one halfword and return fixed size 2", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

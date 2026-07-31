@@ -1,0 +1,1 @@
+{"fn": "sub_104470", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x104470", "status": "ok", "name": "tx_parse_desc", "params": [], "docstring": "Parse TX packet descriptor fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

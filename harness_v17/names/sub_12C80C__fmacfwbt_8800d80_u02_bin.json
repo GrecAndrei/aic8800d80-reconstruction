@@ -1,0 +1,1 @@
+{"fn": "sub_12C80C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12c80c", "status": "ok", "name": "patch_aware_dispatch", "params": [], "docstring": "Dispatch based on patch flag in 0x182c24 using r0/r1/r2", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

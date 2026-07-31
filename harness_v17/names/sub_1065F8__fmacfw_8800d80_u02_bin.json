@@ -1,0 +1,1 @@
+{"fn": "sub_1065F8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1065f8", "status": "ok", "name": "rf_phy_regs_read_cal", "params": [], "docstring": "Load radio PHY registers for calibration status checks.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

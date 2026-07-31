@@ -1,0 +1,1 @@
+{"fn": "sub_125C04", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125c04", "status": "ok", "name": "ke_event_send", "params": [], "docstring": "Sends kernel event with data length from packet", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

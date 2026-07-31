@@ -1,0 +1,1 @@
+{"fn": "sub_11441C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11441c", "status": "ok", "name": "ke_task_process", "params": [], "docstring": "Process kernel message using global flag", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

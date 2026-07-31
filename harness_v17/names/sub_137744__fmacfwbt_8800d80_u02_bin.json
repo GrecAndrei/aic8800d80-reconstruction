@@ -1,0 +1,1 @@
+{"fn": "sub_137744", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137744", "status": "ok", "name": "process_hci_command", "params": [], "docstring": "Handle HCI command packet from host", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

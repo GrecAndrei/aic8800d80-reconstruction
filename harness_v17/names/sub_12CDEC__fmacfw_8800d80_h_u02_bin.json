@@ -1,0 +1,1 @@
+{"fn": "sub_12CDEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12cdec", "status": "ok", "name": "hci_event_handler", "params": [], "docstring": "Handle HCI event parameters", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

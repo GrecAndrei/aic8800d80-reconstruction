@@ -1,0 +1,1 @@
+{"fn": "sub_132F34", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132f34", "status": "ok", "name": "llm_adv_reset", "params": [], "docstring": "Reset advertising state fields", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_114194", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x114194", "status": "ok", "name": "rf_regf_mask_shift", "params": [], "docstring": "Read RF status register 0xF and apply mask shift", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

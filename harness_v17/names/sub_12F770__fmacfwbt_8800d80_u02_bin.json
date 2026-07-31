@@ -1,0 +1,1 @@
+{"fn": "sub_12F770", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f770", "status": "ok", "name": "process_pending_queue", "params": [], "docstring": "Walk pending list and invoke handlers.", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

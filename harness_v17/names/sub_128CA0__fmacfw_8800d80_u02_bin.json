@@ -1,0 +1,1 @@
+{"fn": "sub_128CA0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x128ca0", "status": "ok", "name": "wlc_log_event_a", "params": [], "docstring": "Send event log with two metadata pointers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

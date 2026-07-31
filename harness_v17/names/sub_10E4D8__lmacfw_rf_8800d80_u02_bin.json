@@ -1,0 +1,1 @@
+{"fn": "sub_10E4D8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10e4d8", "status": "ok", "name": "periph_cmd_write", "params": [], "docstring": "Writes 0x128 to peripheral 0x40100038 and reads status 0x4010d00c", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

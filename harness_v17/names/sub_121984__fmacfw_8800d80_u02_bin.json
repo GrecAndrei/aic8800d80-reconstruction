@@ -1,0 +1,1 @@
+{"fn": "sub_121984", "img": "fmacfw_8800d80_u02_bin", "addr": "0x121984", "status": "ok", "name": "chip_state_handler", "params": [], "docstring": "Inspect chip control flag and register state.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10624C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10624c", "status": "ok", "name": "llc_state_check", "params": [], "docstring": "Check link layer state against expected value", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

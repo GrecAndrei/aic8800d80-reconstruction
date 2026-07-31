@@ -1,0 +1,1 @@
+{"fn": "sub_11182C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11182c", "status": "ok", "name": "get_node_offset8", "params": [], "docstring": "Fetch 16-byte node from array and load offset 8", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

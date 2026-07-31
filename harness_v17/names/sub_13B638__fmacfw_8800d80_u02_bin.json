@@ -1,0 +1,1 @@
+{"fn": "sub_13B638", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b638", "status": "ok", "name": "adv_pdu_type_handler", "params": [], "docstring": "Handle advertising PDU type two", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

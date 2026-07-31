@@ -1,0 +1,1 @@
+{"fn": "sub_13376C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13376c", "status": "ok", "name": "patch_handle_data", "params": [], "docstring": "Patch-aware data handler with payload pointer", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_118C84", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118c84", "status": "ok", "name": "phy_get_channel", "params": [], "docstring": "Read channel info from PHY array entry", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

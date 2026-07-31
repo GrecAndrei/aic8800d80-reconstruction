@@ -1,0 +1,1 @@
+{"fn": "sub_122F30", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122f30", "status": "ok", "name": "send_cmd_74", "params": [], "docstring": "Send command 0x74 with six zero bytes", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

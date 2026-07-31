@@ -1,0 +1,1 @@
+{"fn": "sub_1342AC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1342ac", "status": "ok", "name": "controller_is_ready", "params": [], "docstring": "Checks controller readiness flag", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

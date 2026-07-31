@@ -1,0 +1,1 @@
+{"fn": "sub_113814", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113814", "status": "ok", "name": "ke_state_get", "params": [], "docstring": "Locks mutex and reads 16-bit state at offset 8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_112B7C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112b7c", "status": "ok", "name": "wait_rf_ready", "params": [], "docstring": "Poll hardware status bit and conditionally update RF state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_102D7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x102d7c", "status": "ok", "name": "peripheral_write_32", "params": [], "docstring": "Performs multi-register write to peripheral", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

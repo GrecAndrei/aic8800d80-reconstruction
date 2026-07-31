@@ -1,0 +1,1 @@
+{"fn": "sub_13B734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13b734", "status": "ok", "name": "dbg_printf", "params": [], "docstring": "Variadic debug print using global log buffer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_117EF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117ef8", "status": "ok", "name": "sleep_critical_exit", "params": [], "docstring": "Enter critical sleep state and set flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

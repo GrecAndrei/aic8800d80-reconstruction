@@ -1,0 +1,1 @@
+{"fn": "sub_131F90", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x131f90", "status": "ok", "name": "wait_for_event", "params": [], "docstring": "Wait for controller event", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_125260", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125260", "status": "ok", "name": "tx_power_switch", "params": [], "docstring": "Switch TX power level based on parameter", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

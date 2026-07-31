@@ -1,0 +1,1 @@
+{"fn": "sub_138668", "img": "fmacfw_8800d80_u02_bin", "addr": "0x138668", "status": "ok", "name": "ll_task_run", "params": [], "docstring": "Run link-layer task if controller initialized", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

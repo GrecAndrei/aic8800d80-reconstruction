@@ -1,0 +1,1 @@
+{"fn": "sub_118D80", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x118d80", "status": "ok", "name": "rf_calib_config", "params": [], "docstring": "Configure RF calibration parameters", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13064C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13064c", "status": "ok", "name": "ke_timeout_to_ticks", "params": [], "docstring": "Convert timeout milliseconds to tick count", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143DDC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143ddc", "status": "ok", "name": "memcpy_fixed", "params": [], "docstring": "Copy from static buffer to destination.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

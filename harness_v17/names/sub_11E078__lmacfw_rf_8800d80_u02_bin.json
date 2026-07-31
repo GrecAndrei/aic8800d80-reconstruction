@@ -1,0 +1,1 @@
+{"fn": "sub_11E078", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11e078", "status": "ok", "name": "check_buffer_size", "params": [], "docstring": "Check buffer size and pointer validity", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

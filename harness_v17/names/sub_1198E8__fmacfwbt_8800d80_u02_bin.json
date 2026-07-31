@@ -1,0 +1,1 @@
+{"fn": "sub_1198E8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1198e8", "status": "ok", "name": "rx_descriptor_process", "params": [], "docstring": "Process received packet descriptor", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

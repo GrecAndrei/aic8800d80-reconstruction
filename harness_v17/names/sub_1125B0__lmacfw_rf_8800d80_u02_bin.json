@@ -1,0 +1,1 @@
+{"fn": "sub_1125B0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1125b0", "status": "ok", "name": "ke_poll_event_b", "params": [], "docstring": "Poll event and invoke callback B", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

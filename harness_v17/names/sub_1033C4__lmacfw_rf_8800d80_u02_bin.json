@@ -1,0 +1,1 @@
+{"fn": "sub_1033C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1033c4", "status": "ok", "name": "rf_init_regs", "params": [], "docstring": "Initializes RF control registers with OR- and STR sequences", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

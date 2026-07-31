@@ -1,0 +1,1 @@
+{"fn": "sub_125FBC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x125fbc", "status": "ok", "name": "send_hci_cmd", "params": [], "docstring": "Send HCI command with opcode 0x48", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

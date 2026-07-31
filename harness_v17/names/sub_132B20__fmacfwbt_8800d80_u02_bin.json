@@ -1,0 +1,1 @@
+{"fn": "sub_132B20", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132b20", "status": "ok", "name": "llm_adv_pdu_build", "params": [], "docstring": "Build advertising packet from configuration", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

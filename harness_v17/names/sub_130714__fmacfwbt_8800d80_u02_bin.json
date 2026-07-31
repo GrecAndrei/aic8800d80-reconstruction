@@ -1,0 +1,1 @@
+{"fn": "sub_130714", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130714", "status": "ok", "name": "mmio_init_check", "params": [], "docstring": "Check init flag and read mmio register if unset", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

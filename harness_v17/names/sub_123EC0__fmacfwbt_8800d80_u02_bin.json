@@ -1,0 +1,1 @@
+{"fn": "sub_123EC0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123ec0", "status": "ok", "name": "process_float_packet", "params": [], "docstring": "Prepare processing with floating-point context", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

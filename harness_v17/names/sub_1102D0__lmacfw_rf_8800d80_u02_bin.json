@@ -1,0 +1,1 @@
+{"fn": "sub_1102D0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1102d0", "status": "ok", "name": "irq_disable_set_flag", "params": [], "docstring": "Disable IRQs and set a global flag", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

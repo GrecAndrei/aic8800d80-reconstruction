@@ -1,0 +1,1 @@
+{"fn": "sub_11DFC0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11dfc0", "status": "ok", "name": "capability_get", "params": [], "docstring": "Read halfword capability field from device struct", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13B954", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b954", "status": "ok", "name": "event_timer_callback", "params": [], "docstring": "Invoke event timer callback with adjusted timestamp", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

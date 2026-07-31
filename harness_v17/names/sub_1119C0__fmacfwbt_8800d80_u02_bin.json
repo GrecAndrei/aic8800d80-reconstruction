@@ -1,0 +1,1 @@
+{"fn": "sub_1119C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1119c0", "status": "ok", "name": "tx_desc_hw_config", "params": [], "docstring": "configure tx hardware descriptor entry", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

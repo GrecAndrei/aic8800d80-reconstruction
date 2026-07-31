@@ -1,0 +1,1 @@
+{"fn": "sub_13B0E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13b0e0", "status": "ok", "name": "ll_encrypt_packet", "params": [], "docstring": "Encrypt link-layer data packet", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

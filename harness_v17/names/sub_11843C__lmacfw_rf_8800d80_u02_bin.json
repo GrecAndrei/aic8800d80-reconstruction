@@ -1,0 +1,1 @@
+{"fn": "sub_11843C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11843c", "status": "ok", "name": "init_link_manager", "params": [], "docstring": "Zero link manager buffer and set up pointers", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

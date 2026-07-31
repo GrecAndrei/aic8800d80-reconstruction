@@ -1,0 +1,1 @@
+{"fn": "sub_11146C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11146c", "status": "ok", "name": "rf_channel_set_flag", "params": [], "docstring": "Set flag for RF channel record", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

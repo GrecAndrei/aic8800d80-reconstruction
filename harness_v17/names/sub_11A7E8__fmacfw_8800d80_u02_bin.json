@@ -1,0 +1,1 @@
+{"fn": "sub_11A7E8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11a7e8", "status": "ok", "name": "test_flag", "params": [], "docstring": "Test flag bit in register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

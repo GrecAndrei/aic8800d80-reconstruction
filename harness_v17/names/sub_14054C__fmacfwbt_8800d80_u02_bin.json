@@ -1,0 +1,1 @@
+{"fn": "sub_14054C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14054c", "status": "ok", "name": "find_conn_by_handle", "params": [], "docstring": "Find connection entry by handle in given table", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

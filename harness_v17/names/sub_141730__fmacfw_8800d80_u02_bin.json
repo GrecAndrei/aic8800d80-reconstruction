@@ -1,0 +1,1 @@
+{"fn": "sub_141730", "img": "fmacfw_8800d80_u02_bin", "addr": "0x141730", "status": "ok", "name": "ll_event_prepare", "params": [], "docstring": "Prepare link-layer event context from stacked parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

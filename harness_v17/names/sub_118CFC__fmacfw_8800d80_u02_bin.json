@@ -1,0 +1,1 @@
+{"fn": "sub_118CFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x118cfc", "status": "ok", "name": "scan_control", "params": [], "docstring": "Read or modify scan parameter at offset 0x60", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

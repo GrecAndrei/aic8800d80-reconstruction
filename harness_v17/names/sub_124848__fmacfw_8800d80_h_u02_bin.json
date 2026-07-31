@@ -1,0 +1,1 @@
+{"fn": "sub_124848", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x124848", "status": "ok", "name": "mmio_read_status", "params": [], "docstring": "Read and decode MMIO status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

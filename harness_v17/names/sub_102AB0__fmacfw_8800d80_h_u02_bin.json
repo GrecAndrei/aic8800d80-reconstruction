@@ -1,0 +1,1 @@
+{"fn": "sub_102AB0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x102ab0", "status": "ok", "name": "get_clock_prescaler", "params": [], "docstring": "Reads a bitfield and returns 1 shifted by its value", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

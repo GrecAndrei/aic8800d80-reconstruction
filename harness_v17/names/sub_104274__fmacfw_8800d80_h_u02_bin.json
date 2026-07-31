@@ -1,0 +1,1 @@
+{"fn": "sub_104274", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x104274", "status": "ok", "name": "tx_ring_next_idx", "params": [], "docstring": "Advance TX descriptor ring index and wrap at 0x3fff", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

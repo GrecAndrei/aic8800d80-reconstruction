@@ -1,0 +1,1 @@
+{"fn": "sub_10C9A0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10c9a0", "status": "ok", "name": "check_status_bit", "params": [], "docstring": "Check bit flag in status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

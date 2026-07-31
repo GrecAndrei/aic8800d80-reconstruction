@@ -1,0 +1,1 @@
+{"fn": "sub_12A3E8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a3e8", "status": "ok", "name": "lll_conn_phy_get", "params": [], "docstring": "Get PHY value for LLL connection", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

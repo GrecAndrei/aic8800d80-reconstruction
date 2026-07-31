@@ -1,0 +1,1 @@
+{"fn": "sub_13AA30", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13aa30", "status": "ok", "name": "phy_check_chanspec", "params": [], "docstring": "Check chanspec", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

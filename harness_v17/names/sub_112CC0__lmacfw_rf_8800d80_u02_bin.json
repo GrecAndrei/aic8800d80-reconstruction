@@ -1,0 +1,1 @@
+{"fn": "sub_112CC0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x112cc0", "status": "ok", "name": "send_control_packet", "params": [], "docstring": "Validate arguments and send a control packet if flag permits", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

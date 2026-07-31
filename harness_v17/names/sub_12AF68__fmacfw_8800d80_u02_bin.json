@@ -1,0 +1,1 @@
+{"fn": "sub_12AF68", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12af68", "status": "ok", "name": "ke_state_check", "params": [], "docstring": "Get kernel task state and compare against 3", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

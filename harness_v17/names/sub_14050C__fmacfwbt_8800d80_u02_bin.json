@@ -1,0 +1,1 @@
+{"fn": "sub_14050C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x14050c", "status": "ok", "name": "check_module_state", "params": [], "docstring": "Check kernel module state and access link layer pointer", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

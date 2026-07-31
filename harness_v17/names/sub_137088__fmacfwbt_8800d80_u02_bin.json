@@ -1,0 +1,1 @@
+{"fn": "sub_137088", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x137088", "status": "ok", "name": "rf_state_update", "params": [], "docstring": "Update radio state and return status", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

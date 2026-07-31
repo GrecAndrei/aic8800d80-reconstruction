@@ -1,0 +1,1 @@
+{"fn": "sub_12FCE4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12fce4", "status": "ok", "name": "parse_hex12", "params": [], "docstring": "Check 12-character string before parsing", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

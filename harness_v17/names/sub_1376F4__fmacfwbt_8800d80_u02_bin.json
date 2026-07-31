@@ -1,0 +1,1 @@
+{"fn": "sub_1376F4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1376f4", "status": "ok", "name": "find_table_entry", "params": [], "docstring": "Search lookup table for matching word", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

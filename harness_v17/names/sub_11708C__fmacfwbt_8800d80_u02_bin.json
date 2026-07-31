@@ -1,0 +1,1 @@
+{"fn": "sub_11708C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11708c", "status": "ok", "name": "ke_timer_calc", "params": [], "docstring": "Compute timer offset from config", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

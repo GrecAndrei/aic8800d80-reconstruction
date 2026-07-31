@@ -1,0 +1,1 @@
+{"fn": "sub_116C4C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116c4c", "status": "ok", "name": "dma_ring_init", "params": [], "docstring": "Initialize DMA ring structures", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

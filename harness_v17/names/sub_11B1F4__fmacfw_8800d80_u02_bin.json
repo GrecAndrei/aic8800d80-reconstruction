@@ -1,0 +1,1 @@
+{"fn": "sub_11B1F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b1f4", "status": "ok", "name": "read_mmio_register", "params": [], "docstring": "Reads MMIO register based on channel field", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

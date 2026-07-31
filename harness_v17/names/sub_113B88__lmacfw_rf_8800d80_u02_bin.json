@@ -1,0 +1,1 @@
+{"fn": "sub_113B88", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113b88", "status": "ok", "name": "mmio_read_status", "params": [], "docstring": "Read status register and extract bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_117290", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117290", "status": "ok", "name": "tx_check_ready", "params": [], "docstring": "Check TX readiness flags and pointer", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

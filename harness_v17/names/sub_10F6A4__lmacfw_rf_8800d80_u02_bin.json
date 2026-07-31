@@ -1,0 +1,1 @@
+{"fn": "sub_10F6A4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f6a4", "status": "ok", "name": "bt_state_dispatch", "params": [], "docstring": "Selects behavior based on current BT controller state byte.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

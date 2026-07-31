@@ -1,0 +1,1 @@
+{"fn": "sub_141F70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141f70", "status": "ok", "name": "set_conn_flag", "params": [], "docstring": "Set connection flag bit in header word", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

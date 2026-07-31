@@ -1,0 +1,1 @@
+{"fn": "sub_12B5A0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b5a0", "status": "ok", "name": "rf_get_irq_status", "params": [], "docstring": "Reads and masks radio IRQ status register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

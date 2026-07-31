@@ -1,0 +1,1 @@
+{"fn": "sub_111884", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111884", "status": "ok", "name": "mmio_sync", "params": [], "docstring": "Synchronize global data to MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

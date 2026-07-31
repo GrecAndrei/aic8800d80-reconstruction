@@ -1,0 +1,1 @@
+{"fn": "sub_11459C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11459c", "status": "ok", "name": "set_state_flag", "params": [], "docstring": "Set bit 1 in global state word at offset 8", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

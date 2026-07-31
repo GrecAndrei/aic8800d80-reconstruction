@@ -1,0 +1,1 @@
+{"fn": "sub_1029D8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1029d8", "status": "ok", "name": "get_hw_flash_size", "params": [], "docstring": "Calculates hardware flash size from memory configuration register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

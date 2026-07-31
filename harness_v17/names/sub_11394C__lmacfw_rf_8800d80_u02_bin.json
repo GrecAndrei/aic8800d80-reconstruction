@@ -1,0 +1,1 @@
+{"fn": "sub_11394C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11394c", "status": "ok", "name": "get_device_state", "params": [], "docstring": "Gather device state from multiple globals", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

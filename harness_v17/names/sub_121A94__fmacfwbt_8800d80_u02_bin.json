@@ -1,0 +1,1 @@
+{"fn": "sub_121A94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121a94", "status": "ok", "name": "mmio_set_bit", "params": [], "docstring": "Set bit 1 in MMIO control register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

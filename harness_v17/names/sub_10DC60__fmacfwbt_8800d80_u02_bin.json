@@ -1,0 +1,1 @@
+{"fn": "sub_10DC60", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10dc60", "status": "ok", "name": "gpio_write_pin2", "params": [], "docstring": "Set or clear pin 2 output based on a flag byte", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

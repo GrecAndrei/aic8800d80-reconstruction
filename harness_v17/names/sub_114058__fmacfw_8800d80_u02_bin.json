@@ -1,0 +1,1 @@
+{"fn": "sub_114058", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114058", "status": "ok", "name": "call_checked", "params": [], "docstring": "Calls helper then traps on failure", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

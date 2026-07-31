@@ -1,0 +1,1 @@
+{"fn": "sub_1194F4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1194f4", "status": "ok", "name": "send_event_0x70", "params": [], "docstring": "Queue event 0x70 for the kernel loop", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_14273C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x14273c", "status": "ok", "name": "double_compare", "params": [], "docstring": "Core double-precision comparison", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

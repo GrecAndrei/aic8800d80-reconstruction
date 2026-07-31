@@ -1,0 +1,1 @@
+{"fn": "sub_126714", "img": "fmacfw_8800d80_u02_bin", "addr": "0x126714", "status": "ok", "name": "llm_ctrl_msg_handler", "params": [], "docstring": "Handle LL control task messages", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

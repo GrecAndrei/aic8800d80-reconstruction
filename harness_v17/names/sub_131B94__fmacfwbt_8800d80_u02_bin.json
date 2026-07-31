@@ -1,0 +1,1 @@
+{"fn": "sub_131B94", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x131b94", "status": "ok", "name": "llm_scan_start", "params": [], "docstring": "Start scanning from LLM environment", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

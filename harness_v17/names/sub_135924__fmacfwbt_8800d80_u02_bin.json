@@ -1,0 +1,1 @@
+{"fn": "sub_135924", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135924", "status": "ok", "name": "rf_get_power_by_index", "params": [], "docstring": "Get TX power parameter indexed by rate and table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

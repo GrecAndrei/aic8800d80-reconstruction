@@ -1,0 +1,1 @@
+{"fn": "sub_124D70", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x124d70", "status": "ok", "name": "radio_read_config", "params": [], "docstring": "Read radio configuration MMIO registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

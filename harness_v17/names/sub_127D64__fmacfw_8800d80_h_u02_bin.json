@@ -1,0 +1,1 @@
+{"fn": "sub_127D64", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x127d64", "status": "ok", "name": "cfm_mac_info", "params": [], "docstring": "Reads MAC-related fields from CFM structs", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

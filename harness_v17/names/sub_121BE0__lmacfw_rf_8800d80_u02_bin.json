@@ -1,0 +1,1 @@
+{"fn": "sub_121BE0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121be0", "status": "ok", "name": "str_skip_spaces", "params": [], "docstring": "Skips leading spaces in string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_143D00", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x143d00", "status": "ok", "name": "memcpy_aligned", "params": [], "docstring": "Copy memory using 8-byte preload and alignment.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

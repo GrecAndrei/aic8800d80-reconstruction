@@ -1,0 +1,1 @@
+{"fn": "sub_117B4C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117b4c", "status": "ok", "name": "btcoex_update_bt_info", "params": [], "docstring": "Update bluetooth coexistence info under global lock", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

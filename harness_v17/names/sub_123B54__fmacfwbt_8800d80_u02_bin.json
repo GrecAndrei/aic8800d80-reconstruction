@@ -1,0 +1,1 @@
+{"fn": "sub_123B54", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123b54", "status": "ok", "name": "log_debug", "params": [], "docstring": "Sends debug output via helper with static string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

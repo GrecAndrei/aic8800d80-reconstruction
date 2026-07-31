@@ -1,0 +1,1 @@
+{"fn": "sub_123F04", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123f04", "status": "ok", "name": "format_message", "params": [], "docstring": "Formats a message using stack arguments and a helper function", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

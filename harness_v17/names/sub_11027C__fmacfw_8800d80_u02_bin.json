@@ -1,0 +1,1 @@
+{"fn": "sub_11027C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11027c", "status": "ok", "name": "get_link_tx_power", "params": [], "docstring": "Read current tx power setting", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

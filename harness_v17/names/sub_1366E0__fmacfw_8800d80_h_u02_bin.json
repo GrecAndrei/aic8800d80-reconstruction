@@ -1,0 +1,1 @@
+{"fn": "sub_1366E0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1366e0", "status": "ok", "name": "acquire_lock_check_state", "params": [], "docstring": "Acquire lock and verify controller state", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

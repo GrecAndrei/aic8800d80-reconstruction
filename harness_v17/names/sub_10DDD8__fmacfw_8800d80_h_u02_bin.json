@@ -1,0 +1,1 @@
+{"fn": "sub_10DDD8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ddd8", "status": "ok", "name": "rf_table_update", "params": [], "docstring": "Update RF parameter table entry with shifted value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

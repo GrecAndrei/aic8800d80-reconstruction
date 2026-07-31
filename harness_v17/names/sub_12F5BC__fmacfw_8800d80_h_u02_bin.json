@@ -1,0 +1,1 @@
+{"fn": "sub_12F5BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12f5bc", "status": "ok", "name": "skip_leading_spaces", "params": [], "docstring": "Skips leading space characters in a string.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

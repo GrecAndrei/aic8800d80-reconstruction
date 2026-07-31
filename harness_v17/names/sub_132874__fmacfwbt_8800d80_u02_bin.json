@@ -1,0 +1,1 @@
+{"fn": "sub_132874", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132874", "status": "ok", "name": "llm_parse_adv_pdu", "params": [], "docstring": "Parse advertising PDU and initialize context", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12B74C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b74c", "status": "ok", "name": "get_bt_status", "params": [], "docstring": "Return global BT status pointer if flag bits are set, else fallback", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

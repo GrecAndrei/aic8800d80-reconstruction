@@ -1,0 +1,1 @@
+{"fn": "sub_11118C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11118c", "status": "ok", "name": "timer_set_alarm", "params": [], "docstring": "Set timer alarm from globals", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

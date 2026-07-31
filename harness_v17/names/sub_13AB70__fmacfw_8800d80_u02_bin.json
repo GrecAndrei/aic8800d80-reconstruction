@@ -1,0 +1,1 @@
+{"fn": "sub_13AB70", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13ab70", "status": "ok", "name": "ll_conn_event_type_check", "params": [], "docstring": "Check connection event type field", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

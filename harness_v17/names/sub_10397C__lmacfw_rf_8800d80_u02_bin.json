@@ -1,0 +1,1 @@
+{"fn": "sub_10397C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10397c", "status": "ok", "name": "bb_reset", "params": [], "docstring": "Sets a reset bit in the baseband control register and prepares flags", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

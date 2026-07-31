@@ -1,0 +1,1 @@
+{"fn": "sub_113C20", "img": "fmacfw_8800d80_u02_bin", "addr": "0x113c20", "status": "ok", "name": "update_config_bytes", "params": [], "docstring": "Copies two config bytes to globals", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

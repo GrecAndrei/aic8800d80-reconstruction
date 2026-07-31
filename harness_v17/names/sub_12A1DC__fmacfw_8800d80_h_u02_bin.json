@@ -1,0 +1,1 @@
+{"fn": "sub_12A1DC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12a1dc", "status": "ok", "name": "bt_get_conn_ptr", "params": [], "docstring": "Compute pointer to connection record from stored slot index.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

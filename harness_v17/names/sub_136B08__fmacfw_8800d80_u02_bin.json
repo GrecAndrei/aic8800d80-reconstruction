@@ -1,0 +1,1 @@
+{"fn": "sub_136B08", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136b08", "status": "ok", "name": "bt_is_link_active", "params": [], "docstring": "Checks if BT link state is active", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

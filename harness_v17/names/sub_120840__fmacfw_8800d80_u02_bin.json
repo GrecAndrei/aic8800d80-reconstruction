@@ -1,0 +1,1 @@
+{"fn": "sub_120840", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120840", "status": "ok", "name": "handle_rx_data", "params": [], "docstring": "Parses RX packet fields from multiple descriptor structures.", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_121934", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121934", "status": "ok", "name": "ke_evt_poll", "params": [], "docstring": "Poll kernel event queue for pending event", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

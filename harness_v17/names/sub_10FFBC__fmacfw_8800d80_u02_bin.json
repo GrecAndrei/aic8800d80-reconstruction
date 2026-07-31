@@ -1,0 +1,1 @@
+{"fn": "sub_10FFBC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10ffbc", "status": "ok", "name": "is_hci_initialized", "params": [], "docstring": "Return whether HCI transport is up", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

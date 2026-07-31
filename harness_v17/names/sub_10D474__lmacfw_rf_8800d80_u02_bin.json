@@ -1,0 +1,1 @@
+{"fn": "sub_10D474", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10d474", "status": "ok", "name": "rf_phy_init", "params": [], "docstring": "Initialize and enable RF PHY control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

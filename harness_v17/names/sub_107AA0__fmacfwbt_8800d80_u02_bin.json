@@ -1,0 +1,1 @@
+{"fn": "sub_107AA0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x107aa0", "status": "ok", "name": "rf_mmio_init", "params": [], "docstring": "Initialize RF MMIO register range", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

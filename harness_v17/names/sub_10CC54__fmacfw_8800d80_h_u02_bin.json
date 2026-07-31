@@ -1,0 +1,1 @@
+{"fn": "sub_10CC54", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10cc54", "status": "ok", "name": "check_event_flag", "params": [], "docstring": "Check event flag in status register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

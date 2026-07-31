@@ -1,0 +1,1 @@
+{"fn": "sub_130514", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x130514", "status": "ok", "name": "rf_map_channel", "params": [], "docstring": "Map channel offset to RF band table", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

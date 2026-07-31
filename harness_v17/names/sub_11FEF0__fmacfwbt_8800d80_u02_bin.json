@@ -1,0 +1,1 @@
+{"fn": "sub_11FEF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11fef0", "status": "ok", "name": "wlc_phy_attach", "params": [], "docstring": "Attach PHY and set up channel state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

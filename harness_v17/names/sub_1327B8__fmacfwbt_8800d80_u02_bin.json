@@ -1,0 +1,1 @@
+{"fn": "sub_1327B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1327b8", "status": "ok", "name": "rf_phy_to_power_map", "params": [], "docstring": "Map PHY mode to power level code", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

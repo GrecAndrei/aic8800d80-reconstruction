@@ -1,0 +1,1 @@
+{"fn": "sub_12D79C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d79c", "status": "ok", "name": "check_buf_range_12d79c", "params": [], "docstring": "Validates pointer/range non-empty and not wrapped", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

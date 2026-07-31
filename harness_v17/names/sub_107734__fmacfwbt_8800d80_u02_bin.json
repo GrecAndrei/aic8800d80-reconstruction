@@ -1,0 +1,1 @@
+{"fn": "sub_107734", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x107734", "status": "ok", "name": "rf_configure_whitening", "params": [], "docstring": "Configure RF whitening and scrambling masks", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124D3C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124d3c", "status": "ok", "name": "unknown_worker", "params": [], "docstring": "Handles unknown data with invalid instruction", "subsystem": "unknown", "tool_call_count": 0, "tool_calls": []}

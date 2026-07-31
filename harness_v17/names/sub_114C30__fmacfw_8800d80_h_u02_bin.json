@@ -1,0 +1,1 @@
+{"fn": "sub_114C30", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114c30", "status": "ok", "name": "patch_validate", "params": [], "docstring": "Validate patch context pointer from 0x182554", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

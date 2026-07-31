@@ -1,0 +1,1 @@
+{"fn": "sub_101954", "img": "fmacfw_8800d80_u02_bin", "addr": "0x101954", "status": "ok", "name": "rf_copy_register", "params": [], "docstring": "Copies a value between two radio registers", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

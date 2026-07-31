@@ -1,0 +1,1 @@
+{"fn": "sub_12C444", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12c444", "status": "ok", "name": "compute_byte_delta", "params": [], "docstring": "Compute signed difference between struct bytes at offsets 0x1a4 and 0x1d0", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

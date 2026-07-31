@@ -1,0 +1,1 @@
+{"fn": "sub_113280", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113280", "status": "ok", "name": "tx_event_handler", "params": [], "docstring": "Process transmit queue based on pointer field offset 4", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

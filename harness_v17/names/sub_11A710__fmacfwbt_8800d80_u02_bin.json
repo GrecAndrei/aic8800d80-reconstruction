@@ -1,0 +1,1 @@
+{"fn": "sub_11A710", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a710", "status": "ok", "name": "ke_timer_tick", "params": [], "docstring": "Decrement timer counter and invoke callback on expiry", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

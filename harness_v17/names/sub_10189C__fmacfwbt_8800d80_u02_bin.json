@@ -1,0 +1,1 @@
+{"fn": "sub_10189C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10189c", "status": "ok", "name": "rf_control_set_bit3", "params": [], "docstring": "Set RF control bit 3 from input flag", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

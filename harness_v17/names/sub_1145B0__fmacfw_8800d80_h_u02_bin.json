@@ -1,0 +1,1 @@
+{"fn": "sub_1145B0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1145b0", "status": "ok", "name": "check_initialized", "params": [], "docstring": "Return 0x1000 if global pointer is non-zero", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

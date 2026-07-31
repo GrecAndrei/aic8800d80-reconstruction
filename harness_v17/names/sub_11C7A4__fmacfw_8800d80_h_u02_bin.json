@@ -1,0 +1,1 @@
+{"fn": "sub_11C7A4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c7a4", "status": "ok", "name": "dma_clear_interrupt", "params": [], "docstring": "Clear DMA pending interrupt via register writes", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

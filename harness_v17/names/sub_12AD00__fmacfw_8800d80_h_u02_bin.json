@@ -1,0 +1,1 @@
+{"fn": "sub_12AD00", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ad00", "status": "ok", "name": "init_all_chan_entries", "params": [], "docstring": "Initialize channel entries 0..3", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

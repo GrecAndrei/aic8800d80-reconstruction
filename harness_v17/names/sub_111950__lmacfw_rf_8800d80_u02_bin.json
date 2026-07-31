@@ -1,0 +1,1 @@
+{"fn": "sub_111950", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x111950", "status": "ok", "name": "rf_channel_update", "params": [], "docstring": "Update RF channel state after check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

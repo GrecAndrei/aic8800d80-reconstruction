@@ -1,0 +1,1 @@
+{"fn": "sub_133E98", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133e98", "status": "ok", "name": "ctrl_event_handler", "params": [], "docstring": "Handle control event", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12FA2C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12fa2c", "status": "ok", "name": "queue_operation", "params": [], "docstring": "Add or remove nodes from kernel queue.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_13C050", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13c050", "status": "ok", "name": "rf_apply_cfg", "params": [], "docstring": "Apply PHY configuration based on readiness check", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1150C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1150c0", "status": "ok", "name": "syscall11_flash_write", "params": [], "docstring": "Call service 11 and shift first arg left by 3", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

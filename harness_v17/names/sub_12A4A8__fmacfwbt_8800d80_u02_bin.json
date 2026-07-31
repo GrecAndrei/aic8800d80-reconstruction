@@ -1,0 +1,1 @@
+{"fn": "sub_12A4A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a4a8", "status": "ok", "name": "bt_conn_event_process", "params": [], "docstring": "Process connection event if active flag set", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

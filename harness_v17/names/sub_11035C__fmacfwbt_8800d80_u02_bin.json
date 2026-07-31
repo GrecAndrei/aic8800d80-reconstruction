@@ -1,0 +1,1 @@
+{"fn": "sub_11035C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11035c", "status": "ok", "name": "usb_irq_handler", "params": [], "docstring": "Handle USB interrupt and DMA state", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

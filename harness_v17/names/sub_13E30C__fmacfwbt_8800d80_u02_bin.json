@@ -1,0 +1,1 @@
+{"fn": "sub_13E30C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13e30c", "status": "ok", "name": "rx_init_packet_buf", "params": [], "docstring": "Initialize RX packet buffer header fields", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

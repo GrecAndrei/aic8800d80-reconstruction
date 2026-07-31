@@ -1,0 +1,1 @@
+{"fn": "sub_132658", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132658", "status": "ok", "name": "util_init_outputs", "params": [], "docstring": "Initialize three output values to zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

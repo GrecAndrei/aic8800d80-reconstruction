@@ -1,0 +1,1 @@
+{"fn": "sub_13289C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13289c", "status": "ok", "name": "patch_check_version", "params": [], "docstring": "Checks patch header and loads feature byte", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_124F9C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124f9c", "status": "ok", "name": "set_conn_latency", "params": [], "docstring": "Parse slave latency value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

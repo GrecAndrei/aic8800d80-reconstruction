@@ -1,0 +1,1 @@
+{"fn": "sub_136338", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136338", "status": "ok", "name": "bt_vendor_cmd_guard", "params": [], "docstring": "Send vendor command via guarded path", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12315C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12315c", "status": "ok", "name": "read_controller_info", "params": [], "docstring": "Send command 0x81 with 64-byte buffer", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

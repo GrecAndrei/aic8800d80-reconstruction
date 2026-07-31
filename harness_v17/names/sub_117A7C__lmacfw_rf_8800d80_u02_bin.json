@@ -1,0 +1,1 @@
+{"fn": "sub_117A7C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x117a7c", "status": "ok", "name": "stack_canary_setup", "params": [], "docstring": "Store stack canary values loaded from fixed registers", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

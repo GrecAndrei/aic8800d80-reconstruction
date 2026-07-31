@@ -1,0 +1,1 @@
+{"fn": "sub_118970", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x118970", "status": "ok", "name": "verify_header_magic", "params": [], "docstring": "Validate magic numbers in firmware header", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

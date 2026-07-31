@@ -1,0 +1,1 @@
+{"fn": "sub_124F7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x124f7c", "status": "ok", "name": "global_state_get", "params": [], "docstring": "Returns dereferenced global firmware state pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

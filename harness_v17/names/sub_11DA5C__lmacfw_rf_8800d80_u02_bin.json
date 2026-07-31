@@ -1,0 +1,1 @@
+{"fn": "sub_11DA5C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11da5c", "status": "ok", "name": "rf_set_temperature", "params": [], "docstring": "Set temperature calibration value and apply if changed", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

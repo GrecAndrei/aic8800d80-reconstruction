@@ -1,0 +1,1 @@
+{"fn": "sub_121534", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x121534", "status": "ok", "name": "rf_get_version", "params": [], "docstring": "Read RF hardware version register and compare", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

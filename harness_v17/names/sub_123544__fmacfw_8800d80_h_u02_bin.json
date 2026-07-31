@@ -1,0 +1,1 @@
+{"fn": "sub_123544", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123544", "status": "ok", "name": "ke_event_schedule", "params": [], "docstring": "Schedule an event and return success", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

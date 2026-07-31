@@ -1,0 +1,1 @@
+{"fn": "sub_114550", "img": "fmacfw_8800d80_u02_bin", "addr": "0x114550", "status": "ok", "name": "get_global_1671bc", "params": [], "docstring": "Load global value from 0x1671bc", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_132D18", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132d18", "status": "ok", "name": "scan_interval_update", "params": [], "docstring": "Updates scan interval fields in scan context", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

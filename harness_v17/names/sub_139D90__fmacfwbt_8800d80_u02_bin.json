@@ -1,0 +1,1 @@
+{"fn": "sub_139D90", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x139d90", "status": "ok", "name": "init_driver_locks", "params": [], "docstring": "Initialize locks for driver global objects", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

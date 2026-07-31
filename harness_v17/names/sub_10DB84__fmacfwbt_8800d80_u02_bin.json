@@ -1,0 +1,1 @@
+{"fn": "sub_10DB84", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10db84", "status": "ok", "name": "gpio_test_bit_reg0", "params": [], "docstring": "Test specified bit in peripheral register at offset 0 and return boolean", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

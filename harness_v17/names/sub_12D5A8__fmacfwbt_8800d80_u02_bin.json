@@ -1,0 +1,1 @@
+{"fn": "sub_12D5A8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d5a8", "status": "ok", "name": "list_find", "params": [], "docstring": "Iterate list and return result", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

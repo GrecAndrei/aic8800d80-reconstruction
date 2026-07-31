@@ -1,0 +1,1 @@
+{"fn": "sub_11A8B0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11a8b0", "status": "ok", "name": "get_hw_state", "params": [], "docstring": "Reads hardware state and context fields", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

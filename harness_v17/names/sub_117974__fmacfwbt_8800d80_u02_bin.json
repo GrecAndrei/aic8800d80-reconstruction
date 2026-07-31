@@ -1,0 +1,1 @@
+{"fn": "sub_117974", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x117974", "status": "ok", "name": "conn_prepare", "params": [], "docstring": "Prepare connection buffer at offset 0x4f8", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

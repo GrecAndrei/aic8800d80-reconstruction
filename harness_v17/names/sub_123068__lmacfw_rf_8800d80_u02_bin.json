@@ -1,0 +1,1 @@
+{"fn": "sub_123068", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x123068", "status": "ok", "name": "enter_critical_section", "params": [], "docstring": "Enter critical section by disabling interrupts", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

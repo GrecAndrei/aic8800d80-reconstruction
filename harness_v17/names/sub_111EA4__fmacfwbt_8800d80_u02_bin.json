@@ -1,0 +1,1 @@
+{"fn": "sub_111EA4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x111ea4", "status": "ok", "name": "ke_msg_handler", "params": [], "docstring": "Handle kernel message with state checks", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

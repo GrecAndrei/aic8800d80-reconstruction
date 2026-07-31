@@ -1,0 +1,1 @@
+{"fn": "sub_133A18", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x133a18", "status": "ok", "name": "rf_check_status", "params": [], "docstring": "Check RF controller status and return argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

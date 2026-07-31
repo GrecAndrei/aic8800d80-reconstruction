@@ -1,0 +1,1 @@
+{"fn": "sub_11F724", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11f724", "status": "ok", "name": "ble_sched_init", "params": [], "docstring": "initialize BLE scheduler state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_123D9C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x123d9c", "status": "ok", "name": "state_is_valid", "params": [], "docstring": "Validate global state sign", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

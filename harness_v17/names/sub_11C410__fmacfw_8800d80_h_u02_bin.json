@@ -1,0 +1,1 @@
+{"fn": "sub_11C410", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11c410", "status": "ok", "name": "sta_rate_limit_check", "params": [], "docstring": "Check station rate field against maximum allowed value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

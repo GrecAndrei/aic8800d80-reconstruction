@@ -1,0 +1,1 @@
+{"fn": "sub_1138C8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1138c8", "status": "ok", "name": "util_call_void", "params": [], "docstring": "Invoke void helper routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

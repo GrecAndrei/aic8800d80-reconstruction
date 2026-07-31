@@ -1,0 +1,1 @@
+{"fn": "sub_11CB84", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11cb84", "status": "ok", "name": "aes_encrypt", "params": [], "docstring": "Encrypt a block using AES with context at 0x17bee4", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

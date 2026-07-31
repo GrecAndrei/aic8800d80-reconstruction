@@ -1,0 +1,1 @@
+{"fn": "sub_1414AC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1414ac", "status": "ok", "name": "ke_timer_check", "params": [], "docstring": "Checks timer expiry against the current tick counter", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

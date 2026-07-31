@@ -1,0 +1,1 @@
+{"fn": "sub_12A140", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12a140", "status": "ok", "name": "bt_runtime_check", "params": [], "docstring": "Check runtime feature flag before BT operation", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

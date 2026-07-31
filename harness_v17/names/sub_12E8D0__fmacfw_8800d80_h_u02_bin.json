@@ -1,0 +1,1 @@
+{"fn": "sub_12E8D0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12e8d0", "status": "ok", "name": "mmio_read_bit13", "params": [], "docstring": "Reads peripheral register and tests bit 13", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_136684", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136684", "status": "ok", "name": "rf_cal_configure", "params": [], "docstring": "Configure RF calibration from global structures", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

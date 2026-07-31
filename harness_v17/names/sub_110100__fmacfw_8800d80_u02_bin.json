@@ -1,0 +1,1 @@
+{"fn": "sub_110100", "img": "fmacfw_8800d80_u02_bin", "addr": "0x110100", "status": "ok", "name": "calculate_rf_power", "params": [], "docstring": "Compute RF power from calibration data", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

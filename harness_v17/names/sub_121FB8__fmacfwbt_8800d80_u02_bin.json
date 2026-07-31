@@ -1,0 +1,1 @@
+{"fn": "sub_121FB8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x121fb8", "status": "ok", "name": "phy_txpower_calc", "params": [], "docstring": "Calculate tx power offset using rate multiplier", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

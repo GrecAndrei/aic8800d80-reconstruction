@@ -1,0 +1,1 @@
+{"fn": "sub_13BA08", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13ba08", "status": "ok", "name": "rf_init_queues", "params": [], "docstring": "Initialize three queue objects in RF context", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

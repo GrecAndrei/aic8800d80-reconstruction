@@ -1,0 +1,1 @@
+{"fn": "sub_114754", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x114754", "status": "ok", "name": "rf_cmd_6_version", "params": [], "docstring": "Invoke ROM RF cmd 6 and return high byte", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

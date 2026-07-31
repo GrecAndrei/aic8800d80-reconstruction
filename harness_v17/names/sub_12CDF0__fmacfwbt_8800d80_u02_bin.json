@@ -1,0 +1,1 @@
+{"fn": "sub_12CDF0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12cdf0", "status": "ok", "name": "hci_tx_packet", "params": [], "docstring": "Build and transmit packet from header at r0-4", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

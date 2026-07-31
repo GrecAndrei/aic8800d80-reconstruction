@@ -1,0 +1,1 @@
+{"fn": "sub_120720", "img": "fmacfw_8800d80_u02_bin", "addr": "0x120720", "status": "ok", "name": "get_bt_state", "params": [], "docstring": "Reads a Bluetooth state byte from a global structure.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

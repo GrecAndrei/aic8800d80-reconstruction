@@ -1,0 +1,1 @@
+{"fn": "sub_10A9A8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10a9a8", "status": "ok", "name": "periph_init_2", "params": [], "docstring": "Configures multiple peripheral registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

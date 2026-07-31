@@ -1,0 +1,1 @@
+{"fn": "sub_107068", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x107068", "status": "ok", "name": "gpio_output", "params": [], "docstring": "Set GPIO output mode and drive control", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

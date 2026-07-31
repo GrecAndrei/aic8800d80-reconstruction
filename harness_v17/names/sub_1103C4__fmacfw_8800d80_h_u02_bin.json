@@ -1,0 +1,1 @@
+{"fn": "sub_1103C4", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1103c4", "status": "ok", "name": "mac_tx_setup", "params": [], "docstring": "Configures MAC TX path using chip registers and state", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

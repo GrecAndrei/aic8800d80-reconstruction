@@ -1,0 +1,1 @@
+{"fn": "sub_113E70", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x113e70", "status": "ok", "name": "tx_desc_build", "params": [], "docstring": "Build TX frame descriptor using template at 0x14B9CC", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

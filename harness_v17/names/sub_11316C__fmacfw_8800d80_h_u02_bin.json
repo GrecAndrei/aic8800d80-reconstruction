@@ -1,0 +1,1 @@
+{"fn": "sub_11316C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11316c", "status": "ok", "name": "bt_wait_ready", "params": [], "docstring": "Poll Bluetooth module ready state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_141688", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x141688", "status": "ok", "name": "check_tx_power_valid", "params": [], "docstring": "Check if TX power value is valid before using it", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_129D88", "img": "fmacfw_8800d80_u02_bin", "addr": "0x129d88", "status": "ok", "name": "llc_evt_schedule", "params": [], "docstring": "Select connection event state entry by link index", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

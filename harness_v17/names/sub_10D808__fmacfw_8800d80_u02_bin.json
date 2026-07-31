@@ -1,0 +1,1 @@
+{"fn": "sub_10D808", "img": "fmacfw_8800d80_u02_bin", "addr": "0x10d808", "status": "ok", "name": "prepare_debug_buffer", "params": [], "docstring": "Initialize stack buffer and call routine at 0x10d808", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

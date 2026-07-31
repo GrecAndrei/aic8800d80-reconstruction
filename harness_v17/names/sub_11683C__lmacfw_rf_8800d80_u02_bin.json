@@ -1,0 +1,1 @@
+{"fn": "sub_11683C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11683c", "status": "ok", "name": "event_count_update", "params": [], "docstring": "read status and update event counter byte", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

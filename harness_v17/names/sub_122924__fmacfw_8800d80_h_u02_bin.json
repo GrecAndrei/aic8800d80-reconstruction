@@ -1,0 +1,1 @@
+{"fn": "sub_122924", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x122924", "status": "ok", "name": "scan_control_update", "params": [], "docstring": "Update scan control parameters", "subsystem": "scan", "tool_call_count": 0, "tool_calls": []}

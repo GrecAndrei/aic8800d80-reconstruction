@@ -1,0 +1,1 @@
+{"fn": "sub_1225C4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1225c4", "status": "ok", "name": "call_copy_packet_data", "params": [], "docstring": "Wrapper calling packet data copy routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_103154", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x103154", "status": "ok", "name": "hw_init", "params": [], "docstring": "Initializes hardware registers and configures modules", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

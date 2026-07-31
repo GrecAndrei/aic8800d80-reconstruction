@@ -1,0 +1,1 @@
+{"fn": "sub_1231D4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1231d4", "status": "ok", "name": "send_cmd_88", "params": [], "docstring": "Send 8-byte parameter command 0x88", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_128D50", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128d50", "status": "ok", "name": "is_log_enabled", "params": [], "docstring": "Checks debug log enable condition for context and mask", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

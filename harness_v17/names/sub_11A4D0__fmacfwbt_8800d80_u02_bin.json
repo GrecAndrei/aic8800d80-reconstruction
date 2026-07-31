@@ -1,0 +1,1 @@
+{"fn": "sub_11A4D0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a4d0", "status": "ok", "name": "llc_rx_llcp_handler", "params": [], "docstring": "Handle incoming LLCP packet on connection", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

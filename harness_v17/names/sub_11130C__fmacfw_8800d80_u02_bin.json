@@ -1,0 +1,1 @@
+{"fn": "sub_11130C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11130c", "status": "ok", "name": "read_random_from_mmio", "params": [], "docstring": "Read and combine 22-bit values from MMIO", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

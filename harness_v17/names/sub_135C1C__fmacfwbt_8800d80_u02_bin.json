@@ -1,0 +1,1 @@
+{"fn": "sub_135C1C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x135c1c", "status": "ok", "name": "hci_vendor_read_rf_cache", "params": [], "docstring": "Send HCI vendor command and read RF cache field", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

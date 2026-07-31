@@ -1,0 +1,1 @@
+{"fn": "sub_118674", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x118674", "status": "ok", "name": "send_acl_packet", "params": [], "docstring": "Process and transmit ACL packet with parameters", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

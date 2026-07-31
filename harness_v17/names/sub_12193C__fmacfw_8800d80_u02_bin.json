@@ -1,0 +1,1 @@
+{"fn": "sub_12193C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12193c", "status": "ok", "name": "phy_read_offset_a", "params": [], "docstring": "Read PHY table byte at 0x1c5 for given band/core.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

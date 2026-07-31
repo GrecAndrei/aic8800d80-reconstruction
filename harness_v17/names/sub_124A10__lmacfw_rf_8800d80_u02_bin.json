@@ -1,0 +1,1 @@
+{"fn": "sub_124A10", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x124a10", "status": "ok", "name": "set_channel", "params": [], "docstring": "Parse channel number and store zero-based RF channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

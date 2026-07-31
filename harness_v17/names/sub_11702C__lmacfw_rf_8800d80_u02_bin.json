@@ -1,0 +1,1 @@
+{"fn": "sub_11702C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11702c", "status": "ok", "name": "wlan_rf_init", "params": [], "docstring": "initialize radio and core register state", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

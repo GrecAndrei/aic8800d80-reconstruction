@@ -1,0 +1,1 @@
+{"fn": "sub_116E7C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x116e7c", "status": "ok", "name": "chip_init_sequence", "params": [], "docstring": "Run chip initialization calls", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

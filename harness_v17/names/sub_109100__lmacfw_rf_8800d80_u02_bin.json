@@ -1,0 +1,1 @@
+{"fn": "sub_109100", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x109100", "status": "ok", "name": "mac_frame_parse_fcf", "params": [], "docstring": "Parse MAC frame control field and choose frame handling path.", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

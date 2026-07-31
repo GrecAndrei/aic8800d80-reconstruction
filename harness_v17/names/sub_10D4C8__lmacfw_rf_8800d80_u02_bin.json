@@ -1,0 +1,1 @@
+{"fn": "sub_10D4C8", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10d4c8", "status": "ok", "name": "panic_fatal", "params": [], "docstring": "Report fatal MAC error and trigger trace interrupt", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_138890", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x138890", "status": "ok", "name": "rf_lookup_tx_power", "params": [], "docstring": "look up TX power calibration value", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

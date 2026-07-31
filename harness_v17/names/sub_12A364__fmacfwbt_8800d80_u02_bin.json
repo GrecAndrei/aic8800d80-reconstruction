@@ -1,0 +1,1 @@
+{"fn": "sub_12A364", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12a364", "status": "ok", "name": "util_feature_get", "params": [], "docstring": "Check hardware feature flag from global pointer but do not use", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

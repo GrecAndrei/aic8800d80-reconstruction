@@ -1,0 +1,1 @@
+{"fn": "sub_11A308", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11a308", "status": "ok", "name": "llc_tx_llcp_handler", "params": [], "docstring": "Transmit LLCP packet for connection context", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

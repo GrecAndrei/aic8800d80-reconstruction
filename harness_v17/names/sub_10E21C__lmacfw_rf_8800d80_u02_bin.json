@@ -1,0 +1,1 @@
+{"fn": "sub_10E21C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10e21c", "status": "ok", "name": "sdio_core_init", "params": [], "docstring": "Initialize SDIO core and ChipCommon control registers", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

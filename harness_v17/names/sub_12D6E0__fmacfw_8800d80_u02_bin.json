@@ -1,0 +1,1 @@
+{"fn": "sub_12D6E0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d6e0", "status": "ok", "name": "free_msg", "params": [], "docstring": "Dispatches an extracted message word through the kernel free/event helpers", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

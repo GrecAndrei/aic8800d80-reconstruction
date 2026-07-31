@@ -1,0 +1,1 @@
+{"fn": "sub_12D594", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12d594", "status": "ok", "name": "list_length", "params": [], "docstring": "Count nodes in linked list", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

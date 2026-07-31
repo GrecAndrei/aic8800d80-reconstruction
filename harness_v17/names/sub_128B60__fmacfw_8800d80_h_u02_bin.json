@@ -1,0 +1,1 @@
+{"fn": "sub_128B60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128b60", "status": "ok", "name": "log_message", "params": [], "docstring": "Logs two strings and value via external routine", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

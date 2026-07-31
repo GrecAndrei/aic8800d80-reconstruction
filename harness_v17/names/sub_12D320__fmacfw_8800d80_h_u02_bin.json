@@ -1,0 +1,1 @@
+{"fn": "sub_12D320", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12d320", "status": "ok", "name": "is_global_flag_set", "params": [], "docstring": "Checks global flag pointed by 0x182b60 for zero", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

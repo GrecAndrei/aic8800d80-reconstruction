@@ -1,0 +1,1 @@
+{"fn": "sub_12BE8C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12be8c", "status": "ok", "name": "mmio_copy_reg", "params": [], "docstring": "Copies one MMIO register value to another", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

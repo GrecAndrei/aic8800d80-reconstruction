@@ -1,0 +1,1 @@
+{"fn": "sub_13BA0C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13ba0c", "status": "ok", "name": "rf_set_freq", "params": [], "docstring": "Set radio frequency register via helper", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

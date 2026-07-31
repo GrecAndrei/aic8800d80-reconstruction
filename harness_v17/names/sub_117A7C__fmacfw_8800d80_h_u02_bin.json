@@ -1,0 +1,1 @@
+{"fn": "sub_117A7C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x117a7c", "status": "ok", "name": "alloc_shared_ctx", "params": [], "docstring": "Allocate large shared context block", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

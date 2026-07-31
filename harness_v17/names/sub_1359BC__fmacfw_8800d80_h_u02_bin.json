@@ -1,0 +1,1 @@
+{"fn": "sub_1359BC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1359bc", "status": "ok", "name": "rf_chan_pwr_calc", "params": [], "docstring": "Calculates RF channel power table index", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

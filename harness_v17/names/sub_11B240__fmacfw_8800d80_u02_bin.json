@@ -1,0 +1,1 @@
+{"fn": "sub_11B240", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11b240", "status": "ok", "name": "check_link_state", "params": [], "docstring": "Checks link controller state byte", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

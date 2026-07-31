@@ -1,0 +1,1 @@
+{"fn": "sub_107584", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107584", "status": "ok", "name": "rf_mode_select", "params": [], "docstring": "Configure radio band/mode selection fields.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1063F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1063f4", "status": "ok", "name": "timer_elapsed_compare", "params": [], "docstring": "Compare stored timer value with supplied counter.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

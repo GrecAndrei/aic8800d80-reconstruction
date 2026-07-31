@@ -1,0 +1,1 @@
+{"fn": "sub_12FED8", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12fed8", "status": "ok", "name": "lock_with_timeout", "params": [], "docstring": "Locks global mutex with timeout parameter.", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

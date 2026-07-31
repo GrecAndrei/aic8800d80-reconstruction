@@ -1,0 +1,1 @@
+{"fn": "sub_116DBC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x116dbc", "status": "ok", "name": "phy_lock", "params": [], "docstring": "Acquire PHY lock if uninitialized", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1305B4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1305b4", "status": "ok", "name": "rf_enable", "params": [], "docstring": "Enable RF feature and update control register", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

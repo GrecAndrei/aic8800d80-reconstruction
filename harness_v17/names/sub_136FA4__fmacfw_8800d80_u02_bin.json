@@ -1,0 +1,1 @@
+{"fn": "sub_136FA4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x136fa4", "status": "ok", "name": "rf_set_band_alt", "params": [], "docstring": "Alternate entry for RF band command 0x1008", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_113310", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x113310", "status": "ok", "name": "rf_calib_init", "params": [], "docstring": "Initializes RF calibration if calibration flag is clear", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

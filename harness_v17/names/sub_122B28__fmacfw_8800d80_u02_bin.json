@@ -1,0 +1,1 @@
+{"fn": "sub_122B28", "img": "fmacfw_8800d80_u02_bin", "addr": "0x122b28", "status": "ok", "name": "log_message", "params": [], "docstring": "Log a formatted message to output.", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

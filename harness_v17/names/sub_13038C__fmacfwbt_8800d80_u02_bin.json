@@ -1,0 +1,1 @@
+{"fn": "sub_13038C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13038c", "status": "ok", "name": "ke_event_send", "params": [], "docstring": "Send kernel event with interrupts disabled", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

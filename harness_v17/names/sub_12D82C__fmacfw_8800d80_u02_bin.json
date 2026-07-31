@@ -1,0 +1,1 @@
+{"fn": "sub_12D82C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12d82c", "status": "ok", "name": "mem_range_check", "params": [], "docstring": "Validates a memory range using start r0 and length r1 with overflow detection", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

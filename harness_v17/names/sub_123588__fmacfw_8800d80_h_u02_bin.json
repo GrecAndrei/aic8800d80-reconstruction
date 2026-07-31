@@ -1,0 +1,1 @@
+{"fn": "sub_123588", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123588", "status": "ok", "name": "bt_parse_colon", "params": [], "docstring": "Parse next token and return colon delimiter", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

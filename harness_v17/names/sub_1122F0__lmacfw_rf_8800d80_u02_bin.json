@@ -1,0 +1,1 @@
+{"fn": "sub_1122F0", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1122f0", "status": "ok", "name": "rf_init", "params": [], "docstring": "Initialize RF hardware globals", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

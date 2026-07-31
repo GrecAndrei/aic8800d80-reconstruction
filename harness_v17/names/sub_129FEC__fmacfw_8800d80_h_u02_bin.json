@@ -1,0 +1,1 @@
+{"fn": "sub_129FEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x129fec", "status": "ok", "name": "bt_get_conn_channel", "params": [], "docstring": "Return connection channel field from a slot record.", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

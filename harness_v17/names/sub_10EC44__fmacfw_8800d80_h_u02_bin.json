@@ -1,0 +1,1 @@
+{"fn": "sub_10EC44", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10ec44", "status": "ok", "name": "mmio_read32", "params": [], "docstring": "Reads a 32-bit memory-mapped register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

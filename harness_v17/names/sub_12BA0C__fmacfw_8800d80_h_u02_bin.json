@@ -1,0 +1,1 @@
+{"fn": "sub_12BA0C", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12ba0c", "status": "ok", "name": "rf_radio_calibrate", "params": [], "docstring": "Adjusts radio calibration control and waits for settle", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

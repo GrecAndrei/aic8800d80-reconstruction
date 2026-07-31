@@ -1,0 +1,1 @@
+{"fn": "sub_130148", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x130148", "status": "ok", "name": "mmio_register_access", "params": [], "docstring": "Reads or writes memory-mapped peripheral register.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

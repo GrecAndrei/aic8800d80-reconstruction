@@ -1,0 +1,1 @@
+{"fn": "sub_11164C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x11164c", "status": "ok", "name": "rf_enable_tx_patch", "params": [], "docstring": "Enable RF TX patch flag", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

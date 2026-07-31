@@ -1,0 +1,1 @@
+{"fn": "sub_1420F8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1420f8", "status": "ok", "name": "poll_active_list", "params": [], "docstring": "Iterate over active entry list", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

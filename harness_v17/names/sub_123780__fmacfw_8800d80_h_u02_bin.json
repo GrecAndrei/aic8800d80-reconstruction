@@ -1,0 +1,1 @@
+{"fn": "sub_123780", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x123780", "status": "ok", "name": "trace_printf", "params": [], "docstring": "Trace log with indexed data lookup", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

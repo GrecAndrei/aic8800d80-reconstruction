@@ -1,0 +1,1 @@
+{"fn": "sub_11EABC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x11eabc", "status": "ok", "name": "check_hw_fw_status", "params": [], "docstring": "Verifies firmware status word against hardware register", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

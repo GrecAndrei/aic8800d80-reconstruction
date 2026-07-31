@@ -1,0 +1,1 @@
+{"fn": "sub_121E3C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x121e3c", "status": "ok", "name": "parse_number", "params": [], "docstring": "Parses signed decimal or hex number from string", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

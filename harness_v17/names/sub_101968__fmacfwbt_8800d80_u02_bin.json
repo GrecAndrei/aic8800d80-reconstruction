@@ -1,0 +1,1 @@
+{"fn": "sub_101968", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x101968", "status": "ok", "name": "sys_mode_get_low", "params": [], "docstring": "Return low nibble system mode minus one", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

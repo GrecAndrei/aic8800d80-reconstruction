@@ -1,0 +1,1 @@
+{"fn": "sub_111AFC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x111afc", "status": "ok", "name": "bt_cmd_handler", "params": [], "docstring": "Write to state struct and compare with 0x40", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10DBEC", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x10dbec", "status": "ok", "name": "mmio_get_bit", "params": [], "docstring": "Test whether a bit in register 0x40505000 is set", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

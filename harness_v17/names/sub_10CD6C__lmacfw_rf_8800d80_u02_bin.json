@@ -1,0 +1,1 @@
+{"fn": "sub_10CD6C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10cd6c", "status": "ok", "name": "handle_interrupt_save", "params": [], "docstring": "Save state and call common interrupt handler", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

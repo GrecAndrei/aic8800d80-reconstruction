@@ -1,0 +1,1 @@
+{"fn": "sub_136570", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x136570", "status": "ok", "name": "is_ble_connected", "params": [], "docstring": "Check BLE connection active state", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

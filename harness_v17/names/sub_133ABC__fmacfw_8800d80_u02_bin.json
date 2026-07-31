@@ -1,0 +1,1 @@
+{"fn": "sub_133ABC", "img": "fmacfw_8800d80_u02_bin", "addr": "0x133abc", "status": "ok", "name": "main_loop_check", "params": [], "docstring": "Check state and process", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

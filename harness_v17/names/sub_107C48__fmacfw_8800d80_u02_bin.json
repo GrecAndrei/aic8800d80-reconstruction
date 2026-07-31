@@ -1,0 +1,1 @@
+{"fn": "sub_107C48", "img": "fmacfw_8800d80_u02_bin", "addr": "0x107c48", "status": "ok", "name": "rf_tx_cfg_write", "params": [], "docstring": "Write radio TX packet configuration registers.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

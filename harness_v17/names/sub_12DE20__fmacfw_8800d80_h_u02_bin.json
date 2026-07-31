@@ -1,0 +1,1 @@
+{"fn": "sub_12DE20", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12de20", "status": "ok", "name": "emit_ampersand_12de20", "params": [], "docstring": "Emit & via helper 0x12d6ec", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

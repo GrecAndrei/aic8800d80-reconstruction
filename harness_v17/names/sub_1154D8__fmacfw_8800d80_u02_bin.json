@@ -1,0 +1,1 @@
+{"fn": "sub_1154D8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1154d8", "status": "ok", "name": "check_init_status", "params": [], "docstring": "Check initialization flags and return configuration pointer", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

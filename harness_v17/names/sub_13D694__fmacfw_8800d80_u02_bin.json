@@ -1,0 +1,1 @@
+{"fn": "sub_13D694", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13d694", "status": "ok", "name": "rf_cal_channel_get", "params": [], "docstring": "read RF calibration channel from state fields", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12DFB0", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12dfb0", "status": "ok", "name": "mac_hash_calc", "params": [], "docstring": "Computes MAC hash from byte and index to form bitmask", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11C938", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c938", "status": "ok", "name": "get_station_by_index", "params": [], "docstring": "Look up station table entry by index", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1051E0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1051e0", "status": "ok", "name": "llm_pdu_handle", "params": [], "docstring": "Handle link layer PDU with extended parameters", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

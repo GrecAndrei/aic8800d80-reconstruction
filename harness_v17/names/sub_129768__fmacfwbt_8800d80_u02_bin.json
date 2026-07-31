@@ -1,0 +1,1 @@
+{"fn": "sub_129768", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x129768", "status": "ok", "name": "write_cmd", "params": [], "docstring": "Issue a fixed-parameter command transaction", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

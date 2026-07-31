@@ -1,0 +1,1 @@
+{"fn": "sub_132244", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132244", "status": "ok", "name": "rf_channel_freq", "params": [], "docstring": "Convert RF channel number to frequency", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

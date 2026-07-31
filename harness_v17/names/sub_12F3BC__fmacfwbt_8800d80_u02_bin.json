@@ -1,0 +1,1 @@
+{"fn": "sub_12F3BC", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12f3bc", "status": "ok", "name": "radio_init", "params": [], "docstring": "Initialize radio peripheral registers and state.", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

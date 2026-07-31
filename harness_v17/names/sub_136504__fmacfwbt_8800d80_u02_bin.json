@@ -1,0 +1,1 @@
+{"fn": "sub_136504", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x136504", "status": "ok", "name": "txpwr_update_state", "params": [], "docstring": "Update tx power state if PHY is active", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

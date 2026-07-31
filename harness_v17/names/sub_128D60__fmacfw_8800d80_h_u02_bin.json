@@ -1,0 +1,1 @@
+{"fn": "sub_128D60", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x128d60", "status": "ok", "name": "mfp_get_config", "params": [], "docstring": "Read MFP configuration byte from security context", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

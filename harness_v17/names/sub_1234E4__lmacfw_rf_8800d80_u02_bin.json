@@ -1,0 +1,1 @@
+{"fn": "sub_1234E4", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x1234e4", "status": "ok", "name": "read_irq_status", "params": [], "docstring": "ORs three interrupt status bytes at fixed addresses", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

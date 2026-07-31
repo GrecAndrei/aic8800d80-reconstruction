@@ -1,0 +1,1 @@
+{"fn": "sub_11C350", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11c350", "status": "ok", "name": "mmio_set_radio_bit", "params": [], "docstring": "Sets a control bit in a radio MMIO register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

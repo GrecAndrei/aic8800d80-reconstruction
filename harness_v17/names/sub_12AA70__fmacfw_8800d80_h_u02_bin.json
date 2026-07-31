@@ -1,0 +1,1 @@
+{"fn": "sub_12AA70", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x12aa70", "status": "ok", "name": "init_fixed_packet_header", "params": [], "docstring": "Initialize fixed packet header bytes", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

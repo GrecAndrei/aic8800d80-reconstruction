@@ -1,0 +1,1 @@
+{"fn": "sub_13CC88", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x13cc88", "status": "ok", "name": "ke_process_event", "params": [], "docstring": "Process kernel event with stack frame and limit", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

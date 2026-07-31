@@ -1,0 +1,1 @@
+{"fn": "sub_11AC78", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11ac78", "status": "ok", "name": "mmio_status_read", "params": [], "docstring": "Read and test MMIO status register bits", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

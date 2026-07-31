@@ -1,0 +1,1 @@
+{"fn": "sub_1237C0", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x1237c0", "status": "ok", "name": "mem_copy_log", "params": [], "docstring": "Copy memory and log result code", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

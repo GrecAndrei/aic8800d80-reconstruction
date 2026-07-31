@@ -1,0 +1,1 @@
+{"fn": "sub_10F5FC", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x10f5fc", "status": "ok", "name": "mmio_write16", "params": [], "docstring": "Writes 16-bit configuration values to memory-mapped registers.", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

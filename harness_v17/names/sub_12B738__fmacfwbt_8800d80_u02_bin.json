@@ -1,0 +1,1 @@
+{"fn": "sub_12B738", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x12b738", "status": "ok", "name": "bt_get_active_conn", "params": [], "docstring": "Get pointer to active connection entry", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1250F4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x1250f4", "status": "ok", "name": "link_env_get", "params": [], "docstring": "Gets per-link environment from indexed connection table", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_1370F0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1370f0", "status": "ok", "name": "get_link_context", "params": [], "docstring": "Compute link context pointer from link id", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

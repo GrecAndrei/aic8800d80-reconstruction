@@ -1,0 +1,1 @@
+{"fn": "sub_114FD8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x114fd8", "status": "ok", "name": "load_calib_data2", "params": [], "docstring": "Copy 3 words from 0x1674dc to stack", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

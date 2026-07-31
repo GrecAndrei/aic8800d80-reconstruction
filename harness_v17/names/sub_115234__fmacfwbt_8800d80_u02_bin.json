@@ -1,0 +1,1 @@
+{"fn": "sub_115234", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x115234", "status": "ok", "name": "check_status_flags", "params": [], "docstring": "Check two status flag pointers and branch", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

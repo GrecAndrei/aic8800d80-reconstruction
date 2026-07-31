@@ -1,0 +1,1 @@
+{"fn": "sub_132320", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x132320", "status": "ok", "name": "rf_get_calibration", "params": [], "docstring": "Reads and processes RF calibration flags", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

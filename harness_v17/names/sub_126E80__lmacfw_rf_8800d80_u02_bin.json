@@ -1,0 +1,1 @@
+{"fn": "sub_126E80", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x126e80", "status": "ok", "name": "rf_param_build", "params": [], "docstring": "construct RF parameter list from state bytes", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

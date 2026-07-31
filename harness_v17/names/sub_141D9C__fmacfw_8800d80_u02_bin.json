@@ -1,0 +1,1 @@
+{"fn": "sub_141D9C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x141d9c", "status": "ok", "name": "hci_event_send", "params": [], "docstring": "Send HCI event with parameters", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

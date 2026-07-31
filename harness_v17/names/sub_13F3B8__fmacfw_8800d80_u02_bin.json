@@ -1,0 +1,1 @@
+{"fn": "sub_13F3B8", "img": "fmacfw_8800d80_u02_bin", "addr": "0x13f3b8", "status": "ok", "name": "ble_ll_conn_set_phy", "params": [], "docstring": "Set connection PHY from HCI value", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_12B4E4", "img": "fmacfw_8800d80_u02_bin", "addr": "0x12b4e4", "status": "ok", "name": "reg_read_indirect", "params": [], "docstring": "Reads an indirect register using the given parameters", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

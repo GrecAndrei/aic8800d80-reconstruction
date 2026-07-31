@@ -1,0 +1,1 @@
+{"fn": "sub_132D04", "img": "fmacfw_8800d80_u02_bin", "addr": "0x132d04", "status": "ok", "name": "stub_ret", "params": [], "docstring": "Empty return stub", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

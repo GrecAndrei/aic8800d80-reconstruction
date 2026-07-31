@@ -1,0 +1,1 @@
+{"fn": "sub_12513C", "img": "lmacfw_rf_8800d80_u02_bin", "addr": "0x12513c", "status": "ok", "name": "set_bdaddr", "params": [], "docstring": "Parse BD address bytes into MAC struct", "subsystem": "mac", "tool_call_count": 0, "tool_calls": []}

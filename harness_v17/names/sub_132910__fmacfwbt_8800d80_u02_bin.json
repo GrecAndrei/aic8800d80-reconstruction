@@ -1,0 +1,1 @@
+{"fn": "sub_132910", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x132910", "status": "ok", "name": "util_validate_name_char", "params": [], "docstring": "Check if character is within printable ASCII range", "subsystem": "util", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_102B64", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x102b64", "status": "ok", "name": "set_radio_ctrl_bits2", "params": [], "docstring": "Modifies radio control register bits based on argument", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

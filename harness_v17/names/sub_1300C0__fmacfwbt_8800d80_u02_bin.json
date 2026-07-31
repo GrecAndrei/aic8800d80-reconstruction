@@ -1,0 +1,1 @@
+{"fn": "sub_1300C0", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x1300c0", "status": "ok", "name": "buf_array_clear_multiple", "params": [], "docstring": "Initialize array of buffers for count > 1", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

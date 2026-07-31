@@ -1,0 +1,1 @@
+{"fn": "sub_13A320", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x13a320", "status": "ok", "name": "dma_rx_ring", "params": [], "docstring": "Get DMA RX ring", "subsystem": "rx", "tool_call_count": 0, "tool_calls": []}

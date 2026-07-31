@@ -1,0 +1,1 @@
+{"fn": "sub_11C790", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c790", "status": "ok", "name": "enable_irq", "params": [], "docstring": "Set interrupt enable bit in IRQ register", "subsystem": "mmio", "tool_call_count": 0, "tool_calls": []}

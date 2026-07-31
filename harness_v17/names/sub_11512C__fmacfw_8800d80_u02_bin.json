@@ -1,0 +1,1 @@
+{"fn": "sub_11512C", "img": "fmacfw_8800d80_u02_bin", "addr": "0x11512c", "status": "ok", "name": "patch_copy_table", "params": [], "docstring": "Copy table from patch source to destination", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_122D7C", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x122d7c", "status": "ok", "name": "store_hci_event_info", "params": [], "docstring": "Store HCI event header into global queue", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_10F1D4", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x10f1d4", "status": "ok", "name": "send_msg", "params": [], "docstring": "Initialize message header and invoke transmit routine", "subsystem": "ipc", "tool_call_count": 0, "tool_calls": []}

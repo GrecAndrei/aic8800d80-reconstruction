@@ -1,0 +1,1 @@
+{"fn": "sub_134228", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x134228", "status": "ok", "name": "hci_send_test_command", "params": [], "docstring": "Logs message, sends HCI command 0x180b, and clears state fields", "subsystem": "tx", "tool_call_count": 0, "tool_calls": []}

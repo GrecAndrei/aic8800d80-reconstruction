@@ -1,0 +1,1 @@
+{"fn": "sub_11C9C8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11c9c8", "status": "ok", "name": "set_cal_value", "params": [], "docstring": "Update calibration value for current channel", "subsystem": "rf", "tool_call_count": 0, "tool_calls": []}

@@ -1,0 +1,1 @@
+{"fn": "sub_11B9B8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x11b9b8", "status": "ok", "name": "ke_timer_update", "params": [], "docstring": "Update timer queue entry from object pointer and global state", "subsystem": "ke", "tool_call_count": 0, "tool_calls": []}

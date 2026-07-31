@@ -1,0 +1,1 @@
+{"fn": "sub_135168", "img": "fmacfw_8800d80_u02_bin", "addr": "0x135168", "status": "ok", "name": "bt_get_profile_by_id", "params": [], "docstring": "lookup connection profile by id", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}

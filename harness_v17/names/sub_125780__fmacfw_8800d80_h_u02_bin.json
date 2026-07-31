@@ -1,0 +1,1 @@
+{"fn": "sub_125780", "img": "fmacfw_8800d80_h_u02_bin", "addr": "0x125780", "status": "ok", "name": "patch_check_enable", "params": [], "docstring": "Check patch enable flag", "subsystem": "patch", "tool_call_count": 0, "tool_calls": []}

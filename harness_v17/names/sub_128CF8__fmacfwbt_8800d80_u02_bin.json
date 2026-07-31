@@ -1,0 +1,1 @@
+{"fn": "sub_128CF8", "img": "fmacfwbt_8800d80_u02_bin", "addr": "0x128cf8", "status": "ok", "name": "get_current_entry_owner", "params": [], "docstring": "Gets owner pointer of the active table entry", "subsystem": "bt", "tool_call_count": 0, "tool_calls": []}
