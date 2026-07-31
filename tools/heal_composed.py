@@ -393,7 +393,7 @@ def heal_line(line: str, msg: str):
         zm = re.match(r"^0(\[\d+\])\s*=\s*(.+)$", stmt)
         if zm:
             return f"{indent}((uint32_t *)(uintptr_t)0){zm.group(1)} = {zm.group(2)}{term}{trail}", True
-        pat = re.compile(r"(?<![&)\w])([A-Za-z_]\w*)\[")
+        pat = re.compile(r"(?<![&\w])([A-Za-z_]\w*)\[")
         if pat.search(stmt):
             new_stmt = pat.sub(r'((uint32_t *)(uintptr_t)&\1)[', stmt, count=1)
             return f"{indent}{new_stmt}{term}{trail}", True
