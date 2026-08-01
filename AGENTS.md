@@ -33,18 +33,28 @@ release tarball
 - Legacy harness dirs (harness_v15 … v26) stay in the tree as frozen
   references; their outputs remain valid evidence.
 
-## Current status (2026-07-31)
+## Current status (2026-08-01)
 
-- **Naming revival**: pipeline now calls DeepSeek V4 Flash
-  (`https://opencode.ai/zen/go/v1/chat/completions`, model `deepseek-v4-flash`,
-  single key in `harness_v15/keys/keys.json` — untracked, do NOT commit).
-  Naming run in progress for ~4,400 anonymous `sub_*` functions in `src/`.
-- **In flight**: data segment materialization (`fwstruct datasgen`), real-body
-  compose into `main.c` (`fwstruct compose`), removal of empty stubs.
-- **Known gap (being fixed)**: `src/<image>/main.c` currently contains
-  ~44K empty `void foo(void) { // TODO: integrate control/data flow. }` stubs;
-  the real bodies live in `src/<image>/functions/`. Data globals are declared
-  `extern` but never defined — nothing links until `datasgen` runs.
+- **Naming DONE**: all 5,623 `sub_*` functions in `src/` have `status=ok`
+  names in `harness_v17/names/` (23,498 files; 0 unnamed).
+  - LLM path: DeepSeek V4 Flash via **OpenAI SDK** (`openai` pkg, `base_url`
+    from `harness_v15/keys/keys.json` — untracked, do NOT commit), client
+    sets `default_headers={"User-Agent": "opencode/1.0"}`, `timeout=600`.
+  - **Gateway gotchas (do not regress)**: concurrent requests get HTTP 503 →
+    run `naming_src.py --workers 1`; HTTP 120s timeout starves batches
+    (they take 135–410s of full reasoning) → SDK 600s timeout;
+    prompt caching is automatic (visible via `prompt_cache_hit_tokens`).
+  - Disasm cache (linear r2 sweep) mis-decodes 2 bytes when a data pool
+    precedes a function start → `naming_src.py::disasm_at_fallback` spawns
+    r2 per address with the proven `-a arm -b 16 -m 0x100000` form.
+- **Verification green**: `make -C src check` — all 4 images compile clean
+  (real decompiled bodies + materialized data segment, no stubs);
+  `tools/truth_lane_smoke.py --src` — **25/25 PASS** (one stale v12 target
+  repointed to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02;
+  target list lives in gitignored `extraction_out/`).
+- **Compose dedupe**: units deduped by address, preferring the plain
+  `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
+  LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
 
 ## Hard rules (do not violate)
 
